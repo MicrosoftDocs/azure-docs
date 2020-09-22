@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Springer Link | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Springer Link.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 58cdf029-bdc0-43c4-a469-b921c2a669bd
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Springer Link
 

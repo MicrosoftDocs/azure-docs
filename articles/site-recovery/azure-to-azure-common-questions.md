@@ -66,6 +66,10 @@ Configure disaster recovery [across subscriptions](https://azure.microsoft.com/b
 
 Yes, you can [replicate zone-pinned VMs](https://azure.microsoft.com/blog/disaster-recovery-of-zone-pinned-azure-virtual-machines-to-another-region) to another region.
 
+### Can I replicate VMs in a region that has zones from non-zone to zonal configuration?
+
+No, this is not supported today. As a workaround, you can replicate the VM using ASR to a zonal configuration in another region, then disable replication. Next, re-enable replication from that region to the original region, and choose a zonal configuration for failover.
+
 ### Can I exclude disks?
 
 Yes, you can exclude disks at the time of protection by using PowerShell. For more information, see [how to exclude disks from replication](azure-to-azure-exclude-disks.md).

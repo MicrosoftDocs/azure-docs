@@ -1,23 +1,16 @@
-﻿---
+---
 title: 'Tutorial: Tutorial: Azure Active Directory single sign-on (SSO) integration with ProNovos Analytics | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and ProNovos Analytics.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 38b06fdd-2e9d-4208-bfe5-7f72cd7c371d
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/13/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Tutorial: Azure Active Directory single sign-on (SSO) integration with ProNovos Analytics

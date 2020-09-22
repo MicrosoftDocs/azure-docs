@@ -6,7 +6,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include 
-ms.date: 04/01/2020
+ms.date: 09/10/2020
 ms.author: aahi
 ---
 
@@ -23,7 +23,6 @@ ms.author: aahi
     |Location|Select any nearby and available location|
     |Pricing Tier|`F0` - the minimal pricing tier|
     |Resource Group|Select an available resource group|
-    |Preview Confirmation Checkbox (required)|Whether or not you've read the **Preview** notice|
 
 1. Click **Create** and wait for the resource to be created. After it is created, navigate to the resource page
 1. Collect configured `endpoint` and an API key:

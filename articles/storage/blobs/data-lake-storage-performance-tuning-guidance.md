@@ -1,6 +1,6 @@
 ---
 title: Optimize Azure Data Lake Storage Gen2 for performance | Microsoft Docs
-description: Azure Data Lake Storage Gen2 Performance Tuning Guidelines
+description: Understand how to optimize Azure Data Lake Storage Gen2 for performance. Ingest data, structure your dataset, and more.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage

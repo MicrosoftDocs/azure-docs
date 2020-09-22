@@ -4,7 +4,7 @@ description: Learn about Azure Cosmos DB's API for MongoDB (3.6 version) support
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
-ms.date: 07/15/2020
+ms.date: 08/07/2020
 author: sivethe
 ms.author: sivethe
 ---
@@ -132,7 +132,7 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 |$lookup    |    Yes|
 |$out        |Yes|
 |$indexStats|        No|
-|$facet    |No|
+|$facet    |Yes|
 |$bucket|    No|
 |$bucketAuto|    No|
 |$sortByCount|    Yes|
@@ -490,10 +490,10 @@ $nearSphere |  Yes |
 $geometry |  Yes |
 $minDistance | Yes |
 $maxDistance | Yes |
-$center | Yes |
-$centerSphere | Yes |
-$box | Yes |
-$polygon |  Yes |
+$center | No |
+$centerSphere | No |
+$box | No |
+$polygon |  No |
 
 ## Cursor methods
 

@@ -157,7 +157,10 @@ This article provides answers to some of the most common questions about running
 
 1. **Can I install a second instance of SQL Server on the same VM? Can I change installed features of the default instance?**
 
-   Yes. The SQL Server installation media is located in a folder on the **C** drive. Run **Setup.exe** from that location to add new SQL Server instances or to change other installed features of SQL Server on the machine. Note that some features, such as Automated Backup, Automated Patching, and Azure Key Vault Integration, only operate against the default instance, or a named instance that was configured properly (See Question 3). 
+   Yes. The SQL Server installation media is located in a folder on the **C** drive. Run **Setup.exe** from that location to add new SQL Server instances or to change other installed features of SQL Server on the machine. Note that some features, such as Automated Backup, Automated Patching, and Azure Key Vault Integration, only operate against the default instance, or a named instance that was configured properly (See Question 3). Customers using [Software Assurance through the Azure Hybrid Benefit](licensing-model-azure-hybrid-benefit-ahb-change.md) or the **pay-as-you-go** licensing model can install multiple instances of SQL Server on the virtual machine without incurring extra licensing costs. Additional SQL Server instances may strain system resources unless configured correctly. 
+
+1. **What is the maximum number of instances on a VM?**
+   SQL Server 2012 to SQL Server 2019 can support [50 instances](/sql/sql-server/editions-and-components-of-sql-server-version-15#RDBMSSP) on a stand-alone server. This is the same limit regardless of in Azure on-premises. See [best practices](performance-guidelines-best-practices.md#multiple-instances) to learn how to better prepare your environment. 
 
 1. **Can I uninstall the default instance of SQL Server?**
 
@@ -174,6 +177,9 @@ This article provides answers to some of the most common questions about running
 1. **Can I remove SQL Server completely from a SQL Server VM?**
 
    Yes, but you will continue to be charged for your SQL Server VM as described in [Pricing guidance for SQL Server Azure VMs](pricing-guidance.md). If you no longer need SQL Server, you can deploy a new virtual machine and migrate the data and applications to the new virtual machine. Then you can remove the SQL Server virtual machine.
+
+1. **Can I use the Azure portal to manage multiple instances on the same VM?**
+   No. Portal management is provided by the SQL VM resource provider, which relies on the SQL Server IaaS Agent extension. As such, the same limitations apply to the resource provider as the extension. The portal can either only manage one default instance, or one named instance as long as its configured correctly. For more information, see [SQL Server IaaS Agent extension](sql-server-iaas-agent-extension-automate-management.md) 
    
 ## Updating and patching
 

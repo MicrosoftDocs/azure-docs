@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 07/15/2020
+ms.date: 08/10/2020
 ms.author: alkohli
 ---
 # Use the local web UI to administer your Data Box and Data Box Heavy
@@ -20,7 +20,7 @@ This article includes the following tutorials:
 
 - Generate a Support package
 - Shut down or restart your device
-- Download BOM or manifest files
+- Download bill of material (BOM) or manifest files
 - View available capacity of the device
 - Skip checksum validation
 
@@ -48,7 +48,7 @@ If you experience any device issues, you can create a Support package from the s
 
 ## Shut down or restart your device
 
-You can shut down or restart your device using the local web UI. We recommend that before you restart, take the shares offline on the host and then the device. This minimizes any possibility of data corruption. Ensure that data copy is not in progress when you shut down the device.
+You can shut down or restart your device using the local web UI. We recommend that before you restart, take the shares offline on the host and then the device. Doing so minimizes any possibility of data corruption. Ensure that data copy is not in progress when you shut down the device.
 
 To shut down your device, take the following steps.
 
@@ -57,7 +57,7 @@ To shut down your device, take the following steps.
 
     ![Shut down Data Box 1](media/data-box-local-web-ui-admin/shut-down-local-web-ui-1.png)
 
-3. When prompted for confirmation, click **OK** to proceed.
+3. When prompted for confirmation, select **OK** to proceed.
 
     ![Shut down Data Box 2](media/data-box-local-web-ui-admin/shut-down-local-web-ui-2.png)
 
@@ -76,33 +76,32 @@ To restart your Data Box, perform the following steps.
 
 ## Download BOM or manifest files
 
-The Bill of Material (BOM) or the manifest files contain the list of the files that are copied to the Data Box or Data Box Heavy. These files are generated for an import order when you prepare the device to ship.
+The BOM or the manifest files contain the list of the files that are copied to the Data Box or Data Box Heavy. These files are generated for an import order when you prepare the device to ship.
 
-Before you begin, make sure that your device has completed **Prepare to ship** step. Follow these steps to download BOM or manifest files for your import order:
+Before you begin, follow these steps to download BOM or manifest files for your import order:
 
-1. Go to the local web UI for your device. You will see that the device has completed the prepare to ship. When the device preparation is complete, your device status is displayed as **Ready to ship**.
+1. Go to the local web UI for your device. Verify that your device has completed the **Prepare to ship** step. When the device preparation is complete, your device status is displayed as **Ready to ship**.
 
-    ![Device ready to ship](media/data-box-portal-admin/ready-to-ship.png)
+    ![Device ready to ship](media/data-box-local-web-ui-admin/prepare-to-ship-3.png)
 
 2. Select **Download list of files** to download the list of files that were copied on your Data Box.
 
-    ![Select Download list of files](media/data-box-portal-admin/download-list-of-files.png)
+    <!-- ![Select Download list of files](media/data-box-portal-admin/download-list-of-files.png) -->
 
 3. In File Explorer, you will see that separate list of files are generated depending on the protocol used to connect to the device and the Azure Storage type used.
 
-    ![Files for storage type and connection protocol](media/data-box-portal-admin/files-storage-connection-type.png)
+    <!-- ![Files for storage type and connection protocol](media/data-box-portal-admin/files-storage-connection-type.png) -->
+    ![Files for storage type and connection protocol](media/data-box-local-web-ui-admin/prepare-to-ship-5.png)
 
    The following table maps the file names to the Azure Storage type and the connection protocol used.
 
     |File name  |Azure Storage type  |Connection protocol used |
     |---------|---------|---------|
-    |databoxe2etest_BlockBlob.txt     |Block blobs         |SMB/NFS         |
-    |databoxe2etest_PageBlob.txt     |Page blobs         |SMB/NFS         |
-    |databoxe2etest_AzFile-BOM.txt    |Azure Files         |SMB/NFS         |
-    |databoxe2etest_PageBlock_Rest-BOM.txt     |Page blobs         |REST        |
-    |databoxe2etest_BlockBlock_Rest-BOM.txt    |Block blobs         |REST         |
-    |mydbmdrg1_MDisk-BOM.txt    |Managed Disk         |SMB/NFS         |
-    |mydbmdrg2_MDisk-BOM.txt     |Managed Disk         |SMB/NFS         |
+    |utSAC1_202006051000_BlockBlob-BOM.txt     |Block blobs         |SMB/NFS         |
+    |utSAC1_202006051000_PageBlob-BOM.txt     |Page blobs         |SMB/NFS         |
+    |utSAC1_202006051000_AzFile-BOM.txt    |Azure Files         |SMB/NFS         |
+    |utsac1_PageBlock_Rest-BOM.txt     |Page blobs         |REST        |
+    |utsac1_BlockBlock_Rest-BOM.txt    |Block blobs         |REST         |
 
 You use this list to verify the files uploaded into the Azure Storage account after the Data Box returns to the Azure datacenter. A sample manifest file is shown below.
 
@@ -204,7 +203,7 @@ By default, Azure Data Box uses Transport Layer Security (TLS) 1.2 for encryptio
 
 For more information related to TLS, see [Azure Data Box Gateway security](../databox-online/data-box-gateway-security.md).
 
-To enable TLS 1.1 in you Azure device:
+To enable TLS 1.1 in your Azure device:
 
 1. In the top-right corner of the local web UI of your device, select **Settings**.
 

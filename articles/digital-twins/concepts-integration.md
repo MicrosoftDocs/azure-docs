@@ -17,7 +17,9 @@ ms.service: digital-twins
 
 # Integrate Azure Digital Twins with other services
 
-Azure Digital Twins is typically used together with other services. Using [**event routes**](concepts-route-events.md), Azure Digital Twins receives data from upstream services such as [IoT Hub](../iot-hub/about-iot-hub.md), which is used to deliver telemetry and notifications. Azure Digital Twins can also route data to downstream services for storage, workflow integration, analytics, and other uses. 
+Azure Digital Twins is typically used together with other services. Using [**event routes**](concepts-route-events.md), Azure Digital Twins receives data from upstream services such as [IoT Hub](../iot-hub/about-iot-hub.md), which is used to deliver telemetry and notifications. 
+
+Azure Digital Twins can also route data to downstream services, such as Azure Maps ([*How-to: Use Azure Digital Twins to update an Azure Maps indoor map*](how-to-integrate-maps.md)) and Time Series Insights ([*How-to: Integrate with Time Series Insights*](how-to-integrate-time-series-insights.md)), for storage, workflow integration, analytics, and more. 
 
 ## Data ingress
 
@@ -34,7 +36,7 @@ Azure Digital Twins can send data to connected **endpoints**. Supported endpoint
 * [Event Grid](../event-grid/overview.md)
 * [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)
 
-Endpoints are attached to Azure Digital Twins using management APIs or the Azure portal. Learn more about how to attach an endpoint to Azure Digital Twins in [*How-to: Manage endpoints and routes*](how-to-manage-routes.md).
+Endpoints are attached to Azure Digital Twins using management APIs or the Azure portal. Learn more about how to attach an endpoint to Azure Digital Twins in [*How-to: Manage endpoints and routes*](how-to-manage-routes-apis-cli.md).
 
 There are many other services where you may want to ultimately direct your data, such as [Azure Storage](../storage/common/storage-introduction.md) or [Time Series Insights](../time-series-insights/time-series-insights-update-overview.md). To send your data to services like these, attach the destination service to an endpoint.
 

@@ -32,7 +32,7 @@ Then, open the *pom.xml* file in a text editor, and add a `<dependency>` for `sp
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
-    <version>1.1.2</version>
+    <version>1.1.5</version>
 </dependency>
 ```
 
@@ -42,11 +42,33 @@ Then, open the *pom.xml* file in a text editor, and add a `<dependency>` for `sp
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
-    <version>1.2.2</version>
+    <version>1.2.7</version>
 </dependency>
 ```
 
-Save the file, then build and run your application as usual.
+## Run and test the app locally
+
+1. Build your Spring Boot application with Maven and run it.
+
+    ```shell
+    mvn clean package
+    mvn spring-boot:run
+    ```
+
+1. Open a browser window, and go to the URL: `http://localhost:8080`.  You will see the message associated with your key. 
+
+    You can also use *curl* to test your application, for example: 
+    
+    ```cmd
+    curl -X GET http://localhost:8080/
+    ```
+
+1. To test dynamic configuration, open the Azure App Configuration portal associated with your application. Select **Configuration Explorer**, and update the value of your displayed key, for example:
+    | Key | Value |
+    |---|---|
+    | application/config.message | Hello - Updated |
+
+1. Refresh the browser page to see the new message displayed.
 
 ## Next steps
 

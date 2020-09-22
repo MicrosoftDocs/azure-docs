@@ -480,7 +480,7 @@ Unlike the [auth_config_single_account.json](#auth_config_single_accountjson) co
 Try out the [Sign in users and call the Microsoft Graph from an Android app](tutorial-v2-android.md) tutorial for a step-by-step guide for building an Android app that gets an access token and uses it to call the Microsoft Graph API.
 
 > [!div class="nextstepaction"]
-> [Call Graph API Android tutorial](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-android)
+> [Call Graph API Android tutorial](./tutorial-v2-android.md)
 
 ### MSAL for Android library wiki
 

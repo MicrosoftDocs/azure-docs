@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Manabi Pocket | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Manabi Pocket.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 8e521099-bf7d-43ab-a0e0-86aa1c9e577e
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/02/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Manabi Pocket
 

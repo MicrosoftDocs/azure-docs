@@ -4,10 +4,12 @@ description: Learn about Enterprise administrator roles in Azure. You can assign
 author: bandersmsft
 ms.reviewer: adwise
 ms.service: cost-management-billing
+ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 07/13/2020
+ms.date: 09/03/2020
 ms.author: banders
 ---
+
 # Managing Azure Enterprise roles
 
 To help manage your organization's usage and spend, Azure customers with an Enterprise Agreement (EA) can assign five distinct administrative roles:
@@ -99,7 +101,7 @@ To learn how to set these policies, see [Manage access to billing information fo
 
 The following table shows the relationship between the Enterprise Agreement admin roles, the view charges policy, the Azure role in the Azure portal, and the pricing that you see in the Azure portal. The Enterprise Administrator always sees usage details based on the organization's EA pricing. However, the Department Administrator and Account Owner see different pricing views based on the view charge policy and their Azure role. The Department Admin role listed in the following table refers to both Department Admin and Department Admin (read only) roles.
 
-|Enterprise Agreement admin role|View charges policy for role|RBAC role|Pricing view|
+|Enterprise Agreement admin role|View charges policy for role|Azure role|Pricing view|
 |---|---|---|---|
 |Account Owner OR Department Admin|✔ Enabled|Owner|Organization's EA pricing|
 |Account Owner OR Department Admin|✘ Disabled|Owner|Retail pricing|
@@ -107,7 +109,7 @@ The following table shows the relationship between the Enterprise Agreement admi
 |Account Owner OR Department Admin|✘ Disabled |none|No pricing|
 |None|Not applicable |Owner|Retail pricing|
 
-You set the Enterprise admin role and view charges policies in the Enterprise portal. The RBAC role can be updated in the Azure portal. For more information, see [Manage access using RBAC and the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+You set the Enterprise admin role and view charges policies in the Enterprise portal. The Azure role can be updated in the Azure portal. For more information, see [Manage access using RBAC and the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 
 

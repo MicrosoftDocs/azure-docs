@@ -40,11 +40,11 @@ To complete this tutorial, you need the following resources and privileges:
     * If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * An Azure Active Directory tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
     * If needed, [create an Azure Active Directory tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
-* An Azure Active Directory Domain Services managed domain created using replica sets and configured in your Azure AD tenant.
+* An Azure Active Directory Domain Services managed domain created using the Azure Resource Manager deployment model and configured in your Azure AD tenant.
     * If needed, [create and configure an Azure Active Directory Domain Services managed domain][tutorial-create-instance].
 
     > [!IMPORTANT]
-    > Make sure that you create a managed domain that uses replica sets. An existing managed domain created before this preview doesn't support replica sets. You also need to use a minimum of *Enterprise* SKU for your managed domain. If needed, [change the SKU for a managed domain][howto-change-sku].
+    > Managed domains created using the Classic deployment model can't use replica sets. You also need to use a minimum of *Enterprise* SKU for your managed domain. If needed, [change the SKU for a managed domain][howto-change-sku].
 
 ## Sign in to the Azure portal
 

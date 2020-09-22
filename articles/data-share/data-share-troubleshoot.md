@@ -6,7 +6,7 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: troubleshooting
-ms.date: 07/30/2020
+ms.date: 08/14/2020
 ---
 
 # Troubleshoot common issues in Azure Data Share 
@@ -29,7 +29,7 @@ This could be due to the following reasons:
     1. Search for **Microsoft.DataShare**
     1. Click **Register** 
 
-    You'll need to have the [Azure Contributor RBAC role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) to complete these steps. 
+    You'll need to have the [Azure Contributor role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) to the Azure subscription to complete these steps. 
 
 * **Invitation is sent to your email alias instead of your Azure login email.** If you have registered the Azure Data Share service or have already created a Data Share resource in the Azure tenant, but still cannot see the invitation, it maybe because the provider has entered your email alias as recipient instead of your Azure login email address. Contact your data provider and ensure that they have sent the invitation to your Azure login e-mail address and not your e-mail alias.
 

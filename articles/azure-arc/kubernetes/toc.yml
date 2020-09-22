@@ -1,0 +1,35 @@
+- name: Azure Arc enabled Kubernetes Documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: About Arc enabled Kubernetes
+    href: overview.md
+- name: How-to guides
+  items:
+  - name: Connect to Azure Arc
+    items:
+    - name: Connect cluster
+      href: connect-cluster.md
+    - name: Onboarding service principal
+      href: create-onboarding-service-principal.md
+  - name: Manage
+    items:
+    - name: Deploy configurations using GitOps
+      href: use-gitops-connected-cluster.md
+    - name: Deploy Helm charts using GitOps
+      href: use-gitops-with-helm.md
+    - name: Enforce GitOps using Azure Policy
+      href: use-azure-policy.md
+    - name: Monitor using Azure Monitor for containers
+      href: ../../azure-monitor/insights/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.yml
+    - name: Admission control policies using Azure Policy
+      href: ../../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/azure-arc/kubernetes/toc.yml
+    - name: Deploy IoT workloads
+      href: deploy-azure-iot-edge-workloads.md
+  - name: Troubleshooting
+    href: Troubleshooting.md
+- name: Reference
+  items:
+  - name: Azure Policy built-ins 
+    displayName: samples, policies, definitions
+    href: policy-reference.md

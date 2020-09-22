@@ -5,7 +5,7 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 07/10/2020
+ms.date: 08/10/2020
 ---
 
 # Read replicas in Azure Database for PostgreSQL - Single Server
@@ -33,7 +33,7 @@ You can create a read replica in a different region from your master server. Cro
 
 You can have a master server in any [Azure Database for PostgreSQL region](https://azure.microsoft.com/global-infrastructure/services/?products=postgresql). A master server can have a replica in its paired region or the universal replica regions. The picture below shows which replica regions are available depending on your master region.
 
-[ ![Read replica regions](media/concepts-read-replica/read-replica-regions.png)](media/concepts-read-replica/read-replica-regions.png#lightbox)
+[ :::image type="content" source="media/concepts-read-replica/read-replica-regions.png" alt-text="Read replica regions":::](media/concepts-read-replica/read-replica-regions.png#lightbox)
 
 ### Universal replica regions
 You can always create a read replica in any of the following regions, regardless of where your master server is located. These are the universal replica regions:
@@ -158,16 +158,19 @@ A read replica is created as a new Azure Database for PostgreSQL server. An exis
 ### Replica configuration
 A replica is created by using the same compute and storage settings as the master. After a replica is created, several settings can be changed including storage and backup retention period.
 
-vCores and pricing tier can also be changed on the replica under the following conditions:
-* PostgreSQL requires the value of the `max_connections` parameter on the read replica to be greater than or equal to the master value; otherwise, the replica won't start. In Azure Database for PostgreSQL, the `max_connections` parameter value is based on the SKU (vCores and pricing tier). For more information, see [Limits in Azure Database for PostgreSQL](concepts-limits.md). 
-* Scaling to or from the Basic pricing tier is not supported
-
-> [!IMPORTANT]
-> Before a master setting is updated to a new value, update the replica configuration to an equal or greater value. This action ensures the replica can keep up with any changes made to the master.
-
-If you try to update the server values described above, but don't adhere to the limits, you receive an error.
-
 Firewall rules, virtual network rules, and parameter settings are not inherited from the master server to the replica when the replica is created or afterwards.
+
+### Scaling
+Scaling vCores or between General Purpose and Memory Optimized:
+* PostgreSQL requires the `max_connections` setting on a secondary server to be [greater than or equal to the setting on the primary](https://www.postgresql.org/docs/current/hot-standby.html), otherwise the secondary will not start.
+* In Azure Database for PostgreSQL, the maximum allowed connections for each server is fixed to the compute sku since connections occupy memory. You can learn more about the [mapping between max_connections and compute skus](concepts-limits.md).
+* **Scaling up**: First scale up a replica's compute, then scale up the primary. This order will prevent errors from violating the `max_connections` requirement.
+* **Scaling down**: First scale down the primary's compute, then scale down the replica. If you try to scale the replica lower than the primary, there will be an error since this violates the `max_connections` requirement.
+
+Scaling storage:
+* All replicas have storage auto-grow enabled to prevent replication issues from a storage-full replica. This setting cannot be disabled.
+* You can also manually scale up storage, as you would do on any other server
+
 
 ### Basic tier
 Basic tier servers only support same-region replication.

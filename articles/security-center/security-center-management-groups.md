@@ -56,10 +56,10 @@ You can organize subscriptions into management groups and apply your governance 
 
 ## Grant tenant-level visibility and the ability to assign policies
 
-To get visibility into the security posture of all subscriptions registered in the Azure AD tenant, an RBAC role with sufficient read permissions is required to be assigned on the root management group.
+To get visibility into the security posture of all subscriptions registered in the Azure AD tenant, an Azure role with sufficient read permissions is required to be assigned on the root management group.
 
 ### Elevate access for a global administrator in Azure Active Directory
-An Azure Active Directory tenant administrator doesn’t have direct access to Azure subscriptions. However, as a directory administrator, they have the right to elevate themselves to a role that does have access. An Azure AD tenant administrator needs to elevate itself to user access administrator at the root management group level so they can assign RBAC roles. For PowerShell instructions and additional information, see [Elevate access for a Global administrator in Azure Active Directory](../role-based-access-control/elevate-access-global-admin.md). 
+An Azure Active Directory tenant administrator doesn’t have direct access to Azure subscriptions. However, as a directory administrator, they have the right to elevate themselves to a role that does have access. An Azure AD tenant administrator needs to elevate itself to user access administrator at the root management group level so they can assign Azure roles. For PowerShell instructions and additional information, see [Elevate access for a Global administrator in Azure Active Directory](../role-based-access-control/elevate-access-global-admin.md). 
 
 
 1. Sign in to the [Azure portal](https://portal.azure.com) or the [Azure Active Directory admin center](https://aad.portal.azure.com).
@@ -83,11 +83,11 @@ An Azure Active Directory tenant administrator doesn’t have direct access to A
 5. Perform the tasks you need to make at the elevated access. When you're done, set the switch back to **No**.
 
 
-### Assign RBAC roles to users
-To gain visibility to all subscriptions, tenant administrators need to assign the appropriate RBAC role to any users they wish to grant tenant-wide visibility, including themselves, at the root management group level. The recommended roles to assign are either **Security Admin** or **Security Reader**. Generally, the Security Admin role is required to apply policies on the root level, while Security Reader will suffice to provide tenant-level visibility. For more information about the permissions granted by these roles, see the [Security Admin built-in role description](../role-based-access-control/built-in-roles.md#security-admin) or the [Security Reader built-in role description](../role-based-access-control/built-in-roles.md#security-reader).
+### Assign Azure roles to users
+To gain visibility to all subscriptions, tenant administrators need to assign the appropriate Azure role to any users they wish to grant tenant-wide visibility, including themselves, at the root management group level. The recommended roles to assign are either **Security Admin** or **Security Reader**. Generally, the Security Admin role is required to apply policies on the root level, while Security Reader will suffice to provide tenant-level visibility. For more information about the permissions granted by these roles, see the [Security Admin built-in role description](../role-based-access-control/built-in-roles.md#security-admin) or the [Security Reader built-in role description](../role-based-access-control/built-in-roles.md#security-reader).
 
 
-#### Assign RBAC roles to users through the Azure portal: 
+#### Assign Azure roles to users through the Azure portal: 
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 1. To view management groups, select **All services** under the Azure main menu then select **Management Groups**.
@@ -104,7 +104,7 @@ To gain visibility to all subscriptions, tenant administrators need to assign th
    ![Add Security Reader role screenshot](./media/security-center-management-groups/asc-security-reader.png)
 
 
-#### Assign RBAC roles to users with PowerShell: 
+#### Assign Azure roles to users with PowerShell: 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -151,7 +151,7 @@ Once you have elevated access, open or refresh Azure Security Center to verify y
     ![Subscription coverage list screenshot](./media/security-center-management-groups/security-center-coverage.png)
 
 ### Remove elevated access 
-Once the RBAC roles have been assigned to the users, the tenant administrator should remove itself from the user access administrator role.
+Once the Azure roles have been assigned to the users, the tenant administrator should remove itself from the user access administrator role.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) or the [Azure Active Directory admin center](https://aad.portal.azure.com).
 
@@ -179,7 +179,7 @@ You can add subscriptions to the management group that you created. These steps 
 4. Repeat steps 1 through 3 until you've added all the subscriptions in the scope.
 
    > [!NOTE]
-   > Management groups can contain both subscriptions and child management  groups. When you assign a user an RBAC role to the parent management group, the access is inherited by the child management group's subscriptions. Policies set at the parent management group are also inherited by the children. 
+   > Management groups can contain both subscriptions and child management  groups. When you assign a user an Azure role to the parent management group, the access is inherited by the child management group's subscriptions. Policies set at the parent management group are also inherited by the children. 
 
 ## Next steps
 In this article, you learned how to gain tenant-wide visibility for Azure Security Center. To learn more about Security Center, see the following articles:

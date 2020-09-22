@@ -18,7 +18,7 @@ You can set the throughput via [Azure Resource Manager Templates](resource-manag
 
 To simplify the process to scale Azure Cosmos DB on a schedule we've created a sample project called [Azure Cosmos throughput scheduler](https://github.com/Azure-Samples/azure-cosmos-throughput-scheduler). This project is an Azure Functions app with two timer triggers- "ScaleUpTrigger" and "ScaleDownTrigger". The triggers run a PowerShell script that sets the throughput on each resource as defined in the `resources.json` file in each trigger. The ScaleUpTrigger is configured to run at 8 AM UTC and the ScaleDownTrigger is configured to run at 6 PM UTC and these times can be easily updated within the `function.json` file for each trigger.
 
-You can clone this project locally, modify it to specify the Azure Cosmos DB resources to scale up and down and the schedule to run. Later you can deploy it in an Azure subscription and secure it using managed service identity with [Role-based Access Control](role-based-access-control.md) (RBAC) permissions with the "Azure Cosmos DB operator" role to set throughput on your Azure Cosmos accounts.
+You can clone this project locally, modify it to specify the Azure Cosmos DB resources to scale up and down and the schedule to run. Later you can deploy it in an Azure subscription and secure it using managed service identity with [Azure role-based access control (Azure RBAC)](role-based-access-control.md) permissions with the "Azure Cosmos DB operator" role to set throughput on your Azure Cosmos accounts.
 
 ## Next Steps
 

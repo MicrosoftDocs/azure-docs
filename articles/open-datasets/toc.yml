@@ -15,7 +15,7 @@
 - name: How-to guides
   items:
   - name: Datasets in Azure Machine Learning
-    href: ../machine-learning/how-to-create-register-datasets.md?toc=/azure/open-datasets/toc.json&bc=/azure/open-datasets/breadcrumb/toc.json            
+    href: how-to-create-azure-machine-learning-dataset-from-open-dataset.md            
 - name: Samples
   displayName: example, examples, Jupyter, azure notebooks, python, notebook, GitHub
   href: samples.md

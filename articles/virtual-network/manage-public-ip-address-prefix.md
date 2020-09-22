@@ -1,7 +1,7 @@
 ﻿---
 title: Create, change, or delete an Azure public IP address prefix
 titlesuffix: Azure Virtual Network
-description: Learn about public IP address prefixes and where to find additional information if you're not familiar with them. Also learn how to create, change, or delete one.
+description: Learn about public IP address prefixes and how to create, change, or delete them. See where to find additional information.
 services: virtual-network
 documentationcenter: na
 author: asudbring

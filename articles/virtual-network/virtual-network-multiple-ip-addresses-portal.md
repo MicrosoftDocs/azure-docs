@@ -43,7 +43,7 @@ You can add private and public IP addresses to an Azure network interface by com
 
 5. In the pane that appears for the NIC you selected, click **IP configurations**. Click **Add**, complete the steps in one of sections that follow, based on the type of IP address you want to add, and then click **OK**. 
 
-### **Add a private IP address**
+### Add a private IP address
 
 Complete the following steps to add a new private IP address:
 

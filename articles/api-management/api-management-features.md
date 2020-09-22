@@ -1,6 +1,6 @@
 ---
 title: Feature-based comparison of the Azure API Management tiers | Microsoft Docs
-description: This article compares API Management tiers based on the features they offer.
+description: Compare API Management tiers based on the features they offer. See a table that summarizes the key features available in each pricing tier.
 services: api-management
 documentationcenter: ''
 author: vladvino

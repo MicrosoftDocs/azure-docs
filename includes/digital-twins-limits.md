@@ -26,7 +26,7 @@ The table below lists the functional limits of Azure Digital Twins in the curren
 | Query | Number of `AND` / `OR` expressions in a query | 50 | Yes |
 | Query | Number of array items in an `IN` / `NOT IN` clause | 50 | Yes |
 | Query | Number of characters in a query | 8,000 | Yes |
-| Query | Number of `JOINS` in a query | 1 | Yes |
+| Query | Number of `JOINS` in a query | 5 | Yes |
 
 ### Rate limits
 
@@ -37,7 +37,7 @@ This table reflects the rate limits of different APIs.
 | Models API | Number of requests per second | 100 | Yes |
 | Digital Twins API | Number of requests per second | 1,000 | Yes |
 | Query API | Number of requests per second | 500 | Yes |
-| Query API | Query units per second | 4,000 | Yes |
+| Query API | [Query Units](../articles/digital-twins/concepts-query-units.md) per second | 4,000 | Yes |
 | Event Routes API | Number of requests per second | 100 | Yes |
 
 ### Other limits

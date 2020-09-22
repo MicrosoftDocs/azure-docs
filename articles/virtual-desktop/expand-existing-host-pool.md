@@ -1,10 +1,7 @@
 ---
 title: Expand existing host pool with new session hosts - Azure
 description: How to expand an existing host pool with new session hosts in Windows Virtual Desktop.
-services: virtual-desktop
 author: Heidilohr
-
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: helohr

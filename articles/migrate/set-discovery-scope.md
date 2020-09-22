@@ -56,4 +56,4 @@ The role-based access control setup ensures that the corresponding vCenter user 
 
 ## Next steps
 
-[Set up the appliance](how-to-set-up-appliance-vmware.md), and [start continuous discovery](how-to-set-up-appliance-vmware.md#start-continuous-discovery-by-providing-vcenter-server-and-vm-credential).
+[Set up the appliance](how-to-set-up-appliance-vmware.md)

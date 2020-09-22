@@ -80,11 +80,11 @@ Select **+ Add**.
 
 ![Add new role assignment](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-9.png)
 
-#### Step 5: Select the RBAC role
+#### Step 5: Select the Azure role
 
 Select the **Storage Blob Data Contributor** role.
 
-![Select the RBAC role](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-10.png)
+![Select the Azure role](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-10.png)
 
 #### Step 6: Select the Azure AD security principal
 

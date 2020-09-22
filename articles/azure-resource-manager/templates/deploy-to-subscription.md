@@ -2,12 +2,12 @@
 title: Deploy resources to subscription
 description: Describes how to create a resource group in an Azure Resource Manager template. It also shows how to deploy resources at the Azure subscription scope.
 ms.topic: conceptual
-ms.date: 07/27/2020
+ms.date: 09/15/2020
 ---
 
 # Create resource groups and resources at the subscription level
 
-To simplify the management of resources, you can use an Azure Resource Manager template (ARM template) to deploy resources at the level of your Azure subscription. For example, you can deploy [policies](../../governance/policy/overview.md) and [role-based access controls](../../role-based-access-control/overview.md) to your subscription, which applies them across your subscription. You can also create resource groups within the subscription and deploy resources to resource groups in the subscription.
+To simplify the management of resources, you can use an Azure Resource Manager template (ARM template) to deploy resources at the level of your Azure subscription. For example, you can deploy [policies](../../governance/policy/overview.md) and [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) to your subscription, which applies them across your subscription. You can also create resource groups within the subscription and deploy resources to resource groups in the subscription.
 
 > [!NOTE]
 > You can deploy to 800 different resource groups in a subscription level deployment.
@@ -77,7 +77,7 @@ https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json
 
 The commands for subscription-level deployments are different than the commands for resource group deployments.
 
-For Azure CLI, use [az deployment sub create](/cli/azure/deployment/sub?view=azure-cli-latest#az-deployment-sub-create). The following example deploys a template to create a resource group:
+For Azure CLI, use [az deployment sub create](/cli/azure/deployment/sub#az-deployment-sub-create). The following example deploys a template to create a resource group:
 
 ```azurecli-interactive
 az deployment sub create \
@@ -110,7 +110,7 @@ For each deployment name, the location is immutable. You can't create a deployme
 
 ## Deployment scopes
 
-When deploying to a subscription, you can target the subscription or any resource groups within the subscription. The user deploying the template must have access to the specified scope.
+When deploying to a subscription, you can target one subscription and any resource groups within the subscription. You can't deploy to a subscription that is different than the target subscription. The user deploying the template must have access to the specified scope.
 
 Resources defined within the resources section of the template are applied to the subscription.
 
@@ -140,7 +140,7 @@ To target a resource group within the subscription, add a nested deployment and 
             "properties": {
                 "mode": "Incremental",
                 "template": {
-                    nested-template
+                    nested-template-with-resource-group-resources
                 }
             }
         }
@@ -149,15 +149,17 @@ To target a resource group within the subscription, add a nested deployment and 
 }
 ```
 
+In this article, you can find templates that show how to deploy resources to different scopes. For a template that creates a resource group and deploys a storage account to it, see [Create resource group and resources](#create-resource-group-and-resources). For a template that creates a resource group, applies a lock to it, and assigns a role for the resource group, see [Access control](#access-control).
+
 ## Use template functions
 
 For subscription-level deployments, there are some important considerations when using template functions:
 
 * The [resourceGroup()](template-functions-resource.md#resourcegroup) function is **not** supported.
 * The [reference()](template-functions-resource.md#reference) and [list()](template-functions-resource.md#list) functions are supported.
-* Use the [subscriptionResourceId()](template-functions-resource.md#subscriptionresourceid) function to get the resource ID for resources that are deployed at subscription level.
+* Don't use [resourceId()](template-functions-resource.md#resourceid) to get the resource ID for resources that are deployed at subscription level. Instead, use the [subscriptionResourceId()](template-functions-resource.md#subscriptionresourceid) function.
 
-  For example, to get the resource ID for a policy definition, use:
+  For example, to get the resource ID for a policy definition that is deployed to a subscription, use:
 
   ```json
   subscriptionResourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))
@@ -415,7 +417,7 @@ You can [define](../../governance/policy/concepts/definition-structure.md) and a
       ],
       "properties": {
         "scope": "[subscription().id]",
-        "policyDefinitionId": "[resourceId('Microsoft.Authorization/policyDefinitions', 'locationpolicy')]"
+        "policyDefinitionId": "[subscriptionResourceId('Microsoft.Authorization/policyDefinitions', 'locationpolicy')]"
       }
     }
   ]
@@ -468,7 +470,7 @@ New-AzSubscriptionDeployment `
 
 ## Access control
 
-To learn about assigning roles, see [Manage access to Azure resources using RBAC and Azure Resource Manager templates](../../role-based-access-control/role-assignments-template.md).
+To learn about assigning roles, see [Add Azure role assignments using Azure Resource Manager templates](../../role-based-access-control/role-assignments-template.md).
 
 The following example creates a resource group, applies a lock to it, and assigns a role to a principal.
 

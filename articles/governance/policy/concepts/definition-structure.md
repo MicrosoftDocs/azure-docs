@@ -1,7 +1,7 @@
 ---
 title: Details of the policy definition structure
 description: Describes how policy definitions are used to establish conventions for Azure resources in your organization.
-ms.date: 06/12/2020
+ms.date: 09/22/2020
 ms.topic: conceptual
 ---
 # Azure Policy definition structure
@@ -19,7 +19,7 @@ resources have a particular tag. Policy assignments are inherited by child resou
 assignment is applied to a resource group, it's applicable to all the resources in that resource
 group.
 
-The policy definition schema is found here: [https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json](https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json)
+The policy definition _policyRule_ schema is found here: [https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json](https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json)
 
 You use JSON to create a policy definition. The policy definition contains elements for:
 
@@ -126,8 +126,8 @@ compliance results. The exception is **resource groups** and **subscriptions**. 
 that enforce location or tags on a resource group or subscription should set **mode** to `all` and
 specifically target the `Microsoft.Resources/subscriptions/resourceGroups` or
 `Microsoft.Resources/subscriptions` type. For an example, see
-[Pattern: Tags - Sample #1](../samples/pattern-tags.md). For a list of resources that support tags, see
-[Tag support for Azure resources](../../../azure-resource-manager/management/tag-support.md).
+[Pattern: Tags - Sample #1](../samples/pattern-tags.md). For a list of resources that support tags,
+see [Tag support for Azure resources](../../../azure-resource-manager/management/tag-support.md).
 
 ### <a name="resource-provider-modes"></a>Resource Provider modes (preview)
 
@@ -255,7 +255,7 @@ determine if a _resource type_ is valid for **strongType**, use
 _resource type_ **strongType** is `<Resource Provider>/<Resource Type>`. For example,
 `Microsoft.Network/virtualNetworks/subnets`.
 
-Some _resource types_ not returned by **Get-AzResourceProvider** are supported. Those are:
+Some _resource types_ not returned by **Get-AzResourceProvider** are supported. Those types are:
 
 - `Microsoft.RecoveryServices/vaults/backupPolicies`
 
@@ -276,10 +276,12 @@ children within the hierarchy of the definition location to target for assignmen
 
 If the definition location is a:
 
-- **Subscription** - Only resources within that subscription can be assigned the policy.
+- **Subscription** - Only resources within that subscription can be assigned the policy definition.
 - **Management group** - Only resources within child management groups and child subscriptions can
-  be assigned the policy. If you plan to apply the policy definition to several subscriptions, the
-  location must be a management group that contains subscription.
+  be assigned the policy definition. If you plan to apply the policy definition to several
+  subscriptions, the location must be a management group that contains each subscription.
+
+For more information, see [Understand scope in Azure Policy](./scope.md#definition-location).
 
 ## Policy rule
 
@@ -353,7 +355,8 @@ supported conditions are:
 - `"less": "dateValue"` | `"less": "stringValue"` | `"less": intValue`
 - `"lessOrEquals": "dateValue"` | `"lessOrEquals": "stringValue"` | `"lessOrEquals": intValue`
 - `"greater": "dateValue"` | `"greater": "stringValue"` | `"greater": intValue`
-- `"greaterOrEquals": "dateValue"` | `"greaterOrEquals": "stringValue"` | `"greaterOrEquals": intValue`
+- `"greaterOrEquals": "dateValue"` | `"greaterOrEquals": "stringValue"` |
+  `"greaterOrEquals": intValue`
 - `"exists": "bool"`
 
 For **less**, **lessOrEquals**, **greater**, and **greaterOrEquals**, if the property type doesn't
@@ -389,7 +392,8 @@ The following fields are supported:
 - `location`
   - Use **global** for resources that are location agnostic.
 - `identity.type`
-  - Returns the type of [managed identity](../../../active-directory/managed-identities-azure-resources/overview.md)
+  - Returns the type of
+    [managed identity](../../../active-directory/managed-identities-azure-resources/overview.md)
     enabled on the resource.
 - `tags`
 - `tags['<tagName>']`
@@ -412,9 +416,9 @@ The following fields are supported:
 A parameter value can be passed to a tag field. Passing a parameter to a tag field increases the
 flexibility of the policy definition during policy assignment.
 
-In the following example, `concat` is used to create a tags field lookup for the tag named the
-value of the **tagName** parameter. If that tag doesn't exist, the **modify** effect is used to add
-the tag using the value of the same named tag set on the audited resources parent resource group by
+In the following example, `concat` is used to create a tags field lookup for the tag named the value
+of the **tagName** parameter. If that tag doesn't exist, the **modify** effect is used to add the
+tag using the value of the same named tag set on the audited resources parent resource group by
 using the `resourcegroup()` lookup function.
 
 ```json
@@ -442,8 +446,8 @@ using the `resourcegroup()` lookup function.
 ### Value
 
 Conditions can also be formed using **value**. **value** checks conditions against
-[parameters](#parameters), [supported template functions](#policy-functions), or literals.
-**value** is paired with any supported [condition](#conditions).
+[parameters](#parameters), [supported template functions](#policy-functions), or literals. **value**
+is paired with any supported [condition](#conditions).
 
 > [!WARNING]
 > If the result of a _template function_ is an error, policy evaluation fails. A failed evaluation
@@ -456,8 +460,8 @@ Conditions can also be formed using **value**. **value** checks conditions again
 #### Value examples
 
 This policy rule example uses **value** to compare the result of the `resourceGroup()` function and
-the returned **name** property to a **like** condition of `*netrg`. The rule denies any resource
-not of the `Microsoft.Network/*` **type** in any resource group whose name ends in `*netrg`.
+the returned **name** property to a **like** condition of `*netrg`. The rule denies any resource not
+of the `Microsoft.Network/*` **type** in any resource group whose name ends in `*netrg`.
 
 ```json
 {
@@ -516,8 +520,9 @@ of a _template function_ is an error, policy evaluation fails. A failed evaluati
 }
 ```
 
-The example policy rule above uses [substring()](../../../azure-resource-manager/templates/template-functions-string.md#substring)
-to compare the first three characters of **name** to **abc**. If **name** is shorter than three
+The example policy rule above uses
+[substring()](../../../azure-resource-manager/templates/template-functions-string.md#substring) to
+compare the first three characters of **name** to **abc**. If **name** is shorter than three
 characters, the `substring()` function results in an error. This error causes the policy to become a
 **deny** effect.
 
@@ -714,17 +719,17 @@ Resource Manager template (ARM template):
 
 - `utcNow()` - Unlike an ARM template, this property can be used outside _defaultValue_.
   - Returns a string that is set to the current date and time in Universal ISO 8601 DateTime format
-    'yyyy-MM-ddTHH:mm:ss.fffffffZ'
+    `yyyy-MM-ddTHH:mm:ss.fffffffZ`.
 
 The following functions are only available in policy rules:
 
 - `addDays(dateTime, numberOfDaysToAdd)`
   - **dateTime**: [Required] string - String in the Universal ISO 8601 DateTime format
-    'yyyy-MM-ddTHH:mm:ss.fffffffZ'
-  - **numberOfDaysToAdd**: [Required] integer - Number of days to add
+    `yyyy-MM-ddTHH:mm:ss.fffffffZ`.
+  - **numberOfDaysToAdd**: [Required] integer - Number of days to add.
 - `field(fieldName)`
   - **fieldName**: [Required] string - Name of the [field](#fields) to retrieve
-  - Returns the value of that field from the resource that is being evaluated by the If condition
+  - Returns the value of that field from the resource that is being evaluated by the If condition.
   - `field` is primarily used with **AuditIfNotExists** and **DeployIfNotExists** to reference
     fields on the resource that are being evaluated. An example of this use can be seen in the
     [DeployIfNotExists example](effects.md#deployifnotexists-example).
@@ -769,7 +774,7 @@ Policy, use one of the following methods:
   Use the [Azure Policy extension for Visual Studio Code](../how-to/extension-for-vscode.md) to view
   and discover aliases for resource properties.
 
-  :::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Azure Policy extension for Visual Studio Code" border="false":::
+  :::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Screenshot of the Azure Policy extension for Visual Studio Code hovering a property to display the alias names." border="false":::
 
 - Azure Resource Graph
 
@@ -801,6 +806,14 @@ Policy, use one of the following methods:
   # Use Get-AzPolicyAlias to list aliases for a Namespace (such as Azure Compute -- Microsoft.Compute)
   (Get-AzPolicyAlias -NamespaceMatch 'compute').Aliases
   ```
+
+  > [!NOTE]
+  > To find aliases that can be used with the [modify](./effects.md#modify) effect, use the
+  > following command in Azure PowerShell **4.6.0** or higher:
+  >
+  > ```azurepowershell-interactive
+  > Get-AzPolicyAlias | Select-Object -ExpandProperty 'Aliases' | Where-Object { $_.DefaultMetadata.Attributes -eq 'Modifiable' }
+  > ```
 
 - Azure CLI
 

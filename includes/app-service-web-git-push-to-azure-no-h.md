@@ -16,7 +16,7 @@ Back in the local terminal window, add an Azure remote to your local Git reposit
 git remote add azure <deploymentLocalGitUrl-from-create-step>
 ```
 
-Push to the Azure remote to deploy your app with the following command. When Git Credential Manager prompts you for credentials, make sure you enter the credentials you created in [Configure a deployment user](/azure/app-service/containers/tutorial-python-postgresql-app#configure-a-deployment-user), not the credentials you use to sign in to the Azure portal.
+Push to the Azure remote to deploy your app with the following command. When Git Credential Manager prompts you for credentials, make sure you enter the credentials you created in **Configure a deployment user**, not the credentials you use to sign in to the Azure portal.
 
 ```bash
 git push azure master

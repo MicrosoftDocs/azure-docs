@@ -6,6 +6,7 @@ author: mcoskun
 ms.topic: conceptual
 ms.date: 6/29/2017
 ms.author: mcoskun
+ms.custom: devx-track-csharp
 ---
 # Reliable Services notifications
 Notifications allow clients to track the changes that are being made to an object that they're interested in. 

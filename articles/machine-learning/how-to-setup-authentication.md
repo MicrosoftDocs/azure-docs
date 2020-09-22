@@ -14,7 +14,7 @@ ms.custom: how-to, has-adal-ref, devx-track-javascript
 ---
 
 # Set up authentication for Azure Machine Learning resources and workflows
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Learn how to authenticate to your Azure Machine Learning workspace, and to models deployed as web services.
 
@@ -31,6 +31,9 @@ Regardless of the authentication type used, role-based access control (RBAC) is 
 * [Configure your development environment](how-to-configure-environment.md) to install the Azure Machine Learning SDK, or use a [Azure Machine Learning Notebook VM](concept-azure-machine-learning-architecture.md#compute-instance) with the SDK already installed.
 
 ## Interactive authentication
+
+> [!IMPORTANT]
+> Interactive authentication uses your browser, and requires cookies (including 3rd party cookies). If you have disabled cookies, you may receive an error such as "we couldn't sign you in." This error may also occur if you have enabled [Azure multi-factor authentication](/azure/active-directory/authentication/concept-mfa-howitworks).
 
 Most examples in the documentation and samples use interactive authentication. For example, when using the SDK there are two function calls that will automatically prompt you with a UI-based authentication flow:
 

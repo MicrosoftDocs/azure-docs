@@ -21,7 +21,7 @@ Key Vault is a cloud-based, external key management system. It's highly availabl
 
 ## Benefits
 
-Data encryption for Azure Database for PostgreSQL Single server provides the following benefits:
+Data encryption with customer-managed keys for Azure Database for PostgreSQL Single server provides the following benefits:
 
 * Data-access is fully controlled by you by the ability to remove the key and making the database inaccessible 
 *    Full control over the key-lifecycle, including rotation of the key to align with corporate policies
@@ -38,13 +38,13 @@ The DEKs, encrypted with the KEKs, are stored separately. Only an entity with ac
 
 ## How data encryption with a customer-managed key work
 
-![Diagram that shows an overview of Bring Your Own Key](media/concepts-data-access-and-security-data-encryption/postgresql-data-encryption-overview.png)
+:::image type="content" source="media/concepts-data-access-and-security-data-encryption/postgresql-data-encryption-overview.png" alt-text="Diagram that shows an overview of Bring Your Own Key":::
 
 For a PostgreSQL server to use customer-managed keys stored in Key Vault for encryption of the DEK, a Key Vault administrator gives the following access rights to the server:
 
 * **get**: For retrieving the public part and properties of the key in the key vault.
-* **wrapKey**: To be able to encrypt the DEK.
-* **unwrapKey**: To be able to decrypt the DEK.
+* **wrapKey**: To be able to encrypt the DEK. The encrypted DEK is stored in the Azure Database for PostgreSQL.
+* **unwrapKey**: To be able to decrypt the DEK. Azure Database for PostgreSQL needs the decrypted DEK to encrypt/decrypt the data
 
 The key vault administrator can also [enable logging of Key Vault audit events](../azure-monitor/insights/key-vault-insights-overview.md), so they can be audited later.
 
@@ -54,16 +54,16 @@ When the server is configured to use the customer-managed key stored in the key 
 
 The following are requirements for configuring Key Vault:
 
-* Key Vault and Azure Database for PostgreSQL Single server must belong to the same Azure Active Directory (Azure AD) tenant. Cross-tenant Key Vault and server interactions aren't supported. Moving resources afterwards requires you to reconfigure the data encryption.
+* Key Vault and Azure Database for PostgreSQL Single server must belong to the same Azure Active Directory (Azure AD) tenant. Cross-tenant Key Vault and server interactions aren't supported. Moving the Key Vault resource afterwards requires you to reconfigure the data encryption.
 * Enable the soft-delete feature on the key vault, to protect from data loss if an accidental key (or Key Vault) deletion happens. Soft-deleted resources are retained for 90 days, unless the user recovers or purges them in the meantime. The recover and purge actions have their own permissions associated in a Key Vault access policy. The soft-delete feature is off by default, but you can enable it through PowerShell or the Azure CLI (note that you can't enable it through the Azure portal).
-* Grant the Azure Database for PostgreSQL Single server access to the key vault with the get, wrapKey, and unwrapKey permissions by using its unique managed identity. In the Azure portal, the unique identity is automatically created when data encryption is enabled on the PostgreSQL Single server. See [Data encryption for Azure Database for PostgreSQL Single server by using the Azure portal](howto-data-encryption-portal.md) for detailed, step-by-step instructions when you're using the Azure portal.
+* Grant the Azure Database for PostgreSQL Single server access to the key vault with the get, wrapKey, and unwrapKey permissions by using its unique managed identity. In the Azure portal, the unique 'Service' identity is automatically created when data encryption is enabled on the PostgreSQL Single server. See [Data encryption for Azure Database for PostgreSQL Single server by using the Azure portal](howto-data-encryption-portal.md) for detailed, step-by-step instructions when you're using the Azure portal.
 
 The following are requirements for configuring the customer-managed key:
 
 * The customer-managed key to be used for encrypting the DEK can be only asymmetric, RSA 2048.
 * The key activation date (if set) must be a date and time in the past. The expiration date (if set) must be a future date and time.
 * The key must be in the *Enabled* state.
-* If you're importing an existing key into the key vault, make sure to provide it in the supported file formats (`.pfx`, `.byok`, `.backup`).
+* If you're [importing an existing key](https://docs.microsoft.com/rest/api/keyvault/ImportKey/ImportKey) into the key vault, make sure to provide it in the supported file formats (`.pfx`, `.byok`, `.backup`).
 
 ## Recommendations
 
@@ -74,7 +74,7 @@ When you're using data encryption by using a customer-managed key, here are reco
 * Ensure that Key Vault and Azure Database for PostgreSQL Single server reside in the same region, to ensure a faster access for DEK wrap, and unwrap operations.
 * Lock down the Azure KeyVault to only **private endpoint and selected networks** and allow only *trusted Microsoft* services to secure the resources.
 
-    ![trusted-service-with-AKV](media/concepts-data-access-and-security-data-encryption/keyvault-trusted-service.png)
+    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/keyvault-trusted-service.png" alt-text="trusted-service-with-AKV":::
 
 Here are recommendations for configuring a customer-managed key:
 
