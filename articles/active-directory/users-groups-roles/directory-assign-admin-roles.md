@@ -150,8 +150,6 @@ In | Can do
 ### [Conditional Access Administrator](#conditional-access-administrator-permissions)
 
 Users with this role have the ability to manage Azure Active Directory Conditional Access settings.
-> [!NOTE]
-> To deploy Exchange ActiveSync Conditional Access policy in Azure, the user must also be a Global Administrator.
 
 ### [Customer Lockbox access approver](#customer-lockbox-access-approver-permissions)
 
