@@ -180,4 +180,4 @@ When your Azure static site and repository are no longer needed, clean up the re
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn about App Service Static Web Apps](https://docs.microsoft.com/azure/static-web-apps/)
+> [Learn about Azure Static Web Apps](https://docs.microsoft.com/azure/static-web-apps/)
