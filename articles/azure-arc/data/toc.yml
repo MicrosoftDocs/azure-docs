@@ -16,6 +16,8 @@
       href: connectivity.md
     - name: Storage configuration
       href: storage-configuration.md
+    - name: Sizing guidance
+      href: sizing-guidance.md
 - name: How-to guides
   items:
     - name: Install tools
