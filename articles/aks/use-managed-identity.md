@@ -34,6 +34,7 @@ AKS uses several managed identities for built-in services and add-ons.
 |----------------------------|-----------|----------|
 | Control plane | not visible | Used by AKS for managed networking resources including ingress load balancers and AKS managed public IPs | Contributor role for Node resource group | Preview
 | Kubelet | AKS Cluster Name-agentpool | Authentication with Azure Container Registry (ACR) | Reader role for node resource group | Not currently supported
+| Add-on | aad-pod-identity | Enables applications to access cloud resources securely with Azure Active Directory (AAD) | NA | Steps to grant permission at https://github.com/Azure/aad-pod-identity#role-assignment.
 | Add-on | AzureNPM | No identity required | NA | No
 | Add-on | AzureCNI network monitoring | No identity required | NA | No
 | Add-on | azurepolicy (gatekeeper) | No identity required | NA | No
