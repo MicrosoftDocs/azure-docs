@@ -107,7 +107,7 @@ A new queue named **outqueue** is created in your Storage account by the Functio
 
 1. Under **Application settings**, select **AzureWebJobsStorage**.
 
-    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-find-storage-account.png" alt-text="Locate the storage account connected to AzureWebJobsStorage." border="true":::
+    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-find-storage-account.png" alt-text="Screenshot shows the Configuration page with AzureWebJobsStorage selected." border="true":::
 
 1. Locate and make note of the account name.
 

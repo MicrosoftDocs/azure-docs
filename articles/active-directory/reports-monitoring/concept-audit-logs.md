@@ -167,7 +167,7 @@ In addition to **Azure Active Directory**, the Azure portal provides you with tw
 
 With user and group-based audit reports, you can get answers to questions such as:
 
-- What types of updates have been applied the users?
+- What types of updates have been applied to users?
 
 - How many users were changed?
 

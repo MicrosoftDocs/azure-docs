@@ -192,7 +192,7 @@ The objective of this section is to create a user called Britta Simon in GitHub.
 
 2. Click **People**.
 
-    ![People](./media/github-tutorial/people.png "People")
+    ![Screenshot shows the GitHub site with People selected.](./media/github-tutorial/people.png "People")
 
 3. Click **Invite member**.
 

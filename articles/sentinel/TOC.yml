@@ -29,6 +29,10 @@
     href: fusion.md
   - name: Extend Azure Sentinel across workspaces and tenants
     href: extend-sentinel-across-workspaces-tenants.md
+  - name: Identify advanced threats with UEBA
+    href: identify-threats-with-entity-behavior-analytics.md
+  - name: Import threat intelligence into Azure Sentinel
+    href: import-threat-intelligence.md
   - name: Normalize your data across tables
     href: normalization.md
   - name: Security
@@ -62,6 +66,8 @@
         href: connect-microsoft-defender-advanced-threat-protection.md
       - name: Microsoft Defender for Identity (formerly Azure ATP)
         href: connect-azure-atp.md
+      - name: Microsoft Defender for Office 365 (formerly Office 365 ATP)
+        href: connect-office-365-advanced-threat-protection.md
       - name: Azure DDoS Protection
         href: connect-azure-ddos-protection.md
       - name: Azure Firewall
@@ -162,6 +168,8 @@
       href: connect-threat-intelligence.md  
     - name: Connect Azure Stack VMs
       href: connect-azure-stack.md  
+  - name: Enable User and Entity Behavior Analytics
+    href: enable-entity-behavior-analytics.md
   - name: Work with multiple tenants (MSSP)
     href: multiple-tenants-service-providers.md
   - name: Work with incidents in multiple workspaces
