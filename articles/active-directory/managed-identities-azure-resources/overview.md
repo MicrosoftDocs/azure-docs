@@ -40,7 +40,7 @@ There are two types of managed identities:
 - **System-assigned** Some Azure services allow you to enable a managed identity directly on a service instance. When you enable the managed identity option as part of the configuration of a service instance Azure creates an identity in your Azure AD. After the identity is created, the credentials are provisioned onto the service instance where you enabled it. The system assigned managed identity has its life cycle tied directly to the service instance that triggered its creation. If the instance is deleted, Azure automatically removes the system-assigned managed identity information from Azure AD.
 - **User-assigned** You may also create a managed identity as a standalone Azure resource. You can [create a user-assigned managed identity](how-to-manage-ua-identity-portal.md) and assign it to one or more instances of an Azure service. In the case of user-assigned managed identities, the identity is managed separately from the resources that use it.
 
-    > [!VIDEO https://www.youtube.com/watch?v=OzqpxeD3fG0&feature=youtu.be]
+    > [!VIDEO https://www.youtube.com/embed/OzqpxeD3fG0]
 
 The table below shows you the differences between the two managed identities types
 
