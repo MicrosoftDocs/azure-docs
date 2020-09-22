@@ -60,7 +60,7 @@ The following scenarios are not supported right now:
   - End time for the role assignment might display incorrectly.
   - In the PIM portal, **My Roles** can show only one role assignment regardless of how many methods by which the assignment is granted (through one or more groups and directly).
 - *Azure AD P2 licensed customers only* Even after deleting the group, it is still shown an eligible member of the role in PIM UI. Functionally there's no problem; it's just a cache issue in the Azure portal.  
-- Exchange Admin Center doesn't recognize role membership via group yet, but PowerShell cmdlet will work.
+- Use the new [Exchange Admin Center](https://admin.exchange.microsoft.com/) for role assignments via group membership. The old Exchange Admin Center doesn’t support this feature yet. Exchange PowerShell cmdlets will work as expected.
 - Azure Information Protection Portal (the classic portal) doesn't recognize role membership via group yet. You can [migrate to the unified sensitivity labeling platform](/azure/information-protection/configure-policy-migrate-labels) and then use the Office 365 Security & Compliance center to use group assignments to manage roles.
 
 We are fixing these issues.
