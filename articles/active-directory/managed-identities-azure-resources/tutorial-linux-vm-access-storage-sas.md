@@ -151,7 +151,7 @@ echo "This is a test file." > test.txt
 
 Next, authenticate with the CLI `az storage` command using the SAS credential, and upload the file to the blob container. For this step, you will need to [install the latest Azure CLI](/cli/azure/install-azure-cli) on your VM, if you haven't already.
 
-```azurecli-interactive
+```azurecli
  az storage blob upload --container-name 
                         --file 
                         --name
@@ -173,7 +173,7 @@ Additionally, you can download the file using the Azure CLI and authenticating w
 
 Request: 
 
-```azurecli-interactive
+```azurecli
 az storage blob download --container-name
                          --file 
                          --name 

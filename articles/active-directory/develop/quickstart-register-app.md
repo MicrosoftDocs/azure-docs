@@ -31,7 +31,7 @@ Each application you want the Microsoft identity platform to perform identity an
 
 ## Register an application
 
-Registering your application establishes a trust relationship between your app and the Microsoft identity platform. The trust is unidirectional: your app trusts the the Microsoft identity platform, and not the other way around.
+Registering your application establishes a trust relationship between your app and the Microsoft identity platform. The trust is unidirectional: your app trusts the Microsoft identity platform, and not the other way around.
 
 Follow these steps to create the app registration:
 

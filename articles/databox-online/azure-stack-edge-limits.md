@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Edge limits | Microsoft Docs
-description: Learn about limits and recommended sizes as you deploy and operate Azure Stack Edge, including service limits, device limits, and storage limits.
+title: Azure Stack Edge Pro limits | Microsoft Docs
+description: Learn about limits and recommended sizes as you deploy and operate Azure Stack Edge Pro, including service limits, device limits, and storage limits.
 services: databox
 author: alkohli
 
@@ -11,17 +11,17 @@ ms.date: 08/28/2020
 ms.author: alkohli
 ---
 
-# Azure Stack Edge limits
+# Azure Stack Edge Pro limits
 
-Consider these limits as you deploy and operate your Microsoft Azure Stack Edge solution. 
+Consider these limits as you deploy and operate your Microsoft Azure Stack Edge Pro solution. 
 
 ## Azure Stack Edge service limits
 
 [!INCLUDE [data-box-edge-gateway-service-limits](../../includes/data-box-edge-gateway-service-limits.md)]
 
-## Azure Stack device limits
+## Azure Stack Edge device limits
 
-The following table describes the limits for the Azure Stack Edge device. 
+The following table describes the limits for the Azure Stack Edge Pro device. 
 
 | Description | Value |
 |---|---|
@@ -49,4 +49,4 @@ The following table describes the limits for the Azure Stack Edge device.
 
 ## Next steps
 
-- [Prepare to deploy Azure Stack Edge](azure-stack-edge-deploy-prep.md)
+- [Prepare to deploy Azure Stack Edge Pro](azure-stack-edge-deploy-prep.md)
