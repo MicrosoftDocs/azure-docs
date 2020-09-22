@@ -52,6 +52,36 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
    For example, ensure the master server allows both inbound and outbound traffic on port 3306 and that the master server has a **public IP address**, the DNS is publicly accessible, or has a fully qualified domain name (FQDN). 
    
    Test connectivity to the master server by attempting to connect from a tool such as the MySQL command-line hosted on another machine or from the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) available in the Azure portal.
+   
+   If in case your organization has strict security policies and wouldn't want to allow all IP addresses on the master server, for enabling communication from Azure to on premise, You could make use of the below command to allow Azure MariaDB IP address.
+   
+   mysql> show global variables like '%redirect%';
++----------------------+----------------------------------------------------------+
+| Variable_name        | Value                                                    |
++----------------------+----------------------------------------------------------+
+| redirect_enabled     | OFF                                                      |
+| redirect_flag        | cae3433917cf                                             |
+| redirect_server_host | cae3433917cf.tr210.eastus1-a.worker.database.windows.net |
+| redirect_server_port | 16002                                                    |
+| redirect_server_ttl  | 0                                                        |
++----------------------+----------------------------------------------------------+
+5 rows in set (0.25 sec)
+
+Now go to the command prompt and ping this redirect_server_host value , which would give you an IP address (40.78.224.4).
+Configure the on premise Maria DB master firewall to allow this particular IP address on 3306 port to enable communication from Azure to on premise.
+
+Please note that this IP address might change subjecting to maintenance/deployment operations and this is only for customers who cannot afford to allow all IP address on 3306 port.
+
+C:\Users\armaha>ping cae3433917cf.tr210.eastus1-a.worker.database.windows.net
+
+Pinging tr210.eastus1-a.worker.database.windows.net [40.78.224.4] with 32 bytes of data:
+Request timed out.
+Request timed out.
+Request timed out.
+Request timed out.
+
+Ping statistics for 40.78.224.4:
+    Packets: Sent = 4, Received = 0, Lost = 4 (100% loss),
 
 2. Turn on binary logging.
     
