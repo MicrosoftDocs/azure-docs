@@ -103,7 +103,7 @@ Configure automatic user provisioning for Foodee in Azure AD by doing the follow
 
 	![Screenshot of the Manage options with the Provisioning option called out.](common/provisioning.png)
 
-1. Set the **Provisioning Mode** to **Automatic**.
+1. In the **Provisioning Mode** drop-down list, select **Automatic**.
 
 	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
