@@ -114,7 +114,7 @@
   - name: Transparency Note
     items:
     - name: Introduction to Spatial Analysis
-      href: https://docs.microsoft.com/legal/cognitive-services/computer-vision/intro-to-spatial-analysis-public-preview?context=/azure/cognitive-services/Computer-vision/context/context
+      href: https://docs.microsoft.com/legal/cognitive-services/computer-vision/intro-to-spatial-analysis-public-preview?toc=/azure/cognitive-services/Computer-vision/toc.json&bc=/azure/cognitive-services/Computer-vision/breadcrumb/toc.json
     - name: Characteristics and limitations
       href: https://docs.microsoft.com/legal/cognitive-services/computer-vision/accuracy-and-limitations?context=/azure/cognitive-services/Computer-vision/context/context
   - name: Compliance, privacy, and security
