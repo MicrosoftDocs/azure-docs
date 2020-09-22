@@ -947,6 +947,8 @@ For this public preview, these capabilities are not available or not supported:
 
 * In Azure portal, you can't create new logic apps with the new **Logic App (Preview)** resource type. You can only create these logic apps in Visual Studio Code. However, after you deploy logic apps with this resource type from Visual Studio Code to Azure, you can [add new workflows to those logic apps](#add-workflows).
 
+* You can only deploy stateful and stateless workflows with the new **Logic App (Preview)** resource type to a [Premium or App Service hosting plan](../azure-functions/functions-scale.md), not to [integration service environments (ISEs)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
+
 * **Consumption** hosting plans aren't supported for logic app deployment.
 
 ## Next steps
