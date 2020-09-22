@@ -109,8 +109,8 @@ When the creation process is completed, you can run inference, or model scoring,
 
 There are two approaches to isolate traffic to and from the AKS cluster to the virtual network:
 
-* __Private AKS cluster__: This approach uses Azure Private Link to create a private endpoint for the AKS cluster within the VNet.
-* __Internal AKS load balancer__: This approach configures the load balancer for the cluster to use an internal IP address in the VNet.
+* __Private AKS cluster__: This approach uses Azure Private Link to create a private endpoint for the AKS cluster within the VNet. Use this approach if you need to __remove the public IP__ for the cluster.
+* __Internal AKS load balancer__: This approach configures the load balancer for the cluster to use an internal IP address in the VNet. Use this method if you are ok with resources behind the VNet that still have a public IP address.
 
 > [!WARNING]
 > You cannot use both a private AKS cluster and internal AKS load balancer at the same time on a cluster. Both configurations are different ways to achieve the same goal. **Use one or the other, but not both**.
