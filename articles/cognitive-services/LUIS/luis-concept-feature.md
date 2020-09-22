@@ -2,7 +2,7 @@
 title: Machine-learning features with LUIS
 description: Add features to a language model to provide hints about how to recognize input that you want to label or classify.
 ms.topic: conceptual
-ms.date: 09/22git/2020
+ms.date: 09/22/2020
 ---
 # Machine-learning features
 
@@ -14,12 +14,10 @@ A feature can be described as a function, like f(x) = y. In the example utteranc
 
 ## Types of features
 
-LUIS supports both phrase lists and models as features:
+Features are a necessary part of your schema design. LUIS supports both phrase lists and models as features:
 
 * Phrase list feature
 * Model (intent or entity) as a feature
-
-Features should be considered a necessary part of your schema design.
 
 ## Find features in your example utterances
 
@@ -43,7 +41,7 @@ Determine if the text, because it distinguishes a trait, has to:
 You can use more than one feature to describe a trait or concept. A common pairing is to use:
 
 * A phrase list feature: You can use multiple phrase lists as features to the same model.
-* A model as a feature: prebuilt entity, regular expression entity, list entity. Use only one model as a feature because these are text-matching models. Having more than 1 text-matching model as a feature doesn't help with prediction.
+* A model as a feature: prebuilt entity, regular expression entity, list entity. Use only one model as a feature because these are text-matching models. Having more than one text-matching model as a feature doesn't help with prediction.
 
 ### Ticket-booking entity features
 
@@ -51,14 +49,11 @@ As a first example, consider an app for booking a flight with a flight-reservati
 
 The machine-learning entity for ticket-book has two subentities to capture origin and destination. The features need to be added to each subentity, not the top level entity.
 
+:::image type="content" source="media/luis-concept-features/ticket-booking-entity.png" alt-text="Ticketbooking entity schema":::
 
-:::image type="content" source="media/luis-concept-features/ticketbooking-ml-entity.png" alt-text="Ticketbooking entity schema":::
+The ticket-booking entity is a machine-learning entity, with subentities including _Origin_ and _Destination_. These subentities both indicate a geographical location. To help extract the locations, and distinguish between _Origin_ and _Destination_, each subentity should have features.
 
-The ticket-booking entity is a machine-learning entity with subentities including _Origin_ and _Destination_, which both indicate locations.
-
-To help extract the locations, and distinguish between _Origin_ and _Destination_, each subentity should have features.
-
-|Type|Origin|Destination|
+|Type|Origin subentity |Destination subentity|
 |--|--|--|
 |Model as a feature|[geographyV2](luis-reference-prebuilt-geographyv2.md?tabs=V3) prebuilt entity|[geographyV2](luis-reference-prebuilt-geographyv2.md?tabs=V3) prebuilt entity|
 |Phrase list|**Origin words**: `start at`, `begin from`, `leave`|**Destination words**: `to`, `arrive`, `land at`, `go`, `going`, `stay`, `heading`|
@@ -67,17 +62,15 @@ To help extract the locations, and distinguish between _Origin_ and _Destination
 
 If you anticipate that people use airport codes and airport names, than LUIS should have phrase lists which uses both types of phrases. Airport codes may be more common with text entered in a chatbot while airport names may be more common with spoken conversation such as a speech-enabled chatbot.
 
- The matching details of the features are returned only for models, not for phrase lists because only models are returned in prediction JSON.
+The matching details of the features are returned only for models, not for phrase lists because only models are returned in prediction JSON.
 
 #### Ticket-booking labeling in the intent
 
+After you create the machine-learning entity, you need to add example utterances to an intent, and label the parent entity and all subentities.
 
+For the ticket booking example, Label the example utterances in the intent with the `TicketBooking` entity and any subentities in the text.
 
-:::image type="content" source="media/luis-concept-features/destination-subentity.png" alt-text="Destination subentity schema":::
-
-Label the example utterances in the intent with the `TicketBooking` entity and any subentities in the text.
-
-:::image type="content" source="media/luis-concept-features/intent-labeled-utterances.png" alt-text="Label example utterances":::
+:::image type="content" source="media/luis-concept-features/intent-example-utterances-machine-learning-entity.png" alt-text="Label example utterances":::
 
 
 
