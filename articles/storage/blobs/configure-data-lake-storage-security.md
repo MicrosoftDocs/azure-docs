@@ -1,6 +1,6 @@
 ---
-title: Configure access permission for Azure Data Lake Storage Gen2  | Microsoft Docs
-description: Learn how to configure container, directory, and file-level access in accounts that have a hierarchical namespace.
+title: Grant access permissions in Azure Data Lake Storage Gen2  | Microsoft Docs
+description: Learn how to configure directory, and file-level access in accounts that have a hierarchical namespace.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
@@ -10,7 +10,7 @@ ms.author: normesta
 ms.reviewer: jamsbak
 ---
 
-# Configure access permission to containers, directories, and files in Azure Data Lake Storage Gen2
+# Grant access to directories, and files in Azure Data Lake Storage Gen2
 
 Intro goes here.
 

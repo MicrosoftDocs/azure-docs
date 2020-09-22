@@ -44,17 +44,17 @@ During security principal-based authorization, permissions are evaluated in the 
 > [!div class="mx-imgBorder"]
 > ![data lake storage permission flow](./media/control-access-permissions-data-lake-storage/data-lake-storage-permissions-flow.png)
 
-Based on this model, choose RBAC roles that provide a basic minimal level of access, and then use ACLs to grant **elevated** access permissions to directories and files. Because of the way that access permissions are evaluated by the system, you cannot use an ACL to restrict access that has already been granted by a role assignment. The system evaluates RBAC role assignments before it evaluates ACLs. If the assignment grants sufficient access permission, ACLs are ignored. 
+Based on this model, choose RBAC roles that provide the minimal level of required access, and then use ACLs to grant **elevated** access permissions to directories and files. Because of the way that access permissions are evaluated by the system, you **cannot** use an ACL to **restrict** access that has already been granted by a role assignment. The system evaluates RBAC role assignments before it evaluates ACLs. If the assignment grants sufficient access permission, ACLs are ignored. 
 
 The following diagram shows the permission flow for three common operations: listing directory contents, reading a file, and writing a file.
 
 > [!div class="mx-imgBorder"]
 > ![data lake storage permission flow example](./media/control-access-permissions-data-lake-storage/data-lake-storage-permissions-example.png)
 
-## Combining RBAC role assignments with ACL entries
+## Combining RBAC and ACL
 
 The following table shows you how to combine RBAC roles and ACL entries so that a security principal can perform the operations listed in the **Operation** column. 
-This table features a column for each portion of a fictitious directory hierarchy. There's a column for the root directory of the container (`\`), a subdirectory of the root named **Oregon**, a subdirectory of the Oregon directory named **Portland**, and a text file in the Portland directory named **Data.txt**. Appearing in those columns are [short form](data-lake-storage-access-control#short-forms-for-permission) representations of the ACL entry required to grant permissions. 
+This table shows a column that represents each level of a fictitious directory hierarchy. There's a column for the root directory of the container (`\`), a subdirectory named **Oregon**, a subdirectory of the Oregon directory named **Portland**, and a text file in the Portland directory named **Data.txt**. Appearing in those columns are [short form](data-lake-storage-access-control#short-forms-for-permission) representations of the ACL entry required to grant permissions. 
 
 |    Operation             | Assigned RBAC role               |    /        | Oregon/     | Portland/ | Data.txt |             
 |--------------------------|----------------------------------|-------------|-------------|-----------|----------|
@@ -91,11 +91,11 @@ This table features a column for each portion of a fictitious directory hierarch
 
 ## Permissions required to use Azure Storage Explorer
 
-To view the contents of a container, security principals must (at a minimum) have read access (R--) to the root folder (`\`) of a container. This level of permission does give the security principal the ability to list the contents of the root folder. Alternatively, you can assign them [Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) role. With that role, the security principal can connect to the account by using Storage Explorer. They'll be able to see the containers in the account, but not their contents. You can then grant access to specific directories and files by using ACLs.   
+To view the contents of a container, security principals must (at a minimum) have read access (R--) to the root folder (`\`) of a container. This level of permission does give the security principal the ability to list the contents of the root folder. Alternatively, you can assign them [Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) role. With that role, the security principal can connect to the account by using Storage Explorer. They'll be able to see the containers in the account, but not container contents. You can then grant access to specific directories and files by using ACLs.   
 
 ## Next steps
 
-Get started with configuring access permissions for the directories and files.
+To learn more about access control lists, see  [Access control lists (ACLs) in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
 
-See [Configure access permission to containers, directories, and files in Azure Data Lake Storage Gen2](configure-data-lake-storage-security.md).
+To get started, see [Grant access to directories, and files in Azure Data Lake Storage Gen2](configure-data-lake-storage-security.md).
 
