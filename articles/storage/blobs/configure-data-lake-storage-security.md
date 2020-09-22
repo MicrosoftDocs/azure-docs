@@ -26,7 +26,7 @@ Grant access to directories and files by using Azure role-based access control (
 
 In general, you should assign permissions to [groups](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups) and not individual users or service principals. There's a few reasons for this:
 
-First, using groups reduces the risk of exceeding the number of allowed RBAC role assignments in a subscription. For the latest information about those limits, see [Role assignments](https://docs.microsoft.com/azure/role-based-access-control/overview#role-assignments). Also, for each directory or file, there's a limit of **32** ACL entries. After the **4** default entries that leaves only **28** remaining for permission assignments. If you have to provide access to more than **28** named users, you'll exceed the number of allowed entries. 
+First, using groups reduces the risk of exceeding the number of allowed RBAC role assignments in a subscription. For the latest information about those limits, see [Role assignments](https://docs.microsoft.com/azure/role-based-access-control/overview#role-assignments). Also, for each directory or file, there's a limit of **32** ACL entries. After the four default entries, that leaves only **28** remaining for permission assignments. If you have to provide access to more than **28** named users, you'll exceed the number of allowed entries. 
 
 If you group security principals together, you can change the access level of multiple security principals by changing only one ACL entry. It's also far easier to add and remove users and service principals. You can do so without the need to reapply ACLs to an entire directory structure. Instead, you simply need to add or remove them from the appropriate Azure AD security group. Keep in mind that ACLs are not inherited and so reapplying ACLs requires updating the ACL on every file and subdirectory. 
 
@@ -44,11 +44,11 @@ To get the object ID of the service principal open the Azure CLI, and then use t
 
 ## Step 2: Plan your approach
 
-Decide whether to use RBAC only, RBAC and ACls together, or just ACLs alone. To learn about how the system evaluates RBAC and ACL permissions to make authorization decisions, see [Access control model](data-lake-storage-access-control-model.md). 
+Decide whether to use RBAC only, RBAC and ACLs together, or just ACLs alone. To learn about how the system evaluates RBAC and ACL permissions to make authorization decisions, see [Access control model](data-lake-storage-access-control-model.md). 
 
 If you decide to use RBAC, choose RBAC roles that provide the minimal level of required access, and then use ACLs to grant **elevated** access permissions to directories and files. Because of the way that access permissions are evaluated by the system, you **cannot** use an ACL to **restrict** access that has already been granted by a role assignment. The system evaluates RBAC role assignments before it evaluates ACLs. If the assignment grants sufficient access permission, ACLs are ignored. 
 
-To see a table that shows how to grant access to common tasks by using any combination of RBAC and ACLs, see [Permissions table: Combining RBAC and ACL](data-lake-storage-access-control-model.md#permissions-table:-combining-rbac-and-acl).
+To see a table that shows how to grant access to common tasks by using any combination of RBAC and ACLs, see [Permissions table: Combining RBAC and ACL](data-lake-storage-access-control-model.md#permissions-table-combining-rbac-and-acl).
 
 ## Step 3: Assign RBAC roles
 
@@ -57,14 +57,14 @@ To assign roles, your [security principal](https://docs.microsoft.com/azure/role
 See any of these articles to create role assignments:
 
 - [Use the Azure portal to assign an Azure role for access to blob and queue data](../common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-- [Use PowerShell to assign an Azure role for access to blob and queue data](../common/storage-auth-aad-rbac-powershell.md)
-- [Use Azure CLI to assign an Azure role for access to blob and queue data](../common/storage-auth-aad-rbac-cli?toc=/azure/storage/blobs/toc.json)
+- [Use PowerShell to assign an Azure role for access to blob and queue data](../common/storage-auth-aad-rbac-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- [Use Azure CLI to assign an Azure role for access to blob and queue data](../common/storage-auth-aad-rbac-cli?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
 [!NOTE] A guest user can't create a role assignment.
 
 ## Step 4: Set ACLs
 
-To set ACLs, your [security principal](https://docs.microsoft.com/azure/role-based-access-control/overview#security-principal) needs to have the [Blob Storage Data Owner](../../role-based-access-control/built-in-roles.md#blob-storage-data-owner) role assigned to it. Alternatively, you can use Shared Key authorization which provides you with *super user* access to the storage account.
+To set ACLs, your [security principal](https://docs.microsoft.com/azure/role-based-access-control/overview#security-principal) needs to have the [Blob Storage Data Owner](../../role-based-access-control/built-in-roles.md#blob-storage-data-owner) role assigned to it. Alternatively, you can use Shared Key authorization, which provides you with *super user* access to the storage account.
  
 To modify an individual ACL, see any of these tools or SDKs:
 
@@ -72,7 +72,7 @@ To modify an individual ACL, see any of these tools or SDKs:
 |---|---|
 |  [Azure Storage Explorer](data-lake-storage-explorer.md#managing-access)  |  [.NET](data-lake-storage-directory-file-acl-dotnet.md#manage-access-control-lists-acls)  |
 |  [PowerShell](data-lake-storage-directory-file-acl-powershell.md#manage-access-control-lists-acls)|  [Java](data-lake-storage-directory-file-acl-java.md#manage-access-control-lists-acls)|
-|  [Azure CLI](data-lake-storage-directory-file-acl-cli.md#manage-access-control-lists-acls)|  [Python](data-lake-storage-directory-file-acl-python.md#manage-directory-permissions)|
+|  [Azure CLI](data-lake-storage-directory-file-acl-cli.md#manage-access-control-lists-acls)|  [Python](data-lake-storage-directory-file-acl-python.md#manage-access-control-lists-acls)|
 |  |  [JavaScript](data-lake-storage-directory-file-acl-javascript.md#manage-access-control-lists-acls)|
 |  |  [REST](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update)|
 
