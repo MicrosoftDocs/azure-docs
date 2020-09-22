@@ -24,21 +24,21 @@ Ensure you document and communicate a clear strategy for continuous monitoring a
 
 This strategy should include documented guidance, policy, and standards for the following elements: 
 
--	Data classification standard in accordance with the business risks
+- Data classification standard in accordance with the business risks
 
--	Security organization visibility into risks and asset inventory 
+- Security organization visibility into risks and asset inventory 
 
--	Security organization approval of Azure services for use 
+- Security organization approval of Azure services for use 
 
--	Security of assets through their lifecycle
+- Security of assets through their lifecycle
 
--	Required access control strategy in accordance with organizational data classification
+- Required access control strategy in accordance with organizational data classification
 
--	Use of Azure native and third party data protection capabilities
+- Use of Azure native and third party data protection capabilities
 
--	Data encryption requirements for in-transit and at-rest use cases
+- Data encryption requirements for in-transit and at-rest use cases
 
--	Appropriate cryptographic standards
+- Appropriate cryptographic standards
 
 For more information, see the following references:
 - [Azure Security Architecture Recommendation - Storage, data, and encryption](https://docs.microsoft.com/azure/architecture/framework/security/storage-data-encryption?toc=/security/compass/toc.json&amp;bc=/security/compass/breadcrumb/toc.json)
@@ -127,17 +127,17 @@ Establish an Azure network security approach as part of your organization’s ov
 
 This strategy should include documented guidance, policy, and standards for the following elements: 
 
--	Centralized network management and security responsibility
+- Centralized network management and security responsibility
 
--	Virtual network segmentation model aligned with the enterprise segmentation strategy
+- Virtual network segmentation model aligned with the enterprise segmentation strategy
 
--	Remediation strategy in different threat and attack scenarios
+- Remediation strategy in different threat and attack scenarios
 
--	Internet edge and ingress and egress strategy
+- Internet edge and ingress and egress strategy
 
--	Hybrid cloud and on-premises interconnectivity strategy
+- Hybrid cloud and on-premises interconnectivity strategy
 
--	Up-to-date network security artifacts (e.g. network diagrams, reference network architecture)
+- Up-to-date network security artifacts (e.g. network diagrams, reference network architecture)
 
 For more information, see the following references:
 
@@ -165,15 +165,15 @@ Establish an Azure identity and privileged access approaches as part of your org
 
 This strategy should include documented guidance, policy, and standards for the following elements: 
 
--	A centralized identity and authentication system and its interconnectivity with other internal and external identity systems
+- A centralized identity and authentication system and its interconnectivity with other internal and external identity systems
 
--	Strong authentication methods in different use cases and conditions
+- Strong authentication methods in different use cases and conditions
 
--	Protection of highly privileged users
+- Protection of highly privileged users
 
--	Anomaly user activities monitoring and handling  
+- Anomaly user activities monitoring and handling  
 
--	User identity and access review and reconciliation process
+- User identity and access review and reconciliation process
 
 For more information, see the following references:
 
@@ -201,26 +201,26 @@ Establish a logging and threat response strategy to rapidly detect and remediate
 
 This strategy should include documented guidance, policy, and standards for the following elements: 
 
--	The security operations (SecOps) organization’s role and responsibilities 
+- The security operations (SecOps) organization’s role and responsibilities 
 
--	A well-defined incident response process aligning with NIST or another industry framework 
+- A well-defined incident response process aligning with NIST or another industry framework 
 
--	Log capture and retention to support threat detection, incident response, and compliance needs
+- Log capture and retention to support threat detection, incident response, and compliance needs
 
--	Centralized visibility of and correlation information about threats, using SIEM, native Azure capabilities, and other sources 
+- Centralized visibility of and correlation information about threats, using SIEM, native Azure capabilities, and other sources 
 
--	Communication and notification plan with your customers, suppliers, and public parties of interest
+- Communication and notification plan with your customers, suppliers, and public parties of interest
 
--	Use of Azure native and third-party platforms for incident handling, such as logging and threat detection, forensics, and attack remediation and eradication
+- Use of Azure native and third-party platforms for incident handling, such as logging and threat detection, forensics, and attack remediation and eradication
 
--	Processes for handling incidents and post-incident activities, such as lessons learned and evidence retention
+- Processes for handling incidents and post-incident activities, such as lessons learned and evidence retention
 
 For more information, see the following references:
 - [Azure Security Benchmark - Logging and threat detection](/azure/security/benchmarks/security-benchmark-v2-logging-threat-detection)
 
 - [Azure Security Benchmark - Incident response](/azure/security/benchmarks/security-benchmark-v2-incident-response)
 
-- [Azure Security Best Practice 4 - Process. Update Incident Response Processes for Cloud](https://aka.ms/AzSec11)
+- [Azure Security Best Practice 4 - Process. Update Incident Response Processes for Cloud](https://aka.ms/AzSec4)
 
 - [Azure Adoption Framework, logging, and reporting decision guide](/azure/cloud-adoption-framework/decision-guides/logging-and-reporting/)
 
@@ -242,11 +242,11 @@ Establish an Azure backup and recovery strategy for your organization.
 
 This strategy should include documented guidance, policy, and standards for the following elements: 
 
--	Recovery time objective (RTO) and recovery point objective (RPO) definitions in accordance with your business resiliency objectives
+- Recovery time objective (RTO) and recovery point objective (RPO) definitions in accordance with your business resiliency objectives
 
--	Redundancy design in your applications and infrastructure setup
+- Redundancy design in your applications and infrastructure setup
 
--	Protection of backup using access control and data encryption
+- Protection of backup using access control and data encryption
 
 For more information, see the following references:
 - [Azure Security Benchmark - Backup and recovery](/azure/security/benchmarks/security-benchmark-v2-backup-recovery)
