@@ -14,12 +14,10 @@ In this quickstart, you'll learn how start a call using the Azure Communication 
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Android Studio](https://developer.android.com/studio), for creating your Android application.
-- A [User Access Token](../../access-tokens.md) for your Azure Communication Service.
 - A deployed Communication Services resource. [Create a Communication Services resource](../../create-communication-resource.md).
-
+- A [User Access Token](../../access-tokens.md) for your Azure Communication Service.
 
 ## Setting up
-
 
 ### Create an Android app with an empty activity
 
@@ -311,3 +309,7 @@ private void startCall() {
 The app can now be launched using the "Run App" button on the toolbar (Shift+F10). Verify you are able to place calls by calling `8:echo123`. A pre-recorded message will play then repeat your message back to you.
 
 :::image type="content" source="../media/android/quickstart-android-call-echobot.png" alt-text="Screenshot showing the completed application.":::
+
+## Sample Code
+
+You can download the sample app from [GitHub](https://github.com/Azure/Communication/tree/master/samples/Add%20Voice%20Calling/Android/Java)

@@ -75,8 +75,8 @@ DeviceManage deviceManager = await callClient.getDeviceManager().get();
 
 ## Place an outgoing call and join a group call
 
-To create and start a call you need to call the `CallClient.call()` method and provide the `Identifier` of the callee(s).
-To join a group call you need to call the `CallClient.join()` method and provide the groupId. Group Ids must be in GUID or UUID format.
+To create and start a call you need to call the `CallAgent.call()` method and provide the `Identifier` of the callee(s).
+To join a group call you need to call the `CallAgent.join()` method and provide the groupId. Group Ids must be in GUID or UUID format.
 
 Call creation and start is synchronous. The call instance allows you to subscribe to all events on the call.
 
@@ -101,7 +101,7 @@ PhoneNumber acsUser2 = new PhoneNumber("<PHONE_NUMBER>");
 CommunicationIdentifier participants[] = new CommunicationIdentifier[]{ acsUser1, acsUser2 };
 StartCallOptions startCallOptions = new StartCallOptions();
 Context appContext = this.getApplicationContext();
-Call groupCall = callClient.call(participants, startCallOptions);
+Call groupCall = callAgent.call(participants, startCallOptions);
 ```
 
 ### Place a 1:1 call with with video camera
@@ -382,7 +382,7 @@ Any given remote participant has a set of properties and collections associated 
 * Get the identifier for this remote participant.
 Identity is one is one of the 'Identifier' types
 ```java
-CommunicationIdentifier participantIdentity = remoteParticipant.getId();
+CommunicationIdentifier participantIdentity = remoteParticipant.getIdentifier();
 ```
 
 * Get state of this remote participant.
