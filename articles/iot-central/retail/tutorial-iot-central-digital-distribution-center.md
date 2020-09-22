@@ -5,7 +5,7 @@ author: KishorIoT
 ms.author: nandab
 ms.service: iot-central
 ms.subservice: iot-central-retail
-ms.topic: overview
+ms.topic: tutorial
 ms.date: 10/20/2019
 ---
 
@@ -30,7 +30,7 @@ You can create application using following steps
 1. Navigate to the Azure IoT Central application manager website. Select **Build** from the left-hand navigation bar and then click the **Retail** tab.
 
     > [!div class="mx-imgBorder"]
-    > ![Digital Distribution Center](./media/tutorial-iot-central-ddc/iotc-retail-homepage.png)
+    > ![Screenshot showing how to select the digital distribution center application template](./media/tutorial-iot-central-ddc/iotc-retail-homepage.png)
 
 2. Select **Retail** tab and select **Create app** under **digital distribution center application**
 
@@ -41,10 +41,10 @@ You can create application using following steps
    **Create**: Select create at the bottom of the page to deploy your application.
 
     > [!div class="mx-imgBorder"]
-    > ![Digital Distribution Center](./media/tutorial-iot-central-ddc/ddc-create.png)
+    > ![Screenshot showing how to create an app from the digital distribution center application template](./media/tutorial-iot-central-ddc/ddc-create.png)
 
     > [!div class="mx-imgBorder"]
-    > ![Digital Distribution billing info](./media/tutorial-iot-central-ddc/ddc-create-billinginfo.png)
+    > ![Screenshot showing the billing options when you create the application](./media/tutorial-iot-central-ddc/ddc-create-billinginfo.png)
 
 ## Walk through the application dashboard 
 
@@ -57,31 +57,31 @@ The dashboard is logically organized to show the device management capabilities 
    * Manage all cameras that are part of the solution. 
 
 > [!div class="mx-imgBorder"]
-> ![Digital Distribution Center](./media/tutorial-iot-central-ddc/ddc-dashboard.png)
+> ![Screenshot showing the digital distribution center dashboard](./media/tutorial-iot-central-ddc/ddc-dashboard.png)
 
 ## Device Template
 
 Click on the Device templates tab, and you will see the gateway capability model. A capability model is structured around two different interfaces **Camera** and **Digital Distribution Gateway**
 
 > [!div class="mx-imgBorder"]
-> ![Digital Distribution Center](./media/tutorial-iot-central-ddc/ddc-devicetemplate1.png)
+> ![Screenshot showing the digital distribution gateway device template in the application](./media/tutorial-iot-central-ddc/ddc-devicetemplate1.png)
 
 **Camera** - This interface organizes all the camera-specific command capabilities 
 
 > [!div class="mx-imgBorder"]
-> ![Digital Distribution Center](./media/tutorial-iot-central-ddc/ddc-camera.png)
+> ![Screenshot showing the camera interface in the digital distribution gateway device template](./media/tutorial-iot-central-ddc/ddc-camera.png)
 
 **Digital Distribution Gateway** - This interface represents all the telemetry coming from camera, cloud defined device twin properties and gateway info.
 
 > [!div class="mx-imgBorder"]
-> ![Digital Distribution Center](./media/tutorial-iot-central-ddc/ddc-devicetemplate1.png)
+> ![Screenshot showing the digital distribution gateway interface in the digital distribution gateway device template](./media/tutorial-iot-central-ddc/ddc-devicetemplate1.png)
 
 
 ## Gateway Commands
 This interface organizes all the gateway command capabilities
 
 > [!div class="mx-imgBorder"]
-> ![Digital Distribution Center](./media/tutorial-iot-central-ddc/ddc-camera.png)
+> ![Screenshot showing the gateway commands interface in the digital distribution gateway device template](./media/tutorial-iot-central-ddc/ddc-camera.png)
 
 ## Rules
 Select the rules tab to see two different rules that exist in this application template. These rules are configured to email notifications to the operators for further investigations.
@@ -91,7 +91,7 @@ Select the rules tab to see two different rules that exist in this application t
 **Large package** - This rule will trigger if the camera detects huge package that cannot be inspected for the quality. 
 
 > [!div class="mx-imgBorder"]
-> ![Digital Distribution Center](./media/tutorial-iot-central-ddc/ddc-rules.png)
+> ![Screenshot showing the list of rules in the digital distribution center application](./media/tutorial-iot-central-ddc/ddc-rules.png)
 
 ## Jobs
 Select the jobs tab to see five different jobs that exist as part of this application template:
@@ -101,15 +101,19 @@ You can leverage jobs feature to perform solution-wide operations. Here digital 
    * modifying the telemetry interval to manage data upload
 
 > [!div class="mx-imgBorder"]
-> ![Digital Distribution Center](./media/tutorial-iot-central-ddc/ddc-jobs.png)
+> ![Screenshot showing the list of jobs in the digital distribution center application](./media/tutorial-iot-central-ddc/ddc-jobs.png)
 
 ## Clean up resources
 If you're not going to continue to use this application, delete the application template by visiting **Administration** > **Application settings** and click **Delete**.
 
 > [!div class="mx-imgBorder"]
-> ![Digital Distribution Center](./media/tutorial-iot-central-ddc/ddc-cleanup.png)
+> ![Screenshot showing how to delete the application when you're done with it](./media/tutorial-iot-central-ddc/ddc-cleanup.png)
 
 ## Next steps
-* Learn more about digital distribution center solution architecture [digital distribution center concept](./architecture-digital-distribution-center.md)
-* Learn more about other [IoT Central retail templates](./overview-iot-central-retail.md)
-* Learn more about IoT Central refer to [IoT Central overview](../core/overview-iot-central.md)
+* Learn more about digital distribution center solution architecture 
+> [!div class="nextstepaction"]
+> [digital distribution center concept](./architecture-digital-distribution-center.md)
+* Learn more about other 
+[IoT Central retail templates](./overview-iot-central-retail.md)
+* Learn more about IoT Central refer to 
+[IoT Central overview](../core/overview-iot-central.md)

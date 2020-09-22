@@ -53,16 +53,16 @@ The reset workflow does not require the user to recall the old password and is u
 
 ## Manage resource access
 
-To create your Azure Stack Edge/Data Box Gateway, IoT Hub, and Azure Storage resource, you need permissions as a contributor or higher at a resource group level. You also need the corresponding resource providers to be registered. For any operations that involve activation key and credentials, permissions to Azure Active Directory Graph API are also required. These are described in the following sections.
+To create your Azure Stack Edge Pro/Data Box Gateway, IoT Hub, and Azure Storage resource, you need permissions as a contributor or higher at a resource group level. You also need the corresponding resource providers to be registered. For any operations that involve activation key and credentials, permissions to Azure Active Directory Graph API are also required. These are described in the following sections.
 
 ### Manage Microsoft Graph API permissions
 
-When generating the activation key for the Azure Stack Edge device, or performing any operations that require credentials, you need permissions to Microsoft Graph API. The operations that need credentials could be:
+When generating the activation key for the Azure Stack Edge Pro device, or performing any operations that require credentials, you need permissions to Microsoft Graph API. The operations that need credentials could be:
 
 -  Creating a share with an associated storage account.
 -  Creating a user who can access the shares on the device.
 
-You should have a `User` access on Active Directory tenant as you need to be able to `Read all directory objects`. You can't be a Guest user as they don't have permissions to `Read all directory objects`. If you're a guest, then the operations such as generation of an activation key, creation of a share on your Azure Stack Edge device, creation of a user will all fail.
+You should have a `User` access on Active Directory tenant as you need to be able to `Read all directory objects`. You can't be a Guest user as they don't have permissions to `Read all directory objects`. If you're a guest, then the operations such as generation of an activation key, creation of a share on your Azure Stack Edge Pro device, creation of a user will all fail.
 
 For more information on how to provide access to users to Microsoft Graph API, see [Microsoft Graph permissions reference](https://docs.microsoft.com/graph/permissions-reference).
 
@@ -85,7 +85,7 @@ To get a list of registered resource providers in the current subscription, run 
 Get-AzResourceProvider -ListAvailable |where {$_.Registrationstate -eq "Registered"}
 ```
 
-For Azure Stack Edge device, `Microsoft.DataBoxEdge` should be registered. To register `Microsoft.DataBoxEdge`, subscription admin should run the following command:
+For Azure Stack Edge Pro device, `Microsoft.DataBoxEdge` should be registered. To register `Microsoft.DataBoxEdge`, subscription admin should run the following command:
 
 ```PowerShell
 Register-AzResourceProvider -ProviderNamespace Microsoft.DataBoxEdge

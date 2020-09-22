@@ -1,6 +1,6 @@
 ---
 title: View roles assigned to a group in Azure Active Directory | Microsoft Docs
-description: Preview custom Azure AD roles for delegating identity management. Manage Azure roles in the Azure portal, PowerShell, or Graph API.
+description: Learn how the roles assigned to a group can be viewed using Azure AD admin center. Viewing groups and assigned roles are default user permissions.
 services: active-directory
 author: curtand
 manager: daveba

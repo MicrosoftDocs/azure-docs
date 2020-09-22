@@ -214,7 +214,7 @@
     href: auth0-how-to.md
   - name: Receive events at HTTP endpoint
     href: receive-events.md
-  - name: Dead letter and retry
+  - name: Set dead-letter location and retry policy
     href: manage-event-delivery.md
   - name: Filter events
     href: how-to-filter-events.md
