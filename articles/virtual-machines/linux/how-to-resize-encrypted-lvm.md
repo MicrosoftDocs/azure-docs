@@ -10,7 +10,7 @@ ms.date: 09/21/2020
 
 # How to resize logical volume management devices encrypted with Azure Disk Encryption
 
-This article is a step-by-step process on how to resize of ADE encrypted data disks using Logical Volume Management (LVM) on Linux, applicable to multiple scenarios.
+This article is a step-by-step process on how to resize ADE encrypted data disks using Logical Volume Management (LVM) on Linux, applicable to multiple scenarios.
 
 The process applies to the following environments:
 
@@ -32,7 +32,7 @@ This document assumes that:
 2. The disks are already encrypted using Azure Disk Encryption
    Check [Configure LVM on crypt](how-to-configure-lvm-raid-on-crypt.md) for information on how to configure LVM-on-Crypt.
 
-3. Certain Linux and LVM are required to follow these examples.
+3. Certain Linux and LVM knowledge is required to follow these examples.
 
 4. You understand that the recommendation to use data disks on Azure as mentioned on [troubleshoot device names problems](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-device-names-problems), is to use the /dev/disk/scsi1/ paths.
 
@@ -497,7 +497,7 @@ You can use this method to add space to an already existent LV or instead you ca
 
     ![scenarioe-check-newdisk02](./media/disk-encryption/resize-lvm/035-resize-lvm-scenarioe-check-newdisk02.png)
 
-    Add a new disk either with PowerShell, cli, or the Azure portal, check [Attaching a disk](attach-disk-portal.md) for reference on adding disks to a VM
+     Add a new disk either with PowerShell, the Azure CLI, or the Azure portal. Check how to [attach a disk](attach-disk-portal.md) for reference on adding disks to a VM.
 
     Following the kernel name scheme for the devices the new drive normally will get assigned the next available letter, on this particular case the new added disk is sdd.
 
@@ -568,7 +568,7 @@ You can use this method to add space to an already existent LV or instead you ca
 
     For LVM-On-Crypt the recommendation is to use EncryptFormatAll otherwise a double encryption may happen while setting additional disks.
 
-    Please reffer  [Configure LVM on crypt](how-to-configure-lvm-raid-on-crypt.md) for its use.
+    For information on usage, see [Configure LVM on crypt](how-to-configure-lvm-raid-on-crypt.md).
 
     Example:
 
