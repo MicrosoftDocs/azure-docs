@@ -274,6 +274,8 @@
       - name: Using customer-managed keys
         displayName: SSE, CMK, encrypt
         href: ../virtual-machines/image-version-encryption.md
+      - name: App registration for sharing
+        href: share-images-across-tenants.md
   - name: Create a template
     items:
     - name: Learn about scale set templates
