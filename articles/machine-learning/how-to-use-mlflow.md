@@ -195,41 +195,6 @@ local_env_run = mlflow.projects.run(uri=".",
 
 ```
 
-## Track Azure Databricks runs
-
-MLflow Tracking with Azure Machine Learning lets you store the logged metrics and artifacts from your Azure Databricks runs into all  three of the following areas at once: 
-
-* Azure Machine Learning workspace
-* Azure Databricks workspace.
-* MLflow
-
-To run your Mlflow experiments with Azure Databricks, you need to first create an [Azure Databricks workspace and cluster](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal). In your cluster,  install the *azureml-mlflow* library from PyPi, to ensure that your cluster has access to the necessary functions and classes.
-
-> [!NOTE]
-> The `azureml.core` package includes `azureml-mlflow`. If you already installed `azureml.core`, you can skip the `azureml-mlflow` installation step. 
-
-From here, import your experiment notebook, attach it to your Azure Databricks cluster and run your experiment. 
-
-### Install libraries
-
-To install libraries on your cluster, navigate to the **Libraries** tab and click **Install New**
-
- ![mlflow with azure databricks](./media/how-to-use-mlflow/azure-databricks-cluster-libraries.png)
-
-In the **Package** field, type azureml-mlflow and then click install. Repeat this step as necessary to install other additional packages to your cluster for your experiment.
-
- ![Azure DB install mlflow library](./media/how-to-use-mlflow/install-libraries.png)
-
-src = ScriptRunConfig(source_directory=script_dir,
-                      script=script_name,
-                      environment=env,
-                      compute_target=compute_target,
-                     )
-
-run = Experiment(ws, 'mlflow-experiment').submit(src)
-run
-```
-
 ## View metrics and artifacts in your workspace
 
 The metrics and artifacts from MLflow logging are kept in your workspace. To view them anytime, navigate to your workspace and find the experiment by name in your workspace in [Azure Machine Learning studio](https://ml.azure.com).  Or run the below code. 
