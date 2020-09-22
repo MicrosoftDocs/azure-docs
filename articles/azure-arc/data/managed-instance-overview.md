@@ -13,7 +13,7 @@ ms.topic: overview
 
 # Azure Arc enabled SQL Managed Instance Overview
 
-Azure Arc enabled SQL Managed Instance is an Azure SQL data service that can deployed on the infrastructure of your choice. 
+Azure Arc enabled SQL Managed Instance is an Azure SQL data service that can created on the infrastructure of your choice. 
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -27,6 +27,6 @@ Azure Arc enabled SQL Managed Instance is currently in preview.
 
 Learn more about [Features and Capabilities of Azure Arc enabled SQL Managed Instance](managed-instance-features.md)
 
-[Start by deploying a Data Controller](create-data-controller.md)
+[Start by creating a Data Controller](create-data-controller.md)
 
-Already deployed a Data Controller? [Create an Azure Arc enabled SQL Managed Instance](create-sql-managed-instance.md)
+Already created a Data Controller? [Create an Azure Arc enabled SQL Managed Instance](create-sql-managed-instance.md)
