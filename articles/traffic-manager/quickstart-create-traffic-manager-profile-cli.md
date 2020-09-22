@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Create a profile for HA of applications - Azure CLI - Azure Traffic Manager'
-description: This quickstart article describes how to create a Traffic Manager profile to build a highly available web application.
+description: This quickstart article describes how to create a Traffic Manager profile to build a highly available web application by using Azure CLI.
 services: traffic-manager
 author: duongau
 mnager: kumud

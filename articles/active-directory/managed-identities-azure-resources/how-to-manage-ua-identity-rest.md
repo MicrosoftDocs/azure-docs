@@ -29,10 +29,23 @@ In this article, you learn how to create, list, and delete a user-assigned manag
 
 - If you're unfamiliar with managed identities for Azure resources, check out the [overview section](overview.md). **Be sure to review the [difference between a system-assigned and user-assigned managed identity](overview.md#managed-identity-types)**.
 - If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before continuing.
-- If you are using Windows, install the [Windows Subsystem for Linux](/windows/wsl/about) or use the [Azure Cloud Shell](../../cloud-shell/overview.md) in the Azure portal.
-- If you use the [Windows Subsystem for Linux](/windows/wsl/about) or a [Linux distribution OS](/cli/azure/install-azure-cli-apt?view=azure-cli-latest), [Install the Azure CLI local console](/cli/azure/install-azure-cli).
-- If you are using Azure CLI local console, sign in to Azure using `az login` with an account that is associated with the Azure subscription you would like to deploy or retrieve user-assigned managed identity information.
-- Retrieve a Bearer access token using `az account get-access-token` to perform the following user-assigned managed identity operations.
+- You can run all the commands in this article either in the cloud or locally:
+    - To run in the cloud, use the [Azure Cloud Shell](../../cloud-shell/overview.md).
+    - To run locally, install [curl](https://curl.haxx.se/download.html) and the [Azure CLI](/cli/azure/install-azure-cli).
+
+## Obtain a bearer access token
+
+1. If running locally, sign into Azure through the Azure CLI:
+
+    ```
+    az login
+    ```
+
+1. Obtain an access token using [az account get-access-token](/cli/azure/account#az_account_get_access_token)
+
+    ```azurecli-interactive
+    az account get-access-token
+    ```
 
 ## Create a user-assigned managed identity 
 
@@ -86,7 +99,7 @@ GET https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/
 To delete a user-assigned managed identity, your account needs the [Managed Identity Contributor](../../role-based-access-control/built-in-roles.md#managed-identity-contributor) role assignment.
 
 > [!NOTE]
-> Deleting a user-assigned managed identity will not remove the reference from any resource it was assigned to. To remove a user-assigned managed identity from a VM using CURL see [Remove a user-assigned identity from an Azure VM](qs-configure-rest-vm.md#remove-a-user-assigned identity-from-an-azure-vm).
+> Deleting a user-assigned managed identity will not remove the reference from any resource it was assigned to. To remove a user-assigned managed identity from a VM using CURL see [Remove a user-assigned identity from an Azure VM](qs-configure-rest-vm.md#remove-a-user-assigned-managed-identity-from-an-azure-vm).
 
 ```bash
 curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup

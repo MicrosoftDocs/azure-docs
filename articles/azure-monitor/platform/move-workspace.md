@@ -92,7 +92,7 @@ Use the following procedure to move your workspace using the Azure portal:
 4. Select a destination **Subscription** and **Resource group**. If you're moving the workspace to another resource group in the same subscription, you won't see the **Subscription** option.
 5. Click **OK** to move the workspace and selected resources.
 
-    ![Portal](media/move-workspace/portal.png)
+    ![Screenshot shows the Overview pane in the Log Analytics workspace with options to change the resource group and subscription name.](media/move-workspace/portal.png)
 
 ### PowerShell
 To move your workspace using PowerShell, use the [Move-AzResource](/powershell/module/AzureRM.Resources/Move-AzureRmResource) as in the following example:

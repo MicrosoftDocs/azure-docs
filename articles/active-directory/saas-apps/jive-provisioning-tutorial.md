@@ -57,7 +57,7 @@ As part of this procedure, you are required to provide a user security token you
 
 1. Set the **Provisioning Mode** to **Automatic**. 
 
-    ![provisioning](./media/jive-provisioning-tutorial/provisioning.png)
+    ![Screenshot shows the Jive Provisioning page, with Provisioning Mode set to Automatic and other values you can set.](./media/jive-provisioning-tutorial/provisioning.png)
 
 1. Under the **Admin Credentials** section, provide the following configuration settings:
    
