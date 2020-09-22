@@ -25,7 +25,7 @@ The two common types of workloads that you can deploy on your Azure Stack Edge P
 
     You can create a Kubernetes deployment to deploy a stateless application on your cluster. 
 
-- **Stateful applications** require that their state be saved. Stateful applications use persistent storage, such as persistent volumes, to save data for use by the server or by other users. Examples of stateful applications include databases like [Azure SQL Edge](../azure-sql-edge/overview) and MongoDB.
+- **Stateful applications** require that their state be saved. Stateful applications use persistent storage, such as persistent volumes, to save data for use by the server or by other users. Examples of stateful applications include databases like [Azure SQL Edge](../azure-sql-edge/overview.md) and MongoDB.
 
     You can create a Kubernetes deployment to deploy a stateful application. 
 
