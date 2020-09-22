@@ -5,7 +5,7 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.date: 09/17/2020
+ms.date: 09/22/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
@@ -18,7 +18,7 @@ Encryption scopes provide the ability to manage encryption at the level of the c
 
 By default, a storage account is encrypted with a key that is scoped to the entire storage account. With an encryption scope, you can specify that one or more containers are encrypted with a key that is scoped only to those containers.
 
-You can choose to use either Microsoft-managed keys or customer-managed keys stored in Azure Key Vault or Key Vault Managed Hardware Security Model (HSM) (preview) to protect and control access to the key that encrypts your data. Different encryption scopes on the same storage account can use either Microsoft-managed or customer-managed keys.
+You can choose to use either Microsoft-managed keys or customer-managed keys stored in Azure Key Vault to protect and control access to the key that encrypts your data. Different encryption scopes on the same storage account can use either Microsoft-managed or customer-managed keys.
 
 After you have created an encryption scope, you can specify that encryption scope on a request to create a container or a blob. For more information about how to create an encryption scope, see [Create and manage encryption scopes (preview)](encryption-scope-manage.md).
 
@@ -46,7 +46,7 @@ When you disable an encryption scope, any subsequent read or write operations ma
 
 When an encryption scope is disabled, you are no longer billed for it. Disable any encryption scopes that are not needed to avoid unnecessary charges.
 
-If your encryption scope is protected with customer-managed keys, then you can also delete the associated key in the key vault or managed HSM in order to disable the encryption scope. Keep in mind that customer-managed keys are protected by soft delete and purge protection in the key vault or managed HSM, and a deleted key is subject to the behavior defined for by those properties. For more information, see one of the following topics in the Azure Key Vault documentation:
+If your encryption scope is protected with customer-managed keys, then you can also delete the associated key in the key vault in order to disable the encryption scope. Keep in mind that customer-managed keys are protected by soft delete and purge protection in the key vault, and a deleted key is subject to the behavior defined for by those properties. For more information, see one of the following topics in the Azure Key Vault documentation:
 
 - [How to use soft-delete with PowerShell](../../key-vault/general/soft-delete-powershell.md)
 - [How to use soft-delete with CLI](../../key-vault/general/soft-delete-cli.md)
