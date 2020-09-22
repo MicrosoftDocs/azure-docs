@@ -446,6 +446,9 @@ namespace functionapp0915
 
 In this example, the custom metric data gets aggregated by the host before being sent to the customMetrics table. To learn more, see the [GetMetric](../azure-monitor/app/api-custom-events-metrics.md#getmetric) documentation in Application Insights. 
 
+When running locally, you must add the `APPINSIGHTS_INSTRUMENTATIONKEY` setting, with the Application Insights key, to the [local.settings.json](functions-run-local.md#local-settings-file) file.
+
+
 ### Version 1.x
 
 ```cs
