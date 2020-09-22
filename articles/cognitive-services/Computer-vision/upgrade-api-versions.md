@@ -59,7 +59,7 @@ When the call to `Get Read Operation Result` is successful, it returns a status 
     
 ### API response (JSON) 
 
-    Note the following changes to the json:
+Note the following changes to the json:
     
     - In v2.x, `"Get Read Operation Result"` will return the OCR recognition json when the status is `"Succeeded"`. In v3.0, this field is `"succeeded"`.
     - To get the root for page array,  change the json hierarchy from `"recognitionResults"` to `"analyzeResult"`/`"readResults"`. The per-page line and words json hierarchy remains unchanged, so no code changes are required.
@@ -198,7 +198,7 @@ When the call to `Get Recognize Text Operation Result` is successful, it returns
 
 ### API response (JSON)
 
-    Note the following changes to the json:    
+Note the following changes to the json:    
 
     - In v2.x, `"Get Read Operation Result"` will return the OCR recognition json when the status is `"Succeeded"`. In v3.x, this field is `"succeeded"`.
     - To get the root for page array,  change the json hierarchy from `"recognitionResult"` to `"analyzeResult"`/`"readResults"`. The per-page line and words json hierarchy remains unchanged, so no code changes are required.
