@@ -18,23 +18,24 @@ To step through this how-to guide, you need:
 ## Create a server-level firewall rule in the Azure portal
 
 > [!NOTE]
-> These settings are also accessible during the creation of an Azure Database for PostgreSQL - Hyperscale (Citus) server group. Under the **Networking** tab, click **Public access**.
-> ![Azure portal - networking tab](./media/howto-hyperscale-manage-firewall-using-portal/0-create-public-access.png)
+> These settings are also accessible during the creation of an Azure Database for PostgreSQL - Hyperscale (Citus) server group. Under the **Networking** tab, click **Public endpoint**.
+
+> :::image type="content" source="./media/howto-hyperscale-manage-firewall-using-portal/0-create-public-access.png" alt-text="Azure portal - networking tab":::
 
 1. On the PostgreSQL server group page, under the Security heading, click **Networking** to open the Firewall rules.
 
-   ![Azure portal - click Networking](./media/howto-hyperscale-manage-firewall-using-portal/1-connection-security.png)
+   :::image type="content" source="./media/howto-hyperscale-manage-firewall-using-portal/1-connection-security.png" alt-text="Azure portal - click Networking":::
 
 2. Click **Add current client IP address** to create a firewall rule with the public IP address of your computer, as perceived by the Azure system.
 
-   ![Azure portal - click Add client IP](./media/howto-hyperscale-manage-firewall-using-portal/2-add-my-ip.png)
+   :::image type="content" source="./media/howto-hyperscale-manage-firewall-using-portal/2-add-my-ip.png" alt-text="Azure portal - click Add client IP":::
 
 Alternately, clicking **+Add 0.0.0.0 - 255.255.255.255** (to the right of option B) allows not just your IP, but the whole internet to access the coordinator node's port 5432. In this situation, clients still must login with the correct username and password to use the cluster. Nevertheless, we recommend allowing worldwide access for only short periods of time and for only non-production databases.
 
 3. Verify your IP address before saving the configuration. In some situations, the IP address observed by Azure portal differs from the IP address used when accessing the internet and Azure servers. Therefore, you may need to change the Start IP and End IP to make the rule function as expected.
    Use a search engine or other online tool to check your own IP address. For example, search for "what is my IP."
 
-   ![Bing search for What is my IP](./media/howto-hyperscale-manage-firewall-using-portal/3-what-is-my-ip.png)
+   :::image type="content" source="./media/howto-hyperscale-manage-firewall-using-portal/3-what-is-my-ip.png" alt-text="Bing search for What is my IP":::
 
 4. Add additional address ranges. In the firewall rules, you can specify a single IP address or a range of addresses. If you want to limit the rule to a single IP address, type the same address in the field for Start IP and End IP. Opening the firewall enables administrators, users, and applications to access the coordinator node on port 5432.
 

@@ -29,7 +29,7 @@ Use the following steps to find performance recommendations on the Azure portal:
 
 Performance recommendations are shown in the table similar to the one shown on the following figure:
 
-![Recommendations](./media/database-advisor-find-recommendations-portal/recommendations.png)
+![Screenshot shows performance recommendations in a table with action and recommendation description.](./media/database-advisor-find-recommendations-portal/recommendations.png)
 
 Recommendations are sorted by their potential impact on performance into the following categories:
 

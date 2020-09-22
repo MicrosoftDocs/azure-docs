@@ -57,7 +57,7 @@ If your application is instrumented with the [Application Insights SDK for Java]
     <Add type="com.microsoft.applicationinsights.extensibility.initializer.docker.DockerContextInitializer"/> 
 ```
 
-This adds Docker information such as container and host id to every telemetry item sent from your app.
+This adds Docker information such as container and host ID to every telemetry item sent from your app.
 
 ## View your telemetry
 Go back to your Application Insights resource in the Azure portal.
@@ -67,13 +67,13 @@ Click through the Docker tile.
 You'll shortly see data arriving from the Docker app, especially if you have other containers running on your Docker engine.
 
 ### Docker container events
-![example](./media/docker/13.png)
+![Screenshot shows selecting Search, a Diagnostic search results window with an arrow pointing from a Custom Event to a window with Custom Data.](./media/docker/13.png)
 
 To investigate individual events, click [Search](./diagnostic-search.md). Search and filter 
 to find the events you want. Click any event to get more detail.
 
 ### Exceptions by container name
-![example](./media/docker/14.png)
+![Screenshot shows the Metrics Explorer page with a chart selected and the Chart details window open on the right side.](./media/docker/14.png)
 
 ### Docker context added to app telemetry
 Request telemetry sent from the application instrumented with AI SDK, is enriched with Docker context information.
