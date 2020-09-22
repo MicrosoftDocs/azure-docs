@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/virtual-machines/linux/sa-upload-vhd.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/sa-upload-vhd",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/windows/sa-copy-generalized.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/windows/sa-copy-generalized",
       "redirect_document_id": false
@@ -148,6 +153,21 @@
     {
       "source_path": "articles/virtual-machines/linux/backup-recovery.md",
       "redirect_url": "/azure/virtual-machines/backup-recovery",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/troubleshooting-shared-images.md",
+      "redirect_url": "/azure/virtual-machines/troubleshooting-shared-images",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/troubleshooting-shared-images.md",
+      "redirect_url": "/azure/virtual-machines/troubleshooting-shared-images",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machine-scale-sets/troubleshooting-shared-images.md",
+      "redirect_url": "/azure/virtual-machines/troubleshooting-shared-images",
       "redirect_document_id": false
     },
     {
@@ -6984,12 +7004,12 @@
     },
     {
       "source_path": "articles/azure-resource-manager/managed-application-author-marketplace.md",
-      "redirect_url": "/azure/azure-resource-manager/managed-applications/publish-marketplace-app",
+      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-azure-apps-offer",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-resource-manager/managed-application-consume-marketplace.md",
-      "redirect_url": "/azure/azure-resource-manager/managed-applications/publish-marketplace-app",
+      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-azure-apps-offer",
       "redirect_document_id": false
     },
     {
@@ -7239,7 +7259,12 @@
     },
     {
       "source_path": "articles/managed-applications/publish-marketplace-app.md",
-      "redirect_url": "/azure/azure-resource-manager/managed-applications/publish-marketplace-app",
+      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-azure-apps-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/managed-applications/publish-marketplace-app.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-azure-apps-offer",
       "redirect_document_id": false
     },
     {
@@ -38107,7 +38132,12 @@
     },
     {
       "source_path": "articles/active-directory/manage-apps/application-provisioning-configure-api.md",
-      "redirect_url": "/azure/active-directory/app-provisioning/application-provisioning-configure-api",
+      "redirect_url": "/graph/application-provisioning-configure-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/app-provisioning/application-provisioning-configure-api.md",
+      "redirect_url": "/graph/application-provisioning-configure-api",
       "redirect_document_id": false
     },
     {

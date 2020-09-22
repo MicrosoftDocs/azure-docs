@@ -11,6 +11,8 @@ ms.author: rgarcia
 The Java android sample supports sharing across devices.
 Open the file `SharedActivity.java` from the samples folder in Android Studio. Enter the url you obtained in the previous step (from your ASP.NET web app Azure deployment) as the value for `SharingAnchorsServiceUrl` in the `SharedActivity.java` file. Replace the `index.html` in the url with `api/anchors`. It should look like this: `https://<app_name>.azurewebsites.net/api/anchors`.
 
+[!INCLUDE [Run shared sample](spatial-anchors-deploy-sample.md)]
+
 [!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
 
 ## [iOS](#tab/iOS)
@@ -18,12 +20,16 @@ Open the file `SharedActivity.java` from the samples folder in Android Studio. E
 The Objective-C iOS sample supports sharing across devices.
 Open the file `SharedDemoViewController.m` in the samples folder. Enter the url you obtained in the previous step (from your ASP.NET web app Azure deployment) as the value for `SharingAnchorsServiceUrl` in the `SharedDemoViewController.m` file. Replace the `index.html` in the url with `api/anchors`. It should look like this: `https://<app_name>.azurewebsites.net/api/anchors`.
 
+Deploy the app to your device. Once the app starts, choose the **Tap to start Shared Demo** option. Follow the instructions in the app. You can select **Tap to locate Anchor by its anchor number** or **Tap to create Anchor and save it to the service**.
+
 [!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
 
 ## [Xamarin](#tab/Xamarin)
 
 Both Xamarin Android and iOS samples support sharing across devices.
 Open the file `AccountDetails.cs` in the samples folder. Enter the url you obtained in the previous step (from your ASP.NET web app Azure deployment) as the value for `AnchorSharingServiceUrl` in the `AccountDetails.cs` file. Replace the `index.html` in the url with `api/anchors`. It should look like this: `https://<app_name>.azurewebsites.net/api/anchors`.
+
+[!INCLUDE [Run shared sample](spatial-anchors-deploy-sample.md)]
 
 [!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
 
