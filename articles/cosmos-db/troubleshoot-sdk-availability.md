@@ -20,11 +20,26 @@ All the Azure Cosmos SDKs give you an option to customize the regional preferenc
 * The [CosmosClientBuilder.preferredRegions](/java/api/com.azure.cosmos.cosmosclientbuilder.preferredregions) method in Java V4 SDK.
 * The [CosmosClient.preferred_locations](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient) parameter in Python SDK.
 
-For single write region accounts, all the write operations will always go to the write region, so the preferred regions list is applicable to read operations only. For multiple write regions accounts, the preference list affects the read and write operations.
+When regional preference is set, the client will connect based on the following table:
 
-If you don't set a preferred region, the regional preference order is defined by the [Azure Cosmos DB region list order](distribute-data-globally.md).
+|Account type |Reads |Writes |
+|------------------------|--|--|
+| Single write region | Preferred region | Primary region  |
+| Multiple write regions | Preferred region | Preferred region  |
+
+If you don't set a preferred region:
+
+|Account type |Reads |Writes |
+|------------------------|--|--|
+| Single write region | Primary region | Primary region |
+| Multiple write regions | Primary region  | Primary region  |
+
+> [!NOTE]
+> Primary region refers to the first region in the [Azure Cosmos account region list](distribute-data-globally.md)
 
 When any of the following scenarios occur, the client using the Azure Cosmos SDK exposes logs and includes the retry information as part of the **operation diagnostic information**.
+
+For a comprehensive detail on SLA guarantees during these events, see the [SLAs for availability](high-availability.md#slas-for-availability).
 
 ## <a id="remove region"></a>Removing a region from the account
 
@@ -58,6 +73,7 @@ If the user has configured a preferred region list with more than one region and
 
 ## Next steps
 
+* Review the [Availability SLAs](high-availability.md#slas-for-availability).
 * Use the latest [.NET SDK](sql-api-sdk-dotnet-standard.md)
 * Use the latest [Java SDK](sql-api-sdk-java-v4.md)
 * Use the latest [Python SDK](sql-api-sdk-python.md)

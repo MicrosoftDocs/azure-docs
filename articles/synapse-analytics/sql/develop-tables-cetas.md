@@ -24,8 +24,7 @@ You can use CREATE EXTERNAL TABLE AS SELECT (CETAS) in SQL pool or SQL on-demand
 
 ## CETAS in SQL pool
 
-For SQL pool CETAS usage and syntax, see [CREATE EXTERNAL TABLE AS SELECT](/sql/t-sql/statements/create-external-table-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) article. Additionally, for guidance on CTAS using SQL pool, see the [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) article.
-For SQL pool CETAS usage and syntax, see [CREATE EXTERNAL TABLE AS SELECT](/sql/t-sql/statements/create-external-table-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) article. Additionally, for guidance on CTAS using SQL pool, see the [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) article.
+For SQL pool, CETAS usage and syntax, check the [CREATE EXTERNAL TABLE AS SELECT](/sql/t-sql/statements/create-external-table-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) article. Additionally, for guidance on CTAS using SQL pool, see the [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) article.
 
 ## CETAS in SQL on-demand
 
@@ -154,9 +153,9 @@ CETAS can be used to store result sets with following SQL data types:
 - bit
 
 > [!NOTE]
-> LOBs cannot be used with CETAS.
+> LOBs can't be used with CETAS.
 
-The following data types cannot be used in SELECT part of CETAS:
+The following data types can't be used in SELECT part of CETAS:
 
 - nchar
 - nvarchar
