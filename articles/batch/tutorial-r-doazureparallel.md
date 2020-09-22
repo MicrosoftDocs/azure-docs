@@ -188,7 +188,7 @@ hist(closingPrices_s)
 
 Output is similar to the following:
 
-![Distribution of closing prices](media/tutorial-r-doazureparallel/closing-prices-local.png)
+![Screenshot shows a histogram of closing prices](media/tutorial-r-doazureparallel/closing-prices-local.png)
   
 A local simulation completes in a few seconds or less:
 

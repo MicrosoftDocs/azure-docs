@@ -8,15 +8,12 @@ author: arv100kri
 ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/07/2020
+ms.date: 09/22/2020
 ---
 
 # Accessing data in storage accounts securely via trusted service exception
 
 Indexers that access data in storage accounts can make use of the [trusted service exception](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) capability to securely access data. This mechanism offers customers who are unable to grant [indexer access via IP firewall rules](search-indexer-howto-access-ip-restricted.md) a simple, secure, and free alternative to access data in storage accounts.
-
-> [!NOTE]
-> Accessing storage account via the system assigned identity of a search service is still in preview. This preview feature is provided without a service level agreement, and is not recommended for production workloads.
 
 ## Step 1: Configure connection to the storage account via identity
 
