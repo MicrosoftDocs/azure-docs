@@ -1,20 +1,8 @@
 ---
 title: Azure Service Bus - message count
 description: Retrieve the count of messages held in queues and subscriptions by using Azure Resource Manager and the Azure Service Bus NamespaceManager APIs.
-services: service-bus-messaging
-documentationcenter: ''
-author: axisc
-manager: timlt
-editor: spelluru
-
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 04/08/2020
-ms.author: aschhab
-
+ms.date: 06/23/2020
 ---
 
 # Message counters

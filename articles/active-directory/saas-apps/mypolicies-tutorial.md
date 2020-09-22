@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with myPolicies | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and myPolicies.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: bf79e858-1dfb-4ab3-a6df-74b2d5a878d2
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with myPolicies
 

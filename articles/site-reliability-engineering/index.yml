@@ -68,6 +68,8 @@ productDirectory:
            text: Books
          - url: resources/events.md
            text: Events
+         - url: articles/code.md
+           text: "FAQ: SRE and coding"
          - url: articles/devops.md
            text: "FAQ: SRE and DevOps"
          - url: resources/links.md
@@ -150,10 +152,6 @@ conceptualContent:
         - url: https://docs.microsoft.com/azure/azure-monitor/azure-monitor-app-hub
           itemType: get-started
           text: Application Performance Management with Application Insights
-
-        - url: https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing
-          itemType: get-started
-          text: Distributed Tracing with Azure Monitor
 
         - url: https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing
           itemType: get-started

@@ -1,18 +1,8 @@
 ---
 title: Diagnostics logs for Hybrid Connections
 description: This article provides an overview of all the activity and diagnostics logs that are available for Azure Relay. 
-services: service-bus-messaging
-author: spelluru
-editor: 
-
-ms.assetid:
-ms.service: service-bus-relay
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.date: 04/27/2020
-ms.author: spelluru
-
+ms.date: 06/23/2020
 ---
 # Enable diagnostics logs for Azure Relay Hybrid Connections
 When you start using your Azure Relay Hybrid Connections, you might want to monitor how and when your listeners and senders are opened and closed, and how your Hybrid Connections are created and messages are sent. This article provides an overview of activity and diagnostics logs provided by the Azure Relay service. 
@@ -50,7 +40,7 @@ To enable diagnostics logs, do the following steps:
         ![Sample diagnostic settings](./media/diagnostic-logs/sample-diagnostic-settings.png)
 1. Select **Save** on the toolbar to save the settings.
 
-The new settings take effect in about 10 minutes. The logs are displayed in the configured archival target, in the **Diagnostics logs** pane. For more information about configuring diagnostics settings, see the [overview of Azure diagnostics logs](../azure-monitor/platform/diagnostic-logs-overview.md).
+The new settings take effect in about 10 minutes. The logs are displayed in the configured archival target, in the **Diagnostics logs** pane. For more information about configuring diagnostics settings, see the [overview of Azure diagnostics logs](../azure-monitor/platform/platform-logs-overview.md).
 
 
 ## Schema for hybrid connections events

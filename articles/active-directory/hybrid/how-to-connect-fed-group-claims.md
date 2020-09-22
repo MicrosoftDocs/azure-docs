@@ -8,7 +8,7 @@ manager: daveba
 ms.subservice: hybrid
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
@@ -219,6 +219,6 @@ To emit group names to be returned in netbiosDomain\samAccountName format as the
 
 ## Next steps
 
-[Assign a user or group to an enterprise app](../../active-directory/manage-apps/assign-user-or-group-access-portal.md)
-
-[Configure role claims](../../active-directory/develop/active-directory-enterprise-app-role-management.md)
+- [Add authorization using groups & groups claims to an ASP.NET Core web app (Code sample)](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/5-WebApp-AuthZ/5-2-Groups/README.md)
+- [Assign a user or group to an enterprise app](../../active-directory/manage-apps/assign-user-or-group-access-portal.md)
+- [Configure role claims](../../active-directory/develop/active-directory-enterprise-app-role-management.md)

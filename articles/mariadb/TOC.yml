@@ -1,4 +1,4 @@
-- name: Azure DB for MariaDB Docs
+- name: Azure DB for MariaDB documentation
   href: index.yml
 - name: Overview
   items:
@@ -6,6 +6,10 @@
     href: overview.md
   - name: Which MariaDB option should I choose?
     href: select-right-deployment-type.md
+  - name: Service updates
+    items:
+    - name: SSL root certificate expiring
+      href: concepts-certificate-rotation.md
 - name: Quickstarts
   expanded: true
   items:
@@ -38,9 +42,6 @@
   items:
   - name: Azure CLI
     href: sample-scripts-azure-cli.md
-  - name: Azure Policy built-ins
-    displayName: samples, policies, definitions
-    href: ./policy-samples.md
 - name: Concepts
   items:
   - name: DB & Servers
@@ -75,6 +76,9 @@
       href: concepts-data-access-security-private-link.md
     - name: Advanced Threat Protection
       href: concepts-data-access-and-security-threat-protection.md
+    - name: Security controls by Azure Policy
+      displayName: regulatory, compliance, standards, domains
+      href: ./security-controls-policy.md
     - name: Security baseline
       href: security-baseline.md
   - name: Business continuity
@@ -112,6 +116,10 @@
       href: concepts-data-in-replication.md
     - name: Read replicas
       href: concepts-read-replicas.md
+  - name: Move between regions
+    items:
+    - name: Azure portal
+      href: howto-move-regions-portal.md
 - name: How-to guides
   items:
   - name: Manage a server
@@ -141,7 +149,11 @@
     - name: Create users
       href: howto-create-users.md
     - name: Connection strings
-      href: howto-connection-string.md
+      items:
+      - name: Connect applications
+        href: howto-connection-string.md
+      - name: Azure PowerShell
+        href: howto-connection-string-powershell.md
     - name: Configure SSL
       href: howto-configure-ssl.md
     - name: Configure TLS
@@ -236,6 +248,9 @@
     href: /azure/templates/microsoft.dbformariadb/allversions
   - name: Management stored procedures
     href: reference-stored-procedures.md
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
 - name: Resources
   items:
   - name: Deployment templates

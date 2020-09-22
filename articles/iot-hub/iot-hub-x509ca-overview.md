@@ -8,6 +8,7 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
+ms.custom: ['Role: Cloud Development', 'Role: IoT Device', 'Role: System Architecture']
 ---
 # Device Authentication using X.509 CA Certificates
 
@@ -17,6 +18,8 @@ This article describes how to use X.509 Certificate Authority (CA) certificates 
 * How to register the X.509 CA certificate to IoT Hub
 * How to sign devices using X.509 CA certificates
 * How devices signed with X.509 CA are authenticated
+
+[!INCLUDE [iot-hub-include-x509-ca-signed-support-note](../../includes/iot-hub-include-x509-ca-signed-support-note.md)]
 
 ## Overview
 

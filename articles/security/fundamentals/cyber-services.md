@@ -34,6 +34,6 @@ Learn more about services provided by Microsoft Services:
 * [Enhanced Security Administration Environment](https://download.microsoft.com/download/A/C/5/AC5D21A6-E04B-4DC4-B1F2-AE060319A4D7/Premier_Support_for_Security/Popis/Enhanced-Security-Admin-Environment-Solution-Datasheet-%5BEN%5D.pdf)
 * [Azure AD Implementation Services](https://download.microsoft.com/download/0/7/F/07FA8BFC-17D5-4F55-AD4F-3A987A7324AA/azure-active-directory-implementation-services-solution-brief.pdf)
 * [Securing Against Lateral Account Movement](https://docs.microsoft.com/azure-advanced-threat-protection/use-case-lateral-movement-path)
-* [Incident Response and Recovery](https://docs.microsoft.com/microsoft-365/compliance/gdpr-breach-microsoft-support-professional-services?view=o365-worldwide#data-protection-incident-response-overview)
+* [Incident Response and Recovery](/microsoft-365/compliance/gdpr-breach-microsoft-support-professional-services#data-protection-incident-response-overview)
 
 [Learn more](https://aka.ms/cyberserv) about Microsoft Services Security consulting services.

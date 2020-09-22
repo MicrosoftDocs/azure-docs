@@ -18,7 +18,8 @@ In this document, you'll learn how to quantitatively measure the quality of Micr
 
 ## What is Word Error Rate (WER)?
 
-The industry standard to measure model accuracy is *Word Error Rate* (WER). WER counts the number of incorrect words identified during recognition, then divides by the total number of words provided in the human-labeled transcript. Finally, that number is multiplied by 100% to calculate the WER.
+The industry standard to measure model accuracy is *Word Error Rate* (WER). WER counts the number of incorrect words identified during recognition, 
+then divides by the total number of words provided in the human-labeled transcript (shown below as N). Finally, that number is multiplied by 100% to calculate the WER.
 
 ![WER formula](./media/custom-speech/custom-speech-wer-formula.png)
 

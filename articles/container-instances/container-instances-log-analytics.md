@@ -2,8 +2,7 @@
 title: Collect & analyze resource logs
 description: Learn how to send resource logs and event data from container groups in Azure Container Instances to Azure Monitor logs
 ms.topic: article
-ms.date: 04/07/2020
-ms.author: danlep
+ms.date: 07/13/2020
 ---
 # Container group and instance logging with Azure Monitor logs
 
@@ -23,7 +22,7 @@ The following sections describe how to create a logging-enabled container group 
 To enable logging in your container instances, you need the following:
 
 * [Log Analytics workspace](../azure-monitor/learn/quick-create-workspace.md)
-* [Azure CLI](/cli/azure/install-azure-cli) (or [Cloud Shell](/azure/cloud-shell/overview))
+* [Azure CLI](/cli/azure/install-azure-cli) (or [Cloud Shell](../cloud-shell/overview.md))
 
 ## Get Log Analytics credentials
 
@@ -32,11 +31,10 @@ Azure Container Instances needs permission to send data to your Log Analytics wo
 To obtain the log analytics workspace ID and primary key:
 
 1. Navigate to your Log Analytics workspace in the Azure portal
-1. Under **Settings**, select **Advanced settings**
-1. Select **Connected Sources** > **Windows Servers** (or **Linux Servers**--the ID and keys are the same for both)
+1. Under **Settings**, select **Agents management**
 1. Take note of:
-   * **WORKSPACE ID**
-   * **PRIMARY KEY**
+   * **Workspace ID**
+   * **Primary key**
 
 ## Create container group
 
@@ -62,7 +60,7 @@ az container create \
 Use this method if you prefer to deploy container groups with YAML. The following YAML defines a container group with a single container. Copy the YAML into a new file, then replace `LOG_ANALYTICS_WORKSPACE_ID` and `LOG_ANALYTICS_WORKSPACE_KEY` with the values you obtained in the previous step. Save the file as **deploy-aci.yaml**.
 
 ```yaml
-apiVersion: 2018-10-01
+apiVersion: 2019-12-01
 location: eastus
 name: mycontainergroup001
 properties:
@@ -96,7 +94,9 @@ You should receive a response from Azure containing deployment details shortly a
 
 ## View logs
 
-After you've deployed the container group, it can take several minutes (up to 10) for the first log entries to appear in the Azure portal. To view the container group's logs in the `ContainerInstanceLog_CL` table:
+After you've deployed the container group, it can take several minutes (up to 10) for the first log entries to appear in the Azure portal. 
+
+To view the container group's logs in the `ContainerInstanceLog_CL` table:
 
 1. Navigate to your Log Analytics workspace in the Azure portal
 1. Under **General**, select **Logs**  
@@ -147,7 +147,7 @@ ContainerInstanceLog_CL
 
 For more information about querying logs and configuring alerts in Azure Monitor logs, see:
 
-* [Understanding log searches in Azure Monitor logs](../log-analytics/log-analytics-log-search.md)
+* [Understanding log searches in Azure Monitor logs](../azure-monitor/log-query/log-query-overview.md)
 * [Unified alerts in Azure Monitor](../azure-monitor/platform/alerts-overview.md)
 
 

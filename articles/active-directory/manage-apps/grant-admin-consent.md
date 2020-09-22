@@ -25,10 +25,14 @@ For more information on consenting to applications, see [Azure Active Directory 
 Granting tenant-wide admin consent requires you to sign in as [Global Administrator](../users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator), an [Application Administrator](../users-groups-roles/directory-assign-admin-roles.md#application-administrator), or a [Cloud Application Administrator](../users-groups-roles/directory-assign-admin-roles.md#cloud-application-administrator).
 
 > [!IMPORTANT]
-> When an application has been granted tenant-wide admin consent, all users will be able to sign in to the app unless it has been configured to require user assignment. To restrict which users can sign in to an application,  require user assignment and then assign users or groups to the application. For more information, see [Methods for assigning users and groups](methods-for-assigning-users-and-groups.md).
+> When an application has been granted tenant-wide admin consent, all users will be able to sign in to the app unless it has been configured to require user assignment. To restrict which users can sign in to an application, require user assignment and then assign users or groups to the application. For more information, see [Methods for assigning users and groups](methods-for-assigning-users-and-groups.md).
+>
+> The Global Administrator role is required in order to provide admin consent for application permissions to the Microsoft Graph API.
 
 > [!WARNING]
 > Granting tenant-wide admin consent to an application will grant the app and the app's publisher access to your organization's data. Carefully review the permissions the application is requesting before granting consent.
+>
+> The Global Administrator role is required in order to provide admin consent for application permissions to the Microsoft Graph API.
 
 ## Grant admin consent from the Azure portal
 
@@ -45,6 +49,9 @@ To grant tenant-wide admin consent to an app listed in **Enterprise applications
 5. Carefully review the permissions the application requires.
 6. If you agree with the permissions the application requires, grant consent. If not, click **Cancel** or close the window.
 
+> [!WARNING]
+> Granting tenant-wide admin consent through **Enterprise apps** will revoke any permissions which had previously been granted tenant-wide. Permissions which have previously been granted by users on their own behalf will not be affected. 
+
 ### Grant admin consent in App registrations
 
 For applications your organization has developed, or which are registered directly in your Azure AD tenant, you can also grant tenant-wide admin consent from **App registrations** in the Azure portal.
@@ -58,13 +65,18 @@ To grant tenant-wide admin consent from **App registrations**:
 5. Carefully review the permissions the application requires.
 6. If you agree with the permissions the application requires, grant consent. If not, click **Cancel** or close the window.
 
+> [!WARNING]
+> Granting tenant-wide admin consent through **App registrations** will revoke any permissions which had previously been granted tenant-wide. Permissions which have previously been granted by users on their own behalf will not be affected. 
+
 ## Construct the URL for granting tenant-wide admin consent
 
 When granting tenant-wide admin consent using either method described above, a window opens from the Azure portal to prompt for tenant-wide admin consent. If you know the client ID (also known as the application ID) of the application, you can build the same URL to grant tenant-wide admin consent.
 
 The tenant-wide admin consent URL follows the following format:
 
-    https://login.microsoftonline.com/{tenant-id}/adminconsent?client_id={client-id}
+```http
+https://login.microsoftonline.com/{tenant-id}/adminconsent?client_id={client-id}
+```
 
 where:
 
@@ -72,6 +84,9 @@ where:
 * `{tenant-id}` is your organization's tenant ID or any verified domain name.
 
 As always, carefully review the permissions an application requests before granting consent.
+
+> [!WARNING]
+> Granting tenant-wide admin consent through this URL will revoke any permissions which had previously been granted tenant-wide. Permissions which have previously been granted by users on their own behalf will not be affected. 
 
 ## Next steps
 

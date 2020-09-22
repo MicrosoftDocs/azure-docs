@@ -5,7 +5,7 @@ description: Learn how to configure per-site Web Application Firewall policies o
 services: web-application-firewall
 author: winthrop28
 ms.service: web-application-firewall
-ms.date: 01/24/2020
+ms.date: 09/16/2020
 ms.author: victorh
 ms.topic: conceptual
 ---
@@ -20,14 +20,13 @@ By applying WAF policies to a listener, you can configure WAF settings for indiv
 
 In this article, you learn how to:
 
-> [!div class="checklist"]
-> * Set up the network
-> * Create a WAF policy
-> * Create an application gateway with WAF enabled
-> * Apply the WAF policy globally, per-site, and per-URI
-> * Create a virtual machine scale set
-> * Create a storage account and configure diagnostics
-> * Test the application gateway
+* Set up the network
+* Create a WAF policy
+* Create an application gateway with WAF enabled
+* Apply the WAF policy globally, per-site, and per-URI (preview)
+* Create a virtual machine scale set
+* Create a storage account and configure diagnostics
+* Test the application gateway
 
 ![Web application firewall example](../media/tutorial-restrict-web-traffic-powershell/scenario-waf.png)
 
@@ -245,7 +244,7 @@ $appgw = New-AzApplicationGateway `
   -FirewallPolicy $wafPolicyGlobal
 ```
 
-### Apply a per-URI policy
+### Apply a per-URI policy (preview)
 
 To apply a per-URI policy, simply create a new policy and apply it to the path rule config. 
 

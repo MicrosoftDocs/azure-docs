@@ -4,8 +4,8 @@ description: Learn how to monitor the performance and availability of Azure Cosm
 author: bwren
 services: cosmos-db
 ms.service: cosmos-db
-ms.topic: conceptual
-ms.date: 05/20/2020
+ms.topic: how-to
+ms.date: 08/24/2020
 ms.author: bwren
 ms.custom: subject-monitoring 
 ---
@@ -18,7 +18,7 @@ You can monitor your data with client-side and server-side metrics. When using s
 
 * **Monitor from Azure Cosmos DB portal:** You can monitor with the metrics available within the **Metrics** tab of the Azure Cosmos account. The metrics on this tab include throughput, storage, availability, latency, consistency, and system level metrics. By default, these metrics have a retention period of 7 days. To learn more, see the [Monitoring data collected from Azure Cosmos DB](#monitoring-from-azure-cosmos-db) section of this article.
 
-* **Monitor with metrics in Azure monitor:** You can monitor the metrics of your Azure Cosmos account and create dashboards from the Azure Monitor. Azure Monitor collects the Azure Cosmos DB metrics by default, you don’t have configure anything explicitly. These metrics are collected with one-minute granularity, the granularity may vary based on the metric you choose. By default, these metrics have a retention period of 30 days. Most of the metrics that are available from the previous options are also available in these metrics. To learn more, see the [Analyze metric data](#analyze-metric-data) section of this article.
+* **Monitor with metrics in Azure monitor:** You can monitor the metrics of your Azure Cosmos account and create dashboards from the Azure Monitor. Azure Monitor collects the Azure Cosmos DB metrics by default, you don’t have configure anything explicitly. These metrics are collected with one-minute granularity, the granularity may vary based on the metric you choose. By default, these metrics have a retention period of 30 days. Most of the metrics that are available from the previous options are also available in these metrics. The dimension values for the metrics such as container name are case-insensitive. So you need to use case-insensitive comparison when doing string comparisons on these dimension values. To learn more, see the [Analyze metric data](#analyze-metric-data) section of this article.
 
 * **Monitor with diagnostic logs in Azure Monitor:** You can monitor the logs of your Azure Cosmos account and create dashboards from the Azure Monitor. Telemetry such as events and traces that occur at a second granularity are stored as logs. For example, if the throughput of a container is changes, the properties of a Cosmos account are changed these events are captures within the logs. You can analyze these logs by running queries on the gathered data. To learn more, see the [Analyze log data](#analyze-log-data) section of this article.
 
@@ -26,7 +26,7 @@ You can monitor your data with client-side and server-side metrics. When using s
 
 The following image shows different options available to monitor Azure Cosmos DB account through Azure portal:
 
-![Monitoring options available in Azure portal](media/monitor-cosmos-db/monitoring-options-portal.png)
+:::image type="content" source="media/monitor-cosmos-db/monitoring-options-portal.png" alt-text="Monitoring options available in Azure portal" border="false":::
 
 When using Azure Cosmos DB, at the client-side you can collect the details for request charge, activity ID, exception/stack trace information, HTTP status/sub-status code, diagnostic string to debug any issue that might occur. This information is also required if you need to reach out to the Azure Cosmos DB support team.  
 
@@ -57,7 +57,7 @@ Azure Cosmos DB collects the same kinds of monitoring data as other Azure resour
 
 The **Overview** page in the Azure portal for each Azure Cosmos database includes a brief view of the database usage including its request and hourly billing usage. This is useful information but only a small amount of the monitoring data available. Some of this data is collected automatically and available for analysis as soon as you create the database while you can enable additional data collection with some configuration.
 
-![Overview page](media/monitor-cosmos-db/overview-page.png)
+:::image type="content" source="media/monitor-cosmos-db/overview-page.png" alt-text="Overview page":::
 
 ## <a id="analyze-metric-data"></a> Analyzing metric data
 
@@ -77,27 +77,27 @@ You can analyze metrics for Azure Cosmos DB with metrics from other Azure servic
 
 1. Select **Monitor** from the left-hand navigation bar, and select **Metrics**.
 
-   ![Metrics pane in Azure Monitor](./media/monitor-cosmos-db/monitor-metrics-blade.png)
+   :::image type="content" source="./media/monitor-cosmos-db/monitor-metrics-blade.png" alt-text="Metrics pane in Azure Monitor":::
 
 1. From the **Metrics** pane > **Select a resource** > choose the required **subscription**, and **resource group**. For the **Resource type**, select **Azure Cosmos DB accounts**, choose one of your existing Azure Cosmos accounts, and select **Apply**.
 
-   ![Choose a Cosmos DB account to view metrics](./media/monitor-cosmos-db/select-cosmosdb-account.png)
+   :::image type="content" source="./media/monitor-cosmos-db/select-cosmosdb-account.png" alt-text="Choose a Cosmos DB account to view metrics":::
 
 1. Next you can select a metric from the list of available metrics. You can select metrics specific to request units, storage, latency, availability, Cassandra, and others. To learn in detail about all the available metrics in this list, see the [Metrics by category](monitor-cosmos-db-reference.md) article. In this example, let's select **Request units** and **Avg** as the aggregation value.
 
    In addition to these details, you can also select the **Time range** and **Time granularity** of the metrics. At max, you can view metrics for the past 30 days.  After you apply the filter, a chart is displayed based on your filter. You can see the average number of request units consumed per minute for the selected period.  
 
-   ![Choose a metric from the Azure portal](./media/monitor-cosmos-db/metric-types.png)
+   :::image type="content" source="./media/monitor-cosmos-db/metric-types.png" alt-text="Choose a metric from the Azure portal":::
 
 ### Add filters to metrics
 
 You can also filter metrics and the chart displayed by a specific **CollectionName**, **DatabaseName**, **OperationType**, **Region**, and **StatusCode**. To filter the metrics, select **Add filter** and choose the required property such as **OperationType** and select a value such as **Query**. The graph then displays the request units consumed for the query operation for the selected period. The operations executed via Stored procedure are not logged so they are not available under the OperationType metric.
 
-![Add a filter to select the metric granularity](./media/monitor-cosmos-db/add-metrics-filter.png)
+:::image type="content" source="./media/monitor-cosmos-db/add-metrics-filter.png" alt-text="Add a filter to select the metric granularity":::
 
 You can group metrics by using the **Apply splitting** option. For example, you can group the request units per operation type and view the graph for all the operations at once as shown in the following image:
 
-![Add apply splitting filter](./media/monitor-cosmos-db/apply-metrics-splitting.png)
+:::image type="content" source="./media/monitor-cosmos-db/apply-metrics-splitting.png" alt-text="Add apply splitting filter":::
 
 ## <a id="analyze-log-data"></a> Analyzing log data
 
@@ -152,11 +152,17 @@ The account level metrics available in the portal, such as account storage usage
 
 To access additional metrics, use the [Azure Monitor SDK](https://www.nuget.org/packages/Microsoft.Azure.Insights). Available metric definitions can be retrieved by calling:
 
-    https://management.azure.com/subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroup}/providers/Microsoft.DocumentDb/databaseAccounts/{DocumentDBAccountName}/metricDefinitions?api-version=2015-04-08
+```http
+https://management.azure.com/subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroup}/providers/Microsoft.DocumentDb/databaseAccounts/{DocumentDBAccountName}/providers/microsoft.insights/metricDefinitions?api-version=2018-01-01
+```
 
-Queries to retrieve individual metrics use the following format:
+To retrieve individual metrics use the following format:
 
-    https://management.azure.com/subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroup}/providers/Microsoft.DocumentDb/databaseAccounts/{DocumentDBAccountName}/metrics?api-version=2015-04-08&$filter=%28name.value%20eq%20%27Total%20Requests%27%29%20and%20timeGrain%20eq%20duration%27PT5M%27%20and%20startTime%20eq%202016-06-03T03%3A26%3A00.0000000Z%20and%20endTime%20eq%202016-06-10T03%3A26%3A00.0000000Z
+```http
+https://management.azure.com/subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroup}/providers/Microsoft.DocumentDb/databaseAccounts/{DocumentDBAccountName}/providers/microsoft.insights/metrics?timespan={StartTime}/{EndTime}&interval={AggregationInterval}&metricnames={MetricName}&aggregation={AggregationType}&`$filter={Filter}&api-version=2018-01-01
+```
+
+To learn more, see the [Azure monitoring REST API](../azure-monitor/platform/rest-api-walkthrough.md) article.
 
 ## Next steps
 

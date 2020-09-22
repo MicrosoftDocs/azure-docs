@@ -4,7 +4,7 @@ description: Learn how to log support request for issues related to your Import/
 services: storsimple
 author: alkohli
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/29/2018
 ms.author: alkohli
 ms.subservice: common
@@ -20,7 +20,7 @@ If you encounter any issues with your Import/Export service, you can create a se
 
 Perform the following steps to create a support request:
 
-1. Go to your import/export job. Navigate to **SUPPORT + TROUBLESHOOTING** section and then click **New support request**.
+1. Go to your import/export job. Navigate to **SUPPORT + TROUBLESHOOTING** section and then select **New support request**.
      
     ![Basics](./media/storage-import-export-contact-microsoft-support/import-export-support1.png)
    
@@ -35,7 +35,7 @@ Perform the following steps to create a support request:
             ![Choose Blob](./media/storage-import-export-contact-microsoft-support/import-export-support2.png)
         - If you choose **File**, select **Resource**, **File share names** (optional), and **Support plan**
             ![Choose File](./media/storage-import-export-contact-microsoft-support/import-export-support4.png)
-    4. Click **Next**.
+    4. Select **Next**.
 
 3. In **New support request**, select **Step 2 Problem**. In **Problem**, do the following steps:
     
@@ -44,22 +44,22 @@ Perform the following steps to create a support request:
     3. Choose the **Category** as **Import - Export**.
     4. Provide a **Title** for the issue and more **Details**.
     5. Provide the start date and time for the problem.
-    6. In the **File upload**, click the folder icon to browse any other files you want to upload.
+    6. In the **File upload**, select the folder icon to browse any other files you want to upload.
     7. Check **Share diagnostic information**.
-    8. Click **Next**.
+    8. Select **Next**.
 
        ![Problem](./media/storage-import-export-contact-microsoft-support/import-export-support5.png)
 
-4. In **New support request**, click **Step 3 Contact information**. In **Contact information**, do the following steps:
+4. In **New support request**, select **Step 3 Contact information**. In **Contact information**, do the following steps:
 
    1. In the **Contact options**, provide your preferred contact method (phone or email) and the language. The response time is automatically selected based on your subscription plan.
    2. In the Contact information, provide your name, email, optional contact, country/region. Select the **Save contact changes for future support requests** checkbox.
-   3. Click **Create**.
+   3. Select **Create**.
    
        ![Contact information](./media/storage-import-export-contact-microsoft-support/import-export-support7.png)   
 
       Microsoft Support will use this information to reach out to you for further information, diagnosis, and resolution.
-      After you have submitted your request, a Support engineer will contact you as soon as possible to proceed with your request.
+      After you've submitted your request, a Support engineer will contact you to continue with your request.
 
 ## Manage a support request
 
@@ -75,11 +75,11 @@ After creating a support ticket, you can manage the lifecycle of the ticket from
 
     ![Manage support requests](./media/storage-import-export-contact-microsoft-support/manage-support-ticket1.png) 
 
-3. Select and click a support request. You can view the status and the details for this request. Click **+ New message** if you want to follow up on this request.
+3. Select and click a support request. You can view the status and the details for this request. Select **+ New message** if you want to follow up on this request.
 
     ![Manage support requests](./media/storage-import-export-contact-microsoft-support/manage-support-ticket3.png) 
 
 
 ## Next steps
 
-Learn how to [Troubleshoot issues related to Import/Export service](storage-import-export-tool-troubleshooting-v1.md).
+Learn how to [Use the Azure Import/Export to transfer data to and from Azure Storage](storage-import-export-service.md).

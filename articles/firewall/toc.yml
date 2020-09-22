@@ -1,19 +1,9 @@
-- name: Azure Firewall Documentation
+- name: Azure Firewall documentation
   href: index.yml
 - name: Overview
   items:
   - name: What is Azure Firewall?
     href: overview.md
-- name: Tutorials
-  items:
-  - name: Deploy and configure
-    href: tutorial-firewall-deploy-portal.md
-  - name: Deploy in hybrid network
-    href: tutorial-hybrid-portal.md
-  - name: Filter inbound traffic with DNAT
-    href: tutorial-firewall-dnat.md
-  - name: Monitor diagnostic logs
-    href: tutorial-diagnostics.md
 - name: Quickstarts
   expanded: true
   items:
@@ -26,14 +16,22 @@
   - name: Deploy with Availability Zones - ARM template
     displayName: Resource Manager
     href: deploy-template.md
+- name: Tutorials
+  items:
+  - name: Deploy and configure
+    href: tutorial-firewall-deploy-portal.md
+  - name: Deploy in hybrid network
+    href: tutorial-hybrid-portal.md
+  - name: Filter inbound traffic with DNAT
+    href: tutorial-firewall-dnat.md
 - name: Samples
   items:
   - name: Azure PowerShell
     href: sample-powershell.md
-  - name: Azure Monitor logs
-    href: log-analytics-samples.md
 - name: Concepts
   items:
+    - name: Azure Firewall features
+      href: features.md
     - name: FQDN tags
       href: fqdn-tags.md
     - name: Infrastructure FQDNs
@@ -56,6 +54,10 @@
       href: central-management.md
     - name: Remote work support
       href: remote-work-support.md
+    - name: FQDN in network rules
+      href: fqdn-filtering-network-rules.md
+    - name: Security baseline
+      href: security-baseline.md
 - name: How-to guides
   items:
     - name: Deploy using Azure PowerShell
@@ -78,6 +80,16 @@
       href: create-ip-group.md
     - name: Protect Windows Virtual Desktop
       href: protect-windows-virtual-desktop.md
+    - name: Protect Azure Kubernetes Service (AKS)
+      href: protect-azure-kubernetes-service.md
+    - name: DNS settings
+      href: dns-settings.md
+    - name: Monitor diagnostic logs
+      href: firewall-diagnostics.md
+    - name: Azure Monitor logs
+      href: log-analytics-samples.md
+    - name: Azure Firewall Workbook
+      href: firewall-workbook.md
 - name: Reference
   items:
   - name: Azure CLI

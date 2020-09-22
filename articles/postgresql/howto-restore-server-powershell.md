@@ -5,8 +5,9 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurepowershell
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/08/2020
+ms.custom: devx-track-azurepowershell
 ---
 # How to back up and restore an Azure Database for PostgreSQL server using PowerShell
 
@@ -163,4 +164,4 @@ original server are restored.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Customize Azure Database for PostgreSQL server parameters using PowerShell](howto-configure-server-parameters-using-powershell.md)
+> [How to generate an Azure Database for PostgreSQL connection string with PowerShell](howto-connection-string-powershell.md)

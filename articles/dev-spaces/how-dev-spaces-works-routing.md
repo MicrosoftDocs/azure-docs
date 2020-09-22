@@ -44,7 +44,7 @@ All other TCP traffic that is not HTTP passes through the Ingress controller and
 
 ## Sharing a dev space
 
-When working with a team, you can [share a dev space across an entire team](how-to/share-dev-spaces.md) and create derived dev spaces. A dev space can be used by anyone with contributor access to the dev space's resource group.
+When working with a team, you can share a dev space across an entire team and create derived dev spaces. A dev space can be used by anyone with contributor access to the dev space's resource group.
 
 You can also create a new dev space that is derived from another dev space. When you create a derived dev space, the *azds.io/parent-space=PARENT-SPACE-NAME* label is added to the derived dev space's namespace. Also, all applications from the parent dev space are shared with the derived dev space. If you deploy an updated version of an application to the derived dev space, it will only exist in the derived dev space and the parent dev space will remain unaffected. You can have a maximum of three levels of derived dev spaces or *grandparent* spaces.
 
@@ -59,13 +59,7 @@ When using *azureuser*, all requests to *serviceA* will be routed to the updated
 
 ## Next steps
 
-To see some examples of how Azure Dev Spaces uses routing to provide rapid iteration and development, see [How Local Process with Kubernetes works][how-it-works-local-process-kubernetes], [How remote debugging your code with Azure Dev Spaces works][how-it-works-remote-debugging], and [GitHub Actions & Azure Kubernetes Service][pr-flow].
+To see an example of how Azure Dev Spaces uses routing to provide rapid iteration and development, see [How remote debugging your code with Azure Dev Spaces works][how-it-works-remote-debugging].
 
-To get started using routing with Azure Dev Spaces for team development, see the [team development in Azure Dev Spaces][quickstart-team] quickstart.
 
-[helm-upgrade]: https://helm.sh/docs/intro/using_helm/#helm-upgrade-and-helm-rollback-upgrading-a-release-and-recovering-on-failure
-[how-it-works-local-process-kubernetes]: how-dev-spaces-works-local-process-kubernetes.md
 [how-it-works-remote-debugging]: how-dev-spaces-works-remote-debugging.md
-[pr-flow]: how-to/github-actions.md
-[quickstart-team]: quickstart-team-development.md
-[troubleshooting]: troubleshooting.md

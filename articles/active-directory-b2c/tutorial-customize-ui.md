@@ -1,15 +1,15 @@
 ---
 title: "Tutorial: Customize the user interface"
 titleSuffix: Azure AD B2C
-description: Learn how to customize the user interface (UI) of your applications in Azure Active Directory B2C by using the Azure portal.
+description: Follow this tutorial to learn how to customize the user interface (UI) of your applications in Azure Active Directory B2C by using the Azure portal.
 services: B2C
 author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 05/11/2020
+ms.topic: tutorial
+ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -135,7 +135,7 @@ In this tutorial, you store the files that you created in the storage account so
 ## Update the user flow
 
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
-2. Select **User flows (policies)**, and then select the *B2C_1_signupsignin1* user flow.
+2. Select **User flows**, and then select the *B2C_1_signupsignin1* user flow.
 3. Select **Page layouts**, and then under **Unified sign-up or sign-in page**, click **Yes** for **Use custom page content**.
 4. In **Custom page URI**, enter the URI for the *custom-ui.html* file that you recorded earlier.
 5. At the top of the page, select **Save**.

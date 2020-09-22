@@ -27,7 +27,7 @@ Because importing PowerShell modules is a complex, multistep process, a module m
 
 #### Resolution
 
-To resolve this issue, you must remove the module that is stuck by using the [Remove-AzAutomationModule](https://docs.microsoft.com/powershell/module/Az.Automation/Remove-AzAutomationModule?view=azps-3.7.0) cmdlet. You can then retry importing the module.
+To resolve this issue, you must remove the module that is stuck by using the [Remove-AzAutomationModule](/powershell/module/Az.Automation/Remove-AzAutomationModule?view=azps-3.7.0) cmdlet. You can then retry importing the module.
 
 ```azurepowershell-interactive
 Remove-AzAutomationModule -Name ModuleName -ResourceGroupName ExampleResourceGroup -AutomationAccountName ExampleAutomationAccount -Force
@@ -64,7 +64,7 @@ Some common reasons that a module might not successfully import to Azure Automat
 * The structure doesn't match the structure that Automation needs.
 * The module depends on another module that hasn't been deployed to your Automation account.
 * The module is missing its dependencies in the folder.
-* The [New-AzAutomationModule](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationModule?view=azps-3.7.0) cmdlet is being used to upload the module, and you haven't provided the full storage path or haven't loaded the module by using a publicly accessible URL.
+* The [New-AzAutomationModule](/powershell/module/Az.Automation/New-AzAutomationModule?view=azps-3.7.0) cmdlet is being used to upload the module, and you haven't provided the full storage path or haven't loaded the module by using a publicly accessible URL.
 
 #### Resolution
 

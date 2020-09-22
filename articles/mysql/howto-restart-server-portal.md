@@ -4,7 +4,7 @@ description: This article describes how you can restart an Azure Database for My
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 3/18/2020
 ---
 
@@ -27,19 +27,19 @@ The following steps restart the MySQL server:
 
 2. In the toolbar of the server's **Overview** page, click **Restart**.
 
-   ![Azure Database for MySQL - Overview - Restart button](./media/howto-restart-server-portal/2-server.png)
+   :::image type="content" source="./media/howto-restart-server-portal/2-server.png" alt-text="Azure Database for MySQL - Overview - Restart button":::
 
 3. Click **Yes** to confirm restarting the server.
 
-   ![Azure Database for MySQL - Restart confirm](./media/howto-restart-server-portal/3-restart-confirm.png)
+   :::image type="content" source="./media/howto-restart-server-portal/3-restart-confirm.png" alt-text="Azure Database for MySQL - Restart confirm":::
 
 4. Observe that the server status changes to "Restarting".
 
-   ![Azure Database for MySQL - Restart status](./media/howto-restart-server-portal/4-restarting-status.png)
+   :::image type="content" source="./media/howto-restart-server-portal/4-restarting-status.png" alt-text="Azure Database for MySQL - Restart status":::
 
 5. Confirm server restart is successful.
 
-   ![Azure Database for MySQL - Restart success](./media/howto-restart-server-portal/5-restart-success.png)
+   :::image type="content" source="./media/howto-restart-server-portal/5-restart-success.png" alt-text="Azure Database for MySQL - Restart success":::
 
 ## Next steps
 

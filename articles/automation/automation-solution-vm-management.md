@@ -3,14 +3,14 @@ title: Azure Automation Start/Stop VMs during off-hours overview
 description: This article describes the Start/Stop VMs during off-hours feature, which starts or stops VMs on a schedule and proactively monitors them from Azure Monitor logs.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/04/2020
+ms.date: 09/22/2020
 ms.topic: conceptual
 ---
 # Start/Stop VMs during off-hours overview
 
 The Start/Stop VMs during off-hours feature start or stops enabled Azure VMs. It starts or stops machines on user-defined schedules, provides insights through Azure Monitor logs, and sends optional emails by using [action groups](../azure-monitor/platform/action-groups.md). The feature can be enabled on both Azure Resource Manager and classic VMs for most scenarios. 
 
-This feature uses [Start-AzVm](https://docs.microsoft.com/powershell/module/az.compute/start-azvm) cmdlet to start VMs. It uses [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) for stopping VMs.
+This feature uses [Start-AzVm](/powershell/module/az.compute/start-azvm) cmdlet to start VMs. It uses [Stop-AzVM](/powershell/module/az.compute/stop-azvm) for stopping VMs.
 
 > [!NOTE]
 > While the runbooks have been updated to use the new Azure Az module cmdlets, they use the AzureRM prefix alias.
@@ -31,19 +31,21 @@ The following are limitations with the current feature:
 
 ## Prerequisites
 
-The runbooks for the Start/Stop VMs during off hours feature work with an [Azure Run As account](automation-create-runas-account.md). The Run As account is the preferred authentication method because it uses certificate authentication instead of a password that might expire or change frequently.
+- The runbooks for the Start/Stop VMs during off hours feature work with an [Azure Run As account](./manage-runas-account.md). The Run As account is the preferred authentication method because it uses certificate authentication instead of a password that might expire or change frequently.
 
-We recommend that you use a separate Automation account for working with VMs enabled for the Start/Stop VMs during off-hours feature. Azure module versions are frequently upgraded, and their parameters might change. The feature isn't upgraded on the same cadence and it might not work with newer versions of the cmdlets that it uses. You're recommended to test module updates in a test Automation account before importing them into your production Automation account(s).
+- The linked Automation account and Log Analytics workspace need to be in the same resource group.
+
+- We recommend that you use a separate Automation account for working with VMs enabled for the Start/Stop VMs during off-hours feature. Azure module versions are frequently upgraded, and their parameters might change. The feature isn't upgraded on the same cadence and it might not work with newer versions of the cmdlets that it uses. You're recommended to test module updates in a test Automation account before importing them into your production Automation account(s).
 
 ## Permissions
 
-You must have certain permissions to enable VMs for the Start/Stop VMs during off-hours feature. The permissions are different depending on whether the feature uses a pre-created Automation account and Log Analytics workspace or creates a new account and workspace. 
+You must have certain permissions to enable VMs for the Start/Stop VMs during off-hours feature. The permissions are different depending on whether the feature uses a pre-created Automation account and Log Analytics workspace or creates a new account and workspace.
 
 You don't need to configure permissions if you're a Contributor on the subscription and a Global Administrator in your Azure Active Directory (AD) tenant. If you don't have these rights or need to configure a custom role, make sure that you have the permissions described below.
 
 ### Permissions for pre-existing Automation account and Log Analytics workspace
 
-To enable VMs for the Start/Stop VMs during off-hours feature using an existing Automation account and Log Analytics workspace, you need the following permissions on the Resource Group scope. To learn more about roles, see [Custom roles for Azure resources](../role-based-access-control/custom-roles.md).
+To enable VMs for the Start/Stop VMs during off-hours feature using an existing Automation account and Log Analytics workspace, you need the following permissions on the Resource Group scope. To learn more about roles, see [Azure custom roles](../role-based-access-control/custom-roles.md).
 
 | Permission | Scope|
 | --- | --- |
@@ -116,7 +118,7 @@ All parent runbooks include the `WhatIf` parameter. When set to True, the parame
 The following table lists the variables created in your Automation account. Only modify variables prefixed with `External`. Modifying variables prefixed with `Internal` causes undesirable effects.
 
 > [!NOTE]
-> Limitations on VM name and resource group are largely a result of variable size. See [Variable assets in Azure Automation](https://docs.microsoft.com/azure/automation/shared-resources/variables).
+> Limitations on VM name and resource group are largely a result of variable size. See [Variable assets in Azure Automation](./shared-resources/variables.md).
 
 |Variable | Description|
 |---------|------------|
@@ -171,7 +173,7 @@ If you have more than 20 VMs per cloud service, here are some recommendations:
 
 Otherwise, if the Automation job for this feature runs more than three hours, it's temporarily unloaded or stopped per the [fair share](automation-runbook-execution.md#fair-share) limit.
 
-Azure CSP subscriptions support only the Azure Resource Manager model. Non-Azure Resource Manager services are not available in the program. When the Start/Stop VMs during off-hours feature runs, you might receive errors since it has cmdlets to manage classic resources. To learn more about CSP, see [Available services in CSP subscriptions](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services). If you use a CSP subscription, you should set the [External_EnableClassicVMs](#variables) variable to False after deployment.
+Azure CSP subscriptions support only the Azure Resource Manager model. Non-Azure Resource Manager services are not available in the program. When the Start/Stop VMs during off-hours feature runs, you might receive errors since it has cmdlets to manage classic resources. To learn more about CSP, see [Available services in CSP subscriptions](/azure/cloud-solution-provider/overview/azure-csp-available-services). If you use a CSP subscription, you should set the [External_EnableClassicVMs](#variables) variable to False after deployment.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 

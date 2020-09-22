@@ -1,5 +1,5 @@
 ---
-title: Bing Autosuggest C# client library quickstart 
+title: Bing Autosuggest C# client library quickstart
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
@@ -18,7 +18,7 @@ Use the Bing Autosuggest client library for .NET to get search suggestions based
 
 ## Prerequisites
 
-* An Azure subscription. If you don't already have an Azure subscription, [you can create one for free](https://azure.microsoft.com/free/).
+* An Azure subscription. If you don't already have an Azure subscription, [you can create one for free](https://azure.microsoft.com/free/cognitive-services).
 * The current version of [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
 
 [!INCLUDE [cognitive-services-bing-autosuggest-signup-requirements](~/includes/cognitive-services-bing-autosuggest-signup-requirements.md)]
@@ -26,12 +26,12 @@ Use the Bing Autosuggest client library for .NET to get search suggestions based
 ## Create environment variables
 
 >[!NOTE]
-> The endpoints for non-trial resources created after July 1, 2019 use the custom subdomain format shown below. For more information and a complete list of regional endpoints, see [Custom subdomain names for Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains). 
+> The endpoints for resources created after July 1, 2019 use the custom subdomain format shown below. For more information and a complete list of regional endpoints, see [Custom subdomain names for Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains).
 
 Using your key and endpoint from the resource you created, create two environment variables for authentication:
 <!-- replace the below variable names with the names expected in the code sample.-->
 * `AUTOSUGGEST_SUBSCRIPTION_KEY`: The resource key for authenticating your requests.
-* `AUTOSUGGEST_ENDPOINT`: The resource endpoint for sending API requests. It should look like this: `https://<your-custom-subdomain>.api.cognitive.microsoft.com`. 
+* `AUTOSUGGEST_ENDPOINT`: The resource endpoint for sending API requests. It should look like this: `https://<your-custom-subdomain>.api.cognitive.microsoft.com`.
 
 Use the instructions for your operating system.
 <!-- replace the below endpoint and key examples -->
@@ -67,9 +67,9 @@ After you add the environment variable, run `source .bash_profile` from your con
 
 ## Create a new C# application
 
-Create a new .NET Core application in your preferred editor or IDE. 
+Create a new .NET Core application in your preferred editor or IDE.
 
-In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `bing-autosuggest-quickstart`. This command creates a simple "Hello World" C# project with a single source file: *program.cs*. 
+In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `bing-autosuggest-quickstart`. This command creates a simple "Hello World" C# project with a single source file: *program.cs*.
 
 ```console
 dotnet new console -n bing-autosuggest-quickstart
@@ -81,7 +81,7 @@ Change your directory to the newly created app folder. You can build the applica
 dotnet build
 ```
 
-The build output should contain no warnings or errors. 
+The build output should contain no warnings or errors.
 
 ```console
 ...

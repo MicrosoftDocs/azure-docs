@@ -9,7 +9,8 @@ ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto
-ms.date: 10/07/2019
+ms.date: 10/07/2019 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Azure SQL Managed Instance connection types
@@ -39,7 +40,12 @@ In the proxy connection type, the TCP session is established using the gateway a
 
 ![proxy.png](./media/connection-types-overview/proxy.png)
 
-## Script to change connection type settings using PowerShell
+## Changing Connection Type
+
+- **Using the Portal:**
+To change the Connection Type using the Azure portal,open the Virtual Network page and use the **Connection type** setting to change the connection type and save the changes.
+
+- **Script to change connection type settings using PowerShell:**
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

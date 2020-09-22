@@ -22,7 +22,7 @@
     href: create-blueprint-rest-api.md
   - name: Create a blueprint - ARM template
     displayName: assign, compliance, resource manager
-    href: ../../azure-resource-manager/templates/deploy-to-subscription.md??toc=/azure/governance/blueprints/toc.json&bc=/azure/governance/blueprints/breadcrumb/toc.json
+    href: ../../azure-resource-manager/templates/deploy-to-subscription.md?toc=/azure/governance/blueprints/toc.json&bc=/azure/governance/blueprints/breadcrumb/toc.json#azure-blueprints
 - name: Tutorials
   items:
   - name: Create from a blueprint sample
@@ -41,9 +41,15 @@
     href: ./samples/azure-security-benchmark.md
   - name: Australian Government ISM PROTECTED
     items:
+    - name: Overview
+      displayName: standards, Australian, Government, ISM, PROTECTED
+      href: ./samples/ism-protected/index.md
     - name: Control mapping
       displayName: standards, Australian, Government, ISM, PROTECTED
       href: ./samples/ism-protected/control-mapping.md
+    - name: Steps to deploy
+      displayName: standards, Australian, Government, ISM, PROTECTED
+      href: ./samples/ism-protected/deploy.md
   - name: Canada Federal PBMM
     items:
     - name: Overview
@@ -69,6 +75,17 @@
     - name: Steps to deploy
       displayName: standards, DoD, IL4
       href: ./samples/dod-impact-level-4/deploy.md
+  - name: DoD Impact Level 5
+    items:
+    - name: Overview
+      displayName: standards, DoD, IL5
+      href: ./samples/dod-impact-level-5/index.md
+    - name: Control mapping
+      displayName: standards, DoD, IL5
+      href: ./samples/dod-impact-level-5/control-mapping.md
+    - name: Steps to deploy
+      displayName: standards, DoD, IL5
+      href: ./samples/dod-impact-level-5/deploy.md
   - name: FedRAMP Moderate
     items:
     - name: Overview
@@ -91,17 +108,9 @@
     - name: Steps to deploy
       displayName: standards, fedramp, high
       href: ./samples/fedramp-h/deploy.md
-  - name: HIPAA HITRUST
-    items:
-    - name: Overview
-      displayName: standards, HIPAA HITRUST
-      href: ./samples/HIPAA-HITRUST/index.md
-    - name: Control mapping
-      displayName: standards, HIPAA HITRUST
-      href: ./samples/HIPAA-HITRUST/control-mapping.md
-    - name: Steps to deploy
-      displayName: standards, HIPAA HITRUST
-      href: ./samples/HIPAA-HITRUST/deploy.md
+  - name: HIPAA HITRUST 9.2
+    displayName: standards, HIPAA HITRUST
+    href: ./samples/hipaa-hitrust-9-2.md
   - name: IRS 1075
     items:
     - name: Overview
@@ -160,6 +169,9 @@
   - name: NIST SP 800-53 R4
     displayName: standards, nist, 800-53, rev 4
     href: ./samples/nist-sp-800-53-r4.md
+  - name: NIST SP 800-171 R2
+    displayName: standards, nist, 800-171, rev 2
+    href: ./samples/nist-sp-800-171-r2.md
   - name: PCI-DSS v3.2.1
     items:
     - name: Overview

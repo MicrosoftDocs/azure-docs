@@ -1,6 +1,6 @@
 ---
 title: Tutorial to copy data to Azure Data Box Disk| Microsoft Docs
-description: Use this tutorial to learn how to copy data to your Azure Data Box Disk
+description: In this tutorial, learn how to copy data from your host computer to Azure Data Box Disk and then generate checksums to verify data integrity.
 services: databox
 author: alkohli
 
@@ -270,7 +270,7 @@ After the data copy is complete, you can proceed to validate your data. If you u
 
 If you did not use the Split Copy tool to copy data, you will need to validate your data. To verify the data, perform the following steps.
 
-1. Run the `DataBoxDiskValidation.cmd` for checksum validation in the *DataBoxDiskImport* folder of your drive.
+1. Run the `DataBoxDiskValidation.cmd` for checksum validation in the *DataBoxDiskImport* folder of your drive. This is available for Windows environment only. Linux users need to validate that the source data that is copied to the disk meets the [prerequisites](https://docs.microsoft.com/azure/databox/data-box-disk-limits).
     
     ![Data Box Disk validation tool output](media/data-box-disk-deploy-copy-data/data-box-disk-validation-tool-output.png)
 

@@ -38,7 +38,7 @@ SaaS applications you develop have access to a vast amount of tenant data stored
 
 Accessing the data for all tenants is simple when all the data is in just one multi-tenant database. But the access is more complex when distributed at scale across thousands of databases. One way to tame the complexity is to extract the data to an analytics database or a data warehouse. You then query the data warehouse to gather insights from the tickets data of all tenants.
 
-This tutorial presents a complete analytics scenario for this sample SaaS application. First, elastic jobs are used to schedule the extraction of data from each tenant database. The data is sent to an analytics store. The analytics store could either be an SQL Database or a SQL Data Warehouse. For large-scale data extraction, [Azure Data Factory](../../data-factory/introduction.md) is commended.
+This tutorial presents a complete analytics scenario for this sample SaaS application. First, elastic jobs are used to schedule the extraction of data from each tenant database. The data is sent to an analytics store. The analytics store could either be an SQL Database or a Azure Synapse Analytics (formerly SQL Data Warehouse). For large-scale data extraction, [Azure Data Factory](../../data-factory/introduction.md) is commended.
 
 Next, the aggregated data is shredded into a set of [star-schema](https://www.wikipedia.org/wiki/Star_schema) tables. The tables consist of a central fact table plus related dimension tables:
 
@@ -84,8 +84,8 @@ Often there are numerous transactional sharded databases that together hold all 
 In the following steps, you deploy the analytics store, which is called **tenantanalytics**. You also deploy predefined tables that are populated later in the tutorial:
 1. In PowerShell ISE, open *…\Learning Modules\Operational Analytics\Tenant Analytics\Demo-TenantAnalytics.ps1* 
 2. Set the $DemoScenario variable in the script to match your choice of analytics store. For learning purposes, using the database without columnstore is recommended.
-    - To use SQL database without columnstore, set **$DemoScenario** = **2**
-    - To use SQL database with columnstore, set **$DemoScenario** = **3**  
+    - To use SQL Database without columnstore, set **$DemoScenario** = **2**
+    - To use SQL Database with columnstore, set **$DemoScenario** = **3**  
 3. Press **F5** to run the demo script (that calls the *Deploy-TenantAnalytics\<XX>.ps1* script) which creates the tenant analytics store. 
 
 Now that you have deployed the application and filled it with interesting tenant data, use [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) to connect **tenants1-mt-\<User\>** and **catalog-mt-\<User\>** servers using Login = *developer*, Password = *P\@ssword1*.

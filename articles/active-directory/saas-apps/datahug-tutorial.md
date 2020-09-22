@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Datahug | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Datahug.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 5c0dc1ea-7ff4-4554-b60b-0f2fa9f5abaa
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Datahug
 
@@ -116,7 +109,7 @@ To configure Azure AD single sign-on with Datahug, perform the following steps:
     `https://apps.datahug.com/`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Datahug Client support team](https://datahug.com/about/contact-us/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Datahug Client support team](https://www.sap.com/corporate/en/company/office-locations.html) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 6. On the **Set-up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
@@ -146,7 +139,7 @@ To configure Azure AD single sign-on with Datahug, perform the following steps:
 
 ### Configure Datahug Single Sign-On
 
-To configure single sign-on on **Datahug** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Datahug support team](https://datahug.com/about/contact-us/). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Datahug** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Datahug support team](https://www.sap.com/corporate/en/company/office-locations.html). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user 
 

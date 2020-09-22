@@ -5,7 +5,7 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/29/2020
 ---
@@ -248,7 +248,7 @@ The return value is similar to one of the following examples:
     The return value is similar to `/clusters/CLUSTERNAME/`. This value is a path within the Data Lake Storage account. This path is the root of the HDFS compatible file system for the cluster.  
 
 > [!NOTE]  
-> The [Get-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightcluster) cmdlet provided by [Azure PowerShell](/powershell/azure/overview) also returns the storage information for the cluster.
+> The [Get-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightcluster) cmdlet provided by [Azure PowerShell](/powershell/azure/) also returns the storage information for the cluster.
 
 ### Get all configurations
 
@@ -359,7 +359,9 @@ This example returns a JSON document containing the current configuration for th
 2. Edit `newconfig.json`.  
    Open the `newconfig.json` document and modify/add values in the `properties` object. The following example changes the value of `"livy.server.csrf_protection.enabled"` from `"true"` to `"false"`.
 
-        "livy.server.csrf_protection.enabled": "false",
+    ```json
+    "livy.server.csrf_protection.enabled": "false",
+    ```
 
     Save the file once you're done making modifications.
 

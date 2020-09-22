@@ -8,7 +8,7 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 12/26/2018
-ms.custom: tracking-python
+ms.custom: devx-track-python
 
 ---
 # Quickstart: Build a Python app using Azure Cosmos DB's API for MongoDB

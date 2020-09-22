@@ -5,7 +5,7 @@ services: active-directory
 author: CelesteDG
 manager: daveba
 ms.service: active-directory
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 06/05/2020
@@ -23,7 +23,7 @@ The following diagram shows the user sign-in flow for a managed tenant and feder
 :::image type="content" source="./media/keep-me-signed-in/kmsi-workflow.png" alt-text="Diagram showing the user sign-in flow for a managed vs. federated tenant":::
 
 > [!NOTE]
-> Configuring the keep me signed in option requires you to use Azure Active Directory (Azure AD) Premium 1, Premium 2, or Basic editions, or to have an Office 365 license. For more information about licensing and editions, see [Sign up for Azure AD Premium](active-directory-get-started-premium.md).<br><br>Azure AD Premium and Basic editions are available for customers in China using the worldwide instance of Azure AD. Azure AD Premium and Basic editions aren't currently supported in the Azure service operated by 21Vianet in China. For more information, talk to us using the [Azure AD Forum](https://feedback.azure.com/forums/169401-azure-active-directory/).
+> Configuring the keep me signed in option requires you to use Azure Active Directory (Azure AD) Premium 1, Premium 2, or Basic editions, or to have a Microsoft 365 license. For more information about licensing and editions, see [Sign up for Azure AD Premium](active-directory-get-started-premium.md).<br><br>Azure AD Premium and Basic editions are available for customers in China using the worldwide instance of Azure AD. Azure AD Premium and Basic editions aren't currently supported in the Azure service operated by 21Vianet in China. For more information, talk to us using the [Azure AD Forum](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 ## Configure KMSI
 
@@ -50,12 +50,23 @@ Details about the sign-in error are as follows and highlighted in the example.
 
 :::image type="content" source="./media/keep-me-signed-in/kmsi-sign-ins-log-entry.png" alt-text="Example sign-in log entry with the keep me signed in interrupt":::
 
-You can stop users from seeing the interrupt by setting the **Show option to remain signed in** setting to **No** in the advanced branding settings.
+You can stop users from seeing the interrupt by setting the **Show option to remain signed in** setting to **No** in the advanced branding settings. This disables the KMSI prompt for all users in your Azure AD directory.
+
+You also can use the persistent browser session controls in conditional access to prevent users from seen the KMSI prompt. This option allows you to disable the KMSI prompt for a select group of users (such as the global administrators) without affecting sign-in behavior for the remaining users in the directory. For more information, see [User sign-in frequency](../conditional-access/howto-conditional-access-session-lifetime.md). 
+
+To ensure that the KMSI prompt is shown only when it can benefit the user, the KMSI prompt is intentionally not shown in the following scenarios:
+
+* User is signed in via seamless SSO and Integrated Windows Authentication (IWA)
+* User is signed in via Active Directory Federation Services and IWA
+* User is a guest in the tenant
+* User's risk score is high
+* Sign-in occurs during user or admin consent flow
+* Persistent browser session control is configured in a conditional access policy
 
 ## Next steps
 
 Learn about other settings that affect sign-in session timeout:
 
-* Office 365 – [Idle session timeout](https://docs.microsoft.com/sharepoint/sign-out-inactive-users)
-* Azure AD Conditional Access - [User sign-in frequency](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime)
-* Azure portal – [Directory-level inactivity timeout](https://docs.microsoft.com/azure/azure-portal/admin-timeout)
+* Microsoft 365 – [Idle session timeout](/sharepoint/sign-out-inactive-users)
+* Azure AD Conditional Access - [User sign-in frequency](../conditional-access/howto-conditional-access-session-lifetime.md)
+* Azure portal – [Directory-level inactivity timeout](../../azure-portal/set-preferences.md#change-the-directory-timeout-setting-admin)

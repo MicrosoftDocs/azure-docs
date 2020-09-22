@@ -7,6 +7,7 @@ ms.date: 05/21/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
+ms.custom: device-developer
 ---
 
 # What are device templates?
@@ -23,6 +24,9 @@ A device template includes the following sections:
 - _Cloud properties_. This part of the device template lets the solution developer specify any device metadata to store. Cloud properties are never synchronized with devices and only exist in the application. Cloud properties don't affect the code that a device developer writes to implement the DCM.
 - _Customizations_. This part of the device template lets the solution developer override some of the definitions in the DCM. Customizations are useful if the solution developer wants to refine how the application handles a value, such as changing the display name for a property or the color used to display a telemetry value. Customizations don't affect the code that a device developer writes to implement the DCM.
 - _Views_. This part of the device template lets the solution developer define visualizations to view data from the device, and forms to manage and control a device. The views use the DCM, cloud properties, and customizations. Views don't affect the code that a device developer writes to implement the DCM.
+
+> [!NOTE]
+> The [IoT Plug and Play public preview refresh release](../../iot-pnp/overview-iot-plug-and-play.md) targets device developers and OEMs to begin building devices they can certify for IoT Plug and Play ahead of the GA launch.
 
 ## Device capability models
 
@@ -216,6 +220,6 @@ The telemetry, properties, and commands that you can add to a view are determine
 
 ## Next steps
 
-As a device developer, now that you've learned about device templates, a suggested next steps is to read [Get connected to Azure IoT Central](./concepts-get-connected.md) to learn more about how to register devices with IoT Central and how IoT Central secures device connections.
+As a device developer, now that you've learned about device templates, a suggested next steps is to read [Telemetry, property, and command payloads](./concepts-telemetry-properties-commands.md) to learn more about the data a device exchanges with IoT Central.
 
 As a solution developer, a suggested next step is to read [Define a new IoT device type in your Azure IoT Central application](./howto-set-up-template.md) to learn more about how to create a device template.

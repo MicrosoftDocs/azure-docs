@@ -1,8 +1,8 @@
 ---
 title:  Add an Open Geospatial Consortium (OGC) map layer | Microsoft Azure Maps
 description: Learn how to overlay an OGC map layer on the map, and how to use the different options in the OgcMapLayer class.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: azure-maps
@@ -23,7 +23,7 @@ The following sections outline the web map service features that are supported b
 - GetFeatureInfo requires the service to support `EPSG:4326` or handle reprojections. 
 - Supported operations:
 
-    | | |
+    | Operation | Description |
     | :-- | :-- |
     | GetCapabilities | Retrieves metadata about the service with the supported capabilities |
     | GetMap | Retrieves a map image for a specified region |
@@ -37,7 +37,7 @@ The following sections outline the web map service features that are supported b
 - TileMatrix identifier must be an integer value that corresponds to a zoom level on the map. On an azure map, the zoom level is a value between `"0"` and `"22"`. So, `"0"` is supported, but `"00"` isn't supported.
 - Supported operations:
 
-    | | |
+    | Operation | Description |
     | :-- | :-- |
     | GetCapabilities | Retrieves the supported operations and features |
     | GetTile | Retrieves imagery for a particular tile |

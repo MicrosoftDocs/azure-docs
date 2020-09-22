@@ -33,5 +33,5 @@ This article lists the common boot errors that you may receive when you start a 
 ## Next steps
 
 - [Boot diagnostics](boot-diagnostics.md)
-- [VM Serial Console](../windows/serial-console.md)
-- [Troubleshoot a Windows VM by attaching the OS disk to a recovery VM](../windows/troubleshoot-recovery-disks.md)
+- [VM Serial Console](./serial-console-windows.md)
+- [Troubleshoot a Windows VM by attaching the OS disk to a recovery VM](./troubleshoot-recovery-disks-windows.md)

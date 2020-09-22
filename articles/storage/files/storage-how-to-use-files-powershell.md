@@ -11,7 +11,7 @@ ms.subservice: files
 ---
 
 # Quickstart: Create and manage an Azure file share with Azure PowerShell 
-This guide walks you through the basics of working with [Azure file shares](storage-files-introduction.md) with PowerShell. Azure file shares are just like other file shares, but stored in the cloud and backed by the Azure platform. Azure File shares support the industry standard SMB protocol and enable file sharing across multiple machines, applications, and instances. 
+This guide walks you through the basics of working with [Azure file shares](storage-files-introduction.md) with PowerShell. Azure file shares are just like other file shares, but stored in the cloud and backed by the Azure platform. Azure File shares support the industry standard Server Message Block (SMB) protocol, the Network File System (NFS) protocol (preview), and enables file sharing across multiple machines, applications, and instances. 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -62,6 +62,7 @@ $shareName = "myshare"
 New-AzRmStorageShare `
     -StorageAccount $storageAcct `
     -Name $shareName `
+    -EnabledProtocol SMB `
     -QuotaGiB 1024 | Out-Null
 ```
 
@@ -84,7 +85,7 @@ In most cases, you will use your Azure file share over the SMB protocol, as this
 - You are taking advantage of serverless resources, such as [Azure Functions](../../azure-functions/functions-overview.md). 
 - You are creating a value-add service that will interact with many Azure file shares, such as performing backup or antivirus scans.
 
-The following examples show how to use the Azure PowerShell module to manipulate your Azure file share with the File REST protocol. The `-Context` parameter is used to retrieve the storage account key to perform the indicated actions against the file share. To retrieve the storage account key, you must have the RBAC role of `Owner` on the storage account.
+The following examples show how to use the Azure PowerShell module to manipulate your Azure file share with the File REST protocol. The `-Context` parameter is used to retrieve the storage account key to perform the indicated actions against the file share. To retrieve the storage account key, you must have the Azure role of `Owner` on the storage account.
 
 #### Create directory
 To create a new directory named *myDirectory* at the root of your Azure file share, use the [New-AzStorageDirectory](/powershell/module/az.storage/New-AzStorageDirectory) cmdlet.
@@ -157,6 +158,7 @@ $otherShareName = "myshare2"
 New-AzRmStorageShare `
     -StorageAccount $storageAcct `
     -Name $otherShareName `
+    -EnabledProtocol SMB `
     -QuotaGiB 1024 | Out-Null
   
 New-AzStorageDirectory `
@@ -195,7 +197,7 @@ You can create a share snapshot for a share by using the `Snapshot` method on Po
 
 ```azurepowershell-interactive
 $share = Get-AzStorageShare -Context $storageAcct.Context -Name $shareName
-$snapshot = $share.Snapshot()
+$snapshot = $share.CloudFileShare.Snapshot()
 ```
 
 ### Browse share snapshots

@@ -19,6 +19,9 @@ ms.reviewer: xpouyat; juliako
 
 ---
 # Advanced Media Encoder Premium Workflow tutorials
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 ## Overview
 This document contains walkthroughs that show how to customize workflows with  **Workflow Designer**. You can find the actual workflow
  files [here](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/PremiumEncoderWorkflowSamples).  
@@ -184,7 +187,7 @@ To have the workflow automatically determine the output File name property from 
 
 The expression editor allows you to enter any literal value, mixed with one, or more variables. Variables start with a dollar sign. As you hit the $ key, the editor shows a drop-down box with a choice of available variables. In our case we'll use a combination of the output directory variable and the base input file name variable:
 
-    ${ROOT_outputWriteDirectory}\\${ROOT_sourceFileBaseName}.MP4
+`${ROOT_outputWriteDirectory}\\${ROOT_sourceFileBaseName}.MP4`
 
 ![Filled out Expression Editor](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-expression-editor.png)
 
@@ -262,16 +265,16 @@ We have more than one single file added to the output asset. This provides a nee
 
 File output naming can be controlled through expressions in the designer. Open the property pane for one of the File Output components and open the expression editor for the File property. Our first output file was configured through the following expression (see the tutorial for going from [MXF to a single bitrate MP4 output](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4)):
 
-    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}.MP4
+`${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}.MP4`
 
 This means that our filename is determined by two variables: the output directory to write in and the source file base name. The former is exposed as a property on the workflow root and the latter is determined by the incoming file. The output directory is what you use for local testing; this property will be overridden by the workflow engine when the workflow is executed by the cloud-based media processor in Azure Media Services.
 To give both our output files a consistent output naming, change the first file naming expression to:
 
-    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_640x360_1.MP4
+`${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_640x360_1.MP4`
 
 and the second to:
 
-    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_960x540_2.MP4
+`${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_960x540_2.MP4`
 
 Execute an intermediate test run to make sure both MP4 output files are properly generated.
 
@@ -284,7 +287,7 @@ As we'll see later when we generate an .ism file to go with our MP4 output files
 
 Create a third File Output component to output the outbound stream from the muxer and configure the file naming expression as:
 
-    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_128kbps_audio.MP4
+`${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_128kbps_audio.MP4`
 
 ![Audio Muxer creating File Output](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-audio-muxer-creating-file-output.png)
 
@@ -316,7 +319,7 @@ Generating the manifest file for our set of MP4's can be done through a componen
 
 As with our other file output components, configure the .ism file output name with an expression:
 
-    ${ROOT_outputWriteDirectory}\\${ROOT_sourceFileBaseName}_manifest.ism
+`${ROOT_outputWriteDirectory}\\${ROOT_sourceFileBaseName}_manifest.ism`
 
 Our finished workflow looks like the below:
 
@@ -339,11 +342,11 @@ In the previous workflow, we specified a simple expression as the basis for gene
 
 For example, our file output component for the first video file is configured with this expression:
 
-    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_640x360_1.MP4
+`${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_640x360_1.MP4`
 
 While for the second output video, we have an expression like:
 
-    ${ROOT_outputWriteDirectory}\\${ROOT_sourceFileBaseName}_960x540_2.MP4
+`${ROOT_outputWriteDirectory}\\${ROOT_sourceFileBaseName}_960x540_2.MP4`
 
 Wouldn't it be cleaner, less error prone, and more convenient if we could remove some of this duplication and make things more configurable instead? Luckily we can: the designer's expression capabilities in combination with the ability to create custom properties on our workflow root will provide an added layer of convenience.
 
@@ -388,7 +391,7 @@ Changing any of those three values also reconfigures and changes the values on t
 ### <a id="MXF_to__multibitrate_MP4_output_files"></a>Have generated output file names rely on published property values
 Instead of hardcoding our generated file names, we can now change our filename expression on each of the File Output components to rely on the bitrate properties we published on the graph root. Starting with our first file output, find the File property and edit the expression like this:
 
-    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_${ROOT_video1bitrate}kbps.MP4
+`${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_${ROOT_video1bitrate}kbps.MP4`
 
 The different parameters in this expression can be accessed and entered by hitting the dollar sign on the keyboard while in the expression window. One of the available parameters is our video1bitrate property that we published earlier.
 
@@ -398,11 +401,11 @@ The different parameters in this expression can be accessed and entered by hitti
 
 Do the same for the file output for our second video:
 
-    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_${ROOT_video2bitrate}kbps.MP4
+`${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_${ROOT_video2bitrate}kbps.MP4`
 
 and for the audio-only file output:
 
-    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_${ROOT_audio1bitrate}bps_audio.MP4
+`${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_${ROOT_audio1bitrate}bps_audio.MP4`
 
 If we now change the bitrate for any of the video or audio files, the respective encoder will be reconfigured and the bitrate-based file name convention will be honored all automatic.
 
@@ -460,11 +463,11 @@ Different from our MP4 video's, the JPG Encoder component outputs more than one 
 *Introducing the Scene Search JPG File Writer*
 
 Configure the Output Folder Path property with the expression:
-    ${ROOT_outputWriteDirectory}
+`${ROOT_outputWriteDirectory}`
 
 and the Filename Prefix property with:
 
-    ${ROOT_sourceFileBaseName}_thumb_
+`${ROOT_sourceFileBaseName}_thumb_`
 
 The prefix determines how the thumbnail files are being named. They are suffixed with a number indicating the thumb's position in the stream.
 
@@ -549,11 +552,11 @@ Now open the trimming properties from the audio trimmer and configure both start
 
 For the audio trimming start time:
 
-    ${ROOT_TrimmingStartTime}
+`${ROOT_TrimmingStartTime}`
 
 and for its end time:
 
-    ${ROOT_TrimmingEndTime}
+`${ROOT_TrimmingEndTime}`
 
 ### <a id="time_based_trim_finish"></a>Finished Workflow
 ![Finished Workflow](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-finished-workflow-time-base-trimming.png)
@@ -589,7 +592,7 @@ Scripts are written in Groovy, a dynamically compiled scripting language for the
 
 Let's write a simple hello world groovy script in the context of our realizeScript. Enter the following in the editor:
 
-    node.log("hello world");
+`node.log("hello world");`
 
 Now execute a local test run. After this run, inspect (through the System tab on the Scripted Component) the Logs property.
 

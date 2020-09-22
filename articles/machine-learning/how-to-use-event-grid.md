@@ -1,20 +1,21 @@
 ---
-title: Trigger events in ML workflows 
+title: Trigger events in ML workflows (preview)
 titleSuffix: Azure Machine Learning
 description: Set up event-driven applications, processes, or CI/CD machine learning workflows in Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
 ms.date: 05/11/2020
 ---
 
-# Trigger applications, processes, or CI/CD workflows based on Azure Machine Learning events (Preview)
+# Trigger applications, processes, or CI/CD workflows based on Azure Machine Learning events (preview)
 
-In this article, you learn how to set up event-driven applications, processes, or CI/CD workflows based on Azure Machine Learning events, such as failure notification emails or ML pipeline runs, when certain conditions are detected by [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/). 
+In this article, you learn how to set up event-driven applications, processes, or CI/CD workflows based on Azure Machine Learning events, such as failure notification emails or ML pipeline runs, when certain conditions are detected by [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/).
 
 Azure Machine Learning manages the entire lifecycle of machine learning process, including model training, model deployment, and monitoring. You can use Event Grid to react to Azure Machine Learning events, such as the completion of training runs, the registration and deployment of models, and the detection of data drift, by using modern serverless architectures. You can then subscribe and consume events such as run status changed, run completion, model registration, model deployment, and data drift detection within a workspace.
 
@@ -141,11 +142,11 @@ The following example demonstrates how to select an Azure subscription and creat
 # Select the Azure subscription that contains the workspace
 az account set --subscription "<name or ID of the subscription>"
 
-# Subscribe to the machine learning workspace.
-az eventgrid event-subscription create \
-  --name {eventGridFilterName} \
-  --source-resource-id "/subscriptions/{subId}/resourceGroups/{rgName}/ \providers/Microsoft.MachineLearningServices/workspaces/{wsName}" \
-  --endpoint {event handler endpoint} \
+# Subscribe to the machine learning workspace. This example uses EventHub as a destination. 
+az eventgrid event-subscription create --name {eventGridFilterName} \
+  --source-resource-id /subscriptions/{subId}/resourceGroups/{RG}/providers/Microsoft.MachineLearningServices/workspaces/{wsName} \
+  --endpoint-type eventhub \
+  --endpoint /subscriptions/{SubID}/resourceGroups/TestRG/providers/Microsoft.EventHub/namespaces/n1/eventhubs/EH1 \
   --included-event-types Microsoft.MachineLearningServices.ModelRegistered \
   --subject-begins-with "models/mymodelname"
 ```
@@ -193,7 +194,7 @@ This example shows how to use event grid with an Azure Logic App to trigger retr
 
 Before you begin, perform the following actions:
 
-* Set up a dataset monitor to [detect data drift]( https://aka.ms/datadrift) in a workspace
+* Set up a dataset monitor to [detect data drift](how-to-monitor-datasets.md) in a workspace
 * Create a published [Azure Data Factory pipeline](https://docs.microsoft.com/azure/data-factory/).
 
 In this example, a simple Data Factory pipeline is used to copy files into a blob store and run a published Machine Learning pipeline. For more information on this scenario, see how to set up a [Machine Learning step in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/transform-data-machine-learning-service)

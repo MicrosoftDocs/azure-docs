@@ -1,6 +1,6 @@
 ---
 title: Overview of Azure DevOps Starter | Microsoft Docs
-description: Understand the value for Azure DevOps Starter
+description: Learn how Azure DevOps Starter helps you launch, deploy, and manage your app from a single view in the Azure portal.
 services: devops-project
 documentationcenter: ''
 author: mlearned

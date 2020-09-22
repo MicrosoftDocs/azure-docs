@@ -5,7 +5,7 @@ services: storage
 author: normesta
 ms.service: storage
 ms.subservice: common
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: normesta 
 ms.reviewer: dineshm

@@ -5,7 +5,7 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: "mvc, devx-track-csharp"
 ms.date: 01/27/2020
 
 #Customer intent: "As an IT admin/developer I want to run Azure Functions with Stream Analytics jobs."

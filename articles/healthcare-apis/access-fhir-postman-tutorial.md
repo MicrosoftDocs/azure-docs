@@ -6,8 +6,8 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
 ms.reviewer: dseven
-ms.author: mihansen
-author: hansenms
+ms.author: matjazl
+author: matjazl
 ms.date: 02/07/2019
 ---
 
@@ -18,6 +18,7 @@ A client application would access an FHIR API through a [REST API](https://www.h
 ## Prerequisites
 
 - A FHIR endpoint in Azure. You can set that up using the managed Azure API for FHIR or the Open Source FHIR server for Azure. Set up the managed Azure API for FHIR using [Azure portal](fhir-paas-portal-quickstart.md), [PowerShell](fhir-paas-powershell-quickstart.md), or [Azure CLI](fhir-paas-cli-quickstart.md).
+- A  [client application](register-confidential-azure-ad-client-app.md) you will be using to access the FHIR service
 - Postman installed. You can get it from [https://www.getpostman.com](https://www.getpostman.com)
 
 ## FHIR server and authentication details
@@ -103,7 +104,7 @@ If you inspect the access token with a tool like [https://jwt.ms](https://jwt.ms
 }
 ```
 
-In troubleshooting situations, validating that you have the correct audience (`aud` claim) is a good place to start. If your token is from the correct issuer (`iss` claim) and has the correct audience (`aud` claim), but you are still unable to access the FHIR API, it is likely that the user or service principal (`oid` claim) does not have access to the FHIR data plane. We recommend you [use Azure Role Based Access Control](configure-azure-rbac.md) to assign data plane roles to users. If you are using an external, secondary Azure Active directory tenant for your data plane, you will need to [configure local RBAC assignments](configure-local-rbac.md).
+In troubleshooting situations, validating that you have the correct audience (`aud` claim) is a good place to start. If your token is from the correct issuer (`iss` claim) and has the correct audience (`aud` claim), but you are still unable to access the FHIR API, it is likely that the user or service principal (`oid` claim) does not have access to the FHIR data plane. We recommend you [use Azure role-based access control (Azure RBAC)](configure-azure-rbac.md) to assign data plane roles to users. If you are using an external, secondary Azure Active directory tenant for your data plane, you will need to [configure local RBAC assignments](configure-local-rbac.md).
 
 It is also possible to [get a token for the Azure API for FHIR using the Azure CLI](get-healthcare-apis-access-token-cli.md). If you are using a token obtained with the Azure CLI, you should use Authorization type "Bearer Token" and paste the token in directly.
 

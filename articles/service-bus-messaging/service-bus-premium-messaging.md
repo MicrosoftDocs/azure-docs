@@ -1,22 +1,10 @@
 ---
 title: Azure Service Bus premium and standard tiers
 description: This article describes standard and premium tiers of Azure Service Bus. Compares these tiers and provides technical differences.
-services: service-bus-messaging
-documentationcenter: .net
-author: axisc
-manager: timlt
-editor: spelluru
-
-ms.assetid: e211774d-821c-4d79-8563-57472d746c58
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/27/2020
-ms.author: aschhab
-
+ms.date: 07/28/2020
 ---
+
 # Service Bus Premium and Standard messaging tiers
 
 Service Bus Messaging, which includes entities such as queues and topics, combines enterprise messaging capabilities with rich publish-subscribe semantics at cloud scale. Service Bus Messaging is used as the communication backbone for many sophisticated cloud solutions.
@@ -31,7 +19,7 @@ Some high-level differences are highlighted in the following table.
 | Predictable performance |Variable latency |
 | Fixed pricing |Pay as you go variable pricing |
 | Ability to scale workload up and down |N/A |
-| Message size up to 1 MB |Message size up to 256 KB |
+| Message size up to 1 MB. This limit may be raised in the future. For latest important updates to the service, see [Messaging on Azure blog](https://techcommunity.microsoft.com/t5/messaging-on-azure/bg-p/MessagingonAzureBlog). |Message size up to 256 KB |
 
 **Service Bus Premium Messaging** provides resource isolation at the CPU and memory level so that each customer workload runs in isolation. This resource container is called a *messaging unit*. Each premium namespace is allocated at least one messaging unit. You can purchase 1, 2, 4 or 8 messaging units for each Service Bus Premium namespace. A single workload or entity can span multiple messaging units and the number of messaging units can be changed at will. The result is predictable and repeatable performance for your Service Bus-based solution.
 
@@ -43,11 +31,11 @@ The following sections discuss a few differences between Premium and Standard me
 
 ### Partitioned queues and topics
 
-Partitioned queues and topics are not supported in Premium Messaging. For more information about partitioning, see [Partitioned queues and topics](service-bus-partitioning.md).
+Partitioned queues and topics aren't supported in Premium Messaging. For more information about partitioning, see [Partitioned queues and topics](service-bus-partitioning.md).
 
 ### Express entities
 
-Because Premium messaging runs in a completely isolated run-time environment, express entities are not supported in Premium namespaces. For more information about the express feature, see the [QueueDescription.EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress) property.
+Because Premium messaging runs in an isolated run-time environment, express entities aren't supported in Premium namespaces. For more information about the express feature, see the [QueueDescription.EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress) property.
 
 If you have code running under Standard messaging and want to port it to the Premium tier, make sure the [EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress) property is set to **false** (the default value).
 
@@ -58,9 +46,9 @@ In general, any operation on an entity may cause CPU and memory usage. Here are 
 - Runtime operations (send and receive messages)
 - Monitoring operations and alerts
 
-The additional CPU And memory usage is not priced additionally though. For the Premium Messaging tier, there is a single price for the message unit.
+The additional CPU And memory usage isn't priced additionally though. For the Premium Messaging tier, there's a single price for the message unit.
 
-The CPU and memory usage are tracked and displayed to the you for the following reasons: 
+The CPU and memory usage are tracked and displayed to you for the following reasons: 
 
 - Provide transparency into the system internals
 - Understand the capacity of resources purchased.
@@ -79,7 +67,7 @@ There are a number of factors to take into consideration when deciding the numbe
     - If CPU usage is ***below 20%***, you might be able to ***scale down*** the number of messaging units allocated to your namespace.
     - If CPU usage is ***above 70%***, your application will benefit from ***scaling up*** the number of messaging units allocated to your namespace.
 
-The process of scaling the resources allocated to a Service Bus namespaces can be automated by using [Azure Automation Runbooks](../automation/automation-quickstart-create-runbook.md).
+To learn how to configure a Service Bus namespace to automatically scale (increase or decrease messaging units), see [Automatically update messaging units](automate-update-messaging-units.md).
 
 > [!NOTE]
 > **Scaling** of the resources allocated to the namespace can be either preemptive or reactive.
@@ -103,10 +91,9 @@ You can also create [Premium namespaces using Azure Resource Manager templates](
 
 To learn more about Service Bus Messaging, see the following links:
 
-* [Introducing Azure Service Bus Premium Messaging (blog post)](https://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
-* [Introducing Azure Service Bus Premium Messaging (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
-* [Service Bus Messaging overview](service-bus-messaging-overview.md)
-* [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
+- [Automatically update messaging units](automate-update-messaging-units.md).
+- [Introducing Azure Service Bus Premium Messaging (blog post)](https://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
+- [Introducing Azure Service Bus Premium Messaging (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
 
 <!--Image references-->
 

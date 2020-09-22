@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/31/2017
-ms.author: mikeray
+ms.author: mathoma
 
 ---
 # Use Azure Storage for SQL Server backup and restore

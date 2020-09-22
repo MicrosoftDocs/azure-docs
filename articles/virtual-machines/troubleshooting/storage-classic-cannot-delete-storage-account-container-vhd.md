@@ -17,7 +17,7 @@ This article provides troubleshooting guidance when one of the following errors 
 
 This article only covers issues with classic storage resources. If a user deletes a classic virtual machine using the Azure portal, PowerShell or CLI then the Disks aren't automatically deleted. The user gets the option to delete the "Disk" resource. In case the option isn't selected, the "Disk" resource will prevent deletion of the storage account, container and the actual *.vhd page blob file.
 
-More information about Azure disks can be found [here](../../virtual-machines/windows/managed-disks-overview.md). Azure prevents deletion of a disk that is attached to a VM to prevent corruption. It also prevents deletion of containers and storage accounts, which have a page blob that is attached to a VM. 
+More information about Azure disks can be found [here](../../virtual-machines/managed-disks-overview.md). Azure prevents deletion of a disk that is attached to a VM to prevent corruption. It also prevents deletion of containers and storage accounts, which have a page blob that is attached to a VM. 
 
 ## What is a "Disk"?
 A "Disk" resource is used to mount a *.vhd page blob file to a virtual machine, as an OS disk or Data disk. An OS disk or Data disk resource, until deleted, will continue to hold a lease on the *.vhd file. Any storage resource in the path shown in below image can’t be deleted if a “Disk” resource points to it.

@@ -11,14 +11,15 @@ ms.reviewer: genemi
 ms.date: 11/14/2019
 ms.custom: sqldbrb=2
 ---
-# Application development overview - SQL Database & SQL Managed Instance 
+# Application development overview - SQL Database & SQL Managed Instance
+
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
 This article walks through the basic considerations that a developer should be aware of when writing code to connect to your database in Azure. This article applies to Azure SQL Database, and Azure SQL Managed Instance.
 
 ## Language and platform
 
-You can use various [programming languages and platforms](connect-query-content-reference-guide.md) to connect and query Azure SQL Database. You can find [sample applications](https://azure.microsoft.com/resources/samples/?service=sql-database&sort=0) that you can use to connect to the Azure SQL database.
+You can use various [programming languages and platforms](connect-query-content-reference-guide.md) to connect and query Azure SQL Database. You can find [sample applications](https://azure.microsoft.com/resources/samples/?service=sql-database&sort=0) that you can use to connect to the database.
 
 You can leverage open-source tools like [cheetah](https://github.com/wunderlist/cheetah), [sql-cli](https://www.npmjs.com/package/sql-cli), [VS Code](https://code.visualstudio.com/). Additionally, Azure SQL Database works with Microsoft tools like [Visual Studio](https://www.visualstudio.com/downloads/) and  [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx). You can also use the Azure portal, PowerShell, and REST APIs help you gain additional productivity.
 
@@ -38,7 +39,7 @@ Avoid long-running transactions because any infrastructure or connection failure
 
 ## Resiliency
 
-Azure SQL Database is a cloud service where you might expect transient errors that happen in the underlying infrastructure or in the communication between cloud entities. Although Azure SQL Database is resilient on the transitive infrastructure failures, these failures might affect your connectivity. When a transient error occurs while connecting to SQL Database, your code should [retry the call](troubleshoot-common-connectivity-issues.md). We recommend that retry logic use backoff logic, so that it does not overwhelm the SQL database with multiple clients retrying simultaneously. Retry logic depends on the [error messages for SQL Database client programs](troubleshoot-common-errors-issues.md).
+Azure SQL Database is a cloud service where you might expect transient errors that happen in the underlying infrastructure or in the communication between cloud entities. Although Azure SQL Database is resilient on the transitive infrastructure failures, these failures might affect your connectivity. When a transient error occurs while connecting to SQL Database, your code should [retry the call](troubleshoot-common-connectivity-issues.md). We recommend that retry logic use backoff logic, so that it does not overwhelm the service with multiple clients retrying simultaneously. Retry logic depends on the [error messages for SQL Database client programs](troubleshoot-common-errors-issues.md).
 
 For more information about how to prepare for planned maintenance events on your Azure SQL Database, see [planning for Azure maintenance events in Azure SQL Database](planned-maintenance.md).
 

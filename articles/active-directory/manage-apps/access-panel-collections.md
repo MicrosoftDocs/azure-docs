@@ -9,8 +9,6 @@ ms.assetid:
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 02/10/2020
 ms.author: kenwith

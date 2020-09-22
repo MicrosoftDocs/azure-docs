@@ -1,5 +1,5 @@
 ---
-title: Live Video Analytics on IoT Edge quotas - Azure  
+title: Live Video Analytics on IoT Edge quotas and limitations - Azure  
 description: This article describes Live Video Analytics on IoT Edge quotas and limitations.
 ms.topic: conceptual
 ms.date: 05/22/2020 
@@ -31,24 +31,23 @@ With the preview release, there are limitations on different nodes can be connec
    * Only one RTSP source is allowed per graph topology.
 * Frame rate filter processor
    * Must be immediately downstream from RTSP source or motion detection processor.
-   * Cannot be used downstream of a HTTP extension processor.
+   * Cannot be used downstream of a HTTP or gRPC extension processor.
    * Cannot be upstream from a motion detection processor.
 * HTTP extension processor
+   * There can be at most one such processor per graph topology.
+* gRPC extension processor
    * There can be at most one such processor per graph topology.
 * Motion detection processor
    * Must be immediately downstream from RTSP source.
    * There can be at most one such processor per graph topology.
-   * Cannot be used downstream of a HTTP extension processor.
+   * Cannot be used downstream of a HTTP or a gRPC extension processor.
 * Signal gate processor
    * Must be immediately downstream from RTSP source.
 * Asset sink 
-   * There can be at most one such node per graph topology.
-      * If an asset sink is used, then a file sink cannot be present, or vice versa.
    * Must be immediately downstream from RTSP source or signal gate processor.
 * File sink
-   * There can be at most one such node per graph topology (see above note regarding asset sink).
    * Must be immediately downstream from signal gate processor.
-   * Cannot be immediately downstream of HTTP extension processor, or motion detection processor
+   * Cannot be immediately downstream of a HTTP or a gRPC extension processor, or motion detection processor
 * IoT Hub Sink
    * Cannot be immediately downstream of an IoT Hub Source.
 
@@ -61,6 +60,10 @@ At the time of the preview release, the Live Video Analytics on IoT Edge does no
 * The ability to migrate the Media Service account from one subscription to another without an interruption.
 * The ability to use more than one Storage account with the Media Service account.
 * The ability to change the service principal information in the desired properties of the module dynamically, without a restart.
+
+You can only use IP Cameras that support RTSP protocol. You can find IP cameras that support RTSP on the [ONVIF conformant products](https://www.onvif.org/conformant-products) page. Look for devices that conform with profiles G, S, or T.
+
+Further, you should configure these cameras to use H.264 video and AAC audio. Other codecs are currently not supported. 
 
 ## Next steps
 

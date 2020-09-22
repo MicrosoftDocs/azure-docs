@@ -11,7 +11,7 @@ ms.reviewer: jrasnick
 ms.custom: has-adal-ref
 ---
 
-# Using Multi-factor AAD authentication with Synapse SQL (SSMS support for MFA)
+# Use Multi-factor AAD authentication with Synapse SQL (SSMS support for MFA)
 
 Synapse SQL support connections from SQL Server Management Studio (SSMS) using *Active Directory Universal Authentication*. 
 

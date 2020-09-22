@@ -4,7 +4,7 @@ description: This article provides guidance to configure Azure Application Gatew
 services: application-gateway
 author: caya
 ms.service: application-gateway
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/24/2020
 ms.author: caya
 ---

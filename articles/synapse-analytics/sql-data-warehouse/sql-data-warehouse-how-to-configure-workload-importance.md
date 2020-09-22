@@ -5,7 +5,7 @@ services: synapse-analytics
 author: ronortloff
 manager: craigg
 ms.service: synapse-analytics
-ms.subservice: 
+ms.subservice: sql-dw 
 ms.topic: conceptual
 ms.date: 05/15/2020
 ms.author: rortloff

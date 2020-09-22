@@ -1,6 +1,6 @@
 ---
-title: Create a metric alert with a Resource Manager template
-description: Learn how to use a Resource Manager template to create a metric alert.
+title: Resource Manager template samples for metric alerts
+description: This article provides sample Resource Manager templates used to create metric alerts in Azure Monitor.
 author: bwren
 ms.author: bwren
 services: azure-monitor
@@ -14,10 +14,10 @@ This article provides samples of using [Azure Resource Manager templates](../../
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
-See [Supported resources for metric alerts in Azure Monitor](../platform/alerts-metric-near-real-time.md) for a list of resources that can be used with metric alert rules. An explanation of the schema and properties for an alert rule is available at [Metric Alerts - Create Or Update](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate).
+See [Supported resources for metric alerts in Azure Monitor](../platform/alerts-metric-near-real-time.md) for a list of resources that can be used with metric alert rules. An explanation of the schema and properties for an alert rule is available at [Metric Alerts - Create Or Update](/rest/api/monitor/metricalerts/createorupdate).
 
 > [!NOTE]
-> Resource template for creating metric alerts for resource type: Azure Log Analytics Workspace (i.e.) `Microsoft.OperationalInsights/workspaces`, requires additional steps. For details, see [Metric Alert for Logs - Resource Template](../../azure-monitor/platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
+> Resource template for creating metric alerts for resource type: Azure Log Analytics Workspace (i.e.) `Microsoft.OperationalInsights/workspaces`, requires additional steps. For details, see [Metric Alert for Logs - Resource Template](../platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
 
 
 
@@ -1088,7 +1088,7 @@ For example, a few of the potential time series that are monitored by this alert
 
 You can use the following template to create a more advanced static threshold metric alert rule on a custom metric.
 
-To learn more about custom metrics in Azure Monitor, see [Custom metrics in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview).
+To learn more about custom metrics in Azure Monitor, see [Custom metrics in Azure Monitor](../platform/metrics-custom-overview.md).
 
 When creating an alert rule on a custom metric, you need to specify both the metric name and the metric namespace. You should also make sure that the custom metric is already being reported, as you cannot create an alert rule on a custom metric that doesn't yet exist.
 
@@ -1319,7 +1319,7 @@ Save the json below as customstaticmetricalert.json for the purpose of this walk
 
 >[!NOTE]
 >
-> You can find the metric namespace of a specific custom metric by [browsing your custom metrics via the Azure portal](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview#browse-your-custom-metrics-via-the-azure-portal)
+> You can find the metric namespace of a specific custom metric by [browsing your custom metrics via the Azure portal](../platform/metrics-custom-overview.md#browse-your-custom-metrics-via-the-azure-portal)
 
 
 ## Multiple resources
@@ -3121,7 +3121,7 @@ This sample creates a dynamic thresholds metric alert rule that monitors Percent
 
 
 ## Availability test with metric alert
-[Application Insights availability tests](../../azure-monitor/app/monitor-web-app-availability.md) help you monitor the availability of your web site/application from various locations around the globe. Availability test alerts notify you when availability tests fail from a certain number of locations. Availability test alerts of the same resource type as metric alerts (Microsoft.Insights/metricAlerts). The following sample creates a simple availability test and associated alert.
+[Application Insights availability tests](../app/monitor-web-app-availability.md) help you monitor the availability of your web site/application from various locations around the globe. Availability test alerts notify you when availability tests fail from a certain number of locations. Availability test alerts of the same resource type as metric alerts (Microsoft.Insights/metricAlerts). The following sample creates a simple availability test and associated alert.
 
 > [!NOTE]
 > `&amp`; is the HTML entity reference for &. URL parameters are still separated by a single &, but if you mention the URL in HTML, you need to encode it. So, if you have any "&" in your pingURL parameter value, you have to escape it with "`&amp`;"
@@ -3260,3 +3260,4 @@ This sample creates a dynamic thresholds metric alert rule that monitors Percent
 - [Get other sample templates for Azure Monitor](resource-manager-samples.md).
 - [Learn more about alerts](../platform/alerts-overview.md).
 - [Get a sample to create an action group with Resource Manager template](resource-manager-action-groups.md)
+

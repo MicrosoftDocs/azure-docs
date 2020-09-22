@@ -5,8 +5,8 @@ description: How to select Azure Machine Learning algorithms for supervised and 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
-
+ms.topic: conceptual
+ms.custom: how-to
 author: FrancescaLazzeri
 ms.author: lazzeri
 ms.reviewer: cgronlun

@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Azure Lighthouse documentation
-summary: Azure Lighthouse lets service providers manage Azure resources across all their customers with higher automation, scalability, and enhanced governance.
+summary: Azure Lighthouse enables cross- and multi-tenant management, allowing for higher automation, scalability, and enhanced governance across resources and tenants.
 
 metadata:
   title: Azure Lighthouse Documentation
@@ -11,7 +11,7 @@ metadata:
   ms.collection: collection
   author: JnHs
   ms.author: jenhayes
-  ms.date: 04/14/2020
+  ms.date: 07/20/2020
   
 landingContent:
   - title: About Azure Lighthouse
@@ -31,8 +31,10 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Onboard a customer to Azure delegated resource management
+          - text: Onboard a customer to Azure Lighthouse
             url: ./how-to/onboard-customer.md
+          - text: Link your ID for partner earned credit
+            url: ./how-to/partner-earned-credit.md
       - linkListType: concept
         links:
           - text: Recommended security practices
@@ -73,18 +75,22 @@ landingContent:
           - text: View and manage service providers
             url: ./how-to/view-manage-service-providers.md
 
-  - title: Work with Azure services
+  - title: Work with Azure services at scale
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Use Azure Monitor Logs at scale
+          - text: Manage Azure Sentinel workspaces
+            url: ./how-to/manage-sentinel-workspaces.md
+          - text: Use Azure Monitor Logs
             url: ./how-to/monitor-at-scale.md
           - text: Monitor delegation changes
-            url: ./how-to/monitor-at-scale.md
-          - text: Deploy Azure Policy at scale
+            url: ./how-to/monitor-delegation-changes.md
+          - text: Deploy Azure Policy
             url: ./how-to/policy-at-scale.md
           - text: Deploy a policy that can be remediated
             url: ./how-to/deploy-policy-remediation.md
+          - text: Manage hybrid machines with Azure Arc
+            url: ./how-to/manage-hybrid-infrastructure-arc.md
 
   - title: Reference - SDKs
     linkLists:
@@ -100,6 +106,8 @@ landingContent:
             url: /dotnet/api/Microsoft.Azure.Management.ManagedServices
           - text: Python
             url: /python/api/azure-mgmt-managedservices
+          - text: Terraform
+            url: https://www.terraform.io/docs/providers/azurerm/r/lighthouse_assignment.html
   
   - title: Reference - Downloads
     linkLists:
@@ -117,6 +125,6 @@ landingContent:
       - linkListType: get-started
         links:
           - text: Microsoft Q&A for Azure Lighthouse
-            url: https://docs.microsoft.com/answers/topics/azure-lighthouse.html
+            url: /answers/topics/azure-lighthouse.html
           - text: Request product features
             url: https://feedback.azure.com/forums/922753

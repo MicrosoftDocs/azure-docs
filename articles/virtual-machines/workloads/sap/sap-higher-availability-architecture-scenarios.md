@@ -265,7 +265,7 @@ SAP offers a setting that lets you start SAP instances immediately after the sta
 
 Assuming a typical Azure scenario of one SAP application server instance in a VM and a single VM eventually getting restarted, Autostart is not critical. But you can enable it by adding the following parameter into the start profile of the SAP Advanced Business Application Programming (ABAP) or Java instance:
 
-      Autostart = 1
+`Autostart = 1`
 
 
   > [!NOTE]

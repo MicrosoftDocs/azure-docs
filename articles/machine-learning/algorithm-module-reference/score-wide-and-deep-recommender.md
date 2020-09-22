@@ -1,5 +1,5 @@
 ---
-title: "Score Image Model"
+title: Use the Score Wide & Deep Recommender module
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Score Wide & Deep Recommender module in Azure Machine Learning to score recommendation predictions for a dataset.
 services: machine-learning
@@ -9,11 +9,11 @@ ms.topic: reference
 
 author: likebupt
 ms.author: keli19
-ms.date: 06/12/2020
+ms.date: 08/12/2020
 ---
 # Score Wide and Deep Recommender
 
-This article describes how to use the **Score Wide and Deep Recommender** module in Azure Machine Learning designer (preview), to create predictions based on a trained recommendation model, based on the Wide & Deep learning from Google.
+This article describes how to use the **Score Wide and Deep Recommender** module in Azure Machine Learning designer, to create predictions based on a trained recommendation model, based on the Wide & Deep learning from Google.
 
 The Wide and Deep recommender can generate two different kinds of predictions:
 
@@ -142,9 +142,6 @@ The scored dataset returned by **Score Wide and Deep Recommender** lists the rec
 
 - The first column contains the user identifiers.
 - A number of additional columns are generated, depending on the value you set for **Maximum number of items to recommend to a user**. Each column contains a recommended item (by identifier). The recommendations are ordered by user-item affinity, with the item with highest affinity put in column, **Item 1**.
-
-> [!WARNING]
-> This scored dataset cannot be evaluated using the [Evaluate Recommender](evaluate-recommender.md) module.
 
 ##  Technical notes
 

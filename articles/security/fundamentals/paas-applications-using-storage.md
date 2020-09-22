@@ -52,16 +52,16 @@ SAS allows you to share content the way you want to share it without giving away
 To learn more about shared access signature, see [Using shared access signatures](/azure/storage/common/storage-dotnet-shared-access-signature-part-1). 
 
 ## Use role-based access control
-Another way to manage access is to use [role-based access control](/azure/role-based-access-control/overview) (RBAC). With RBAC, you focus on giving employees the exact permissions they need, based on the need to know and least privilege security principles. Too many permissions can expose an account to attackers. Too few permissions means that employees can't get their work done efficiently. RBAC helps address this problem by offering fine-grained access management for Azure. This is imperative for organizations that want to enforce security policies for data access.
+Another way to manage access is to use [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview). With RBAC, you focus on giving employees the exact permissions they need, based on the need to know and least privilege security principles. Too many permissions can expose an account to attackers. Too few permissions means that employees can't get their work done efficiently. RBAC helps address this problem by offering fine-grained access management for Azure. This is imperative for organizations that want to enforce security policies for data access.
 
-You can use built-in RBAC roles in Azure to assign privileges to users. For example, use Storage Account Contributor for cloud operators that need to manage storage accounts and Classic Storage Account Contributor role to manage classic storage accounts. For cloud operators that need to manage VMs but not the virtual network or storage account to which they are connected, you can add them to the Virtual Machine Contributor role.
+You can use Azure built-in roles in Azure to assign privileges to users. For example, use Storage Account Contributor for cloud operators that need to manage storage accounts and Classic Storage Account Contributor role to manage classic storage accounts. For cloud operators that need to manage VMs but not the virtual network or storage account to which they are connected, you can add them to the Virtual Machine Contributor role.
 
 Organizations that do not enforce data access control by using capabilities such as RBAC may be giving more privileges than necessary for their users. This can lead to data compromise by allowing some users access to data they shouldn’t have in the first place.
 
 To learn more about RBAC see:
 
 - [Manage access using RBAC and the Azure portal](/azure/role-based-access-control/role-assignments-portal)
-- [Built-in roles for Azure resources](/azure/role-based-access-control/built-in-roles)
+- [Azure built-in roles](/azure/role-based-access-control/built-in-roles)
 - [Azure Storage security guide](/azure/storage/common/storage-security-guide) 
 
 ## Use client-side encryption for high value data

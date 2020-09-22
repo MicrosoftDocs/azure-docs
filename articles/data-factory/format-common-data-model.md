@@ -5,7 +5,7 @@ author: djpmsft
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 06/16/2020
+ms.date: 08/05/2020
 ms.author: daperlov
 ---
 
@@ -14,7 +14,7 @@ ms.author: daperlov
 
 The Common Data Model (CDM) metadata system makes it possible for data and its meaning to be easily shared across applications and business processes. To learn more, see the [Common Data Model](https://docs.microsoft.com/common-data-model/) overview.
 
-In Azure Data Factory, users can transform to and from CDM entities stored in [Azure Data Lake Store Gen2](connector-azure-data-lake-storage.md) (ADLS Gen2) using mapping data flows.
+In Azure Data Factory, users can transform data from CDM entities in both model.json and manifest form stored in [Azure Data Lake Store Gen2](connector-azure-data-lake-storage.md) (ADLS Gen2) using mapping data flows. You can also sink data in CDM format using CDM entity references that will land your data in CSV or Parquet format in partitioned folders. 
 
 > [!NOTE]
 > Common Data Model (CDM) format connector for ADF data flows is currently available as a public preview.
@@ -22,6 +22,9 @@ In Azure Data Factory, users can transform to and from CDM entities stored in [A
 ## Mapping data flow properties
 
 The Common Data Model is available as an [inline dataset](data-flow-source.md#inline-datasets) in mapping data flows as both a source and a sink.
+
+> [!NOTE]
+> When writing CDM entities, you must have an existing CDM entity definition (metadata schema) already defined to use as a reference. The ADF data flow sink will read that CDM entity file and import the schema into your sink for field mapping.
 
 ### Source properties
 
@@ -44,10 +47,37 @@ The below table lists the properties supported by a CDM source. You can edit the
 | Corpus entity | Path to entity reference | yes | String | entity |
 | Allow no files found | If true, an error is not thrown if no files are found | no | `true` or `false` | ignoreNoFilesFound |
 
+### Sink settings
+
+* Point to the CDM entity reference file that contains the definition of the entity you would like to write.
+
+![entity settings](media/data-flow/common-data-model-111.png "Entity reference")
+
+* Define the partition path and format of the output files that you want ADF to use for writing your entities.
+
+![entity format](media/data-flow/common-data-model-222.png "Entity format")
+
+* Set the output file location and the location and name for the manifest file.
+
+![cdm location](media/data-flow/common-data-model-333.png "CDM location")
+
+
 #### Import schema
 
-CDM is only available as an inline dataset and, by default, doesn't have an associated schema. To get column metadata, click the **Import schema** button in the **Projection** tab. This will allow you to reference the column names and data types specified by the corpus. To import the schema, a [data flow debug session](concepts-data-flow-debug-mode.md) must be active.
+CDM is only available as an inline dataset and, by default, doesn't have an associated schema. To get column metadata, click the **Import schema** button in the **Projection** tab. This will allow you to reference the column names and data types specified by the corpus. To import the schema, a [data flow debug session](concepts-data-flow-debug-mode.md) must be active and you must have an existing CDM entity definition file to point to.
 
+When mapping data flow columns to entity properties in the Sink transformation, click on the "Mapping" tab and select "Import Schema". ADF will read the entity reference that you pointed to in your Sink options, allowing you to map to the target CDM schema.
+
+![CDM sink settings](media/data-flow/common-data-model-444.png "CDM Mapping")
+
+> [!NOTE]
+>  When using model.json source type that originates from Power BI or Power Platform dataflows, you may encounter "corpus path is null or empty" errors from the source transformation. This is likely due to formatting issues of the partition location path in the model.json file. To fix this, follow these steps: 
+
+1. Open the model.json file in a text editor
+2. Find the partitions.Location property 
+3. Change "blob.core.windows.net" to "dfs.core.windows.net"
+4. Fix any "%2F" encoding in the URL to "/"
+ 
 
 ### CDM source data flow script example
 

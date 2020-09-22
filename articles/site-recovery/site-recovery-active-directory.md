@@ -20,7 +20,7 @@ This article explains how to create a disaster recovery solution for Active Dire
 ## Prerequisites
 
 - If you're replicating to Azure, [prepare Azure resources](tutorial-prepare-azure.md), including a subscription, an Azure Virtual Network, a storage account, and a Recovery Services vault.
-- Review the [support requirements](site-recovery-support-matrix-to-azure.md) for all components.
+- Review the [support requirements](./vmware-physical-azure-support-matrix.md) for all components.
 
 ## Replicate the domain controller
 

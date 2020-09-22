@@ -1,17 +1,17 @@
 ---
-title: What's new in Azure Front Door
-description: Learn about what's new in Azure Front Door.
+title: Azure Front Door recent changes
+description: This article provides an ongoing list of recent changes that are made to Azure Front Door. 
 services: frontdoor
 documentationcenter: ''
-author: megan-beatty
+author: duongau
 editor: ''
 ms.service: frontdoor
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/30/2020
-ms.author: mebeatty
+ms.author: duau
 # customer intent: As an IT admin, I want to learn about Front Door and what new features are available. 
 ---
 
@@ -28,6 +28,7 @@ Azure Front Door is updated on an ongoing basis. To stay updated with the most r
 
 |Feature  |Description  |Date added  |
 |---------|---------|---------|
+| Rules Engine GA | Customize how http requests are handled at the edge. For more information, see the [Rules Engine overview](front-door-rules-engine.md). |June 2020 |
 | Rules Engine (Preview) | Customize how http requests are handled at the edge. For more information, see the [Rules Engine overview](front-door-rules-engine.md). |April 2020 |
 
 

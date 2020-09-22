@@ -3,7 +3,6 @@ title: Resource availability by region
 description: Availability of compute and memory resources for the Azure Container Instances service in different Azure regions.
 ms.topic: article
 ms.date: 04/27/2020
-ms.author: danlep
 
 ---
 # Resource availability for Azure Container Instances in Azure regions
@@ -49,9 +48,6 @@ The following regions and maximum resources are available to a container group d
 ## Availability - GPU resources (preview)
 
 The following regions and maximum resources are available to a container group deployed with [GPU resources](container-instances-gpu.md) (preview).
-
-> [!IMPORTANT]
-> GPU resources are available only upon request. To request access to GPU resources, please submit an [Azure support request][azure-support].
 
 [!INCLUDE [container-instances-gpu-regions](../../includes/container-instances-gpu-regions.md)]
 [!INCLUDE [container-instances-gpu-limits](../../includes/container-instances-gpu-limits.md)]

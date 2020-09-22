@@ -5,9 +5,10 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
-ms.custom: hdinsightactive
+ms.topic: how-to
+ms.custom: "hdinsightactive, devx-track-csharp"
 ms.date: 12/23/2019
+
 ---
 
 # Create a non-interactive authentication .NET HDInsight application
@@ -16,9 +17,9 @@ Run your Microsoft .NET Azure HDInsight application either under the application
 
 From your non-interactive .NET application, you need:
 
-* Your Azure subscription tenant ID (also called a *directory ID*). See [Get tenant ID](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
-* The Azure Active Directory (Azure AD) application client ID. See [Create an Azure Active Directory application](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) and [Get an application ID](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
-* The Azure AD application secret key. See [Get application authentication key](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
+* Your Azure subscription tenant ID (also called a *directory ID*). See [Get tenant ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in).
+* The Azure Active Directory (Azure AD) application client ID. See [Create an Azure Active Directory application](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal) and [Get an application ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in).
+* The Azure AD application secret key. See [Get application authentication key](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in).
 
 ## Prerequisites
 
@@ -42,9 +43,9 @@ Assign your Azure AD application a [role](../role-based-access-control/built-in-
 1. Create a C# console application.
 2. Add the following [NuGet](https://www.nuget.org/) packages:
 
-        Install-Package Microsoft.Azure.Common.Authentication -Pre
-        Install-Package Microsoft.Azure.Management.HDInsight -Pre
-        Install-Package Microsoft.Azure.Management.Resources -Pre
+    * `Install-Package Microsoft.Azure.Common.Authentication -Pre`
+    * `Install-Package Microsoft.Azure.Management.HDInsight -Pre`
+    * `Install-Package Microsoft.Azure.Management.Resources -Pre`
 
 3. Run the following code:
 
@@ -118,4 +119,4 @@ Assign your Azure AD application a [role](../role-based-access-control/built-in-
 
 * [Create an Azure Active Directory application and service principal in the Azure portal](../active-directory/develop/howto-create-service-principal-portal.md).
 * Learn how to [authenticate a service principal with Azure Resource Manager](../active-directory/develop/howto-authenticate-service-principal-powershell.md).
-* Learn about [Azure Role-Based Access Control (RBAC)](../role-based-access-control/role-assignments-portal.md).
+* Learn about [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.md).

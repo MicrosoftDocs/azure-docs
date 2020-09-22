@@ -1,12 +1,12 @@
 ---
 title: Marketing best practices - Microsoft commercial marketplace
 description: Get resources on marketing best practices for partners publishing offers to Microsoft AppSource and Azure Marketplace.
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 04/16/2020
-ms.author: dsindona
 ---
 
 # Marketing best practices

@@ -113,7 +113,7 @@ Storage Spaces Direct is used as a shared disk for a scale-out file share. You c
 When choosing Storage Spaces Direct, consider these use cases:
 
 - The virtual machines used to build the Storage Spaces Direct cluster need to be deployed in an Azure availability set.
-- For disaster recovery of a Storage Spaces Direct Cluster, you can use [Azure Site Recovery Services](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#replicated-machines---storage).
+- For disaster recovery of a Storage Spaces Direct Cluster, you can use [Azure Site Recovery Services](../../../site-recovery/azure-to-azure-support-matrix.md#replicated-machines---storage).
 - It is not supported to stretch the Storage Space Direct Cluster across different Azure Availability Zones.
 
 ### SAP prerequisites for scale-out file shares in Azure

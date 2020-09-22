@@ -109,7 +109,7 @@ The typeProperties section is different for each activity. Transformation activi
 **Copy activity** has two subsections in the typeProperties section: **source** and **sink**. See [DATA STORES](#data-stores) section in this article for JSON samples that show how to use a data store as a source and/or sink.
 
 ### Sample copy pipeline
-In the following sample pipeline, there is one activity of type **Copy** in the **activities** section. In this sample, the [Copy activity](data-factory-data-movement-activities.md) copies data from an Azure Blob storage to an Azure SQL database.
+In the following sample pipeline, there is one activity of type **Copy** in the **activities** section. In this sample, the [Copy activity](data-factory-data-movement-activities.md) copies data from an Azure Blob storage to Azure SQL Database.
 
 ```json
 {
@@ -332,7 +332,7 @@ The **policy** section in dataset definition defines the criteria or the conditi
 | Policy Name | Description | Applied To | Required | Default |
 | --- | --- | --- | --- | --- |
 | minimumSizeMB |Validates that the data in an **Azure blob** meets the minimum size requirements (in megabytes). |Azure Blob |No |NA |
-| minimumRows |Validates that the data in an **Azure SQL database** or an **Azure table** contains the minimum number of rows. |<ul><li>Azure SQL Database</li><li>Azure Table</li></ul> |No |NA |
+| minimumRows |Validates that the data in **Azure SQL Database** or an **Azure table** contains the minimum number of rows. |<ul><li>Azure SQL Database</li><li>Azure Table</li></ul> |No |NA |
 
 **Example:**
 
@@ -372,7 +372,7 @@ Click the link for the store you are interested in to see the JSON schemas for l
 | &nbsp; |Azure Data Lake Store |
 | &nbsp; |[Azure Cosmos DB](#azure-cosmos-db) |
 | &nbsp; |[Azure SQL Database](#azure-sql-database) |
-| &nbsp; |[Azure SQL Data Warehouse](#azure-sql-data-warehouse) |
+| &nbsp; |[Azure Synapse Analytics (formerly SQL Data Warehouse)](#azure-synapse-analytics) |
 | &nbsp; |[Azure Cognitive Search](#azure-cognitive-search) |
 | &nbsp; |[Azure Table storage](#azure-table-storage) |
 | **Databases** |[Amazon Redshift](#amazon-redshift) |
@@ -1095,14 +1095,14 @@ If you are copying data to Azure SQL Database, set the **sink type** of the copy
 
 For more information, see [Azure SQL connector](data-factory-azure-sql-connector.md#copy-activity-properties) article.
 
-## Azure SQL Data Warehouse
+## Azure Synapse Analytics
 
 ### Linked service
-To define an Azure SQL Data Warehouse linked service, set the **type** of the linked service to **AzureSqlDW**, and specify following properties in the **typeProperties** section:
+To define an Azure Synapse Analytics linked service, set the **type** of the linked service to **AzureSqlDW**, and specify following properties in the **typeProperties** section:
 
 | Property | Description | Required |
 | --- | --- | --- |
-| connectionString |Specify information needed to connect to the Azure SQL Data Warehouse instance for the connectionString property. |Yes |
+| connectionString |Specify information needed to connect to the Azure Synapse Analytics instance for the connectionString property. |Yes |
 
 
 
@@ -1120,14 +1120,14 @@ To define an Azure SQL Data Warehouse linked service, set the **type** of the li
 }
 ```
 
-For more information, see [Azure SQL Data Warehouse connector](data-factory-azure-sql-data-warehouse-connector.md#linked-service-properties) article.
+For more information, see [Azure Synapse Analytics connector](data-factory-azure-sql-data-warehouse-connector.md#linked-service-properties) article.
 
 ### Dataset
-To define an Azure SQL Data Warehouse dataset, set the **type** of the dataset to **AzureSqlDWTable**, and specify the following properties in the **typeProperties** section:
+To define an Azure Synapse Analytics dataset, set the **type** of the dataset to **AzureSqlDWTable**, and specify the following properties in the **typeProperties** section:
 
 | Property | Description | Required |
 | --- | --- | --- |
-| tableName |Name of the table or view in the Azure SQL Data Warehouse database that the linked service refers to. |Yes |
+| tableName |Name of the table or view in the Azure Synapse Analytics database that the linked service refers to. |Yes |
 
 #### Example
 
@@ -1156,10 +1156,10 @@ To define an Azure SQL Data Warehouse dataset, set the **type** of the dataset t
 }
 ```
 
-For more information, see [Azure SQL Data Warehouse connector](data-factory-azure-sql-data-warehouse-connector.md#dataset-properties) article.
+For more information, see [Azure Synapse Analytics connector](data-factory-azure-sql-data-warehouse-connector.md#dataset-properties) article.
 
-### SQL DW Source in Copy Activity
-If you are copying data from Azure SQL Data Warehouse, set the **source type** of the copy activity to **SqlDWSource**, and specify following properties in the **source** section:
+### Azure Synapse Analytics Source in Copy Activity
+If you are copying data from Azure Synapse Analytics, set the **source type** of the copy activity to **SqlDWSource**, and specify following properties in the **source** section:
 
 
 | Property | Description | Allowed values | Required |
@@ -1211,15 +1211,15 @@ If you are copying data from Azure SQL Data Warehouse, set the **source type** o
 }
 ```
 
-For more information, see [Azure SQL Data Warehouse connector](data-factory-azure-sql-data-warehouse-connector.md#copy-activity-properties) article.
+For more information, see [Azure Synapse Analytics connector](data-factory-azure-sql-data-warehouse-connector.md#copy-activity-properties) article.
 
-### SQL DW Sink in Copy Activity
-If you are copying data to Azure SQL Data Warehouse, set the **sink type** of the copy activity to **SqlDWSink**, and specify following properties in the **sink** section:
+### Azure Synapse Analytics Sink in Copy Activity
+If you are copying data to Azure Synapse Analytics, set the **sink type** of the copy activity to **SqlDWSink**, and specify following properties in the **sink** section:
 
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
 | sqlWriterCleanupScript |Specify a query for Copy Activity to execute such that data of a specific slice is cleaned up. |A query statement. |No |
-| allowPolyBase |Indicates whether to use PolyBase (when applicable) instead of BULKINSERT mechanism. <br/><br/> **Using PolyBase is the recommended way to load data into SQL Data Warehouse.** |True <br/>False (default) |No |
+| allowPolyBase |Indicates whether to use PolyBase (when applicable) instead of BULKINSERT mechanism. <br/><br/> **Using PolyBase is the recommended way to load data into Synapse Analytics.** |True <br/>False (default) |No |
 | polyBaseSettings |A group of properties that can be specified when the **allowPolybase** property is set to **true**. |&nbsp; |No |
 | rejectValue |Specifies the number or percentage of rows that can be rejected before the query fails. <br/><br/>Learn more about the PolyBase’s reject options in the **Arguments** section of [CREATE EXTERNAL TABLE (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx) topic. |0 (default), 1, 2, … |No |
 | rejectType |Specifies whether the rejectValue option is specified as a literal value or a percentage. |Value (default), Percentage |No |
@@ -1272,7 +1272,7 @@ If you are copying data to Azure SQL Data Warehouse, set the **sink type** of th
 }
 ```
 
-For more information, see [Azure SQL Data Warehouse connector](data-factory-azure-sql-data-warehouse-connector.md#copy-activity-properties) article.
+For more information, see [Azure Synapse Analytics connector](data-factory-azure-sql-data-warehouse-connector.md#copy-activity-properties) article.
 
 ## Azure Cognitive Search
 
@@ -4822,7 +4822,7 @@ The following table lists the compute environments supported by Data Factory and
 | [Azure Batch](#azure-batch) |[.NET custom activity](#net-custom-activity) |
 | [Azure Machine Learning](#azure-machine-learning) | [Machine Learning Batch Execution Activity](#machine-learning-batch-execution-activity), [Machine Learning Update Resource Activity](#machine-learning-update-resource-activity) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics) |[Data Lake Analytics U-SQL](#data-lake-analytics-u-sql-activity) |
-| [Azure SQL Database](#azure-sql-database), [Azure SQL Data Warehouse](#azure-sql-data-warehouse), [SQL Server](#sql-server-stored-procedure) |[Stored Procedure](#stored-procedure-activity) |
+| [Azure SQL Database](#azure-sql-database), [Azure Synapse Analytics](#azure-synapse-analytics), [SQL Server](#sql-server-stored-procedure) |[Stored Procedure](#stored-procedure-activity) |
 
 ## On-demand Azure HDInsight cluster
 The Azure Data Factory service can automatically create a Windows/Linux-based on-demand HDInsight cluster to process data. The cluster is created in the same region as the storage account (linkedServiceName property in the JSON) associated with the cluster. You can run the following transformation activities on this linked service: [.NET custom activity](#net-custom-activity), [Hive activity](#hdinsight-hive-activity), [Pig activity](#hdinsight-pig-activity), [MapReduce activity](#hdinsight-mapreduce-activity), Hadoop streaming activity, [Spark activity](#hdinsight-spark-activity).
@@ -4839,7 +4839,7 @@ The following table provides descriptions for the properties used in the Azure J
 | linkedServiceName |Azure Storage linked service to be used by the on-demand cluster for storing and processing data. <p>Currently, you cannot create an on-demand HDInsight cluster that uses an Azure Data Lake Store as the storage. If you want to store the result data from HDInsight processing in an Azure Data Lake Store, use a Copy Activity to copy the data from the Azure Blob Storage to the Azure Data Lake Store.</p>  | Yes |
 | additionalLinkedServiceNames |Specifies additional storage accounts for the HDInsight linked service so that the Data Factory service can register them on your behalf. |No |
 | osType |Type of operating system. Allowed values are: Windows (default) and Linux |No |
-| hcatalogLinkedServiceName |The name of Azure SQL linked service that point to the HCatalog database. The on-demand HDInsight cluster is created by using the Azure SQL database as the metastore. |No |
+| hcatalogLinkedServiceName |The name of Azure SQL linked service that point to the HCatalog database. The on-demand HDInsight cluster is created by using Azure SQL Database as the metastore. |No |
 
 ### JSON example
 The following JSON defines a Linux-based on-demand HDInsight linked service. The Data Factory service automatically creates a **Linux-based** HDInsight cluster when processing a data slice.
@@ -5062,7 +5062,7 @@ Activity | Description
 [HDInsight Spark Activity](#hdinsight-spark-activity) | The HDInsight Spark activity in a Data Factory pipeline executes Spark programs on your own HDInsight cluster.
 [Machine Learning Batch Execution Activity](#machine-learning-batch-execution-activity) | Azure Data Factory enables you to easily create pipelines that use a published Azure Machine Learning web service for predictive analytics. Using the Batch Execution Activity in an Azure Data Factory pipeline, you can invoke a Machine Learning web service to make predictions on the data in batch.
 [Machine Learning Update Resource Activity](#machine-learning-update-resource-activity) | Over time, the predictive models in the Machine Learning scoring experiments need to be retrained using new input datasets. After you are done with retraining, you want to update the scoring web service with the retrained Machine Learning model. You can use the Update Resource Activity to update the web service with the newly trained model.
-[Stored Procedure Activity](#stored-procedure-activity) | You can use the Stored Procedure activity in a Data Factory pipeline to invoke a stored procedure in one of the following data stores: Azure SQL Database, Azure SQL Data Warehouse, SQL Server Database in your enterprise or an Azure VM.
+[Stored Procedure Activity](#stored-procedure-activity) | You can use the Stored Procedure activity in a Data Factory pipeline to invoke a stored procedure in one of the following data stores: Azure SQL Database, Azure Synapse Analytics, SQL Server Database in your enterprise or an Azure VM.
 [Data Lake Analytics U-SQL activity](#data-lake-analytics-u-sql-activity) | Data Lake Analytics U-SQL Activity runs a U-SQL script on an Azure Data Lake Analytics cluster.
 [.NET custom activity](#net-custom-activity) | If you need to transform data in a way that is not supported by Data Factory, you can create a custom activity with your own data processing logic and use the activity in the pipeline. You can configure the custom .NET activity to run using either an Azure Batch service or an Azure HDInsight cluster.
 
@@ -5537,18 +5537,18 @@ You can specify the following properties in a Stored Procedure Activity JSON def
 
 - SQL Server
 - Azure SQL Database
-- Azure SQL Data Warehouse
+- Azure Synapse Analytics
 
 The following properties are supported in the **typeProperties** section when you set the type of activity to SqlServerStoredProcedure:
 
 | Property | Description | Required |
 | --- | --- | --- |
-| storedProcedureName |Specify the name of the stored procedure in the Azure SQL database or Azure SQL Data Warehouse that is represented by the linked service that the output table uses. |Yes |
+| storedProcedureName |Specify the name of the stored procedure in Azure SQL Database or Azure Synapse Analytics that is represented by the linked service that the output table uses. |Yes |
 | storedProcedureParameters |Specify values for stored procedure parameters. If you need to pass null for a parameter, use the syntax: "param1": null (all lower case). See the following sample to learn about using this property. |No |
 
 If you do specify an input dataset, it must be available (in ‘Ready’ status) for the stored procedure activity to run. The input dataset cannot be consumed in the stored procedure as a parameter. It is only used to check the dependency before starting the stored procedure activity. You must specify an output dataset for a stored procedure activity.
 
-Output dataset specifies the **schedule** for the stored procedure activity (hourly, weekly, monthly, etc.). The output dataset must use a **linked service** that refers to an Azure SQL Database or an Azure SQL Data Warehouse or a SQL Server Database in which you want the stored procedure to run. The output dataset can serve as a way to pass the result of the stored procedure for subsequent processing by another activity ([chaining activities](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline)) in the pipeline. However, Data Factory does not automatically write the output of a stored procedure to this dataset. It is the stored procedure that writes to a SQL table that the output dataset points to. In some cases, the output dataset can be a **dummy dataset**, which is used only to specify the schedule for running the stored procedure activity.
+Output dataset specifies the **schedule** for the stored procedure activity (hourly, weekly, monthly, etc.). The output dataset must use a **linked service** that refers to an Azure SQL Database or an Azure Synapse Analytics or a SQL Server Database in which you want the stored procedure to run. The output dataset can serve as a way to pass the result of the stored procedure for subsequent processing by another activity ([chaining activities](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline)) in the pipeline. However, Data Factory does not automatically write the output of a stored procedure to this dataset. It is the stored procedure that writes to a SQL table that the output dataset points to. In some cases, the output dataset can be a **dummy dataset**, which is used only to specify the schedule for running the stored procedure activity.
 
 ### JSON example
 

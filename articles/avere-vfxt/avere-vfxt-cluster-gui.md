@@ -3,7 +3,7 @@ title: Access the Avere vFXT control panel - Azure
 description: How to connect to the vFXT cluster and  the browser-based Avere Control Panel to configure the Avere vFXT 
 author: ekpgh
 ms.service: avere-vfxt
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/14/2019
 ms.author: rohogue
 ---

@@ -6,14 +6,14 @@ author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: 
+ms.subservice: sql-dw 
 ms.date: 04/30/2019
 ms.author: jrasnick
 ms.reviewer: rortloff
 ms.custom: seo-lt-2019
 ---
 
-# Get started with Transparent Data Encryption (TDE)
+# Get started with Transparent Data Encryption (TDE) in Azure Synapse Analytics
 
 > [!div class="op_single_selector"]
 >

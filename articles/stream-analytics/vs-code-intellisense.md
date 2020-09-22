@@ -5,7 +5,7 @@ ms.service: stream-analytics
 author: su-jie
 ms.author: sujie
 ms.date: 4/11/2020
-ms.topic: conceptual
+ms.topic: how-to
 ---
 # IntelliSense in Azure Stream Analytics tools for Visual Studio Code
 
@@ -28,13 +28,12 @@ You can trigger IntelliSense in any editor window by typing a trigger character,
 
 Stream Analytics tools for VS Code IntelliSense offers different types of completions, including language server suggestions, snippets, and simple word-based textual completions.
 
-|       |         |       |
-| ----- | ------- | ----- |
+|Completion     |  Type       |
+| ----- | ------- |
 | Keywords | `keyword`
 | Functions | `build-in function`, `user defined function`  |
 | Data Set Name| `input`, `output`, `intermediate result set`|
 | Data Set Column Name|`input`, `intermediate result set`|
-|
 
 #### Name completion
 
@@ -66,6 +65,6 @@ This issue is caused by missing input configuration which provides data. You can
 
 ## Next steps
 
-* [Quickstart: Create an Azure Stream Analytics job in Visual Studio Code](quick-create-vs-code.md)
+* [Quickstart: Create an Azure Stream Analytics job in Visual Studio Code](quick-create-visual-studio-code.md)
 * [Test Stream Analytics queries locally with sample data using Visual Studio Code](visual-studio-code-local-run.md)
 * [Test Stream Analytics queries locally against live stream input by using Visual Studio Code](visual-studio-code-local-run-live-input.md)
