@@ -4,8 +4,8 @@
   items:
   - name: What is Stream Analytics?
     href: stream-analytics-introduction.md
-  - name: End-to-end solution patterns
-    href: stream-analytics-solution-patterns.md
+  - name: Stream Analytics Cluster
+    href: cluster-overview.md
 - name: Quickstarts
   expanded: true
   items:
@@ -23,7 +23,11 @@
     - name: Visual Studio
       href: stream-analytics-quick-create-vs.md
     - name: Visual Studio Code
-      href: quick-create-vs-code.md
+      href: quick-create-visual-studio-code.md
+  - name: Create a cluster
+    items:
+    - name: Azure portal
+      href: create-cluster.md
 - name: Tutorials
   items:
   - name: 1 - Create / manage a job
@@ -42,6 +46,8 @@
     href: https://azure.microsoft.com/resources/samples/?service=stream-analytics
 - name: Concepts
   items:
+  - name: End-to-end solution patterns
+    href: stream-analytics-solution-patterns.md
   - name: Choose a streaming analytics technology
     href: streaming-technologies.md
   - name: Choose a job development tool
@@ -145,6 +151,14 @@
   items:
   - name: Manage
     items:
+    - name: Clusters
+      items:
+      - name: Create and delete private endpoints
+        href: private-endpoints.md
+      - name: Add and remove jobs
+        href: manage-jobs-cluster.md
+      - name: Scale cluster size
+        href: scale-cluster.md
     - name: Autoscale jobs
       href: stream-analytics-autoscale.md
     - name: Update credentials
@@ -234,6 +248,14 @@
       href: stream-analytics-cicd-api.md
     - name: Export and deploy with Azure Resource Manager
       href: resource-manager-export.md
+  - name: Continuous integration and deployment
+    items:
+    - name: CI/CD overview
+      href: cicd-overview.md
+    - name: Build, test, and deploy with PowerShell
+      href: cicd-tools.md
+    - name: Set up a pipeline with Azure DevOps
+      href: set-up-cicd-pipeline.md
   - name: Visual Studio
     items:
     - name: Install tools
@@ -260,8 +282,6 @@
       href: visual-studio-code-local-run-live-input.md
     - name: Debug queries using job diagram 
       href: debug-locally-using-job-diagram-vs-code.md
-    - name: Set up CI/CD pipeline
-      href: setup-cicd-vs-code.md
     - name: Explore jobs
       href: visual-studio-code-explore-jobs.md
     - name: JobConfig.json fields

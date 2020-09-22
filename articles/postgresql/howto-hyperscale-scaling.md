@@ -6,7 +6,7 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 8/10/2020
+ms.date: 9/18/2020
 ---
 
 # Server group size
@@ -67,7 +67,7 @@ rebalancing](#rebalance-shards)) happens without interrupting queries.
 To add nodes, go to the **Compute + storage** tab in your Hyperscale (Citus) server
 group.  Dragging the slider for **Worker node count** changes the value.
 
-![Resource sliders](./media/howto-hyperscale-scaling/01-sliders-workers.png)
+:::image type="content" source="./media/howto-hyperscale-scaling/01-sliders-workers.png" alt-text="Resource sliders":::
 
 Click the **Save** button to make the changed value take effect.
 
@@ -94,11 +94,6 @@ argument. Thus you do not have to call the function for every distributed
 table, just call it on a representative table from each colocation group.
 
 ### Increase or decrease vCores on nodes
-
-> [!NOTE]
-> This feature is currently in preview. To request a change in vCores for
-nodes in your server group, please [contact Azure
-support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 In addition to adding new nodes, you can increase the capabilities of existing
 nodes. Adjusting compute capacity up and down can be useful for performance
