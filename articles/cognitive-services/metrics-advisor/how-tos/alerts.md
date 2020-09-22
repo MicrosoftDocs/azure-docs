@@ -23,9 +23,7 @@ Metrics Advisor supports three different types of hooks: email hook, web hook an
 ### Email hook
 
 > [!Note]
-> The Metrics Advisor resource administrators need to configure the **Email settings**, and input SMTP related information into Metrics Advisor before anomaly alerts can be sent.
-
-Metrics Advisor resource administrators need to configure the Email settings, and input SMTP related information into Metrics Advisor before anomaly alerts can be sent. The resource group admin or subscription admin needs to assign at least one *Cognitive Services Metrics Advisor Administrator* role in the Access control tab of the Metrics Advisor resource. 
+> Metrics Advisor resource administrators need to configure the Email settings, and input SMTP related information into Metrics Advisor before anomaly alerts can be sent. The resource group admin or subscription admin needs to assign at least one *Cognitive Services Metrics Advisor Administrator* role in the Access control tab of the Metrics Advisor resource. 
 
 To create an email hook, the following parameters are available: 
 
