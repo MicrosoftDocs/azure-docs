@@ -686,13 +686,12 @@ You can publish your logic app as a new resource, which automatically creates an
 
       ```json
       {
-  "IsEncrypted": false,
-  "Values": {
-    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
-    "FUNCTIONS_WORKER_RUNTIME": "dotnet",
-  }
-}
-
+        "IsEncrypted": false,
+        "Values": {
+           "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+           "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+        }
+      }
       ``` 
 
    When you're done, Visual Studio Code starts creating and deploying the resources necessary for publishing your logic app.
