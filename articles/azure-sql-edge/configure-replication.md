@@ -1,6 +1,6 @@
 ---
-title: Configure replication to Azure SQL Edge (Preview) 
-description: Learn about configuring replication to Azure SQL Edge (Preview).
+title: Configure replication to Azure SQL Edge 
+description: Learn about configuring replication to Azure SQL Edge.
 keywords: 
 services: sql-edge
 ms.service: sql-edge
@@ -11,7 +11,7 @@ ms.reviewer: sstein
 ms.date: 05/19/2020
 ---
 
-# Configure replication to Azure SQL Edge (Preview) 
+# Configure replication to Azure SQL Edge 
 
 You can configure an instance of Azure SQL Edge as the push subscriber for one-way transactional replication or snapshot replication. This instance can't act as the publisher or the distributor for a transactional replication configuration. Note that Azure SQL Edge doesn't support merge replication, peer-to-peer replication, or Oracle publishing.
 

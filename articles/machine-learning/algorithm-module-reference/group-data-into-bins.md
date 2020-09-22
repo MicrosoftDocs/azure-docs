@@ -13,7 +13,7 @@ ms.date: 05/19/2020
 ---
 # Group Data into Bins module
 
-This article describes how to use the Group Data into Bins module in Azure Machine Learning designer (preview), to group numbers or change the distribution of continuous data.
+This article describes how to use the Group Data into Bins module in Azure Machine Learning designer, to group numbers or change the distribution of continuous data.
 
 The Group Data into Bins module supports multiple options for binning data. You can customize how the bin edges are set and how values are apportioned into the bins. For example, you can:  
 
@@ -45,7 +45,7 @@ Because there are so many ways to group data, all customizable, we recommend tha
 
 ## How to configure Group Data into Bins
 
-1. Add the **Group Data Into Bins** module to your pipeline in the designer (preview). You can find this module in the category **Data Transformation**.
+1. Add the **Group Data Into Bins** module to your pipeline in the designer. You can find this module in the category **Data Transformation**.
 
 2. Connect the dataset that has numerical data to bin. Quantization can be applied only to columns that contain numeric data. 
 

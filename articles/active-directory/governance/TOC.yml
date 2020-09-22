@@ -68,8 +68,10 @@
         href: entitlement-management-access-package-settings.md
       - name: Change resource roles
         href: entitlement-management-access-package-resources.md
-      - name: Change request and approval settings
+      - name: Change request settings
         href: entitlement-management-access-package-request-policy.md
+      - name: Change approval settings
+        href: entitlement-management-access-package-approval-policy.md
       - name: Change lifecycle settings
         href: entitlement-management-access-package-lifecycle-policy.md
       - name: View requests

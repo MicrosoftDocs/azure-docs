@@ -15,7 +15,6 @@ ms.custom: how-to, contperfq4, tracking-python
 ---
 
 # Secure an Azure Machine Learning workspace with virtual networks
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In this article, you learn how to secure an Azure Machine Learning workspace and its associated resources in a virtual network.
 
@@ -169,8 +168,6 @@ To use Azure Machine Learning experimentation capabilities with Azure Key Vault 
 
 To use Azure Container Registry inside a virtual network, you must meet the following requirements:
 
-* Your Azure Machine Learning workspace must be Enterprise edition. For information on upgrading, see [Upgrade to Enterprise edition](how-to-manage-workspace.md#upgrade).
-
 * Your Azure Container Registry must be Premium version. For more information on upgrading, see [Changing SKUs](/azure/container-registry/container-registry-skus#changing-skus).
 
 * Your Azure Container Registry must be in the same virtual network and subnet as the storage account and compute targets used for training or inference.
@@ -252,8 +249,8 @@ Once those requirements are fulfilled, use the following steps to enable Azure C
             "type": "SystemAssigned"
         },
         "sku": {
-            "tier": "enterprise",
-            "name": "enterprise"
+            "tier": "basic",
+            "name": "basic"
         },
         "properties": {
             "sharedPrivateLinkResources":
