@@ -32,7 +32,7 @@ Watch this fast-paced video for an overview of the security architecture and eac
 
 In Azure Cognitive Search, encryption starts with connections and transmissions, and extends to content stored on disk. For search services on the public internet, Azure Cognitive Search listens on HTTPS port 443. All client-to-service connections use TLS 1.2 encryption. Earlier versions (1.0 or 1.1) are not supported.
 
-:::image type="content" source="media/search-security-overview/encryptionatrest-cmk.png" alt-text="diagram depicting different levels of security at each level of service engagement":::
+:::image type="content" source="media/search-security-overview/encryptionatrest-cmk.png" alt-text="diagram depicting different types of security at each level of service engagement":::
 
 For data handled internally by the search service, the following table describes the [data encryption models](../security/fundamentals/encryption-models.md). Some features, such as knowledge store, incremental enrichment, and indexer-based indexing, read from or write to data structures in other Azure Services. Those services have their own levels of encryption support separate from Azure Cognitive Search.
 
