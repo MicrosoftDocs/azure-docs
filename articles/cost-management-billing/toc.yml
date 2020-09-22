@@ -43,7 +43,7 @@
     - name: Plan to manage costs
       href: understand/plan-manage-costs.md
     - name: Prevent unexpected costs
-      href: understand/analyze-unexpected-costs.md
+      href: understand/analyze-unexpected-charges.md
     - name: Manage costs with automation
       href: costs/manage-automation.md
     - name: Cost Management for partners

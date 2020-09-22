@@ -18,7 +18,7 @@ This article helps you get started with how to plan to manage your Azure costs. 
 
 - Get estimated costs before adding services using [pricing calculator](https://azure.microsoft.com/pricing/calculator/), Azure price sheet or while adding services in the Azure portal.
 - Monitor costs with [budgets](../costs/tutorial-acm-create-budgets.md), [alerts](../costs/cost-mgt-alerts-monitor-usage-spending.md), and [cost analysis](../costs/quick-acm-cost-analysis.md).
-- Review the charges on your invoice by comparing them with [detailed usage files](download-azure-invoice-daily-usage-date.md).
+- Review the charges on your invoice by comparing them with [detailed usage files](../manage/download-azure-invoice-daily-usage-date.md).
 - Integrate billing and cost data with your own reporting system using [billing](https://docs.microsoft.com/rest/api/billing/) and [consumption](https://docs.microsoft.com/rest/api/consumption/) APIs.
 - Use additional resources and tools for Enterprise Agreement (EA), Cloud Solution Provider (CSP), and Azure Sponsorship customers.
 - Make use of [some of the most popular Azure services for free for 12 months](../manage/create-free-services.md) available with the [Azure free account](https://azure.microsoft.com/free/). Along with the recommendations listed below, see [Avoid getting charged for free account](../manage/avoid-charges-free-account.md).
@@ -82,7 +82,7 @@ You can filter by various properties such as tags, resource type, and time span.
 
 Additionally, you can click the labels of the chart to see the daily spend history for that label. For ex: In the screenshot below, clicking on virtual machines displays the daily cost of running your VMs.
 
-    ![Screenshot of the spend history view in Azure portal](./media/plan-manage-costs/costhistory.png)
+![Screenshot of the spend history view in Azure portal](./media/plan-manage-costs/costhistory.png)
 
 ## Optimize and reduce costs
 
@@ -114,7 +114,7 @@ Review the [Optimize costs from recommendations](../costs/tutorial-acm-opt-recom
 
 ## Integrate with billing and consumption APIs
 
-Use the Azure [billing](https://docs.microsoft.com/rest/api/billing/) and [consumption](https://docs.microsoft.com/rest/api/consumption/) APIs to programmatically get billing and cost data. Use the RateCard API and the Usage API together to get your billed usage. For more information, see [Gain insights into your Microsoft Azure resource consumption](usage-rate-card-overview.md).
+Use the Azure [billing](https://docs.microsoft.com/rest/api/billing/) and [consumption](https://docs.microsoft.com/rest/api/consumption/) APIs to programmatically get billing and cost data. Use the RateCard API and the Usage API together to get your billed usage. For more information, see [Gain insights into your Microsoft Azure resource consumption](../manage/usage-rate-card-overview.md).
 
 ## <a name="other-offers"></a> Additional resources and special cases
 
