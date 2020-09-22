@@ -80,18 +80,21 @@ BASE64URL(JWS Payload) || '.' ||
 
 BASE64URL(JWS Signature)
 
-JWS Protected Header
+##### JWS Protected Header
+
+```
 {
   "alg": "PS256",
   "typ": "attReq"
   // no "kid" parameter as the key specified by attest_key MUST sign this JWS to prove possession.
 }
+```
 
 ##### JWS Payload
 
 JWS payload can be of type basic or VBS. Basic is used when attestation evidence does not include VBS data.
 
-```Basic example
+``` Basic example
 {
   "att_type": "basic",
   "att_data": {
@@ -136,7 +139,7 @@ JWS payload can be of type basic or VBS. Basic is used when attestation evidence
 }
 ```
 
-```VBS example:
+``` VBS example:
 {
   "att_type": "vbs",
   "att_data": {
