@@ -118,7 +118,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Grammarly SSO
 
-To configure single sign-on on **Grammarly**, you need to copy the **Login URL**, **Azure AD identifier** and the downloaded **Certificate (Base64)** to the Grammarly Admin panel - [instructions](https://support.grammarly.com/hc/en-us/articles/360048683092-How-do-I-set-up-SAML-single-sign-on-for-my-Grammarly-Business-account-).
+To configure single sign-on on **Grammarly**, you need to copy the **Login URL**, **Azure AD identifier**, and the downloaded **Certificate (Base64)** to the Grammarly Admin panel. [Learn how](https://support.grammarly.com/hc/en-us/articles/360048683092-How-do-I-set-up-SAML-single-sign-on-for-my-Grammarly-Business-account-).
 
 ### Create Grammarly test user
 
