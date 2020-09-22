@@ -1,6 +1,6 @@
 ---
 title: Overview of Recovery Services vaults
-description: An overview and comparison between Recovery Services vaults and Azure Backup vaults.
+description: An overview of Recovery Services vaults.
 ms.topic: conceptual
 ms.date: 08/17/2020
 ---
@@ -24,7 +24,7 @@ A Recovery Services vault is an entity that stores the backups and recovery poin
 
 - Azure Backup automatically handles storage for the vault. See how [storage settings can be changed](./backup-create-rs-vault.md#set-storage-redundancy).
 
-- To learn more about storage redundancy, see these articles on [geo](../storage/common/storage-redundancy.md) and [local](../storage/common/storage-redundancy.md) redundancy.
+- To learn more about storage redundancy, see these articles on [geo](../storage/common/storage-redundancy.md#geo-zone-redundant-storage), [local](../storage/common/storage-redundancy.md#locally-redundant-storage) and [zonal](../storage/common/storage-redundancy.md#zone-redundant-storage) redundancy.
 
 ## Encryption settings in the Recovery Services vault
 

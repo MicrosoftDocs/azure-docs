@@ -15,7 +15,7 @@ ms.custom: how-to, devx-track-python
 
 # Use Azure Machine Learning with the Fairlearn open-source package to assess the fairness of ML models (preview)
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 In this how-to guide, you will learn to use the [Fairlearn](https://fairlearn.github.io/) open-source Python package with Azure Machine Learning to perform the following tasks:
 

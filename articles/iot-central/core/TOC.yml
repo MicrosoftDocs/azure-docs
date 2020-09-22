@@ -109,7 +109,7 @@
           href: howto-run-a-job.md
     - name: Transform
       items:
-        - name: Export data to cloud destinations (preview)
+        - name: Export data to cloud destinations
           href: howto-export-data.md
         - name: Export data to cloud destinations (legacy)
           href: howto-export-data-legacy.md
