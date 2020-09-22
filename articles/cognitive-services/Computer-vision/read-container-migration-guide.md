@@ -35,9 +35,9 @@ The Read v3.x containers use version 3 of the Computer Vision API and have the f
 
 #### [Version 3.0-preview](#tab/version-3)
 
-* `/vision/v3.0-preview.1/read/analyzeResults/{operationId}`
-* `/vision/v3.0-preview.1/read/analyze`
-* `/vision/v3.0-preview.1/read/syncAnalyze`
+* `/vision/v3.0/read/analyzeResults/{operationId}`
+* `/vision/v3.0/read/analyze`
+* `/vision/v3.0/read/syncAnalyze`
 
 ---
 
@@ -63,8 +63,7 @@ Core and memory correspond to the `--cpus` and `--memory` settings, which are us
 
 | Implementation |	Required runtime argument(s) |
 |---------|---------|
-|In-memory (default) |	No runtime arguments required. |
-|File level	| `Mounts:Shared` directory exists. |
+|File level (default)	| `/share` directory. |
 |Azure Blob	| `Storage:ObjectStore:AzureBlob:ConnectionString={AzureStorageConnectionString}` |
 
 ## Queue implementations
@@ -79,13 +78,12 @@ In v3.x of the container, RabbitMQ is not currently not supported. The supported
 
 For added redundancy the Read v3.x container uses a visibility timer to ensure requests can be successfully processed in the event of a crash, when running in a multi-container set-up. 
 
-Set the timer with `Queue:Azure:QueueVisibilityTimeoutInMilliseconds`, which sets the time for a message to be invisible when another worker is processing it  
+Set the timer with `Queue:Azure:QueueVisibilityTimeoutInMilliseconds`, which sets the time for a message to be invisible when another worker is processing it. To avoid pages from being redundantly processed, we recommend setting the timeout period to 120 seconds. The default value is 30 seconds.
 
 | Default value | Recommended value |
 |---------|---------|
 | 30000 |	120000 |
 
-To avoid pages from being redundantly processed, we recommend setting the timeout period to 120 seconds. The default value is 30 seconds.
 
 ## Next steps
 
