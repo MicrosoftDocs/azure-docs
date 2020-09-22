@@ -54,7 +54,7 @@ landingContent:
             url: https://docs.microsoft.com/azure/active-directory-b2c/overview
           - text: Technical and feature overview
             url: https://docs.microsoft.com/azure/active-directory-b2c/technical-overview
-          - text: See all Azure B2C documentation
+          - text: See all Azure AD B2C documentation
             url: https://docs.microsoft.com/azure/active-directory-b2c/
       - linkListType: concept
         links:
