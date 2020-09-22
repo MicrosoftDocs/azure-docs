@@ -12,6 +12,9 @@ manager: philmea
 
 # Deploying dependencies for local development
 
+> [!IMPORTANT]
+> While we update this article, see [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/) for the most up to date content.
+
 This article explains how to deploy only the Azure Platform Services needed to do local development and debugging.   At the end, you will have a resource group deployed that contains everything you need for local development and debugging.
 
 ## Deploy Azure platform services
