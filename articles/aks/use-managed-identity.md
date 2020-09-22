@@ -33,7 +33,7 @@ AKS uses several managed identities for built-in services and add-ons.
 | Identity                       | Name    | Use case | Default permissions | Bring your own identity
 |----------------------------|-----------|----------|
 | Control plane | not visible | Used by AKS for managed networking resources including ingress load balancers and AKS managed public IPs | Contributor role for Node resource group | Preview
-| Kubelet | AKS Cluster Name-agentpool | Authentication with Azure Container Registry (ACR) | NA | Not currently supported
+| Kubelet | AKS Cluster Name-agentpool | Authentication with Azure Container Registry (ACR) | NA (for kubernetes v1.15+) | Not currently supported
 | Add-on | AzureNPM | No identity required | NA | No
 | Add-on | AzureCNI network monitoring | No identity required | NA | No
 | Add-on | azurepolicy (gatekeeper) | No identity required | NA | No
