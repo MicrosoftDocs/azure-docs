@@ -11,6 +11,8 @@ ms.custom: devx-track-java, devx-track-azurecli
 
 # How to Launch your Spring Cloud application from source code
 
+**This article applies to:** ✔️ Java
+
 Azure Spring Cloud enables Spring Cloud based microservice applications on Azure.
 
 You can launch applications directly from java source code or from a pre-built JAR. This article explains the deployment procedures.
