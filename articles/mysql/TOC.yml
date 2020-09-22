@@ -10,8 +10,7 @@
     items:
     - name: SSL root certificate expiring
       href: concepts-certificate-rotation.md
-- name: Quickstarts
-  expanded: true
+- name: Shared documentation
   items:
   - name: Migration
     items:
@@ -31,6 +30,7 @@
     href: how-to-fix-corrupt-database.md
     displayName: corrupt data
 - name: Single Server
+  expanded: true
   items:
   - name: Single Server documentation
     href: single-server/index.yml
@@ -273,6 +273,10 @@
       - name: Azure PowerShell
         href: howto-configure-server-parameters-using-powershell.md
         displayName: server parameters, powershell
+    - name: Stop/Start server
+      items:
+      - name: Stop Start MySQL server
+        href: how-to-stop-start-server.md
     - name: Auto grow storage
       items:
       - name: Azure portal

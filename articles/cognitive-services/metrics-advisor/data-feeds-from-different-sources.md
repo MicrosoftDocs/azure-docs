@@ -22,10 +22,10 @@ Use this article to find the settings and requirements for connecting different 
 | ---------------------|-------------|
 |**Basic** | You will need to be able to provide basic parameters for accessing data sources. For example a connection string or key. Data feed admins are able to view these credentials. |
 | **AzureManagedIdentity** | [Managed identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) for Azure resources is a feature of Azure Active Directory. It provides Azure services with an automatically managed identity in Azure AD. You can use the identity to authenticate to any service that supports Azure AD authentication.|
-| **AzureSQLConnectionString**| Store your AzureSQL connection string as an **Authentication entity** in Metrics Advisor, and use it directly each time when onboarding metrics data. Only admins of the Authentication entity are able to view these credentials, but enables authorized viewers to create data feeds without needing to know details for the credentials. |
-| **DataLakeGen2SharedKey**| Store your data lake account key as an **Authentication entity** in Metrics Advisor and use it directly each time when onboarding metrics data. Only admins of the Authentication entity are able to view these credentials, but enables authorized viewers to create data feed without needing to know the credential details.|
-| **ServicePrincipal**| Store your service principal as an **Authentication entity** in Metrics Advisor and use it directly each time when onboarding metrics data. Only admins of Authentication entity are able to view the credentials, but enables authorized viewers to create data feed without needing to know the credential details.|
-| **ServicePrincipalInKeyVault**|Store your service principal in KeyVault as an **Authentication entity** in Metrics Advisor and use it directly each time when onboarding metrics data. Only admins of **Authentication entity** are able to view the credentials, but also leave viewers able to create data feed without needing to know detailed credentials. |
+| **AzureSQLConnectionString**| Store your AzureSQL connection string as a **credential entity** in Metrics Advisor, and use it directly each time when onboarding metrics data. Only admins of the Credential entity are able to view these credentials, but enables authorized viewers to create data feeds without needing to know details for the credentials. |
+| **DataLakeGen2SharedKey**| Store your data lake account key as a **credential entity** in Metrics Advisor and use it directly each time when onboarding metrics data. Only admins of the Credential entity are able to view these credentials, but enables authorized viewers to create data feed without needing to know the credential details.|
+| **Service principal**| Store your service principal as a **credential entity** in Metrics Advisor and use it directly each time when onboarding metrics data. Only admins of Credential entity are able to view the credentials, but enables authorized viewers to create data feed without needing to know the credential details.|
+| **Service principal from key vault**|Store your service principal in a key vault as a **credential entity** in Metrics Advisor and use it directly each time when onboarding metrics data. Only admins of a **credential entity** are able to view the credentials, but also leave viewers able to create data feed without needing to know detailed credentials. |
 
 ## Data sources supported and corresponding authentication types
 
@@ -36,8 +36,8 @@ Use this article to find the settings and requirements for connecting different 
 |[**Azure Blob Storage (JSON)**](#blob) | Basic<br>ManagedIdentity|
 |[**Azure Cosmos DB (SQL)**](#cosmosdb) | Basic |
 |[**Azure Data Explorer (Kusto)**](#kusto) | Basic<br>ManagedIdentity|
-|[**Azure Data Lake Storage Gen2**](#adl) | Basic<br>DataLakeGen2SharedKey<br>ServicePrincipal<br>ServicePrincipalInKeyVault<br> |
-|[**Azure SQL Database / SQL Server**](#sql) | Basic<br>ManagedIdentity<br>ServicePrincipal<br>ServicePrincipalInKeyVault<br>AzureSQLConnectionString
+|[**Azure Data Lake Storage Gen2**](#adl) | Basic<br>DataLakeGen2SharedKey<br>Service principal<br>Service principal from key vault<br> |
+|[**Azure SQL Database / SQL Server**](#sql) | Basic<br>ManagedIdentity<br>Service principal<br>Service principal from key vault<br>AzureSQLConnectionString
 |[**Azure Table Storage**](#table) | Basic | 
 |[**ElasticSearch**](#es) | Basic |
 |[**Http request**](#http) | Basic | 
@@ -46,7 +46,7 @@ Use this article to find the settings and requirements for connecting different 
 |[**MySQL**](#mysql) | Basic |
 |[**PostgreSQL**](#pgsql)| Basic|
 
-Create an **Authentication Entity** and use it for authenticating to your data sources. The following sections specify the parameters required by for *Basic* authentication. 
+Create an **Credential entity** and use it for authenticating to your data sources. The following sections specify the parameters required by for *Basic* authentication. 
 
 ## <span id="appinsights">Azure Application Insights</span>
 
