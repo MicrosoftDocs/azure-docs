@@ -208,11 +208,11 @@ JWS payload can be of type basic or VBS. Basic is used when attestation evidence
 
 **custom_claims**: Array of custom enclave claims sent to the service that can be evaluated by the policy. The claim
 
-**name** (String): Name of the claim. This name will be appended to a url determined by the Attestation Service (to avoid conflicts) and the concatenated string becomes the type of the claim that can be used in the policy
+  name (String): Name of the claim. This name will be appended to a url determined by the Attestation Service (to avoid conflicts) and the concatenated string becomes the type of the claim that can be used in the policy
 
-**value** (String): Value of the claim
+  value (String): Value of the claim
 
-**value_type** (String): Data type of the claim’s value
+  value_type (String): Data type of the claim’s value
 
 **service_context** (BASE64URL(OCTETS)): Opaque, encrypted context created by the service which includes, among others, the challenge and an expiration time for that challenge.
 
