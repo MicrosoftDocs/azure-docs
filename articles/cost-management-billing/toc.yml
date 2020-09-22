@@ -114,6 +114,8 @@
       href: understand/mca-overview.md
     - name: Billing accounts for Microsoft Partner Agreement
       href: understand/mpa-overview.md
+    - name: Transfer subscriptions between partners (Preview)
+      href: manage/azure-plan-subscription-transfer-partners.md 
 - name: How-to guides
   items:
   - name: Configure Cost Management + Billing
@@ -178,6 +180,8 @@
         href: manage/grant-access-to-create-subscription.md
       - name: Export subscription information
         href: manage/export-subscriptions.md
+      - name: Delete an Azure billing payment method
+        href: manage/delete-azure-payment-method.md
       - name: Change credit card
         href: manage/change-credit-card.md
       - name: Change administrator

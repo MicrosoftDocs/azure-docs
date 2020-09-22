@@ -1,6 +1,6 @@
 ---
 title: Azure AD Connect cloud provisioning supported topologies and scenarios
-description: This topic describes the pre-requisites and the hardware requirements cloud provisioning.
+description: Learn about various on-premises and Azure Active Directory (Azure AD) topologies that use Azure AD Connect cloud provisioning.
 services: active-directory
 author: billmath
 manager: daveba

@@ -107,7 +107,7 @@ For example run configurations, see [Use a compute target to train your model](h
 
 ### Estimators
 
-To facilitate model training with popular frameworks, the estimator class allows you to easily construct run configurations. You can create and use a generic [Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) to submit training scripts that use any learning framework you choose (such as scikit-learn).
+To facilitate model training with popular frameworks, the estimator class allows you to easily construct run configurations. You can create and use a generic [Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py&preserve-view=true) to submit training scripts that use any learning framework you choose (such as scikit-learn).
 
 For more information about estimators, see [Train ML models with estimators](how-to-train-ml-models.md).
 
@@ -190,7 +190,7 @@ For an example of deploying a model as a web service, see [Deploy an image class
 
 #### Real-time endpoints
 
-When you deploy a trained model in the designer (preview), you can [deploy the model as a real-time endpoint](tutorial-designer-automobile-price-deploy.md). A real-time endpoint commonly receives a single request via the REST endpoint and returns a prediction in real-time. This is in contrast to batch processing, which processes multiple values at once and saves the results after completion to a datastore.
+When you deploy a trained model in the designer, you can [deploy the model as a real-time endpoint](tutorial-designer-automobile-price-deploy.md). A real-time endpoint commonly receives a single request via the REST endpoint and returns a prediction in real-time. This is in contrast to batch processing, which processes multiple values at once and saves the results after completion to a datastore.
 
 #### Pipeline endpoints
 
@@ -226,7 +226,7 @@ Pipeline steps are reusable, and can be run without rerunning the previous steps
 
 The studio is also where you access the interactive tools that are part of Azure Machine Learning:
 
-+ [Azure Machine Learning designer (preview)](concept-designer.md) to perform workflow steps without writing code
++ [Azure Machine Learning designer](concept-designer.md) to perform workflow steps without writing code
 + Web experience for [automated machine learning](concept-automated-ml.md)
 + [Azure Machine Learning notebooks](how-to-run-jupyter-notebooks.md) to write and run your own code in integrated Jupyter notebook servers.
 + [Data labeling projects](how-to-create-labeling-projects.md) to create, manage, and monitor projects to label your data
@@ -238,8 +238,9 @@ The studio is also where you access the interactive tools that are part of Azure
 > The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-+  Interact with the service in any Python environment with the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
++  Interact with the service in any Python environment with the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true).
 + Interact with the service in any R environment with the [Azure Machine Learning SDK for R](https://azure.github.io/azureml-sdk-for-r/reference/index.html) (preview).
++ Use [Azure Machine Learning designer](concept-designer.md) to perform the workflow steps without writing code. 
 + Use [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli) for automation.
 + The [Many Models Solution Accelerator](https://aka.ms/many-models) (preview) builds on Azure Machine Learning and enables you to train, operate, and manage hundreds or even thousands of machine learning models.
 

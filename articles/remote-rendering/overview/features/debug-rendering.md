@@ -70,6 +70,10 @@ However, the provided effects do no give any detailed introspection into service
 * Enabling the text overlays incurs little to no performance overhead.
 * Enabling the wireframe mode does incur a non-trivial performance overhead, though it may vary depending on the scene. For complex scenes, this mode can cause the frame rate to drop below the 60-Hz target.
 
+## API documentation
+
+* [C++ RemoteManager::DebugRenderingSettings()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#debugrenderingsettings)
+
 ## Next steps
 
 * [Rendering modes](../../concepts/rendering-modes.md)
