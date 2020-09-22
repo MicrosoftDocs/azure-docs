@@ -1405,8 +1405,6 @@ Specify the URL to the image you want to overlay and a bounding box to bind the 
 
 Running this code in a browser will display a map that looks like the following image:
 
-
-
 ![Google Maps image overlay](media/migrate-google-maps-web-app/google-maps-image-overlay.png)
 
 #### After: Azure Maps
@@ -1520,9 +1518,7 @@ Both Azure and Google maps can import and render KML, KMZ and GeoRSS data on the
 
 Running this code in a browser will display a map that looks like the following image:
 
-
-
-![Google Maps image overlay](media/migrate-google-maps-web-app/google-maps-kml.png)
+![Google Maps KML](media/migrate-google-maps-web-app/google-maps-kml.png)
 
 #### After: Azure Maps
 
