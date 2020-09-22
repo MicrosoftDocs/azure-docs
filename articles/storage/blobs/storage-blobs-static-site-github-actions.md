@@ -17,7 +17,7 @@ ms.custom: devx-track-javascript, github-actions-azure
 Get started with [GitHub Actions](https://docs.github.com/en/actions) by using a workflow to deploy a static site to an Azure storage blob. Once you have set up a GitHub Actions workflow, you will be able to automatically deploy your site to Azure from GitHub when you make changes to your site's code. 
 
 > [!NOTE]
-> If you are using [App Service Static Web Apps](https://docs.microsoft.com/azure/static-web-apps/), then you do not need to manually set up a GitHub Actions workflow.
+> If you are using [Azure Static Web Apps](https://docs.microsoft.com/azure/static-web-apps/), then you do not need to manually set up a GitHub Actions workflow.
 > Azure Static Web Apps automatically creates a GitHub workflow for you. 
 
 ## Prerequisites
