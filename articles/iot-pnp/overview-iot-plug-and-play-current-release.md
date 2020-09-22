@@ -18,50 +18,66 @@ This article summarizes the tools, SDKs, and APIs that support the current IoT P
 
 [Digital Twins Definition Language (DTDL) v2](https://github.com/Azure/opendigitaltwins-dtdl).
 
-To learn more, see [Understand IoT Plug and Play digital twins](concepts-digital-twin.md).
+To learn more about how IoT Plug and Play devices work with DTDL, see [IoT Plug and Play conventions](concepts-convention.md).
 
 ## Tools and utilities
 
 - Azure IoT explorer 0.11.4.
 
     To learn more, see [Install and use Azure IoT explorer](howto-use-iot-explorer.md).
-- VS Code extension 0.2.0.
+
+- VS Code extension 1.0.0.
 
     To learn more, see [Install and use the DTDL authoring tools](howto-use-dtdl-authoring-tools.md).
-- Visual Studio 2019 extension 0.2.0.
+
+- Visual Studio 2019 extension 1.0.0.
 
     To learn more, see [Install and use the DTDL authoring tools](howto-use-dtdl-authoring-tools.md).
+
 - Azure CLI IoT extension 0.10.0.
 
-    To learn more, see [Install and use the Azure IoT extension for the Azure CLI](howto-use-iot-pnp-cli.md)
+    To learn more, see [Install and use the Azure IoT extension for the Azure CLI](howto-use-iot-pnp-cli.md).
+
+    > [!TIP]
+    > The Azure IoT extension includes commands to help certify devices. See `az iot product -h`.
+
+
 
 ## Libraries and SDKs
 
 To learn more about the libraries and SDKs, see [Microsoft SDKs for IoT Plug and Play](libraries-sdks.md).
 
-- C device SDK [2020-07-19](https://github.com/Azure/azure-iot-sdk-c/releases/tag/2020-07-19)
-- .NET device SDK [LTS Release 2020-08-19](https://github.com/Azure/azure-iot-sdk-csharp/releases/tag/lts_2020-8-19)
-- Java device SDK [2020-8-13](https://github.com/Azure/azure-iot-sdk-java/releases/tag/2020-08-13)
-- Python device SDK [v2.2.0](https://github.com/Azure/azure-iot-sdk-python/releases/tag/2020-08-17)
-- Node.js device SDK [v1.17.1](https://github.com/Azure/azure-iot-sdk-node/releases/tag/2020-08-18)
+- C device SDK [VcPkg 2020-07-19](https://github.com/microsoft/vcpkg/tree/master/ports/azure-iot-sdk-c)
+- .NET device SDK [NuGet Microsoft.Azure.Devices.Client 1.30.0](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/)
+- Java device SDK [Maven iot-device-client 1.25.0](https://search.maven.org/artifact/com.microsoft.azure.sdk.iot/iot-device-client/1.25.0/jar)
+- Python device SDK [Pip azure-iot-device v2.2.0](https://pypi.org/project/azure-iot-device/)
+- Node.js device SDK [npm azure-iot-device 1.17.1](https://www.npmjs.com/package/azure-iot-device)
+- .NET - IoT Hub service [NuGet Microsoft.Azure.Devices 1.22.0](https://www.nuget.org/packages/Microsoft.Azure.Devices/)
+- Java - IoT Hub service [Maven iot-service-client 1.25.0](https://search.maven.org/artifact/com.microsoft.azure.sdk.iot/iot-service-client/1.25.0/jar)
+- Node.js - IoT Hub service [npm azure-iothub 1.12.5](npm azure-iot-device 1.17.1)
+- Python - IoT Hub/Digital Twins service [Pip azure-iot-hub 2.2.2](https://pypi.org/project/azure-iot-hub/)
+- DTDL model parser [NuGet](https://www.nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser).
+
+### Preview
+
 - Azure SDK for Embedded [1.0.0-preview.5](https://github.com/Azure/azure-sdk-for-c/releases/tag/1.0.0-preview.5)
 - Azure RTOS IoT middleware [v6.0_beta3](https://github.com/azure-rtos/azure-iot-preview/releases/tag/v6.0_beta3)
-- .NET - IoT Hub service [LTS Release 2020-08-19](https://github.com/Azure/azure-iot-sdk-csharp/releases/tag/lts_2020-8-19)
-- Java - IoT Hub service [2020-8-13](https://github.com/Azure/azure-iot-sdk-java/releases/tag/2020-08-13)
-- Node.js - IoT Hub service [v1.17.1](https://github.com/Azure/azure-iot-sdk-node/releases/tag/2020-08-18)
-- Python - IoT Hub/Digital Twins service [v2.2.2](https://github.com/Azure/azure-iot-sdk-python/releases/tag/2020-09-11)
-- Node.js - Digital Twins service [v1.17.1](https://github.com/Azure/azure-iot-sdk-node/releases/tag/2020-08-18)
 
 ## REST APIs
 
-Digital Twin REST API [2020-05-31-preview](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin).
+REST API [2020-09-30](https://docs.microsoft.com/rest/api/iothub).
 
 To learn more, see [IoT Plug and Play developer guide](concepts-developer-guide.md#interact-with-the-device).
+
+## IoT Hub
+
+IoT Plug and Play is supported by IoT Hub in all regions. IoT Plug and Play is only supported by standard or free tier IoT hubs.
 
 ## Announcements
 
 For current and previous IoT Plug and Play announcements, see the following blog posts:
 
+- [Public preview refresh (Posted on August 29, 2020)](https://techcommunity.microsoft.com/t5/internet-of-things/add-quot-plug-and-play-quot-to-your-iot-solutions/ba-p/1548531)
 - [Prepare and certify your devices for IoT Plug and Play (Posted on August 26, 2020)](https://azure.microsoft.com/blog/prepare-and-certify-your-devices-for-iot-plug-and-play/)
 - [IoT Plug and Play is now available in preview (Posted on August 22, 2019)](https://azure.microsoft.com/blog/iot-plug-and-play-is-now-available-in-preview/)
 - [Build with Azure IoT Central and IoT Plug and Play (Posted on May 7, 2019)](https://azure.microsoft.com/blog/build-with-azure-iot-central-and-iot-plug-and-play/)
