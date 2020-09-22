@@ -6,7 +6,7 @@ If you are developing for **constrained devices**, then you can use IoT Plug and
 
 ## Using the Embedded C SDK
 
-[Fill in with overview]
+The Embedded C SDK offers a lightweight solution for connecting constrained devices to Azure IoT offerings, including IoT Plug and Play. Below are links to existing samples both for real device and for educational/debugging purposes. 
 
 ### Use a real device
 
@@ -18,7 +18,7 @@ For a complete end to end tutorial of using the Embedded C SDK with the Device P
 
 The Embedded C SDK repository contains [several samples](https://github.com/Azure/azure-sdk-for-c/tree/1.0.0-preview.4/sdk/samples/iot#iot-hub-plug-and-play-sample) showcasing how to use Azure IoT Plug and Play. 
 
-*Note that these samples are shown running on Windows and Linux for educational and debugging purposes-- in production these are intended for constrained devices only.*
+*Note that these samples are shown running on Windows and Linux for educational and debugging purposes-- for production scenarios, these are intended for constrained devices only.*
 
 - [Thermostat example with Embedded C SDK](https://github.com/Azure/azure-sdk-for-c/blob/master/sdk/samples/iot/paho_iot_hub_pnp_sample.c)
 
