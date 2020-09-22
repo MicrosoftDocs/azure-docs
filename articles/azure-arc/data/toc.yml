@@ -90,6 +90,8 @@
           href: create-postgresql-hyperscale-server-group.md
         - name: Create Postgres Hyperscale server group (Azure Data Studio)
           href: create-postgresql-hyperscale-server-group-azure-data-studio.md
+        - name: Create Postgres Hyperscale server group - Kubernetes native tools
+          href: create-postgresql-hyperscale-server-group-kubernetes-native-tools.md
         - name: Connect
           href: get-connection-endpoints-and-connection-strings-postgres-hyperscale.md
     - name: Concepts
