@@ -68,7 +68,6 @@ These are the parameters required by each of these spatial analysis operations.
  This is an example of a JSON input for the SPACEANALYTICS_CONFIG parameter that configures a zone. You may configure multiple zones for this operation.
 
 ```json
-NEW-START
 {
 "zones":[{
 	"name": "lobbycamera"

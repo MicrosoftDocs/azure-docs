@@ -357,6 +357,17 @@ Here are the details:
 
 [![Inference workflow](media/concept-enterprise-security/inferencing.png)](media/concept-enterprise-security/inferencing.png#lightbox)
 
+## Audit and manage compliance
+
+[Azure Policy](/azure/governance/policy) is a governance tool that allows you to ensure that Azure resources are compliant with your policies. With Azure Machine Learning, you can assign the following policies:
+
+* **Customer-managed key**: Audit or enforce whether workspaces must use a customer-managed key.
+* **Private link**: Audit whether workspaces use a private endpoint to communicate with a virtual network.
+
+For more information on Azure Policy, see the [Azure Policy documentation](/azure/governance/policy/overview).
+
+For more information on the policies specific to Azure Machine Learning, see [Audit and manage compliance with Azure Policy](how-to-integrate-azure-policy.md).
+
 ## Next steps
 
 * [Secure Azure Machine Learning web services with TLS](how-to-secure-web-service.md)
