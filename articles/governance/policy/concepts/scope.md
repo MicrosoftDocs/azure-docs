@@ -47,6 +47,10 @@ map to the following concepts:
   count. For more information, see
   [Assignment definition - excluded scopes](./assignment-structure.md#excluded-scopes).
 
+In addition to the properties on the policy assignment, is the
+[policy exemption](./exemption-structure.md) object. Exemptions enhance the scope story by providing
+a method to identify a portion of an assignment to not be evaluated.
+
 - Exemption (**free in preview** feature) - A resource hierarchy or individual resource should be
   evaluated for compliance by the definition, but won't be evaluated for a reason such as having a
   waiver or being mitigated through another method. Resources in this state show as **Exempted** in

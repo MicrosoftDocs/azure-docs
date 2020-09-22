@@ -886,11 +886,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/active-directory/users-groups-roles/custom-enterprise-apps.md",
-      "redirect_url": "/azure/active-directory/users-groups-roles/roles-custom-overview",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/active-directory/user-help/my-apps-portal-end-user-update-profile.md",
       "redirect_url": "/azure/active-directory/user-help/my-account-portal-settings",
       "redirect_document_id": false
@@ -28057,6 +28052,31 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/storage/common/storage-encryption-keys-portal.md",
+      "redirect_url": "/azure/storage/common/customer-managed-keys-configure-key-vault",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/storage/common/storage-encryption-keys-powershell.md",
+      "redirect_url": "/azure/storage/common/customer-managed-keys-configure-key-vault",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/common/storage-encryption-keys-cli.md",
+      "redirect_url": "/azure/storage/common/customer-managed-keys-configure-key-vault",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/common/encryption-customer-managed-keys.md",
+      "redirect_url": "/azure/storage/common/customer-managed-keys-overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/storage/common/encryption-customer-provided-keys.md",
+      "redirect_url": "/azure/storage/blobs/encryption-customer-provided-keys",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/storage/storage-service-encryption.md",
       "redirect_url": "/azure/storage/common/storage-service-encryption",
       "redirect_document_id": true
@@ -28109,6 +28129,11 @@
     {
       "source_path": "articles/storage/storage-xamarin-blob-storage.md",
       "redirect_url": "/azure/storage/blobs/storage-xamarin-blob-storage",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/storage/common/storage-advanced-threat-protection.md",
+      "redirect_url": "/azure/storage/common/azure-defender-storage-configure",
       "redirect_document_id": true
     },
     {
@@ -43254,6 +43279,16 @@
     {
       "source_path": "articles/azure-monitor/log-query/logs-structure.md",
       "redirect_url": "/azure/azure-monitor/platform/data-platform-logs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/insights/container-insights-health.md",
+      "redirect_url": "/azure/azure-monitor/insights/container-insights-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/insights/container-insights-health-monitors-config.md",
+      "redirect_url": "/azure/azure-monitor/insights/container-insights-overview",
       "redirect_document_id": false
     },
     {

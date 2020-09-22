@@ -1012,8 +1012,6 @@
         href: insights/container-insights-region-mapping.md
     - name: Monitor performance
       href: insights/container-insights-analyze.md
-    - name: Monitor health
-      href: insights/container-insights-health.md
     - name: Monitor GPU performance
       href: insights/container-insights-gpu-monitoring.md
     - name: Monitor Deployments & HPAs
@@ -1044,8 +1042,6 @@
       href: insights/container-insights-agent-config.md
     - name: Update to enable metrics
       href: insights/container-insights-update-metrics.md
-    - name: Health monitoring configuration
-      href: insights/container-insights-health-monitors-config.md
     - name: Manage cost and usage
       href: insights/container-insights-cost.md
     - name: Disable monitoring
