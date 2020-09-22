@@ -34,6 +34,8 @@
     href: concepts-rbac.md
   - name: Private cloud upgrades
     href: concepts-upgrades.md
+  - name: Monitor and repair private clouds
+    href: concepts-monitor-repair-private-cloud.md
 - name: How-to guides
   items:
   - name: Enable Azure VMware Solution
