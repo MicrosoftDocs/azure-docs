@@ -51,7 +51,7 @@ These alerts can be seen by Office customers in the **Office Security and Compli
 
 - You must be a Global Administrator or a Security Administrator on the Azure Sentinel workspace's tenant.
 
-- You must have a valid license for [Office 365 ATP Plan 2](https://docs.microsoft.com/microsoft-365/security/office-365-security/office-365-atp?view=o365-worldwide#office-365-atp-plan-1-and-plan-2) (included with the Office 365 E5, Office 365 A5, and Microsoft 365 E5 licenses, and available for purchase separately). 
+- You must have a valid license for [Office 365 ATP Plan 2](https://docs.microsoft.com/microsoft-365/security/office-365-security/office-365-atp#office-365-atp-plan-1-and-plan-2) (included with the Office 365 E5, Office 365 A5, and Microsoft 365 E5 licenses, and available for purchase separately). 
 
 ## Connect to Microsoft Defender for Office 365
 
