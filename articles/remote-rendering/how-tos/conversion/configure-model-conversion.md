@@ -89,6 +89,12 @@ if that assumption isn't true of a particular model, this parameter should be se
 
 * `deduplicateMaterials` - This parameter enables or disables automatic de-duplication of materials that share the same properties and textures. De-duplication happens after material overrides have been processed. It's enabled by default.
 
+* If even after de-duplication a model has more than 65,535 materials, the service will attempt to merge materials with similar properties. As a last resort any materials exceeding the limit will be replaced by a red error material.
+
+![Image shows two cubes of 68,921 colored triangles.](media/mat-dedup.png?raw=true)
+
+Two cubes of 68,921 colored triangles. Left: Before de-duplication with 68,921 color materials. Right: After de-duplication with 64,000 color materials. The limit is 65,535 materials. (See [limits](../../reference/limits.md).)
+
 ### Color space parameters
 
 The rendering engine expects color values to be in linear space.
