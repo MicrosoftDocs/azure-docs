@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: External Identities documentation
-summary: External Identities is a set of capabilities that enables organizations to secure and manage any external user, including customers and partners. Building on B2B collaboration, External Identities brings additional capabilities for interacting and connecting with users outside your organization.
+summary: External Identities is a set of capabilities that enables organizations to secure and manage any external user, including customers and partners. Building on B2B collaboration, External Identities gives you more ways to interact and connect with users outside your organization.
 
 metadata: 
    title: External Identities documentation
-   description: External Identities is a set of capabilities that enables organizations to secure and manage any external user, including customers and partners. Building on B2B collaboration, External Identities brings additional capabilities for interacting and connecting with users outside your organization.
+   description: External Identities is a set of capabilities that enables organizations to secure and manage any external user, including customers and partners. Building on B2B collaboration, External Identities gives you more ways to interact and connect with users outside your organization.
    ms.service: active-directory
    ms.subservice: B2B
    ms.workload: identity
