@@ -79,7 +79,7 @@ When you expose the global endpoint of a cross-region load balancer to customers
 
 <!---To learn about how to add or remove a regional deployment from the backend, read more [here](TODO: Insert CLI doc here).--->
 
-### Static IP
+### Static anycast global IP address
 Cross-region load balancer comes with a static public IP, which ensures the IP address remains the same. To learn more about static IP, read more [here](https://docs.microsoft.com/azure/virtual-network/public-ip-addresses#allocation-method)
 
 ### Client IP Preservation
