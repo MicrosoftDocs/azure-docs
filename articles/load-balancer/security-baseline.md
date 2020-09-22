@@ -124,7 +124,7 @@ Use Security Center's Adaptive Network Hardening feature to recommend network se
 
 - [Azure Firewall threat intelligence-based filtering](../firewall/threat-intel.md)
 
-- [Threat protection in Azure Security Center](../security-center/threat-protection.md)
+- [Threat protection in Azure Security Center](/azure/security-center/threat-protection)
 
 - [Secure your management ports with just-in-time access](../security-center/security-center-just-in-time.md)
 
