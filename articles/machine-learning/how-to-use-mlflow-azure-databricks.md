@@ -45,7 +45,7 @@ After you create your Azure Databricks workspace and cluster,
 
 1. Install the *azureml-mlflow* library from PyPi, to ensure that your cluster has access to the necessary functions and classes.
 
-1. Set up your experiment notebook and workspaces.
+1. Set up your experiment notebook.
 
 1. Connect your Azure Databricks workspace and Azure Machine Learning workspace.
 
@@ -61,15 +61,45 @@ In the **Package** field, type azureml-mlflow and then select install. Repeat th
 
  ![Azure DB install mlflow library](./media/how-to-use-mlflow-azure-databricks/install-libraries.png)
 
-## Set up your notebook and workspace
+## Set up your notebook 
 
-Once your ADB cluster is set up, import your experiment notebook, open it and attach your cluster to it.
+Once your ADB cluster is set up, 
+1. Select **Workspaces** on the left navigation pane. 
+1. Expand the workspaces drop down menu and select **Import**
+1. Drag and drop, or browse to find, your experiment notebook to import your ADB workspace.
+1. Select **Import**. Your experiment notebook opens automatically.
+1. Under the notebook title on the top left, select the cluster want to attach to your experiment notebook. 
 
-The following code should be in your experiment notebook. 
+## Connect your Azure Databricks and Azure Machine Learning workspaces
+
+Linking your ADB workspace to your Azure Machine Learning workspace enables you to track your experiment data in the Azure Machine Learning workspace.
+
+To link your ADB workspace to a new or existing Azure Machine Learning workspace, 
+1. Sign in to [Azure portal](https://ms.portal.azure.com).
+1. Navigate to your ADB workspace's **Overview** page.
+1. Select the **Link Azure Machine Learning workspace** button on the bottom right. 
+
+ ![Link Azure DB and Azure Machine Learning workspaces](./media/how-to-use-mlflow-azure-databricks/link-workspaces.png)
+
+## MLflow Tracking in your workspaces
+
+After you instantiate your workspace, MLflow Tracking is automatically set to be tracked in
+all of the following places:
+
+* The linked Azure Machine Learning workspace.
+* Your original ADB workspace. 
+
+All your experiments land in the managed Azure Machine Learning tracking service.
+
+The following code should be in your experiment notebook to get your linked Azure Machine Learning workspace. 
+
 This code, 
+
 *  Gets the details of your Azure subscription to instantiate your Azure Machine Learning workspace. 
 
 * Assumes you have an existing resource group and Azure Machine Learning workspace, otherwise you can [create them](how-to-manage-workspace.md). 
+
+* Sets the experiment name. The `user_name` here is consistent with the `user_name` associated with the Azure Databricks workspace.
 
 ```python
 import mlflow
@@ -91,28 +121,12 @@ workspace_name = 'workspace_name'
 ws = Workspace.get(name=workspace_name,
                    subscription_id=subscription_id,
                    resource_group=resource_group)
+
+#Set MLflow experiment. 
+experimentName = "/Users/{user_name}/{experiment_folder}/{experiment_name}" 
+mlflow.set_experiment(experimentName) 
+
 ```
-
-## Connect your Azure Databricks and Azure Machine Learning workspaces
-
-Linking your ADB workspace to your Azure Machine Learning workspace enables you to track your experiment data in the Azure Machine Learning workspace.
-
-To link your ADB workspace to a new or existing Azure Machine Learning workspace, 
-1. Sign in to [Azure portal](https://ms.portal.azure.com)
-1. Navigate to your ADB workspace's **Overview** page 
-1. Select the **Link Azure Machine Learning workspace** button on the bottom right. 
-
- ![Link Azure DB and Azure Machine Learning workspaces](./media/how-to-use-mlflow-azure-databricks/link-workspaces.png)
-
-## MLflow Tracking in your workspaces
-
-After you instantiate your workspace, MLflow Tracking is automatically set to be tracked in
-all of the following places:
-
-* The linked Azure Machine Learning workspace.
-* Your original ADB workspace. 
-
-All your experiments will land in the managed Azure Machine Learning tracking service.
 
 ### Set MLflow Tracking to only track in your Azure Machine Learning workspace
 
@@ -132,13 +146,67 @@ import mlflow
 mlflow.log_metric('epoch_loss', loss.item()) 
 ```
 
+## Register models with MLflow
+
+After your model is trained, you can log and register your models to the backend tracking server with the `mlflow.<model_flavor>.log_model()` method. `<model_flavor>`, refers to the framework associated with the model. [Learn what model flavors are supported](https://mlflow.org/docs/latest/models.html#model-api). 
+
+The backend tracking server is the Azure Databricks workspace by default; unless you chose to [set MLflow Tracking to only track in your Azure Machine Learning workspace](#set-mlflow-tracking-to-only-track-in-your-azure-machine-learning-workspace), then the backend tracking server is the Azure Machine Learning workspace.   
+
+* **If a registered model with the name doesn’t exist**, the method registers a new model, creates version 1, and returns a ModelVersion MLflow object. 
+
+* **If a registered model with the name already exists**, the method creates a new model version and returns the version object. 
+
+```python
+mlflow.spark.log_model(model, artifact_path = "model", 
+                       registered_model_name = 'model_name')  
+
+mlflow.sklearn.log_model(model, artifact_path = "model", 
+                         registered_model_name = 'model_name') 
+```
+
 ## Create endpoints for MLflow models
 
-When you are ready to create an endpoint for your ML models, you can deploy your MLflow experiments as an Azure Machine Learning web service. Deployment allows you to leverage and apply the Azure Machine Learning model management and data drift detection capabilities to your production models.
+When you are ready to create an endpoint for your ML models. You can deploy as, 
+
+* An Azure Machine Learning Request-Response web service for interactive scoring. This deployment allows you to leverage and apply the Azure Machine Learning model management, and data drift detection capabilities to your production models. 
+
+* MLFlow model objects, which can be used in streaming or batch pipelines as Python functions or Pandas UDFs in Azure Databricks workspace.
+
+### Deploy models to Azure Machine Learning endpoints 
+You can leverage the [mlflow.azureml.deploy](https://www.mlflow.org/docs/latest/python_api/mlflow.azureml.html#mlflow.azureml.deploy) API to deploy a model to your Azure Machine Learning workspace. If you only registered the model to the Azure Databricks workspace, as described in the [register models with MLflow](#register-models-with-mlflow) section, specify the `model_name` parameter to register the model into Azure Machine Learning workspace. 
 
 Azure Databricks runs can be deployed to the following endpoints, 
 * [Azure Container Instance](how-to-use-mlflow.md#deploy-to-aci)
 * [Azure Kubernetes Service](how-to-use-mlflow.md#deploy-to-aks)
+
+### Deploy models to ADB endpoints for batch scoring 
+
+You can choose Azure Databricks clusters for batch scoring. The MLFlow model is loaded and used as a Spark Pandas UDF to score new data. 
+
+```python
+from pyspark.sql.types import ArrayType, FloatType 
+
+model_uri = "runs:/"+last_run_id+ {model_path} 
+
+#Create a Spark UDF for the MLFlow model 
+
+pyfunc_udf = mlflow.pyfunc.spark_udf(spark, model_uri) 
+
+#Load Scoring Data into Spark Dataframe 
+
+scoreDf = spark.table({table_name}).where({required_conditions}) 
+
+
+#Make Prediction 
+
+preds = (scoreDf 
+
+           .withColumn('target_column_name', pyfunc_udf('Input_column1', 'Input_column2', ' Input_column3', …)) 
+
+        ) 
+
+display(preds) 
+```
 
 ## Clean up resources
 
