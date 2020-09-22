@@ -63,5 +63,5 @@ There are multiple options for creating the Azure Arc data controller:
 - [Create a data controller with Azure Data CLI (azdata)](create-data-controller-using-azdata.md)
 - [Create a data controller with Azure Data Studio](create-data-controller-azure-data-studio.md)
 - [Create a data controller from the Azure portal via a Jupyter notebook in Azure Data Studio](create-data-controller-resource-in-azure-portal.md)
-- [Create a data controller with Kubernetes tools such as kubectl or oc](create-data-controller-using-k8s-native-tools.md)
+- [Create a data controller with Kubernetes tools such as kubectl or oc](create-data-controller-usingkubernetesnative-tools.md)
 - [Create a data controller with Azure Arc Jumpstart for an accelerated experience of a test deployment](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services)
