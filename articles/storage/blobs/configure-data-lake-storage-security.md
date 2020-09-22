@@ -12,89 +12,71 @@ ms.reviewer: jamsbak
 
 # Grant access to directories, and files in Azure Data Lake Storage Gen2
 
-Intro goes here.
+Grant access to directories and files by using Azure role-based access control (RBAC) and access control lists (ACLs). You can use either of these mechanisms alone or use them together. 
 
 ## Prerequisites
 
-- To access Azure Storage, you'll need an Azure subscription. If you don't already have a subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-- A **general-purpose v2** storage account. see [Create a storage account](../common/storage-quickstart-create-account.md).
-- Ensure you have correct permissions
-Blob data owner if using an AD security principal.
+- A storage account that has hierarchical namespace (HNS) enabled. Follow [these](data-lake-storage-quickstart-create-account.md) instructions to create one.
 
-Contributor can work but only directories and files owned by that entity
+- An understanding of RBAC and ACLs, and how the system evaluates them together to make authorization decisions. See [Access control model](data-lake-storage-access-control-model.md).
 
-Access key also works. This gives you 'super-user' access, meaning full access to all operations on all resources, including setting owner and changing ACLs.
-
-[!NOTE] A guest user can't create a role assignment.
-
-### Create security groups
-
-Set up groups. Point to guidance.
-
-### What is the best way to apply ACLs?
-
-Always use Azure AD security groups as the assigned principal in ACLs. Resist the opportunity to directly assign individual users or service principals. Using this structure will allow you to add and remove users or service principals without the need to reapply ACLs to an entire directory structure. Instead, you simply need to add or remove them from the appropriate Azure AD security group. Keep in mind that ACLs are not inherited and so reapplying ACLs requires updating the ACL on every file and subdirectory. 
-
-Once a security group is assigned permissions, adding or removing users from the group doesn’t require any updates to Data Lake Storage Gen2. This also helps ensure you don't exceed the maximum number of access control entries per access control list (ACL). Currently, that number is 32, (including the four POSIX-style ACLs that are always associated with every file and directory): the owning user, the owning group, the mask, and other. Each directory can have two types of ACL, the access ACL and the default ACL, for a total of 64 access control entries.
-
-### Which permissions are required to recursively delete a directory and its contents?
-
-## Best practice: set permissions on groups not individual users
+## Step 1: Create security groups
 
 In general, you should assign permissions to [groups](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups) and not individual users or service principals. There's a few reasons for this:
 
-The number of RBAC role assignments permitted in a subscription is limited. For the latest information about those limits, see [Role assignments](https://docs.microsoft.com/azure/role-based-access-control/overview#role-assignments).
+First, using groups reduces the risk of exceeding the number of allowed RBAC role assignments in a subscription. For the latest information about those limits, see [Role assignments](https://docs.microsoft.com/azure/role-based-access-control/overview#role-assignments). Also, for each directory or file, there's a limit of **32** ACL entries. After the **4** default entries that leaves only **28** remaining for permission assignments. If you have to provide access to more than **28** named users, you'll exceed the number of allowed entries. 
 
-Changes to an ACL take time to propagate through the system if the number of affected files is large. Also, there's a limit of **32** ACL entries for each directory and file. 
+If you group security principals together, you can change the access level of multiple security principals by changing only one ACL entry. It's also far easier to add and remove users and service principals. You can do so without the need to reapply ACLs to an entire directory structure. Instead, you simply need to add or remove them from the appropriate Azure AD security group. Keep in mind that ACLs are not inherited and so reapplying ACLs requires updating the ACL on every file and subdirectory. 
 
-If group security principals together, you can change the access level of multiple security principals by changing only one ACL entry.
+Decide how best to group users, service principals, and managed identities. Some recommended groups to start with might be **ReadOnlyUsers**, **WriteAccessUsers**, and **FullAccessUsers** for the root of the container, and even separate ones for key subdirectories. If there are any other anticipated groups of users that might be added later, but have not been identified yet, you might consider creating dummy security groups that have access to certain folders. Using security group ensures that you can avoid long processing time when assigning new permissions to thousands of files.
 
-If the security principal is a [service principal](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object), it's important to use the object ID of the service principal and not the object ID of the related app registration. 
+Something here about how you can nest groups by adding groups to other groups.
+
+To create a group and add members, see [Create a basic group and add members using Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal).
+
+### Correctly identify service principals
+
+If you plan to grant permission to a [service principal](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object) or add a service principal to a group, it's important to use the object ID of the service principal and not the object ID of the related app registration. 
 
 To get the object ID of the service principal open the Azure CLI, and then use this command: `az ad sp show --id <your-app-id> --query objectId`. Make sure to replace the `<your-app-id>` placeholder with the App ID of your app registration.
 
-### How do I set ACLs correctly for a service principal?
+## Step 2: Plan your approach
 
-When you define ACLs for service principals, it's important to use the Object ID (OID) of the *service principal* for the app registration that you created. It's important to note that registered apps have a separate service principal in the specific Azure AD tenant. Registered apps have an OID that's visible in the Azure portal, but the *service principal* has another (different) OID.
+Decide whether to use RBAC only, RBAC and ACls together, or just ACLs alone. To learn about how the system evaluates RBAC and ACL permissions to make authorization decisions, see [Access control model](data-lake-storage-access-control-model.md). 
 
-To get the OID for the service principal that corresponds to an app registration, you can use the `az ad sp show` command. Specify the Application ID as the parameter. Here's an example on obtaining the OID for the service principal that corresponds to an app registration with App ID = 18218b12-1895-43e9-ad80-6e8fc1ea88ce. Run the following command in the Azure CLI:
+If you decide to use RBAC, choose RBAC roles that provide the minimal level of required access, and then use ACLs to grant **elevated** access permissions to directories and files. Because of the way that access permissions are evaluated by the system, you **cannot** use an ACL to **restrict** access that has already been granted by a role assignment. The system evaluates RBAC role assignments before it evaluates ACLs. If the assignment grants sufficient access permission, ACLs are ignored. 
 
-```azurecli
-az ad sp show --id 18218b12-1895-43e9-ad80-6e8fc1ea88ce --query objectId
-```
+To see a table that shows how to grant access to common tasks by using any combination of RBAC and ACLs, see [Permissions table: Combining RBAC and ACL](data-lake-storage-access-control-model.md#permissions-table:-combining-rbac-and-acl).
 
-OID will be displayed.
+## Step 3: Assign RBAC roles
 
-When you have the correct OID for the service principal, go to the Storage Explorer **Manage Access** page to add the OID and assign appropriate permissions for the OID. Make sure you select **Save**.
+To assign roles, your [security principal](https://docs.microsoft.com/azure/role-based-access-control/overview#security-principal) needs to have the [Owner](../../role-based-access-control/built-in-roles.md#owner) role assigned to it. 
 
-### Assign RBAC roles
+See any of these articles to create role assignments:
 
-You can use the [Azure portal](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), [Azure CLI](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-cli?toc=/azure/storage/blobs/toc.json), or [PowerShell](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-powershell?toc=/azure/storage/blobs/toc.json) to assign a role to a security principal.
+- [Use the Azure portal to assign an Azure role for access to blob and queue data](../common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- [Use PowerShell to assign an Azure role for access to blob and queue data](../common/storage-auth-aad-rbac-powershell.md)
+- [Use Azure CLI to assign an Azure role for access to blob and queue data](../common/storage-auth-aad-rbac-cli?toc=/azure/storage/blobs/toc.json)
 
-### Set ACLs
+[!NOTE] A guest user can't create a role assignment.
 
-You modify the ACL of individual items or modify the ACL of entire hierarchies of items.
+## Step 4: Set ACLs
 
-#### Modify the ACL of a single item
-
-To set ACLs, you'll need either the account key or a security principal that has been assigned the appropriate RBAC role. See the built-in data role table earlier in this article.
-
-Modify the ACL of an individual directory or file by using any of these tools or SDKs:
+To set ACLs, your [security principal](https://docs.microsoft.com/azure/role-based-access-control/overview#security-principal) needs to have the [Blob Storage Data Owner](../../role-based-access-control/built-in-roles.md#blob-storage-data-owner) role assigned to it. Alternatively, you can use Shared Key authorization which provides you with *super user* access to the storage account.
+ 
+To modify an individual ACL, see any of these tools or SDKs:
 
 |Tools|SDKs|
 |---|---|
-|[Azure Storage Explorer](data-lake-storage-explorer.md#managing-access)|[.NET](data-lake-storage-directory-file-acl-dotnet.md#manage-access-control-lists-acls)|
-|[PowerShell](data-lake-storage-directory-file-acl-powershell.md#manage-access-control-lists-acls)|[Java](data-lake-storage-directory-file-acl-java.md#manage-access-control-lists-acls)|
-|[Azure CLI](data-lake-storage-directory-file-acl-cli.md#manage-access-control-lists-acls)|[Python](data-lake-storage-directory-file-acl-python.md#manage-directory-permissions)|
-||[JavaScript](data-lake-storage-directory-file-acl-javascript.md#manage-access-control-lists-acls)|
-||[REST](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update)|
+|  [Azure Storage Explorer](data-lake-storage-explorer.md#managing-access)  |  [.NET](data-lake-storage-directory-file-acl-dotnet.md#manage-access-control-lists-acls)  |
+|  [PowerShell](data-lake-storage-directory-file-acl-powershell.md#manage-access-control-lists-acls)|  [Java](data-lake-storage-directory-file-acl-java.md#manage-access-control-lists-acls)|
+|  [Azure CLI](data-lake-storage-directory-file-acl-cli.md#manage-access-control-lists-acls)|  [Python](data-lake-storage-directory-file-acl-python.md#manage-directory-permissions)|
+|  |  [JavaScript](data-lake-storage-directory-file-acl-javascript.md#manage-access-control-lists-acls)|
+|  |  [REST](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update)|
 
-#### Modify ACLs recursively (preview)
-
-If you want to change the ACLs of all items in a hierarchy of folders, you can use an API specifically designed to accomplish that task. By using that API, you can update ACLs recursively to the child items of a directory without having to update the ACL of each item individually. 
-
-To modify ACLs recursively, see [Set access control lists (ACLs) recursively for Azure Data Lake Storage Gen2](recursive-access-control-lists.md).
+To apply ACLs recursively to all of the items in a directory hierarchy, see [Set access control lists (ACLs) recursively for Azure Data Lake Storage Gen2(preview)](recursive-access-control-lists.md).
 
 ## Next steps
 

@@ -51,7 +51,7 @@ The following diagram shows the permission flow for three common operations: lis
 > [!div class="mx-imgBorder"]
 > ![data lake storage permission flow example](./media/control-access-permissions-data-lake-storage/data-lake-storage-permissions-example.png)
 
-## Combining RBAC and ACL
+## Permissions table: Combining RBAC and ACL
 
 The following table shows you how to combine RBAC roles and ACL entries so that a security principal can perform the operations listed in the **Operation** column. 
 This table shows a column that represents each level of a fictitious directory hierarchy. There's a column for the root directory of the container (`\`), a subdirectory named **Oregon**, a subdirectory of the Oregon directory named **Portland**, and a text file in the Portland directory named **Data.txt**. Appearing in those columns are [short form](data-lake-storage-access-control#short-forms-for-permission) representations of the ACL entry required to grant permissions. 
