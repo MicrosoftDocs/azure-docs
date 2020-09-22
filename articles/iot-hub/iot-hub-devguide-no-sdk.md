@@ -11,15 +11,15 @@ ms.date: 09/21/2020
 ms.custom: [mqtt, amqp, 'Role: IoT Device', 'Role: Cloud Development']
 ---
 
-# Develop device and back-end apps without an Azure IoT Hub SDK
+# Develop without using an Azure IoT Hub SDK
 
 This topic provides helpful information and links for developers who want to develop device or back-end apps without using the Azure IoT SDKs.
 
-Microsoft strongly advises using an Azure IoT SDK. The Azure IoT SDKs are published on many popular platforms. They're regularly updated to provide the latest features exposed by IoT Hub as well as security updates. To learn more, see [Azure IoT Device and Service SDKs](iot-hub-devguide-sdk.md).
+Microsoft strongly advises using an Azure IoT SDK. The Azure IoT SDKs are published on many popular platforms. They're regularly updated to provide the latest features exposed by IoT Hub as well as security updates. To learn more, see [Azure IoT Device and Service SDKs](iot-hub-devguide-sdks.md).
 
 ## Development prerequisites
 
-Before you begin development, you should have a thorough knowledge of IoT Hub and the features you want your device or back-end app to implement. The following is an extremely abbreviated list of some topics that you should be familiar with:
+Before you begin development, you should have a thorough knowledge of IoT Hub and the features you want your device or back-end app to implement. The following is an extremely abbreviated list of topics that you should be familiar with:
 
 * Make sure you understand the endpoints exposed by IoT Hub and the protocols supported on each endpoint. To learn more, see [IoT Hub endpoints](iot-hub-devguide-endpoints.md).
 
