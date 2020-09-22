@@ -150,7 +150,7 @@ As with web apps, you can choose various token cache implementations. For detail
 
 The following picture recaps the various possibilities of Microsoft.Identity.Web and their impact on the `Startup.cs` file:
 
-![When creating a web api, you can choose to call a downstream api, including Microsoft Graph, as well as token cache implementations](media/scenarios/microsoft-identity-web-startup-cs.svg)
+:::image type="content" source="media/scenarios/microsoft-identity-web-startup-cs.svg" alt-text="When creating a web api, you can choose to call a downstream api, including Microsoft Graph, as well as token cache implementations.":::
 
 # [Java](#tab/java)
 
