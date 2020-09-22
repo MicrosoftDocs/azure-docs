@@ -268,8 +268,8 @@ public class Person : TableEntity
 ```
 
 ```csharp
-#r "Microsoft.Azure.Cosmos"
-using Microsoft.Azure.Cosmos.Table;
+#r "Microsoft.WindowsAzure.Storage"
+using Microsoft.WindowsAzure.Storage.Table;
 using System;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
