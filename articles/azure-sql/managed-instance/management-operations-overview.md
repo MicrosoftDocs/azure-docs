@@ -115,7 +115,7 @@ Management operations consist of multiple steps. With [Operations API introduced
 |Old SQL instance cleanup |Removing old SQL process from the virtual cluster |
 
 > [!NOTE]
-> As a result of scaling instances underlying virtual cluster will go through process of releasing unused capacity and possible capacity defragmentation, which could impact instances that did not participate in creation / scaling operations. 
+> As a result of scaling instances, underlying virtual cluster will go through process of releasing unused capacity and possible capacity defragmentation, which could impact instances that did not participate in creation / scaling operations. 
 
 
 ## Management operations cross-impact
