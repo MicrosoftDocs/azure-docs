@@ -70,7 +70,7 @@ Traditional method used to resize logical volumes, it can be applied to non-encr
     df -h /mountpoint
     ```
 
-    ![check mount point size](./media/disk-encryption/resize-lvm/001-resize-lvm-scenarioa-check-fs.png)
+    ![scenarioa-check-fs](./media/disk-encryption/resize-lvm/001-resize-lvm-scenarioa-check-fs.png)
 
 2. Verify that the VG has enough space to increase the LV
 
@@ -78,7 +78,7 @@ Traditional method used to resize logical volumes, it can be applied to non-encr
     vgs
     ```
 
-    ![check vgs](./media/disk-encryption/resize-lvm/002-resize-lvm-scenarioa-check-vgs.png)
+    ![scenarioa-check-vg](./media/disk-encryption/resize-lvm/002-resize-lvm-scenarioa-check-vgs.png)
 
     You can also use "vgdisplay"
 
@@ -86,7 +86,7 @@ Traditional method used to resize logical volumes, it can be applied to non-encr
     vgdisplay vgname
     ```
 
-    ![check vgs](./media/disk-encryption/resize-lvm/002-resize-lvm-scenarioa-check-vgdisplay.png)
+    ![scenarioa-check-vgdisplay](./media/disk-encryption/resize-lvm/002-resize-lvm-scenarioa-check-vgdisplay.png)
 
 3. Identify which logical volume needs to be resized
 
@@ -94,11 +94,11 @@ Traditional method used to resize logical volumes, it can be applied to non-encr
     lsblk
     ```
 
-    ![check vgs](./media/disk-encryption/resize-lvm/002-resize-lvm-scenarioa-check-lsblk1.png)
+    ![scenarioa-check-lsblk1](./media/disk-encryption/resize-lvm/002-resize-lvm-scenarioa-check-lsblk1.png)
 
     For LVM-On-Crypt, the difference is on this output, which shows that the encrypted layer is on the encrypted layer covering the whole disk
 
-    ![check vgs](./media/disk-encryption/resize-lvm/002-resize-lvm-scenarioa-check-lsblk2.png)
+    ![scenarioa-check-lsblk2](./media/disk-encryption/resize-lvm/002-resize-lvm-scenarioa-check-lsblk2.png)
 
 4. Check the logical volume size
 
@@ -106,7 +106,7 @@ Traditional method used to resize logical volumes, it can be applied to non-encr
     lvdisplay lvname
     ```
 
-    ![check vgs](./media/disk-encryption/resize-lvm/002-resize-lvm-scenarioa-check-lvdisplay01.png)
+    ![scenarioa-check-lvdisplay01](./media/disk-encryption/resize-lvm/002-resize-lvm-scenarioa-check-lvdisplay01.png)
 
 5. Increase the LV size, using "-r" for online resize of the filesystem
 
@@ -114,7 +114,7 @@ Traditional method used to resize logical volumes, it can be applied to non-encr
     lvextend -r -L +2G /dev/vgname/lvname
     ```
 
-    ![extend lv](./media/disk-encryption/resize-lvm/003-resize-lvm-scenarioa-resize-lv.png)
+    ![scenarioa-resize-lv](./media/disk-encryption/resize-lvm/003-resize-lvm-scenarioa-resize-lv.png)
 
 6. Verify the new sizes for the LV and the file system
 
@@ -122,7 +122,7 @@ Traditional method used to resize logical volumes, it can be applied to non-encr
     df -h /mountpoint
     ```
 
-    ![check mount point size](./media/disk-encryption/resize-lvm/004-resize-lvm-scenarioa-check-fs.png)
+    ![scenarioa-check-fs](./media/disk-encryption/resize-lvm/004-resize-lvm-scenarioa-check-fs.png)
 
     The new size is reflected, it indicates a successful resize of the LV and the filesystem
 
@@ -132,7 +132,7 @@ Traditional method used to resize logical volumes, it can be applied to non-encr
     lvdisplay lvname
     ```
 
-    ![check mount point size](./media/disk-encryption/resize-lvm/004-resize-lvm-scenarioa-check-lvdisplay2.png)
+    ![scenarioa-check-lvdisplay2](./media/disk-encryption/resize-lvm/004-resize-lvm-scenarioa-check-lvdisplay2.png)
 
 #### Extending a traditional LVM volume adding a new PV
 
@@ -144,7 +144,7 @@ Applicable when you need to add a new disk to increase the volume group size.
     df -h /mountpoint
     ```
 
-    ![check mount point size](./media/disk-encryption/resize-lvm/005-resize-lvm-scenariob-check-fs.png)
+    ![scenariob-check-fs](./media/disk-encryption/resize-lvm/005-resize-lvm-scenariob-check-fs.png)
 
 2. Verify the current Physical Volume configuration
 
@@ -152,7 +152,7 @@ Applicable when you need to add a new disk to increase the volume group size.
     pvs
     ```
 
-    ![check pvs](./media/disk-encryption/resize-lvm/006-resize-lvm-scenariob-check-pvs.png)
+    ![scenariob-check-pvs](./media/disk-encryption/resize-lvm/006-resize-lvm-scenariob-check-pvs.png)
 
 3. Check the current VG information
 
@@ -160,7 +160,7 @@ Applicable when you need to add a new disk to increase the volume group size.
     vgs
     ```
 
-    ![check vg size](./media/disk-encryption/resize-lvm/007-resize-lvm-scenariob-check-vgs.png)
+    ![scenariob-check-vgs](./media/disk-encryption/resize-lvm/007-resize-lvm-scenariob-check-vgs.png)
 
 4. Check the current disk list
 
@@ -170,7 +170,7 @@ Applicable when you need to add a new disk to increase the volume group size.
     ls -l /dev/disk/azure/scsi1/
     ```
 
-    ![check lsblk](./media/disk-encryption/resize-lvm/008-resize-lvm-scenariob-check-scs1.png)
+    ![scenariob-check-scs1](./media/disk-encryption/resize-lvm/008-resize-lvm-scenariob-check-scs1.png)
 
 5. Check the output of lsblk 
 
@@ -178,7 +178,7 @@ Applicable when you need to add a new disk to increase the volume group size.
     lsbk
     ```
 
-    ![check lsblk](./media/disk-encryption/resize-lvm/008-resize-lvm-scenariob-check-lsblk.png)
+    ![scenariob-check-lsblk](./media/disk-encryption/resize-lvm/008-resize-lvm-scenariob-check-lsblk.png)
 
 6. Attach the new disk to the VM
 
@@ -192,13 +192,13 @@ Applicable when you need to add a new disk to increase the volume group size.
     ls -l /dev/disk/azure/scsi1/
     ```
 
-    ![check lsblk](./media/disk-encryption/resize-lvm/009-resize-lvm-scenariob-check-scsi12.png)
+    ![scenariob-check-scsi12](./media/disk-encryption/resize-lvm/009-resize-lvm-scenariob-check-scsi12.png)
 
     ``` bash
     lsbk
     ```
 
-    ![check lsblk](./media/disk-encryption/resize-lvm/009-resize-lvm-scenariob-check-lsblk1.png)
+    ![scenariob-check-lsblk1](./media/disk-encryption/resize-lvm/009-resize-lvm-scenariob-check-lsblk1.png)
 
 8. Create a new PV on top of the new Data Disk
 
@@ -206,7 +206,7 @@ Applicable when you need to add a new disk to increase the volume group size.
     pvcreate /dev/newdisk
     ```
 
-    ![create pv](./media/disk-encryption/resize-lvm/010-resize-lvm-scenariob-pvcreate.png)
+    ![scenariob-pvcreate](./media/disk-encryption/resize-lvm/010-resize-lvm-scenariob-pvcreate.png)
 
     This method uses the whole disk as a PV without a partition, optionally you can use "fdisk" to create a partition and then use that partition for the "pvcreate".
 
@@ -216,7 +216,7 @@ Applicable when you need to add a new disk to increase the volume group size.
     pvs
     ```
 
-    ![check pvs](./media/disk-encryption/resize-lvm/011-resize-lvm-scenariob-check-pvs1.png)
+    ![scenariob-check-pvs1](./media/disk-encryption/resize-lvm/011-resize-lvm-scenariob-check-pvs1.png)
 
 10. Extend the VG by adding the new PV to it
 
@@ -224,7 +224,7 @@ Applicable when you need to add a new disk to increase the volume group size.
     vgextend vgname /dev/newdisk
     ```
 
-    ![extend the vg](./media/disk-encryption/resize-lvm/012-resize-lvm-scenariob-vgextend.png)
+    ![scenariob-vg-extend](./media/disk-encryption/resize-lvm/012-resize-lvm-scenariob-vgextend.png)
 
 11. Check the new VG size
 
@@ -232,7 +232,7 @@ Applicable when you need to add a new disk to increase the volume group size.
     vgs
     ```
 
-    ![check vg size](./media/disk-encryption/resize-lvm/013-resize-lvm-scenariob-check-vgs1.png)
+    ![scenariob-check-vgs1](./media/disk-encryption/resize-lvm/013-resize-lvm-scenariob-check-vgs1.png)
 
 12. Use lsblk to identify which LV needs to be resized
 
@@ -240,7 +240,7 @@ Applicable when you need to add a new disk to increase the volume group size.
     lsblk
     ```
 
-    ![check vg size](./media/disk-encryption/resize-lvm/013-resize-lvm-scenariob-check-lsblk1.png)
+    ![scenariob-check-lsblk1](./media/disk-encryption/resize-lvm/013-resize-lvm-scenariob-check-lsblk1.png)
 
 13. Extend the LV size using “-r” to do an online increase of the filesystem
 
@@ -248,7 +248,7 @@ Applicable when you need to add a new disk to increase the volume group size.
     lvextend -r -L +2G /dev/vgname/lvname
     ```
 
-    ![resize logical volume](./media/disk-encryption/resize-lvm/013-resize-lvm-scenariob-lvextend.png) 
+    ![scenariob-lvextend](./media/disk-encryption/resize-lvm/013-resize-lvm-scenariob-lvextend.png) 
 
 14. Verify the New LV and filesystem Sizes
 
@@ -256,7 +256,7 @@ Applicable when you need to add a new disk to increase the volume group size.
     df -h /mountpoint
     ```
 
-    ![check fs lv size](./media/disk-encryption/resize-lvm/014-resize-lvm-scenariob-check-fs1.png)
+    ![scenariob-check-fs1](./media/disk-encryption/resize-lvm/014-resize-lvm-scenariob-check-fs1.png)
 
     Is important to know that when ADE is used on traditional LVM configurations, the encrypted layer is created at the LV level, not at the disk level.
 
@@ -268,7 +268,7 @@ Applicable when you need to add a new disk to increase the volume group size.
 
 15. Check the encryption information from the portal:
 
-    ![check fs lv size](./media/disk-encryption/resize-lvm/014-resize-lvm-scenariob-check-portal1.png)
+    ![scenariob-check-portal1](./media/disk-encryption/resize-lvm/014-resize-lvm-scenariob-check-portal1.png)
 
     You need to add a new LV and enable the extension on the VM in order to update the encryption settings on the disk.
     
@@ -286,11 +286,11 @@ Applicable when you need to add a new disk to increase the volume group size.
 
 18. Check the encryption information from the portal:
 
-    ![check fs lv size](./media/disk-encryption/resize-lvm/014-resize-lvm-scenariob-check-portal2.png)
+    ![scenariob-check-portal2](./media/disk-encryption/resize-lvm/014-resize-lvm-scenariob-check-portal2.png)
 
 19. After the encryption settings are updated, you may delete the new LV, you would also need to delete the entry from /etc/fstab and /etc/crypttab that were created for it.
 
-    ![check fs lv size](./media/disk-encryption/resize-lvm/014-resize-lvm-scenariob-delete-fstab-crypttab.png)
+    ![scenariob-delete-fstab-crypttab](./media/disk-encryption/resize-lvm/014-resize-lvm-scenariob-delete-fstab-crypttab.png)
 
 20. Unmount the logical volume
 
@@ -320,13 +320,13 @@ Certain scenarios or limitations require that you resize an existing disk.
     ls -l /dev/disk/azure/scsi1/
     ```
 
-    ![check lsblk](./media/disk-encryption/resize-lvm/015-resize-lvm-scenarioc-check-scsi1.png)
+    ![scenarioc-check-scsi1](./media/disk-encryption/resize-lvm/015-resize-lvm-scenarioc-check-scsi1.png)
 
     ``` bash
     lsblk -fs
     ```
 
-    ![check lsblk](./media/disk-encryption/resize-lvm/015-resize-lvm-scenarioc-check-lsblk.png)
+    ![scenarioc-check-lsblk](./media/disk-encryption/resize-lvm/015-resize-lvm-scenarioc-check-lsblk.png)
 
 2. Check the pv information
 
@@ -334,7 +334,7 @@ Certain scenarios or limitations require that you resize an existing disk.
     pvs
     ```
 
-    ![check lsblk](./media/disk-encryption/resize-lvm/016-resize-lvm-scenarioc-check-pvs.png)
+    ![scenarioc-check-pvs](./media/disk-encryption/resize-lvm/016-resize-lvm-scenarioc-check-pvs.png)
 
     All the space on all the PVs is currently used
 
@@ -345,7 +345,7 @@ Certain scenarios or limitations require that you resize an existing disk.
     vgdisplay -v vgname
     ```
 
-    ![check vgs](./media/disk-encryption/resize-lvm/017-resize-lvm-scenarioc-check-vgs.png)
+    ![scenarioc-check-vgs](./media/disk-encryption/resize-lvm/017-resize-lvm-scenarioc-check-vgs.png)
 
 4. Check the disk sizes, you can use fdisk or lsblk to list the drive sizes
 
@@ -355,7 +355,7 @@ Certain scenarios or limitations require that you resize an existing disk.
     lsblk -o "NAME,SIZE"
     ```
 
-    ![check fdisk](./media/disk-encryption/resize-lvm/018-resize-lvm-scenarioc-check-fdisk.png)
+    ![scenarioc-check-fdisk](./media/disk-encryption/resize-lvm/018-resize-lvm-scenarioc-check-fdisk.png)
 
     We’ve identified which PVs are associated to which LVs by using lsblk -fs, you can identify it also by running "lvdisplay"
 
@@ -364,7 +364,7 @@ Certain scenarios or limitations require that you resize an existing disk.
     lvdisplay --maps datavg/datalv1
     ```
 
-    ![check lvs](./media/disk-encryption/resize-lvm/019-resize-lvm-scenarioc-check-lvdisplay.png)
+    ![check-lvdisplay](./media/disk-encryption/resize-lvm/019-resize-lvm-scenarioc-check-lvdisplay.png)
 
     On this particular case all 4 data drives are part of the same VG and a single LV, your configuration may differ from this example.
 
@@ -374,7 +374,7 @@ Certain scenarios or limitations require that you resize an existing disk.
     df -h /datalvm*
     ```
 
-    ![check lvs](./media/disk-encryption/resize-lvm/020-resize-lvm-scenarioc-check-df.png)
+    ![scenarioc-check-df](./media/disk-encryption/resize-lvm/020-resize-lvm-scenarioc-check-df.png)
 
 6. Resize the data disk(s):
 
@@ -391,7 +391,7 @@ Certain scenarios or limitations require that you resize an existing disk.
     lsblk -o "NAME,SIZE"
     ```
 
-    ![check fdisk](./media/disk-encryption/resize-lvm/021-resize-lvm-scenarioc-check-fdisk1.png)
+    ![scenarioc-check-fdisk1](./media/disk-encryption/resize-lvm/021-resize-lvm-scenarioc-check-fdisk1.png)
 
     On this particular case /dev/sdd was resized from 5G to 20G
 
@@ -401,7 +401,7 @@ Certain scenarios or limitations require that you resize an existing disk.
     pvdisplay /dev/resizeddisk
     ```
 
-    ![check pvdisplay](./media/disk-encryption/resize-lvm/022-resize-lvm-scenarioc-check-pvdisplay.png)
+    ![scenarioc-check-pvdisplay](./media/disk-encryption/resize-lvm/022-resize-lvm-scenarioc-check-pvdisplay.png)
     
     Even if the disk was resized, the pv still has the previous size.
 
@@ -411,7 +411,7 @@ Certain scenarios or limitations require that you resize an existing disk.
     pvresize /dev/resizeddisk
     ```
 
-    ![check pvresize](./media/disk-encryption/resize-lvm/023-resize-lvm-scenarioc-check-pvresize.png)
+    ![scenarioc-check-pvresize](./media/disk-encryption/resize-lvm/023-resize-lvm-scenarioc-check-pvresize.png)
 
 
 10. Check the PV size
@@ -420,7 +420,7 @@ Certain scenarios or limitations require that you resize an existing disk.
     pvdisplay /dev/resizeddisk
     ```
 
-    ![check pvdisplay](./media/disk-encryption/resize-lvm/024-resize-lvm-scenarioc-check-pvdisplay1.png)
+    ![scenarioc-check-pvdisplay1](./media/disk-encryption/resize-lvm/024-resize-lvm-scenarioc-check-pvdisplay1.png)
 
     Apply the same procedure for all the disks you want to resize.
 
@@ -430,7 +430,7 @@ Certain scenarios or limitations require that you resize an existing disk.
     vgdisplay vgname
     ```
 
-    ![check vgdisplay](./media/disk-encryption/resize-lvm/025-resize-lvm-scenarioc-check-vgdisplay1.png)
+    ![scenarioc-check-vgdisplay1](./media/disk-encryption/resize-lvm/025-resize-lvm-scenarioc-check-vgdisplay1.png)
 
     The VG now has space to be allocated to the LVs
 
@@ -441,7 +441,7 @@ Certain scenarios or limitations require that you resize an existing disk.
     lvresize -r -l +100%FREE /dev/datavg/datalv01
     ```
 
-    ![check lvresize](./media/disk-encryption/resize-lvm/031-resize-lvm-scenarioc-check-lvresize1.png)
+    ![scenarioc-check-lvresize1](./media/disk-encryption/resize-lvm/031-resize-lvm-scenarioc-check-lvresize1.png)
 
 13. Check FS size
 
@@ -449,7 +449,7 @@ Certain scenarios or limitations require that you resize an existing disk.
     df -h /datalvm2
     ```
 
-    ![check lvresize](./media/disk-encryption/resize-lvm/032-resize-lvm-scenarioc-check-df3.png)
+    ![scenarioc-check-df3](./media/disk-encryption/resize-lvm/032-resize-lvm-scenarioc-check-df3.png)
 
 #### Extending an LVM-on-Crypt volume adding a new PV
 
@@ -463,7 +463,7 @@ You can use this method to add space to an already existent LV or instead you ca
     vgdisplay vgname
     ```
 
-    ![check vgrsize](./media/disk-encryption/resize-lvm/033-resize-lvm-scenarioe-check-vg01.png)
+    ![scenarioe-check-vg01](./media/disk-encryption/resize-lvm/033-resize-lvm-scenarioe-check-vg01.png)
 
 2. Verify the size of the fs and lv you want to increase
 
@@ -471,13 +471,13 @@ You can use this method to add space to an already existent LV or instead you ca
     lvdisplay /dev/vgname/lvname
     ```
 
-    ![check lvrsize](./media/disk-encryption/resize-lvm/034-resize-lvm-scenarioe-check-lv01.png)
+    ![scenarioe-check-lv01](./media/disk-encryption/resize-lvm/034-resize-lvm-scenarioe-check-lv01.png)
 
     ``` bash
     df -h mountpoint
     ```
 
-    ![check fs](./media/disk-encryption/resize-lvm/034-resize-lvm-scenarioe-check-fs01.png)
+    ![scenarioe-check-fs01](./media/disk-encryption/resize-lvm/034-resize-lvm-scenarioe-check-fs01.png)
 
 3. Add a new data disk to the VM and identify it.
 
@@ -487,7 +487,7 @@ You can use this method to add space to an already existent LV or instead you ca
     fdisk -l | egrep ^"Disk /"
     ```
 
-    ![check newdisk](./media/disk-encryption/resize-lvm/035-resize-lvm-scenarioe-check-newdisk01.png)
+    ![scenarioe-check-newdisk01](./media/disk-encryption/resize-lvm/035-resize-lvm-scenarioe-check-newdisk01.png)
 
     Check the disks before adding the new disk
 
@@ -495,7 +495,7 @@ You can use this method to add space to an already existent LV or instead you ca
     lsblk
     ```
 
-    ![check newdisk](./media/disk-encryption/resize-lvm/035-resize-lvm-scenarioe-check-newdisk02.png)
+    ![scenarioe-check-newdisk02](./media/disk-encryption/resize-lvm/035-resize-lvm-scenarioe-check-newdisk02.png)
 
     Add a new disk either with PowerShell, cli, or the Azure portal, check [Attaching a disk](attach-disk-portal.md) for reference on adding disks to a VM
 
@@ -507,13 +507,13 @@ You can use this method to add space to an already existent LV or instead you ca
     fdisk -l | egrep ^"Disk /"
     ```
 
-    ![check newdisk1](./media/disk-encryption/resize-lvm/036-resize-lvm-scenarioe-check-newdisk02.png)-
+    ![scenarioe-check-newdisk02](./media/disk-encryption/resize-lvm/036-resize-lvm-scenarioe-check-newdisk02.png)-
 
     ``` bash
     lsblk
     ```
 
-    ![check newdisk](./media/disk-encryption/resize-lvm/036-resize-lvm-scenarioe-check-newdisk03.png)
+    ![scenarioe-check-newdisk03](./media/disk-encryption/resize-lvm/036-resize-lvm-scenarioe-check-newdisk03.png)
 
 5. Create a filesystem on top of the recently added disk
 
@@ -523,13 +523,13 @@ You can use this method to add space to an already existent LV or instead you ca
     ls -la /dev/disk/azure/scsi1/
     ```
 
-    ![check newdisk1](./media/disk-encryption/resize-lvm/037-resize-lvm-scenarioe-check-newdisk03.png)
+    ![scenarioe-check-newdisk03](./media/disk-encryption/resize-lvm/037-resize-lvm-scenarioe-check-newdisk03.png)
 
     ``` bash
     mkfs.ext4 /dev/disk/azure/scsi1/${disk}
     ```
 
-    ![create filesystem](./media/disk-encryption/resize-lvm/038-resize-lvm-scenarioe-mkfs01.png)
+    ![scenarioe-mkfs01](./media/disk-encryption/resize-lvm/038-resize-lvm-scenarioe-mkfs01.png)
 
 6. Create a new temp mountpoint for the new added disk
 
@@ -556,13 +556,13 @@ You can use this method to add space to an already existent LV or instead you ca
     df -h
     ```
 
-    ![create filesystem](./media/disk-encryption/resize-lvm/038-resize-lvm-scenarioe-df.png)
+    ![resize-lvm-scenarioe-df](./media/disk-encryption/resize-lvm/038-resize-lvm-scenarioe-df.png)
 
     ``` bash
     lsblk
     ```
 
-    ![create filesystem](./media/disk-encryption/resize-lvm/038-resize-lvm-scenarioe-lsblk.png)
+    ![resize-lvm-scenarioe-lsblk](./media/disk-encryption/resize-lvm/038-resize-lvm-scenarioe-lsblk.png)
 
 10. Re-launch the encryption previously started for data drives
 
@@ -590,7 +590,7 @@ You can use this method to add space to an already existent LV or instead you ca
     lsblk
     ```
 
-    ![create filesystem](./media/disk-encryption/resize-lvm/038-resize-lvm-scenarioe-lsblk2.png)
+    ![scenarioe-lsblk2](./media/disk-encryption/resize-lvm/038-resize-lvm-scenarioe-lsblk2.png)
 
 11. Unmount the encrypted layer of the new disk
 
@@ -604,7 +604,7 @@ You can use this method to add space to an already existent LV or instead you ca
     pvs
     ```
 
-    ![create filesystem](./media/disk-encryption/resize-lvm/038-resize-lvm-scenarioe-currentpvs.png)
+    ![scenarioe-currentpvs](./media/disk-encryption/resize-lvm/038-resize-lvm-scenarioe-currentpvs.png)
 
 13. Create a PV on top of the encrypted layer of the disk
 
@@ -614,7 +614,7 @@ You can use this method to add space to an already existent LV or instead you ca
     pvcreate /dev/mapper/mapperdevicename
     ```
 
-    ![create filesystem](./media/disk-encryption/resize-lvm/038-resize-lvm-scenarioe-pvcreate.png)
+    ![scenarioe-pvcreate](./media/disk-encryption/resize-lvm/038-resize-lvm-scenarioe-pvcreate.png)
 
     You will see a warning about wiping the current ext4 fs signature, this is expected, answer y to this question
 
@@ -624,7 +624,7 @@ You can use this method to add space to an already existent LV or instead you ca
     pvs
     ```
 
-    ![create filesystem](./media/disk-encryption/resize-lvm/038-resize-lvm-scenarioe-newpv.png)
+    ![scenarioe-newpv](./media/disk-encryption/resize-lvm/038-resize-lvm-scenarioe-newpv.png)
 
 15. Add the new PV to the VG that you need to increase
 
@@ -632,7 +632,7 @@ You can use this method to add space to an already existent LV or instead you ca
     vgextend vgname /dev/mapper/nameofhenewpv
     ```
 
-    ![create filesystem](./media/disk-encryption/resize-lvm/038-resize-lvm-scenarioe-vgextent.png)
+    ![scenarioe-vgextent](./media/disk-encryption/resize-lvm/038-resize-lvm-scenarioe-vgextent.png)
 
 16. Verify the new size and free space of the VG
 
@@ -640,7 +640,7 @@ You can use this method to add space to an already existent LV or instead you ca
     vgdisplay vgname
     ```
 
-    ![create filesystem](./media/disk-encryption/resize-lvm/038-resize-lvm-scenarioe-vgdisplay.png)
+    ![scenarioe-vgdisplay](./media/disk-encryption/resize-lvm/038-resize-lvm-scenarioe-vgdisplay.png)
 
     Note the increase on the Total PE count and the Free PE / size
 
@@ -650,7 +650,7 @@ You can use this method to add space to an already existent LV or instead you ca
     lvextend -r -l +100%FREE /dev/vgname/lvname
     ```
 
-    ![create filesystem](./media/disk-encryption/resize-lvm/038-resize-lvm-scenarioe-lvextend.png)
+    ![scenarioe-lvextend](./media/disk-encryption/resize-lvm/038-resize-lvm-scenarioe-lvextend.png)
 
 18. Verify the size of the LV
 
@@ -658,7 +658,7 @@ You can use this method to add space to an already existent LV or instead you ca
     lvdisplay /dev/vgname/lvname
     ```
 
-    ![create filesystem](./media/disk-encryption/resize-lvm/038-resize-lvm-scenarioe-lvdisplay.png)
+    ![scenarioe-lvdisplay](./media/disk-encryption/resize-lvm/038-resize-lvm-scenarioe-lvdisplay.png)
 
 19. Verify the size of the filesystem you just resized
 
@@ -666,7 +666,7 @@ You can use this method to add space to an already existent LV or instead you ca
     df -h mountpoint
     ```
 
-    ![create filesystem](./media/disk-encryption/resize-lvm/038-resize-lvm-scenarioe-df1.png)
+    ![scenarioe-df1](./media/disk-encryption/resize-lvm/038-resize-lvm-scenarioe-df1.png)
 
 20. Verify that the LVM layer is created on top of the encrypted layer
 
@@ -674,7 +674,7 @@ You can use this method to add space to an already existent LV or instead you ca
     lsblk
     ```
 
-    ![create filesystem](./media/disk-encryption/resize-lvm/038-resize-lvm-scenarioe-lsblk3.png)
+    ![scenarioe-lsblk3](./media/disk-encryption/resize-lvm/038-resize-lvm-scenarioe-lsblk3.png)
 
     Using lsblk without options will show the mount points multiple times since it sorts by device and logical volumes, you may want to use lsblk -fs, -s reverses the sort so the mountpoints are shown once, then the disks will be shown multiple times.
 
@@ -682,7 +682,7 @@ You can use this method to add space to an already existent LV or instead you ca
     lsblk -fs
     ```
 
-    ![create filesystem](./media/disk-encryption/resize-lvm/038-resize-lvm-scenarioe-lsblk4.png)
+    ![scenarioe-lsblk4](./media/disk-encryption/resize-lvm/038-resize-lvm-scenarioe-lsblk4.png)
 
 #### Extending an LVM on crypt volume resizing an existing PV
 
@@ -692,13 +692,13 @@ You can use this method to add space to an already existent LV or instead you ca
     lsblk
     ```
 
-    ![create filesystem](./media/disk-encryption/resize-lvm/039-resize-lvm-scenariof-lsblk01.png)
+    ![scenariof-lsblk01](./media/disk-encryption/resize-lvm/039-resize-lvm-scenariof-lsblk01.png)
 
     ``` bash
     lsblk -s
     ```
 
-    ![create filesystem](./media/disk-encryption/resize-lvm/040-resize-lvm-scenariof-lsblk012.png)
+    ![scenariof-lsblk012](./media/disk-encryption/resize-lvm/040-resize-lvm-scenariof-lsblk012.png)
 
 2. Check your pv information
 
@@ -706,7 +706,7 @@ You can use this method to add space to an already existent LV or instead you ca
     pvs
     ```
 
-    ![create filesystem](./media/disk-encryption/resize-lvm/041-resize-lvm-scenariof-pvs.png)
+    ![scenariof-pvs](./media/disk-encryption/resize-lvm/041-resize-lvm-scenariof-pvs.png)
 
 3. Check your vg information
 
@@ -714,7 +714,7 @@ You can use this method to add space to an already existent LV or instead you ca
     vgs
     ```
 
-    ![create filesystem](./media/disk-encryption/resize-lvm/042-resize-lvm-scenariof-vgs.png)
+    ![scenariof-vgs](./media/disk-encryption/resize-lvm/042-resize-lvm-scenariof-vgs.png)
 
 4. Check your lv information
 
@@ -722,7 +722,7 @@ You can use this method to add space to an already existent LV or instead you ca
     lvs
     ```
 
-    ![create filesystem](./media/disk-encryption/resize-lvm/043-resize-lvm-scenariof-lvs.png)
+    ![scenariof-lvs](./media/disk-encryption/resize-lvm/043-resize-lvm-scenariof-lvs.png)
 
 5. Check the filesystem utilization
 
@@ -730,7 +730,7 @@ You can use this method to add space to an already existent LV or instead you ca
     df -h /mountpoint(s)
     ```
 
-    ![create filesystem](./media/disk-encryption/resize-lvm/044-resize-lvm-scenariof-fs.png)
+    ![lvm-scenariof-fs](./media/disk-encryption/resize-lvm/044-resize-lvm-scenariof-fs.png)
 
 6. Check your disks sizes
 
@@ -740,7 +740,7 @@ You can use this method to add space to an already existent LV or instead you ca
     lsblk
     ```
 
-    ![create filesystem](./media/disk-encryption/resize-lvm/045-resize-lvm-scenariof-fdisk01.png)
+    ![scenariof-fdisk01](./media/disk-encryption/resize-lvm/045-resize-lvm-scenariof-fdisk01.png)
 
 7. Resize the data disk
 
@@ -757,7 +757,7 @@ You can use this method to add space to an already existent LV or instead you ca
     lsblk
     ```
 
-    ![create filesystem](./media/disk-encryption/resize-lvm/046-resize-lvm-scenariof-fdisk02.png)
+    ![scenariof-fdisk02](./media/disk-encryption/resize-lvm/046-resize-lvm-scenariof-fdisk02.png)
 
     Note that (in this case) both disks were resized from 2GB to 4GB, however the FS, LV and PV size remain the same.
 
@@ -769,7 +769,7 @@ You can use this method to add space to an already existent LV or instead you ca
     pvdisplay /dev/mapper/devicemappername
     ```
 
-    ![create filesystem](./media/disk-encryption/resize-lvm/047-resize-lvm-scenariof-pvs.png)
+    ![scenariof-pvs](./media/disk-encryption/resize-lvm/047-resize-lvm-scenariof-pvs.png)
 
 10. Resize the pv
 
@@ -777,7 +777,7 @@ You can use this method to add space to an already existent LV or instead you ca
     pvresize /dev/mapper/devicemappername
     ```
 
-    ![create filesystem](./media/disk-encryption/resize-lvm/048-resize-lvm-scenariof-resize-pv.png)
+    ![scenariof-resize-pv](./media/disk-encryption/resize-lvm/048-resize-lvm-scenariof-resize-pv.png)
 
 11. Check the pv size after resizing
 
@@ -785,7 +785,7 @@ You can use this method to add space to an already existent LV or instead you ca
     pvdisplay /dev/mapper/devicemappername
     ```
 
-    ![create filesystem](./media/disk-encryption/resize-lvm/049-resize-lvm-scenariof-pv.png)
+    ![scenariof-pv](./media/disk-encryption/resize-lvm/049-resize-lvm-scenariof-pv.png)
 
 12. Resize the encrypted layer on the PV
 
@@ -801,7 +801,7 @@ You can use this method to add space to an already existent LV or instead you ca
     vgdisplay vgname
     ```
 
-    ![create filesystem](./media/disk-encryption/resize-lvm/050-resize-lvm-scenariof-vg.png)
+    ![scenariof-vg](./media/disk-encryption/resize-lvm/050-resize-lvm-scenariof-vg.png)
 
     The VG now has space to be allocated to the LVs
 
@@ -811,7 +811,7 @@ You can use this method to add space to an already existent LV or instead you ca
     lvdisplay vgname/lvname
     ```
 
-    ![create filesystem](./media/disk-encryption/resize-lvm/051-resize-lvm-scenariof-lv.png)
+    ![scenariof-lv](./media/disk-encryption/resize-lvm/051-resize-lvm-scenariof-lv.png)
 
 15. Check the fs utilization
 
@@ -819,7 +819,7 @@ You can use this method to add space to an already existent LV or instead you ca
     df -h /mountpoint
     ```
 
-    ![create filesystem](./media/disk-encryption/resize-lvm/052-resize-lvm-scenariof-fs.png)
+    ![scenariof-fs](./media/disk-encryption/resize-lvm/052-resize-lvm-scenariof-fs.png)
 
 16. Resize the lv
 
@@ -827,7 +827,7 @@ You can use this method to add space to an already existent LV or instead you ca
     lvresize -r -L +2G /dev/vgname/lvname
     ```
 
-    ![create filesystem](./media/disk-encryption/resize-lvm/053-resize-lvm-scenariof-lvresize.png)
+    ![scenariof-lvresize](./media/disk-encryption/resize-lvm/053-resize-lvm-scenariof-lvresize.png)
 
     We’re using the -r option to also perform the FS resize
 
@@ -837,7 +837,7 @@ You can use this method to add space to an already existent LV or instead you ca
     lvdisplay vgname/lvname
     ```
 
-    ![create filesystem](./media/disk-encryption/resize-lvm/054-resize-lvm-scenariof-lvsize.png)
+    ![scenariof-lvsize](./media/disk-encryption/resize-lvm/054-resize-lvm-scenariof-lvsize.png)
 
 18. Check the filesystem utilization
 
