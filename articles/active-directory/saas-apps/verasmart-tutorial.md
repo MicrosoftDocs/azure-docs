@@ -129,7 +129,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Go to the **Administration** -> **Security** -> **Authentication Configuration**.
 
-    ![Configuration](./media/verasmart-tutorial/configuration.png)
+    ![Screenshot shows VeraSMART with Administration, then Security, then Authentication Configuration selected.](./media/verasmart-tutorial/configuration.png)
 
 1. Perform the following steps in the following page:
 
