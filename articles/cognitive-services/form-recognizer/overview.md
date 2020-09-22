@@ -38,6 +38,8 @@ You have the following options when you train custom models: training with label
 
 By default, Form Recognizer uses unsupervised learning to understand the layout and relationships between fields and entries in your forms. When you submit your input forms, the algorithm clusters the forms by type, discovers what keys and tables are present, and associates values to keys and entries to tables. This doesn't require manual data labeling or intensive coding and maintenance, and we recommend you try this method first.
 
+See [Build a training data set](./build-training-data-set.md) for tips on how to collect your training documents.
+
 ### Train with labels
 
 When you train with labeled data, the model does supervised learning to extract values of interest, using the labeled forms you provide. This results in better-performing models and can produce models that work with complex forms or forms containing values without keys.
@@ -50,13 +52,13 @@ Form Recognizer also includes Prebuilt models for automated data processing of u
 
 ### Prebuilt Receipt model
 
-The Prebuilt Receipt model is used for reading English sales receipts from Australia, Canada, Great Britain, India, and the United States&mdash;the type used by restaurants, gas stations, retail, and so on. This model extracts key information such as the time and date of the transaction, merchant information, amounts of taxes, line items, totals and more. In addition, the prebuilt receipt model is trained to recognize and return all of the text on a receipt. 
+The Prebuilt Receipt model is used for reading English sales receipts from Australia, Canada, Great Britain, India, and the United States&mdash;the type used by restaurants, gas stations, retail, and so on. This model extracts key information such as the time and date of the transaction, merchant information, amounts of taxes, line items, totals and more. In addition, the prebuilt receipt model is trained to recognize and return all of the text on a receipt. See the [Receipts](./concept-receipts.md) conceptual guide for more info.
 
 ![sample receipt](./media/contoso-receipt-small.png)
 
 ### Prebuilt Business Cards model
 
-The Business Cards model enables you to extract information such as the person's name, job title, address, email, company, and phone numbers from business cards in English. 
+The Business Cards model enables you to extract information such as the person's name, job title, address, email, company, and phone numbers from business cards in English. See the [Business cards](./concept-business-cards.md) conceptual guide for more info.
 
 ![sample business card](./media/business-card-english.jpg)
 
@@ -120,4 +122,4 @@ As with all the cognitive services, developers using the Form Recognizer service
 
 ## Next steps
 
-Complete a [client library quickstart](quickstarts/client-library.md) to get started writing a forms processing app with Form Recognizer.
+Complete a [client library quickstart](quickstarts/client-library.md) to get started writing a forms processing app with Form Recognizer in the language of your choice.
