@@ -30,6 +30,7 @@
     href: how-to-fix-corrupt-database.md
     displayName: corrupt data
 - name: Single Server
+  expanded: true
   items:
   - name: Single Server documentation
     href: single-server/index.yml
