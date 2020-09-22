@@ -1,11 +1,11 @@
 ---
-title: Bulk import data to Azure Cosmos DB SQL API account by using the .Net SDK
+title: Bulk import data to Azure Cosmos DB SQL API account by using the .NET SDK
 description: Learn how to import or ingest data to Azure Cosmos DB by building a .NET console application that optimizes provisioned throughput (RU/s) required for importing data
 author: ealsur
 ms.author: maquaran
 ms.service: cosmos-db
 ms.topic: tutorial
-ms.date: 11/04/2019
+ms.date: 09/21/2020
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
 ---
