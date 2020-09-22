@@ -195,7 +195,7 @@ Launch the app. You’ll notice that you're prompted for the newly added permiss
 
 After granting consent, navigate to the "Fetch data" page to read some email.
 
-:::image type="content" source="./media/tutorial-blazor-server/final-app-2.png" alt-text="Screenshot of the final app. It has a heading that says "Hello Nicholas" and it shows a list of emails belonging to Nicholas.":::
+:::image type="content" source="./media/tutorial-blazor-server/final-app-2.png" alt-text="Screenshot of the final app. It has a heading that says Hello Nicholas and it shows a list of emails belonging to Nicholas.":::
 
 ## Next steps
 
