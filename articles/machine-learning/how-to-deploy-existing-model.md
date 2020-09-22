@@ -29,7 +29,7 @@ For more information on the concepts and terms in this article, see [Manage, dep
 
 * The [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true).  
 
-* The [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) and [Machine Learning CLI extension](reference-azure-machine-learning-cli.md).
+* The [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) and [Machine Learning CLI extension](reference-azure-machine-learning-cli.md).
 
 * A trained model. The model must be persisted to one or more files on your development environment. <br><br>To demonstrate registering a model trained, the example code in this article uses the models from [Paolo Ripamonti's Twitter sentiment analysis project](https://www.kaggle.com/paoloripamonti/twitter-sentiment-analysis).
 
