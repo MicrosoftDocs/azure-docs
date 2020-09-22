@@ -96,7 +96,7 @@ var acsClient = new CommunicationManagementClient(subscriptionId, new Environmen
 
 ### Option 3: User Identity
 
-If you want to call Azure on behalf of an interactive user, rather than using a service identity, you can use the following code to create an Azure Communication Services Management client. This will open a browser window to prompt the user for their MSA or AAD credentials.
+If you want to call Azure on behalf of an interactive user, rather than using a service identity, you can use the following code to create an Azure Communication Services Management client. This will open a browser window to prompt the user for their MSA or Azure AD credentials.
 
 ```csharp
 using Azure.Identity;

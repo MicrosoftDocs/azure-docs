@@ -79,7 +79,7 @@ const groupCall = callAgent.call([userCallee, pstnCallee], placeCallOptions);
 
 ```
 
-### Place a 1:1 call with with video camera
+### Place a 1:1 call with video camera
 > [!WARNING]
 > There can currently be no more than one outgoing local video stream.
 To place a video call, you have to enumerate local cameras using the deviceManager `getCameraList` API.
@@ -110,7 +110,7 @@ const call = callAgent.join(context);
 You can access call properties and perform various operations during a call to manage settings related to video and audio.
 
 ### Call properties
-* Get the unique Id (string) for this Call.
+* Get the unique ID (string) for this Call.
 ```js
 
 const callId: string = call.id;
@@ -266,7 +266,7 @@ State can be one of
 * 'Connecting' - transition state while participant is connecting to the call
 * 'Connected' - participant is connected to the call
 * 'Hold' - participant is on hold
-* 'EarlyMedia' - annoucement is played before participant is connected to the call
+* 'EarlyMedia' - announcement is played before participant is connected to the call
 * 'Disconnected' - final state - participant is disconnected from the call
 
 To learn why participant left the call, inspect `callEndReason` property:
@@ -362,12 +362,12 @@ if (remoteParticipantStream.isAvailable) {
 ### Remote video stream properties
 Remote video streams have the following properties:
 
-* `Id` - Id of a remote video stream
+* `Id` - ID of a remote video stream
 ```js
 const id: number = remoteVideoStream.id;
 ```
 
-* `StreamSize` - size ( width/height ) of a remote video stream
+* `StreamSize` - size (width/height) of a remote video stream
 ```js
 const size: {width: number; height: number} = remoteVideoStream.size;
 ```
