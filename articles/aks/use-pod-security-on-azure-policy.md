@@ -48,7 +48,7 @@ This document details how to use Azure Policy to secure pods in an AKS cluster a
 
 The following general limitations apply to the Azure Policy Add-on for Kubernetes clusters:
 
-- Azure Policy Add-on for Kubernetes is supported on Kubernertes version **1.14** or higher.
+- Azure Policy Add-on for Kubernetes is supported on Kubernetes version **1.14** or higher.
 - Azure Policy Add-on for Kubernetes can only be deployed to Linux node pools
 - Only built-in policy definitions are supported
 - Maximum number of Non-compliant records per policy per cluster: **500**
@@ -84,7 +84,7 @@ The following recommendation applies only to AKS and the Azure Policy Add-on:
 - Use system node pool with `CriticalAddonsOnly` taint to schedule Gatekeeper pods. For more
   information, see
   [Using system node pools](use-system-pools.md#system-and-user-node-pools).
-- Secure outband traffic from your AKS clusters. For more information, see
+- Secure outbound traffic from your AKS clusters. For more information, see
   [Control egress traffic for cluster nodes](limit-egress-traffic.md).
 - If the cluster has `aad-pod-identity` enabled, Node Managed Identity (NMI) pods modify the nodes'
   iptables to intercept calls to the Azure Instance Metadata endpoint. This configuration means any
