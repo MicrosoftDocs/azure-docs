@@ -17,9 +17,13 @@ ms.custom: "devx-track-csharp"
 
 A key advantage of using Azure Active Directory (Azure AD) with Azure Blob storage or Queue storage is that your credentials no longer need to be stored in your code. Instead, you can request an OAuth 2.0 access token from the Microsoft identity platform. Azure AD authenticates the security principal (a user, group, or service principal) running the application. If authentication succeeds, Azure AD returns the access token to the application, and the application can then use the access token to authorize requests to Azure Blob storage or Queue storage.
 
-This article shows how to configure your native application or web application for authentication with Microsoft identity platform 2.0. The code example features .NET, but other languages use a similar approach. For more information about Microsoft identity platform 2.0, see [Microsoft identity platform (v2.0) overview](../../active-directory/develop/v2-overview.md).
+This article shows how to configure your native application or web application for authentication with Microsoft identity platform 2.0 using a sample application that is available for download. The sample application features .NET, but other languages use a similar approach. For more information about Microsoft identity platform 2.0, see [Microsoft identity platform (v2.0) overview](../../active-directory/develop/v2-overview.md).
 
 For an overview of the OAuth 2.0 code grant flow, see [Authorize access to Azure Active Directory web applications using the OAuth 2.0 code grant flow](../../active-directory/develop/v2-oauth2-auth-code-flow.md).
+
+## About the sample application
+
+The sample application provides an end-to-end experience that shows how to configure a web application for authentication with Azure AD in a local development environment. To view and run the sample application, first clone or download it from [GitHub](https://github.com/Azure-Samples/storage-dotnet-azure-ad-msal). Then follow the steps outlined in the article to configure an Azure app registration and update the application for your environment.
 
 ## Assign a role to an Azure AD security principal
 
@@ -29,7 +33,7 @@ To authenticate a security principal from your Azure Storage application, first 
 
 The first step in using Azure AD to authorize access to storage resources is registering your client application with an Azure AD tenant from the [Azure portal](https://portal.azure.com). When you register your client application, you supply information about the application to Azure AD. Azure AD then provides a client ID (also called an *application ID*) that you use to associate your application with Azure AD at runtime. To learn more about the client ID, see [Application and service principal objects in Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md).
 
-To register your Azure Storage application, follow the steps shown in [Quickstart: Register an application with the Microsoft identity platform](../../active-directory/develop/quickstart-configure-app-access-web-apis.md). The following image shows common settings for registering a web application:
+To register your Azure Storage application, follow the steps shown in [Quickstart: Register an application with the Microsoft identity platform](../../active-directory/develop/quickstart-configure-app-access-web-apis.md). The following image shows common settings for registering a web application. Note that in this example, the redirect URI is set to `http://localhost:5000/signin-oidc` for testing the sample application in the development environment:
 
 :::image type="content" source="media/storage-auth-aad-app/app-registration.png" alt-text="Screenshot showing how to register your storage application with Azure AD":::
 
@@ -42,7 +46,7 @@ After you've registered your application, you'll see the application ID (or clie
 
 For more information about registering an application with Azure AD, see [Integrating applications with Azure Active Directory](../../active-directory/develop/quickstart-v2-register-an-app.md).
 
-## Grant your registered app permissions to Azure Storage
+### Grant your registered app permissions to Azure Storage
 
 Next, grant your application permissions to call Azure Storage APIs. This step enables your application to authorize requests to Azure Storage with Azure AD.
 
@@ -59,7 +63,7 @@ The **API permissions** pane now shows that your registered Azure AD application
 
 :::image type="content" source="media/storage-auth-aad-app/registered-app-permissions-2.png" alt-text="Screenshot showing API permissions for registered app":::
 
-## Create a client secret
+### Create a client secret
 
 The application needs a client secret to prove its identity when requesting a token. To add the client secret, follow these steps:
 
@@ -70,6 +74,26 @@ The application needs a client secret to prove its identity when requesting a to
 1. Immediately copy the value of the new secret to a secure location. The full value is displayed to you only once.
 
     ![Screenshot showing client secret](media/storage-auth-aad-app/client-secret.png)
+
+### Enable implicit grant flow
+
+Next, configure implicit grant flow for your application. Follow these steps:
+
+1. Navigate to your app registration in the Azure portal.
+1. In the **Manage** section, select the **Authentication** setting.
+1. In the **Implicit grant** section, select the check box to enable ID tokens, as shown in the following image:
+
+    :::image type="content" source="media/storage-auth-aad-app/enable-implicit-grant-flow.png" alt-text="Screenshot showing how to enable settings for implicit grant flow":::
+
+### Update the port used by localhost
+
+To run the sample application in your local environment, update the redirect URI specified in your app registration to use the *localhost* port assigned at runtime. To update the redirect URI to use the assigned port, follow these steps:
+
+1. Navigate to your app registration in the Azure portal.
+1. In the **Manage** section, select the **Authentication** setting.
+1. Locate your platform configuration, and then under **Redirect URIs**, edit the port to match that used by the sample application, as shown in the following image:
+
+    :::image type="content" source="media/storage-auth-aad-app/redirect-uri.png" alt-text="Screenshot showing redirect URIs for app registration":::
 
 ## Client libraries for token acquisition
 
@@ -157,7 +181,7 @@ using Microsoft.Azure.Storage.Blob;
 
 #### Create a block blob
 
-Add the following code snippet to create a block blob:
+Add the following code snippet to create a block blob. Remember to replace values in angle brackets with your own values:
 
 # [.NET v12 SDK](#tab/dotnet)
 
@@ -200,7 +224,7 @@ private static async Task<string> CreateBlob(string accessToken)
 > [!NOTE]
 > To authorize blob and queue operations with an OAuth 2.0 token, you must use HTTPS.
 
-In the example above, the .NET client library handles the authorization of the request to create the block blob. Azure Storage client libraries for other languages also handle the authorization of the request for you. However, if you are calling an Azure Storage operation with an OAuth token using the REST API, then you'll need to authorize the request using the OAuth token.
+In the example above, the .NET client library handles the authorization of the request to create the block blob. Azure Storage client libraries for other languages also handle the authorization of the request for you. However, if you are calling an Azure Storage operation with an OAuth token using the REST API, then you'll need to construct the **Authorization** header by using the OAuth token.
 
 To call Blob and Queue service operations using OAuth access tokens, pass the access token in the **Authorization** header using the **Bearer** scheme, and specify a service version of 2017-11-09 or higher, as shown in the following example:
 
@@ -229,7 +253,7 @@ public async Task<IActionResult> Blob()
 }
 ```
 
-Consent is the process of a user granting authorization to an application to access protected resources on their behalf. The Microsoft identity platform 2.0 supports incremental consent, meaning that a security principal can request a minimum set of permissions initially and add permissions over time as needed. When your code requests an access token, specify the scope of permissions that your app needs at any given time by in the `scope` parameter. For more information about incremental consent, see [Incremental and dynamic consent](../../active-directory/azuread-dev/azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent).
+Consent is the process of a user granting authorization to an application to access protected resources on their behalf. The Microsoft identity platform 2.0 supports incremental consent, meaning that a security principal can request a minimum set of permissions initially and add permissions over time as needed. When your code requests an access token, specify the scope of permissions that your app needs. For more information about incremental consent, see [Incremental and dynamic consent](../../active-directory/azuread-dev/azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent).
 
 ## View and run the completed sample
 
@@ -237,7 +261,7 @@ To run the sample application, first clone or download it from [GitHub](https://
 
 ### Provide values in the settings file
 
-Next, update the *appsettings.json* file with your own values, as follows:
+Update the *appsettings.json* file with your own values, as follows:
 
 ```json
 {
@@ -269,26 +293,6 @@ In the *HomeController.cs* file, update the URI that references the block blob t
 ```html
 https://<storage-account>.blob.core.windows.net/<container>/Blob1.txt
 ```
-
-### Enable implicit grant flow
-
-To run the sample, you may need to configure the implicit grant flow for your app registration. Follow these steps:
-
-1. Navigate to your app registration in the Azure portal.
-1. In the **Manage** section, select the **Authentication** setting.
-1. In the **Implicit grant** section, select the check box to enable ID tokens, as shown in the following image:
-
-    :::image type="content" source="media/storage-auth-aad-app/enable-implicit-grant-flow.png" alt-text="Screenshot showing how to enable settings for implicit grant flow":::
-
-### Update the port used by localhost
-
-When you run the sample, you may find that you need to update the redirect URI specified in your app registration to use the *localhost* port assigned at runtime. To update the redirect URI to use the assigned port, follow these steps:
-
-1. Navigate to your app registration in the Azure portal.
-1. In the **Manage** section, select the **Authentication** setting.
-1. Locate your platform configuration, and then under **Redirect URIs**, edit the port to match that used by the sample application, as shown in the following image:
-
-    :::image type="content" source="media/storage-auth-aad-app/redirect-uri.png" alt-text="Screenshot showing redirect URIs for app registration":::
 
 ## Next steps
 
