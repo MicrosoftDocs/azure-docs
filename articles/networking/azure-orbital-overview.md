@@ -6,7 +6,7 @@ author: wamota
 
 ms.service: vnf-manager
 ms.topic: overview
-ms.date: 09/11/2020
+ms.date: 09/22/2020
 ms.author: wamota
 ---
 
