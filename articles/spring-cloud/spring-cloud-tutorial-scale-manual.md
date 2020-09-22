@@ -11,6 +11,8 @@ ms.custom: devx-track-java
 
 # Tutorial: Scale an application in Azure Spring Cloud
 
+**This article applies to:** ✔️ Java ✔️ C#
+
 This tutorial demonstrates how to scale any microservice application using the Azure Spring Cloud dashboard in the Azure portal.
 
 Scale your application up and down by modifying its number of virtual CPUs (vCPUs) and amount of memory. Scale your application in and out by modifying the number of application instances.

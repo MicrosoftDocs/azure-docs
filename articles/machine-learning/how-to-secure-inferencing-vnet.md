@@ -10,13 +10,12 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 07/16/2020
+ms.date: 09/21/2020
 ms.custom: contperfq4, tracking-python
 
 ---
 
 # Secure an Azure Machine Learning inferencing environment with virtual networks
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In this article, you learn how to secure inferencing environments with a virtual network in Azure Machine Learning.
 
@@ -111,6 +110,9 @@ When the creation process is completed, you can run inference, or model scoring,
 By default, AKS clusters have a control plane, or API server, with public IP addresses. You can configure AKS to use a private control plane by creating a private AKS cluster. For more information, see [Create a private Azure Kubernetes Service cluster](../aks/private-clusters.md).
 
 After you create the private AKS cluster, [attach the cluster to the virtual network](how-to-create-attach-kubernetes.md) to use with Azure Machine Learning.
+
+> [!IMPORTANT]
+> Before using a private link enabled AKS cluster with Azure Machine Learning, you must open a support incident to enable this functionality. For more information, see [Manage and increase quotas](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
 
 ## Internal AKS load balancer
 
