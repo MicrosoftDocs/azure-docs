@@ -28,7 +28,7 @@ The code that you use to configure your web API so that it calls downstream web 
 
 Given that your web API now calls a downstream web API, you need to provide a client secret or client certificate in the *appsettings.json* file. You can also add a section that describes:
 - the URL where the downstream web API will be called, 
-- and the scopes that I required to call it
+- and the scopes that are required to call it
 In the example below this section is named "GraphBeta".
 
 ```JSON
