@@ -326,7 +326,7 @@ Change the frequency to last 30 minutes:
 > [!NOTE]
 > You can only upload metrics only for the last 30 minutes. Azure Monitor rejects metrics older than 30 minutes.
 
-## 2.b Upload logs to Azure Monitor
+## Upload logs to Azure Monitor
 
  To upload logs for your Azure Arc enabled SQL managed instances and AzureArc enabled PostgreSQL Hyperscale server groups run the following CLI commands-
 
