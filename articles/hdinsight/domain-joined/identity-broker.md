@@ -32,6 +32,7 @@ In this diagram the client (i.e. browser or apps) need to acquire the OAuth toke
 There still may be many legacy applications that only support basic authentication (i.e. username/password). For those scenarios, you can still use HTTP basic authentication to connect to the cluster gateways. In this setup, you must ensure network connectivity from the gateway nodes to the federation endpoint (ADFS endpoint) to ensure a direct line of sight from gateway nodes.
 
 Use the following table to determine the best authentication option based on your organization needs:
+
 |Authentication options |HDInsight Configuration | Factors to consider |
 |---|---|---|
 | Fully OAuth | ESP + HIB | 1.	Most Secure option (MFA is supported) 2.	Pass hash sync is NOT required. 3.	No ssh/kinit/keytab access for on-prem accounts which don't have password hash in AAD-DS. 4.	Cloud only accounts can still ssh/kinit/keytab. 5. Web based access to Ambari through Oauth 6.	Requires updating legacy apps (JDBC/ODBC, etc.) to support OAuth.|
@@ -117,7 +118,7 @@ In the HIB setup, custom apps and clients connecting to the gateway can be updat
 *   AppId: 7865c1d2-f040-46cc-875f-831a1ef6a28a
 *	Permission: (name: Cluster.ReadWrite, id: 8f89faa0-ffef-4007-974d-4989b39ad77d)
 
-After aquiring the OAuth token, you can use that in the authorization header of the HTTP request to the cluster gateway (e.g. https://<clustername>-int.azurehdinsight.net). For example a sample curl command to livy API might look like this:
+After acquiring the OAuth token, you can use that in the authorization header of the HTTP request to the cluster gateway (e.g. https://<clustername>-int.azurehdinsight.net). For example a sample curl command to Apache Livy API might look like this:
     
 ```bash
 curl -k -v -H "Authorization: Bearer Access_TOKEN" -H "Content-Type: application/json" -X POST -d '{ "file":"wasbs://mycontainer@mystorageaccount.blob.core.windows.net/data/SparkSimpleTest.jar", "className":"com.microsoft.spark.test.SimpleFile" }' "https://<clustername>-int.azurehdinsight.net/livy/batches" -H "X-Requested-By:<username@domain.com>"
