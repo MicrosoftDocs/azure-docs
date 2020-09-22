@@ -34,7 +34,7 @@ The following are the list of Azure resources to which outbound private endpoint
 | Azure SQL Database | `sqlServer`|
 | Azure Database for MySQL (preview) | `mysqlServer`|
 | Azure Key Vault | `vault` |
-| Azure functions (preview) | `sites` |
+| Azure Functions (preview) | `sites` |
 
 The list of Azure resources for which outbound private endpoint connections are supported can also be queried via the [List Supported API](https://docs.microsoft.com/rest/api/searchmanagement/privatelinkresources/listsupported).
 

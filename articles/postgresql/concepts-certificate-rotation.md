@@ -121,5 +121,8 @@ Since this update is a client-side change, if the client used to read data from 
 ### 12. Do we have server-side query to verify if SSL is being used?
 To verify if you are using SSL connection to connect to the server refer [SSL verification](concepts-ssl-connection-security.md#applications-that-require-certificate-verification-for-tls-connectivity).
 
-###	13. What if I have further questions?
+### 13. Is there an action needed if I already have the DigiCertGlobalRootG2 in my certificate file?
+No. There is no action needed if your certificate file already has the **DigiCertGlobalRootG2**.
+
+###	14. What if I have further questions?
 If you have questions, get answers from community experts in [Microsoft Q&A](mailto:AzureDatabaseforPostgreSQL@service.microsoft.com). If you have a support plan and you need technical help,  [contact us](mailto:AzureDatabaseforPostgreSQL@service.microsoft.com)
