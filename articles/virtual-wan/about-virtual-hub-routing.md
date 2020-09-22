@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 06/29/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
 
@@ -84,6 +84,7 @@ Please consider the following when configuring Virtual WAN routing:
 * When using Azure Firewall in multiple regions, all spoke virtual networks must be associated to the same route table. For example, having a subset of the VNets going through the Azure Firewall while other VNets bypass the Azure Firewall in the same virtual hub is not possible.
 * A single next hop IP can be configured per VNet connection.
 * Virtual Hub does not support static route for 0.0.0.0/0 and next hop Virtual Network Connection (or an IP of an appliance in the VNet connection)
+* All information pertaining to 0.0.0.0/0 route is confined to a local hub's route table. This route does not propagate across hubs.
 
 ## Next steps
 

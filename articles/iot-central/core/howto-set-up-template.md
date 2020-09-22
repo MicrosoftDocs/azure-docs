@@ -7,7 +7,7 @@ ms.date: 12/06/2019
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.custom: contperfq1
+ms.custom: [contperfq1, device-developer]
 ---
 
 # Define a new IoT device type in your Azure IoT Central application

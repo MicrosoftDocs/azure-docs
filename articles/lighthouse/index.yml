@@ -33,6 +33,8 @@ landingContent:
         links:
           - text: Onboard a customer to Azure Lighthouse
             url: ./how-to/onboard-customer.md
+          - text: Link your ID for partner earned credit
+            url: ./how-to/partner-earned-credit.md
       - linkListType: concept
         links:
           - text: Recommended security practices
@@ -87,6 +89,8 @@ landingContent:
             url: ./how-to/policy-at-scale.md
           - text: Deploy a policy that can be remediated
             url: ./how-to/deploy-policy-remediation.md
+          - text: Manage hybrid machines with Azure Arc
+            url: ./how-to/manage-hybrid-infrastructure-arc.md
 
   - title: Reference - SDKs
     linkLists:
@@ -102,6 +106,8 @@ landingContent:
             url: /dotnet/api/Microsoft.Azure.Management.ManagedServices
           - text: Python
             url: /python/api/azure-mgmt-managedservices
+          - text: Terraform
+            url: https://www.terraform.io/docs/providers/azurerm/r/lighthouse_assignment.html
   
   - title: Reference - Downloads
     linkLists:

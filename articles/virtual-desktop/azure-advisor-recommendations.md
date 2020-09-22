@@ -28,7 +28,7 @@ To enable a validation environment:
 
 2. Next, select the host pool you want to change from a production environment to a validation environment.
 
-3. In your host pool, select the **Properties** tab in the column on the right side of the screen. Next, scroll down until you see “Validation environment.” Select **Yes**, then select **Apply**.
+3. In your host pool, select **Properties** on the left column. Next, scroll down until you see “Validation environment.” Select **Yes**, then select **Apply**.
 
 >[!div class="mx-imgBorder"]
 >![A screenshot of the Properties menu. "Validation environment" is highlighted in red, and the "Yes" bubble is selected.](media/validation-yes.png)

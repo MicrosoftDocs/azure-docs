@@ -107,7 +107,7 @@ In the RabbitMQ Management interface we can go to `Queues`, select the `azure` q
 
 :::image type="content" source="./media/service-bus-integrate-with-rabbitmq/first-message.png" alt-text="Publish first message":::
 
-Go back to Azure and inspect your queue. Click `Service Bus Explorer` in the left panel. If all went well, you'll see your queue now has one message. Yay, congrats!
+Go back to Azure and inspect your queue. Click `Service Bus Explorer` in the left panel, and then click the _Peek_ button. If all went well, you'll see your queue now has one message. Yay, congrats!
 
 :::image type="content" source="./media/service-bus-integrate-with-rabbitmq/service-bus-queue.png" alt-text="Azure Service Bus Queue":::
 
@@ -131,3 +131,8 @@ Congrats! You achieved a lot! You managed to get your messages from RabbitMQ to 
 By following the previous steps, you integrated areas of your org that were outside Azure. The Shovel plugin allowed you to ship messages from RabbitMQ to Azure Service Bus. This has enormous advantages since you can now allow trusted third parties to connect their apps with your Azure deployment.
 
 In the end, messaging is about enabling connections, and with this technique we just opened a new one.
+
+## Next steps
+
+- Learn more about [Azure Service Bus](./service-bus-messaging-overview.md)
+- Learn more about [AMQP 1.0 support in Service Bus](./service-bus-amqp-overview.md)

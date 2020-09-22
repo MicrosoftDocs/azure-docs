@@ -296,7 +296,7 @@ The ID element identifies which property on the source provides the value for th
 | User | companyname| Organization Name |
 | User | streetaddress | Street Address |
 | User | postalcode | Postal Code |
-| User | preferredlanguange | Preferred Language |
+| User | preferredlanguage | Preferred Language |
 | User | onpremisesuserprincipalname | On-premises UPN |*
 | User | mailnickname | Mail Nickname |
 | User | extensionattribute1 | Extension Attribute 1 |

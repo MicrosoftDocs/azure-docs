@@ -1,7 +1,7 @@
 ---
 
 title: Plan reports & monitoring deployment - Azure AD
-description: Describes how to plan and execute implmentation of reporting and monitoring.
+description: Describes how to plan and execute implementation of reporting and monitoring.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -89,7 +89,7 @@ Your current infrastructure and policies will drive your reporting and monitorin
 
 ## Plan an Azure AD reporting and monitoring deployment
 
-Reporting and monitoring are used to meet your business requirements, gain insights into usage patterns, and t increase your organizations security posture.
+Reporting and monitoring are used to meet your business requirements, gain insights into usage patterns, and increase your organization's security posture.
 
 ### Business use cases
 
@@ -131,7 +131,7 @@ Learn how to [install and use log analytics views for Azure AD activity logs](./
 
 Routing logs to an Azure event hub enables integration with third-party SIEM tools. This integration allows you to combine Azure AD activity log data with other data managed by your SIEM, to provide richer insights into your environment. 
 
-Learn how to [stream logs to an event hub](//azure/active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub).
+Learn how to [stream logs to an event hub](/azure/active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub).
 
 ## Plan Operations and Security for Azure AD reporting and monitoring
 

@@ -158,7 +158,17 @@ Cosmos DB uses HMAC for authorization. You can use either a master key, or a [re
 | Maximum resource token expiry time | 24 h by default. You can increase it by [filing an Azure support ticket](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)|
 | Maximum clock skew for token authorization| 15 min |
 
-Cosmos DB supports execution of triggers during writes. The service supports a maximum of one pre-trigger and one post-trigger per write operation. 
+Cosmos DB supports execution of triggers during writes. The service supports a maximum of one pre-trigger and one post-trigger per write operation.
+
+## Metadata request limits
+
+Azure Cosmos DB maintains system metadata for each account. This metadata allows you to enumerate collections, databases, other Azure Cosmos DB resources, and their configurations for free of charge.
+
+| Resource | Default limit |
+| --- | --- |
+|Maximum collection create rate rer minute|	5|
+|Maximum Database create rate per minute|	5|
+|Maximum provisioned throughput update rate per minute|	5|
 
 ## Limits for autoscale provisioned throughput
 

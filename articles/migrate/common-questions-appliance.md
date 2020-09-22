@@ -2,7 +2,7 @@
 title: Azure Migrate appliance FAQ
 description: Get answers to common questions about the Azure Migrate appliance.
 ms.topic: conceptual
-ms.date: 06/03/2020
+ms.date: 09/15/2020
 ---
 
 # Azure Migrate appliance: Common questions
@@ -71,7 +71,7 @@ Data that's collected by the Azure Migrate appliance is stored in the Azure loca
 Here's more information about how data is stored:
 
 - The collected data is securely stored in CosmosDB in a Microsoft subscription. The data is deleted when you delete the Azure Migrate project. Storage is handled by Azure Migrate. You can't specifically choose a storage account for collected data.
-- If you use [dependency visualization](concepts-dependency-visualization.md), the data that's collected is stored in the United States in an Azure Log Analytics workspace created in your Azure subscription. The data is deleted when you delete the Log Analytics workspace in your subscription.
+- If you use [dependency visualization](concepts-dependency-visualization.md), the data that's collected is stored in an Azure Log Analytics workspace created in your Azure subscription. The data is deleted when you delete the Log Analytics workspace in your subscription. 
 
 ## How much data is uploaded during continuous profiling?
 
