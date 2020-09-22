@@ -29,8 +29,14 @@ To get started, you need the following items:
 1. An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 1. A ServiceNow single sign-on (SSO) enabled subscription.
 1. For ServiceNow, an instance or tenant of ServiceNow, Calgary version or later.
+1. For ServiceNow, an instance or tenant of ServiceNow, Kingston version or later.
+1. For ServiceNow, an instance or tenant of ServiceNow, London version or later.
+1. For ServiceNow, an instance or tenant of ServiceNow, Madrid version or later.
+1. For ServiceNow, an instance or tenant of ServiceNow, New York version or later.
+1. For ServiceNow, an instance or tenant of ServiceNow, Orlando version or later.
+1. For ServiceNow, an instance or tenant of ServiceNow, Paris version or later.
 1. For ServiceNow Express, an instance of ServiceNow Express, Helsinki version or later.
-1. The ServiceNow tenant must have the [Multiple Provider Single Sign On Plugin](https://wiki.servicenow.com/index.php?title=Multiple_Provider_Single_Sign-On#gsc.tab=0) enabled. You can do this by [submitting a service request](https://hi.service-now.com).
+1. The ServiceNow tenant must have the [Multiple Provider Single Sign On Plugin](https://wiki.servicenow.com/index.php?title=Multiple_Provider_Single_Sign-On#gsc.tab=0) enabled.
 1. For automatic configuration, enable the multi-provider plugin for ServiceNow.
 1. To install the ServiceNow Classic (Mobile) application, go to the appropriate store, and search for the ServiceNow Classic application. Then download it.
 
@@ -103,6 +109,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	`https://<instancename>.service-now.com/navpage.do`
 
 	> [!NOTE]
+	> If you find "/ " in the Identifier value , please remove that trailing "/ " here.
+
+	> [!NOTE]
 	> These values aren't real. You need to update these values with the actual sign-on URL, Reply URL, Logout URL and identifier, which is explained later in the tutorial. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Certificate (Base64)**. 
@@ -172,6 +181,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	d. In **Logout URL**, enter a URL that uses the following pattern:
 	`https://<instancename>.service-now.com/navpage.do`
+	
+	> [!NOTE]
+	> If you find "/ " in the Identifier value , please remove that trailing "/ " here.
 
 	> [!NOTE]
 	> These values aren't real. You need to update these values with the actual sign-on URL, Reply URL, Logout URL and identifier, which is explained later in the tutorial. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
