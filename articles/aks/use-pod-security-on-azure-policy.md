@@ -3,7 +3,7 @@ title: Secure pods with Azure Policy in Azure Kubernetes Service (AKS)
 description: Learn how to secure pods with Azure Policy on Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 09/17/2020
+ms.date: 09/22/2020
 author: jluk
 ---
 
