@@ -330,6 +330,14 @@ Start-AzVM -Name $vmName -ResourceGroupName $rgName
 Now that you have a VM that is capable of using ultra disks, you can create and attach an ultra disk to it:
 
 ```powershell
+# Set parameters and select subscription
+$subscription = "<yourSubscriptionID>"
+$resourceGroup = "<yourResourceGroup>"
+$vmName = "<yourVMName>"
+$diskName = "<yourDiskName>"
+$lun = 1
+Connect-AzAccount -SubscriptionId $subscription
+
 # Create the disk
 $diskconfig = New-AzDiskConfig `
 -Location 'EastUS2' `
@@ -342,16 +350,10 @@ $diskconfig = New-AzDiskConfig `
 
 New-AzDisk `
 -ResourceGroupName $resourceGroup `
--DiskName 'Disk02' `
+-DiskName $diskName `
 -Disk $diskconfig;
 
 # add disk to VM
-$subscription = "<yourSubscriptionID>"
-$resourceGroup = "<yourResourceGroup>"
-$vmName = "<yourVMName>"
-$diskName = "<yourDiskName>"
-$lun = 1
-Connect-AzAccount -SubscriptionId $subscription
 $vm = Get-AzVM -ResourceGroupName $resourceGroup -Name $vmName
 $disk = Get-AzDisk -ResourceGroupName $resourceGroup -Name $diskName
 $vm = Add-AzVMDataDisk -VM $vm -Name $diskName -CreateOption Attach -ManagedDiskId $disk.Id -Lun $lun
