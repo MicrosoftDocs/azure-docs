@@ -98,23 +98,25 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![image](common/default-attributes.png)
 
-1. The two additional claims required by FortiGate SSL VPN are shown below. The names of these claims must match the names used later in the section of this tutorial, **Perform FortiGate command-line configuration**. To create these additional claims,
+1. The two additional claims required by FortiGate SSL VPN are shown in the following table. The names of these claims must match the names used in the **Perform FortiGate command-line configuration** section of this tutorial. 
+
+   | Name |  Source attribute|
+   | ------------ | --------- |
+   | username | user.userprincipalname |
+   | group | user.groups |
    
-   1. Click **Edit** next to **User Attributes & Claims**
-   1. Click **Add new claim**
-   1. In the **Name** field, enter **username**
-   1. In the **Source attribute** field, select **user.userprincipalname**
-   1. Click **Save**
-   1. Click **Add a group claim**
-   1. Select **All groups**
-   1. Check **Customize the name of the group claim**
-   1. In the **Name** field, enter **group**
-   1. Click **Save**
+   To create these additional claims:
    
-	| Name |  Source Attribute|
-	| ------------ | --------- |
-	| username | user.userprincipalname |
-	| group | user.groups |
+   1. Next to **User Attributes & Claims**, select **Edit**.
+   1. Select **Add new claim**.
+   1. For **Name**, enter **username**.
+   1. For **Source attribute**, select **user.userprincipalname**.
+   1. Select **Save**.
+   1. Select **Add a group claim**.
+   1. Select **All groups**.
+   1. Seect the **Customize the name of the group claim** check box.
+   1. For **Name**, enter **group**.
+   1. Select **Save**.   
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
