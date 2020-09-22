@@ -84,7 +84,7 @@ When **attaching** an existing AKS cluster, we support all currently supported A
 
 ### Available and default versions
 
-To find the available and default AKS versions, use the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) command [az aks get-versions](/cli/azure/aks?view=azure-cli-latest#az_aks_get_versions). For example, the following command returns the versions available in the West US region:
+To find the available and default AKS versions, use the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) command [az aks get-versions](/cli/azure/aks?view=azure-cli-latest&preserve-view=true#az_aks_get_versions). For example, the following command returns the versions available in the West US region:
 
 ```azurecli-interactive
 az aks get-versions -l westus -o table
@@ -189,7 +189,7 @@ For more information on the classes, methods, and parameters used in this exampl
 az ml computetarget create aks -n myaks
 ```
 
-For more information, see the [az ml computetarget create aks](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-aks) reference.
+For more information, see the [az ml computetarget create aks](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-create-aks) reference.
 
 # [Portal](#tab/azure-portal)
 
@@ -266,7 +266,7 @@ To attach the existing cluster to your workspace, use the following command. Rep
 az ml computetarget attach aks -n myaks -i aksresourceid -g myresourcegroup -w myworkspace
 ```
 
-For more information, see the [az ml computetarget attach aks](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/attach?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-attach-aks) reference.
+For more information, see the [az ml computetarget attach aks](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/attach?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-attach-aks) reference.
 
 # [Portal](#tab/azure-portal)
 

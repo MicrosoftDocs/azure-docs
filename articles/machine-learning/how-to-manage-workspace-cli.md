@@ -280,7 +280,7 @@ The output of this command is similar to the following JSON:
 ]
 ```
 
-For more information, see the [az ml workspace list](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-list) documentation.
+For more information, see the [az ml workspace list](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-workspace-list) documentation.
 
 ## Get workspace information
 
@@ -313,7 +313,7 @@ The output of this command is similar to the following JSON:
 }
 ```
 
-For more information, see the [az ml workspace show](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-show) documentation.
+For more information, see the [az ml workspace show](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-workspace-show) documentation.
 
 ## Update a workspace
 
@@ -346,7 +346,7 @@ The output of this command is similar to the following JSON:
 }
 ```
 
-For more information, see the [az ml workspace update](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-update) documentation.
+For more information, see the [az ml workspace update](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-workspace-update) documentation.
 
 ## Share a workspace with another user
 
@@ -358,7 +358,7 @@ az ml workspace share -w <workspace-name> -g <resource-group-name> --user <user>
 
 For more information on roles-based access control (RBAC) with Azure Machine Learning, see [Manage users and roles](how-to-assign-roles.md).
 
-For more information, see the [az ml workspace share](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-share) documentation.
+For more information, see the [az ml workspace share](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-workspace-share) documentation.
 
 ## Sync keys for dependent resources
 
@@ -370,7 +370,7 @@ az ml workspace sync-keys -w <workspace-name> -g <resource-group-name>
 
 For more information on changing keys, see [Regenerate storage access keys](how-to-change-storage-access-key.md).
 
-For more information, see the [az ml workspace sync-keys](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-sync-keys) documentation.
+For more information, see the [az ml workspace sync-keys](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-workspace-sync-keys) documentation.
 
 ## Delete a workspace
 
@@ -389,7 +389,7 @@ You can also delete the resource group, which deletes the workspace and all othe
 az group delete -g <resource-group-name>
 ```
 
-For more information, see the [az ml workspace delete](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-delete) documentation.
+For more information, see the [az ml workspace delete](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-workspace-delete) documentation.
 
 ## Troubleshooting
 

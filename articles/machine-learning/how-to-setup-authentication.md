@@ -185,7 +185,7 @@ ws.get_details()
 
 ### Use a service principal from the Azure CLI
 
-You can use a service principal for Azure CLI commands. For more information, see [Sign in using a service principal](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#sign-in-using-a-service-principal).
+You can use a service principal for Azure CLI commands. For more information, see [Sign in using a service principal](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest&preserve-view=true#sign-in-using-a-service-principal).
 
 ### Use a service principal with the REST API (preview)
 
