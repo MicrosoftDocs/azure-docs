@@ -20,9 +20,13 @@ The Text Analytics API is updated on an ongoing basis. To stay up-to-date with r
 
 ### General API updates
 
-* New URL for the Text Analytics v3.1 public preview to support updates to the following Named Entity Recognition v3 endpoints: 
-   * `/pii` endpoint now includes the new `redactedText` property in the response JSON where detected PII entities in the input text are replaced by an `*` for each character of those entities.
-   * `/linking` endpoint now includes the `bingID` property in the response JSON for linked entities.
+* Release of a new URL for the Text Analytics v3.1 public preview to support updates to the following Named Entity Recognition v3 endpoints: 
+    * `/pii` endpoint now includes the new `redactedText` property in the response JSON where detected PII entities in the input text are replaced by an `*` for each character of those entities.
+    * `/linking` endpoint now includes the `bingID` property in the response JSON for linked entities.
+* The following Text Analytics preview API endpoints were retired on September 4th, 2020:
+    * v2.1-preview
+    * v3.0-preview
+    * v3.0-preview.1
     
 > [!div class="nextstepaction"]
 > [Learn more about Text Analytics API v3.1-Preview.2](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/Languages)
