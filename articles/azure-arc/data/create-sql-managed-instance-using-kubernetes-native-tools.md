@@ -71,7 +71,8 @@ spec:
       size: 1Gi
 ```
 
-### Customizing the login and password.
+### Customizing the login and password
+
 A Kubernetes secret is stored as a base64 encoded string - one for the username and one for the password.  You will need to base64 encode a system administrator login and password and place them in the placeholder location at `data.password` and `data.username`.  Do not include the `<` and `>` symbols provided in the template.
 
 > [!NOTE]
@@ -166,3 +167,7 @@ kubectl describe po/<pod name> --namespace arc
 ## Troubleshooting creation problems
 
 If you encounter any troubles with creation, please see the [troubleshooting guide](troubleshoot-guide.md).
+
+## Next steps
+
+[Connect to Azure Arc enabled SQL Managed Instance](connect-managed-instance.md)
