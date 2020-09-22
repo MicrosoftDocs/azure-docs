@@ -4,7 +4,7 @@ description: Learn how to manage Azure Cosmos DB resources by using the Azure po
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 04/30/2020
+ms.date: 09/18/2020
 ms.author: mjbrown
 ---
 

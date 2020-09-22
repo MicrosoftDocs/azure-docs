@@ -78,7 +78,7 @@
     - name: Build a SCIM endpoint and configure provisioning
       href: use-scim-to-provision-users-and-groups.md
     - name: Automate configuration using MS Graph
-      href: application-provisioning-configure-api.md
+      href: https://docs.microsoft.com/graph/application-provisioning-configure-api
   - name: Reference
     items:
     - name: SCIM 2.0 protocol compliance

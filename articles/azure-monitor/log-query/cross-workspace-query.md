@@ -22,7 +22,7 @@ Now you can query not only across multiple Log Analytics workspaces, but also da
 
 * The number of Application Insights resources and Log Analytics workspaces that you can include in a single query is limited to 100.
 * Cross-resource query is not supported in View Designer. You can Author a query in Log Analytics and pin it to Azure dashboard to [visualize a log query](../learn/tutorial-logs-dashboards.md). 
-* Cross-resource query in log alerts is supported in the new [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrules). By default, Azure Monitor uses the [legacy Log Analytics Alert API](../platform/api-alerts.md) for creating new log alert rules from Azure portal, unless you switch from [legacy Log Alerts API](../platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api). After the switch, the new API becomes the default for new alert rules in Azure portal and it lets you create cross-resource query log alerts rules. You can create cross-resource query log alert rules without making the switch by using the [Azure Resource Manager template for scheduledQueryRules API](../platform/alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template) – but this alert rule is manageable though [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrules) and not from Azure portal.
+* Cross-resource queries in log alerts are only supported in the current [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrules). If you're using the legacy Log Analytics Alerts API, you'll need to [switch to the current API](../platform/alerts-log-api-switch.md).
 
 
 ## Querying across Log Analytics workspaces and from Application Insights
@@ -128,7 +128,7 @@ applicationsScoping
 ```
 
 >[!NOTE]
->This method can’t be used with log alerts because the access validation of the alert rule resources, including workspaces and applications, is performed at alert creation time. Adding new resources to the function after the alert creation isn’t supported. If you prefer to use function for resource scoping in log alerts, you need to edit the alert rule in the portal or with a Resource Manager template to update the scoped resources. Alternatively, you can include the list of resources in the log alert query.
+> This method can't be used with log alerts because the access validation of the alert rule resources, including workspaces and applications, is performed at alert creation time. Adding new resources to the function after the alert creation isn’t supported. If you prefer to use function for resource scoping in log alerts, you need to edit the alert rule in the portal or with a Resource Manager template to update the scoped resources. Alternatively, you can include the list of resources in the log alert query.
 
 
 ![Timechart](media/cross-workspace-query/chart.png)

@@ -366,7 +366,7 @@ Next, install the certificate on the remote cluster using [these provided Powers
 > [!Warning]
 > A self-signed certificate is sufficient for development and testing applications. For production applications, use a certificate from a [certificate authority (CA)](https://wikipedia.org/wiki/Certificate_authority) instead of a self-signed certificate.
 
-## Open port 443 in the Azure load balancer
+## Open port 443 in the Azure load balancer and virtual network
 
 Open port 443 in the load balancer if it isn't already.
 
@@ -389,6 +389,26 @@ $slb | Add-AzLoadBalancerRuleConfig -Name $rulename -BackendAddressPool $slb.Bac
 
 # Set the goal state for the load balancer
 $slb | Set-AzLoadBalancer
+```
+
+Do the same for the associated virtual network.
+
+```powershell
+$rulename="allowAppPort$port"
+$nsgname="voting-vnet-security"
+$RGname="voting_RG"
+$port=443
+
+# Get the NSG resource
+$nsg = Get-AzNetworkSecurityGroup -Name $nsgname -ResourceGroupName $RGname
+
+# Add the inbound security rule.
+$nsg | Add-AzNetworkSecurityRuleConfig -Name $rulename -Description "Allow app port" -Access Allow `
+    -Protocol * -Direction Inbound -Priority 3891 -SourceAddressPrefix "*" -SourcePortRange * `
+    -DestinationAddressPrefix * -DestinationPortRange $port
+
+# Update the NSG.
+$nsg | Set-AzNetworkSecurityGroup
 ```
 
 ## Deploy the application to Azure
