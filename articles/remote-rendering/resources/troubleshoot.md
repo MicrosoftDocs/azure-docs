@@ -18,11 +18,7 @@ Sometimes during [linking of a storage account](../how-tos/create-an-account.md#
 
 ## Client can't connect to server
 
-Make sure that your firewalls (on device, inside routers, etc.) don't block the following ports:
-
-* **50051 (TCP)** - required for initial connection (HTTP handshake)
-* **8266 (TCP+UDP)** - required for data transfer
-* **5000 (TCP)**, **5433 (TCP)**, **8443 (TCP)** - required for [ArrInspector](tools/arr-inspector.md)
+Make sure that your firewalls (on device, inside routers, etc.) don't block the ports mentioned in the [System requirements](../overview/system-requirements.md#network-ports).
 
 ## Error '`Disconnected: VideoFormatNotAvailable`'
 
