@@ -20,15 +20,15 @@ ROBOTS: NOINDEX
 This guide shows how to upgrade your existing container or cloud API code from Read v2.0 or v2.1 to Read v3.x operations.
 
 ## Determine your API path fix
-Use the following table to determine the **version string** in the API path based on whether you are using the cloud API or container, and the Read 3.x version you are migrating to.
+Use the following table to determine the **version string** in the API path based on the Read 3.x version you are migrating to.
 
 |Product type| Version | Version string in 3.x API path |
 |:-----|:----|:----|
-|Cloud API | Read 3.0 | **v3.0** |
-|Container | Read 3.0 preview | **v3.0-preview.1** |
-|Container/Cloud| Read 3.1 preview | **v3.1-preview.2** |
+|Cloud | Read 3.0 | **v3.0** |
+|Container | Read 3.0 preview | **v3.0** |
+|Cloud/Container | Read 3.1 preview | **v3.1-preview.2** |
 
-Next, use the following sections to narrow your operations and replace the "version string" with the value from the table in your API paths and related code including the API response handling code.
+Next, use the following sections to narrow your operations and replace the "version string" in your API path with the value from the table. Also note related code changes.
 
 ## Cloud API and Containers
 
