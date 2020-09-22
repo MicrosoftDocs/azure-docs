@@ -81,7 +81,7 @@ Otherwise, you'll see a list of your recent automated machine learning experimen
             
         Select **Next.**
 
-    1. The **Confirm details** form is a summary of the information previously populated in the **Basic info** and **Settings and preview** forms. You also have the option to create a data profile for your dataset using a profiling enabled compute. Learn more about [data profiling](#profile).
+    1. The **Confirm details** form is a summary of the information previously populated in the **Basic info** and **Settings and preview** forms. You also have the option to create a data profile for your dataset using a profiling enabled compute. Learn more about [data profiling](how-to-connect-data-ui.md#profile).
 
         Select **Next**.
 1. Select your newly created dataset once it appears. You are also able to view a preview of the dataset and sample statistics. 
@@ -106,7 +106,7 @@ Otherwise, you'll see a list of your recent automated machine learning experimen
     Select **Create**. Creation of a new compute can take a few minutes.
 
     >[!NOTE]
-    > Your compute name will indicate if the compute you select/create is *profiling enabled*. (See the section [data profiling](#profile) for more details).
+    > Your compute name will indicate if the compute you select/create is *profiling enabled*. (See the section [data profiling](how-to-connect-data-ui.md#profile) for more details).
 
     Select **Next**.
 
@@ -139,32 +139,6 @@ Otherwise, you'll see a list of your recent automated machine learning experimen
 1. (Optional) View featurization settings: if you choose to enable **Automatic featurization** in the **Additional configuration settings** form, default featurization techniques are applied. In the **View featurization settings** you can change these defaults and customize accordingly. Learn how to [customize featurizations](#customize-featurization). 
 
     ![Azure Machine Learning studio task type form](media/how-to-use-automated-ml-for-ml-models/view-featurization-settings.png)
-
-<a name="profile"></a>
-
-## Data profiling & summary stats
-
-You can get a vast variety of summary statistics across your data set to verify whether your data set is ML-ready. For non-numeric columns, they include only basic statistics like min, max, and error count. For numeric columns, you can also review their statistical moments and estimated quantiles. Specifically, our data profile includes:
-
->[!NOTE]
-> Blank entries appear for features with irrelevant types.
-
-Statistic|Description
-------|------
-Feature| Name of the column that is being summarized.
-Profile| In-line visualization based on the type inferred. For example, strings, booleans, and dates will have value counts, while decimals (numerics) have approximated histograms. This allows you to gain a quick understanding of the distribution of the data.
-Type distribution| In-line value count of types within a column. Nulls are their own type, so this visualization is useful for detecting odd or missing values.
-Type|Inferred type of the column. Possible values include: strings, booleans, dates, and decimals.
-Min| Minimum value of the column. Blank entries appear for features whose type does not have an inherent ordering (e.g. booleans).
-Max| Maximum value of the column. 
-Count| Total number of missing and non-missing entries in the column.
-Not missing count| Number of entries in the column that are not missing. Empty strings and errors are treated as values, so they will not contribute to the "not missing count."
-Quantiles| Approximated values at each quantile to provide a sense of the distribution of the data.
-Mean| Arithmetic mean or average of the column.
-Standard deviation| Measure of the amount of dispersion or variation of this column's data.
-Variance| Measure of how far spread out this column's data is from its average value. 
-Skewness| Measure of how different this column's data is from a normal distribution.
-Kurtosis| Measure of how heavily tailed this column's data is compared to a normal distribution.
 
 ## Customize featurization
 
