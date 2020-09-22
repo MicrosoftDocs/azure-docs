@@ -1,6 +1,6 @@
 ---
 title: 'VPN Gateway: Azure AD tenant for P2S VPN connections: Azure AD authentication'
-description: You can use P2S VPN to connect to your VNet using Azure AD authentication
+description: Learn how to set up an Azure AD tenant for P2S Open VPN authentication.
 services: vpn-gateway
 author: cherylmc
 
