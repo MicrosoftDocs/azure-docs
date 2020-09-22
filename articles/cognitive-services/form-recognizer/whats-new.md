@@ -177,4 +177,4 @@ Complete a [client library quickstart](quickstarts/client-library.md) to get sta
 
 ## See also
 
-* [What is Form Recognizer?](../../overview.md)
+* [What is Form Recognizer?](./overview.md)

@@ -78,4 +78,4 @@ Now that you've learned how to build a training data set, follow a quickstart to
 
 ## See also
 
-* [What is Form Recognizer?](../../overview.md)
+* [What is Form Recognizer?](./overview.md)

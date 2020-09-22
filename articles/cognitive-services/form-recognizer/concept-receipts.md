@@ -458,5 +458,5 @@ The Receipt API also powers the [AIBuilder Receipt Processing feature](https://d
 
 ## See also
 
-* [What is Form Recognizer?](../../overview.md)
+* [What is Form Recognizer?](./overview.md)
 * [REST API reference docs](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer/api)

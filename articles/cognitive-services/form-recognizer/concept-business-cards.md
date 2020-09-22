@@ -390,5 +390,5 @@ The Business Card API also powers the [AIBuilder Business Card Processing featur
 
 ## See also
 
-* [What is Form Recognizer?](../../overview.md)
+* [What is Form Recognizer?](./overview.md)
 * [REST API reference docs](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync)
