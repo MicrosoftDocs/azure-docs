@@ -762,6 +762,8 @@
         href: hosted-heritage-online-sso-tutorial.md
       - name: Hosted MyCirqa
         href: hosted-mycirqa-sso-tutorial.md
+      - name: Hoxhunt
+        href: hoxhunt-tutorial.md
       - name: HPE SaaS
         href: hpesaas-tutorial.md
       - name: HR2day by Merces
@@ -1062,6 +1064,8 @@
         href: meta4-global-hr-tutorial.md
       - name: Meta Networks Connector
         href: metanetworksconnector-tutorial.md
+      - name: MEVISIO
+        href: mevisio-tutorial.md
       - name: Michigan Data Hub Single Sign-On
         href: michigan-data-hub-single-sign-on-tutorial.md
       - name: Mimecast Admin Console
@@ -1160,6 +1164,8 @@
         href: nexonia-tutorial.md
       - name: Nimblex
         href: nimblex-tutorial.md
+      - name: Nimbus
+        href: nimbus-tutorial.md
       - name: Nintex Promapp
         href: promapp-tutorial.md
       - name: Nitro Productivity Suite
@@ -1328,6 +1334,8 @@
         href: proxyclick-tutorial.md
       - name: Pulse Secure PCS
         href: pulse-secure-pcs-tutorial.md
+      - name: Pulse Secure Virtual Traffic Manager
+        href: pulse-secure-virtual-traffic-manager-tutorial.md        
       - name: PureCloud by Genesys
         href: purecloud-by-genesys-tutorial.md
       - name: PurelyHR
@@ -1428,6 +1436,8 @@
         href: samlssojira-tutorial.md
       - name: Azure AD SAML Toolkit
         href: saml-toolkit-tutorial.md
+      - name: Samsara
+        href: samsara-tutorial.md
       - name: Sansan
         href: sansan-tutorial.md
       - name: SAP Business ByDesign
