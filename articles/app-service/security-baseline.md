@@ -64,7 +64,7 @@ Implement an Azure Firewall to centrally create, enforce, and log application an
 
 - [How to create an internal ASE](environment/create-ilb-ase.md)
 
-**Azure Security Center monitoring**: No
+**Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -83,7 +83,7 @@ Azure Firewall uses a static public IP address for your virtual network resource
 
 - [Understand Network Security provided by Azure Security Center](../security-center/security-center-network-recommendations.md)
 
-- [How to Enable Monitoring and Protection of App Service](../security-center/security-center-app-services.md)
+- [How to Enable Monitoring and Protection of App Service](/azure/security-center/security-center-app-services)
 
 **Azure Security Center monitoring**: Yes
 
@@ -630,7 +630,7 @@ Security Center's threat protection provides comprehensive defenses for your env
 
 - [Understand Azure AD risk detections](/azure/active-directory/reports-monitoring/concept-risk-events)
 
-- [Threat protection for Azure compute resources](../security-center/threat-protection.md)
+- [Threat protection for Azure compute resources](/azure/security-center/threat-protection)
 
 **Azure Security Center monitoring**: Yes
 
