@@ -1,4 +1,4 @@
-﻿---
+---
 title: Visualizing your cluster using Azure Service Fabric Explorer 
 description: Service Fabric Explorer is an application for inspecting and managing cloud applications and nodes in a Microsoft Azure Service Fabric cluster.
 author: mikkelhegn
@@ -127,7 +127,7 @@ The following operations are possible:
 * Trigger and track Backup of a partition.
 * Trigger and track Restore for a partition.
 
-For more on the Backup and Restore service, see the [REST API reference](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore).
+For more on the Backup and Restore service, see the [REST API reference](/rest/api/servicefabric/sfclient-index-backuprestore).
 ## Next steps
 * [Managing your Service Fabric applications in Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 * [Service Fabric application deployment using PowerShell](service-fabric-deploy-remove-applications.md)

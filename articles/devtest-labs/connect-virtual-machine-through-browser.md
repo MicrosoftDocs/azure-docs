@@ -1,25 +1,13 @@
 ---
 title: Connect to your virtual machines through a browser - Azure | Microsoft Docs
 description: Learn how to connect to your virtual machines through a browser.
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: tanmayeekamath
-manager: femila
-editor: ''
-
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2019
-ms.author: takamath
-
+ms.date: 06/26/2020
 ---
 
 # Connect to your virtual machines through a browser 
 
-DevTest Labs integrates with [Azure Bastion](https://docs.microsoft.com/azure/bastion/), which enables you to connect to your virtual machines through a browser. For information on how to enable this feature in DevTest Labs, see [Enable browser connection on lab virtual machines](enable-browser-connection-lab-virtual-machines.md).
+DevTest Labs integrates with [Azure Bastion](../bastion/index.yml), which enables you to connect to your virtual machines through a browser. For information on how to enable this feature in DevTest Labs, see [Enable browser connection on lab virtual machines](enable-browser-connection-lab-virtual-machines.md).
 
 Once the *Browser connect* is enabled, lab users can access virtual machines through a browser.  
 

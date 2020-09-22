@@ -1,8 +1,8 @@
 ---
-title: Identity data storage for Australian customers - Azure AD
-description: Learn about where Azure Active Directory stores identity-related data for its Australian customers.
+title: Customer data storage for Australian and New Zealand customers - Azure AD
+description: Learn about where Azure Active Directory stores customer-related data for its Australian and New Zealand customers.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 ms.author: ajburnle
 
@@ -10,26 +10,20 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/13/2019
-ms.custom: "it-pro, seodec18"
+ms.date: 7/21/2020
+ms.custom: "it-pro, seodec18, references_regions"
 ms.collection: M365-identity-device-management
 ---
 
-# Identity data storage for Australian and New Zealand customers in Azure Active Directory
+# Customer Data storage for Australian and New Zealand customers in Azure Active Directory
 
-Identity data is stored by Azure AD in a geographical location based on the address provided by your organization when subscribing for a Microsoft Online service such as Office 365 and Azure. For information on where your Identity Customer Data is stored, you can use the [Where is your data located?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) section of the Microsoft Trust Center.
+Azure Active Directory (Azure AD) stores its Customer Data in a geographical location based on the country you provided when you signed up for a Microsoft Online service. Microsoft Online services include Microsoft 365 and Azure. 
+
+For information about where Azure AD and other Microsoft services' data is located, see the [Where is your data located?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) section of the Microsoft Trust Center.
+
+From February 26, 2020, Microsoft began storing Azure AD’s Customer Data for new tenants with an Australian or New Zealand billing address within the Australian datacenters. Between May 1, 2020 and October 31, 2020, Microsoft will migrate existing tenants who have an Australian or New Zealand billing address to the Australian datacenters without requiring any customer action. The migration process doesn’t involve any downtime for customers and won’t impact any functionality of a tenant during the migration.
+
+Additionally, certain Azure AD features do not yet support storage of Customer Data in Australia. Please go to the [Azure AD data map](https://msit.powerbi.com/view?r=eyJrIjoiYzEyZTc5OTgtNTdlZS00ZTVkLWExN2ItOTM0OWU4NjljOGVjIiwidCI6IjcyZjk4OGJmLTg2ZjEtNDFhZi05MWFiLTJkN2NkMDExZGI0NyIsImMiOjV9), for specific feature information. For example, Microsoft Azure Multi-Factor Authentication stores Customer Data in the US and processes it globally. See [Data residency and customer data for Azure Multi-Factor Authentication](../authentication/concept-mfa-data-residency.md).
 
 > [!NOTE]
-> Services and applications that integrate with Azure AD have access to Identity Customer Data. Evaluate each service and application you use to determine how Identity Customer Data is processed by that specific service and application, and whether they meet your company's data storage requirements. For more information about Microsoft services' data residency, see the Where is your data located? section of the Microsoft Trust Center.
-
-For customers who provided an address in Australia and New Zealand and uses Azure AD free edition, Azure AD keeps PII data at rest within Australian datacenters. 
-
-All other Azure AD premium services store customer data in global datacenters. To locate the datacenter for a service, see [Azure Active Directory – Where is your data located?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located)
-
-## Microsoft Azure multi-factor authentication (MFA)
-
-MFA service in Azure AD stores Identity Customer Data in global datacenters at rest. To learn more about the user information collected and stored by cloud-based Azure MFA and Azure MFA Server, see [Azure Multi-Factor Authentication user data collection](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-data-residency). If customers use MFA their data will be stored outside of Australia datacenters at rest. 
-
-## Next steps
-For more information about any of the features and functionality described above, see these articles:
-- [What is Multi-Factor Authentication?](https://docs.microsoft.com/azure/active-directory/authentication/multi-factor-authentication)
+> Microsoft products, services, and third-party applications that integrate with Azure AD have access to Customer Data. Evaluate each product, service, and application you use to determine how Customer Data is processed by that specific product, service, and application, and whether they meet your company's data storage requirements. For more information about Microsoft services' data residency, see the [Where is your data located?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) section of the Microsoft Trust Center.

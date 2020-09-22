@@ -30,7 +30,7 @@ With these steps complete, you can then run a full failover to Azure as and when
 
 ## Architecture
 
-![Architecture](./media/azure-stack-site-recovery/architecture.png)
+![Diagram shows Recovery Services vaults for two tenants in clouds associated with tenant subscriptions both on a common Azure Stack infrastructure.](./media/azure-stack-site-recovery/architecture.png)
 
 **Location** | **Component** |**Details**
 --- | --- | ---
@@ -256,7 +256,7 @@ Before you run a test failover, verify the machine properties, and make sure tha
 2. In the **Replicated item** pane, there's a summary of VM information, health status, and the latest available recovery points. Click **Properties** to view more details.
 3. In **Compute and Network**, modify settings as needed.
 
-    - You can modify the Azure VM name, resource group, target size, [availability set](/azure/virtual-machines/windows/tutorial-availability-sets), and managed disk settings.
+    - You can modify the Azure VM name, resource group, target size, [availability set](../virtual-machines/windows/tutorial-availability-sets.md), and managed disk settings.
     - You can also view and modify network settings. These include the network/subnet to which the Azure VM is joined after failover, and the IP address that will be assigned to the VM.
 1. In **Disks**, view information about the operating system and data disks on the VM.
 

@@ -16,7 +16,7 @@ After you create an [Azure Cosmos DB account](account-overview.md) under your Az
 
 The following image shows the hierarchy of different entities in an Azure Cosmos DB account:
 
-![Azure Cosmos account entities](./media/databases-containers-items/cosmos-entities.png)
+:::image type="content" source="./media/databases-containers-items/cosmos-entities.png" alt-text="Azure Cosmos account entities" border="false":::
 
 ## Azure Cosmos databases
 
@@ -109,7 +109,7 @@ Depending on which API you use, an Azure Cosmos item can represent either a docu
 
 | Cosmos entity | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | Table API |
 | --- | --- | --- | --- | --- | --- |
-|Azure Cosmos item | Document | Row | Document | Node or edge | Item |
+|Azure Cosmos item | Item | Row | Document | Node or edge | Item |
 
 ### Properties of an item
 

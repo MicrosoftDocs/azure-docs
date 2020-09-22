@@ -88,8 +88,8 @@ You can test your search instance by using the preview pane on the portal's righ
 
 The portal enables you to adjust the search ranking of content from specific domains, subpages, and webpages. After sending a search query in the preview pane, each search result contains a list of adjustments you can make for it:  
 
-|            |                                                                                                                                                                      |
-|------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Adjustment | Description |
+|------------|-------------|
 | Block      | Moves the domain, subpage, or webpage to the Blocked list. Bing will exclude content from the selected site from appearing in the search results.                    |
 | Boost      | Boosts content from the domain or subpage to be higher in the search results.                                                                                        |
 | Demote     | Demotes content from the domain or subpage lower in the search results. You select whether to demote content from the domain or subpage that the webpage belongs to. |

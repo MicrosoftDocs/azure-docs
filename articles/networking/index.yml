@@ -119,12 +119,12 @@ conceptualContent:
         - url: ../load-balancer/load-balancer-overview.md
           itemType: overview
           text: What is Azure Load Balancer? 
+        - url: https://azure.microsoft.com/updates/?category=networking&query=load%20balancer
+          itemType: whats-new
+          text: What's new
         - url: ../load-balancer/quickstart-load-balancer-standard-public-portal.md
           itemType: quickstart
           text: Load balance internet traffic to VMs
-        - url: ../load-balancer/tutorial-load-balancer-port-forwarding-portal.md
-          itemType: tutorial
-          text: Configure port forwarding
         - url: ../load-balancer/load-balancer-troubleshoot.md
           itemType: how-to-guide
           text: Troubleshoot Azure Load Balancer

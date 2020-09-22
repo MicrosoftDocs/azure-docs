@@ -93,12 +93,12 @@ When the backup finishes, the file is transferred to the Backup Server computer.
 ## Before you begin
 
 1. **Deploy Azure Backup Server**. Verify that Backup Server is correctly deployed. For more information, see:
-    * [System requirements for Azure Backup Server](https://docs.microsoft.com/system-center/dpm/install-dpm#setup-prerequisites)
+    * [System requirements for Azure Backup Server](/system-center/dpm/install-dpm#setup-prerequisites)
     * [Backup Server protection matrix](backup-mabs-protection-matrix.md)
 
-1. **Set up storage**. You can store backup data on disk, on tape, and in the cloud with Azure. For more information, see [Prepare data storage](https://docs.microsoft.com/system-center/dpm/plan-long-and-short-term-data-storage).
+1. **Set up storage**. You can store backup data on disk, on tape, and in the cloud with Azure. For more information, see [Prepare data storage](/system-center/dpm/plan-long-and-short-term-data-storage).
 
-1. **Set up the protection agent**. Install the protection agent on the computer that you want to back up. For more information, see [Deploy the DPM protection agent](https://docs.microsoft.com/system-center/dpm/deploy-dpm-protection-agent).
+1. **Set up the protection agent**. Install the protection agent on the computer that you want to back up. For more information, see [Deploy the DPM protection agent](/system-center/dpm/deploy-dpm-protection-agent).
 
 ## Back up system state and bare metal
 
@@ -110,7 +110,7 @@ To back up system state and bare metal:
 
 1. On the **Select Group Members** page, expand the computer, and then select either **BMR** or **system state**.
 
-    Remember that you can't protect both BMR and system state for the same computer in different groups. Also, when you select BMR, system state is automatically enabled. For more information, see [Deploy protection groups](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups).
+    Remember that you can't protect both BMR and system state for the same computer in different groups. Also, when you select BMR, system state is automatically enabled. For more information, see [Deploy protection groups](/system-center/dpm/create-dpm-protection-groups).
 
 1. On the **Select Data Protection Method** page, choose how to handle short-term backup and long-term backup.
 

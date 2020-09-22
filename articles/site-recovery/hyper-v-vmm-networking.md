@@ -57,11 +57,11 @@ The following graphics illustrate the subnets before and after failover.
 
 **Before failover**
 
-![Before failover](./media/hyper-v-vmm-networking/network-design2.png)
+![Diagram showing the subnets before failover.](./media/hyper-v-vmm-networking/network-design2.png)
 
 **After failover**
 
-![After failover](./media/hyper-v-vmm-networking/network-design3.png)
+![Diagram showing the subnets after failover.](./media/hyper-v-vmm-networking/network-design3.png)
 
 After failover, Site Recovery allocates an IP address for each network interface on the VM. The address is allocated from the static IP address pool in the relevant network, for each VM instance.
 
@@ -73,12 +73,12 @@ After failover, Site Recovery allocates an IP address for each network interface
 
 After you enable protection for a VM, you can use following sample script to verify the address assigned to the VM. This IP address is set as the failover IP address, and assigned to the VM at the time of failover:
 
-    ```
-    $vm = Get-SCVirtualMachine -Name <VM_NAME>
-    $na = $vm[0].VirtualNetworkAdapters>
-    $ip = Get-SCIPAddress -GrantToObjectID $na[0].id
-    $ip.address 
-    ```
+```powershell
+$vm = Get-SCVirtualMachine -Name <VM_NAME>
+$na = $vm[0].VirtualNetworkAdapters>
+$ip = Get-SCIPAddress -GrantToObjectID $na[0].id
+$ip.address
+```
 
 ## Use a different IP address
 
@@ -87,7 +87,7 @@ In this scenario, the IP addresses of VMs that fail over are changed. The drawba
 - Use low TTL values for intranet applications.
 - Use the following script in a Site Recovery recovery plan, for a timely update of the DNS server. You don't need the script if you use dynamic DNS registration.
 
-    ```
+    ```powershell
     param(
     string]$Zone,
     [string]$name,
@@ -112,11 +112,11 @@ In this example we have different IP addresses across primary and secondary site
 
 **Before failover**
 
-![Different IP address - before failover](./media/hyper-v-vmm-networking/network-design10.png)
+![Diagram showing different IP addresses before failover.](./media/hyper-v-vmm-networking/network-design10.png)
 
 **After failover**
 
-![Different IP address - after failover](./media/hyper-v-vmm-networking/network-design11.png)
+![Diagram showing different IP addresses after failover.](./media/hyper-v-vmm-networking/network-design11.png)
 
 
 ## Next steps

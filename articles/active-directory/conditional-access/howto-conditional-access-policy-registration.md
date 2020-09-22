@@ -64,6 +64,6 @@ Some may choose to use device state instead of location in step 6 above:
 
 [Conditional Access common policies](concept-conditional-access-policy-common.md)
 
-[Determine impact using Conditional Access report-only mode](howto-conditional-access-report-only.md)
+[Determine impact using Conditional Access report-only mode](howto-conditional-access-insights-reporting.md)
 
 [Simulate sign in behavior using the Conditional Access What If tool](troubleshoot-conditional-access-what-if.md)

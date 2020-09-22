@@ -5,7 +5,8 @@ description: Learn how to configure cross-validation and dataset splits for auto
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 ms.author: cesardl
 author: CESARDELATORRE
 ms.reviewer: nibaccam
@@ -15,16 +16,16 @@ ms.date: 06/16/2020
 
 # Configure data splits and cross-validation in automated machine learning
 
-In this article, you learn the different options for configuring training and validation data splits and cross-validation for your automated machine learning, AutoML, experiments.
+In this article, you learn the different options for configuring training/validation data splits and cross-validation for your automated machine learning, AutoML, experiments.
 
-In Azure Machine Learning, when you use AutoML to build multiple ML models, each child run needs to validate the related model by calculating the quality metrics for that model, such as accuracy  or AUC weighted. These metrics are calculated by comparing the predictions made with each model with real labels from past observations in the validation data. 
+In Azure Machine Learning, when you use AutoML to build multiple ML models, each child run needs to validate the related model by calculating the quality metrics for that model, such as accuracy or AUC weighted. These metrics are calculated by comparing the predictions made with each model with real labels from past observations in the validation data. 
 
-Automated machine learning experiments perform model validation automatically. However, the following sections describe how you can further customize these validation settings for your AutoML experiments with the [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py). 
+AutoML experiments perform model validation automatically. The following sections describe how you can further customize validation settings with the [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true). 
 
 For a low-code or no-code experience, see [Create your automated machine learning experiments in Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md). 
 
 > [!NOTE]
-> The studio currently supports training and validation data splits and cross-validation options, but it does not support specifying individual data files for your validation set. 
+> The studio currently supports training/validation data splits and cross-validation options, but it does not support specifying individual data files for your validation set. 
 
 ## Prerequisites
 
@@ -32,7 +33,7 @@ For this article you need,
 
 * An Azure Machine Learning workspace. To create the workspace, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
 
-* Familiarity with setting up an automated machine learning experiment with the Azure Machine Learning SDK. Follow the [tutorial](tutorial-auto-train-models.md) or [how-to](how-to-configure-auto-train.md) to see the basic automated machine learning experiment design patterns.
+* Familiarity with setting up an automated machine learning experiment with the Azure Machine Learning SDK. Follow the [tutorial](tutorial-auto-train-models.md) or [how-to](how-to-configure-auto-train.md) to see the fundamental automated machine learning experiment design patterns.
 
 * An understanding of cross-validation and train/validation data splits as ML concepts. For a high-level explanation,
 
@@ -40,11 +41,9 @@ For this article you need,
 
     * [Understanding Cross Validation](https://towardsdatascience.com/understanding-cross-validation-419dbd47e9bd)
 
+## Default  data splits and cross-validation
 
-    
-## Default cross-validation and data splits
-
-For automated machine learning experiments, you use an [AutoMLConfig](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) object to define your experiment and training settings. In the following code snippet, notice that only the required parameters are defined, that is the parameters for `n_cross_validation` or `validation_ data` are **not** included.
+Use the [AutoMLConfig](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py&preserve-view=true) object to define your experiment and training settings. In the following code snippet, notice that only the required parameters are defined, that is the parameters for `n_cross_validation` or `validation_ data` are **not** included.
 
 ```python
 data = "https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/creditcard.csv"
@@ -59,13 +58,12 @@ automl_config = AutoMLConfig(compute_target = aml_remote_compute,
                             )
 ```
 
-If you do not explicitly specify either a `validation_data` or `n_cross_validation` parameter, AutoML will apply default techniques depending on the number of rows in the single dataset `training_data` provided:
+If you do not explicitly specify either a `validation_data` or `n_cross_validation` parameter, AutoML applies default techniques depending on the number of rows in the single dataset `training_data` provided:
 
- * **If the training data set is larger than 20,000 rows**, a **train/validation data split** is applied. The default is to take 10% of the initial training data set as the validation set. In turn, that validation set is used for metrics calculation.
-
-* **If the training dataset is smaller than 20,000 rows**, a **cross-validation** approach is applied. The default number of folds depends on the number of rows.
-    * **If the dataset is less than 1,000 rows**, 10 folds are used. 
-    * **If the rows are between 1,000 and 20,000**, then three folds are used.
+|Training&nbsp;data&nbsp;size| Validation technique |
+|---|-----|
+|**Larger&nbsp;than&nbsp;20,000&nbsp;rows**| Train/validation data split is applied. The default is to take 10% of the initial training data set as the validation set. In turn, that validation set is used for metrics calculation.
+|**Smaller&nbsp;than&nbsp;20,000&nbsp;rows**| Cross-validation approach is applied. The default number of folds depends on the number of rows. <br> **If the dataset is less than 1,000 rows**, 10 folds are used. <br> **If the rows are between 1,000 and 20,000**, then three folds are used.
 
 ## Provide validation data
 
@@ -113,7 +111,7 @@ automl_config = AutoMLConfig(compute_target = aml_remote_compute,
 
 To perform cross-validation, include the `n_cross_validations` parameter and set it to a value. This parameter sets how many cross validations to perform, based on the same number of folds.
 
-In the following code, five folds for cross- validation are defined. Hence, five different trainings, each training using 4/5 of the data, and each validation using 1/5 of the data with a different holdout fold each time.
+In the following code, five folds for cross-validation are defined. Hence, five different trainings, each training using 4/5 of the data, and each validation using 1/5 of the data with a different holdout fold each time.
 
 As a result, metrics are calculated with the average of the 5 validation metrics.
 
@@ -133,7 +131,7 @@ automl_config = AutoMLConfig(compute_target = aml_remote_compute,
 
 ## Specify custom cross-validation data folds
 
-You can also provide your own cross-validation (CV) data folds. This is considered a more advanced scenario because you are specifying which columns to split and use for validation.  Include custom CV split columns in your training data, and specify which columns by populating the column names in the `cv_split_column_names` parameter. Each column represents one cross- validation split, and is filled with integer values 1 or 0 --where 1 indicates the row should be used for training and 0 indicates the row should be used for validation.
+You can also provide your own cross-validation (CV) data folds. This is considered a more advanced scenario because you are specifying which columns to split and use for validation.  Include custom CV split columns in your training data, and specify which columns by populating the column names in the `cv_split_column_names` parameter. Each column represents one cross-validation split, and is filled with integer values 1 or 0 --where 1 indicates the row should be used for training and 0 indicates the row should be used for validation.
 
 The following code snippet contains bank marketing data with two CV split columns 'cv1' and 'cv2'.
 

@@ -18,7 +18,10 @@ ms.author: juliako
 ms.reviewer: cenkdin;anilmur
 
 ---
-# Use the Wirecast encoder to send a single bitrate live stream 
+# Use the Wirecast encoder to send a single bitrate live stream
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+ 
 > [!div class="op_single_selector"]
 > * [Wirecast](media-services-configure-wirecast-live-encoder.md)
 >
@@ -144,7 +147,7 @@ In this tutorial, the following output settings are used. The rest of this secti
 
 Navigate to the AMSE tool, and right-click the channel to be tested. From the menu, hover over **Playback the Preview** and select **with Azure Media Player**.  
 
-    ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast8.png)
+![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast8.png)
 
 If the stream appears in the player, then the encoder has been properly configured to connect to AMS.
 

@@ -1,10 +1,11 @@
-﻿---
+---
 title: Deploy VM extensions with template
 description: Learn how to deploy virtual machine extensions with Azure Resource Manager templates
 author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
-ms.author: jgao
+ms.author: jgao 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Tutorial: Deploy virtual machine extensions with ARM templates
@@ -25,7 +26,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 To complete this article, you need:
 
-* Visual Studio Code with Resource Manager Tools extension. See [Use Visual Studio Code to create ARM templates](use-vs-code-to-create-template.md).
+* Visual Studio Code with Resource Manager Tools extension. See [Quickstart: Create Azure Resource Manager templates with Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 * To increase security, use a generated password for the virtual machine administrator account. Here is a sample for generating a password:
 
     ```console
@@ -97,7 +98,7 @@ Add a virtual machine extension resource to the existing template with the follo
 }
 ```
 
-For more information about this resource definition, see the [extension reference](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines/extensions). The following are some important elements:
+For more information about this resource definition, see the [extension reference](/azure/templates/microsoft.compute/virtualmachines/extensions). The following are some important elements:
 
 * **name**: Because the extension resource is a child resource of the virtual machine object, the name must have the virtual machine name prefix. See [Set name and type for child resources](child-resource-name-type.md).
 * **dependsOn**: Create the extension resource after you've created the virtual machine.

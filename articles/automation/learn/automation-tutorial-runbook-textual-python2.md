@@ -5,7 +5,7 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/19/2020
 ms.topic: tutorial
-ms.custom: has-adal-ref, tracking-python
+ms.custom: has-adal-ref, devx-track-python
 ---
 
 # Tutorial: Create a Python runbook
@@ -26,7 +26,7 @@ This tutorial walks you through the creation of a [Python runbook](../automation
 To complete this tutorial, you need the following:
 
 - Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Automation account](../automation-offering-get-started.md) to hold the runbook and authenticate to Azure resources. This account must have permission to start and stop the virtual machine.
+- [Automation account](../index.yml) to hold the runbook and authenticate to Azure resources. This account must have permission to start and stop the virtual machine.
 - An Azure virtual machine. You stop and start this machine so it should not be a production VM.
 
 ## Create a new runbook
@@ -158,7 +158,7 @@ To do this, the script has to authenticate using the credentials from your Autom
 ## Add code to create Python Compute client and start the VM
 
 To work with Azure VMs, create an instance of the
-[Azure Compute client for Python](https://docs.microsoft.com/python/api/azure-mgmt-compute/azure.mgmt.compute.computemanagementclient).
+[Azure Compute client for Python](/python/api/azure-mgmt-compute/azure.mgmt.compute.computemanagementclient).
 
 Use the compute client to start the VM. Add the following code to the runbook:
 

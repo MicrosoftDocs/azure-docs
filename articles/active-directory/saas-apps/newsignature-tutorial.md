@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Cloud Management Portal for Microsoft Azure | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Cloud Management Portal for Microsoft Azure.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 4ea9f47c-25ca-42b0-a878-9e7aa6f34973
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Cloud Management Portal for Microsoft Azure
 
@@ -104,25 +97,25 @@ To configure Azure AD single sign-on with Cloud Management Portal for Microsoft 
 
     a. In the **Sign-on URL** text box, type a URL using the following pattern:
 
-    | |
-	|--|
-	| `https://portal.newsignature.com/<instancename>` |   
-	| `https://portal.igcm.com/<instancename>` |
+    ```http
+    https://portal.newsignature.com/<instancename>
+    https://portal.igcm.com/<instancename>
+    ```
 
     b. In the **Identifier** box, type a URL using the following pattern:
 
-    | |
-	|--|
-	| `https://<subdomain>.igcm.com` |
-	| `https://<subdomain>.newsignature.com` |
+    ```http
+    https://<subdomain>.igcm.com
+    https://<subdomain>.newsignature.com
+    ```
 
     c. In the **Reply URL** text box, type a URL using the following pattern:
 
-    | |
-	|--|
-	| `https://<subdomain>.igcm.com/<instancename>` |
-	| `https://<subdomain>.newsignature.com` |
-	| `https://<subdomain>.newsignature.com/<instancename>` |
+    ```http
+    https://<subdomain>.igcm.com/<instancename>
+    https://<subdomain>.newsignature.com
+    https://<subdomain>.newsignature.com/<instancename>
+    ```
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign-On URL, Identifier and Reply URL. Contact [Cloud Management Portal for Microsoft Azure Client support team](mailto:jczernuszka@newsignature.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.

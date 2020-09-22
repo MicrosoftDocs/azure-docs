@@ -4,10 +4,11 @@ titleSuffix: Azure Files
 description: How to create an Azure file share by using the Azure portal, PowerShell, or the Azure CLI.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 2/22/2020
 ms.author: rogarana
-ms.subservice: files
+ms.subservice: files 
+ms.custom: devx-track-azurecli, references_regions
 ---
 
 # Create an Azure file share
@@ -223,6 +224,67 @@ This command will fail if the storage account is contained within a virtual netw
 
 > [!Note]  
 > The name of your file share must be all lowercase. For complete details about naming file shares and files, see [Naming and referencing shares, directories, files, and metadata](https://msdn.microsoft.com/library/azure/dn167011.aspx).
+
+### Create a hot or cool file share
+A **general purpose v2 (GPv2) storage account** can contain transaction optimized, hot, or cool file shares (or a mixture thereof). Transaction optimized shares are available in all Azure regions, but hot and cool file shares are only available [in a subset of regions](storage-files-planning.md#storage-tiers). You can create a hot or a cool file share using the Azure PowerShell preview module or the Azure CLI. 
+
+# [Portal](#tab/azure-portal)
+The Azure portal does not yet support creating hot and cool file shares, or moving existing transaction optimized file shares to hot or cool. Please view the instructions for creating a file share with PowerShell or the Azure CLI.
+
+# [PowerShell](#tab/azure-powershell)
+```PowerShell
+# Update the Azure storage module to use the preview version. You may need to close and 
+# reopen PowerShell before running this command. If you are running PowerShell 5.1, ensure 
+# the following:
+# - Run the below cmdlets as an administrator.
+# - Have PowerShellGet 2.2.3 or later. Uncomment the following line to check.
+# Get-Module -ListAvailable -Name PowerShellGet
+Remove-Module -Name Az.Storage -ErrorAction SilentlyContinue
+Uninstall-Module -Name Az.Storage
+Install-Module -Name Az.Storage -RequiredVersion "2.1.1-preview" -AllowClobber -AllowPrerelease 
+
+# Assuming $resourceGroupName and $storageAccountName from earlier in this document have already
+# been populated. The access tier parameter may be TransactionOptimized, Hot, or Cool for GPv2 
+# storage accounts. Standard tiers are only available in standard storage accounts. 
+$shareName = "myhotshare"
+
+New-AzRmStorageShare `
+    -ResourceGroupName $resourceGroupName `
+    -StorageAccountName $storageAccountName `
+    -Name $shareName `
+    -AccessTier Hot
+
+# You can also change an existing share's tier.
+Update-AzRmStorageShare `
+    -ResourceGroupName $resourceGroupName `
+    -StorageAccountName $storageAccountName `
+    -Name $shareName `
+    -AccessTier Cool
+```
+
+> [!Note]  
+> The ability to set and change tiers via PowerShell is provided in the preview Az.Storage PowerShell module. These cmdlets or their output may change before being released in the generally available Az.Storage PowerShell module, so create scripts with this in mind.
+
+# [Azure CLI](#tab/azure-cli)
+The functionality to create or move a file share to a specific tier is available in the latest Azure CLI update. Updating Azure CLI is specific to the operating system/Linux distribution your are using. For instructions on how to update Azure CLI on your system, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+
+```bash
+# Assuming $resourceGroupName and $storageAccountName from earlier in this document have already
+# been populated. The access tier parameter may be TransactionOptimized, Hot, or Cool for GPv2
+# storage accounts. Standard tiers are only available in standard storage accounts.
+shareName="myhotshare"
+
+az storage share-rm create \
+    --resource-group $resourceGroupName \
+    --storage-account $storageAccountName \
+    --name $shareName \
+    --access-tier "Hot"
+```
+
+> [!Note]  
+> The ability to set a tier with the `--access-tier` parameter is provided a preview in the latest Azure CLI package. This command or its output may change before being marked as generally available, so create scripts with this in mind.
+
+---
 
 ## Next steps
 - [Plan for a deployment of Azure Files](storage-files-planning.md) or [Plan for a deployment of Azure File Sync](storage-sync-files-planning.md). 

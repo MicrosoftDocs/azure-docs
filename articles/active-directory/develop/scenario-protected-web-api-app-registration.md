@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a protected web API using the Microsoft identity platform for developers.
@@ -26,15 +26,15 @@ For the common steps to register an app, see [Quickstart: Register an applicatio
 
 The Microsoft identity platform endpoint can issue v1.0 tokens and v2.0 tokens. For more information about these tokens, see [Access tokens](access-tokens.md).
 
-The accepted token version depends on the **Supported account types** value you choose when you create your application.
+The token version your API may accept depends on your **Supported account types** selection when you create your web API application registration in the Azure portal.
 
-- If the value of **Supported account types** is **Accounts in any organizational directory and personal Microsoft accounts (e.g. Skype, Xbox, Outlook.com)**, the accepted token version is v2.0.
-- Otherwise, the accepted token version is v1.0.
+- If the value of **Supported account types** is **Accounts in any organizational directory and personal Microsoft accounts (e.g. Skype, Xbox, Outlook.com)**, the accepted token version must be v2.0.
+- Otherwise, the accepted token version can be v1.0.
 
 After you create the application, you can determine or change the accepted token version by following these steps:
 
 1. In the Azure portal, select your app and then select **Manifest**.
-1. Find the property **accessTokenAcceptedVersion** in the manifest. The property's default value is 2.
+1. Find the property **accessTokenAcceptedVersion** in the manifest.
 1. The value specifies to Azure Active Directory (Azure AD) which token version the web API accepts.
     - If the value is 2, the web API accepts v2.0 tokens.
     - If the value is **null**, the web API accepts v1.0 tokens.
@@ -49,7 +49,7 @@ Web APIs don't need to register a redirect URI because no user is interactively 
 
 ## Exposed API
 
-Other settings specific to web APIs are the exposed API and the exposed scopes.
+Other settings specific to web APIs are the exposed API and the exposed scopes or app roles.
 
 ### Application ID URI and scopes
 
@@ -61,7 +61,7 @@ During app registration, you need to define these parameters:
 - One or more scopes
 - One or more app roles
 
-By default, the application registration portal recommends that you use the resource URI `api://{clientId}`. This URI is unique but not human readable. If you change the URI, make sure the new value is unique.
+By default, the application registration portal recommends that you use the resource URI `api://{clientId}`. This URI is unique but not human readable. If you change the URI, make sure the new value is unique. The application registration portal will ensure that you use a [configured publisher domain](howto-configure-publisher-domain.md)
 
 To client applications, scopes show up as *delegated permissions* and app roles show up as *application permissions* for your web API.
 
@@ -69,6 +69,8 @@ Scopes also appear on the consent window that's presented to users of your app. 
 
 - As seen by a user.
 - As seen by a tenant admin, who can grant admin consent.
+
+App roles cannot be consented to by a user (as they are used by an application that call the web API on behalf of itself). A tenant administrator will need to consent to client applications of your web API exposing app roles. See [Admin consent](v2-admin-consent.md) for details
 
 ### Exposing delegated permissions (scopes)
 

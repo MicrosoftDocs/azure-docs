@@ -126,9 +126,9 @@ If you want more detailed migration report about your projects, trainings and do
 
 This table compares the features between Microsoft Translator Hub and Custom Translator.
 
-|   | Hub | Custom Translator |
-|:-----|:----:|:----:|
-|Customization feature status    | General Availability    | General Availability |
+| Feature | Hub | Custom Translator |
+| ------- | :-: | :---------------: |
+| Customization feature status    | General Availability    | General Availability |
 | Text API version    | V2     | V3  |
 | SMT customization    | Yes    | No |
 | NMT customization    | No    | Yes |
@@ -137,7 +137,7 @@ This table compares the features between Microsoft Translator Hub and Custom Tra
 
 ## New languages
 
-If you are a community or organization working on creating a new language system for Microsoft Translator, reach out to [custommt@microsoft.com](mailto:custommt@microsoft.com) for more information.
+If you are a community or organization working on creating a new language system for Translator, reach out to [custommt@microsoft.com](mailto:custommt@microsoft.com) for more information.
 
 ## Next steps
 

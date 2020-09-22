@@ -23,7 +23,7 @@ This tutorial describes how to fail back a single Azure VM. After you've failed 
 > 
 > [!NOTE]
 > 
-> This tutorial helps you to fail over a few VMs to a target region and back to the source region with minimum customizations. For more in-depth instructions, review the [how-to guides on Azure VMs](https://docs.microsoft.com/azure/virtual-machines/windows/).
+> This tutorial helps you to fail over a few VMs to a target region and back to the source region with minimum customizations. For more in-depth instructions, review the [how-to guides on Azure VMs](../virtual-machines/windows/index.yml).
 
 ## Before you start
 
@@ -37,7 +37,7 @@ After VMs are reprotected, you can fail back to the primary region as needed.
 
 1. In the vault, select **Replicated items**, and then select the VM that was reprotected.
 
-    ![Failback to primary](./media/site-recovery-azure-to-azure-failback/azure-to-azure-failback.png)
+    ![Screenshot showing failback to primary in the Azure portal.](./media/site-recovery-azure-to-azure-failback/azure-to-azure-failback.png)
 
 2. In **Replicated items**, select the VM, and then select **Failover**.
 3. In **Failover**, select a recovery point to fail over to:
@@ -50,10 +50,10 @@ After VMs are reprotected, you can fail back to the primary region as needed.
 7. After you've verified the failover, select **Commit the failover**. Committing deletes all the available recovery points. The change recovery point option is no longer available.
 8. The VM should show as failed over and failed back.
 
-    ![VM at primary and secondary regions](./media/site-recovery-azure-to-azure-failback/azure-to-azure-failback-vm-view.png)
+    ![Screenshot showing VM at primary and secondary regions.](./media/site-recovery-azure-to-azure-failback/azure-to-azure-failback-vm-view.png)
 
 > [!NOTE]
-> For machines running the Site Recovery extension version 9.28.x.x onwards [Update rollup 40](https://support.microsoft.com/help/4521530/update-rollup-40-for-azure-site-recovery) Site Recovery cleans up machines in the secondary disaster recovery region, after failback is complete and VMs are re-protected. There is no need to manually delete VMs and NICs in the secondary region. If you completely disable replication after failing back, Site Recovery cleans up the disks in the disaster recovery region, in addition to the VMs and NICs.
+> For machines using managed disks and running the Site Recovery extension version 9.28.x.x onwards [Update rollup 40](https://support.microsoft.com/help/4521530/update-rollup-40-for-azure-site-recovery) Site Recovery cleans up machines in the secondary disaster recovery region, after failback is complete and VMs are re-protected. There is no need to manually delete VMs and NICs in the secondary region. Please note that VMs with unmanaged disks are not cleaned up. If you completely disable replication after failing back, Site Recovery cleans up the disks in the disaster recovery region, in addition to the VMs and NICs.
 
 ## Next steps
 

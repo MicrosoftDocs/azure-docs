@@ -4,7 +4,7 @@ description: This article provides answers to frequently asked questions about M
 author: msmbaldwin
 ms.service: virtual-machines-linux
 ms.subservice: security
-ms.topic: article
+ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 06/05/2019
 ms.custom: seodec18
@@ -149,15 +149,15 @@ Encryption of XFS data disks is supported only when the EncryptFormatAll paramet
 
 ## Can I backup and restore an encrypted VM? 
 
-Azure Backup provides a mechanism to backup and restore encrypted VM's within the same subscription and region.  For instructions, please see [Back up and restore encrypted virtual machines with Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption).  Restoring an encrypted VM to a different region is not currently supported.  
+Azure Backup provides a mechanism to backup and restore encrypted VM's within the same subscription and region.  For instructions, please see [Back up and restore encrypted virtual machines with Azure Backup](../../backup/backup-azure-vms-encryption.md).  Restoring an encrypted VM to a different region is not currently supported.  
 
 ## Where can I go to ask questions or provide feedback?
 
-You can ask questions or provide feedback on the [Microsoft Q&A question page for Azure Disk Encryption](https://docs.microsoft.com/answers/topics/azure-disk-encryption.html).
+You can ask questions or provide feedback on the [Microsoft Q&A question page for Azure Disk Encryption](/answers/topics/azure-disk-encryption.html).
 
 ## Next steps
 In this document, you learned more about the most frequent questions related to Azure Disk Encryption. For more information about this service, see the following articles:
 
 - [Azure Disk Encryption Overview](disk-encryption-overview.md)
-- [Apply disk encryption in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-apply-disk-encryption)
-- [Azure data encryption at rest](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)
+- [Apply disk encryption in Azure Security Center](../../security-center/security-center-virtual-machine-protection.md)
+- [Azure data encryption at rest](../../security/fundamentals/encryption-atrest.md)

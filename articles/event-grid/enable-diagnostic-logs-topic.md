@@ -1,13 +1,8 @@
 ---
 title: Azure Event Grid - Enable diagnostic logs for topics or domains
 description: This article provides step-by-step instructions on how to enable diagnostic logs for an Azure event grid topic.
-services: event-grid
-author: spelluru
-
-ms.service: event-grid
 ms.topic: how-to
-ms.date: 06/10/2020
-ms.author: spelluru
+ms.date: 07/07/2020
 ---
 
 #  Enable Diagnostic logs for Azure event grid topics or domains

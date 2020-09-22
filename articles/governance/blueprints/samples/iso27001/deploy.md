@@ -1,7 +1,7 @@
 ---
 title: Deploy ISO 27001 blueprint sample
 description: Deploy steps for the standalone ISO 27001 blueprint sample including blueprint artifact parameter details.
-ms.date: 01/13/2020
+ms.date: 07/13/2020
 ms.topic: sample
 ---
 # Deploy the ISO 27001 blueprint sample
@@ -136,7 +136,7 @@ The following table provides a list of the blueprint artifact parameters:
 |\[Preview\]: Deploy Log Analytics Agent for Windows VMs|Policy assignment|Optional: List of VM images that have supported Windows OS to add to scope|An empty array may be used to indicate no optional parameters: \[\]|
 |Allowed storage account SKUs|Policy assignment|List of allowed storage SKUs|The list of SKUs that can be specified for storage accounts.|
 |Allowed virtual machine SKUs|Policy assignment|List of allowed virtual machine SKUs|The list of SKUs that can be specified for virtual machines.|
-|Blueprint initiative for ISO 27001|Policy assignment|List of resource types that should have diagnostic logs enabled|List of resource types to audit if diagnostic log setting is not enabled. Acceptable values can be found at [Azure Monitor diagnostic logs schemas](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type).|
+|Blueprint initiative for ISO 27001|Policy assignment|List of resource types that should have diagnostic logs enabled|List of resource types to audit if diagnostic log setting is not enabled. Acceptable values can be found at [Azure Monitor diagnostic logs schemas](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas).|
 
 ## Next steps
 

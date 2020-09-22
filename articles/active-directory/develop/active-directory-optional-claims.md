@@ -1,33 +1,33 @@
 ---
 title: Provide optional claims to Azure AD apps
 titleSuffix: Microsoft identity platform
-description: How to add custom or additional claims to the SAML 2.0 and JSON Web Tokens (JWT) tokens issued by Azure Active Directory.
+description: How to add custom or additional claims to the SAML 2.0 and JSON Web Tokens (JWT) tokens issued by Microsoft identity platform.
 author: rwike77
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
-ms.date: 06/11/2020
+ms.date: 09/03/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
 ---
 
-# How to: Provide optional claims to your Azure AD app
+# How to: Provide optional claims to your app
 
 Application developers can use optional claims in their Azure AD applications to specify which claims they want in tokens sent to their application.
 
 You can use optional claims to:
 
 - Select additional claims to include in tokens for your application.
-- Change the behavior of certain claims that Azure AD returns in tokens.
+- Change the behavior of certain claims that Microsoft identity platform returns in tokens.
 - Add and access custom claims for your application.
 
 For the lists of standard claims, see the [access token](access-tokens.md) and [id_token](id-tokens.md) claims documentation.
 
-While optional claims are supported in both v1.0 and v2.0 format tokens, as well as SAML tokens, they provide most of their value when moving from v1.0 to v2.0. One of the goals of the [v2.0 Microsoft identity platform endpoint](active-directory-appmodel-v2-overview.md) is smaller token sizes to ensure optimal performance by clients. As a result, several claims formerly included in the access and ID tokens are no longer present in v2.0 tokens and must be asked for specifically on a per-application basis.
+While optional claims are supported in both v1.0 and v2.0 format tokens, as well as SAML tokens, they provide most of their value when moving from v1.0 to v2.0. One of the goals of the [v2.0 Microsoft identity platform endpoint](./v2-overview.md) is smaller token sizes to ensure optimal performance by clients. As a result, several claims formerly included in the access and ID tokens are no longer present in v2.0 tokens and must be asked for specifically on a per-application basis.
 
 **Table 1: Applicability**
 
@@ -49,23 +49,20 @@ The set of optional claims available by default for applications to use are list
 |----------------------------|----------------|------------|-----------|--------|
 | `auth_time`                | Time when the user last authenticated. See OpenID Connect spec.| JWT        |           |  |
 | `tenant_region_scope`      | Region of the resource tenant | JWT        |           | |
-| `home_oid`                 | For guest users, the object ID of the user in the user's home tenant.| JWT        |           | |
 | `sid`                      | Session ID, used for per-session user sign-out. | JWT        |  Personal and Azure AD accounts.   |         |
-| `platf`                    | Device platform    | JWT        |           | Restricted to managed devices that can verify device type.|
 | `verified_primary_email`   | Sourced from the user's PrimaryAuthoritativeEmail      | JWT        |           |         |
 | `verified_secondary_email` | Sourced from the user's SecondaryAuthoritativeEmail   | JWT        |           |        |
-| `enfpolids`                | Enforced policy IDs. A list of the policy IDs that were evaluated for the current user. | JWT |  |  |
 | `vnet`                     | VNET specifier information. | JWT        |           |      |
 | `fwd`                      | IP address.| JWT    |   | Adds the original IPv4 address of the requesting client (when inside a VNET) |
-| `ctry`                     | User's country/region | JWT |  | Azure AD returns the `ctry` optional claim if it's present and the value of the claim is a standard two-letter country/region code, such as FR, JP, SZ, and so on. |
-| `tenant_ctry`              | Resource tenant's country/region | JWT | | |
-| `xms_pdl`             | Preferred data location   | JWT | | For Multi-Geo tenants, the preferred data location is the three-letter code showing the geographic region the user is in. For more info, see the [Azure AD Connect documentation about preferred data location](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-preferreddatalocation).<br/>For example: `APC` for Asia Pacific. |
+| `ctry`                     | User's country/region | JWT, SAML |  | Azure AD returns the `ctry` optional claim if it's present and the value of the field is a standard two-letter country/region code, such as FR, JP, SZ, and so on. |
+| `tenant_ctry`              | Resource tenant's country | JWT | | Same as `ctry` except set at a tenant level by an admin.  Must also be a standard two-letter value. |
+| `xms_pdl`             | Preferred data location   | JWT | | For Multi-Geo tenants, the preferred data location is the three-letter code showing the geographic region the user is in. For more info, see the [Azure AD Connect documentation about preferred data location](../hybrid/how-to-connect-sync-feature-preferreddatalocation.md).<br/>For example: `APC` for Asia Pacific. |
 | `xms_pl`                   | User preferred language  | JWT ||The user's preferred language, if set. Sourced from their home tenant, in guest access scenarios. Formatted LL-CC ("en-us"). |
 | `xms_tpl`                  | Tenant preferred language| JWT | | The resource tenant's preferred language, if set. Formatted LL ("en"). |
-| `ztdid`                    | Zero-touch Deployment ID | JWT | | The device identity used for [Windows AutoPilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) |
+| `ztdid`                    | Zero-touch Deployment ID | JWT | | The device identity used for [Windows AutoPilot](/windows/deployment/windows-autopilot/windows-10-autopilot) |
 | `email`                    | The addressable email for this user, if the user has one.  | JWT, SAML | MSA, Azure AD | This value is included by default if the user is a guest in the tenant.  For managed users (the users inside the tenant), it must be requested through this optional claim or, on v2.0 only, with the OpenID scope.  For managed users, the email address must be set in the [Office admin portal](https://portal.office.com/adminportal/home#/users).|
-| `groups`| Optional formatting for group claims |JWT, SAML| |Used in conjunction with the GroupMembershipClaims setting in the [application manifest](reference-app-manifest.md), which must be set as well. For details see [Group claims](#configuring-groups-optional-claims) below. For more information about group claims, see [How to configure group claims](../hybrid/how-to-connect-fed-group-claims.md)
 | `acct`                | Users account status in tenant | JWT, SAML | | If the user is a member of the tenant, the value is `0`. If they are a guest, the value is `1`. |
+| `groups`| Optional formatting for group claims |JWT, SAML| |Used in conjunction with the GroupMembershipClaims setting in the [application manifest](reference-app-manifest.md), which must be set as well. For details see [Group claims](#configuring-groups-optional-claims) below. For more information about group claims, see [How to configure group claims](../hybrid/how-to-connect-fed-group-claims.md)
 | `upn`                      | UserPrincipalName | JWT, SAML  |           | Although this claim is automatically included, you can specify it as an optional claim to attach additional properties to modify its behavior in the guest user case.  |
 | `idtyp`                    | Token type   | JWT access tokens | Special: only in app-only access tokens |  Value is `app` when the token is an app-only token. This is the most accurate way for an API to determine if a token is an app token or an app+user token.|
 
@@ -129,7 +126,7 @@ You can configure optional claims for your application through the UI or applica
 
 **Configuring optional claims through the UI:**
 
-[![Shows how to configure optional claims using the UI](./media/active-directory-optional-claims/token-configuration.png)](./media/active-directory-optional-claims/token-configuration.png)
+[![Configure optional claims in the UI](./media/active-directory-optional-claims/token-configuration.png)](./media/active-directory-optional-claims/token-configuration.png)
 
 1. From the **Manage** section, select **Token configuration**.
 1. Select **Add optional claim**.
@@ -189,7 +186,7 @@ Declares the optional claims requested by an application. An application can con
 
 ### OptionalClaim type
 
-Contains an optional claim associated with an application or a service principal. The idToken, accessToken, and saml2Token properties of the [OptionalClaims](https://docs.microsoft.com/graph/api/resources/optionalclaims?view=graph-rest-1.0) type is a collection of OptionalClaim.
+Contains an optional claim associated with an application or a service principal. The idToken, accessToken, and saml2Token properties of the [OptionalClaims](/graph/api/resources/optionalclaims?view=graph-rest-1.0) type is a collection of OptionalClaim.
 If supported by a specific claim, you can also modify the behavior of the OptionalClaim using the AdditionalProperties field.
 
 **Table 6: OptionalClaim type properties**
@@ -203,7 +200,7 @@ If supported by a specific claim, you can also modify the behavior of the Option
 
 ## Configuring directory extension optional claims
 
-In addition to the standard optional claims set, you can also configure tokens to include extensions. For more info, see [the Microsoft Graph extensionProperty documentation](https://docs.microsoft.com/graph/api/resources/extensionproperty?view=graph-rest-1.0).
+In addition to the standard optional claims set, you can also configure tokens to include extensions. For more info, see [the Microsoft Graph extensionProperty documentation](/graph/api/resources/extensionproperty?view=graph-rest-1.0).
 
 Schema and open extensions are not supported by optional claims, only the AAD-Graph style directory extensions. This feature is useful for attaching additional user information that your app can use – for example, an additional identifier or important configuration option that the user has set. See the bottom of this page for an example.
 
@@ -237,7 +234,7 @@ This section covers the configuration options under optional claims for changing
 1. Select the application you want to configure optional claims for in the list
 1. Under the **Manage** section, select **Token configuration**
 1. Select **Add groups claim**
-1. Select the group types to return (**All Groups**, **SecurityGroup**, or **DirectoryRole**). The **All Groups** option includes **SecurityGroup**, **DirectoryRole**, and **DistributionList**
+1. Select the group types to return (**Security groups**, or **Directory roles**, **All groups**, and/or **Groups assigned to the application**). The **Groups assigned to the application** option includes only groups assigned to the application. The **All Groups** option includes **SecurityGroup**, **DirectoryRole**, and **DistributionList**, but not **Groups assigned to the application**. 
 1. Optional: select the specific token type properties to modify the groups claim value to contain on premises group attributes or to change the claim type to a role
 1. Select **Save**
 
@@ -255,6 +252,7 @@ This section covers the configuration options under optional claims for changing
    - "All" (this option includes SecurityGroup, DirectoryRole, and DistributionList)
    - "SecurityGroup"
    - "DirectoryRole"
+   - "ApplicationGroup" (this option includes only groups that are assigned to the application)
 
    For example:
 
@@ -306,7 +304,7 @@ This section covers the configuration options under optional claims for changing
 
     **UI configuration:**
 
-    [![Shows how to configure optional claims using the UI](./media/active-directory-optional-claims/groups-example-1.png)](./media/active-directory-optional-claims/groups-example-1.png)
+    [![Configure optional claims](./media/active-directory-optional-claims/groups-example-1.png)](./media/active-directory-optional-claims/groups-example-1.png)
 
     **Application manifest entry:**
 
@@ -327,7 +325,7 @@ This section covers the configuration options under optional claims for changing
 
     **UI configuration:**
 
-    [![Shows how to configure optional claims using the UI](./media/active-directory-optional-claims/groups-example-2.png)](./media/active-directory-optional-claims/groups-example-2.png)
+    [![Optional claims in manifest](./media/active-directory-optional-claims/groups-example-2.png)](./media/active-directory-optional-claims/groups-example-2.png)
 
     **Application manifest entry:**
 
@@ -360,8 +358,8 @@ In this section, you can walk through a scenario to see how you can use the opti
 There are multiple options available for updating the properties on an application's identity configuration to enable and configure optional claims:
 
 - You can use the **Token configuration** UI (see example below)
-- You can use the **Manifest** (see example below). Read the [Understanding the Azure AD application manifest document](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-manifest) first for an introduction to the manifest.
-- It's also possible to write an application that uses the [Microsoft Graph API](https://docs.microsoft.com/graph/use-the-api?context=graph%2Fapi%2F1.0&view=graph-rest-1.0) to update your application. The [OptionalClaims](https://docs.microsoft.com/graph/api/resources/optionalclaims?view=graph-rest-1.0) type in the Microsoft Graph API reference guide can help you with configuring the optional claims.
+- You can use the **Manifest** (see example below). Read the [Understanding the Azure AD application manifest document](./reference-app-manifest.md) first for an introduction to the manifest.
+- It's also possible to write an application that uses the [Microsoft Graph API](/graph/use-the-api?context=graph%2fapi%2f1.0&view=graph-rest-1.0) to update your application. The [OptionalClaims](/graph/api/resources/optionalclaims?view=graph-rest-1.0) type in the Microsoft Graph API reference guide can help you with configuring the optional claims.
 
 **Example:**
 
@@ -393,7 +391,7 @@ In the example below, you will use the **Token configuration** UI and **Manifest
 
 1. Select **Add optional claim**, select the **SAML** token type, select **extn.skypeID** from the list of claims (only applicable if you've created an Azure AD user object called skypeID), and then select **Add**.
 
-    [![Shows how to configure optional claims using the UI](./media/active-directory-optional-claims/token-config-example.png)](./media/active-directory-optional-claims/token-config-example.png)
+    [![Optional claims for SAML token](./media/active-directory-optional-claims/token-config-example.png)](./media/active-directory-optional-claims/token-config-example.png)
 
 **Manifest configuration:**
 
@@ -402,7 +400,7 @@ In the example below, you will use the **Token configuration** UI and **Manifest
 1. Select **Azure Active Directory** from the left-hand menu.
 1. Find the application you want to configure optional claims for in the list and select it.
 1. Under the **Manage** section, select **Manifest** to open the inline manifest editor.
-1. You can directly edit the manifest using this editor. The manifest follows the schema for the [Application entity](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest), and automatically formats the manifest once saved. New elements will be added to the `OptionalClaims` property.
+1. You can directly edit the manifest using this editor. The manifest follows the schema for the [Application entity](./reference-app-manifest.md), and automatically formats the manifest once saved. New elements will be added to the `OptionalClaims` property.
 
     ```json
     "optionalClaims": {

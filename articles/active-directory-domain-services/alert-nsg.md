@@ -10,13 +10,13 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 09/19/2019
+ms.date: 07/06/2020
 ms.author: iainfou
 
 ---
 # Known issues: Network configuration alerts in Azure Active Directory Domain Services
 
-To let applications and services correctly communicate with Azure Active Directory Domain Services (Azure AD DS), specific network ports must be open to allow traffic to flow. In Azure, you control the flow of traffic using network security groups. The health status of an Azure AD DS managed domain shows an alert if the required network security group rules aren't in place.
+To let applications and services correctly communicate with an Azure Active Directory Domain Services (Azure AD DS) managed domain, specific network ports must be open to allow traffic to flow. In Azure, you control the flow of traffic using network security groups. The health status of an Azure AD DS managed domain shows an alert if the required network security group rules aren't in place.
 
 This article helps you understand and resolve common alerts for network security group configuration issues.
 
@@ -30,7 +30,7 @@ Invalid network security group rules are the most common cause of network errors
 
 ## Default security rules
 
-The following default inbound and outbound security rules are applied to the network security group for a managed domain. These rules keep Azure AD DS secure and allow the Azure platform to monitor, manage, and update the managed domain. You may also have an additional rule that allows inbound traffic if you [configure secure LDAP][configure-ldaps].
+The following default inbound and outbound security rules are applied to the network security group for a managed domain. These rules keep Azure AD DS secure and allow the Azure platform to monitor, manage, and update the managed domain.
 
 ### Inbound security rules
 
@@ -42,6 +42,9 @@ The following default inbound and outbound security rules are applied to the net
 | 65000    | AllVnetInBound | Any | Any | VirtualNetwork | VirtualNetwork | Allow |
 | 65001    | AllowAzureLoadBalancerInBound | Any | Any | AzureLoadBalancer | Any | Allow |
 | 65500    | DenyAllInBound | Any | Any | Any | Any | Deny |
+
+> [!NOTE]
+> You may also have an additional rule that allows inbound traffic if you [configure secure LDAP][configure-ldaps]. This additional rule is required for the correct LDAPS communication.
 
 ### Outbound security rules
 

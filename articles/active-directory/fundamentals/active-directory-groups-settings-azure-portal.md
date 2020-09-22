@@ -2,13 +2,13 @@
 title: Edit your group information - Azure Active Directory | Microsoft Docs
 description: Instructions about how to edit your group's information using Azure Active Directory.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/27/2018
 ms.author: ajburnle
 ms.reviewer: krbain

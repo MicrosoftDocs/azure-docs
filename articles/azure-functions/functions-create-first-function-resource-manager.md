@@ -1,19 +1,23 @@
 ---
 title: Create your first function using Azure Resource Manager templates
-description: Create and deploy to Azure a simple HTTP triggered serverless function by using an Azure Resource Manager template.
+description: Create and deploy to Azure a simple HTTP triggered serverless function by using an Azure Resource Manager template (ARM template).
 ms.date: 3/5/2020
 ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: subject-armqs
 ---
 
-# Quickstart: Create and deploy Azure Functions resources from a Resource Manager template
+# Quickstart: Create and deploy Azure Functions resources from an ARM template
 
-In this article, you use an Azure Resource Manager template to create a function that responds to HTTP requests. 
+In this article, you use an Azure Resource Manager template (ARM template) to create a function that responds to HTTP requests. 
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account. 
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
+
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-function-app-create-dynamic%2Fazuredeploy.json)
 
 ## Prerequisites
 
@@ -43,13 +47,11 @@ Choose one of the following tabs, follow the link, and complete the section to c
 
 After you've created your project locally, you create the resources required to run your new function in Azure. 
 
-## Create a serverless function app in Azure
+## Review the template
 
-### Review the template
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-function-app-create-dynamic/).
 
-The template used in this quickstart is from [Azure Quickstart templates](https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dynamic).
-
-:::code language="json" source="~/quickstart-templates/101-function-app-create-dynamic/azuredeploy.json" :::
+:::code language="json" source="~/quickstart-templates/101-function-app-create-dynamic/azuredeploy.json":::
 
 The following four Azure resources are created by this template:
 
@@ -58,7 +60,7 @@ The following four Azure resources are created by this template:
 + [**Microsoft.Web/sites**](/azure/templates/microsoft.web/sites): create a function app.
 + [**microsoft.insights/components**](/azure/templates/microsoft.insights/components): create an Application Insights instance for monitoring.
 
-### Deploy the template
+## Deploy the template
 
 # [Azure CLI](#tab/azure-cli)
 ```azurecli-interactive

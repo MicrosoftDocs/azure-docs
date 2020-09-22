@@ -4,7 +4,7 @@ description: Use the Azure portal to create and use HDInsight clusters with Azur
 
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 
@@ -81,18 +81,11 @@ In this section, you configure Data Lake Storage Gen1 access from HDInsight clus
 From the Azure portal, you can either use an existing service principal or create a new one.
 
 To create a service principal from the Azure portal:
-
-1. Select **Data Lake Store access** from the Storage blade.
-1. On the **Data Lake Storage Gen1 access** blade, select **Create new**.
-1. Select **Service principal**, and then follow the instructions to create a service principal.
-1. Download the certificate if you decide to use it again in the future. Downloading the certificate is useful if you want to use the same service principal when you create additional HDInsight clusters.
-
-    ![Add service principal to HDInsight cluster](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.2.png "Add service principal to HDInsight cluster")
-
-1. Select **Access** to configure the folder access.  See [Configure file permissions](#configure-file-permissions).
+1. See [Create Service Principal and Certificates](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) using Azure Active Directory.
 
 To use an existing service principal from the Azure portal:
 
+1. Service Principal should have owner permissions on the Storage account. See [Set up permissions for the Service Principal to be owner on the storage account](#configure-serviceprincipal-permissions)
 1. Select **Data Lake Store access**.
 1. On the **Data Lake Storage Gen1 access** blade, select **Use existing**.
 1. Select **Service principal**, and then select a service principal.
@@ -101,6 +94,10 @@ To use an existing service principal from the Azure portal:
     ![Add service principal to HDInsight cluster](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.5.png "Add service principal to HDInsight cluster")
 
 1. Select **Access** to configure the folder access.  See [Configure file permissions](#configure-file-permissions).
+
+### <a name="configure-serviceprincipal-permissions"></a>Set up permissions for the Service Principal to be owner on the storage account
+1. On the Access Control(IAM) blade of storage account click Add a role assignment. 
+2. On the Add a role assignment blade select Role as ‘owner’, and select the SPN and click save.
 
 ### <a name="configure-file-permissions"></a>Configure file permissions
 
@@ -166,7 +163,9 @@ When you work with data in a Data Lake Storage Gen1 account, there are a few str
 
 If you use, for example, the cluster that you created with Data Lake Storage Gen1 as primary storage, the path to the data is: *adl://<data_lake_storage_gen1_account_name>/azuredatalakestore.net/path/to/file*. A Hive query to create a table from sample data that's stored in the Data Lake Storage Gen1 account looks like the following statement:
 
-    CREATE EXTERNAL TABLE websitelog (str string) LOCATION 'adl://hdiadlsg1storage.azuredatalakestore.net/clusters/myhdiadlcluster/HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/'
+```console
+CREATE EXTERNAL TABLE websitelog (str string) LOCATION 'adl://hdiadlsg1storage.azuredatalakestore.net/clusters/myhdiadlcluster/HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/'
+```
 
 Descriptions:
 

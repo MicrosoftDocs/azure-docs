@@ -111,6 +111,7 @@ spec:
     name: azure-vote-back
   targetCPUUtilizationPercentage: 50 # target CPU utilization
 
+---
 
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler

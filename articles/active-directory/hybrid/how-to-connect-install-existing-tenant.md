@@ -12,14 +12,14 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 
-# Azure AD Connect: When you have an existent tenant
+# Azure AD Connect: When you have an existing tenant
 Most of the topics for how to use Azure AD Connect assumes you start with a new Azure AD tenant and that there are no users or other objects there. But if you have started with an Azure AD tenant, populated it with users and other objects, and now want to use Connect, then this topic is for you.
 
 ## The basics
@@ -37,7 +37,7 @@ The match is only evaluated for new objects coming from Connect. If you change a
 If Azure AD finds an object where the attribute values are the same for an object coming from Connect and that it is already present in Azure AD, then the object in Azure AD is taken over by Connect. The previously cloud-managed object is flagged as on-premises managed. All attributes in Azure AD with a value in on-premises AD are overwritten with the on-premises value. The exception is when an attribute has a **NULL** value on-premises. In this case, the value in Azure AD remains, but you can still only change it on-premises to something else.
 
 > [!WARNING]
-> Since all attributes in Azure AD are going to be overwritten by the on-premises value, make sure you have good data on-premises. For example, if you only have managed email address in Office 365 and not kept it updated in on-premises AD DS, then you lose any values in Azure AD/Office 365 not present in AD DS.
+> Since all attributes in Azure AD are going to be overwritten by the on-premises value, make sure you have good data on-premises. For example, if you only have managed email address in Microsoft 365 and not kept it updated in on-premises AD DS, then you lose any values in Azure AD/Microsoft 365 not present in AD DS.
 
 > [!IMPORTANT]
 > If you use password sync, which is always used by express settings, then the password in Azure AD is overwritten with the password in on-premises AD. If your users are used to manage different passwords, then you need to inform them that they should use the on-premises password when you have installed Connect.

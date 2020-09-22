@@ -6,7 +6,7 @@ author: emilyre
 ms.service: azure-australia
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.author: v-emread
+ms.author: yvettep
 ---
 
 # Additional documentation and resources by focus area
@@ -59,7 +59,7 @@ This resource library contains additional links and references that are relevant
 * [Azure Backup Tutorials](https://docs.microsoft.com/azure/backup/)
 * [Azure Site Recovery Tutorials](/azure/site-recovery/)
 
-## Role-based Access Controls and Privileged Identity Management (PIM)
+## Azure role-based access control (Azure RBAC) and Privileged Identity Management (PIM)
 
 * [Azure RBAC Overview](https://docs.microsoft.com/azure/role-based-access-control/overview)
 * [Azure Privileged Identify Management Overview](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure)
@@ -67,8 +67,8 @@ This resource library contains additional links and references that are relevant
 * [Azure Identity and Access Control Best Practices](https://docs.microsoft.com/azure/security/fundamentals/identity-management-best-practices)
 * [Managing Azure AD Groups](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups)
 * [Hybrid Identity](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-hybrid-identity)
-* [RBAC Custom Roles](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)
-* [Built in Roles for Azure Resources](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)
+* [Azure Custom Roles](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)
+* [Azure Built-in Roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)
 * [Securing Privileged Access in Hybrid Cloud Environments](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-admin-roles-secure)
 * [Azure Enterprise Scaffold](https://docs.microsoft.com/azure/architecture/cloud-adoption/appendix/azure-scaffold)
 
@@ -95,7 +95,7 @@ This resource library contains additional links and references that are relevant
 * [Azure Policy Effects](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
 * [Azure Governance](https://docs.microsoft.com/azure/governance/)
 * [Azure Management Groups](https://docs.microsoft.com/azure/governance/management-groups/)
-* [Azure Role Based Access Control](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [Azure role-based access control (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
 ## Next steps
 

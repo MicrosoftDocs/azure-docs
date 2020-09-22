@@ -1,5 +1,5 @@
 ---
-title: "Score Image Model"
+title: Use the Train Wide & Deep Recommender module
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Train Wide & Deep Recommender module to train a recommendation model.
 services: machine-learning
@@ -12,7 +12,7 @@ ms.author: keli19
 ms.date: 06/12/2020
 ---
 # Train Wide & Deep Recommender
-This article describes how to use the **Train Wide & Deep Recommender** module in Azure Machine Learning Designer (preview), to train a recommendation model. This module is based on Wide & Deep learning, which is proposed by Google.
+This article describes how to use the **Train Wide & Deep Recommender** module in Azure Machine Learning designer, to train a recommendation model. This module is based on Wide & Deep learning, which is proposed by Google.
 
 The **Train Wide & Deep Recommender** module reads a dataset of user-item-rating triples and, optionally, some user and item features. It returns a trained Wide & Deep recommender.  You can then use the trained model to generate rating predictions or recommendations by using the [Score Wide and Deep Recommender](score-wide-and-deep-recommender.md) module.  
 
@@ -79,7 +79,7 @@ For an example, a typical set of item features might look like this:
 
 ### Train the model
 
-1.  Add the **Train Wide and Deep Recommender** module to your experiment in the designer (preview), and connect it to the training dataset.  
+1.  Add the **Train Wide and Deep Recommender** module to your experiment in the designer, and connect it to the training dataset.  
   
 2. If you have a separate dataset of either user features and/or item features, connect them to the **Train Wide and Deep Recommender** module.  
   
@@ -100,7 +100,7 @@ For an example, a typical set of item features might look like this:
 
     This hyperparameter determines the step size at each training step while moving toward a minimum of loss function. A too big learning rate may cause learning jump over the minima, while a too small learning rate may cause convergence problem.
 
-7.  **Crossed feature dimension**: type the dimension of crossed user ids and item ids feature. 
+7.  **Crossed feature dimension**: type the dimension by entering the desired user ids and item id features. 
 
     The Wide & Deep recommender performs cross-product transformation over user id and item id features by default. The crossed result will be hashed according to this number to ensure the dimension.
 

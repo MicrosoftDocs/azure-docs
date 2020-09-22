@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/18/2018
 ms.subservice: hybrid
 ms.author: billmath
@@ -44,14 +44,14 @@ You can find the download for Azure AD Connect on [Microsoft Download Center](ht
 |After installation | [Verify the installation and assign licenses](how-to-connect-post-installation.md)|
 
 ### Learn more about Install Azure AD Connect
-You also want to prepare for [operational](how-to-connect-sync-operations.md) concerns. You might want to have a stand-by server so you easily can fail over if there is a [disaster](how-to-connect-sync-staging-server.md#disaster-recovery). If you plan to make frequent configuration changes, you should plan for a [staging mode](how-to-connect-sync-staging-server.md) server.
+You also want to prepare for [operational](./how-to-connect-sync-staging-server.md) concerns. You might want to have a stand-by server so you easily can fail over if there is a [disaster](how-to-connect-sync-staging-server.md#disaster-recovery). If you plan to make frequent configuration changes, you should plan for a [staging mode](how-to-connect-sync-staging-server.md) server.
 
 |Topic |Link|  
 | --- | --- |
 |Supported topologies | [Topologies for Azure AD Connect](plan-connect-topologies.md)|
 |Design concepts | [Azure AD Connect design concepts](plan-connect-design-concepts.md)|
 |Accounts used for installation | [More about Azure AD Connect credentials and permissions](reference-connect-accounts-permissions.md)|
-|Operational planning | [Azure AD Connect sync: Operational tasks and considerations](how-to-connect-sync-operations.md)|
+|Operational planning | [Azure AD Connect sync: Operational tasks and considerations](./how-to-connect-sync-staging-server.md)|
 |User sign-in options | [Azure AD Connect User sign-in options](plan-connect-user-signin.md)|
 
 ## Configure sync features
@@ -61,7 +61,7 @@ Azure AD Connect comes with several features you can optionally turn on or are e
 
 [Password hash synchronization](how-to-connect-password-hash-synchronization.md) synchronizes the password hash in Active Directory to Azure AD. The  end-user can use the same password on-premises and in the cloud but only manage it in one location. Since it uses your on-premises Active Directory as the authority, you can also use your own password policy.
 
-[Password writeback](../authentication/quickstart-sspr.md) will allow your users to change and reset their passwords in the cloud and have your on-premises password policy applied.
+[Password writeback](../authentication/tutorial-enable-sspr.md) will allow your users to change and reset their passwords in the cloud and have your on-premises password policy applied.
 
 [Device writeback](how-to-connect-device-writeback.md) will allow a device registered in Azure AD to be written back to on-premises Active Directory so it can be used for Conditional Access.
 
@@ -75,7 +75,7 @@ The [prevent accidental deletes](how-to-connect-sync-feature-prevent-accidental-
 |Configure filtering | [Azure AD Connect sync: Configure filtering](how-to-connect-sync-configure-filtering.md)|
 |Password hash synchronization | [Password hash synchronization](how-to-connect-password-hash-synchronization.md)|
 |Pass-through Authentication | [Pass-through authentication](how-to-connect-pta.md)
-|Password writeback | [Getting started with password management](../authentication/quickstart-sspr.md)|
+|Password writeback | [Getting started with password management](../authentication/tutorial-enable-sspr.md)|
 |Device writeback | [Enabling device writeback in Azure AD Connect](how-to-connect-device-writeback.md)|
 |Prevent accidental deletes | [Azure AD Connect sync: Prevent accidental deletes](how-to-connect-sync-feature-prevent-accidental-deletes.md)|
 |Automatic upgrade | [Azure AD Connect: Automatic upgrade](how-to-connect-install-automatic-upgrade.md)|
@@ -119,7 +119,7 @@ If your ADFS server has not been configured to automatically update certificates
 |All AD FS articles | [Azure AD Connect and federation](how-to-connect-fed-whatis.md)|
 |Configure ADFS with subdomains | [Multiple Domain Support for Federating with Azure AD](how-to-connect-install-multiple-domains.md)|
 |Manage AD FS farm | [AD FS management and customization with Azure AD Connect](how-to-connect-fed-management.md)|
-|Manually updating federation certificates | [Renewing Federation Certificates for Office 365 and Azure AD](how-to-connect-fed-o365-certs.md)|
+|Manually updating federation certificates | [Renewing Federation Certificates for Microsoft 365 and Azure AD](how-to-connect-fed-o365-certs.md)|
 
 
 ## Get started with Azure AD Connect Health

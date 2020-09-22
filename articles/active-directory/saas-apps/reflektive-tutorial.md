@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Reflektive | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Reflektive.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 799a08b9-1ce6-46d1-9064-aa9f36f6604e
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Reflektive
 
@@ -103,11 +97,8 @@ To configure Azure AD single sign-on with Reflektive, perform the following step
 
     In the **Identifier** text box, use one of the below URL as per confirmation from the reflective support team:
 
-    | |
-	|--|
-	| `reflektive.com` |
-	| `https://www.reflektive.com/saml/metadata` |
-	| |
+    - `reflektive.com`
+    - `https://www.reflektive.com/saml/metadata`
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 

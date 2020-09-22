@@ -5,7 +5,7 @@ author: sidram
 ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.custom: seodec18
 ---
@@ -19,7 +19,7 @@ This article describes common issues with Azure Stream Analytics output connecti
 1. Verify connectivity to outputs by using the **Test Connection** button for each output.
 1. Look at [Monitoring metrics](stream-analytics-monitoring.md) on the **Monitor** tab. Because the values are aggregated, the metrics are delayed by a few minutes.
 
-   * If the **Input Events** value is greater than zero, the job can read the input data. If the **Input Events** value isn't greater than zero, there's an issue with the job's input. See [Troubleshoot input connections](stream-analytics-troubleshoot-input.md) for more information.
+   * If the **Input Events** value is greater than zero, the job can read the input data. If the **Input Events** value isn't greater than zero, there's an issue with the job's input. See [Troubleshoot input connections](stream-analytics-troubleshoot-input.md) for more information. If your job has reference data input, apply splitting by logical name when looking at **Input Events** metric. If there are no input events from your reference data alone, then it likely means that this input source has not be configured properly to fetch the right reference dataset.
    * If the **Data Conversion Errors** value is greater than zero and climbing, see [Azure Stream Analytics data errors](data-errors.md) for detailed information about data conversion errors.
    * If the **Runtime Errors** value is greater than zero, your job receives data but generates errors while processing the query. To find the errors, go to the [audit logs](../azure-resource-manager/management/view-activity-logs.md), and then filter on the **Failed** status.
    * If the **Input Events** value is greater than zero and the **Output Events** value equals zero, one of the following statements is true:

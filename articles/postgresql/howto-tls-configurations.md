@@ -4,7 +4,7 @@ description: Learn how to set TLS configuration using Azure portal for your Azur
 author: kummanish
 ms.author: manishku
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/02/2020
 ---
 
@@ -30,13 +30,13 @@ Follow these steps to set PostgreSQL minimum TLS version:
 
 1. In **Minimum TLS version**, select **1.2** to deny connections with TLS version less than TLS 1.2 for your PostgreSQL Single server.
 
-    ![Azure Database for PostgreSQL Single - server TLS configuration](./media/howto-tls-configurations/setting-tls-value.png)
+    :::image type="content" source="./media/howto-tls-configurations/setting-tls-value.png" alt-text="Azure Database for PostgreSQL Single - server TLS configuration":::
 
 1. Click **Save** to save the changes.
 
 1. A notification will confirm that connection security setting was successfully enabled.
 
-    ![Azure Database for PostgreSQL - Single server TLS configuration success](./media/howto-tls-configurations/setting-tls-value-success.png)
+    :::image type="content" source="./media/howto-tls-configurations/setting-tls-value-success.png" alt-text="Azure Database for PostgreSQL - Single server TLS configuration success":::
 
 ## Next steps
 

@@ -12,7 +12,7 @@ Labeling an entity in an example utterance gives LUIS an example of what the ent
 
 You can label machine-learned entities and subentities.
 
-Because you can't label regular expression, list, or prebuilt entities, create an entity or subentity, then add these entities are features, when applicable, to the entity or subentity.
+Because you can't label regular expression, list, or prebuilt entities, create an entity or subentity, then add these entities as features, when applicable, to the entity or subentity.
 
 ## Label example utterances from the Intent detail page
 
@@ -49,7 +49,7 @@ The entity palette offers an alternative to the previous labeling experience. It
 3. In the example utterance, _paint_ the entity with the cursor.
 
     > [!div class="mx-imgBorder"]
-    > ![Entity palette for machine-learning entity](media/label-utterances/example-1-label-machine-learned-entity-palette-label-action.png)
+    > ![Screenshot shows the entity painted with the cursor.](media/label-utterances/example-1-label-machine-learned-entity-palette-label-action.png)
 
 ## Adding entity as a feature from the Entity Palette
 

@@ -1,19 +1,19 @@
 ---
 title: Working with VMs and NSGs in Azure Bastion
-description: This article describes how to incorporate NSG access with Azure Bastion
+description: You can use network security groups with Azure Bastion. Learn about the subnets required for this configuration.
 services: bastion
 author: charwen
 
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 04/20/2020
+ms.date: 07/07/2020
 ms.author: charwen
 ---
 # Working with NSG access and Azure Bastion
 
-When working with Azure Bastion, you can use network security groups (NSGs). For more information, see [Security Groups](../virtual-network/security-overview.md). 
+When working with Azure Bastion, you can use network security groups (NSGs). For more information, see [Security Groups](../virtual-network/security-overview.md).
 
-![Architecture](./media/bastion-nsg/nsg-architecture.png)
+:::image type="content" source="./media/bastion-nsg/figure-1.png" alt-text="NSG":::
 
 In this diagram:
 
@@ -36,10 +36,16 @@ Azure Bastion is deployed specifically to ***AzureBastionSubnet***.
    * **Ingress Traffic from public internet:** The Azure Bastion will create a public IP that needs port 443 enabled on the public IP for ingress traffic. Port 3389/22 are NOT required to be opened on the AzureBastionSubnet.
    * **Ingress Traffic from Azure Bastion control plane:** For control plane connectivity, enable port 443 inbound from **GatewayManager** service tag. This enables the control plane, that is, Gateway Manager to be able to talk to Azure Bastion.
 
+
+   :::image type="content" source="./media/bastion-nsg/inbound.png" alt-text="Screenshot shows inbound security rules for Azure Bastion connectivity.":::
+
 * **Egress Traffic:**
 
    * **Egress Traffic to target VMs:** Azure Bastion will reach the target VMs over private IP. The NSGs need to allow egress traffic to other target VM subnets for port 3389 and 22.
    * **Egress Traffic to other public endpoints in Azure:** Azure Bastion needs to be able to connect to various public endpoints within Azure (for example, for storing diagnostics logs and metering logs). For this reason, Azure Bastion needs outbound to 443 to **AzureCloud** service tag.
+
+
+   :::image type="content" source="./media/bastion-nsg/outbound.png" alt-text="Screenshot shows outbound security rules for Azure Bastion connectivity.":::
 
 ### Target VM Subnet
 This is the subnet that contains the target virtual machine that you want to RDP/SSH to.

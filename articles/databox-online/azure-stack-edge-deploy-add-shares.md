@@ -1,6 +1,6 @@
 ---
-title: Tutorial to transfer data to shares with Azure Stack Edge | Microsoft Docs
-description: Learn how to add and connect to shares on Azure Stack Edge device.
+title: Tutorial to transfer data to shares with Azure Stack Edge Pro | Microsoft Docs
+description: In this tutorial, learn how to add and connect to shares on your Azure Stack Edge Pro device, so that Azure Stack Edge Pro can transfer data to Azure.
 services: databox
 author: alkohli
 
@@ -9,11 +9,11 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to add and connect to shares on Azure Stack Edge so I can use it to transfer data to Azure.
+Customer intent: As an IT admin, I need to understand how to add and connect to shares on Azure Stack Edge Pro so I can use it to transfer data to Azure.
 ---
-# Tutorial: Transfer data with Azure Stack Edge
+# Tutorial: Transfer data with Azure Stack Edge Pro
 
-This tutorial describes how to add and connect to shares on your Azure Stack Edge device. After you've added the shares, Azure Stack Edge can transfer data to Azure.
+This tutorial describes how to add and connect to shares on your Azure Stack Edge Pro device. After you've added the shares, Azure Stack Edge Pro can transfer data to Azure.
 
 This procedure can take around 10 minutes to complete.
 
@@ -26,11 +26,11 @@ In this tutorial, you learn how to:
  
 ## Prerequisites
 
-Before you add shares to Azure Stack Edge, make sure that:
+Before you add shares to Azure Stack Edge Pro, make sure that:
 
-- You've installed your physical device as described in [Install Azure Stack Edge](azure-stack-edge-deploy-install.md).
+- You've installed your physical device as described in [Install Azure Stack Edge Pro](azure-stack-edge-deploy-install.md).
 
-- You've activated the physical device as described in [Connect, set up, and activate Azure Stack Edge](azure-stack-edge-deploy-connect-setup-activate.md).
+- You've activated the physical device as described in [Connect, set up, and activate Azure Stack Edge Pro](azure-stack-edge-deploy-connect-setup-activate.md).
 
 
 ## Add a share
@@ -57,7 +57,7 @@ To create a share, do the following procedure:
     c. Provide a storage account where the share will reside. 
 
     > [!IMPORTANT]
-    > Make sure that the Azure Storage account that you use does not have immutability policies set on it if you are using it with a Azure Stack Edge or Data Box Gateway device. For more information, see [Set and manage immutability policies for blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
+    > Make sure that the Azure Storage account that you use does not have immutability policies set on it if you are using it with a Azure Stack Edge Pro or Data Box Gateway device. For more information, see [Set and manage immutability policies for blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
     
     d. In the **Storage service** drop-down list, select **Block Blob**, **Page Blob**, or **Files**.  
     The type of service you select depends on which format you want the data to use in Azure. In this example, because we want to store the data as block blobs in Azure, we select **Block Blob**. If you select **Page Blob**, make sure that your data is 512 bytes aligned. For example, a VHDX is always 512 bytes aligned.
@@ -87,7 +87,7 @@ You can now connect to one or more of the shares that you created in the last st
 
 ### Connect to an SMB share
 
-On your Windows Server client connected to your Azure Stack Edge device, connect to an SMB share by entering the commands:
+On your Windows Server client connected to your Azure Stack Edge Pro device, connect to an SMB share by entering the commands:
 
 
 1. In a command window, type:
@@ -120,7 +120,7 @@ On your Windows Server client connected to your Azure Stack Edge device, connect
 
 ### Connect to an NFS share
 
-On your Linux client connected to your Azure Stack Edge device, do the following procedure:
+On your Linux client connected to your Azure Stack Edge Pro device, do the following procedure:
 
 1. Make sure that the client has NFSv4 client installed. To install NFS client, use the following command:
 
@@ -128,7 +128,7 @@ On your Linux client connected to your Azure Stack Edge device, do the following
 
     For more information, go to [Install NFSv4 client](https://help.ubuntu.com/community/SettingUpNFSHowTo#NFSv4_client).
 
-2. After the NFS client is installed, mount the NFS share that you created on your Azure Stack Edge device by using the following command:
+2. After the NFS client is installed, mount the NFS share that you created on your Azure Stack Edge Pro device by using the following command:
 
    `sudo mount -t nfs -o sec=sys,resvport <device IP>:/<NFS shares on device> /home/username/<Folder on local Linux computer>`
 
@@ -136,7 +136,7 @@ On your Linux client connected to your Azure Stack Edge device, do the following
     > Use of `sync` option when mounting shares improves the transfer rates of large files.
     > Before you mount the share, make sure that the directories that will act as mountpoints on your local computer are already created. These directories should not contain any files or subfolders.
 
-    The following example shows how to connect via NFS to a share on your Azure Stack Edge device. The device IP is `10.10.10.60`. The share `mylinuxshare2` is mounted on the ubuntuVM. The share mount point is `/home/databoxubuntuhost/edge`.
+    The following example shows how to connect via NFS to a share on your Azure Stack Edge Pro device. The device IP is `10.10.10.60`. The share `mylinuxshare2` is mounted on the ubuntuVM. The share mount point is `/home/databoxubuntuhost/edge`.
 
     `sudo mount -t nfs -o sec=sys,resvport 10.10.10.60:/mylinuxshare2 /home/databoxubuntuhost/Edge`
 
@@ -147,15 +147,15 @@ On your Linux client connected to your Azure Stack Edge device, do the following
 
 ## Next steps
 
-In this tutorial, you learned about the following Azure Stack Edge topics:
+In this tutorial, you learned about the following Azure Stack Edge Pro topics:
 
 > [!div class="checklist"]
 > * Add a share
 > * Connect to share
 
-To learn how to transform your data by using Azure Stack Edge, advance to the next tutorial:
+To learn how to transform your data by using Azure Stack Edge Pro, advance to the next tutorial:
 
 > [!div class="nextstepaction"]
-> [Transform data with Azure Stack Edge](./azure-stack-edge-deploy-configure-compute.md)
+> [Transform data with Azure Stack Edge Pro](./azure-stack-edge-deploy-configure-compute.md)
 
 

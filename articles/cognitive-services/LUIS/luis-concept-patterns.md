@@ -35,7 +35,7 @@ Patterns solve the following situations:
 ## Patterns are not a guarantee of intent
 Patterns use a mix of prediction technologies. Setting an intent for a template utterance in a pattern is not a guarantee of the intent prediction but it is a strong signal.
 
-<a name="patterns-do-not-improve-entity-detection"/></a>
+<a name="patterns-do-not-improve-entity-detection"></a>
 
 ## Patterns do not improve machine-learning entity detection
 

@@ -20,7 +20,7 @@ You run a test failover to validate your replication and disaster recovery strat
 ## Run a test failover
 This procedure describes how to run a test failover for a recovery plan. If you want to run a test failover for a single VM, follow the steps described [here](tutorial-dr-drill-azure.md#run-a-test-failover-for-a-single-vm)
 
-![Test Failover](./media/site-recovery-test-failover-to-azure/TestFailover.png)
+![Screenshot of the Test failover page in the Azure portal.](./media/site-recovery-test-failover-to-azure/TestFailover.png)
 
 
 1. In Site Recovery in the Azure portal, click **Recovery Plans** > *recoveryplan_name* > **Test Failover**.
@@ -43,7 +43,7 @@ This procedure describes how to run a test failover for a recovery plan. If you 
 8. In **Notes**, record and save any observations associated with the test failover.
 
 
-![Test Failover](./media/site-recovery-test-failover-to-azure/TestFailoverJob.png)
+![Screenshot of the Test failover Jobs tab.](./media/site-recovery-test-failover-to-azure/TestFailoverJob.png)
 
 When a test failover is triggered, the following occurs:
 

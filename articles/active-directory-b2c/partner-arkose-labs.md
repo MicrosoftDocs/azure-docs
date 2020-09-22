@@ -8,7 +8,7 @@ manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: reference
+ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
@@ -31,7 +31,7 @@ The following diagram describes how Arkose Labs integrates with Azure AD B2C.
 
 ![Arkose Labs architecture diagram](media/partner-arkose-labs/arkose-architecture-diagram.png)
 
-|   |   |
+| Step  | Description |
 |---|---|
 |1     | A user signs in with a previously created account. When the user selects submit, an Arkose Labs Enforcement challenge appears. After the user completes the challenge, the status is sent to Arkose Labs to generate a token.        |
 |2     |  Arkose Labs sends the token back to Azure AD B2C.       |

@@ -16,7 +16,7 @@ Azure App Configuration [encrypts sensitive information at rest](../security/fun
 Azure App Configuration encrypts sensitive information at rest using a 256-bit AES encryption key provided by Microsoft. Every App Configuration instance has its own encryption key managed by the service and used to encrypt sensitive information. Sensitive information includes the values found in key-value pairs.  When customer-managed key capability is enabled, App Configuration uses a managed identity assigned to the App Configuration instance to authenticate with Azure Active Directory. The managed identity then calls Azure Key Vault and wraps the App Configuration instance's encryption key. The wrapped encryption key is then stored and the unwrapped encryption key is cached within App Configuration for one hour. App Configuration refreshes the unwrapped version of the App Configuration instance's encryption key hourly. This ensures availability under normal operating conditions. 
 
 >[!IMPORTANT]
-> If the identity assigned to the App Configuration instance is no longer authorized to unwrap the instance's encryption key, or if the managed key is permanently deleted, then it will no longer be possible to decrypt sensitive information stored in the App Configuration instance. Using Azure Key Vault's [soft delete](../key-vault/general/overview-soft-delete.md) function mitigates the chance of accidentally deleting your encryption key.
+> If the identity assigned to the App Configuration instance is no longer authorized to unwrap the instance's encryption key, or if the managed key is permanently deleted, then it will no longer be possible to decrypt sensitive information stored in the App Configuration instance. Using Azure Key Vault's [soft delete](../key-vault/general/soft-delete-overview.md) function mitigates the chance of accidentally deleting your encryption key.
 
 When users enable the customer managed key capability on their Azure App Configuration instance, they control the service’s ability to access their sensitive information. The managed key serves as a root encryption key. A user can revoke their App Configuration instance’s access to their managed key by changing their key vault access policy. When this access is revoked, App Configuration will lose the ability to decrypt user data within one hour. At this point, the App Configuration instance will forbid all access attempts. This situation is recoverable by granting the service access to the managed key once again.  Within one hour, App Configuration will be able to decrypt user data and operate under normal conditions.
 
@@ -74,7 +74,7 @@ To begin, you will need a properly configured Azure App Configuration instance. 
     az appconfig identity assign --name contoso-app-config --resource-group contoso-resource-group --identities [system]
     ```
     
-    The output of this command includes the principal ID ("principalId") and tenant ID ("tenandId") of the system assigned identity.  This will be used to grant the identity access to the managed key.
+    The output of this command includes the principal ID ("principalId") and tenant ID ("tenandId") of the system assigned identity.  These IDs will be used to grant the identity access to the managed key.
 
     ```json
     {
@@ -85,7 +85,7 @@ To begin, you will need a properly configured Azure App Configuration instance. 
     }
     ```
 
-1. The managed identity of the Azure App Configuration instance needs access to the key to perform key validation, encryption and decryption. The specific set of actions to which it needs access includes: `GET`, `WRAP`, and `UNWRAP` for keys.  Granting the access requires the principal ID  of the App Configuration instance's managed identity. This value was obtained in the previous step. It is shown below as `contoso-principalId`. Grant permission to the managed key using the command line:
+1. The managed identity of the Azure App Configuration instance needs access to the key to perform key validation, encryption, and decryption. The specific set of actions to which it needs access includes: `GET`, `WRAP`, and `UNWRAP` for keys.  Granting the access requires the principal ID  of the App Configuration instance's managed identity. This value was obtained in the previous step. It is shown below as `contoso-principalId`. Grant permission to the managed key using the command line:
 
     ```azurecli
     az keyvault set-policy -n contoso-vault --object-id contoso-principalId --key-permissions get wrapKey unwrapKey

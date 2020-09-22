@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev 
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/22/2019
 ms.author: jeedes
 ---
@@ -261,7 +261,7 @@ To delete an  existing role, perform the following steps:
 
 ## Next steps
 
-For additional steps, see the [app documentation](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list).
+For additional steps, see the [app documentation](../saas-apps/tutorial-list.md).
 
 <!--Image references-->
 <!--Image references-->

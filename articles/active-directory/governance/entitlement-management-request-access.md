@@ -3,16 +3,16 @@ title: Request an access package - Azure AD entitlement management
 description: Learn how to use the My Access portal to request access to an access package in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: ajburnle
 manager: daveba
 editor: mamtakumar
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: compliance
-ms.date: 10/26/2019
+ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
@@ -78,6 +78,12 @@ Once you have found the access package in the My Access portal, you can submit a
 If you request access to an access package that has multiple policies that apply, you might be asked to select a policy. For example, an access package manager might configure an access package with two policies for two groups of internal employees. The first policy might allow access for 60 days and require approval. The second policy might allow access for 2 days and not require approval. If you encounter this scenario, you must select the policy you want to use.
 
 ![My Access portal - Request access - multiple policies](./media/entitlement-management-request-access/my-access-multiple-policies.png)
+
+### Fill out requestor information
+
+You may request access to an access package that requires business justification and additional requestor information before granting you access to the access package. Fill out all the requestor information required to access the access package.
+
+![My Access portal - Request access - Fill out requestor information](./media/entitlement-management-request-access/my-access-requestor-information.png)
 
 ## Resubmit a request
 

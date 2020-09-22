@@ -11,7 +11,7 @@ ms.workload: identity
 ms.service: active-directory
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 02/20/2020
+ms.date: 07/06/2020
 ms.author: curtand
 ---
 
@@ -27,10 +27,10 @@ After you set up your security verification methods for your work or school acco
 
 ## Using the Additional security verification page
 
-If your organization provided you with specific steps about how to turn on and manage your two-factor verification, you should follow those instructions first. Otherwise, you can get to your security verification method settings from the [Additional security verification](https://docs.microsoft.com/azure/active-directory/user-help/multi-factor-authentication-end-user-first-time) page.
+If your organization provided you with specific steps about how to turn on and manage your two-factor verification, you should follow those instructions first. Otherwise, you can get to your security verification method settings from the [Additional security verification](./multi-factor-authentication-end-user-first-time.md) page.
 
 >[!Note]
->If what you're seeing on your screen doesn't match what's being covered in this article, it means that either your administrator has turned on the **Security info (preview)** experience or that your organization has provided your own custom portal. For more information about the new security info experience, see [Security info (preview) overview](user-help-security-info-overview.md). For more information about your organization's custom portal, you must contact your organization's Help desk.
+>If what you're seeing on your screen doesn't match what's being covered in this article, it means that either your administrator has turned on the **Security info (preview)** experience or that your organization has provided your own custom portal. For more information about the new security info experience, see [Security info (preview) overview](./security-info-setup-signin.md). For more information about your organization's custom portal, you must contact your organization's Help desk.
 
 ### To get to the Additional security verification page
 
@@ -84,7 +84,7 @@ You can add new phone numbers, or update existing numbers, from the **Additional
 
 1. From the **How would you like to respond?** section of the **Additional security verification** page, update the phone number information for your **Authentication phone** (your primary mobile device) and your **Office phone**.
 
-1. Select the box next to the **Alternate authentication phone** option, and then type in a secondary phone number where you can receive text messages or phone calls if you can't access your primary device.
+1. Select the box next to the **Alternate authentication phone** option, and then type in a secondary phone number where you can receive phone calls if you can't access your primary device.
 
 1. Select **Save**.
 

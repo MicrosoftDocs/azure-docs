@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'PowerShell: Connect to SQL Database'
 description: Learn how to use Azure PowerShell to automate deployment and management of App Service. This sample shows how to connect an app to a SQL Database.
 tags: azure-service-management
@@ -6,20 +6,20 @@ tags: azure-service-management
 ms.assetid: 055440a9-fff1-49b2-b964-9c95b364e533
 ms.topic: sample
 ms.date: 03/20/2017
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurepowershell
 ---
 
-# Connect an App Service app to a SQL database
+# Connect an App Service app to SQL Database
 
-In this scenario you will learn how to create an Azure SQL database and an App Service app. Then you will link the SQL database to the app using app settings.
+In this scenario you will learn how to create a database in Azure SQL Database and an App Service app. Then you will link the database to the app using app settings.
 
-If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](/powershell/azure/overview), and then run `Connect-AzAccount` to create a connection with Azure.
+If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](/powershell/azure/), and then run `Connect-AzAccount` to create a connection with Azure.
 
 ## Sample script
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-[!code-azurepowershell-interactive[main](../../../powershell_scripts/app-service/connect-to-sql/connect-to-sql.ps1?highlight=13 "Connect an app to a SQL database")]
+[!code-azurepowershell-interactive[main](../../../powershell_scripts/app-service/connect-to-sql/connect-to-sql.ps1?highlight=13 "Connect an app to SQL Database")]
 
 ## Clean up deployment 
 
@@ -45,6 +45,6 @@ This script uses the following commands. Each command in the table links to comm
 
 ## Next steps
 
-For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/overview).
+For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/).
 
 Additional Azure Powershell samples for Azure App Service can be found in the [Azure PowerShell samples](../samples-powershell.md).

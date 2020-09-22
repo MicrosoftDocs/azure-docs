@@ -120,7 +120,7 @@ Note that `<ipFilterIndexToRemove>` must correspond to the ordering of IP filter
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Your IoT Hub's IP filters can be retrieved and set through [Azure PowerShell](/powershell/azure/overview).
+Your IoT Hub's IP filters can be retrieved and set through [Azure PowerShell](/powershell/azure/).
 
 ```powershell
 # Get your IoT Hub resource using its name and its resource group name

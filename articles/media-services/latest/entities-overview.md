@@ -5,20 +5,22 @@ titleSuffix: Azure Media Services
 description: Learn about filtering, ordering, and paging of Azure Media Services v3 entities. 
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 
 ms.service: media-services
 ms.workload: 
-ms.topic: article
-ms.date: 01/21/2020
-ms.author: juliako
-ms.custom: seodec18
+ms.topic: overview
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.custom: "seodec18, devx-track-csharp"
 
 ---
 
 # Filtering, ordering, and paging of Media Services entities
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 This topic discusses the OData query options and pagination support available when you're listing Azure Media Services v3 entities.
 
@@ -156,34 +158,34 @@ The following table shows how you can apply the filtering and ordering options t
 
 |Entity name|Property name|Filter|Order|
 |---|---|---|---|
-|[Assets](https://docs.microsoft.com/rest/api/media/assets/)|name|`eq`, `gt`, `lt`, `ge`, `le`|`asc` and `desc`|
+|[Assets](/rest/api/media/assets/)|name|`eq`, `gt`, `lt`, `ge`, `le`|`asc` and `desc`|
 ||properties.alternateId |`eq`||
 ||properties.assetId |`eq`||
 ||properties.created| `eq`, `gt`, `lt`| `asc` and `desc`|
-|[Content key policies](https://docs.microsoft.com/rest/api/media/contentkeypolicies)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
+|[Content key policies](/rest/api/media/contentkeypolicies)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
 ||properties.created    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
 ||properties.description    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`||
 ||properties.lastModified|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
 ||properties.policyId|`eq`, `ne`||
-|[Jobs](https://docs.microsoft.com/rest/api/media/jobs)| name  | `eq`            | `asc` and `desc`|
+|[Jobs](/rest/api/media/jobs)| name  | `eq`            | `asc` and `desc`|
 ||properties.state        | `eq`, `ne`        |                         |
 ||properties.created      | `gt`, `ge`, `lt`, `le`| `asc` and `desc`|
 ||properties.lastModified | `gt`, `ge`, `lt`, `le` | `asc` and `desc`| 
-|[Streaming locators](https://docs.microsoft.com/rest/api/media/streaminglocators)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
+|[Streaming locators](/rest/api/media/streaminglocators)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
 ||properties.created    |`eq`, `ne`, `ge`, `le`,  `gt`, `lt`|`asc` and `desc`|
 ||properties.endTime    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
-|[Streaming policies](https://docs.microsoft.com/rest/api/media/streamingpolicies)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
+|[Streaming policies](/rest/api/media/streamingpolicies)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
 ||properties.created    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
-|[Transforms](https://docs.microsoft.com/rest/api/media/transforms)| name | `eq`            | `asc` and `desc`|
+|[Transforms](/rest/api/media/transforms)| name | `eq`            | `asc` and `desc`|
 || properties.created      | `gt`, `ge`, `lt`, `le`| `asc` and `desc`|
 || properties.lastModified | `gt`, `ge`, `lt`, `le`| `asc` and `desc`|
 
 ## Next steps
 
-* [List Assets](https://docs.microsoft.com/rest/api/media/assets/list)
-* [List Content Key Policies](https://docs.microsoft.com/rest/api/media/contentkeypolicies/list)
-* [List Jobs](https://docs.microsoft.com/rest/api/media/jobs/list)
-* [List Streaming Policies](https://docs.microsoft.com/rest/api/media/streamingpolicies/list)
-* [List Streaming Locators](https://docs.microsoft.com/rest/api/media/streaminglocators/list)
+* [List Assets](/rest/api/media/assets/list)
+* [List Content Key Policies](/rest/api/media/contentkeypolicies/list)
+* [List Jobs](/rest/api/media/jobs/list)
+* [List Streaming Policies](/rest/api/media/streamingpolicies/list)
+* [List Streaming Locators](/rest/api/media/streaminglocators/list)
 * [Stream a file](stream-files-dotnet-quickstart.md)
 * [Quotas and limits](limits-quotas-constraints.md)

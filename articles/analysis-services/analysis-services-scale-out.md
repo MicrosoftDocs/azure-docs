@@ -4,7 +4,7 @@ description: Replicate Azure Analysis Services servers with scale-out. Client qu
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/02/2020
+ms.date: 09/10/2020
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -37,6 +37,8 @@ When performing a subsequent scale-out operation, for example, increasing the nu
 
 * When automating both processing *and* scale-out operations, it's important to first process data on the primary server, then perform a synchronization, and then perform the scale-out operation. This sequence assures minimal impact on QPU and memory resources.
 
+* During scale-out operations, all servers in the query pool, including the primary server, are temporarily offline.
+
 * Synchronization is allowed even when there are no replicas in the query pool. If you are scaling out from zero to one or more replicas with new data from a processing operation on the primary server, perform the synchronization first with no replicas in the query pool, and then scale-out. Synchronizing before scaling out avoids redundant hydration of the newly added replicas.
 
 * When deleting a model database from the primary server, it does not automatically get deleted from replicas in the query pool. You must perform a synchronization operation by using the [Sync-AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) PowerShell command that removes the file/s for that database from the replica's shared blob storage location and then deletes the model database on the replicas in the query pool. To determine if a model database exists on replicas in the query pool but not on the primary server, ensure the **Separate the processing server from querying pool** setting is to **Yes**. Then use SSMS to connect to the primary server using the `:rw` qualifier to see if the database exists. Then connect to replicas in the query pool by connecting without the `:rw` qualifier to see if the same database also exists. If the database exists on replicas in the query pool but not on the primary server, run a sync operation.   
@@ -45,7 +47,7 @@ When performing a subsequent scale-out operation, for example, increasing the nu
 
 ### Synchronization mode
 
-By default, query replicas are rehydrated in full, not incrementally. Rehydration happens in stages. They are detached and attached two at a time (assuming there are at least three replicas) to ensure at least one replica is kept online for queries at any given time. In some cases, clients may need to reconnect to one of the online replicas while this process is taking place. By using the (in Preview) **ReplicaSyncMode** setting, you can now specify query replica synchronization occurs in parallel. Parallel synchronization provides the following benefits: 
+By default, query replicas are rehydrated in full, not incrementally. Rehydration happens in stages. They are detached and attached two at a time (assuming there are at least three replicas) to ensure at least one replica is kept online for queries at any given time. In some cases, clients may need to reconnect to one of the online replicas while this process is taking place. By using the **ReplicaSyncMode** setting, you can now specify query replica synchronization occurs in parallel. Parallel synchronization provides the following benefits: 
 
 - Significant reduction in synchronization time. 
 - Data across replicas are more likely to be consistent during the synchronization process. 
@@ -109,7 +111,7 @@ Synchronization operations must be performed manually or by using the REST API.
 
 In **Overview** > model > **Synchronize model**.
 
-![Scale-out slider](media/analysis-services-scale-out/aas-scale-out-sync.png)
+![Synchronize icon](media/analysis-services-scale-out/aas-scale-out-sync.png)
 
 ### REST API
 

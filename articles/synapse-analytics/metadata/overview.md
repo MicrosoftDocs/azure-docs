@@ -1,11 +1,11 @@
 ---
-title: Azure Synapse Analytics shared metadata model 
+title: Shared metadata model 
 description: Azure Synapse Analytics allows the different workspace computational engines to share databases and tables between its Spark pools (preview), SQL on-demand engine (preview), and SQL pools. 
 services: synapse-analytics
 author: MikeRys 
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice:
+ms.subservice: metadata
 ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
@@ -35,7 +35,7 @@ The shared metadata model supports the modern data warehouse pattern in the foll
 
 Object synchronization occurs asynchronously. Objects will have a slight delay of a few seconds until they appear in the SQL context. Once they appear, they can be queried, but not updated nor changed by the SQL engines that have access to them.
 
-## Which metadata objects are shared
+## Shared metadata objects
 
 Spark allows you to create databases, external tables, managed tables, and views. Since Spark views require a Spark engine to process the defining Spark SQL statement, and cannot be processed by a SQL engine, only databases and their contained external and managed tables that use the Parquet storage format are shared with the workspace SQL engine. Spark views are only shared among the Spark pool instances.
 

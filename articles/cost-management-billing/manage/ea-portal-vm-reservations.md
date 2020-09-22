@@ -3,9 +3,10 @@ title: Azure EA VM reserved instances
 description: This article summaries how Azure reservations for VM reserved instances can help you save you money with your enterprise enrollment.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/11/2020
+ms.date: 09/03/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
+ms.subservice: enterprise
 ms.reviewer: boalcsva
 ---
 
@@ -78,9 +79,9 @@ If you didn't use the Azure hybrid benefit to purchase Azure reserved VM instanc
 
 ### Reserved instance billing
 
-For enterprise customers, monetary commitment is used to purchase Azure reserved VM instances. If your enrollment has enough monetary commitment balance to cover the reserved instance purchase, the amount will be deducted from your monetary commitment balance and you won't get an invoice for the purchase.
+For enterprise customers, Azure Prepayment is used to purchase Azure reserved VM instances. If your enrollment has enough Azure Prepayment balance to cover the reserved instance purchase, the amount will be deducted from your Azure Prepayment balance and you won't get an invoice for the purchase.
 
-In scenarios where Azure EA customers have used all their monetary commitment, reserved instances can still be purchased, and those purchases will be invoiced on your next overage bill. Reserved instance overage, if any, will be part of your regular overage invoice.
+In scenarios where Azure EA customers have used all their Azure Prepayment, reserved instances can still be purchased, and those purchases will be invoiced on your next overage bill. Reserved instance overage, if any, will be part of your regular overage invoice.
 
 ### Reserved instance expiration
 

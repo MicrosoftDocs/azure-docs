@@ -3,10 +3,10 @@ title: Use built-in notebook commands and features in Azure Cosmos DB C# noteboo
 description: Learn how to use built-in commands and features to do common operations using Azure Cosmos DB's built-in C# notebooks.
 author: deborahc
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: dech
-ms.custom: tracking-python
+ms.custom: devx-track-python, devx-track-csharp
 
 ---
 
@@ -111,14 +111,14 @@ You can use the built-in [nteract data explorer](https://blog.nteract.io/designi
 
 For example, in the *GetingStarted_Csharp.ipynb* example, we can print out the variable with our result, the ``telemetryEvents``. See the [GettingStarted_Csharp.ipynb notebook](https://github.com/Azure-Samples/cosmos-notebooks/blob/master/CSharp_quickstarts/GettingStarted_CSharp.ipynb) for the entire sample. 
 
-![Csharp query cell](media/use-notebook-features-and-commands/csharp-query-cell.png)
+:::image type="content" source="media/use-notebook-features-and-commands/csharp-query-cell.png" alt-text="Csharp query cell":::
 
-![nteract data explorer](media/use-notebook-features-and-commands/csharp-nteract-built-in-chart.png)
+:::image type="content" source="media/use-notebook-features-and-commands/csharp-nteract-built-in-chart.png" alt-text="nteract data explorer":::
 
 ## Use built-in dictionary viewer
 You can use the built-in dictionary viewer to view a variable. In a cell, put the variable you want to visualize in the last line, which will be automatically displayed when the cell is run.
 
-![Built-in dictionary viewer](media/use-notebook-features-and-commands/csharp-built-in-dictionary-viewer.png)
+:::image type="content" source="media/use-notebook-features-and-commands/csharp-built-in-dictionary-viewer.png" alt-text="Built-in dictionary viewer":::
 
 ## Upload JSON items to a container
 You can use the ``%%upload`` magic command to upload data from a JSON file to a specified Azure Cosmos container. Use the following command to upload the items:
@@ -156,7 +156,7 @@ Replace ``{notebookName}`` with the name of the notebook you want to run. The no
 ## Reset notebooks workspace
 To reset the notebooks workspace to the default settings, select **Reset Workspace** on the command bar. This will remove any custom installed packages and restart the Jupyter server. Your notebooks, files, and Azure Cosmos resources will not be affected.  
 
-![Reset notebooks workspace](media/use-notebook-features-and-commands/reset-workspace.png)
+:::image type="content" source="media/use-notebook-features-and-commands/reset-workspace.png" alt-text="Reset notebooks workspace":::
 
 ## Next steps
 

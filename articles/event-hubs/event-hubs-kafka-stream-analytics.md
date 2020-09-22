@@ -1,20 +1,8 @@
 ---
 title: 'Azure Event Hubs - Process Apache Kafka events'
 description: 'Tutorial: This article shows how to process Kafka events that are ingested through event hubs by using Azure Stream Analytics'
-services: event-hubs
-documentationcenter: ''
-author: spelluru
-manager: 
-
-ms.service: event-hubs
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.custom: seodec18
-ms.date: 04/02/2020
-ms.author: spelluru
-
+ms.date: 06/23/2020
 ---
 
 # Tutorial: Process Apache Kafka for Event Hubs events using Stream analytics 
@@ -136,14 +124,14 @@ The query in the Stream Analytics job passes through the data without performing
  
 
 ### Define a query
-After you have a Stream Analytics job setup to read an incoming data stream, the next step is to create a transformation that analyzes data in real time. You define the transformation query by using [Stream Analytics Query Language](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference). In this walkthrough, you define a query that passes through the data without performing any transformation.
+After you have a Stream Analytics job setup to read an incoming data stream, the next step is to create a transformation that analyzes data in real time. You define the transformation query by using [Stream Analytics Query Language](/stream-analytics-query/stream-analytics-query-language-reference). In this walkthrough, you define a query that passes through the data without performing any transformation.
 
 1. Select **Query**.
 2. In the query window, replace `[YourOutputAlias]` with the output alias you created earlier.
 3. Replace `[YourInputAlias]` with the input alias you created earlier. 
 4. Select **Save** on the toolbar. 
 
-    ![Query](./media/event-hubs-kafka-stream-analytics/query.png)
+    ![Screen capture shows the query window with values for input and output variables.](./media/event-hubs-kafka-stream-analytics/query.png)
 
 
 ### Run the Stream Analytics job

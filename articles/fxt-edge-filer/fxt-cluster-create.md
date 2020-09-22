@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Create the Azure FXT Edge Filer cache cluster'
-description: How to create a hybrid storage cache cluster with the Azure FXT Edge Filer 
+description: Learn how to create a hybrid storage cache cluster with the Azure FXT Edge Filer and how to sign in to the cluster control panel to configure the cluster settings.
 author: ekpgh
 ms.author: rohogue
 ms.service: fxt-edge-filer

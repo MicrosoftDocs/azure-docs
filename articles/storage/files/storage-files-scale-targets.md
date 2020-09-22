@@ -70,7 +70,7 @@ For Azure File Sync, performance is critical in two stages:
 
 To help you plan your deployment for each of the stages, below are the results observed during the internal testing on a system with a config
 
-| System configuration |  |
+| System configuration | Details |
 |-|-|
 | CPU | 64 Virtual Cores with 64 MiB L3 cache |
 | Memory | 128 GiB |
@@ -78,7 +78,7 @@ To help you plan your deployment for each of the stages, below are the results o
 | Network | 1 Gbps Network |
 | Workload | General Purpose File Server|
 
-| Initial one-time provisioning  |  |
+| Initial one-time provisioning  | Details |
 |-|-|
 | Number of objects | 25 million objects |
 | Dataset Size| ~4.7 TiB |
@@ -88,7 +88,7 @@ To help you plan your deployment for each of the stages, below are the results o
 
 *When a new server endpoint is created, the Azure File Sync agent does not download any of the file content. It first syncs the full namespace and then triggers background recall to download the files, either in their entirety or, if cloud tiering is enabled, to the cloud tiering policy set on the server endpoint.
 
-| Ongoing sync  |   |
+| Ongoing sync  | Details  |
 |-|--|
 | Number of objects synced| 125,000 objects (~1% churn) |
 | Dataset Size| 50 GiB |

@@ -5,7 +5,7 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
 ---
@@ -74,7 +74,7 @@ Assign the managed identity to the **Storage Blob Data Owner** role on the stora
 1. Select the **+ Add role assignment** button to add a new role.
 1. In the **Add role assignment** window, select the **Storage Blob Data Owner** role. Then, select the subscription that has the managed identity and storage account. Next, search to locate the user-assigned managed identity that you created previously. Finally, select the managed identity, and it will be listed under **Selected members**.
 
-    ![Screenshot showing how to assign an RBAC role](./media/hdinsight-hadoop-use-data-lake-storage-gen2/add-rbac-role3-window.png)
+    ![Screenshot showing how to assign an Azure role](./media/hdinsight-hadoop-use-data-lake-storage-gen2/add-rbac-role3-window.png)
 
 1. Select **Save**. The user-assigned identity that you selected is now listed under the selected role.
 1. After this initial setup is complete, you can create a cluster through the portal. The cluster must be in the same Azure region as the storage account. In the **Storage** tab of the cluster creation menu, select the following options:
@@ -101,6 +101,7 @@ You can [download a sample template file](https://github.com/Azure-Samples/hdins
 | `<RESOURCEGROUPNAME>` | The resource group where you want the new cluster and storage account created. |
 | `<MANAGEDIDENTITYNAME>` | The name of the managed identity that will be given permissions on your Azure Data Lake Storage Gen2 account. |
 | `<STORAGEACCOUNTNAME>` | The new Azure Data Lake Storage Gen2 account that will be created. |
+| `<FILESYSTEMNAME>`  | The name of the filesystem that this cluster should use in the storage account. |
 | `<CLUSTERNAME>` | The name of your HDInsight cluster. |
 | `<PASSWORD>` | Your chosen password for signing in to the cluster using SSH and the Ambari dashboard. |
 
@@ -133,7 +134,8 @@ az storage account create --name <STORAGEACCOUNTNAME> \
 
 Next, sign in to the portal. Add the new user-assigned managed identity to the **Storage Blob Data Contributor** role on the storage account. This step is described in step 3 under [Using the Azure portal](hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
-After you've assigned the role for the user-assigned managed identity, deploy the template by using the following code snippet.
+ > [!IMPORTANT]
+ > Ensure that your storage account has the user-assigned identity with **Storage Blob Data Contributor** role permissions, otherwise cluster creation will fail.
 
 ```azurecli
 az group deployment create --name HDInsightADLSGen2Deployment \
@@ -154,7 +156,7 @@ Data Lake Storage Gen2 uses an access control model that supports both role-base
 
 RBAC uses role assignments to effectively apply sets of permissions to users, groups, and service principals for Azure resources. Typically, those Azure resources are constrained to top-level resources (for example, Azure Storage accounts). For Azure Storage, and also Data Lake Storage Gen2, this mechanism has been extended to the file system resource.
 
- For more information about file permissions with RBAC, see [Azure role-based access control (RBAC)](../storage/blobs/data-lake-storage-access-control.md#azure-role-based-access-control-rbac).
+ For more information about file permissions with RBAC, see [Azure role-based access control (Azure RBAC)](../storage/blobs/data-lake-storage-access-control.md#azure-role-based-access-control-rbac).
 
 For more information about file permissions with ACLs, see [Access control lists on files and directories](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories).
 

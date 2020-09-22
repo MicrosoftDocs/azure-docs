@@ -17,7 +17,7 @@ ms.author: memildin
 
 # Security alerts schemas
 
-Users of Azure Security Center's standard tier receive security alerts when Security Center detects threats to their resources.
+If your subscription has Azure Defender enabled, you'll receive security alerts when Security Center detects threats to their resources.
 
 You can view these security alerts in Azure Security Center's **Threat Protection** pages, or through external tools such as:
 
@@ -167,7 +167,7 @@ You can view the security alerts events in Activity Log by searching for the Act
 
 ### [MS Graph API](#tab/schema-graphapi)
 
-Microsoft Graph is the gateway to data and intelligence in Microsoft 365. It provides a unified programmability model that you can use to access the tremendous amount of data in Office 365, Windows 10, and Enterprise Mobility + Security. Use the wealth of data in Microsoft Graph to build apps for organizations and consumers that interact with millions of users.
+Microsoft Graph is the gateway to data and intelligence in Microsoft 365. It provides a unified programmability model that you can use to access the tremendous amount of data in Microsoft 365, Windows 10, and Enterprise Mobility + Security. Use the wealth of data in Microsoft Graph to build apps for organizations and consumers that interact with millions of users.
 
 The schema and a JSON representation for security alerts sent to MS Graph, are available in [the Microsoft Graph documentation](https://docs.microsoft.com/graph/api/resources/alert?view=graph-rest-1.0).
 

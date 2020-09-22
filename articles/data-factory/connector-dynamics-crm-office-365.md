@@ -77,7 +77,7 @@ The following properties are supported for the Dynamics linked service.
 |:--- |:--- |:--- |
 | type | The type property must be set to "Dynamics", "DynamicsCrm", or "CommonDataServiceForApps". | Yes |
 | deploymentType | The deployment type of the Dynamics instance. The value must be "Online" for Dynamics online. | Yes |
-| serviceUri | The service URL of your Dynamics instance. An example is https://adfdynamics.crm.dynamics.com. | Yes |
+| serviceUri | The service URL of your Dynamics instance. An example is https://www.crmdynamics.com. | Yes |
 | authenticationType | The authentication type to connect to a Dynamics server. Valid values are "AADServicePrincipal" and "Office365". | Yes |
 | servicePrincipalId | The client ID of the Azure AD application. | Yes when authentication is "AADServicePrincipal" |
 | servicePrincipalCredentialType | The credential type to use for service-principal authentication. Valid values are "ServicePrincipalKey" and "ServicePrincipalCert". | Yes when authentication is "AADServicePrincipal" |
@@ -98,7 +98,7 @@ The following properties are supported for the Dynamics linked service.
         "type": "Dynamics",  
         "typeProperties": {  
             "deploymentType": "Online",  
-            "serviceUri": "https://adfdynamics.crm.dynamics.com",  
+            "serviceUri": "https://www.crmdynamics.com",  
             "authenticationType": "AADServicePrincipal",  
             "servicePrincipalId": "<service principal id>",  
             "servicePrincipalCredentialType": "ServicePrincipalKey",  
@@ -120,7 +120,7 @@ The following properties are supported for the Dynamics linked service.
         "type": "Dynamics", 
         "typeProperties": { 
             "deploymentType": "Online", 
-            "serviceUri": "https://adfdynamics.crm.dynamics.com", 
+            "serviceUri": "https://www.crmdynamics.com", 
             "authenticationType": "AADServicePrincipal", 
             "servicePrincipalId": "<service principal id>", 
             "servicePrincipalCredentialType": "ServicePrincipalCert", 
@@ -150,7 +150,7 @@ The following properties are supported for the Dynamics linked service.
         "type": "Dynamics",
         "typeProperties": {
             "deploymentType": "Online",
-            "serviceUri": "https://adfdynamics.crm.dynamics.com",
+            "serviceUri": "https://www.crmdynamics.com",
             "authenticationType": "Office365",
             "username": "test@contoso.onmicrosoft.com",
             "password": {

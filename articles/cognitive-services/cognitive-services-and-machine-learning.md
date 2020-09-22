@@ -3,12 +3,10 @@ title: Cognitive Services and Machine Learning
 titleSuffix: Azure Cognitive Services
 description: Learn where Azure Cognitive Services fits in with other Azure offerings for machine learning.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 08/22/2019
-ms.author: diberry
 ---
 # Cognitive Services and machine learning
 
@@ -67,7 +65,7 @@ Cognitive Services, as a group of services, can require none, some, or all custo
 
 ### No additional training data required
 
-Services that provide a fully-trained model can be treated as a _black box_. You don't need to know how they work or what data was used to train them. You bring your data to a fully trained model to get a prediction. 
+Services that provide a fully-trained model can be treated as a _opaque box_. You don't need to know how they work or what data was used to train them. You bring your data to a fully trained model to get a prediction. 
 
 ### Some or all training data required
 

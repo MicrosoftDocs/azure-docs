@@ -1,12 +1,12 @@
 ---
 title: Use the HBase .NET SDK - Azure HDInsight 
 description: Use the HBase .NET SDK to create and delete tables, and to read and write data.
-author: ashishthaps
-ms.author: ashishth
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
-ms.custom: hdinsightactive
+ms.topic: how-to
+ms.custom: "hdinsightactive, devx-track-csharp"
 ms.date: 12/02/2019
 ---
 
@@ -20,7 +20,9 @@ For C# and .NET applications, the [Microsoft HBase REST Client Library for .NET]
 
 The HBase .NET SDK is provided as a NuGet package, which can be installed from the Visual Studio **NuGet Package Manager Console** with the following command:
 
-    Install-Package Microsoft.HBase.Client
+```console
+Install-Package Microsoft.HBase.Client
+```
 
 ## Instantiate a new HBaseClient object
 

@@ -11,7 +11,7 @@ ms.date: 02/01/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
-ms.reviewer: sahenry
+ms.reviewer: rhicock
 
 ms.collection: M365-identity-device-management
 ---
@@ -48,9 +48,9 @@ In the Azure portal experience, we have improved the way that you can view passw
 6. From the **Filter** menu at the top of the pane, select the **Service** drop-down list, and change it to the **Self-service Password Management** service type.
 7. Optionally, further filter the list by choosing the specific **Activity** you're interested in.
 
-### Converged registration (preview)
+### Combined registration
 
-If you are participating in the public preview of converged registration, information regarding user activity in the audit logs will be found under **Security** > **Authentication Methods**.
+If you have enabled [combined registration](./concept-registration-mfa-sspr-combined.md), information regarding user activity in the audit logs will be found under **Security** > **Authentication Methods**.
 
 ## Description of the report columns in the Azure portal
 
@@ -177,7 +177,7 @@ The following list explains this activity in detail:
 * [What data is used by SSPR and what data should you populate for your users?](howto-sspr-authenticationdata.md)
 * [What authentication methods are available to users?](concept-sspr-howitworks.md#authentication-methods)
 * [What are the policy options with SSPR?](concept-sspr-policy.md)
-* [What is password writeback and why do I care about it?](howto-sspr-writeback.md)
+* [What is password writeback and why do I care about it?](./tutorial-enable-sspr-writeback.md)
 * [What are all of the options in SSPR and what do they mean?](concept-sspr-howitworks.md)
 * [I think something is broken. How do I troubleshoot SSPR?](active-directory-passwords-troubleshoot.md)
 * [I have a question that was not covered somewhere else](active-directory-passwords-faq.md)

@@ -6,6 +6,7 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/07/2020
+ms.custom: devx-track-csharp
 
 ---
 
@@ -113,7 +114,7 @@ By default, Azure Cosmos DB automatically indexes every property of every record
 
 You can monitor the total number of RUs provisioned, number of rate-limited requests as well as the number of RUs you’ve consumed in the Azure portal. The following image shows an example usage metric:
 
-![Monitor request units in the Azure portal](./media/optimize-cost-throughput/monitoring.png)
+:::image type="content" source="./media/optimize-cost-throughput/monitoring.png" alt-text="Monitor request units in the Azure portal":::
 
 You can also set alerts to check if the number of rate-limited requests exceeds a specific threshold. See [How to monitor Azure Cosmos DB](use-metrics.md) article for more details. These alerts can send an email to the account administrators or call a custom HTTP Webhook or an Azure Function to automatically increase provisioned throughput. 
 
@@ -151,7 +152,7 @@ The following steps help you to make your solutions highly scalable and cost-eff
 
 1. If you have significantly over provisioned throughput across containers and databases, you should review RUs provisioned Vs consumed RUs and fine-tune the workloads.  
 
-2. One method for estimating the amount of reserved throughput required by your application is to record the request unit RU charge associated with running typical operations against a representative Azure Cosmos container or database used by your application and then estimate the number of operations you anticipate to perform each second. Be sure to measure and include typical queries and their usage as well. To learn how to estimate RU costs of queries programmatically or using portal see [Optimizing the cost of queries](online-backup-and-restore.md). 
+2. One method for estimating the amount of reserved throughput required by your application is to record the request unit RU charge associated with running typical operations against a representative Azure Cosmos container or database used by your application and then estimate the number of operations you anticipate to perform each second. Be sure to measure and include typical queries and their usage as well. To learn how to estimate RU costs of queries programmatically or using portal see [Optimizing the cost of queries](optimize-cost-queries.md). 
 
 3. Another way to get operations and their costs in RUs is by enabling Azure Monitor logs, which will give you the breakdown of operation/duration and the request charge. Azure Cosmos DB provides request charge for every operation, so every operation charge can be stored back from the response and then used for analysis. 
 

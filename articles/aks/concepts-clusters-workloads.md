@@ -34,7 +34,7 @@ A Kubernetes cluster is divided into two components:
 
 ## Control plane
 
-When you create an AKS cluster, a control plane is automatically created and configured. This control plane is provided as a managed Azure resource abstracted from the user. There's no cost for the control plane, only the nodes that are part of the AKS cluster.
+When you create an AKS cluster, a control plane is automatically created and configured. This control plane is provided as a managed Azure resource abstracted from the user. There's no cost for the control plane, only the nodes that are part of the AKS cluster. The control plane and its resources reside only on the region where you created the cluster.
 
 The control plane includes the following core Kubernetes components:
 
@@ -45,7 +45,7 @@ The control plane includes the following core Kubernetes components:
 
 AKS provides a single-tenant control plane, with a dedicated API server, Scheduler, etc. You define the number and size of the nodes, and the Azure platform configures the secure communication between the control plane and nodes. Interaction with the control plane occurs through Kubernetes APIs, such as `kubectl` or the Kubernetes dashboard.
 
-This managed control plane means that you don't need to configure components like a highly available *etcd* store, but it also means that you can't access the control plane directly. Upgrades to Kubernetes are orchestrated through the Azure CLI or Azure portal, which upgrades the control plane and then the nodes. To troubleshoot possible issues, you can review the control plane logs through Azure Monitor logs.
+This managed control plane means you don't need to configure components like a highly available *etcd* store, but it also means you can't access the control plane directly. Upgrades to Kubernetes are orchestrated through the Azure CLI or Azure portal, which upgrades the control plane and then the nodes. To troubleshoot possible issues, you can review the control plane logs through Azure Monitor logs.
 
 If you need to configure the control plane in a particular way or need direct access to it, you can deploy your own Kubernetes cluster using [aks-engine][aks-engine].
 
@@ -69,9 +69,9 @@ If you need to use a different host OS, container runtime, or include custom pac
 
 ### Resource reservations
 
-Node resources are utilized by AKS to make the node function as part of your cluster. This can create a discrepancy between your node's total resources and the resources allocatable when used in AKS. This is important to note when setting requests and limits for user deployed pods.
+Node resources are utilized by AKS to make the node function as part of your cluster. This usage can create a discrepancy between your node's total resources and the resources allocatable when used in AKS. This information is important to note when setting requests and limits for user deployed pods.
 
-To find a node's allocatable resources run:
+To find a node's allocatable resources, run:
 ```kubectl
 kubectl describe node [NODE_NAME]
 
@@ -82,7 +82,7 @@ To maintain node performance and functionality, resources are reserved on each n
 >[!NOTE]
 > Using AKS add-ons such as Container Insights (OMS) will consume additional node resources.
 
-- **CPU** - reserved CPU is dependent on node type and cluster configuration which may cause less allocatable CPU due to running additional features
+- **CPU** - reserved CPU is dependent on node type and cluster configuration, which may cause less allocatable CPU due to running additional features
 
 | CPU cores on host | 1    | 2    | 4    | 8    | 16 | 32|64|
 |---|---|---|---|---|---|---|---|
@@ -90,7 +90,7 @@ To maintain node performance and functionality, resources are reserved on each n
 
 - **Memory** - memory utilized by AKS includes the sum of two values.
 
-1. The kubelet daemon is installed on all Kubernetes agent nodes to manage container creation and termination. By default on AKS, this daemon has the following eviction rule: *memory.available<750Mi*, which means a node must always have at least 750 Mi allocatable at all times.  When a host is below that threshold of available memory, the kubelet will terminate one of the running pods to free memory on the host machine and protect it. This is a reactive action once available memory decreases beyond the 750Mi threshold.
+1. The kubelet daemon is installed on all Kubernetes agent nodes to manage container creation and termination. By default on AKS, this daemon has the following eviction rule: *memory.available<750Mi*, which means a node must always have at least 750 Mi allocatable at all times.  When a host is below that threshold of available memory, the kubelet will terminate one of the running pods to free memory on the host machine and protect it. This action is triggered once available memory decreases beyond the 750Mi threshold.
 
 2. The second value is a regressive rate of memory reservations for the kubelet daemon to properly function (kube-reserved).
     - 25% of the first 4 GB of memory
@@ -99,11 +99,11 @@ To maintain node performance and functionality, resources are reserved on each n
     - 6% of the next 112 GB of memory (up to 128 GB)
     - 2% of any memory above 128 GB
 
-The above rules for memory and CPU allocation are used to keep agent nodes healthy, including some hosting system pods that are critical to cluster health. These allocation rules also cause the node to report less allocatable memory and CPU than it would if it were not part of a Kubernetes cluster. The above resource reservations can't be changed.
+The above rules for memory and CPU allocation are used to keep agent nodes healthy, including some hosting system pods that are critical to cluster health. These allocation rules also cause the node to report less allocatable memory and CPU than it normally would if it were not part of a Kubernetes cluster. The above resource reservations can't be changed.
 
-For example, if a node offers 7 GB, it will report 34% of memory not allocatable on top of the 750Mi hard eviction threshold.
+For example, if a node offers 7 GB, it will report 34% of memory not allocatable including the 750Mi hard eviction threshold.
 
-`(0.25*4) + (0.20*3) = + 1 GB + 0.6GB = 1.6GB / 7GB = 22.86% reserved`
+`0.75 + (0.25*4) + (0.20*3) = 0.75GB + 1GB + 0.6GB = 2.35GB / 7GB = 33.57% reserved`
 
 In addition to reservations for Kubernetes itself, the underlying node OS also reserves an amount of CPU and memory resources to maintain OS functions.
 
@@ -149,7 +149,7 @@ When you create a pod, you can define *resource requests* to request a certain a
 
 For more information, see [Kubernetes pods][kubernetes-pods] and [Kubernetes pod lifecycle][kubernetes-pod-lifecycle].
 
-A pod is a logical resource, but the container(s) are where the application workloads run. Pods are typically ephemeral, disposable resources, and individually scheduled pods miss some of the high availability and redundancy features Kubernetes provides. Instead, pods are usually deployed and managed by Kubernetes *Controllers*, such as the Deployment Controller.
+A pod is a logical resource, but the container(s) are where the application workloads run. Pods are typically ephemeral, disposable resources, and individually scheduled pods miss some of the high availability and redundancy features Kubernetes provides. Instead, pods are deployed and managed by Kubernetes *Controllers*, such as the Deployment Controller.
 
 ## Deployments and YAML manifests
 
@@ -159,9 +159,9 @@ You can update deployments to change the configuration of pods, container image 
 
 Most stateless applications in AKS should use the deployment model rather than scheduling individual pods. Kubernetes can monitor the health and status of deployments to ensure that the required number of replicas run within the cluster. When you only schedule individual pods, the pods aren't restarted if they encounter a problem, and aren't rescheduled on healthy nodes if their current node encounters a problem.
 
-If an application requires a quorum of instances to always be available for management decisions to be made, you don't want an update process to disrupt that ability. *Pod Disruption Budgets* can be used to define how many replicas in a deployment can be taken down during an update or node upgrade. For example, if you have *5* replicas in your deployment, you can define a pod disruption of *4* to only permit one replica from being deleted/rescheduled at a time. As with pod resource limits, a best practice is to define pod disruption budgets on applications that require a minimum number of replicas to always be present.
+If an application requires a quorum of instances to always be available for management decisions to be made, you don't want an update process to disrupt that ability. *Pod Disruption Budgets* can be used to define how many replicas in a deployment can be taken down during an update or node upgrade. For example, if you have *five (5)* replicas in your deployment, you can define a pod disruption of *4* to only permit one replica from being deleted/rescheduled at a time. As with pod resource limits, a best practice is to define pod disruption budgets on applications that require a minimum number of replicas to always be present.
 
-Deployments are typically created and managed with `kubectl create` or `kubectl apply`. To create a deployment, you define a manifest file in the YAML (YAML Ain't Markup Language) format. The following example creates a basic deployment of the NGINX web server. The deployment specifies *3* replicas to be created, and that port *80* be open on the container. Resource requests and limits are also defined for CPU and memory.
+Deployments are typically created and managed with `kubectl create` or `kubectl apply`. To create a deployment, you define a manifest file in the YAML (YAML Ain't Markup Language) format. The following example creates a basic deployment of the NGINX web server. The deployment specifies *three (3)* replicas to be created, and requires port *80* to be open on the container. Resource requests and limits are also defined for CPU and memory.
 
 ```yaml
 apiVersion: apps/v1
@@ -250,7 +250,7 @@ For more information, see [Kubernetes namespaces][kubernetes-namespaces].
 
 ## Next steps
 
-This article covers some of the core Kubernetes components and how they apply to AKS clusters. For additional information on core Kubernetes and AKS concepts, see the following articles:
+This article covers some of the core Kubernetes components and how they apply to AKS clusters. For more information on core Kubernetes and AKS concepts, see the following articles:
 
 - [Kubernetes / AKS access and identity][aks-concepts-identity]
 - [Kubernetes / AKS security][aks-concepts-security]

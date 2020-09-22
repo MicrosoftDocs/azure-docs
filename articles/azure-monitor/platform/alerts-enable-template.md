@@ -8,9 +8,9 @@ ms.date: 03/09/2020
 ms.subservice: alerts
 ---
 # Create a classic metric alert with a Resource Manager template
+
 > [!WARNING]
-> 
-> This article describes creating **classic metric alerts** using Resource Manager templates. Classic alerts were retired in August 2019 and set to be fully deprecated in June 2020. You cannot create new classic alerts public Azure. Some regional versions of Azure may still have the option, but we suggest you instead create [newer metric alerts](../../azure-monitor/platform/alerts-metric-near-real-time.md) using templates if at all possible. [This article](alerts-metric-create-templates.md) provides the details.
+> This article describes how to create older classic metric alerts. Azure Monitor now supports [newer near-real time metric alerts and a new alerts experience](./alerts-overview.md). Classic alerts are [retired](./monitoring-classic-retirement.md), though still in limited use for resources that do not yet support the new alerts.
 >
 
 This article shows how you can use an [Azure Resource Manager template](../../azure-resource-manager/templates/template-syntax.md) to configure Azure classic metric alerts. This enables you to automatically set up alerts on your resources when they are created to ensure that all resources are monitored correctly.
@@ -170,7 +170,7 @@ To create an alert using a Resource Manager template, you create a resource of t
 }
 ```
 
-An explanation of the schema and properties for an alert rule [is available here](https://msdn.microsoft.com/library/azure/dn933805.aspx).
+An explanation of the schema and properties for an alert rule [is available here](/rest/api/monitor/alertrules).
 
 ## Resource Manager template for a resource with a classic metric alert
 An alert on a Resource Manager template is most often useful when creating an alert while creating a resource. For example, you may want to ensure that a “CPU % > 80” rule is set up every time you deploy a Virtual Machine. To do this, you add the alert rule as a resource in the resource array for your VM template and add a dependency using the `dependsOn` property to the VM resource ID. Here’s a full example that creates a Windows VM and adds an alert that notifies subscription admins when the CPU utilization goes above 80%.
@@ -394,6 +394,6 @@ An alert on a Resource Manager template is most often useful when creating an al
 
 ## Next Steps
 * [Read more about Alerts](alerts-overview.md)
-* [Add Diagnostic Settings](../../azure-monitor/platform/diagnostic-settings-template.md) to your Resource Manager template
+* [Add Diagnostic Settings](./diagnostic-settings-template.md) to your Resource Manager template
 * For the JSON syntax and properties, see [Microsoft.Insights/alertrules](/azure/templates/microsoft.insights/alertrules) template reference.
 

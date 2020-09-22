@@ -99,9 +99,9 @@ For example, we can modify the counter entity so it starts an orchestration when
 ```csharp
     public void Add(int amount) 
     {
-        if (this.Value < 100 && this.Value + amount > 100)
+        if (this.Value < 100 && this.Value + amount >= 100)
         {
-            Entity.Current.StartNewOrchestration("MilestoneReached", Entity.Current.EntityId)
+            Entity.Current.StartNewOrchestration("MilestoneReached", Entity.Current.EntityId);
         }
         this.Value += amount;      
     }
@@ -467,7 +467,7 @@ public static void Counter([EntityTrigger] IDurableEntityContext ctx)
             ctx.SetState(0);
             break;
         case "get":
-            ctx.Return(ctx.GetState<int>()));
+            ctx.Return(ctx.GetState<int>());
             break;
         case "delete":
             ctx.DeleteState();

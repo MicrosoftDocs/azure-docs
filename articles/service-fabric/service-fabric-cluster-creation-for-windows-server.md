@@ -20,10 +20,10 @@ This article walks you through the steps for creating a Service Fabric standalon
 <a id="getsupport"></a>
 
 ## Get support for the Service Fabric for Windows Server package
-* Ask the community about the Service Fabric standalone package for Windows Server in the [Microsoft Q&A question page for Azure Service Fabric](https://docs.microsoft.com/answers/topics/azure-service-fabric.html).
+* Ask the community about the Service Fabric standalone package for Windows Server in the [Microsoft Q&A question page for Azure Service Fabric](/answers/topics/azure-service-fabric.html).
 * Open a ticket for [Professional Support for Service Fabric](https://support.microsoft.com/oas/default.aspx?prid=16146).  Learn more about Professional Support from Microsoft [here](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0).
 * You can also get support for this package as a part of [Microsoft Premier Support](https://support.microsoft.com/en-us/premier).
-* For more details, please see [Azure Service Fabric support options](https://docs.microsoft.com/azure/service-fabric/service-fabric-support).
+* For more details, please see [Azure Service Fabric support options](./service-fabric-support.md).
 * To collect logs for support purposes, run the [Service Fabric Standalone Log collector](service-fabric-cluster-standalone-package-contents.md).
 
 <a id="downloadpackage"></a>
@@ -124,7 +124,7 @@ Connect-ServiceFabricCluster -ConnectionEndpoint <*IPAddressofaMachine*>:<Client
 
 For example:
 ```powershell
-Connect-ServiceFabricCluster -ConnectionEndpoint 192.13.123.2345:19000
+Connect-ServiceFabricCluster -ConnectionEndpoint 192.13.123.234:19000
 ```
 
 See [Connect to a secure cluster](service-fabric-connect-to-secure-cluster.md) for other examples of connecting to a cluster. After connecting to the cluster, use the [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) cmdlet to display a list of nodes in the cluster and status information for each node. **HealthState** should be *OK* for each node.
@@ -212,7 +212,7 @@ None.
 * [Configuration settings for standalone Windows cluster](service-fabric-cluster-manifest.md)
 * [Add or remove nodes to a standalone Service Fabric cluster](service-fabric-cluster-windows-server-add-remove-nodes.md)
 * [Upgrade a standalone Service Fabric cluster version](service-fabric-cluster-upgrade-windows-server.md)
-* [Create a standalone Service Fabric cluster with Azure VMs running Windows](service-fabric-cluster-creation-with-windows-azure-vms.md)
+* [Create a standalone Service Fabric cluster with Azure VMs running Windows](./service-fabric-cluster-creation-via-arm.md)
 * [Secure a standalone cluster on Windows using Windows security](service-fabric-windows-cluster-windows-security.md)
 * [Secure a standalone cluster on Windows using X509 certificates](service-fabric-windows-cluster-x509-security.md)
 

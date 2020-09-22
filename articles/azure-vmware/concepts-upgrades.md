@@ -1,23 +1,56 @@
 ---
-title: Concepts - Private cloud upgrades
-description: Learn about the key upgrade processes and features in Azure VMware Solution (AVS)
+title: Concepts - Private cloud updates and upgrades
+description: Learn about the key upgrade processes and features in Azure VMware Solution.
 ms.topic: conceptual
-ms.date: 05/04/2020
+ms.date: 09/22/2020
 ---
 
-# Azure VMware Solution (AVS) upgrade concepts
+# Azure VMware Solution private cloud updates and upgrades
 
-One of the key benefits of Azure VMware Solution (AVS) private clouds is that the platform is maintained for you. Platform maintenance includes automated upgrades to a VMware validated software bundle. The upgrades are done regularly, ensuring that you always have the latest validated versions of the software.
+## Overview
 
-## AVS private cloud software upgrades
+One of the key benefits of Azure VMware Solution private clouds is that the platform is maintained for you. Platform maintenance includes automated updates to a VMware validated software bundle, helping to ensure you're using the latest version of the validated Azure VMware Solution private cloud software.
 
-The AVS private cloud platform includes specific versions of VMware vSphere, ESXi, vSAN, and NSX-T software. The private cloud software bundle is validated for use in new private cloud installations, and for upgrades of existing private clouds.
+Specifically, an Azure VMware Solution private cloud includes:
 
-The lifecycle management upgrade process doesn't require downtime for your private clouds. The upgrade process ensures you're automatically using the latest version of the validated AVS private cloud software. Upgrades are applied on regular cadence so that private clouds are never more than one version behind the latest release of the validated software bundle. You'll be notified of planned upgrades to your private cloud. You can defer the upgrade if your private cloud is within one version of the latest release.
+- Dedicated bare-metal server nodes provisioned with VMware ESXi hypervisor 
+- vCenter server for managing ESXi and vSAN 
+- VMware NSX-T software defined networking for vSphere workload VMs  
+- VMware vSAN datastore for vSphere workload VMs  
+- VMware HCX for workload mobility  
 
-Critical patches and updates are applied when they're validated. You'll be notified in advance of required critical upgrades. This policy ensures your private cloud has critical patches and updates applied immediately.
+In addition to these components, an Azure VMware Solution private cloud includes resources in the Azure underlay required for connectivity and to operate the private cloud. Azure VMware Solution continuously monitors the health of both the underlay and the VMware components. When Azure VMware Solution detects a failure, it takes action to repair the failed components. 
 
-VMware software versions are provided in the [private clouds and clusters concept article](concepts-private-clouds-clusters.md) and the [FAQ](faq.md).
+## What components get updated?   
+
+Azure VMware Solution updates the following VMware components: 
+
+- vCenter Server and ESXi running on the bare-metal server nodes 
+- vSAN 
+- NSX-T 
+
+Azure VMware Solution also updates the software in the underlay, such as drivers, software on the network switches, and firmware on the bare-metal nodes. 
+
+## Types of updates
+
+Azure VMware Solution applies the following types of updates to VMware components:
+
+- Patches: Security patches and bug fixes released by VMware. 
+- Updates: Minor version updates of one or more VMware components. 
+- Upgrades: Major version updates of one or more VMware components.
+
+You will be notified before and after patches are applied to your private clouds. We will also work with you to schedule a maintenance window before applying updates or upgrades to your private cloud. 
+
+## VMware appliance backup 
+
+In addition to making updates, Azure VMware Solution takes a configuration backup of these VMware components:
+
+- vCenter Server 
+- NSX-T Manager 
+
+At times of failure, Azure VMware Solution can restore these from the configuration backup. 
+
+For more information on VMware software versions, see the [private clouds and clusters concept article](concepts-private-clouds-clusters.md) and the [FAQ](faq.md).
 
 ## Next steps
 

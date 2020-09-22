@@ -5,7 +5,7 @@ services: synapse-analytics
 author: matt1883 
 ms.service: synapse-analytics 
 ms.topic: how-to 
-ms.subservice:  
+ms.subservice: security 
 ms.date: 04/15/2020 
 ms.author: mahi
 ms.reviewer: jrasnick
@@ -76,7 +76,7 @@ In the Azure portal, create a Synapse workspace:
   - Assign **WS1\_SparkAdmins** to Synapse Spark admins
   - Assign **WS1\_SQLAdmins** to Synapse SQL admins
 
-## STEP 4: Configuring Data Lake Storage Gen2 for use by Synapse workspace
+## STEP 4: Configure Data Lake Storage Gen2 for use by Synapse workspace
 
 The Synapse workspace needs access to STG1 and CNT1 so it can run pipelines and perform system tasks.
 
@@ -91,10 +91,10 @@ The Synapse workspace needs access to STG1 and CNT1 so it can run pipelines and 
 
 - Open the Azure portal
 - Navigate to WS1
-- Under **Settings**, click **SQL Active Directory admin**
-- Click **Set admin** and choose WS1\_SQLAdmins
+- Under **Settings**, select **SQL Active Directory admin**
+- Select **Set admin** and choose WS1\_SQLAdmins
 
-## STEP 6: Maintaining access control
+## STEP 6: Maintain access control
 
 The configuration is finished.
 
@@ -106,7 +106,7 @@ Although you can manually assign users to Synapse roles, if you do, it won't con
 
 Users in each role need to complete the following steps:
 
-|   | Step | Workspace admins | Spark admins | SQL admins |
+| Number | Step | Workspace admins | Spark admins | SQL admins |
 | --- | --- | --- | --- | --- |
 | 1 | Upload a parquet file into CNT1 | YES | YES | YES |
 | 2 | Read the parquet file using SQL on-demand | YES | NO | YES |
@@ -117,8 +117,9 @@ Users in each role need to complete the following steps:
 
 > [!NOTE]
 > [1] To create SQL or Spark pools the user must have at least Contributor role on the Synapse workspace.
-> [!TIP]
 >
+ 
+>[!TIP]
 > - Some steps will deliberately not be allowed depending on the role.
 > - Keep in mind that some tasks may fail if the security was not fully configured. These tasks are noted in the table.
 

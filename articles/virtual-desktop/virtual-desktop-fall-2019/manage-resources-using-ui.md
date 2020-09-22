@@ -1,19 +1,16 @@
 ---
 title: Deploy management tool with an Azure Resource Manager template - Azure
-description: How to install a user interface tool with an Azure Resource Manager template to manage Windows Virtual Desktop resources.
-services: virtual-desktop
+description: How to install a user interface tool with an Azure Resource Manager template to manage Windows Virtual Desktop (classic) resources.
 author: Heidilohr
-
-ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ---
-# Deploy a management tool with an Azure Resource Manager template
+# Deploy a Windows Virtual Desktop (classic) management tool with an Azure Resource Manager template
 
 >[!IMPORTANT]
->This content applies to the Fall 2019 release that doesn't support Azure Resource Manager Windows Virtual Desktop objects.
+>This content applies to Windows Virtual Desktop (classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects.
 
 The instructions in this article will tell you how to deploy the UI by using an Azure Resource Manager template.
 
@@ -35,7 +32,7 @@ Before deploying the management tool, you'll need an Azure Active Directory (Azu
 
 - Have Azure Multi-Factor Authentication (MFA) disabled
 - Have permission to create resources in your Azure subscription
-- Have permission to create an Azure AD application. Follow these steps to check if your user has the required permissions by following the instructions in [Required permissions](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
+- Have permission to create an Azure AD application. Follow these steps to check if your user has the required permissions by following the instructions in [Required permissions](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
 After you deploy and configure the management tool, we recommend you ask a user to launch the management UI to make sure everything works. The user who launches the management UI must have a role assignment that lets them view or edit the Windows Virtual Desktop tenant.
 
@@ -47,7 +44,7 @@ Follow these instructions to deploy the Azure Resource Management template:
 
 1. Go to the [GitHub Azure RDS-Templates page](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy).
 2. Deploy the template to Azure.
-    - If you're deploying in an Enterprise subscription, scroll down and select **Deploy to Azure**. 
+    - If you're deploying in an Enterprise subscription, scroll down and select **Deploy to Azure**.
     - If you're deploying in a Cloud Solution Provider subscription, follow these instructions to deploy to Azure:
         1. Scroll down and right-click **Deploy to Azure**, then select **Copy Link Location**.
         2. Open a text editor like Notepad and paste the link there.
@@ -66,11 +63,13 @@ After the GitHub Azure Resource Manager template completes, you'll find a resour
 
 Before you sign in and use the management tool, you must provide consent for the new Azure AD application associated with the management tool. Providing consent lets the management tool make Windows Virtual Desktop management calls on behalf of the user currently signed in to the tool.
 
-![A screenshot showing the permissions being provided when you consent to the UI management tool.](../media/management-ui-delegated-permissions.png)
+> [!div class="mx-imgBorder"]
+> ![A screenshot showing the permissions being provided when you consent to the UI management tool.](../media/management-ui-delegated-permissions.png)
 
 To determine which user you can use to sign in to the tool, go to your [Azure Active Directory user settings page](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/) and take note of the value for **Users can consent to apps accessing company data on their behalf**.
 
-![A screenshot showing if users can grant consent to applications for just their user.](../media/management-ui-user-consent-allowed.png)
+> [!div class="mx-imgBorder"]
+> ![A screenshot showing if users can grant consent to applications for just their user.](../media/management-ui-user-consent-allowed.png)
 
 - If the value is set to **Yes**, you can sign in with any user account in the Azure Active Directory and provide consent for that user only. However, if you sign in to the management tool with a different user later, you must perform the same consent again.
 - If the value is set to **No**, you must sign in as a Global Administrator in the Azure Active Directory and provide admin consent for all users in the directory. No other users will face a consent prompt.
@@ -78,11 +77,12 @@ To determine which user you can use to sign in to the tool, go to your [Azure Ac
 
 Once you decide which user you'll use to provide consent, follow these instructions to provide consent to the tool:
 
-1. Go to your Azure resources, select the Azure App Services resource with the name you provided in the template (for example, Apr3UX) and navigate to the URL associated with it; for example,  <https://rdmimgmtweb-210520190304.azurewebsites.net>.
+1. Go to your Azure resources, select the Azure App Services resource with the name you provided in the template (for example, Apr3UX) and navigate to the URL associated with it; for example,  `https://rdmimgmtweb-210520190304.azurewebsites.net`.
 2. Sign in using the appropriate Azure Active Directory user account.
 3. If you authenticated with a Global Administrator, you can now select the checkbox to **Consent on behalf of your organization**. Select **Accept** to provide consent.
-   
-   ![A screenshot showing the full consent page that the user or admin will see.](../media/management-ui-consent-page.png)
+
+   > [!div class="mx-imgBorder"]
+   > ![A screenshot showing the full consent page that the user or admin will see.](../media/management-ui-consent-page.png)
 
 This will now take you to the management tool.
 
@@ -92,11 +92,11 @@ After providing consent for the organization or for a specified user, you can ac
 
 Follow these instructions to launch the tool:
 
-1. Select the Azure App Services resource with the name you provided in the template (for example, Apr3UX) and navigate to the URL associated with it; for example,  <https://rdmimgmtweb-210520190304.azurewebsites.net>.
+1. Select the Azure App Services resource with the name you provided in the template (for example, Apr3UX) and navigate to the URL associated with it; for example,  `https://rdmimgmtweb-210520190304.azurewebsites.net`.
 2. Sign in using your Windows Virtual Desktop credentials.
 3. When prompted to choose a Tenant Group, select **Default Tenant Group** from the drop-down list.
 4. When you select **Default Tenant Group**, a menu should appear on the left side of your window. In this menu, find the name of your tenant group and select it.
-  
+
   > [!NOTE]
   > If you have a custom tenant group, enter the name manually instead of choosing from the drop-down list.
 

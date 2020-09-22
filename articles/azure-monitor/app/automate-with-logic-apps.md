@@ -15,7 +15,7 @@ Do you find yourself repeatedly running the same queries on your telemetry data 
 
 With this integration, you can automate numerous processes without writing a single line of code. You can create a logic app with the Application Insights connector to quickly automate any Application Insights process. 
 
-You can add additional actions as well. The Logic Apps feature of Azure App Service makes hundreds of actions available. For example, by using a logic app, you can automatically send an email notification or create a bug in Azure DevOps. You can also use one of the many available [templates](https://docs.microsoft.com/azure/logic-apps/logic-apps-use-logic-app-templates) to help speed up the process of creating your logic app. 
+You can add additional actions as well. The Logic Apps feature of Azure App Service makes hundreds of actions available. For example, by using a logic app, you can automatically send an email notification or create a bug in Azure DevOps. You can also use one of the many available [templates](../../logic-apps/logic-apps-create-logic-apps-from-templates.md) to help speed up the process of creating your logic app. 
 
 ## Create a logic app for Application Insights
 
@@ -49,7 +49,7 @@ In this tutorial, you learn how to create a logic app that uses the Analytics au
 
 To complete this step, you need an application ID and an API key for your resource. You can retrieve them from the Azure portal, as shown in the following diagram:
 
-![Application ID in the Azure portal](./media/automate-with-logic-apps/5apiaccess.png)
+![Screenshot shows the API Access page in the Azure portal with the Create API key button selected.](./media/automate-with-logic-apps/5apiaccess.png)
 
 ![Application ID in the Azure portal](./media/automate-with-logic-apps/6apikey.png)
 
@@ -99,7 +99,7 @@ When you create your own queries, verify that they are working properly in Analy
     
    d. Click the **Add new parameter** drop down and select Attachments and Is HTML.
 
-      ![Office 365 Outlook configuration](./media/automate-with-logic-apps/10emailbody.png)
+      ![Screenshot shows the Send an email window with the Body box highlighted and the Dynamic content menu with Body highlighted on the right side.](./media/automate-with-logic-apps/10emailbody.png)
 
       ![Office 365 Outlook configuration](./media/automate-with-logic-apps/11emailparameter.png)
 
@@ -126,14 +126,10 @@ When your logic app runs, the recipients you specified in the email list will re
 
 ## Next steps
 
-- Learn more about creating [Analytics queries](../../azure-monitor/log-query/get-started-queries.md).
-- Learn more about [Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-what-are-logic-apps).
+- Learn more about creating [Analytics queries](../log-query/get-started-queries.md).
+- Learn more about [Logic Apps](../../logic-apps/logic-apps-overview.md).
 
 
 
 <!--Link references-->
-
-
-
-
 

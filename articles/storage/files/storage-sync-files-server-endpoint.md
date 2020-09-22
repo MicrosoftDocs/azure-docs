@@ -1,9 +1,9 @@
 ---
 title: Add/remove an Azure File Sync server endpoint | Microsoft Docs
-description: Learn what to consider when planning for an Azure Files deployment.
+description: Learn to add or remove a server endpoint with Azure File Sync. A server endpoint is a certain location on a registered server, like a folder on a server volume.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files

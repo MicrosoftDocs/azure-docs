@@ -3,20 +3,20 @@ title: Azure Front Door | Microsoft Docs
 description: This article provides an overview of Azure Front Door. Find out if it is the right choice for load-balancing user traffic for your application.
 services: frontdoor
 documentationcenter: ''
-author: sharad4u
+author: duongau
 editor: ''
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/23/2019
-ms.author: sharadag
+ms.date: 09/02/2020
+ms.author: duau
 # customer intent: As an IT admin, I want to learn about Front Door and what I can use it for. 
 ---
 
 # What is Azure Front Door?
-Azure Front Door enables you to define, manage, and monitor the global routing for your web traffic by optimizing for best performance and instant global failover for high availability. With Front Door, you can transform your global (multi-region) consumer and enterprise applications into robust, high-performance personalized modern applications, APIs, and content that reaches a global audience with Azure.
+Azure Front Door enables you to define, manage, and monitor the global routing for your web traffic by optimizing for best performance and quick global failover for high availability. With Front Door, you can transform your global (multi-region) consumer and enterprise applications into robust, high-performance personalized modern applications, APIs, and content that reaches a global audience with Azure.
 
 Front Door works at Layer 7 or HTTP/HTTPS layer and uses anycast protocol with split TCP and Microsoft's global network for improving global connectivity. So, per your routing method selection in the configuration, you can ensure that Front Door is routing your client requests to the fastest and most available application backend. An application backend is any Internet-facing service hosted inside or outside of Azure. Front Door provides a range of [traffic-routing methods](front-door-routing-methods.md) and [backend health monitoring options](front-door-health-probes.md) to suit different application needs and automatic failover models. Similar to [Traffic Manager](../traffic-manager/traffic-manager-overview.md), Front Door is resilient to failures, including the failure of an entire Azure region.
 
@@ -32,7 +32,7 @@ Using split TCP-based anycast protocol, Front Door ensures that your end users p
 
 ## Increase application availability with smart health probes
 
-Front Door delivers high availability for your critical applications using its smart health probes, monitoring your backends for both latency and availability and providing instant automatic failover when a backend goes down. So, you can run planned maintenance operations on your applications without downtime. Front Door directs traffic to alternative backends while the maintenance is in progress.
+Front Door delivers high availability for your critical applications using its smart health probes, monitoring your backends for both latency and availability and providing quick automatic failover when a backend goes down. So, you can run planned maintenance operations on your applications without downtime. Front Door directs traffic to alternative backends while the maintenance is in progress.
 
 ## URL-based routing
 URL Path Based Routing allows you to route traffic to backend pools based on URL paths of the request. One of the scenarios is to route requests for different content types to different backend pools.
@@ -77,6 +77,10 @@ The HTTP/2 protocol enables full-duplex communication between application backen
 ## Pricing
 
 For pricing information, see [Front Door Pricing](https://azure.microsoft.com/pricing/details/frontdoor/).
+
+## What's new?
+
+Subscribe to the RSS feed and view the latest Azure Front Door feature updates on the [Azure Updates](https://azure.microsoft.com/updates/?category=networking&query=Azure%20Front%20Door) page.
 
 ## Next steps
 

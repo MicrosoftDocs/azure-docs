@@ -4,7 +4,7 @@ description: How to use cloud-init to configure a swap partition in a Linux VM d
 author: rickstercdn
 manager: gwallace
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/29/2017
 ms.author: rclaus
 

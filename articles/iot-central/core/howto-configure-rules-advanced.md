@@ -15,27 +15,36 @@ services: iot-central
 
 You can create rules in IoT Central that trigger actions, such as sending an email, in response to telemetry-based conditions, such as device temperature exceeding a threshold.
 
-The IoT Central connector for Power Automate and Azure Logic Apps lets you create more advanced rules to automate operations in IoT Central:
+The Azure IoT Central V3 connector for Power Automate and Azure Logic Apps lets you create more advanced rules to automate operations in IoT Central:
 
 - When a rule fires in your Azure IoT Central app, it can trigger a workflow in Power Automate or Azure Logic Apps. These workflows can run actions in other cloud services, such as Office 365, or a third-party service.
 - An event in another cloud service, such as Office 365, can trigger a workflow in Power Automate or Azure Logic Apps. These workflows can run actions or retrieve data from your IoT Central application.
+
+## Prerequisites
+
+To complete the steps in this how-to guide, you need an active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+Setting up the solution requires a version 3 IoT Central application. To learn how to check your application version, see [About your application](./howto-get-app-info.md). To learn how to create an IoT Central application, see [Create an Azure IoT Central application](./quick-deploy-iot-central.md).
+
+> [!NOTE]
+> If you're using a version 2 IoT Central application, see [Build workflows with the IoT Central connector in Azure Logic Apps](https://docs.microsoft.com/previous-versions/azure/iot-central/core/howto-build-azure-logic-apps) on the previous versions documentation site and use the Azure IoT Central V2 connector
 
 ## Trigger a workflow from a rule
 
 Before you can trigger a workflow in Power Automate or Azure Logic Apps, you need a rule in your IoT Central application. To learn more, see [Configure rules and actions in Azure IoT Central](./howto-configure-rules.md).
 
-To add the **Azure IoT Central - preview** connector as a trigger in Power Automate:
+To add the **Azure IoT Central V3 - preview** connector as a trigger in Power Automate:
 
 1. In Power Automate, select **+ Create**, select the **Custom** tab.
-1. Search for *IoT Central*, and select the **Azure IoT Central - preview** connector.
+1. Search for *IoT Central*, and select the **Azure IoT Central V3 - preview** connector.
 1. In the list of triggers, select **When a rule is fired (preview)**.
 1. In the **When a rule is fired** step, select your IoT Central application and the rule you're using.
 
-To add the **Azure IoT Central - preview** connector as a trigger in Azure Logic Apps:
+To add the **Azure IoT Central V3 - preview** connector as a trigger in Azure Logic Apps:
 
 1. In **Logic Apps Designer**, select the **Blank Logic App** template.
 1. In the designer, select the **Custom** tab.
-1. Search for *IoT Central*, and select the **Azure IoT Central - preview** connector.
+1. Search for *IoT Central*, and select the **Azure IoT Central V3 - preview** connector.
 1. In the list of triggers, select **When a rule is fired (preview)**.
 1. In the **When a rule is fired** step, select your IoT Central application and the rule you're using.
 
@@ -45,27 +54,27 @@ You can now add more steps to your workflow to build out your integration scenar
 
 ## Run an action
 
-You can run actions in an IoT Central application from Power Automate and Azure Logic Apps workflows. First, create your workflow and use a connector to define a trigger to start the workflow. Then use the **Azure IoT Central - preview** connector as an action.
+You can run actions in an IoT Central application from Power Automate and Azure Logic Apps workflows. First, create your workflow and use a connector to define a trigger to start the workflow. Then use the **Azure IoT Central V3 - preview** connector as an action.
 
-To add the **Azure IoT Central - preview** connector as an action in Power Automate:
+To add the **Azure IoT Central V3 - preview** connector as an action in Power Automate:
 
 1. In Power Automate, in the **Choose an action** panel, select the **Custom** tab.
-1. Search for *IoT Central* and select the **Azure IoT Central - preview** connector.
+1. Search for *IoT Central* and select the **Azure IoT Central V3 - preview** connector.
 1. In the list of actions, select the IoT Central action you want to use.
 1. In the action step, complete the configuration for the action you chose. Then select **Save**.
 
-To add the **Azure IoT Central - preview** connector as an action in Azure Logic Apps:
+To add the **Azure IoT Central V3- preview** connector as an action in Azure Logic Apps:
 
 1. In **Logic Apps Designer**, in the **Choose an action** panel, select the **Custom** tab.
-1. Search for *IoT Central*, and select the **Azure IoT Central - preview** connector.
+1. Search for *IoT Central*, and select the **Azure IoT Central V3- preview** connector.
 1. In the list of actions, select the IoT Central action you want to use.
 1. In the action step, complete the configuration for the action you chose. Then select **Save**.
 
-:::image type="content" source="./media/howto-configure-rules-advanced/actions.png" alt-text="Find the Azure IoT Central - preview connector and choose an action":::
+:::image type="content" source="./media/howto-configure-rules-advanced/actions.png" alt-text="Find the Azure IoT Central V3 connector and choose an action":::
 
 ## List of actions
 
-The following list shows all the available IoT Central actions in the **Azure IoT Central - preview** connector and their configuration options. Many of the fields can have dynamically generated content. For example, a previous step could determine the device ID that the current step acts on.
+The following list shows all the available IoT Central actions in the **Azure IoT Central V3 - preview** connector and their configuration options. Many of the fields can have dynamically generated content. For example, a previous step could determine the device ID that the current step acts on.
 
 ### Create or update a device
 

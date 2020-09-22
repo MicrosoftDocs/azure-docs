@@ -28,10 +28,8 @@
   items:
   - name: Build a serverless real-time app with authentication
     href: signalr-tutorial-authenticate-azure-functions.md
-  - name: Monitor
-    items:
-    - name: Use diagnostic logs to monitor SignalR Service
-      href: signalr-tutorial-diagnostic-logs.md
+  - name: Build a Blazor Server chat app
+    href: signalr-tutorial-build-blazor-server-chat-app.md
 
 - name: Samples
   items:
@@ -39,13 +37,13 @@
     href: https://github.com/aspnet/AzureSignalR-samples
   - name: Azure CLI
     href: signalr-reference-cli.md
-  - name: Azure Policy built-ins
-    href: ./policy-samples.md
 
 - name: Concepts
   items:
   - name: Azure SignalR Service internals
     href: signalr-concept-internals.md
+  - name: Service mode
+    href: concept-service-mode.md
   - name: Scale ASP.NET Core SignalR
     href: signalr-concept-scale-aspnet-core.md
   - name: Serverless
@@ -56,6 +54,8 @@
       href: signalr-concept-serverless-development-config.md
     - name: SignalR Service bindings for Azure Functions reference
       href: ../azure-functions/functions-bindings-signalr-service.md
+    - name: Upstream settings
+      href: concept-upstream.md
   - name: High availability
     items:
     - name: Resiliency and disaster recovery
@@ -86,12 +86,20 @@
       href: howto-private-endpoints.md
     - name: Manage network access control
       href: howto-network-access-control.md
+    - name: Use managed identity
+      href: howto-use-managed-identity.md
   - name: Integrate
     items:
     - name: Azure Functions bindings
       href: signalr-concept-azure-functions.md
     - name: Event Grid integration
-      href: signalr-howto-event-grid-integration.md
+      href: signalr-howto-event-grid-integration.md 
+  - name: Monitor
+    items:
+    - name: Use diagnostic logs to monitor SignalR Service
+      href: signalr-howto-diagnostic-logs.md
+    - name: Audit compliance using Azure Policy
+      href: signalr-howto-azure-policy.md
 
 - name: References
   items:
@@ -103,6 +111,9 @@
     href: https://docs.microsoft.com/aspnet/core/signalr
   - name: Azure SignalR Service Protocol
     href: https://github.com/Azure/azure-signalr/blob/dev/specs/ServiceProtocol.md
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
 
 - name: Resources
   items:

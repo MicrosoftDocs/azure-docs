@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Mapbox | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Mapbox.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 78ae0db9-1ba2-4f54-a645-43c537719123
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 05/21/2020
+ms.date: 08/20/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Mapbox
@@ -42,6 +36,9 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Mapbox supports **IDP** initiated SSO
 * Once you configure Mapbox you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+
+> [!NOTE]
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
 
 ## Adding Mapbox from the gallery
 
@@ -137,15 +134,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on the **Settings** tab.
 
-	![Mapbox Configuration](./media/mapbox-tutorial/configure1.png)
+	![Mapbox Settings tab](./media/mapbox-tutorial/configure1.png)
 
 1. Click on the **Security** tab from the left navigation pane.
 
-	![Mapbox Configuration](./media/mapbox-tutorial/configure2.png)
+	![Mapbox Security tab](./media/mapbox-tutorial/configure2.png)
 
 1. Click **Edit single sign-on**.
 
-	![Mapbox Configuration](./media/mapbox-tutorial/configure3.png)
+	![Mapbox Edit single sign-on](./media/mapbox-tutorial/configure3.png)
 
 1. Scroll down to **Step 3: Setup SAML single sign-on for Mapbox** and perform the following steps:
 

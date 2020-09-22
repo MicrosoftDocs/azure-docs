@@ -82,7 +82,7 @@ After you set the agreement properties, you can configure how this agreement ide
 
 ![Schemas for inbound messages](./media/logic-apps-enterprise-integration-x12/x12-receive-settings-schemas.png)
 
-For this section, select a [schema](../logic-apps/logic-apps-enterprise-integration-schemas.md) from your [integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md) for each transaction type (ST01) and Sender Application (GS02). The EDI Receive Pipeline disassembles the incoming message by matching the values and schema that you set in this section with the values for ST01 and GS02 in the incoming message and with the schema of the incoming message. After you complete each row, a new empty row automatically appears.
+For this section, select a [schema](../logic-apps/logic-apps-enterprise-integration-schemas.md) from your [integration account](./logic-apps-enterprise-integration-create-integration-account.md) for each transaction type (ST01) and Sender Application (GS02). The EDI Receive Pipeline disassembles the incoming message by matching the values and schema that you set in this section with the values for ST01 and GS02 in the incoming message and with the schema of the incoming message. After you complete each row, a new empty row automatically appears.
 
 | Property | Description |
 |----------|-------------|
@@ -205,7 +205,7 @@ After you set the agreement properties, you can configure how this agreement ide
 
 ![Schemas for outbound messages](./media/logic-apps-enterprise-integration-x12/x12-send-settings-schemas.png)
 
-For this section, select a [schema](../logic-apps/logic-apps-enterprise-integration-schemas.md) from your [integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md) for each transaction type (ST01). After you complete each row, a new empty row automatically appears.
+For this section, select a [schema](../logic-apps/logic-apps-enterprise-integration-schemas.md) from your [integration account](./logic-apps-enterprise-integration-create-integration-account.md) for each transaction type (ST01). After you complete each row, a new empty row automatically appears.
 
 | Property | Description |
 |----------|-------------|
@@ -231,7 +231,7 @@ For this section, select a [schema](../logic-apps/logic-apps-enterprise-integrat
 
 ![Control version number for outbound messages](./media/logic-apps-enterprise-integration-x12/x12-send-settings-control-version-number.png)
 
-For this section, select a [schema](../logic-apps/logic-apps-enterprise-integration-schemas.md) from your [integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md) for each interchange. After you complete each row, a new empty row automatically appears.
+For this section, select a [schema](../logic-apps/logic-apps-enterprise-integration-schemas.md) from your [integration account](./logic-apps-enterprise-integration-create-integration-account.md) for each interchange. After you complete each row, a new empty row automatically appears.
 
 | Property | Description |
 |----------|-------------|
@@ -377,7 +377,7 @@ To specify these document version numbers and message types, follow these steps:
 
 ## Connector reference
 
-For additional technical details about this connector, such as actions and limits as described by the connector's Swagger file, see the [connector's reference page](https://docs.microsoft.com/connectors/x12/).
+For additional technical details about this connector, such as actions and limits as described by the connector's Swagger file, see the [connector's reference page](/connectors/x12/).
 
 > [!NOTE]
 > For logic apps in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 

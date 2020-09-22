@@ -12,34 +12,40 @@ ms.subservice: data-science-vm
 ms.topic: quickstart
 ---
 
-# Quickstart: Create an Ubuntu Data Science Virtual Machine using a Resource Manager template
-[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
+# Quickstart: Create an Ubuntu Data Science Virtual Machine using an ARM template
 
-This quickstart will show you how to create an Ubuntu 18.04 Data Science Virtual Machine using an Azure Resource Manager template. Data Science Virtual Machines are cloud-based virtual machines preloaded with a suite of data science and machine learning frameworks and tools. When deployed on GPU-powered compute resources, all tools and libraries are configured to use the GPU. 
+This quickstart will show you how to create an Ubuntu 18.04 Data Science Virtual Machine using an Azure Resource Manager template (ARM template). Data Science Virtual Machines are cloud-based virtual machines preloaded with a suite of data science and machine learning frameworks and tools. When deployed on GPU-powered compute resources, all tools and libraries are configured to use the GPU.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
+If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
+
+[![Deploy to Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-ubuntu-DSVM-GPU-or-CPU%2Fazuredeploy.json)
+
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://aka.ms/AMLFree) before you begin
+* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/services/machine-learning/) before you begin.
 
-* To use the CLI commands in this document from your **local environment**, you need the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+* To use the CLI commands in this document from your **local environment**, you need the [Azure CLI](/cli/azure/install-azure-cli).
 
-## Create a workspace
+## Review the template
 
-### Review the template
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-vm-ubuntu-DSVM-GPU-or-CPU/).
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-vm-ubuntu-DSVM-GPU-or-CPU/). The complete template for this article is too long to show here. To view the complete template, see [azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-ubuntu-DSVM-GPU-or-CPU/azuredeploy.json). The portion that defines the specifics of the DSVM is shown here:
-
-:::code language="json" source="~/quickstart-templates/101-vm-ubuntu-DSVM-GPU-or-CPU/azuredeploy.json" range="235-276":::
+:::code language="json" source="~/quickstart-templates/101-vm-ubuntu-DSVM-GPU-or-CPU/azuredeploy.json":::
 
 The following resources are defined in the template:
 
+* [Microsoft.Network/networkInterfaces](/azure/templates/microsoft.network/networkinterfaces)
+* [Microsoft.Network/networkSecurityGroups](/azure/templates/microsoft.network/networksecuritygroups)
+* [Microsoft.Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks)
+* [Microsoft.Network/publicIPAddresses](/azure/templates/microsoft.network/publicipaddresses)
+* [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts)
 * [Microsoft.Compute/virtualMachines](/azure/templates/microsoft.compute/virtualmachines): Create a cloud-based virtual machine. In this template, the virtual machine is configured as a Data Science Virtual Machine running Ubuntu 18.04.
 
-### Deploy the template 
+## Deploy the template
 
-To use the template from the Azure CLI, login and choose your subscription (See [Sign in with Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest)). Then run:
+To use the template from the Azure CLI, login and choose your subscription (See [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli)). Then run:
 
 ```azurecli-interactive
 read -p "Enter the name of the resource group to create:" resourceGroupName &&
@@ -49,36 +55,36 @@ read -p "Enter the login name for the administrator account (may not be 'admin')
 read -p "Enter administrator account secure string (value of password or ssh public key):" adminPasswordOrKey &&
 templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-ubuntu-DSVM-GPU-or-CPU/azuredeploy.json" &&
 az group create --name $resourceGroupName --location "$location" &&
-az deployment group create --resource-group $resourceGroupName --template-uri $templateUri --parameters adminUsername=$adminUsername authenticationType=$authenticationType adminPasswordOrKey=$adminPasswordOrKey && 
+az deployment group create --resource-group $resourceGroupName --template-uri $templateUri --parameters adminUsername=$adminUsername authenticationType=$authenticationType adminPasswordOrKey=$adminPasswordOrKey &&
 echo "Press [ENTER] to continue ..." &&
 read
 ```
 
 When you run the above command, enter:
 
-1. The name of the resource group you'd like to create to contain the DSVM and associated resources. 
-1. The Azure location in which you wish to make the deployment
-1. The authentication type you'd like to use (enter the string `password` or `sshPublicKey`)
-1. The login name of the administrator account (this value may not be `admin`)
-1. The value of the password or ssh public key for the account
+1. The name of the resource group you'd like to create to contain the DSVM and associated resources.
+1. The Azure location in which you wish to make the deployment.
+1. The authentication type you'd like to use (enter the string `password` or `sshPublicKey`).
+1. The login name of the administrator account (this value may not be `admin`).
+1. The value of the password or ssh public key for the account.
 
 ## Review deployed resources
 
 To see your Data Science Virtual Machine:
 
-1. Go to https://portal.azure.com 
-1. Sign in 
-1. Choose the resource group you just created
+1. Go to the [Azure portal](https://portal.azure.com)
+1. Sign in.
+1. Choose the resource group you just created.
 
-You'll see the Resource Group's information: 
+You'll see the Resource Group's information:
 
 :::image type="content" source="media/dsvm-tutorial-resource-manager/resource-group-home.png" alt-text="Screenshot of a basic Resource Group containing a DSVM":::
 
-Click on the Virtual Machine resource to go to its information page. Here you can find information on the VM, including connection details. 
+Click on the Virtual Machine resource to go to its information page. Here you can find information on the VM, including connection details.
 
 ## Clean up resources
 
-If you don't want to use this virtual machine, delete it. Since the DSVM is associated with other resources such as a storage account, you'll probably want to delete the entire resource group you created. You can delete the resource group using the portal by clicking on the "Delete" button and confirming. Or, you can delete the resource group from the CLI with: 
+If you don't want to use this virtual machine, delete it. Since the DSVM is associated with other resources such as a storage account, you'll probably want to delete the entire resource group you created. You can delete the resource group using the portal by clicking on the **Delete** button and confirming. Or, you can delete the resource group from the CLI with:
 
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
@@ -89,7 +95,7 @@ echo "Press [ENTER] to continue ..."
 
 ## Next steps
 
-In this quickstart, you created a Data Science Virtual Machine from an Azure Resource Manager template. 
+In this quickstart, you created a Data Science Virtual Machine from an ARM template.
 
 > [!div class="nextstepaction"]
 > [Sample programs & ML walkthroughs](dsvm-samples-and-walkthroughs.md)

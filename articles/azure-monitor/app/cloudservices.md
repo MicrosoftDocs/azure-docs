@@ -2,12 +2,13 @@
 title: Application Insights for Azure cloud services | Microsoft Docs
 description: Monitor your web and worker roles effectively with Application Insights
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 09/05/2018
 
 ---
 
 # Application Insights for Azure cloud services
-[Application Insights][start] can monitor [Azure cloud service apps](https://azure.microsoft.com/services/cloud-services/) for availability, performance, failures, and usage by combining data from Application Insights SDKs with [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) data from your cloud services. With the feedback you get about the performance and effectiveness of your app in the wild, you can make informed choices about the direction of the design in each development lifecycle.
+[Application Insights][start] can monitor [Azure cloud service apps](https://azure.microsoft.com/services/cloud-services/) for availability, performance, failures, and usage by combining data from Application Insights SDKs with [Azure Diagnostics](../platform/diagnostics-extension-overview.md) data from your cloud services. With the feedback you get about the performance and effectiveness of your app in the wild, you can make informed choices about the direction of the design in each development lifecycle.
 
 ![Overview dashboard](./media/cloudservices/overview-graphs.png)
 
@@ -27,9 +28,9 @@ This option instruments your app at runtime, giving you all the telemetry that y
 
 If this option is all you need, you're done. 
 
-Your next steps are [viewing metrics from your app](../../azure-monitor/platform/metrics-charts.md), [querying your data with Analytics](../../azure-monitor/app/analytics.md). 
+Your next steps are [viewing metrics from your app](../platform/metrics-charts.md), [querying your data with Analytics](../log-query/log-query-overview.md). 
 
-To monitor performance in the browser, you might also want to set up [availability tests](../../azure-monitor/app/monitor-web-app-availability.md) and [add code to your webpages](../../azure-monitor/app/javascript.md).
+To monitor performance in the browser, you might also want to set up [availability tests](./monitor-web-app-availability.md) and [add code to your webpages](./javascript.md).
 
 The next sections discuss the following additional options:
 
@@ -47,9 +48,9 @@ The telemetry from your app is stored, analyzed, and displayed in an Azure resou
 Each resource belongs to a resource group. Resource groups are used to manage costs, to grant access to team members, and to deploy updates in a single coordinated transaction. For example, you could [write a script to deploy](../../azure-resource-manager/templates/deploy-powershell.md) an Azure cloud service and its Application Insights monitoring resources all in one operation.
 
 ### Resources for components
-We recommend that you create a separate resource for each component of your app. That is, you create a resource for each web role and worker role. You can analyze each component separately, but you create a [dashboard](../../azure-monitor/app/overview-dashboard.md) that brings together the key charts from all the components, so that you can compare and monitor them together in a single view. 
+We recommend that you create a separate resource for each component of your app. That is, you create a resource for each web role and worker role. You can analyze each component separately, but you create a [dashboard](./overview-dashboard.md) that brings together the key charts from all the components, so that you can compare and monitor them together in a single view. 
 
-An alternative approach is to send the telemetry from more than one role to the same resource, but [add a dimension property to each telemetry item](../../azure-monitor/app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer) that identifies its source role. In this approach, metric charts, such as exceptions, normally show an aggregation of the counts from the various roles, but you can segment the chart by the role identifier, as necessary. You can also filter searches by the same dimension. This alternative makes it a bit easier to view everything at the same time, but it could also lead to some confusion between the roles.
+An alternative approach is to send the telemetry from more than one role to the same resource, but [add a dimension property to each telemetry item](./api-filtering-sampling.md#addmodify-properties-itelemetryinitializer) that identifies its source role. In this approach, metric charts, such as exceptions, normally show an aggregation of the counts from the various roles, but you can segment the chart by the role identifier, as necessary. You can also filter searches by the same dimension. This alternative makes it a bit easier to view everything at the same time, but it could also lead to some confusion between the roles.
 
 Browser telemetry is usually included in the same resource as its server-side web role.
 
@@ -62,9 +63,11 @@ To avoid this situation, create separate resources for each build configuration 
 
 To send the telemetry to the appropriate resources, you can set up the Application Insights SDK so that it picks up a different instrumentation key, depending on the build configuration. 
 
+Learn how to [dynamically set the instrumentation key](https://docs.microsoft.com/azure/azure-monitor/app/separate-resources#dynamic-ikey) for different stages. 
+
 ## Create an Application Insights resource for each role
 
-If you've decided to create a separate resource for each role, and perhaps a separate set for each build configuration, it's easiest to create them all in the Application Insights portal. If you create resources a lot, you can [automate the process](../../azure-monitor/app/powershell.md).
+If you've decided to create a separate resource for each role, and perhaps a separate set for each build configuration, it's easiest to create them all in the Application Insights portal. If you create resources a lot, you can [automate the process](./powershell.md).
 
 1. In the [Azure portal][portal], select **New** > **Developer Services** > **Application Insights**.  
 
@@ -88,7 +91,7 @@ If you have decided to use a separate Application Insights resource for each bui
 
 This has the effect of inserting your Application Insights instrumentation keys into the files named *ServiceConfiguration.\*.cscfg*. Here is the [Sample code](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/AzureEmailService/ServiceConfiguration.Cloud.cscfg).
 
-If you want to vary the level of diagnostics information that's sent to Application Insights, you can do so [by editing the *.cscfg* files directly](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md).
+If you want to vary the level of diagnostics information that's sent to Application Insights, you can do so [by editing the *.cscfg* files directly](../platform/diagnostics-extension-to-application-insights.md).
 
 ## <a name="sdk"></a>Install the SDK in each project
 With this option, you can add custom business telemetry to any role. The option provides a closer analysis of how your app is used and performs.
@@ -128,7 +131,7 @@ In Visual Studio, configure the Application Insights SDK for each cloud app proj
 
 This step is only needed if you want to capture full SQL queries on .NET Framework. 
 
-1. In `\*.csdef` file Add [startup task](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks) for each role similar to 
+1. In `\*.csdef` file Add [startup task](../../cloud-services/cloud-services-startup-tasks.md) for each role similar to 
 
     ```xml
     <Startup>
@@ -161,7 +164,7 @@ This step is only needed if you want to capture full SQL queries on .NET Framewo
 
 1. Open the Application Insights resources that you created.
 
-   Individual data points are displayed in [Search][diagnostic], and aggregated data is displayed in [Metric Explorer](../../azure-monitor/platform/metrics-charts.md).
+   Individual data points are displayed in [Search][diagnostic], and aggregated data is displayed in [Metric Explorer](../platform/metrics-charts.md).
 
 1. Add more telemetry (see the next sections) and then publish your app to get live diagnostics and usage feedback. 
 
@@ -174,17 +177,17 @@ If there is no data, do the following:
 For more information, see [Troubleshooting][qna].
 
 ## View Azure Diagnostics events
-You can find the [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) information in Application Insights in the following locations:
+You can find the [Azure Diagnostics](../platform/diagnostics-extension-overview.md) information in Application Insights in the following locations:
 
 * Performance counters are displayed as custom metrics. 
 * Windows event logs are shown as traces and custom events.
 * Application logs, ETW logs, and any diagnostics infrastructure logs appear as traces.
 
-To view performance counters and counts of events, open [Metrics Explorer](../../azure-monitor/platform/metrics-charts.md) and add the following chart:
+To view performance counters and counts of events, open [Metrics Explorer](../platform/metrics-charts.md) and add the following chart:
 
 ![Azure Diagnostics data](./media/cloudservices/23-wad.png)
 
-To search across the various trace logs that are sent by Azure Diagnostics, use [Search](../../azure-monitor/app/diagnostic-search.md) or an [Analytics query](../../azure-monitor/log-query/get-started-portal.md). For example, suppose you have an unhandled exception that has caused a role to crash and recycle. That information would show up in the Application channel of Windows Event Log. You can use Search to view the Windows Event Log error and get the full stack trace for the exception. Doing so helps you find the root cause of the issue.
+To search across the various trace logs that are sent by Azure Diagnostics, use [Search](./diagnostic-search.md) or an [Analytics query](../log-query/get-started-portal.md). For example, suppose you have an unhandled exception that has caused a role to crash and recycle. That information would show up in the Application channel of Windows Event Log. You can use Search to view the Windows Event Log error and get the full stack trace for the exception. Doing so helps you find the root cause of the issue.
 
 ![Azure Diagnostics search](./media/cloudservices/25-wad.png)
 
@@ -201,7 +204,7 @@ See the two sample worker roles instrumented to report requests:
 * [WorkerRoleB](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/WorkerRoleB)
 
 ## Exceptions
-For information about how to collect unhandled exceptions from various web app types, see [Monitoring exceptions in Application Insights](../../azure-monitor/app/asp-net-exceptions.md).
+For information about how to collect unhandled exceptions from various web app types, see [Monitoring exceptions in Application Insights](./asp-net-exceptions.md).
 
 The sample web role has MVC5 and Web API 2 controllers. The unhandled exceptions from the two are captured with the following handlers:
 
@@ -251,11 +254,11 @@ To get browser-based telemetry, such as page view counts, page load times, or sc
 To make sure your app stays live and responsive, [Set up web tests][availability].
 
 ## Display everything together
-For an overall picture of your system, you can display the key monitoring charts together on one [dashboard](../../azure-monitor/app/overview-dashboard.md). For example, you could pin the request and failure counts of each role. 
+For an overall picture of your system, you can display the key monitoring charts together on one [dashboard](./overview-dashboard.md). For example, you could pin the request and failure counts of each role. 
 
 If your system uses other Azure services, such as Stream Analytics, include their monitoring charts as well. 
 
-If you have a client mobile app, use [App Center](../../azure-monitor/learn/mobile-center-quickstart.md). Create queries in [Analytics](../../azure-monitor/app/analytics.md) to display the event counts, and pin them to the dashboard.
+If you have a client mobile app, use [App Center](../learn/mobile-center-quickstart.md). Create queries in [Analytics](../log-query/log-query-overview.md) to display the event counts, and pin them to the dashboard.
 
 ## Example
 [The example](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) monitors a service that has a web role and two worker roles.
@@ -268,18 +271,19 @@ Did you build for .NET 4.6? .NET 4.6 is not automatically supported in Azure clo
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## Next steps
-* [Configure sending Azure Diagnostics to Application Insights](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
-* [Automatically create Application Insights resources](../../azure-monitor/app/powershell.md)
-* [Automate Azure Diagnostics](../../azure-monitor/app/powershell-azure-diagnostics.md)
+* [Configure sending Azure Diagnostics to Application Insights](../platform/diagnostics-extension-to-application-insights.md)
+* [Automatically create Application Insights resources](./powershell.md)
+* [Automate Azure Diagnostics](./powershell-azure-diagnostics.md)
 * [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample)
 
-[api]: ../../azure-monitor/app/api-custom-events-metrics.md
-[availability]: ../../azure-monitor/app/monitor-web-app-availability.md
-[azure]: ../../azure-monitor/app/app-insights-overview.md
-[client]: ../../azure-monitor/app/javascript.md
-[diagnostic]: ../../azure-monitor/app/diagnostic-search.md
-[netlogs]: ../../azure-monitor/app/asp-net-trace-logs.md
+[api]: ./api-custom-events-metrics.md
+[availability]: ./monitor-web-app-availability.md
+[azure]: ./app-insights-overview.md
+[client]: ./javascript.md
+[diagnostic]: ./diagnostic-search.md
+[netlogs]: ./asp-net-trace-logs.md
 [portal]: https://portal.azure.com/
-[qna]: ../../azure-monitor/app/troubleshoot-faq.md
-[redfield]: ../../azure-monitor/app/monitor-performance-live-website-now.md
-[start]: ../../azure-monitor/app/app-insights-overview.md 
+[qna]: ../faq.md
+[redfield]: ./monitor-performance-live-website-now.md
+[start]: ./app-insights-overview.md
+

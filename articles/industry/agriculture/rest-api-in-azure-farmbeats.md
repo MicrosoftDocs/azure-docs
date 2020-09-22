@@ -1,19 +1,15 @@
 ---
-title: References
-description:
+title: Azure FarmBeats APIs
+description: Learn about Azure FarmBeats APIs, which provide agricultural businesses with a standardized RESTful interface with JSON-based responses.
 author: sunasing
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: sunasing
 ---
 
-# References
+# Azure FarmBeats APIs
 
-This article describes the Azure FarmBeats APIs.
-
-## REST API
-
-The Azure FarmBeats APIs provide agricultural businesses with a standardized RESTful interface with JSON-based responses to help you take advantage of Azure FarmBeats capabilities, such as:
+This article describes the Azure FarmBeats APIs. The Azure FarmBeats APIs provide agricultural businesses with a standardized RESTful interface with JSON-based responses to help you take advantage of Azure FarmBeats capabilities, such as:
 
 - APIs to get sensor, camera, drone, weather, satellite, and curated ground data.
 - Normalization and contextualization of data across common data providers.
@@ -58,7 +54,7 @@ To make an authenticated request to the REST APIs, client code requires authenti
 
 The access token must be sent in subsequent API requests, in the header section, as:
 
-```
+```http
 headers = {"Authorization": "Bearer " + **access_token**}
 ```
 
@@ -177,6 +173,6 @@ After you finish the previous steps, your app registration (client) can call the
 
 Use the access token to send it in subsequent API requests in the header section as:
 
-```
+```http
 headers = {"Authorization": "Bearer " + **access_token**, "Content-Type" : "application/json" }
 ```

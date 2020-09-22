@@ -19,6 +19,12 @@
   - name: Create durable function - JavaScript
     displayName: get started, chaining
     href: quickstart-js-vscode.md
+  - name: Create durable function - Python
+    displayName: get started, chaining
+    href: quickstart-python-vscode.md
+  - name: Create durable function - PowerShell
+    displayName: get started, chaining
+    href: quickstart-powershell-vscode.md
 - name: Tutorials
   items:
   - name: Function chaining
@@ -132,7 +138,7 @@
   - name: Videos
     href: https://www.youtube.com/c/AzureFunctions
   - name: Microsoft Q&A question page
-    href: https://docs.microsoft.com/answers/topics/azure-functions.html
+    href: /answers/topics/azure-functions.html
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-functions
   - name: Twitter

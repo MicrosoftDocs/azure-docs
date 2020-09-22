@@ -7,7 +7,7 @@ ms.date: 1/27/2020
 
 # Azure Backup offline backup by using Azure Data Box
 
-You can use [Azure Data Box](https://docs.microsoft.com/azure/databox/data-box-overview) to seed your large initial Microsoft Azure Recovery Services (MARS) backups offline (without using network) to a Recovery Services vault. This process saves time and network bandwidth that would otherwise be consumed moving large amounts of backup data online over a high-latency network. This enhancement is currently in preview. Offline backup based on Azure Data Box provides two distinct advantages over [offline backup based on the Azure Import/Export service](https://docs.microsoft.com/azure/backup/backup-azure-backup-import-export):
+You can use [Azure Data Box](../databox/data-box-overview.md) to seed your large initial Microsoft Azure Recovery Services (MARS) backups offline (without using network) to a Recovery Services vault. This process saves time and network bandwidth that would otherwise be consumed moving large amounts of backup data online over a high-latency network. This enhancement is currently in preview. Offline backup based on Azure Data Box provides two distinct advantages over [offline backup based on the Azure Import/Export service](./backup-azure-backup-import-export.md):
 
 - There's no need to procure your own Azure-compatible disks and connectors. Azure Data Box ships the disks associated with the selected [Data Box SKU](https://azure.microsoft.com/services/databox/data/).
 - Azure Backup (MARS Agent) can directly write backup data onto the supported SKUs of Azure Data Box. This capability eliminates the need for you to provision a staging location for your initial backup data. You also don't need utilities to format and copy that data onto the disks.
@@ -42,8 +42,8 @@ The process to seed data from the MARS Agent by using Azure Data Box is supporte
 
 | Backup data size (post-compression by MARS)* per server | Supported Azure Data Box SKU                                      |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| <=7.2 TB                                                    | [Azure Data Box disk](https://docs.microsoft.com/azure/databox/data-box-disk-overview) |
-| >7.2 TB and <=80 TB**                                      | [Azure Data Box (100 TB)](https://docs.microsoft.com/azure/databox/data-box-overview) |
+| <=7.2 TB                                                    | [Azure Data Box disk](../databox/data-box-disk-overview.md) |
+| >7.2 TB and <=80 TB**                                      | [Azure Data Box (100 TB)](../databox/data-box-overview.md) |
 
 *Typical compression rates vary between 10% and 20%. <br>
 **If you expect to have more than 80 TB of initial backup data for a single MARS server, contact [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).
@@ -108,7 +108,7 @@ Azure PowerShell could have also been installed by using an msi file. To remove 
 
 ### Order and receive the Data Box device
 
-The offline backup process using MARS and Azure Data Box requires the Data Box devices to be in a Delivered state before you trigger offline backup by using the MARS Agent. To order the most suitable SKU for your requirement, see [Backup data size and supported Data Box SKUs](#backup-data-size-and-supported-data-box-skus). Follow the steps in [Tutorial: Order an Azure Data Box disk](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-ordered) to order and receive your Data Box devices.
+The offline backup process using MARS and Azure Data Box requires the Data Box devices to be in a Delivered state before you trigger offline backup by using the MARS Agent. To order the most suitable SKU for your requirement, see [Backup data size and supported Data Box SKUs](#backup-data-size-and-supported-data-box-skus). Follow the steps in [Tutorial: Order an Azure Data Box disk](../databox/data-box-disk-deploy-ordered.md) to order and receive your Data Box devices.
 
 > [!IMPORTANT]
 > Don't select *BlobStorage* for the **Account kind**. The MARS Agent requires an account that supports page blobs, which isn't supported when *BlobStorage* is selected. Select **Storage V2 (general purpose v2)** as the **Account kind** when you create the target storage account for your Azure Data Box job.
@@ -119,7 +119,7 @@ The offline backup process using MARS and Azure Data Box requires the Data Box d
 
 1. Make sure you uninstall any previous installations of the MARS Agent.
 1. Download the latest MARS Agent from [this website](https://aka.ms/azurebackup_agent).
-1. Run *MARSAgentInstaller.exe*, and do *only* the steps to [install and register the agent](https://docs.microsoft.com/azure/backup/install-mars-agent#install-and-register-the-agent) to the Recovery Services vault where you want your backups to be stored.
+1. Run *MARSAgentInstaller.exe*, and do *only* the steps to [install and register the agent](./install-mars-agent.md#install-and-register-the-agent) to the Recovery Services vault where you want your backups to be stored.
 
    > [!NOTE]
    > The Recovery Services vault must be in the same subscription as the Azure Data Box job.
@@ -132,14 +132,14 @@ Depending on the Azure Data Box SKU you ordered, do the steps covered in the app
 
 ### Set up Azure Data Box disks
 
-If you ordered one or more Azure Data Box disks (up to 8 TB each), follow the steps mentioned here to [unpack, connect, and unlock your Data Box disk](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-set-up).
+If you ordered one or more Azure Data Box disks (up to 8 TB each), follow the steps mentioned here to [unpack, connect, and unlock your Data Box disk](../databox/data-box-disk-deploy-set-up.md).
 
 >[!NOTE]
 >It's possible that the server with the MARS Agent doesn't have a USB port. In that situation, you can connect your Azure Data Box disk to another server or client and expose the root of the device as a network share.
 
 ### Set up Azure Data Box
 
-If you ordered an Azure Data Box instance (up to 100 TB), follow the steps here [to set up your Data Box instance](https://docs.microsoft.com/azure/databox/data-box-deploy-set-up).
+If you ordered an Azure Data Box instance (up to 100 TB), follow the steps here [to set up your Data Box instance](../databox/data-box-deploy-set-up.md).
 
 #### Mount your Azure Data Box instance as a Local System
 
@@ -148,15 +148,15 @@ The MARS Agent operates in the Local System context, so it requires the same lev
 To ensure you can mount your Data Box device as a Local System by using the NFS protocol:
 
 1. Enable the client for the NFS feature on the Windows server that has the MARS Agent installed. Specify the alternate source *WIM:D:\Sources\Install.wim:4*.
-1. Download PSExec from <https://download.sysinternals.com/files/PSTools.zip> to the server with the MARS Agent installed.
+1. Download PsExec from the [Sysinternals](/sysinternals/downloads/psexec) page to the server with the MARS Agent installed.
 1. Open an elevated command prompt, and run the following command with the directory that contains *PSExec.exe* as the current directory.
 
     ```cmd
     psexec.exe  -s  -i  cmd.exe
     ```
 
-   The command window that opens as a result of the previous command is in the Local System context. Use this command window to execute the steps to mount the Azure page blob share as a network drive on your Windows server.
-1. Follow the steps in [Connect to Data Box](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-nfs#connect-to-data-box) to connect your server with the MARS Agent to the Data Box device via NFS. Run the following command on the Local System command prompt to mount the Azure page blobs share.
+   The command window that opens because of the previous command is in the Local System context. Use this command window to execute the steps to mount the Azure page blob share as a network drive on your Windows server.
+1. Follow the steps in [Connect to Data Box](../databox/data-box-deploy-copy-data-via-nfs.md#connect-to-data-box) to connect your server with the MARS Agent to the Data Box device via NFS. Run the following command on the Local System command prompt to mount the Azure page blobs share.
 
     ```cmd
     mount -o nolock \\<DeviceIPAddress>\<StorageAccountName_PageBlob X:  
@@ -190,7 +190,7 @@ To ensure you can mount your Data Box device as a Local System by using the NFS 
 
     ![Fetch Data Box jobs for subscription ID](./media/offline-backup-azure-data-box/fetching-databox-jobs.png)
 
-1. Select the correct Data Box order for which you have unpacked, connected, and unlocked your Data Box disk. Select **Next**.
+1. Select the correct Data Box order for which you've unpacked, connected, and unlocked your Data Box disk. Select **Next**.
 
     ![Select Data Box orders](./media/offline-backup-azure-data-box/select-databox-order.png)
 
@@ -233,9 +233,9 @@ After the backup of the data is finished, you'll see a page on the MARS Agent th
 
 This section explains the steps to take after the backup of the data to the Azure Data Box Disk is successful.
 
-- Follow the steps in this article to [ship the Azure Data Box disk to Azure](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-picked-up). If you used an Azure Data Box 100-TB device, follow these steps to [ship the Azure Data Box device to Azure](https://docs.microsoft.com/azure/databox/data-box-deploy-picked-up).
+- Follow the steps in this article to [ship the Azure Data Box disk to Azure](../databox/data-box-disk-deploy-picked-up.md). If you used an Azure Data Box 100-TB device, follow these steps to [ship the Azure Data Box device to Azure](../databox/data-box-deploy-picked-up.md).
 
-- [Monitor the Data Box job](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-upload-verify) in the Azure portal. After the Azure Data Box job is finished, the MARS Agent automatically moves the data from the storage account to the Recovery Services vault at the time of the next scheduled backup. It then marks the backup job as *Job Completed* if a recovery point is successfully created.
+- [Monitor the Data Box job](../databox/data-box-disk-deploy-upload-verify.md) in the Azure portal. After the Azure Data Box job is finished, the MARS Agent automatically moves the data from the storage account to the Recovery Services vault at the time of the next scheduled backup. It then marks the backup job as *Job Completed* if a recovery point is successfully created.
 
     >[!NOTE]
     >The MARS Agent triggers backups at the times scheduled during policy creation. These jobs flag "Waiting for Azure Data Box job to be completed" until the time the job is finished.
@@ -244,7 +244,7 @@ This section explains the steps to take after the backup of the data to the Azur
 
 ## Troubleshooting
 
-The Microsoft Azure Backup (MAB) Agent creates an Azure Active Directory (Azure AD) application for you in your tenant. This application requires a certificate for authentication that's created and uploaded when you configure an offline seeding policy. We use Azure PowerShell to create and upload the certificate to the Azure AD application.
+The Microsoft Azure Recovery Services (MARS) Agent creates an Azure Active Directory (Azure AD) application for you in your tenant. This application requires a certificate for authentication that's created and uploaded when you configure an offline seeding policy. We use Azure PowerShell to create and upload the certificate to the Azure AD application.
 
 ### Problem
 
@@ -254,13 +254,13 @@ When you configure offline backup, you might face a problem because of a bug in 
 
 To see if your problem is the same as the one previously described, do one of the following steps.
 
-#### Step 1
+#### Step 1 of verification
 
 Check to see if the following error message appears in the MAB console when you configured offline backup.
 
 ![Unable to create Offline Backup policy for the current Azure account](./media/offline-backup-azure-data-box/unable-to-create-policy.png)
 
-#### Step 2
+#### Step 2 of verification
 
 1. Open the **Temp** folder in the installation path. The default temp folder path is *C:\Program Files\Microsoft Azure Recovery Services Agent\Temp*. Look for the *CBUICurr* file, and open the file.
 
@@ -270,11 +270,11 @@ Check to see if the following error message appears in the MAB console when you 
 
 As a workaround to resolve this problem, do the following steps and retry the policy configuration.
 
-#### Step 1
+#### Step 1 of workaround
 
 Sign in to PowerShell that appears on the MAB UI by using a different account with admin access on the subscription that will have the import or export job created.
 
-#### Step 2
+#### Step 2 of workaround
 
 If no other server has offline seeding configured and no other server is dependent on the `AzureOfflineBackup_<Azure User Id>` application, delete this application. Select **Azure portal** > **Azure Active Directory** > **App registrations**.
 

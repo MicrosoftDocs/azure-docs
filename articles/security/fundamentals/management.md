@@ -23,7 +23,7 @@ Azure subscribers may manage their cloud environments from multiple devices, inc
 
 Although multiple access and management capabilities provide a rich set of options, this variability can add significant risk to a cloud deployment. It can be difficult to manage, track, and audit administrative actions. This variability may also introduce security threats through unregulated access to client endpoints that are used for managing cloud services. Using general or personal workstations for developing and managing infrastructure opens unpredictable threat vectors such as web browsing (for example, watering hole attacks) or email (for example, social engineering and phishing).
 
-![](./media/management/typical-management-network-topology.png)
+![A diagram showing the different ways a threat could mount a attacks.](./media/management/typical-management-network-topology.png)
 
 The potential for attacks increases in this type of environment because it is challenging to construct security policies and mechanisms to appropriately manage access to Azure interfaces (such as SMAPI) from widely varied endpoints.
 
@@ -62,7 +62,7 @@ Consolidating access resources and eliminating unmanaged endpoints also simplifi
 ### Providing security for Azure remote management
 Azure provides security mechanisms to aid administrators who manage Azure cloud services and virtual machines. These mechanisms include:
 
-* Authentication and [role-based access control](../../role-based-access-control/role-assignments-portal.md).
+* Authentication and [Azure role-based access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md).
 * Monitoring, logging, and auditing.
 * Certificates and encrypted communications.
 * A web management portal.
@@ -153,12 +153,12 @@ With a stand-alone hardened workstation, administrators have a PC or laptop that
 
 In the stand-alone hardened workstation scenario (shown below), the local instance of Windows Firewall (or a non-Microsoft client firewall) is configured to block inbound connections, such as RDP. The administrator can log on to the hardened workstation and start an RDP session that connects to Azure after establishing a VPN connect with an Azure Virtual Network, but cannot log on to a corporate PC and use RDP to connect to the hardened workstation itself.
 
-![](./media/management/stand-alone-hardened-workstation-topology.png)
+![A diagram showing the stand-alone hardened workstation scenario.](./media/management/stand-alone-hardened-workstation-topology.png)
 
 ### Corporate PC as virtual machine
 In cases where a separate stand-alone hardened workstation is cost prohibitive or inconvenient, the hardened workstation can host a virtual machine to perform non-administrative tasks.
 
-![](./media/management/hardened-workstation-enabled-with-hyper-v.png)
+![A diagram showing the hardened workstation hosting a virtual machine to perform non-administrative tasks.](./media/management/hardened-workstation-enabled-with-hyper-v.png)
 
 To avoid several security risks that can arise from using one workstation for systems management and other daily work tasks, you can deploy a Windows Hyper-V virtual machine to the hardened workstation. This virtual machine can be used as the corporate PC. The corporate PC environment can remain isolated from the Host, which reduces its attack surface and removes the user’s daily activities (such as email) from coexisting with sensitive administrative tasks.
 

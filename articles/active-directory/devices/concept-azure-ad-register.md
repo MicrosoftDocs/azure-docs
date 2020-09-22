@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 The goal of Azure AD registered devices is to provide your users with support for the Bring Your Own Device (BYOD) or mobile device scenarios. In these scenarios, a user can access your organization’s Azure Active Directory controlled resources using a personal device.
 
-|   | Azure AD Registered |
+| Azure AD Registered | Description |
 | --- | --- |
 | **Definition** | Registered to Azure AD without requiring organizational account to sign in to the device |
 | **Primary audience** | Applicable to all users with the following criteria: |
