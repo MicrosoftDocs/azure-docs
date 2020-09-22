@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 Azure AD Connect cloud provisioning has introduced a new feature, that will allow you easily map attributes between your on-premises user/group objects and the objects in Azure AD.  This feature has been added to the cloud provisioning configuration.
 
-You can customize the default attribute-mappings according to your business needs. So, you can change or delete existing attribute-mappings, or create new attribute-mappings.  For a list of attributes that are synchronized see [attributes that are synchronized](../hybrid/reference-connect-sync-attributes-synchronized.md?context=azure%2factive-directory%2fcloud-provisioning%2fcontext%2fcp-context/hybrid/reference-connect-sync-attributes-synchronized.md)
+You can customize the default attribute-mappings according to your business needs. So, you can change or delete existing attribute-mappings, or create new attribute-mappings.  For a list of attributes that are synchronized see [attributes that are synchronized](../hybrid/reference-connect-sync-attributes-synchronized.md?context=azure%2factive-directory%2fcloud-provisioning%2fcontext%2fcp-context/hybrid/reference-connect-sync-attributes-synchronized.md).
 
 ## Understanding attribute-mapping types
 With attribute-mappings, you control how attributes are populated in Azure AD.
