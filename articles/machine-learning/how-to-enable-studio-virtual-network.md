@@ -16,7 +16,6 @@ ms.custom: contperfq4, tracking-python
 ---
 
 # Use Azure Machine Learning studio in an Azure virtual network
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In this article, you learn how to use Azure Machine Learning studio in a virtual network. You learn how to:
 

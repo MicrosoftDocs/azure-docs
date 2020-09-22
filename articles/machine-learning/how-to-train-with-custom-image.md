@@ -13,13 +13,12 @@ ms.custom: how-to
 ---
 
 # Train a model using a custom Docker image
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In this article, learn how to use a custom Docker image when training models with Azure Machine Learning. 
 
 The example scripts in this article are used to classify pet images by creating a convolutional neural network. 
 
-While Azure Machine Learning provides a default Docker base image, you can also use Azure Machine Learning environments to specify a specific base image, such as one of the set of maintained [Azure ML base images](https://github.com/Azure/AzureML-Containers) or your own [custom image](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-custom-docker-image#create-a-custom-base-image). Custom base images allow you to closely manage your dependencies and maintain tighter control over component versions when executing training jobs. 
+While Azure Machine Learning provides a default Docker base image, you can also use Azure Machine Learning environments to specify a specific base image, such as one of the set of maintained [Azure ML base images](https://github.com/Azure/AzureML-Containers) or your own [custom image](how-to-deploy-custom-docker-image.md#create-a-custom-base-image). Custom base images allow you to closely manage your dependencies and maintain tighter control over component versions when executing training jobs. 
 
 ## Prerequisites 
 Run this code on either of these environments:
@@ -96,11 +95,11 @@ fastai_env.docker.base_dockerfile = "./Dockerfile"
 ```
 
 ### Create or attach existing AmlCompute
-You will need to create a [compute target](https://docs.microsoft.com/azure/machine-learning/concept-azure-machine-learning-architecture#compute-target) for training your model. In this tutorial, you create AmlCompute as your training compute resource.
+You will need to create a [compute target](concept-azure-machine-learning-architecture.md#compute-targets) for training your model. In this tutorial, you create AmlCompute as your training compute resource.
 
 Creation of AmlCompute takes approximately 5 minutes. If the AmlCompute with that name is already in your workspace this code will skip the creation process.
 
-As with other Azure services, there are limits on certain resources (e.g. AmlCompute) associated with the Azure Machine Learning service. Please read [this article](https://docs.microsoft.com/azure/machine-learning/how-to-manage-quotas) on the default limits and how to request more quota. 
+As with other Azure services, there are limits on certain resources (e.g. AmlCompute) associated with the Azure Machine Learning service. Please read [this article](how-to-manage-quotas.md) on the default limits and how to request more quota. 
 
 ```python
 from azureml.core.compute import ComputeTarget, AmlCompute
@@ -127,7 +126,7 @@ print(compute_target.get_status().serialize())
 ```
 
 ### Create a ScriptRunConfig
-This ScriptRunConfig will configure your job for execution on the desired [compute target](https://docs.microsoft.com/azure/machine-learning/how-to-set-up-training-targets#compute-targets-for-training).
+This ScriptRunConfig will configure your job for execution on the desired [compute target](how-to-set-up-training-targets.md).
 
 ```python
 from azureml.core import ScriptRunConfig
@@ -155,4 +154,4 @@ For more information about customizing your Python environment, see [create & us
 ## Next steps
 In this article, you trained a model using a custom Docker image. See these other articles to learn more about Azure Machine Learning.
 * [Track run metrics](how-to-track-experiments.md) during training
-* [Deploy a model](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-custom-docker-image) using a custom Docker image.
+* [Deploy a model](how-to-deploy-custom-docker-image.md) using a custom Docker image.
