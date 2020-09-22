@@ -21,6 +21,7 @@ ms.author: b-juche
 
 Azure NetApp Files is updated on a regular basis. This article provides a summary about the latest new features and enhancements. 
 
+<!-- 
 ## October 2020
 
 * `Flexible performance capacity pool (Manual QoS capacity pool)`
@@ -28,12 +29,15 @@ Azure NetApp Files is updated on a regular basis. This article provides a summar
     ...
     ... 
 
+-->
+
 ## September 2020
 
 * [Azure NetApp Files cross-region replication](cross-region-replication-introduction.md) (Public Preview)
 
-  Azure NetApp Files now supports cross-region replication. With this new disaster recovery capability, you can replicate your Azure NetApp Files volumes from one Azure region to another in a fast and cost-effective way, protecting your data from unforeseeable regional failures. Azure NetApp Files cross region replication leverages NetApp SnapMirror® technology therefore; only changed blocks are sent over the network in a compressed, efficient format. This proprietary technology minimizes the amount of data required to replicate across the regions, therefore saving data transfer costs. It also shortens the replication time, so you can achieve a smaller Restore Point Objective (RPO).
+  Azure NetApp Files now supports cross-region replication. With this new disaster recovery capability, you can replicate your Azure NetApp Files volumes from one Azure region to another in a fast and cost-effective way, protecting your data from unforeseeable regional failures. Azure NetApp Files cross region replication leverages NetApp SnapMirror® technology; only changed blocks are sent over the network in a compressed, efficient format. This proprietary technology minimizes the amount of data required to replicate across the regions, therefore saving data transfer costs. It also shortens the replication time, so you can achieve a smaller Restore Point Objective (RPO).
 
+<!-- >
 * `[AES Encryption]` 
     ...
     ...
@@ -41,6 +45,7 @@ Azure NetApp Files is updated on a regular basis. This article provides a summar
 * `[LDAP Signing]`
     ...
     ...
+--> 
 
 ## July 2020
 
@@ -60,19 +65,19 @@ Azure NetApp Files is updated on a regular basis. This article provides a summar
 
     Azure NetApp Files allows you to create point-in-time snapshots of your volumes. You can now create a snapshot policy to have Azure NetApp Files automatically create volume snapshots at a frequency of your choice. You can schedule the snapshots to be taken in hourly, daily, weekly, or monthly cycles. You can also specify the maximum number of snapshots to keep as part of the snapshot policy. This feature is free of charge (normal [Azure NetApp Files storage cost](https://azure.microsoft.com/pricing/details/netapp/) still applies) and is currently in preview. You can register for the feature preview by following the [volume snapshot policy documentation](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies).
 
-* [NFS Root Access Export Policy](azure-netapp-files-configure-export-policy.md)
+* [NFS root access export policy](azure-netapp-files-configure-export-policy.md)
 
     Azure NetApp Files now allows you to specify whether the root account can access the volume. 
 
 * [Hide snapshot path](azure-netapp-files-manage-snapshots.md#restore-a-file-from-a-snapshot-using-a-client)
 
-    Azure NetApp Files now allows you to specify whether a user can see/access the `.snapshot` directory (NFS clients) or `~snapshot` folder (SMB clients) on a mounted volume.
+    Azure NetApp Files now allows you to specify whether a user can see and access the `.snapshot` directory (NFS clients) or `~snapshot` folder (SMB clients) on a mounted volume.
 
 ## May 2020
 
 * [Backup policy users](azure-netapp-files-create-volumes-smb.md#create-an-active-directory-connection) (Preview)
 
-    Azure NetAppFiles allows you to include additional accounts that require elevated privileges to the computer account created for use with Azure NetApp Files. The specified accounts will be allowed to change the NTFS permissions at the file or folder level. For example, you can specify a non-privileged service account used for migrating data to an SMB file share in Azure NetApp Files. The Backup policy users feature is currently in preview.
+    Azure NetApp Files allows you to include additional accounts that require elevated privileges to the computer account created for use with Azure NetApp Files. The specified accounts will be allowed to change the NTFS permissions at the file or folder level. For example, you can specify a non-privileged service account used for migrating data to an SMB file share in Azure NetApp Files. The Backup policy users feature is currently in preview.
 
 ## Next steps
 * [What is Azure NetApp Files](azure-netapp-files-introduction.md)
