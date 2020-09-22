@@ -55,7 +55,7 @@ DevOps Starter creates a workflow in GitHub. You can use an existing GitHub orga
 
 ## Configure GitHub and an Azure subscription
 
-1. **Authorize** Github and select an existing GitHub organization. 
+1. **Authorize** GitHub and select an existing GitHub organization. 
 
 1. Enter a name for your **GitHub Repository**. 
 
@@ -79,9 +79,9 @@ In the previous step, DevOps Starter automatically configured a full GitHub work
 
 1. On the left of the DevOps Starter dashboard, select **GitHub workflow**. This link opens a browser tab and the GitHub workflow for your new project.
 > [!NOTE]
-> Do not rename the workflow file. The name of the worflow file should be **devops-starter-workflow.yml** for the dashboard to reflect the changes
+> Do not rename the workflow file. The name of the workflow file should be **devops-starter-workflow.yml** for the dashboard to reflect the changes
 
-1. The workflow yaml file contains all the GitHub Actions required to build and deploy the application. Click on **edit file** option to customize your worflow file.
+1. The workflow yaml file contains all the GitHub Actions required to build and deploy the application. Click on **edit file** option to customize your workflow file.
 
 1. Under the **Code** tab of the repo click on **commits**. This view shows code commits that are associated with the specific deployment.
 
