@@ -85,7 +85,7 @@ In the previous step, DevOps Starter automatically configured a full GitHub work
 
 1. Under the **Code** tab of the repo click on **commits**. This view shows code commits that are associated with the specific deployment.
 
-1. Under the **Actions** tab of the repo you can view the history of all the worflow runs of your repository.
+1. Under the **Actions** tab of the repo you can view the history of all the workflow runs of your repository.
 
 1. Select the **latest run** to view all the jobs that ran in the workflow.
 
