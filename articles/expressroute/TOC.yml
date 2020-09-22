@@ -152,6 +152,8 @@
     items:
     - name: Configure a site-to-site VPN over Microsoft peering
       href: site-to-site-vpn-over-microsoft-peering.md
+    - name: IPsec VPN over private peering
+      href: ../vpn-gateway/site-to-site-vpn-private-peering.md?toc=%2fazure%2fexpressroute%2ftoc.json
     - name: Configure IPsec transport mode for Windows hosts
       href: expressroute-howto-ipsec-transport-private-windows.md
   - name: Redundancy
