@@ -41,7 +41,7 @@ The quickstart uses the `copy` element to create multiple instances of key-value
 
 Two Azure resources are defined in the template:
 
-- [Microsoft.AppConfiguration/configurationStores](/azure/templates/microsoft.appconfiguration/2019-10-01/configurationstores): create an App Configuration store.
+- [Microsoft.AppConfiguration/configurationStores](/azure/templates/microsoft.appconfiguration/2020-06-01/configurationstores): create an App Configuration store.
 - Microsoft.AppConfiguration/configurationStores/keyValues: create a key-value inside the App Configuration store.
 
 > [!NOTE]
