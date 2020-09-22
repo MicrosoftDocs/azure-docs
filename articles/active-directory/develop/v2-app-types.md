@@ -114,7 +114,8 @@ In this flow, the app receives an authorization code from the Microsoft identity
 
 ![Shows the native app authentication flow](./media/v2-app-types/convergence-scenarios-native.svg)
 
-*Note: If the application is using the default system webview, please check the information about "Confirm My Sign-In" functionality and error code AADSTS50199: https://docs.microsoft.com/pt-pt/azure/active-directory/develop/reference-aadsts-error-codes*
+> [!NOTE]
+> If the application uses the default system webview, check the information about "Confirm My Sign-In" functionality and error code AADSTS50199 in [Azure AD authentication and authorization error codes](reference-aadsts-error-codes.md).
 
 ## Daemons and server-side apps
 
