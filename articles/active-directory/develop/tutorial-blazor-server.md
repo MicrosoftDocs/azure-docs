@@ -27,7 +27,7 @@ In this tutorial, you learn how to:
 - [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1)
 - An Azure AD tenant where you can register an app. If you don’t have access to an Azure AD tenant, you can get one by registering with the [Microsoft 365 Developer Program](https://developer.microsoft.com/microsoft-365/dev-program) or by creating an [Azure free account](https://azure.microsoft.com/free).
 
-## Create the app using the .NET CLI and register it in the Azure portal
+## Register the app in the Azure portal
 
 Every app that uses Azure Active Directory (Azure AD) for authentication must be registered with Azure AD. Follow the instructions in [Register an application](quickstart-register-app.md) with these additions:
 
@@ -36,13 +36,21 @@ Every app that uses Azure Active Directory (Azure AD) for authentication must be
 
 In **Authentication** > **Implicit grant**, select the check boxes for **Access tokens** and **ID tokens**, and then select the **Save** button.
 
-Create the app in an empty folder. Run the following command to download the templates for Microsoft.Identity.Web, which we will make use of in this tutorial. 
+Finally, because the app calls a protected API (in this case Microsoft Graph), it needs a client secret in order to verify its identity when it requests an access token to call that API. 
 
-'''dotnetcli
+1. Within the same app registration, under **Manage**, select **Certificates & secrets**.
+2. Create a **New client secret** that never expires.
+3. Make note of the secret's **Value** as you will use it in the next step. You can’t access it again once you navigate away from this pane. However, you can recreate it as needed.
+
+## Create the app using the .NET CLI
+
+Run the following command to download the templates for Microsoft.Identity.Web, which we will make use of in this tutorial. 
+
+```dotnetcli
 dotnet new --install Microsoft.Identity.Web.ProjectTemplates::0.4.0-preview
-'''
+```
 
-Then, run the following command to create the application. Replace the placeholders in the command with the proper information from your app's overview page and execute the command in a command shell:
+Then, run the following command to create the application. Replace the placeholders in the command with the proper information from your app's overview page and execute the command in a command shell. The output location specified with the `-o|--output` option creates a project folder if it doesn't exist and becomes part of the app's name.
 
 ```dotnetcli
 dotnet new blazorserver2 --auth SingleOrg --calls-graph -o {APP NAME} --client-id "{CLIENT ID}" --tenant-id "{TENANT ID}"
@@ -54,21 +62,19 @@ dotnet new blazorserver2 --auth SingleOrg --calls-graph -o {APP NAME} --client-i
 | `{CLIENT ID}` | Application (client) ID | `41451fa7-0000-0000-0000-69eff5a761fd` |
 | `{TENANT ID}` | Directory (tenant) ID   | `e86c78e2-0000-0000-0000-918e0565a45e` |
 
-The output location specified with the `-o|--output` option creates a project folder if it doesn't exist and becomes part of the app's name.
+Now, navigate to your new Blazor app in your editor and add the client secret to the *appsettings.json* file, replacing the text "secret-from-app-registration".
 
-Finally, because the app calls a protected API (in this case Microsoft Graph), it needs a client secret in order to verify its identity when it requests an access token to call that API. 
+```json
+"ClientSecret": "xkAlNiG70000000_UI~d.OS4Dl.-Cy-1m3",
+```
 
-1. Within the same app registration, under **Manage**, select **Certificates & secrets**.
-2. Create a **New client secret** that never expires.
-3. Copy the secret's **Value** to your clipboard. You can’t access it again once you navigate away from this pane. However, you can recreate it as needed.
-
-Navigate to your new Blazor app in your editor and add the client secret to the *appsettings.json* file, replacing the text "secret-from-app-registration".
+## Test the app
 
 You can now build and run the app. When you run this template app, you must specify the framework to run using --framework. This tutorial uses the .NET Core 3.1 SDK. 
 
-'''dotnetcli
+```dotnetcli
 dotnet run --framework netcoreapp3.1
-'''
+```
 
 In your browser, navigate to `https://localhost:5001`, and log in using an Azure AD user account to see the app running. 
 
@@ -88,6 +94,10 @@ Now you will update your app's registration and code to pull a user's email and 
 
 In the *appsettings.json* file, update your code so it fetches the appropriate token with the right permissions. Add "mail.read" after the "user.read" scope under "DownstreamAPI". This is specifying which scopes (or permissions) the app will request access to.
 
+```json
+"Scopes": "user.read mail.read"
+```
+
 Next, update the code in the *FetchData.razor* file to retrieve email data instead of the default (random) weather details. Replace the code in that file with the following:
 
 ```csharp
@@ -95,8 +105,6 @@ Next, update the code in the *FetchData.razor* file to retrieve email data inste
 
 @inject IHttpClientFactory HttpClientFactory
 @inject Microsoft.Identity.Web.ITokenAcquisition TokenAcquisitionService
-
-<h1>Weather forecast</h1>
 
 <p>This component demonstrates fetching data from a service.</p>
 
@@ -181,17 +189,16 @@ else
 
 ```
 
-> [!NOTE]
-> If you stop the app while using an in-memory token cache, the token cache will be cleared but the application cookie may persist. To avoid this, you can use a persistent token cache, or clear you cookies from the browser session to avoid an abnormal app state.
-
 Launch the app. You’ll notice that you're prompted for the newly added permissions, indicating that everything is working as expected. Now, beyond basic user profile data, the app is requesting access to email data.
 
-![Image of a dialog box asking the user permission for the Blazor app to maintain access to data you have given it access to, sign you in and read your profile, and read your mail.](./media/tutorial-blazor-server/consent-dialog-2.png)
+:::image type="content" source="./media/tutorial-blazor-server/consent-dialog-2.png" alt-text="Image of a dialog box asking the user permission for the Blazor app to maintain access to data you have given it access to, sign you in and read your profile, and read your mail.":::
 
-After granting consent, navigate to the "Fetch Data" page to read some email.
+After granting consent, navigate to the "Fetch data" page to read some email.
 
-![Screenshot of the final app. The webpage is titled "Weather forecast". It has a heading that says "Hello Christos Matskas" and it shows a list of emails belonging to Christos.](./media/tutorial-blazor-server/final-app-2.png)
+:::image type="content" source="./media/tutorial-blazor-server/final-app-2.png" alt-text="Screenshot of the final app. It has a heading that says "Hello Nicholas" and it shows a list of emails belonging to Nicholas.":::
 
 ## Next steps
 
 - [Microsoft identity platform best practices and recommendations](./identity-platform-integration-checklist.md)
+- [Secure ASP.NET Blazor WASM apps and APIs with Azure AD B2C](https://dev.to/425show/secure-asp-net-blazor-wasm-apps-and-apis-with-azure-ad-b2c-474g)
+- [Microsoft Identity Web basics](https://github.com/AzureAD/microsoft-identity-web/wiki/Microsoft-Identity-Web-basics)
