@@ -53,7 +53,7 @@ if spec is None:
 > If your pipeline contains multiple Execute Python Script modules that need packages that aren't in the preinstalled list, install the packages in each module.
 
 ## Upload files
-The Execute Python Script module supports uploading files by using the [Azure Machine Learning Python SDK](python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#upload-file-name--path-or-stream-).
+The Execute Python Script module supports uploading files by using the [Azure Machine Learning Python SDK](python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py&preserve-view=true#upload-file-name--path-or-stream-).
 
 The following example shows how to upload an image file in the Execute Python Script module:
 
