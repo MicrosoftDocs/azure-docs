@@ -25,13 +25,15 @@ Disclaimer: Hyperspace helps accelerate your workloads or queries under two circ
 
 You might want to carefully monitor your workloads and determine whether indexing is helping you on a case-by-case basis.
 
-This document is also available in notebook form for [Python](https://github.com/microsoft/hyperspace/blob/master/notebooks/python/Hitchhikers%20Guide%20to%20Hyperspace.ipynb), [C#](https://github.com/microsoft/hyperspace/blob/master/notebooks/csharp/Hitchhikers%20Guide%20to%20Hyperspace.ipynb), and [Scala](https://github.com/microsoft/hyperspace/blob/master/notebooks/scala/Hitchhikers%20Guide%20to%20Hyperspace.ipynb).
+This document is also available in notebook form, for [Python](https://github.com/microsoft/hyperspace/blob/master/notebooks/python/Hitchhikers%20Guide%20to%20Hyperspace.ipynb), [C#](https://github.com/microsoft/hyperspace/blob/master/notebooks/csharp/Hitchhikers%20Guide%20to%20Hyperspace.ipynb), and [Scala](https://github.com/microsoft/hyperspace/blob/master/notebooks/scala/Hitchhikers%20Guide%20to%20Hyperspace.ipynb)
 
 ## Setup
 
-To begin with, start a new Spark session. Because this document is a tutorial that illustrates what Hyperspace can offer, you'll make a configuration change that allows us to highlight what Hyperspace is doing on small datasets. By default, Spark uses broadcast join to optimize join queries when the data size for one side of a join is small, which is the case for the sample data we use in this tutorial. We disable broadcast joins so that later when we run join queries, Spark uses sort-merge join. This change is mainly to show how Hyperspace indexes would be used at scale for accelerating join queries.
+To begin with, start a new Spark session. Since this document is a tutorial merely to illustrate what Hyperspace can offer, you will make a configuration change that allows us to highlight what Hyperspace is doing on small datasets. 
 
-The output of running the following cell shows a reference to the successfully created Spark session and prints out -1 as the value for the modified join config, which indicates that broadcast join is successfully disabled.
+By default, Spark uses broadcast join to optimize join queries when the data size for one side of join is small (which is the case for the sample data we use in this tutorial). Therefore, we disable broadcast joins so that later when we run join queries, Spark uses sort-merge join. This is mainly to show how Hyperspace indexes would be used at scale for accelerating join queries.
+
+The output of running the following cell shows a reference to the successfully created Spark session and prints out '-1' as the value for the modified join config, which indicates that broadcast join is successfully disabled.
 
 :::zone pivot = "programming-language-scala"
 
@@ -89,7 +91,7 @@ To prepare your environment, you'll create sample data records and save them as 
 
 The example records correspond to two datasets: department and employee. You should configure the "empLocation" and "deptLocation" paths so that on the storage account they point to your desired location to save generated data files.
 
-The output of running the following cell shows the contents of our datasets as lists of triplets. They're followed by references to DataFrames created to save the content of each dataset in our preferred location.
+The output of running the following cell shows contents of our datasets as lists of triplets followed by references to dataFrames created to save the content of each dataset in our preferred location.
 
 :::zone pivot = "programming-language-scala"
 
@@ -237,7 +239,7 @@ deptLocation: String = /your-path/departments.parquet
 
 Let's verify the contents of the Parquet files we created to make sure they contain expected records in the correct format. Later, we'll use these data files to create Hyperspace indexes and run sample queries.
 
-Running the following cell, the output displays the rows in employee and department DataFrames in a tabular form. There should be 14 employees and four departments, each matching with one of the triplets you created in the previous cell.
+Running the following cell produces and output that displays the rows in employee and department dataFrames in a tabular form. There should be 14 employees and 4 departments, each matching with one of triplets you created in the previous cell.
 
 :::zone pivot = "programming-language-scala"
 
@@ -332,6 +334,9 @@ After indexes are created, you can perform several actions:
 * **Refresh if the underlying data changes.** You can refresh an existing index to capture the changes.
 * **Delete if the index isn't needed.** You can perform a soft delete, that is, the index isn't physically deleted but is marked as "deleted" so that it's no longer used in your workloads.
 * **Vacuum if an index is no longer required.** You can vacuum an index, which forces a physical deletion of the index contents and associated metadata completely from Hyperspace's metadata.
+
+Refresh if the underlying data changes, you can refresh an existing index to capture that.
+Delete if the index is not needed, you can perform a soft-delete that is, index is not physically deleted but is marked as 'deleted' so it is no longer used in your workloads.
 
 The following sections show how such index management operations can be done in Hyperspace.
 
@@ -452,8 +457,7 @@ empIndexConfig: com.microsoft.hyperspace.index.IndexConfig = [indexName: empInde
 deptIndexConfig1: com.microsoft.hyperspace.index.IndexConfig = [indexName: deptIndex1; indexedColumns: deptid; includedColumns: deptname]  
 deptIndexConfig2: com.microsoft.hyperspace.index.IndexConfig = [indexName: deptIndex2; indexedColumns: location; includedColumns: deptname]  
 ```
-
-Now, you create three indexes using your index configurations. For this purpose, you invoke the **createIndex** command on our Hyperspace instance. This command requires an index configuration and the DataFrame that contains rows to be indexed. Running the following cell creates three indexes.
+Now, you create three indexes using your index configurations. For this purpose, you invoke "createIndex" command on our Hyperspace instance. This command requires an index configuration and the dataFrame containing rows to be indexed. Running the following cell creates three indexes.
 
 :::zone pivot = "programming-language-scala"
 
@@ -503,14 +507,17 @@ import com.microsoft.hyperspace.index.Index
 
 ## List indexes
 
-The following code shows how you can list all available indexes in a Hyperspace instance. It uses the indexes API that returns information about existing indexes as a Spark DataFrame so that you can perform additional operations. For instance, you can invoke valid operations on this DataFrame for checking its content or analyzing it further. For example, you can filter specific indexes or group them according to some desired property.
+The code that follows shows how you can list all available indexes in a Hyperspace instance. It uses "indexes" API that returns information about existing indexes as a Spark DataFrame so you can perform additional operations. 
 
-The following cell uses DataFrame's show action to fully print the rows and show details of our indexes in a tabular form. For each index, you can see all the information Hyperspace has stored about it in the metadata. You'll immediately notice:
+For instance, you can invoke valid operations on this DataFrame for checking its content or analyzing it further (for example filtering specific indexes or grouping them according to some desired property).
+
+The following cell uses DataFrame's 'show' action to fully print the rows and show details of our indexes in a tabular form. For each index, you can see all information Hyperspace has stored about it in the metadata. You will immediately notice the following:
 
 * config.indexName, config.indexedColumns, config.includedColumns, and status.status are the fields that a user normally refers to.
 * dfSignature is automatically generated by Hyperspace and is unique for each index. Hyperspace uses this signature internally to maintain the index and exploit it at query time.
 
-In the output that follows, all three indexes should have ACTIVE as their status. Their name, indexed columns, and included columns should match with what we defined in the preceding index configurations.
+
+In the following output, all three indexes should have "ACTIVE" as status and their name, indexed columns, and included columns should match with what we defined in index configurations above.
 
 :::zone pivot = "programming-language-scala"
 
@@ -552,9 +559,11 @@ Results in:
 
 ## Delete indexes
 
-You can drop an existing index by using the deleteIndex API and providing the index name. Index deletion does a soft delete. It mainly updates the index's status in the Hyperspace metadata from ACTIVE to DELETED. This change will exclude the dropped index from any future query optimization. Hyperspace will no longer pick that index for any query. Index files for a deleted index still remain available, because it's a soft delete, so the index could be restored if a user asks for it.
+You can drop an existing index by using the "deleteIndex" API and providing the index name. Index deletion does a soft delete: It mainly updates index's status in the Hyperspace metadata from "ACTIVE" to "DELETED". This will exclude the dropped index from any future query optimization and Hyperspace no longer picks that index for any query. 
 
-The following cell deletes the index with the name "deptIndex2" and lists Hyperspace metadata after that. The output should be similar to the preceding cell for the "List indexes" section except for "deptIndex2", which now should have its status changed to DELETED.
+However, index files for a deleted index still remain available (since it is a soft-delete), so that the index could be restored if user asks for.
+
+The following cell deletes index with name "deptIndex2" and lists Hyperspace metadata after that. The output should be similar to above cell for "List Indexes" except for "deptIndex2", which now should have its status changed into "DELETED".
 
 :::zone pivot = "programming-language-scala"
 
@@ -600,7 +609,7 @@ Results in:
 
 ## Restore indexes
 
-You can use the restoreIndex API to restore a deleted index. This action will bring back the latest version of the index into ACTIVE status and make it usable again for queries. The following cell shows an example of restoreIndex usage. You delete "deptIndex1" and restore it. The output shows "deptIndex1" first went into the DELETED status after invoking the **deleteIndex** command and came back to the ACTIVE status after calling restoreIndex.
+You can use the "restoreIndex" API to restore a deleted index. This will bring back the latest version of index into ACTIVE status and makes it usable again for queries. The following cell shows an example of "restoreIndex" usage. You delete "deptIndex1" and restore it. The output shows "deptIndex1" first went into the "DELETED" status after invoking "deleteIndex" command and came back to the "ACTIVE" status after calling "restoreIndex".
 
 :::zone pivot = "programming-language-scala"
 
@@ -667,7 +676,7 @@ Results in:
 
 You can perform a hard delete, that is, fully remove files and the metadata entry for a deleted index by using the **vacuumIndex** command. This action is irreversible. It physically deletes all the index files, which is why it's a hard delete.
 
-The following cell vacuums the "deptIndex2" index and shows Hyperspace metadata after vacuuming. You should see metadata entries for the two indexes "deptIndex1" and "empIndex", both with ACTIVE status, and no entry for "deptIndex2".
+The following cell vacuums the "deptIndex2" index and shows Hyperspace metadata after vacuuming. You should see metadata entries for two indexes "deptIndex1" and "empIndex" both with "ACTIVE" status and no entry for "deptIndex2".
 
 :::zone pivot = "programming-language-scala"
 
@@ -770,7 +779,7 @@ res51: org.apache.spark.sql.Spark™Session = org.apache.spark.sql.SparkSession@
 
 To make Spark use Hyperspace indexes during query processing, you need to make sure that Hyperspace is enabled.
 
-The following cell enables Hyperspace and creates two DataFrames that contain your sample data records, which you use for running example queries. For each DataFrame, a few sample rows are printed.
+The following cell enables Hyperspace and creates two DataFrames containing your sample data records, which you use for running example queries. For each DataFrame, a few sample rows are printed.
 
 :::zone pivot = "programming-language-scala"
 
@@ -874,7 +883,7 @@ FROM departments
 WHERE deptId = 20
 ```
 
-The output of running the following cell shows the:
+The output of running the following cell shows:
 
 * Query result, which is a single department name.
 * Query plan that Spark used to run the query.
@@ -1047,15 +1056,13 @@ Project [deptName#534]
 +- *(1) Filter (isnotnull(deptId#533) && (deptId#533 > 20))
    +- *(1) FileScan parquet [deptId#533,deptName#534] Batched: true, Format: Parquet, Location: InMemoryFileIndex[abfss://datasets@hyperspacebenchmark.dfs.core.windows.net/hyperspaceon..., PartitionFilters: [], PushedFilters: [IsNotNull(deptId), GreaterThan(deptId,20)], ReadSchema: struct<deptId:int,deptName:string>
 ```
-
-The third example is a query that joins department and employee records on the department ID. The equivalent SQL statement is shown here:
+The third example is a query joining department and employee records on the department ID. The equivalent SQL statement is shown as follows:
 
 ```sql
 SELECT employees.deptId, empName, departments.deptId, deptName
 FROM   employees, departments
 WHERE  employees.deptId = departments.deptId
 ```
-
 The output of running the following cell shows the query results, which are the names of 14 employees and the name of the department each employee works in. The query plan is also included in the output. Notice how the file locations for two **FileScan** operators show that Spark used "empIndex" and "deptIndex1" indexes to run the query.
 
 :::zone pivot = "programming-language-scala"
