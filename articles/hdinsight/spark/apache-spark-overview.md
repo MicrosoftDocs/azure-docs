@@ -7,7 +7,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: contperfq1
 ms.topic: overview
-ms.date: 08/21/2020
+ms.date: 09/21/2020
 
 #customer intent: As a developer new to Apache Spark and Apache Spark in Azure HDInsight, I want to have a basic understanding of Microsoft's implementation of Apache Spark in Azure HDInsight so I can decide if I want to use it rather than build my own cluster.
 ---
@@ -60,7 +60,7 @@ It's easy to understand the components of Spark by understanding how Spark runs 
 
 Spark applications run as independent sets of processes on a cluster. Coordinated by the SparkContext object in your main program (called the driver program).
 
-The SparkContext can connect to several types of cluster managers, which give resources across applications. These cluster managers include Apache Mesos, [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html), or the Spark cluster manager. In HDInsight, Spark runs using the YARN cluster manager. Once connected, Spark acquires executors on workers nodes in the cluster, which are processes that run computations and store data for your application. Next, it sends your application code (defined by JAR or Python files passed to SparkContext) to the executors. Finally, SparkContext sends tasks to the executors to run.
+The SparkContext can connect to several types of cluster managers, which give resources across applications. These cluster managers include Apache Mesos, Apache Hadoop YARN, or the Spark cluster manager. In HDInsight, Spark runs using the YARN cluster manager. Once connected, Spark acquires executors on workers nodes in the cluster, which are processes that run computations and store data for your application. Next, it sends your application code (defined by JAR or Python files passed to SparkContext) to the executors. Finally, SparkContext sends tasks to the executors to run.
 
 The SparkContext runs the user's main function and executes the various parallel operations on the worker nodes. Then, the SparkContext collects the results of the operations. The worker nodes read and write data from and to the Hadoop distributed file system. The worker nodes also cache transformed data in-memory as Resilient Distributed Datasets (RDDs).
 
@@ -90,19 +90,12 @@ Spark clusters in HDInsight offer a rich support for building real-time analytic
 * [Overview of Apache Spark Streaming](apache-spark-streaming-overview.md)
 * [Overview of Apache Spark Structured Streaming](apache-spark-structured-streaming-overview.md)
 
-## Where do I start?
+## Next Steps
 
 You can use the following articles to learn more about Apache Spark in HDInsight:
 
 * [Quickstart: Create an Apache Spark cluster in HDInsight and run interactive query using Jupyter](./apache-spark-jupyter-spark-sql-use-portal.md)
-* [Tutorial: Run an Apache Spark job using Jupyter](./apache-spark-load-data-run-query.md)
-* [Tutorial: Analyze data using BI tools](./apache-spark-use-bi-tools.md)
-* [Tutorial: Machine learning using Apache Spark](./apache-spark-ipython-notebook-machine-learning.md)
-* [Tutorial: Create a Scala Maven application using IntelliJ](./apache-spark-create-standalone-application.md)
-
-## Next Steps
-
-In this overview, you get some basic understanding of Apache Spark in Azure HDInsight. Learn how to create an HDInsight Spark cluster and run some Spark SQL queries:
-
-* [Create an Apache Spark cluster in HDInsight](./apache-spark-jupyter-spark-sql-use-portal.md)
+* [Tutorial: Load data and run queries on an Apache Spark job using Jupyter](./apache-spark-load-data-run-query.md)
+* [Tutorial: Visualize Spark data using Power BI](apache-spark-use-bi-tools.md)
+* [Tutorial: Predict building temperatures using HVAC data](apache-spark-ipython-notebook-machine-learning.md)
 * [Optimize Spark jobs for performance](apache-spark-perf.md)
