@@ -45,5 +45,4 @@ OPC Vault is an implementation of OPC UA Global Discovery Server (GDS) that can 
 
 Now that you've had an introduction to industrial IoT and its components, here is the suggested next step:
 
-> [!div class="nextstepaction"]
-> [What is OPC Twin](overview-opc-twin.md)
+[What is OPC Twin](overview-opc-twin.md)

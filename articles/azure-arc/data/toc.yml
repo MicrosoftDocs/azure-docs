@@ -96,6 +96,8 @@
       items:
         - name: Distribute data
           href: concepts-distributed-postgres-hyperscale.md
+        - name: Server group placement
+          href: postgresql-hyperscale-server-group-placement-on-kubernetes-cluster-nodes.md
     - name: How-to
       items:
         - name: Manage

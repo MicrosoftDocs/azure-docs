@@ -13,7 +13,7 @@ ms.topic: how-to
 
 # Create an Azure Arc enabled PostgreSQL Hyperscale server group
 
-This document describes the steps to deploy a PostgreSQL Hyperscale server group on Azure Arc.
+This document describes the steps to create a PostgreSQL Hyperscale server group on Azure Arc.
 
 [!INCLUDE [azure-arc-common-prerequisites](../../../includes/azure-arc-common-prerequisites.md)]
 
@@ -21,13 +21,13 @@ This document describes the steps to deploy a PostgreSQL Hyperscale server group
 
 ## Getting started
 If you are already familiar with the topics below you may skip this paragraph.
-There are important topics you may want read before you proceed with deployment:
+There are important topics you may want read before you proceed with creation:
 - [Overview of Azure Arc enabled data services](overview.md)
 - [Connectivity modes and requirements](connectivity.md)
 - [Storage configuration and Kubernetes storage concepts](storage-configuration.md)
 - [Kubernetes resource model](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/scheduling/resources.md#resource-quantities)
 
-If you prefer to try things out without provisioning an full environment yourself, get started quickly with [Azure Arc JumpStart](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services) on Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) or in an Azure VM.
+If you prefer to try things out without provisioning an full environment yourself, get started quickly with [Azure Arc Jumpstart](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services) on Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) or in an Azure VM.
 
 
 ## Login to the Azure Arc data controller
@@ -40,7 +40,7 @@ azdata login
 
 You will then be prompted for the username, password and the system namespace.  
 
-> If you used the script to install the data controller then your namespace should be **arc**
+> If you used the script to create the data controller then your namespace should be **arc**
 
 ```console
 Namespace: arc
@@ -51,13 +51,13 @@ Logged in successfully to `https://10.0.0.4:30080` in namespace `arc`. Setting a
 
 ## Preliminary and temporary step for OpenShift users only
 
-Implement this step before moving to the next step. To deploy PostgreSQL Hyperscale server group onto Red Hat OpenShift in a project other than the default, you need to execute the following commands against your cluster to update the security constraints. This command grants the necessary privileges to the service accounts that will run your Postgres Hyperscale server group. The security context constraint (SCC) **_arc-data-scc_** is the one you added when you deployed the Azure Arc data controller.
+Implement this step before moving to the next step. To deploy PostgreSQL Hyperscale server group onto Red Hat OpenShift in a project other than the default, you need to execute the following commands against your cluster to update the security constraints. This command grants the necessary privileges to the service accounts that will run your PostgreSQL Hyperscale server group. The security context constraint (SCC) **_arc-data-scc_** is the one you added when you deployed the Azure Arc data controller.
 
 ```console
-oc adm policy add-scc-to-group arc-data-scc -z <server-group-name> -n <namespace name>
+oc adm policy add-scc-to-user arc-data-scc -z <server-group-name> -n <namespace name>
 ```
 
-_**Server-group-name** is the name of the server group you will deploy during the next step._
+_**Server-group-name** is the name of the server group you will create during the next step._
    
 For more details on SCCs in OpenShift, please refer to the [OpenShift documentation](https://docs.openshift.com/container-platform/4.2/authentication/managing-security-context-constraints.html).
 You may now implement the next step.
@@ -67,7 +67,7 @@ You may now implement the next step.
 To create an Azure Database for PostgreSQL Hyperscale server group on Azure Arc, use the following command:
 
 ```console
-azdata arc postgres server create -n <name> --workers 2 --storage-class-data <storage class name> --storage-class-logs <storage class name> --storage-class-backups <storage class name>
+azdata arc postgres server create -n <name> --workers <# worker nodes with #>=2> --storage-class-data <storage class name> --storage-class-logs <storage class name> --storage-class-backups <storage class name>
 
 #Example
 #azdata arc postgres server create -n postgres01 --workers 2
@@ -75,28 +75,17 @@ azdata arc postgres server create -n <name> --workers 2 --storage-class-data <st
 
 > [!NOTE]
 > - **There are other command-line parameters available.  See the complete list of options by running `azdata arc postgres server create --help`.**
-> - In Preview, you must indicate a storage class for backups (_--storage-class-backups -scb_) at the time you create a server group in order to be able to backup and restore.
+> - The storage class used for backups (_--storage-class-backups -scb_) defaults to the data controller's data storage class if it is not provided.
 > - The unit accepted by the --volume-size-* parameters is a Kubernetes resource quantity (an integer followed by one of these SI suffices (T, G, M, K, m) or their power-of-two equivalents (Ti, Gi, Mi, Ki)).
-> - Names must be 10 characters or fewer in length and conform to DNS naming conventions.
+> - Names must be 12 characters or fewer in length and conform to DNS naming conventions.
 > - You will be prompted to enter the password for the _postgres_ standard administrative user.  You can skip the interactive prompt by setting the `AZDATA_PASSWORD` session environment variable before you run the create command.
-> - If you deployed the data controller using AZDATA_USERNAME and AZDATA_PASSWORD in the same terminal session, then the values for AZDATA_USERNAME and AZDATA_PASSWORD will be used to deploy the PostgreSQL Hyperscale server group too. The name of the default administrator user for the Postgres Hyperscale database engine is _postgresql_ and cannot be changed at this point.
+> - If you deployed the data controller using AZDATA_USERNAME and AZDATA_PASSWORD session environment variables in the same terminal session, then the values for AZDATA_PASSWORD will be used to deploy the PostgreSQL Hyperscale server group too. If you prefer to use another password, either (1) update the value for AZDATA_PASSWORD or (2) delete the AZDATA_PASSWORD environment variable or delete its value be prompted to enter a password interactively when you create a server group.
+> - The name of the default administrator user for the PostgreSQL Hyperscale database engine is _postgres_ and cannot be changed at this point.
 > - Creating a PostgreSQL Hyperscale server group will not immediately register resources in Azure. As part of the process of uploading [resource inventory](upload-metrics-and-logs-to-azure-monitor.md)  or [usage data](view-billing-data-in-azure.md) to Azure, the resources will be created in Azure and you will be able to see your resources in the Azure portal.
-> - The --port parameter cannot be changed at this point.
-> - If you do not have a default storage class in your Kubernetes cluster, you'll need to use the parameter--metadataStorageClass to specify one. Not doing this will result in the failure of the create command. To verify if you have a default storage class declared on your Kubernetes cluster, rung the following command: 
->
->   ```console
->   kubectl get sc
->   ```
->
-> - If there is storage class configured as default storage class you will see **(default)** appended to the name of the storage class. For example:
->
->   ```output
->   NAME                       PROVISIONER                        AGE
->   local-storage (default)    kubernetes.io/no-provisioner       4d18h
->   ```
 
 
-## List your Azure Database for PostgreSQL server groups deployed in your Arc setup
+
+## List your Azure Database for PostgreSQL server groups created in your Arc setup
 
 To view the PostgreSQL Hyperscale server groups on Azure Arc, use the following command:
 
@@ -116,18 +105,27 @@ postgres01  Ready     2
 To view the endpoints for a PostgreSQL instance, run the following command:
 
 ```console
-azdata arc postgres server endpoint list -n <server group name>
-
-#Example
-#azdata arc postgres server endpoint list -n postgres01
-#Description           Endpoint
-#--------------------  ----------------------------------------------------------------------------------------------------------------------------
-#PostgreSQL Instance   postgresql://postgres:<replace with password>@10.240.0.6:31787
-#Log Search Dashboard  https://52.152.248.25:30777/kibana/app/kibana#/discover?_a=(query:(language:kuery,query:'kubernetes_pod_name:"postgres01"'))
-#Metrics Dashboard     https://52.152.248.25:30777/grafana/d/postgres-metrics?var-Namespace=arc&var-Name=postgres01
+azdata arc postgres endpoint list -n <server group name>
+```
+For example:
+```console
+[
+  {
+    "Description": "PostgreSQL Instance",
+    "Endpoint": "postgresql://postgres:<replace with password>@12.345.123.456:1234"
+  },
+  {
+    "Description": "Log Search Dashboard",
+    "Endpoint": "https://12.345.123.456:12345/kibana/app/kibana#/discover?_a=(query:(language:kuery,query:'custom_resource_name:\"postgres01\"'))"
+  },
+  {
+    "Description": "Metrics Dashboard",
+    "Endpoint": "https://12.345.123.456:12345/grafana/d/postgres-metrics?var-Namespace=arc3&var-Name=postgres01"
+  }
+]
 ```
 
-You can use the PostgreSQL Instance endpoint to connect to the PostgreSQL instance from your favorite tool:  [Azure Data Studio](https://aka.ms/getazuredatastudio), [pgcli](https://www.pgcli.com/) psql, pgAdmin, etc.
+You can use the PostgreSQL Instance endpoint to connect to the PostgreSQL Hyperscale server group from your favorite tool:  [Azure Data Studio](https://aka.ms/getazuredatastudio), [pgcli](https://www.pgcli.com/) psql, pgAdmin, etc.
 
 If you are using an Azure VM to test, follow the instructions below:
 
@@ -182,7 +180,7 @@ psql postgresql://postgres:<EnterYourPassword>@10.0.0.4:30655
 
 ## Next steps
 
-- Read the concepts and How-to guides of Azure Database for Postgres Hyperscale to distribute your data across multiple Postgres Hyperscale nodes and to benefit from all the power of Azure Database for Postgres Hyperscale. :
+- Read the concepts and How-to guides of Azure Database for PostgreSQL Hyperscale to distribute your data across multiple PostgreSQL Hyperscale nodes and to benefit from all the power of Azure Database for PostgreSQL Hyperscale. :
     * [Nodes and tables](../../postgresql/concepts-hyperscale-nodes.md)
     * [Determine application type](../../postgresql/concepts-hyperscale-app-type.md)
     * [Choose a distribution column](../../postgresql/concepts-hyperscale-choose-distribution-column.md)
@@ -191,7 +189,7 @@ psql postgresql://postgres:<EnterYourPassword>@10.0.0.4:30655
     * [Design a multi-tenant database](../../postgresql/tutorial-design-database-hyperscale-multi-tenant.md)*
     * [Design a real-time analytics dashboard](../../postgresql/tutorial-design-database-hyperscale-realtime.md)*
 
-    > \* In the documents above, skip the sections **Sign in to the Azure portal**, & **Create an Azure Database for Postgres - Hyperscale (Citus)**. Implement the remaining steps in your Azure Arc deployment. Those sections are specific to the Azure Database for Postgres Hyperscale (Citus) offered as a PaaS service in the Azure cloud but the other parts of the documents are directly applicable to your Azure Arc enabled Postgres Hyperscale.
+    > \* In the documents above, skip the sections **Sign in to the Azure portal**, & **Create an Azure Database for PostgreSQL - Hyperscale (Citus)**. Implement the remaining steps in your Azure Arc deployment. Those sections are specific to the Azure Database for PostgreSQL Hyperscale (Citus) offered as a PaaS service in the Azure cloud but the other parts of the documents are directly applicable to your Azure Arc enabled PostgreSQL Hyperscale.
 
 - [Scale out your Azure Database for PostgreSQL Hyperscale server group](scale-out-postgresql-hyperscale-server-group.md)
 - [Storage configuration and Kubernetes storage concepts](storage-configuration.md)

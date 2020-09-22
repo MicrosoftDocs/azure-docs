@@ -14,7 +14,7 @@ ms.topic: how-to
 # Upload billing data to Azure and view it in the Azure portal
 
 > [!IMPORTANT] 
->  There is no cost to use Azure Arc enabled data services during the preview period. Although the billing system works end to end the billing meter is set to $0.  If you follow this scenario, you will see entries in your billing for a service currently named **hybrid data services** and for resources of a type called **microsoft.AzureData/`<resource type>`**. You will be able to see a record for each data service - Azure Arc that you deploy, but each record will be billed for $0.
+>  There is no cost to use Azure Arc enabled data services during the preview period. Although the billing system works end to end the billing meter is set to $0.  If you follow this scenario, you will see entries in your billing for a service currently named **hybrid data services** and for resources of a type called **microsoft.AzureData/`<resource type>`**. You will be able to see a record for each data service - Azure Arc that you create, but each record will be billed for $0.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -33,10 +33,10 @@ In the indirectly connected mode, billing data is periodically exported out of t
 
 To upload billing data to Azure, the following should happen first:
 
-1. Create an Azure Arc enabled data service data service if you don't have one already. For example create one of the following:
-   - [Create a SQL Managed Instance](/scenarios/003-create-sqlmiaa-instance.md)
-   - [Create an Azure Arc enabled PostgreSQL Hyperscale server group](create-postgresql-hyperscale-server-group.md) 
-1. [Upload metrics and logs to Azure Monitor](/scenarios/007-upload-metrics-and-logs-to-Azure-Monitor.md) if you haven't already.
+1. Create an Azure Arc enabled data service if you don't have one already. For example create one of the following:
+   - [Create an Azure SQL managed instance on Azure Arc](create-sql-managed-instance.md)
+   - [Create an Azure Arc enabled PostgreSQL Hyperscale server group](create-postgresql-hyperscale-server-group.md)
+1. [Upload resource inventory, usage data, metrics and logs to Azure Monitor](upload-metrics-and-logs-to-azure-monitor.md) if you haven't already.
 1. Wait for at least 2 hours since the creation of the data service so that the billing telemetry collection process can collect some billing data.
 
 Run the following command to export out the billing data:

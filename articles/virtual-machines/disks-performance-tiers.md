@@ -12,7 +12,7 @@ ms.custom: references_regions
 
 # Performance tiers for managed disks (preview)
 
-Azure Disk Storage currently offers built-in bursting capabilities to achieve higher performance for handling short-term unexpected traffic. Premium SSDs have the flexibility to increase disk performance without increasing the actual disk size, allowing you to match your workload performance needs and reduce costs. This is ideal for events that temporarily require a consistently higher level of performance, such as holiday shopping, performance testing, or running a training environment. To handle these events, you can select a higher performance tier as long as necessary, and return to the original tier when the additional performance is no longer necessary.
+Azure Disk Storage currently offers built-in bursting capabilities to achieve higher performance for handling short-term unexpected traffic. Premium SSDs have the flexibility to increase disk performance without increasing the actual disk size, allowing you to match your workload performance needs and reduce costs, this feature is currently in preview. This is ideal for events that temporarily require a consistently higher level of performance, such as holiday shopping, performance testing, or running a training environment. To handle these events, you can select a higher performance tier as long as necessary, and return to the original tier when the additional performance is no longer necessary.
 
 ## How it works
 
