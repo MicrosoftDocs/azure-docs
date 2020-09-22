@@ -372,6 +372,8 @@
     href: /azure/cloud-adoption-framework/get-started/
   - name: Architecture center
     href: /azure/architecture/
+  - name: Azure Hybrid Benefit
+    href: azure-hybrid-benefit-linux.md
 - name: How-to guides
   items:
   - name: Create VMs
@@ -532,7 +534,7 @@
         - name: Create a VM from Image Version
           href: https://azure.microsoft.com/resources/templates/101-vm-from-sig/
       - name: Troubleshoot shared images
-        href: troubleshooting-shared-images.md
+        href: ../troubleshooting-shared-images.md
       - name: Using customer-managed keys
         displayName: SSE, CMK, encrypt
         href: ../image-version-encryption.md
@@ -615,6 +617,8 @@
         href: how-to-verify-encryption-status.md
       - name: How to configure LVM RAID on crypt
         href: how-to-configure-lvm-raid-on-crypt.md
+      - name: How to resize encrypted lvm volumes
+        href: how-to-resize-encrypted-lvm.md
       - name: Disk encryption troubleshooting
         href: disk-encryption-troubleshooting.md
       - name: Disk encryption FAQ
