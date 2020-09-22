@@ -162,7 +162,7 @@ For a similar approach on how to set the **Directory Readers** permission for SQ
 
     Make sure to add the **Application permissions** as well as the **Delegated permissions**.
 
-    :::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-apps.png" alt-text="aad-apps":::
+    :::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-apps.png" alt-text="Screenshot showing the App registrations page for Azure Active Directory. An app with the Display name AppSP is highlighted.":::
 
     :::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-app-registration-api-permissions.png" alt-text="api-permissions":::
 
