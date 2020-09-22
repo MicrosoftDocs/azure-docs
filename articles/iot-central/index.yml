@@ -82,7 +82,7 @@ conceptualContent:
           text: Create a telemetry rule 
         - url: ./core/howto-export-data.md
           itemType: how-to-guide
-          text: Export data to cloud destinations - preview
+          text: Export data to cloud destinations
       footerLink: 
         url: ./core/index.yml
         text: See more

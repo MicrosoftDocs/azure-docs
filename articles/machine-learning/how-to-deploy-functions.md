@@ -15,7 +15,7 @@ ms.custom: how-to, racking-python
 ---
 
 # Deploy a machine learning model to Azure Functions (preview)
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Learn how to deploy a model from Azure Machine Learning as a function app in Azure Functions.
 
@@ -41,7 +41,7 @@ With Azure Machine Learning, you can create Docker images from trained machine l
 
 ## Prepare for deployment
 
-Before deploying, you must define what is needed to run the model as a web service. The following list describes the basic items needed for a deployment:
+Before deploying, you must define what is needed to run the model as a web service. The following list describes the core items needed for a deployment:
 
 * An __entry script__. This script accepts requests, scores the request using the model, and returns the results.
 
