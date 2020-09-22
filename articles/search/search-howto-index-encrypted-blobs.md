@@ -38,7 +38,7 @@ If you don't have an Azure subscription, open a [free account](https://azure.mic
 > [!Note]
 > You can use the free service for this tutorial. A free search service limits you to three indexes, three indexers, three data sources and three skillsets. This tutorial creates one of each. Before starting, make sure you have room on your service to accept the new resources.
 
-This tutorial also assumes that you have already uploaded your files to Azure Blob Storage and have encrypted them in the process. If you need help getting your files initially uploaded and encrypted, check out [this tutorial](../storage/blobs/storage-encrypt-decrypt-blobs-key-vault.md) for how to do so.
+This tutorial also assumes that you have already uploaded your files to Azure Blob Storage and have encrypted them in the process. If you need help with getting your files initially uploaded and encrypted, check out [this tutorial](../storage/blobs/storage-encrypt-decrypt-blobs-key-vault.md) for how to do so.
 
 ## 1 - Create services and collect credentials
 
@@ -46,11 +46,11 @@ This tutorial also assumes that you have already uploaded your files to Azure Bl
 
 This tutorial uses the [DecryptBlobFile](https://github.com/Azure-Samples/azure-search-power-skills/blob/master/Utils/DecryptBlobFile) project in the [Azure Search Power Skills](https://github.com/Azure-Samples/azure-search-power-skills) GitHub repository. This project creates an Azure Function resource that fulfills the [custom skill interface](cognitive-search-custom-skill-interface.md) and can be used for Azure Cognitive Search enrichment. It takes the url and sas token for each blob as inputs, and it outputs the downloaded, decrypted file using the file reference contract that Azure Cognitive Search expects. To set it up, use the following steps:
 
-1. Click the **Deploy to Azure** button found on the [DecryptBlobFile landing page](https://github.com/Azure-Samples/azure-search-power-skills/blob/master/Utils/DecryptBlobFile#deployment), which will open the provided ARM template within the Azure portal.
+1. Click the **Deploy to Azure** button found on the [DecryptBlobFile landing page](https://github.com/Azure-Samples/azure-search-power-skills/blob/master/Utils/DecryptBlobFile#deployment), which will open the provided Resource Manager template within the Azure portal.
 
 1. Select **the subscription where your Azure Key Vault instance exists** (this guide will not work if you select a different subscription), and either select an existing resource group or create a new one (if you create a new one, you will also need to select a region to deploy to). You may also change the resource prefix if you desire.
 
-1. Click **Review + create**, make sure you agree to the terms, and then press **Create** to deploy the Azure Function.
+1. Select **Review + create**, make sure you agree to the terms, and then press **Create** to deploy the Azure Function.
 
     ![ARM template in portal](media/indexing-encrypted-blob-files/arm-template.jpg "ARM template in portal")
 
@@ -60,7 +60,7 @@ This tutorial uses the [DecryptBlobFile](https://github.com/Azure-Samples/azure-
 
     1. For the **Configure from template** dropdown, select **Azure Data Lake Storage or Azure Storage**.
 
-    1. For the principal, select the Azure Function instance that you just deployed. You can search for it using the resource prefix that was used to create it in step 2, which has a default value of **psdbf**.
+    1. For the principal, select the Azure Function instance that you deployed. You can search for it using the resource prefix that was used to create it in step 2, which has a default value of **psdbf**.
 
     1. Do not select anything for the authorized application option.
      
@@ -82,9 +82,9 @@ This tutorial uses the [DecryptBlobFile](https://github.com/Azure-Samples/azure-
 
 ### Cognitive Services
 
-AI enrichment and skillset execution is backed by Cognitive Services, including Text Analytics and Computer Vision for natural language and image processing. If your objective was to complete an actual prototype or project, you would at this point provision Cognitive Services (in the same region as Azure Cognitive Search) so that you can attach it to indexing operations.
+AI enrichment and skillset execution are backed by Cognitive Services, including Text Analytics and Computer Vision for natural language and image processing. If your objective was to complete an actual prototype or project, you would at this point provision Cognitive Services (in the same region as Azure Cognitive Search) so that you can attach it to indexing operations.
 
-For this exercise, however, you can skip resource provisioning because Azure Cognitive Search can connect to Cognitive Services behind the scenes and give you 20 free transactions per indexer run. After it processes 20 documents the indexer will fail unless a Cognitive Services key is attached to the skillset. For larger projects, plan on provisioning Cognitive Services at the pay-as-you-go S0 tier. For more information, see [Attach Cognitive Services](cognitive-search-attach-cognitive-services.md). Note that a Cognitive Services key is required to run a skillset with more than 20 documents even if none of your selected cognitive skills connect to Cognitive Services (such as with the provided skillset if no skills are added to it).
+For this exercise, however, you can skip resource provisioning because Azure Cognitive Search can connect to Cognitive Services behind the scenes and give you 20 free transactions per indexer run. After it processes 20 documents, the indexer will fail unless a Cognitive Services key is attached to the skillset. For larger projects, plan on provisioning Cognitive Services at the pay-as-you-go S0 tier. For more information, see [Attach Cognitive Services](cognitive-search-attach-cognitive-services.md). Note that a Cognitive Services key is required to run a skillset with more than 20 documents even if none of your selected cognitive skills connect to Cognitive Services (such as with the provided skillset if no skills are added to it).
 
 ### Azure Cognitive Search
 
@@ -146,17 +146,17 @@ When you run this tutorial, you must issue four HTTP requests:
 - **PUT request to create the skillset**: The skillset specifies the custom skill definition for the Azure Function that will decrypt the blob file data, and a [DocumentExtractionSkill](cognitive-search-skill-document-extraction.md) to extract the text from each document after it has been decrypted.
 - **PUT request to create the indexer**: Running the indexer reads the data, applies the skillset, and stores the results. You must run this request last.
 
-The [source code](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/index-encrypted-blobs/Index%20encrypted%20Blob%20files.postman_collection.json) contains a Postman collection that has the four requests, as well as some useful follow up requests. To issue the requests, in Postman, select the tab for the requests and press **Send** for each of them.
+The [source code](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/index-encrypted-blobs/Index%20encrypted%20Blob%20files.postman_collection.json) contains a Postman collection that has the four requests, as well as some useful follow-up requests. To issue the requests, in Postman, select the tab for the requests and press **Send** for each of them.
 
 ## 3 - Monitor indexing
 
 Indexing and enrichment commence as soon as you submit the Create Indexer request. Depending on how many documents are in your storage account, indexing can take a while. To find out whether the indexer is still running, use the **Get Indexer Status** request provided as part of the Postman collection and review the response to learn whether the indexer is running, or to view error and warning information.  
 
-If you are using the Free tier, the following message is expected: `"Could not extract content or metadata from your document. Truncated extracted text to '32768' characters". This message appears because blob indexing on the Free tier has a [32K limit on character extraction](search-limits-quotas-capacity.md#indexer-limits). You won't see this message for this data set on higher tiers. 
+If you are using the Free tier, the following message is expected: `"Could not extract content or metadata from your document. Truncated extracted text to '32768' characters"`. This message appears because blob indexing on the Free tier has a [32K limit on character extraction](search-limits-quotas-capacity.md#indexer-limits). You won't see this message for this data set on higher tiers. 
 
 ## 4 - Search
 
-Now that you've run the provided pipeline, we can run some queries to show that the data has been successfully decrypted and indexed. Navgiate to your Azure Cognitive Search service in the portal, and use [the search explorer](search-explorer.md) to run queries over the indexed data.
+Now that you've run the provided pipeline, we can run some queries to show that the data has been successfully decrypted and indexed. Navigate to your Azure Cognitive Search service in the portal, and use [the search explorer](search-explorer.md) to run queries over the indexed data.
 
 ## Next steps
 
