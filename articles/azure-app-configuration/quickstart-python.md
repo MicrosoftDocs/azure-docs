@@ -66,7 +66,7 @@ Restart the command prompt to allow the change to take effect. Print out the val
 
 ## Connect to an App Configuration store
 
-1. Import the environment variable dictionary from the **os** namespace.
+1. From the Python command line, import the environment variable dictionary from the **os** namespace.
 
     ```python
     from os import environ
