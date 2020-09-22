@@ -4,7 +4,7 @@ description: Learn about ultra disks for Azure VMs
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 09/11/2020
+ms.date: 09/22/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
@@ -314,10 +314,13 @@ If your VM meets the requirements outlined in [GA scope and limitations](#ga-sco
 To enable ultra disk compatibility, you must stop the VM. After you stop the VM, you may enable compatibility, then restart the VM. Once compatibility is enabled you can attach an ultra disk:
 
 ```azurepowershell
-#stop the VM
-$vm1 = Get-AzureRMVM -name $vmName -ResourceGroupName $rgName
-Update-AzureRmVM -ResourceGroupName $rgName -VM $vm1 -UltraSSDEnabled 1
-#start the VM
+#Stop the VM
+Stop-AzVM -Name $vmName -ResourceGroupName $rgName
+#Enable ultra disk compatibility
+$vm1 = Get-AzVM -name $vmName -ResourceGroupName $rgName
+Update-AzVM -ResourceGroupName $rgName -VM $vm1 -UltraSSDEnabled True
+#Start the VM
+Start-AzVM -Name $vmName -ResourceGroupName $rgName
 ```
 
 ### Create and attach an ultra disk - PowerShell
