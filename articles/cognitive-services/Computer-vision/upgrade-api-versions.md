@@ -113,8 +113,8 @@ In 2.X, the output format is as follows:
                             },
             // The rest of result is omitted for brevity 
             
-    }
-    ```
+}
+```
     
 In v3.0, it has been adjusted:
     
@@ -165,7 +165,7 @@ In v3.0, it has been adjusted:
         // The rest of result is omitted for brevity 
         
     }
-    ```
+```
 
 ## Service only
 
@@ -250,7 +250,7 @@ In 2.X, the output format is as follows:
             // The rest of result is omitted for brevity 
             
     }
-    ```
+```
     
 In v3.x, it has been adjusted:
     
@@ -300,7 +300,8 @@ In v3.x, it has been adjusted:
         // The rest of result is omitted for brevity 
         
     }
-    ```
+```
+
 ## Container only
 
 ### `Synchronous Read`
