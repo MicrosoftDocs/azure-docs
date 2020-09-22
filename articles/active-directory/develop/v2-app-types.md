@@ -114,6 +114,9 @@ In this flow, the app receives an authorization code from the Microsoft identity
 
 ![Shows the native app authentication flow](./media/v2-app-types/convergence-scenarios-native.svg)
 
+> [!NOTE]
+> If the application uses the default system webview, check the information about "Confirm My Sign-In" functionality and error code AADSTS50199 in [Azure AD authentication and authorization error codes](reference-aadsts-error-codes.md).
+
 ## Daemons and server-side apps
 
 Apps that have long-running processes or that operate without interaction with a user also need a way to access secured resources, such as web APIs. These apps can authenticate and get tokens by using the app's identity, rather than a user's delegated identity, with the OAuth 2.0 client credentials flow. You can prove the app's identity using a client secret or certificate. For more info, see [.NET Core daemon console application using Microsoft identity platform](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2).

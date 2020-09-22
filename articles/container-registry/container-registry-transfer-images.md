@@ -245,7 +245,7 @@ It can take several minutes for artifacts to export. When deployment completes s
 
 ```azurecli
 az storage blob list \
-  --account-name $SA_SOURCE
+  --account-name $SOURCE_SA
   --container transfer
   --output table
 ```
