@@ -25,9 +25,11 @@ Client -> Aure Attestation
 
 #### Payload
 
+```
 {
   "type": "aikcert"
 }
+```
 
 “type” (ASCII string): represents the type of attestation requested. Currently, only “aikcert” is supported.
 
@@ -39,6 +41,7 @@ Azure Attestation -> Client
 
 #### Payload
 
+```
 {
 
   "challenge": "<BASE64URL(CHALLENGE)>",
@@ -46,6 +49,7 @@ Azure Attestation -> Client
   "service_context": "<BASE64URL(SERVICECONTEXT)>"
   
 }
+```
 
 **challenge** (BASE64URL(OCTETS)): Random value issued by the service.
 
@@ -60,11 +64,13 @@ Client -> Azure Attestation
 
 #### Payload
 
+```
 {
 
   "request": "<JWS>"
   
 }
+```
 
 **request** (JWS): Request consists of a JSON Web Signature (JWS) structure. The JWS Protected Header and JWS Payload are shown below. As in any JWS structure, the final value consists of:
 
@@ -224,9 +230,11 @@ Azure Attestation -> Client
 
 #### Payload
 
+```
 {
   "report": "<JWT>"
 }
+```
 
 **report** (JWT): The attestation report in JSON Web Token (JWT) format (RFC 7519).
 
