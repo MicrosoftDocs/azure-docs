@@ -28,13 +28,7 @@ To get started, you need the following items:
 
 1. An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 1. A ServiceNow single sign-on (SSO) enabled subscription.
-1. For ServiceNow, an instance or tenant of ServiceNow, Calgary version or later.
-1. For ServiceNow, an instance or tenant of ServiceNow, Kingston version or later.
-1. For ServiceNow, an instance or tenant of ServiceNow, London version or later.
-1. For ServiceNow, an instance or tenant of ServiceNow, Madrid version or later.
-1. For ServiceNow, an instance or tenant of ServiceNow, New York version or later.
-1. For ServiceNow, an instance or tenant of ServiceNow, Orlando version or later.
-1. For ServiceNow, an instance or tenant of ServiceNow, Paris version or later.
+1. For ServiceNow, an instance or tenant of ServiceNow supports Calgary, Kingston, London, Madrid, New York, Orlando and Paris versions or later.
 1. For ServiceNow Express, an instance of ServiceNow Express, Helsinki version or later.
 1. The ServiceNow tenant must have the [Multiple Provider Single Sign On Plugin](https://wiki.servicenow.com/index.php?title=Multiple_Provider_Single_Sign-On#gsc.tab=0) enabled.
 1. For automatic configuration, enable the multi-provider plugin for ServiceNow.
@@ -109,7 +103,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	`https://<instancename>.service-now.com/navpage.do`
 
 	> [!NOTE]
-	> If you find "/ " in the Identifier value , please remove that trailing "/ " here.
+	> If "/ " is added in the Identifier value , please remove that manually.
 
 	> [!NOTE]
 	> These values aren't real. You need to update these values with the actual sign-on URL, Reply URL, Logout URL and identifier, which is explained later in the tutorial. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
@@ -183,7 +177,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 	`https://<instancename>.service-now.com/navpage.do`
 	
 	> [!NOTE]
-	> If you find "/ " in the Identifier value , please remove that trailing "/ " here.
+	> If "/ " is added in the Identifier value , please remove that manually.
 
 	> [!NOTE]
 	> These values aren't real. You need to update these values with the actual sign-on URL, Reply URL, Logout URL and identifier, which is explained later in the tutorial. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
