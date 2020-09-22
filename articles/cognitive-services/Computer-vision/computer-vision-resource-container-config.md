@@ -113,7 +113,7 @@ Replace {_argument_name_} with your own values:
 The following Docker examples are for the Read container.
 
 
-# [Version 3.0](#tab/version-3)
+# [Version 3.0-preview](#tab/version-3)
 
 ### Basic example
 
@@ -136,7 +136,7 @@ ApiKey={API_KEY}
 Logging:Console:LogLevel:Default=Information
 ```
 
-# [Version 3.1](#tab/version-3-1)
+# [Version 3.1-preview](#tab/version-3-1)
 
 ### Basic example
 

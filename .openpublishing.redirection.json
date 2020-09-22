@@ -886,11 +886,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/active-directory/users-groups-roles/custom-enterprise-apps.md",
-      "redirect_url": "/azure/active-directory/users-groups-roles/roles-custom-overview",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/active-directory/user-help/my-apps-portal-end-user-update-profile.md",
       "redirect_url": "/azure/active-directory/user-help/my-account-portal-settings",
       "redirect_document_id": false
@@ -28112,6 +28107,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/storage/common/storage-advanced-threat-protection.md",
+      "redirect_url": "/azure/storage/common/azure-defender-storage-configure",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/storage/vs-storage-aspnet-getting-started-blobs.md",
       "redirect_url": "/azure/visual-studio/vs-storage-aspnet-getting-started-blobs",
       "redirect_document_id": true
@@ -43254,6 +43254,16 @@
     {
       "source_path": "articles/azure-monitor/log-query/logs-structure.md",
       "redirect_url": "/azure/azure-monitor/platform/data-platform-logs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/insights/container-insights-health.md",
+      "redirect_url": "/azure/azure-monitor/insights/container-insights-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/insights/container-insights-health-monitors-config.md",
+      "redirect_url": "/azure/azure-monitor/insights/container-insights-overview",
       "redirect_document_id": false
     },
     {

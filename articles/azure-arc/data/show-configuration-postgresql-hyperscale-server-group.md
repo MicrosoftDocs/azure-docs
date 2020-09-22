@@ -29,10 +29,10 @@ This article explains how to display the configuration of your server group(s). 
 List the Kubernetes resources of type Postgres. Run the command:
 
 ```console
-kubectl get postgresqls
+kubectl get postgresqls [-n <namespace name>]
 ```
 
-The output of this command shows the list of server groups deployed. For each, it indicates the number of pods. For example:
+The output of this command shows the list of server groups created. For each, it indicates the number of pods. For example:
 
 ```output
 NAME                                             STATE   READY-PODS   EXTERNAL-ENDPOINT   AGE
@@ -40,14 +40,14 @@ postgresql-12.arcdata.microsoft.com/postgres01   Ready   3/3          10.0.0.4:3
 postgresql-12.arcdata.microsoft.com/postgres02   Ready   3/3          10.0.0.4:31066      6d7h
 ```
 
-This example shows that 2 server groups are deployed and each runs on 3 pods (1 coordinator + 2 workers). That means the server groups deployed in this Azure Arc Data Controller use 6 pods.
+This example shows that 2 server groups are created and each runs on 3 pods (1 coordinator + 2 workers). That means the server groups created in this Azure Arc Data Controller use 6 pods.
 
 ### What pods are used by Azure Arc enabled PostgreSQL Hyperscale server groups?
 
 Run:
 
 ```console
-kubectl get pods
+kubectl get pods [-n <namespace name>]
 ```
 
 This returns the list of pods. You will see the pods used by your server groups based on the names you gave to those server groups. For example:
@@ -72,7 +72,7 @@ postgres02-1         3/3     Running   0          22h
 postgres02-2         3/3     Running   0          22h
 ```
 
-In this example, the six pods that host the two server groups that are deployed are:
+In this example, the six pods that host the two server groups that are created are:
 - `postgres01-0`
 - `postgres01-1`
 - `postgres01-2`
@@ -95,7 +95,7 @@ Run `kubectl get pods` and look at the column `STATUS`
 To understand what PVCs are used, as well as which are used for data, logs and backups, run: 
 
 ```console
-kubectl get pvc
+kubectl get pvc [-n <namespace name>]
 ```
 
 By default, the prefix of the name of a PVC indicates its usage:
@@ -125,7 +125,7 @@ logs-postgres01-2      Bound    local-pv-5ccd02e6   1938Gi     RWO            lo
 
 ## From an Azure Arc enabled data services point of view:
 
-* How many server groups are deployed in an Arc Data Controller?
+* How many server groups are created in an Arc Data Controller?
 * What are their names?
 * How many worker nodes do they use?
 * What version of Postgres do they run?
@@ -134,7 +134,7 @@ Use either of the following commands.
 - **With kubectl:**
 
    ```console
-   kubectl get postgresqls
+   kubectl get postgresqls [-n <namespace name>]
    ``` 
 
    For example it produces the below output where each line is a `servergroup`. The structure of the name in the below display is formed as:
@@ -176,7 +176,7 @@ Use kubectl to describe a Postgres resources. To do so, you need its kind (name 
 The general format of this command is:
 
 ```console
-kubectl describe <CRD name>/<server group name>
+kubectl describe <CRD name>/<server group name> [-n <namespace name>]
 ```
 
 For example:
@@ -378,6 +378,6 @@ Returns the below output in a format and content very similar to the one returne
 - [Read about how to scale out (add worker nodes) a server group](scale-out-postgresql-hyperscale-server-group.md)
 - [Read about how to scale up/down (increase or reduce memory and/or vCores) a server group](scale-up-down-postgresql-hyperscale-server-group-using-cli.md)
 - [Read about storage configuration](storage-configuration.md)
-- [Read how to monitor a database instance deployed in a Arc Data Controller](monitor-grafana-kibana.md)
+- [Read how to monitor a database instance](monitor-grafana-kibana.md)
 - [Use PostgreSQL extensions in your Azure Arc enabled PostgreSQL Hyperscale server group](using-extensions-in-postgresql-hyperscale-server-group.md)
 - [Configure security for your Azure Arc enabled PostgreSQL Hyperscale server group](configure-security-postgres-hyperscale.md)
