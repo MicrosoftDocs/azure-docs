@@ -1,5 +1,5 @@
 ---
- title: Enclave aware containers
+ title: Enclave aware containers on Azure
  description: enclave ready application containers support on Azure Kubernetes Service (AKS)
  author: agowdamsft
  ms.service: container-service
@@ -14,8 +14,8 @@ An enclave is a protected memory region that provides confidentiality for data a
 
 Just like Intel SGX virtual machines, container applications which are developed to run in enclaves have two components:
 
-1. An untrusted component (called the host) and
-1. A trusted component (called the enclave).
+- An untrusted component (called the host) and
+- A trusted component (called the enclave).
 
 ![Enclave Aware Container Architecture](./media/enclave-aware-containers/enclaveawarecontainer.png)
 

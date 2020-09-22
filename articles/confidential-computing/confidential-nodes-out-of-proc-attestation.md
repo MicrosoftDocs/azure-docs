@@ -1,5 +1,5 @@
 ---
- title: Out-of-proc attestation support with SGX quote helper DaemonSet
+ title: Out-of-proc attestation support with Intel SGX quote helper DaemonSet on Azure
  description: DaemonSet for generating the quote outside of the SGX application process. This article explains how the out-of-proc attestation facility is provided for confidential workloads running inside a container.
  ms.service: container-service
  author: agowdamsft
@@ -15,9 +15,9 @@
 ## Overview
  
 Intel supports two attestation modes to run the quote generation:
-1. **in-proc**: hosts the trusted software components inside the enclave application process
+- **in-proc**: hosts the trusted software components inside the enclave application process
 
-1. **out-of-proc**: hosts the trusted software components outside of the enclave application.
+- **out-of-proc**: hosts the trusted software components outside of the enclave application.
  
 SGX applications built using Open Enclave SDK by default use in-proc attestation mode. SGX-based applications allow out-of-proc and would require extra hosting and exposing the required components such as Architectural Enclave Service Manager (AESM), external to the application.
 
@@ -25,19 +25,19 @@ Utilizing this feature is **highly recommended**, as it enhances uptime for your
 
 ## Why and What are the benefits of out-of-proc?
 
-1.	No updates are required for quote generation components of PSW for each containerized application:
+-	No updates are required for quote generation components of PSW for each containerized application:
 With out-of-proc, container owners don’t need to manage updates within their container. Container owners instead rely on the provider provided interface that invokes the centralized service outside of the container, which will be updated and managed by provider.
 
-2.	No need to worry about attestation failures due to out-of-date PSW components:
+-	No need to worry about attestation failures due to out-of-date PSW components:
 The quote generation involves the trusted SW components - Quoting Enclave (QE) & Provisioning Certificate Enclave (PCE), which are part of the trusted computing base (TCB). These SW components must be up to date to maintain the attestation requirements. Since the provider manages the updates to these components, customers will never have to deal with attestation failures due to out-of-date trusted SW components within their container.
 
-3.	Better utilization of EPC memory
+-	Better utilization of EPC memory
 In in-proc attestation mode, each enclave application needs to instantiate the copy of QE and PCE for remote attestation. With out-of-proc, there is no need for the container to host those enclaves, and thus doesn’t consume enclave memory from the container quota.
 
-4.	Safeguards against Kernel enforcement 
+-	Safeguards against Kernel enforcement 
 When the SGX driver is up streamed into Linux kernel, there will be enforcement for an enclave to have higher privilege. This privilege allows the enclave to invoke PCE, which will break the enclave application running in in-proc mode. By default, enclaves don't get this permission. Granting this privilege to an enclave application requires changes to the application installation process. This is handled easily for out-of-proc model as the provider of the service that handles out-of-proc requests will make sure the service is installed with this privilege.
 
-5.	No need to check for backward compatibility with PSW & DCAP. The updates to the quote generation components of PSW are validated for backward compatibility by the provider before updating. This will help in handling the compatibility issues upfront and address them before deploying updates for confidential workloads.
+-	No need to check for backward compatibility with PSW & DCAP. The updates to the quote generation components of PSW are validated for backward compatibility by the provider before updating. This will help in handling the compatibility issues upfront and address them before deploying updates for confidential workloads.
 
 ## How does the out-of-proc attestation mode work for confidential workloads scenario?
 
@@ -55,8 +55,9 @@ An application can still use the in-proc attestation as before, but both in-proc
 
 The below docker file is a sample for an Open Enclave-based application. Set the SGX_AESM_ADDR=1 environment variable in the docker file or by set it on the deployment file. Follow the below sample for docker file and deployment yaml details. 
 
->Note: The **libsgx-quote-ex** from Intel needs to be packaged in the application container for out-of-proc attestation to work properly.
-
+  > [!Note] 
+  > The **libsgx-quote-ex** from Intel needs to be packaged in the application container for out-of-proc attestation to work properly.
+    
 ```yaml
 # Refer to Intel_SGX_Installation_Guide_Linux for detail
 FROM ubuntu:18.04 as sgx_base
@@ -120,7 +121,7 @@ spec:
 ```
 
 ## Next Steps
-[Provision Confidential Nodes (DCsv2-Series) on AKS](./confidential-nodes-aks-getstarted.md)
+[Provision Confidential Nodes (DCsv2-Series) on AKS](./confidential-nodes-aks-get-started.md)
 
 [Quick starter samples confidential containers](https://github.com/Azure-Samples/confidential-container-samples)
 

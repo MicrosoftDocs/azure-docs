@@ -1,6 +1,6 @@
 ---
- title: Confidential Containers on Azure Kubernetes Service
- description: Unmodified containers support on confidential containers
+ title: Confidential containers on Azure Kubernetes Service (AKS)
+ description: Learn about unmodified container support on confidential containers.
  services: container-service
  author: agowdamsft
  ms.topic: article
@@ -17,13 +17,13 @@ Enable developers to bring an **existing docker application (new or existing)** 
 
 Confidential containers help protect:
 
-1. data integrity 
-1. data confidentiality
-1. code integrity
-1. container code protection through encryption
-1. hardware-based assurances
-1. allow running existing apps
-1. create hardware root of trust
+- data integrity 
+- data confidentiality
+- code integrity
+- container code protection through encryption
+- hardware-based assurances
+- allow running existing apps
+- create hardware root of trust
 
 A hardware based Trusted Execution Environment (TEE) is an important component that is used to provide strong assurances through hardware and software measurements from trusted computing base (TCB) components. Verifications of these measurements help with validation of the expected computation and verify any tampering of the container apps.
 
@@ -31,7 +31,7 @@ Confidential containers support custom applications developed with **Python, Jav
 
 Confidential containers are the fastest path to container confidentiality, including the container protection through encryption, enabling lift and shift with no/minimal changes to your business logic.
 
-![The confidential container conversion](./media/confidential-containers/confcondeployprocess.jpg)
+![The confidential container conversion](./media/confidential-containers/conf-con-deploy-process.jpg)
 
 
 ## Confidential Container Enablers
@@ -48,7 +48,7 @@ Confidential containers are fully supported on AKS and enabled through Azure Par
 
 [Fortanix](https://www.fortanix.com/) offers developers a choice of a portal and CLI-based experience to bring their containerized applications and covert them to SGX capable confidential containers without any need to modify or recompile the application. Fortanix provides the flexibility to run and manage the broadest set of applications, including existing applications, new enclave-native applications, and pre-packaged applications. Users can start with [Enclave Manager](https://em.fortanix.com/) UI or [REST APIs](https://www.fortanix.com/api/em/) to create confidential containers by following the [Quick Start](https://support.fortanix.com/hc/en-us/articles/360049658291-Fortanix-Confidential-Container-on-Azure-Kubernetes-Service) guide for Azure Kubernetes Service.
 
-![Fortanix Deployment Process](./media/confidential-containers/fortanixconfidentialcontainersflow.png)
+![Fortanix Deployment Process](./media/confidential-containers/fortanix-confidential-containers-flow.png)
 
 ### Scone (Scontain)
 
@@ -57,7 +57,7 @@ Flask application here: https://sconedocs.github.io/flask_demo/
 
 SCONE can convert existing most binaries into applications that run inside of enclaves without needing to change the application or to recompile that application. SCONE also protects interpreted languages like Python by encrypting both data files as well as Python code files. With the help of a SCONE security policy, one can protect the encrypted files against unauthorized accesses, modifications, and rollbacks. How to "sconify" an existing Python application is explained [here](https://sconedocs.github.io/sconify_image/)
 
-![Scontain Flow](./media/confidential-containers/sconeworkflow.png)
+![Scontain Flow](./media/confidential-containers/scone-workflow.png)
 
 Scone deployments on confidential computing nodes with AKS are fully supported and integrated. Get started with a sample application here https://sconedocs.github.io/aks/
 
@@ -67,7 +67,7 @@ Scone deployments on confidential computing nodes with AKS are fully supported a
 
 Get started with a sample Redis Cache and Python Custom Application [here](https://www.anjuna.io/microsoft-azure-confidential-computing-aks-lp)
 
-![Anjuna Process](./media/confidential-containers/anjunaprocessflow.png)
+![Anjuna Process](./media/confidential-containers/anjuna-process-flow.png)
 
 ## OSS Enablers 
 > [!NOTE]

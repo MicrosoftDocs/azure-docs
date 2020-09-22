@@ -1,6 +1,6 @@
 ---
-title: Frequently asked questions for Confidential Nodes Support on Azure Kubernetes Service(AKS)
-description: Find answers to some of the common questions about Azure Kubernetes Service (AKS) & Azure Confidential Computing (ACC) Nodes Support.
+title: Frequently asked questions for confidential nodes support on Azure Kubernetes Service (AKS)
+description: Find answers to some of the common questions about Azure Kubernetes Service (AKS) & Azure Confidential Computing (ACC) nodes support.
 author: agowdamsft
 ms.service: container-service
 ms.topic: conceptual
@@ -42,7 +42,7 @@ Various enablers (ISVs and OSS projects) provide ways to enable confidential con
 
 ## Can I run ACC Nodes with other standard AKS SKUs (build a heterogenous node pool cluster)? 
 
-Yes, you can run different node pools within the same AKS cluster including ACC nodes. To target your enclave applications on a specific node pool, consider adding node selectors or applying EPC limits. Refer to more details on the quick start on confidential nodes [here](confidential-nodes-aks-getstarted.md).
+Yes, you can run different node pools within the same AKS cluster including ACC nodes. To target your enclave applications on a specific node pool, consider adding node selectors or applying EPC limits. Refer to more details on the quick start on confidential nodes [here](confidential-nodes-aks-get-started.md).
 
 ## Can I run Windows Nodes and windows containers with ACC? 
 
@@ -91,7 +91,7 @@ Yes. The name of the daemonset is sgx-device-plugin and sgx-quote-helper. Read m
 
 ## What is the VM SKU I should be choosing for confidential computing nodes? 
 
-DCSv2 SKUs. The [DCSv2 SKUs](../virtual-machines/dcv2-series.md) are available in the [supported regions](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines&regions=all) (all GA regions are supported on AKS). 
+DCSv2 SKUs. The [DCSv2 SKUs](../virtual-machines/dcv2-series.md) are available in the [supported regions](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines&regions=all).
 
 ## Can I still schedule and run non-enclave containers on confidential computing nodes? 
 
@@ -99,7 +99,7 @@ Yes. The VMs also have a regular memory that can run standard container workload
 
 ## Can I provision AKS with DCSv2 Node Pools through Azure portal? 
 
-Yes. Azure CLI could also be used as an alternative as documented [here](confidential-nodes-aks-getstarted.md).
+Yes. Azure CLI could also be used as an alternative as documented [here](confidential-nodes-aks-get-started.md).
 
 ## What Ubuntu version and VM generation is supported? 
 
@@ -115,10 +115,10 @@ We support and recommend Kubernetes version 1.16 and above
 
 ## What are the known current limitation or technical limitations of the product in preview? 
 
-1. Supports Ubuntu 18.04 Gen 2 VM Nodes only 
-2. No Windows Nodes Support or Windows Containers Support
-3. EPC Memory based Horizontal Pod Autoscaling is not supported. CPU and regular memory-based scaling is supported.
-4. Dev Spaces on AKS for confidential apps is not currently supported
+- Supports Ubuntu 18.04 Gen 2 VM Nodes only 
+- No Windows Nodes Support or Windows Containers Support
+- EPC Memory based Horizontal Pod Autoscaling is not supported. CPU and regular memory-based scaling is supported.
+- Dev Spaces on AKS for confidential apps is not currently supported
 
 ## Next Steps
 Review the [confidential containers page](confidential-containers.md) for more details around confidential containers.

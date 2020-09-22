@@ -53,6 +53,6 @@ The [CCF](https://github.com/Microsoft/CCF) is a distributed network of nodes, e
 This open-source framework enables high throughout, fine-grained confidentiality, and consortium governance for blockchain. With each node using TEEs, you can ensure secure consensus and transaction processing.
 
 
-## Next Steps 
+## Next steps 
 - [Deploy a confidential computing DCsv2-Series virtual machine](quick-create-portal.md)
 - [Download and install the OE SDK and start developing applications](https://github.com/openenclave/openenclave)

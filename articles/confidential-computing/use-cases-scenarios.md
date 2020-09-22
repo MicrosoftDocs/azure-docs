@@ -1,5 +1,5 @@
 ---
- title: Common confidential computing scenarios and use cases
+ title: Common Azure confidential computing scenarios and use cases
  description: Understand how to use confidential computing in your scenario.
  services: virtual-machines
  author: JBCook
@@ -15,9 +15,9 @@ This article provides an overview of several common scenarios for Azure confiden
 
 After reading this article, you'll be able to answer the following questions:
 
-1. What are some scenarios for Azure confidential computing?
-1. What are the benefits of using Azure confidential computing for multi-party scenarios?
-1. What are the benefits of using Azure confidential computing on a blockchain network?
+- What are some scenarios for Azure confidential computing?-
+- What are the benefits of using Azure confidential computing for multi-party scenarios?
+- What are the benefits of using Azure confidential computing on a blockchain network?
 
 
 ## Secure multi-party computation

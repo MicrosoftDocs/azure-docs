@@ -1,5 +1,5 @@
 ---
-title: Attesting enclaves
+title: Attesting enclaves in Azure
 description: Learn how you can use attestation to verify that your confidential computing trusted environment is secure
 services: virtual-machines
 author: JBCook

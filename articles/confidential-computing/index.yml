@@ -89,7 +89,7 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: A simple enclave container app on AKS
-            url: confidential-nodes-aks-getstarted.md
+            url: confidential-nodes-aks-get-started.md
       - linkListType: sample
         links:
           - text: Confidential Container Samples (unmodified containers on SGX)

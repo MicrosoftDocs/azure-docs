@@ -1,6 +1,6 @@
 ---
-title: Confidential computing virtual machines
-description: Learn about Intel SGX hardware to enable your confidential computing workloads
+title: Confidential computing virtual machines on Azure
+description: Learn about Intel SGX hardware to enable your confidential computing workloads.
 services: virtual-machines
 author: JenCook
 ms.service: virtual-machines

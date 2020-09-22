@@ -1,6 +1,6 @@
 ---
- title: Confidential Computing Nodes on Azure Kubernetes Service (AKS) public preview
- description: Confidential Computing nodes on AKS
+ title: Confidential computing nodes on Azure Kubernetes Service (AKS) public preview
+ description: Confidential computing nodes on AKS
  services: virtual-machines
  author: agowdamsft
  ms.service: container-service
@@ -9,7 +9,7 @@
  ms.author: amgowda
 ---
 
-# Confidential Computing nodes on Azure Kubernetes Service (public preview)
+# Confidential computing nodes on Azure Kubernetes Service (public preview)
 
 [Azure confidential computing](overview.md) allows you to protect your sensitive data while it's in use. The underlying infrastructures protect this data from other applications, administrators, and cloud providers. 
 
@@ -22,16 +22,14 @@ Azure Kubernetes Service (AKS) supports adding [DCsv2 confidential computing nod
 
 ## AKS Confidential Nodes Features
 
-1. Hardware based and process level container isolation through SGX trusted execution environment (TEE) 
-1. Heterogenous node pool clusters (mix confidential and non-confidential node pools)
-1. Encrypted Page Cache (EPC) memory-based pod scheduling
-1. SGX DCAP driver pre-installed
-1. Intel FSGS Patch pre-installed
-1. Supports CPU consumption based horizontal pod autoscaling and cluster autoscaling
-1. Out of proc attestation helper through AKS daemonset
-1. Linux Containers support through Ubuntu 18.04 Gen 2 VM worker nodes
-1. Supports [GA regions of DCsv2](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines&regions=all)  
-
+- Hardware based and process level container isolation through SGX trusted execution environment (TEE) 
+- Heterogenous node pool clusters (mix confidential and non-confidential node pools)
+- Encrypted Page Cache (EPC) memory-based pod scheduling
+- SGX DCAP driver pre-installed
+- Intel FSGS Patch pre-installed
+- Supports CPU consumption based horizontal pod autoscaling and cluster autoscaling
+- Out of proc attestation helper through AKS daemonset
+- Linux Containers support through Ubuntu 18.04 Gen 2 VM worker nodes
 
 ## AKS Provided Daemon Sets
 
@@ -55,7 +53,7 @@ AKS supports applications that are programmed to run on confidential nodes and u
 
 ## Next Steps
 
-[Deploy AKS Cluster with confidential computing nodes](./confidential-nodes-aks-getstarted.md)
+[Deploy AKS Cluster with confidential computing nodes](./confidential-nodes-aks-get-started.md)
 
 [Quick starter confidential container samples](https://github.com/Azure-Samples/confidential-container-samples)
 
