@@ -27,15 +27,19 @@ This version of this article completes these steps by running an [**automated de
 
 [!INCLUDE [digital-twins-setup-steps-prereq.md](../../includes/digital-twins-setup-steps-prereq.md)]
 
+## Prerequisites: Download the script
+
+The sample script is written in PowerShell. It is part of the [**Azure Digital Twins samples**](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/), which you can download to your machine by navigating to that sample link and selecting the *Download ZIP* button underneath the title.
+
+This will download the sample project to your machine as _**Azure_Digital_Twins_samples.zip**_. Navigate to the folder on your machine and unzip it to extract the files.
+
+In the unzipped folder, the deployment script is located at _Azure_Digital_Twins_samples > scripts > **deploy.ps1**_.
+
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Run the deployment script
 
 This article uses an Azure Digital Twins code sample to deploy an Azure Digital Twins instance and the required authentication semi-automatically. It can also be used as a starting point for writing your own scripted interactions.
-
-The sample script is written in PowerShell. It is part of the [Azure Digital Twins samples](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/), which you can download to your machine by navigating to that sample link and selecting the *Download ZIP* button underneath the title.
-
-In the downloaded sample folder, the deployment script is located at _Azure_Digital_Twins_samples.zip > scripts > **deploy.ps1**_.
 
 Here are the steps to run the deployment script in Cloud Shell.
 1. Go to an [Azure Cloud Shell](https://shell.azure.com/) window in your browser. Sign in using this command:
@@ -52,7 +56,7 @@ Here are the steps to run the deployment script in Cloud Shell.
 
     :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Cloud Shell window showing selection of the Upload icon":::
 
-    Navigate to the _**deploy.ps1**_ file on your machine and hit "Open." This will upload the file to Cloud Shell so that you can run it in the Cloud Shell window.
+    Navigate to the _**deploy.ps1**_ file on your machine (in _Azure_Digital_Twins_samples > scripts > **deploy.ps1**_) and hit "Open." This will upload the file to Cloud Shell so that you can run it in the Cloud Shell window.
 
 4. Run the script by sending the `./deploy.ps1` command in the Cloud Shell window. 
 
