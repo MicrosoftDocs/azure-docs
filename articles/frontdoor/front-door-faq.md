@@ -95,7 +95,9 @@ To lock down your application to accept traffic only from your specific Front Do
 
 -    Perform a GET operation on your Front Door with the API version `2020-01-01` or higher. In the API call, look for `frontdoorID` field. Filter on the incoming header '**X-Azure-FDID**' sent by Front Door to your backend with the value as that of the field `frontdoorID`. You can also find `Front Door ID` value under the Overview section from Front Door portal page. 
 
-- Apply rule filtering in your backend web server to restrict traffic based on the resulting 'X-Azure-FDID' header value. Below is an example for [Microsoft Internet Information Services (IIS)](https://www.iis.net/):
+- Apply rule filtering in your backend web server to restrict traffic based on the resulting 'X-Azure-FDID' header value.
+
+  Here's an example for [Microsoft Internet Information Services (IIS)](https://www.iis.net/):
 
 	``` xml
 	<?xml version="1.0" encoding="UTF-8"?>
