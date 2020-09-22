@@ -32,7 +32,7 @@ Publisher verification provides the following benefits:
 - **Smoother enterprise adoption**- admins can configure [user consent policies](../manage-apps/configure-user-consent.md), with publisher verification status as one of the primary policy criteria.
 
 > [!NOTE]
-> Starting in November 2020, end-users will no longer be able to grant consent to most newly registered multi-tenant apps without verified publishers. This will apply to apps that are registered after November 8th 2020, use OAuth2.0 to request permissions beyond basic sign-in and read user profile, and request permissions outside of the tenant the app is registered in. A warning informing users that these apps are risky and from an unverified publishers will be displayed on the consent screen.    
+> Starting in November 2020, end-users will no longer be able to grant consent to most newly registered multi-tenant apps without verified publishers. This will apply to apps that are registered after November 8th 2020, use OAuth2.0 to request permissions beyond basic sign-in and read user profile, and request consent from users in different tenants than the one the app is registered in. A warning will be displayed on the consent screen informing users that these apps are risky and are from unverified publishers.    
 
 ## Requirements
 There are a few pre-requisites for publisher verification, some of which will have already been completed by many Microsoft partners. They are: 
