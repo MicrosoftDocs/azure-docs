@@ -144,7 +144,7 @@ In your program's `main()` method, call the authentication method to instantiate
 
 ## Sentiment analysis
 
-# [Version 3.1](#tab/version-3-1)
+# [Version 3.1 preview](#tab/version-3-1)
 
 > [!NOTE]
 > In version `3.1`:
