@@ -1,16 +1,17 @@
 ---
 title: "Face .NET client library quickstart"
-description: Get started with the Face client library for .NET with this quickstart.
+description: Use the Face client library for .NET to detect faces, find similar (face search by image), identify faces (facial recognition search) and migrate your face data.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: include
-ms.date: 08/17/2020
+ms.date: 09/17/2020
 ms.author: pafarley
 ---
-Get started with the Face client library for .NET. Follow these steps to install the package and try out the example code for basic tasks. The Face service provides you with access to advanced algorithms for detecting and recognizing human faces in images.
+
+Get started with facial recognition using the Face client library for .NET. Follow these steps to install the package and try out the example code for basic tasks. The Face service provides you with access to advanced algorithms for detecting and recognizing human faces in images.
 
 Use the Face client library for .NET to:
 
@@ -146,7 +147,7 @@ The rest of the `DetectFaceExtract` method parses and prints the attribute data 
 
 ## Find similar faces
 
-The following code takes a single detected face (source) and searches a set of other faces (target) to find matches. When it finds a match, it prints the ID of the matched face to the console.
+The following code takes a single detected face (source) and searches a set of other faces (target) to find matches (face search by image). When it finds a match, it prints the ID of the matched face to the console.
 
 ### Detect faces for comparison
 
@@ -168,7 +169,7 @@ The following code prints the match details to the console:
 
 ## Identify a face
 
-The Identify operation takes an image of a person (or multiple people) and looks to find the identity of each face in the image. It compares each detected face to a **PersonGroup**, a database of different **Person** objects whose facial features are known. In order to do the Identify operation, you first need to create and train a **PersonGroup**
+The Identify operation takes an image of a person (or multiple people) and looks to find the identity of each face in the image (facial recognition search). It compares each detected face to a **PersonGroup**, a database of different **Person** objects whose facial features are known. In order to do the Identify operation, you first need to create and train a **PersonGroup**
 
 ### Create and train a person group
 
@@ -262,7 +263,7 @@ At this point, your new **PersonGroup** object should have the same data as the 
 
 ## Run the application
 
-Run the application from your application directory with the `dotnet run` command.
+Run your face recognition app from the application directory with the `dotnet run` command.
 
 ```dotnetcli
 dotnet run
@@ -289,7 +290,7 @@ Additionally, if you migrated data using the Snapshot feature in this quickstart
 
 ## Next steps
 
-In this quickstart, you learned how to use the Face library for .NET to do basis tasks. Next, explore the reference documentation to learn more about the library.
+In this quickstart, you learned how to use the Face client library for .NET to do basis facial recognition tasks. Next, explore the reference documentation to learn more about the library.
 
 > [!div class="nextstepaction"]
 > [Face API reference (.NET)](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet)
