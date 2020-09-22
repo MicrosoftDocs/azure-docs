@@ -124,7 +124,7 @@ Using Microsoft.Identity.Web, if you want your web API to call downstream web AP
    }
    ```
 
-3. When you want to call another Web API, Microsoft.Identity.Web offers a wrapper that requests access tokens and calls the downstream web API.
+3. When you want to call another web API, Microsoft.Identity.Web offers a wrapper that requests access tokens and calls the downstream web API.
 
    ```csharp
    using Microsoft.Identity.Web;
