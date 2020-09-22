@@ -18,12 +18,12 @@ After an anomaly is detected by Metrics Advisor, an alert notification will be t
 
 ## Create a hook
 
-Metrics Advisor supports three different types of hooks: email hook, web hook and Azure DevOps. You can choose the one that works for your specific scenario. 
+Metrics Advisor supports three different types of hooks: email hook, web hook and Azure DevOps. You can choose the one that works for your specific scenario.       
 
 ### Email hook
 
 > [!Note]
-> The Metrics Advisor resource administrators need to configure the **Email settings**, and input SMTP related information into Metrics Advisor before anomaly alerts can be sent.
+> Metrics Advisor resource administrators need to configure the Email settings, and input SMTP related information into Metrics Advisor before anomaly alerts can be sent. The resource group admin or subscription admin needs to assign at least one *Cognitive Services Metrics Advisor Administrator* role in the Access control tab of the Metrics Advisor resource. 
 
 To create an email hook, the following parameters are available: 
 

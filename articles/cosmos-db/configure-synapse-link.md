@@ -210,7 +210,7 @@ Use the instructions in the [Query Azure Cosmos DB analytical store](../synapse-
 
 ## <a id="query-analytical-store-sql-on-demand"></a> Query the analytical store using Synapse SQL serverless
 
-Synapse SQL serverless (a preview feature which, was previously referred to as **SQL on-demand**) allows you to query and analyze data in your Azure Cosmos DB containers that are enabled with Azure Synapse Link. You can analyze data in near real-time without impacting the performance of your transactional workloads. It offers a familiar T-SQL syntax to query data from the analytical store and integrated connectivity to a wide range of BI and ad-hoc querying tools via the T-SQL interface. To learn more, see the [Query analytical store using Synapse SQL serverless](../synapse-analytics/sql/on-demand-workspace-overview.md) article.
+Synapse SQL serverless (a preview feature which, was previously referred to as **SQL on-demand**) allows you to query and analyze data in your Azure Cosmos DB containers that are enabled with Azure Synapse Link. You can analyze data in near real-time without impacting the performance of your transactional workloads. It offers a familiar T-SQL syntax to query data from the analytical store and integrated connectivity to a wide range of BI and ad-hoc querying tools via the T-SQL interface. To learn more, see the [Query analytical store using Synapse SQL serverless](../synapse-analytics/sql/query-cosmos-db-analytical-store.md) article.
 
 > [!NOTE]
 > Using the Azure Cosmos DB analytic store with Synapse SQL serverless is currently under gated preview. To request access, reach out to the [Azure Cosmos DB team](mailto:cosmosdbsynapselink@microsoft.com).

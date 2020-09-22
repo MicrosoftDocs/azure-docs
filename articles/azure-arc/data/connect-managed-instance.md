@@ -35,11 +35,11 @@ sqldemo 1/1         10.240.0.4:32023  Ready
 If you are using AKS or kubeadm or OpenShift etc., you can copy the external IP and port number from here and connect to it using your favorite tool for connecting to a SQL Sever/Azure SQL instance such as Azure Data Studio or SQL Server Management Studio.  However, if you are using the quick start VM, see below for special information about how to connect to that VM from outside of Azure. 
 
 > [!NOTE]
-> Your corporate policies may block access to the IP and port, especially if this is deployed in the public cloud.
+> Your corporate policies may block access to the IP and port, especially if this is created in the public cloud.
 
 ## Connect 
 
-Connect with Azure Data Studio or SQL Server Management Studio
+Connect with Azure Data Studio, SQL Server Management Studio, or SQLCMD
 
 Open Azure Data Studio and connect to your instance with the external endpoint IP address and port number above. If you are using an Azure VM you will need the _public_ IP address, which is identifiable using the [Special note about Azure virtual machine deployments](#special-note-about-azure-virtual-machine-deployments).
 
@@ -52,6 +52,11 @@ For example:
 > [!NOTE]
 > You can use Azure Data Studio [view the SQL managed instance dashboards](azure-data-studio-dashboards.md#view-the-sql-managed-instance-dashboards).
 
+To connect using SQLCMD or Linux or Windows you can use a command like this. Enter the SQL password when prompted:
+
+```bash
+sqlcmd -S 52.229.9.30,30913 -U sa
+```
 
 ## Special note about Azure virtual machine deployments
 

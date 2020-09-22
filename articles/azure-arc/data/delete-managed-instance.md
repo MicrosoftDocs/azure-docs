@@ -12,12 +12,12 @@ ms.topic: how-to
 ---
 
 # Delete Azure Arc enabled SQL Managed Instance
-This article describes how you can delete a deployed Azure Arc enabled SQL Managed Instance.
+This article describes how you can delete an Azure Arc enabled SQL Managed Instance.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## View Existing Azure Arc enabled SQL Managed Instances
-To view deployed SQL Managed Instances, run the following command:
+To view SQL Managed Instances, run the following command:
 
 ```console
 azdata arc sql mi list
@@ -97,6 +97,6 @@ persistentvolumeclaim "logs-demo-mi-0" deleted
 
 Learn more about [Features and Capabilities of Azure Arc enabled SQL Managed Instance](managed-instance-features.md)
 
-[Start by deploying a Data Controller](create-data-controller.md)
+[Start by creating a Data Controller](create-data-controller.md)
 
-Already deployed a Data Controller? [Create an Azure Arc enabled SQL Managed Instance](create-sql-managed-instance.md)
+Already created a Data Controller? [Create an Azure Arc enabled SQL Managed Instance](create-sql-managed-instance.md)
