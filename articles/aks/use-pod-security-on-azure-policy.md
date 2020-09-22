@@ -71,9 +71,9 @@ The following are general recommendations for using the Azure Policy Add-on:
   replicas. These components consume more resources as the count of Kubernetes resources and policy
   assignments increases in the cluster which requires audit and enforcement operations.
 
-  - For less than 1000 pods in a single cluster with a max of 20 constraints: 2 vCPUs and 200 MB
+  - For less than 500 pods in a single cluster with a max of 20 constraints: 2 vCPUs and 350 MB
     memory per component.
-  - For more than 1000 pods in a single cluster with a max of 40 constraints: 2 vCPUs and 300 MB
+  - For more than 500 pods in a single cluster with a max of 40 constraints: 3 vCPUs and 600 MB
     memory per component.
 
 The following recommendation applies only to AKS and the Azure Policy Add-on:
