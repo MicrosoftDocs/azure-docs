@@ -13,7 +13,7 @@ ms.custom: mvc
 
 # Configure Azure Active Directory authentication for an Azure Red Hat OpenShift 4 cluster (Portal)
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.75 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.6.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## Before you begin
 
@@ -46,7 +46,7 @@ Navigate to the **Overview** and make note of the **Application (client) ID** an
 
 ## Configure optional claims
 
-Application developers can use [optional claims](https://docs.microsoft.com/azure/active-directory/develop/active-directory-optional-claims) in their Azure AD applications to specify which claims they want in tokens sent to their application.
+Application developers can use [optional claims](../active-directory/develop/active-directory-optional-claims.md) in their Azure AD applications to specify which claims they want in tokens sent to their application.
 
 You can use optional claims to:
 
@@ -64,7 +64,7 @@ Navigate to **Token configuration (preview)** and click on **Add optional claim*
 
 Applications registered in an Azure Active Directory (Azure AD) tenant are, by default, available to all users of the tenant who authenticate successfully. Azure AD allows tenant administrators and developers to restrict an app to a specific set of users or security groups in the tenant.
 
-Follow the instructions on the Azure Active Directory documentation to [assign users and groups to the app](https://docs.microsoft.com/azure/active-directory/develop/howto-restrict-your-app-to-a-set-of-users#app-registration).
+Follow the instructions on the Azure Active Directory documentation to [assign users and groups to the app](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md#app-registration).
 
 ## Configure OpenShift OpenID authentication
 

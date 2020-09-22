@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 08/04/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
 
@@ -36,6 +36,8 @@ In the previous table, an "X" represents direct connectivity between two connect
   * Associated route table: **Default**
   * Propagating to route tables: **Default**
 
+> [!NOTE]
+> You can create a separate Virtual WAN instance with one single Secure Virtual Hub in each region, and then you can connect each Virtual WAN to each other via Site-to-Site VPN.
 
 For information about virtual hub routing, see [About virtual hub routing](about-virtual-hub-routing.md).
 

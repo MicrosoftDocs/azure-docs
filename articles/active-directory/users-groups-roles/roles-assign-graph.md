@@ -130,7 +130,7 @@ HTTP/1.1 400 Bad Request
 }
 ```
 
-Only a subset of built-in roles are enabled for Administrative Unit scoping. Refer to [this documentation](https://docs.microsoft.com/azure/active-directory/users-groups-roles/roles-admin-units-assign-roles) for the list of built-in roles supported over an administrative unit.
+Only a subset of built-in roles are enabled for Administrative Unit scoping. Refer to [this documentation](./roles-admin-units-assign-roles.md) for the list of built-in roles supported over an administrative unit.
 
 ## GET Operations on RoleAssignment
 

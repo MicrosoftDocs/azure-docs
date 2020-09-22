@@ -30,7 +30,7 @@ If you have an on-premises directory that contains user accounts, you likely hav
 
 Users may also authenticate directly with your on-premises Active Directory. Active Directory Federation Services (AD FS) is a standards based on-premises identity service. AD FS extends the ability to use single sign-on (SSO) functionality between trusted business partners without requiring users to sign-in separately to each application. This is known as Federation.
 
-Many organizations have Software as a Service (SaaS) or custom Line-of-Business (LOB) apps federated directly to AD FS, alongside Office 365 and Azure AD-based apps. 
+Many organizations have Software as a Service (SaaS) or custom Line-of-Business (LOB) apps federated directly to AD FS, alongside Microsoft 365 and Azure AD-based apps. 
 
 ![Applications connected directly on-premises](media/migrate-adfs-apps-to-azure/app-integration-before-migration1.png)
 
@@ -401,7 +401,7 @@ In this table, we've listed some useful Permit and Except options and how they m
 | With Specific Claims in the Request| This setting can't be migrated| This setting can't be migrated |
 
 
-An example of how to configure the Exclude option for trusted locations in the Azure Portal:
+An example of how to configure the Exclude option for trusted locations in the Azure portal:
 
 ![Screenshot of mapping access control policies](media/migrate-adfs-apps-to-azure/map-builtin-access-control-policies-3.png)
 
@@ -478,7 +478,7 @@ While the planned outage window itself can be minimal, you should still plan on 
 
 Once deployment is complete, you can send communication informing the users of the successful deployment and remind them of any new steps that they need to take.
 
-* Instruct users to use the [Access Panel](https://myapps.microsoft.com) to access all the migrated applications. 
+* Instruct users to use [My Apps](https://myapps.microsoft.com) to access all the migrated applications. 
 
 * Remind users they might need to update their MFA settings. 
 

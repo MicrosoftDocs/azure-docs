@@ -9,7 +9,7 @@ ms.workload: azure-vs
 ms.topic: how-to
 ms.date: 03/12/2018
 ms.author: ghogen
-ms.custom: aaddev, vs-azure
+ms.custom: "devx-track-csharp, aaddev, vs-azure"
 ---
 # What happened to my MVC project (Visual Studio Azure Active Directory connected service)?
 
@@ -156,5 +156,5 @@ When adding the connected service, Visual Studio 2015 backs up changed and remov
 
 ## Next steps
 
-- [Authentication scenarios for Azure Active Directory](authentication-scenarios.md)
+- [Authentication scenarios for Azure Active Directory](./authentication-vs-authorization.md)
 - [Add sign-in with Microsoft to an ASP.NET web app](quickstart-v2-aspnet-webapp.md)

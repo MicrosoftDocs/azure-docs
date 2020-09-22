@@ -1,6 +1,6 @@
 ---
 title: Back up Azure file shares with Azure CLI
-description: Learn how to use Azure CLI to back up Azure file shares in the Recovery Services Vault
+description: Learn how to use Azure CLI to back up Azure file shares in the Recovery Services vault
 ms.topic: conceptual
 ms.date: 01/14/2020
 ---
@@ -9,9 +9,9 @@ ms.date: 01/14/2020
 
 The Azure command-line interface (CLI) provides a command-line experience for managing Azure resources. It's a great tool for building custom automation to use Azure resources. This article details how to back up Azure file shares with Azure CLI. You can also perform these steps with [Azure PowerShell](./backup-azure-afs-automation.md) or in the [Azure portal](backup-afs.md).
 
-By the end of this tutorial, you will learn how to perform below operations with Azure CLI:
+By the end of this tutorial, you'll learn how to perform the operations below with Azure CLI:
 
-* Create a recovery services vault
+* Create a Recovery Services vault
 * Enable backup for Azure file shares
 * Trigger an on-demand backup for file shares
 
@@ -19,11 +19,11 @@ By the end of this tutorial, you will learn how to perform below operations with
 
 To install and use the CLI locally, you must run Azure CLI version 2.0.18 or later. To find the CLI version, `run az --version`. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-## Create a Recovery Services Vault
+## Create a Recovery Services vault
 
-A recovery service vault is an entity that gives you a consolidated view and management capability across all backup items. When the backup job for a protected resource runs, it creates a recovery point inside the Recovery Services vault. You can then use one of these recovery points to restore data to a given point in time.
+A Recovery Services vault is an entity that gives you a consolidated view and management capability across all backup items. When the backup job for a protected resource runs, it creates a recovery point inside the Recovery Services vault. You can then use one of these recovery points to restore data to a given point in time.
 
-Follow these steps to create a recovery services vault:
+Follow these steps to create a Recovery Services vault:
 
 1. A vault is placed in a resource group. If you don’t have an existing resource group, create a new one with [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create) . In this tutorial, we create the new resource group *azurefiles* in the East US region.
 
@@ -39,7 +39,7 @@ Follow these steps to create a recovery services vault:
 
 1. Use the [az backup vault create](/cli/azure/backup/vault?view=azure-cli-latest#az-backup-vault-create) cmdlet to create the vault. Specify the same location for the vault as was used for the resource group.
 
-    The following example creates a recovery services vault named *azurefilesvault* in the East US region.
+    The following example creates a Recovery Services vault named *azurefilesvault* in the East US region.
 
     ```azurecli-interactive
     az backup vault create --resource-group azurefiles --name azurefilesvault --location eastus --output table
@@ -69,7 +69,7 @@ Name                                  ResourceGroup
 0caa93f4-460b-4328-ac1d-8293521dd928  azurefiles
 ```
 
-The **Name** attribute in the output corresponds to the name of the job that is created by the backup service for your **enable backup** operation. To track status of the job, use the [az backup job show](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) cmdlet.
+The **Name** attribute in the output corresponds to the name of the job that's created by the backup service for your **enable backup** operation. To track status of the job, use the [az backup job show](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) cmdlet.
 
 ## Trigger an on-demand backup for file share
 
@@ -93,7 +93,7 @@ Name                                  ResourceGroup
 9f026b4f-295b-4fb8-aae0-4f058124cb12  azurefiles
 ```
 
-The **Name** attribute in the output corresponds to the name of the job that is created by the backup service for your “on-demand backup” operation. To track the status of a job, use the [az backup job show](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) cmdlet.
+The **Name** attribute in the output corresponds to the name of the job that's created by the backup service for your “on-demand backup” operation. To track the status of a job, use the [az backup job show](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) cmdlet.
 
 ## Next steps
 

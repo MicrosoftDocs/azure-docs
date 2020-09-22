@@ -55,4 +55,4 @@ A maximum of two event sources per instance is supported.
 
 ### API limits
 
-REST API limits for Azure Time Series Insights Gen1 are specified in the [REST API reference documentation](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#limits).
+REST API limits for Azure Time Series Insights Gen1 are specified in the [REST API reference documentation](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/getavailability).

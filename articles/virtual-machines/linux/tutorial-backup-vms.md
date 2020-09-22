@@ -44,7 +44,7 @@ Create a scheduled daily backup to a Recovery Services Vault:
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. In the menu on the left, select **Virtual machines**. 
 3. From the list, select a VM to back up.
-4. On the VM blade, in the **Settings** section, click **Backup**. The **Enable backup** blade opens.
+4. On the VM blade, in the **Operations** section, click **Backup**. The **Enable backup** blade opens.
 5. In **Recovery Services vault**, click **Create new** and provide the name for the new vault. A new vault is created in the same Resource Group and location as the virtual machine.
 6. Click **Backup policy**. For this example, keep the defaults and click **OK**.
 7. On the **Enable backup** blade, click **Enable Backup**. This creates a daily backup based on the default schedule.

@@ -1,7 +1,7 @@
 ---
-title: Azure AD token & claim types
-description: A guide for understanding and evaluating the claims in the SAML 2.0 and JSON Web Tokens (JWT) tokens issued by Azure Active Directory (AAD)
-documentationcenter: na
+title: SAML 2.0 token claims reference | Azure
+titleSuffix: Microsoft identity platform
+description: Claims reference with details on the claims included in SAML 2.0 tokens issued by the Microsoft identity platform, including their JWT equivalents.
 author: kenwith
 services: active-directory
 manager: CelesteDG
@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
 ms.workload: identity
-ms.date: 06/22/2018
+ms.date: 09/09/2020
 ms.author: kenwith
 ms.reviewer: paulgarn
 ms.custom: aaddev
 ---
 
-# Azure AD SAML token reference
+# SAML token claims reference
 
-Azure Active Directory (Azure AD) emits several types of security tokens in the processing of each authentication flow. This document describes the format, security characteristics, and contents of each type of token.
+The Microsoft identity platform emits several types of security tokens in the processing of each authentication flow. This document describes the format, security characteristics, and contents of SAML 2.0 tokens.
 
 ## Claims in SAML tokens
 
@@ -26,11 +26,11 @@ Azure Active Directory (Azure AD) emits several types of security tokens in the 
 > | Name | Equivalent JWT Claim | Description | Example |
 > | --- | --- | --- | ------------|
 > |Audience | `aud` |The intended recipient of the token. The application that receives the token must verify that the audience value is correct and reject any tokens intended for a different audience. | `<AudienceRestriction>`<br>`<Audience>`<br>`https://contoso.com`<br>`</Audience>`<br>`</AudienceRestriction>`  |
-> | Authentication Instant | |Records the date and time when authentication occurred. | `<AuthnStatement AuthnInstant="2011-12-29T05:35:22.000Z">` | 
+> | Authentication Instant | |Records the date and time when authentication occurred. | `<AuthnStatement AuthnInstant="2011-12-29T05:35:22.000Z">` |
 > |Authentication Method | `amr` |Identifies how the subject of the token was authenticated. | `<AuthnContextClassRef>`<br>`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod/password`<br>`</AuthnContextClassRef>` |
 > |First Name | `given_name` |Provides the first or "given" name of the user, as set on the Azure AD user object. | `<Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname">`<br>`<AttributeValue>Frank<AttributeValue>`  |
-> |Groups | `groups` |Provides object IDs that represent the subject's group memberships. These values are unique (see Object ID) and can be safely used for managing access, such as enforcing authorization to access a resource. The groups included in the groups claim are configured on a per-application basis, through the "groupMembershipClaims" property of the application manifest. A value of null will exclude all groups, a value of "SecurityGroup" will include only Active Directory Security Group memberships, and a value of "All" will include both Security Groups and Office 365 Distribution Lists. <br><br> **Notes**: <br> If the number of groups the user is in goes over a limit (150 for SAML, 200 for JWT) then an overage claim will be added the claim sources pointing at the Graph endpoint containing the list of groups for the user. (in . | `<Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/groups">`<br>`<AttributeValue>07dd8a60-bf6d-4e17-8844-230b77145381</AttributeValue>` |
-> | Groups Overage Indicator | `groups:src1` | For token requests that are not length limited (see `hasgroups` above) but still too large for the token, a link to the full groups list for the user will be included. For SAML this is added as a new claim in place of the `groups` claim. | `<Attribute Name=" http://schemas.microsoft.com/claims/groups.link">`<br>`<AttributeValue>https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects<AttributeValue>` |
+> |Groups | `groups` |Provides object IDs that represent the subject's group memberships. These values are unique (see Object ID) and can be safely used for managing access, such as enforcing authorization to access a resource. The groups included in the groups claim are configured on a per-application basis, through the "groupMembershipClaims" property of the application manifest. A value of null will exclude all groups, a value of "SecurityGroup" will include only Active Directory Security Group memberships, and a value of "All" will include both Security Groups and Microsoft 365 Distribution Lists. <br><br> **Notes**: <br> If the number of groups the user is in goes over a limit (150 for SAML, 200 for JWT) then an overage claim will be added the claim sources pointing at the Graph endpoint containing the list of groups for the user. (in . | `<Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/groups">`<br>`<AttributeValue>07dd8a60-bf6d-4e17-8844-230b77145381</AttributeValue>` |
+> | Groups Overage Indicator | `groups:src1` | For token requests that are not length-limited but still too large for the token, a link to the full groups list for the user will be included. For SAML this is added as a new claim in place of the `groups` claim. | `<Attribute Name=" http://schemas.microsoft.com/claims/groups.link">`<br>`<AttributeValue>https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects<AttributeValue>` |
 > |Identity Provider | `idp` |Records the identity provider that authenticated the subject of the token. This value is identical to the value of the Issuer claim unless the user account is in a different tenant than the issuer. | `<Attribute Name=" http://schemas.microsoft.com/identity/claims/identityprovider">`<br>`<AttributeValue>https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/<AttributeValue>` |
 > |IssuedAt | `iat` |Stores the time at which the token was issued. It is often used to measure token freshness. | `<Assertion ID="_d5ec7a9b-8d8f-4b44-8c94-9812612142be" IssueInstant="2014-01-06T20:20:23.085Z" Version="2.0" xmlns="urn:oasis:names:tc:SAML:2.0:assertion">` |
 > |Issuer | `iss` |Identifies the security token service (STS) that constructs and returns the token. In the tokens that Azure AD returns, the issuer is sts.windows.net. The GUID in the Issuer claim value is the tenant ID of the Azure AD directory. The tenant ID is an immutable and reliable identifier of the directory. | `<Issuer>https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/</Issuer>` |
@@ -148,10 +148,9 @@ This is a sample of a typical SAML token.
 </t:RequestSecurityTokenResponse>
 ```
 
-## Related content
+## Next steps
 
-* See the [Policy resource](https://docs.microsoft.com/graph/api/resources/policy?view=graph-rest-beta), to learn more about managing token lifetime policy using the Microsoft Graph API.
-* For more information and samples on managing policies via PowerShell cmdlets, including samples, see [Configurable token lifetimes in Azure AD](../develop/active-directory-configurable-token-lifetimes.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json). 
-* Add [custom and optional claims](../develop/active-directory-optional-claims.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) to the tokens for your application.
-* Use [Single Sign On (SSO) with SAML](single-sign-on-saml-protocol.md).
-* Use the [Azure Single Sign Out SAML Protocol](single-sign-out-saml-protocol.md)
+* To learn more about managing token lifetime policy using the Microsoft Graph API, see the [Azure AD policy resource overview](/graph/api/resources/policy).
+* Add [custom and optional claims](active-directory-optional-claims.md) to the tokens for your application.
+* Use [Single Sign-On (SSO) with SAML](single-sign-on-saml-protocol.md).
+* Use the [Azure Single Sign-Out SAML protocol](single-sign-out-saml-protocol.md)

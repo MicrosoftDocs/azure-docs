@@ -8,7 +8,7 @@ ms.date: 06/25/2020
 ms.author: mahain
 ---
 
-# AVS assessments in Azure Migrate: Server Assessment
+# Server Assessment overview (migrate to Azure VMware Solution)
 
 [Azure Migrate](migrate-services-overview.md) provides a central hub to track discovery, assessment, and migration of your on-premises apps and workloads. It also tracks your private and public cloud instances to Azure. The hub offers Azure Migrate tools for assessment and migration, as well as third-party independent software vendor (ISV) offerings.
 

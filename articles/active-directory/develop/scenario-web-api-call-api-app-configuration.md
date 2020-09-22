@@ -68,7 +68,7 @@ Microsoft.Identity.Web provides several ways to describe certificates, both by c
 
 ## Startup.cs
 
-Using Microsoft.Identity.Web, if you want your web API to call downstream web APIs, add the `.AddMicrosoftWebApiCallsWebApi()` line after `.AddMicrosoftWebApiAuthentication(Configuration)`, and then choose a token cache implementation, for example `.AddInMemoryTokenCaches()`, in *Startup.cs*:
+Using Microsoft.Identity.Web, if you want your web API to call downstream web APIs, add the `.EnableTokenAcquisitionToCallDownstreamApi()` line after `.AddMicrosoftIdentityWebApi(Configuration)`, and then choose a token cache implementation, for example `.AddInMemoryTokenCaches()`, in *Startup.cs*:
 
 ```csharp
 using Microsoft.Identity.Web;
@@ -79,9 +79,10 @@ public class Startup
   public void ConfigureServices(IServiceCollection services)
   {
    // ...
-   services.AddMicrosoftWebApiAuthentication(Configuration)
-           .AddMicrosoftWebApiCallsWebApi(Configuration)
-           .AddInMemoryTokenCaches();
+    services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            .AddMicrosoftIdentityWebApi(Configuration, "AzureAd")
+                .EnableTokenAcquisitionToCallDownstreamApi()
+                .AddInMemoryTokenCaches();
   // ...
   }
   // ...
@@ -89,8 +90,6 @@ public class Startup
 ```
 
 As with web apps, you can choose various token cache implementations. For details, see [Microsoft identity web wiki - Token cache serialization](https://aka.ms/ms-id-web/token-cache-serialization) on GitHub.
-
-If you're certain that your web API will need specific scopes, you can optionally pass them as arguments to `AddMicrosoftWebApiCallsWebApi`.
 
 # [Java](#tab/java)
 
@@ -173,7 +172,7 @@ You can also see an example of OBO flow implementation in [Node.js and Azure Fun
 
 ## Protocol
 
-For more information about the OBO protocol, see [Microsoft identity platform and OAuth 2.0 On-Behalf-Of flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow).
+For more information about the OBO protocol, see [Microsoft identity platform and OAuth 2.0 On-Behalf-Of flow](./v2-oauth2-on-behalf-of-flow.md).
 
 ## Next steps
 

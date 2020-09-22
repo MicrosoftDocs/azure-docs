@@ -10,7 +10,7 @@ ms.author: chenyl
 
 # Upstream settings
 
-Upstream is a feature that allows Azure SignalR Service to send messages and connection events to a set of endpoints in serverless mode. You can use upstream to invoke a hub method from clients in serverless mode and let endpoints get notified when client connections are connected or disconnected.
+Upstream is a preview feature that allows Azure SignalR Service to send messages and connection events to a set of endpoints in serverless mode. You can use upstream to invoke a hub method from clients in serverless mode and let endpoints get notified when client connections are connected or disconnected.
 
 > [!NOTE]
 > Only serverless mode can configure upstream settings.
@@ -55,6 +55,10 @@ You can set rules for *hub rules*, *category rules*, and *event rules* separatel
 - Use a comma (,) to join multiple events. For example, `connected, disconnected` matches the connected and disconnected events.
 - Use the full event name to match the event. For example, `connected` matches the connected event.
 
+> [!NOTE]
+> If you're using Azure Functions and [SignalR trigger](../azure-functions/functions-bindings-signalr-service-trigger.md), SignalR trigger will expose a single endpoint in the following format: `https://<APP_NAME>.azurewebsites.net/runtime/webhooks/signalr?code=<API_KEY>`.
+> You can just configure url template to this url.
+
 ### Authentication settings
 
 You can configure authentication for each upstream setting item separately. When you configure authentication, a token is set in the `Authentication` header of the upstream message. Currently, Azure SignalR Service supports the following authentication types:
@@ -73,7 +77,7 @@ When you select `ManagedIdentity`, you must enable a managed identity in Azure S
 3. Add URLs under **Upstream URL Pattern**. Then settings such as **Hub Rules** will show the default value.
 4. To set settings for **Hub Rules**, **Event Rules**, **Category Rules**, and **Upstream Authentication**, select the value of **Hub Rules**. A page that allows you to edit settings appears:
 
-    :::image type="content" source="media/concept-upstream/upstream-detail-portal.png" alt-text="Upstream settings":::
+    :::image type="content" source="media/concept-upstream/upstream-detail-portal.png" alt-text="Upstream setting details":::
 
 5. To set **Upstream Authentication**, make sure you've enabled a managed identity first. Then select **Use Managed Identity**. According to your needs, you can choose any options under **Auth Resource ID**. See [Managed identities for Azure SignalR Service](howto-use-managed-identity.md) for details.
 

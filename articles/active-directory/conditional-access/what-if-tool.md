@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 ---
 # Troubleshoot using the What If tool in Conditional Access
 
-[Conditional Access](../active-directory-conditional-access-azure-portal.md) is a capability of Azure Active Directory (Azure AD) that enables you to control how authorized users access your cloud apps. How do you know what to expect from the Conditional Access policies in your environment? To answer this question, you can use the **Conditional Access What If tool**.
+[Conditional Access](./overview.md) is a capability of Azure Active Directory (Azure AD) that enables you to control how authorized users access your cloud apps. How do you know what to expect from the Conditional Access policies in your environment? To answer this question, you can use the **Conditional Access What If tool**.
 
 This article explains how you can use this tool to test your Conditional Access policies.
 
@@ -103,4 +103,4 @@ On the list of policies that don't apply to your user, you can and also find the
 ## Next steps
 
 - More information about Conditional Access policy application can be found using the policies report-only mode using [Conditional Access insights and reporting](howto-conditional-access-insights-reporting.md).
-- If you are ready to configure Conditional Access policies for your environment, see the [Conditional Access common policies](concept-conditional-access-policy-common.md). 
+- If you are ready to configure Conditional Access policies for your environment, see the [Conditional Access common policies](concept-conditional-access-policy-common.md).

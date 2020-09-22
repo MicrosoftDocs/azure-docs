@@ -6,6 +6,7 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 07/30/2020
+ms.custom: devx-track-csharp
 ---
 
 # Provision autoscale throughput on database or container in Azure Cosmos DB

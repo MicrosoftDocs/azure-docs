@@ -150,7 +150,13 @@ GML is a spatial XML file specification that's often used as an extension to oth
 
 The `atlas.io.read` function will default to the `atlas.io.core.GmlReader.read` function when it detects that the input data is XML, but the data isn't one of the other support spatial XML formats.
 
-## Next steps
+The `GmlReader` will parse coordinates that has one of the following SRIDs:
+
+- EPSG:4326 (Preferred)
+- EPSG:4269, EPSG:4283, EPSG:4258, EPSG:4308, EPSG:4230, EPSG:4272, EPSG:4271, EPSG:4267, EPSG:4608, EPSG:4674 possibly with a small margin of error.
+- EPSG:3857, EPSG:102100, EPSG:3785, EPSG:900913, EPSG:102113, EPSG:41001, EPSG:54004
+
+## More resources
 
 Learn more about the classes and methods used in this article:
 
@@ -160,18 +166,21 @@ Learn more about the classes and methods used in this article:
 
 [SpatialDataSetStats](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.spatialdatasetstats)
 
-[GmlReader](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.core.gmlreader?view=azure-maps-typescript-latest)
+[GmlReader](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.core.gmlreader)
 
-[GmlWriter](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.core.gmlwriter?view=azure-maps-typescript-latest)
+[GmlWriter](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.core.gmlwriter)
 
 [atlas.io.ogc.WKT functions](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.ogc.wkt)
-
-See the following articles for more code samples to add to your maps:
-
-[Add an OGC map layer](spatial-io-add-ogc-map-layer.md)
 
 [Connect to a WFS service](spatial-io-connect-wfs-service.md)
 
 [Leverage core operations](spatial-io-core-operations.md)
 
 [Supported data format details](spatial-io-supported-data-format-details.md)
+
+
+## Next steps
+
+See the following articles for more code samples to add to your maps:
+
+[Add an OGC map layer](spatial-io-add-ogc-map-layer.md)

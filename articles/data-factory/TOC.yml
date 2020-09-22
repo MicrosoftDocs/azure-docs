@@ -187,7 +187,7 @@
         href: concepts-data-flow-monitoring.md
       - name: Data flow performance
         href: concepts-data-flow-performance.md
-      - name: Manage graph
+      - name: Manage data flow canvas
         href: concepts-data-flow-manage-graph.md
       - name: Expression builder
         href: concepts-data-flow-expression-builder.md
@@ -590,6 +590,8 @@
       href: enable-customer-managed-key.md
     - name: Managed Virtual Network
       href: managed-virtual-network-private-endpoint.md
+    - name: Azure Private Link for Data Factory
+      href: data-factory-private-link.md
   - name: Monitor and manage
     items:
     - name: Monitor visually

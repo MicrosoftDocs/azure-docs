@@ -6,6 +6,7 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
+ms.custom: devx-track-csharp
 ---
 
 # Capacity planning and scaling for Azure Service Fabric
@@ -31,6 +32,9 @@ Using automatic scaling through virtual machine scale sets will make your versio
 
 > [!NOTE]
 > The Service Fabric stateful service fabric:/System/InfastructureService/<NODE_TYPE_NAME> runs on every node type that has Silver or higher durability. It's the only system service that is supported to run in Azure on any of your clusters node types.
+
+> [!IMPORTANT]
+> Service Fabric autoscaling supports `Default` and `NewestVM` virtual machine scale set [scale-in configurations](../virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy.md).
 
 ## Vertical scaling considerations
 
@@ -163,7 +167,7 @@ scaleSet.Update().WithCapacity(newCapacity).Apply();
 
 > [!NOTE]
 > When you scale in a cluster, you'll see the removed node/VM instance displayed in an unhealthy state in Service Fabric Explorer. For an explanation of this behavior, see [Behaviors you may observe in Service Fabric Explorer](./service-fabric-cluster-scale-in-out.md#behaviors-you-may-observe-in-service-fabric-explorer). You can:
-> * Call the [Remove-ServiceFabricNodeState command](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) with the appropriate node name.
+> * Call the [Remove-ServiceFabricNodeState command](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps&preserve-view=true) with the appropriate node name.
 > * Deploy the [Service Fabric autoscale helper application](https://github.com/Azure/service-fabric-autoscale-helper/) on your cluster. This application ensures that the scaled-down nodes are cleared from Service Fabric Explorer.
 
 ## Reliability levels

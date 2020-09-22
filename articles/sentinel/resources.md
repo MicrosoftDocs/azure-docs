@@ -78,4 +78,4 @@ View Azure Sentinel blog posts from the [TechCommunity](https://techcommunity.mi
 
 
 ## Next steps
-In this document, you got a list of resources that are useful when you're working with Azure Sentinel. You'll find additional information about Azure security and compliance on the [Microsoft Azure Security and Compliance blog](https://blogs.msdn.com/b/azuresecurity/).
+In this document, you got a list of resources that are useful when you're working with Azure Sentinel. You'll find additional information about Azure security and compliance on the [Microsoft Azure Security and Compliance blog](https://docs.microsoft.com/archive/blogs/azuresecurity/).

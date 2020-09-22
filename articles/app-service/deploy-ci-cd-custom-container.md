@@ -51,7 +51,7 @@ Copy the Webhook URL. To add a webhook for Docker Hub, follow <a href="https://d
 
 ## Automate with CLI
 
-To configure CI/CD using the Azure CLI, run the [az webapp deployment container config](https://docs.microsoft.com/cli/azure/webapp/deployment/container?view=azure-cli-latest#az-webapp-deployment-container-config) command to generate the webhook URL. The URL can be used to configure your DockerHub or Azure Container Registry.
+To configure CI/CD using the Azure CLI, run the [az webapp deployment container config](/cli/azure/webapp/deployment/container?view=azure-cli-latest#az-webapp-deployment-container-config) command to generate the webhook URL. The URL can be used to configure your DockerHub or Azure Container Registry.
 
 ```azurecli-interactive
 az webapp deployment container config --name <app-name> --resource-group <group-name> --enable-cd true

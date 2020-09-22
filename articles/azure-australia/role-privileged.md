@@ -21,7 +21,7 @@ Role-Based Access Control is central to the management of access to all resource
 
 At a high level, implementing RBAC requires three components:
 
-![RBAC-Overview](media/rbac-overview.png)
+![Diagram shows the three components necessary for implementing R B A C, which are security principal, role definition, and scope, which all feed into role assigment.](media/rbac-overview.png)
 
 * **Security Principals**: A security principal can be any one of the following; a user, a group, [Service Principals](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals), or a [Managed Identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Security Principals should be assigned privileges using Azure Active Directory Groups.
 

@@ -449,9 +449,9 @@ Application logging will be available in your selected Log Analytics workspace.
 
 ## Monitoring
 
-* Learn how to [Detect threats with Azure Sentinel](/azure/sentinel/tutorial-detect-threats)
-* [Investigate incidents with Azure Sentinel](/azure/sentinel/tutorial-investigate-cases)
-* [Set up automated threat responses in Azure Sentinel](/azure/sentinel/tutorial-respond-threats-playbook)
+* Learn how to [Detect threats with Azure Sentinel](../../sentinel/tutorial-detect-threats-built-in.md)
+* [Investigate incidents with Azure Sentinel](../../sentinel/tutorial-investigate-cases.md)
+* [Set up automated threat responses in Azure Sentinel](../../sentinel/tutorial-respond-threats-playbook.md)
 * Understand how to review your [Exposure Score](/windows/security/threat-protection/microsoft-defender-atp/tvm-exposure-score)
 * Review [Security recommendation](/windows/security/threat-protection/microsoft-defender-atp/tvm-security-recommendation)
 * Manage security [Remediations](/windows/security/threat-protection/microsoft-defender-atp/tvm-remediation)
@@ -463,4 +463,4 @@ Application logging will be available in your selected Log Analytics workspace.
 * Learn more about [Microsoft Intune](/intune/index).
 * Understand [Azure AD](../index.yml).
 * Work with [Microsoft Defender Advanced Threat Protection](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection)
-* Discover [Azure Sentinel](/azure/sentinel/)
+* Discover [Azure Sentinel](../../sentinel/index.yml)

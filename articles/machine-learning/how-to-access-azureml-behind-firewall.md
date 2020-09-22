@@ -19,14 +19,18 @@ In this article, learn how to configure Azure Firewall to  control access to you
 
 While the information in this document is based on using [Azure Firewall](../firewall/tutorial-firewall-deploy-portal.md), you should be able to use it with other firewall products. If you have questions about how to allow communication through your firewall, please consult the documentation for the firewall you are using.
 
-## Network rules
+## Application rules
 
-On your firewall, create a network rule allowing traffic to and from the addresses in this article.
+On your firewall, create an _application rule_ allowing traffic to and from the addresses in this article.
 
 > [!TIP]
 > When adding the network rule, set the __Protocol__ to any, and the ports to `*`.
 >
 > For more information on configuring Azure Firewall, see [Deploy and configure Azure Firewall](../firewall/tutorial-firewall-deploy-portal.md#configure-an-application-rule).
+
+## Routes
+
+When configuring the outbound route for the subnet that contains Azure Machine Learning resources, use the guidance in the [forced tunneling](how-to-secure-training-vnet.md#forced-tunneling) section for securing the training environment.
 
 ## Microsoft hosts
 
@@ -36,6 +40,8 @@ The hosts in this section are owned by Microsoft, and provide services required 
 
 | **Host name** | **Purpose** |
 | ---- | ---- |
+| **login.microsoftonline.com** | Authentication |
+| **management.azure.com** | Used to get the workspace information |
 | **\*.batchai.core.windows.net** | Training clusters |
 | **ml.azure.com** | Azure Machine Learning studio |
 | **default.exp-tas.com** | Used by the Azure Machine Learning studio |
@@ -52,6 +58,10 @@ The hosts in this section are owned by Microsoft, and provide services required 
 | **mcr.microsoft.com** | Microsoft Container Registry for base docker images |
 | **your-acr-server-name.azurecr.io** | Only needed if your Azure Container Registry is behind the virtual network. In this configuration, a private link is created from the Microsoft environment to the ACR instance in your subscription. Use the ACR server name for your Azure Machine Learning workspace. |
 | **\*.notebooks.azure.net** | Needed by the notebooks in Azure Machine Learning studio. |
+| **graph.windows.net** | Needed for notebooks |
+
+> [!TIP]
+> If you plan on using federated identity, follow the [Best practices for securing Active Directory Federation Services](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs) article.
 
 ## Python hosts
 
@@ -59,7 +69,7 @@ The hosts in this section are used to install Python packages. They are required
 
 | **Host name** | **Purpose** |
 | ---- | ---- |
-| **anaconda.com** | Used to install default packages. |
+| **anaconda.com**</br>**\*.anaconda.com** | Used to install default packages. |
 | **\*.anaconda.org** | Used to get repo data. |
 | **pypi.org** | Used to list dependencies from the default index, if any, and the index is not overwritten by user settings. If the index is overwritten, you must also allow **\*.pythonhosted.org**. |
 
@@ -74,7 +84,16 @@ The hosts in this section are used to install R packages. They are required duri
 | ---- | ---- |
 | **cloud.r-project.org** | Used when installing CRAN packages. |
 
+## Azure Government region
+
+Required URLs for the Azure Government regions.
+
+| **Host name** | **Purpose** |
+| ---- | ---- |
+| **usgovarizona.api.ml.azure.us** | The US-Arizona region |
+| **usgovvirginia.api.ml.azure.us** | The US-Virginia region |
+
 ## Next steps
 
 * [Tutorial: Deploy and configure Azure Firewall using the Azure portal](../firewall/tutorial-firewall-deploy-portal.md)
-* [Secure Azure ML experimentation and inference jobs within an Azure Virtual Network](how-to-enable-virtual-network.md)
+* [Secure Azure ML experimentation and inference jobs within an Azure Virtual Network](how-to-network-security-overview.md)

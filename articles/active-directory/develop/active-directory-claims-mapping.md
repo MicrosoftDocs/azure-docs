@@ -7,10 +7,10 @@ author: rwike77
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.custom: aaddev 
+ms.custom: aaddev
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/06/2020
+ms.date: 08/25/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ---
@@ -138,7 +138,6 @@ There are certain sets of claims that define how and when they're used in tokens
 | onprem_sid |
 | openid2_id |
 | password |
-| platf |
 | polids |
 | pop_jwk |
 | preferred_username |
@@ -243,11 +242,11 @@ To control what claims are emitted and where the data comes from, use the proper
 
 **Summary:** This property determines whether the basic claim set is included in tokens affected by this policy.
 
-- If set to True, all claims in the basic claim set are emitted in tokens affected by the policy. 
+- If set to True, all claims in the basic claim set are emitted in tokens affected by the policy.
 - If set to False, claims in the basic claim set are not in the tokens, unless they are individually added in the claims schema property of the same policy.
 
-> [!NOTE] 
-> Claims in the core claim set are present in every token, regardless of what this property is set to. 
+> [!NOTE]
+> Claims in the core claim set are present in every token, regardless of what this property is set to.
 
 ### Claims schema
 
@@ -262,14 +261,14 @@ For each claim schema entry defined in this property, certain information is req
 
 **Value:** The Value element defines a static value as the data to be emitted in the claim.
 
-**Source/ID pair:** The Source and ID elements define where the data in the claim is sourced from.  
+**Source/ID pair:** The Source and ID elements define where the data in the claim is sourced from.
 
 **Source/ExtensionID pair:** The Source and ExtensionID elements define the directory schema extension attribute where the data in the claim is sourced from. For more information, see [Using directory schema extension attributes in claims](active-directory-schema-extensions.md).
 
-Set the Source element to one of the following values: 
+Set the Source element to one of the following values:
 
-- "user": The data in the claim is a property on the User object. 
-- "application": The data in the claim is a property on the application (client) service principal. 
+- "user": The data in the claim is a property on the User object.
+- "application": The data in the claim is a property on the application (client) service principal.
 - "resource": The data in the claim is a property on the resource service principal.
 - "audience": The data in the claim is a property on the service principal that is the audience of the token (either the client or resource service principal).
 - "company": The data in the claim is a property on the resource tenant's Company object.
@@ -297,8 +296,8 @@ The ID element identifies which property on the source provides the value for th
 | User | companyname| Organization Name |
 | User | streetaddress | Street Address |
 | User | postalcode | Postal Code |
-| User | preferredlanguange | Preferred Language |
-| User | onpremisesuserprincipalname | On-premises UPN |
+| User | preferredlanguage | Preferred Language |
+| User | onpremisesuserprincipalname | On-premises UPN |*
 | User | mailnickname | Mail Nickname |
 | User | extensionattribute1 | Extension Attribute 1 |
 | User | extensionattribute2 | Extension Attribute 2 |
@@ -324,7 +323,7 @@ The ID element identifies which property on the source provides the value for th
 | User | facsimiletelephonenumber | Facsimile Telephone Number |
 | User | assignedroles | list of App roles assigned to user|
 | application, resource, audience | displayname | Display Name |
-| application, resource, audience | objected | ObjectID |
+| application, resource, audience | objectid | ObjectID |
 | application, resource, audience | tags | Service Principal Tag |
 | Company | tenantcountry | Tenant's country/region |
 
@@ -337,6 +336,8 @@ The ID element identifies which property on the source provides the value for th
 - The JwtClaimType must contain the name of the claim to be emitted in JWTs.
 - The SamlClaimType must contain the URI of the claim to be emitted in SAML tokens.
 
+* **onPremisesUserPrincipalName attribute:** When using an Alternate ID, the on-premises attribute userPrincipalName is synchronized with the Azure AD attribute onPremisesUserPrincipalName. This attribute is only available when Alternate ID is configured but is also available through MS Graph Beta: https://graph.microsoft.com/beta/me/.
+
 > [!NOTE]
 > Names and URIs of claims in the restricted claim set cannot be used for the claim type elements. For more information, see the "Exceptions and restrictions" section later in this article.
 
@@ -344,7 +345,7 @@ The ID element identifies which property on the source provides the value for th
 
 **String:** ClaimsTransformation
 
-**Data type:** JSON blob, with one or more transformation entries 
+**Data type:** JSON blob, with one or more transformation entries
 
 **Summary:** Use this property to apply common transformations to source data, to generate the output data for claims specified in the Claims Schema.
 
@@ -363,7 +364,7 @@ Based on the method chosen, a set of inputs and outputs is expected. Define the 
 
 **InputClaims:** Use an InputClaims element to pass the data from a claim schema entry to a transformation. It has two attributes: **ClaimTypeReferenceId** and **TransformationClaimType**.
 
-- **ClaimTypeReferenceId** is joined with ID element of the claim schema entry to find the appropriate input claim. 
+- **ClaimTypeReferenceId** is joined with ID element of the claim schema entry to find the appropriate input claim.
 - **TransformationClaimType** is used to give a unique name to this input. This name must match one of the expected inputs for the transformation method.
 
 **InputParameters:** Use an InputParameters element to pass a constant value to a transformation. It has two attributes: **Value** and **ID**.
@@ -413,9 +414,9 @@ Based on the method chosen, a set of inputs and outputs is expected. Define the 
 
 ### Custom signing key
 
-A custom signing key must be assigned to the service principal object for a claims mapping policy to take effect. This ensures acknowledgment that tokens have been modified by the creator of the claims mapping policy and protects applications from claims mapping policies created by malicious actors. In order to add a custom signing key, you can use the Azure PowerShell cmdlet `new-azureadapplicationkeycredential` to create a symmetric key credential for your Application object. For more information on this Azure PowerShell cmdlet, see [New-AzureADApplicationKeyCredential](https://docs.microsoft.com/powerShell/module/Azuread/New-AzureADApplicationKeyCredential?view=azureadps-2.0).
+A custom signing key must be assigned to the service principal object for a claims mapping policy to take effect. This ensures acknowledgment that tokens have been modified by the creator of the claims mapping policy and protects applications from claims mapping policies created by malicious actors. In order to add a custom signing key, you can use the Azure PowerShell cmdlet `new-azureadapplicationkeycredential` to create a symmetric key credential for your Application object. For more information on this Azure PowerShell cmdlet, see [New-AzureADApplicationKeyCredential](/powerShell/module/Azuread/New-AzureADApplicationKeyCredential?view=azureadps-2.0).
 
-Apps that have claims mapping enabled must validate their token signing keys by appending `appid={client_id}` to their [OpenID Connect metadata requests](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document). Below is the format of the OpenID Connect metadata document you should use: 
+Apps that have claims mapping enabled must validate their token signing keys by appending `appid={client_id}` to their [OpenID Connect metadata requests](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document). Below is the format of the OpenID Connect metadata document you should use:
 
 ```
 https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration?appid={client-id}
@@ -459,20 +460,20 @@ To get started, do the following steps:
 In this example, you create a policy that removes the basic claim set from tokens issued to linked service principals.
 
 1. Create a claims mapping policy. This policy, linked to specific service principals, removes the basic claim set from tokens.
-   1. To create the policy, run this command: 
-    
+   1. To create the policy, run this command:
+
       ``` powershell
       New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"false"}}') -DisplayName "OmitBasicClaims" -Type "ClaimsMappingPolicy"
       ```
    2. To see your new policy, and to get the policy ObjectId, run the following command:
-    
+
       ``` powershell
       Get-AzureADPolicy
       ```
 1. Assign the policy to your service principal. You also need to get the ObjectId of your service principal.
    1. To see all your organization's service principals, you can [query the Microsoft Graph API](/graph/traverse-the-graph). Or, in [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer), sign in to your Azure AD account.
-   2. When you have the ObjectId of your service principal, run the following command:  
-     
+   2. When you have the ObjectId of your service principal, run the following command:
+
       ``` powershell
       Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
       ```
@@ -482,21 +483,21 @@ In this example, you create a policy that removes the basic claim set from token
 In this example, you create a policy that adds the EmployeeID and TenantCountry to tokens issued to linked service principals. The EmployeeID is emitted as the name claim type in both SAML tokens and JWTs. The TenantCountry is emitted as the country/region claim type in both SAML tokens and JWTs. In this example, we continue to include the basic claims set in the tokens.
 
 1. Create a claims mapping policy. This policy, linked to specific service principals, adds the EmployeeID and TenantCountry claims to tokens.
-   1. To create the policy, run the following command:  
-     
+   1. To create the policy, run the following command:
+
       ``` powershell
       New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema": [{"Source":"user","ID":"employeeid","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/employeeid","JwtClaimType":"name"},{"Source":"company","ID":"tenantcountry","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/country","JwtClaimType":"country"}]}}') -DisplayName "ExtraClaimsExample" -Type "ClaimsMappingPolicy"
       ```
-    
+
    2. To see your new policy, and to get the policy ObjectId, run the following command:
-     
-      ``` powershell  
+
+      ``` powershell
       Get-AzureADPolicy
       ```
-1. Assign the policy to your service principal. You also need to get the ObjectId of your service principal. 
+1. Assign the policy to your service principal. You also need to get the ObjectId of your service principal.
    1. To see all your organization's service principals, you can [query the Microsoft Graph API](/graph/traverse-the-graph). Or, in [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer), sign in to your Azure AD account.
-   2. When you have the ObjectId of your service principal, run the following command:  
-     
+   2. When you have the ObjectId of your service principal, run the following command:
+
       ``` powershell
       Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
       ```
@@ -507,20 +508,20 @@ In this example, you create a policy that emits a custom claim "JoinedData" to J
 
 1. Create a claims mapping policy. This policy, linked to specific service principals, adds the EmployeeID and TenantCountry claims to tokens.
    1. To create the policy, run the following command:
-     
+
       ``` powershell
       New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema":[{"Source":"user","ID":"extensionattribute1"},{"Source":"transformation","ID":"DataJoin","TransformationId":"JoinTheData","JwtClaimType":"JoinedData"}],"ClaimsTransformations":[{"ID":"JoinTheData","TransformationMethod":"Join","InputClaims":[{"ClaimTypeReferenceId":"extensionattribute1","TransformationClaimType":"string1"}], "InputParameters": [{"ID":"string2","Value":"sandbox"},{"ID":"separator","Value":"."}],"OutputClaims":[{"ClaimTypeReferenceId":"DataJoin","TransformationClaimType":"outputClaim"}]}]}}') -DisplayName "TransformClaimsExample" -Type "ClaimsMappingPolicy"
       ```
-    
-   2. To see your new policy, and to get the policy ObjectId, run the following command: 
-     
+
+   2. To see your new policy, and to get the policy ObjectId, run the following command:
+
       ``` powershell
       Get-AzureADPolicy
       ```
-1. Assign the policy to your service principal. You also need to get the ObjectId of your service principal. 
+1. Assign the policy to your service principal. You also need to get the ObjectId of your service principal.
    1. To see all your organization's service principals, you can [query the Microsoft Graph API](/graph/traverse-the-graph). Or, in [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer), sign in to your Azure AD account.
-   2. When you have the ObjectId of your service principal, run the following command: 
-     
+   2. When you have the ObjectId of your service principal, run the following command:
+
       ``` powershell
       Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
       ```

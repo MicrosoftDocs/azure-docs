@@ -23,25 +23,24 @@ A number of features have size, count, or other limitations.
 
 ## Geometry
 
-* Total allowable materials in an asset: 65,535.
+* Total allowable materials in an asset: 65,535. See [material de-duplication](../how-tos/conversion/configure-model-conversion.md#material-de-duplication) for more information.
 * Maximum dimension of a single texture: 16,384 x 16,384. Larger source textures will be scaled down by the conversion process.
 
 ## Overall number of polygons
 
 The allowable number of polygons for all loaded models depends on the size of the VM as passed to [the session management REST API](../how-tos/session-rest-api.md#create-a-session):
 
-| VM size | Maximum number of polygons |
+| Server size | Maximum number of polygons |
 |:--------|:------------------|
 |standard| 20 million |
 |premium| no limit |
 
-See [VM size](../reference/vm-sizes.md) chapter for more detailed information on this limitation.
+See [server size](../reference/vm-sizes.md) chapter for more detailed information on this limitation.
 
 ## Platform limitations
 
 **Windows 10 desktop**
 
-* UWP/x86 is the only supported UWP platform. UWP/x64 is not supported.
 * Win32/x64 is the only supported Win32 platform. Win32/x86 is not supported.
 
 **Hololens 2**

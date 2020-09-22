@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 08/03/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
 
@@ -25,7 +25,7 @@ In order to figure out how many route tables will be needed in a Virtual WAN sce
 | VNets     | &#8594;|      X     |     X    |
 | Branches   | &#8594;|    X     |     X    |
 
-Each of the cells in the previous table describes whether a Virtual WAN connection (the "From" side of the flow, the row headers in the table) learns a destination prefix (the "To" side of the flow, the column headers in italics in the table) for a specific traffic flow.
+Each of the cells in the previous table describes whether a Virtual WAN connection (the "From" side of the flow, the row headers in the table) learns a destination prefix (the "To" side of the flow, the column headers in italics in the table) for a specific traffic flow, where an "X" means that connectivity is provided by Virtual WAN.
 
 Since all connections from both VNets and branches (VPN, ExpressRoute, and User VPN) have the same connectivity requirements, a single route table is required. As a result, all connections will be associated and propagate to the same route table, the Default route table:
 

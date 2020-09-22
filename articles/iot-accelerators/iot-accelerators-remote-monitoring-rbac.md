@@ -8,7 +8,7 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
-ms.custom: has-adal-ref
+ms.custom: "has-adal-ref, devx-track-csharp"
 
 # As an administrator, I want to understand how I can configure access rights in the Remote Monitoring solution accelerator.
 ---
@@ -59,7 +59,7 @@ As an Azure Active Directory application owner, you can use the Azure portal to 
 
 1. Check you're an owner of the application by clicking the application and then clicking **Owners**. In the following screenshot, **Contoso admin** is an owner of the **contoso-rm4** application:
 
-    ![Owners](media/iot-accelerators-remote-monitoring-rbac/owners.png)
+    ![Screenshot shows the Manage Owners option selected, which displays the owners of the contoso r m 4 application.](media/iot-accelerators-remote-monitoring-rbac/owners.png)
 
     If you aren't an owner, you need to ask an existing owner to add you to the list. Only owners can assign application roles such as **Admin** or **Read Only** to other users.
 

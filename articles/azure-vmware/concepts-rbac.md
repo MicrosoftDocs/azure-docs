@@ -1,23 +1,23 @@
 ---
 title: Concepts - Role-based access control (RBAC)
-description: Learn about the key capabilities of role-based access control for Azure VMware Solution (AVS) 
+description: Learn about the key capabilities of role-based access control for Azure VMware Solution 
 ms.topic: conceptual
 ms.date: 06/30/2020
 ---
 
-# Role-based access control (RBAC) for Azure VMware Solution (AVS)
+# Role-based access control (RBAC) for Azure VMware Solution
 
-In a vCenter and ESXi on-premises deployment, the administrator has access to the vCenter administrator@vsphere.local account and may have additional Active Directory (AD) users/groups assigned. However, in an Azure VMware Solution (AVS) deployment, the administrator doesn't have access to the administrator user account but can assign AD users and groups to the CloudAdmin role on vCenter.  Also, the AVS private cloud user doesn't have permission to access or configure specific management components supported and managed by Microsoft, such as clusters, hosts, datastores, and distributed virtual switches.
+In a vCenter and ESXi on-premises deployment, the administrator has access to the vCenter administrator@vsphere.local account and may have additional Active Directory (AD) users/groups assigned. However, in an Azure VMware Solution deployment, the administrator doesn't have access to the administrator user account but can assign AD users and groups to the CloudAdmin role on vCenter.  Also, the Azure VMware Solution private cloud user doesn't have permission to access or configure specific management components supported and managed by Microsoft, such as clusters, hosts, datastores, and distributed virtual switches.
 
 
-In AVS, vCenter has a built-in local user called cloudadmin that is assigned to the built-in CloudAdmin role. The local cloudadmin user is used to set up additional users in AD. The CloudAdmin role, in general, has the privilege to create and manage workloads in your private cloud (virtual machines, resource pools, datastores, and networks). The CloudAdmin role in AVS has a specific set of vCenter privileges that differ from other VMware cloud solutions.   
+In Azure VMware Solution, vCenter has a built-in local user called cloudadmin that is assigned to the built-in CloudAdmin role. The local cloudadmin user is used to set up additional users in AD. The CloudAdmin role, in general, has the privilege to create and manage workloads in your private cloud (virtual machines, resource pools, datastores, and networks). The CloudAdmin role in Azure VMware Solution has a specific set of vCenter privileges that differ from other VMware cloud solutions.   
 
 > [!NOTE]
-> AVS currently does not offer custom roles on vCenter or the AVS portal. 
+> Azure VMware Solution currently does not offer custom roles on vCenter or the Azure VMware Solution portal. 
 
-## AVS CloudAdmin role on vCenter
+## Azure VMware Solution CloudAdmin role on vCenter
 
-You can view the privileges granted to the AVS CloudAdmin role on your AVS private cloud vCenter.
+You can view the privileges granted to the Azure VMware Solution CloudAdmin role on your Azure VMware Solution private cloud vCenter.
 
 1. Log into the SDDC vSphere Client and go to **Menu** > **Administration**.
 1. Under **Access Control**, select **Roles**.
@@ -25,7 +25,7 @@ You can view the privileges granted to the AVS CloudAdmin role on your AVS priva
 
    :::image type="content" source="media/rbac-cloudadmin-role-privileges.png" alt-text="How to view the CloudAdmin role privileges in vSphere Client":::
 
-The CloudAdmin role in AVS has the following privileges on vCenter. Refer to the [VMware product documentation](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html) for a detailed explanation of each privilege.
+The CloudAdmin role in Azure VMware Solution has the following privileges on vCenter. Refer to the [VMware product documentation](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html) for a detailed explanation of each privilege.
 
 | Privilege | Description |
 | --------- | ----------- |
