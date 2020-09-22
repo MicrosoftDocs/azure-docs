@@ -92,7 +92,7 @@ Figure 5. Web service result of iris two-class classification
 ### Multi-class classification
 **Example experiment**
 
-In this experiment, you perform a letter-recognition task as an example of multiclass classification. The classifier attempts to predict a certain letter (class) based on some hand-written attribute values extracted from the hand-written images.
+In this experiment, you perform a letter-recognition task as an example of multiclass classification. The classifier attempts to predict a certain letter %28class%29 based on some hand-written attribute values extracted from the hand-written images.
 
 ![Letter recognition example](./media/interpret-model-results/5_1.png)
 

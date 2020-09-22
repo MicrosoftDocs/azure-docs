@@ -273,7 +273,7 @@ root_run.complete()
  You can also export a particular run to TensorBoard by specifying the name of the run  `export_to_tensorboard(run_name, logdir)`
 
 ### Start and stop TensorBoard
-Once our run history for this experiment is exported, we can launch TensorBoard with the [start()](https://docs.microsoft.com/python/api/azureml-tensorboard/azureml.tensorboard.tensorboard?view=azure-ml-py#&preserve-view=truestart-start-browser-false-) method. 
+Once our run history for this experiment is exported, we can launch TensorBoard with the [start()](https://docs.microsoft.com/python/api/azureml-tensorboard/azureml.tensorboard.tensorboard?view=azure-ml-py&preserve-view=true#&preserve-view=truestart-start-browser-false-) method. 
 
 ```Python
 from azureml.tensorboard import Tensorboard
@@ -285,7 +285,7 @@ tb = Tensorboard([], local_root=logdir, port=6006)
 tb.start()
 ```
 
-When you're done, make sure to call the [stop()](https://docs.microsoft.com/python/api/azureml-tensorboard/azureml.tensorboard.tensorboard?view=azure-ml-py#&preserve-view=truestop--) method of the TensorBoard object. Otherwise, TensorBoard will continue to run until you shut down the notebook kernel. 
+When you're done, make sure to call the [stop()](https://docs.microsoft.com/python/api/azureml-tensorboard/azureml.tensorboard.tensorboard?view=azure-ml-py&preserve-view=true#&preserve-view=truestop--) method of the TensorBoard object. Otherwise, TensorBoard will continue to run until you shut down the notebook kernel. 
 
 ```python
 tb.stop()
