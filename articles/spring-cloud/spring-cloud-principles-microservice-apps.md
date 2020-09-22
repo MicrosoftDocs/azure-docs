@@ -10,6 +10,9 @@ ms.custom: devx-track-java
 ---
 
 # Java and Base OS for Spring Microservice Apps
+
+**This article applies to:** ✔️ Java
+
 The following are principles for maintaining healthy Java and base operating system for Spring microservice apps.
 ## Principles for healthy Java and Base OS
 * Shall be the same base operating system across tiers - Basic | Standard | Premium.
@@ -47,5 +50,6 @@ Azul Systems will continuously scan for changes to base operating systems and ke
 > ![Default deployment](media/spring-cloud-principles/spring-cloud-default-deployment.png)
  
 ## Next steps
-* [Quickstart: Launch an existing Azure Spring Cloud application using the Azure portal](spring-cloud-quickstart-launch-app-portal.md)
+
+* [Quickstart: Deploy your first Azure Spring Cloud application](spring-cloud-quickstart.md)
 * [Java long-term support for Azure and Azure Stack](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-long-term-support)

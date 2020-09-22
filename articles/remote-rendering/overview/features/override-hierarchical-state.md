@@ -10,7 +10,7 @@ ms.custom: devx-track-csharp
 
 # Hierarchical state override
 
-In many cases, it is necessary to dynamically change the appearance of parts of a [model](../../concepts/models.md), for example hiding subgraphs or switching parts to transparent rendering. Changing the materials of each part involved is not practical since it requires to iterate over the whole scene graph, and manage material cloning and assignment on each node.
+In many cases, it is necessary to dynamically change the appearance of parts of a [model](../../concepts/models.md), for example hiding sub graphs or switching parts to transparent rendering. Changing the materials of each part involved is not practical since it requires to iterate over the whole scene graph, and manage material cloning and assignment on each node.
 
 To accomplish this use case with the least possible overhead, use the `HierarchicalStateOverrideComponent`. This component implements hierarchical state updates on arbitrary branches of the scene graph. That means, a state can be defined on any level in the scene graph and it trickles down the hierarchy until it is either overridden by a new state, or applied to a leaf object.
 
@@ -26,20 +26,27 @@ The fixed set of states that can be overridden are:
 * **`Hidden`**: Respective meshes in the scene graph are hidden or shown.
 * **`Tint color`**: A rendered object can be color-tinted with its individual tint color and tint weight. The image below shows color tinting the rim of a wheel.
   
-  ![Color Tint](./media/color-tint.png)
+  ![Tint color used to turn an object green](./media/color-tint.png)
 
 * **`See-through`**: The geometry is rendered semi-transparently, for example to reveal the inner parts of an object. The following image shows the entire car being rendered in see-through mode, except for the red brake caliper:
 
-  ![See-Through](./media/see-through.png)
+  ![See-through mode used to make selected objects transparent](./media/see-through.png)
 
   > [!IMPORTANT]
   > The see-through effect only works when the *TileBasedComposition* [rendering mode](../../concepts/rendering-modes.md) is used.
 
 * **`Selected`**: The geometry is rendered with a [selection outline](outlines.md).
 
-  ![Selection Outline](./media/selection-outline.png)
+  ![Outline option used to highlight a selected part](./media/selection-outline.png)
 
 * **`DisableCollision`**: The geometry is exempt from [spatial queries](spatial-queries.md). The **`Hidden`** flag doesn't affect the collision state flag, so these two flags are often set together.
+
+* **`UseCutPlaneFilterMask`**: Use an individual filter bit mask to control the cut plane selection. This flag determines whether the individual filter mask should be used or inherited from its parent. The filter bit mask itself is set via the `CutPlaneFilterMask` property. For detailed information about how the filtering works, refer to the [Selective cut planes paragraph](cut-planes.md#selective-cut-planes).
+![Selective cut planes](./media/selective-cut-planes.png)
+
+
+> [!TIP]
+> As an alternative to turning off the visibility and spatial queries for a full sub graph, the `enabled` state of a game object can be toggled. If a hierarchy is disabled, this has preference over any `HierarchicalStateOverrideComponent`.
 
 ## Hierarchical overrides
 
@@ -90,6 +97,11 @@ The `tint color` override is slightly special in that there's both an on/off/inh
 An instance of `HierarchicalStateOverrideComponent` itself doesn't add much runtime overhead. However, it's always good practice to keep the number of active components low. For instance, when implementing a selection system that highlights the picked object, it is recommended to delete the component when the highlight is removed. Keeping the components around with neutral features can quickly add up.
 
 Transparent rendering puts more workload on the server's GPUs than standard rendering. If large parts of the scene graph are switched to *see-through*, with many layers of geometry being visible, it may become a performance bottleneck. The same is valid for objects with [selection outlines](../../overview/features/outlines.md#performance).
+
+## API documentation
+
+* [C# HierarchicalStateOverrideComponent class](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.hierarchicalstateoverridecomponent)
+* [C++ HierarchicalStateOverrideComponent class](https://docs.microsoft.com/cpp/api/remote-rendering/hierarchicalstateoverridecomponent)
 
 ## Next steps
 

@@ -62,7 +62,7 @@ Remote Desktop encodes all graphics rendered by apps and desktops (whether rende
 
 2. Now that the group policies have been edited, force a group policy update. Open the Command Prompt and type:
 
-    ```batch
+    ```cmd
     gpupdate.exe /force
     ```
 
@@ -75,7 +75,7 @@ If you often use applications that produce a high-frame rate content, such as 3D
 1. Select policy **Prioritize H.264/AVC 444 Graphics mode for Remote Desktop connections** and set this policy to **Enabled** to force H.264/AVC 444 codec in the remote session.
 2. Now that the group policies have been edited, force a group policy update. Open the Command Prompt and type:
 
-    ```batch
+    ```cmd
     gpupdate.exe /force
     ```
 

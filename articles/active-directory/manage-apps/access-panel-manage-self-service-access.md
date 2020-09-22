@@ -23,7 +23,7 @@ To learn about using My Apps from an end-user perspective, see [My Apps portal h
 
 Using this feature, you can:
 
--   Let users self-discover applications from the [Application Access Panel](https://myapps.microsoft.com/) without bothering the IT group.
+-   Let users self-discover applications from [My Apps](https://myapps.microsoft.com/) without bothering the IT group.
 -   Add those users to a pre-configured group so you can see who has requested access, remove access, and manage the roles assigned to them.
 -   Optionally allow someone to approve app access requests so the IT group doesn’t have to.
 -   Optionally configure up to 10 individuals who may approve access to this application.
@@ -52,14 +52,14 @@ To enable self-service application access to an application, follow the steps be
 13. **Optional:** **For applications which expose roles**, if you wish to assign self-service approved users to a role, select the selector next to the **To which role should users be assigned in this application?** to select the role to which these users should be assigned.
 14. Select the **Save** button at the top to finish.
 
-Once you complete Self-service application configuration, users can navigate to their [Application Access Panel](https://myapps.microsoft.com/) and select the **+Add** button to find the apps to which you have enabled Self-service access. Business approvers also see a notification in their [Application Access Panel](https://myapps.microsoft.com/). You can enable an email notifying them when a user has requested access to an application that requires their approval. 
+Once you complete Self-service application configuration, users can navigate to [My Apps](https://myapps.microsoft.com/) and select the **+Add** button to find the apps to which you have enabled Self-service access. Business approvers also see a notification in their [My Apps](https://myapps.microsoft.com/) page. You can enable an email notifying them when a user has requested access to an application that requires their approval. 
 
 These approvals support single approval workflows only, meaning that if you specify multiple approvers, any single approver may approve access to the application.
 
 ## Things to check if self-service isn't working
 -   Make sure the user or group has been enabled to request self-service application access.
--   Make sure the user is visiting the correct place for self-service application access. users can navigate to their [Application Access Panel](https://myapps.microsoft.com/) and select the **+Add** button to find the apps to which you have enabled self-service access.
--   If self-service application access was recently configured, try to sign in and out again into the user’s Access Panel after a few minutes to see if the self-service access changes have appeared.
+-   Make sure the user is visiting the correct place for self-service application access. users can navigate to their [My Apps](https://myapps.microsoft.com/) page and select the **+Add** button to find the apps to which you have enabled self-service access.
+-   If self-service application access was recently configured, try to sign in and out again into the user’s My Apps after a few minutes to see if the self-service access changes have appeared.
 
 ## Next steps
 [Setting up Azure Active Directory for self-service group management](../users-groups-roles/groups-self-service-management.md)

@@ -1,7 +1,7 @@
 ---
 title: Details of the policy definition structure
 description: Describes how policy definitions are used to establish conventions for Azure resources in your organization.
-ms.date: 08/27/2020
+ms.date: 09/22/2020
 ms.topic: conceptual
 ---
 # Azure Policy definition structure
@@ -19,7 +19,7 @@ resources have a particular tag. Policy assignments are inherited by child resou
 assignment is applied to a resource group, it's applicable to all the resources in that resource
 group.
 
-The policy definition schema is found here: [https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json](https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json)
+The policy definition _policyRule_ schema is found here: [https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json](https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json)
 
 You use JSON to create a policy definition. The policy definition contains elements for:
 
@@ -276,10 +276,12 @@ children within the hierarchy of the definition location to target for assignmen
 
 If the definition location is a:
 
-- **Subscription** - Only resources within that subscription can be assigned the policy.
+- **Subscription** - Only resources within that subscription can be assigned the policy definition.
 - **Management group** - Only resources within child management groups and child subscriptions can
-  be assigned the policy. If you plan to apply the policy definition to several subscriptions, the
-  location must be a management group that contains subscription.
+  be assigned the policy definition. If you plan to apply the policy definition to several
+  subscriptions, the location must be a management group that contains each subscription.
+
+For more information, see [Understand scope in Azure Policy](./scope.md#definition-location).
 
 ## Policy rule
 
@@ -717,17 +719,17 @@ Resource Manager template (ARM template):
 
 - `utcNow()` - Unlike an ARM template, this property can be used outside _defaultValue_.
   - Returns a string that is set to the current date and time in Universal ISO 8601 DateTime format
-    'yyyy-MM-ddTHH:mm:ss.fffffffZ'
+    `yyyy-MM-ddTHH:mm:ss.fffffffZ`.
 
 The following functions are only available in policy rules:
 
 - `addDays(dateTime, numberOfDaysToAdd)`
   - **dateTime**: [Required] string - String in the Universal ISO 8601 DateTime format
-    'yyyy-MM-ddTHH:mm:ss.fffffffZ'
-  - **numberOfDaysToAdd**: [Required] integer - Number of days to add
+    `yyyy-MM-ddTHH:mm:ss.fffffffZ`.
+  - **numberOfDaysToAdd**: [Required] integer - Number of days to add.
 - `field(fieldName)`
   - **fieldName**: [Required] string - Name of the [field](#fields) to retrieve
-  - Returns the value of that field from the resource that is being evaluated by the If condition
+  - Returns the value of that field from the resource that is being evaluated by the If condition.
   - `field` is primarily used with **AuditIfNotExists** and **DeployIfNotExists** to reference
     fields on the resource that are being evaluated. An example of this use can be seen in the
     [DeployIfNotExists example](effects.md#deployifnotexists-example).
@@ -772,7 +774,7 @@ Policy, use one of the following methods:
   Use the [Azure Policy extension for Visual Studio Code](../how-to/extension-for-vscode.md) to view
   and discover aliases for resource properties.
 
-  :::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Azure Policy extension for Visual Studio Code" border="false":::
+  :::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Screenshot of the Azure Policy extension for Visual Studio Code hovering a property to display the alias names." border="false":::
 
 - Azure Resource Graph
 

@@ -49,20 +49,22 @@
   items:
   - name: .NET
     items:
-    - name: Encode and stream a remote file REST
-      href: stream-files-tutorial-with-rest.md
     - name: Encode and stream a remote file .NET
       href: stream-files-dotnet-quickstart.md
-    - name: Encode and stream an uploaded file
+    - name: Encode and stream an uploaded file .NET
       href: stream-files-tutorial-with-api.md
-    - name: Stream live
+    - name: Stream live with .NET
       href: stream-live-tutorial-with-api.md
-    - name: Analyze your video
+    - name: Analyze your video with .NET
       href: analyze-videos-tutorial-with-api.md
-    - name: Encrypt dynamically with AES-128 
+    - name: Encrypt dynamically with AES-128
       href: protect-with-aes128.md
     - name: Encrypt dynamically with DRM
       href: protect-with-drm.md 
+  - name: REST
+    items:
+    - name: Encode and stream a remote file REST
+      href: stream-files-tutorial-with-rest.md
   - name: CLI
     items:
     - name: Encode and stream a remote file CLI

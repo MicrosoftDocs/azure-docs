@@ -22,7 +22,7 @@ In this tutorial you learn how to:
 Before you can back up (or protect) a virtual machine, you must complete the [prerequisites](backup-azure-arm-vms-prepare.md) to prepare your environment for protecting your VMs.
 
 > [!IMPORTANT]
-> This tutorial assumes you have already created a resource group and an Azure virtual machine.
+> This tutorial assumes you've already created a resource group and an Azure virtual machine.
 
 ## Sign in and register
 

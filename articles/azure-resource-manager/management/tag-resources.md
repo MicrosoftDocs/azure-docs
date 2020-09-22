@@ -301,7 +301,27 @@ az group list --tag Dept=IT
 
 ### Handling spaces
 
-If your tag names or values include spaces, you must take a couple of extra steps. The following example applies all tags from a resource group to its resources when the tags may contain spaces.
+If your tag names or values include spaces, you must take a couple extra steps. 
+
+The `--tags` parameters in the Azure CLI can accept a string that consists of an array of strings. The following example overwrites the tags in a resource group where the tags have spaces and hyphen: 
+
+```azurecli-interactive
+TAGS=("Cost Center=Finance-1222" "Location=West US")
+az group update --name examplegroup --tags "${TAGS[@]}"
+```
+
+You can use the same syntax when you create or update a resource group or resources by using the `--tags` parameter.
+
+To update the tags by using the `--set` parameter, you must pass the key and value as a string. The following example appends a single tag to a resource group:
+
+```azurecli-interactive
+TAG="Cost Center='Account-56'"
+az group update --name examplegroup --set tags."$TAG"
+```
+
+In the this case, the tag value is marked with single quotes because the value has a hyphen.
+
+You might also need to apply tags to many resources. The following example applies all tags from a resource group to its resources when the tags might contain spaces:
 
 ```azurecli-interactive
 jsontags=$(az group show --name examplegroup --query tags -o json)
@@ -573,7 +593,7 @@ Tags applied to the resource group or subscription aren't inherited by the resou
 
 You can use tags to group your billing data. For example, if you're running multiple VMs for different organizations, use the tags to group usage by cost center. You can also use tags to categorize costs by runtime environment, such as the billing usage for VMs running in the production environment.
 
-You can retrieve information about tags through the [Azure Resource Usage and Rate Card APIs](../../cost-management-billing/manage/usage-rate-card-overview.md) or the usage comma-separated values (CSV) file. You download the usage file from the [Azure Account Center](https://account.azure.com/Subscriptions) or Azure portal. For more information, see [Download or view your Azure billing invoice and daily usage data](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md). When downloading the usage file from the Azure Account Center, select **Version 2**. For services that support tags with billing, the tags appear in the **Tags** column.
+You can retrieve information about tags through the [Azure Resource Usage and Rate Card APIs](../../cost-management-billing/manage/usage-rate-card-overview.md) or the usage comma-separated values (CSV) file. You download the usage file from the Azure portal. For more information, see [Download or view your Azure billing invoice and daily usage data](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md). When downloading the usage file from the Azure Account Center, select **Version 2**. For services that support tags with billing, the tags appear in the **Tags** column.
 
 For REST API operations, see [Azure Billing REST API Reference](/rest/api/billing/).
 

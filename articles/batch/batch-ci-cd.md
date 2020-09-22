@@ -24,7 +24,7 @@ In this example, we will create a build and release pipeline to deploy an Azure 
 To follow the steps in this article, you need an Azure DevOps organization and a team project.
 
 * [Create an Azure DevOps Organization](/azure/devops/organizations/accounts/create-organization)
-* [Create a project in Azure DevOps](/azure/devops/organizations/projects/create-projects)
+* [Create a project in Azure DevOps](/azure/devops/organizations/projects/create-project)
 
 ### Source control for your environment
 
@@ -320,7 +320,7 @@ In this example, we will focus on the **hpc-application** folder. The **hpc-appl
 
     a. [Using the Visual Designer](/azure/devops/pipelines/get-started-designer). To use this, click "Use the visual designer" on the **New pipeline** page.
 
-    b. [Using YAML Builds](/azure/devops/pipelines/get-started-yamls). You can create a new YAML pipeline by clicking the Azure Repos or GitHub option on the New pipeline page. Alternatively, you can store the example below in your source control and reference an existing YAML file by clicking on Visual Designer, and then using the YAML template.
+    b. [Using YAML Builds](/azure/devops/pipelines/get-started-yaml). You can create a new YAML pipeline by clicking the Azure Repos or GitHub option on the New pipeline page. Alternatively, you can store the example below in your source control and reference an existing YAML file by clicking on Visual Designer, and then using the YAML template.
 
     ```yml
     # To publish an application into Azure Batch, we need to

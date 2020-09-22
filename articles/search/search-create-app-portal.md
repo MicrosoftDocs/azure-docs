@@ -57,7 +57,7 @@ The wizard provides a basic layout for rendered search results that includes spa
 
 1. In Description, choose a field that provides details that might help someone decide whether to click through to that particular document.
 
-   ![data source page for sample data](media/search-create-app-portal/configure-results.png)
+   ![configure results for sample data](media/search-create-app-portal/configure-results.png)
 
 ## Add a sidebar
 

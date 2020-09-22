@@ -4,7 +4,7 @@ description: Read about hot, cool, and archive access tiers for Azure Blob stora
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 03/23/2019
+ms.date: 08/27/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
@@ -152,7 +152,7 @@ In this section, the following scenarios are demonstrated using the Azure portal
 
 1. Click **Save** at the top.
 
-![Change storage account tier](media/storage-tiers/account-tier.png)
+![Change default account tier in Azure portal](media/storage-tiers/account-tier.png)
 
 # [PowerShell](#tab/azure-powershell)
 The following PowerShell script can be used to change the account tier. The `$rgName` variable must be initialized with your resource group name. The `$accountName` variable must be initialized with your storage account name. 
@@ -182,7 +182,7 @@ Set-AzStorageAccount -ResourceGroupName $rgName -Name $accountName -AccessTier H
 
 1. Select **Save** at the bottom.
 
-![Change storage account tier](media/storage-tiers/blob-access-tier.png)
+![Change blob tier in Azure portal](media/storage-tiers/blob-access-tier.png)
 
 # [PowerShell](#tab/azure-powershell)
 The following PowerShell script can be used to change the blob tier. The `$rgName` variable must be initialized with your resource group name. The `$accountName` variable must be initialized with your storage account name. The `$containerName` variable must be initialized with your container name. The `$blobName` variable must be initialized with your blob name. 
@@ -215,6 +215,8 @@ All storage accounts use a pricing model for Block blob storage based on the tie
 - **Geo-Replication data transfer costs**: This charge only applies to accounts with geo-replication configured, including GRS and RA-GRS. Geo-replication data transfer incurs a per-gigabyte charge.
 - **Outbound data transfer costs**: Outbound data transfers (data that is transferred out of an Azure region) incur billing for bandwidth usage on a per-gigabyte basis, consistent with general-purpose storage accounts.
 - **Changing the access tier**: Changing the account access tier will result in tier change charges for _access tier inferred_ blobs stored in the account that don't have an explicit tier set. For information on changing the access tier for a single blob, refer to [Blob-level tiering billing](#blob-level-tiering-billing).
+
+    Changing the access tier for a blob when versioning is enabled, or if the blob has snapshots, may result in additional charges. For more information about how you are billed when blob versioning is enabled and you explicitly change a blob's tier, see [Pricing and billing](versioning-overview.md#pricing-and-billing) in the documentation for blob versioning. For more information about how you are billed when a blob has snapshots and you explicitly change the blob's tier, see [Pricing and billing](snapshots-overview.md#pricing-and-billing) in the documentation for blob snapshots.
 
 > [!NOTE]
 > For more information about pricing for Block blobs, see [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) page. For more information on outbound data transfer charges, see [Data Transfers Pricing Details](https://azure.microsoft.com/pricing/details/data-transfers/) page.

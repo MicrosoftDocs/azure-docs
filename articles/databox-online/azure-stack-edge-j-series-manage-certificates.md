@@ -1,7 +1,7 @@
 ---
-title: Use certificates with Azure Stack Edge GPU | Microsoft Docs
-description: Describes use of certificates with Azure Stack Edge GPU device including why to use, which types and how to upload certificates on your device.
-services: Azure Stack Edge
+title: Use certificates with Azure Stack Edge Pro GPU | Microsoft Docs
+description: Describes use of certificates with Azure Stack Edge Pro GPU device including why to use, which types and how to upload certificates on your device.
+services: databox
 author: alkohli
 
 ms.service: databox
@@ -10,21 +10,21 @@ ms.topic: article
 ms.date: 08/28/2020
 ms.author: alkohli
 ---
-# Use certificates with Azure Stack Edge series 
+# Use certificates with Azure Stack Edge Pro GPU device
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-This article describes the types of certificates that can be installed on your Azure Stack Edge device. The article also includes the details for each certificate type along with the procedure to install and identify the expiration date. 
+This article describes the types of certificates that can be installed on your Azure Stack Edge Pro device. The article also includes the details for each certificate type along with the procedure to install and identify the expiration date. 
 
 ## About certificates
 
 A certificate provides a link between a **public key** and an entity (such as domain name) that has been **signed** (verified) by a trusted third party (such as a **certificate authority**).  A certificate provides a convenient way of distributing trusted public encryption keys. Certificates thereby ensure that your communication is trusted and that you're sending encrypted information to the right server. 
 
-When your Azure Stack Edge device is initially configured, self-signed certificates are automatically generated. Optionally, you can bring your own certificates. There are guidelines that you need to follow if you plan to bring your own certificates.
+When your Azure Stack Edge Pro device is initially configured, self-signed certificates are automatically generated. Optionally, you can bring your own certificates. There are guidelines that you need to follow if you plan to bring your own certificates.
 
 ## Types of certificates
 
-The various types of certificates that are used on your Azure Stack Edge device are as follows: 
+The various types of certificates that are used on your Azure Stack Edge Pro device are as follows: 
 - Signing certificates
     - Root CA
     - Intermediate
@@ -63,7 +63,7 @@ These certificates could be root certificates or the intermediate certificates. 
 
 ## Node certificates
 
-<!--Your Azure Stack Edge device could be a 1-node device or a 4-node device.--> All the nodes in the device are constantly communicating with each other and therefore need to have a trust relationship. Node certificates provide a way to establish that trust. Node certificates also come into play when you are connecting to the device node using a remote PowerShell session over https.
+<!--Your Azure Stack Edge Pro device could be a 1-node device or a 4-node device.--> All the nodes in the device are constantly communicating with each other and therefore need to have a trust relationship. Node certificates provide a way to establish that trust. Node certificates also come into play when you are connecting to the device node using a remote PowerShell session over https.
 
 ### Caveats
 
@@ -116,9 +116,9 @@ You can access the local web UI of your device via a browser. To ensure that thi
 
 ## IoT Edge device certificates
 
-Your Azure Stack Edge device is also an IoT device with the compute enabled by an IoT Edge device connected to it. For any secure communication between this IoT Edge device and the downstream devices that may connect to it, you can also upload IoT Edge certificates. 
+Your Azure Stack Edge Pro device is also an IoT device with the compute enabled by an IoT Edge device connected to it. For any secure communication between this IoT Edge device and the downstream devices that may connect to it, you can also upload IoT Edge certificates. 
 
-The device has self-signed certificates that can be used if you want to use only the compute scenario with the device. If the Azure Stack Edge device is however connected to downstream devices, then you'll need to bring your own certificates.
+The device has self-signed certificates that can be used if you want to use only the compute scenario with the device. If the Azure Stack Edge Pro device is however connected to downstream devices, then you'll need to bring your own certificates.
 
 There are three IoT Edge certificates that you need to install to enable this trust relation:
 
@@ -135,7 +135,7 @@ For more information on IoT Edge certificates, see [Azure IoT Edge certificate d
 
 ## Support session certificates
 
-If your Azure Stack Edge device is experiencing any issues, then to troubleshoot those issues, a remote PowerShell Support session may be opened on the device. To enable a secure, encrypted communication over this Support session, you can upload a certificate.
+If your Azure Stack Edge Pro device is experiencing any issues, then to troubleshoot those issues, a remote PowerShell Support session may be opened on the device. To enable a secure, encrypted communication over this Support session, you can upload a certificate.
 
 ### Caveats
 
@@ -150,7 +150,7 @@ If your Azure Stack Edge device is experiencing any issues, then to troubleshoot
 
 <!--## VPN certificates
 
-If VPN is configured on your Azure Stack Edge device, then you will also need a certificate for any communication that occurs over the VPN channel. You can bring your own VPN certificate to ensure the communication is trusted.
+If VPN is configured on your Azure Stack Edge Pro device, then you will also need a certificate for any communication that occurs over the VPN channel. You can bring your own VPN certificate to ensure the communication is trusted.
 
 ### Caveats
 
@@ -257,7 +257,7 @@ $DeviceSerial = "HWDC1T2"
 New-SelfSignedCertificate -Type Custom -DnsName "$AppName.$domain","$DeviceSerial.$domain","management.$AppName.$domain","login.$AppName.$domain","*.blob.$AppName.$domain" -Subject "CN=$AppName.$domain" -KeyExportPolicy Exportable  -HashAlgorithm sha256 -KeyLength 2048  -CertStoreLocation "Cert:\LocalMachine\My" -Signer $cert -KeySpec KeyExchange -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.1")
 ```
 
-Once the certificates are created, the next step is to upload the certificates on your Azure Stack Edge device
+Once the certificates are created, the next step is to upload the certificates on your Azure Stack Edge Pro device
 
 
 ## Upload certificates 
@@ -396,7 +396,7 @@ The .pfx file backup is now saved in the location you selected and is ready to b
 
 ## Supported certificate algorithms
 
- Only the Rivest–Shamir–Adleman (RSA) certificates are supported with your Azure Stack Edge device. If Elliptic Curve Digital Signature Algorithm (ECDSA) certificates are used, then the device behavior is indeterminate.
+ Only the Rivest–Shamir–Adleman (RSA) certificates are supported with your Azure Stack Edge Pro device. If Elliptic Curve Digital Signature Algorithm (ECDSA) certificates are used, then the device behavior is indeterminate.
 
  Certificates that contain an RSA public key are referred to as RSA certificates. Certificates that contain an Elliptic Curve Cryptographic (ECC) public key are referred to as ECDSA (Elliptic Curve Digital Signature Algorithm) certificates. 
 
@@ -413,4 +413,4 @@ View the certificate expiration date on the **Certificates** page in the local w
 
 ## Next steps
 
-[Deploy your Azure Stack Edge device](azure-stack-edge-gpu-deploy-prep.md)
+[Deploy your Azure Stack Edge Pro device](azure-stack-edge-gpu-deploy-prep.md)

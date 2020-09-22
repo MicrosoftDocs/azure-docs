@@ -67,7 +67,7 @@ To delegate access management for a reservation:
 
 ## Split a single reservation into two reservations
 
- After you buy more than one resource instance within a reservation, you may want to assign instances within that reservation to different subscriptions. By default, all instances have one scope - either single subscription or shared. For example, you bought 10 reservation instances and specified the scope to be subscription A. You may now want to change the scope for seven reservations to subscription A and the remaining three to subscription B. Splitting a reservation allows you to distribute instances for granular scope management. You can simplify the allocation to subscriptions by choosing shared scope. But for cost management or budgeting purposes, you can allocate quantities to specific subscriptions.
+ After you buy more than one resource instance within a reservation, you may want to assign instances within that reservation to different subscriptions. By default, all instances have one scope - either single subscription, resource group or shared. Lets say, you bought a reservation for 10 VM instances and specified the scope to be subscription A. You now want to change the scope for 7 VM instances to subscription A and the remaining three to subscription B. Splitting a reservation allows you todo that. After you split a reservation, the original ReservationID is cancelled and two new reservations are created. Split doesn't impact the reservation order - there is no new commercial transaction with split and the new reservations have the same end date as the one that was split.
 
  You can split a reservation into two reservations though PowerShell, CLI, or through the API.
 

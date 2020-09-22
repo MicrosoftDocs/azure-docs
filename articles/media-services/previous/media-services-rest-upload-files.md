@@ -16,7 +16,10 @@ ms.date: 03/20/2019
 ms.author: juliako
 
 ---
-# Upload files into a Media Services account using REST  
+# Upload files into a Media Services account using REST
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-upload-files.md)
 > * [REST](media-services-rest-upload-files.md)

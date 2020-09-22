@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/10/2020
+ms.date: 09/11/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
@@ -52,7 +52,7 @@ Point-in-time restore requires that the following Azure Storage features are ena
 
 - [Soft delete](soft-delete-overview.md)
 - [Change feed (preview)](storage-blob-change-feed.md)
-- [Blob versioning (preview)](versioning-overview.md)
+- [Blob versioning](versioning-overview.md)
 
 Enable these features for the storage account before you enable point-in-time restore. Be sure to register for the change feed and blob versioning previews before you enable them.
 
@@ -101,7 +101,7 @@ Register-AzProviderFeature -FeatureName RestoreBlobRanges -ProviderNamespace Mic
 # Register for change feed (preview)
 Register-AzProviderFeature -FeatureName Changefeed -ProviderNamespace Microsoft.Storage
 
-# Register for blob versioning (preview)
+# Register for Blob versioning
 Register-AzProviderFeature -FeatureName Versioning -ProviderNamespace Microsoft.Storage
 
 # Refresh the Azure Storage provider namespace

@@ -6,7 +6,7 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
+ms.custom: subject-security-benchmark
 
 ---
 
@@ -821,7 +821,9 @@ Allowed resource types
 
 - [How to create a Key Vault](../key-vault/secrets/quick-create-portal.md)
 
-- [How to provide Key Vault authentication with a managed identity](../key-vault/general/managed-identity.md)
+* [How to authenticate to Key Vault](https://docs.microsoft.com/azure/key-vault/general/authentication)
+
+* [How to assign a Key Vault access policy](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal)
 
 **Azure Security Center monitoring**: Not applicable
 

@@ -180,9 +180,9 @@ WebJob deployment information:
 
 The type of a WebJob can be either *triggered* or *continuous*:
 
-- Triggered (default): A triggered WebJob starts based on a binding event, on a [schedule](#scheduling-a-triggered-webjob), or when you trigger it manually (on demand). It runs on all instances that the web app runs on, but you can optionally restrict the WebJob to a single instance.
+- Triggered (default): A triggered WebJob starts based on a binding event, on a [schedule](#scheduling-a-triggered-webjob), or when you trigger it manually (on demand). It runs on a single instance that the web app runs on.
 
-- Continuous: A [continuous](#continuous-execution) WebJob starts immediately when the WebJob is created. This type of WebJob is best for unbounded or long-running jobs. If the job does end, you can restart it.  
+- Continuous: A [continuous](#continuous-execution) WebJob starts immediately when the WebJob is created. It runs on all web app scaled instances by default but can be configured to run as a single instance via *settings.job*.
 
 [!INCLUDE [webjobs-alwayson-note](../../includes/webjobs-always-on-note.md)]
 

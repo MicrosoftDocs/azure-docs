@@ -1,19 +1,19 @@
 ---
-title: Certificates requirements and troubleshooting with Azure Stack Edge | Microsoft Docs
-description: Describes certificates requirements and troubleshooting certificate errors with Azure Stack Edge device.
+title: Certificates requirements and troubleshooting with Azure Stack Edge Pro | Microsoft Docs
+description: Describes certificates requirements and troubleshooting certificate errors with Azure Stack Edge Pro device.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/12/2020
 ms.author: alkohli
 ---
 
 # Certificate requirements
 
-This article describes the certificate requirements that must be met before certificates can be installed on your Azure Stack Edge device. The requirements are related to PFX certificates, issuing authority,  certificate subject name and subject alternative name, and supported certificate algorithms.
+This article describes the certificate requirements that must be met before certificates can be installed on your Azure Stack Edge Pro device. The requirements are related to PFX certificates, issuing authority,  certificate subject name and subject alternative name, and supported certificate algorithms.
 
 ## Certificate issuing authority
 
@@ -60,13 +60,13 @@ Certificates must have the following subject name and subject alternative name r
     
 ## PFX certificate
 
-The PFX certificates installed on your Azure Stack Edge device should meet the following requirements:
+The PFX certificates installed on your Azure Stack Edge Pro device should meet the following requirements:
 
 * When you get your certificates from the SSL authority, makes sure that you get the full signing chain for the certificates.
 
 * When you export a PFX certificate, make sure that you have selected the **Include all certificates in the chain, if possible** option.
 
-* Use a PFX certificate for endpoint, local UI, node, VPN, and Wi-Fi as both the public and private keys are required for Azure Stack Edge. The private key must have the local machine key attribute set.
+* Use a PFX certificate for endpoint, local UI, node, VPN, and Wi-Fi as both the public and private keys are required for Azure Stack Edge Pro. The private key must have the local machine key attribute set.
 
 * The certificate's PFX Encryption should be 3DES. This is the default encryption used when exporting from a Windows 10 client or Windows Server 2016 certificate store. For more information related to 3DES, see [Triple DES](https://en.wikipedia.org/wiki/Triple_DES).
 
@@ -74,7 +74,7 @@ The PFX certificates installed on your Azure Stack Edge device should meet the f
 
 * The certificate PFX files must have the values *Server Authentication (1.3.6.1.5.5.7.3.1)* and *Client Authentication (1.3.6.1.5.5.7.3.2)* in the *Enhanced Key Usage* field.
 
-* The passwords to all certificate PFX files must be the same at the time of deployment if you are using the Azure Stack Readiness Checker Tool. For more information, see [Create certificates for your Azure Stack Edge using Azure Stack Hub Readiness Checker tool](azure-stack-edge-j-series-create-certificates-tool.md).
+* The passwords to all certificate PFX files must be the same at the time of deployment if you are using the Azure Stack Readiness Checker Tool. For more information, see [Create certificates for your Azure Stack Edge Pro using Azure Stack Hub Readiness Checker tool](azure-stack-edge-j-series-create-certificates-tool.md).
 
 * The password to the certificate PFX must be a complex password. Make a note of this password because it is used as a deployment parameter.
 
@@ -82,9 +82,9 @@ For more information, see [Export PFX certificates with private key](azure-stack
 
 ## Next steps
 
-[Use certificates with Azure Stack Edge](azure-stack-edge-j-series-manage-certificates.md)
+[Use certificates with Azure Stack Edge Pro](azure-stack-edge-j-series-manage-certificates.md)
 
-[Create certificates for your Azure Stack Edge using Azure Stack Hub Readiness Checker tool](azure-stack-edge-j-series-create-certificates-tool.md)
+[Create certificates for your Azure Stack Edge Pro using Azure Stack Hub Readiness Checker tool](azure-stack-edge-j-series-create-certificates-tool.md)
 
 [Export PFX certificates with private key](azure-stack-edge-j-series-manage-certificates.md#export-certificates-as-pfx-format-with-private-key)
 

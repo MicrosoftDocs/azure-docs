@@ -6,7 +6,7 @@ ms.author: mingshen
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/24/2020
+ms.date: 09/02/2020
 ---
 
 # Payment thresholds, methods, and time frames
@@ -73,7 +73,7 @@ These are the countries and regions in which the above payment methods are used 
 | Cote D'Ivoire | Yes | Yes | Yes | No |
 | Croatia | Yes | Yes | Yes | No |
 | Cyprus | Yes | Yes | Yes | Yes |
-| Czech Republic | Yes | Yes | Yes | Yes |
+| Czechia | Yes | Yes | Yes | Yes |
 | Denmark | Yes | Yes | Yes | Yes |
 | Dominica | Yes | Yes | No | Yes |
 | Dominican Republic | Yes | Yes | Yes | Yes |
@@ -118,7 +118,6 @@ These are the countries and regions in which the above payment methods are used 
 | Liechtenstein | Yes | Yes | Yes | Yes |
 | Lithuania | Yes | Yes | Yes | No |
 | Luxembourg | Yes | Yes | Yes | Yes |
-| Macedonia | No | Yes | Yes | No |
 | Madagascar | Yes | Yes | Yes | No |
 | Malawi | Yes | Yes | Yes | Yes |
 | Malaysia | Yes | Yes | Yes | Yes |
@@ -137,6 +136,7 @@ These are the countries and regions in which the above payment methods are used 
 | Nicaragua | Yes | Yes | Yes | Yes |
 | Niger | Yes | Yes | Yes | No |
 | Nigeria | Yes | Yes | Yes | No |
+| North Macedonia | No | Yes | Yes | No |
 | Norway | Yes | Yes | Yes | Yes |
 | Oman | Yes | Yes | Yes | Yes |
 | Pakistan | Yes | Yes | Yes | No |

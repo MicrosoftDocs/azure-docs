@@ -1,6 +1,6 @@
 ---
 title: Extend Azure Sentinel across workspaces and tenants | Microsoft Docs
-description:  How to work with multiple tenants to Azure Sentinel for MSSP service providers.
+description:  How to use Azure Sentinel to query and analyze data across workspaces and tenants.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/11/2020
+ms.date: 09/11/2020
 ms.author: yelevin
 
 ---
@@ -90,6 +90,13 @@ A function can also simplify a commonly used union. For example, you can save th
 
 You can then write a query across both workspaces by beginning with `unionSecurityEvent | where ...` .
 
+#### Scheduled alerts
+
+Cross-workspace queries can now be included in scheduled alerts in analytics rules, subject to the following limitations:
+
+- Up to 10 workspaces can be included in a single query.
+- Azure Sentinel must be deployed on every workspace referenced in the query.
+
 > [!NOTE] 
 > Querying multiple workspaces in the same query might affect performance, and therefore is recommended only when the logic requires this functionality.
 
@@ -117,13 +124,6 @@ Cross-workspace hunting capabilities enable your threat hunters to create new hu
 To configure and manage multiple Azure Sentinel workspaces, you will need to automate the use of the Azure Sentinel management API. For more information on how to automate the deployment of Azure Sentinel resources, including alert rules, hunting queries, workbooks and playbooks, see [Extending Azure Sentinel: APIs, Integration and management automation](https://techcommunity.microsoft.com/t5/azure-sentinel/extending-azure-sentinel-apis-integration-and-management/ba-p/1116885).
 
 See also [Deploying and Managing Azure Sentinel as Code](https://techcommunity.microsoft.com/t5/azure-sentinel/deploying-and-managing-azure-sentinel-as-code/ba-p/1131928) and [Combining Azure Lighthouse with Sentinel’s DevOps capabilities](https://techcommunity.microsoft.com/t5/azure-sentinel/combining-azure-lighthouse-with-sentinel-s-devops-capabilities/ba-p/1210966) for a consolidated, community-contributed methodology for managing Azure Sentinel as code and for deploying and configuring resources from a private GitHub repository. 
-
-
-## What's not supported across workspaces?
-
-The following features are not supported across workspaces:
-
-- A scheduled alert rule cannot run across workspaces using a cross-workspace query.
 
 ## Managing workspaces across tenants using Azure Lighthouse
 

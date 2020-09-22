@@ -69,7 +69,7 @@ The Rapid7 Metasploitable image is an image purposely configured with security v
 1. Select the **Download Metasploitable Now** button.
 1. When the zip file is downloaded, extract the zip file, and remember the location.
 1. Convert the extracted vmdk file to a vhdx file so that you can use with Hyper-V. To do so, open PowerShell with administrative privileges and navigate to the folder where the vmdk file resides, and follow these instructions:
-    1. Download the [Microsoft Virtual Machine Converter](https://www.microsoft.com/download/details.aspx?id=42497), and run mvmc_setup.msi file when prompted.
+    1. Download the [Microsoft Virtual Machine Converter](https://download.microsoft.com/download/9/1/E/91E9F42C-3F1F-4AD9-92B7-8DD65DA3B0C2/mvmc_setup.msi), and run mvmc_setup.msi file when prompted.
     1. Import the PowerShell module.  The default location in which the module is installed is C:\Program Files\Microsoft Virtual Machine Converter\
 
         ```powershell

@@ -55,7 +55,7 @@ When you create and run logic apps in an ISE, you get the same user experiences 
   * Azure Automation, Azure Key Vault, Azure Event Grid, and Azure Monitor Logs
   * FTP, SFTP-SSH, File System, and SMTP
   * SAP, IBM MQ, IBM DB2, and IBM 3270
-  * SQL Server, Azure SQL Data Warehouse, Azure Cosmos DB
+  * SQL Server, Azure Synapse Analytics, Azure Cosmos DB
   * AS2, X12, and EDIFACT
 
   With rare exceptions, if an ISE connector is available for an on-premises system or data source, you can connect directly without using the [on-premises data gateway](../logic-apps/logic-apps-gateway-connection.md). For more information, see [Access to on-premises systems](#on-premises) later in this topic.
@@ -139,7 +139,7 @@ Logic apps, built-in triggers, built-in actions, and connectors that run in your
 
 ## Integration accounts with ISE
 
-You can use integration accounts with logic apps inside an integration service environment (ISE). However, those integration accounts must use the *same ISE* as the linked logic apps. Logic apps in an ISE can reference only those integration accounts that are in the same ISE. When you create an integration account, you can select your ISE as the location for your integration account. To learn how pricing and billing work for integration accounts with an ISE, see the [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#fixed-pricing). For pricing rates, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/).
+You can use integration accounts with logic apps inside an integration service environment (ISE). However, those integration accounts must use the *same ISE* as the linked logic apps. Logic apps in an ISE can reference only those integration accounts that are in the same ISE. When you create an integration account, you can select your ISE as the location for your integration account. To learn how pricing and billing work for integration accounts with an ISE, see the [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#fixed-pricing). For pricing rates, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/). For limits information, see [Integration account limits](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits).
 
 ## Next steps
 

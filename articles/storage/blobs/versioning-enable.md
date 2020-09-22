@@ -1,25 +1,23 @@
 ---
-title: Enable and manage blob versioning (preview)
+title: Enable and manage blob versioning
 titleSuffix: Azure Storage
-description: Learn how to enable blob versioning (preview) in the Azure portal or by using an Azure Resource Manager template.
+description: Learn how to enable blob versioning in the Azure portal or by using an Azure Resource Manager template.
 services: storage
 author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/10/2020
+ms.date: 08/27/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
 ---
 
-# Enable and manage blob versioning (preview)
+# Enable and manage blob versioning
 
-You can enable Blob storage versioning (preview) to automatically maintain previous versions of an object.  When blob versioning is enabled, you can restore an earlier version of a blob to recover your data if it is erroneously modified or deleted.
+You can enable Blob storage versioning to automatically maintain previous versions of an object.  When blob versioning is enabled, you can restore an earlier version of a blob to recover your data if it is erroneously modified or deleted.
 
-This article shows how to enable or disable blob versioning for the storage account by using the Azure portal or an Azure Resource Manager template.
-
-You must register for the preview before enabling blob versioning. To learn more about the blob versioning, including how to register for the preview, see [Blob versioning (preview)](versioning-overview.md).
+This article shows how to enable or disable blob versioning for the storage account by using the Azure portal or an Azure Resource Manager template. To learn more about blob versioning, see [Blob versioning](versioning-overview.md).
 
 [!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
@@ -71,7 +69,7 @@ For more information about deploying resources with templates in the Azure porta
 
 ## Modify a blob to trigger a new version
 
-The following code example shows how to trigger the creation of a new version with the Azure Storage client library for .NET, version [12.5.0-preview.5](https://www.nuget.org/packages/Azure.Storage.Blobs/12.5.0-preview.5) or later. Before running this example, make sure you have enabled versioning for your storage account.
+The following code example shows how to trigger the creation of a new version with the Azure Storage client library for .NET, version [12.5.1](https://www.nuget.org/packages/Azure.Storage.Blobs/12.5.1) or later. Before running this example, make sure you have enabled versioning for your storage account.
 
 The example creates a block blob, and then updates the blob's metadata. Updating the blob's metadata triggers the creation of a new version. The example retrieves the initial version and the current version, and shows that only the current version includes the metadata.
 
@@ -157,5 +155,5 @@ static void PrintMetadata(Response<BlobProperties> propertiesResponse)
 
 ## Next steps
 
-- [Blob versioning (preview)](versioning-overview.md)
+- [Blob versioning](versioning-overview.md)
 - [Soft delete for Azure Storage blobs](soft-delete-overview.md)

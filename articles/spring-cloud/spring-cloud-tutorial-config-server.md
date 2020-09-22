@@ -11,13 +11,15 @@ ms.custom: devx-track-java
 
 # Set up a Spring Cloud Config Server instance for your service
 
+**This article applies to:** ✔️ Java ✔️ C#
+
 This article shows you how to connect a Spring Cloud Config Server instance to your Azure Spring Cloud service.
 
 Spring Cloud Config provides server and client-side support for an externalized configuration in a distributed system. With the Config Server instance, you have a central place to manage external properties for applications across all environments.​ For more information, see [Spring Cloud Config Server reference](https://spring.io/projects/spring-cloud-config).
 
 ## Prerequisites
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
-* An already provisioned and running Azure Spring Cloud service. To set up and launch an Azure Spring Cloud service, see [Quickstart: Launch a Java Spring application by using the Azure CLI](spring-cloud-quickstart-launch-app-cli.md).
+* An already provisioned and running Azure Spring Cloud service. To set up and launch an Azure Spring Cloud service, see [Quickstart: Launch a Java Spring application by using the Azure CLI](spring-cloud-quickstart.md).
 
 ## Restriction
 
@@ -158,7 +160,7 @@ If you want to use an optional **Pattern repository** to configure your service,
 
 If you have written a YAML file with your repository settings, you can import the file directly from your local machine to Azure Spring Cloud. A simple YAML file for a private repository with basic authentication would look like this:
 
-```yml
+```yaml
 spring:
     cloud:
         config:

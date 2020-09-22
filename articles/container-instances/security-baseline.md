@@ -6,7 +6,7 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 05/27/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
+ms.custom: subject-security-benchmark
 
 # Important: This content is machine generated; do not modify this topic directly. Contact mbaldwin for more information.
 
@@ -986,7 +986,9 @@ Use Azure Policy to put restrictions on the type of resources that can be create
 
 * [How to create a Key Vault](../key-vault/secrets/quick-create-portal.md)
 
-* [How to provide Key Vault authentication with a managed identity](../key-vault/general/managed-identity.md)
+* [How to authenticate to Key Vault](../key-vault/general/authentication.md)
+
+* [How to assign a Key Vault access policy](../key-vault/general/assign-access-policy-portal.md)
 
 * [How to use managed identities with Azure Container Instances](./container-instances-managed-identity.md)
 

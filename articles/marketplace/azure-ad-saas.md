@@ -7,7 +7,7 @@ ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/10/2020
+ms.date: 09/04/2020
 ---
 
 # Azure AD and transactable SaaS offers in the commercial marketplace
@@ -20,9 +20,9 @@ By following the guidance in this article, you’ll help to certify your SaaS of
 
 ## Before you begin
 
-When you [create your SaaS offer](./partner-center-portal/create-new-saas-offer.md) in Partner Center, you choose from a set of specific call to action options that will be displayed on the offer listing. Your choice determines how your offer is transacted in the commercial marketplace. Offers sold through Microsoft are called transactable offers. We bill the customer on your behalf for all transactable offers. If you choose to sell through Microsoft and have us host transactions on your behalf (the **Yes** option), then you’ve chosen to create a transactable offer and this article is for you. We recommend that you read it in its entirety.
+When you [create your SaaS offer](./partner-center-portal/create-new-saas-offer.md) in Partner Center, you choose from a set of specific listing options that will be displayed on the offer listing. Your choice determines how your offer is transacted in the commercial marketplace. Offers sold through Microsoft are called transactable offers. We bill the customer on your behalf for all transactable offers. If you choose to sell through Microsoft and have us host transactions on your behalf (the **Yes** option), then you’ve chosen to create a transactable offer and this article is for you. We recommend that you read it in its entirety.
 
-If you choose to only list your offer though the commercial marketplace and process transactions independently (the **No** option), you have three options for how potential customers will access your offer: Get it now (free), Free trial, and Contact me. If you select **Get it now (free)** or **Free trial**, this article is not for you. Instead, see [Build the landing page for your free or trial SaaS offer in the commercial marketplace](./azure-ad-free-or-trial-landing-page.md) for more information. If you select **Contact me**, there are no direct publisher responsibilities. Continue creating your offer in the Partner Center.
+If you choose to only list your offer through the commercial marketplace and process transactions independently (the **No** option), you have three options for how potential customers will access your offer: Get it now (free), Free trial, and Contact me. If you select **Get it now (free)** or **Free trial**, this article is not for you. Instead, see [Build the landing page for your free or trial SaaS offer in the commercial marketplace](./azure-ad-free-or-trial-landing-page.md) for more information. If you select **Contact me**, there are no direct publisher responsibilities. Continue creating your offer in the Partner Center.
 
 ## How Azure AD works with the commercial marketplace for SaaS offers
 
@@ -46,8 +46,8 @@ This table provides details for the purchase management process steps.
 
 | Process step | Publisher action | Recommended or required for publishers |
 | ------------ | ------------- | ------------- |
-| 1. The buyer logs in to the commercial marketplace with their Azure ID identity and selects a SaaS offer. | No publisher action required. | Not applicable |
-| 2. After purchasing, the buyer selects **Configure account** in Azure Marketplace or **Configure now** in AppSource, which directs the buyer to the publisher’s landing page for this offer. The buyer must be able to log in to the publisher’s SaaS application with Azure AD SSO and must only be asked for minimal consent that does not require Azure AD administrator approval. | Design a [landing page](azure-ad-transactable-saas-landing-page.md) for the offer so that it receives a user with their Azure AD or Microsoft account (MSA) identity and facilitates any additional provisioning or setup that’s required. | Required |
+| 1. The buyer signs in to the commercial marketplace with their Azure ID identity and selects a SaaS offer. | No publisher action required. | Not applicable |
+| 2. After purchasing, the buyer selects **Configure account** in Azure Marketplace or **Configure now** in AppSource, which directs the buyer to the publisher’s landing page for this offer. The buyer must be able to sign in to the publisher’s SaaS application with Azure AD SSO and must only be asked for minimal consent that does not require Azure AD administrator approval. | Design a [landing page](azure-ad-transactable-saas-landing-page.md) for the offer so that it receives a user with their Azure AD or Microsoft account (MSA) identity and facilitates any additional provisioning or setup that’s required. | Required |
 | 3. The publisher requests purchase details from the SaaS fulfillment API. | Using an [access token](./partner-center-portal/pc-saas-registration.md) generated from the landing page’s Application ID, [call the resolve endpoint](./partner-center-portal/pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription) to retrieve specifics about the purchase. | Required |
 | 4. Through Azure AD and the Microsoft Graph API, the publisher gathers the company and user details required to provision the buyer in the publisher’s SaaS application.  | Decompose the Azure AD user token to find name and email, or [call the Microsoft Graph API](https://docs.microsoft.com/graph/use-the-api) and use delegated permissions to [retrieve information](https://docs.microsoft.com/graph/api/user-get) about the user who is logged in. | Required |
 ||||
@@ -83,5 +83,6 @@ Process steps 7 through 9 are optional user management process steps. They provi
 
 ## Next steps
 
-- [Create a SaaS offer in the commercial marketplace](./partner-center-portal/create-new-saas-offer.md)
-- [Build the landing page for your transactable SaaS offer in the commercial marketplace](./azure-ad-transactable-saas-landing-page.md)
+- [Build the landing page for your transactable SaaS offer in the commercial marketplace](azure-ad-transactable-saas-landing-page.md)
+- [Build the landing page for your free or trial SaaS offer in the commercial marketplace](azure-ad-free-or-trial-landing-page.md)
+- [How to create a SaaS offer in the commercial marketplace](create-new-saas-offer.md)

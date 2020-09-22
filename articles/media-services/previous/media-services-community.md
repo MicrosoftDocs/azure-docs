@@ -17,7 +17,9 @@ ms.date: 03/18/2019
 ms.author: juliako
 
 ---
-# Azure Media Services Community  
+# Azure Media Services Community
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]  
 
 This Azure Media Services (AMS) community page discusses different ways you can get updates about AMS. You can also view new videos and podcasts, ask questions and give feedback.   
 

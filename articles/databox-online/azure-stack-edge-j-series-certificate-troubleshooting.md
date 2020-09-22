@@ -1,19 +1,19 @@
 ---
-title: Certificates troubleshooting with Azure Stack Edge with GPU| Microsoft Docs
-description: Describes troubleshooting certificate errors with Azure Stack Edge GPU device.
+title: Certificates troubleshooting with Azure Stack Edge Pro with GPU| Microsoft Docs
+description: Describes troubleshooting certificate errors with Azure Stack Edge Pro GPU device.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 08/28/2020
 ms.author: alkohli
 ---
 
 # Troubleshooting certificate errors
 
-The article provides troubleshooting common certificate errors when installing certificates to your Azure Stack Edge device.
+The article provides troubleshooting common certificate errors when installing certificates to your Azure Stack Edge Pro device.
 
 ## Common certificate errors
 

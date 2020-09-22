@@ -38,11 +38,11 @@ In this article, using CURL to make calls to the Azure Resource Manager REST end
     > [!NOTE]
     > No additional Azure AD directory role assignments required.
 
-    - [Virtual Machine Contributor](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) to create a virtual machine scale set and enable and remove system and/or user-assigned managed identity from an virtual machine scale set.
-    - [Managed Identity Contributor](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) role to create a user-assigned managed identity.
-    - [Managed Identity Operator](/azure/role-based-access-control/built-in-roles#managed-identity-operator) role to assign and remove a user-assigned identity from and to a virtual machine scale set.
-- If you are using Windows, install the [Windows Subsystem for Linux](https://msdn.microsoft.com/commandline/wsl/about) or use the [Azure Cloud Shell](../../cloud-shell/overview.md) in the Azure portal.
-- [Install the Azure CLI local console](/cli/azure/install-azure-cli), if you use the [Windows Subsystem for Linux](https://msdn.microsoft.com/commandline/wsl/about) or a [Linux distribution OS](/cli/azure/install-azure-cli-apt?view=azure-cli-latest).
+    - [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) to create a virtual machine scale set and enable and remove system and/or user-assigned managed identity from an virtual machine scale set.
+    - [Managed Identity Contributor](../../role-based-access-control/built-in-roles.md#managed-identity-contributor) role to create a user-assigned managed identity.
+    - [Managed Identity Operator](../../role-based-access-control/built-in-roles.md#managed-identity-operator) role to assign and remove a user-assigned identity from and to a virtual machine scale set.
+- If you are using Windows, install the [Windows Subsystem for Linux](/windows/wsl/about) or use the [Azure Cloud Shell](../../cloud-shell/overview.md) in the Azure portal.
+- [Install the Azure CLI local console](/cli/azure/install-azure-cli), if you use the [Windows Subsystem for Linux](/windows/wsl/about) or a [Linux distribution OS](/cli/azure/install-azure-cli-apt?view=azure-cli-latest).
 - If you are using Azure CLI local console, sign in to Azure using `az login` with an account that is associated with the Azure subscription you would like to manage system or user-assigned managed identities.
 
 

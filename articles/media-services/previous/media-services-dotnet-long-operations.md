@@ -20,6 +20,8 @@ ms.custom: devx-track-csharp
 
 # Delivering Live Streaming with Azure Media Services
 
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 ## Overview
 
 Microsoft Azure Media Services offers APIs that send requests to Media Services to start operations (for example: create, start, stop, or delete a channel). These operations are long-running.
