@@ -167,7 +167,7 @@ For more information about the pricing models that apply to this new resource ty
 
 ### Storage requirements
 
-Currently, creating the new **Logic App (Preview)** resource is not available on Mac OS. However, for Windows or other OS, such as Linux, set up this storage requirement.
+Currently, creating the new **Logic App (Preview)** resource is not available on macOS. However, for Windows or other OS, such as Linux, set up this storage requirement.
 
 1. Download and install [Azure Storage Emulator 5.10](https://go.microsoft.com/fwlink/p/?linkid=717179).
 
@@ -939,7 +939,7 @@ Although many [existing limits for Azure Logic Apps](../logic-apps/logic-apps-li
 
 For this public preview, these capabilities are not available or not supported:
 
-* Creating the new **Logic App (Preview)** resource is currently unavailable on Mac OS.
+* Creating the new **Logic App (Preview)** resource is currently unavailable on macOS.
 
 * Custom connectors, webhook-based triggers, and the Sliding Window trigger aren't supported in this preview.
 
