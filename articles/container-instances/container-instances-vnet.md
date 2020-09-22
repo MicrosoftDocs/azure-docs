@@ -124,8 +124,8 @@ For example, when using a YAML file, you can deploy to a virtual network with a 
 To get the ID of the network profile, run the [az network profile list][az-network-profile-list] command, specifying the name of the resource group that contains your virtual network and delegated subnet.
 
 ``` azurecli
-az network profile list --resource-group myResourceGroup \
-  --query [0].id --output tsv
+az network vnet subnet list --resource-group myResourceGroup \
+  --vnet-name aci-vnet --query [0].id --output tsv
 ```
 
 Sample output:
