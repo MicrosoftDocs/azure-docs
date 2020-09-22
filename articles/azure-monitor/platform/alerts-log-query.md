@@ -12,7 +12,9 @@ This article describes how to write and convert [Log Alert](alerts-unified-log.m
 
 ## How to start writing an alert log query
 
-Alert queries start from [querying the log data in Log Analytics](alerts-log.md#create-a-log-alert-rule-with-the-azure-portal) that indicates the issue. You can use query examples or [get started on writing your own query](../log-query/get-started-portal.md). 
+Alert queries start from [querying the log data in Log Analytics](alerts-log.md#create-a-log-alert-rule-with-the-azure-portal) that indicates the issue. You can use the [alert query examples topic](../log-query/saved-queries.md) to understand what you can discover. You may also [get started on writing your own query](../log-query/get-started-portal.md). 
+
+### Queries that indicate the issue and not the alert
 
 The alert flow was built to transform the results that indicate the issue to an alert. For example, in a case of a query like:
 
@@ -30,6 +32,10 @@ SecurityEvent
 ```
 
 There's no need to add alerting logic to the query and doing that may even cause issues. In the above example, if you include `count` in your query, it will always result in the value 1, since the alert service will do `count` of `count`.
+
+### Avoid `limit` and `take` operators
+
+Using `limit` and `take` in queries can increase latency and load of alerts as the results aren't consistent over time. It's preferred you use it only if needed.
 
 ## Log query constraints
 [Log queries in Azure Monitor](../log-query/log-query-overview.md) start with either a table, [`search`](/azure/kusto/query/searchoperator), or [`union`](/azure/kusto/query/unionoperator) operator.
