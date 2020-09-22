@@ -66,9 +66,7 @@ Collect customer contact information by connecting your Customer Relationship Ma
 
 ### Test drive
 
-A test drive is a great way to showcase your offer to potential customers by giving them the option to "try before you buy", resulting in increased conversion and the generation of highly qualified leads. To learn more, start with [What is test drive](../what-is-test-drive.md).
-
-To enable a test drive for a fixed period of time, select the **Enable a test drive** check box. To remove test drive from your offer, clear this check box.
+At this point Dynamics 365 Business Central offers do not support test drive. To remove test drive from your offer, clear the **Enable a test drive** check box.
 
 ### Customer leads
 

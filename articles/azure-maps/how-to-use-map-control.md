@@ -247,6 +247,15 @@ var searchURL = new atlas.service.SearchURL(pipeline, 'atlas.azure.us');
 
 If directly accessing the Azure Maps REST services, change the URL domain to `atlas.azure.us`. For example, if using the search API service, change the URL domain from `https://atlas.microsoft.com/search/` to `https://atlas.azure.us/search/`.
 
+## JavaScript frameworks
+
+If developing using a JavaScript framework, one of the following open-source projects may be useful:
+
+- [ng-azure-maps](https://github.com/arnaudleclerc/ng-azure-maps) - Angular 10 wrapper around Azure maps.
+- [AzureMapsControl.Components](https://github.com/arnaudleclerc/AzureMapsControl.Components) - An Azure Maps Blazor component.
+- [Azure Maps React Component](https://github.com/WiredSolutions/react-azure-maps) - A react wrapper for the Azure Maps control.
+- [Vue Azure Maps](https://github.com/rickyruiz/vue-azure-maps) - An Azure Maps component for Vue application.
+
 ## Next steps
 
 Learn how to create and interact with a map:
