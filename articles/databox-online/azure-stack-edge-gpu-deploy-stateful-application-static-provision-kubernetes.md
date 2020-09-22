@@ -17,7 +17,7 @@ This article shows you how to deploy a single-instance stateful application in K
 
 This procedure is intended for those who have reviewed the [Kubernetes storage on Azure Stack Edge Pro device](azure-stack-edge-gpu-kubernetes-storage.md) and are familiar with the concepts of [Kubernetes storage](https://kubernetes.io/docs/concepts/storage/).
 
-Azure Stack Edge Pro also supports running Azure SQL Edge containers and these can be deployed in a similar way as detailed here for `mysql`. For more information, see [Azure SQL Edge](../azure-sql-edge/overview.md).
+Azure Stack Edge Pro also supports running Azure SQL Edge containers and these can be deployed in a similar way as detailed here for MySQL. For more information, see [Azure SQL Edge](../azure-sql-edge/overview.md).
 
 
 ## Prerequisites
