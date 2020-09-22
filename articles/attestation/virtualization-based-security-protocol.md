@@ -239,6 +239,7 @@ Azure Attestation -> Client
 **report** (JWT): The attestation report in JSON Web Token (JWT) format (RFC 7519).
 
 
+
 ## Protocol
 ![VBS attestation protocol](./media/vbs-protocol.png)
 
