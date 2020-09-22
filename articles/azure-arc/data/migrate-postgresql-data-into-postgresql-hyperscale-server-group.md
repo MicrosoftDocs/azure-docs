@@ -70,13 +70,24 @@ The backup completes successfully:
 > To register a Postgres instance in the `pgAdmin` tool, you need to you use public IP of your instance in your Kubernetes cluster and set the port and security context appropriately. You will find these details on the `psql` endpoint line after running the following command:
 
 ```console
-azdata arc postgres server endpoint list -n postgres01
-Command group 'postgres server' is in preview. It may be changed/removed in a future release.
-Description           Endpoint
---------------------  ----------------------------------------------------------------------------------------------------------------
-PostgreSQL Instance   postgresql://postgres:<replace with password>@10.0.0.4:32639
-Log Search Dashboard  https://10.0.0.4:30777/kibana/app/kibana#/discover?_a=(query:(language:kuery,query:'cluster_name:"postgres01"'))
-Metrics Dashboard     https://10.0.0.4:30777/grafana/d/postgres-metrics?var-Namespace=default&var-Name=postgres01
+azdata arc postgres endpoint list -n postgres01
+```
+That returns an output like:
+```console
+[
+  {
+    "Description": "PostgreSQL Instance",
+    "Endpoint": "postgresql://postgres:<replace with password>@12.345.123.456:1234"
+  },
+  {
+    "Description": "Log Search Dashboard",
+    "Endpoint": "https://12.345.123.456:12345/kibana/app/kibana#/discover?_a=(query:(language:kuery,query:'custom_resource_name:\"postgres01\"'))"
+  },
+  {
+    "Description": "Metrics Dashboard",
+    "Endpoint": "https://12.345.123.456:12345/grafana/d/postgres-metrics?var-Namespace=arc3&var-Name=postgres01"
+  }
+]
 ```
 
 Let's name the destination database **RESTORED_MyOnPremPostgresDB**  
@@ -112,16 +123,21 @@ Within your Arc setup you can use `psql` to connect to your Postgres instance, s
 1. List the end points to help from your `psql` connection string:
 
    ```console
-   azdata arc postgres server endpoint list -n postgres01
-   ```
-
-   ```output
-   Command group 'postgres server' is in preview. It may be changed/removed in a future release.
-   Description           Endpoint
-      --------------------  ----------------------------------------------------------------------------------------------------------------
-   PostgreSQL Instance   postgresql://postgres:<replace with password>@10.0.0.4:32639
-   Log Search Dashboard  https://10.0.0.4:30777/kibana/app/kibana#/discover?_a=(query:(language:kuery,query:'cluster_name:"postgres01"'))
-   Metrics Dashboard     https://10.0.0.4:30777/grafana/d/postgres-metrics?var-Namespace=default&var-Name=postgres01
+   azdata arc postgres endpoint list -n postgres01
+   [
+     {
+       "Description": "PostgreSQL Instance",
+       "Endpoint": "postgresql://postgres:<replace with password>@12.345.123.456:1234"
+     },
+     {
+       "Description": "Log Search Dashboard",
+       "Endpoint": "https://12.345.123.456:12345/kibana/app/kibana#/discover?_a=(query:(language:kuery,query:'custom_resource_name:\"postgres01\"'))"
+     },
+     {
+       "Description": "Metrics Dashboard",
+       "Endpoint": "https://12.345.123.456:12345/grafana/d/postgres-metrics?var-Namespace=arc3&var-Name=postgres01"
+     }
+   ]
    ```
 
 1. From your `psql` connection string use the `-d` parameter to indicate the database name. With the below command, you will be prompted for the password:
@@ -159,11 +175,11 @@ Within your Arc setup you can use `psql` to connect to your Postgres instance, s
 > [!NOTE]
 > - You will not see so much performance benefits of running on Azure Arc enabled PostgreSQL Hyperscale until you scale out and you shard/distribute the data across the worker nodes of your PostgreSQL Hyperscale server group. See [Next steps](#next-steps).
 >
-> - It is not possible today to "onboard into Azure Arc" an existing Postgres instance that would running on premises or in any other cloud. In other words, it is not possible to install some sort of "Azure Arc agent" on your existing Postgres instance to make it a Postgres setup enabled by Azure Arc. Instead, you need to deploy a new Postgres instance and transfer data into it. You may use the technique shown above to do this or you may use any ETL tool of your choice.
+> - It is not possible today to "onboard into Azure Arc" an existing Postgres instance that would running on premises or in any other cloud. In other words, it is not possible to install some sort of "Azure Arc agent" on your existing Postgres instance to make it a Postgres setup enabled by Azure Arc. Instead, you need to create a new Postgres instance and transfer data into it. You may use the technique shown above to do this or you may use any ETL tool of your choice.
 
 ## Next steps
 
-- Read the concepts and How-to guides of Azure Database for PostgreSQL Hyperscale to distribute your data across multiple PostgreSQL Hyperscale nodes and to benefit from all the power of Azure Database for PostgreSQL Hyperscale. :
+- Read the concepts and How-to guides of Azure Database for PostgreSQL Hyperscale to distribute your data across multiple PostgreSQL Hyperscale nodes and to benefit from all the power of Azure Database for PostgreSQL Hyperscale:
     * [Nodes and tables](../../postgresql/concepts-hyperscale-nodes.md)
     * [Determine application type](../../postgresql/concepts-hyperscale-app-type.md)
     * [Choose a distribution column](../../postgresql/concepts-hyperscale-choose-distribution-column.md)

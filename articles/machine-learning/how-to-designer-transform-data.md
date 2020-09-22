@@ -107,7 +107,7 @@ Now that your pipeline is set up to split the data, you need to specify where to
     **File format**: csv
 
     > [!NOTE]
-    > This article assumes that you have access to a datastore registered to the current Azure Machine Learning workspace. For instructions on how to setup a datastore, see [Connect to Azure storage services](how-to-access-data.md#studio).
+    > This article assumes that you have access to a datastore registered to the current Azure Machine Learning workspace. For instructions on how to setup a datastore, see [Connect to Azure storage services](how-to-connect-data-ui.md#create-datastores).
 
     If you don't have a datastore, you can create one now. For example purposes, this article will save the datasets to the default blob storage account associated with the workspace. It will save the datasets into the `azureml` container in a new folder called `data`.
 

@@ -148,17 +148,69 @@ This small example demonstrates that you can encrypt data at rest (store encrypt
 You can use the standard Postgres way to  create users or roles. However, if you do so, these artifacts will only be available on the coordinator role. During preview, these users/roles will not yet be able to access data that is distributed outside the Coordinator node and on the Worker nodes of your server group. The reason is that in preview, the user definition is not replicated to the Worker nodes.
 
 ### Change the password of the _postgres_ administrative user
-Azure Arc enabled PostgreSQL Hyperscale comes with the standard Postgres administrative user _postgres_ for which you set the password when you deploy your server group.
+Azure Arc enabled PostgreSQL Hyperscale comes with the standard Postgres administrative user _postgres_ for which you set the password when you create your server group.
 The general format of the command to change its password is:
 ```console
-azdata arc postgres server edit --name <server group name> --admin-password <new password>
+azdata arc postgres server edit --name <server group name> --admin-password
 ```
-The password will be set to the value of the AZDATA_PASSWORD **session**'s environment variable if it exists. If not, the user will be prompted for a value.
-To verify what if the the AZDATA_PASSWORD session's environment variable exists and/or to what value it is set, run:
-```console
-printenv AZDATA_PASSWORD
-```
-You may want to delete its value if you prefer being prompted to enter a new password.
+
+Where --admin-password is a boolean that relates to the presence of a value in the AZDATA_PASSWORD **session**'s environment variable.
+If the AZDATA_PASSWORD **session**'s environment variable exists and has a value, running the above command will set the password of the postgres user to the value of this environment variable.
+
+If the AZDATA_PASSWORD **session**'s environment variable exists but has not value or the AZDATA_PASSWORD **session**'s environment variable does not exist, running the above command will prompt the user to enter a password interactively
+
+#### Changing the password of the postgres administrative user in an interactive way:
+1. Delete the AZDATA_PASSWORD **session**'s environment variable or delete its value
+2. Run the command:
+   ```console
+   azdata arc postgres server edit --name <server group name> --admin-password
+   ```
+   For example
+   ```console
+   azdata arc postgres server edit -n postgres01 --admin-password
+   ```
+   You will be prompted to enter the password and to confirm it:
+   ```console
+   Postgres Server password:
+   Confirm Postgres Server password:
+   ```
+   As the password is being updated, the output of the command shows:
+   ```console
+   Updating password
+   Updating postgres01 in namespace `arc`
+   postgres01 is Ready
+   ```
+   
+#### Changing the password of the postgres administrative user using the AZDATA_PASSWORD **session**'s environment variable:
+1. Set the value of the AZDATA_PASSWORD **session**'s environment variable to what you want to password to be.
+2. Run the  command:
+   ```console
+   azdata arc postgres server edit --name <server group name> --admin-password
+   ```
+   For example
+   ```console
+   azdata arc postgres server edit -n postgres01 --admin-password
+   ```
+   
+   As the password is being updated, the output of the command shows:
+   ```console
+   Updating password
+   Updating postgres01 in namespace `arc`
+   postgres01 is Ready
+   ```
+
+> [!NOTE]
+> To verify if the the AZDATA_PASSWORD session's environment variable exists and what value it has, run:
+> - On a Linux client:
+> ```console
+> printenv AZDATA_PASSWORD
+> ```
+>
+> - On a Windows client with PowerShell:
+> ```console
+> echo $env:AZDATA_PASSWORD
+> ```
+
 
 
 ## Next steps
