@@ -94,7 +94,9 @@ BASE64URL(JWS Signature)
 
 JWS payload can be of type basic or VBS. Basic is used when attestation evidence does not include VBS data.
 
-``` Basic example
+Basic example
+
+``` 
 {
   "att_type": "basic",
   "att_data": {
@@ -139,7 +141,9 @@ JWS payload can be of type basic or VBS. Basic is used when attestation evidence
 }
 ```
 
-``` VBS example:
+VBS example
+
+``` 
 {
   "att_type": "vbs",
   "att_data": {
