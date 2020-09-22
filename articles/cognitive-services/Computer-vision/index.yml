@@ -130,10 +130,6 @@ landingContent:
             url: spatial-analysis-zone-line-placement.md
           - text: Logging and troubleshooting
             url: spatial-analysis-logging.md
-      - linkListType: sample
-        links:
-          - text: Example deployment manifest
-            url: https://go.microsoft.com/fwlink/?linkid=2142179
   - title: Detect faces in images
     linkLists:
       - linkListType: concept
