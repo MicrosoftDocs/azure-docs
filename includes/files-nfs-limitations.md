@@ -18,7 +18,7 @@ While in preview, NFS has the following limitations:
 - Only available for the premium tier.
 - Currently only available with locally redundant storage.
 
-### Azure Storage features not yet supported
+### Azure Files features not yet supported
 
 Also, the following Azure Files features are not available with NFS shares:
 
