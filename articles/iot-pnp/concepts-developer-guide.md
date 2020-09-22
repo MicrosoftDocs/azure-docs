@@ -396,7 +396,7 @@ To use an IoT Plug and Play device that's connected to your IoT hub, use either 
 
 ### Service SDKs
 
-Use the Azure IoT Service SDKs in your solution to interact with devices. For example, you can use the service SDKs to read and  update twin properties and invoke commands. Supported languages include C#, Java, Node.js, and Python.
+Use the Azure IoT Service SDKs in your solution to interact with devices and modules. For example, you can use the service SDKs to read and update twin properties and invoke commands. Supported languages include C#, Java, Node.js, and Python.
 
 The service SDKs let you access device information from a solution, such as a desktop or web application. The service SDKs include two namespaces and object models that you can use to retrieve the model ID:
 
@@ -415,7 +415,7 @@ The service SDKs let you access device information from a solution, such as a de
 The following examples use the IoT Hub REST API to interact with a connected IoT Plug and Play device. The current version of the API is `2020-05-31-preview`. Append `?api-version=2020-05-31` to your REST PI calls.
 
 > [!NOTE]
-> IoT Edge module twins are not currently supported by the `digitalTwins` API.
+> Module twins are not currently supported by the `digitalTwins` API.
 
 If your thermostat device is called `t-123`, you get the all the properties on all the interfaces implemented by your device with a REST API GET call:
 
