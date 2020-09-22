@@ -9,7 +9,7 @@ ms.custom: devx-track-csharp
 ms.date: 9/17/2020
 ms.author: drewbat
 
-#Customer intent: As a .NET Core developer, I want to manage all my app settings in one place.
+#Customer intent: As a Python developer, I want to manage all my app settings in one place.
 ---
 # Quickstart: Use Azure App Configuration with Python
 
@@ -18,7 +18,7 @@ In this quickstart, you access the Azure App Configuration service from Python i
 ## Prerequisites
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-- Python 2.7, or 3.5 or later - For information on setting up Python on Windows, see the [Python on Windows documentation](/windows/python/)
+- Python 2.7, or 3.5 or later - For information on setting up Python on Windows, see the [Python on Windows documentation]( https://docs.microsoft.com/windows/python/)
 
 ## Create an App Configuration store
 
@@ -81,7 +81,7 @@ Restart the command prompt to allow the change to take effect. Print out the val
 3. Get the connection string from the environment variable.
 
     ```python
-    connection_string = os.environ['ConnectionString']
+    connection_string = environ['ConnectionString']
     ```
 
 4. Create the client object using the connection string.
@@ -96,7 +96,7 @@ Retrieve the configuration value by calling **get_configuration_setting** and se
 
 ```python
 fetched_config_setting = client.get_configuration_setting(key = 'TestApp:Settings:Message')
-fetched_config_setting.value
+print(fetched_config_setting.value)
 ```
 
 > Output:
