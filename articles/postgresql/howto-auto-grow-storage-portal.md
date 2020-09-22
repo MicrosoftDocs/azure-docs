@@ -26,13 +26,13 @@ Follow these steps to set PostgreSQL server storage auto grow:
 
 3. In the **Auto-growth** section, select **Yes** to enable storage auto grow.
 
-    ![Azure Database for PostgreSQL - Settings_Pricing_tier - Auto-growth](./media/howto-auto-grow-storage-portal/3-auto-grow.png)
+    :::image type="content" source="./media/howto-auto-grow-storage-portal/3-auto-grow.png" alt-text="Azure Database for PostgreSQL - Settings_Pricing_tier - Auto-growth":::
 
 4. Click **OK** to save the changes.
 
 5. A notification will confirm that auto grow was successfully enabled.
 
-    ![Azure Database for PostgreSQL - auto-growth success](./media/howto-auto-grow-storage-portal/5-auto-grow-successful.png)
+    :::image type="content" source="./media/howto-auto-grow-storage-portal/5-auto-grow-successful.png" alt-text="Azure Database for PostgreSQL - auto-growth success":::
 
 ## Next steps
 
