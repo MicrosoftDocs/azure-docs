@@ -143,7 +143,7 @@ There can be two problems with this bounding box that lead to invisible geometry
 
 Azure Remote Rendering hooks into the Unity render pipeline to do the frame composition with the video, and to do the reprojection. To verify that these hooks exist, open the menu *:::no-loc text="Window > Analysis > Frame debugger":::*. Enable it and make sure there are two entries for the `HolographicRemotingCallbackPass` in the pipeline:
 
-![Unity frame debugger](./media/troubleshoot-unity-pipeline.png)
+![Unity render pipeline](./media/troubleshoot-unity-pipeline.png)
 
 ## Checkerboard pattern is rendered after model loading
 
