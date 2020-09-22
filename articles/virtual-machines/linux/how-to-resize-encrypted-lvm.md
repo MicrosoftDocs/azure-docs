@@ -497,7 +497,7 @@ You can use this method to add space to an already existent LV or instead you ca
 
     ![scenarioe-check-newdisk02](./media/disk-encryption/resize-lvm/035-resize-lvm-scenarioe-check-newdisk02.png)
 
-    Add a new disk either with PowerShell, cli, or the Azure portal, check [Attaching a disk](attach-disk-portal.md) for reference on adding disks to a VM
+    Add a new disk either with PowerShell, the Azure CLI, or the Azure portal. Check how to [attach a disk](attach-disk-portal.md) for reference on adding disks to a VM.
 
     Following the kernel name scheme for the devices the new drive normally will get assigned the next available letter, on this particular case the new added disk is sdd.
 
@@ -568,7 +568,7 @@ You can use this method to add space to an already existent LV or instead you ca
 
     For LVM-On-Crypt the recommendation is to use EncryptFormatAll otherwise a double encryption may happen while setting additional disks.
 
-    Please reffer  [Configure LVM on crypt](how-to-configure-lvm-raid-on-crypt.md) for its use.
+    For information on usage, see [Configure LVM on crypt](how-to-configure-lvm-raid-on-crypt.md).
 
     Example:
 
