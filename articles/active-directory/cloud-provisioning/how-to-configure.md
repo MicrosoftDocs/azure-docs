@@ -62,28 +62,26 @@ Azure AD Connect cloud provisioning allows you to test configuration changes, by
 
 ## Restart provisioning 
 If you don't want to wait for the next scheduled run, trigger the provisioning run by using the **Restart provisioning** button. 
-1.  In the Azure portal, select **Azure Active Directory**.
-1.  Select **Azure AD Connect**.
-1.  Select **Manage provisioning (Preview)**.
-1.  Under **Configuration**, select your configuration.
+ 1.  In the Azure portal, select **Azure Active Directory**.
+ 2. Select **Azure AD Connect**.
+ 3.  Select **Manage provisioning (Preview)**.
+ 4. Under **Configuration**, select your configuration.
 
-    ![Configuration selection to restart provisioning](media/how-to-configure/scope1.png)
+   ![Configuration selection to restart provisioning](media/how-to-configure/scope1.png)
 
-1.  At the top, select **Restart provisioning**.
+ 5. At the top, select **Restart provisioning**.
 
 ## Remove a configuration
 To delete a configuration, follow these steps.
 
-1.  In the Azure portal, select **Azure Active Directory**.
-1.  Select **Azure AD Connect**.
-1.  Select **Manage provisioning (Preview)**.
-1.  Under **Configuration**, select your configuration.
+ 1.  In the Azure portal, select **Azure Active Directory**.
+ 2. Select **Azure AD Connect**.
+ 3. Select **Manage provisioning (Preview)**.
+ 4. Under **Configuration**, select your configuration.
+   
+   ![Configuration selection to remove configuration](media/how-to-configure/scope1.png)
 
-    ![Configuration selection to remove configuration](media/how-to-configure/scope1.png)
-
-1.  At the top of the configuration screen, select **Delete**.
-
-    ![Delete button](media/how-to-configure/remove1.png)
+ 5. At the top of the configuration screen, select **Delete**.
 
 >[!IMPORTANT]
 >There's no confirmation prior to deleting a configuration. Make sure this is the action you want to take before you select **Delete**.
