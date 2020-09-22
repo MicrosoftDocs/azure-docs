@@ -43,7 +43,7 @@ Common causes for this problem are:
 
 ### Solution
 
-To resolve the problem, use the [troubleshooting tool for Azure Files mounting errors on Linux](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089). This tool:
+To resolve the problem, use the [troubleshooting tool for Azure Files mounting errors on Linux](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Linux). This tool:
 
 * Helps you to validate the client running environment.
 * Detects the incompatible client configuration that would cause access failure for Azure Files.
