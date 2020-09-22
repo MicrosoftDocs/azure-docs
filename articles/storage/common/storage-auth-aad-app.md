@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/14/2020
+ms.date: 09/21/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: "devx-track-csharp"
@@ -46,17 +46,18 @@ For more information about registering an application with Azure AD, see [Integr
 
 Next, grant your application permissions to call Azure Storage APIs. This step enables your application to authorize requests to Azure Storage with Azure AD.
 
-1. On the **Overview** page for your registered application, select **View API Permissions**.
-1. In the **API permissions** section, select **Add a permission** and choose **Microsoft APIs**.
-1. Select **Azure Storage** from the list of results to display the **Request API permissions** pane.
-1. Under **What type of permissions does your application require?**, observe that the available permission type is **Delegated permissions**. This option is selected for you by default.
-1. In the **Select permissions** section of the **Request API permissions** pane, select the checkbox next to **user_impersonation**, then click  **Add permissions**.
+1. On the **API permissions** page for your registered application, select **Add a permission**.
+1. Under the **Microsoft APIs** tab, select **Azure Storage**.
+1. On **Request API permissions** pane, under **What type of permissions does your application require?**, observe that the available permission type is **Delegated permissions**. This option is selected for you by default.
+1. Under **Permissions**, select the checkbox next to **user_impersonation**, then select the **Add permissions** button.
 
     ![Screenshot showing permissions for storage](media/storage-auth-aad-app/registered-app-permissions-1.png)
 
-The **API permissions** pane now shows that your registered Azure AD application has access to both the Microsoft Graph and Azure Storage APIs. Permissions are granted to Microsoft Graph automatically when you first register your app with Azure AD.
+1. Next, grant admin consent for these permissions by clicking **Grant admin consent for Default Directory**.
 
-![Screenshot showing register app permissions](media/storage-auth-aad-app/registered-app-permissions-2.png)
+The **API permissions** pane now shows that your registered Azure AD application has access to both the Microsoft Graph and Azure Storage APIs, and that consent is granted for the default directory. Permissions are granted to Microsoft Graph automatically when you first register your app with Azure AD.
+
+![Screenshot showing API permissions for registered app](media/storage-auth-aad-app/registered-app-permissions-2.png)
 
 ## Create a client secret
 
@@ -74,7 +75,7 @@ The application needs a client secret to prove its identity when requesting a to
 
 Once you have registered your application and granted it permissions to access data in Azure Blob storage or Queue storage, you can add code to your application to authenticate a security principal and acquire an OAuth 2.0 token. To authenticate and acquire the token, you can use either one of the [Microsoft identity platform authentication libraries](../../active-directory/develop/reference-v2-libraries.md) or another open-source library that supports OpenID Connect 1.0. Your application can then use the access token to authorize a request against Azure Blob storage or Queue storage.
 
-For a list of scenarios for which acquiring tokens is supported, see the [authentication flows](/en-us/azure/active-directory/develop/msal-authentication-flows) section of the [Microsoft Authentication Library content](/azure/active-directory/develop/msal-overview).
+For a list of scenarios for which acquiring tokens is supported, see the [authentication flows](/en-us/azure/active-directory/develop/msal-authentication-flows) section of the [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-overview) documentation.
 
 ## Well-known values for authentication with Azure AD
 
@@ -141,7 +142,7 @@ using Azure.Storage.Blobs;
 
 ```console
 Install-Package Microsoft.Azure.Storage.Blob
-Install-Package Microsoft.Identity.Web -Version 0.4.0-preview
+Install-Package Microsoft.Identity.Web -Version 0.4.0-preview //or a later version
 ```
 
 Next, add the following using statements to the HomeController.cs file:
@@ -245,15 +246,16 @@ Next, update the *appsettings.json* file with your own values, as follows:
     "Domain": "<azure-ad-domain-name>.onmicrosoft.com",
     "TenantId": "<tenant-id>",
     "ClientId": "<client-id>",
-    "CallbackPath": "/signin-oidc",
-    "SignedOutCallbackPath ": "/signout-callback-oidc",
-
-    // To call an API
     "ClientSecret": "<client-secret>"
+    "ClientCertificates": [
+    ],
+    "CallbackPath": "/signin-oidc"
   },
   "Logging": {
     "LogLevel": {
-      "Default": "Warning"
+      "Default": "Information",
+      "Microsoft": "Warning",
+      "Microsoft.Hosting.Lifetime": "Information"
     }
   },
   "AllowedHosts": "*"
@@ -284,7 +286,7 @@ When you run the sample, you may find that you need to update the redirect URI s
 
 1. Navigate to your app registration in the Azure portal.
 1. In the **Manage** section, select the **Authentication** setting.
-1. Under **Redirect URIs**, edit the port to match that used by the sample application, as shown in the following image:
+1. Locate your platform configuration, and then under **Redirect URIs**, edit the port to match that used by the sample application, as shown in the following image:
 
     ![Screenshot showing redirect URIs for app registration](media/storage-auth-aad-app/redirect-uri.png)
 
