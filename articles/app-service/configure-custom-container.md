@@ -133,7 +133,7 @@ This method works both for single-container apps or multi-container apps, where 
 
 You can use the *C:\home* directory in your app's file system to persist files across restarts and share them across instances. The `C:\home` in your app is provided to enable your container app to access persistent storage.
 
-When persistent storage is disabled, then writes to the `C:\home` directory aren't persisted across app restarts or across multiple instances. The only exception is the `C:\home\LogFiles` directory, which is used to store the Docker and container logs. When persistent storage is enabled, all writes to the `C:\home` directory are persisted and can be accessed by all instances of a scaled-out app.
+When persistent storage is disabled, writes to the `C:\home` directory aren't persisted. [Docker host logs and container logs](#access-diagnostic-logs) are saved in a default persistent shared storage that is not attached to the container. When persistent storage is enabled, all writes to the `C:\home` directory are persisted and can be accessed by all instances of a scaled-out app, and log are accessible at `C:\home\LogFiles`.
 
 By default, persistent storage is *disabled* and the setting is not exposed in the Application Settings. To enable it, set the `WEBSITES_ENABLE_APP_SERVICE_STORAGE` app setting via the [Cloud Shell](https://shell.azure.com). In Bash:
 
@@ -289,6 +289,10 @@ The following table shows the possible values:
 | **Repair** | Restart the container after three consecutive availability checks |
 | **ReportOnly** | The default value. Don't restart the container but report in the Docker logs for the container after three consecutive availability checks. |
 | **Off** | Don't check for availability. |
+
+## Support for Group Managed Service Accounts
+
+Group Managed Service Accounts (gMSAs) are currently not supported in Windows containers in App Service.
 
 ::: zone-end
 
