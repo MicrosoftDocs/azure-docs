@@ -38,7 +38,7 @@ Managed identities for Azure resources is a feature of Azure Active Directory (A
 There are two types of managed identities:
 
 - **System-assigned** Some Azure services allow you to enable a managed identity directly on a service instance. When you enable the managed identity option as part of the configuration of a service instance Azure creates an identity in your Azure AD. After the identity is created, the credentials are provisioned onto the service instance where you enabled it. The system assigned managed identity has its life cycle tied directly to the service instance that triggered its creation. If the instance is deleted, Azure automatically removes the system-assigned managed identity information from Azure AD.
-- **User-assigned** You may also create a managed identity as a standalone Azure resource. You can [create a user-assigned managed identity](how-to-manage-ua-identity-portal.md) and assign it to one or more instances of an Azure service. In the case of user-assigned managed identities, the identity is managed separately from the resources that use it.
+- **User-assigned** You may also create a managed identity as a standalone Azure resource. You can [create a user-assigned managed identity](how-to-manage-ua-identity-portal.md) and assign it to one or more instances of an Azure service. In the case of user-assigned managed identities, the identity is managed separately from the resources that use it. </br></br>
 
     > [!VIDEO https://www.youtube.com/embed/OzqpxeD3fG0]
 
@@ -61,37 +61,20 @@ To learn how to use managed identities to access different Azure resources, try 
 > [!NOTE]
 > Check out the [Implementing Managed Identities for Microsoft Azure Resources](https://www.pluralsight.com/courses/microsoft-azure-resources-managed-identities-implementing) course for more information about managed identities, including detailed video walkthroughs of several supported scenarios.
 
-Learn how to use a managed identity with a Windows VM:
 
-* [Access Azure Data Lake Store](tutorial-windows-vm-access-datalake.md)
-* [Access Azure Resource Manager](tutorial-windows-vm-access-arm.md)
-* [Access Azure SQL](tutorial-windows-vm-access-sql.md)
-* [Access Azure Storage by using an access key](tutorial-vm-windows-access-storage.md)
-* [Access Azure Storage by using shared access signatures](tutorial-windows-vm-access-storage-sas.md)
-* [Access a non-Azure AD resource with Azure Key Vault](tutorial-windows-vm-access-nonaad.md)
-
-Learn how to use a managed identity with a Linux VM:
-
-* [Access Azure Container Registry](../../container-registry/container-registry-authentication-managed-identity.md)
-* [Access Azure Data Lake Store](tutorial-linux-vm-access-datalake.md)
-* [Access Azure Resource Manager](tutorial-linux-vm-access-arm.md)
-* [Access Azure Storage by using an access key](tutorial-linux-vm-access-storage.md)
-* [Access Azure Storage by using shared access signatures](tutorial-linux-vm-access-storage-sas.md)
-* [Access a non-Azure AD resource with Azure Key Vault](tutorial-linux-vm-access-nonaad.md)
-
-Learn how to use a managed identity with other Azure services:
-
-* [Azure App Service](../../app-service/overview-managed-identity.md)
-* [Azure API Management](../../api-management/api-management-howto-use-managed-service-identity.md)
-* [Azure Container Instances](../../container-instances/container-instances-managed-identity.md)
-* [Azure Container Registry Tasks](../../container-registry/container-registry-tasks-authentication-managed-identity.md)
-* [Azure Event Hubs](../../event-hubs/authenticate-managed-identity.md)
-* [Azure Functions](../../app-service/overview-managed-identity.md)
-* [Azure Kubernetes Service](../../aks/use-managed-identity.md)
-* [Azure Logic Apps](../../logic-apps/create-managed-service-identity.md)
-* [Azure Service Bus](../../service-bus-messaging/service-bus-managed-service-identity.md)
-* [Azure Data Factory](../../data-factory/data-factory-service-identity.md)
-
+|-----------|----------|---------|
+| Windows VM | Linux VM | Azure services |
+| [Access Azure Data Lake Store](tutorial-windows-vm-access-datalake.md) | [Access Azure Container Registry](../../container-registry/container-registry-authentication-managed-identity.md) | [Azure App Service](../../app-service/overview-managed-identity.md) |
+| [Access Azure Resource Manager](tutorial-windows-vm-access-arm.md) |[Access Azure Data Lake Store](tutorial-linux-vm-access-datalake.md) | [Azure API Management](../../api-management/api-management-howto-use-managed-service-identity.md) |
+| [Access Azure SQL](tutorial-windows-vm-access-sql.md) | [Access Azure Resource Manager](tutorial-linux-vm-access-arm.md) | [Azure Container Instances](../../container-instances/container-instances-managed-identity.md) |
+| [Access Azure Storage by using an access key](tutorial-vm-windows-access-storage.md) | [Access Azure Storage by using an access key](tutorial-linux-vm-access-storage.md) | [Azure Container Registry Tasks](../../container-registry/container-registry-tasks-authentication-managed-identity.md) |
+| [Access Azure Storage by using shared access signatures](tutorial-windows-vm-access-storage-sas.md) | [Access Azure Storage by using shared access signatures](tutorial-linux-vm-access-storage-sas.md) | [Azure Event Hubs](../../event-hubs/authenticate-managed-identity.md) |
+| [Access a non-Azure AD resource with Azure Key Vault](tutorial-linux-vm-access-nonaad.md)
+| [Access a non-Azure AD resource with Azure Key Vault](tutorial-windows-vm-access-nonaad.md) |  [Azure Functions](../../app-service/overview-managed-identity.md) |
+| - | - |  [Azure Kubernetes Service](../../aks/use-managed-identity.md) |
+| - | - |  [Azure Logic Apps](../../logic-apps/create-managed-service-identity.md) |
+| - | - | [Azure Service Bus](../../service-bus-messaging/service-bus-managed-service-identity.md) |
+| - | - |  [Azure Data Factory](../../data-factory/data-factory-service-identity.md) |
 
 ## What Azure services support the feature?<a name="which-azure-services-support-managed-identity"></a>
 
