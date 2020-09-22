@@ -64,7 +64,6 @@ An extension resource is a resource that adds to another resource's capabilities
 - Microsoft.Consumption/Terms
 - Microsoft.Consumption/UsageDetails
 - Microsoft.ContainerInstance/serviceAssociationLinks
-- Microsoft.Contoso/ExtensionResourceType
 - Microsoft.CostManagement/Alerts
 - Microsoft.CostManagement/Budgets
 - Microsoft.CostManagement/costAllocationRules
@@ -158,7 +157,6 @@ An extension resource is a resource that adds to another resource's capabilities
 - Microsoft.SecurityInsights/settings
 - Microsoft.SecurityInsights/threatIntelligence
 - Microsoft.SecurityInsights/watchlists
-- Microsoft.SerialConsole.PPE/serialPorts
 - Microsoft.SoftwarePlan/hybridUseBenefits
 - Microsoft.Subscription/CreateSubscription
 - microsoft.support/supporttickets
