@@ -220,4 +220,4 @@ Enter the following Python code in the Azure Data Studio notebook and run it.
 
 ## Next steps
 
-For more information on using ONNX models in Azure SQL Edge, see [Machine learning and AI with ONNX in SQL Edge (Preview)](onnx-overview.md).
+For more information on using ONNX models in Azure SQL Edge, see [Machine learning and AI with ONNX in SQL Edge](onnx-overview.md).
