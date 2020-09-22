@@ -235,6 +235,12 @@
       items:
       - name: How to use PerfInsights
         href: how-to-use-perfinsights-linux.md
+- name: Troubleshoot Shared Image Galleries
+  items:
+  - name: Troubleshoot Shared Image Gallery - Windows
+    href: ../windows/troubleshooting-shared-images.md
+  - name: Troubleshoot Shared Image Gallery - Linux
+    href: ../linux/troubleshooting-shared-images.md
 - name: VM extension issues
   items:
   - name: Azure extension overview
