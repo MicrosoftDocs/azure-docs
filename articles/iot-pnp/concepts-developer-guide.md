@@ -405,14 +405,14 @@ The service SDKs let you access device information from a solution, such as a de
 
 | Language | IoT Hub service client | Digital Twins service client |
 | -------- | ---------------------- | ---------------------------- |
-| C#       | [Documentation](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.shared.twin.modelid?view=azure-dotnet-preview#Microsoft_Azure_Devices_Shared_Twin_ModelId) <br/> [Sample](https://github.com/Azure/azure-iot-sdk-csharp/blob/pnp-preview-refresh/iothub/service/samples/PnpServiceSamples/Thermostat/Program.cs)| Not available |
-| Java     | [Documentation](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwindevice?view=azure-java-stabl) <br/> [Sample](https://github.com/Azure/azure-iot-sdk-java/blob/pnp-preview-refresh/service/iot-service-samples/pnp-service-sample/thermostat-service-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/service/Thermostat.java)| Not available |
-| Node.js  | [Documentation](https://docs.microsoft.com/javascript/api/azure-iothub/twin?view=azure-node-latest) <br/> [Sample](https://github.com/Azure/azure-iot-sdk-node/blob/master/service/samples/javascript/twin.js)| [Documentation](https://docs.microsoft.com/javascript/api/azure-iot-digitaltwins-service/?view=azure-node-latest) |
-| Python   | [Documentation](https://docs.microsoft.com/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?view=azure-python) <br/> [Sample](https://github.com/Azure/azure-iot-sdk-python/blob/pnp-preview-refresh/azure-iot-hub/samples/iothub_registry_manager_method_sample.py)| [Documentation](https://docs.microsoft.com/javascript/api/azure-iot-digitaltwins-service/?view=azure-node-latest) |
+| C#       | [Documentation](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.shared.twin.modelid?view=azure-dotnet-preview#Microsoft_Azure_Devices_Shared_Twin_ModelId&preserve-view=true) <br/> [Sample](https://github.com/Azure/azure-iot-sdk-csharp/blob/pnp-preview-refresh/iothub/service/samples/PnpServiceSamples/Thermostat/Program.cs)| Not available |
+| Java     | [Documentation](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwindevice?view=azure-java-stable&preserve-view=true) <br/> [Sample](https://github.com/Azure/azure-iot-sdk-java/blob/pnp-preview-refresh/service/iot-service-samples/pnp-service-sample/thermostat-service-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/service/Thermostat.java)| Not available |
+| Node.js  | [Documentation](https://docs.microsoft.com/javascript/api/azure-iothub/twin?view=azure-node-latest&preserve-view=true) <br/> [Sample](https://github.com/Azure/azure-iot-sdk-node/blob/master/service/samples/javascript/twin.js)| [Documentation](https://docs.microsoft.com/javascript/api/azure-iot-digitaltwins-service/?view=azure-node-latest) |
+| Python   | [Documentation](https://docs.microsoft.com/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?view=azure-python&preserve-view=true) <br/> [Sample](https://github.com/Azure/azure-iot-sdk-python/blob/pnp-preview-refresh/azure-iot-hub/samples/iothub_registry_manager_method_sample.py)| [Documentation](https://docs.microsoft.com/javascript/api/azure-iot-digitaltwins-service/?view=azure-node-latest&preserve-view=true) |
 
-### REST API 
+### REST API
 
-The following examples use the IoT Hub REST API to intercat with a connected IoT Plug and Play device. The current version of the API is `2020-05-31-preview`. Append `?api-version=2020-05-31` to your REST PI calls.
+The following examples use the IoT Hub REST API to interact with a connected IoT Plug and Play device. The current version of the API is `2020-05-31-preview`. Append `?api-version=2020-05-31` to your REST PI calls.
 
 > [!NOTE]
 > IoT Edge module twins are not currently supported by the `digitalTwins` API.
