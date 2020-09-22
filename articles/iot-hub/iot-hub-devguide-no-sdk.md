@@ -31,7 +31,7 @@ Before you begin development, you should have a thorough knowledge of IoT Hub an
 
 ## Help on different protocols
 
-For help using the following protocols directly without an Azure IoT SDK:
+For help using the following protocols without an Azure IoT SDK:
 
 * Device or back-end apps on **AMQP**, see [AMQP support](iot-hub-amqp-support.md).
 
