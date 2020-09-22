@@ -4,15 +4,15 @@ description: Azure Security Benchmark V2 Incident Response
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/13/2020
+ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
 ---
 
-# Security Control: Incident Response
+# Security Control V2: Incident Response
 
-Incident Response covers controls in incident response life cycle - preparation, detection and analysis, containment, and post-incident activities. This includes using Azure services such as Azure Security Center and Sentinel to automate the incident response process.
+Incident Response covers controls in the incident response life cycle - preparation, detection and analysis, containment, and post-incident activities. This includes using Azure services such as Azure Security Center and Sentinel to automate the incident response process.
 
 ## IR-1: Preparation – update incident response process for Azure
 
@@ -24,13 +24,13 @@ Ensure your organization has processes to respond to security incidents, has upd
 
 - [Implement security across the enterprise environment](https://aka.ms/AzSec4)
 
-- [Incident Response Reference Guide](https://aka.ms/IRRG)
+- [Incident response reference guide](/microsoft-365/downloads/IR-Reference-Guide.pdf)
 
 **Responsibility**: Customer
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [Security operations (SecOps)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Security operations](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Incident preparation](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
@@ -48,9 +48,9 @@ Set up security incident contact information in Azure Security Center. This cont
 
 **Responsibility**: Customer
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [Security operations (SecOps)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Security operations](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Incident preparation](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
@@ -74,9 +74,9 @@ Export your Azure Security Center alerts and recommendations using the export fe
 
 **Responsibility**: Customer
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [Security operations (SecOps)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Security operations](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Incident preparation](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
@@ -88,23 +88,25 @@ Export your Azure Security Center alerts and recommendations using the export fe
 |--|--|--|--|
 | IR-4 | 19 | IR-4 |
 
-Ensure analysts can query and use diverse data sources as they investigate potential incidents, to build a full view of what happened. Ensure insights and learnings are captured for other analysts and for future historical reference. 
+Ensure analysts can query and use diverse data sources as they investigate potential incidents, to build a full view of what happened. Diverse logs should be collected to track the activities of a potential attacker across the kill chain to avoid blind spots.  You should also ensure insights and learnings are captured for other analysts and for future historical reference.  
 
 The data sources for investigation include the centralized logging sources that are already being collected from the in-scope services and running systems, but can also include:
 
-Network data – use network security groups’ flow logs, Azure Network Watcher, and Azure Monitor to capture network flow logs and other analytics information. Snapshots of running systems: 
+- Network data – use network security groups' flow logs, Azure Network Watcher, and Azure Monitor to capture network flow logs and other analytics information. 
 
--	Use Azure virtual machine’s snapshot capability to create a snapshot of the running system’s disk. 
+- Snapshots of running systems: 
 
--	Use the operating system’s native memory dump capability to create a snapshot of the running system’s memory.
+    - Use Azure virtual machine's snapshot capability to create a snapshot of the running system's disk. 
 
--	Use the snapshot feature of the Azure services or your software’s own capability to create snapshots of the running systems.
+    - Use the operating system's native memory dump capability to create a snapshot of the running system's memory.
+
+    - Use the snapshot feature of the Azure services or your software's own capability to create snapshots of the running systems.
 
 Azure Sentinel provides extensive data analytics across virtually any log source and a case management portal to manage the full lifecycle of incidents. Intelligence information during an investigation can be associated with an incident for tracking and reporting purposes. 
 
-- [Snapshot a Windows machine’s disk](../../virtual-machines/windows/snapshot-copy-managed-disk.md)
+- [Snapshot a Windows machine's disk](../../virtual-machines/windows/snapshot-copy-managed-disk.md)
 
-- [Snapshot a Linux machine’s disk](../../virtual-machines/linux/snapshot-copy-managed-disk.md)
+- [Snapshot a Linux machine's disk](../../virtual-machines/linux/snapshot-copy-managed-disk.md)
 
 - [Microsoft Azure Support diagnostic information and memory dump collection](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) 
 
@@ -112,9 +114,9 @@ Azure Sentinel provides extensive data analytics across virtually any log source
 
 **Responsibility**: Customer
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [Security operations (SecOps)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Security operations](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Incident preparation](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
@@ -130,7 +132,7 @@ Provide context to analysts on which incidents to focus on first based on alert 
 
 Azure Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytic used to issue the alert, as well as the confidence level that there was malicious intent behind the activity that led to the alert.
 
-Additionally, mark subscriptions using tags and create a naming system to identify and categorize Azure resources, especially those processing sensitive data.  It is your responsibility to prioritize the remediation of alerts based on the criticality of the Azure resources and environment where the incident occurred.
+Additionally, mark resources using tags and create a naming system to identify and categorize Azure resources, especially those processing sensitive data.  It is your responsibility to prioritize the remediation of alerts based on the criticality of the Azure resources and environment where the incident occurred.
 
 - [Security alerts in Azure Security Center](../../security-center/security-center-alerts-overview.md)
 
@@ -138,9 +140,9 @@ Additionally, mark subscriptions using tags and create a naming system to identi
 
 **Responsibility**: Customer
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [Security operations (SecOps)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Security operations](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Incident preparation](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
@@ -163,9 +165,9 @@ Use workflow automation features in Azure Security Center and Azure Sentinel to 
 
 **Responsibility**: Customer
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [Security operations (SecOps)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Security operations](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Incident preparation](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 

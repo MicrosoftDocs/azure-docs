@@ -125,6 +125,8 @@ You can enable Availability Zones by using Azure portal when creating an Azure C
 
 ## Building highly available applications
 
+- Review the expected [behavior of the Azure Cosmos SDKs](troubleshoot-sdk-availability.md) during these events and which are the configurations that affect it.
+
 - To ensure high write and read availability, configure your Azure Cosmos account to span at least two regions with multiple-write regions. This configuration will provide the highest availability, lowest latency, and best scalability for both reads and writes backed by SLAs. To learn more, see how to [configure your Azure Cosmos account with multiple write-regions](tutorial-global-distribution-sql-api.md).
 
 - For multi-region Azure Cosmos accounts that are configured with a single-write region, [enable automatic-failover by using Azure CLI or Azure portal](how-to-manage-database-account.md#automatic-failover). After you enable automatic failover, whenever there is a regional disaster, Cosmos DB will automatically failover your account.  
@@ -142,3 +144,4 @@ Next you can read the following articles:
 - [Global distribution - under the hood](global-dist-under-the-hood.md)
 - [Consistency levels in Azure Cosmos DB](consistency-levels.md)
 - [How to configure your Cosmos account with multiple write regions](how-to-multi-master.md)
+- [SDK behavior on multiregional environments](troubleshoot-sdk-availability.md)
