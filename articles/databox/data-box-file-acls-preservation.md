@@ -77,6 +77,8 @@ robocopy <Source> <Target> * /copyall /e /r:3 /w:60 /is /nfl /ndl /np /MT:32 or 
 
 where
 
+|Parameter |Description |
+|------------------- | ----- |
 |copyall |Copies all files.|
 |/e      |Copies subdirectories, including empty directories.         |
 |/r:3    |Specifies 3 retries on failed copies.         |
