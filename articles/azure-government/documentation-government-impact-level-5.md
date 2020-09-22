@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 07/16/2020
+ms.date: 09/14/2020
 ms.custom: references_regions
 #Customer intent: As a DoD mission owner I want to know how to implement a workload at Impact Level 5 in Microsoft Azure Government
 ---
@@ -59,7 +59,7 @@ Azure Bot Service can be used in Azure Government supporting Impact Level 5 work
 
 | **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- |
-| **Azure Bot Service** | X | X | X | X | X |
+| **Azure Bot Service** | X | X | X |  |  |
 
 ### [Azure Cognitive Search](https://azure.microsoft.com/services/search/)
 
@@ -69,7 +69,7 @@ Azure Cognitive Search can be used in Azure Government supporting Impact Level 5
 
 | **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- |
-| **Azure Cognitive Search** | X | X | X | X | X |
+| **Azure Cognitive Search** | X | X | X |  |  |
 
 ### [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/)
 
@@ -87,7 +87,7 @@ Computer Vision can be used in Azure Government supporting Impact Level 5 worklo
 
 | **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | 
-| **Computer Vision** | X | X | X | X | X |
+| **Computer Vision** | X | X | X |  |  |
 
 ### [Cognitive Services: Content Moderator](https://azure.microsoft.com/services/cognitive-services/content-moderator/)
 
@@ -125,7 +125,7 @@ Text Analytics can be used in Azure Government supporting Impact Level 5 workloa
 
 | **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- |
-| **Text Analytics** | X | X | X | X | X |
+| **Text Analytics** | X | X | X |  |  |
 
 ### [Cognitive Services: Translator](https://azure.microsoft.com/services/cognitive-services/translator/)
 
@@ -168,7 +168,7 @@ Secure data store credentials by storing encrypted credentials in an Azure Data 
 
 | **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | 
-| **Azure Data Factory** | X | X | X | X | X |
+| **Azure Data Factory** | X | X | X |  |  |
 
 ### [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)
 
@@ -342,7 +342,7 @@ Azure Container Instances service automatically encrypts data related to your co
 
 | **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | 
-| **Container Instances** | X | X | X | X | X |
+| **Container Instances** | X | X | X |  |  |
 
 ### [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/)
 
@@ -362,7 +362,7 @@ When you store images and other artifacts in an Azure container registry, Azure 
 
 | **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | 
-| **Container Registry** | X | X | X | X | X | 
+| **Container Registry** | X | X | X |  |  | 
 
 ## Databases
 
@@ -394,7 +394,7 @@ Azure DevTest Labs can be used in Azure Government supporting Impact Level 5 wor
 
 | **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | 
-| **Azure DevTest Labs** | X | X | X | X | X | 
+| **Azure DevTest Labs** | X | X | X |  |  | 
 
 ## Hybrid
 
@@ -459,7 +459,7 @@ IoT Hub supports encryption of data at rest with customer-managed keys (CMK), al
 
 | **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | 
-| **IoT Hub** | X | X | X | X | X | 
+| **IoT Hub** | X | X | X |  |  | 
 
 ### [Notification Hubs](https://azure.microsoft.com/services/notification-hubs/) 
 
@@ -467,7 +467,7 @@ Notification Hubs can be used in Azure Government supporting Impact Level 5 work
 
 | **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | 
-| **Notification Hubs** | X | X | X | X | X | 
+| **Notification Hubs** | X | X | X |  |  | 
 
 ## Management and governance
 
@@ -492,7 +492,7 @@ Azure Advisor can be used in Azure Government supporting Impact Level 5 workload
 
 | **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- |
-| **Azure Advisor** | X | X | X | X | X | 
+| **Azure Advisor** | X | X | X |  |  | 
 
 ### [Azure Backup](https://azure.microsoft.com/services/backup/)
 
@@ -508,7 +508,7 @@ Azure Blueprints can be used in Azure Government supporting Impact Level 5 workl
 
 | **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | 
-| **Azure Blueprints** | X | X | X | X | X | 
+| **Azure Blueprints** | X | X | X |  |  | 
 
 ### [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/) 
 
@@ -516,7 +516,7 @@ Azure Cloud Shell can be used in Azure Government supporting all impact levels w
 
 | **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | 
-| **Azure Cloud Shell** | X | X | X | X | X | 
+| **Azure Cloud Shell** | X | X | X |  |  | 
 
 ### [Azure Cost Management](https://azure.microsoft.com/services/cost-management/) 
 
@@ -524,7 +524,7 @@ Azure Cost Management can be used in Azure Government supporting Impact Level 5 
 
 | **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | 
-| **Azure Cost Management** | X | X | X | X | X |
+| **Azure Cost Management** | X | X | X |  |  |
 
 ### [Azure Lighthouse](https://azure.microsoft.com/services/azure-lighthouse/)
 
@@ -558,7 +558,7 @@ Azure Policy can be used in Azure Government supporting Impact Level 5 workloads
 
 | **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- |
-| **Azure Policy** | X | X | X | X | X | 
+| **Azure Policy** | X | X | X |  |  | 
 
 ### [Azure Policy Guest Configuration](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration)
 
@@ -592,7 +592,7 @@ Azure Resource Graph can be used in Azure Government supporting Impact Level 5 w
 
 | **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- |
-| **Azure Resource Graph** | X | X | X | X | X |
+| **Azure Resource Graph** | X | X | X |  |  |
 
 ### [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/)
 
@@ -612,7 +612,7 @@ Configure Customer-Managed Keys (CMK) for your Log Analytics workspaces and Appl
 
 | **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | 
-| **Log Analytics** | X | X | X | X | X | 
+| **Log Analytics** | X | X | X |  |  | 
 
 ### Azure Scheduler
 
@@ -746,7 +746,7 @@ Azure Advanced Threat Protection can be used in all Azure Government regions, su
 
 | **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | 
-| **Azure Advanced Threat Protection** | X | X | X | X | X |
+| **Azure Advanced Threat Protection** | X | X | X |  |  |
 
 ### [Azure Dedicated HSM](https://azure.microsoft.com/services/azure-dedicated-hsm/)
 
@@ -754,7 +754,7 @@ Azure Dedicated HSM can be used in all Azure Government regions, supporting all 
 
 | **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | 
-| **Azure Dedicated HSM** | X | X | X | X | X | 
+| **Azure Dedicated HSM** | X | X | X |  |  | 
 
 ### [Azure Security Center](https://azure.microsoft.com/services/security-center/)
 
@@ -762,7 +762,7 @@ Azure Security Center can be used in all Azure Government regions, supporting al
 
 | **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | 
-| **Azure Security Center** | X | X | X | X | X |
+| **Azure Security Center** | X | X | X |  |  |
 
 ### [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/)
 
@@ -822,7 +822,7 @@ Azure Analysis Services can be used in Azure Government supporting Impact Level 
 
 | **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | 
-| **Azure Analysis Services** |  |  |  | X | X |
+| **Azure Analysis Services** | X | X | X | X | X |
 
 ### [Azure Cache for Redis](https://azure.microsoft.com/services/cache/)
 
@@ -830,7 +830,7 @@ Azure Cache for Redis can be used in Azure Government supporting Impact Level 5 
 
 | **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | 
-| **Azure Cache for Redis** |  |  |  | X | X |
+| **Azure Cache for Redis** | X | X | X | X | X |
 
 ### [Azure Import/Export](../storage/common/storage-import-export-service.md)
 
@@ -858,7 +858,7 @@ Azure CosmosDB can be used in Azure Government supporting Impact Level 5 workloa
 
 | **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | 
-| **Azure CosmosDB** |  |  |  | X | X |
+| **Azure CosmosDB** | X | X | X | X | X |
 
 ### [Azure Storage](https://azure.microsoft.com/services/storage/)
 
