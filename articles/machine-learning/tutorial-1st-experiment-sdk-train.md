@@ -217,7 +217,7 @@ if __name__ == "__main__":
       `env = Environment.from_conda_specification( ... )`
    :::column-end:::
    :::column span="2":::
-      Azure Machine Learning provides the concept of an [Environment](python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true) to represent a reproducible, versioned Python environment for running experiments. It's easy to create an environment from a local Conda or pip environment.
+      Azure Machine Learning provides the concept of an [Environment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true) to represent a reproducible, versioned Python environment for running experiments. It's easy to create an environment from a local Conda or pip environment.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -225,7 +225,7 @@ if __name__ == "__main__":
       `config.run_config.environment = env`
    :::column-end:::
    :::column span="2":::
-      Adds the environment to the [ScriptRunConfig](python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true).
+      Adds the environment to the [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true).
    :::column-end:::
 :::row-end:::
 
@@ -400,7 +400,7 @@ training script that required a specific Python environment to run. You saw how
 to take a local Conda environment to the cloud with Azure Machine Learning Environments. Finally, you
 saw how in a few lines of code you can log metrics to Azure Machine Learning.
 
-There are other ways to create Azure Machine Learning environments, including [from a pip requirements.txt](python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true#from-pip-requirements-name--file-path-), or even [from an existing local Conda environment](python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true#from-existing-conda-environment-name--conda-environment-name-).
+There are other ways to create Azure Machine Learning environments, including [from a pip requirements.txt](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true#from-pip-requirements-name--file-path-), or even [from an existing local Conda environment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true#from-existing-conda-environment-name--conda-environment-name-).
 
 In the next session, you'll see how to work with data in Azure Machine Learning by uploading the CIFAR10
 dataset to Azure.

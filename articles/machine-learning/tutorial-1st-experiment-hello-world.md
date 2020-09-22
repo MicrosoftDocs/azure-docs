@@ -95,7 +95,7 @@ Here's a description of how the control script works:
       `ws = Workspace.from_config()`
    :::column-end:::
    :::column span="2":::
-      [Workspace](python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true) connects to your Azure Machine Learning workspace, so that you can communicate with your Azure Machine Learning resources.
+      [Workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true) connects to your Azure Machine Learning workspace, so that you can communicate with your Azure Machine Learning resources.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -103,7 +103,7 @@ Here's a description of how the control script works:
       `experiment =  Experiment( ... )`
    :::column-end:::
    :::column span="2":::
-      [Experiment](python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py&preserve-view=true) provides a simple way to organize multiple runs under a single name. Later you can see how experiments make it easy to compare metrics between dozens of runs.
+      [Experiment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py&preserve-view=true) provides a simple way to organize multiple runs under a single name. Later you can see how experiments make it easy to compare metrics between dozens of runs.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -111,7 +111,7 @@ Here's a description of how the control script works:
       `config = ScriptRunConfig( ... )` 
    :::column-end:::
    :::column span="2":::
-      [ScriptRunConfig](python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) wraps your `hello.py` code and passes it to your workspace. As the name suggests, you can use this class to _configure_ how you want your _script_ to _run_ in Azure Machine Learning. Also specifies what compute target the script will run on.  In this code, the target is the compute cluster you created in the [setup tutorial](tutorial-1st-experiment-sdk-setup-local.md).
+      [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) wraps your `hello.py` code and passes it to your workspace. As the name suggests, you can use this class to _configure_ how you want your _script_ to _run_ in Azure Machine Learning. Also specifies what compute target the script will run on.  In this code, the target is the compute cluster you created in the [setup tutorial](tutorial-1st-experiment-sdk-setup-local.md).
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -119,7 +119,7 @@ Here's a description of how the control script works:
       `run = experiment.submit(config)`
    :::column-end:::
    :::column span="2":::
-       Submits your script. This submission is called a [Run](python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true).  A run encapsulates a single execution of your code. Use a run to monitor the script progress, capture the output, analyze the results, visualize metrics and more.
+       Submits your script. This submission is called a [Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true).  A run encapsulates a single execution of your code. Use a run to monitor the script progress, capture the output, analyze the results, visualize metrics and more.
    :::column-end:::
 :::row-end:::
 :::row:::
