@@ -25,7 +25,7 @@ An [Azure Resource Manager template](update-mgmt-enable-template.md) is availabl
 > [!NOTE]
 > You can't use a machine configured with Update Management to run custom scripts from Azure Automation. This machine can only run the Microsoft-signed update script.
 
-To download and install available *Critical* and *Security* patches automatically on the VM, you can review [Automatic VM guest patching](../virtual-machines/windows/automatic-vm-guest-patching.md) for Windows VMs.
+To download and install available *Critical* and *Security* patches automatically on the VM, review [Automatic VM guest patching](../../virtual-machines/windows/automatic-vm-guest-patching.md) for Windows VMs.
 
 ## About Update Management
 
