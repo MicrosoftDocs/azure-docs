@@ -77,10 +77,10 @@ Request Body
        "resizeTimeout":"PT15M",
       "targetDedicatedNodes":5,
       "targetLowPriorityNodes":0,
-      "maxTasksPerNode":3,
+      "taskSlotsPerNode":3,
       "taskSchedulingPolicy": {
         "nodeFillType":"spread"
-      }, 
+      },
       "enableAutoScale":false,
       "enableInterNodeCommunication":true,
       "metadata": [ {

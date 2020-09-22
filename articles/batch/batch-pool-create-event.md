@@ -36,7 +36,7 @@ ms.date: 04/20/2017
 	"resizeTimeout": "300000",
 	"targetDedicatedNodes": 2,
 	"targetLowPriorityNodes": 2,
-	"maxTasksPerNode": 1,
+	"taskSlotsPerNode": 1,
 	"vmFillType": "Spread",
 	"enableAutoScale": false,
 	"enableInterNodeCommunication": false,
@@ -59,7 +59,7 @@ ms.date: 04/20/2017
 |`enableAutoScale`|Bool|Specifies whether the pool size automatically adjusts over time.|
 |`enableInterNodeCommunication`|Bool|Specifies whether the pool is set up for direct communication between nodes.|
 |`isAutoPool`|Bool|Specifies whether the pool was created via a job's AutoPool mechanism.|
-|`maxTasksPerNode`|Int32|The maximum number of tasks that can run concurrently on a single compute node in the pool.|
+|`taskSlotsPerNode`|Int32|The maximum number of tasks that can run concurrently on a single compute node in the pool.|
 |`vmFillType`|String|Defines how the Batch service distributes tasks between compute nodes in the pool. Valid values are Spread or Pack.|
 
 ###  <a name="bk_csconf"></a> cloudServiceConfiguration
