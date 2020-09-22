@@ -41,6 +41,16 @@ You can create JIRA tickets on Azure Monitor alerts.
 
 [Learn more.][botmetric-doc]
 
+## Centreon
+
+![Centreon Logo](./media/partners/centreon.png)
+
+Centreon provides IT operations with visibility from Cloud-to-Edge, enabling performance excellence, innovation and competitive advantage so the business reaches its full potential.
+
+Centreon Monitoring Packs provide full visibility across your Azure Cloud resources health, performance and metrics through fast and easy to use monitoring templates. 
+
+[Go to the documentation.][centreon-doc]
+
 ## Circonus
 
 ![Circonus Logo](./media/partners/circonus.png)
@@ -288,6 +298,7 @@ Turbonomic delivers workload automation for hybrid clouds by simultaneously opti
 [appdynamics-doc]: https://www.appdynamics.com/net/azure/ "AppDynamics documentation."
 [atlassian-doc]: https://azure.microsoft.com/blog/automated-notifications-from-azure-monitor-for-atlassian-jira/
 [botmetric-doc]: https://www.botmetric.com/blog/announcing-botmetric-cost-governance-beta-microsoft-azure/ "Botmetric introduction."
+[centreon-doc]: https://docs.centreon.com/current/en/integrations/plugin-packs/procedures/cloud-azure-management-monitor.html#docsNav "Centreon documentation"
 [circonus-doc]: https://docs.circonus.com/circonus/agents/cloud-agent/azure/ 
 [cloudhealth-doc]: https://www.cloudhealthtech.com/products/azure-management
 [cloudmonix-doc]: https://cloudmonix.com/features/azure-management/ "CloudMonix introduction."
