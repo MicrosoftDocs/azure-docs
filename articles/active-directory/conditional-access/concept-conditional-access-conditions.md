@@ -114,7 +114,7 @@ This setting works with all browsers. However, to satisfy a device policy, like 
 | macOS | Chrome, Safari |
 
 > [!NOTE]
-> Edge 85+ requires the user to be signed in to the browser to properly pass device identity, otherwise it will behave like Chrome without the accounts extension. This sign-in might not occur automatically in Hybrid AzureAD Join scenarios. 
+> Edge 85+ requires the user to be signed in to the browser to properly pass device identity. Otherwise, it behaves like Chrome without the accounts extension. This sign-in might not occur automatically in a Hybrid Azure AD Join scenario. 
 
 #### Why do I see a certificate prompt in the browser
 
