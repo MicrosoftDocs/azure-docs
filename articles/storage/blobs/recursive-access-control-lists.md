@@ -50,7 +50,7 @@ Install the necessary libraries.
    echo $PSVersionTable.PSVersion.ToString() 
    ```
     
-   To upgrade your version of PowerShell, see [Upgrading existing Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell)
+   To upgrade your version of PowerShell, see [Upgrading existing Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell)
     
 3. Install the latest version of the PowershellGet module.
 
@@ -66,7 +66,7 @@ Install the necessary libraries.
    Install-Module Az.Storage -Repository PsGallery -RequiredVersion 2.5.2-preview -AllowClobber -AllowPrerelease -Force  
    ```
 
-   For more information about how to install PowerShell modules, see [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.0.0)
+   For more information about how to install PowerShell modules, see [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps)
 
 ### [.NET](#tab/dotnet)
 
@@ -274,7 +274,7 @@ except Exception as e:
 
 ## Set an ACL recursively
 
-When you *set* an ACL, you **replace** the entire ACL including all of it's entries. Alternatively, you can **update** an ACL entry (for example, change the permission level of user or add a new user) without affecting other existing entries. To update an ACL instead of replace it, see the [Update an ACL recursively](#update-an-acl-recursively) section of this article.    
+When you *set* an ACL, you **replace** the entire ACL including all of it's entries. If you want to change the permission level of a security principal or add a new security principal to the ACL without affecting other existing entries, you should *update* the ACL instead. To update an ACL instead of replace it, see the [Update an ACL recursively](#update-an-acl-recursively) section of this article.    
 
 ### [PowerShell](#tab/azure-powershell)
 
@@ -362,9 +362,9 @@ def set_permission_recursively():
 
 ## Update an ACL recursively
 
-You can update an ACL (for example, change the permission level of user or add a new user) without affecting existing ACL entries. 
+When you *update* an ACL, you modify the ACL instead of replacing the ACL. For example, you can add a new security principal to the ACL without affecting other security principals listed in the ACL.  To replace the ACL instead of update it, see the [Set an ACL recursively](#set-an-acl-recursively) section of this article. 
 
-To update an ACL, create a new ACL object that identifies the security principal and the updated permission level, and then apply that object by using the appropriate command or API. An error will occur if your client gets the existing ACL object, adds entries to that object, and then attempts to apply that object. 
+To update an ACL, create a new ACL object that identifies the security principal that you want to update, and then apply that object by using the appropriate command or API. An error will occur if your client gets the existing ACL object, adds the security principal to that object, and then attempts to apply that object.
 
 This section contains examples for how to update an ACL correctly.
 
