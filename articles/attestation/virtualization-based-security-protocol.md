@@ -76,7 +76,7 @@ JWS Protected Header
 
 JWS payload can be of type basic or VBS. Basic is used when attestation evidence does not include VBS data.
 
---- Basic example
+```Basic example
 {
   "att_type": "basic",
   "att_data": {
@@ -119,9 +119,9 @@ JWS payload can be of type basic or VBS. Basic is used when attestation evidence
     "service_context": "<BASE64URL(SERVICECONTEXT)>"
   }
 }
----
+```
 
---- VBS example:
+```VBS example:
 {
   "att_type": "vbs",
   "att_data": {
@@ -167,7 +167,7 @@ JWS payload can be of type basic or VBS. Basic is used when attestation evidence
     "vsm_report": "<BASE64URL(REPORT)>"
   }
 }
---- 
+``` 
 
 **rp_id** (StringOrURI): Relying party identifier. Used by the service in the computation of the machine id claim.
 **rp_data** (BASE64URL(OCTETS)): Opaque data passed by the relying party. This is normally used by the relying party as a nonce to guarantee freshness of the report.
