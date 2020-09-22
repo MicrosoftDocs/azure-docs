@@ -172,4 +172,4 @@ Now you can sign into the Azure portal and verify that the data exists in the ta
 You can now proceed to the next tutorial and learn how to migrate data to Azure Cosmos DB Table API account. 
 
 > [!div class="nextstepaction"]
->[How to query data](../cosmos-db/table-import.md)
+>[How to migrate data?](../cosmos-db/table-import.md)
