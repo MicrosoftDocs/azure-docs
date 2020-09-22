@@ -40,11 +40,15 @@ Azure Attestation -> Client
 #### Payload
 
 {
+
   "challenge": "<BASE64URL(CHALLENGE)>",
+  
   "service_context": "<BASE64URL(SERVICECONTEXT)>"
+  
 }
 
 **challenge** (BASE64URL(OCTETS)): Random value issued by the service.
+
 **service_context** (BASE64URL(OCTETS)): Opaque, encrypted context created by the service which includes, among others, the challenge and an expiration time for that challenge.
 
 
@@ -57,12 +61,17 @@ Client -> Azure Attestation
 #### Payload
 
 {
+
   "request": "<JWS>"
+  
 }
 
 **request** (JWS): Request consists of a JSON Web Signature (JWS) structure. The JWS Protected Header and JWS Payload are shown below. As in any JWS structure, the final value consists of:
+
 BASE64URL(UTF8(JWS Protected Header)) || '.' ||
+
 BASE64URL(JWS Payload) || '.' ||
+
 BASE64URL(JWS Signature)
 
 JWS Protected Header
@@ -169,24 +178,42 @@ JWS payload can be of type basic or VBS. Basic is used when attestation evidence
 }
 ``` 
 
-**rp_id** (StringOrURI): Relying party identifier. Used by the service in the computation of the machine id claim.
-**rp_data** (BASE64URL(OCTETS)): Opaque data passed by the relying party. This is normally used by the relying party as a nonce to guarantee freshness of the report.
-**challenge** (BASE64URL(OCTETS)): Random value issued by the service.
-**tpm_att_data**: TPM-related attestation data.
-**srtm_boot_log** (BASE64URL(OCTETS)): SRTM boot log as retrieved by function Tbsi_Get_TCG_Log_Ex with log type = TBS_TCGLOG_SRTM_BOOT.
-**srtm_resume_log** (BASE64URL(OCTETS)): SRTM resume log as retrieved by function Tbsi_Get_TCG_Log_Ex with log type = TBS_TCGLOG_SRTM_RESUME.
-**drtm_boot_log** (BASE64URL(OCTETS)): DRTM boot log as retrieved by function Tbsi_Get_TCG_Log_Ex with log type = TBS_TCGLOG_DRTM_BOOT.
-**drtm_resume_log** (BASE64URL(OCTETS)): DRTM resume log as retrieved by function Tbsi_Get_TCG_Log_Ex with log type = TBS_TCGLOG_DRTM_RESUME.
-**aik_cert** (BASE64URL(OCTETS)): The X.509 certificate for the AIK as returned by function NCryptGetProperty with property = NCRYPT_CERTIFICATE_PROPERTY.
-**aik_pub**: The public part of the AIK represented as a JSON Web Key (JWK) object (RFC 7517).
-**current_claim** (BASE64URL(OCTETS)): The attestation claim for the current PCR state as returned by function NCryptCreateClaim with dwClaimType = NCRYPT_CLAIM_PLATFORM and parameter NCRYPTBUFFER_TPM_PLATFORM_CLAIM_PCR_MASK set to include all PCRs. The challenge sent by the service should also be used in the computation of this claim.
-**boot_claim** (BASE64URL(OCTETS)): The attestation claim for the PCR state at boot as returned by function NCryptCreateClaim with dwClaimType = NCRYPT_CLAIM_PLATFORM and parameter NCRYPTBUFFER_TPM_PLATFORM_CLAIM_PCR_MASK set to include all PCRs.
-**vbs** (BASE64URL(OCTETS)): The VBS enclave attestation report as returned by function EnclaveGetAttestationReport. The EnclaveData parameter must be the SHA-512 hash of the value of report_signed (including the opening and closing braces). The hash function input is UTF8(report_signed).
-**attest_key**: The public part of the enclave key represented as a JSON Web Key (JWK) object (RFC 7517).
+**rp_id** (StringOrURI): Relying party identifier. Used by the service in the computation of the machine id claim
+
+**rp_data** (BASE64URL(OCTETS)): Opaque data passed by the relying party. This is normally used by the relying party as a nonce to guarantee freshness of the report
+
+**challenge** (BASE64URL(OCTETS)): Random value issued by the service
+
+**tpm_att_data**: TPM-related attestation data
+
+    **srtm_boot_log** (BASE64URL(OCTETS)): SRTM boot log as retrieved by function Tbsi_Get_TCG_Log_Ex with log type = TBS_TCGLOG_SRTM_BOOT
+
+    **srtm_resume_log** (BASE64URL(OCTETS)): SRTM resume log as retrieved by function Tbsi_Get_TCG_Log_Ex with log type = TBS_TCGLOG_SRTM_RESUME
+
+    **drtm_boot_log** (BASE64URL(OCTETS)): DRTM boot log as retrieved by function Tbsi_Get_TCG_Log_Ex with log type = TBS_TCGLOG_DRTM_BOOT
+
+    **drtm_resume_log** (BASE64URL(OCTETS)): DRTM resume log as retrieved by function Tbsi_Get_TCG_Log_Ex with log type = TBS_TCGLOG_DRTM_RESUME
+
+    **aik_cert** (BASE64URL(OCTETS)): The X.509 certificate for the AIK as returned by function NCryptGetProperty with property = NCRYPT_CERTIFICATE_PROPERTY
+
+    **aik_pub**: The public part of the AIK represented as a JSON Web Key (JWK) object (RFC 7517)
+
+    **current_claim** (BASE64URL(OCTETS)): The attestation claim for the current PCR state as returned by function NCryptCreateClaim with dwClaimType = NCRYPT_CLAIM_PLATFORM and parameter NCRYPTBUFFER_TPM_PLATFORM_CLAIM_PCR_MASK set to include all PCRs. The challenge sent by the service should also be used in the computation of this claim
+
+    **boot_claim** (BASE64URL(OCTETS)): The attestation claim for the PCR state at boot as returned by function NCryptCreateClaim with dwClaimType = NCRYPT_CLAIM_PLATFORM and parameter NCRYPTBUFFER_TPM_PLATFORM_CLAIM_PCR_MASK set to include all PCRs
+
+**vbs report** (BASE64URL(OCTETS)): The VBS enclave attestation report as returned by function EnclaveGetAttestationReport. The EnclaveData parameter must be the SHA-512 hash of the value of report_signed (including the opening and closing braces). The hash function input is UTF8(report_signed)
+
+**attest_key**: The public part of the enclave key represented as a JSON Web Key (JWK) object (RFC 7517)
+
 **custom_claims**: Array of custom enclave claims sent to the service that can be evaluated by the policy. The claim
-**name** (String): Name of the claim. This name will be appended to a url determined by the Attestation Service (to avoid conflicts) and the concatenated string becomes the type of the claim that can be used in the policy.
-**value** (String): Value of the claim.
-**value_type** (String): Data type of the claim’s value.
+
+**name** (String): Name of the claim. This name will be appended to a url determined by the Attestation Service (to avoid conflicts) and the concatenated string becomes the type of the claim that can be used in the policy
+
+**value** (String): Value of the claim
+
+**value_type** (String): Data type of the claim’s value
+
 **service_context** (BASE64URL(OCTETS)): Opaque, encrypted context created by the service which includes, among others, the challenge and an expiration time for that challenge.
 
 ### Report message
