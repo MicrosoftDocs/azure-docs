@@ -5,7 +5,7 @@ ms.topic: overview
 ms.date: 05/04/2020
 ---
 
-# What is Azure VMware Solution Preview?
+# What is Azure VMware Solution?
 
 Azure VMware Solution provides you with private clouds in Azure. The private clouds contain vSphere clusters, built from dedicated bare-metal Azure infrastructure. You can scale private cloud clusters from 3 to 16 hosts, with the capability to have multiple clusters in a single private cloud. All private clouds are provisioned with vCenter Server, vSAN, vSphere, and NSX-T. You can migrate workloads from your on-premises environments, create or deploy new virtual machines, and consume Azure services from your private clouds.
 
@@ -23,9 +23,7 @@ New private clouds are deployed through the Azure portal or Azure CLI.
 
 ## Networking
 
-When a private cloud is deployed, private networks for management, provisioning, and vMotion are created. These private networks are used for access to vCenter and NSX-T Manager, and for virtual machine vMotion or deployment. All of the private networks are accessible from a VNet in Azure or from on-premises environments. ExpressRoute Global Reach is used to connect private clouds to on-premises environments, and this connection requires a VNet with an ExpressRoute circuit in your subscription.
-
-Access to the internet and Azure services are provisioned when a private cloud is deployed. The access is provided so that VMs on production workload networks can consume Azure or internet-based services. Internet access is disabled by default for new private clouds, and it can be enabled or disabled at any time.
+[!INCLUDE [avs-networking-description](includes/avs-networking-description.md)]
 
 For more information on networking and interconnectivity, see the [Networking concepts](concepts-networking.md) article.
 
