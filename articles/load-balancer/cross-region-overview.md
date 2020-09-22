@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/01/2020
+ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
 
