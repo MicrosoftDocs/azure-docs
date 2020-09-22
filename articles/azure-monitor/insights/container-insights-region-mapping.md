@@ -1,8 +1,8 @@
 ---
 title: Azure Monitor for containers region mappings
-description: This article describes the region mappings supported between Azure Monitor for containers, Log Analytics Workspace, and custom metrics.
+description: Describes the region mappings supported between Azure Monitor for containers, Log Analytics Workspace, and custom metrics.
 ms.topic: conceptual
-ms.date: 06/26/2019
+ms.date: 09/22/2020
 ms.custom: references_regions
 ---
 
@@ -12,7 +12,7 @@ ms.custom: references_regions
 
 ## Log Analytics workspace supported mappings
 
-Supported AKS regions are listed in [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service). The Log Analytics workspace must be in the same region except for the regions listed in the following table.
+Supported AKS regions are listed in [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service). The Log Analytics workspace must be in the same region except for the regions listed in the following table. Watch [AKS release notes](https://github.com/Azure/AKS/releases) for updates.
 
 
 |**AKS Cluster region** | **Log Analytics Workspace region** |
