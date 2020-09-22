@@ -38,7 +38,7 @@ Application Insights Configuration screen:
 
 Select **Get Started**.
 
-![Screenshot of Register your app with Application Insights page](./media/asp-net/00004-start-free.png)
+![Screenshot shows the Application Insights page and Get Started button.](./media/asp-net/00004-start-free.png)
 
 If you want to set the resource group or the location where your data is stored, click **Configure settings**. Resource groups are used to control access to data. For example, if you have several apps that form part of the same system, you might put their Application Insights data in the same resource group.
 
