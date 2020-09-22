@@ -75,7 +75,7 @@ az mysql flexible-server update --resource-group myresourcegroup --name mydemose
 > Password must contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers, and non-alphanumeric characters.
 
 ## Delete a server
-If you would just like to delete the MySQL Flexible server, you can run [az mysql flexible-server server delete](/cli/azure/mysql/flexible-server/db#az_mysql_flexible_server_db_delete) command.
+If you would just like to delete the MySQL Flexible server, you can run [az mysql flexible-server server delete](/cli/azure/mysql/flexible-server#az_mysql_flexible_server_delete) command.
 
 ```azurecli-interactive
 az mysql flexible-server delete --resource-group myresourcegroup --name mydemoserver
