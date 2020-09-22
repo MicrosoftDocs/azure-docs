@@ -32,11 +32,11 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Pin the version of azure-mgmt-resource to fix the authentication error.
     + Support Triton No Code Deploy
     + outputs directories specified in Run.start_logging() will now be tracked when using run in interactive scenarios. The tracked files will be visible on ML Studio upon calling Run.complete()
-    + File encoding can be specified to create dataset with `Dataset.Tabular.from_delimited_files` and `Dataset.Tabular.from_json_lines_files` by passing `encoding` argument. The supported encodings are 'utf8', 'iso88591', 'latin1', 'ascii', utf16', 'utf32', 'utf8bom' and 'windows1252'.
+    + File encoding can be now specified during dataset creation with `Dataset.Tabular.from_delimited_files` and `Dataset.Tabular.from_json_lines_files` by passing the `encoding` argument. The supported encodings are 'utf8', 'iso88591', 'latin1', 'ascii', utf16', 'utf32', 'utf8bom' and 'windows1252'.
     + Bug fix when environment object is not passed to ScriptRunConfig constructor.
     + Updated Run.cancel() to allow cancel of a local run from another machine.
   + **azureml-dataprep**
-    +  Fix mount timeout issues for Dataset.
+    +  Fixed dataset mount timeout issues.
   + **azureml-explain-model**
     + fix pypi package descriptions for azureml-interpret, azureml-explain-model, azureml-contrib-interpret and azureml-tensorboard
   + **azureml-interpret**
@@ -45,7 +45,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + fix pypi package descriptions for azureml-interpret, azureml-explain-model, azureml-contrib-interpret and azureml-tensorboard
   + **azureml-pipeline-core**
     + Introduced new experimental pipeline step which would allow users to provide command to run.
-    +  Fixed issue with `OutputFileDatasetConfig` where if `register_on_complete` is called with the `name` parameter set to a dataset name that already exists will cause the pipeline run to be stuck.
+    +  Fixed pipeline hanging issue with `OutputFileDatasetConfig` when`register_on_complete` is called with the `name` parameter set to a pre-existing dataset name.
   + **azureml-pipeline-steps**
     + Introduced new experimental pipeline step which would allow users to provide command to run.
     + Removed stale databricks notebooks.
