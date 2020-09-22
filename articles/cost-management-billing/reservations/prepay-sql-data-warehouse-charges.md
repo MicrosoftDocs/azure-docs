@@ -4,6 +4,7 @@ description: Learn how you save costs for Azure Synapse Analytics charges with r
 author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
+ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders

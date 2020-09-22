@@ -26,6 +26,8 @@ In addition to managing your Azure Digital Twins instance in the Azure portal, A
 * Managing [routes](concepts-route-events.md)
 * Configuring [security](concepts-security.md) via role-based access control (RBAC)
 
+[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
+
 ## Uses (deploy and validate)
 
 In addition to generally managing your instance, the CLI is also a useful tool for deployment and validation.

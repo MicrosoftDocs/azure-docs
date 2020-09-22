@@ -15,7 +15,7 @@ ms.date: 11/04/2019
 
 In Azure Cognitive Search, the [simple query syntax](query-simple-syntax.md) invokes the default query parser for executing full text search queries against an index. This parser is fast and handles common scenarios, including full text search, filtered and faceted search, and geo-search. 
 
-In this article, we use examples to illustrate the simple syntax, populating the `search=` parameter of a [Search Documents](https://docs.microsoft.com/rest/api/searchservice/search-documents) operation.
+In this article, we use examples to illustrate the simple syntax, populating the `search=` parameter of a [Search Documents](/rest/api/searchservice/search-documents) operation.
 
 An alternative query syntax is [Full Lucene](query-lucene-syntax.md), supporting more complex query structures, such as fuzzy and wildcard search, which can take additional time to process. For more information and examples demonstrating full syntax, see [Use the full Lucene syntax](search-query-lucene-examples.md).
 
@@ -33,13 +33,13 @@ What you do need is Postman or an equivalent tool for issuing HTTP request on GE
 
 After you specify the request header, you can reuse it for all of the queries in this article, swapping out only the **search=** string. 
 
-  ![Postman request header](media/search-query-lucene-examples/postman-header.png)
+  ![Postman request header set parameters](media/search-query-lucene-examples/postman-header.png)
 
 ### Set the request URL
 
 Request is a GET command paired with a URL containing the Azure Cognitive Search endpoint and search string.
 
-  ![Postman request header](media/search-query-lucene-examples/postman-basic-url-request-elements.png)
+  ![Postman request header GET](media/search-query-lucene-examples/postman-basic-url-request-elements.png)
 
 URL composition has the following elements:
 
@@ -99,7 +99,7 @@ You might have noticed the search score in the response. Uniform scores of 1 occ
 
 ## Example 2: Look up by ID
 
-This example is a bit atypical, but when evaluating search behaviors, you might want to inspect the entire contents of a specific document to understand why it was included or excluded from results. To return a single document in its entirety, use a [Lookup operation](https://docs.microsoft.com/rest/api/searchservice/lookup-document) to pass in the document ID.
+This example is a bit atypical, but when evaluating search behaviors, you might want to inspect the entire contents of a specific document to understand why it was included or excluded from results. To return a single document in its entirety, use a [Lookup operation](/rest/api/searchservice/lookup-document) to pass in the document ID.
 
 All documents have a unique identifier. To try out the syntax for a lookup query, first return a list of document IDs so that you can find one to use. For NYC Jobs, the identifiers are stored in the `id` field.
 
@@ -115,7 +115,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs/9E1E3AF9-0660-4E0
 
 ## Example 3: Filter queries
 
-[Filter syntax](https://docs.microsoft.com/azure/search/search-query-odata-filter) is an OData expression that you can use with **search** or by itself. A standalone filter, without a search parameter, is useful when the filter expression is able to fully qualify documents of interest. Without a query string, there is no lexical or linguistic analysis, no scoring (all scores are 1), and no ranking. Notice the search string is empty.
+[Filter syntax](./search-query-odata-filter.md) is an OData expression that you can use with **search** or by itself. A standalone filter, without a search parameter, is useful when the filter expression is able to fully qualify documents of interest. Without a query string, there is no lexical or linguistic analysis, no scoring (all scores are 1), and no ranking. Notice the search string is empty.
 
 ```http
 POST /indexes/nycjobs/docs/search?api-version=2020-06-30
@@ -143,7 +143,7 @@ Another powerful way to combine filter and search is through **`search.ismatch*(
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&$select=job_id,business_title,agency&search=&$filter=search.ismatch('plan*', 'business_title', 'full', 'any')
 ```
 
-For more information about the function, see [search.ismatch in "Filter examples"](https://docs.microsoft.com/azure/search/search-query-odata-full-text-search-functions#examples).
+For more information about the function, see [search.ismatch in "Filter examples"](./search-query-odata-full-text-search-functions.md#examples).
 
 ## Example 4: Range filters
 
@@ -194,7 +194,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-
 
 ## Example 5: Geo-search
 
-The sample index includes a geo_location field with latitude and longitude coordinates. This example uses the [geo.distance function](https://docs.microsoft.com/azure/search/search-query-odata-geo-spatial-functions#examples) that filters on documents within the circumference of a starting point, out to an arbitrary distance (in kilometers) that you provide. You can adjust the last value in the query (4) to reduce or enlarge the surface area of the query.
+The sample index includes a geo_location field with latitude and longitude coordinates. This example uses the [geo.distance function](./search-query-odata-geo-spatial-functions.md#examples) that filters on documents within the circumference of a starting point, out to an arbitrary distance (in kilometers) that you provide. You can adjust the last value in the query (4) to reduce or enlarge the surface area of the query.
 
 The following example is in POST format for readability:
 
@@ -284,13 +284,13 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-
 ## Next steps
 Try specifying queries in your code. The following links explain how to set up search queries for both .NET and the REST API using the default simple syntax.
 
-* [Query your index using the .NET SDK](search-query-dotnet.md)
-* [Query your index using the REST API](search-create-index-rest-api.md)
+* [Query your index using the .NET SDK](./search-get-started-dotnet.md)
+* [Query your index using the REST API](./search-get-started-powershell.md)
 
 Additional syntax reference, query architecture, and examples can be found in the following links:
 
 + [Lucene syntax query examples for building advanced queries](search-query-lucene-examples.md)
 + [How full text search works in Azure Cognitive Search](search-lucene-query-architecture.md)
-+ [Simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
-+ [Full Lucene query](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
-+ [Filter and Orderby syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
++ [Simple query syntax](/rest/api/searchservice/simple-query-syntax-in-azure-search)
++ [Full Lucene query](/rest/api/searchservice/lucene-query-syntax-in-azure-search)
++ [Filter and Orderby syntax](/rest/api/searchservice/odata-expression-syntax-for-azure-search)

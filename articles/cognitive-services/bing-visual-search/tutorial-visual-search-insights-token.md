@@ -11,6 +11,7 @@ ms.subservice: bing-visual-search
 ms.topic: tutorial
 ms.date: 03/31/2020
 ms.author: aahi
+ms.custom: devx-track-csharp
 ---
 # Tutorial: Find similar images from previous searches using an image insights token
 

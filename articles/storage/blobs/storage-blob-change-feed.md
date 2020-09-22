@@ -1,16 +1,16 @@
 ---
-title: Change feed in Azure Blob Storage (Preview) | Microsoft Docs
+title: Change feed in Azure Blob Storage | Microsoft Docs
 description: Learn about change feed logs in Azure Blob Storage and how to use them.
 author: normesta
 ms.author: normesta
-ms.date: 11/04/2019
+ms.date: 09/08/2020
 ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
 ---
 
-# Change feed support in Azure Blob Storage (Preview)
+# Change feed support in Azure Blob Storage
 
 The purpose of the change feed is to provide transaction logs of all the changes that occur to the blobs and the blob metadata in your storage account. The change feed provides **ordered**, **guaranteed**, **durable**, **immutable**, **read-only** log of these changes. Client applications can read these logs at any time, either in streaming or in batch mode. The change feed enables you to build efficient and scalable solutions that process change events that occur in your Blob Storage account at a low cost.
 
@@ -51,9 +51,6 @@ Here's a few things to keep in mind when you enable the change feed.
 
 - Only GPv2 and Blob storage accounts can enable Change feed. Premium BlockBlobStorage accounts, and hierarchical namespace enabled accounts are not currently supported. GPv1 storage accounts are not supported but can be upgraded to GPv2 with no downtime, see [Upgrade to a GPv2 storage account](../common/storage-account-upgrade.md) for more information.
 
-> [!IMPORTANT]
-> The change feed is in public preview, and is available in the **West Central US**, **West US 2**, **France Central**, **France South**, **Canada Central**, and **Canada East** regions. See the [conditions](#conditions) section of this article. To enroll in the preview, see the [Register your subscription](#register) section of this article. You must register your subscription before you can enable change feed on your storage accounts.
-
 ### [Portal](#tab/azure-portal)
 
 Enable change feed on your storage account by using Azure portal:
@@ -80,10 +77,10 @@ Enable change feed by using PowerShell:
 
 2. Close, and then reopen the PowerShell console.
 
-3. Install the **Az.Storage** preview module.
+3. Install version 2.5.0 or later of the **Az.Storage** module.
 
    ```powershell
-   Install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.8.1-preview –AllowPrerelease –AllowClobber –Force
+   Install-Module Az.Storage –Repository PSGallery -RequiredVersion 2.5.0 –AllowClobber –Force
    ```
 
 4. Sign in to your Azure subscription with the `Connect-AzAccount` command and follow the on-screen directions to authenticate.
@@ -284,43 +281,18 @@ For a description of each property, see [Azure Event Grid event schema for Blob 
 
 ```
 
-<a id="register"></a>
-
-## Register your subscription (Preview)
-
-Because the change feed is only in public preview, you'll need to register your subscription to use the feature.
-
-### Register by using PowerShell
-
-In a PowerShell console, run these commands:
-
-```powershell
-Register-AzProviderFeature -FeatureName Changefeed -ProviderNamespace Microsoft.Storage
-Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
-```
-   
-### Register by using Azure CLI
-
-In Azure Cloud Shell, run these commands:
-
-```azurecli
-az feature register --namespace Microsoft.Storage --name Changefeed
-az provider register --namespace 'Microsoft.Storage'
-```
-
 <a id="conditions"></a>
 
-## Conditions and known issues (Preview)
+## Conditions and known issues
 
-This section describes known issues and conditions in the current public preview of the change feed. 
-- For preview, you must first [register your subscription](#register) before you can enable change feed for your storage account in the West Central US, West US 2, France Central, France South, Canada Central, and Canada East regions. 
-- The change feed captures only create, update, delete, and copy operations. Blob property and metadata changes are also captured. However the access tier property is not currently captured. 
+This section describes known issues and conditions in the current release of the change feed. 
+
 - Change event records for any single change might appear more than once in your change feed.
 - You can't yet manage the lifetime of change feed log files by setting time-based retention policy on them and you cannot delete the blobs.
 - The `url` property of the log file is currently always empty.
 - The `LastConsumable` property of the segments.json file does not list the very first segment that the change feed finalizes. This issue occurs only after the first segment is finalized. All subsequent segments after the first hour are accurately captured in the `LastConsumable` property.
 - You currently cannot see the **$blobchangefeed** container when you call ListContainers API and the container does not show up on Azure portal or Storage Explorer. You can view the contents by calling the ListBlobs API on the $blobchangefeed container directly.
-- Storage accounts that have previously initiated an [account failover](../common/storage-disaster-recovery-guidance.md) may have issues with the log file not appearing. Any future account failovers may also impact the log file during preview.
+- Storage accounts that have previously initiated an [account failover](../common/storage-disaster-recovery-guidance.md) may have issues with the log file not appearing. Any future account failovers may also impact the log file.
 
 ## FAQ
 

@@ -5,11 +5,13 @@ author: genlin
 ms.reviewer: dcscontentpm
 tags: billing
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: how-to
 ms.date: 08/03/2020
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ---
+
 # Change the contact information for your Azure account
 
 This article helps you update contact information for your account in the Azure portal. The instructions to update the contact information vary by the billing account type. To learn more about billing accounts and identify your billing account type, see [View billing accounts in Azure portal](view-all-accounts.md).

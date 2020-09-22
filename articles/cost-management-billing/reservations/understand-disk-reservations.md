@@ -4,6 +4,7 @@ description: Learn how an Azure reserved disks discount is applied to your Azure
 author: roygara
 ms.author: rogarana
 ms.service: cost-management-billing
+ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 01/30/2020
 ---

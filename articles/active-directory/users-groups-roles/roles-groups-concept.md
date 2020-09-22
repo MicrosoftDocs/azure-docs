@@ -1,6 +1,6 @@
 ---
 title: Use cloud groups to manage role assignments in Azure Active Directory | Microsoft Docs
-description: Preview custom Azure AD roles for delegating identity management. Manage Azure roles in the Azure portal, PowerShell, or Graph API.
+description: Preview custom Azure AD roles for delegating identity management. Manage Azure role assignments in the Azure portal, PowerShell, or Graph API.
 services: active-directory
 author: curtand
 manager: daveba
@@ -24,12 +24,12 @@ Consider this example: Contoso has hired people across geographies to manage and
 
 ## How this feature works
 
-Create a new Office 365 or security group with the ‘isAssignableToRole’ property set to ‘true’. You could also enable this property when creating a group in the Azure portal by turning on **Azure AD roles can be assigned to the group**. Either way, you can then assign the group to one or more Azure AD roles in the same way as you assign roles to users. A maximum of 200 role-assignable groups can be created in a single Azure AD organization (tenant).
+Create a new Microsoft 365 or security group with the ‘isAssignableToRole’ property set to ‘true’. You could also enable this property when creating a group in the Azure portal by turning on **Azure AD roles can be assigned to the group**. Either way, you can then assign the group to one or more Azure AD roles in the same way as you assign roles to users. A maximum of 200 role-assignable groups can be created in a single Azure AD organization (tenant).
 
 If you do not want members of the group to have standing access to the role, you can use Azure AD Privileged Identity Management. Assign a group as an eligible member of an Azure AD role. Each member of the group is then eligible to have their assignment activated for the role that the group is assigned to. They can then activate their role assignment for a fixed time duration.
 
 > [!Note]
-> You must be on updated version of Privileged Identity Management to be able to assign a group to Azure AD role via PIM. You could be on older version of PIM because your Azure AD organization leverages the Privileged Identity Management API. Please reach out to the alias pim_preview@microsoft.com to move your organization and update your API. Learn more at [Azure AD roles and features in PIM](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/azure-ad-roles-features).
+> You must be on updated version of Privileged Identity Management to be able to assign a group to Azure AD role via PIM. You could be on older version of PIM because your Azure AD organization leverages the Privileged Identity Management API. Please reach out to the alias pim_preview@microsoft.com to move your organization and update your API. Learn more at [Azure AD roles and features in PIM](../privileged-identity-management/azure-ad-roles-features.md).
 
 ## Why we enforce creation of a special group for assigning it to a role
 
@@ -61,7 +61,7 @@ The following scenarios are not supported right now:
   - In the PIM portal, **My Roles** can show only one role assignment regardless of how many methods by which the assignment is granted (through one or more groups and directly).
 - *Azure AD P2 licensed customers only* Even after deleting the group, it is still shown an eligible member of the role in PIM UI. Functionally there's no problem; it's just a cache issue in the Azure portal.  
 - Exchange Admin Center doesn't recognize role membership via group yet, but PowerShell cmdlet will work.
-- Azure Information Protection Portal (the classic portal) doesn't recognize role membership via group yet. You can [migrate to the unified sensitivity labeling platform](https://docs.microsoft.com/azure/information-protection/configure-policy-migrate-labels) and then use the Office 365 Security & Compliance center to use group assignments to manage roles.
+- Azure Information Protection Portal (the classic portal) doesn't recognize role membership via group yet. You can [migrate to the unified sensitivity labeling platform](/azure/information-protection/configure-policy-migrate-labels) and then use the Office 365 Security & Compliance center to use group assignments to manage roles.
 
 We are fixing these issues.
 

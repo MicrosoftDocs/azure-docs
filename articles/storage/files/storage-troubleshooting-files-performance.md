@@ -4,21 +4,20 @@ description: Troubleshoot known performance issues with Azure file shares. Disco
 author: gunjanj
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 04/25/2019
+ms.date: 09/15/2020
 ms.author: gunjanj
 ms.subservice: files
 #Customer intent: As a < type of user >, I want < what? > so that < why? >.
 ---
-
 # Troubleshoot Azure Files performance issues
 
 This article lists some common problems related to Azure file shares. It provides potential causes and workarounds when these problems are encountered.
 
 ## High latency, low throughput, and general performance issues
 
-### Cause 1: Share experiencing throttling
+### Cause 1: Share was throttled
 
-The default quota on a premium share is 100 GiB, which provides 100 baseline IOPS (with a potential to burst up to 300 for an hour). For more information about provisioning and its relationship to IOPS, see the [Provisioned shares](storage-files-planning.md#understanding-provisioning-for-premium-file-shares) section of the planning guide.
+Requests are throttled when the IOPS, ingress or egress limits for a file share are reached. To understand the limits for standard and premium file shares, see [File share and file scale targets](https://docs.microsoft.com/azure/storage/files/storage-files-scale-targets#file-share-and-file-scale-targets).
 
 To confirm if your share is being throttled, you can leverage Azure Metrics in the portal.
 
@@ -43,7 +42,8 @@ To confirm if your share is being throttled, you can leverage Azure Metrics in t
 
 ### Solution
 
-- Increase share provisioned capacity by specifying a higher quota on your share.
+- If you are using a standard file share, enable [large file shares](https://docs.microsoft.com/azure/storage/files/storage-files-how-to-create-large-file-share?tabs=azure-portal) on your storage account. Large file shares support up to 10,000 IOPS per share.
+- If you are using a premium file share, increase the provisioned file share size to increase the IOPS limit. To learn more, see the [Understanding provisioning for premium file shares](https://docs.microsoft.com/azure/storage/files/storage-files-planning#understanding-provisioning-for-premium-file-shares) section in the Azure Files planning guide.
 
 ### Cause 2: Metadata/namespace heavy workload
 
@@ -195,6 +195,36 @@ Higher than expected latency accessing Azure Files for IO intensive workloads.
 11. Click **Select action group** to add an **action group** (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
 12. Fill in the **Alert details** like **Alert rule name**, **Description** and **Severity**.
 13. Click **Create alert rule** to create the alert.
+
+To learn more about configuring alerts in Azure Monitor, see [Overview of alerts in Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
+
+## How to create alerts if a premium file share is trending towards being throttled
+
+1. Go to your **storage account** in the **Azure portal**.
+2. In the Monitoring section, click **Alerts** and then click **+ New alert rule**.
+3. Click **Edit resource**, select the **File resource type** for the storage account and then click **Done**. For example, if the storage account name is contoso, select the contoso/file resource.
+4. Click **Select Condition** to add a condition.
+5. You will see a list of signals supported for the storage account, select the **Egress** metric.
+
+  > [!NOTE]
+  > You have to create 3 separate alerts to be alerted when Ingress, Egress, or Transactions exceeds the threshold amount you set. This is because an alert is only fired when all conditions are met. So if you put all the conditions in one alert, you would only be alerted if Ingress, Egress, and Transactions exceeded their threshold amounts.
+
+6. Scroll down. Click the **Dimension name** drop-down and select **File Share**.
+7. Click the **Dimension values** drop-down and select the file share(s) that you want to alert on.
+8. Define the **alert parameters** (threshold value, operator, aggregation granularity and frequency of evaluation) and click **Done**.
+
+  > [!NOTE]
+  > Egress, Ingress, and Transactions metrics are per minute although you are provisioned egress, ingress, and IOPS per second. (talk about aggregation granularity -> per minute = more noisy so choose diff one) Therefore, for example, if your provisioned egress is 90 MiB/second and you want your threshold to be 80% of provisioned egress, you should select the following alert parameters: 75497472 for **threshold value**, greater than or equal to for **operator**, and average for **aggregation type**. Depending on how noisy you want your alert to be, you can choose which values to select for aggregation granularity and frequency of evaluation. For example, if I want my alert to look at the average ingress over the time period of an hour and I want my alert rule to be run every hour, I would select 1 hour for **aggregation granularity** and 1 hour for **frequency of evaluation**.
+
+9. Click **Select action group** to add an **action group** (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
+10. Fill in the **Alert details** like **Alert rule name**, **Description** and **Severity**.
+11. Click **Create alert rule** to create the alert.
+
+  > [!NOTE]
+  > To be notified if your premium file share is close to being throttled due to provisioned ingress, please follow the same steps, except in step 5, select the **Ingress** metric instead.
+
+  > [!NOTE]
+  > To be notified if your premium file share is close to being throttled due to provisioned IOPS, you will have to make a few changes. In step 5, select the **Transactions** metric instead. Also, for step 10, the only option for **aggregation type** is total. Therefore, the threshold value would be dependent on your selected aggregation granularity. For example, if you wanted your threshold to be 80% of provisioned baseline IOPS and you selected 1 hour for **aggregation granularity**, your **threshold value** would be your baseline IOPS (in bytes) x 0.8 x 3600. Besides these changes, follow the same steps listed above. 
 
 To learn more about configuring alerts in Azure Monitor, see [Overview of alerts in Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
 

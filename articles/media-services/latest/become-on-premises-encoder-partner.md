@@ -6,22 +6,14 @@ services: media-services
 author: johndeu
 manager: johndeu
 ms.author: johndeu
-ms.date: 03/02/2020
-ms.topic: article
-# Use only one of the following. Use ms.service for services, ms.prod for on premises. Remove the # before the relevant field.
+ms.date: 08/31/2020
+ms.topic: how-to
 ms.service: media-services
-# product-name-from-white-list
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.devlang:devlang-from-white-list
-# ms.suite: 
-# ms.tgt_pltfrm:
-# ms.reviewer:
-# manager: MSFT-alias-manager-or-PM-counterpart
 ---
  
 # How to verify your on-premises live streaming encoder
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 As an Azure Media Services on-premises encoder partner, Media Services promotes your product by recommending your encoder to enterprise customers. To become an on-premises encoder partner, you must verify compatibility of your on-premises encoder with Media Services. To do so, complete the following verifications.
 

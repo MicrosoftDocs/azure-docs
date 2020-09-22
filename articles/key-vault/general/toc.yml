@@ -6,8 +6,6 @@
     href: overview.md
   - name: About keys, secrets, and certificates
     href: about-keys-secrets-certificates.md
-  - name: What's new
-    href: whats-new.md    
 
 - name: Quickstarts
   expanded: true
@@ -42,9 +40,6 @@
   items:
   - name: Key Vault Code Samples
     href: https://docs.microsoft.com/samples/browse/?expanded=azure&products=azure-key-vault
-  - name: Azure Policy built-ins
-    displayName: samples, policies, definitions
-    href: ../policy-samples.md?toc=/azure/key-vault/general/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
 
 - name: Concepts 
   items:
@@ -66,9 +61,12 @@
       href: security-baseline.md
     - name: Security recommendations for Azure Key Vault
       href: security-recommendations.md
-  - name: Notifications (preview)
+    - name: Security controls by Azure Policy
+      displayName: regulatory, compliance, standards, domains
+      href: ../security-controls-policy.md?toc=/azure/key-vault/general/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
+  - name: Notifications
     items:
-    - name: Monitor with Azure Event Grid (preview)
+    - name: Monitor with Azure Event Grid
       href: event-grid-overview.md
   - name: Soft-delete
     items:
@@ -91,11 +89,19 @@
     items:
     - name: Authenticate to Key Vault
       href: authentication.md
-    - name: Use an App Service managed identity
-      href: managed-identity.md
-    - name: Use an access control policy
-      href: group-permissions-for-apps.md
-    - name: Troubleshooting access issues
+    - name: Assign an access policy
+      items:
+      - name: CLI
+        href: assign-access-policy-cli.md
+      - name: PowerShell
+        href: assign-access-policy-powershell.md
+      - name: Portal
+        href: assign-access-policy-portal.md
+    - name: Use an Azure RBAC for managing access to keys, secrets, and certificates (preview)
+      href: rbac-guide.md
+    - name: Vault access policies to Azure RBAC migration guide
+      href: rbac-migration.md  
+    - name: Troubleshoot access issues
       href: troubleshooting-access-issues.md
   - name: Develop
     items:
@@ -144,6 +150,8 @@
 
 - name: Reference
   items:
+  - name: What's new
+    href: whats-new.md
   - name: Client libraries
     href: client-libraries.md
   - name: REST API error codes - Azure Key Vault
@@ -169,6 +177,9 @@
   - name: Resource Manager template
     href: /azure/templates/microsoft.keyvault/allversions
     displayName: ARM
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ../policy-reference.md?toc=/azure/key-vault/general/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
 
 - name: Resources
   items:

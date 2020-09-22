@@ -9,6 +9,9 @@ ms.date: 07/25/2019
 # Central Secrets Store in Azure Service Fabric 
 This article describes how to use Central Secrets Store (CSS) in Azure Service Fabric to create secrets in Service Fabric applications. CSS is a local secret store cache that keeps sensitive data, such as a password, tokens, and keys, encrypted in memory.
 
+  > [!NOTE] 
+  > When activating CSS for the first time before SF version 7.1. CU3, activation can fail and leave CSS in a permanently unhealthy state if: CSS is activated on a Windows authenticated cluster; CSS is activated on any cluster but `EncryptionCertificateThumbprint` is declared incorrectly or the corresponding certificate is not installed / ACL-ed on nodes. For Windows Auth cluster, please come onto 7.1. CU3 before proceeding. For other clusters, please double check these invariants or come onto 7.1. CU3.
+  
 ## Enable Central Secrets Store
 Add the following script to your cluster configuration under `fabricSettings` to enable CSS. We recommend that you use a certificate other than a cluster certificate for CSS. Make sure the encryption certificate is installed on all nodes and that `NetworkService` has read permission to the certificate's private key.
   ```json

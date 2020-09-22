@@ -10,7 +10,7 @@ ms.subservice: sql-dw
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
+ms.custom: "seo-lt-2019, devx-track-csharp"
 ---
 
 # Connect to Synapse SQL pool

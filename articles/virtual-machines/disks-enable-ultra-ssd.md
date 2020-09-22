@@ -18,7 +18,7 @@ Azure ultra disks offer high throughput, high IOPS, and consistent low latency d
 
 ## GA scope and limitations
 
-[!INCLUDE [managed-disks-ultra-disks-GA-scope-and-limitations](~/includes/managed-disks-ultra-disks-GA-scope-and-limitations.md)]
+[!INCLUDE [managed-disks-ultra-disks-GA-scope-and-limitations](../../includes/managed-disks-ultra-disks-GA-scope-and-limitations.md)]
 
 ## Determine VM size and region availability
 
@@ -123,7 +123,7 @@ Once the VM is provisioned, you can partition and format the data disks and conf
 
 ## Deploy an ultra disk using the Azure portal
 
-This section covers deploying a virtual machine equipped with an ultra disk as a data disk. It assumes you have familiarity with deploying a virtual machine, if you do not, see our [Quickstart: Create a Windows virtual machine in the Azure portal](~/articles/virtual-machines/windows/quick-create-portal.md).
+This section covers deploying a virtual machine equipped with an ultra disk as a data disk. It assumes you have familiarity with deploying a virtual machine, if you do not, see our [Quickstart: Create a Windows virtual machine in the Azure portal](./windows/quick-create-portal.md).
 
 - Sign in to the [Azure portal](https://portal.azure.com/) and navigate to deploy a virtual machine (VM).
 - Make sure to choose a [supported VM size and region](#ga-scope-and-limitations).
@@ -342,4 +342,4 @@ Update-AzDisk -ResourceGroupName $resourceGroup -DiskName $diskName -DiskUpdate 
 ```
 ## Next steps
 
-See [Use Azure ultra disks on Azure Kubernetes Service (preview)](/azure/aks/use-ultra-disks).
+See [Use Azure ultra disks on Azure Kubernetes Service (preview)](../aks/use-ultra-disks.md).
