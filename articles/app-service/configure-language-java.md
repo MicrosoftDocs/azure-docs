@@ -351,7 +351,6 @@ This section shows how to connect Java applications deployed on Azure App Servic
    
     - For **Java SE** apps, create an environment variable named `JAVA_OPTS` with the value `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar`.
     - For **Tomcat**, create an environment variable named `CATALINA_OPTS` with the value `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar`.
-    - For **JBoss EAP**, TODO
 
 ::: zone-end
 
@@ -381,7 +380,6 @@ This section shows how to connect Java applications deployed on Azure App Servic
 
    - For **Java SE** apps, create an environment variable named `JAVA_OPTS` with the value `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` where `<app-name>` is your App Service name.
    - For **Tomcat** apps, create an environment variable named `CATALINA_OPTS` with the value `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` where `<app-name>` is your App Service name.
-   - For **JBoss EAP**, TODO
 
 ::: zone-end
 
