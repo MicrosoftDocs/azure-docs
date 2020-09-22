@@ -117,7 +117,7 @@ Use the authorization key and circuit URI you were provided in order to connect.
 
 1. On the ExpressRoute page, click **+Redeem authorization key**
 
-   ![redeem](./media/virtual-wan-expressroute-portal/redeem.png "redeem")
+   ![Screenshot shows the ExpressRoute for a virtual hub with Redeem authorization key selected.](./media/virtual-wan-expressroute-portal/redeem.png "redeem")
 2. On the Redeem authorization key page, fill in the values.
 
    ![redeem key values](./media/virtual-wan-expressroute-portal/redeemkey2.png "redeem key values")

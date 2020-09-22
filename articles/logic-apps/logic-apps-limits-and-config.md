@@ -26,12 +26,13 @@ Here are the limits for a single logic app definition:
 | Triggers per workflow | 10 | When working in code view, not the designer |
 | Switch scope cases limit | 25 | |
 | Variables per workflow | 250 | |
-| Characters per expression | 8,192 | |
-| Maximum size for `trackedProperties` | 16,000 characters |
 | Name for `action` or `trigger` | 80 characters | |
+| Characters per expression | 8,192 | |
 | Length of `description` | 256 characters | |
-| Maximum `parameters` | 50 | |
-| Maximum `outputs` | 10 | |
+| Maximum number of `parameters` | 50 | |
+| Maximum number of `outputs` | 10 | |
+| Maximum size for `trackedProperties` | 16,000 characters |
+| Inline Code action - Maximum number of code characters | 1,024 characters <p>For a 100,000 character limit, create your logic apps with Visual Studio Code and the [preview **Azure Logic Apps** extension](../logic-apps/create-stateful-stateless-workflows-visual-studio-code.md). |
 
 <a name="run-duration-retention-limits"></a>
 
