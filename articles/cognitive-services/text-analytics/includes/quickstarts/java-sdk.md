@@ -61,6 +61,10 @@ Create a Maven project in your preferred IDE or development environment. Then ad
 > [!TIP]
 > Want to view the whole quickstart code file at once? You can find it [on GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/TextAnalytics/TextAnalyticsSamples.java), which contains the code examples in this quickstart. 
 
+# [Version 2.1](#tab/version-2)
+
+This article only describes version 3 of the API.
+
 ---
 
 Create a Java file named `TextAnalyticsSamples.java`. Open the file and add the following `import` statements:
@@ -105,26 +109,12 @@ The Text Analytics client is a `TextAnalyticsClient` object that authenticates t
 
 ## Code examples
 
-# [Version 3.1 preview](#tab/version-3-1)
-
-* [Authenticate the client](#authenticate-the-client)
-* [Sentiment Analysis](#sentiment-analysis) 
-* [Language detection](#language-detection)
-* [Named Entity recognition](#named-entity-recognition-ner) 
-* [Personally Identifiable Information recognition](#personally-identifiable-information-recognition) 
-* [Entity linking](#entity-linking)
-* [Key phrase extraction](#key-phrase-extraction)
-
-# [Version 3.0](#tab/version-3)
-
 * [Authenticate the client](#authenticate-the-client)
 * [Sentiment Analysis](#sentiment-analysis) 
 * [Language detection](#language-detection)
 * [Named Entity recognition](#named-entity-recognition-ner)
 * [Entity linking](#entity-linking)
 * [Key phrase extraction](#key-phrase-extraction)
-
----
 
 ## Authenticate the client
 
@@ -243,6 +233,10 @@ Recognized document sentiment: positive, positive score: 1.0, neutral score: 0.0
 Recognized sentence sentiment: positive, positive score: 1.0, neutral score: 0.0, negative score: 0.0.
 Recognized sentence sentiment: neutral, positive score: 0.21, neutral score: 0.77, negative score: 0.02.
 ```
+
+# [Version 2.1](#tab/version-2)
+
+This article only describes version 3 of the API.
 
 ---
 
@@ -487,6 +481,10 @@ Name: BASIC, ID: BASIC, URL: https://en.wikipedia.org/wiki/BASIC, Data Source: W
 Matches:
 Text: BASIC, Score: 0.33
 ```
+
+# [Version 2.1](#tab/version-2)
+
+This article only describes version 3 of the API.
 
 ---
 
