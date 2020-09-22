@@ -124,19 +124,19 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 In this section, you'll configure single sign-on on the **Fivetran** side.
 
 1. In a different web browser window, sign in to your Fivetran account as the account owner.
-1. Click on the arrow in the top left corner of the window and select **Manage Account** from the drop-down list.
+1. Select the arrow in the top left corner of the window, and then select **Manage Account** from the drop-down list.
 
-    ![image](media/fivetran-tutorial/fivetran_1.png)
+    ![Screenshot that shows the Manage Account menu option selected.](media/fivetran-tutorial/fivetran-1.png)
 
 1. Go to the **SAML Config** section of the **Settings** page.
 
-    ![image](media/fivetran-tutorial/fivetran_2.png)
+    ![Screenshot that shows the SAML Config pane with configuration options highlighted.](media/fivetran-tutorial/fivetran-2.png)
 
-    1. Toggle the **Enable SAML authentication** selector to **ON**.
-    1. In the **Sign on URL** textbox, paste the value of **Login URL**, which you have copied from Azure portal.
-    1. In the **Issuer** textbox, paste the value of **Azure Ad Identifier**, which you have copied from Azure portal.
-    1. Open your downloaded certificate file in a text editor, copy the certificate into your clipboard, and then paste it to the **Public certificate** textbox.
-    1. Click **SAVE CONFIG**.
+    1. For **Enable SAML authentication**, select **ON**.
+    1. In **Sign on URL**, paste the value of **Login URL**, which you copied from the Azure portal.
+    1. In **Issuer**, paste the value of **Azure Ad Identifier**, which you copied from the Azure portal.
+    1. Open your downloaded certificate file in a text editor, copy the certificate into your clipboard, and then paste it to in the **Public certificate** text box.
+    1. Select **SAVE CONFIG**.
 
 ### Create Fivetran test user
 
