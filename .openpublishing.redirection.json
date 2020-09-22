@@ -156,6 +156,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machines/linux/troubleshooting-shared-images.md",
+      "redirect_url": "/azure/virtual-machines/troubleshooting-shared-images",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/troubleshooting-shared-images.md",
+      "redirect_url": "/azure/virtual-machines/troubleshooting-shared-images",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machine-scale-sets/troubleshooting-shared-images.md",
+      "redirect_url": "/azure/virtual-machines/troubleshooting-shared-images",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machine-scale-sets/ephemeral-os-disks.md",
       "redirect_url": "/azure/virtual-machines/ephemeral-os-disks",
       "redirect_document_id": false
