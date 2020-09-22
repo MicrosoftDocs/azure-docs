@@ -263,5 +263,5 @@ If you encounter any troubles with creation, please see the [troubleshooting gui
 
 ## Next steps
 
-- [Create a SQL managed instance using Kubernetes-native tools](./create-sql-managed-instance-usingkubernetesnative-tools.md)
-- [Create a PostgreSQL Hyperscale server group using Kubernetes-native tools](./create-postgresql-hyperscale-server-groupkubernetesnative-tools.md)
+- [Create a SQL managed instance using Kubernetes-native tools](./create-sql-managed-instance-using-kubernetes-native-tools.md)
+- [Create a PostgreSQL Hyperscale server group using Kubernetes-native tools](./create-postgresql-hyperscale-server-group-kubernetes-native-tools.md)
