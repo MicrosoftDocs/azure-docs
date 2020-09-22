@@ -13,15 +13,15 @@ ms.reviewer: assafi
 
 <a name="HOLTop"></a>
 
-#### [Version 3.1 (Preview)](#tab/version-3-1)
+# [Version 3.1 preview](#tab/version-3-1)
 
 [v3.1 Reference documentation](https://aka.ms/azsdk-net-textanalytics-ref-docs) | [v3.1 Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics) | [v3.1 Package (NuGet)](https://www.nuget.org/packages/Azure.AI.TextAnalytics/5.1.0-beta.1) | [v3.1 Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples)
 
-#### [Version 3.0](#tab/version-3)
+# [Version 3.0](#tab/version-3)
 
 [v3 Reference documentation](https://aka.ms/azsdk-net-textanalytics-ref-docs) | [v3 Library source code](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.TextAnalytics_5.0.0/sdk/textanalytics/Azure.AI.TextAnalytics) | [v3 Package (NuGet)](https://www.nuget.org/packages/Azure.AI.TextAnalytics) | [v3 Samples](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.TextAnalytics_5.0.0/sdk/textanalytics/Azure.AI.TextAnalytics/samples)
 
-#### [Version 2.1](#tab/version-2)
+# [Version 2.1](#tab/version-2)
 
 [v2 Reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-dotnet-preview) | [v2 Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Language.TextAnalytics) | [v2 Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics/) | [v2 Samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples)
 
@@ -41,11 +41,11 @@ ms.reviewer: assafi
 
 Using the Visual Studio IDE, create a new .NET Core console app. This will create a "Hello World" project with a single C# source file: *program.cs*.
 
-#### [Version 3.1 (Preview)](#tab/version-3-1)
+# [Version 3.1 preview](#tab/version-3-1)
 
 Install the client library by right-clicking on the solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse** and search for `Azure.AI.TextAnalytics`. Check the **include prerelase** box, select version `5.1.0-beta.1`, and then **Install**. You can also use the [Package Manager Console](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package).
 
-#### [Version 3.0](#tab/version-3)
+# [Version 3.0](#tab/version-3)
 
 Install the client library by right-clicking on the solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse** and search for `Azure.AI.TextAnalytics`. Select version `5.0.0`, and then **Install**. You can also use the [Package Manager Console](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package).
 
@@ -53,7 +53,7 @@ Install the client library by right-clicking on the solution in the **Solution E
 > [!TIP]
 > Want to view the whole quickstart code file at once? You can find it [on GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/TextAnalytics/program.cs), which contains the code examples in this quickstart. 
 
-#### [Version 2.1](#tab/version-2)
+# [Version 2.1](#tab/version-2)
 
 Install the client library by right-clicking on the solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens, select **Browse** and search for `Microsoft.Azure.CognitiveServices.Language.TextAnalytics`. Click on it, and then **Install**. You can also use the [Package Manager Console](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package).
 
@@ -62,7 +62,7 @@ Install the client library by right-clicking on the solution in the **Solution E
 
 ---
 
-#### [Version 3.1 (Preview)](#tab/version-3-1)
+# [Version 3.1 preview](#tab/version-3-1)
 
 Open the *program.cs* file and add the following `using` directives:
 
@@ -102,7 +102,7 @@ static void Main(string[] args)
 }
 ```
 
-#### [Version 3.0](#tab/version-3)
+# [Version 3.0](#tab/version-3)
 
 Open the *program.cs* file and add the following `using` directives:
 
@@ -140,7 +140,7 @@ static void Main(string[] args)
 }
 ```
 
-#### [Version 2.1](#tab/version-2)
+# [Version 2.1](#tab/version-2)
 
 Open the *program.cs* file and add the following `using` directives:
 
@@ -169,7 +169,7 @@ If you're using version `3.0` of the service, you can use an optional `TextAnaly
 
 ## Code examples
 
-#### [Version 3.1 (Preview)](#tab/version-3-1)
+# [Version 3.1 preview](#tab/version-3-1)
 
 * [Sentiment analysis](#sentiment-analysis)
 * [Language detection](#language-detection)
@@ -178,7 +178,7 @@ If you're using version `3.0` of the service, you can use an optional `TextAnaly
 * [Personally Identifiable Information Recognition](#personally-identifiable-information-recognition)
 * [Key phrase extraction](#key-phrase-extraction)
 
-#### [Version 3.0](#tab/version-3)
+# [Version 3.0](#tab/version-3)
 
 * [Sentiment analysis](#sentiment-analysis)
 * [Language detection](#language-detection)
@@ -186,7 +186,7 @@ If you're using version `3.0` of the service, you can use an optional `TextAnaly
 * [Entity linking](#entity-linking)
 * [Key phrase extraction](#key-phrase-extraction)
 
-#### [Version 2.1](#tab/version-2)
+# [Version 2.1](#tab/version-2)
 
 * [Sentiment analysis](#sentiment-analysis)
 * [Language detection](#language-detection)
@@ -198,7 +198,7 @@ If you're using version `3.0` of the service, you can use an optional `TextAnaly
 
 ## Authenticate the client
 
-#### [Version 3.1 (Preview)](#tab/version-3-1)
+# [Version 3.1 preview](#tab/version-3-1)
 
 Make sure your main method from earlier creates a new client object with your endpoint and credentials.
 
@@ -206,7 +206,7 @@ Make sure your main method from earlier creates a new client object with your en
 var client = new TextAnalyticsClient(endpoint, credentials);
 ```
 
-#### [Version 3.0](#tab/version-3)
+# [Version 3.0](#tab/version-3)
 
 Make sure your main method from earlier creates a new client object with your endpoint and credentials.
 
@@ -214,7 +214,7 @@ Make sure your main method from earlier creates a new client object with your en
 var client = new TextAnalyticsClient(endpoint, credentials);
 ```
 
-#### [Version 2.1](#tab/version-2)
+# [Version 2.1](#tab/version-2)
 
 Create a new `ApiKeyServiceClientCredentials` class to store the credentials and add them to the client's requests. Within it, create an override for `ProcessHttpRequestAsync()` that adds your key to the `Ocp-Apim-Subscription-Key` header.
 
@@ -228,7 +228,7 @@ Create a method to instantiate the [TextAnalyticsClient](https://docs.microsoft.
 
 ## Sentiment analysis
 
-#### [Version 3.1 (Preview)](#tab/version-3-1)
+# [Version 3.1 preview](#tab/version-3-1)
 
 Create a new function called `SentimentAnalysisExample()` that takes the client that you created earlier, and call its `AnalyzeSentiment()` function. The returned `Response<DocumentSentiment>` object will contain the sentiment label and score of the entire input document, as well as a sentiment analysis for each sentence if successful. If there was an error, it will throw a `RequestFailedException`.
 
@@ -434,7 +434,7 @@ Document sentiment: Neutral
 
 ## Sentiment analysis
 
-#### [Version 3.1](#tab/version-3-1)
+# [Version 3.1](#tab/version-3-1)
 
 Create a new function called `SentimentAnalysisExample()` that takes the client that you created earlier, and call its `AnalyzeSentiment()` function. The returned `Response<DocumentSentiment>` object will contain the sentiment label and score of the entire input document, as well as a sentiment analysis for each sentence if successful. If there was an error, it will throw a `RequestFailedException`.
 
@@ -474,7 +474,7 @@ Document sentiment: Positive
         Neutral score: 0.77
 ```
 
-#### [Version 3.0](#tab/version-3)
+# [Version 3.0](#tab/version-3)
 
 Create a new function called `SentimentAnalysisExample()` that takes the client that you created earlier, and call its `AnalyzeSentiment()` function. The returned `Response<DocumentSentiment>` object will contain the sentiment label and score of the entire input document, as well as a sentiment analysis for each sentence if successful. If there was an error, it will throw a `RequestFailedException`.
 
@@ -514,7 +514,7 @@ Document sentiment: Positive
         Neutral score: 0.77
 ```
 
-#### [Version 2.1](#tab/version-2)
+# [Version 2.1](#tab/version-2)
 
 Create a new function called `SentimentAnalysisExample()` that takes the client that you created earlier, and call its [Sentiment()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.sentiment?view=azure-dotnet) function. The returned [SentimentResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.models.sentimentresult?view=azure-dotnet) object will contain the sentiment `Score` if successful, and an `errorMessage` if not. 
 
@@ -530,7 +530,7 @@ Sentiment Score: 0.87
 
 ## Language detection
 
-#### [Version 3.1 (Preview)](#tab/version-3-1)
+# [Version 3.1 preview](#tab/version-3-1)
 
 
 Create a new function called `LanguageDetectionExample()` that takes the client that you created earlier, and call its  `DetectLanguage()` function. The returned `Response<DetectedLanguage>` object will contain the detected language along with its name and ISO-6391 code. If there was an error, it will throw a `RequestFailedException`.
@@ -554,7 +554,7 @@ Language:
         French, ISO-6391: fr
 ```
 
-#### [Version 3.0](#tab/version-3)
+# [Version 3.0](#tab/version-3)
 
 
 Create a new function called `LanguageDetectionExample()` that takes the client that you created earlier, and call its  `DetectLanguage()` function. The returned `Response<DetectedLanguage>` object will contain the detected language along with its name and ISO-6391 code. If there was an error, it will throw a `RequestFailedException`.
@@ -578,7 +578,7 @@ Language:
         French, ISO-6391: fr
 ```
 
-#### [Version 2.1](#tab/version-2)
+# [Version 2.1](#tab/version-2)
 
 Create a new function called `languageDetectionExample()` that takes the client that you created earlier, and call its  [DetectLanguage()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.detectlanguage?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Language_TextAnalytics_TextAnalyticsClientExtensions_DetectLanguage_Microsoft_Azure_CognitiveServices_Language_TextAnalytics_ITextAnalyticsClient_System_String_System_String_System_Nullable_System_Boolean__System_Threading_CancellationToken_) function. The returned [LanguageResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.models.languageresult?view=azure-dotnet) object will contain the list of detected languages in `DetectedLanguages` if successful, and an `errorMessage` if not. Print the first returned language.
 
@@ -597,7 +597,7 @@ Language: English
 
 ## Named Entity Recognition (NER)
 
-#### [Version 3.1 (Preview)](#tab/version-3-1)
+# [Version 3.1 preview](#tab/version-3-1)
 
 
 Create a new function called `EntityRecognitionExample()` that takes the client that you created earlier, call its `RecognizeEntities()` function and iterate through the results. The returned `Response<CategorizedEntityCollection>` object will contain the collection of detected entities `CategorizedEntity`. If there was an error, it will throw a `RequestFailedException`.
@@ -751,7 +751,7 @@ Text: 859-98-0987, Category: U.S. Social Security Number (SSN), SubCategory: , C
 Text: 800-102-1100, Category: Phone Number, SubCategory: , Confidence score: 0.8
 ```
 
-#### [Version 3.0](#tab/version-3)
+# [Version 3.0](#tab/version-3)
 
 
 > [!NOTE]
@@ -856,7 +856,7 @@ Linked Entities:
                 Score: 0.33
 ```
 
-#### [Version 2.1](#tab/version-2)
+# [Version 2.1](#tab/version-2)
 
 > [!NOTE]
 > In version 2.1, entity linking is included in the NER response.
@@ -870,7 +870,7 @@ Create a new function called `RecognizeEntitiesExample()` that takes the client 
 
 ## Key phrase extraction
 
-#### [Version 3.1 (Preview)](#tab/version-3-1)
+# [Version 3.1 preview](#tab/version-3-1)
 
 Create a new function called `KeyPhraseExtractionExample()` that takes the client that you created earlier, and call its `ExtractKeyPhrases()` function. The returned `<Response<KeyPhraseCollection>` object will contain the list of detected key phrases. If there was an error, it will throw a `RequestFailedException`.
 
@@ -897,7 +897,7 @@ Key phrases:
     veterinarian
 ```
 
-#### [Version 3.0](#tab/version-3)
+# [Version 3.0](#tab/version-3)
 
 Create a new function called `KeyPhraseExtractionExample()` that takes the client that you created earlier, and call its `ExtractKeyPhrases()` function. The returned `<Response<IReadOnlyCollection<string>>` object will contain the list of detected key phrases. If there was an error, it will throw a `RequestFailedException`.
 
@@ -924,7 +924,7 @@ Key phrases:
     veterinarian
 ```
 
-#### [Version 2.1](#tab/version-2)
+# [Version 2.1](#tab/version-2)
 
 Create a new function called `KeyPhraseExtractionExample()` that takes the client that you created earlier and call its [KeyPhrases()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.keyphrases?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Language_TextAnalytics_TextAnalyticsClientExtensions_KeyPhrases_Microsoft_Azure_CognitiveServices_Language_TextAnalytics_ITextAnalyticsClient_System_String_System_String_System_Nullable_System_Boolean__System_Threading_CancellationToken_) function. The result will contain the list of detected key phrases in `KeyPhrases` if successful, and an `errorMessage` if not. Print any detected key phrases.
 

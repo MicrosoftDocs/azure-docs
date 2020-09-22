@@ -28,7 +28,7 @@ ms.reviewer: tasharm, assafi, sumeh
 
 ### Add the client library
 
-#### [Version 3.1 (Preview)](#tab/version-3-1)
+# [Version 3.1 preview](#tab/version-3-1)
 
 [Reference documentation](https://aka.ms/azsdk-java-textanalytics-ref-docs) | [Library source code](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-textanalytics_5.1.0-beta.1/sdk/textanalytics/azure-ai-textanalytics) | [Package](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.1.0-beta.1) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-textanalytics_5.1.0-beta.1/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics)
 
@@ -44,7 +44,7 @@ Create a Maven project in your preferred IDE or development environment. Then ad
 </dependencies>
 ```
 
-#### [Version 3.0](#tab/version-3)
+# [Version 3.0](#tab/version-3)
 
 [Reference documentation](https://aka.ms/azsdk-java-textanalytics-ref-docs) | [Library source code](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-textanalytics_5.0.0/sdk/textanalytics/azure-ai-textanalytics) | [Package](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.0.0) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-textanalytics_5.0.0/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics)
 
@@ -107,7 +107,7 @@ The Text Analytics client is a `TextAnalyticsClient` object that authenticates t
 
 ## Code examples
 
-#### [Version 3.1 (Preview)](#tab/version-3-1)
+# [Version 3.1 preview](#tab/version-3-1)
 
 * [Authenticate the client](#authenticate-the-client)
 * [Sentiment Analysis](#sentiment-analysis) 
@@ -117,7 +117,7 @@ The Text Analytics client is a `TextAnalyticsClient` object that authenticates t
 * [Entity linking](#entity-linking)
 * [Key phrase extraction](#key-phrase-extraction)
 
-#### [Version 3.0](#tab/version-3)
+# [Version 3.0](#tab/version-3)
 
 * [Authenticate the client](#authenticate-the-client)
 * [Sentiment Analysis](#sentiment-analysis) 
@@ -146,7 +146,7 @@ In your program's `main()` method, call the authentication method to instantiate
 
 ## Sentiment analysis
 
-#### [Version 3.1](#tab/version-3-1)
+# [Version 3.1](#tab/version-3-1)
 
 > [!NOTE]
 > In version `3.1`:
@@ -208,7 +208,7 @@ Recognized document sentiment: negative, positive score: 0.010000, neutral score
 Process finished with exit code 0
 ```
 
-#### [Version 3.0](#tab/version-3)
+# [Version 3.0](#tab/version-3)
 
 Create a new function called `sentimentAnalysisExample()` that takes the client that you created earlier, and call its `analyzeSentiment()` function. The returned `AnalyzeSentimentResult` object will contain `documentSentiment` and `sentenceSentiments` if successful, or an `errorMessage` if not. 
 
@@ -277,7 +277,7 @@ Detected primary language: French, ISO 6391 name: fr, score: 1.00.
 
 ## Named Entity recognition (NER)
 
-#### [Version 3.1 (Preview)](#tab/version-3-1)
+# [Version 3.1 preview](#tab/version-3-1)
 
 > [!NOTE]
 > In version `3.1`:
@@ -399,7 +399,7 @@ Redacted Text: My SSN is ***********
 Recognized Personally Identifiable Information entity: 859-98-0987, entity category: U.S. Social Security Number (SSN), entity subcategory: null, confidence score: 0.650000.
 ```
 
-#### [Version 3.0](#tab/version-3)
+# [Version 3.0](#tab/version-3)
 
 > [!NOTE]
 > In version `3.0`:

@@ -57,7 +57,7 @@ npm init
 ```
 ### Install the client library
 
-# [Version 3.1 (preview)](#tab/version-3-1)
+# [Version 3.1 preview](#tab/version-3-1)
 
 Install the `@azure/ai-text-analytics` NPM packages:
 
@@ -96,7 +96,7 @@ npm install --save @azure/cognitiveservices-textanalytics
 Your app's `package.json` file will be updated with the dependencies.
 Create a file named `index.js` and add the following:
 
-# [Version 3.1 (preview)](#tab/version-3-1)
+# [Version 3.1 preview](#tab/version-3-1)
 
 ```javascript
 "use strict";
@@ -150,7 +150,7 @@ The response object is a list containing the analysis information for each docum
 
 ## Client Authentication
 
-# [Version 3.1 (preview)](#tab/version-3-1)
+# [Version 3.1 preview](#tab/version-3-1)
 
 Create a new `TextAnalyticsClient` object with your key and endpoint as parameters.
 
@@ -176,7 +176,7 @@ Create a new [TextAnalyticsClient](https://docs.microsoft.com/javascript/api/@az
 
 ## Sentiment analysis
 
-# [Version 3.1 (preview)](#tab/version-3-1)
+# [Version 3.1 preview](#tab/version-3-1)
 
 Create an array of strings containing the document you want to analyze. Call the client's `analyzeSentiment()` method and get the returned `SentimentBatchResult` object. Iterate through the list of results, and print each document's ID, document level sentiment with confidence scores. For each document, result contains sentence level sentiment along with offsets, length, and confidence scores.
 
@@ -364,7 +364,7 @@ Run your code with `node index.js` in your console window.
 
 ## Language detection
 
-# [Version 3.1 (preview)](#tab/version-3-1)
+# [Version 3.1 preview](#tab/version-3-1)
 
 Create an array of strings containing the document you want to analyze. Call the client's `detectLanguage()` method and get the returned `DetectLanguageResultCollection`. Then iterate through the results, and print each document's ID with respective primary language.
 
@@ -442,7 +442,7 @@ Document ID: 3 , Language: Chinese_Simplified
 
 ## Named Entity Recognition (NER)
 
-# [Version 3.1 (preview)](#tab/version-3-1)
+# [Version 3.1 preview](#tab/version-3-1)
 
 > [!NOTE]
 > In version `3.1`:
@@ -734,7 +734,7 @@ Document ID: 2
 
 ## Key phrase extraction
 
-# [Version 3.1 (preview)](#tab/version-3-1)
+# [Version 3.1 preview](#tab/version-3-1)
 
 Create an array of strings containing the document you want to analyze. Call the client's `extractKeyPhrases()` method and get the returned `ExtractKeyPhrasesResult` object. Iterate through the results and print each document's ID, and any detected key phrases.
 
