@@ -65,21 +65,57 @@ To apply Conditional Access to Workday’s mobile app, it is required for the ap
 
 This policy will only affect logging in on an iOS or Android device. If you would like to extend it to all platforms, simply select **Any Device.** This policy will require the device to be compliant with the policy and will verify this via Microsoft Intune. Due to Android having Work Profiles, this should block any users from logging into Workday (Web or App) unless they are logging in via their Work Profile and have installed the app via the Intune Company Portal. There is one additional step for iOS to make sure that the same situation will apply. Here are some screenshots of the Conditional Access setup.
 
-Workday supports the following Access Controls:
+**Workday supports the following Access Controls:**
 * Require multi-factor authentication
 * Require device to be marked as compliant
 
-Workday App does not support the following:
+**Workday App does not support the following:**
 * Require approved client app
 * Require app protection policy (Preview)
 
-Click on **Home > Microsoft Intune > conditional Access-Policies > Managed Devices Only > Cloud apps or actions.**
+To setup the **Workday** as **Managed Device** perform the following steps:
 
 ![Setup Conditional Access Policy](./media/workday-tutorial/managed-devices-only.png)
 
-Click on **Home > Microsoft Intune > conditional Access-Policies > Managed Devices Only > Grant.**
+1. Click on **Home > Microsoft Intune > conditional Access-Policies > Managed Devices Only** 
+
+1. In the **Managed Devices Only** page, give the **Name** field value as `Managed Devices Only` and click on **Cloud apps or actions**.
+
+1. Perform the following steps in **Cloud apps or actions**.
+
+    a. Switch **Select what this policy applies to** as **Cloud apps**.
+
+    b. In Include, click on **Select apps**.
+
+    c. Choose **Workday** from the select list.
+
+    d. Click **Done**.
+
+1. Turn on the **Enable policy**.
+
+1. Click **Save**.
+
+For **Grant** access, perform the following steps:
 
 ![Workday Setup Conditional Access Policy](./media/workday-tutorial/managed-devices-only-2.png)
+
+1. Click on **Home > Microsoft Intune > conditional Access-Policies > Managed Devices Only** 
+
+1. In the **Managed Devices Only** page, give the **Name** field value as `Managed Devices Only` and click on **Access controls > Grant**.
+
+1. Perform the following steps in **Grant** page.
+
+    a. Select the controls to be enforced as **Grant access**.
+
+    b. Check the **Require device to be marked as compliant** box.
+
+    c. Select **Require one of the selected controls**.
+
+    d. Click on **Select**.
+
+1. Turn on the **Enable policy**.
+
+1. Click **Save**
 
 ## Set Up Device Compliance Policy:
 

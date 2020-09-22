@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/17/2020
+ms.date: 08/31/2020
 ms.author: jeedes
 ---
 
@@ -186,12 +186,10 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	* In the Azure portal, on the **Set up Workday** section, copy the **Login URL** value, and then paste it into the **IdP SSO Service URL** textbox.
 
-	* In **Used for Environments** textbox, select the environment name.
+	* In **Used for Environments** textbox, select the appropriate environment names from the dropdown.
 
-    > [!NOTE]
-    > The value of the Environment attribute is tied to the value of the tenant URL:  
-    > -If the domain name of the Workday tenant URL starts with impl for example: *https://www.myworkday.com/"tenant"/login-saml2.htmld*), the **Environment** attribute must be set to Implementation.  
-    > -If the domain name starts with something else, you need to contact [Workday Client support team](https://www.workday.com/en-us/partners-services/services/support.html) to get the matching **Environment** value.
+        > [!NOTE]
+        > If you want to know more information on Environment values, please contact [Workday Client support team](https://www.workday.com/en-us/partners-services/services/support.html).
 
 1. Perform the following steps in the below image.
 
@@ -239,6 +237,6 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 3. You can use Microsoft Access Panel. When you click the Workday tile in the Access Panel, you should be automatically signed in to the Workday for which you set up the SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## Next Steps
+## Next steps
 
 Once you configure Workday you can enforce Session Control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session Control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
