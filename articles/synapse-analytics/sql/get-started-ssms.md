@@ -48,7 +48,7 @@ To connect to Synapse SQL using SQL pool, follow these steps:
 1. Open SQL Server Management Studio (SSMS). 
 1. In the **Connect to Server** dialog box, fill in the fields, and then select **Connect**: 
   
-    ![Connect to Server](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/connect-object-explorer1.png)
+    ![Connect to Server 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/connect-object-explorer1.png)
    
    * **Server name**: Enter the **server name** previously identified.
    * **Authentication**:  Choose an authentication type, such as **SQL Server Authentication** or **Active Directory Integrated Authentication**.
@@ -56,7 +56,7 @@ To connect to Synapse SQL using SQL pool, follow these steps:
 
 1. Expand your Azure SQL Server in **Object Explorer**. You can view the databases associated with the server, such as the sample AdventureWorksDW database. You can expand the database to see the tables:
    
-    ![Explore AdventureWorksDW](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/explore-tables.png)
+    ![Explore AdventureWorksDW 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/explore-tables.png)
 
 
 ### SQL on-demand (preview)
@@ -66,7 +66,7 @@ To connect to Synapse SQL using SQL on-demand, follow these steps:
 1. Open SQL Server Management Studio (SSMS).
 1. In the **Connect to Server** dialog box, fill in the fields,  and then select **Connect**: 
    
-    ![Connect to Server](./media/get-started-ssms/connect-object-explorer1.png)
+    ![Connect to Server 2](./media/get-started-ssms/connect-object-explorer1.png)
    
    * **Server name**: Enter the **server name** previously identified.
    * **Authentication**: Choose an authentication type, such as **SQL Server Authentication** or **Active Directory Integrated Authentication**:
@@ -75,7 +75,7 @@ To connect to Synapse SQL using SQL on-demand, follow these steps:
 
 4. To explore, expand your Azure SQL server. You can view the databases associated with the server. Expand *demo* to see the content in your sample database.
    
-    ![Explore AdventureWorksDW](./media/get-started-ssms/explore-tables.png)
+    ![Explore AdventureWorksDW 2](./media/get-started-ssms/explore-tables.png)
 
 
 ## Run a sample query
@@ -87,7 +87,7 @@ Now that a database connection has been established, you can query the data.
 1. Right-click your database in SQL Server Object Explorer.
 2. Select **New Query**. A new query window opens.
    
-    ![New query](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/new-query.png)
+    ![New query 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/new-query.png)
 3. Copy the following T-SQL query into the query window:
    
     ```sql
@@ -95,10 +95,10 @@ Now that a database connection has been established, you can query the data.
     ```
 4. Run the query by selecting `Execute` or use the following shortcut: `F5`.
    
-    ![Run query](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/execute-query.png)
+    ![Run query 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/execute-query.png)
 5. Look at the query results. In the following example, the FactInternetSales table has 60398 rows.
    
-    ![Query results](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/results.png)
+    ![Query results 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/results.png)
 
 ### SQL on-demand
 
@@ -107,7 +107,7 @@ Now that you've established a database connection, you can query the data.
 1. Right-click your database in SQL Server Object Explorer.
 2. Select **New Query**. A new query window opens.
    
-    ![New query](./media/get-started-ssms/new-query.png)
+    ![New query 2](./media/get-started-ssms/new-query.png)
 3. Copy the following T-SQL query into the query window:
    
     ```sql
@@ -115,10 +115,10 @@ Now that you've established a database connection, you can query the data.
     ```
 4. Run the query by selecting `Execute` or use the following shortcut: `F5`.
    
-    ![Run query](./media/get-started-ssms/execute-query.png)
+    ![Run query 2](./media/get-started-ssms/execute-query.png)
 5. Look at the query results. In this example, the usPopulationView view has 3664512 rows.
    
-    ![Query results](./media/get-started-ssms/results.png)
+    ![Query results 2](./media/get-started-ssms/results.png)
 
 ## Next steps
 Now that you can connect and query, try [visualizing the data with Power BI](get-started-power-bi-professional.md).
