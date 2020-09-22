@@ -33,7 +33,7 @@ For more migration information, see the [migration overview](sql-server-to-manag
 To migrate your SQL Server to Azure SQL Managed Instance, make sure: 
 
 - You've chosen a [migration method](sql-server-to-managed-instance-overview.md#migration-options). 
-- You've created a [performance baseline](sql-server-to-managed-instance-performance-baseline.md), if necessary. 
+- You've created a [performance baseline](sql-server-to-managed-instance-performance-baseline.md), if necessary.  
 
 
 ## Pre-migration
