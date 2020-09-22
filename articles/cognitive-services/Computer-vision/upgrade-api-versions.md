@@ -28,7 +28,7 @@ Use the following table to determine the **version string** in the API path base
 |Container | Read 3.0 preview | **v3.0** |
 |Cloud/Container | Read 3.1 preview | **v3.1-preview.2** |
 
-Next, use the following sections to narrow your operations and replace the "version string" in your API path with the value from the table. Also note related code changes.
+Next, use the following sections to narrow your operations and replace the **version string** in your API path with the value from the table. For example, for **Read v3.1 preview** cloud and container versions, update the API path to **https://{endpoint}/vision/v3.1-preview.2/read/analyze[?language]**.
 
 ## Cloud API and Containers
 
