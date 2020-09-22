@@ -53,8 +53,6 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + fix pypi package descriptions for azureml-interpret, azureml-explain-model, azureml-contrib-interpret and azureml-tensorboard
   + **azureml-train-automl-runtime**
     + visualization dashboard removed from azureml-contrib-interpret package, explanation client moved to azureml-interpret package and deprecated in azureml-contrib-interpret package and notebooks updated to reflect improved API
-  + **azureml-train-core**
-    + Added additional parameters to the ScriptRunConfig constructor to enable a more clear and streamlined initialization of the class attributes without requiring the user to set each individual attribute on the ScriptRunConfig's RunConfiguration property.
   + **azureml-widgets**
     + visualization dashboard removed from azureml-contrib-interpret package, explanation client moved to azureml-interpret package and deprecated in azureml-contrib-interpret package and notebooks updated to reflect improved API
 
