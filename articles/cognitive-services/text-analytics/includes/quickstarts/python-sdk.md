@@ -13,15 +13,15 @@ ms.author: aahi
 
 <a name="HOLTop"></a>
 
-# [Version 3 preview](#tab/version-3-1)
+# [Version 3.1 preview](#tab/version-3-1)
 
 [v3.1 Reference documentation](https://aka.ms/azsdk-python-textanalytics-ref-docs) | [v3.1 Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics) | [v3.1 Package (PiPy)](https://pypi.org/project/azure-ai-textanalytics/) | [v3.1 Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples)
 
-# [Version 3](#tab/version-3)
+# [Version 3.0](#tab/version-3)
 
 [v3 Reference documentation](https://aka.ms/azsdk-python-textanalytics-ref-docs) | [v3 Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics) | [v3 Package (PiPy)](https://pypi.org/project/azure-ai-textanalytics/) | [v3 Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples)
 
-# [Version 2](#tab/version-2)
+# [Version 2.1](#tab/version-2)
 
 [v2 Reference documentation](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/textanalytics) | [v2 Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-language-textanalytics) | [v2 Package (PiPy)](https://pypi.org/project/azure-cognitiveservices-language-textanalytics/) | [v2 Samples](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
 
@@ -41,7 +41,7 @@ ms.author: aahi
 
 After installing Python, you can install the client library with:
 
-# [Version 3 preview](#tab/version-3-1)
+# [Version 3.1 preview](#tab/version-3-1)
 
 ```console
 pip install azure-ai-textanalytics --pre
@@ -50,7 +50,7 @@ pip install azure-ai-textanalytics --pre
 > [!TIP]
 > Want to view the whole quickstart code file at once? You can find it [on GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/TextAnalytics/python-v3-client-library.py), which contains the code examples in this quickstart. 
 
-# [Version 3](#tab/version-3)
+# [Version 3.0](#tab/version-3)
 
 ```console
 pip install --upgrade azure-ai-textanalytics
@@ -59,7 +59,7 @@ pip install --upgrade azure-ai-textanalytics
 > [!TIP]
 > Want to view the whole quickstart code file at once? You can find it [on GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/TextAnalytics/python-v3-client-library.py), which contains the code examples in this quickstart. 
 
-# [Version 2](#tab/version-2)
+# [Version 2.1](#tab/version-2)
 
 ```console
 pip install --upgrade azure-cognitiveservices-language-textanalytics
@@ -84,7 +84,7 @@ endpoint = "<paste-your-text-analytics-endpoint-here>"
 
 ## Object model
 
-# [Version 3 preview](#tab/version-3-1)
+# [Version 3.1 preview](#tab/version-3-1)
 
 The Text Analytics client is a `TextAnalyticsClient` object that authenticates to Azure. The client provides several methods for analyzing text. 
 
@@ -92,7 +92,7 @@ When processing text is sent to the API as a list of `documents`, which is eithe
 
 The response object is a list containing the analysis information for each document. 
 
-# [Version 3](#tab/version-3)
+# [Version 3.0](#tab/version-3)
 
 The Text Analytics client is a `TextAnalyticsClient` object that authenticates to Azure using your key. The client provides several methods for analyzing text as a batch. 
 
@@ -100,7 +100,7 @@ When batch processing text is sent to the API as a list of `documents`, which ar
 
 The response object is a list containing the analyzed information for each document. 
 
-# [Version 2](#tab/version-2)
+# [Version 2.1](#tab/version-2)
 
 The Text Analytics client is a [TextAnalyticsClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient) object that authenticates to Azure using your key. The client provides several methods for analyzing text, as a single string, or a batch. 
 
@@ -112,7 +112,7 @@ Text is sent to the API as a list of `documents`, which are `dictionary` objects
 
 These code snippets show you how to do the following tasks with the Text Analytics client library for Python:
 
-# [Version 3 preview](#tab/version-3-1)
+# [Version 3.1 preview](#tab/version-3-1)
 
 * [Authenticate the client](#authenticate-the-client)
 * [Sentiment Analysis](#sentiment-analysis)
@@ -123,7 +123,7 @@ These code snippets show you how to do the following tasks with the Text Analyti
 * [Key phrase extraction](#key-phrase-extraction)
 
 
-# [Version 3](#tab/version-3)
+# [Version 3.0](#tab/version-3)
 
 * [Authenticate the client](#authenticate-the-client)
 * [Sentiment Analysis](#sentiment-analysis)
@@ -132,7 +132,7 @@ These code snippets show you how to do the following tasks with the Text Analyti
 * [Entity linking](#entity-linking)
 * [Key phrase extraction](#key-phrase-extraction)
 
-# [Version 2](#tab/version-2)
+# [Version 2.1](#tab/version-2)
 
 * [Authenticate the client](#authenticate-the-client)
 * [Sentiment Analysis](#sentiment-analysis)
@@ -145,7 +145,7 @@ These code snippets show you how to do the following tasks with the Text Analyti
 
 ## Authenticate the client
 
-# [Version 3 preview](#tab/version-3-1)
+# [Version 3.1 preview](#tab/version-3-1)
 
 Create a function to instantiate the `TextAnalyticsClient` object with your `key` AND `endpoint` created above. Then create a new client. 
 
@@ -163,7 +163,7 @@ def authenticate_client():
 client = authenticate_client()
 ```
 
-# [Version 3](#tab/version-3)
+# [Version 3.0](#tab/version-3)
 
 Create a function to instantiate the `TextAnalyticsClient` object with your `key` AND `endpoint` created above. Then create a new client. Note that `api_version=TextAnalyticsApiVersion.V3_0` should be defined for using version 3.0.
 
@@ -182,7 +182,7 @@ def authenticate_client():
 client = authenticate_client()
 ```
 
-# [Version 2](#tab/version-2)
+# [Version 2.1](#tab/version-2)
 
 [!code-python[imports statements](~/samples-cognitive-services-python-sdk/samples/language/text_analytics_samples.py?name=imports)]
 
@@ -194,7 +194,7 @@ Create a function to instantiate the `TextAnalyticsClient` object with your `key
 
 ## Sentiment analysis
 
-# [Version 3 preview](#tab/version-3-1)
+# [Version 3.1 preview](#tab/version-3-1)
 
 Create a new function called `sentiment_analysis_example()` that takes the client as an argument, then calls the `analyze_sentiment()` function. The returned response object will contain the sentiment label and score of the entire input document, as well as a sentiment analysis for each sentence.
 
@@ -337,7 +337,7 @@ Negative=1.00
 ......'negative' opinion 'broken'
 ```
 
-# [Version 3](#tab/version-3)
+# [Version 3.0](#tab/version-3)
 
 Create a new function called `sentiment_analysis_example()` that takes the client as an argument, then calls the `analyze_sentiment()` function. The returned response object will contain the sentiment label and score of the entire input document, as well as a sentiment analysis for each sentence.
 
@@ -386,7 +386,7 @@ Neutral=0.77
 Negative=0.02
 ```
 
-# [Version 2](#tab/version-2)
+# [Version 2.1](#tab/version-2)
 
 Authenticate a client object, and call the [sentiment()](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient#sentiment-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) function. Iterate through the results, and print each document's ID, and sentiment score. A score closer to 0 indicates a negative sentiment, while a score closer to 1 indicates a positive sentiment.
 
@@ -405,7 +405,7 @@ Document ID: 4 , Sentiment Score: 1.00
 
 ## Language detection
 
-# [Version 3 preview](#tab/version-3-1)
+# [Version 3.1 preview](#tab/version-3-1)
 
 Create a new function called `language_detection_example()` that takes the client as an argument, then calls the `detect_language()` function. The returned response object will contain the detected language in `primary_language` if successful, and an `error` if not.
 
@@ -431,7 +431,7 @@ language_detection_example(client)
 Language:  French
 ```
 
-# [Version 3](#tab/version-3)
+# [Version 3.0](#tab/version-3)
 
 Create a new function called `language_detection_example()` that takes the client as an argument, then calls the `detect_language()` function. The returned response object will contain the detected language in `primary_language` if successful, and an `error` if not.
 
@@ -457,7 +457,7 @@ language_detection_example(client)
 Language:  French
 ```
 
-# [Version 2](#tab/version-2)
+# [Version 2.1](#tab/version-2)
 
 Using the client created earlier, call [detect_language()](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient#detect-language-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) and get the result. Then iterate through the results, and print each document's ID, and the first returned language.
 
@@ -476,7 +476,7 @@ Document ID: 3 , Language: Chinese_Simplified
 
 ## Named Entity recognition (NER)
 
-# [Version 3 preview](#tab/version-3-1)
+# [Version 3.1 preview](#tab/version-3-1)
 
 > [!NOTE]
 > In version `3.1`: 
@@ -644,7 +644,7 @@ Entity: 555-555-5555
         Length: 12
 ```
 
-# [Version 3](#tab/version-3)
+# [Version 3.0](#tab/version-3)
 
 > [!NOTE]
 > In version `3.0`: 
@@ -754,7 +754,7 @@ Linked Entities:
                 Confidence Score: 0.33
 ```
 
-# [Version 2](#tab/version-2)
+# [Version 2.1](#tab/version-2)
 
 > [!NOTE]
 > In version 2.1, entity linking is included in the NER response.
@@ -806,7 +806,7 @@ Document ID: 2
 
 ## Key phrase extraction
 
-# [Version 3 preview](#tab/version-3-1)
+# [Version 3.1 preview](#tab/version-3-1)
 
 Create a new function called `key_phrase_extraction_example()` that takes the client as an argument, then calls the `extract_key_phrases()` function. The result will contain the list of detected key phrases in `key_phrases` if successful, and an `error` if not. Print any detected key phrases.
 
@@ -840,7 +840,7 @@ key_phrase_extraction_example(client)
          veterinarian
 ```
 
-# [Version 3](#tab/version-3)
+# [Version 3.0](#tab/version-3)
 
 Create a new function called `key_phrase_extraction_example()` that takes the client as an argument, then calls the `extract_key_phrases()` function. The result will contain the list of detected key phrases in `key_phrases` if successful, and an `error` if not. Print any detected key phrases.
 
@@ -874,7 +874,7 @@ key_phrase_extraction_example(client)
          veterinarian
 ```
 
-# [Version 2](#tab/version-2)
+# [Version 2.1](#tab/version-2)
 
 Using the client created earlier, call the [key_phrases()](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient#key-phrases-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) function and get the result. Then iterate through the results, and print each document's ID, and the key phrases contained in it.
 

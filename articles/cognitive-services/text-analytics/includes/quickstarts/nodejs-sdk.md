@@ -14,7 +14,7 @@ ms.custom: devx-track-javascript
 
 <a name="HOLTop"></a>
 
-# [Version 3.1](#tab/version-3-1)
+# [Version 3.1 preview](#tab/version-3-1)
 
 [v3 Reference documentation](https://aka.ms/azsdk-js-textanalytics-ref-docs) | [v3 Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics) | [v3 Package (NPM)](https://www.npmjs.com/package/@azure/ai-text-analytics) | [v3 Samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples)
 
