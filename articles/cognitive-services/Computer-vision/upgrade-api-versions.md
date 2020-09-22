@@ -72,7 +72,7 @@ The v3.0 API also introduces the following improvements you can optionally lever
     
 In 2.X, the output format is as follows: 
     
-    ```json
+```json
     {
         {
                 "status": "Succeeded",
@@ -116,9 +116,9 @@ In 2.X, the output format is as follows:
     }
     ```
     
-    In v3.0, it has been adjusted:
+In v3.0, it has been adjusted:
     
-    ```json
+```json
     {
         {
             "status": "succeeded",
@@ -214,7 +214,7 @@ The v3.0 API also introduces the following improvements you can optionally lever
 
 In 2.X, the output format is as follows: 
     
-    ```json
+```json
     {
         {
                 "status": "Succeeded",
@@ -252,9 +252,9 @@ In 2.X, the output format is as follows:
     }
     ```
     
-    In v3.x, it has been adjusted:
+In v3.x, it has been adjusted:
     
-    ```json
+```json
     {
         {
             "status": "succeeded",
