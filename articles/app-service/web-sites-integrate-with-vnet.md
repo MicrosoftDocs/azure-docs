@@ -173,7 +173,7 @@ Commands:
     list : List the virtual network integrations used in an appservice plan.
 ```
 
-Powershell support for regional VNet integration is available too, but you must create generic resource with a property array of the subnet resourceID
+PowerShell support for regional VNet integration is available too, but you must create generic resource with a property array of the subnet resourceID
 
 ```azurepowershell
 # Parameters
