@@ -3,7 +3,7 @@ title: Create automation workflows (preview) in Visual Studio Code
 description: Create stateless or stateful automation workflows with the Azure Logic Apps (Preview) extension in Visual Studio Code to integrate apps, data, cloud services, and on-premises systems
 services: logic-apps
 ms.suite: integration
-ms.reviewer: deli, vikanand, hongzili, sopai, absaafan, logicappspm
+ms.reviewer: deli, rohitha, vikanand, hongzili, sopai, absaafan, logicappspm
 ms.topic: conceptual
 ms.date: 09/23/2020
 ---
@@ -167,7 +167,7 @@ For more information about the pricing models that apply to this new resource ty
 
 ### Storage requirements
 
-Currently, creating the new **Logic App (Preview)** resource is [not available on Mac OS](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md). However, for Windows or other OS, such as Linux, set up this storage requirement.
+Currently, creating the new **Logic App (Preview)** resource is not available on Mac OS. However, for Windows or other OS, such as Linux, set up this storage requirement.
 
 1. Download and install [Azure Storage Emulator 5.10](https://go.microsoft.com/fwlink/p/?linkid=717179).
 
@@ -934,11 +934,11 @@ Although many [existing limits for Azure Logic Apps](../logic-apps/logic-apps-li
 
 <a name="unsupported"></a>
 
-## Unsupported or unavailable capabilities
+## Unavailable or unsupported capabilities
 
-For this public preview, these capabilities are not supported or are not available:
+For this public preview, these capabilities are not available or not supported:
 
-* Creating the new **Logic App (Preview)** resource is currently unavailable on Mac OS. For more information, see the Known Issues GitHub page](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md). 
+* Creating the new **Logic App (Preview)** resource is currently unavailable on Mac OS.
 
 * Custom connectors, webhook-based triggers, and the Sliding Window trigger aren't supported in this preview.
 
