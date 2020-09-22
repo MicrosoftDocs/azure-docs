@@ -198,6 +198,8 @@
         items:
             - name: Set or edit policies
               href: set-edit-policies.md
+            - name: Debug policies
+              href: api-management-debug-policies.md
             - name: Policy expressions
               href: api-management-policy-expressions.md
             - name: Custom caching
