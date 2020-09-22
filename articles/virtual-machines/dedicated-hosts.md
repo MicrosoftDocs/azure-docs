@@ -75,11 +75,21 @@ When creating a new host group, make sure the setting for automatic VM placement
 
 Host groups that are enabled for automatic placement do not require all the VMs to be automatically placed. You will still be able to explicitly pick a host, even when automatic placement is selected for the host group. 
 
+### Limitations
+
+Known issues and limitations when using automatic VM placement:
+
+- You will not be able to apply Azure Hybrid Benefits on your dedicated hosts.
+- You will not be able to redeploy your VM. 
+- You will not be able to control maintenance for your dedicated hosts.
+- You will not be able to use Lsv2, NVasv4, NVsv3, Msv2, or M-series VMs with dedicated hosts 
+
+
 ## Virtual machine scale set support
 
 Virtual machine scale sets let you treat a group of virtual machines as a single resource, and apply  availability, management, scaling and orchestration policies as a group. Your existing dedicated hosts can also be used for virtual machine scale sets. 
 
-When creating a virtual machine scale set you can simply specify a pre-existing host group to have all of the VM instances created on dedicated hosts.
+When creating a virtual machine scale set you can specify an existing host group to have all of the VM instances created on dedicated hosts.
 
 The following requirements apply when creating a virtual machine scale set in a dedicated host group:
 
