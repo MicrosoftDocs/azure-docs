@@ -42,7 +42,7 @@ There are two types of managed identities:
 
     > [!VIDEO https://www.youtube.com/embed/OzqpxeD3fG0]
 
-The table below shows you the differences between the two managed identities types
+The table below shows the differences between the two types of managed identities.
 
 |  Property    | System-assigned managed identity | User-assigned managed identity |
 |------|----------------------------------|--------------------------------|
