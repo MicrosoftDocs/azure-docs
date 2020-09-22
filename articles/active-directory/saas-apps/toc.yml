@@ -1334,6 +1334,8 @@
         href: proxyclick-tutorial.md
       - name: Pulse Secure PCS
         href: pulse-secure-pcs-tutorial.md
+      - name: Pulse Secure Virtual Traffic Manager
+        href: pulse-secure-virtual-traffic-manager-tutorial.md        
       - name: PureCloud by Genesys
         href: purecloud-by-genesys-tutorial.md
       - name: PurelyHR
