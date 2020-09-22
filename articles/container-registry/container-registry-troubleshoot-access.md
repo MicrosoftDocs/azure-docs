@@ -27,7 +27,7 @@ May include one or more of the following:
 * A client firewall or proxy prevents access - [solution](#configure-client-firewall-access)
 * Public network access rules on the registry prevent access - [solution](#configure-public-access-to-registry)
 * Virtual network configuration prevents access - [solution](#configure-vnet-access)
-* You attempt to integrate Azure Security Center with a registry that has a private endpoint or service endpoint - [solution](#configure-image-scanning-solution)
+* Registry access by a managed Azure service isn't enabled  - [solution](#configure-image-scanning-solution)
 
 ## Further diagnosis 
 
@@ -93,15 +93,18 @@ Related links:
 
 ### Configure image scanning solution
 
-If your registry is configured with a private endpoint or service endpoint, you can't currently integrate with Azure Security Center for image scanning. Optionally, configure other image scanning solutions available in Azure Marketplace including:
+If your registry is network-restricted, you can't currently access the registry with certain managed Azure services such as Azure Security Center for image scanning. Optionally, configure other image scanning solutions available in Azure Marketplace including:
 
 * [Aqua Cloud Native Security Platform](https://azuremarketplace.microsoft.com/marketplace/apps/aqua-security.aqua-security)
 * [Twistlock Enterprise Edition](https://azuremarketplace.microsoft.com/marketplace/apps/twistlock.twistlock)
+
+A network-restricted registry can optionally allow access by select trusted services.
 
 Related links:
 
 * [Azure Container Registry image scanning by Security Center](../security-center/azure-container-registry-integration.md)
 * Provide [feedback](https://feedback.azure.com/forums/347535-azure-security-center/suggestions/41091577-enable-vulnerability-scanning-for-images-that-are)
+* [Allow trusted services to securely access a network-restricted container registry](allow-access-trusted-services.md)
 
 
 ## Advanced troubleshooting
@@ -125,5 +128,3 @@ If you don't resolve your problem here, see the following options.
 * [Community support](https://azure.microsoft.com/support/community/) options
 * [Microsoft Q&A](https://docs.microsoft.com/answers/products/)
 * [Open a support ticket](https://azure.microsoft.com/support/create-ticket/)
-
-
