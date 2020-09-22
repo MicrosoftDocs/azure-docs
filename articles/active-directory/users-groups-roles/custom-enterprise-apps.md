@@ -149,16 +149,9 @@ Create a custom role using the provided example in the Microsoft Graph API. For 
 
 HTTP request to create the custom role.
 
+```HTTP
 POST
-
-HTTP
-```http
 https://graph.microsoft.com/beta/roleManagement/directory/roleDefinitionsIsEnabled $true
-```
-
-Body
-HTTP
-```http
 {
     "description":"Can manage user and group assignments for Applications.",
     "displayName":" Manage user and group assignments",
@@ -187,17 +180,9 @@ The role assignment combines a security principal ID (which can be a user or ser
 
 HTTP request to assign a custom role.
 
-POST
+```HTTP
+POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
 
-HTTP
-```http
-https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
-```
-
-Body
-
-HTTP
-```http
 {
     "principalId":"<PROVIDE OBJECTID OF USER TO ASSIGN HERE>",
     "roleDefinitionId":"<PROVIDE OBJECTID OF ROLE DEFINITION HERE>",
@@ -205,3 +190,6 @@ HTTP
 }
 ```
 
+## Next steps
+
+* [Explore the available custom role permissions for enterprise apps](custom-enterprise-app-permissions.md)
