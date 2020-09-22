@@ -200,5 +200,4 @@ After granting consent, navigate to the "Fetch data" page to read some email.
 ## Next steps
 
 - [Microsoft identity platform best practices and recommendations](./identity-platform-integration-checklist.md)
-- [Secure ASP.NET Blazor WASM apps and APIs with Azure AD B2C](https://dev.to/425show/secure-asp-net-blazor-wasm-apps-and-apis-with-azure-ad-b2c-474g)
 - [Microsoft Identity Web basics](https://github.com/AzureAD/microsoft-identity-web/wiki/Microsoft-Identity-Web-basics)
