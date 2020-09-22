@@ -12,22 +12,14 @@ ms.reviewer: jamesbak
 
 # Access control lists (ACLs) in Azure Data Lake Storage Gen2
 
-Azure Data Lake Storage Gen2 implements an access control model that supports both Azure role-based access control (Azure RBAC) and POSIX-like access control lists (ACLs). This article summarizes the basics of the access control lists for Data Lake Storage Gen2.
+Azure Data Lake Storage Gen2 implements an access control model that supports both Azure role-based access control (Azure RBAC) and POSIX-like access control lists (ACLs). This article describes access control lists in Data Lake Storage Gen2. To learn about how to incorporate RBAC together with ACLs, and how system evaluates them to make authorization decisions, see [Access control model in Azure Data Lake Storage Gen2](data-lake-storage-access-control-model.md).
 
-## Access control lists on files and directories
+## About ACLs
 
 You can associate a [security principal](https://docs.microsoft.com/azure/role-based-access-control/overview#security-principal) with an access level for files and directories. These associations are captured in an *access control list (ACL)*. Each file and directory in your storage account has an access control list. When a security principal attempts an operation on a file or directory, An ACL check determines whether that security principal (user, group, service principal, or managed identity) has the correct permission level to perform the operation.
 
-ACLs don't apply to users who use Shared Key or shared access signature (SAS) token authentication. That's because no identity is associated with the caller and therefore security principal permission-based authorization cannot be performed. 
-
 > [!NOTE]
-> ACLs apply only to security principals in the same tenant. 
-
-### Using RBAC with ACLs
-
-RBAC uses role assignments to apply sets of permissions to security principals. Role assignments can provide read, write, and list permissions at the subscription, resource group, storage account, and container-level. You can use RBAC roles for coarse-grained permissions, and then use use ACL entries to grant elevated access to specific files and directories. You can't use access control lists to provide a level of access that is lower than a level granted by a role assignment. For example, if you assign the [Storage Blob Data Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) role to a security principal, then you can't use access control lists to prevent that security principal from writing to a directory.
-
-To learn more about the impact of RBAC role assignments on ACLs and how to use these tools together, see [Using role-based access control (RBAC) with access control lists (ACLs) in Azure Data Lake Storage Gen2](role-based-access-control-with-access-control-lists).
+> ACLs apply only to security principals in the same tenant, and they don't apply to users who use Shared Key or shared access signature (SAS) token authentication. That's because no identity is associated with the caller and therefore security principal permission-based authorization cannot be performed.  
 
 ## Types of ACLs
 
@@ -70,9 +62,13 @@ The permissions on a container object are **Read**, **Write**, and **Execute**, 
 
 In the POSIX-style model that's used by Data Lake Storage Gen2, permissions for an item are stored on the item itself. In other words, permissions for an item cannot be inherited from the parent items if the permissions are set after the child item has already been created. Permissions are only inherited if default permissions have been set on the parent items before the child items have been created.
 
-## Common scenarios related to permissions
+## Common scenarios related to ACL permissions
 
-The following table lists some common scenarios to help you understand which permissions are needed to perform certain operations on a storage account.
+The following table shows you the ACL entries required to enable a security principal to perform the operations listed in the **Operation** column. 
+
+This table shows a column that represents each level of a fictitious directory hierarchy. There's a column for the root directory of the container (`\`), a subdirectory named **Oregon**, a subdirectory of the Oregon directory named **Portland**, and a text file in the Portland directory named **Data.txt**. 
+
+This table assumes that you are granting access to a security principal by using **only** ACLs without any RBAC role assignments. To see a similar table that combines RBAC together with ACLs, see [Combining RBAC and ACL](data-lake-storage-access-control-model.md#combining-rbac-and-acl).
 
 |    Operation             |    /    | Oregon/ | Portland/ | Data.txt     |
 |--------------------------|---------|----------|-----------|--------------|
@@ -300,4 +296,5 @@ ACLs do not inherit. However, default ACLs can be used to set ACLs for child sub
 
 ## See also
 
-* [Overview of Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md)
+- [Access control model in Azure Data Lake Storage Gen2](data-lake-storage-access-control-model.md)
+- [Grant access to directories, and files in Azure Data Lake Storage Gen2](configure-data-lake-storage-security.md).

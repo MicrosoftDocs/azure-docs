@@ -58,34 +58,34 @@ This table shows a column that represents each level of a fictitious directory h
 
 |    Operation             | Assigned RBAC role               |    /        | Oregon/     | Portland/ | Data.txt |             
 |--------------------------|----------------------------------|-------------|-------------|-----------|----------|
-| Read Data.txt            |   Storage Blob Data Owner        |   ---       |   ---       |  ---      | ---      |  
-|                          |   Storage Blob Data Contributor  |   ---       |   ---       |  ---      | ---      |
-|                          |   Storage Blob Data Reader       |   ---       |   ---       |  ---      | ---      |
-|                          |   None                           |   --X       |   --X       |  --X      | R--      |
-| Append to Data.txt       |   Storage Blob Data Owner        |   ---       |   ---       |  ---      | ---      |
-|                          |   Storage Blob Data Contributor  |   ---       |   ---       |  ---      | ---      |
-|                          |   Storage Blob Data Reader       |   ---       |   ---       |  ---      | -W-      |
-|                          |   None                           |   --X       |   --X       |  --X      | RW-      |
-| Delete Data.txt          |   Storage Blob Data Owner        |   ---       |   ---       |  ---      | ---      |
-|                          |   Storage Blob Data Contributor  |   ---       |   ---       |  ---      | ---      |
-|                          |   Storage Blob Data Reader       |   ---       |   ---       |  -WX      | ---      |
-|                          |   None                           |   --X       |   --X       |  -WX      | ---      |
-| Create Data.txt          |   Storage Blob Data Owner        |   ---       |   ---       |  ---      | ---      |
-|                          |   Storage Blob Data Contributor  |   ---       |   ---       |  ---      | ---      |
-|                          |   Storage Blob Data Reader       |   ---       |   ---       |  -W-      | ---      |
-|                          |   None                           |   --X       |   --X       |  -WX      | ---      |
-| List /                   |   Storage Blob Data Owner        |   ---       |   ---       |  ---      | ---      |
-|                          |   Storage Blob Data Contributor  |   ---       |   ---       |  ---      | ---      |
-|                          |   Storage Blob Data Reader       |   ---       |   ---       |  ---      | ---      |
-|                          |   None                           |   R-X       |   ---       |  ---      | ---      |
-| List /Oregon/            |   Storage Blob Data Owner        |   ---       |   ---       |  ---      | ---      |
-|                          |   Storage Blob Data Contributor  |   ---       |   ---       |  ---      | ---      |
-|                          |   Storage Blob Data Reader       |   ---       |   ---       |  ---      | ---      |
-|                          |   None                           |   --X       |   R-X       |  ---      | ---      |
-| List /Oregon/Portland/   |   Storage Blob Data Owner        |   ---       |   ---       |  ---      | ---      |
-|                          |   Storage Blob Data Contributor  |   ---       |   ---       |  ---      | ---      |
-|                          |   Storage Blob Data Reader       |   ---       |   ---       |  ---      | ---      |
-|                          |   None                           |   --X       |   --X       |  R-X      | ---      |
+| Read Data.txt            |   Storage Blob Data Owner        |   `---`       |   `---`       |  `---`      | `---`      |  
+|                          |   Storage Blob Data Contributor  |   `---`       |   `---`       |  `---`      | `---`      |
+|                          |   Storage Blob Data Reader       |   `---`       |   `---`       |  `---`      | `---`      |
+|                          |   None                           |   `--X`       |   `--X`       |  `--X`      | `R--`      |
+| Append to Data.txt       |   Storage Blob Data Owner        |   `---`       |   `---`       |  `---`      | `---`      |
+|                          |   Storage Blob Data Contributor  |   `---`       |   `---`       |  `---`      | `---`      |
+|                          |   Storage Blob Data Reader       |   `---`       |   `---`       |  `---`      | `-W-`      |
+|                          |   None                           |   `--X`       |   `--X`       |  `--X`      | `RW-`      |
+| Delete Data.txt          |   Storage Blob Data Owner        |   `---`       |   `---`       |  `---`      | `---`      |
+|                          |   Storage Blob Data Contributor  |   `---`       |   `---`       |  `---`      | `---`      |
+|                          |   Storage Blob Data Reader       |   `---`       |   `---`       |  `-WX`      | `---`      |
+|                          |   None                           |   `--X`       |   `--X`       |  `-WX`      | `---`      |
+| Create Data.txt          |   Storage Blob Data Owner        |   `---`       |   `---`       |  `---`      | `---`      |
+|                          |   Storage Blob Data Contributor  |   `---`       |   `---`       |  `---`      | `---`      |
+|                          |   Storage Blob Data Reader       |   `---`       |   `---`       |  `-W-`      | `---`      |
+|                          |   None                           |   `--X`       |   `--X`       |  `-WX`      | `---`      |
+| List /                   |   Storage Blob Data Owner        |   `---`       |   `---`       |  `---`      | `---`      |
+|                          |   Storage Blob Data Contributor  |   `---`       |   `---`       |  `---`      | `---`      |
+|                          |   Storage Blob Data Reader       |   `---`       |   `---`       |  `---`      | `---`      |
+|                          |   None                           |   `R-X`       |   `---`       |  `---`      | `---`      |
+| List /Oregon/            |   Storage Blob Data Owner        |   `---`       |   `---`       |  `---`      | `---`      |
+|                          |   Storage Blob Data Contributor  |   `---`       |   `---`       |  `---`      | `---`      |
+|                          |   Storage Blob Data Reader       |   `---`       |   `---`       |  `---`      | `---`      |
+|                          |   None                           |   `--X`       |   `R-X`       |  `---`      | `---`      |
+| List /Oregon/Portland/   |   Storage Blob Data Owner        |   `---`       |   `---`       |  `---`      | `---`      |
+|                          |   Storage Blob Data Contributor  |   `---`       |   `---`       |  `---`      | `---`      |
+|                          |   Storage Blob Data Reader       |   `---`       |   `---`       |  `---`      | `---`      |
+|                          |   None                           |   `--X`       |   `--X`       |  `R-X`      | `---`      |
 
 
 
