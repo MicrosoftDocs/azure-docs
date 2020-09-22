@@ -27,6 +27,7 @@ This trouble-shooting guide provides instruction on what information to provide 
 Running the query with "SQL on-demand" gives you the "Failed to establish connection to server" error message.
 
 ![symptom 2](media/troubleshooting-synapse-studio/symptom2.png)
+ 
 
 ## Troubleshooting steps
 
@@ -78,8 +79,9 @@ If the response header contains one of the above values, it means we should have
 
 If you can't see the header, or the header does not have one of the values listed above, attach a screenshot of the item details when you open the ticket.
 
+ 
 ![item details](media/troubleshooting-synapse-studio/item-details.png)
-
+ 
 If the steps above do not solve your issue, you may need to open a support ticket. When submitting your support ticket, include the "Session ID" or "Diagnostic Info" downloaded at the beginning of this guide.
 
 When reporting the issue, you may optionally take a screenshot of your "Console" tab in the "Developer Tools" and attach it to the support ticket. Scroll the content and take more than one screenshot if necessary to capture the entire message.

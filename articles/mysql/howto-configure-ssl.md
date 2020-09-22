@@ -36,7 +36,7 @@ Configure MySQL Workbench to connect securely over SSL.
 
 1. In the **SSL CA File:** field, enter the file location of the **BaltimoreCyberTrustRoot.crt.pem**.
 
-   ![Save SSL configuration](./media/howto-configure-ssl/mysql-workbench-ssl.png)
+   :::image type="content" source="./media/howto-configure-ssl/mysql-workbench-ssl.png" alt-text="Save SSL configuration":::
 
 For existing connections, you can bind SSL by right-clicking on the connection icon and choose edit. Then navigate to the **SSL** tab and bind the cert file.
 
@@ -57,7 +57,7 @@ mysql.exe -h mydemoserver.mysql.database.azure.com -u Username@mydemoserver -p -
 
 Using the Azure portal, visit your Azure Database for MySQL server, and then click **Connection security**. Use the toggle button to enable or disable the **Enforce SSL connection** setting, and then click **Save**. Microsoft recommends to always enable the **Enforce SSL connection** setting for enhanced security.
 
-![Screenshot of Azure portal to Enforce SSL connections in Azure Database for MySQL](./media/howto-configure-ssl/enable-ssl.png)
+:::image type="content" source="./media/howto-configure-ssl/enable-ssl.png" alt-text="Screenshot of Azure portal to Enforce SSL connections in Azure Database for MySQL":::
 
 ### Using Azure CLI
 
