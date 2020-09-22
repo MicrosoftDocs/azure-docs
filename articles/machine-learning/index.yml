@@ -14,7 +14,7 @@ metadata:
   ms.collection: collection
   author: j-martens
   ms.author: jmartens
-  ms.date: 09/17/2020
+  ms.date: 09/21/2020
   ms.custom: contperfq1
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
@@ -28,11 +28,13 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Get started (Python)
+          - text: Get started tutorial (Python)
+            url: tutorial-1st-experiment-sdk-setup-local.md
+          - text: Use Jupyter Notebooks tutorial
             url: tutorial-1st-experiment-sdk-setup.md
           - text: Batch inference with ML pipelines (Python)
             url: tutorial-pipeline-batch-scoring-classification.md            
-          - text: Get started (R)
+          - text: Get started with R
             url: tutorial-1st-r-experiment.md
 
 # GET STARTED
@@ -48,9 +50,9 @@ landingContent:
           url: concept-designer.md   
       - linkListType: tutorial
         links:
-          - text: 'Get started with AutoML'
+          - text: 'Get started (AutoML)'
             url: tutorial-first-experiment-automated-ml.md                  
-          - text: 'Get started in designer'
+          - text: 'Get started (designer)'
             url: tutorial-designer-automobile-price-train-score.md
       - linkListType: reference
         links:
@@ -68,7 +70,7 @@ landingContent:
           url: how-to-use-mlflow.md
  
   # MLOps
-  - title: 'MLOps: Deploy & manage models'
+  - title: 'Deploy & manage models (MLOps)'
     linkLists:
       - linkListType: how-to-guide
         links:
