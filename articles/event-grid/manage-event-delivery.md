@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 07/20/2020
 ---
 
-# Dead letter and retry policies
+# Set dead-letter location and retry policy
 
 When creating an event subscription, you can customize the settings for event delivery. This article shows you how to set up a dead letter location and customize the retry settings. For information about these features, see [Event Grid message delivery and retry](delivery-and-retry.md).
 

@@ -100,20 +100,22 @@ Next, you will create a virtual network containing two empty subnets.
    CLUSTER=cluster                 # the name of your cluster
    ```
 
-1. **Create a resource group.**
+2. **Create a resource group.**
 
-    An Azure resource group is a logical group in which Azure resources are deployed and managed. When you create a resource group, you are asked to specify a location. This location is where resource group metadata is stored, it is also where your resources run in Azure if you don't specify another region during resource creation. Create a resource group using the [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create) command.
+An Azure resource group is a logical group in which Azure resources are deployed and managed. When you create a resource group, you are asked to specify a location. This location is where resource group metadata is stored, it is also where your resources run in Azure if you don't specify another region during resource creation. Create a resource group using the [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create) command.
     
-> [!NOTE]
+> [!NOTE] 
 > Azure Red Hat OpenShift is not available in all regions where an Azure resource group can be created. See [Available regions](https://docs.openshift.com/aro/4/welcome/index.html#available-regions) for information on where Azure Red Hat OpenShift is supported.
 
-    ```azurecli-interactive
-    az group create --name $RESOURCEGROUP --location $LOCATION
-    ```
+```azurecli-interactive
+az group create \
+  --name $RESOURCEGROUP \
+  --location $LOCATION
+```
 
-    The following example output shows the resource group created successfully:
+The following example output shows the resource group created successfully:
 
-    ```json
+```json
     {
     "id": "/subscriptions/<guid>/resourceGroups/aro-rg",
     "location": "eastus",
@@ -124,24 +126,24 @@ Next, you will create a virtual network containing two empty subnets.
     },
     "tags": null
     }
-    ```
+```
 
-2. **Create a virtual network.**
+3. **Create a virtual network.**
 
-    Azure Red Hat OpenShift clusters running OpenShift 4 require a virtual network with two empty subnets, for the master and worker nodes.
+Azure Red Hat OpenShift clusters running OpenShift 4 require a virtual network with two empty subnets, for the master and worker nodes.
 
-    Create a new virtual network in the same resource group you created earlier:
+Create a new virtual network in the same resource group you created earlier:
 
-    ```azurecli-interactive
-    az network vnet create \
-    --resource-group $RESOURCEGROUP \
-    --name aro-vnet \
-    --address-prefixes 10.0.0.0/22
-    ```
+```azurecli-interactive
+az network vnet create \
+   --resource-group $RESOURCEGROUP \
+   --name aro-vnet \
+   --address-prefixes 10.0.0.0/22
+```
 
-    The following example output shows the virtual network created successfully:
+The following example output shows the virtual network created successfully:
 
-    ```json
+```json
     {
     "newVNet": {
         "addressSpace": {
@@ -157,9 +159,9 @@ Next, you will create a virtual network containing two empty subnets.
         "type": "Microsoft.Network/virtualNetworks"
     }
     }
-    ```
+```
 
-3. **Add an empty subnet for the master nodes.**
+4. **Add an empty subnet for the master nodes.**
 
     ```azurecli-interactive
     az network vnet subnet create \
@@ -170,7 +172,7 @@ Next, you will create a virtual network containing two empty subnets.
     --service-endpoints Microsoft.ContainerRegistry
     ```
 
-4. **Add an empty subnet for the worker nodes.**
+5. **Add an empty subnet for the worker nodes.**
 
     ```azurecli-interactive
     az network vnet subnet create \
@@ -181,7 +183,7 @@ Next, you will create a virtual network containing two empty subnets.
     --service-endpoints Microsoft.ContainerRegistry
     ```
 
-5. **[Disable subnet private endpoint policies](../private-link/disable-private-link-service-network-policy.md) on the master subnet.** This is required to be able to connect and manage the cluster.
+6. **[Disable subnet private endpoint policies](../private-link/disable-private-link-service-network-policy.md) on the master subnet.** This is required to be able to connect and manage the cluster.
 
     ```azurecli-interactive
     az network vnet subnet update \

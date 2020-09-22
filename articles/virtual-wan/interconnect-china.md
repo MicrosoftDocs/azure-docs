@@ -6,7 +6,7 @@ author: skishen525
 
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 09/22/2020
 ms.author: sukishen
 
 ---

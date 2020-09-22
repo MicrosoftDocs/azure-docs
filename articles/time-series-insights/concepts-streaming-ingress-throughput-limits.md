@@ -31,7 +31,7 @@ By default, Azure Time Series Insights Gen2 can ingest incoming data at a rate o
 > [!TIP]
 >
 > * Environment support for ingesting speeds up to 8 MBps can be provided by request.
-> * Contact us if you require higher throughput by submitting a support ticket through Azure portal.
+> * Contact us if you require higher throughput by submitting a support ticket through the Azure portal.
  
 * **Example 1:**
 

@@ -1,6 +1,6 @@
 ---
-title: Deploy VMs on your Azure Stack Edge device via templates
-description: Describes how to create and manage virtual machines (VMs) on a Azure Stack Edge device using templates.
+title: Deploy VMs on your Azure Stack Edge Pro device via templates
+description: Describes how to create and manage virtual machines (VMs) on a Azure Stack Edge Pro device using templates.
 services: databox
 author: alkohli
 
@@ -9,12 +9,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/04/2020
 ms.author: alkohli
-#Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge device using APIs so that I can efficiently manage my VMs.
+#Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge Pro device using APIs so that I can efficiently manage my VMs.
 ---
 
-# Deploy VMs on your Azure Stack Edge GPU device via templates
+# Deploy VMs on your Azure Stack Edge Pro GPU device via templates
 
-This tutorial describes how to create and manage a VM on your Azure Stack Edge device using templates. These templates are JavaScript Object Notation (JSON) files that define the infrastructure and configuration for your VM. In these templates, you specify the resources to deploy and the properties for those resources.
+This tutorial describes how to create and manage a VM on your Azure Stack Edge Pro device using templates. These templates are JavaScript Object Notation (JSON) files that define the infrastructure and configuration for your VM. In these templates, you specify the resources to deploy and the properties for those resources.
 
 Templates are flexible in different environments as they can take parameters as input at runtime from a file. The standard naming structure is `TemplateName.json` for the template and `TemplateName.parameters.json` for the parameters file. For more information on ARM templates, go to [What are Azure Resource Manager templates?](../azure-resource-manager/templates/overview.md).
 
@@ -22,7 +22,7 @@ In this tutorial, we’ll use pre-written sample templates for creating resource
 
 ## VM deployment workflow
 
-To deploy Azure Stack Edge VMs across many device, you can use a single sysprepped VHD for your full fleet, the same template for deployment, and just make minor changes to the parameters to that template for each deployment location (these changes could be by hand as we’re doing here, or programmatic.) 
+To deploy Azure Stack Edge Pro VMs across many device, you can use a single sysprepped VHD for your full fleet, the same template for deployment, and just make minor changes to the parameters to that template for each deployment location (these changes could be by hand as we’re doing here, or programmatic.) 
 
 The high level summary of the deployment workflow using templates is as follows:
 
@@ -54,13 +54,13 @@ The high level summary of the deployment workflow using templates is as follows:
 
 ## Device prerequisites
 
-Configure these prerequisites on your Azure Stack Edge device.
+Configure these prerequisites on your Azure Stack Edge Pro device.
 
 [!INCLUDE [azure-stack-edge-gateway-deploy-virtual-machine-prerequisites](../../includes/azure-stack-edge-gateway-deploy-virtual-machine-prerequisites.md)]
 
 ## Client prerequisites
 
-Configure these prerequisites on your client that will be used to access the Azure Stack Edge device.
+Configure these prerequisites on your client that will be used to access the Azure Stack Edge Pro device.
 
 1. [Download Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) if you are using it to upload a VHD. Alternatively, you can download AzCopy to upload a VHD. You may need to configure TLS 1.2 on your client machine if running older versions of AzCopy. 
 1. [Download the VM templates and parameters files](https://aka.ms/ase-vm-templates) to your client machine. Unzip it into a directory you’ll use as a working directory.
@@ -105,7 +105,7 @@ New-AzureRmStorageAccount -Name <Storage account name> -ResourceGroupName <Resou
 ```
 
 > [!NOTE]
-> Only the local storage accounts such as Locally redundant storage (Standard_LRS or Premium_LRS) can be created via Azure Resource Manager. To create tiered storage accounts, see the steps in [Add, connect to storage accounts on your Azure Stack Edge](azure-stack-edge-j-series-deploy-add-storage-accounts.md).
+> Only the local storage accounts such as Locally redundant storage (Standard_LRS or Premium_LRS) can be created via Azure Resource Manager. To create tiered storage accounts, see the steps in [Add, connect to storage accounts on your Azure Stack Edge Pro](azure-stack-edge-j-series-deploy-add-storage-accounts.md).
 
 A sample output is shown below.
 
@@ -142,7 +142,7 @@ Make sure that you have already added the blob URI in hosts file for the client 
 
 `<Device IP> <storage account name>.blob.<Device name>.<DNS domain>`
 
-In a typical environment, you would have your DNS configured so that all storage accounts would point to the Azure Stack Edge device with a `*.blob.devicename.domainname.com` entry.
+In a typical environment, you would have your DNS configured so that all storage accounts would point to the Azure Stack Edge Pro device with a `*.blob.devicename.domainname.com` entry.
 
 ### (Optional) Install certificates
 
@@ -212,7 +212,7 @@ Copy any disk images to be used into page blobs in the local storage account tha
 
 <!--### Use AzCopy for upload
 
-Before you use AzCopy, make sure that the [AzCopy is configured correctly](#configure-azcopy) for use with the blob storage REST API version that you are using with your Azure Stack Edge device.
+Before you use AzCopy, make sure that the [AzCopy is configured correctly](#configure-azcopy) for use with the blob storage REST API version that you are using with your Azure Stack Edge Pro device.
 
 
 ```powershell
@@ -266,7 +266,7 @@ The file `CreateImageAndVnet.parameters.json` takes the following parameters:
     }
 ```
 
-Edit the file `CreateImageAndVnet.parameters.json` to include the following for your Azure Stack Edge device:
+Edit the file `CreateImageAndVnet.parameters.json` to include the following for your Azure Stack Edge Pro device:
 
 1. Provide the OS type corresponding to the VHD you will upload. The OS type can be Windows or Linux.
 
@@ -338,7 +338,7 @@ Edit the file `CreateImageAndVnet.parameters.json` to include the following for 
 Deploy the template `CreateImageAndVnet.json`. This template deploys the VNet and image resources that will be used to create VMs in the later step.
 
 > [!NOTE]
-> When you deploy the template if you get an authentication error, your Azure credentials for this session may have expired. Rerun the `login-AzureRM` command to connect to Azure Resource Manager on your Azure Stack Edge device again.
+> When you deploy the template if you get an authentication error, your Azure credentials for this session may have expired. Rerun the `login-AzureRM` command to connect to Azure Resource Manager on your Azure Stack Edge Pro device again.
 
 1. Run the following command: 
     
@@ -434,7 +434,7 @@ To create a VM, use the `CreateVM.parameters.json` parameter file. It takes the 
         }
 ```    
 
-Assign appropriate parameters in `CreateVM.parameters.json` for your Azure Stack Edge device.
+Assign appropriate parameters in `CreateVM.parameters.json` for your Azure Stack Edge Pro device.
 
 1. Provide a unique name, network interface name, and ipconfig name. 
 1. Enter a username, password, and a supported VM size.
@@ -591,7 +591,7 @@ Follow these steps to connect to a Linux VM.
 
 <!--## Manage VM
 
-The following section describes some of the common operations around the VM that you will create on your Azure Stack Edge device.
+The following section describes some of the common operations around the VM that you will create on your Azure Stack Edge Pro device.
 
 [!INCLUDE [azure-stack-edge-gateway-manage-vm](../../includes/azure-stack-edge-gateway-manage-vm.md)]-->
 
@@ -606,9 +606,9 @@ Extensions, scale sets, availability sets, snapshots are not supported.
 
 <!--## Configure AzCopy
 
-When you install the latest version of AzCopy, you will need to configure AzCopy to ensure that it matches the blob storage REST API version of your Azure Stack Edge device.
+When you install the latest version of AzCopy, you will need to configure AzCopy to ensure that it matches the blob storage REST API version of your Azure Stack Edge Pro device.
 
-On the client used to access your Azure Stack Edge device, set up a global variable to match the blob storage REST API version.
+On the client used to access your Azure Stack Edge Pro device, set up a global variable to match the blob storage REST API version.
 
 ### On Windows client 
 

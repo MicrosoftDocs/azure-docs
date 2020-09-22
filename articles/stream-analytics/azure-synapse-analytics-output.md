@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 08/25/2020
 ---
 
-# Azure Synapse Analytics output from Azure Stream Analytics (Preview)
+# Azure Synapse Analytics output from Azure Stream Analytics
 
 [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) (formerly SQL Data Warehouse) is a limitless analytics service that brings together enterprise data warehousing and Big Data analytics. 
 
@@ -39,4 +39,4 @@ The following table lists the property names and their descriptions for creating
 * [Quickstart: Create an Azure Stream Analytics job by using an ARM template](quick-create-azure-resource-manager.md)
 * [Quickstart: Create a Stream Analytics job using Azure PowerShell](stream-analytics-quick-create-powershell.md)
 * [Quickstart: Create an Azure Stream Analytics job by using Visual Studio](stream-analytics-quick-create-vs.md)
-* [Quickstart: Create an Azure Stream Analytics job in Visual Studio Code](quick-create-vs-code.md)
+* [Quickstart: Create an Azure Stream Analytics job in Visual Studio Code](quick-create-visual-studio-code.md)
