@@ -65,15 +65,15 @@ You typically deploy a web project with the `customErrors` flag in the Web.confi
 
 **Server Error in '/' Application:**
 
-![Unhelpful error page](./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror.png)
+:::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror.png" alt-text="Screenshot showing a Server Error in '/' Application error in a web browser.":::
 
 **An error occurred:**
 
-![Unhelpful error page](./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror1.png)
+:::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror1.png" alt-text="Screenshot showing an example of a generic error occurring in a web browser.":::
 
 **The website cannot display the page**
 
-![Unhelpful error page](./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror2.png)
+:::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror2.png" alt-text="Screenshot showing a The website cannot display the page error in a web browser.":::
 
 Frequently the easiest way to find the cause of the error is to enable detailed error messages, which the first of the preceding screenshots explains how to do. That requires a change in the deployed Web.config file. You could edit the *Web.config* file in the project and redeploy the project, or create a [Web.config transform](https://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations) and deploy a debug build, but there's a quicker way: in **Solution Explorer**, you can directly view and edit files in the remote app by using the *remote view* feature.
 
@@ -134,7 +134,7 @@ This section shows how to debug remotely using the project you create in [Create
 
 1. In **Server Explorer**, right-click your app, and then click **Attach Debugger**.
 
-    ![Attach debugger](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-attachdebugger.png)
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-attachdebugger.png" alt-text="Screenshot of the Server Explorer window showing an app selected and then clicking Attach Debugger.":::
 
     The browser automatically opens to your home page running in Azure. You might have to wait 20 seconds or so while Azure sets up the server for debugging. This delay only happens the first time you run in debug mode on an app in a 48-hour period. When you start debugging again in the same period, there isn't a delay.
 
@@ -187,7 +187,7 @@ Remote debugging only works with continuous WebJobs. Scheduled and on-demand Web
 
 8. Click **Attach Debugger**.
 
-    ![Attach debugger](./media/web-sites-dotnet-troubleshoot-visual-studio/wjattach.png)
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/wjattach.png" alt-text="Screenshot of Server Explorer showing ContosoAdsWebJob selected in the drop-down menu and Attach Debugger selected.":::
 
     The browser automatically opens to your home page running in Azure. You might have to wait 20 seconds or so while Azure sets up the server for debugging. This delay only happens the first time you run in debug mode on an app in a 48-hour period. When you start debugging again in the same period, there isn't a delay.
 
@@ -335,11 +335,11 @@ The `WebPageTraceListener` lets you view trace output by browsing to `/trace.axd
 1. In the address bar of the browser window, add *trace.axd* to the URL, and then press Enter (the URL is similar to `http://localhost:53370/trace.axd`).
 1. On the **Application Trace** page, click **View Details** on the first line (not the BrowserLink line).
 
-    ![trace.axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd1.png)
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd1.png" alt-text="Screenshot of the Application Trace page in a web browser showing View Details selected on the first line.":::
 
     The **Request Details** page appears, and in the **Trace Information** section you see the output from the trace statements that you added to the `Index` method.
 
-    ![trace.axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd2.png)
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd2.png" alt-text="Screenshot of the Request Details page in a web browser showing a message highlighted in the Trace Information section.":::
 
     By default, `trace.axd` is only available locally. If you wanted to make it available from a remote app, you could add `localOnly="false"` to the `trace` element in the *Web.config* file, as shown in the following example:
 
@@ -356,11 +356,12 @@ The `WebPageTraceListener` lets you view trace output by browsing to `/trace.axd
     After Visual Studio publishes your update, it opens a browser window to your home page (assuming you didn't clear **Destination URL** on the **Connection** tab).
 3. In **Server Explorer**, right-click your app and select **View Streaming Logs**.
 
-    ![View Streaming Logs in context menu](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-viewlogsmenu.png)
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-viewlogsmenu.png" alt-text="Screenshot of Server Explorer after right-clicking your app, with View Streaming Logs selected in a new window.":::
 
     The **Output** window shows that you are connected to the log-streaming service, and adds a notification line each minute that goes by without a log to display.
 
-    ![View Streaming Logs in context menu](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-nologsyet.png)
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-nologsyet.png" alt-text="Screenshot of the Output window showing an example of a connection to a log-streaming service with notification lines.":::
+
 4. In the browser window that shows your application home page, click **Contact**.
 
     Within a few seconds, the output from the error-level trace you added to the `Contact` method appears in the **Output** window.
@@ -388,7 +389,7 @@ The `WebPageTraceListener` lets you view trace output by browsing to `/trace.axd
 ### Output window features
 The **Microsoft Azure Logs** tab of the **Output** Window has several buttons and a text box:
 
-![Logs tab buttons](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-icons.png)
+:::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-icons.png" alt-text="Screenshot showing the buttons and text box of the Microsoft Azure Logs tab in the Output window.":::
 
 These perform the following functions:
 
@@ -452,14 +453,15 @@ Any logs that you can monitor in the **Output** window can also be downloaded as
 
 1. In the **Output** window, click **Download Streaming Logs**.
 
-    ![Logs tab buttons](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-downloadicon.png)
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-downloadicon.png" alt-text="Screenshot of the Output window showing the Download Streaming Logs button highlighted.":::
 
     File Explorer opens to your *Downloads* folder with the downloaded file selected.
 
-    ![Downloaded file](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-downloadedfile.png)
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-downloadedfile.png" alt-text="Screenshot of the Downloads folder in File Explorer with a downloaded file selected.":::
+
 2. Extract the *.zip* file, and you see the following folder structure:
 
-    ![Downloaded file](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-logfilefolders.png)
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-logfilefolders.png" alt-text="Screenshot of the .zip file folder structure after the file has been extracted.":::
 
    * Application tracing logs are in *.txt* files in the *LogFiles\Application* folder.
    * Web server logs are in *.log* files in the *LogFiles\http\RawLogs* folder. You can use a tool such as [Log Parser](https://www.microsoft.com/download/details.aspx?displaylang=en&id=24659) to view and manipulate these files.

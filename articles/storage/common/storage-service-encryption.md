@@ -5,7 +5,7 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.date: 08/24/2020
+ms.date: 09/14/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
@@ -52,6 +52,14 @@ The following table compares key management options for Azure Storage encryption
 
 > [!NOTE]
 > Microsoft-managed keys are rotated appropriately per compliance requirements. If you have specific key rotation requirements, Microsoft recommends that you move to customer-managed keys so that you can manage and audit the rotation yourself.
+
+## Doubly encrypt data with infrastructure encryption
+
+Customers who require high levels of assurance that their data is secure can also enable 256-bit AES encryption at the Azure Storage infrastructure level. When infrastructure encryption is enabled, data in a storage account is encrypted twice &mdash; once at the service level and once at the infrastructure level &mdash; with two different encryption algorithms and two different keys. Double encryption of Azure Storage data protects against a scenario where one of the encryption algorithms or keys may be compromised. In this scenario, the additional layer of encryption continues to protect your data.
+
+Service-level encryption supports the use of either Microsoft-managed keys or customer-managed keys with Azure Key Vault. Infrastructure-level encryption relies on Microsoft-managed keys and always uses a separate key.
+
+For more information about how to create a storage account that enables infrastructure encryption, see [Create a storage account with infrastructure encryption enabled for double encryption of data](infrastructure-encryption-enable.md).
 
 ## Encryption scopes for Blob storage (preview)
 
