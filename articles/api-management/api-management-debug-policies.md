@@ -43,7 +43,7 @@ This feature is only available in the Developer tier of API Management. Each API
 
 At this point, the extension will try to initiate and establish a debugging session with the API Management gateway.
 
-![initiate debugging](media/api-management-debug-policies/initiate-debugging.png)
+![initiate debugging](media/api-management-debug-policies/initiate-debugging-session.png)
 
 ## Send a test request
 When the debugging session is established, the extension will open a new editor that allows us to create and send a test HTTP request to this operation leveraging the [REST Client extension](https://marketplace.visualstudio.com/items?itemName=humao.rest-client).
