@@ -69,9 +69,9 @@ Metrics having to do with billing:
 
 | Metric | Metric display name | Unit | Aggregation type| Description | Dimensions |
 | --- | --- | --- | --- | --- | --- |
-| BillingApiOperations | Billing API Operations (Preview) | Count | Total | Billing metric for the count of all API requests made against the Azure Digital Twins service. | Meter Id |
-| BillingMessagesProcessed | Billing Messages Processed (Preview) | Count | Total | Billing metric for the number of messages sent out from Azure Digital Twins to external endpoints. | Meter Id |
-| BillingQueryUnits | Billing Query Units (Preview) | Count | Total | The number of Query Units, an internally computed measure of service resource usage, consumed to execute queries. There is also a helper API available for measuring Query Units: [QueryChargeHelper Class](https://docs.microsoft.com/dotnet/api/azure.digitaltwins.core.querychargehelper?view=azure-dotnet-preview&preserve-view=true) | Meter Id |
+| BillingApiOperations | Billing API Operations (Preview) | Count | Total | Billing metric for the count of all API requests made against the Azure Digital Twins service. | Meter ID |
+| BillingMessagesProcessed | Billing Messages Processed (Preview) | Count | Total | Billing metric for the number of messages sent out from Azure Digital Twins to external endpoints. | Meter ID |
+| BillingQueryUnits | Billing Query Units (Preview) | Count | Total | The number of Query Units, an internally computed measure of service resource usage, consumed to execute queries. There is also a helper API available for measuring Query Units: [QueryChargeHelper Class](https://docs.microsoft.com/dotnet/api/azure.digitaltwins.core.querychargehelper?view=azure-dotnet-preview&preserve-view=true) | Meter ID |
 
 #### Ingress metrics
 
