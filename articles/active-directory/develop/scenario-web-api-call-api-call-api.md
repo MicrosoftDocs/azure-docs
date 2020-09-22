@@ -17,7 +17,7 @@ ms.custom: aaddev
 
 # A web API that calls web APIs: Call an API
 
-After you have a token, you can call a protected web API. You do this from the controller of your web API.
+After you have a token, you can call a protected web API. You usually call the downstream APIs from the controller or pages of your web API.
 
 ## Controller code
 
@@ -25,7 +25,7 @@ After you have a token, you can call a protected web API. You do this from the c
 
 When you use Microsoft.Identity.Web, you have three cases:
 
-1. you want to call Microsoft.Graph. In that case you have added `AddMicrosoftGraph` in the Startup.cs, and you can directly inject the `GraphServiceClient` in your controller's or page constructor, and use it in the actions. Below is an example of a Razor page which displays the photo of the signed-in user.
+1. you want to call Microsoft.Graph. In that case you have added `AddMicrosoftGraph` in the Startup.cs, and you can directly inject the `GraphServiceClient` in your controller's or page constructor, and use it in the actions. Below is an example of a Razor page, which displays the photo of the signed-in user.
 
    ```CSharp
     [Authorize]
@@ -106,7 +106,7 @@ When you use Microsoft.Identity.Web, you have three cases:
     }
    ```
 
-1. you have decided to acquire a token yourself using the `ITokenAcquisition` service, and you now need to use it. In that case, the following code continues the example code that's shown in [A web API that calls web APIs: Acquire a token for the app](scenario-web-api-call-api-acquire-token.md). The code is called in the actions of the API controllers. It calls a downstream API named *todolist*.
+1. You've decided to acquire a token yourself using the `ITokenAcquisition` service, and you now need to use it. In that case, the following code continues the example code that's shown in [A web API that calls web APIs: Acquire a token for the app](scenario-web-api-call-api-acquire-token.md). The code is called in the actions of the API controllers. It calls a downstream API named *todolist*.
 
    After you've acquired the token, use it as a bearer token to call the downstream API.
 
@@ -147,7 +147,7 @@ private String callMicrosoftGraphMeEndpoint(String accessToken){
 ```
 
 # [Python](#tab/python)
-A sample demonstrating this flow with MSAL Python is not yet available.
+A sample demonstrating this flow with MSAL Python isn't yet available.
 
 ---
 
