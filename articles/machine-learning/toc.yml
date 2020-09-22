@@ -206,7 +206,9 @@
         - name: Secure coding
           href: concept-secure-code-best-practice.md
           displayName: security threat
-        
+        - name: Audit and manage compliance
+          href: how-to-integrate-azure-policy.md
+          displayName: policy
         
     - name: Responsible ML
       items: 
