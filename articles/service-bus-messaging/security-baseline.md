@@ -119,7 +119,7 @@ If required for investigating anomalous activity, enable Network Watcher packet 
 
 - [Understand and use Service Tags](../virtual-network/service-tags-overview.md)
 
-**Azure Security Center monitoring**: Not currently available
+**Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -260,7 +260,7 @@ You may use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-**Azure Security Center monitoring**: Not currently available
+**Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -566,7 +566,7 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 - [Understand customer data protection in Azure](../security/fundamentals/protection-customer-data.md)
 
-**Azure Security Center monitoring**: Not currently available
+**Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Shared
 
@@ -862,7 +862,7 @@ Microsoft anti-malware is enabled on the underlying host that supports Azure ser
 
 - [Understand geo-disaster recovery for Azure Service Bus](service-bus-geo-dr.md)
 
-**Azure Security Center monitoring**: Not currently available
+**Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
