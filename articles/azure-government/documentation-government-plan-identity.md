@@ -64,7 +64,7 @@ Supporting IaaS cloud-based applications dependent on NTLM/Kerberos authenticati
 <div></div>
 <div align="center">
 
-![alt text](./media/documentation-government-plan-identity-extending-ad-to-azure-iaas.png "Extending On-Premises Active Directory Footprint to Azure IaaS")
+![Diagram shows a site-to-site VPN connectivity example for Azure IaaS.](./media/documentation-government-plan-identity-extending-ad-to-azure-iaas.png "Extending On-Premises Active Directory Footprint to Azure IaaS")
 
 </div>
 <div></div>
@@ -111,7 +111,7 @@ The following diagram is the simplest of the scenarios to implement.
 <div></div>
 <div align="center">
 
-![alt text](./media/documentation-government-plan-identity-cloud-identities-for-subscription-administration.png "Using Cloud Identities for Multi-Cloud Subscription Administration")
+![Diagram shows a multi-cloud subscription administration option using cloud identities for Office 365 and Microsoft Azure Government.](./media/documentation-government-plan-identity-cloud-identities-for-subscription-administration.png "Using Cloud Identities for Multi-Cloud Subscription Administration")
 
 </div>
 <div></div>
@@ -129,7 +129,7 @@ In this scenario, we include administrator identities through directory synchron
 <div></div>
 <div align="center">
 
-![alt text](./media/documentation-government-plan-identity-hybrid-and-cloud-identities-for-subscription-administration.png "Using Hybrid and Cloud Identities for Multi-Cloud Subscription Administration")
+![Diagram shows a scenario for hybrid and cloud identities for multi-cloud subscription administration using smartcards for access.](./media/documentation-government-plan-identity-hybrid-and-cloud-identities-for-subscription-administration.png "Using Hybrid and Cloud Identities for Multi-Cloud Subscription Administration")
 
 </div>
 <div></div>
@@ -145,7 +145,7 @@ In this scenario, hybrid identities are used to administrator subscriptions in b
 <div></div>
 <div align="center">
 
-![alt text](./media/documentation-government-plan-identity-hybrid-identities-for-subscription-administration.png "Using Hybrid Identities for Multi-Cloud Subscription Administration")
+![Diagram shows a scenario with hybrid identities for multi-cloud subscription administration, requiring different credentials for each cloud service.](./media/documentation-government-plan-identity-hybrid-identities-for-subscription-administration.png "Using Hybrid Identities for Multi-Cloud Subscription Administration")
 
 </div>
 <div></div>

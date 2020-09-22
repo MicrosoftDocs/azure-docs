@@ -1,7 +1,7 @@
 ---
 title: Cross-tenant management experiences
 description: Azure delegated resource management enables a cross-tenant management experience.
-ms.date: 09/10/2020
+ms.date: 09/22/2020
 ms.topic: conceptual
 ---
 
@@ -43,13 +43,13 @@ Most tasks and services can be performed on delegated resources across managed t
 
 [Azure Arc](../../azure-arc/index.yml):
 
-- Manage hybrid servers at scale - [Azure Arc for servers (preview)](../../azure-arc/servers/overview.md):
-  - [Connect Windows Server or Linux machines outside Azure](../../azure-arc/servers/onboard-portal.md) to delegated subscriptions and/or resource groups in Azure
+- Manage hybrid servers at scale - [Azure Arc enabled servers](../../azure-arc/servers/overview.md):
+  - [Manage Windows Server or Linux machines outside Azure that are connected](../../azure-arc/servers/onboard-portal.md) to delegated subscriptions and/or resource groups in Azure
   - Manage connected machines using Azure constructs, such as Azure Policy and tagging
   - Ensure the same set of policies are applied across customers' hybrid environments
   - Use Azure Security Center to monitor compliance across customers' hybrid environments
 - Manage hybrid Kubernetes clusters at scale - [Azure Arc enabled Kubernetes (preview)](../../azure-arc/kubernetes/overview.md):
-  - [Connect a Kubernetes cluster to Azure Arc](../../azure-arc/kubernetes/connect-cluster.md) to delegated subscriptions and/or resource groups in Azure
+  - [Manage Kubernetes clusters that are connected](../../azure-arc/kubernetes/connect-cluster.md) to delegated subscriptions and/or resource groups in Azure
   - [Use GitOps](../../azure-arc/kubernetes/use-gitops-connected-cluster.md) for connected clusters
   - Enforce policies across connected clusters
 
@@ -77,6 +77,7 @@ Most tasks and services can be performed on delegated resources across managed t
 - View activity log details for delegated subscriptions
 - Log analytics: Query data from remote workspaces in multiple tenants
 - Create alerts in customer tenants that trigger automation, such as Azure Automation runbooks or Azure Functions, in the managing tenant through webhooks
+- Create diagnostic settings in customer tenants to send resource logs to workspaces in the managing tenant
 - For SAP workloads, [monitor SAP Solutions metrics with an aggregated view across customer tenants](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/using-azure-lighthouse-and-azure-monitor-for-sap-solutions-to/ba-p/1537293)
 
 [Azure Networking](../../networking/networking-overview.md):

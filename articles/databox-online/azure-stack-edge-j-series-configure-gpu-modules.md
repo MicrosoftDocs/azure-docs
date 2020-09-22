@@ -1,6 +1,6 @@
 ---
-title: Run a GPU module on Microsoft Azure Stack Edge GPU device| Microsoft Docs
-description: Describes how to configure and run a module on GPU on an Azure Stack Edge device via the Azure portal.
+title: Run a GPU module on Microsoft Azure Stack Edge Pro GPU device| Microsoft Docs
+description: Describes how to configure and run a module on GPU on an Azure Stack Edge Pro device via the Azure portal.
 services: databox
 author: alkohli
 
@@ -10,22 +10,22 @@ ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: alkohli
 ---
-# Configure and run a module on GPU on Azure Stack Edge device
+# Configure and run a module on GPU on Azure Stack Edge Pro device
 
-Your Azure Stack Edge device contains one or more Graphics Processing Unit (GPU). GPUs are a popular choice for AI computations as they offer parallel processing capabilities and are faster at image rendering than Central Processing Units (CPUs). For more information on the GPU contained in your Azure Stack Edge device, go to [Azure Stack Edge device technical specifications](azure-stack-edge-gpu-technical-specifications-compliance.md).
+Your Azure Stack Edge Pro device contains one or more Graphics Processing Unit (GPU). GPUs are a popular choice for AI computations as they offer parallel processing capabilities and are faster at image rendering than Central Processing Units (CPUs). For more information on the GPU contained in your Azure Stack Edge Pro device, go to [Azure Stack Edge Pro device technical specifications](azure-stack-edge-gpu-technical-specifications-compliance.md).
 
-This article describes how to configure and run a module on the GPU on your Azure Stack Edge device. In this article, you will use a publicly available container module **Digits** written for Nvidia T4 GPUs. This procedure can be used to configure any other modules published by Nvidia for these GPUs.
+This article describes how to configure and run a module on the GPU on your Azure Stack Edge Pro device. In this article, you will use a publicly available container module **Digits** written for Nvidia T4 GPUs. This procedure can be used to configure any other modules published by Nvidia for these GPUs.
 
 
 ## Prerequisites
 
 Before you begin, make sure that:
 
-1. You've access to a GPU enabled 1-node Azure Stack Edge device. This device is activated with a resource in Azure.  
+1. You've access to a GPU enabled 1-node Azure Stack Edge Pro device. This device is activated with a resource in Azure.  
 
 ## Configure module to use GPU
 
-To configure a module to use the GPU on your Azure Stack Edge device to run a module, follow these steps.
+To configure a module to use the GPU on your Azure Stack Edge Pro device to run a module, follow these steps.
 
 1. In the Azure portal, go to the resource associated with your device. 
 
@@ -49,7 +49,7 @@ To configure a module to use the GPU on your Azure Stack Edge device to run a mo
 
     ![Configure module to use GPU 6](media/azure-stack-edge-j-series-configure-gpu-modules/configure-gpu-2.png)
 
-    In the right pane, you see the IoT Edge device associated with your Azure Stack Edge device. This corresponds to the IoT Edge device you created in the previous step when creating the IoT Hub resource. 
+    In the right pane, you see the IoT Edge device associated with your Azure Stack Edge Pro device. This corresponds to the IoT Edge device you created in the previous step when creating the IoT Hub resource. 
     
 6. Select this IoT Edge device.
 

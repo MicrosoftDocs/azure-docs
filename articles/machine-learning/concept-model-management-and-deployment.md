@@ -179,7 +179,7 @@ There is no universal answer to "How do I know if I should retrain?" but Azure M
 - Compare the outputs of your new model to those of your old model
 - Use predefined criteria to choose whether to replace your old model 
 
-A theme of the above steps is that your retraining should be automated, not ad hoc. [Azure Machine Learning pipelines](concept-ml-pipelines.md) are a good answer for creating workflows relating to data preparation, training, validation, and deployment. Read [Retrain models with Azure Machine Learning designer (preview)](how-to-retrain-designer.md) to see how pipelines and the Azure Machine Learning designer fit into a retraining scenario. 
+A theme of the above steps is that your retraining should be automated, not ad hoc. [Azure Machine Learning pipelines](concept-ml-pipelines.md) are a good answer for creating workflows relating to data preparation, training, validation, and deployment. Read [Retrain models with Azure Machine Learning designer](how-to-retrain-designer.md) to see how pipelines and the Azure Machine Learning designer fit into a retraining scenario. 
 
 ## Automate the ML lifecycle 
 

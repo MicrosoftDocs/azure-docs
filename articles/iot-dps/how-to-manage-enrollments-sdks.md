@@ -15,7 +15,7 @@ A *device enrollment* creates a record of a single device or a group of devices 
 
 ## Prerequisites
 * Obtain the connection string from your Device Provisioning Service instance.
-* Obtain the device security artifacts for the [attestation mechanism](concepts-security.md#attestation-mechanism) used:
+* Obtain the device security artifacts for the [attestation mechanism](concepts-service.md#attestation-mechanism) used:
     * [**Trusted Platform Module (TPM)**](/azure/iot-dps/concepts-security#trusted-platform-module):
         * Individual enrollment: Registration ID and TPM Endorsement Key from a physical device or from TPM Simulator.
         * Enrollment group does not apply to TPM attestation.
