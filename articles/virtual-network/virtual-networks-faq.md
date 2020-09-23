@@ -275,7 +275,7 @@ Yes. You can peer VNets across subscriptions and across regions.
 ### Can I peer two VNets with matching or overlapping address ranges?
 No. Address spaces must not overlap to enable VNet Peering.
 
-### Can I peer a VNet to two different VNets with the the 'Use Remote Gateway' option enabled on the peering?
+### Can I peer a VNet to two different VNets with the the 'Use Remote Gateway' option enabled on both the peerings?
 No. You can only enable the 'Use Remote Gateway' option on one peering to one of the VNets.
 
 ### How much do VNet peering links cost?
