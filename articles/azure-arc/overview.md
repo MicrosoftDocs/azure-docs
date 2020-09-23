@@ -47,13 +47,13 @@ The following are pricing details for the features available today with Azure Ar
 
 Azure Arc control plane functionality is offered at no additional cost. This includes:
 
-* Resource organization through Azure management groups and Tagging
+* Resource organization through Azure management groups and tags.
 
-* Searching and indexing through Azure Resource Graph
+* Searching and indexing through Azure Resource Graph.
 
-* Access and security through RBAC and subscriptions
+* Access and security through RBAC and subscriptions.
 
-* Environments and automation through templates and extensions
+* Environments and automation through templates and extensions.
 
 * Update management
 
