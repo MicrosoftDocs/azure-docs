@@ -42,7 +42,7 @@ This article provides lists Azure Monitor articles that are either new or have b
 - [Usage analysis with Azure Application Insights](app/usage-overview.md) - Added video.
 
 ### Autoscale
-- [Get started with autoscale in Azure](platform/autoscale-get-started.md) - Added section on routing to healty instances for App Service.
+- [Get started with autoscale in Azure](platform/autoscale-get-started.md) - Added section on routing to healthy instances for App Service.
 
 ### Data collection
 - [Configure data collection for the Azure Monitor agent (preview)](platform/data-collection-rule-azure-monitor-agent.md) - New article.
