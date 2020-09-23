@@ -11,12 +11,12 @@ ms.custom: seo-python-october2019, cli-validate, devx-track-python
 
 In this quickstart, you deploy a Python web app to [App Service on Linux](overview.md#app-service-on-linux), Azure's highly scalable, self-patching web hosting service. You use the local [Azure command-line interface (CLI)](/cli/azure/install-azure-cli) on a Mac, Linux, or Windows computer. The web app you configure uses a free App Service tier, so you incur no costs in the course of this article.
 
+This article includes options for both Flask and Django web frameworks.
+
 > [!TIP]
 > If you prefer to deploy apps through an IDE, see **[Deploy Python apps to App Service from Visual Studio Code](/azure/developer/python/tutorial-deploy-app-service-on-linux-01)**.
 
 ## Set up your initial environment
-
-Before you begin, you must have the following:
 
 1. Have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 1. Install <a href="https://www.python.org/downloads/" target="_blank">Python 3.6 or higher</a>.
@@ -64,25 +64,39 @@ Once signed in, you can run Azure commands with the Azure CLI to work with resou
 
 ## Clone the sample
 
-Clone the sample repository with the following command. ([Install git](https://git-scm.com/downloads) if you don't have git already.)
+Clone the sample repository for Flask or Django using the following commands. ([Install git](https://git-scm.com/downloads) if you don't have git already.)
 
-```terminal
-git clone https://github.com/Azure-Samples/python-docs-hello-world
-```
+- **Flask**:
 
-Then navigate into that folder:
+    ```terminal
+    git clone https://github.com/Azure-Samples/python-docs-hello-world
+    ```
+    
+    Then navigate into that folder:
+    
+    ```terminal
+    cd python-docs-hello-world
+    ```
 
-```terminal
-cd python-docs-hello-world
-```
+- **Django**:
 
-The sample code contains an *app.py* file, which tells App Service that the code contains a Flask app. For more information, see [Container startup process](configure-language-python.md#container-startup-process).
+    ```terminal
+    git clone https://github.com/Azure-Samples/python-docs-hello-django
+    ```
+
+    Then navigate into that folder:
+    
+    ```terminal
+    cd python-docs-hello-django
+    ```
+
+Both samples contain framework-specific code that Azure App Service recognizes when starting the app. For more information, see [Container startup process](configure-language-python.md#container-startup-process).
 
 [Having issues? Let us know.](https://aka.ms/FlaskCLIQuickstartHelp)
 
 ## Run the sample
 
-1. Make sure you're in the *python-docs-hello-world* folder. 
+1. Make sure you're in the *python-docs-hello-world* folder (Flask) or the *python-docs-hello-django* folder (Django). 
 
 1. Create a virtual environment and install dependencies:
 
@@ -112,21 +126,45 @@ The sample code contains an *app.py* file, which tells App Service that the code
 
     ---    
 
-    If you encounter "[Errno 2] No such file or directory: 'requirements.txt'.", make sure you're in the *python-docs-hello-world* folder.
+    If you encounter "[Errno 2] No such file or directory: 'requirements.txt'.", make sure you're in the *python-docs-hello-world* folder (Flask) or the *python-docs-hello-django* folder (Django).
     
 1. Run the development server.
 
-    ```terminal  
-    flask run
-    ```
-    
-    By default, the server assumes that the app's entry module is in *app.py*, as used in the sample. If you're using a different module name, set the `FLASK_APP` environment variable to that module.
+    - **Flask**:
 
-1. Open a web browser and go to the sample app at `http://localhost:5000/`. The app displays the message **Hello, World!**.
+        ```terminal  
+        flask run
+        ```
+        
+        By default, the server assumes that the app's entry module is in *app.py*, as used in the sample. (If you use a different module name, set the `FLASK_APP` environment variable to that name.)
+
+    - **Django**:
+
+        # [Bash](#tab/bash)
+
+        ```bash
+        python3 manage.py runserver
+        ```
+    
+        # [PowerShell](#tab/powershell)
+    
+        ```powershell
+        py -3 manage.py runserver
+        ```
+    
+        # [Cmd](#tab/cmd)
+    
+        ```cmd
+        py -3 manage.py runserver
+        ```
+    
+        ---    
+
+1. Open a web browser and go to the sample app at `http://localhost:5000/` (for Flask) or `http://localhost:8000/` (for Django). The app displays the message **Hello, World!**.
 
     ![Run a sample Python app locally](./media/quickstart-python/run-hello-world-sample-python-app-in-browser-localhost.png)
     
-1. In your terminal window, press **Ctrl**+**C** to exit the Flask development server.
+1. In your terminal window, press **Ctrl**+**C** to exit the development server.
 
 [Having issues? Let us know.](https://aka.ms/FlaskCLIQuickstartHelp)
 
@@ -135,7 +173,7 @@ The sample code contains an *app.py* file, which tells App Service that the code
 Deploy the code in your local folder (*python-docs-hello-world*) using the `az webapp up` command:
 
 ```azurecli
-az webapp up --sku F1 -n <app-name>
+az webapp up --sku F1 --name <app-name>
 ```
 
 - If the `az` command isn't recognized, be sure you have the Azure CLI installed as described in [Set up your initial environment](#set-up-your-initial-environment).
@@ -143,7 +181,7 @@ az webapp up --sku F1 -n <app-name>
 - Replace `<app_name>` with a name that's unique across all of Azure (*valid characters are `a-z`, `0-9`, and `-`*). A good pattern is to use a combination of your company name and an app identifier.
 - The `--sku F1` argument creates the web app on the Free pricing tier. Omit this argument to use a faster premium tier, which incurs an hourly cost.
 - You can optionally include the argument `-l <location-name>` where `<location_name>` is an Azure region such as **centralus**, **eastasia**, **westeurope**, **koreasouth**, **brazilsouth**, **centralindia**, and so on. You can retrieve a list of allowable regions for your Azure account by running the [`az account list-locations`](/cli/azure/appservice#az-appservice-list-locations) command.
-- If you see the error, "Could not auto-detect the runtime stack of your app," make sure you're running the command in the *python-docs-hello-world* folder that contains the *requirements.txt* file. (See [Troubleshooting auto-detect issues with az webapp up](https://github.com/Azure/app-service-linux-docs/blob/master/AzWebAppUP/runtime_detection.md) (GitHub).)
+- If you see the error, "Could not auto-detect the runtime stack of your app," make sure you're running the command in the *python-docs-hello-world* folder (Flask) or the *python-docs-hello-django* folder (Django) that contains the *requirements.txt* file. (See [Troubleshooting auto-detect issues with az webapp up](https://github.com/Azure/app-service-linux-docs/blob/master/AzWebAppUP/runtime_detection.md) (GitHub).)
 
 The command may take a few minutes to complete. While running, it provides messages about creating the resource group, the App Service plan and hosting app, configuring logging, then performing ZIP deployment. It then gives the message, "You can launch the app at http://&lt;app-name&gt;.azurewebsites.net", which is the app's URL on Azure.
 
@@ -155,7 +193,7 @@ The command may take a few minutes to complete. While running, it provides messa
 
 ## Browse to the app
 
-Browse to the deployed application in your web browser at the URL `http://<app-name>.azurewebsites.net`.
+Browse to the deployed application in your web browser at the URL `http://<app-name>.azurewebsites.net`. It takes a few moments to start the app initially.
 
 The Python sample code is running a Linux container in App Service using a built-in image.
 
@@ -167,14 +205,24 @@ The Python sample code is running a Linux container in App Service using a built
 
 ## Redeploy updates
 
-In your favorite code editor, open *app.py* and update the `hello` function to match the following code. This code changes the displayed message and adds a `print` statement to generate logging output that you work with in the next section. 
+In this section, you make a small code change using your favorite editor and then redeploy the code to Azure. The code change includes a `print` statement to generate logging output that you work with in the next section.
 
-```python
-def hello():
-    print("Handling request to home page.")
-    return "Hello, Azure!"
-```
+- **Flask**: open *app.py* and update the `hello` function to match the following code. 
 
+    ```python
+    def hello():
+        print("Handling request to home page.")
+        return "Hello, Azure!"
+    ```
+
+- **Django**: open *hello/views.py* and update the `hello` function to match the following code.
+
+    ```python
+    def hello(request):
+        print("Handling request to home page.")
+        return HttpResponse("Hello, Azure!")
+    ```
+    
 Save your changes and exit the editor. 
 
 Redeploy the app using the `az webapp up` command again:
@@ -210,7 +258,7 @@ Refresh the app in the browser to generate console logs, which include messages 
 
 You can also inspect the log files from the browser at `https://<app-name>.scm.azurewebsites.net/api/logs/docker`.
 
-To stop log streaming at any time, type **Ctrl**+**C**.
+To stop log streaming at any time, press **Ctrl**+**C** in the terminal.
 
 [Having issues? Let us know.](https://aka.ms/FlaskCLIQuickstartHelp)
 
@@ -254,10 +302,10 @@ The `--no-wait` argument allows the command to return before the operation is co
 > [Tutorial: Python (Django) web app with PostgreSQL](tutorial-python-postgresql-app.md)
 
 > [!div class="nextstepaction"]
-> [Add user sign-in to a Python web app](../active-directory/develop/quickstart-v2-python-webapp.md)
+> [Configure Python app](configure-language-python.md)
 
 > [!div class="nextstepaction"]
-> [Configure Python app](configure-language-python.md)
+> [Add user sign-in to a Python web app](../active-directory/develop/quickstart-v2-python-webapp.md)
 
 > [!div class="nextstepaction"]
 > [Tutorial: Run Python app in custom container](tutorial-custom-container.md)
