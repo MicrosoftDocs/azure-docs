@@ -300,7 +300,7 @@ The configuration parameters described above apply to all blobs. Sometimes, you 
 
 <a name="DealingWithErrors"></a>
 
-## Resolve errors
+## Handle errors
 
 By default, the blob indexer stops as soon as it encounters a blob with an unsupported content type (for example, an image). You can of course use the `excludedFileNameExtensions` parameter to skip certain content types. However, you may need to index blobs without knowing all the possible content types in advance. To continue indexing when an unsupported content type is encountered, set the `failOnUnsupportedContentType` configuration parameter to `false`:
 

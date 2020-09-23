@@ -8,7 +8,7 @@ author: amotley
 ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/23/20202
+ms.date: 09/23/2020
 ---
 
 # Troubleshooting common indexer errors and warnings in Azure Cognitive Search
