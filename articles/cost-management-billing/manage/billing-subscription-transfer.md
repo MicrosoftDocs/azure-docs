@@ -42,7 +42,7 @@ Only the billing administrator of an account can transfer ownership of a subscri
 1. To approve the transfer request, the user selects the link in the email and follows the instructions. The user then selects a payment method that will be used to pay for the subscription. If the user doesn't have an Azure account, they have to sign up for a new account.  
    ![First subscription transfer web page](./media/billing-subscription-transfer/billing-accept-ownership-step1.png)
    ![Second subscription transfer web page](./media/billing-subscription-transfer/billing-accept-ownership-step2.png)
-   ![Second subscription transfer web page](./media/billing-subscription-transfer/billing-accept-ownership-step3.png)
+   ![Third subscription transfer web page](./media/billing-subscription-transfer/billing-accept-ownership-step3.png)
 1. Success! The subscription is now transferred.
 
 ## Transfer a subscription to another Azure AD tenant account
