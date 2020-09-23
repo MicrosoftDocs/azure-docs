@@ -113,6 +113,9 @@ This setting works with all browsers. However, to satisfy a device policy, like 
 | Windows Server 2008 R2 | Internet Explorer |
 | macOS | Chrome, Safari |
 
+> [!NOTE]
+> Edge 85+ requires the user to be signed in to the browser to properly pass device identity. Otherwise, it behaves like Chrome without the accounts extension. This sign-in might not occur automatically in a Hybrid Azure AD Join scenario. 
+
 #### Why do I see a certificate prompt in the browser
 
 On Windows 7, iOS, Android, and macOS Azure AD identifies the device using a client certificate that is provisioned when the device is registered with Azure AD.  When a user first signs in through the browser the user is prompted to select the certificate. The user must select this certificate before using the browser.

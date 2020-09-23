@@ -58,7 +58,6 @@ The following table lists some of the major Azure Machine Learning operations an
 | ---- |:----:|:----:|:----:|
 | Create workspace | ✓ | ✓ | |
 | Share workspace | ✓ | |  |
-| Upgrade workspace to Enterprise edition | ✓ | |
 | Create compute target | ✓ | ✓ | |
 | Attach compute target | ✓ | ✓ | |
 | Attach data stores | ✓ | ✓ | |
@@ -287,6 +286,10 @@ Scoring request details are stored in Application Insights. Application Insights
 >
 > Some of these actions appear in the **Activities** area of your workspace, but these notifications don't indicate who initiated the activity.
 
+### Vulnerability scanning
+
+Azure Security Center provides unified security management and advanced threat protection across hybrid cloud workloads. For Azure machine learning, you should enable scanning of your Azure Container Registry resource and Azure Kubernetes Service resources. See [Azure Container Registry image scanning by Security Center](https://docs.microsoft.com/azure/security-center/azure-container-registry-integration) and [Azure Kubernetes Services integration with Security Center](https://docs.microsoft.com/azure/security-center/azure-kubernetes-service-integration).
+
 ## Data flow diagrams
 
 ### Create workspace
@@ -357,6 +360,17 @@ Here are the details:
 * Telemetry is also pushed to the Microsoft/Azure subscription.
 
 [![Inference workflow](media/concept-enterprise-security/inferencing.png)](media/concept-enterprise-security/inferencing.png#lightbox)
+
+## Audit and manage compliance
+
+[Azure Policy](/azure/governance/policy) is a governance tool that allows you to ensure that Azure resources are compliant with your policies. With Azure Machine Learning, you can assign the following policies:
+
+* **Customer-managed key**: Audit or enforce whether workspaces must use a customer-managed key.
+* **Private link**: Audit whether workspaces use a private endpoint to communicate with a virtual network.
+
+For more information on Azure Policy, see the [Azure Policy documentation](/azure/governance/policy/overview).
+
+For more information on the policies specific to Azure Machine Learning, see [Audit and manage compliance with Azure Policy](how-to-integrate-azure-policy.md).
 
 ## Next steps
 

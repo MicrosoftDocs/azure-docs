@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 08/03/2020
+ms.date: 09/16/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -19,11 +19,6 @@ ms.collection: M365-identity-device-management
 
 Azure AD provides you with a central place to manage device identities.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Browse to **Azure Active Directory** > **Devices**.
-
-[![All devices view in the Azure portal](./media/device-management-azure-portal/all-devices-azure-portal.png)](./media/device-management-azure-portal/all-devices-azure-portal.png#lightbox)
-
 The **All devices** page enables you to:
 
 - Identify devices, including:
@@ -35,6 +30,13 @@ The **All devices** page enables you to:
 - Configure your device identity settings.
 - Enable or disable Enterprise State Roaming.
 - Review device-related audit logs
+
+[![All devices view in the Azure portal](./media/device-management-azure-portal/all-devices-azure-portal.png)](./media/device-management-azure-portal/all-devices-azure-portal.png#lightbox)
+
+You can access the devices portal using the following steps:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Browse to **Azure Active Directory** > **Devices**.
 
 ## Manage devices
 
@@ -143,6 +145,13 @@ You will now have the ability to **Add filters** to your **All devices** view.
 ## Configure device settings
 
 To manage device identities using the Azure AD portal, those devices need to be either [registered or joined](overview.md) to Azure AD. As an administrator, you can control the process of registering and joining devices by configuring the following device settings.
+
+You must be assigned one of the following roles to view or manage device settings in the Azure portal:
+
+- Global administrator
+- Cloud device administrator
+- Global reader
+- Directory reader
 
 ![Device settings related to Azure AD](./media/device-management-azure-portal/device-settings-azure-portal.png)
 
