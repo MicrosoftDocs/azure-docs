@@ -35,6 +35,8 @@ When you first deploy or provision a disk, the baseline performance tier for tha
 | 16 TiB | P70 | P80 |
 | 32 TiB | P80 | None |
 
+For billing information, see [Managed disk pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
+
 ## Restrictions
 
 - Currently only supported for premium SSDs.
