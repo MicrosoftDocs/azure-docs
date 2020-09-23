@@ -41,6 +41,8 @@
       href: cache-java-spring-boot-initializer-with-redis-cache.md
   - name: Create leaderboards
     href: cache-web-app-cache-aside-leaderboard.md
+  - name: Deploy a machine learning model 
+    href: cache-ml.md
   - name: Manage with Azure PowerShell
     href: cache-how-to-manage-redis-cache-powershell.md
   - name: Manage with Azure CLI
