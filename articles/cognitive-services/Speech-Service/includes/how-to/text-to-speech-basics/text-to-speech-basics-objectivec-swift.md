@@ -2,7 +2,7 @@
 author: v-demjoh
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/1/2020
+ms.date: 9/22/2020
 ms.author: v-demjoh
 ---
 

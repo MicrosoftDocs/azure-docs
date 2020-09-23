@@ -7,10 +7,6 @@ ms.date: 05/15/2020
 ms.author: v-demjoh
 ---
 
-## Prerequisites
-
-This article assumes that you have an Azure account and Speech service subscription. If you don't have an account and subscription, [try the Speech service for free](../../../get-started.md).
-
 ## Download and install
 
 #### [Windows Install](#tab/windowsinstall)

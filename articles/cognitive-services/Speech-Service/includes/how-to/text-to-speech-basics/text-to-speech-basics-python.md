@@ -6,10 +6,6 @@ ms.date: 03/25/2020
 ms.author: trbye
 ---
 
-## Prerequisites
-
-This article assumes that you have an Azure account and Speech service subscription. If you don't have an account and subscription, [try the Speech service for free](../../../get-started.md).
-
 ## Install the Speech SDK
 
 Before you can do anything, you'll need to install the Speech SDK.

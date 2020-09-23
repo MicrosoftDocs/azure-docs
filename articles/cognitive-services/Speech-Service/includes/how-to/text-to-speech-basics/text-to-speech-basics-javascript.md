@@ -7,10 +7,6 @@ ms.author: trbye
 ms.custom: devx-track-js
 ---
 
-## Prerequisites
-
-This article assumes that you have an Azure account and Speech service subscription. If you don't have an account and subscription, [try the Speech service for free](../../../get-started.md).
-
 ## Install the Speech SDK
 
 Before you can do anything, you'll need to install the <a href="https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk" target="_blank">Speech SDK for JavaScript <span class="docon docon-navigate-external x-hidden-focus"></span></a>. Depending on your platform, use the following instructions:
