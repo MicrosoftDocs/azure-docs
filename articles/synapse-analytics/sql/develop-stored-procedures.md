@@ -55,6 +55,14 @@ AS BEGIN
 END
 ```
 
+These procedures can be executed using `EXEC` statement where you can specify the procedure name and parameters:
+
+```sql
+EXEC drop_external_table_if_exists 'mytest';
+EXEC drop_external_file_format_if_exists 'mytest';
+EXEC drop_external_data_source_if_exists 'mytest';
+```
+
 SQL pool provides a simplified and streamlined stored procedure implementation. The biggest difference compared to SQL Server is that the stored procedure is not pre-compiled code. In data warehouses, the compilation time is small in comparison to the time it takes to run queries against large data volumes. It is more important to ensure the stored procedure code is correctly optimized for large queries. The goal is to save hours, minutes, and seconds, not milliseconds. It is therefore more helpful to think of stored procedures as containers for SQL logic.
 
 When SQL pool executes your stored procedure, the SQL statements are parsed, translated, and optimized at run time. During this process, each statement is converted into distributed queries. The SQL code that is executed against the data is different than the query submitted.
@@ -117,7 +125,18 @@ EXEC count_objects_by_date_created '2120-09-01', NULL
 ## Nesting stored procedures
 
 When stored procedures call other stored procedures, or execute dynamic SQL, then the inner stored procedure or code invocation is said to be nested.
+An example of nested proceure is shown in the following code:
 
+```sql
+CREATE PROCEDURE clean_up @name SYSNAME
+AS BEGIN
+    EXEC drop_external_table_if_exists @name;
+    EXEC drop_external_file_format_if_exists @name;
+    EXEC drop_external_data_source_if_exists @name;
+END
+```
+
+This procedure accepts a parameter that represents some name and then calls other procedures to drop the objects with this name.
 SQL pool supports a maximum of eight nesting levels. This capability is slightly different than SQL Server. The nest level in SQL Server is 32.
 
 The top-level stored procedure call equates to nest level 1.
