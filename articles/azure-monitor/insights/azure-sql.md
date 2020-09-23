@@ -6,7 +6,7 @@ ms.subservice: logs
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.date: 02/21/2020
+ms.date: 09/19/2020
 
 ms.reviewer: carlrab
 ---
@@ -227,6 +227,9 @@ AzureMetrics
 > - The output is a list of database resources that are above the storage_threshold within the time_range defined.
 
 #### Alert on Intelligent insights
+
+> [!IMPORTANT]
+> In case a database is performing well, and that no Intelligent Insights have been generated, this query will fail with an error message: Failed to resolve scalar expression named 'rootCauseAnalysis_s'. This behavior is expected for all cases where there exist no intelligent insights for the database.
 
 ```
 let alert_run_interval = 1h;
