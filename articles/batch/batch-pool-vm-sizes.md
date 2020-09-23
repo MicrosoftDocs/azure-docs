@@ -56,7 +56,7 @@ Batch pools in the Virtual Machine configuration support almost all VM sizes ([L
 | NDv2<sup>1</sup> | None - not yet available |
 | NV | All sizes |
 | NVv3<sup>1</sup> | All sizes |
-| NVv4 | None |
+| NVv4 | None - not yet available |
 | SAP HANA | None |
 
 <sup>1</sup> These VM series can be allocated in Batch pools in Virtual Machine configuration, but you must create a new Batch account and request a specific [quota increase](batch-quota-limit.md#increase-a-quota). This limitation will be removed once vCPU quota per VM series is fully supported for Batch accounts.
