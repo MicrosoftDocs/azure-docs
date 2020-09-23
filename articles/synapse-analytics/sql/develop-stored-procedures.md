@@ -24,7 +24,18 @@ To maintain the scale and performance of SQL pool, there are also some features 
 
 ## Stored procedures in SQL pool
 
-Stored procedures are a great way for encapsulating your SQL code and storing it close to your data in the data warehouse. Stored procedures help developers modularize their solutions by encapsulating the code into manageable units, facilitating greater reusability of code. Each stored procedure can also accept parameters to make them even more flexible.
+Stored procedures are a great way for encapsulating your SQL code and storing it close to your data in the data warehouse. Stored procedures help developers modularize their solutions by encapsulating the code into manageable units, facilitating greater reusability of code. Each stored procedure can also accept parameters to make them even more flexible. In the following example, you can see a procedure that drops an external table if it exisist in the database:
+
+```sql
+CREATE PROCEDURE drop_external_table_if_exists @name SYSNAME
+AS BEGIN
+    IF (0 <> (SELECT COUNT(*) FROM sys.external_tables WHERE name = @name))
+    BEGIN
+        DECLARE @drop_stmt NVARCHAR(200) = N'DROP EXTERNAL TABLE ' + @name; 
+        EXEC sp_executesql @tsql = @drop_stmt;
+    END
+END
+```
 
 SQL pool provides a simplified and streamlined stored procedure implementation. The biggest difference compared to SQL Server is that the stored procedure is not pre-compiled code. In data warehouses, the compilation time is small in comparison to the time it takes to run queries against large data volumes. It is more important to ensure the stored procedure code is correctly optimized for large queries. The goal is to save hours, minutes, and seconds, not milliseconds. It is therefore more helpful to think of stored procedures as containers for SQL logic.
 
