@@ -24,11 +24,12 @@ The $export command in Azure API for FHIR takes an optional _\_container_ parame
 
 Azure API for FHIR supports $export at the system, patient, and group level. For group export, we export all related resources but do not export the characteristics of the group.
 
-> [!Note] $export will export duplicate resources if the resource is in a compartment of more than one resource, or is in multiple groups.
+> [!Note] 
+> $export will export duplicate resources if the resource is in a compartment of more than one resource, or is in multiple groups.
 
 ## Next steps
 
-In this article, you learned how to export FHIR resources using $export command, including de-identified data. Next, you can configure your export data:
+In this article, you learned how to export FHIR resources using $export command. Next you can review our supported features
  
 >[!div class="nextstepaction"]
->[configure export data](configure-export-data.md)
+>[Supported features](fhir-features-supported.md)
