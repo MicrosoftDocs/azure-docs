@@ -34,7 +34,7 @@ resource utilization, allowing smaller indices etc.
 The number of vCores required for the coordinator node depends on your existing
 workload (write/read throughput). The coordinator node doesn't require as much
 RAM as worker nodes, but RAM allocation is determined based on vCore count (as
-described in the [Hyperscale configuration
+described in the [Hyperscale (Citus) configuration
 options](concepts-hyperscale-configuration-options.md)) so the vCore count is
 essentially the real decision.
 
@@ -51,7 +51,7 @@ Worker RAM: the best case would be providing enough memory that the majority of
 the working set fits in memory. The type of queries your application uses
 affect memory requirements. You can run EXPLAIN ANALYZE on a query to determine
 how much memory it requires. Remember that vCores and RAM are scaled together
-as described in the [Hyperscale configuration
+as described in the [Hyperscale (Citus) configuration
 options](concepts-hyperscale-configuration-options.md) article.
 
 ## Scale a Hyperscale (Citus) server group

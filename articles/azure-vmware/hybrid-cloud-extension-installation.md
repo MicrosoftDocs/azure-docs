@@ -1,13 +1,13 @@
 ---
-title: Install Hybrid Cloud Extension (HCX)
-description: Set up the VMware Hybrid Cloud Extension (HCX) solution for your Azure VMware Solution private cloud
+title: Install VMware HCX
+description: Set up the VMware HCX solution for your Azure VMware Solution private cloud
 ms.topic: how-to
 ms.date: 07/15/2020
 ---
 
 # Install HCX for Azure VMware Solution
 
-In this article, we walk through procedures for setting up the VMWare Hybrid Cloud Extension (HCX) solution for your Azure VMWare Solution private cloud. HCX enables migration of your VMware workloads to the cloud, and other connected sites through various built-in HCX supported migration types.
+In this article, we walk through procedures for setting up the VMWare HCX solution for your Azure VMWare Solution private cloud. HCX enables migration of your VMware workloads to the cloud, and other connected sites through various built-in HCX supported migration types.
 
 HCX Advanced, the default installation, supports up to three site connections (on-premises or cloud to cloud). If more than three site connections are required, customers have the option to enable the HCX Enterprise add-on through Support, which is currently in preview. HCX Enterprise carries additional charges for customers after general availability (GA) but provides [additional features](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/).
 
@@ -62,15 +62,15 @@ Infrastructure components must be running the required minimum version.
 
 ## Deploy the VMware HCX OVA on-premises
 
+1. Sign into the **HCX Manager** on x.x.x.9 port 443 with your vCenter credentials and the go to **Support**.
+
+1. Select the download link for the VMware HCX OVA file. 
+
 1. Sign in to Azure VMware Solution SDDC vCenter and select **HCX**.
 
    :::image type="content" source="media/hybrid-cloud-extension-installation/avs-vsphere-client.png" alt-text="Sign in to Azure VMware Solution SDDC vCenter and select HCX.":::
 
-1. Under **Administration**, select **System Updates** and then select **Request download link** to download the VMware HCX OVA file.
-
-   :::image type="content" source="media/hybrid-cloud-extension-installation/administration-updates.png" alt-text="Under Administration, select System Updates and then select Request download link to download the VMware HCX OVA file.":::
-
-1. Next, go to the on-premises vCenter and select an OVF template to deploy to your on-premises vCenter.  
+1. Go to the on-premises vCenter and select an OVF template to deploy to your on-premises vCenter.  
 
    :::image type="content" source="media/hybrid-cloud-extension-installation/select-template.png" alt-text="Next, go to the on-premises vCenter and select an OVF template to deploy to your on-premises vCenter.":::
 

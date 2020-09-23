@@ -32,7 +32,7 @@ The following list presents the set of features which are currently available in
 | Phone Number      | Toll-Free numbers                                                                     | ✔️   | ✔️    | ✔️    | ✔️      |
 | Regulatory        | Opt-Out Handling                                                                      | ✔️   | ✔️    | ✔️    | ✔️      |
 | Monitoring        | Monitor usage for messages sent and received                                          | ✔️   | ✔️    | ✔️    | ✔️      |
-| PSTN Calling      | Add PSTN calling capabilities to your SMS-enabled telephone number                    | ✔️   | ✔️    | ✔️    | ✔️      |
+| PSTN Calling      | Add PSTN calling capabilities to your SMS-enabled toll-free number (private preview)                    | ✔️   | ✔️    | ✔️    | ✔️      |
 
 ## Next steps
 
