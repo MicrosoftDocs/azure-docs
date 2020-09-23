@@ -82,6 +82,10 @@
   items:
   - name: REST API documentation
     href: https://docs.microsoft.com/rest/api/azure/
+  - name: Calling library (Android/Java)
+    href: https://docs.microsoft.com/java/api/com.azure.communication.calling?view=communication-services-java-android
+  - name: Calling library (JS)
+    href: https://docs.microsoft.com/javascript/api/azure-communication-services/@azure/communication-calling/?view=azure-communication-services-js
 - name: Resources
   items:
   - name: Release notes
