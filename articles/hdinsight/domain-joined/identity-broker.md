@@ -27,7 +27,7 @@ The following diagram shows the modern OAuth based authentication flow for all u
 
 ![Authentication flow with ID Broker](./media/identity-broker/identity-broker-architecture.png)
 
-In this diagram the client (i.e. browser or apps) need to acquire the OAuth token first and then present the token to gateway in an HTTP request. If you've already signed in to other Azure services, such as the Azure portal, you can sign in to your HDInsight cluster with a single sign-on (SSO) experience.
+In this diagram, the client (i.e. browser or apps) need to acquire the OAuth token first and then present the token to gateway in an HTTP request. If you've already signed in to other Azure services, such as the Azure portal, you can sign in to your HDInsight cluster with a single sign-on (SSO) experience.
 
 There still may be many legacy applications that only support basic authentication (i.e. username/password). For those scenarios, you can still use HTTP basic authentication to connect to the cluster gateways. In this setup, you must ensure network connectivity from the gateway nodes to the federation endpoint (ADFS endpoint) to ensure a direct line of sight from gateway nodes.
 
@@ -35,8 +35,8 @@ Use the following table to determine the best authentication option based on you
 
 |Authentication options |HDInsight Configuration | Factors to consider |
 |---|---|---|
-| Fully OAuth | ESP + HIB | 1.	Most Secure option (MFA is supported) 2.	Pass hash sync is NOT required. 3.	No ssh/kinit/keytab access for on-prem accounts which don't have password hash in AAD-DS. 4.	Cloud only accounts can still ssh/kinit/keytab. 5. Web based access to Ambari through Oauth 6.	Requires updating legacy apps (JDBC/ODBC, etc.) to support OAuth.|
-| OAuth + Basic Auth | ESP + HIB | 1. Web based access to Ambari through Oauth 2. Legacy apps continue to use basic auth. 3. MFA must be disabled for basic auth access. 4. Pass hash sync is NOT required. 5. No ssh/kinit/keytab access for on-prem accounts which don't have password hash in AAD-DS. 6. Cloud only accounts can still ssh/kinit. |
+| Fully OAuth | ESP + HIB | 1.	Most Secure option (MFA is supported) 2.	Pass hash sync is NOT required. 3.	No ssh/kinit/keytab access for on-prem accounts, which don't have password hash in AAD-DS. 4.	Cloud only accounts can still ssh/kinit/keytab. 5. Web-based access to Ambari through Oauth 6.	Requires updating legacy apps (JDBC/ODBC, etc.) to support OAuth.|
+| OAuth + Basic Auth | ESP + HIB | 1. Web-based access to Ambari through Oauth 2. Legacy apps continue to use basic auth. 3. MFA must be disabled for basic auth access. 4. Pass hash sync is NOT required. 5. No ssh/kinit/keytab access for on-prem accounts, which don't have password hash in AAD-DS. 6. Cloud only accounts can still ssh/kinit. |
 | Fully Basic Auth | ESP | 1. Most similar to on-prem setups. 2. Password hash sync to AAD-DS is required. 3. On-prem accounts can ssh/kinit or use keytab. 4. MFA must be disabled if the backing storage is ADLS Gen2 |
 
 
@@ -94,7 +94,7 @@ If you add a new role called `idbrokernode` with the following attributes to the
 
 ## Tool integration
 
-HDIsngith tools are updated to natively support OAuth. We highly recommend to use these tools for modern OAuth based access to the clusters. The HDInsight [IntelliJ plug-in](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-intellij-tool-plugin#integrate-with-hdinsight-identity-broker-hib) can be used for JAVA based applications such as Scala. [Spark & Hive Tools for VS Code](https://docs.microsoft.com/azure/hdinsight/hdinsight-for-vscode) can be used of PySpark and Hive jobs. They supports both batch and interactive jobs.
+HDIsngith tools are updated to natively support OAuth. We highly recommend using these tools for modern OAuth based access to the clusters. The HDInsight [IntelliJ plug-in](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-intellij-tool-plugin#integrate-with-hdinsight-identity-broker-hib) can be used for JAVA based applications such as Scala. [Spark & Hive Tools for VS Code](https://docs.microsoft.com/azure/hdinsight/hdinsight-for-vscode) can be used of PySpark and Hive jobs. They supports both batch and interactive jobs.
 
 ## SSH access without a password hash in Azure AD DS
 
@@ -102,7 +102,7 @@ HDIsngith tools are updated to natively support OAuth. We highly recommend to us
 |---|---|
 | Local VM account (e.g. sshuser) | 1.	You provided this account at the cluster creation time. 2.	There is no kerberos authication for this account |
 | Cloud Only account (e.g. alice@contoso.onmicrosoft.com) | 1. The password hash is available in AAD-DS 2. Kerberos authentication is possible via SSH kerberos |
-| On-prem account (e.g. alice@contoso.com) | 1. SSH Kerberos authentication is only possible if password hash is available in AAD-DS otherwise this user can not SSH to the cluster |
+| On-prem account (e.g. alice@contoso.com) | 1. SSH Kerberos authentication is only possible if password hash is available in AAD-DS otherwise this user cannot SSH to the cluster |
 
 To SSH to a domain-joined VM, or to run the `kinit` command, you need to provide a password. SSH Kerberos authentication requires the hash to be available in AAD-DS. If you want to use SSH for administrative scenarios only, you can create one cloud-only account and use that to SSH to the cluster. Other on-prem users can still use Ambari or HDInsight tools or HTTP basic auth without having the password hash available in AAD-DS.
 
