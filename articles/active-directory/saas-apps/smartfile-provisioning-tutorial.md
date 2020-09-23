@@ -53,9 +53,9 @@ Before configuring SmartFile for automatic user provisioning with Azure AD, you 
 
 2. To generate a bearer token, copy the **Product Key** and **Product Password**. Paste them in a notepad with a colon in between them.
  	
-	 ![SmartFile Add SCIM](media/smartfile-provisioning-tutorial/auth.png)
+	 ![Screenshot of the Product Key section with the Product Key and Product Password text boxes called out.](media/smartfile-provisioning-tutorial/auth.png)
 
-	![SmartFile Add SCIM](media/smartfile-provisioning-tutorial/key.png)
+	![Screenshot of plaintext showing Product Key and Product Password separated by a colon.](media/smartfile-provisioning-tutorial/key.png)
 
 ## Add SmartFile from the gallery
 
