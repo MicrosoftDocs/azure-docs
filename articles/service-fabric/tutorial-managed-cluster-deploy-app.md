@@ -7,7 +7,7 @@ ms.custom: references_regions
 #Customer intent: As a Service Fabric customer, I want to connect to my cluster and deploy an application.
 ---
 
-# Tutorial: Deploy a Managed Service Fabric cluster (preview)
+# Tutorial: Deploy an app to a Service Fabric managed cluster (preview)
 
 In this tutorial series we will discuss:
 
