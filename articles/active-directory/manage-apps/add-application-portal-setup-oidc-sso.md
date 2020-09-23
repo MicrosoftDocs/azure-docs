@@ -32,7 +32,6 @@ To set up SSO for an application that you added to your Azure AD tenant, you nee
 >[!IMPORTANT]
 >Use a non-production environment to test the steps in this quickstart.
 
-
 ## Enable single sign-on for an app
 
 When you add an app that uses the OIDC standard for SSO you have a setup button. When you click the button you go to the applications site and complete the sign up process for the app. The process of adding an app is covered in the Add an app quickstart earlier in this series. If you're configuring an application that was already added, look at the first quickstart. It walks you through viewing the applications added to your tenant. 
@@ -40,10 +39,15 @@ When you add an app that uses the OIDC standard for SSO you have a setup button.
 To set up single sign-on for an application:
 
 1. In the quickstart earlier in this series you learned how to add an app that will use your Azure AD tenant for identity management. If the app developer used the OIDC standard to implement SSO then you were presented with a sign-up button when adding the app. 
-1. 
 
-    :::image type="content" source="media/add-application-portal-setup-sso/github-pricing.png" alt-text="Screenshot shows the Single sign-on option in the Enterprise subscription of the GitHub pricing page.":::
+    :::image type="content" source="media/add-application-portal-setup-oidc-sso/sign-up-oidc-sso.png" alt-text="Screenshot shows the single sign-on option and the sign up button.":::
 
+2. Select the Sign up button and you will be taken the app developers setup page. When you select the sign-up link, you are redirected to the Application Sign On page to Sign In by using Azure Active Directory sign-in credentials. The tenant admin should select the sign-up button and provide the Admin consent to the application. The application is then added to the tenant.
+    > [!IMPORTANT]
+    > If you already have the application subscription, application will validate the user details along with tenant/directory information. If application is not able to verify the user then it will redirect user to Sign-up for the application service or to the error page.
+
+3. After successful authentication, you accept consent from the consent page. After that, the application home page appears.
+    :::image type="content" source="media/add-application-portal-setup-oidc-sso/consent.png" alt-text="Screenshot shows the consent screen for an app..":::
 
 > [!TIP]
 > You can automate app management using the Graph API, see [Automate app management with Microsoft Graph API](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
