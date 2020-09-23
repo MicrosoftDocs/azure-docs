@@ -102,6 +102,11 @@ You can set up autoscale via
 | Virtual Machines: Linux Scale Sets |[Scaling virtual machine scale sets in Linux](../../virtual-machine-scale-sets/tutorial-autoscale-cli.md) |
 | Virtual Machines: Windows Example |[Advanced Autoscale configuration using Resource Manager templates for VM Scale Sets](../../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md) |
 | API Management service|[Automatically scale an Azure API Management instance](https://docs.microsoft.com/azure/api-management/api-management-howto-autoscale)
+| Azure Data Explorer Clusters|[Manage Azure Data Explorer clusters scaling to accommodate changing demand](/azure/data-explorer/manage-cluster-horizontal-scaling)|
+| Azure App Service |[Scale up an app in Azure App service](../../app-service/manage-scale-up.md)|
+| Logic Apps |[Adding integration service environment (ISE) capacity](../../logic-apps/ise-manage-integration-service-environment.md#add-ise-capacity)|
+| Spring Cloud |[Set up autoscale for microservice applications](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-setup-autoscale)|
+| Service Bus |[Automatically update messaging units of an Azure Service Bus namespace](https://docs.microsoft.com/azure/service-bus-messaging/automate-update-messaging-units)|
 
 ## Next steps
 To learn more about autoscale, use the Autoscale Walkthroughs listed previously or refer to the following resources:
