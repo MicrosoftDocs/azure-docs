@@ -283,7 +283,7 @@ One option for updating your web service is to retrain the model programmaticall
 
 * For more technical details on how deployment works, see [How a Machine Learning Studio (classic) model progresses from an experiment to an operationalized Web service](model-progression-experiment-to-web-service.md).
 
-* For details on how to get your model ready to deploy, see [How to prepare your model for deployment in Azure Machine Learning Studio (classic)](convert-training-experiment-to-scoring-experiment.md).
+* For details on how to get your model ready to deploy, see [How to prepare your model for deployment in Azure Machine Learning Studio (classic)](deploy-a-machine-learning-web-service.md).
 
 * There are several ways to consume the REST API and access the web service. See [How to consume an Azure Machine Learning Studio (classic) web service](consume-web-services.md).
 
