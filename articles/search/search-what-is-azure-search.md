@@ -61,7 +61,7 @@ Define an index schema to map to reflect the structure of the documents you wish
 It's common to [create the index schema in the Azure portal](search-what-is-an-index.md), or programmatically using the [.NET SDK](search-howto-dotnet-sdk.md) or [REST API](/rest/api/searchservice/).
 
 > [!TIP]
-> Jump to [the Import data wizard quickstart](search-get-started-portal.md) for to create, load, and query an index in minutes.
+> Start with the [Quickstart: Import data wizard](search-get-started-portal.md) to create, load, and query an index in minutes.
 
 ### Step 3: Load data
 
