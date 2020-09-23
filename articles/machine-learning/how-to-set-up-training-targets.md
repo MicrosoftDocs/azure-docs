@@ -127,8 +127,8 @@ If you want to run a distributed training job, provide the distributed job-speci
 
 For more information and examples on running distributed Horovod, TensorFlow and PyTorch jobs, see:
 
-* [Train TensorFlow models](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-train-tensorflow#distributed-training)
-* [Train PyTorch models](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-train-pytorch#distributed-training)
+* [Train TensorFlow models](https://docs.microsoft.com/azure/machine-learning/how-to-train-tensorflow#distributed-training)
+* [Train PyTorch models](https://docs.microsoft.com/azure/machine-learning/how-to-train-pytorch#distributed-training)
 
 ## Submit the experiment
 
