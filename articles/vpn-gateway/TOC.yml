@@ -138,8 +138,8 @@
         href: point-to-site-how-to-vpn-client-install-azure-cert.md
       - name: Create and install VPN client configuration files
         href: point-to-site-vpn-client-configuration-azure-cert.md
-      - name: Session management
-        href: p2s-session-management.md
+    - name: Configure P2S session management
+      href: p2s-session-management.md
     - name: RADIUS authentication
       items:
       - name: Configure a P2S VPN
