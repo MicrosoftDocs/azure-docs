@@ -15,7 +15,7 @@ ms.custom: how-to, contperfq4, devx-track-python
 
 # Moving data into and between ML pipeline steps (Python)
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 This article provides code for importing, transforming, and moving data between steps in an Azure Machine Learning pipeline. For an overview of how data works in Azure Machine Learning, see [Access data in Azure storage services](how-to-access-data.md). For the benefits and structure of Azure Machine Learning pipelines, see [What are Azure Machine Learning pipelines?](concept-ml-pipelines.md).
 
@@ -29,7 +29,7 @@ This article will show you how to:
 - Create new `Dataset` objects from `PipelineData` you wish to persist
 
 > [!TIP]
-> An improved experience for passing temporary data between pipeline steps and persisting your data after pipeline runs is available in the public preview classes,  [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true) and [`OutputTabularDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.output_dataset_config.outputtabulardatasetconfig?view=azure-ml-py&preserve-view=true).  These classes are [experimental](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py#&preserve-view=truestable-vs-experimental) preview features, and may change at any time.
+> An improved experience for passing temporary data between pipeline steps and persisting your data after pipeline runs is available in the public preview classes,  [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true) and [`OutputTabularDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.output_dataset_config.outputtabulardatasetconfig?view=azure-ml-py&preserve-view=true).  These classes are [experimental](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true#&preserve-view=truestable-vs-experimental) preview features, and may change at any time.
 
 
 ## Prerequisites
@@ -81,7 +81,7 @@ Once you've created a named input, you can choose its access mode: `as_mount()` 
 
 To pass a dataset to your pipeline step:
 
-1. Use `TabularDataset.as_named_inputs()` or `FileDataset.as_named_input()` (no 's' at end) to create a `DatasetConsumptionConfig` object
+1. Use `TabularDataset.as_named_input()` or `FileDataset.as_named_input()` (no 's' at end) to create a `DatasetConsumptionConfig` object
 1. Use `as_mount()` or `as_download()` to set the access mode
 1. Pass the datasets to your pipeline steps using either the `arguments` or the `inputs` argument
 
@@ -93,7 +93,7 @@ train_step = PythonScriptStep(
     name="train_data",
     script_name="train.py",
     compute_target=cluster,
-    inputs=[iris_dataset.as_named_inputs('iris').as_mount()]
+    inputs=[iris_dataset.as_named_input('iris').as_mount()]
 )
 ```
 
@@ -108,7 +108,7 @@ train_step = PythonScriptStep(
     name="train_data",
     script_name="train.py",
     compute_target=cluster,
-    inputs=[train.as_named_inputs('train').as_download(), test.as_named_inputs('test').as_download()]
+    inputs=[train.as_named_input('train').as_download(), test.as_named_input('test').as_download()]
 )
 ```
 
@@ -123,8 +123,8 @@ train_step = PythonScriptStep(
     name="train_data",
     script_name="train.py",
     compute_target=cluster,
-    arguments=['--training-folder', train.as_named_inputs('train').as_download()]
-    inputs=[test.as_named_inputs('test').as_download()]
+    arguments=['--training-folder', train.as_named_input('train').as_download()]
+    inputs=[test.as_named_input('test').as_download()]
 )
 
 # In pipeline script

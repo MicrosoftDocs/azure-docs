@@ -28,6 +28,11 @@ When Debug mode is on, you'll interactively build your data flow with an active 
 
 In most cases, it's a good practice to build your Data Flows in debug mode so that you can validate your business logic and view your data transformations before publishing your work in Azure Data Factory. Use the "Debug" button on the pipeline panel to test your data flow in a pipeline.
 
+![View data flow debug sessions](media/iterative-development-debugging/view-dataflow-debug-sessions.png)
+
+> [!NOTE]
+> Every debug session that a user starts from their ADF browser UI is a new session with its own Spark cluster. You can use the monitoring view for debug sessions above to view and manage debug sessions per factory.
+
 ## Cluster status
 
 The cluster status indicator at the top of the design surface turns green when the cluster is ready for debug. If your cluster is already warm, then the green indicator will appear almost instantly. If your cluster wasn't already running when you entered debug mode, then you'll have to wait 5-7 minutes for the cluster to spin up. The indicator will spin until its ready.

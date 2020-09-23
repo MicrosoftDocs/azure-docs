@@ -4,13 +4,11 @@ description: 'This topic describes how to deal with Excel format in Azure Data F
 author: linda33wj
 manager: shwang
 ms.reviewer: craigg
-
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/21/2020
+ms.date: 09/14/2020
 ms.author: jingwang
-
 ---
 
 # Excel format in Azure Data Factory
@@ -33,7 +31,7 @@ For a full list of sections and properties available for defining datasets, see 
 | firstRowAsHeader | Specifies whether to treat the first row in the given worksheet/range as a header line with names of columns.<br>Allowed values are **true** and **false** (default). | No       |
 | nullValue        | Specifies the string representation of null value. <br>The default value is **empty string**. | No       |
 | compression | Group of properties to configure file compression. Configure this section when you want to do compression/decompression during activity execution. | No |
-| type<br/>(*under `compression`*) | The compression codec used to read/write JSON files. <br>Allowed values are **bzip2**, **gzip**, **deflate**, **ZipDeflate**, **snappy**, or **lz4**. to use when saving the file. Default is not compressed.<br>**Note** currently Copy activity doesn’t support "snappy" & "lz4", and mapping data flow doesn’t support "ZipDeflate".<br>**Note** when using copy activity to decompress **ZipDeflate** file(s) and write to file-based sink data store, files are extracted to the folder: `<path specified in dataset>/<folder named as source zip file>/`. | No.  |
+| type<br/>(*under `compression`*) | The compression codec used to read/write JSON files. <br>Allowed values are **bzip2**, **gzip**, **deflate**, **ZipDeflate**, **TarGzip**, **snappy**, or **lz4**. Default is not compressed.<br>**Note** currently Copy activity doesn’t support "snappy" & "lz4", and mapping data flow doesn’t support "ZipDeflate".<br>**Note** when using copy activity to decompress **ZipDeflate** file(s) and write to file-based sink data store, files are extracted to the folder: `<path specified in dataset>/<folder named as source zip file>/`. | No.  |
 | level<br/>(*under `compression`*) | The compression ratio. <br>Allowed values are **Optimal** or **Fastest**.<br>- **Fastest:** The compression operation should complete as quickly as possible, even if the resulting file is not optimally compressed.<br>- **Optimal**: The compression operation should be optimally compressed, even if the operation takes a longer time to complete. For more information, see [Compression Level](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) topic. | No       |
 
 Below is an example of Excel dataset on Azure Blob Storage:
@@ -101,7 +99,7 @@ In mapping data flows, you can read Excel format in the following data stores: [
 
 ### Source properties
 
-The below table lists the properties supported by an Excel source. You can edit these properties in the **Source options** tab. When using inline dataset, you will see additional file settings which are the same as the properties described in [dataset properties](#dataset-properties) section.
+The below table lists the properties supported by an Excel source. You can edit these properties in the **Source options** tab. When using inline dataset, you will see additional file settings, which are the same as the properties described in [dataset properties](#dataset-properties) section.
 
 | Name                      | Description                                                  | Required | Allowed values                                            | Data flow script property         |
 | ------------------------- | ------------------------------------------------------------ | -------- | --------------------------------------------------------- | --------------------------------- |
@@ -111,6 +109,7 @@ The below table lists the properties supported by an Excel source. You can edit 
 | Column to store file name | Create a new column with the source file name and path       | no       | String                                                    | rowUrlColumn                      |
 | After completion          | Delete or move the files after processing. File path starts from the container root | no       | Delete: `true` or `false` <br> Move: `['<from>', '<to>']` | purgeFiles <br> moveFiles         |
 | Filter by last modified   | Choose to filter files based upon when they were last altered | no       | Timestamp                                                 | modifiedAfter <br> modifiedBefore |
+| Allow no files found | If true, an error is not thrown if no files are found | no | `true` or `false` | ignoreNoFilesFound |
 
 ### Source example
 

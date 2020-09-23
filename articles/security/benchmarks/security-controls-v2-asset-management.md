@@ -4,13 +4,13 @@ description: Azure Security Benchmark V2 Asset Management
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/13/2020
+ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
 ---
 
-# Security Control: Asset Management
+# Security Control V2: Asset Management
 
 Asset Management covers controls to ensure security visibility and governance over Azure resources. This includes recommendations on permissions for security personnel, security access to asset inventory, and managing approvals for services and resources (inventory, track, and correct).
 
@@ -18,7 +18,7 @@ Asset Management covers controls to ensure security visibility and governance ov
 
 | Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
 |--|--|--|--|
-| AM-1 | 1.1, 1.2, 1.3, 1.4, 9.1, 12.1 | CM-7, CM-8, CM-11, PM-5 |
+| AM-1 | 1.1, 1.2 | CM-8, PM-5 |
 
 Ensure security teams are granted Security Reader permissions in your Azure tenant and subscriptions so they can monitor for security risks using Azure Security Center. 
 
@@ -34,7 +34,7 @@ Note: Additional permissions might be required to get visibility into workloads 
 
 **Responsibility**: Customer
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Infrastructure and endpoint security](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
@@ -44,7 +44,7 @@ Note: Additional permissions might be required to get visibility into workloads 
 
 | Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
 |--|--|--|--|
-| AM-2 | 1.5 | CM-8, PM-5 |
+| AM-2 | 1.1, 1.2,  1.4, 1.5,  9.1, 12.1 | CM-8, PM-5 |
 
 Ensure that security teams have access to a continuously updated inventory of assets on Azure. Security teams often need this inventory to evaluate their organization's potential exposure to emerging risks, and as an input to continuously security improvements. 
 
@@ -60,7 +60,7 @@ Logically organize assets according to your organization’s taxonomy using Tags
 
 **Responsibility**: Customer
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Infrastructure and endpoint security](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
@@ -82,7 +82,7 @@ Use Azure Policy to audit and restrict which services users can provision in you
 
 **Responsibility**: Customer
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Security Compliance Management](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
@@ -102,7 +102,7 @@ Remove Azure resources when they are no longer needed.
 
 **Responsibility**: Customer
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Infrastructure and endpoint security](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
@@ -122,7 +122,7 @@ Use Azure AD Conditional Access to limit users' ability to interact with Azure R
 
 **Responsibility**: Customer
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Posture management](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)  
 
@@ -132,7 +132,7 @@ Use Azure AD Conditional Access to limit users' ability to interact with Azure R
 
 | Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
 |--|--|--|--|
-| AM-6 | 2.6 | AC-3, CM-7, CM-8, CM-10, CM-11 |
+| AM-6 | 2.6, 2.7 | AC-3, CM-7, CM-8, CM-10, CM-11 |
 
 Ensure that only authorized software executes, and all unauthorized software is blocked from executing on Azure Virtual Machines.
 
@@ -152,7 +152,7 @@ You can also use a third-party solution to discover and identify unapproved soft
 
 **Responsibility**: Customer
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Infrastructure and endpoint security](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 

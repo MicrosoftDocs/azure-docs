@@ -56,7 +56,7 @@ The following database solutions are supported with backup feature:
     > [!NOTE]
     > If you see the following message, click it to upgrade your App Service plan before you can proceed with backups.
     > For more information, see [Scale up an app in Azure](manage-scale-up.md).
-    > ![Choose storage account](./media/manage-backup/upgrade-plan.png)
+    > :::image type="content" source="./media/manage-backup/upgrade-plan.png" alt-text="Screenshot of a banner with a message to upgrade the App Service plan to access the Backup and Restore feature.":::
     > 
     > 
 
@@ -66,13 +66,13 @@ The following database solutions are supported with backup feature:
 
 3. In the **Backup Configuration** page, click **Storage not configured** to configure a storage account.
 
-    ![Choose storage account](./media/manage-backup/configure-storage.png)
+    :::image type="content" source="./media/manage-backup/configure-storage.png" alt-text="Screenshot of the Backup Storage section with the Storage not configured setting selected.":::
 
 4. Choose your backup destination by selecting a **Storage Account** and **Container**. The storage account must belong to the same subscription as the app you want to back up. If you wish, you can create a new storage account or a new container in the respective pages. When you're done, click **Select**.
 
 5. In the **Backup Configuration** page that is still left open, you can configure **Backup Database**, then select the databases you want to include in the backups (SQL Database or MySQL), then click **OK**.
 
-    ![Choose storage account](./media/manage-backup/configure-database.png)
+    :::image type="content" source="./media/manage-backup/configure-database.png" alt-text="Screenshot of Backup Database section showing the Include in backup selection.":::
 
     > [!NOTE]
     > For a database to appear in this list, its connection string must exist in the **Connection strings** section of the **Application settings** page for your app. 

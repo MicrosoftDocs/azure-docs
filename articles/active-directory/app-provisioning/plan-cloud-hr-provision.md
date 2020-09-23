@@ -45,7 +45,7 @@ The cloud HR app integration with Azure AD user provisioning is ideally suited f
 - Require direct user provisioning from the cloud HR app to Active Directory or Azure AD.
 - Require users to be provisioned by using data obtained from the cloud HR app.
 - Require joining, moving, and leaving users to be synced to one or more Active Directory forests, domains, and OUs based only on change information detected in the cloud HR app.
-- Use Office 365 for email.
+- Use Microsoft 365 for email.
 
 ## Learn
 
@@ -56,14 +56,14 @@ User provisioning creates a foundation for ongoing identity governance. It enhan
 This article uses the following terms:
 
 - **Source system**: The repository of users that Azure AD provisions from. An example is a cloud HR app such as Workday or SuccessFactors.
-- **Target system**: The repository of users that the Azure AD provisions to. Examples are Active Directory, Azure AD, Office 365, or other SaaS apps.
+- **Target system**: The repository of users that the Azure AD provisions to. Examples are Active Directory, Azure AD, Microsoft 365, or other SaaS apps.
 - **Joiners-Movers-Leavers process**: A term used for new hires, transfers, and termination by using a cloud HR app as a system of records. The process completes when the service successfully provisions the necessary attributes to the target system.
 
 ### Key benefits
 
 This capability of HR-driven IT provisioning offers the following significant business benefits:
 
-- **Increase productivity:** You can now automate the assignment of user accounts and Office 365 licenses and provide access to key groups. Automating assignments gives new hires immediate access to their job tools and increases productivity.
+- **Increase productivity:** You can now automate the assignment of user accounts and Microsoft 365 licenses and provide access to key groups. Automating assignments gives new hires immediate access to their job tools and increases productivity.
 - **Manage risk:** You can increase security by automating changes based on employee status or group memberships with data flowing in from the cloud HR app. Automating changes ensures that user identities and access to key apps update automatically when users transition or leave the organization.
 - **Address compliance and governance:** Azure AD supports native audit logs for user provisioning requests performed by apps of both source and target systems. With auditing, you can track who has access to the apps from a single screen.
 - **Manage cost:** Automatic provisioning reduces costs by avoiding inefficiencies and human error associated with manual provisioning. It reduces the need for custom-developed user provisioning solutions built over time by using legacy and outdated platforms.

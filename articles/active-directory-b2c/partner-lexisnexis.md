@@ -68,7 +68,7 @@ Once an account is created, you'll receive the information you need for API conf
 
 ### Part 1 - Deploy the API
 
-Deploy the provided API code to an Azure service. The code can be published from Visual Studio, following these [instructions](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
+Deploy the provided [API code](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/Api) to an Azure service. The code can be published from Visual Studio, following these [instructions](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
 
 >[!NOTE]
 >You'll need the URL of the deployed service to configure Azure AD with the required settings.
@@ -90,9 +90,9 @@ Application settings can be [configured in the App service in Azure](https://doc
 
 This solution uses custom UI templates that are loaded by Azure AD B2C. These UI templates do the profiling that is sent directly to the ThreatMetrix service.
 
-Refer to these [instructions](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-ui-customization#custom-page-content-walkthrough)  to deploy the included UI files to a blob storage account. The instructions include setting up a blob storage account, configuring CORS, and enabling public access.
+Refer to these [instructions](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-ui-customization#custom-page-content-walkthrough) to deploy the included [UI files](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/ui-template) to a blob storage account. The instructions include setting up a blob storage account, configuring CORS, and enabling public access.
 
-The UI is based on the ocean blue page template. All links within the UI should be updated to refer to the deployed location. In the UI folder, find and replace https://yourblobstorage/blobcontainer with the deployed location.
+The UI is based on the [ocean blue template](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/ui-template/ocean_blue). All links within the UI should be updated to refer to the deployed location. In the UI folder, find and replace https://yourblobstorage/blobcontainer with the deployed location.
 
 ### Part 4 - Create API policy keys
 
@@ -106,21 +106,21 @@ The sample policy uses these key names:
 
 ### Part 5 - Update the API URL
 
-In the provided TrustFrameworkExtensions policy, find the technical profile named `Rest-LexisNexus-SessionQuery`, and update the `ServiceUrl` metadata item with the location of the API deployed above.
+In the provided [TrustFrameworkExtensions policy](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/ThreatMetrix/policy/TrustFrameworkExtensions.xml), find the technical profile named `Rest-LexisNexus-SessionQuery`, and update the `ServiceUrl` metadata item with the location of the API deployed above.
 
 ### Part 6 - Update UI URL
 
-In the provided TrustFrameworkExtensions policy, do a find and replace to search for https://yourblobstorage/blobcontainer/ with the location the UI files are deployed to.
-
-### Part 7 - Configure the Azure AD B2C policy
-
-Refer to this [document](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications#custom-policy-starter-pack) to download [Local Accounts starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts) and configure the policy for the Azure AD B2C tenant.
-
->[!NOTE]
->Update the provided policies to relate to your specific tenant.
+In the provided [TrustFrameworkExtensions policy](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/ThreatMetrix/policy/TrustFrameworkExtensions.xml), do a find and replace to search for https://yourblobstorage/blobcontainer/ with the location the UI files are deployed to.
 
 >[!NOTE]
 > As a best practice, we recommend that customers add consent notification in the attribute collection page. Notify users that information will be send to third-party services for Identity verification.
+
+### Part 7 - Configure the Azure AD B2C policy
+
+Refer to this [document](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications#custom-policy-starter-pack) to download [Local Accounts starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts) and configure the [policy](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/policy) for the Azure AD B2C tenant.
+
+>[!NOTE]
+>Update the provided policies to relate to your specific tenant.
 
 ## Test the user flow
 

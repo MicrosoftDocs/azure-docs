@@ -53,7 +53,7 @@ To create a share do the following procedure:
 
     3. Provide a storage account where the share will reside. If a container doesn't already exist, it's created in the storage account with the newly created share name. If the container already exists, that container is used.
        > [!IMPORTANT]
-       > Make sure that the Azure Storage account that you use does not have immutability policies set on it if you are using it with a Azure Stack Edge or Data Box Gateway device. For more information, see [Set and manage immutability policies for blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
+       > Make sure that the Azure Storage account that you use does not have immutability policies set on it if you are using it with a Azure Stack Edge Pro or Data Box Gateway device. For more information, see [Set and manage immutability policies for blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
     
     4. Choose the **Storage service** from block blob, page blob, or files. The type of the service chosen depends on which format you want the data to reside in Azure. For example, in this instance, we want the data to reside as blob blocks in Azure, hence we select Block Blob. If choosing Page Blob, you must ensure that your data is 512 bytes aligned. For example, a VHDX is always 512 bytes aligned.
    
@@ -111,7 +111,7 @@ On your Windows Server client connected to your Data Box Gateway, connect to an 
 
 ### Connect to an NFS share
 
-On your Linux client connected to your Azure Stack Edge device, do the following procedure:
+On your Linux client connected to your Azure Stack Edge Pro device, do the following procedure:
 
 1. Make sure that the client has NFSv4 client installed. To install NFS client, use the following command:
 

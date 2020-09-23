@@ -3,8 +3,8 @@ title: Troubleshooting Azure metric alerts
 description: Common issues with Azure Monitor metric alerts and possible solutions. 
 author: harelbr
 ms.author: harelbr
-ms.topic: reference
-ms.date: 08/13/2020
+ms.topic: troubleshooting
+ms.date: 09/14/2020
 ms.subservice: alerts
 ---
 # Troubleshooting problems in Azure Monitor metric alerts 
@@ -228,7 +228,7 @@ Consider the following restrictions for metric alert rule names:
 - Metric alert rule names can’t be changed (renamed) once created
 - Metric alert rule names must be unique within a resource group
 - Metric alert rule names can’t contain the following characters: * # & + : < > ? @ % { } \ / 
-- Metric alert rule names can’t end with the following character: .
+- Metric alert rule names can’t end with a space or a period
 
 
 ## Restrictions when using dimensions in a metric alert rule with multiple conditions

@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Create a metrics chart in Azure Monitor
-description: Learn how to create your first metric chart with Azure metrics explorer.
+description: Learn how to create a metric chart with Azure metrics explorer.
 author: bwren
 ms.author: bwren
 ms.subservice: metrics
@@ -47,7 +47,7 @@ You can open metrics explorer either from the Azure Monitor menu or from a resou
 
 4. Optionally, change the metric **Aggregation**. This defines how the metric values will aggregated across the time granularity for the graph. For example, if the time granularity is set to 15 minutes and the aggregation is set to sum, then each point in the graph will be the sum of all collected values over each 15 minute segment.
 
-    ![Chart](media/tutorial-metrics-explorer/chart.png)
+    ![Screenshot shows a chart titled Sum Ingress for contosoretailweb.](media/tutorial-metrics-explorer/chart.png)
 
 5. Use the **Add metric** button and repeat these steps if you want to see multiple metrics plotted in the same chart. For multiple charts in one view, select the **New chart** button.
 

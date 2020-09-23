@@ -56,7 +56,7 @@ New-AzResourceGroup -Name $rg -Location $loc
 >[!NOTE]
 >Standard SKU load balancer is recommended for production workloads. For more information about skus, see **[Azure Load Balancer SKUs](skus.md)**.
 
-## Create a public IP address
+## Create a public IP address in the Standard SKU
 
 To access your web app on the Internet, you need a public IP address for the load balancer. 
 
@@ -210,7 +210,7 @@ $lb =
 New-AzLoadBalancer -ResourceGroupName $rg -Name $lbn -SKU $sku -Location $loc -FrontendIpConfiguration $feip -BackendAddressPool $bepool -Probe $probe -LoadBalancingRule $rule
 ```
 
-## Configure virtual network
+## Configure virtual network in the Standard SKU
 
 Before you deploy VMs and test your load balancer, create the supporting virtual network resources.
 
@@ -707,7 +707,7 @@ $nic | Set-AzNetworkInterfaceIpConfig -Name $ipc -LoadBalancerBackendAddressPool
 >[!NOTE]
 >Standard SKU load balancer is recommended for production workloads. For more information about skus, see **[Azure Load Balancer SKUs](skus.md)**.
 
-## Create a public IP address
+## Create a public IP address in the Basic SKU
 
 To access your web app on the Internet, you need a public IP address for the load balancer. 
 
@@ -849,7 +849,7 @@ $lb =
 New-AzLoadBalancer -ResourceGroupName $rg -Name $lbn -SKU $sku -Location $loc -FrontendIpConfiguration $feip -BackendAddressPool $bepool -Probe $probe -LoadBalancingRule $rule
 ```
 
-## Configure virtual network
+## Configure virtual network in the Basic SKU
 
 Before you deploy VMs and test your load balancer, create the supporting virtual network resources.
 
