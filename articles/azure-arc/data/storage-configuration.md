@@ -146,7 +146,7 @@ Important factors to consider when choosing a storage class for the data control
 
 - You **must** use a remote, shared storage class in order to ensure data durability and so that if a pod or node dies that when the pod is brought back up it can connect again to the persistent volume.
 - The data being written to the controller SQL instance, metrics DB, and logs DB is typically fairly low volume and not sensitive to latency so ultra-fast performance storage is not critical. If you have users that are frequently using the Grafana and Kibana interfaces and you have a large number of database instances, then your users might benefit from faster performing storage.
-- The storage capacity required is variable with the number of database instances that you have deployed because logs and metrics are collected for each database instance. Data is retained in the logs and metrics DB for 2 weeks before it is purged. TODO: How much storage is required per DB instance?
+- The storage capacity required is variable with the number of database instances that you have deployed because logs and metrics are collected for each database instance. Data is retained in the logs and metrics DB for 2 weeks before it is purged. 
 - Changing the storage class post deployment is very difficult, not documented, and not supported. Be sure to choose the storage class correctly at deployment time.
 
 > **Note:** If no storage class is specified the default storage class will be used. There can be only one default storage class per Kubernetes cluster. You can [change the default storage class](https://kubernetes.io/docs/tasks/administer-cluster/change-default-storage-class/).
