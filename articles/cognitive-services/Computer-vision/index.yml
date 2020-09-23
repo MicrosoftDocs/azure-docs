@@ -127,7 +127,7 @@ landingContent:
           - text: Zone and line placement
             url: spatial-analysis-zone-line-placement.md
           - text: Camera placement
-            url: spatial-analysis-zone-line-placement.md
+            url: spatial-analysis-camera-placement.md
           - text: Logging and troubleshooting
             url: spatial-analysis-logging.md
   - title: Detect faces in images
