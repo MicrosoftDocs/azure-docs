@@ -192,7 +192,8 @@ It returns the list of server groups created in your namespace and indicates the
 NAME         STATE   READY-PODS   EXTERNAL-ENDPOINT   AGE
 postgres01   Ready   4/4          10.0.0.4:31066      4d20h
 ```
-> **Note:** If you created a server group of the version 11 PostgreSQL instead of 12, run the following command instead: _kubectl get postgresql-11_
+> [!NOTE]
+> If you created a server group of the version 11 PostgreSQL instead of 12, run the following command instead: _kubectl get postgresql-11_
 
 #### With a SQL query:
 Connect to your server group with the client tool of your choice and run the following query:

@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 06/17/2020
 ms.topic: conceptual
-ms.custom: how-to, has-adal-ref, devx-track-javascript
+ms.custom: how-to, has-adal-ref, devx-track-js
 ---
 
 # Set up authentication for Azure Machine Learning resources and workflows

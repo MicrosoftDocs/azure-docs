@@ -87,6 +87,8 @@
           href: howto-connect-ruuvi.md
         - name: Prepare and connect a Rigado Cascade 500
           href: howto-connect-rigado-cascade-500.md
+        - name: Connect devices using X.509
+          href: how-to-connect-devices-x509.md
         - name: Connect other IoT clouds
           href: howto-build-iotc-device-bridge.md
     - name: Stay connected
