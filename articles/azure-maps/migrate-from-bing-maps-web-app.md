@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 # Migrate a web app from Bing Maps

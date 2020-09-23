@@ -1,6 +1,6 @@
 ---
 title: Managed disk bursting
-description: Learn about disk bursting for Azure disks and disk bursting for Azure virtual machines
+description: Learn about disk bursting for Azure disks and disk bursting for Azure virtual machines on Linux.
 author: albecker1
 ms.author: albecker
 ms.date: 09/22/2020

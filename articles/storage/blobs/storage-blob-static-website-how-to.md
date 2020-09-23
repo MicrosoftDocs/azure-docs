@@ -7,7 +7,7 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.author: normesta
 ms.date: 03/04/2020
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 # Host a static website in Azure Storage
