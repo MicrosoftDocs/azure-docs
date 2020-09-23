@@ -14,18 +14,18 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card
-  - title: Try Service Fabric Managed clusters (preview)
+  - title: Try Service Fabric managed clusters (preview)
     linkLists:
       - linkListType: get-started
         links:
-          - text: What are Service Fabric Managed clusters (preview)
+          - text: What are Service Fabric managed clusters (preview)
             url: overview-managed-cluster.md
-          - text: Deploy a Managed Service Fabric cluster
+          - text: Deploy a Service Fabric managed cluster
             url: quickstart-managed-cluster-deploy-arm.md
 
       - linkListType: tutorial
         links:
-          - text: Create a Managed Service Fabric cluster (preview)
+          - text: Create a Service Fabric managed cluster (preview)
             url: tutorial-managed-cluster-deploy.md
           - text: Scale out a managed cluster node type (preview)
             url: tutorial-managed-cluster-scale.md

@@ -1,29 +1,29 @@
 ---
-title: Deploy a Managed Service Fabric cluster (preview)
-description: In this tutorial, you will deploy a Managed Service Fabric test cluster.
+title: Deploy a Service Fabric managed cluster (preview)
+description: In this tutorial, you will deploy a Service Fabric managed cluster for testing.
 ms.topic: tutorial
 ms.date: 08/27/2020
 ms.custom: references_regions
-#Customer intent: As a service fabric customer, I want to learn about Managed SFRP so that I can deploy clusters without needing to manipulate numerous resources.
+#Customer intent: As a Service Fabric customer, I want to learn about managed clusters so that I can deploy clusters without needing to manipulate numerous resources.
 ---
 
-# Tutorial: Deploy a Managed Service Fabric cluster (preview)
+# Tutorial: Deploy a Service Fabric managed cluster (preview)
 
 In this tutorial series we will discuss:
 
 > [!div class="checklist"]
-> * How to deploy a Managed Service Fabric cluster 
-> * [How to scale out a Managed Service Fabric cluster](tutorial-managed-cluster-scale.md)
-> * [How to add and remove nodes in a Managed Service Fabric cluster](tutorial-managed-cluster-add-remove-node-type.md)
-> * [How to add a certificate to a Managed Service Fabric cluster](tutorial-managed-cluster-certificate.md)
-> * [How to upgrade your Managed Service Fabric cluster resources](tutorial-managed-cluster-upgrade.md)
+> * How to deploy a Service Fabric managed cluster 
+> * [How to scale out a Service Fabric managed cluster](tutorial-managed-cluster-scale.md)
+> * [How to add and remove nodes in a Service Fabric managed cluster](tutorial-managed-cluster-add-remove-node-type.md)
+> * [How to add a certificate to a Service Fabric managed cluster](tutorial-managed-cluster-certificate.md)
+> * [How to upgrade your Service Fabric managed cluster resources](tutorial-managed-cluster-upgrade.md)
 
 This part of the series covers how to:
 
 > [!div class="checklist"]
 > * Connect your Azure account
 > * Create a new resource group
-> * Deploy a Managed Service Fabric cluster
+> * Deploy a Service Fabric managed cluster
 
 ## Prerequisites
 
@@ -61,11 +61,11 @@ $location = "EastUS2"
 
 New-AzResourceGroup -Name $resourceGroup -Location $location
 ```
-## Deploy a Managed Service Fabric cluster
+## Deploy a Service Fabric managed cluster
 
-### Create a Managed Service Fabric cluster 
+### Create a Service Fabric managed cluster 
 
-In this step, you will create a managed Service Fabric cluster using the New-AzServiceFabricManagedCluster PowerShell command. The following example creates a cluster named myCluster in the resource group named myResourceGroup. This resource group was created in the previous step in the eastus2 region. 
+In this step, you will create a Service Fabric managed cluster using the New-AzServiceFabricManagedCluster PowerShell command. The following example creates a cluster named myCluster in the resource group named myResourceGroup. This resource group was created in the previous step in the eastus2 region. 
 
 For this step, provide your own values for the following  parameters: 
 * **Cluster Name**: Enter a unique name for your cluster, such as *myCluster*.
@@ -82,9 +82,9 @@ $clusterSku = "Standard"
 New-AzServiceFabricManagedCluster -ResourceGroupName $resourceGroup -Location $location -ClusterName $clusterName -ClientCertThumbprint $clientThumbprint -ClientCertIsAdmin -AdminPassword $password -Sku $clusterSKU -Verbose
 ```
 
-### Add a Primary Node Type to the Managed Service Fabric cluster
+### Add a Primary Node Type to the Service Fabric managed cluster
 
-In this step, you will add a primary node type to the Service Fabric cluster that you have just created. Every Service Fabric cluster must have at least one primary node type.
+In this step, you will add a primary node type to the cluster that you have just created. Every Service Fabric cluster must have at least one primary node type.
 
 For this step, provide your own values for the following  parameters: 
 * **Node Type Name**: Enter a unique name for the node type to be added to your cluster, such as "NT1".
@@ -108,7 +108,7 @@ Once the deployment completes, find the Service Fabric Explorer value in the Ser
 
 ## Next steps
 
-In this step we created and deployed our first Managed Service Fabric cluster. To learn more about how to scale a cluster, see:
+In this step we created and deployed our first Service Fabric managed cluster. To learn more about how to scale a cluster, see:
 
 > [!div class="nextstepaction"]
-> [Scale out a Managed Service Fabric cluster](./tutorial-managed-cluster-scale.md)
+> [Scale out a Service Fabric managed cluster](./tutorial-managed-cluster-scale.md)

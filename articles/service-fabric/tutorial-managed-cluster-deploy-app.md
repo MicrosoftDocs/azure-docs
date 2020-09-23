@@ -12,11 +12,11 @@ ms.custom: references_regions
 In this tutorial series we will discuss:
 
 > [!div class="checklist"]
-> * [How to deploy a Managed Service Fabric cluster](tutorial-managed-cluster-deploy.md)
-> * [How to scale out a Managed Service Fabric cluster](tutorial-managed-cluster-scale.md)
-> * [How to add and remove nodes in a Managed Service Fabric cluster](tutorial-managed-cluster-add-remove-node-type.md)
-> * [How to add a certificate to a Managed Service Fabric cluster](tutorial-managed-cluster-certificate.md)
-> * [How to upgrade your Managed Service Fabric cluster resources](tutorial-managed-cluster-upgrade.md)
+> * [How to deploy a Service Fabric managed cluster](tutorial-managed-cluster-deploy.md)
+> * [How to scale out a Service Fabric managed cluster](tutorial-managed-cluster-scale.md)
+> * [How to add and remove nodes in a Service Fabric managed cluster](tutorial-managed-cluster-add-remove-node-type.md)
+> * [How to add a certificate to a Service Fabric managed cluster](tutorial-managed-cluster-certificate.md)
+> * [How to upgrade your Service Fabric managed cluster resources](tutorial-managed-cluster-upgrade.md)
 > * How to connect and deploy an application on your Service Fabric managed cluster
 
 This part of the series covers how to:
@@ -24,7 +24,7 @@ This part of the series covers how to:
 > [!div class="checklist"]
 > * Connect your Azure account
 > * Create a new resource group
-> * Deploy a Managed Service Fabric cluster
+> * Deploy a Service Fabric managed cluster
 > * Deploy an application to a Service Fabric managed cluster
 
 ## Prerequisites
@@ -83,7 +83,7 @@ Remove-ServiceFabricApplication fabric:/Voting
 
 ## Next steps
 
-In this step we created and deployed our first Managed Service Fabric cluster. To learn more about how to scale a cluster, see:
+In this step we created and deployed our first Service Fabric managed cluster. To learn more about how to scale a cluster, see:
 
 > [!div class="nextstepaction"]
-> [Scale out a Managed Service Fabric cluster](./tutorial-managed-cluster-scale.md)
+> [Scale out a Service Fabric managed cluster](./tutorial-managed-cluster-scale.md)
