@@ -87,7 +87,7 @@ In this sample, you create a TensorFlow graph to preprocess the input image, mak
 ### Prerequisites
 
 - An Azure subscription. If you do not have one, you will need to create a [pay-as-you-go](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) account (free Azure accounts are not eligible for FPGA quota).
-- [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)
 - FPGA quota. Use the Azure CLI to check whether you have quota:
 
     ```azurecli-interactive
