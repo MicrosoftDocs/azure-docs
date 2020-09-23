@@ -99,7 +99,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| Email | user.mail |
 
 	> [!NOTE]
-	> Users need to have a valid Office 365 ExO license for email claim value to be populated in the SAML response.
+	> Users need to have a valid Microsoft 365 ExO license for email claim value to be populated in the SAML response.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Federation Data XML**, and then select **Download** to download the XML metadata file and save it on your computer.
 

@@ -25,13 +25,10 @@ A workspace allows you to perform analytics with SQL and Apache spark. Resources
 * **SQL pools**. These provide **dedicated** SQL analytics capacity.
 * **SQL on-demand pool**. Every workspace has exactly one SQL on-demand pool. This provides **serverless** SQL analytics capacity on a per-query basis.
 * **Spark pools**. These provide Spark analytics capacity.
+
 ## Terminology
 | Term                         | Definition      |
 |:---                                 |:---                 |
-| **Synapse workspace** | A securable collaboration boundary for doing cloud-based enterprise analytics in Azure. A workspace is deployed in a specific region and has an associated ADLS Gen2 account and file system (for storing temporary data). A workspace is under a resource group. |
-| **Synapse SQL**   | Run analytics with pools or with on-demand capabilities.  |
-| **SQL pool**   | 0-to-N SQL provisioned resources with their corresponding databases can be deployed in a workspace. Each SQL pool has an associated database. A SQL pool can be scaled, paused, and resumed manually or automatically. A SQL pool can scale from 100 DWU up to 30,000 DWU.       |
-| **SQL on-demand**   | Distributed data processing system built for large-scale data that lets you run T-SQL queries over data in data lake. It is serverless so you don't need to manage infrastructure.       |
 |**Apache Spark for Synapse** | Spark run-time used in a Spark pool. The current version supported is Spark 2.4 with Python 3.6.1, Scala 2.11.12, .NET support for Apache Spark 0.5 and Delta Lake 0.3.  | 
 | **Apache Spark pool**  | 0-to-N Spark provisioned resources with their corresponding databases can be deployed in a workspace. A Spark pool can be auto-paused, resumed, and scaled.  |
 | **Spark application**  |   It consists of a driver process and a set of executor processes. A Spark application runs on a Spark pool.            |

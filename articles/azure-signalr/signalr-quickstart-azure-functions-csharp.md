@@ -1,6 +1,6 @@
 ---
 title: Azure SignalR Service serverless quickstart - C#
-description: A quickstart for using Azure SignalR Service and Azure Functions to create a chat room.
+description: A quickstart for using Azure SignalR Service and Azure Functions to create a chat room using C#.
 author: sffamily
 ms.service: signalr
 ms.devlang: dotnet

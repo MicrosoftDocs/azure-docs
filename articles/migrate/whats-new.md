@@ -10,7 +10,8 @@ ms.custom: mvc
 
 [Azure Migrate](migrate-services-overview.md) helps you to discover, assess, and migrate on-premises servers, apps, and data to the Microsoft Azure cloud. This article summarizes new releases and features in Azure Migrate.
 ## Update (September 2020)
-- Azure Migrate now lets you migrate servers to Availability Zones
+- Azure Migrate now lets you migrate servers to Availability Zones.
+- Azure Migrate now lets you migrate UEFI-based VMs and physical servers to Azure generation 2 VMs. 
 
 ## Update (August 2020)
 
