@@ -46,13 +46,15 @@ As a solution builder, you can develop a cloud-hosted IoT solution that uses IoT
 
 When you connect an IoT Plug and Play device to an IoT hub, you can use the [Azure IoT explorer](./howto-use-iot-explorer.md) tool to view the telemetry, properties, and commands defined in the interfaces that compose the model.
 
+If you have existing sensors attached to a Windows or Linux gateway, you can use [IoT Plug and Play bridge](./concepts-iot-pnp-bridge.md), to connect these sensors and create IoT Plug and Play devices without the need to write device software/firmware (for [supported protocols](./concepts-iot-pnp-bridge.md#supported-protocols-and-sensors) ).
+
 ## Develop an IoT device application
 
 As a device builder, you can develop an IoT hardware product that supports IoT Plug and Play. The process includes three key steps:
 
 1. Define the device model. You author a set of JSON files that define your device's capabilities using the [DTDL](https://github.com/Azure/opendigitaltwins-dtdl). A model describes a complete entity such as a physical product, and defines the set of interfaces implemented by that entity. Interfaces are shared contracts that uniquely identify the telemetry, properties, and commands supported by a device. Interfaces can be reused across different models.
 
-1. Author device software or firmware in a way that their telemetry, properties, and commands follow the IoT Plug and Play conventions.
+1. Author device software or firmware in a way that their telemetry, properties, and commands follow the IoT Plug and Play conventions. If you are connecting existing sensors attached to a Windows or Linux gateway, the [IoT Plug and Play bridge](./concepts-iot-pnp-bridge.md) can simplify this step.
 
 1. The device announces the model ID as part of the MQTT connection. The Azure IoT SDK includes new constructs to provide the model ID at connection time.
 

@@ -41,10 +41,12 @@ landingContent:
       links:
         - text: Developer guide
           url: concepts-developer-guide.md
-        - text: IoT Plug and Play conventions
-          url: concepts-convention.md
         - text: Components
           url: concepts-components.md
+        - text: IoT Plug and Play conventions
+          url: concepts-convention.md  
+        - text: IoT Plug and Play bridge
+          url: concepts-iot-pnp-bridge.md
   - title: Build solutions
     linkLists:
     - linkListType: quickstart

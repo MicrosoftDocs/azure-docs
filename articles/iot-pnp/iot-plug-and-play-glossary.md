@@ -90,6 +90,10 @@ An interface describes related capabilities that are implemented by a [IoT Plug 
 
 The IoT Hub query language is used for multiple purposes. For example, you can use the language to search for devices registered with your IoT hub or refine the [digital twin routing](#digital-twin-route) behavior.
 
+## IoT Plug and Play bridge
+
+IoT Plug and Play bridge is an open-source application that enables existing sensors and peripherals attached to Windows or Linux gateways to connect as [IoT Plug and Play devices](#iot-plug-and-play-device).
+
 ## IoT Plug and Play device
 
 An IoT Plug and Play device is typically a small-scale, standalone computing device that collects data or controls other devices, and that runs software or firmware that implements a [device model](#device-model).  For example, an IoT Plug and Play device might be an environmental monitoring device, or a controller for a smart-agriculture irrigation system. An IoT Plug and Play device might be implemented directly or as an IoT Edge module. You can write a cloud-hosted IoT solution to command, control, and receive data from IoT Plug and Play devices.

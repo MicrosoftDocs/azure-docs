@@ -59,6 +59,8 @@
     href: concepts-components.md
   - name: IoT Plug and Play conventions
     href: concepts-convention.md
+  - name: IoT Plug and Play bridge
+    href: concepts-iot-pnp-bridge.md
   - name: Digital twins
     href: concepts-digital-twin.md
   - name: Model repository
@@ -75,6 +77,8 @@
   items:
   - name: Install and use IoT explorer
     href: howto-use-iot-explorer.md
+  - name: Install and use IoT Plug and Play bridge
+    href: howto-use-iot-pnp-bridge.md
   - name: Install and use Azure IoT CLI extension
     href: howto-use-iot-pnp-cli.md
   - name: Install and use DTDL authoring tools
