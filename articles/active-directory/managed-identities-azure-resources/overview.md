@@ -68,8 +68,7 @@ To learn how to use managed identities to access different Azure resources, try 
 | [Access Azure SQL](tutorial-windows-vm-access-sql.md) | [Access Azure Resource Manager](tutorial-linux-vm-access-arm.md) | [Azure Container Instances](../../container-instances/container-instances-managed-identity.md) |
 | [Access Azure Storage by using an access key](tutorial-vm-windows-access-storage.md) | [Access Azure Storage by using an access key](tutorial-linux-vm-access-storage.md) | [Azure Container Registry Tasks](../../container-registry/container-registry-tasks-authentication-managed-identity.md) |
 | [Access Azure Storage by using shared access signatures](tutorial-windows-vm-access-storage-sas.md) | [Access Azure Storage by using shared access signatures](tutorial-linux-vm-access-storage-sas.md) | [Azure Event Hubs](../../event-hubs/authenticate-managed-identity.md) |
-| [Access a non-Azure AD resource with Azure Key Vault](tutorial-linux-vm-access-nonaad.md)
-| [Access a non-Azure AD resource with Azure Key Vault](tutorial-windows-vm-access-nonaad.md) |  [Azure Functions](../../app-service/overview-managed-identity.md) |
+| [Access a non-Azure AD resource with Azure Key Vault](tutorial-linux-vm-access-nonaad.md) | [Access a non-Azure AD resource with Azure Key Vault](tutorial-windows-vm-access-nonaad.md) |  [Azure Functions](../../app-service/overview-managed-identity.md) |
 | - | - |  [Azure Kubernetes Service](../../aks/use-managed-identity.md) |
 | - | - |  [Azure Logic Apps](../../logic-apps/create-managed-service-identity.md) |
 | - | - | [Azure Service Bus](../../service-bus-messaging/service-bus-managed-service-identity.md) |
