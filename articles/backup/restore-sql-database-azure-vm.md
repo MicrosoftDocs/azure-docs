@@ -1,6 +1,6 @@
 ---
 title: Restore SQL Server databases on an Azure VM
-description: This article describes how to restore SQL Server databases that are running on an Azure VM and that are backed up with Azure Backup.
+description: This article describes how to restore SQL Server databases that are running on an Azure VM and that are backed up with Azure Backup. You can also use Cross Region Restore to restore your databases to a secondary region.
 ms.topic: conceptual
 ms.date: 05/22/2019
 ---
@@ -24,7 +24,7 @@ Before you restore a database, note the following:
 - You can restore the database to an instance of a SQL Server in the same Azure region.
 - The destination server must be registered to the same vault as the source.
 - To restore a TDE-encrypted database to another SQL Server, you need to first [restore the certificate to the destination server](/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server).
-- [CDC](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server?view=sql-server-ver15) enabled databases should be restored using the [Restore as files](#restore-as-files) option.
+- [CDC](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server) enabled databases should be restored using the [Restore as files](#restore-as-files) option.
 - Before you restore the "master" database, start the SQL Server instance in single-user mode by using the startup option **-m AzureWorkloadBackup**.
   - The value for **-m** is the name of the client.
   - Only the specified client name can open the connection.
@@ -162,6 +162,51 @@ If you've selected **Full & Differential** as the restore type, do the following
 If the total string size of files in a database is greater than a [particular limit](backup-sql-server-azure-troubleshoot.md#size-limit-for-files), Azure Backup stores the list of database files in a different pit component so you can't set the target restore path during the restore operation. The files will be restored to the SQL default path instead.
 
   ![Restore Database with large file](./media/backup-azure-sql-database/restore-large-files.jpg)
+
+## Cross Region Restore
+
+As one of the restore options, Cross Region Restore (CRR) allows you to restore SQL databases hosted on Azure VMs in a secondary region, which is an Azure paired region.
+
+To onboard to the feature during the preview, read the [Before You Begin section](./backup-create-rs-vault.md#set-cross-region-restore).
+
+To see if CRR is enabled, follow the instructions in [Configure Cross Region Restore](backup-create-rs-vault.md#configure-cross-region-restore)
+
+### View backup items in secondary region
+
+If CRR is enabled, you can view the backup items in the secondary region.
+
+1. From the portal, go to **Recovery Services vault** > **Backup items**.
+1. Select **Secondary Region** to view the items in the secondary region.
+
+>[!NOTE]
+>Only Backup Management Types supporting the CRR feature will be shown in the list. Currently, only support for restoring secondary region data to a secondary region is allowed.
+
+![Backup items in secondary region](./media/backup-azure-sql-database/backup-items-secondary-region.png)
+
+![Databases in secondary region](./media/backup-azure-sql-database/databases-secondary-region.png)
+
+### Restore in secondary region
+
+The secondary region restore user experience will be similar to the primary region restore user experience. When configuring details in the Restore Configuration pane to configure your restore, you'll be prompted to provide only secondary region parameters.
+
+![Where and how to restore](./media/backup-azure-sql-database/restore-secondary-region.png)
+
+>[!NOTE]
+>The virtual network in the secondary region needs to be assigned uniquely, and can't be used for any other VMs in that resource group.
+
+![Trigger restore in progress notification](./media/backup-azure-arm-restore-vms/restorenotifications.png)
+
+>[!NOTE]
+>
+>- After the restore is triggered and in the data transfer phase, the restore job can't be cancelled.
+>- The Azure roles needed to restore in the secondary region are the same as those in the primary region.
+
+### Monitoring secondary region restore jobs
+
+1. From the portal, go to **Recovery Services vault** > **Backup Jobs**
+1. Select **Secondary Region** to view the items in the secondary region.
+
+    ![Backup jobs filtered](./media/backup-azure-sql-database/backup-jobs-secondary-region.png)
 
 ## Next steps
 

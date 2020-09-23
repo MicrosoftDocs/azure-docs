@@ -3,13 +3,13 @@ title: View Azure Automation update assessments
 description: This article tells how to view update assessments for Update Management deployments.
 services: automation
 ms.subservice: update-management
-ms.date: 07/28/2020
+ms.date: 09/17/2020
 ms.topic: conceptual
 ---
 
-# View update assessments
+# View update assessments in Update Management
 
-In Update Management, you can view information about your machines, missing updates, update deployments, and scheduled update deployments.
+In Update Management, you can view information about your machines, missing updates, update deployments, and scheduled update deployments. You can view the assessment information scoped to the selected Azure virtual machine, from the selected Arc enabled server, or from the Automation account across all configured machines and servers.
 
 ## Sign in to the Azure portal
 
@@ -17,27 +17,33 @@ Sign in to the [Azure portal](https://portal.azure.com)
 
 ## View update assessment
 
-In Update Management, you can view information about your machines, missing updates, update deployments, and scheduled update deployments.
+To view update assessment from an Azure VM, navigate to **Virtual Machines** and select your virtual machine from the list. From the left menu, select **Guest + host updates**, and then select **Go to Update Management** on the **Guest + host updates** page.
+
+In Update Management, you can view information about your machine, missing updates, update deployments, and scheduled update deployments.
+
+[ ![Update Management assessment view for Azure VM](./media/update-mgmt-view-update-assessments/update-assessment-azure-vm.png)](./media/update-mgmt-view-update-assessments/update-assessment-azure-vm-expanded.png#lightbox)
+
+To view update assessment from an Arc enabled server, navigate to **Servers - Azure Arc** and select your server from the list. From the left menu, select **Guest and host updates**. On the **Guest + host updates** page, select **Go to Update Management**.
+
+In Update Management, you can view information about your Arc enabled machine, missing updates, update deployments, and scheduled update deployments.
+
+[ ![Update Management assessment view for Arc enabled servers](./media/update-mgmt-view-update-assessments/update-assessment-arc-server.png)](./media/update-mgmt-view-update-assessments/update-assessment-arc-server-expanded.png#lightbox)
+
+To view update assessment across all machines, including Arc enabled servers from your Automation account, navigate to **Automation accounts** and select your Automation account with Update Management enabled from the list. In your Automation account, select **Update management** from the left menu.
+
+The updates for your environment are listed on the **Update management** page. If any updates are identified as missing, a list of them is shown on the **Missing updates** tab.
 
 [ ![Update Management default view](./media/update-mgmt-overview/update-management-view.png)](./media/update-mgmt-overview/update-management-view-expanded.png#lightbox)
 
-To view an update assessment, perform the following.
+Under the **COMPLIANCE** column, you can see the last time the machine was assessed. Under the **UPDATE AGENT READINESS** column, you can see the health of the update agent. If there's an issue, select the link to go to troubleshooting documentation that can help you correct the problem.
 
-1. In the Azure portal, navigate to **Automation accounts** and select your Automation account with Update Management enabled from the list.
+Under **Information link**, select the link for an update to open the support article that gives you important information about the update.
 
-2. In your Automation account, select **Update management** from the left-hand pane.
+[ ![View update status](./media/update-mgmt-view-update-assessments/missing-updates.png)](./media/update-mgmt-view-update-assessments/missing-updates-expanded.png#lightbox)
 
-3. The updates for your environment are listed on the **Update management** page. If any updates are identified as missing, a list of  them is shown on the **Missing updates** tab.
+Click anywhere else on the update to open the Log Search pane. The query for the log search is predefined for that specific update. You can modify this query or create your own query to view detailed information.
 
-   Under the **COMPLIANCE** column, you can see the last time the machine was assessed. Under the **UPDATE AGENT READINESS** column, you can see the health of the update agent. If there's an issue, select the link to go to troubleshooting documentation that can help you correct the problem.
-
-4. Under **Information link**, select the link for an update to open the support article that gives you important information about the update.
-
-     [ ![View update status](./media/update-mgmt-view-update-assessments/missing-updates.png)](./media/update-mgmt-view-update-assessments/missing-updates-expanded.png#lightbox)
-
-5. Click anywhere else on the update to open the Log Search pane. The query for the log search is predefined for that specific update. You can modify this query or create your own query to view detailed information.
-
-    [ ![View log query results](./media/update-mgmt-view-update-assessments/logsearch-results.png)](./media/update-mgmt-view-update-assessments/logsearch-results-expanded.png#lightbox)
+[ ![View log query results](./media/update-mgmt-view-update-assessments/logsearch-results.png)](./media/update-mgmt-view-update-assessments/logsearch-results-expanded.png#lightbox)
 
 ## View missing updates
 

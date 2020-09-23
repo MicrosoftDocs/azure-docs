@@ -1,6 +1,6 @@
 ---
 title: Azure Serial Console for Windows | Microsoft Docs
-description: Bi-Directional Serial Console for Azure Virtual Machines and Virtual Machine Scale Sets.
+description: Bi-Directional Serial Console for Azure Virtual Machines and Virtual Machine Scale Sets using a Windows example.
 services: virtual-machines-windows
 documentationcenter: ''
 author: asinn826

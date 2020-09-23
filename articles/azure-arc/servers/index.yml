@@ -1,9 +1,9 @@
 ### YamlMime:Landing
-title: Azure Arc Servers (preview)
-summary: Azure Arc Servers
+title: Azure Arc enabled servers
+summary: Azure Arc enabled servers
 
 metadata:
-  title: Azure Arc Servers
+  title: Azure Arc enabled servers
   description: Learn about how to manage on-premises machines in Azure
   author: mgoedtel
   ms.service: azure-arc
@@ -12,13 +12,14 @@ metadata:
   ms.author: magoedte
 
 landingContent:
+ # Card
   - title: Connect machines to Azure using Azure Arc enabled servers
     linkLists: 
       - linkListType: overview
         links:
           - text: What is Azure Arc enabled servers?
             url: overview.md 
-      - linkListType: quickstart
+      - linkListType: get-started
         links:
           - text: Connect machines to Azure Arc from the Azure portal
             url: onboard-portal.md
@@ -26,3 +27,10 @@ landingContent:
             url: onboard-service-principal.md
           - text: Connect machines to Azure with PowerShell DSC
             url: onboard-dsc.md
+ # Card
+  - title: 10-minute quickstarts
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Deploy Arc enabled servers agent
+            url: ./learn/quick-enable-hybrid-vm.md
