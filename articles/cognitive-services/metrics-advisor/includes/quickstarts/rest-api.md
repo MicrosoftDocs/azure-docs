@@ -6,7 +6,7 @@ author: aahill
 manager: nitinme
 ms.service: metrics-advisor
 ms.topic: include
-ms.date: 09/10/2020
+ms.date: 09/23/2020
 ms.author: aahi
 ---
 
@@ -18,10 +18,16 @@ ms.author: aahi
     * The following BASH examples use the `\` line continuation character. If you console or terminal uses a different line continuation character, use this character.
 
 > [!TIP]
-> * You can find a Python sample that uses the REST API on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/MetricsAdvisor/metrics_advisor_rest_api.py).
-> * It may 10 to 30 minutes for your Metrics Advisor resource to deploy. Click **Go to resource** once it successfully deploys.
-> * After deployment, you can start using your Metrics Advisor instance with both the web portal and REST API endpoint. You can find the URLs for both in the resource you've created.
-> * You will need the **resource key** and the **API key** from the resource you've created to start using the REST API service. The **resource key** can be found in **Keys and Endpoint** menu of the Cognitive service resource you've created.The API key can be found in built-in web portal of Metrics Advisor, you can find it in **API keys** page.
+> * It may 10 to 30 minutes for your Metrics Advisor resource to deploy a service instance for you to use. Click **Go to resource** once it successfully deploys. After deployment, you can start using your Metrics Advisor instance with both the web portal and REST API. 
+> * You can find the URL for the REST API in Azure portal, in the **Overview** section of your resource. it will look like this:
+>    * `https://<instance-name>.cognitiveservices.azure.com/`
+
+You will need two keys to start using the REST API:
+
+* The key to your Metrics Advisor resource. You can find this in the **Keys and Endpoint** section of your resource in the Azure portal.
+    * Later you will replace `Ocp-Apim-Subscription-Key` in the examples with this key. 
+* The API key for your Metrics Advisor instance. You can find this in the web portal for Metrics Advisor, in **API keys** on the left navigation menu.
+    * Later you will replace `x-api-key` in the examples with this key.
 
 ## Add a data feed from a sample or data source
 
@@ -33,7 +39,7 @@ To start monitoring your time series data, you need add a data feed. To add a da
         "dataFeedName": "test_data_feed_00000001",
         "dataFeedDescription": "",
         "dataSourceParameter": {
-            "connectionString": "Server=ad-sample.database.windows.net,1433;Initial Catalog=ad-sample;Persist Security Info=False;User ID=adreadonly;Password=Readonly@2020;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;",
+            "connectionString": "Server=ad-sample.database.windows.net,1433;Initial Catalog=ad-sample;Persist Security Info=False;User ID=<id>;Password=<password>;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;",
             "query": "select * from adsample3 where Timestamp = @StartTime"
         },
         "granularityName": "Daily",
@@ -163,18 +169,18 @@ curl https://REPLACE-WITH-YOUR-ENDPOINT/metricsadvisor/v1.0/datafeeds/REPLACE-WI
    "maxConcurrency":-1,
    "viewMode":"Private",
    "admins":[
-      "zhli2@microsoft.com"
+      "xyz@microsoft.com"
    ],
    "viewers":[
       
    ],
-   "creator":"bowgong@microsoft.com",
+   "creator":"xyz@microsoft.com",
    "status":"Active",
    "createdTime":"2020-09-08T08:39:28Z",
    "isAdmin":true,
    "actionLinkTemplate":"",
    "dataSourceParameter":{
-      "connectionString":"Server=ad-sample.database.windows.net,1433;Initial Catalog=ad-sample;Persist Security Info=False;User ID=adreadonly;Password=Readonly@2020;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;",
+      "connectionString":"Server=ad-sample.database.windows.net,1433;Initial Catalog=ad-sample;Persist Security Info=False;User ID=<id>;Password=<password>;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;",
       "query":"select * from adsample3 where Timestamp = @StartTime"
    }
 }
