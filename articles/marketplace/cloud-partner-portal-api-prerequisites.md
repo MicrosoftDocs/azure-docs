@@ -12,7 +12,7 @@ ms.date: 09/23/2020
 # API Prerequisites
 
 > [!NOTE]
-> The Cloud Partner Portal APIs are integrated with and will continue working in Partner Center. The transition introduces small changes. Review the changes listed in [Cloud Partner Portal API Reference](./cloud-partner-portal-api-overview.md) to ensure your code continues working after transitioning to Partner Center. Only use CPP APIs for existing products that were already integrated before transition to Partner Center; new products should use Partner Center submission APIs.
+> The Cloud Partner Portal APIs are integrated with and will continue working in Partner Center. The transition introduces small changes. Review the changes listed in [Cloud Partner Portal API Reference](cloud-partner-portal-api-overview.md) to ensure your code continues working after transitioning to Partner Center. Only use CPP APIs for existing products that were already integrated before transition to Partner Center; new products should use Partner Center submission APIs.
 
 You need two required programmatic assets to use Cloud Partner Portal APIs: a service principal and an Azure Active Directory (Azure AD) access token.
 
@@ -22,8 +22,8 @@ First, you need to create a service principal in your Azure AD tenant. This tena
 
 ## Add service principal to your account
 
-Now that you've created the service principal in your tenant, you can add it as a user to your Partner Center Portal account. Just like a user, the service principal can be an owner or a contributor to the portal. For details, see **Next step** below.
+Now that you've created the service principal in your tenant, you can add it as a user to your Partner Center Portal account. Just like a user, the service principal can be an owner or a contributor to the portal. For details, see **Next steps** below.
 
-## Next step
+## Next steps
 
-See [Manage Azure AD applications](./partner-center-portal/manage-account.md#manage-azure-ad-applications).
+See [Manage Azure AD applications](partner-center-portal/manage-account.md#manage-azure-ad-applications).
