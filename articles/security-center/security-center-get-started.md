@@ -12,7 +12,7 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/3/2018
+ms.date: 09/22/2020
 ms.author: memildin
 
 ---

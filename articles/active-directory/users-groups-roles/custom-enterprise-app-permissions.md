@@ -133,7 +133,6 @@ microsoft.directory/servicePrincipals/appRoleAssignedTo/read | Read service prin
 microsoft.directory/servicePrincipals/appRoleAssignedTo/update | Update service principal role assignments.
 microsoft.directory/servicePrincipals/appRoleAssignments/read | Read role assignments assigned to service principals.
 microsoft.directory/servicePrincipals/audience/update | Update audience properties on service principals.
-microsoft.directory/servicePrincipals/authentication/read |  
 microsoft.directory/servicePrincipals/authentication/update | Update authentication properties on service principals.
 microsoft.directory/servicePrincipals/basic/update | Update basic properties on service principals.
 microsoft.directory/servicePrincipals/create | Create service principals.
