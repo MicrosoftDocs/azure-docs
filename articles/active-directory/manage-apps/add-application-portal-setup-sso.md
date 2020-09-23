@@ -39,7 +39,10 @@ After you finish adding an application to your Azure AD tenant, the overview pag
 To set up single sign-on for an application:
 
 1. In the Azure AD portal, select **Enterprise applications**. Then find and select the application you want to set up for single sign-on.
-1. In the **Manage** section, select **Single sign-on** to open the **Single sign-on** pane for editing. IMPORTANT - If the app uses the OpenID Connect (OIDC) standard for SSO then you will not see a single sign-on option in the navigation. Refer to the quickstart on OIDC-based SSO to learn how to set it up.
+1. In the **Manage** section, select **Single sign-on** to open the **Single sign-on** pane for editing.
+
+    > [!IMPORTANT]
+    > If the app uses the OpenID Connect (OIDC) standard for SSO then you will not see a single sign-on option in the navigation. Refer to the quickstart on OIDC-based SSO to learn how to set it up.
 
     :::image type="content" source="media/add-application-portal-setup-sso/configure-sso.png" alt-text="Screenshot shows the Single sign-on config page in the Azure AD portal.":::
 
