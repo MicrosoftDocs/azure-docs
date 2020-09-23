@@ -27,7 +27,7 @@ You must delegate a subnet to Azure NetApp Files.   When you create a volume, yo
    You can have only a single delegated subnet in a VNet. A NetApp account can deploy volumes into multiple VNets, each having its own delegated subnet.  
 * You cannot designate a network security group or service endpoint in the delegated subnet. Doing so causes the subnet delegation to fail.
 * Access to a volume from a globally peered virtual network is not currently supported.
-* Creating [user-defined custom routes](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#custom-routes) on VM subnets with address prefix (destination) to a subnet delegated to Azure NetApp Files is unsupported. Doing so will impact VM connectivity.
+* Creating [user-defined custom routes](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#custom-routes) on VM subnets with address prefix (destination) to a subnet delegated to Azure NetApp Files is unsupported. Doing so will impact VM connectivity. Azure NetApp Files will create a system route to the delegated subnet for you. This will be visible in the Effective routes in the route table for troubleshooting purposes.
 
 ## Steps 
 1.	Go to the **Virtual networks** blade from the Azure portal and select the virtual network that you want to use for Azure NetApp Files.    
