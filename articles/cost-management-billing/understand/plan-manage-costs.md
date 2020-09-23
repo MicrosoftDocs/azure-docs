@@ -32,7 +32,7 @@ Use one of the following tools to estimate the cost of using an Azure service:
 - Azure price sheet
 - Azure portal
 
-The images in the following sections show example pricing in US Dollars.
+The images in the following sections show example pricing in US Dollars. The mentioned prices are for example purposes only. They are not intended to imply actual costs. 
 
 ### Estimate cost online using the pricing calculator
 
@@ -42,7 +42,9 @@ Check out the [pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 You can view estimated cost for any first party Azure service. For example, in the screenshot below, an A1 Windows Virtual Machine (VM) is estimated to cost $66.96 per month in compute hours if you leave it running the whole time:
 
-![Screenshot of the pricing calculator showing an A1 Windows VM estimated cost per month](./media/plan-manage-costs/pricing-calcvm.png)
+![Screenshot of the pricing calculator showing an A1 Windows VM estimated cost per month](./media/plan-manage-costs/pricing-calc-vm.png)
+
+The mentioned prices are for example purposes only. They are not intended to imply actual costs.
 
 For more information about pricing, see the [Pricing FAQ](https://azure.microsoft.com/pricing/faq/). If you want to talk to an Azure salesperson, call the phone number shown at the top of the FAQ page.
 
@@ -57,6 +59,8 @@ For other subscription types, you can get standard retail prices with the [Azure
 You can view the estimated cost per month while adding a service in the Azure portal. For example, when you choose the size of your Windows VM, you see the estimated monthly cost for the compute hours:
 
 ![Example: an A1 Windows VM showing estimated cost per month](./media/plan-manage-costs/vm-size-cost.png)
+
+The mentioned prices are for example purposes only. They are not intended to imply actual costs.
 
 ## Monitor costs when using Azure services
 You can monitor costs with the following tools:
@@ -80,9 +84,9 @@ Click **Cost analysis** from the left side of the screen to see the current cost
 
 You can filter by various properties such as tags, resource type, and time span. Click **Add filter** to add the filter for a property and select the values to filter. Select **Export** to export the view to a comma-separated values (.csv) file.
 
-Additionally, you can click the labels of the chart to see the daily spend history for that label. For ex: In the screenshot below, clicking on virtual machines displays the daily cost of running your VMs.
+Additionally, you can click the labels of the chart to see the daily spend history for that label. For example, in the screenshot below, selecting a virtual machine displays the daily cost of running your VMs.
 
-![Screenshot of the spend history view in Azure portal](./media/plan-manage-costs/costhistory.png)
+:::image type="content" source="./media/plan-manage-costs/cost-history.png" alt-text="Screenshot of the spend history view in Azure portal" lightbox="./media/plan-manage-costs/cost-history.png" :::
 
 ## Optimize and reduce costs
 
@@ -109,6 +113,8 @@ For more cost-cutting features for your development and test environments, check
 Select **Cost** from the left-hand side. You'll see actionable recommendations in the **Cost** tab:
 
 ![Screenshot of Advisor cost recommendation example](./media/plan-manage-costs/advisor-action.png)
+
+The mentioned prices are for example purposes only. They are not intended to imply actual costs.
 
 Review the [Optimize costs from recommendations](../costs/tutorial-acm-opt-recommendations.md) tutorial for a guided tutorial about cost-saving Advisor recommendations.
 
@@ -166,8 +172,6 @@ Under **Issue type**, select **Billing** and then under **Problem type**, select
 Add details to specify that you're asking for an SLA credit, mention the date/time/time-zone as well as the impacted services (VMs, Web Sites, etc.)
 
 Finally, verify your contact details and select **Create** to submit your request.
-
-SLA thresholds vary by service. For example, the SQL Web Tier has an SLA of 99.9%, VMs have an SLA of 99.95%, and SQL Standard Tier has an SLA of 99.99%.
 
 For some services, there are prerequisites for the SLA to apply. For example, virtual machines must have two or more instances deployed in the same Availability Set.
 
