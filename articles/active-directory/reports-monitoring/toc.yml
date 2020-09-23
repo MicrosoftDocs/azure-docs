@@ -36,7 +36,7 @@
   - name: Audit logs
     href: concept-audit-logs.md
   - name: New sign-in logs - preview
-    href: concept-all- sign-ins.md
+    href: concept-all-sign-ins.md
   - name: Sign-in logs
     href: concept-sign-ins.md
   - name: Usage and Insights report
