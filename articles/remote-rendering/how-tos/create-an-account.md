@@ -87,6 +87,8 @@ Repeat adding new roles two more times for the respective selections from the **
 The other dropdowns are selected as in the first step.
 
 If you have added all three roles, your Azure Remote Rendering account has access to your storage account using system assigned Managed Service Identities.
+> [!IMPORTANT]
+> Azure role assignments are cached by Azure Storage, so there may be a delay of up to 30min between when you grant access to your remote rendering account and when it can be used to access your storage account. See the [Role base access control documentation](https://docs.microsoft.com/azure/role-based-access-control/troubleshooting#role-assignment-changes-are-not-being-detected) for details.
 
 ## Next steps
 
