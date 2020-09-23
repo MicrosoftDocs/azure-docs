@@ -7,13 +7,71 @@ ms.topic: how-to
 ms.date: 10/06/2019
 ms.author: brendm
 ms.custom: devx-track-java
+zone_pivot_groups: programming-languages-spring-cloud
 ---
 
 # Use distributed tracing with Azure Spring Cloud
 
 With the distributed tracing tools in Azure Spring Cloud, you can easily debug and monitor complex issues. Azure Spring Cloud integrates [Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) with Azure's [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview). This integration provides powerful distributed tracing capability from the Azure portal.
 
-In this article you learn how to:
+::: zone pivot="programming-language-csharp"
+In this article, you learn how to enable a .NET Core Steeltoe app to use distributed tracing.
+
+## Prerequisites
+
+To follow these procedures, you need a Steeltoe app that is already [prepared for deployment to Azure Spring Cloud](spring-cloud-tutorial-prepare-app-deployment.md).
+
+## Dependencies
+
+Install the following NuGet packages
+
+* [Steeltoe.Management.TracingCore](https://www.nuget.org/packages/Steeltoe.Management.TracingCore/)
+* [Steeltoe.Management.ExporterCore](https://www.nuget.org/packages/Microsoft.Azure.SpringCloud.Client/)
+
+## Update Startup.cs
+
+1. In the `ConfigureServices` method, call the `AddDistributedTracing` and `AddZipkinExporter` methods.
+
+   ```csharp
+   public void ConfigureServices(IServiceCollection services)
+   {
+       services.AddDistributedTracing(Configuration);
+       services.AddZipkinExporter(Configuration);
+   }
+   ```
+
+1. In the `Configure` method, call the `UseTracingExporter` method.
+
+   ```csharp
+   public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+   {
+        app.UseTracingExporter();
+   }
+   ```
+
+## Update configuration
+
+Add the following settings to the configuration source that will be used when the app runs in Azure Spring Cloud:
+
+1. Set `management.tracing.alwaysSample` to true.
+
+2. If you want to see tracing spans sent between the Eureka server, the Configuration server, and user apps: set `management.tracing.egressIgnorePattern` to "/api/v2/spans|/v2/apps/.*/permissions|/eureka/.*|/oauth/.*".
+
+For example, *appsettings.json* would include the following properties:
+ 
+```json
+"management": {
+    "tracing": {
+      "alwaysSample": true,
+      "egressIgnorePattern": "/api/v2/spans|/v2/apps/.*/permissions|/eureka/.*|/oauth/.*"
+    }
+  }
+```
+
+For more information about distributed tracing in .NET Core Steeltoe apps, see [Distributed tracing](https://steeltoe.io/docs/3/tracing/distributed-tracing) in the Steeltoe documentation.
+::: zone-end
+::: zone pivot="programming-language-java"
+In this article, you learn how to:
 
 > [!div class="checklist"]
 > * Enable distributed tracing in the Azure portal.
@@ -23,8 +81,8 @@ In this article you learn how to:
 
 ## Prerequisites
 
-To follow these procedures, you need an Azure Spring Cloud service that is already provisioned and running. Complete the [quickstart on deploying an app via the Azure CLI](spring-cloud-quickstart.md) to provision and run an Azure Spring Cloud service.
-    
+To follow these procedures, you need an Azure Spring Cloud service that is already provisioned and running. Complete the [Deploy your first Azure Spring Cloud application](spring-cloud-quickstart.md) quickstart to provision and run an Azure Spring Cloud service.
+
 ## Add dependencies
 
 1. Add the following line to the application.properties file:
@@ -68,6 +126,7 @@ spring.sleuth.sampler.probability=0.5
 ```
 
 If you have already built and deployed an application, you can modify the sample rate. Do so by adding the previous line as an environment variable in the Azure CLI or the Azure portal.
+::: zone-end
 
 ## Enable Application Insights
 

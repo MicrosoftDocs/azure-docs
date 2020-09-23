@@ -51,7 +51,7 @@ Follow the steps below to set up alerts to let you know the status of an update 
 
 9. Set the **Severity** field to **Informational(Sev 2)** for a successful run or **Informational(Sev 1)** for a failed run.
 
-    ![Configure signal logic](./media/update-mgmt-manage-updates-for-vm/define-alert-details.png)
+    ![Screenshot shows the Define alert details section with Alert rule name, Description, and Severity fields highlighted.](./media/update-mgmt-manage-updates-for-vm/define-alert-details.png)
 
 10. Select **Yes** to enable the alert rule.
 

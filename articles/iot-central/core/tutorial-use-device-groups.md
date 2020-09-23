@@ -1,10 +1,10 @@
 ---
-title: Use device groups in your Azure IoT Central application | Microsoft Docs
-description: As an operator, learn how to use device groups to analyze telemetry from  devices in your Azure IoT Central application.
+title: Tutorial - Use device groups in your Azure IoT Central application | Microsoft Docs
+description: Tutorial - As an operator, learn how to use device groups to analyze telemetry from  devices in your Azure IoT Central application.
 author: dominicbetts
 ms.author: dobett
 ms.date: 02/12/2020
-ms.topic: conceptual
+ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: peterpfr

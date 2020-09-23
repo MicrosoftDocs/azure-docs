@@ -28,7 +28,7 @@ coordinator node.
 
 > [!NOTE]
 >
-> Hyperscale server groups running older versions of the Citus Engine may not
+> Hyperscale (Citus) server groups running older versions of the Citus Engine may not
 > offer all the tables listed below.
 
 ### Partition table
@@ -599,5 +599,5 @@ with Hyperscale (Citus) MX for instance).
 
 ## Next steps
 
-* Learn how some [Hyperscale functions](reference-hyperscale-functions.md) alter system tables
+* Learn how some [Hyperscale (Citus) functions](reference-hyperscale-functions.md) alter system tables
 * Review the concepts of [nodes and tables](concepts-hyperscale-nodes.md)

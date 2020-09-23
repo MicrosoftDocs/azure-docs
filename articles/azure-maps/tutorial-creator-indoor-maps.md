@@ -399,43 +399,11 @@ A tileset is a set of vector tiles that render on the map. Tilesets are created 
 
 The [Feature Get States API](https://docs.microsoft.com/rest/api/maps/featurestate/getstatespreview) allows you to retrieve the state of a feature using its feature `ID`. You can also delete the stateset and its resources by using the [Feature State Delete API](https://docs.microsoft.com/rest/api/maps/featurestate/deletestatesetpreview).
 
+To learn more about the different Azure Maps Creator services discussed in this article see, [Creator Indoor Maps](creator-indoor-maps.md).
+
 ## Next steps
 
-In this tutorial, you learned how to:
-
-> [!div class="checklist"]
-> * Upload your indoor map Drawing package
-> * Convert your Drawing package into map data
-> * Create a dataset from your map data
-> * Create a tileset from the data in your dataset
-> * Query the Azure Maps WFS service to learn about your map features
-> * Create a feature stateset by using your map features and the data in your dataset
-> * Update your feature stateset
-
-You're now equipped with the skills you need to move on to the next guides:
+To learn how to use the indoor maps module, see
 
 > [!div class="nextstepaction"]
 > [Use the Indoor Maps module](how-to-use-indoor-module.md)
-
-> [!div class="nextstepaction"]
-> [Implement dynamic styling for indoor maps](indoor-map-dynamic-styling.md)
-
-Learn more about the different Azure Maps services discussed in this article:
-
-> [!div class="nextstepaction"]
-> [Data Upload](creator-indoor-maps.md#upload-a-drawing-package)
-
-> [!div class="nextstepaction"]
-> [Data Conversion](creator-indoor-maps.md#convert-a-drawing-package)
-
-> [!div class="nextstepaction"]
-> [Dataset](creator-indoor-maps.md#datasets)
-
-> [!div class="nextstepaction"]
-> [Tileset](creator-indoor-maps.md#tilesets)
-
-> [!div class="nextstepaction"]
-> [Feature State set](creator-indoor-maps.md#feature-statesets)
-
-> [!div class="nextstepaction"]
-> [WFS service](creator-indoor-maps.md#web-feature-service-api)
