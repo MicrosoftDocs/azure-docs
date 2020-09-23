@@ -21,10 +21,13 @@ The Azure Synapse Analytics cheat sheet will guide you through the basic concept
 
 A **Synapse workspace** is a securable collaboration boundary for doing cloud-based enterprise analytics in Azure. A workspace is deployed in a specific region and has an associated ADLS Gen2 account and file system (for storing temporary data). A workspace is under a resource group.
 
-A workspace allows you to perform analytics with SQL and Apache spark. Resources available for SQL and Spark analytics are organized into **pools**. There are three kinds of pools.
-* **SQL pools**. These provide **dedicated** SQL analytics capacity.
-* **SQL on-demand pool**. Every workspace has exactly one SQL on-demand pool. This provides **serverless** SQL analytics capacity on a per-query basis.
-* **Spark pools**. These provide Spark analytics capacity.
+A workspace allows you to perform analytics with SQL and Apache spark. Resources available for SQL and Spark analytics are organized into SQL and Spark **pools**. 
+
+## Synapse SQL
+**Synapse SQL** is the ability to do T-SQL based analytics in Synapse workspace. Synapse SQL has two consumption models: dedicated and serverless.  For the dedicated  model, use dedicated **SQL pools**. A workspace can have any nubmer of these pools. To use the serverless model, use the the serverless SQL pool called "SQL on-demand". Every workspace has one of these pools.
+
+## Apache Spark for Synapse
+To use Spark analytics, create and use **Spark pools** in your Synapse workspace.
 
 ## Terminology
 | Term                         | Definition      |
