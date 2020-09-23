@@ -106,15 +106,17 @@ jobs:
 
 ## Deploy to an App Service container
 
-To deploy your image to a custom container in App Service, use the `azure/webapps-container-deploy@v1` action. This action has five parameters:
+To deploy your image to a custom container in App Service, use the `azure/webapps-deploy@v2` action. This action has seven parameters:
 
 | **Parameter**  | **Explanation**  |
 |---------|---------|
 | **app-name** | (Required) Name of the App Service app | 
+| **publish-profile** | (Optional) Applies to Web Apps(Windows and Linux) and Web App Containers(linux). Multi container scenario not supported. Publish profile (\*.publishsettings) file contents with Web Deploy secrets | 
 | **slot-name** | (Optional) Enter an existing Slot other than the Production slot |
-| **images** | (Required) Specify the fully qualified container image(s) name. For example, 'myregistry.azurecr.io/nginx:latest' or 'python:3.7.2-alpine/'. For a multi-container app, multiple container image names can be provided (multi-line separated) |
-| **configuration-file** | (Optional) Path of the Docker-Compose file. Should be a fully qualified path or relative to the default working directory. Required for multi-container apps. |
-| **container-command** | (Optional) Enter the start-up command. For ex. dotnet run or dotnet filename.dll |
+| **package** | (Optional) Applies to Web App only: Path to package or folder. \*.zip, \*.war, \*.jar or a folder to deploy |
+| **images** | (Required) Applies to Web App Containers only: Specify the fully qualified container image(s) name. For example, 'myregistry.azurecr.io/nginx:latest' or 'python:3.7.2-alpine/'. For a multi-container app, multiple container image names can be provided (multi-line separated) |
+| **configuration-file** | (Optional) Applies to Web App Containers only: Path of the Docker-Compose file. Should be a fully qualified path or relative to the default working directory. Required for multi-container apps. |
+| **startup-command** | (Optional) Enter the start-up command. For ex. dotnet run or dotnet filename.dll |
 
 Below is the sample workflow to build and deploy a Node.js app to a custom container in App Service. Note how the `creds` input references the `AZURE_CREDENTIALS` secret that you created earlier.
 
@@ -146,7 +148,7 @@ jobs:
         docker build . -t contoso.azurecr.io/nodejssampleapp:${{ github.sha }}
         docker push contoso.azurecr.io/nodejssampleapp:${{ github.sha }} 
       
-    - uses: azure/webapps-container-deploy@v1
+    - uses: azure/webapps-deploy@v2
       with:
         app-name: 'node-rnc'
         images: 'contoso.azurecr.io/nodejssampleapp:${{ github.sha }}'
