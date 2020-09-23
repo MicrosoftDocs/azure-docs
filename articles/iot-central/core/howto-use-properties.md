@@ -96,7 +96,7 @@ This example shows five properties, these can be related to the property definit
 
 Optional fields, such as display name and description, let you add more details to the interface and capabilities.
 
-When you create a property you can specify the complex **schema** types like Object, Enum, etc
+When you create a property you can specify the complex **schema** types like Object, Enum, etc.
 
 ![Add a capability](./media/howto-use-properties/property.png)
 
@@ -231,8 +231,6 @@ hubClient.getTwin((err, twin) => {
 
 The response message should include the `ac` and `av` fields. The `ad` field is optional. See the following snippets for examples.
 
-`ac` is a numeric field that uses the values in the following table:
-
 | Value | Label | Description |
 | ----- | ----- | ----------- |
 | `'ac': 200` | Completed | The property change operation was successfully completed. |
@@ -240,9 +238,11 @@ The response message should include the `ac` and `av` fields. The `ad` field is 
 | `'ac': 4xx` | Error | The requested property change was not valid or had an error |
 | `'ac': 5xx` | Error | The device experienced an unexpected error when processing the requested change. |
 
-`av` is the version number sent to the device.
+* `ac` is a numeric field that uses the values in the following table:
 
-`ad` is an option string description.
+* `av` is the version number sent to the device.
+
+* `ad` is an option string description.
 
 For more information, see [device twins](https://docs.microsoft.com/azure/iot-hub/tutorial-device-twins).
 
