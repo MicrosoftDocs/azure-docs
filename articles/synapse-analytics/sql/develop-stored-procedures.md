@@ -32,7 +32,7 @@ When SQL pool executes your stored procedure, the SQL statements are parsed, tra
 
 ## Encapsulate validation rules
 
-Stored procedures enable you to to locate validaiton logic in a single module stored in SQL database. In the following example you can see how to valuedate values of parameters and chande default values of parameters.
+Stored procedures enable you to locate validation logic in a single module stored in SQL database. In the following example, you can see how to validate the values of parameters and change their default values.
 
 ```sql
 CREATE PROCEDURE count_objects_by_date_created 
