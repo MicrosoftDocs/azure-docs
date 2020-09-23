@@ -156,7 +156,8 @@ Once you've configured provisioning, use the following resources to monitor your
 * [Delete Azure AD accounts that appear in Apple Business Manager](URL=https://support.apple.com/guide/apple-business-manager/apdaa5798fbe)
 * [View SCIM activity in Apple Business Manager](URL=https://support.apple.com/guide/apple-business-manager/apd1bfd8dfde)
 * [Manage existing SCIM token and connections in Apple Business Manager](URL=https://support.apple.com/guide/apple-business-manager/apdc9a823611)
-* [Disconnect the SCIM connection in Apple Business Manager](URL=https://support.apple.com/guide/apple-business-manager/apd609be3a61)* [Manage existing SCIM token and connections in Apple Business Manager](URL=https://support.apple.com/guide/apple-business-manager/apdc9a8236e9)
+* [Disconnect the SCIM connection in Apple Business Manager](URL=https://support.apple.com/guide/apple-business-manager/apd609be3a61)
+* [Manage existing SCIM token and connections in Apple Business Manager](URL=https://support.apple.com/guide/apple-business-manager/apdc9a8236e9)
 * [Troubleshooting the SCIM connection in Apple Business Manager](URL=https://support.apple.com/guide/apple-business-manager/apd403a0f3bd)
 
 ## Next steps

@@ -28,7 +28,7 @@ directly to workers.
 
 Hyperscale (Citus) allows the database administrator to *distribute* tables,
 storing different rows on different worker nodes. Distributed tables are the
-key to Hyperscale performance. Failing to distribute tables leaves them entirely
+key to Hyperscale (Citus) performance. Failing to distribute tables leaves them entirely
 on the coordinator node and cannot take advantage of cross-machine parallelism.
 
 For each query on distributed tables, the coordinator either routes it to a

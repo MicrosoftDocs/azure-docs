@@ -25,6 +25,14 @@ Azure Arc enabled data services is released for public preview. Arc enabled data
 
 For instructions see [What are Azure Arc enabled data services?](overview.md)
 
+### Known issues
+
+The following issues apply to this release:
+
+* **Deleting PostgreSQL Hyperscale server group**: If you have changed the configuration of your server group or instance, wait for the edit operation to complete before you delete a PostgreSQL Hyperscale server group.
+
+* **`azdata notebook run` may fail**: To work round this problem, run `azdata notebook run` in a Python virtual environment. This problem also manifests in a failed attempt to create a SQL managed instance or PostgreSQL Hyperscale server group using the Azure Data Studio deployment wizard. In this case, you can open the notebook and click the **Run all** button at the top of the notebook.
+
 ## Next steps
 
 > **Just want to try things out?**  

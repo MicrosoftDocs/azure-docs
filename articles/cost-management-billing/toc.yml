@@ -40,6 +40,10 @@
       href: costs/understand-work-scopes.md
     - name: Group and filter options
       href: costs/group-filter.md
+    - name: Plan to manage costs
+      href: understand/plan-manage-costs.md
+    - name: Prevent unexpected costs
+      href: understand/analyze-unexpected-charges.md
     - name: Manage costs with automation
       href: costs/manage-automation.md
     - name: Cost Management for partners
@@ -246,8 +250,6 @@
         href: manage/upgrade-azure-subscription.md
   - name: Perform key cost management tasks
     items:
-    - name: Prevent unexpected costs
-      href: manage/getting-started.md
     - name: Calculate pricing
       href: https://azure.microsoft.com/pricing/calculator/
     - name: Use cost analysis for common tasks

@@ -78,7 +78,7 @@ In a default configuration, only the minimum memory is set to 256Mi as it is the
 
 The settings you are about to set have to be considered within the configuration you set for your Kubernetes cluster. Make sure you are not setting values that your Kubernetes cluster won't be able to satisfy. That could lead to errors or unpredictable behavior. As an example, if the status of your server group stays in status _updating_ for a long time after you change the configuration, it may be an indication that you set the below parameters to values that your Kubernetes cluster cannot satisfy. If that is the case, revert the change or read the _troubleshooting_section.
 
-Let's assume you want to scale up the definition of your server group to:
+As an example, let's assume you want to scale up the definition of your server group to:
 
 - Min vCore = 2
 - Max vCore = 4
@@ -88,6 +88,13 @@ Let's assume you want to scale up the definition of your server group to:
 You would use either of the following approaches:
 
 ### CLI with azdata
+
+```console
+azdata arc postgres server edit -n <name of your server group> --cores-request <# core-request>  --cores-limit <# core-limit>  --memory-request <# memory-request>Mi  --memory-limit <# memory-limit>Mi
+```
+
+> [!CAUTION]
+> Below is an example provided to illustrate how you could use the command. Before executing an edit command, make sure to set the parameters to values that the Kubernetes cluster can honor.
 
 ```console
 azdata arc postgres server edit -n <name of your server group> --cores-request 2  --cores-limit 4  --memory-request 512Mi  --memory-limit 1024Mi
@@ -110,6 +117,10 @@ kubectl edit postgresql-12/<server group name> [-n <namespace name>]
 
 This takes you in the vi editor where you can navigate and change the configuration. Use the following to map the desired setting to the name of the field in the specification:
 
+> [!CAUTION]
+> Below is an example provided to illustrate how you could edit the configuration. Before updating the configuration, make sure to set the parameters to values that the Kubernetes cluster can honor.
+
+For example:
 - Min vCore = 2 -> scheduling\default\resources\requests\cpu
 - Max vCore = 4 -> scheduling\default\resources\limits\cpu
 - Min memory = 512Mb -> scheduling\default\resources\requests\cpu
