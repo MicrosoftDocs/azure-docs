@@ -21,7 +21,7 @@ For Microsoft Azure Attestation to provide strong security guarantees that the d
 
 #### Direction
 
-Client -> Aure Attestation
+Client -> Azure Attestation
 
 #### Payload
 
@@ -191,7 +191,7 @@ VBS example
 }
 ``` 
 
-**rp_id** (StringOrURI): Relying party identifier. Used by the service in the computation of the machine id claim
+**rp_id** (StringOrURI): Relying party identifier. Used by the service in the computation of the machine ID claim
 
 **rp_data** (BASE64URL(OCTETS)): Opaque data passed by the relying party. This is normally used by the relying party as a nonce to guarantee freshness of the report
 
