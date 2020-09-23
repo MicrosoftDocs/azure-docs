@@ -12,7 +12,7 @@ metadata:
   ms.topic: hub-page
   author: rolyon
   ms.author: rolyon
-  ms.date: 09/10/2020
+  ms.date: 09/23/2020
   featureFlags:
   - clicktale
 
@@ -71,6 +71,14 @@ productDirectory:
         - ai-machine-learning
         - mobile
       url: cognitive-services/index.yml
+    # Card
+    - title: Azure Communication Services (Preview)
+      summary: Add smart API capabilities to enable contextual interactions
+      imageSrc: 
+      azureCategories:
+        - mobile
+        - web
+      url: communication-services/index.yml
     # Card
     - title: Azure Databricks
       summary: Fast, easy, and collaborative Apache Spark-based analytics platform
@@ -251,6 +259,13 @@ productDirectory:
       azureCategories:
         - ai-machine-learning
       url: genomics/index.yml
+    # Card
+    - title: Metrics Advisor (Preview)
+      summary: An AI service that monitors metrics and diagnoses issues
+      imageSrc: 
+      azureCategories:
+        - ai-machine-learning
+      url: cognitive-services/metrics-advisor//index.yml
     # Card
     - title: Personalizer
       summary: An AI service that delivers a personalized user experience
@@ -1109,7 +1124,7 @@ productDirectory:
       url: azure-resource-manager/index.yml
     # Card
     - title: Azure Resource Mover
-      summary: Move resources across Azure regions.
+      summary: Simplify how you move multiple resources between Azure regions
       imageSrc: https://static.docs.com/ui/media/product/azure/resource-mover.svg
       azureCategories:
         - management-and-governance
@@ -1278,6 +1293,21 @@ productDirectory:
         - networking
       url: bastion/index.yml
     # Card
+    - title: Azure Defender
+      summary: Protect hybrid cloud workloads
+      imageSrc: 
+      azureCategories:
+        - security
+      url: security-center/azure-defender.md
+    # Card
+    - title: Azure Defender for IoT (Preview)
+      summary: Continuous asset management and threat detection for both unmanaged and managed IoT/OT devices
+      imageSrc: 
+      azureCategories:
+        - security
+        - iot
+      url: security-center/defender-for-iot-introduction.md
+    # Card
     - title: Azure DDoS Protection
       summary: Protect your applications from Distributed Denial of Service (DDoS) attacks
       imageSrc: https://static.docs.com/ui/media/product/azure/ddos-protection.svg
@@ -1321,6 +1351,13 @@ productDirectory:
       azureCategories:
         - networking
       url: internet-analyzer/index.yml
+    # Card
+    - title: Azure Orbital (Preview)
+      summary: Satellite ground station and scheduling service connected to Azure for fast downlinking of data
+      imageSrc: 
+      azureCategories:
+        - networking
+      url: networking/azure-orbital-overview.md
     # Card
     - title: Azure Private Link
       summary: Private access to services hosted on the Azure platform, keeping your data on the Microsoft network
