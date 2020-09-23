@@ -1,6 +1,6 @@
 ---
 title: 'VPN Gateway: Azure AD tenant for P2S VPN connections: Azure AD authentication'
-description: You can use P2S VPN to connect to your VNet using Azure AD authentication
+description: Learn how to set up an Azure AD tenant for P2S Open VPN authentication.
 services: vpn-gateway
 author: cherylmc
 
@@ -81,7 +81,7 @@ Use the steps in [this article](../active-directory/fundamentals/add-users-azure
 
 6. Select **Accept** when prompted.
 
-    ![Accept](./media/openvpn-create-azure-ad-tenant/accept.jpg)
+    ![Screenshot shows the message Permissions requested Accept for your organization with details and the option to accept.](./media/openvpn-create-azure-ad-tenant/accept.jpg)
 
 7. Under your Azure AD, in **Enterprise applications**, you see **Azure VPN** listed.
 

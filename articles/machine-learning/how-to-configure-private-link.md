@@ -10,7 +10,7 @@ ms.custom: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 09/03/2020
+ms.date: 09/21/2020
 ---
 
 # Configure Azure Private Link for an Azure Machine Learning workspace (preview)
@@ -31,6 +31,10 @@ Azure Private Link enables you to connect to your workspace using a private endp
 
 > [!TIP]
 > Azure Machine Learning compute instance can be used with a workspace and private endpoint. This capability is currently in public preview in the **US East**, **US South Central** and **US West 2** regions.
+
+## Prerequisites
+
+If you plan on using a private link enabled workspace with a customer-managed key, you must request this feature using a support ticket. For more information, see [Manage and increase quotas](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
 
 ## Create a workspace that uses a private endpoint
 

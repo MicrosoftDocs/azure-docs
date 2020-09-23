@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.devlang: javascript
 ms.topic: how-to
 ms.date: 12/26/2018
-ms.custom: devx-track-javascript, devx-track-csharp
+ms.custom: devx-track-js, devx-track-csharp
 ---
 # Expire data with Azure Cosmos DB's API for MongoDB
 

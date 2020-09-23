@@ -23,7 +23,7 @@ A number of features have size, count, or other limitations.
 
 ## Geometry
 
-* Total allowable materials in an asset: 65,535.
+* Total allowable materials in an asset: 65,535. See [material de-duplication](../how-tos/conversion/configure-model-conversion.md#material-de-duplication) for more information.
 * Maximum dimension of a single texture: 16,384 x 16,384. Larger source textures will be scaled down by the conversion process.
 
 ## Overall number of polygons
