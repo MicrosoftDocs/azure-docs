@@ -24,7 +24,7 @@ To maintain the scale and performance of SQL pool, there are also some features 
 
 ## Stored procedures in SQL pool
 
-Stored procedures are a great way for encapsulating your SQL code and storing it close to your data in the data warehouse. Stored procedures help developers modularize their solutions by encapsulating the code into manageable units, facilitating greater reusability of code. Each stored procedure can also accept parameters to make them even more flexible. In the following example, you can see a procedure that drops an external table if it exisist in the database:
+Stored procedures are a great way for encapsulating your SQL code and storing it close to your data in the data warehouse. Stored procedures help developers modularize their solutions by encapsulating the code into manageable units, facilitating greater reusability of code. Each stored procedure can also accept parameters to make them even more flexible. In the following example, you can see the procedures that drop an external objects if they exist in the database:
 
 ```sql
 CREATE PROCEDURE drop_external_table_if_exists @name SYSNAME
@@ -32,6 +32,24 @@ AS BEGIN
     IF (0 <> (SELECT COUNT(*) FROM sys.external_tables WHERE name = @name))
     BEGIN
         DECLARE @drop_stmt NVARCHAR(200) = N'DROP EXTERNAL TABLE ' + @name; 
+        EXEC sp_executesql @tsql = @drop_stmt;
+    END
+END
+GO
+CREATE PROCEDURE drop_external_file_format_if_exists @name SYSNAME
+AS BEGIN
+    IF (0 <> (SELECT COUNT(*) FROM sys.external_file_formats WHERE name = @name))
+    BEGIN
+        DECLARE @drop_stmt NVARCHAR(200) = N'DROP EXTERNAL FILE FORMAT ' + @name; 
+        EXEC sp_executesql @tsql = @drop_stmt;
+    END
+END
+GO
+CREATE PROCEDURE drop_external_data_source_if_exists @name SYSNAME
+AS BEGIN
+    IF (0 <> (SELECT COUNT(*) FROM sys.external_data_sources WHERE name = @name))
+    BEGIN
+        DECLARE @drop_stmt NVARCHAR(200) = N'DROP EXTERNAL DATA SOURCE ' + @name; 
         EXEC sp_executesql @tsql = @drop_stmt;
     END
 END
