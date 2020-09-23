@@ -9,7 +9,7 @@ ms.date: 09/15/2020
 
 [Azure Functions](../azure-functions/functions-overview.md) is a scalable and reliable execution environment for configuring and running [event replication and federation](event-hubs-federation-overview.md) tasks.
 
-In this overview, you will learn about Azure Functions' built-in capabilities for such applications, about pre-built code blocks that you can adapt and modify for transformation tasks, and about how to configure an Azure Functions application such that it integrates ideally with Event Hubs and other Azure Messaging services. For many details, this article will point to the Azure Functions documentation.
+In this overview, you will learn about Azure Functions' built-in capabilities for such applications, about  code blocks that you can adapt and modify for transformation tasks, and about how to configure an Azure Functions application such that it integrates ideally with Event Hubs and other Azure Messaging services. For many details, this article will point to the Azure Functions documentation.
 
 ## What is a replication task?
 
@@ -32,7 +32,7 @@ Replication tasks are generally stateless, meaning that they do not share state 
 
 This makes replication tasks different from aggregation tasks, which are generally stateful, and are the domain of analytics frameworks and services like [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md).
 
-## Replication tasks in Azure Functions
+## Replication applications and tasks in Azure Functions
 
 In Azure Functions, a replication task is implemented using a [trigger](../azure-functions/functions-triggers-bindings.md) that acquires one or more input event from a configured source and an [output binding](../azure-functions/functions-triggers-bindings#binding-direction) that forwards events copied from the source to a configured target. 
 
@@ -65,13 +65,47 @@ Replication tasks are deployed into the replication application through the same
 
 
 
-For pre-built tasks, we describe a simple flow where you only need to focus on the configuration. For custom tasks, the foundational model is the same, but you can add your own functionality.   
+With Azure Functions Premium, multiple replication applications can share the same underlying resource pool, called an App Service Plan. That means you can easily collocate replication tasks written in .NET with replication tasks that are written in Java, for instance. That will matter if you want to take advantage of specific libraries such as Apache Camel that are only available for Java and if those are the best option for a particular integration path, even though you would commonly prefer a different language and runtime for you other replication tasks. 
 
-#### Pre-built replication tasks
+The Azure Functions runtime environment provides a set of standard tasks where you only need to focus on the configuration. 
 
+Tasks that you build yourself are called "custom tasks". Custom tasks can be built in any language supported by Azure Functions. Because Azure Functions automatically takes care of updating and maintaining standard tasks, but you need to control this for your own code, custom tasks need to be hosted in a separate replication application, which still might share the same App Service Plan.
 
+#### Standard replication tasks
 
+Standard replication tasks lean on pre-built components that are part of the Azure Functions runtime environment. That means they are maintained and updated by Microsoft and you don't have to worry about the code just as you don't need to worry about operating system updates or other updates in Azure Functions. 
 
+A replication application with standard tasks is configured using a simple configuration file that defines pairs of event sources and event destinations (and related parameters) along with the kind of task you want to execute, for instance:
+
+``` JSON
+{
+    "configurationSource" : "config",
+    "bindings" : [
+        {
+            "name": "input",
+            "type": "eventHubsTrigger",
+            "connection": "west-us-event-hub-namespace-config",
+            "eventHubName" : "myeventhub",
+            
+        },
+        {
+            "name": "output",
+            "type" : "eventHub",
+            "connection" : "east-us-event-hub-namespace-config",
+            "eventHubName" : "myeventhub"
+        }
+    ],
+    "scriptFile" : "$ReplicationTasks",
+    "entryPoint" : "$EventHubToEventHubCopy"
+}
+```
+
+Standard replication tasks are available to move data between pairs of Event Hubs, between Service Bus and Event Hubs, between Event Grid and Event Hubs, and between Apache Kafka and Event Hubs. Details for how to configure and deploy those standard tasks are documented in dedicated articles:
+
+* [Replicating event data between different Event Hubs](event-hubs-federation-event-hubs.md)
+* [Replicating event data between Event Hubs and Service Bus](event-hubs-federation-service-bus.md)
+* [Replicating event data between Event Hubs and Event Grid](event-hubs-federation-event-grid.md)
+* [Replicating event data between Event Hubs and Apache Kafka](event-hubs-federation-kafka.md)
 
 #### Custom replication tasks
 For Event Hubs, boilerplate code for a custom replication task is as simple as this: 
