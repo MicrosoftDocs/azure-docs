@@ -18,7 +18,7 @@ Data in Azure Blob storage is often a variety of unstructured content such as im
 + Extract text from images using optical character recognition (OCR)
 + Produce a scene description or tags from a photo
 + Detect language and translate text into different languages
-+ Process text with named entity recognition (NER) to find references to people, dates, places, or organizations 
++ Infer structure through entity recognition by finding references to people, dates, places, or organizations
 
 While you might need just one of these AI capabilities, it’s common to combine multiple of them into the same pipeline (for example, extracting text from a scanned image and then finding all the dates and places referenced in it). 
 
@@ -38,7 +38,7 @@ In between is the pipeline architecture itself. The pipeline is based on the *in
 
 ## Required services
 
-You need Azure Blob storage, Azure Cognitive Search, and a third Azure service that provides the AI. For built-in AI, Cognitive Search integrates with Cognitive Services vision and natural language processing APIs. You can [attach a Cognitive Services resource](cognitive-search-attach-cognitive-services.md) to add Optical Character Recognition (OCR), image analysis, or natural language processing (language detection, text translation, entity recognition, key phrase extraction). For custom AI, you can define a custom skill that wraps the external function or model you want to use.
+You need Azure Blob storage, Azure Cognitive Search, and a third Azure service that provides the AI. For built-in AI, Cognitive Search integrates with Cognitive Services vision and natural language processing APIs. You can [attach a Cognitive Services resource](cognitive-search-attach-cognitive-services.md) to add Optical Character Recognition (OCR), image analysis, or natural language processing (language detection, text translation, entity recognition, key phrase extraction). For custom AI, you can define a custom skill that wraps the external function or model you want to use. [Custom skills](cognitive-search-custom-skill-interface.md) can use code provided by Azure Functions, Azure Machine Learning, Azure Form Recognizer, or another resource that is reachable over HTTPS.
 
 If you don't have all of the services readily available, start directly in your Storage account portal page. In the left navigation page, under **Blob service** click **Add Azure Cognitive Search** to create a new service or select an existing one. 
 
