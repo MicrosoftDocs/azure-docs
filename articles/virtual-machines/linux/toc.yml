@@ -559,8 +559,8 @@
           href: image-builder-permissions-powershell.md
       - name: DevOps task
         href: image-builder-devops-task.md
-      - name: ARM template reference
-        displayName: ARM,Resource Manager
+      - name: Image Builder template reference
+        displayName: json
         href: image-builder-json.md
       - name: Build for image galleries
         href: image-builder-gallery.md
