@@ -212,7 +212,7 @@ The auto-failover group must be configured on the primary instance and will conn
 
 The following diagram illustrates a typical configuration of a geo-redundant cloud application using managed instance and auto-failover group.
 
-![auto failover](./media/auto-failover-group-overview/auto-failover-group-mi.png)
+![auto failover diagram](./media/auto-failover-group-overview/auto-failover-group-mi.png)
 
 > [!NOTE]
 > See [Add managed instance to a failover group](../managed-instance/failover-group-add-instance-tutorial.md) for a detailed step-by-step tutorial adding a SQL Managed Instance to use failover group.

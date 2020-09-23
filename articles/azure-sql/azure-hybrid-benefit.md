@@ -20,7 +20,7 @@ In the provisioned compute tier of the vCore-based purchasing model, you can exc
 > [!NOTE]
 > Changing to Azure Hybrid Benefit does not require any downtime.
 
-![pricing](./media/azure-hybrid-benefit/pricing.png)
+![vcore pricing structure](./media/azure-hybrid-benefit/pricing.png)
 
 ## Choose a license model
 
