@@ -50,13 +50,14 @@ To add an application to your Azure AD tenant:
     :::image type="content" source="media/add-application-portal/sso-types.png" alt-text="Screenshot shows the SSO types selector.":::
 
     - If the developer of the app used the **OIDC standard** for SSO then select **Sign Up**. A setup page appears. Next, go to the quickstart on setting up OIDC-based single sign-on.
-    - If the developer of the app used the **SAML standard** for SSO then select **Create**. A getting started page appears with the options for configuring the application for your organization. In the form, you can edit the name of the application to match the needs of your organization. In this example, we've selected GitHub which uses the SAML standard and changed the name to **GitHub-test**. Next, go to the quickstart on setting up SAML-based single sign-on.
-    ![Shows how to add an application from the gallery](media/add-application-portal/create-application.png)
+    :::image type="content" source="media/add-application-portal/sign-up-oidc-sso.png" alt-text="Screenshot shows adding an OIDC-based SSO app.":::
+
+    - If the developer of the app used the **SAML standard** for SSO then select **Create**. A getting started page appears with the options for configuring the application for your organization. In the form, you can edit the name of the application to match the needs of your organization. Next, go to the quickstart on setting up SAML-based single sign-on.
+    :::image type="content" source="media/add-application-portal/create-application.png" alt-text="Screenshot shows adding an SAML-based SSO app.":::
 
 
 > [!IMPORTANT]
-> Some key differences between SAML-based and OIDC-based SSO implementations
-> With SAML-based apps you can add multiple instances of the same app. For example, GitHub1, GitHub2, etc.. For OIDC-based apps you can only add one instance of an app. If you have already added an OIDC-based app and try to add the same app again and provide consent twice, it will not be added again in the tenant.
+> There are some key differences between SAML-based and OIDC-based SSO implementations. With SAML-based apps you can add multiple instances of the same app. For example, GitHub1, GitHub2, etc.. For OIDC-based apps you can only add one instance of an app. If you have already added an OIDC-based app and try to add the same app again and provide consent twice, it will not be added again in the tenant.
 
 If the application you are looking for is not in the gallery then you can click the link **Create your own application** and then under **What are you looking to do with your application?** choose **Integrate any other application you don't find in the gallery**. Microsoft has already worked with many application developers to pre-configure them to work with Azure AD. These are the apps that show up in the gallery. But if the app you want to add is not listed then you can create a new, generic, app and then configure it yourself or with the guidance of the developer that created it.
 
