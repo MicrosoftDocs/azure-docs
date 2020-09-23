@@ -245,7 +245,7 @@ This feature is supported when copying data from any source into the following s
 
 - [Azure SQL Database](connector-azure-sql-database.md)
 - [Azure SQL Database Managed Instance](connector-azure-sql-managed-instance.md)
-- [Azure Synapse Analytics (formerly Azure SQL Data Warehouse) ](connector-azure-sql-data-warehouse.md)
+- [Azure Synapse Analytics (formerly SQL Data Warehouse)](connector-azure-sql-data-warehouse.md)
 - [SQL Server](connector-sql-server.md)
 
 ![Create sink tables](media/copy-activity-overview/create-sink-table.png)

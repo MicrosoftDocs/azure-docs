@@ -248,7 +248,7 @@ Build and run HttpRequestFeaturesExample with one of the following methods:
 Through a web browser, you can send a Rank request and a Reward request and see their responses, as well as the http request features extracted from your environment.
 
 > [!div class="mx-imgBorder"]
-> ![Build and run the HTTPRequestFeaturesExample project. A browser window opens to display the single page application.](./media/tutorial-web-app/web-app-single-page.png)
+> ![Screenshot shows an example of the Http Request Feature in a web browser.](./media/tutorial-web-app/web-app-single-page.png)
 
 ## Demonstrate the Personalizer loop
 
@@ -261,7 +261,7 @@ Through a web browser, you can send a Rank request and a Reward request and see 
 1. Set the reward value, then select the **Send Reward Request** button. If you don't change the reward value, the client application always sends the value of `1` to Personalizer.
 
     > [!div class="mx-imgBorder"]
-    > ![Build and run the HTTPRequestFeaturesExample project. A browser window opens to display the single page application.](./media/tutorial-web-app/reward-score-api-call.png)
+    > ![Screenshot shows the Reward Request section.](./media/tutorial-web-app/reward-score-api-call.png)
 
     For your own future application, generation of the reward score may happen after collecting information from the user's behavior on the client, along with business logic on the server.
 

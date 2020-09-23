@@ -34,7 +34,7 @@ In this tutorial, you'll learn how to:
 
 ### Share from a SQL-based source:
 
-* An Azure SQL Database or Azure Synapse Analytics (formerly Azure SQL Data Warehouse) with tables and views that you want to share.
+* An Azure SQL Database or Azure Synapse Analytics (formerly SQL Data Warehouse) with tables and views that you want to share.
 * Permission to write to the databases on SQL server, which is present in *Microsoft.Sql/servers/databases/write*. This permission exists in the Contributor role.
 * Permission for the data share to access the data warehouse. This can be done through the following steps: 
     1. Set yourself as the Azure Active Directory Admin for the SQL server.
@@ -107,7 +107,7 @@ Create an Azure Data Share resource in an Azure resource group.
 
     ![Add Datasets to your share](./media/datasets.png "Datasets")
 
-1. Select the dataset type that you would like to add. You will see a different list of dataset types depending on the share type (snapshot or in-place) you have selected in the previous step. If sharing from an Azure SQL Database or Azure SQL Data Warehouse, you will be prompted for some SQL credentials. Authenticate using the user you created as part of the prerequisites.
+1. Select the dataset type that you would like to add. You will see a different list of dataset types depending on the share type (snapshot or in-place) you have selected in the previous step. If sharing from an Azure SQL Database or Azure Synapse Analytics, you will be prompted for some SQL credentials. Authenticate using the user you created as part of the prerequisites.
 
     ![AddDatasets](./media/add-datasets.png "Add Datasets")    
 

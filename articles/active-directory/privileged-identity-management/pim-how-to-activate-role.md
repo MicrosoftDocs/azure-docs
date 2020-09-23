@@ -18,9 +18,9 @@ ms.collection: M365-identity-device-management
 ---
 # Activate my Azure AD roles in PIM
 
-Azure Active Directory (Azure AD) Privileged Identity Management (PIM) simplifies how enterprises manage privileged access to resources in Azure AD and other Microsoft online services like Office 365 or Microsoft Intune.  
+Azure Active Directory (Azure AD) Privileged Identity Management (PIM) simplifies how enterprises manage privileged access to resources in Azure AD and other Microsoft online services like Microsoft 365 or Microsoft Intune.  
 
-If you have been made eligible for an administrative role, then you must activate the role assignment when you need to perform privileged actions. For example, if you occasionally manage Office 365 features, your organization's privileged role administrators may not make you a permanent Global Administrator, since that role impacts other services, too. Instead, they make you eligible for Azure AD roles such as Exchange Online Administrator. You can request to activate that role when you need its privileges, and then you'll have administrator control for a predetermined time period.
+If you have been made eligible for an administrative role, then you must activate the role assignment when you need to perform privileged actions. For example, if you occasionally manage Microsoft 365 features, your organization's privileged role administrators may not make you a permanent Global Administrator, since that role impacts other services, too. Instead, they make you eligible for Azure AD roles such as Exchange Online Administrator. You can request to activate that role when you need its privileges, and then you'll have administrator control for a predetermined time period.
 
 This article is for administrators who need to activate their Azure AD role in Privileged Identity Management.
 
@@ -35,7 +35,7 @@ Beginning in November 2019, the Azure AD roles portion of Privileged Identity Ma
 
 # [New version](#tab/new)
 
-## Activate a role
+## Activate a role for new version
 
 When you need to assume an Azure AD role, you can request activation by opening **My roles** in Privileged Identity Management.
 
@@ -75,7 +75,7 @@ When you need to assume an Azure AD role, you can request activation by opening 
 
     ![Activation request is pending approval notification](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-notification.png)
 
-## View the status of your requests
+## View the status of your requests for new version
 
 You can view the status of your pending requests to activate.
 
@@ -87,7 +87,7 @@ You can view the status of your pending requests to activate.
 
 1. Scroll to the right to view the **Request Status** column.
 
-## Cancel a pending request
+## Cancel a pending request for new version
 
 If you do not require activation of a role that requires approval, you can cancel a pending request at any time.
 
@@ -101,7 +101,7 @@ If you do not require activation of a role that requires approval, you can cance
 
    ![My request list with Cancel action highlighted](./media/pim-resource-roles-activate-your-roles/resources-my-requests-cancel.png)
 
-## Troubleshoot
+## Troubleshoot for new version
 
 ### Permissions are not granted after activating a role
 
@@ -113,7 +113,7 @@ When you activate a role in Privileged Identity Management, the activation may n
 
 # [Previous version](#tab/previous)
 
-## Activate a role
+## Activate a role (previous version)
 
 When you need to take on an Azure AD role, you can request activation by using the **My roles** navigation option in Privileged Identity Management.
 
@@ -163,7 +163,7 @@ When you need to take on an Azure AD role, you can request activation by using t
 
     If the [role requires approval](./azure-ad-pim-approval-workflow.md) to activate, an Azure notification will appear in the upper right corner of your browser informing you the request is pending approval.
 
-## View the status of your requests
+## View the status of your requests (previous version)
 
 You can view the status of your pending requests to activate.
 
@@ -175,7 +175,7 @@ You can view the status of your pending requests to activate.
 
     ![Azure AD roles - My requests list](./media/pim-how-to-activate-role/directory-roles-my-requests.png)
 
-## Deactivate a role
+## Deactivate a role (previous version)
 
 Once a role has been activated, it automatically deactivates when its time limit (eligible duration) is reached.
 
@@ -191,7 +191,7 @@ If you complete your administrator tasks early, you can also deactivate a role m
 
 1. Find the role you're done using and then click **Deactivate**.
 
-## Cancel a pending request
+## Cancel a pending request (previous version)
 
 If you do not require activation of a role that requires approval, you can cancel a pending request at any time.
 
@@ -207,7 +207,7 @@ If you do not require activation of a role that requires approval, you can cance
 
    ![My requests list with the Cancel button highlighted](./media/pim-how-to-activate-role/directory-role-cancel.png)
 
-## Troubleshoot
+## Troubleshoot (previous version)
 
 ### Permissions are not granted after activating a role
 

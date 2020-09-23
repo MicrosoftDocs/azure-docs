@@ -69,13 +69,13 @@ To add a Speech service resource (free or paid tier) to your Azure account:
    - Give a unique name for your new resource. The name helps you distinguish among multiple subscriptions tied to the same service.
    - Choose the Azure subscription that the new resource is associated with to determine how the fees are billed.
    - Choose the [region](regions.md) where the resource will be used.
-   - Choose either a free (F0) or paid (S0) pricing tier. For complete information about pricing and usage quotas for each tier, select **View full pricing details**.
+   - Choose either a free (F0) or paid (S0) pricing tier. For complete information about pricing and usage quotas for each tier, select **View full pricing details**. For limits on resources you can create for each subscription, see [Azure Cognitive Services Limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-cognitive-services-limits).
    - Create a new resource group for this Speech subscription or assign the subscription to an existing resource group. Resource groups help you keep your various Azure subscriptions organized.
    - Select **Create**. This will take you to the deployment overview and display deployment progress messages.
-
+<!--
 > [!NOTE]
 > You can create an unlimited number of standard-tier subscriptions in one or multiple regions. However, you can create only one free-tier subscription. Model deployments on the free tier that remain unused for 7 days will be decommissioned automatically.
-
+-->
 It takes a few moments to deploy your new Speech resource. Once deployment is complete, select **Go to resource** and in the left navigation pane select **Keys** to display your Speech service subscription keys. Each subscription has two keys; you can use either key in your application. To quickly copy/paste a key to your code editor or other location, select the copy button next to each key, switch windows to paste the clipboard contents to the desired location.
 
 > [!IMPORTANT]
@@ -85,7 +85,7 @@ It takes a few moments to deploy your new Speech resource. Once deployment is co
 
 We offer quickstarts in most popular programming languages, each designed to teach you basic design patterns, and have you running code in less than 10 minutes. See the following list for the quickstart for each feature.
 
-* [Speech-to-text quickstart](speech-to-text-basics.md)
+* [Speech-to-text quickstart](get-started-speech-to-text.md)
 * [Text-to-speech quickstart](get-started-text-to-speech.md)
 * [Speech translation quickstart](speech-translation-basics.md)
 * [Intent recognition quickstart](quickstarts/intent-recognition.md)

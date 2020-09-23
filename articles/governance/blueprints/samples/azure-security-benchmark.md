@@ -43,8 +43,8 @@ sample as a starter.
 1. From the **Getting started** page on the left, select the **Create** button under _Create a
    blueprint_.
 
-1. Find the **Azure Security Benchmark** blueprint sample under _Other Samples_ and select click the
-   name to select this sample.
+1. Find the **Azure Security Benchmark** blueprint sample under _Other Samples_ and select the name
+   to select this sample.
 
 1. Enter the _Basics_ of the blueprint sample:
 

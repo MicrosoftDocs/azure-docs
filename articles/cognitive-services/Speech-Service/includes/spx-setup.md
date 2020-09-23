@@ -47,10 +47,8 @@ Type `spx` to see help for the Speech CLI.
 
 #### [Docker Install](#tab/dockerinstall)
 
-#### Prerequisites
-
-> [!div class="checklist"]
-> * <a href="https://www.docker.com/get-started" target="_blank">Docker Desktop for your platform <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+> [!NOTE]
+> <a href="https://www.docker.com/get-started" target="_blank">Docker Desktop for your platform <span class="docon docon-navigate-external x-hidden-focus"></span></a> must be installed.
 
 Follow these steps to install the Speech CLI within a Docker container:
 

@@ -13,7 +13,7 @@ ms.date: 7/17/2020
 
 To create a virtual network rule, there must first be a [virtual network][vm-virtual-network-overview] (VNet) and a [virtual network service endpoint][vm-virtual-network-service-endpoints-overview-649d] for the rule to reference. The following picture illustrates how a Virtual Network service endpoint works with Azure Database for MySQL:
 
-![Example of how a VNet Service Endpoint works](media/concepts-data-access-and-security-vnet/vnet-concept.png)
+:::image type="content" source="media/concepts-data-access-and-security-vnet/vnet-concept.png" alt-text="Example of how a VNet Service Endpoint works":::
 
 > [!NOTE]
 > This feature is available in all regions of Azure where Azure Database for MySQL is deployed for General Purpose and Memory Optimized servers.
@@ -106,7 +106,7 @@ For Azure Database for MySQL, the virtual network rules feature has the followin
 
 - Virtual network rules apply only to Azure Resource Manager virtual networks; and not to [classic deployment model][arm-deployment-model-568f] networks.
 
-- Turning ON virtual network service endpoints to Azure Database for MySQL using the **Microsoft.Sql** service tag also enables the endpoints for all Azure Database services: Azure Database for MySQL, Azure Database for PostgreSQL, Azure SQL Database and Azure SQL Data Warehouse.
+- Turning ON virtual network service endpoints to Azure Database for MySQL using the **Microsoft.Sql** service tag also enables the endpoints for all Azure Database services: Azure Database for MySQL, Azure Database for PostgreSQL, Azure SQL Database and Azure Synapse Analytics (formerly SQL Data Warehouse).
 
 - Support for VNet service endpoints is only for General Purpose and Memory Optimized servers.
 

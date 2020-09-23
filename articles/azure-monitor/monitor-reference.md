@@ -147,7 +147,7 @@ The following table lists Azure services and the data they collect into Azure Mo
 |Signup Portal | No | No | No |  |
 |Site Recovery | No | Yes | No |  |
 |Spring Cloud Service | No | No | No |  |
-|SQL Data Warehouse | Yes | Yes | No |  |
+|Azure Synapse Analytics | Yes | Yes | No |  |
 |SQL Database | Yes | Yes | No |  |
 |SQL Server Stretch Database | Yes | Yes | No |  |
 |Stack | No | No | No |  |

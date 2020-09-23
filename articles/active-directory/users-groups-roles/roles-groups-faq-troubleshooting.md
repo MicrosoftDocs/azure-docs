@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting roles assigned to cloud group FAQ - Azure Active Directory | Microsoft Docs
-description: Assign an Azure AD role to a role-assignable group in the Azure portal, PowerShell, or Graph API.
+description: Learn some common questions and troubleshooting tips for assigning roles to groups in Azure Active Directory.
 services: active-directory
 author: curtand
 manager: daveba

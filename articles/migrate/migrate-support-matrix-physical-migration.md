@@ -38,10 +38,10 @@ The table summarizes support for physical servers you want to migrate using agen
 **Network/Storage** | For the latest information, review the [network](../site-recovery/vmware-physical-azure-support-matrix.md#network) and [storage](../site-recovery/vmware-physical-azure-support-matrix.md#storage) prerequisites for Site Recovery. Azure Migrate provides identical network/storage requirements.
 **Azure requirements** | For the latest information, review the [Azure network](../site-recovery/vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover), [storage](../site-recovery/vmware-physical-azure-support-matrix.md#azure-storage), and [compute](../site-recovery/vmware-physical-azure-support-matrix.md#azure-compute) requirements for Site Recovery. Azure Migrate has identical requirements for physical server migration.
 **Mobility service** | The Mobility service agent must be installed on each machine you want to migrate.
-**UEFI boot** | The migrated machine in Azure will be automatically converted to a BIOS boot Azure VM. Only server running Windows Server 2012 and later supported.<br/><br/> The OS disk should have up to four partitions, and volumes should be formatted with NTFS.
+**UEFI boot** | Supported. UEFI-based machines will be migrated to Azure generation 2 VMs.  <br/><br/> The OS disk should have up to four partitions, and volumes should be formatted with NTFS.
 **UEFI - Secure boot**         | Not supported for migration.
-**Target disk** | Machines can only be migrated to managed disks (standard HDD, premium SSD) in Azure.
-**Disk size** | 2 TB OS disk; 8 TB for data disks.
+**Target disk** | Machines can only be migrated to managed disks (standard HDD, standard SSD, premium SSD) in Azure.
+**Disk size** | 2 TB OS disk (BIOS boot); 4 TB OS disk (UEFI boot); 8 TB for data disks.
 **Disk limits** |  Up to 63 disks per machine.
 **Encrypted disks/volumes** |  Machines with encrypted disks/volumes aren't supported for migration.
 **Shared disk cluster** | Not supported.

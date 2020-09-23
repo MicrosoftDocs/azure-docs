@@ -11,6 +11,8 @@ ms.custom: devx-track-java
 
 # Tutorial: Deploy Azure Spring Cloud in Azure virtual network (VNet injection)
 
+**This article applies to:** ✔️ Java ✔️ C#
+
 This tutorial explains how to deploy an Azure Spring Cloud service instance in your virtual network. This is sometimes called VNet injection.  
 
 The deployment enables:
@@ -33,7 +35,7 @@ The virtual network to which you deploy your Azure Spring Cloud service instance
 * **Subnets**: The virtual network must include two subnets dedicated to an Azure Spring Cloud service instance: 
     * One for Service Runtime
     * One for your Spring Boot Microservice Applications. 
-    * There is a one-to-one relationship between these subnets and an Azure Spring Cloud service instance. You cannot share multiple service instances across a single subnet. You must use new subnets for each service instances you deploy.
+    * There is a one-to-one relationship between these subnets and an Azure Spring Cloud service instance. You must use a new subnet for each service instance you deploy and each subnet can only include a single service instance.
 * **Address space**: One CIDR block up to /28 for Service Runtime subnet and another CIDR block up to /24 for Spring Boot Microservice Applications subnet.
 * **Route table**: The subnets must not have an existing route table associated.
 

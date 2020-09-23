@@ -3,7 +3,7 @@ title: Update an existing commercial marketplace offer
 description: How to make updates to an existing commercial marketplace offer, including editing, deleting a draft, canceling a publish request, stop selling an offer or plan, and syncing private audiences. 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: how-to
 author: keferna
 ms.author: keferna
 ms.date: 01/16/2020

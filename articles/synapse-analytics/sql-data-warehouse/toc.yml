@@ -222,8 +222,6 @@
         href: sql-data-warehouse-develop-user-defined-schemas.md
       - name: Variable assignment
         href: sql-data-warehouse-develop-variable-assignment.md
-      - name: Views
-        href: sql-data-warehouse-develop-views.md
   - name: Querying
     items:
     - name: Dynamic SQL

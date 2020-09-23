@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/18/2020
+ms.date: 09/22/2020
 ms.author: b-juche
 ---
 # FAQs About Azure NetApp Files
@@ -44,6 +44,10 @@ Yes, you can, if you create the required DNS entries. Azure NetApp Files supplie
 ### Can I set or select my own IP address for an Azure NetApp Files volume?  
 
 No. IP assignment to Azure NetApp Files volumes is dynamic. Static IP assignment is not supported. 
+
+### Does Azure NetApp Files support dual stack (IPv4 and IPv6) VNet?
+
+No, Azure NetApp Files does not currently support dual stack (IPv4 and IPv6) VNet.  
  
 ## Security FAQs
 
@@ -61,10 +65,9 @@ All Azure NetApp Files volumes are encrypted using the FIPS 140-2 standard. All 
 
 Key management for Azure NetApp Files is handled by the service. A unique XTS-AES-256 data encryption key is generated for each volume. An encryption key hierarchy is used to encrypt and protect all volume keys. These encryption keys are never displayed or reported in an unencrypted format. Encryption keys are deleted immediately when a volume is deleted.
 
-Support for user-managed keys (Bring Your Own Keys) using Azure Dedicated HSM is available on a controlled basis in the US East, US West2, and US South Central regions.  You can request access at **anffeedback@microsoft.com**. As capacity is available, requests will be approved.
+Support for customer-managed keys (Bring Your Own Key) using Azure Dedicated HSM is available on a controlled basis in the East US, South Central US, West US 2, and US Gov Virginia regions. You can request access at [anffeedback@microsoft.com](mailto:anffeedback@microsoft.com). As capacity becomes available, requests will be approved.
 
 ### Can I configure the NFS export policy rules to control access to the Azure NetApp Files service mount target?
-
 
 Yes, you can configure up to five rules in a single NFS export policy.
 
@@ -123,6 +126,12 @@ Azure NetApp Files supports NFSv3 and NFSv4.1. You can [create a volume](azure-n
 ### How do I enable root squashing?
 
 You can specify whether the root account can access the volume or not by using the volume’s export policy. See [Configure export policy for an NFS volume](azure-netapp-files-configure-export-policy.md) for details.
+
+### Can I use the same file path (volume creation token) for multiple volumes?
+
+Yes, you can. However, the file path must be used in either a different subscription or a different region.   
+
+For example, you create a volume called `vol1`. And then you create another volume also called `vol1` in a different capacity pool but in the same subscription and region. In this case, using the same volume name `vol1` will cause an error. To use the same file path, the name must be in a different region or subscription.
 
 ## SMB FAQs
 

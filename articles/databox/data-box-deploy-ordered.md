@@ -2,13 +2,13 @@
 title: Tutorial to order Azure Data Box | Microsoft Docs
 description: In this tutorial, learn about Azure Data Box, a hybrid solution that allows you to import on-premises data into Azure, and how to order Azure Data Box.
 services: databox
-author: twooley
+author: alkohli
 
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 07/21/2020
-ms.author: twooley
+ms.date: 09/15/2020
+ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to order Data Box to upload on-premises data from my server onto Azure.
 ---
 # Tutorial: Order Azure Data Box
@@ -134,7 +134,7 @@ Before you begin, make sure that you:
 * Install Windows PowerShell 6.2.4 or higher.
 * Install Azure PowerShell (AZ) module.
 * Install Azure Data Box (Az.DataBox) module.
-* Sign-in to Azure.
+* Sign in to Azure.
 
 #### Install Azure PowerShell and modules locally
 
@@ -264,8 +264,21 @@ Do the following steps in the Azure portal to order a device.
     ![Data Box order for managed disk](media/data-box-deploy-ordered/select-data-box-import-07b.png)
 
     The storage account specified for managed disks is used as a staging storage account. The Data Box service uploads the VHDs as page blobs to the staging storage account before converting it into managed disks and moving it to the resource groups. For more information, see [Verify data upload to Azure](data-box-deploy-picked-up.md#verify-data-upload-to-azure).
+   > [!NOTE]
+   > If a page blob isn't successfully converted to a managed disk, it stays in the storage account and you're charged for storage.
 
-    Select **Next: Contact details** to continue.
+    Select **Next: Security** to continue.
+
+1. In **Security**, if you want to enable software-based double encryption, select **Enable double encryption for the order**. 
+
+   The software-based encryption is performed in addition to the AES-256 bit encryption of the data on the Data Box.
+
+   > [!NOTE]
+   > Enabling this option could make order processing and data copy take longer. You can't change this option after you create your order.
+
+   ![Security screen for data box import, double encryption](media/data-box-deploy-ordered/select-data-box-import-07c.png)
+
+   Select **Next: Contact details** to continue.
 
 8. In **Contact details**, select **+ Add Shipping Address**.
 

@@ -94,14 +94,14 @@ you define as required vs what can be changed during assignment.
    populated** in the **Parameters** column. Select the artifact row to edit the artifact
    parameters.
 
-   :::image type="content" source="../media/parameters/parameter-column.png" alt-text="Blueprint parameters on a blueprint definition" border="false":::
+   :::image type="content" source="../media/parameters/parameter-column.png" alt-text="Screenshot of a blueprint definition and the 'X of Y parameters populated' highlighted." border="false":::
 
-1. The **Edit Artifact** page displays value options appropriate to the artifact clicked on. Each
+1. The **Edit Artifact** page displays value options appropriate to the artifact selected. Each
    parameter on the artifact has a title, a value box, and a checkbox. Set the box to unchecked to
    make it a **static parameter**. In the example below, only _Location_ is a **static parameter**
    as it's unchecked and _Resource Group Name_ is checked.
 
-   :::image type="content" source="../media/parameters/static-parameter.png" alt-text="Blueprint static parameters on a blueprint artifact" border="false":::
+   :::image type="content" source="../media/parameters/static-parameter.png" alt-text="Screenshot of static parameters on a blueprint artifact." border="false":::
 
 #### Setting static parameters from REST API
 
@@ -227,7 +227,7 @@ different name for every assignment of the blueprint. For a list of blueprint fu
    required values to the parameters before assigning the blueprint. In the example below, _Name_ is
    a **dynamic parameter** that must be defined to complete blueprint assignment.
 
-   :::image type="content" source="../media/parameters/dynamic-parameter.png" alt-text="Blueprint dynamic parameter during blueprint assignment" border="false":::
+   :::image type="content" source="../media/parameters/dynamic-parameter.png" alt-text="Screenshot of setting dynamic parameters during blueprint assignment." border="false":::
 
 #### Setting dynamic parameters from REST API
 
