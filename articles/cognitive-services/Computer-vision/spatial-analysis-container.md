@@ -49,9 +49,6 @@ Azure Stack Edge is a Hardware-as-a-Service solution and an AI-enabled edge comp
 * 2 NVIDIA Tesla T4 GPUs
 * 50 GB of SSD space
 
-> [!NOTE]
-> Alternatively, you can use the NVIDIA Tesla K80, NVIDIA 1070 Ti, or the NVIDIA 2080 Ti GPU. If you use one of these GPUs, you will need to set the `ARCHON_GRAPH_READY_TIMEOUT` and `ORT_TENSORRT_ENGINE_CACHE_ENABLE` environment variables in the [IoT deployment manifest](#iot-deployment-manifest).
-
 In this article, you will download and install the following software packages. The host computer must be able to run the following (see below for instructions):
 
 * [NVIDIA graphics drivers](https://docs.nvidia.com/datacenter/tesla/tesla-installation-notes/index.html) and [NVIDIA CUDA Toolkit](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html)
@@ -115,7 +112,7 @@ When the Edge compute role is set up on the Edge device, it creates two devices:
 
 > [!NOTE]
 > * Currently only the Linux platform is supported for IoT Edge devices. For help troubleshooting the Azure Stack Edge device, see the [logging and troubleshooting](spatial-analysis-logging.md) article.
-> * To learn more about how to configure an IoT Edge device to communicate through a proxy server, see [Configure an IoT Edge device to communicate through a proxy server - Azure portal](https://docs.microsoft.com/azure/iot-edge/how-to-configure-proxy-support#azure-portal)
+> * To learn more about how to configure an IoT Edge device to communicate through a proxy server, see [Configure an IoT Edge device to communicate through a proxy server](https://docs.microsoft.com/azure/iot-edge/how-to-configure-proxy-support#azure-portal)
 
 ###  Enable MPS on Azure Stack Edge 
 
@@ -329,8 +326,6 @@ The following table shows the various Environment Variables used by the IoT Edge
 | BILLING_ENDPOINT | your Endpoint URI| Collect this value from Azure portal from your Computer Vision resource. You can find it in the **Key and endpoint** section for your resource.|
 | EULA | accept | This value needs to be set to *accept* for the container to run |
 | DISPLAY | :1 | This value needs to be same as the output of `echo $DISPLAY` on the host computer. Azure Stack Edge devices do not have a display. This setting is not applicable|
-| ARCHON_GRAPH_READY_TIMEOUT | 600 | Add this environment variable if your GPU is NVIDIA Tesla K80, NVIDIA 1070 Ti, or the NVIDIA 2080 Ti. |
-| ORT_TENSORRT_ENGINE_CACHE_ENABLE | 0 | Add this environment variable if your GPU is NVIDIA Tesla K80, NVIDIA 1070 Ti, or the NVIDIA 2080 Ti. |
 
 
 > [!IMPORTANT]

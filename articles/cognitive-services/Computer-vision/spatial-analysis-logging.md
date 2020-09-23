@@ -310,6 +310,8 @@ If you see the following message in the module logs, it might mean your Azure su
 
 For more information, see [Request approval to run the container](spatial-analysis-container.md#request-approval-to-run-the-container).
 
+For more information, see [Request access to the spatial analysis functionality](spatial-analysis-container.md#request-access-to-the-spatial-analysis-functionality). 
+
 ## Troubleshooting the Azure Stack Edge device
 
 The following section is provided for help with debugging and verification of the status of your Azure Stack Edge device.
