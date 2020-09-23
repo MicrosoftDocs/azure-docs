@@ -147,7 +147,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. In the **SAML User mapping** section, enter usernames that you will use to login and click **Finish**.
 
-    ![SAML Configuration](./media/trendminer-tutorial/user-mapping.png)
+    ![SAML User mapping](./media/trendminer-tutorial/user-mapping.png)
 
 ### Create TrendMiner test user
 
