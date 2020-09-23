@@ -94,6 +94,11 @@ Retrieve the configuration value by calling **get_configuration_setting** and se
 
 ```python
 fetched_config_setting = client.get_configuration_setting(key = 'TestApp:Settings:Message')
+```
+
+You can print out the **value** property of the retrieved setting to see that it contains the value you set for the key in the Azure portal. 
+
+```python
 print(fetched_config_setting.value)
 ```
 
