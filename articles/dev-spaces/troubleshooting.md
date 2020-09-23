@@ -22,14 +22,6 @@ In the CLI, you can output more information during command execution by using th
 
 Azure Dev Spaces also works best when debugging a single instance, or pod. The `azds.yaml` file contains a setting, *replicaCount*, that indicates the number of pods that Kubernetes runs for your service. If you change the *replicaCount* to configure your application to run multiple pods for a given service, the debugger attaches to the first pod, when listed alphabetically. The debugger attaches to a different pod when the original pod recycles, possibly resulting in unexpected behavior.
 
-## Common issues when using Local Process with Kubernetes
-
-### Fail to restore original configuration of deployment on cluster
-
-When using Local Process with Kubernetes, if the Local Process with Kubernetes client crashes or terminates abruptly, the service that Local Process with Kubernetes is redirecting may not be restored to its original state before Local Process with Kubernetes connected to it.
-
-To fix this issue, redeploy the service to your cluster.
-
 ## Common issues when enabling Azure Dev Spaces
 
 ### Error "Failed to create Azure Dev Spaces controller"
@@ -259,7 +251,7 @@ This error occurs because Azure Dev Spaces does not currently support multi-stag
 
 ### Network traffic is not forwarded to your AKS cluster when connecting your development machine
 
-When using [Azure Dev Spaces to connect your AKS cluster to your development machine](https://code.visualstudio.com/docs/containers/local-process-kubernetes), you may encounter an issue where network traffic is not forwarded between your development machine and your AKS cluster.
+When using [Azure Dev Spaces to connect your AKS cluster to your development machine](https://code.visualstudio.com/docs/containers/bridge-to-kubernetes), you may encounter an issue where network traffic is not forwarded between your development machine and your AKS cluster.
 
 When connecting your development machine to your AKS cluster, Azure Dev Spaces forwards network traffic between your AKS cluster and your development machine by modifying your development machine's `hosts` file. Azure Dev Spaces creates an entry in the `hosts` with the address of the Kubernetes service you are replacing as a host name. This entry is used with port forwarding to direct network traffic between your development machine and the AKS cluster. If a service on your development machine conflicts with the port of the Kubernetes service you are replacing, Azure Dev Spaces cannot forward network traffic for the Kubernetes service. For example, the *Windows BranchCache* service is usually bound to *0.0.0.0:80*, which conflicts will cause a conflict for port 80 on all local IPs.
 
