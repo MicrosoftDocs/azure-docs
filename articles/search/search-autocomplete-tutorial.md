@@ -9,7 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.custom: "devx-track-javascript, devx-track-csharp"
+ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
 # Add autocomplete and suggestions to client apps

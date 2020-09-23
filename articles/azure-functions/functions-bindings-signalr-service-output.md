@@ -1,6 +1,6 @@
 ---
 title: Azure Functions SignalR Service output binding
-description: Learn to send SignalR Service messages from Azure Functions.
+description: Learn about the SignalR Service output binding for Azure Functions.
 author: craigshoemaker
 ms.topic: reference
 ms.custom: devx-track-csharp

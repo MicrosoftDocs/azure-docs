@@ -60,7 +60,7 @@ The following usernames are not allowed:
 - `admin`
 - `admin1`
 - `admin2`
--`administrator`
+- `administrator`
 - `aspnet`
 - `backup`
 - `console`
