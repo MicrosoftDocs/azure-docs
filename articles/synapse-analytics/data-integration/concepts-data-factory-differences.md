@@ -12,25 +12,25 @@ ms.reviewer: jrasnick
 
 # Data integration in Azure Synapse Analytics versus Azure Data Factory
 
-In Azure Synapse Analytics, the data integration capabilities such as Synapse pipelines and data flows are based upon those of Azure Data Factory, a serverless, scalable, cloud-based data integration offering. For more information, learn [what is Azure Data Factory](../../data-factory/introduction.md). Almost all of the capabilities are identical or similar and documentation is shared between the two services. This article highlights and identifies the current differences between Azure Data Factory and Azure Synapse Analytics.
+In Azure Synapse Analytics, the data integration capabilities such as Synapse pipelines and data flows are based upon those of Azure Data Factory. For more information, learn [what is Azure Data Factory](../../data-factory/introduction.md). Almost all of the capabilities are identical or similar and documentation is shared between the two services. This article highlights and identifies the current differences between Azure Data Factory and Azure Synapse Analytics.
 
 To see if an Azure Data Factory feature or article applies to Azure Synapse Analytics, check the moniker at the top of the article.
 
 ![Applies to moniker](../media/concepts-data-factory-differences/applies-to-moniker.png "Applies to moniker")
 
-## Azure Data Factory features that will not be in Synapse
+## Azure Data Factory features that aren't in Synapse
 
-The following features are available in Azure Data Factory, but have no plans on being available in Azure Synapse Analytics.
+The following features are available in Azure Data Factory, but aren't available in Azure Synapse Analytics.
 
 * The ability to lift and shift SSIS packages
 * Snowflake as a sink in the copy activity and mapping data flow
 * The mapping data flow time to live setting of the Azure integration runtime.
 
-## Synapse features that will not be in Azure Data Factory
+## Synapse features that aren't in Azure Data Factory
 
-The following features are available in Azure Synapse Analytics but have no plans on being available in Azure Data Factory.
+The following features are available in Azure Synapse Analytics but aren't available in Azure Data Factory.
 
-* Spark job monitoring of mapping data flows is only available in Synapse. In Synapse, the Spark engine is contained in the users subscription so users can view detailed Spark logs. In ADF, job execution occurs on an ADF-managed Spark cluster. 
+* Spark job monitoring of mapping data flows is only available in Synapse. In Synapse, the Spark engine is contained in the user's subscription so users can view detailed Spark logs. In ADF, job execution occurs on an ADF-managed Spark cluster. 
 
 ## Azure Data Factory features that behave different in Synapse
 
@@ -41,7 +41,7 @@ The following features either behave differently or don't yet exist in Azure Syn
 * Git integration and a native CI/CD solution
 * Integration with Azure monitor
 * Renaming of resources after publish
-* Hybrid integration runtime configuration within a Synapse workspace. A user cannot have both a managed VNet IR and an Azure IR.
+* Hybrid integration runtime configuration within a Synapse workspace. A user can'tf have both a managed VNet IR and an Azure IR.
 * Integration runtime sharing between Synapse workspaces
 
 ## Next steps
