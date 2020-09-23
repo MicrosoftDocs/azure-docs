@@ -40,7 +40,7 @@ This tutorial will walk you through how to plug in your Remote Monitoring soluti
    - URI
    - Primary Key
 
-     ![keys](./media/iot-accelerators-integrate-data-powerbi/keys.png)
+     ![Screenshot shows an Azure Cosmos D B Account with the Keys item selected.](./media/iot-accelerators-integrate-data-powerbi/keys.png)
 
 ## Setting up the Stream in Power BI
   

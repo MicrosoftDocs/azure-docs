@@ -22,6 +22,19 @@ Maintenance information is returned only if there is maintenance planned.
 az vm get-instance-view -n myVM -g myResourceGroup --query instanceView.maintenanceRedeployStatus
 ```
 
+Output
+```
+      "maintenanceRedeployStatus": {
+      "additionalProperties": {},
+      "isCustomerInitiatedMaintenanceAllowed": true,
+      "lastOperationMessage": null,
+      "lastOperationResultCode": "None",
+      "maintenanceWindowEndTime": "2018-06-04T16:30:00+00:00",
+      "maintenanceWindowStartTime": "2018-05-21T16:30:00+00:00",
+      "preMaintenanceWindowEndTime": "2018-05-19T12:30:00+00:00",
+      "preMaintenanceWindowStartTime": "2018-05-14T12:30:00+00:00"
+```
+
 ## Start maintenance
 
 The following call will start maintenance on a VM if `IsCustomerInitiatedMaintenanceAllowed` is set to true.

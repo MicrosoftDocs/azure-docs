@@ -84,7 +84,7 @@ The Azure AD provisioning service allows you to scope who will be provisioned ba
 
 5. Under the **Admin Credentials** section, click on **Authorize**. You will be redirected to Workplace by Facebook's authorization page. Input your Workplace by Facebook username and click on the **Continue** button. Click **Test Connection** to ensure Azure AD can connect to Workplace by Facebook. If the connection fails, ensure your Workplace by Facebook account has Admin permissions and try again.
 
- 	![provisioning](./media/workplacebyfacebook-provisioning-tutorial/provisioning.png)
+ 	![Screenshot shows Admin Credentials dialog box with an Authorize option.](./media/workplacebyfacebook-provisioning-tutorial/provisioning.png)
 
  	![authorize](./media/workplacebyfacebook-provisioning-tutorial/workplacelogin.png)
 

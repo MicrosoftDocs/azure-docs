@@ -9,7 +9,7 @@ tags: azure-resource-management
 ms.assetid: 95a89072-0edf-49b5-88ed-584891c0e066
 ms.service: virtual-machines-sql
 
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/04/2018
