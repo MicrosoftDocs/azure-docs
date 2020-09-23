@@ -37,15 +37,51 @@ Model deployment in Azure Machine Learning with Triton for high-performance infe
 
 ## Architectural overview
 
-Before attempting to use Triton for your own model, it's important to understand how it works with Azure Machine Learning.
+Before attempting to use Triton for your own model, it's important to understand how it works with Azure Machine Learning and how it compares to a default deployment.
 
-![Architectural diagram for Triton](./media/how-to-deploy-with-triton/triton-architecture.png)
 
-When you use Triton as part of an Azure ML deployment, the web service architecture is:
+:::row:::
+    :::column:::
+        **Default deployment without Triton**
 
-* Multiple [Gunicorn](https://gunicorn.org/) workers are started to concurrently handle incoming requests.
-* The requests are forwarded to the Triton server. 
-* Triton processes requests in batches to maximize GPU utilization.
+        * Multiple [Gunicorn](https://gunicorn.org/) workers are started to concurrently handle incoming requests.
+        * These workers handle pre-processing, calling the model, and post-processing. 
+        * Inference requests use the __scoring URI__. For example, `https://myserevice.azureml.net/score`.
+    :::column-end:::
+    :::column span="3":::
+        :::image type="content" source="./media/how-to-deploy-with-triton/normal-deploy.png" alt-text="Normal, non-triton, deployment architecture diagram":::
+    :::column-end:::
+:::row-end:::
+
+:::row:::
+    :::column:::
+        **Inference configuration deployment with Triton**
+
+        * Multiple [Gunicorn](https://gunicorn.org/) workers are started to concurrently handle incoming requests.
+        * The requests are forwarded to the **Triton server**. 
+        * Triton processes requests in batches to maximize GPU utilization.
+        * The client uses the __scoring URI__ to make requests. For example, `https://myserevice.azureml.net/score`.
+    :::column-end:::
+    :::column span="3":::
+        :::image type="content" source="./media/how-to-deploy-with-triton/inferenceconfig-deploy.png" alt-text="Inferenceconfig deployment with Triton":::
+    :::column-end:::
+:::row-end:::
+
+:::row:::
+    :::column:::
+        **No-code deployment with Triton**
+
+        * Requests are handled directly by Triton.
+        * Inference requests are made to the **Triton API**. For example, `https://myservice.azureml.net/api/v1/service/<name>`.
+    :::column-end:::
+    :::column span="3":::
+        :::image type="content" source="./media/how-to-deploy-with-triton/no-code-deploy.png" alt-text="no-code deployment with Triton":::
+    :::column-end:::
+:::row-end:::
+
+> [!TIP]
+> If you decide to start with a no-code deployment, but later determine that you need to [add pre and post-processing](#processing), you can [redeploy using an inference config](#redeploy).
+
 
 The workflow to use Triton for your model deployment is:
 
@@ -182,7 +218,7 @@ Before adding any pre or post-processing, check that the web service is working.
 
 Beyond a basic health check, you can create a client to send data to the scoring URI for inference. For more information on creating a client, see the [client examples](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/client_example.html) in the NVIDIA documentation. There are also [Python samples at the Triton GitHub](https://github.com/triton-inference-server/server/tree/master/src/clients/python/examples).
 
-
+<a id="processing"></a>
 ## (Optional) Add pre and post-processing
 
 After verifying that the web service is working, you can add pre and post-processing code.
@@ -225,7 +261,7 @@ res = triton_client.infer(model_name,
                           outputs=[output])
 
 ```
-
+<a id="redeploy"></a>
 ## (Optional) Redeploy with an Inference Configuration
 
 If you are using pre and post-processing, you need to redeploy your web service with an inference configuration.
