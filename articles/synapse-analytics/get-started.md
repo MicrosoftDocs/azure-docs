@@ -15,9 +15,7 @@ ms.date: 05/19/2020
 
 This tutorial is a step-by-step guide through the major feature areas of Azure Synapse Analytics. The tutorial is the ideal starting point for someone who wants a guided tour through the key scenarios of Azure Synapse Analytics. After following the steps in the tutorial, you will have a fully functional Synapse workspace in which you can start analyzing data using SQL, SQL on-demand, and Apache Spark.
 
-You will learn to:
-* Provision a Synapse workspace in an Azure subscription
-* Configure access control on an ADLSGEN2 account so that it seamlessly works with the Synapse workspace
+
 
 
 
