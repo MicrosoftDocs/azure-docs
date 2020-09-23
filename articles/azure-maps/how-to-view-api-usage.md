@@ -4,7 +4,7 @@ description: Learn how to view Azure Maps API usage metrics, such as total reque
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 08/06/2018
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt

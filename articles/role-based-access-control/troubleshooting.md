@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 07/28/2020
+ms.date: 09/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
@@ -80,7 +80,7 @@ $ras.Count
 
 ## Transferring a subscription to a different directory
 
-- If you need steps for how to transfer a subscription to a different Azure AD directory, see [Transfer ownership of an Azure subscription to another account](../cost-management-billing/manage/billing-subscription-transfer.md).
+- If you need steps for how to transfer a subscription to a different Azure AD directory, see [Transfer an Azure subscription to a different Azure AD directory (Preview)](transfer-subscription.md).
 - If you transfer a subscription to a different Azure AD directory, all role assignments are **permanently** deleted from the source Azure AD directory and are not migrated to the target Azure AD directory. You must re-create your role assignments in the target directory. You also have to manually recreate managed identities for Azure resources. For more information, see [FAQs and known issues with managed identities](../active-directory/managed-identities-azure-resources/known-issues.md).
 - If you are an Azure AD Global Administrator and you don't have access to a subscription after it was transferred between directories, use the **Access management for Azure resources** toggle to temporarily [elevate your access](elevate-access-global-admin.md) to get access to the subscription.
 
@@ -93,11 +93,17 @@ $ras.Count
 - If you get the permissions error "The client with object id does not have authorization to perform action over scope (code: AuthorizationFailed)" when you try to create a resource, check that you are currently signed in with a user that is assigned a role that has write permission to the resource at the selected scope. For example, to manage virtual machines in a resource group, you should have the [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) role on the resource group (or parent scope). For a list of the permissions for each built-in role, see [Azure built-in roles](built-in-roles.md).
 - If you get the permissions error "You don't have permission to create a support request" when you try to create or update a support ticket, check that you are currently signed in with a user that is assigned a role that has the `Microsoft.Support/supportTickets/write` permission, such as [Support Request Contributor](built-in-roles.md#support-request-contributor).
 
+## Move resources with role assignments
+
+If you move a resource that has an Azure role assigned directly to the resource (or a child resource), the role assignment is not moved and becomes orphaned. After the move, you must re-create the role assignment. Eventually, the orphaned role assignment will be automatically removed, but it is a best practice to remove the role assignment before moving the resource.
+
+For information about how to move resources, see [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md).
+
 ## Role assignments with identity not found
 
 In the list of role assignments for the Azure portal, you might notice that the security principal (user, group, service principal, or managed identity) is listed as **Identity not found** with an **Unknown** type.
 
-![Web app resource group](./media/troubleshooting/unknown-security-principal.png)
+![Identity not found listed in Azure role assignments](./media/troubleshooting/unknown-security-principal.png)
 
 The identity might not be found for two reasons:
 
