@@ -23,7 +23,7 @@ See the [Communication Services Chat client library Overview](./sdk-features.md)
 
 Chat conversations happen within chat threads. A chat thread can contain many messages and many users. Every message belongs to a single thread, and a user can be a part of one or many threads. 
 
-Each user in the chat thread is called a member. You can have up to 250 members in a chat thread. Only thread members can send and receive messages or add/remove members in a chat thread. The maximum message size allowed is approximately 28KB. Communication Services stores chat history until you execute a delete operation on the chat thread. You can retrieve all messages in a chat thread using the `List/Get Messages` operation.
+Each user in the chat thread is called a member. You can have up to 250 members in a chat thread. Only thread members can send and receive messages or add/remove members in a chat thread. The maximum message size allowed is approximately 28KB. You can retrieve all messages in a chat thread using the `List/Get Messages` operation. Communication Services stores chat history until you execute a delete operation on the chat thread or message, or until no members are remaining in the chat thread at which point it is orphaned and processed for deletion.   
 
 For chat threads with more than 20 members, read receipts and typing indicator features are disabled. 
 
