@@ -35,7 +35,7 @@ The following troubleshooting steps apply to all VM extensions.
 
 - Some distributions are not currently supported by the Log Analytics agent for Linux. The agent also requires additional dependencies to be installed, including Python 2. Check the support matrix and prerequisites [here](../../azure-monitor/platform/agents-overview.md#supported-operating-systems).
 
-- If an installation fails, review the **Troubleshoot and support** section in the overview for the extension. In most cases there will be an error code included in the status message. For the Log Analytics agent for Linux, they are explained [here](.../../azure-monitor/platform/agent-linux-troubleshoot.md).
+- If an installation fails, review the **Troubleshoot and support** section in the overview for the extension. In most cases there will be an error code included in the status message. For the Log Analytics agent for Linux, they are explained [here](../../azure-monitor/platform/agent-linux-troubleshoot.md).
 
 - Error code 52 in the status message indicates a missing dependency. Further information about the status message or the logs should indicate which dependency is required.
 
