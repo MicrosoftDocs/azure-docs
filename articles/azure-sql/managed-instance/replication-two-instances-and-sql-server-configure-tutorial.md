@@ -8,7 +8,7 @@ ms.custom: sqldbrb=1
 ms.topic: tutorial
 author: MashaMSFT
 ms.author: mathoma
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 11/21/2019
 ---
 # Tutorial: Configure transactional replication between Azure SQL Managed Instance and SQL Server
