@@ -33,5 +33,5 @@ During an investigation of an incident, analysts often need extra context to rea
 
 ![Screenshot of Security incident detected report](./media/security-center-alerts-cloud-smart/security-incident.png)
 
-To better understand security incidents, see [How to handle security incidents in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-incident).
+To better understand security incidents, see [How to handle security incidents in Azure Security Center](security-center-incident.md).
 

@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure Stack Edge power cord technical specifications based on location| Microsoft Docs
-description: Learn about the technical specifications for your Azure Stack Edge power cords.
+title: Microsoft Azure Stack Edge Pro power cord technical specifications based on location| Microsoft Docs
+description: Learn about the technical specifications for your Azure Stack Edge Pro power cords.
 services: databox
 author: alkohli
 
@@ -11,9 +11,9 @@ ms.date: 04/16/2020
 ms.author: alkohli
 ---
 
-# Azure Stack Edge power cord specifications
+# Azure Stack Edge Pro power cord specifications
 
-Your Azure Stack Edge device will need a power cord that will vary depending on your Azure region.
+Your Azure Stack Edge Pro device will need a power cord that will vary depending on your Azure region.
 
 ## Supported power cords
 
@@ -154,4 +154,4 @@ You can use the following table to find the correct cord specifications for your
 
 ## Next steps
 
-[Azure Stack Edge technical specifications](data-box-edge-technical-specifications-compliance.md)
+[Azure Stack Edge Pro technical specifications](data-box-edge-technical-specifications-compliance.md)
