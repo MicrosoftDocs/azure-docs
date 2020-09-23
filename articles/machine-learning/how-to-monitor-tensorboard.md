@@ -80,7 +80,7 @@ Throughout the MNIST code file, mnist_with_summaries.py, notice that there are l
 
  ### Configure experiment
 
-In the following, we configure our experiment and set up directories for logs and data. These logs will be uploaded to the Artifact Service, which TensorBoard accesses later.
+In the following, we configure our experiment and set up directories for logs and data. These logs will be uploaded to the run history, which TensorBoard accesses later.
 
 >[!Note]
 > For this TensorFlow example, you will need to install TensorFlow on your local machine. Further, the TensorBoard module (that is, the one included with TensorFlow) must be accessible to this notebook's kernel, as the local machine is what runs TensorBoard.
@@ -101,7 +101,7 @@ if not path.exists(data_dir):
 
 os.environ["TEST_TMPDIR"] = data_dir
 
-# Writing logs to ./logs results in their being uploaded to Artifact Service,
+# Writing logs to ./logs results in their being uploaded to the run history,
 # and thus, made accessible to our TensorBoard instance.
 args = ["--log_dir", logs_dir]
 
