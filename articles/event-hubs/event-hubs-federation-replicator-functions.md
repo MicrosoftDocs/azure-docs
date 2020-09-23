@@ -40,15 +40,18 @@ For simple replication tasks that only copy events between Event Hubs, or betwee
 
 ### Configuring a replication application
 
-A replication application is an execution host for one or more replication tasks. It's an Azure Functions application that is configured to run either on the consumption plan or (recommended) on an Azure Functions Premium plan. All replication applications must run under a [system- or user-assigned managed identity](../app-service/overview-managed-identity). 
+A replication application is an execution host for one or more replication tasks. 
 
-Each replication application requires access to an Azure Storage account in the same region as the deployment for tracking the replication progress for each Event Hub. The storage account can be shared for multiple Event Hubs. 
+It's an Azure Functions application that is configured to run either on the consumption plan or (recommended) on an Azure Functions Premium plan. All replication applications must run under a [system- or user-assigned managed identity](../app-service/overview-managed-identity). 
 
-Replication applications that must access Event Hubs bound to an Azure virtual network (VNet) must use the Azure Functions Premium plan and be configured to attach to the same VNet.
+The linked Azure Resource Manager (ARM) templates create and configure a replication application with:
 
-To track and visualize the event flow metrics, a replication application leans on [Azure Monitor's Application Insights]() for observing the metrics of the replication tasks.
+* an Azure Storage account for tracking the replication progress and for logs,
+* a system-assigned managed identity, and 
+* Azure Monitoring and Application Insights integration for monitoring.
 
-The linked Azure Resource Manager (ARM) templates create and configure a replication application with an Azure Storage account, provisions a system-assigned managed identity, and sets up Application Insight integration.
+Replication applications that must access Event Hubs bound to an Azure virtual network (VNet) must use the Azure Functions Premium plan and be configured to attach to the same VNet, which is also one of the available options.
+
 
 |       | Deploy | Visualize  
 |-------|------------------|--------------|---------------|
@@ -56,9 +59,11 @@ The linked Azure Resource Manager (ARM) templates create and configure a replica
 | **Azure Functions Premium Plan** |[![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-function-premium-vnet-integration%2Fazuredeploy.json) | [![Visualize](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/visualizebutton.svg?sanitize=true)](http://armviz.io/#/?load=https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-function-premium-vnet-integration%2Fazuredeploy.json)
 | **Azure Functions Premium Plan with VNet** | [![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-function-premium-vnet-integration%2Fazuredeploy.json)|[![Visualize](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/visualizebutton.svg?sanitize=true)](http://armviz.io/#/?load=https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-function-premium-vnet-integration%2Fazuredeploy.json)
 
-### Deploying replication tasks
+### Bundling and deploying replication tasks
 
-Replication tasks are deployed as into the replication application through the same deployment methods as any other Azure Functions application. 
+Replication tasks are deployed into the replication application through the same deployment methods as any other Azure Function. All tasks that you want to run in parallel inside the replication application need to bundled into the same project and deployed together.
+
+
 
 For pre-built tasks, we describe a simple flow where you only need to focus on the configuration. For custom tasks, the foundational model is the same, but you can add your own functionality.   
 
