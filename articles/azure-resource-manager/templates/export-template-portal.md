@@ -49,6 +49,8 @@ To export resources created through classic deployment model, you must [migrate 
 
 If you get a warning when exporting a template that indicates a resource type wasn't exported, you can still discover the properties for that resource. To learn about the different options for viewing resource properties, see [Discover resource properties](view-resources.md). You can also look at the [Azure REST API](/rest/api/azure/) for the resource type.
 
+There is a limit of 200 resources in the resource group you are trying to create the exported template for.  If you attempt to export a resource group with more than 200 resources you will see the error "Export template is not supported for resource groups more than 200 resources".
+
 ## Export template from a resource group
 
 To export one or more resources from a resource group:
