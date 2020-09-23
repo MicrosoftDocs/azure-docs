@@ -76,7 +76,7 @@ As you build an experiment, you can choose from the list of modules available to
 
 A module may have a set of parameters that you can use to configure the module's internal algorithms. When you select a module on the canvas, the module's parameters are displayed in the **Properties** pane to the right of the canvas. You can modify the parameters in that pane to tune your model.
 
-For some help navigating through the large library of machine learning algorithms available, see [How to choose algorithms for Microsoft Machine Learning Studio (classic)](algorithm-choice.md).
+For some help navigating through the large library of machine learning algorithms available, see [How to choose algorithms for Microsoft Machine Learning Studio (classic)](../how-to-select-algorithms.md).
 
 ## Deploying a predictive analytics web service
 Once your predictive analytics model is ready, you can deploy it as a web service right from Machine Learning Studio (classic). For more information on this process, see [Deploy an Azure Machine Learning web service](deploy-a-machine-learning-web-service.md).

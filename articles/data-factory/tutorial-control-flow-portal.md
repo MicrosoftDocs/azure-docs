@@ -1,6 +1,6 @@
 ---
 title: Branching and chaining activities in a pipeline using Azure portal
-description: Learn how to control flow of data in Azure Data Factory by branching and chaining activities.
+description: Learn how to control flow of data in Azure Data Factory pipeline by using the Azure portal.
 services: data-factory
 author: djpmsft
 ms.author: daperlov
