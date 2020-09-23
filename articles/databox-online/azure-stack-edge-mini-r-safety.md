@@ -135,4 +135,4 @@ The equipment is designed to operate in the following environments:
 
 ## Next steps
 
-[Prepare to deploy Azure Stack Edge Mini R](azure-stack-edge-mini-r-deploy-prep.md)
+[Prepare to deploy Azure Stack Edge Mini R](azure-stack-edge-placeholder.md)

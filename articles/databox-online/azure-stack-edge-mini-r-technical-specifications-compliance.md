@@ -73,9 +73,9 @@ The Azure Stack Edge Mini R device has the following specifications for network:
 |Network interfaces    |2 x 1 Gbe RJ45 <br> Shown as PORT 1 and PORT 2 in the local UI          |
 |Wi-Fi   |802.11ac         |
 
-The following image shows the Azure Stack Edge Mini R device ports and interfaces:
+<!--The following image shows the Azure Stack Edge Mini R device ports and interfaces:
 
-![Azure Stack Edge Mini R](media/azure-stack-edge-k-series-deploy-install/ports-front-plane.png)
+![Azure Stack Edge Mini R](media/azure-stack-edge-k-series-deploy-install/ports-front-plane.png)-->
 
 
 ## Power supply unit specifications
