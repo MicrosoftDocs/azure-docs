@@ -13,11 +13,11 @@ services: iot-pnp
 
 IoT Plug and Play lets you build smart devices that advertise their capabilities to Azure IoT applications. IoT Plug and Play devices don't require manual configuration when a customer connects them to IoT Plug and Play-enabled applications.
 
-A smart device might be implemented directly or using IoT Edge modules.
+A smart device might be implemented directly, use [modules](../iot-hub/iot-hub-devguide-module-twins.md), or use [IoT Edge modules](../iot-edge/about-iot-edge.md).
 
-This guide describes the basic steps required to create a device or IoT Edge module that follows the [IoT Plug and Play conventions](concepts-convention.md), and the available REST APIs you can use to interact with the device.
+This guide describes the basic steps required to create a device, module, or IoT Edge module that follows the [IoT Plug and Play conventions](concepts-convention.md), and the available REST APIs you can use to interact with the device.
 
-To build an IoT Plug and Play device or IoT Edge module, follow theses steps:
+To build an IoT Plug and Play device, module, or IoT Edge module, follow these steps:
 
 1. Ensure your device is using either the MQTT or MQTT over WebSockets protocol to connect to Azure IoT Hub.
 1. Create a [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl) model to describe your device. To learn more, see [Understand components in IoT Plug and Play models](concepts-components.md).
@@ -43,7 +43,7 @@ DeviceClient.CreateFromConnectionString(
 The new `ClientOptions` overload is available in all `DeviceClient` methods used to initialize a connection.
 
 > [!TIP]
-> For IoT Edge, use `ModuleClient` in place of `DeviceClient`.
+> For modules and IoT Edge, use `ModuleClient` in place of `DeviceClient`.
 
 The model ID announcement has been added to the next versions of the SDKs
 
