@@ -116,7 +116,7 @@ When you use Microsoft.Identity.Web, you have three cases:
     // After the token has been returned by Microsoft Identity Web, add it to the HTTP authorization header before making the call to access the To Do list service.
    _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.AccessToken);
 
-   // Call the To Do list service.
+   // Call the todolist service.
    HttpResponseMessage response = await _httpClient.GetAsync(TodoListBaseAddress + "/api/todolist");
    // ...
    }
