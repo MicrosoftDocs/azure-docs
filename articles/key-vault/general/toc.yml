@@ -129,6 +129,8 @@
       href: access-behind-firewall.md
   - name: Soft-delete
     items:
+    - name: Key Vault Recovery (Soft Delete & Purge Protection)
+      href: key-vault-recovery.md
     - name: Use soft-delete with CLI
       href: soft-delete-cli.md
     - name: Use soft-delete with PowerShell
