@@ -252,4 +252,4 @@ az group delete -n $strResourceGroup
 
 ## Next steps
 
-If you have any trouble working with Azure Image Builder, see [Troubleshooting](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md?toc=%2fazure%2fvirtual-machines%context%2ftoc.json).
+If you have any trouble working with Azure Image Builder, see [Troubleshooting](image-builder-troubleshoot.md?toc=%2fazure%2fvirtual-machines%context%2ftoc.json).
