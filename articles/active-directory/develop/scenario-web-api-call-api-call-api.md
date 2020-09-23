@@ -59,7 +59,7 @@ When you use Microsoft.Identity.Web, you have three cases:
     }
    ```
 
-1. You want to call another web API than graph. In that case you have added `AddDownstreamWebApi` in the startup.cs and you can directly inject a `IDownstreamWebApi` service in your controller or page constructor and use it in the actions:
+1. You want to call a web API other than Microsoft Graph. In that case, you've added `AddDownstreamWebApi` in *Startup.cs*, and you can directly inject an `IDownstreamWebApi` service in your controller or page constructor and use it in the actions:
 
    ```CSharp
     [Authorize]
