@@ -1,6 +1,6 @@
 ---
 title: Create your first durable function in Azure using JavaScript
-description: Create and publish an Azure Durable Function using Visual Studio Code.
+description: Create and publish an Azure Durable Function in JavaScript using Visual Studio Code.
 author: anthonychu
 
 ms.topic: quickstart

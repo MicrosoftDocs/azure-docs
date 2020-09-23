@@ -15,7 +15,7 @@ ms.custom: contperfq4, devx-track-python
 
 # Tutorial: Build an Azure Machine Learning pipeline for batch scoring
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 In this advanced tutorial, you learn how to build an [Azure Machine Learning pipeline](concept-ml-pipelines.md) to run a batch scoring job. Machine learning pipelines optimize your workflow with speed, portability, and reuse, so you can focus on machine learning instead of infrastructure and automation. After you build and publish a pipeline, you configure a REST endpoint that you can use to trigger the pipeline from any HTTP library on any platform. 
 

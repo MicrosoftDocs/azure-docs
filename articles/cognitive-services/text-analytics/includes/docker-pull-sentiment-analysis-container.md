@@ -16,7 +16,7 @@ ms.author: aahi
 The sentiment analysis container v3 container is available in several languages. To download the container for the English container, use the command below. 
 
 ```
-docker pull mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-en
+docker pull mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment:3.0-en
 ```
 
 To download the container for another language, replace `en` with one of the language codes below. 

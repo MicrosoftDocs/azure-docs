@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/virtual-machines/linux/sa-upload-vhd.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/sa-upload-vhd",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/windows/sa-copy-generalized.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/windows/sa-copy-generalized",
       "redirect_document_id": false
@@ -148,6 +153,21 @@
     {
       "source_path": "articles/virtual-machines/linux/backup-recovery.md",
       "redirect_url": "/azure/virtual-machines/backup-recovery",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/troubleshooting-shared-images.md",
+      "redirect_url": "/azure/virtual-machines/troubleshooting-shared-images",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/troubleshooting-shared-images.md",
+      "redirect_url": "/azure/virtual-machines/troubleshooting-shared-images",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machine-scale-sets/troubleshooting-shared-images.md",
+      "redirect_url": "/azure/virtual-machines/troubleshooting-shared-images",
       "redirect_document_id": false
     },
     {
@@ -886,11 +906,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/active-directory/users-groups-roles/custom-enterprise-apps.md",
-      "redirect_url": "/azure/active-directory/users-groups-roles/roles-custom-overview",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/active-directory/user-help/my-apps-portal-end-user-update-profile.md",
       "redirect_url": "/azure/active-directory/user-help/my-account-portal-settings",
       "redirect_document_id": false
@@ -1016,6 +1031,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/machine-learning/concept-editions.md",
+      "redirect_url": "/azure/machine-learning/concept-workspace#wheres-enterprise",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/how-to-monitor-data-drift.md",
       "redirect_url": "/azure/machine-learning/how-to-enable-data-collection",
       "redirect_document_id": false
@@ -1097,28 +1117,34 @@
     },
     {
       "source_path": "articles/machine-learning/data-science-virtual-machine/reference-centos-vm.md",
-      "redirect_url": "/azure/machine-learning/data-science-virtual-machine/reference-deprecation",
+      "redirect_url": "/azure/machine-learning/data-science-virtual-machine/release-notes",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/machine-learning/data-science-virtual-machine/linux-dsvm-intro.md",
-      "redirect_url": "/azure/machine-learning/data-science-virtual-machine/reference-deprecation",
+      "redirect_url": "/azure/machine-learning/data-science-virtual-machine/release-notes",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/machine-learning/data-science-virtual-machine/geo-ai-dsvm-overview.md",
-      "redirect_url": "/azure/machine-learning/data-science-virtual-machine/reference-deprecation",
+      "redirect_url": "/azure/machine-learning/data-science-virtual-machine/release-notes",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/machine-learning/data-science-virtual-machine/provision-geo-ai-dsvm.md",
-      "redirect_url": "/azure/machine-learning/data-science-virtual-machine/reference-deprecation",
+      "redirect_url": "/azure/machine-learning/data-science-virtual-machine/release-notes",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/machine-learning/data-science-virtual-machine/use-geo-ai-dsvm.md",
-      "redirect_url": "/azure/machine-learning/data-science-virtual-machine/reference-deprecation",
+      "redirect_url": "/azure/machine-learning/data-science-virtual-machine/release-notes",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/data-science-virtual-machine/reference-deprecation.md",
+      "redirect_url": "/azure/machine-learning/data-science-virtual-machine/release-notes",
+      "redirect_document_id": false
+
     },
     {
       "source_path": "articles/machine-learning/service/how-to-understand-accuracy-metrics.md",
@@ -1343,6 +1369,21 @@
     {
       "source_path": "articles/batch-ai/overview-what-happened-batch-ai.md",
       "redirect_url": "/previous-versions/azure/batch-ai/overview-what-happened-batch-ai",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-arc/data/create-data-controller-using-k8s-native-tools.md",
+      "redirect_url": "/azure/azure-arc/data/create-data-controller-using-kubernetes-native-tools",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-arc/data/create-sql-managed-instance-using-k8s-native-tools.md",
+      "redirect_url": "/azure/azure-arc/data/create-sql-managed-instance-using-kubernetes-native-tools",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-arc/data/create-postgresql-hyperscale-server-group-k8s-native-tools.md",
+      "redirect_url": "/azure/azure-arc/data/create-postgresql-hyperscale-server-group-kubernetes-native-tools",
       "redirect_document_id": false
     },
     {
@@ -1745,7 +1786,201 @@
       "redirect_url": "/azure/cognitive-services/personalizer/how-to-manage-model",
       "redirect_document_id": false
     },
-
+    {
+      "source_path": "articles/asc-for-iot/architecture.md",
+      "redirect_url": "/azure/defender-for-iot/architecture",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/asc-for-iot/azure-iot-security-local-configuration-c.md",
+      "redirect_url": "/azure/defender-for-iot/azure-iot-security-local-configuration-c",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/asc-for-iot/azure-iot-security-local-configuration-csharp.md",
+      "redirect_url": "/azure/defender-for-iot/azure-iot-security-local-configuration-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/asc-for-iot/concept-baseline.md",
+      "redirect_url": "/azure/defender-for-iot/concept-baseline",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/asc-for-iot/concept-customizable-security-alerts.md",
+      "redirect_url": "/azure/defender-for-iot/concept-customizable-security-alerts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/asc-for-iot/concept-pricing.md",
+      "redirect_url": "/azure/defender-for-iot/concept-pricing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/asc-for-iot/concept-recommendations.md",
+      "redirect_url": "/azure/defender-for-iot/concept-recommendations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/asc-for-iot/concept-security-agent-authentication-methods.md",
+      "redirect_url": "/azure/defender-for-iot/concept-security-agent-authentication-methods",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/asc-for-iot/concept-security-alerts.md",
+      "redirect_url": "/azure/defender-for-iot/concept-security-alerts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/asc-for-iot/concept-security-module.md",
+      "redirect_url": "/azure/defender-for-iot/concept-security-module",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/asc-for-iot/event-aggregation.md",
+      "redirect_url": "/azure/defender-for-iot/event-aggregation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/asc-for-iot/getting-started.md",
+      "redirect_url": "/azure/defender-for-iot/getting-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/asc-for-iot/how-to-agent-configuration.md",
+      "redirect_url": "/azure/defender-for-iot/how-to-agent-configuration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/asc-for-iot/how-to-configure-with-sentinel.md",
+      "redirect_url": "/azure/defender-for-iot/how-to-configure-with-sentinel",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/asc-for-iot/how-to-customize-solution.md",
+      "redirect_url": "/azure/defender-for-iot/how-to-customize-solution",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/asc-for-iot/how-to-deploy-agent.md",
+      "redirect_url": "/azure/defender-for-iot/how-to-deploy-agent",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/asc-for-iot/how-to-deploy-edge.md",
+      "redirect_url": "/azure/defender-for-iot/how-to-deploy-edge",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/asc-for-iot/how-to-deploy-linux-c.md",
+      "redirect_url": "/azure/defender-for-iot/how-to-deploy-linux-c",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/asc-for-iot/how-to-deploy-linux-cs.md",
+      "redirect_url": "/azure/defender-for-iot/how-to-deploy-linux-cs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/asc-for-iot/how-to-deploy-windows-cs.md",
+      "redirect_url": "/azure/defender-for-iot/how-to-deploy-windows-cs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/asc-for-iot/how-to-investigate-device.md",
+      "redirect_url": "/azure/defender-for-iot/how-to-investigate-device",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/asc-for-iot/how-to-security-data-access.md",
+      "redirect_url": "/azure/defender-for-iot/how-to-security-data-access",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/asc-for-iot/how-to-send-security-messages.md",
+      "redirect_url": "/azure/defender-for-iot/how-to-send-security-messages",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/asc-for-iot/index.yml",
+      "redirect_url": "/azure/defender-for-iot/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/asc-for-iot/iot-hub-integration.md",
+      "redirect_url": "/azure/defender-for-iot/iot-hub-integration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/asc-for-iot/iot-security-azure-rtos.md",
+      "redirect_url": "/azure/defender-for-iot/iot-security-azure-rtos",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/asc-for-iot/overview.md",
+      "redirect_url": "/azure/defender-for-iot/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/asc-for-iot/quickstart-configure-your-solution.md",
+      "redirect_url": "/azure/defender-for-iot/quickstart-configure-your-solution",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/asc-for-iot/quickstart-create-custom-alerts.md",
+      "redirect_url": "/azure/defender-for-iot/quickstart-create-custom-alerts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/asc-for-iot/quickstart-create-security-twin.md",
+      "redirect_url": "/azure/defender-for-iot/quickstart-create-security-twin",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/asc-for-iot/quickstart-investigate-security-alerts.md",
+      "redirect_url": "/azure/defender-for-iot/quickstart-investigate-security-alerts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/asc-for-iot/quickstart-investigate-security-recommendations.md",
+      "redirect_url": "/azure/defender-for-iot/quickstart-investigate-security-recommendations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/asc-for-iot/quickstart-onboard-iot-hub.md",
+      "redirect_url": "/azure/defender-for-iot/quickstart-onboard-iot-hub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/asc-for-iot/resources-frequently-asked-questions.md",
+      "redirect_url": "/azure/defender-for-iot/resources-frequently-asked-questions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/asc-for-iot/security-agent-architecture.md",
+      "redirect_url": "/azure/defender-for-iot/security-agent-architecture",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/asc-for-iot/security-agents.md",
+      "redirect_url": "/azure/defender-for-iot/security-agents",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/asc-for-iot/security-edge-architecture.md",
+      "redirect_url": "/azure/defender-for-iot/security-edge-architecture",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/asc-for-iot/service-prerequisites.md",
+      "redirect_url": "/azure/defender-for-iot/service-prerequisites",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/asc-for-iot/troubleshoot-agent.md",
+      "redirect_url": "/azure/defender-for-iot/troubleshoot-agent",
+      "redirect_document_id": false
+    },
     {
       "source_path": "articles/cognitive-services/LUIS/tutorial-publish-settings.md",
       "redirect_url": "/azure/cognitive-services/LUIS/tutorial-machine-learned-entity#publish-the-app-to-access-it-from-the-http-endpoint"
@@ -6790,12 +7025,12 @@
     },
     {
       "source_path": "articles/azure-resource-manager/managed-application-author-marketplace.md",
-      "redirect_url": "/azure/azure-resource-manager/managed-applications/publish-marketplace-app",
+      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-azure-apps-offer",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-resource-manager/managed-application-consume-marketplace.md",
-      "redirect_url": "/azure/azure-resource-manager/managed-applications/publish-marketplace-app",
+      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-azure-apps-offer",
       "redirect_document_id": false
     },
     {
@@ -7045,7 +7280,12 @@
     },
     {
       "source_path": "articles/managed-applications/publish-marketplace-app.md",
-      "redirect_url": "/azure/azure-resource-manager/managed-applications/publish-marketplace-app",
+      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-azure-apps-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/managed-applications/publish-marketplace-app.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-azure-apps-offer",
       "redirect_document_id": false
     },
     {
@@ -27858,6 +28098,31 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/storage/common/storage-encryption-keys-portal.md",
+      "redirect_url": "/azure/storage/common/customer-managed-keys-configure-key-vault",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/storage/common/storage-encryption-keys-powershell.md",
+      "redirect_url": "/azure/storage/common/customer-managed-keys-configure-key-vault",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/common/storage-encryption-keys-cli.md",
+      "redirect_url": "/azure/storage/common/customer-managed-keys-configure-key-vault",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/common/encryption-customer-managed-keys.md",
+      "redirect_url": "/azure/storage/common/customer-managed-keys-overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/storage/common/encryption-customer-provided-keys.md",
+      "redirect_url": "/azure/storage/blobs/encryption-customer-provided-keys",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/storage/storage-service-encryption.md",
       "redirect_url": "/azure/storage/common/storage-service-encryption",
       "redirect_document_id": true
@@ -27910,6 +28175,11 @@
     {
       "source_path": "articles/storage/storage-xamarin-blob-storage.md",
       "redirect_url": "/azure/storage/blobs/storage-xamarin-blob-storage",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/storage/common/storage-advanced-threat-protection.md",
+      "redirect_url": "/azure/storage/common/azure-defender-storage-configure",
       "redirect_document_id": true
     },
     {
@@ -29588,13 +29858,68 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/sentinel/connect-logstash.md",
-      "redirect_url": "/azure/sentinel/connect-data-sources",
+      "source_path": "articles/sentinel/connect-microsoft-waf.md",
+      "redirect_url": "/azure/sentinel/connect-azure-waf",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/sentinel/connect-microsoft-waf.md",
-      "redirect_url": "/azure/sentinel/connect-azure-waf",
+      "source_path": "articles/security-center/security-center-intro.md",
+      "redirect_url": "/azure/security-center/security-center-introduction",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/security-center-sql-service-recommendations.md",
+      "redirect_url": "/azure/security-center/security-center-remediate-recommendations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/security-center-onboarding.md",
+      "redirect_url": "/azure/security-center/security-center-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/quick-onboard-azure-stack.md",
+      "redirect_url": "/azure/security-center/quickstart-onboard-machines",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/quick-onboard-linux-computer.md",
+      "redirect_url": "/azure/security-center/quickstart-onboard-machines",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/quick-onboard-windows-computer.md",
+      "redirect_url": "/azure/security-center/quickstart-onboard-machines",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/threat-protection.md",
+      "redirect_url": "/azure/security-center/azure-defender",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/security-center-app-services.md",
+      "redirect_url": "/azure/security-center/defender-for-app-service-intro",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/security-center-iaas-advanced-data.md",
+      "redirect_url": "/azure/security-center/defender-for-sql-usage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/advanced-threat-protection-key-vault.md",
+      "redirect_url": "/azure/security-center/defender-for-key-vault-introduction",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/monitor-container-security.md",
+      "redirect_url": "/azure/security-center/container-security",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/security-center-virtual-machine-protection.md",
+      "redirect_url": "/azure/security-center/asset-inventory",
       "redirect_document_id": false
     },
     {
@@ -31925,6 +32250,16 @@
     {
       "source_path": "articles/multi-factor-authentication/multi-factor-authentication-get-started-assign-licenses.md",
       "redirect_url": "/azure/active-directory/license-users-groups",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/stream-analytics/quick-create-vs-code.md",
+      "redirect_url": "/azure/stream-analytics/quick-create-visual-studio-code",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/stream-analytics/setup-cicd-vs-code.md",
+      "redirect_url": "/azure/stream-analytics/cicd-overview",
       "redirect_document_id": false
     },
     {
@@ -37818,7 +38153,12 @@
     },
     {
       "source_path": "articles/active-directory/manage-apps/application-provisioning-configure-api.md",
-      "redirect_url": "/azure/active-directory/app-provisioning/application-provisioning-configure-api",
+      "redirect_url": "/graph/application-provisioning-configure-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/app-provisioning/application-provisioning-configure-api.md",
+      "redirect_url": "/graph/application-provisioning-configure-api",
       "redirect_document_id": false
     },
     {
@@ -42990,6 +43330,16 @@
     {
       "source_path": "articles/azure-monitor/log-query/logs-structure.md",
       "redirect_url": "/azure/azure-monitor/platform/data-platform-logs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/insights/container-insights-health.md",
+      "redirect_url": "/azure/azure-monitor/insights/container-insights-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/insights/container-insights-health-monitors-config.md",
+      "redirect_url": "/azure/azure-monitor/insights/container-insights-overview",
       "redirect_document_id": false
     },
     {
@@ -57086,6 +57436,21 @@
     "source_path": "articles/iot-dps/concepts-auto-provisioning.md",
     "redirect_url": "/azure/iot-dps/concepts-roles-operations",
     "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/alter-external-stream-transact-sql.md",
+      "redirect_url": "/azure/azure-sql-edge/release-notes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql-edge/stream-analytics.md",
+      "redirect_url": "/azure/azure-sql-edge/release-notes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql/database/advanced-data-security.md",
+      "redirect_url": "/azure/azure-sql/database/azure-defender-for-sql",
+      "redirect_document_id": false
     }
   ]
 }

@@ -15,7 +15,7 @@ ms.custom: how-to, devx-track-python
 
 # Reinforcement learning (preview) with Azure Machine Learning
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 > [!NOTE]
 > Azure Machine Learning Reinforcement Learning is currently a preview feature. Only Ray and RLlib frameworks are supported at this time.

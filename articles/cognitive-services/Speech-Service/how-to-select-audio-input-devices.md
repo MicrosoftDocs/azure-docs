@@ -131,6 +131,10 @@ void ListEndpoints()
 
         // Print endpoint friendly name and endpoint ID.
         printf("Endpoint %d: \"%S\" (%S)\n", i, varName.pwszVal, pwszID);
+
+        CoTaskMemFree(pwszID);
+        pwszID = NULL;
+        PropVariantClear(&varName);
     }
 
 Exit:

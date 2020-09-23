@@ -146,7 +146,8 @@ Deploy the code in your local folder (*python-docs-hello-world*) using the `az w
 az webapp up --sku F1 -n <app-name>
 ```
 
-- If the `az` command is not recognized, be sure you have the Azure CLI installed as described in [Set up your initial environment](#set-up-your-initial-environment).
+- If the `az` command isn't recognized, be sure you have the Azure CLI installed as described in [Set up your initial environment](#set-up-your-initial-environment).
+- If the `webapp` command isn't recognized, because that your Azure CLI version is 2.0.80 or higher. If not, [install the latest version](/cli/azure/install-azure-cli).
 - Replace `<app_name>` with a name that's unique across all of Azure (*valid characters are `a-z`, `0-9`, and `-`*). A good pattern is to use a combination of your company name and an app identifier.
 - The `--sku F1` argument creates the web app on the Free pricing tier. Omit this argument to use a faster premium tier, which incurs an hourly cost.
 - You can optionally include the argument `-l <location-name>` where `<location_name>` is an Azure region such as **centralus**, **eastasia**, **westeurope**, **koreasouth**, **brazilsouth**, **centralindia**, and so on. You can retrieve a list of allowable regions for your Azure account by running the [`az account list-locations`](/cli/azure/appservice#az-appservice-list-locations) command.
@@ -179,7 +180,7 @@ In your favorite code editor, open *application.py* and update the `hello` funct
 ```python
 def hello():
     print("Handling request to home page.")
-    return "Hello Azure!"
+    return "Hello, Azure!"
 ```
 
 Save your changes and exit the editor. 
@@ -205,11 +206,13 @@ Once deployment is complete, switch back to the browser window open to `http://<
 
 You can access the console logs generated from inside the app and the container in which it runs. Logs include any output generated using `print` statements.
 
-To stream logs, run the following command:
+To stream logs, run the [az webapp log tail](/cli/azure/webapp/log?view=azure-cli-latest#az_webapp_log_tail) command:
 
 ```azurecli
 az webapp log tail
 ```
+
+You can also include the `--logs` parameter with then `az webapp up` command to automatically open the log stream on deployment.
 
 Refresh the app in the browser to generate console logs, which include messages describing HTTP requests to the app. If no output appears immediately, try again in 30 seconds.
 

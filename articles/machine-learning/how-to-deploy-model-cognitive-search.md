@@ -13,7 +13,7 @@ ms.date: 06/11/2020
 ---
 
 # Deploy a model for use with Cognitive Search
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 This article teaches you how to use Azure Machine Learning to deploy a model for use with [Azure Cognitive Search](../search/search-what-is-azure-search.md).
 

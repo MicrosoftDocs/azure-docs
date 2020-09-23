@@ -137,14 +137,14 @@
       - name: Azure Storage encryption at rest
         href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         items:
-        - name: Customer-managed keys with Azure Key Vault
-          href: ../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Customer-provided keys on the request
-          href: ../common/encryption-customer-provided-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Encryption with customer-managed keys
+          href: ../common/customer-managed-keys-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Encryption on the request with customer-provided keys
+          href: encryption-customer-provided-keys.md
+        - name: Encryption scopes
+          href: encryption-scope-overview.md
       - name: Immutable blobs
         href: storage-blob-immutable-storage.md
-      - name: Advanced threat protection
-        href: ../common/storage-advanced-threat-protection.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Built-in security controls
         href: ../common/storage-security-controls.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Use Azure Private Endpoints
@@ -380,19 +380,17 @@
           items:
           - name: Check the encryption key model for the account
             href: ../common/storage-encryption-key-model-get.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-          - name: Configure customer-managed encryption keys
+          - name: Configure encryption with customer-managed keys
             items:
-            - name: Portal
-              href: ../common/storage-encryption-keys-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: PowerShell
-              href: ../common/storage-encryption-keys-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Azure CLI
-              href: ../common/storage-encryption-keys-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Store customer-managed keys in a key vault
+              href: ../common/customer-managed-keys-configure-key-vault.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Store customer-managed keys in a managed HSM
+              href: ../common/customer-managed-keys-configure-key-vault-hsm.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Provide an encryption key on a request
           href: storage-blob-customer-provided-key.md
         - name: Manage encryption scopes
           href: encryption-scope-manage.md
-        - name: Enable infrastructure encryption for a storage account
+        - name: Enable infrastructure encryption for the account
           href: ../common/infrastructure-encryption-enable.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Configure client-side encryption
         items:
@@ -414,6 +412,8 @@
             href: ../common/transport-layer-security-configure-minimum-version.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json 
           - name: Configure TLS version for a client application
             href: ../common/transport-layer-security-configure-client-version.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Configure Azure Defender for threat protection
+        href: ../common/azure-defender-storage-configure.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Set and manage immutability policies
         href: storage-blob-immutability-policies-manage.md
     - name: Manage data redundancy

@@ -13,7 +13,7 @@ ms.custom: how-to
 ---
 
 # Create a workspace for Azure Machine Learning with Azure CLI
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 In this article, you learn how to create an Azure Machine Learning workspace using the Azure CLI. The Azure CLI provides commands for managing Azure resources. The machine learning extension to the CLI provides commands for working with Azure Machine Learning resources.
 
@@ -30,7 +30,7 @@ In this article, you learn how to create an Azure Machine Learning workspace usi
 > [!IMPORTANT]
 > If you are using the Azure Cloud Shell, you can skip this section. The cloud shell automatically authenticates you using the account you log into your Azure subscription.
 
-There are several ways that you can authenticate to your Azure subscription from the CLI. The most basic is to interactively authenticate using a browser. To authenticate interactively, open a command line or terminal and use the following command:
+There are several ways that you can authenticate to your Azure subscription from the CLI. The most simple is to interactively authenticate using a browser. To authenticate interactively, open a command line or terminal and use the following command:
 
 ```azurecli-interactive
 az login
@@ -104,9 +104,6 @@ For more information on working with resource groups, see [az group](https://doc
 
 To create a new workspace where the __services are automatically created__, use the following command:
 
-> [!TIP]
-> The commands in this section create a basic edition workspace. To create an enterprise workspace, use the `--sku enterprise` switch with the `az ml workspace create` command. For more information on Azure Machine Learning editions, see [What is Azure Machine Learning](overview-what-is-azure-ml.md#sku).
-
 ```azurecli-interactive
 az ml workspace create -w <workspace-name> -g <resource-group-name>
 ```
@@ -158,7 +155,7 @@ For more information on using a private endpoint and virtual network with your w
 
 By default, metrics and metadata for the workspace is stored in an Azure Cosmos DB instance that Microsoft maintains. This data is encrypted using Microsoft-managed keys. 
 
-If you are creating an __Enterprise__ version of Azure Machine Learning, you can use the provide your own key. Doing so creates the Azure Cosmos DB instance that stores metrics and metadata in your Azure subscription. Use the `--cmk-keyvault` parameter to specify the Azure Key Vault that contains the key, and `--resource-cmk-uri` to specify the URL of the key within the vault.
+Instead of using the Microsoft-managed key, you can use the provide your own key. Doing so creates the Azure Cosmos DB instance that stores metrics and metadata in your Azure subscription. Use the `--cmk-keyvault` parameter to specify the Azure Key Vault that contains the key, and `--resource-cmk-uri` to specify the URL of the key within the vault.
 
 > [!IMPORTANT]
 > Before using the `--cmk-keyvault` and `--resource-cmk-uri` parameters, you must first perform the following actions:
