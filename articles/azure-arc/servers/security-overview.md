@@ -1,11 +1,11 @@
 ---
 title: Security overview
-description: Security information about Azure Arc enabled servers (preview).
+description: Security information about Azure Arc enabled servers.
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 09/23/2020
 ---
 
-# Azure Arc for servers (preview) security overview
+# Azure Arc for servers security overview
 
 This article describes the security configuration and considerations you should evaluate before deploying Azure Arc enabled servers in your enterprise.
 
@@ -51,4 +51,4 @@ The Azure Connected Machine agent uses public key authentication to communicate 
 
 ## Next steps
 
-Before evaluating or enabling Arc enabled servers (preview) across multiple hybrid machines, review [Connected Machine agent overview](agent-overview.md) to understand requirements, technical details about the agent, and deployment methods.
+Before evaluating or enabling Arc enabled servers across multiple hybrid machines, review [Connected Machine agent overview](agent-overview.md) to understand requirements, technical details about the agent, and deployment methods.
