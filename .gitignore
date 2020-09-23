@@ -3,6 +3,7 @@
 Thumbs.db
 
 # Visual Studio and VS Code files
+.idea/*
 .vscode/*
 .vs/*
 log/

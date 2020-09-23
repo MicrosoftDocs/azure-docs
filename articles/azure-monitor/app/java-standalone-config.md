@@ -88,7 +88,7 @@ You can also set the cloud role instance using the environment variable `APPLICA
 
 Application Insights Java 3.0 Preview automatically captures application logging via Log4j, Logback, and java.util.logging.
 
-By default it will capture all logging performed at `WARN` level or above.
+By default it will capture all logging performed at `INFO` level or above.
 
 If you want to change this threshold:
 
@@ -98,13 +98,15 @@ If you want to change this threshold:
     "preview": {
       "instrumentation": {
         "logging": {
-          "threshold": "ERROR"
+          "threshold": "WARN"
         }
       }
     }
   }
 }
 ```
+
+You can also set the logging threshold using the environment variable `APPLICATIONINSIGHTS_LOGGING_THRESHOLD`.
 
 These are the valid `threshold` values that you can specify in the `ApplicationInsights.json` file, and how they correspond to logging levels across different logging frameworks:
 
@@ -131,9 +133,9 @@ If you have some JMX metrics that you are interested in capturing:
     "preview": {
       "jmxMetrics": [
         {
-          "objectName": "java.lang:type=ClassLoading",
-          "attribute": "LoadedClassCount",
-          "display": "Loaded Class Count"
+          "objectName": "java.lang:type=GarbageCollector,name=*",
+          "attribute": "LastGcInfo.duration",
+          "display": "GC Duration"
         },
         {
           "objectName": "java.lang:type=MemoryPool,name=Code Cache",
@@ -145,6 +147,8 @@ If you have some JMX metrics that you are interested in capturing:
   }
 }
 ```
+
+You can also set the JMX metrics using the environment variable `APPLICATIONINSIGHTS_JMX_METRICS`.
 
 ## Micrometer (including metrics from Spring Boot Actuator)
 
@@ -211,6 +215,8 @@ Here is an example how to set the sampling to **10% of all transactions** - plea
 ```
 
 ## HTTP Proxy
+
+You can also set the sampling percentage using the environment variable `APPLICATIONINSIGHTS_SAMPLING_PERCENTAGE`.
 
 If your application is behind a firewall and cannot connect directly to Application Insights (see [IP addresses used by Application Insights](./ip-addresses.md)), you can configure Application Insights Java 3.0 Preview to use an HTTP proxy:
 
