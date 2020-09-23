@@ -25,7 +25,7 @@ After you have a token, you can call a protected web API. You usually call the d
 
 When you use *Microsoft.Identity.Web*, you have three usage scenarios:
 
-1. you want to call Microsoft.Graph. In that case you have added `AddMicrosoftGraph` in the Startup.cs, and you can directly inject the `GraphServiceClient` in your controller or page constructor, and use it in the actions. Below is an example of a Razor page, which displays the photo of the signed-in user.
+1. You want to call Microsoft Graph. In this scenario, you've added `AddMicrosoftGraph` in *Startup.cs*, and you can directly inject the `GraphServiceClient` in your controller or page constructor for use in the actions. The following example Razor page displays the photo of the signed-in user.
 
    ```CSharp
     [Authorize]
