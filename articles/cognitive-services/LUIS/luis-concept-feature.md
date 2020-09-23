@@ -232,6 +232,10 @@ This example uses features at the subentity level and child of subentity level. 
 
 While subentities can have many phrase lists as features that help detect the entity, each subentity has only one model as a feature. In this [pizza app](https://github.com/Azure/pizza_luis_bot/blob/master/CognitiveModels/MicrosoftPizza.json), those models are primarily lists.
 
+:::image type="content" source="media/luis-concept-features/intent-example-utterances-machine-learning-entity-pizza.png" alt-text="Pizza order intent with labeled example utterances":::
+
+The correctly labeled example utterances display in a way to show how the entities are nested. 
+
 
 ## Best practices
 
