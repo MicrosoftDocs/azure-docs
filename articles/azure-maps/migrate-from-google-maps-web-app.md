@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 # Migrate a web app from Google Maps

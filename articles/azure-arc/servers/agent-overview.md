@@ -1,7 +1,7 @@
 ---
 title:  Overview of the Connected Machine Windows agent
 description: This article provides a detailed overview of the Azure Arc enabled servers agent available, which supports monitoring virtual machines hosted in hybrid environments.
-ms.date: 09/02/2020
+ms.date: 09/23/2020
 ms.topic: conceptual
 ---
 
@@ -223,7 +223,7 @@ After installing the Connected Machine agent for Linux, the following additional
     |/opt/logs/dsc.log |Records details of the DSC service activity,<br> in particular the connectivity between the himds service and Azure Policy.|
     |/opt/logs/dsc.telemetry.txt |Records details about DSC service telemetry and verbose logging.|
     |/var/lib/GuestConfig/ext_mgr_logs |Records details about the Extension agent component.|
-    |/var/log/GuestConfig/extension_logs|Records details from the installed extension.|
+    |/var/lib/GuestConfig/extension_logs|Records details from the installed extension.|
 
 * The following environmental variables are created during agent installation. These variables are set in `/lib/systemd/system.conf.d/azcmagent.conf`.
 
