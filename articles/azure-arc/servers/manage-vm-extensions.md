@@ -1,7 +1,7 @@
 ---
 title: VM extension management with Azure Arc enabled servers
 description: Azure Arc enabled servers can manage deployment of virtual machine extensions that provide post-deployment configuration and automation tasks with non-Azure VMs.
-ms.date: 09/02/2020
+ms.date: 09/23/2020
 ms.topic: conceptual
 ---
 
@@ -713,20 +713,6 @@ Removing one or more extensions from an Arc enabled server can only be carried o
 3. Choose **Extensions**, then select an extension from the list of installed extensions.
 
 4. Select **Uninstall** and when prompted to verify, select **Yes** to proceed.
-
-## Troubleshooting
-
-Data about the state of extension deployments can be retrieved from the Azure portal.
-
-The following troubleshooting steps apply to all VM extensions.
-
-1. To check the Guest agent log, look at the activity when your extension was being provisioned in `%SystemDrive%\ProgramData\GuestConfig\ext_mgr_logs` for Windows, and for Linux under `/var/lib/GuestConfig/ext_mgr_logs`.
-
-2. Check the extension logs for the specific extension for more details in `%SystemDrive%\ProgramData\GuestConfig\extension_logs\<Extension>` for Windows. Extension output is logged to a file for each extension installed on Linux under `/var/lib/GuestConfig/extension_logs`.
-
-3. Check extension specific documentation troubleshooting sections for error codes, known issues etc. Additional troubleshooting information for each extension can be found in the **Troubleshoot and support** section in the overview for the extension. This includes the description of error codes written to the log. The extension articles are linked in the [extensions table](#extensions) found earlier in this article.
-
-4. Look at the system logs. Check for other operations that may have interfered with the extension, such as a long running installation of another application that required exclusive package manager access.
 
 ## Next steps
 
