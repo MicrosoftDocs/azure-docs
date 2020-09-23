@@ -5,7 +5,7 @@ author: ekpgh
 ms.service: hpc-cache
 ms.topic: troubleshooting
 ms.date: 03/18/2020
-ms.author: rohogue
+ms.author: v-erkel
 ---
 
 # Troubleshoot NAS configuration and NFS storage target issues

@@ -1,7 +1,7 @@
 ---
 title: Explore your Azure resources
 description: Learn to use the Resource Graph query language to explore your resources and discover how they're connected.
-ms.date: 05/20/2020
+ms.date: 08/10/2020
 ms.topic: conceptual
 ---
 # Explore your Azure resources with Resource Graph
@@ -186,8 +186,9 @@ Resources
 
 > [!NOTE]
 > Another way to get the SKU would have been by using the **aliases** property
-> **Microsoft.Compute/virtualMachines/sku.name**. See the [Show aliases](../samples/starter.md#show-aliases)
-> and [Show distinct alias values](../samples/starter.md#distinct-alias-values) examples.
+> **Microsoft.Compute/virtualMachines/sku.name**. See the
+> [Show aliases](../samples/starter.md#show-aliases) and
+> [Show distinct alias values](../samples/starter.md#distinct-alias-values) examples.
 
 ```azurecli-interactive
 az graph query -q "Resources | where type =~ 'Microsoft.Compute/virtualmachines' and properties.hardwareProfile.vmSize == 'Standard_B2s' | extend disk = properties.storageProfile.osDisk.managedDisk | where disk.storageAccountType == 'Premium_LRS' | project disk.id"
@@ -220,11 +221,11 @@ Resources
 | where type =~ 'Microsoft.Compute/disks' and id == '/subscriptions/<subscriptionId>/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/disks/ContosoVM1_OsDisk_1_9676b7e1b3c44e2cb672338ebe6f5166'
 ```
 
-Before running the query, how did we know the **type** should now be **Microsoft.Compute/disks**?
-If you look at the full ID, you'll see **/providers/Microsoft.Compute/disks/** as part of the
-string. This string fragment gives you a hint as to what type to search for. An alternative method
-would be to remove the limit by type and instead only search by the ID field. As the ID is unique,
-only one record would be returned and the **type** property on it provides that detail.
+Before running the query, how did we know the **type** should now be **Microsoft.Compute/disks**? If
+you look at the full ID, you'll see **/providers/Microsoft.Compute/disks/** as part of the string.
+This string fragment gives you a hint as to what type to search for. An alternative method would be
+to remove the limit by type and instead only search by the ID field. As the ID is unique, only one
+record would be returned and the **type** property on it provides that detail.
 
 > [!NOTE]
 > For this example to work, you must replace the ID field with a result from your own environment.

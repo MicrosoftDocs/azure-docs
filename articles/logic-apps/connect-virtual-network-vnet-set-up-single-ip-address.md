@@ -91,8 +91,8 @@ This topic shows how to route outbound traffic through an Azure Firewall, but yo
    * [Configure a network rule](../firewall/tutorial-firewall-deploy-portal.md#configure-a-network-rule)
    * [Azure Firewall rule processing logic](../firewall/rule-processing.md#network-rules-and-applications-rules)
    * [Azure Firewall FAQ](../firewall/firewall-faq.md)
-   * [Azure PowerShell: New-AzFirewallNetworkRule](https://docs.microsoft.com/powershell/module/az.network/new-azfirewallnetworkrule)
-   * [Azure CLI: az network firewall network-rule](https://docs.microsoft.com/cli/azure/ext/azure-firewall/network/firewall/network-rule?view=azure-cli-latest#ext-azure-firewall-az-network-firewall-network-rule-create)
+   * [Azure PowerShell: New-AzFirewallNetworkRule](/powershell/module/az.network/new-azfirewallnetworkrule)
+   * [Azure CLI: az network firewall network-rule](/cli/azure/ext/azure-firewall/network/firewall/network-rule?view=azure-cli-latest#ext-azure-firewall-az-network-firewall-network-rule-create)
 
 ## Next steps
 

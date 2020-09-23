@@ -1,7 +1,7 @@
 ---
 title: Authorize developer accounts using OAuth 2.0 in API Management
 titleSuffix: Azure API Management
-description: Learn how to authorize users using OAuth 2.0 in API Management.
+description: Learn how to authorize users using OAuth 2.0 in API Management. OAuth 2.0 secures the API so that users can only access resources to which they're entitled.
 services: api-management
 documentationcenter: ''
 author: mikebudzynski
@@ -46,7 +46,7 @@ This guide shows you how to configure your API Management service instance to us
     > [!NOTE]
     > These fields are used to identify the OAuth 2.0 authorization server within the current API Management service instance and their values do not come from the OAuth 2.0 server.
 
-3. Enter the **Client registration page URL**. This page is where users can create and manage their accounts, and varies depending on the OAuth 2.0 provider used. The **Client registration page URL** points to the page that users can use to create and configure their own accounts for OAuth 2.0 providers that support user management of accounts. Some organizations do not configure or use this functionality even if the OAuth 2.0 provider supports it. If your OAuth 2.0 provider does not have user management of accounts configured, enter a placeholder URL here such as the URL of your company, or a URL such as `https://placeholder.contoso.com`.
+3. Enter the **Client registration page URL**. This page is where users can create and manage their accounts, and varies depending on the OAuth 2.0 provider used. The **Client registration page URL** points to the page that users can use to create and configure their own accounts for OAuth 2.0 providers that support user management of accounts - for example, `https://contoso.com/login`. Some organizations do not configure or use this functionality even if the OAuth 2.0 provider supports it. If your OAuth 2.0 provider does not have user management of accounts configured, enter a placeholder URL here such as the URL of your company, or a URL such as `https://placeholder.contoso.com`.
 
     ![OAuth 2.0 new server](./media/api-management-howto-oauth2/oauth-02.png)
 
@@ -71,6 +71,11 @@ This guide shows you how to configure your API Management service instance to us
     The default setting for **Client authentication methods** is **Basic**, and  **Access token sending method** is **Authorization header**. These values are configured on this section of the form, along with the **Default scope**.
 
 6. The **Client credentials** section contains the **Client ID** and **Client secret**, which are obtained during the creation and configuration process of your OAuth 2.0 server. Once the **Client ID** and **Client secret** are specified, the **redirect_uri** for the **authorization code** is generated. This URI is used to configure the reply URL in your OAuth 2.0 server configuration.
+
+    In the new developer portal, the URI suffix is of form:
+
+    - `/signin-oauth/code/callback/{authServerName}` for authorization code grant flow
+    - `/signin-oauth/implicit/callback` for implicit grant flow
 
     ![OAuth 2.0 new server](./media/api-management-howto-oauth2/oauth-04.png)
 

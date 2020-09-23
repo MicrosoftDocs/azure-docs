@@ -13,7 +13,7 @@ ms.custom:
 
 # Add a bar chart layer
 
-The **Bar chart layer** is useful for taking data to the next dimension by allowing visualization of location data as 3D bars or cylinders on the map. Similar to the bubble layer, the bar chart later can easily visualize two metrics at the same time using color and relative height. In order for the bars to have height, a measure needs to be added to the **Size** bucket of the **Fields** pane. If a measure is not provided, bars with no height as flat squares or circles depending on the **Bar shape** option.
+The **Bar chart layer** is useful for taking data to the next dimension by allowing visualization of location data as 3D bars or cylinders on the map. Similar to the bubble layer, the bar chart later can easily visualize two metrics at the same time using color and relative height. In order for the bars to have height, a measure needs to be added to the **Size** bucket of the **Fields** pane. If a measure is not provided, bars with no height show as flat squares or circles depending on the **Bar shape** option.
 
 > [!div class="mx-imgBorder"]
 > ![A map displaying point data using the bar chart layer](media/power-bi-visual/bar-chart-layer-styled.png)

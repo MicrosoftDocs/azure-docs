@@ -58,6 +58,6 @@ This script uses the following commands. Each command in the table links to comm
 
 ## Next steps
 
-For more information on Azure PowerShell, see [Azure PowerShell documentation](/powershell/azure/overview).
+For more information on Azure PowerShell, see [Azure PowerShell documentation](/powershell/azure/).
 
 Additional PowerShell script samples can be found in [Azure PowerShell scripts](../powershell-script-content-guide.md).

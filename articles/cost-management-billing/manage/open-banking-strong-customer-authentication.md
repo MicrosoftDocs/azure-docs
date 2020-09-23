@@ -5,8 +5,9 @@ author: bandersmsft
 ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: conceptual
-ms.date: 02/10/2020
+ms.date: 08/20/2020
 ms.author: banders
 ---
 

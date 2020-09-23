@@ -27,7 +27,7 @@ This article assumes you're familiar with the basics of the WebJobs SDK, C# clas
 
 To complete the steps in this article:
 
-* [Install Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/) with the **Azure development** workload.
+* [Install Visual Studio 2019](/visualstudio/install/) with the **Azure development** workload.
 
   If you already have Visual Studio, but don't have that workload, add the workload by selecting **Tools** > **Get Tools and Features**.
 

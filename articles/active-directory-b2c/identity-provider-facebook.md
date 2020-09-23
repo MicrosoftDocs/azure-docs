@@ -10,6 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 09/26/2019
+ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 ---

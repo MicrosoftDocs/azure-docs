@@ -6,7 +6,7 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
+ms.custom: subject-security-benchmark
 
 # Important: This content is machine generated; do not modify this topic directly. Contact mbaldwin for more information.
 
@@ -214,11 +214,11 @@ For more information, see the [Azure security baselines overview](https://docs.m
 
 ### 3.1: Maintain an inventory of administrative accounts
 
-**Guidance**: Maintain an inventory of the user accounts that have administrative access to your Azure Data Box. You can use the Identity and Access control (IAM) pane in the Azure portal for your subscription to configure role-based access control (RBAC). The roles are applied to users, groups, service principals, and managed identities in Active Directory.You can control who can access your order when the order is first created. Set up Role-based Access Control (RBAC) roles at various scopes to control the access to the Data Box order. An RBAC role determines the type of access – read-write, read-only, read-write to a subset of operations.
+**Guidance**: Maintain an inventory of the user accounts that have administrative access to your Azure Data Box. You can use the Identity and Access control (IAM) pane in the Azure portal for your subscription to configure Azure role-based access control (Azure RBAC). The roles are applied to users, groups, service principals, and managed identities in Active Directory.You can control who can access your order when the order is first created. Set up Azure roles at various scopes to control the access to the Data Box order. An Azure role determines the type of access – read-write, read-only, read-write to a subset of operations.
 
 * [Understand custom roles](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)
 
-* [How to configure RBAC for workbooks](https://docs.microsoft.com/azure/sentinel/quickstart-get-visibility)
+* [How to configure Azure RBAC for workbooks](https://docs.microsoft.com/azure/sentinel/quickstart-get-visibility)
 
 * [Understand how to set up access control on the order](https://docs.microsoft.com/azure/databox/data-box-logs#set-up-access-control-on-the-order)
 
@@ -425,7 +425,7 @@ During the data upload to Azure, the Data Box appliance and the service used to 
 
 **Responsibility**: Not applicable
 
-### 4.6: Use Role-based access control to control access to resources
+### 4.6: Use Azure RBAC to control access to resources
 
 **Guidance**: Ensure that you have owner or contributor access to the subscription to create a Data Box order. You can also define Data Box Reader and Data Box Contributor roles at the resource level.
 

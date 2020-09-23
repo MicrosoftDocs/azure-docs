@@ -84,7 +84,7 @@ Configure inbound traffic on port 3389 (Windows) or 22 (Linux) only if you need 
 
 `/subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.ClassicNetwork /virtualNetworks/{network}/subnets/{subnet}`
 
-**Permissions** - The `Microsoft Azure Batch` service principal must have the `Classic Virtual Machine Contributor` Role-Based Access Control (RBAC) role for the specified VNet.
+**Permissions** - The `Microsoft Azure Batch` service principal must have the `Classic Virtual Machine Contributor` Azure role for the specified VNet.
 
 #### Network security groups
 

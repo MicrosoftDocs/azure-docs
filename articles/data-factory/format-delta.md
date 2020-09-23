@@ -19,6 +19,8 @@ This article highlights how to copy data to and from a delta lake stored in [Azu
 > [!NOTE]
 > The delta format connector for mapping data flows is currently available as a public preview.
 
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4ALTs]
+
 ## Mapping data flow properties
 
 This connector is available as an [inline dataset](data-flow-source.md#inline-datasets) in mapping data flows as both a source and a sink.
@@ -33,8 +35,9 @@ The below table lists the properties supported by a delta source. You can edit t
 | File system | The container/file system of the delta lake | yes | String | fileSystem |
 | Folder path | The direct of the delta lake | yes | String | folderPath |
 | Compression type | The compression type of the delta table | no | `bzip2`<br>`gzip`<br>`deflate`<br>`ZipDeflate`<br>`snappy`<br>`lz4` | compressionType |
-| Compression level | Choose whether the compression completes as quickly as possible or if the resulting file should be optimally compressed. | required if `compressedType` is specified. | compressionLevel |
+| Compression level | Choose whether the compression completes as quickly as possible or if the resulting file should be optimally compressed. | required if `compressedType` is specified. | `Optimal` or `Fastest` | compressionLevel |
 | Time travel | Choose whether to query an older snapshot of a delta table | no | Query by timestamp: Timestamp <br> Query by version: Integer | timestampAsOf <br> versionAsOf |
+| Allow no files found | If true, an error is not thrown if no files are found | no | `true` or `false` | ignoreNoFilesFound |
 
 #### Import schema
 
@@ -69,7 +72,7 @@ The below table lists the properties supported by a delta sink. You can edit the
 | File system | The container/file system of the delta lake | yes | String | fileSystem |
 | Folder path | The direct of the delta lake | yes | String | folderPath |
 | Compression type | The compression type of the delta table | no | `bzip2`<br>`gzip`<br>`deflate`<br>`ZipDeflate`<br>`snappy`<br>`lz4` | compressionType |
-| Compression level | Choose whether the compression completes as quickly as possible or if the resulting file should be optimally compressed. | required if `compressedType` is specified. | compressionLevel |
+| Compression level | Choose whether the compression completes as quickly as possible or if the resulting file should be optimally compressed. | required if `compressedType` is specified. | `Optimal` or `Fastest` | compressionLevel |
 | Vacuum | Specify retention threshold in hours for older versions of table. A value of 0 or less defaults to 30 days | yes | Integer | vacuum |
 | Update method | Specify which update operations are allowed on the delta lake. For methods that aren't insert, a preceding alter row transformation is required to mark rows. | yes | `true` or `false` | deletable <br> insertable <br> updateable <br> upsertable |
 

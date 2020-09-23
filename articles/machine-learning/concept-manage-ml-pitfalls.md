@@ -96,7 +96,7 @@ The following techniques are additional options to handle imbalanced data **outs
 
 - Resampling to even the class imbalance, either by up-sampling the smaller classes or down-sampling the larger classes. These methods require expertise to process and analyze.
 
-- Review performance metrics for imbalanced data. For example, the F1 score is a weighted average of precision and recall. Precision measures a classifier's exactness-- low precision indicates a high number of false positives--, while recall measures a classifier's completeness-- low recall indicates a high number of false negatives.
+- Review performance metrics for imbalanced data. For example, the F1 score is the harmonic mean of precision and recall. Precision measures a classifier's exactness, where higher precision indicates fewer false positives, while recall measures a classifier's completeness, where higher recall indicates fewer false negatives.
 
 ## Next steps
 

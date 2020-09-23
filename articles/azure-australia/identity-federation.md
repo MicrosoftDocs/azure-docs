@@ -5,7 +5,7 @@ author: emilyre
 ms.service: azure-australia
 ms.topic: quickstart
 ms.date: 07/22/2019
-ms.author: v-emread
+ms.author: yvettep
 ---
 
 # Identity federation in Azure Australia
@@ -97,4 +97,4 @@ Privileged Identity Management, a component of Azure Active Directory, can be us
 
 ## Next steps
 
-Review the article on [Role-Based Access Controls and Privileged Identity Management](role-privileged.md).
+Review the article on [Azure role-based access control (Azure RBAC) and Privileged Identity Management](role-privileged.md).

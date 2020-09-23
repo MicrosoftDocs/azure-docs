@@ -13,7 +13,7 @@ ms.workload: identity
 ms.date: 11/21/2019
 ms.author: sagonzal
 ms.reviewer: nacanuma
-ms.custom: aaddev
+ms.custom: aaddev, devx-track-java
 #Customer intent: As an application developer, I want to learn about AD FS support in MSAL for Java so I can decide if this platform meets my application development needs and requirements.
 ---
 
@@ -45,4 +45,4 @@ When you acquire a token using `ConfidentialClientApplication.AcquireToken()` or
 
 ## Next steps
 
-For the federated case, see [Configure Azure Active Directory sign in behavior for an application by using a Home Realm Discovery policy](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-authentication-for-federated-users-portal)
+For the federated case, see [Configure Azure Active Directory sign in behavior for an application by using a Home Realm Discovery policy](../manage-apps/configure-authentication-for-federated-users-portal.md)

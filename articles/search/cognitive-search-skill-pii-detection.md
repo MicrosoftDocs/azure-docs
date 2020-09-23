@@ -16,7 +16,7 @@ ms.date: 06/17/2020
 > [!IMPORTANT] 
 > This skill is currently in public preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). There is currently no portal or .NET SDK support.
 
-The **PII Detection** skill extracts personally identifiable information from an input text and gives you the option to mask it from that text in various ways. This skill uses the machine learning models provided by [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) in Cognitive Services.
+The **PII Detection** skill extracts personally identifiable information from an input text and gives you the option to mask it from that text in various ways. This skill uses the machine learning models provided by [Text Analytics](../cognitive-services/text-analytics/overview.md) in Cognitive Services.
 
 > [!NOTE]
 > As you expand scope by increasing the frequency of processing, adding more documents, or adding more AI algorithms, you will need to [attach a billable Cognitive Services resource](cognitive-search-attach-cognitive-services.md). Charges accrue when calling APIs in Cognitive Services, and for image extraction as part of the document-cracking stage in Azure Cognitive Search. There are no charges for text extraction from documents.
@@ -28,7 +28,7 @@ The **PII Detection** skill extracts personally identifiable information from an
 Microsoft.Skills.Text.PIIDetectionSkill
 
 ## Data limits
-The maximum size of a record should be 50,000 characters as measured by [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). If you need to break up your data before sending it to the skill, consider using the [Text Split skill](cognitive-search-skill-textsplit.md).
+The maximum size of a record should be 50,000 characters as measured by [`String.Length`](/dotnet/api/system.string.length). If you need to break up your data before sending it to the skill, consider using the [Text Split skill](cognitive-search-skill-textsplit.md).
 
 ## Skill parameters
 
@@ -53,7 +53,7 @@ Parameters are case-sensitive and all are optional.
 
 | Output name      | Description                   |
 |---------------|-------------------------------|
-| `piiEntities` | An array of complex types that contains the following fields: <ul><li>text (The actual PII as extracted)</li> <li>type</li><li>subType</li><li>score (Higher value means it's more likely to be a real entity)</li><li>offset (into the input text)</li><li>length</li></ul> </br> [Possible types and subTypes can be found here.](https://docs.microsoft.com/azure/cognitive-services/text-analytics/named-entity-types?tabs=personal) |
+| `piiEntities` | An array of complex types that contains the following fields: <ul><li>text (The actual PII as extracted)</li> <li>type</li><li>subType</li><li>score (Higher value means it's more likely to be a real entity)</li><li>offset (into the input text)</li><li>length</li></ul> </br> [Possible types and subTypes can be found here.](../cognitive-services/text-analytics/named-entity-types.md?tabs=personal) |
 | `maskedText` | If `maskingMode` is set to a value other than `none`, this output will be the string result of the masking performed on the input text as described by the selected `maskingMode`.  If `maskingMode` is set to `none`, this output will not be present. |
 
 ##    Sample definition
@@ -123,7 +123,7 @@ Parameters are case-sensitive and all are optional.
 }
 ```
 
-Note that the offsets returned for entities in the output of this skill are directly returned from the [Text Analytics API](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview), which means if you are using them to index into the original string, you should use the [StringInfo](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo?view=netframework-4.8) class in .NET in order to extract the correct content.  [More details can be found here.](https://docs.microsoft.com/azure/cognitive-services/text-analytics/concepts/text-offsets)
+Note that the offsets returned for entities in the output of this skill are directly returned from the [Text Analytics API](../cognitive-services/text-analytics/overview.md), which means if you are using them to index into the original string, you should use the [StringInfo](/dotnet/api/system.globalization.stringinfo?view=netframework-4.8) class in .NET in order to extract the correct content.  [More details can be found here.](../cognitive-services/text-analytics/concepts/text-offsets.md)
 
 ## Error and warning cases
 If the language code for the document is unsupported, a warning is returned and no entities are extracted.

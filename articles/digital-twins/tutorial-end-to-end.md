@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: Connect an end-to-end solution
+title: 'Tutorial: Connect an end-to-end solution'
 titleSuffix: Azure Digital Twins
 description: Tutorial to build out an end-to-end Azure Digital Twins solution that's driven by device data.
 author: baanders
@@ -15,18 +15,22 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Build out an end-to-end solution
+# Tutorial: Build out an end-to-end solution
 
 To set up a full end-to-end solution driven by live data from your environment, you can connect your Azure Digital Twins instance to other Azure services for management of devices and data.
 
 In this tutorial, you will...
-* Set up an Azure Digital Twins instance
-* Learn about the sample building scenario and instantiate the pre-written components
-* Use an [Azure Functions](../azure-functions/functions-overview.md) app to route simulated telemetry from an [IoT Hub](../iot-hub/about-iot-hub.md) device into digital twin properties
-* Propagate changes through the **twin graph**, by processing digital twin notifications with Azure Functions, endpoints, and routes
+> [!div class="checklist"]
+> * Set up an Azure Digital Twins instance
+> * Learn about the sample building scenario and instantiate the pre-written components
+> * Use an [Azure Functions](../azure-functions/functions-overview.md) app to route simulated telemetry from an [IoT Hub](../iot-hub/about-iot-hub.md) device into digital twin properties
+> * Propagate changes through the **twin graph**, by processing digital twin notifications with Azure Functions, endpoints, and routes
 
 [!INCLUDE [Azure Digital Twins tutorial: sample prerequisites](../../includes/digital-twins-tutorial-sample-prereqs.md)]
 
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+### Set up Cloud Shell session
 [!INCLUDE [Cloud Shell for Azure Digital Twins](../../includes/digital-twins-cloud-shell.md)]
 
 [!INCLUDE [Azure Digital Twins tutorial: configure the sample project](../../includes/digital-twins-tutorial-sample-configure.md)]
@@ -91,7 +95,21 @@ The next step is setting up an [Azure Functions app](../azure-functions/function
 * *ProcessHubToDTEvents*: processes incoming IoT Hub data and updates Azure Digital Twins accordingly
 * *ProcessDTRoutedData*: processes data from digital twins, and updates the parent twins in Azure Digital Twins accordingly
 
-In this section, you will publish the pre-written function app, and ensure the function app can access Azure Digital Twins by assigning it an Azure Active Directory (AAD) identity. Completing these steps will allow the rest of the tutorial to use the functions inside the function app. 
+In this section, you will publish the pre-written function app, and ensure the function app can access Azure Digital Twins by assigning it an Azure Active Directory (Azure AD) identity. Completing these steps will allow the rest of the tutorial to use the functions inside the function app. 
+
+Back in your Visual Studio window where the _**AdtE2ESample**_ project is open, the function app is located in the _**SampleFunctionsApp**_ project file. You can view it in the *Solution Explorer* pane.
+
+### Update dependencies
+
+Before publishing the app, it's a good idea to make sure your dependencies are up to date, making sure you have the latest version of all the included packages.
+
+In the *Solution Explorer* pane, expand *SampleFunctionsApp > Dependencies*. Right-select *Packages* and choose *Manage NuGet Packages...*.
+
+:::image type="content" source="media/tutorial-end-to-end/update-dependencies-1.png" alt-text="Visual Studio: Manage NuGet Packages for the SampleFunctionsApp project" border="false":::
+
+This will open the NuGet Package Manager. Select the *Updates* tab and if there are any packages to be updated, check the box to *Select all packages*. Then hit *Update*.
+
+:::image type="content" source="media/tutorial-end-to-end/update-dependencies-2.png" alt-text="Visual Studio: Selecting to update all packages in the NuGet Package Manager":::
 
 ### Publish the app
 
@@ -132,29 +150,31 @@ On the *Publish* pane that opens back in the main Visual Studio window, check th
 :::image type="content" source="media/tutorial-end-to-end/publish-azure-function-6.png" alt-text="Publish Azure function in Visual Studio: publish":::
 
 > [!NOTE]
-> You may see a popup like this: 
+> If you see a popup like this: 
 > :::image type="content" source="media/tutorial-end-to-end/publish-azure-function-7.png" alt-text="Publish Azure function in Visual Studio: publish credentials" border="false":::
-> If so, select **Attempt to retrieve credentials from Azure** and **Save**.
+> Select **Attempt to retrieve credentials from Azure** and **Save**.
 >
-> If you see a warning that *Your version of the functions runtime does not match the version running in Azure*, follow the prompts to upgrade to the latest Azure Functions runtime version. This issue might occur if you're using an older version of Visual Studio than the one recommended in the *Prerequisites* section at the start of this tutorial.
+> If you see a warning to *Upgrade Functions version on Azure* or that *Your version of the functions runtime does not match the version running in Azure*:
+>
+> Follow the prompts to upgrade to the latest Azure Functions runtime version. This issue might occur if you're using an older version of Visual Studio than the one recommended in the *Prerequisites* section at the start of this tutorial.
 
 ### Assign permissions to the function app
 
-To enable the function app to access Azure Digital Twins, the next step is to configure an app setting, assign the app a system-managed AAD identity, and give this identity *owner* permissions in the Azure Digital Twins instance.
+To enable the function app to access Azure Digital Twins, the next step is to configure an app setting, assign the app a system-managed Azure AD identity, and give this identity the *Azure Digital Twins Owner (Preview)* role in the Azure Digital Twins instance. This role is required for any user or function that wants to perform many data plane activities on the instance. You can read more about security and role assignments in [*Concepts: Security for Azure Digital Twins solutions*](concepts-security.md).
 
-In Azure Cloud Shell, use the following command to set an application setting which your function app will use to reference your digital twins instance.
+In Azure Cloud Shell, use the following command to set an application setting which your function app will use to reference your Azure Digital Twins instance.
 
-```azurecli-interactive
-az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=<your-digital-twin-instance-URL>"
+```azurecli
+az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=<your-Azure-Digital-Twins-instance-URL>"
 ```
 
 Use the following command to create the system-managed identity. Take note of the *principalId* field in the output.
 
-```azurecli-interactive
+```azurecli
 az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>
 ```
 
-Use the *principalId* value in the following command to assign the function app's identity to the *owner* role for your Azure Digital Twins instance:
+Use the *principalId* value from the output in the following command, to assign the function app's identity to the *Azure Digital Twins Owner (Preview)* role for your Azure Digital Twins instance:
 
 ```azurecli
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Owner (Preview)"
@@ -185,7 +205,7 @@ Azure Digital Twins is designed to work alongside [IoT Hub](../iot-hub/about-iot
 
 In Azure Cloud Shell, use this command to create a new IoT hub:
 
-```azurecli-interactive
+```azurecli
 az iot hub create --name <name-for-your-IoT-hub> -g <your-resource-group> --sku S1
 ```
 
@@ -225,7 +245,7 @@ This section creates a device representation in IoT Hub with the ID *thermostat6
 
 In Azure Cloud Shell, create a device in IoT Hub with the following command:
 
-```azurecli-interactive
+```azurecli
 az iot hub device-identity create --device-id thermostat67 --hub-name <your-IoT-hub-name> -g <your-resource-group>
 ```
 
@@ -238,13 +258,13 @@ Next, configure the device simulator to send data to your IoT Hub instance.
 Begin by getting the *IoT hub connection string* with this command:
 
 ```azurecli
-az iot hub show-connection-string -n <your-IoT-hub-name>
+az iot hub connection-string show -n <your-IoT-hub-name>
 ```
 
 Then, get the *device connection string* with this command:
 
 ```azurecli
-az iot hub device-identity show-connection-string --device-id thermostat67 --hub-name <your-IoT-hub-name>
+az iot hub device-identity connection-string show --device-id thermostat67 --hub-name <your-IoT-hub-name>
 ```
 
 You'll plug these values into the device simulator code in your local project to connect the simulator into this IoT hub and IoT hub device.
@@ -313,7 +333,7 @@ In this section, you create an event grid topic, and then create an endpoint wit
 
 In Azure Cloud Shell, run the following command to create an event grid topic:
 
-```azurecli-interactive
+```azurecli
 az eventgrid topic create -g <your-resource-group> --name <name-for-your-event-grid-topic> -l <region>
 ```
 
@@ -339,7 +359,7 @@ You can also verify that the endpoint creation succeeded by running the followin
 az dt endpoint show --dt-name <your-Azure-Digital-Twins-instance> --endpoint-name <your-Azure-Digital-Twins-endpoint> 
 ```
 
-Look for the `provisioningState` field in the output, and check that the value is "Succeeded".
+Look for the `provisioningState` field in the output, and check that the value is "Succeeded". It may also say "Provisioning", meaning that the endpoint is still being created. In this case, wait a few seconds and run the command again to check that it has completed successfully.
 
 :::image type="content" source="media/tutorial-end-to-end/output-endpoints.png" alt-text="Result of the endpoint query, showing the endpoint with a provisioningState of Succeeded":::
 
@@ -349,11 +369,16 @@ Save the names that you gave to your event grid topic and your Azure Digital Twi
 
 Next, create an Azure Digital Twins route that sends events to the Azure Digital Twins endpoint you just created.
 
+[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
+
 ```azurecli
 az dt route create --dt-name <your-Azure-Digital-Twins-instance> --endpoint-name <your-Azure-Digital-Twins-endpoint> --route-name <name-for-your-Azure-Digital-Twins-route>
 ```
 
 The output from this command is some information about the route you've created.
+
+>[!NOTE]
+>Endpoints (from the previous step) must be finished provisioning before you can set up an event route that uses them. If the route creation fails because the endpoints aren't ready, wait a few minutes and then try again.
 
 #### Connect the function to Event Grid
 
@@ -414,29 +439,28 @@ Here is a review of the scenario that you built out in this tutorial.
 
 If you no longer need the resources created in this tutorial, follow these steps to delete them. 
 
-Using the Azure Cloud Shell, you can delete all Azure resources in a resource group with the [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) command. This removes the resource group; the Azure Digital Twins instance; the IoT hub and the hub device registration; the event grid topic and associated subscriptions; and both Azure Functions apps, including associated resources like storage.
+Using the [Azure Cloud Shell](https://shell.azure.com), you can delete all Azure resources in a resource group with the [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) command. This removes the resource group; the Azure Digital Twins instance; the IoT hub and the hub device registration; the event grid topic and associated subscriptions; and the Azure Functions app, including both functions and associated resources like storage.
 
 > [!IMPORTANT]
 > Deleting a resource group is irreversible. The resource group and all the resources contained in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. 
 
-```azurecli-interactive
+```azurecli
 az group delete --name <your-resource-group>
 ```
 
-Next, delete the AAD app registration you created for your client app with this command:
+Next, delete the Azure AD app registration you created for your client app with this command:
 
 ```azurecli
 az ad app delete --id <your-application-ID>
 ```
 
-Finally, delete the project sample folder you downloaded from your local machine.
+Finally, delete the project sample folder you downloaded to your local machine.
 
 ## Next steps
 
 In this tutorial, you created an end-to-end scenario that shows Azure Digital Twins being driven by live device data.
 
 Next, start looking at the concept documentation to learn more about elements you worked with in the tutorial:
-* [Concepts: Custom models](concepts-models.md)
 
-Or, go more in-depth on the processes in this tutorial by starting the how-to articles:
-* [How-to: Use the Azure Digital Twins CLI](how-to-use-cli.md)
+> [!div class="nextstepaction"]
+> [*Concepts: Custom models*](concepts-models.md)

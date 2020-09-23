@@ -1,6 +1,6 @@
 ---
 title: Documentation changes for SQL Server on Azure Virtual Machines| Microsoft Docs
-description: Learn about the new features and improvements for SQL Server on Azure Virtual Machines.
+description: Learn about the new features and improvements for different releases of SQL Server on Azure Virtual Machines.
 services: virtual-machines-windows
 author: MashaMSFT
 ms.author: mathoma
@@ -8,15 +8,22 @@ tags: azure-service-management
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.service: virtual-machines-sql
 
-ms.topic: conceptual
+ms.topic: reference
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/06/2020
+ms.date: 08/20/2020
 ---
 # Documentation changes for SQL Server on Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Azure allows you to deploy a virtual machine (VM) with an image of SQL Server built in. This article summarizes the documentation changes associated with new features and improvements in the recent releases of [SQL Server on Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/). 
+
+## August 2020
+
+| Changes | Details |
+| --- | --- |
+| **Configure ag in portal** | It is now possible to [configure your availability group via the Azure portal](availability-group-azure-portal-configure.md). This feature is currently in preview and being deployed so if your desired region is unavailable, check back soon. | 
+
 
 ## July 2020
 
@@ -24,17 +31,15 @@ Azure allows you to deploy a virtual machine (VM) with an image of SQL Server bu
 | Changes | Details |
 | --- | --- |
 | **Migrate log to ultra disk** | Learn how you can [migrate your log file to an ultra disk](storage-migrate-to-ultradisk.md) to leverage high performance and low latency. | 
-
-
+| **Create AG using PowerShell** | It's now possible to simplify the creation of an availability group by using [PowerShell](availability-group-az-commandline-configure.md) as well as the Azure CLI. | 
 
 
 ## June 2020
 
-
 | Changes | Details |
 | --- | --- |
 | **Distributed network name (DNN)** | SQL Server 2019 on Windows Server 2016+ is now previewing support for routing traffic to your failover cluster instance (FCI) by using a [distributed network name](hadr-distributed-network-name-dnn-configure.md) rather than using Azure Load Balancer. This support simplifies and streamlines connecting to your high-availability (HA) solution in Azure. | 
-| **FCI with Azure shared disks** | It's now possible to deploy your [failover cluster instance (FCI)](failover-cluster-instance-overview.md) by using [Azure shared disks](failover-cluster-instance-azure-shared-disks-manually-configure.md) with SQL Server 2019 on a Windows Server 2016+ virtual machine. |
+| **FCI with Azure shared disks** | It's now possible to deploy your [failover cluster instance (FCI)](failover-cluster-instance-overview.md) by using [Azure shared disks](failover-cluster-instance-azure-shared-disks-manually-configure.md). |
 | **Reorganized FCI docs** | The documentation around [failover cluster instances with SQL Server on Azure VMs](failover-cluster-instance-overview.md) has been rewritten and reorganized for clarity. We've separated some of the configuration content, like the [cluster configuration best practices](hadr-cluster-best-practices.md), how to prepare a [virtual machine for a SQL Server FCI](failover-cluster-instance-prepare-vm.md), and how to configure [Azure Load Balancer](hadr-vnn-azure-load-balancer-configure.md). | 
 | &nbsp; | &nbsp; |
 

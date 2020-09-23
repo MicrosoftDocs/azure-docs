@@ -15,9 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
+ms.custom: devx-track-csharp
 
 ---
-# How to generate thumbnails using Media Encoder Standard with .NET 
+# How to generate thumbnails using Media Encoder Standard with .NET
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 You can use Media Encoder Standard to generate one or more thumbnails from your input video in [JPEG](https://en.wikipedia.org/wiki/JPEG), [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics), or [BMP](https://en.wikipedia.org/wiki/BMP_file_format) image file formats. You can submit Tasks that produce only images, or you can combine thumbnail generation with encoding. This article provides a few sample XML and JSON thumbnail presets for such scenarios. At the end of the article, there is a [sample code](#code_sample) that shows how to use the Media Services .NET SDK to accomplish the encoding task.
 
@@ -278,7 +281,7 @@ Note the use of {Resolution} macro in the FileName; it indicates to the encoder 
 While all of the above examples have discussed how you can submit an encoding task that only produces images, you can also combine video/audio encoding with thumbnail generation. The following JSON and XML preset tell **Media Encoder Standard** to generate a thumbnail during encoding.
 
 ### <a id="json"></a>JSON preset
-For information about schema, see [this](https://msdn.microsoft.com/library/mt269962.aspx) article.
+For information about schema, see [this](./media-services-mes-schema.md) article.
 
 ```json
 	{
@@ -343,7 +346,7 @@ For information about schema, see [this](https://msdn.microsoft.com/library/mt26
 ```
 
 ### <a id="xml"></a>XML preset
-For information about schema, see [this](https://msdn.microsoft.com/library/mt269962.aspx) article.
+For information about schema, see [this](./media-services-mes-schema.md) article.
 
 ```csharp
 	<?xml version="1.0" encoding="utf-16"?>
@@ -573,4 +576,3 @@ You can check the [job progress](media-services-check-job-progress.md) while the
 
 ## See Also
 [Media Services Encoding Overview](media-services-encode-asset.md)
-

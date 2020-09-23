@@ -4,6 +4,8 @@ Description: To receive money from offer sales in the commercial marketplace, le
 ms.date: 12/10/2019
 ms.topic: conceptual
 ms.service: marketplace
+author: mingshen-ms
+ms.author: mingshen
 ---
 
 # Set up your payout account and tax forms

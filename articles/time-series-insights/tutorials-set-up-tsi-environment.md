@@ -8,7 +8,7 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
-ms.date: 07/07/2020
+ms.date: 07/27/2020
 ms.custom: seodec18
 # Customer intent: As a data analyst or developer, I want to learn how to create a Azure Time Series Insights Gen2 environment so that I can use Azure Time Series Insights Gen2 queries to understand device behavior. 
 ---
@@ -44,7 +44,7 @@ In this section, you will create three simulated devices that send data to an Az
 
    [![Azure IoT solution accelerators page.](media/v2-update-provision/iot-solution-accelerators-landing-page.png)](media/v2-update-provision/iot-solution-accelerators-landing-page.png#lightbox)
 
-1. On the next page, select **Try Now**. Then, enter the required parameters on the **Create Device Simulation solution** page.
+1. Enter the subscription where you want to create the device simulation.
 
    Parameter|Description
    ---|---
@@ -57,7 +57,7 @@ In this section, you will create three simulated devices that send data to an Az
 
    [![Provision the device simulation solution.](media/v2-update-provision/iot-solution-accelerators-configuration.png)](media/v2-update-provision/iot-solution-accelerators-configuration.png#lightbox)
 
-1. After provisioning has finished, two notifications will appear announcing that the deployment state has moved from **Provisioning** to **Ready**. 
+1. After provisioning has finished, two notifications will appear announcing that the deployment state has moved from **Provisioning** to **Ready**.
 
    >[!IMPORTANT]
    > Don't enter your solution accelerator yet! Keep this web page open because you'll return to it later.
@@ -72,9 +72,9 @@ In this section, you will create three simulated devices that send data to an Az
 
 This section describes how to create an Azure Time Series Insights Gen2 environment and connect it to the IoT hub created by the IoT Solution Accelerator using the [Azure portal](https://portal.azure.com/).
 
-1. Sign in to the [Azure portal](https://portal.azure.com) by using your Azure subscription account. 
-1. Select **+ Create a resource** in the upper left. 
-1. Select the **Internet of Things** category, and then select **Time Series Insights**. 
+1. Sign in to the [Azure portal](https://portal.azure.com) by using your Azure subscription account.
+1. Select **+ Create a resource** in the upper left.
+1. Select the **Internet of Things** category, and then select **Time Series Insights**.
 
    [![Select the Time Series Insights environment resource.](media/v2-update-provision/tsi-create-new-environment.png)](media/v2-update-provision/tsi-create-new-environment.png#lightbox)
 
@@ -86,15 +86,18 @@ This section describes how to create an Azure Time Series Insights Gen2 environm
     | **Subscription** | Enter the subscription where you want to create the Azure Time Series Insights Gen2 environment. A best practice is to use the same subscription as the rest of the IoT resources that are created by the device simulator. |
     | **Resource group** | Select an existing resource group or create a new resource group for the Azure Time Series Insights Gen2 environment resource. A resource group is a container for Azure resources. A best practice is to use the same resource group as the other IoT resources that are created by the device simulator. |
     | **Location** | Select a data center region for your Azure Time Series Insights Gen2 environment. To avoid additional latency, it's best to create your Azure Time Series Insights Gen2 environment in the same region as your IoT hub created by the device simulator. |
-    | **Tier** |  Select **PAYG** (*pay-as-you-go*). This is the SKU for the Azure Time Series Insights Gen2 product. |
-    | **Property name** | Enter a value that uniquely identifies your time series instance. The value you enter in the **Property ID** box cannot be changed later. For this tutorial, enter ***iothub-connection-device-id***. To learn more about Time Series ID, read [Best practices for choosing a Time Series ID](./time-series-insights-update-how-to-id.md). |
+    | **Tier** |  Select **Gen2(L1)**. This is the SKU for the Azure Time Series Insights Gen2 product. |
+    | **Time Series ID property name** | Enter a name of a property that contains values that uniquely identify your time series instances. The value you enter in the **Property name** box as Time Series ID cannot be changed later. For this tutorial, enter ***iothub-connection-device-id***. To learn more about Time Series ID including composite Time Series ID, read [Best practices for choosing a Time Series ID](./time-series-insights-update-how-to-id.md). |
     | **Storage account name** | Enter a globally unique name for a new storage account.|
-    |**Enable warm store**|Select **Yes** to enable warm store. You can come back later and enable this setting. |
+    | **Storage account kind** | Select the storage kind for a new storage account. We recommend StorageV2|
+    | **Storage account replication** | Select the storage kind for a new storage account. Based on your location selection, you can choose from LRS, GRS and ZRS. For this tutorial, you can select LRS|
+    | **Hierarchical namespace** |This option is selectable, once you select the storage kind to be StorageV2. By default, it is disabled. For this tutorial, you can leave it in its default *disabled* state|
+    |**Enable warm store**|Select **Yes** to enable warm store. This setting can be disabled and re-enabled after the environment has been created as well. |
     |**Data retention (in days)**|Choose the default option of 7 days. |
 
-1. Select **Next: Event Source**.
+    [![New Time Series Insights environment configuration.](media/v2-update-provision/tsi-environment-configuration.png)](media/v2-update-provision/tsi-environment-configuration.png#lightbox)
 
-   [![New Time Series Insights environment configuration.](media/v2-update-provision/tsi-environment-configuration.png)](media/v2-update-provision/tsi-environment-configuration.png#lightbox)
+1. Select **Next: Event Source**.
 
    [![Configure Time Series ID for the environment.](media/v2-update-provision/tsi-time-series-id-selection.png)](media/v2-update-provision/tsi-time-series-id-selection.png#lightbox)
 
@@ -126,7 +129,7 @@ This section describes how to create an Azure Time Series Insights Gen2 environm
 
 1. You have access to your Azure Time Series Insights Gen2 environment by default if you are an owner of the Azure subscription. Verify that you have access:
 
-   1. Search for your resource group, and then select your newly created Azure Time Series Insights Gen2 environment. 
+   1. Search for your resource group, and then select your newly created Azure Time Series Insights Gen2 environment.
 
       [![Select and view your environment.](media/v2-update-provision/verify-tsi-resource-in-group.png)](media/v2-update-provision/verify-tsi-resource-in-group.png#lightbox)
 
@@ -150,7 +153,7 @@ Now that you've deployed your Azure Time Series Insights Gen2 environment, begin
 
    [![Device simulation web application consent.](media/v2-update-provision/sawa-signin-consent.png)](media/v2-update-provision/sawa-signin-consent.png#lightbox)
 
-1. Select **+ New simulation**. 
+1. Select **+ New simulation**.
 
     1. After the **Simulation setup** page loads, enter the required parameters.
 
@@ -215,7 +218,7 @@ In this section, you apply a model to structure your data. To complete the model
     | **Name** | Enter **Elevator** |
     | **Description** | Enter **This is a type definition for Elevator** |
 
-1. Next, select the **Variables** tab. 
+1. Next, select the **Variables** tab.
 
     1. Select **+ Add Variable** and fill in the following values for the first variable of the Elevator type. You will author three variables in total.
 
@@ -253,19 +256,19 @@ In this section, you apply a model to structure your data. To complete the model
         [![After adding the type, review it in the Model view.](media/v2-update-provision/tsi-add-type-and-view.png)](media/v2-update-provision/tsi-add-type-and-view.png#lightbox)
 
 1. Select the **Hierarchies** tab. Then, select **+ Add**.
-   
+
    1. In the **Edit Hierarchy** pane, set the following parameters:
 
         | Parameter | Action |
         | --- | ---|
         | **Name** | Enter **Location Hierarchy**. |
-        |**Levels**| Enter **Country** as the name of the first level <br> Select **+ Add Level** <br> Enter **City** for the second level, then select **+ Add Level** <br> Enter **Building** as the name of the third and final level |
+        |**Levels**| Enter **Country** as the name of the first level <br /> Select **+ Add Level** <br /> Enter **City** for the second level, then select **+ Add Level** <br /> Enter **Building** as the name of the third and final level |
 
-    1. Select **Save**.
+   1. Select **Save**.
 
         [![Display your new hierarchy in the Model view.](media/v2-update-provision/tsi-add-hierarchy-and-view.png)](media/v2-update-provision/tsi-add-hierarchy-and-view.png#lightbox)
 
-1. Navigate to **Instances**. 
+1. Navigate to **Instances**.
 
     1. Under **Actions** on the far right, and select the pencil icon to edit the first instance with the following values:
 

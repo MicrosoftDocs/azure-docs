@@ -19,10 +19,10 @@ To extend and expand your flow's capabilities, you can migrate that flow from [P
 > supported for export and deployment as logic app templates.
 >
 > * To find which Power Automate connectors don't have Logic Apps equivalents, see 
-> [Power Automate connectors](https://docs.microsoft.com/connectors/connector-reference/connector-reference-powerautomate-connectors).
+> [Power Automate connectors](/connectors/connector-reference/connector-reference-powerautomate-connectors).
 >
 > * To find which Logic Apps connectors don't have Power Automate equivalents, see 
-> [Logic Apps connectors](https://docs.microsoft.com/connectors/connector-reference/connector-reference-powerautomate-connectors).
+> [Logic Apps connectors](/connectors/connector-reference/connector-reference-powerautomate-connectors).
 
 ## Prerequisites
 

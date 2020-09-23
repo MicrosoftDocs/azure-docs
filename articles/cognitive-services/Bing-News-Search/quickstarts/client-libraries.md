@@ -12,7 +12,7 @@ ms.subservice: bing-news-search
 ms.topic: quickstart
 ms.date: 03/12/2020
 ms.author: aahi
-ms.custom: tracking-python
+ms.custom: "devx-track-python, devx-track-js, devx-track-csharp"
 ---
 # Quickstart: Use the Bing News Search client library
 

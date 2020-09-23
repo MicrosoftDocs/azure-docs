@@ -85,7 +85,7 @@ The Log Analytics gateway is available in these languages:
 
 The Log Analytics gateway supports only Transport Layer Security (TLS) 1.0, 1.1, and 1.2.  It doesn't support Secure Sockets Layer (SSL).  To ensure the security of data in transit to Log Analytics, configure the gateway to use at least TLS 1.2. Older versions of TLS or SSL are vulnerable. Although they currently allow backward compatibility, avoid using them.  
 
-For additional information, review [Sending data securely using TLS 1.2](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12). 
+For additional information, review [Sending data securely using TLS 1.2](./data-security.md#sending-data-securely-using-tls-12). 
 
 ### Supported number of agent connections
 
@@ -145,7 +145,7 @@ To install a gateway using the setup wizard, follow these steps.
 
 ## Install the Log Analytics gateway using the command line
 
-The downloaded file for the gateway is a Windows Installer package that supports silent installation from the command line or other automated method. If you are not familiar with the standard command-line options for Windows Installer, see [Command-line options](https://docs.microsoft.com/windows/desktop/Msi/command-line-options).
+The downloaded file for the gateway is a Windows Installer package that supports silent installation from the command line or other automated method. If you are not familiar with the standard command-line options for Windows Installer, see [Command-line options](/windows/desktop/msi/command-line-options).
  
 The following table highlights the parameters supported by setup.
 
@@ -181,11 +181,11 @@ After installation, you can confirm the settings are accepted (excluding the use
 
 ## Configure network load balancing
 
-You can configure the gateway for high availability using network load balancing (NLB) using either Microsoft [Network Load Balancing (NLB)](https://docs.microsoft.com/windows-server/networking/technologies/network-load-balancing), [Azure Load Balancer](../../load-balancer/load-balancer-overview.md), or hardware-based load balancers. The load balancer manages traffic by redirecting the requested connections from the Log Analytics agents or Operations Manager management servers across its nodes. If one Gateway server goes down, the traffic gets redirected to other nodes.
+You can configure the gateway for high availability using network load balancing (NLB) using either Microsoft [Network Load Balancing (NLB)](/windows-server/networking/technologies/network-load-balancing), [Azure Load Balancer](../../load-balancer/load-balancer-overview.md), or hardware-based load balancers. The load balancer manages traffic by redirecting the requested connections from the Log Analytics agents or Operations Manager management servers across its nodes. If one Gateway server goes down, the traffic gets redirected to other nodes.
 
 ### Microsoft Network Load Balancing
 
-To learn how to design and deploy a Windows Server 2016 network load balancing cluster, see [Network load balancing](https://docs.microsoft.com/windows-server/networking/technologies/network-load-balancing). The following steps describe how to configure a Microsoft network load balancing cluster.  
+To learn how to design and deploy a Windows Server 2016 network load balancing cluster, see [Network load balancing](/windows-server/networking/technologies/network-load-balancing). The following steps describe how to configure a Microsoft network load balancing cluster.  
 
 1. Sign onto the Windows server that is a member of the NLB cluster with an administrative account.  
 2. Open Network Load Balancing Manager in Server Manager, click **Tools**, and then click **Network Load Balancing Manager**.
@@ -388,4 +388,5 @@ To get help, select the question mark icon in the upper-right corner of the port
 
 ## Next steps
 
-[Add data sources](../../azure-monitor/platform/agent-data-sources.md) to collect data from connected sources, and store the data in your Log Analytics workspace.
+[Add data sources](./agent-data-sources.md) to collect data from connected sources, and store the data in your Log Analytics workspace.
+

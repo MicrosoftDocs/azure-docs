@@ -1,7 +1,7 @@
 ---
 title: Understand resource locking
 description: Learn about the locking options in Azure Blueprints to protect resources when assigning a blueprint.
-ms.date: 03/25/2020
+ms.date: 08/27/2020
 ms.topic: conceptual
 ---
 # Understand resource locking in Azure Blueprints
@@ -31,7 +31,7 @@ Locked** state. The following table can be used to determine the state of a reso
 |-|-|-|-|
 |Don't Lock|*|Not Locked|Resources aren't protected by Azure Blueprints. This state is also used for resources added to a **Read Only** or **Do Not Delete** resource group artifact from outside a blueprint assignment.|
 |Read Only|Resource group|Cannot Edit / Delete|The resource group is read only and tags on the resource group can't be modified. **Not Locked** resources can be added, moved, changed, or deleted from this resource group.|
-|Read Only|Non-resource group|Read Only|The resource can't be altered in any way -- no changes and it can't be deleted.|
+|Read Only|Non-resource group|Read Only|The resource can't be altered in any way. No changes and it can't be deleted.|
 |Do Not Delete|*|Cannot Delete|The resources can be altered, but can't be deleted. **Not Locked** resources can be added, moved, changed, or deleted from this resource group.|
 
 ## Overriding locking states
@@ -128,7 +128,7 @@ blueprint assignment and can only be removed from the artifact resources by the 
 identity. This security measure enforces the locking mechanism and prevents removing the blueprint
 lock outside Azure Blueprints.
 
-:::image type="content" source="../media/resource-locking/blueprint-deny-assignment.png" alt-text="Blueprint deny assignment on resource group" border="false":::
+:::image type="content" source="../media/resource-locking/blueprint-deny-assignment.png" alt-text="Screenshot of the Access control (I A M) page and the Deny assignments tab for a resource group." border="false":::
 
 The
 [deny assignment properties](../../../role-based-access-control/deny-assignments.md#deny-assignment-properties)
@@ -223,8 +223,9 @@ wildcard matching of RBAC operations.
 ## Next steps
 
 - Follow the [protect new resources](../tutorials/protect-new-resources.md) tutorial.
-- Learn about the [blueprint lifecycle](lifecycle.md).
-- Understand how to use [static and dynamic parameters](parameters.md).
-- Learn to customize the [blueprint sequencing order](sequencing-order.md).
+- Learn about the [blueprint lifecycle](./lifecycle.md).
+- Understand how to use [static and dynamic parameters](./parameters.md).
+- Learn to customize the [blueprint sequencing order](./sequencing-order.md).
 - Learn how to [update existing assignments](../how-to/update-existing-assignments.md).
-- Resolve issues during the assignment of a blueprint with [general troubleshooting](../troubleshoot/general.md).
+- Resolve issues during the assignment of a blueprint with
+  [general troubleshooting](../troubleshoot/general.md).

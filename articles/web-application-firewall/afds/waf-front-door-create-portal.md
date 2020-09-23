@@ -5,13 +5,13 @@ author: vhorne
 ms.service: web-application-firewall
 services: web-application-firewall
 ms.topic: tutorial
-ms.date: 03/10/2020
+ms.date: 09/15/2020
 ms.author: victorh
 ---
 
 # Tutorial: Create a Web Application Firewall policy on Azure Front Door using the Azure portal
 
-This tutorial show you how to create a basic Azure Web Application Firewall (WAF) policy and apply it to a front-end host at Azure Front Door.
+This tutorial shows you how to create a basic Azure Web Application Firewall (WAF) policy and apply it to a front-end host at Azure Front Door.
 
 In this tutorial, you learn how to:
 
@@ -63,7 +63,7 @@ To see WAF in action, you can change the mode settings from **Detection** to **P
 
 You can create a custom rule by selecting **Add custom rule** under the **Custom rules** section. This launches the custom rule configuration page. Below is an example of configuring a custom rule to block a request if the query string contains **blockme**.
 
-![Change WAF policy mode](../media/waf-front-door-create-portal/customquerystring2.png)
+![Custom rules](../media/waf-front-door-create-portal/customquerystring2.png)
 
 ### Default Rule Set (DRS)
 
@@ -71,8 +71,11 @@ Azure-managed Default Rule Set is enabled by default. To disable an individual r
 
  ![Change WAF Rule Set](../media/waf-front-door-create-portal/managed2.png)
 
+## Clean up resources
+
+When no longer needed, remove the resource group and all related resources.
+
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn about Azure Web Application Firewall](../overview.md)
 > [Learn more about Azure Front Door](../../frontdoor/front-door-overview.md)

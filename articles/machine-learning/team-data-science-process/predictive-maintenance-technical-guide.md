@@ -71,7 +71,7 @@ Factory](https://azure.microsoft.com/documentation/services/data-factory/)
 service.
 
 ### HDInsight custom aggregation
-Run [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx)
+Run [Hive](https://docs.microsoft.com/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start)
 scripts (orchestrated by Azure Data Factory) using HDInsight to provide aggregations on
 the raw events archived using the Azure Stream Analytics
 resource.
@@ -180,7 +180,7 @@ Factory](https://azure.microsoft.com/documentation/services/data-factory/). Here
 ![Azure Data Factory](./media/predictive-maintenance-technical-guide/azure-data-factory.png)
 
 Two of the pipelines of this factory contain
-[Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx)
+[Hive](https://docs.microsoft.com/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start)
 scripts used to partition and aggregate the data. When noted,
 the scripts are located in the [Azure
 Storage](https://azure.microsoft.com/services/storage/) account
@@ -190,7 +190,7 @@ name].blob.core.windows.net/maintenancesascript).
 
 Similar to [Azure Stream Analytics](#azure-stream-analytics-1)
 queries, the
-[Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx)
+[Hive](https://docs.microsoft.com/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start)
 scripts have implicit knowledge about the incoming data format and must be altered based on your data format.
 
 #### *AggregateFlightInfoPipeline*
@@ -201,7 +201,7 @@ contains a single activity - an
 activity using a
 [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx)
 that runs a
-[Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx)
+[Hive](https://docs.microsoft.com/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start)
 script to partition the data put in [Azure
 Storage](https://azure.microsoft.com/services/storage/) during the
 [Azure Stream
@@ -209,7 +209,7 @@ Analytics](https://azure.microsoft.com/services/stream-analytics/)
 job.
 
 The
-[Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx)
+[Hive](https://docs.microsoft.com/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start)
 script for this partitioning task is ***AggregateFlightInfo.hql***
 
 #### *MLScoringPipeline*
@@ -226,12 +226,12 @@ Activities included are:
   activity using an
   [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx)
   that runs a
-  [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx)
+  [Hive](https://docs.microsoft.com/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start)
   script to perform aggregations and feature engineering necessary for
   the [Azure Machine
   Learning](https://azure.microsoft.com/services/machine-learning/) experiment.
   The
-  [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx)
+  [Hive](https://docs.microsoft.com/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start)
   script for this partitioning task is ***PrepareMLInput.hql***.
 * [Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx)
   activity that moves the results from the
@@ -345,7 +345,7 @@ containing data (for example, prediction results) for visualization.
      the changes. Your Power BI file has now established connection to the server. If your visualizations are empty, make sure you clear the selections on the visualizations to visualize all the data by clicking the eraser icon on the upper right corner of the legends. Use the refresh button to reflect new data on the visualizations. Initially, you only see the seed data on your visualizations as the data factory is scheduled to refresh every 3 hours. After 3 hours, you will see new predictions reflected in your visualizations when you refresh the data.
 3. (Optional) Publish the cold path dashboard to [Power BI
    online](https://www.powerbi.com/). This step needs a Power
-   BI account (or Office 365 account).
+   BI account (or a work or school account).
    
    * Click **'Publish'** and few seconds later a window appears
      displaying "Publishing to Power BI Success!" with a green

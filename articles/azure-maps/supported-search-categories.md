@@ -1,6 +1,6 @@
 ---
 title: Search Categories | Microsoft Azure Maps
-description: In this article, you will learn about supported search categories in Microsoft Azure Maps. 
+description: Learn which search categories are supported in Azure Maps. View all supported category codes and the types of points of interest that each one represents.
 author: sataneja
 ms.author: sataneja
 ms.date: 05/14/2018

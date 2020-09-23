@@ -143,8 +143,8 @@ For example, if the count equals 3 and the interval equals 10 seconds, a timeout
 
 The **ConnectRetryCount** and **ConnectRetryInterval** parameters let your **SqlConnection** object retry the connect operation without telling or bothering your program, such as returning control to your program. The retries can occur in the following situations:
 
-- mySqlConnection.Open method call
-- mySqlConnection.Execute method call
+- SqlConnection.Open method call
+- SqlConnection.Execute method call
 
 There is a subtlety. If a transient error occurs while your *query* is being executed, your **SqlConnection** object doesn't retry the connect operation. It certainly doesn't retry your query. However, **SqlConnection** very quickly checks the connection before sending your query for execution. If the quick check detects a connection problem, **SqlConnection** retries the connect operation. If the retry succeeds, your query is sent for execution.
 

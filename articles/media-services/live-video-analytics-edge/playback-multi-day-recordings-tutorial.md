@@ -36,7 +36,7 @@ It is recommended that you read through the following documentation pages:
 
 ## Run the sample 
 
-As part of the [CVR tutorial](continuous-video-recording-tutorial.md), you would have created a Media Service account. For this tutorial, you will need to have complete API access to that account. You can use the steps in [Get credentials to access Media Services API](../latest/access-api-howto.md#use-the-azure-portal) to create a service principal. You should be able to get a JSON block from the Azure portal that looks like this:
+As part of the [CVR tutorial](continuous-video-recording-tutorial.md), you would have created a Media Service account. For this tutorial, you will need to have complete API access to that account. You can use the steps in [Get credentials to access Media Services API](../latest/access-api-howto.md?tabs=portal) to create a service principal. You should be able to get a JSON block from the Azure portal that looks like this:
 
 ```
 {
@@ -68,11 +68,11 @@ Next, in Visual Studio code, open src/ams-asset-player. This folder contains the
 
 In Visual Studio Code, you can click the Run icon on the left (or Ctrl+Shift+D) to bring up the available applications to run:
 
-![Run](./media/playback-multi-day-recordings-tutorial/run.png)
+![Screenshot shows a menu in Visual Studio Code with the run item selected.](./media/playback-multi-day-recordings-tutorial/run.png)
  
 Select the AMS Asset Player application from the drop down box, as shown below, and hit F5 to start debugging.
 
-![Debug](./media/playback-multi-day-recordings-tutorial/debug.png)
+![Screenshot show a menu in Visual Studio Code with AMS Asset Player selected.](./media/playback-multi-day-recordings-tutorial/debug.png)
 
 The sample application will build and launch your default browser app, and open up the AMS Asset Player page.
 

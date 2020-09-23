@@ -4,7 +4,7 @@ description: Learn how to use the Azure CLI to enable the Ingress Controller add
 services: application-gateway
 author: caya
 ms.service: application-gateway
-ms.topic: how-to
+ms.topic: tutorial
 ms.date: 06/10/2020
 ms.author: caya
 ---
@@ -35,7 +35,7 @@ If you choose to install and use the CLI locally, this tutorial requires you to 
 
 Register the *AKS-IngressApplicationGatewayAddon* feature flag by using the [az feature register](https://docs.microsoft.com/cli/azure/feature#az-feature-register) command as shown in the following example. You'll need to do this only once per subscription while the add-on is still in preview.
 ```azurecli-interactive
-az feature register --name AKS-IngressApplicationGatewayAddon --namespace microsoft.containerservice
+az feature register --name AKS-IngressApplicationGatewayAddon --namespace Microsoft.ContainerService
 ```
 
 It might take a few minutes for the status to show `Registered`. You can check the registration status by using the [az feature list](https://docs.microsoft.com/cli/azure/feature#az-feature-register) command:

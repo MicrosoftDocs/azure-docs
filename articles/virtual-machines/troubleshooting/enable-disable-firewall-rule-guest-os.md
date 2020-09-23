@@ -74,7 +74,7 @@ If the VM is online and can be accessed on another VM on the same virtual networ
 
 If the VM is online and can be accessed on another VM on the same virtual network, you can make the follow mitigations by using the other VM.
 
-1.	On the troubleshooting VM, download [PSTools](https://docs.microsoft.com/sysinternals/downloads/pstools).
+1.	On the troubleshooting VM, download [PSTools](/sysinternals/downloads/pstools).
 
 2.	Open a CMD instance, and access the VM through its Internal IP (DIP). 
 

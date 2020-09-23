@@ -75,7 +75,7 @@ If you are using availability zones, try another zone within the region that may
 
 If your allocation request is large (more than 500 cores), see the guidance in the following sections to break up the request into smaller deployments.
 
-Try [redeploying the VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/redeploy-to-new-node-windows). Redeploying the VM allocates the VM to a new cluster within the region.
+Try [redeploying the VM](./redeploy-to-new-node-windows.md). Redeploying the VM allocates the VM to a new cluster within the region.
 
 ## Allocation failures for older VM sizes (Av1, Dv1, DSv1, D15v2, DS15v2, etc.)
 
@@ -90,7 +90,7 @@ As we expand Azure infrastructure, we deploy newer-generation hardware that’s 
 
 ## Allocation failures for large deployments (more than 500 cores)
 
-Reduce the number of instances of the requested VM size, and then retry the deployment operation. Additionally, for larger deployments, you may want to evaluate [Azure virtual machine scale sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/). The number of VM instances can automatically increase or decrease in response to demand or a defined schedule, and you have a greater chance of allocation success because the deployments can be spread across multiple clusters. 
+Reduce the number of instances of the requested VM size, and then retry the deployment operation. Additionally, for larger deployments, you may want to evaluate [Azure virtual machine scale sets](../../virtual-machine-scale-sets/index.yml). The number of VM instances can automatically increase or decrease in response to demand or a defined schedule, and you have a greater chance of allocation success because the deployments can be spread across multiple clusters. 
 
 ## Background information
 ### How allocation works
@@ -101,5 +101,3 @@ The servers in Azure datacenters are partitioned into clusters. Normally, an all
 When an allocation request is pinned to a cluster, there's a higher chance of failing to find free resources since the available resource pool is smaller. Furthermore, if your allocation request is pinned to a cluster but the type of resource you requested is not supported by that cluster, your request will fail even if the cluster has free resources. The following Diagram 3 illustrates the case where a pinned allocation fails because the only candidate cluster does not have free resources. Diagram 4 illustrates the case where a pinned allocation fails because the only candidate cluster does not support the requested VM size, even though the cluster has free resources.
 
 ![Pinned Allocation Failure](./media/virtual-machines-common-allocation-failure/Allocation2.png)
-
-

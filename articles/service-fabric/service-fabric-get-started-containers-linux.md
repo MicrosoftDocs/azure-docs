@@ -4,7 +4,7 @@ description: Create your first Linux container application on Azure Service Fabr
 
 ms.topic: conceptual
 ms.date: 1/4/2019
-ms.custom: tracking-python
+ms.custom: devx-track-python
 ---
 
 # Create your first Service Fabric container application on Linux
@@ -22,6 +22,8 @@ Running an existing application in a Linux container on a Service Fabric cluster
   * [Service Fabric SDK and tools](service-fabric-get-started-linux.md).
   * [Docker CE for Linux](https://docs.docker.com/engine/installation/#prior-releases). 
   * [Service Fabric CLI](service-fabric-cli.md)
+
+* A Linux cluster with three or more nodes.
 
 * A registry in Azure Container Registry - [Create a container registry](../container-registry/container-registry-get-started-portal.md) in your Azure subscription. 
 
@@ -209,7 +211,7 @@ Starting with the latest refresh release of v6.4, you have the option to specify
 
 The **HEALTHCHECK** instruction pointing to the actual check that is performed for monitoring container health must be present in the Dockerfile used while generating the container image.
 
-![HealthCheckHealthy][1]
+![Screenshot shows details of the Deployed Service Package NodeServicePackage.][1]
 
 ![HealthCheckUnhealthyApp][2]
 

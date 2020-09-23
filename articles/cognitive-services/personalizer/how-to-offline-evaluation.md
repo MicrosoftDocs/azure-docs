@@ -3,13 +3,11 @@ title: How to perform offline evaluation - Personalizer
 titleSuffix: Azure Cognitive Services
 description: This article will show you how to use offline evaluation to measure effectiveness of your app and analyze your learning loop.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: how-to
 ms.date: 02/20/2020
-ms.author: diberry
 ---
 
 # Analyze your learning loop with an offline evaluation
@@ -27,7 +25,7 @@ Read about [Offline Evaluations](concepts-offline-evaluation.md) to learn more.
 
 ## Run an offline evaluation
 
-1. In the [Azure portal](https://azure.microsoft.com/free/), locate your Personalizer resource.
+1. In the [Azure portal](https://azure.microsoft.com/free/cognitive-services), locate your Personalizer resource.
 1. In the Azure portal, go to the **Evaluations** section and select **Create Evaluation**.
     ![In the Azure portal, go to the **Evaluations** section and select **Create Evaluation**.](./media/offline-evaluation/create-new-offline-evaluation.png)
 1. Configure the following values:

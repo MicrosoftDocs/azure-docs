@@ -17,7 +17,7 @@ This article includes sample [Azure Resource Manager templates](../../azure-reso
 
 ## Classic Application Insights resource
 
-The following sample creates a [classic Application Insights resource](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource). 
+The following sample creates a [classic Application Insights resource](../app/create-new-resource.md). 
 
 ### Template file
 
@@ -103,7 +103,7 @@ The following sample creates a [classic Application Insights resource](https://d
 
 ## Workspace-based Application Insights resource 
 
-The following sample creates a [workspace-based Application Insights resource](https://docs.microsoft.com/azure/azure-monitor/app/create-workspace-resource). Workspace-based Application Insights are currently in **preview**. 
+The following sample creates a [workspace-based Application Insights resource](../app/create-workspace-resource.md). Workspace-based Application Insights are currently in **preview**. 
 
 
 ### Template file

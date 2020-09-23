@@ -23,7 +23,7 @@ This article describes an error that you may experience when you try to connect 
 
 ## Symptoms
 
-You cannot connect to an Azure VM by using the remote desktop protocol (RDP). The connection gets stuck on the "Configuring Remote" section, or you receive the following error message:
+You can't connect to an Azure VM by using the remote desktop protocol (RDP). The connection gets stuck on the **Configuring Remote** section, or you receive the following error message:
 
 - RDP internal error
 - An internal error has occurred
@@ -32,34 +32,37 @@ You cannot connect to an Azure VM by using the remote desktop protocol (RDP). Th
 
 ## Cause
 
-This issue may occur for the following reasons:
+This issue might occur for the following reasons:
 
-- The local RSA encryption keys cannot be accessed.
+- The virtual machine might have been attacked.
+- The local RSA encryption keys can't be accessed.
 - TLS protocol is disabled.
 - The certificate is corrupted or expired.
 
 ## Solution
 
-Before you follow these steps, take a snapshot of the OS disk of the affected VM as a backup. For more information, see [Snapshot a disk](../windows/snapshot-copy-managed-disk.md).
+To troubleshoot this issue, complete the steps in the following sections. Before you begin, take a snapshot of the OS disk of the affected VM as a backup. For more information, see [Snapshot a disk](../windows/snapshot-copy-managed-disk.md).
 
-To troubleshoot this issue, use the Serial Console or [repair the VM offline](#repair-the-vm-offline) by attaching the OS disk of the VM to a recovery VM.
+### Check RDP security
 
+First, check to see whether the network security group for RDP port 3389 is unsecured (open). If it's unsecured and it shows \* as the source IP address for inbound, restrict the RDP port to a specifc user's IP address, and then test RDP access. If this fails, complete the steps in the next section.
 
 ### Use Serial control
 
-Connect to [Serial Console and open PowerShell instance](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
+Use the Serial Console or [repair the VM offline](#repair-the-vm-offline) by attaching the OS disk of the VM to a recovery VM.
+
+To begin, connect to the [Serial Console and open a PowerShell instance](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
 ). If the Serial Console is not enabled on your VM, go to the [repair the VM offline](#repair-the-vm-offline) section.
 
 #### Step: 1 Check the RDP port
 
-1. In a PowerShell instance, use the [NETSTAT](https://docs.microsoft.com/windows-server/administration/windows-commands/netstat
-) to check whether port 8080 is used by other applications:
+1. In a PowerShell instance, use the [NETSTAT](/windows-server/administration/windows-commands/netstat) to check whether port 3389 is used by other applications:
 
     ```powershell
     Netstat -anob |more
     ```
 
-2. If Termservice.exe is using 8080 port, go to step 2. If another service or application other than Termservice.exe is using 8080 port, follow these steps:
+2. If Termservice.exe is using 3389 port, go to step 2. If another service or application other than Termservice.exe is using 3389 port, follow these steps:
 
     1. Stop the service for the application that is using the 3389 service:
 
@@ -183,7 +186,7 @@ The RDP client uses TLS 1.0 as the default protocol. However, this can be change
 
 #### Attach the OS disk to a recovery VM
 
-1. [Attach the OS disk to a recovery VM](../windows/troubleshoot-recovery-disks-portal.md).
+1. [Attach the OS disk to a recovery VM](./troubleshoot-recovery-disks-portal-windows.md).
 2. After the OS disk is attached to the recovery VM, make sure that the disk is flagged as **Online** in the Disk Management console. Note the drive letter that is assigned to the attached OS disk.
 3. Start a Remote Desktop connection to the recovery VM.
 
@@ -296,4 +299,4 @@ To enable dump log and Serial Console, run the following script.
     REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\Terminal Server\WinStations\RDP-Tcp" /v fAllowSecProtocolNegotiation /t REG_DWORD /d 1 /f reg unload HKLM\BROKENSYSTEM
     ```
 
-5. [Detach the OS disk and recreate the VM](../windows/troubleshoot-recovery-disks-portal.md), and then check whether the issue is resolved.
+5. [Detach the OS disk and recreate the VM](./troubleshoot-recovery-disks-portal-windows.md), and then check whether the issue is resolved.

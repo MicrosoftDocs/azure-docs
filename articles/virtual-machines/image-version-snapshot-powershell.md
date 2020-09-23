@@ -1,6 +1,6 @@
 ---
-title: PowerShell - Create an image from a snapshot or VHD in a Shared Image Gallery
-description: Learn how to Create an image from a snapshot or VHD in a Shared Image Gallery using PowerShell.
+title: PowerShell - Create an image from a snapshot or Managed Disk in a Shared Image Gallery
+description: Learn how to Create an image from a snapshot or Managed Disk in a Shared Image Gallery using PowerShell.
 author: cynthn
 ms.topic: how-to
 ms.service: virtual-machines
@@ -11,9 +11,9 @@ ms.author: cynthn
 ms.reviewer: akjosh
 ---
 
-# Create an image from a VHD or snapshot in a Shared Image Gallery using PowerShell
+# Create an image from a Managed Disk or snapshot in a Shared Image Gallery using PowerShell
 
-If you have an existing snapshot or VHD that you would like to migrate into a Shared Image Gallery, you can create a Shared Image Gallery image directly from the VHD or snapshot. Once you have tested your new image, you can delete the source VHD or snapshot. You can also create an image from a VHD or snapshot in a Shared Image Gallery using the [Azure CLI](image-version-snapshot-cli.md).
+If you have an existing snapshot or Managed Disk that you would like to migrate into a Shared Image Gallery, you can create a Shared Image Gallery image directly from the Managed Disk or snapshot. Once you have tested your new image, you can delete the source Managed Disk or snapshot. You can also create an image from a Managed Disk or snapshot in a Shared Image Gallery using the [Azure CLI](image-version-snapshot-cli.md).
 
 Images in an image gallery have two components, which we will create in this example:
 - An **Image definition** carries information about the image and requirements for using it. This includes whether the image is Windows or Linux, specialized or generalized, release notes, and minimum and maximum memory requirements. It is a definition of a type of image. 
@@ -22,14 +22,14 @@ Images in an image gallery have two components, which we will create in this exa
 
 ## Before you begin
 
-To complete this article, you must have an snapshot or VHD. 
+To complete this article, you must have an snapshot or Managed Disk. 
 
 If you want to include a data disk, the data disk size cannot be more than 1 TB.
 
 When working through this article, replace the resource names where needed.
 
 
-## Get the snapshot or VHD
+## Get the snapshot or Managed Disk
 
 You can see a list of snapshots that are available in a resource group using [Get-AzSnapshot](/powershell/module/az.compute/get-azsnapshot). 
 
@@ -45,17 +45,17 @@ $source = Get-AzSnapshot `
    -ResourceGroupName myResourceGroup
 ```
 
-You can also use a VHD instead of a snapshot. To get a VHD, use [Get-AzDisk](/powershell/module/az.compute/get-azdisk). 
+You can also use a Managed Disk instead of a snapshot. To get a Managed Disk, use [Get-AzDisk](/powershell/module/az.compute/get-azdisk). 
 
 ```azurepowershell-interactive
 Get-AzDisk | Format-Table -Property Name,ResourceGroupName
 ```
 
-Then get the VHD and assign it to the `$source` variable.
+Then get the Managed Disk and assign it to the `$source` variable.
 
 ```azurepowershell-interactive
 $source = Get-AzDisk `
-   -SnapshotName mySnapshot
+   -Name myDisk
    -ResourceGroupName myResourceGroup
 ```
 
@@ -83,11 +83,11 @@ $gallery = Get-AzGallery `
 
 Image definitions create a logical grouping for images. They are used to manage information about the image. Image definition names can be made up of uppercase or lowercase letters, digits, dots, dashes and periods. 
 
-When making your image definition, make sure is has all of the correct information. In this example, we are assuming that the snapshot or VHD are from a VM that is in use, and hasn't been generalized. If the VHD or snapshot was taken of a generalized OS (after running Sysprep for Windows or [waagent](https://github.com/Azure/WALinuxAgent) `-deprovision` or `-deprovision+user` for Linux) then change the `-OsState` to `generalized`. 
+When making your image definition, make sure is has all of the correct information. In this example, we are assuming that the snapshot or Managed Disk are from a VM that is in use, and hasn't been generalized. If the Managed Disk or snapshot was taken of a generalized OS (after running Sysprep for Windows or [waagent](https://github.com/Azure/WALinuxAgent) `-deprovision` or `-deprovision+user` for Linux) then change the `-OsState` to `generalized`. 
 
-For more information about the values you can specify for an image definition, see [Image definitions](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#image-definitions).
+For more information about the values you can specify for an image definition, see [Image definitions](./windows/shared-image-galleries.md#image-definitions).
 
-Create the image definition using [New-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). In this example, the image definition is named *myImageDefinition*, and is for a specialized Windows OS. To create a definition for images using a Linux OS, use `-OsType Linux`. 
+Create the image definition using [New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimageversion). In this example, the image definition is named *myImageDefinition*, and is for a specialized Windows OS. To create a definition for images using a Linux OS, use `-OsType Linux`. 
 
 ```azurepowershell-interactive
 $imageDefinition = New-AzGalleryImageDefinition `
@@ -109,11 +109,11 @@ In some cases, you need to pass purchase plan information in when creating a VM 
 
 ## Create an image version
 
-Create an image version from the snapshot using [New-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). 
+Create an image version from the snapshot using [New-AzGalleryImageVersion](/powershell/module/az.compute/new-azgalleryimageversion). 
 
 Allowed characters for image version are numbers and periods. Numbers must be within the range of a 32-bit integer. Format: *MajorVersion*.*MinorVersion*.*Patch*.
 
-If you want your image to contain a data disk, in addition to the OS disk, then add the `-DataDiskImage` parameter and set it to the ID of data disk snapshot or VHD.
+If you want your image to contain a data disk, in addition to the OS disk, then add the `-DataDiskImage` parameter and set it to the ID of data disk snapshot or Managed Disk.
 
 In this example, the image version is *1.0.0* and it's replicated to both *West Central US* and *South Central US* datacenters. When choosing target regions for replication, remember that you also have to include the *source* region as a target for replication.
 
@@ -143,7 +143,7 @@ $job.State
 > [!NOTE]
 > You need to wait for the image version to completely finish being built and replicated before you can use the same snapshot to create another image version. 
 >
-> You can also store your image version in [Zone Redundant Storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) by adding `-StorageAccountType Standard_ZRS` when you create the image version.
+> You can also store your image version in [Zone Redundant Storage](../storage/common/storage-redundancy.md) by adding `-StorageAccountType Standard_ZRS` when you create the image version.
 >
 
 ## Delete the source

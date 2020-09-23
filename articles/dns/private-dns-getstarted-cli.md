@@ -6,7 +6,8 @@ author: rohinkoul
 ms.service: dns
 ms.topic: quickstart
 ms.date: 10/05/2019
-ms.author: rohink
+ms.author: rohink 
+ms.custom: devx-track-azurecli
 #Customer intent: As an experienced network administrator I want to create an  Azure private DNS zone, so I can resolve host names on my private virtual networks.
 ---
 

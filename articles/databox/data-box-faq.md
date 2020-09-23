@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 07/10/2020
+ms.date: 07/15/2020
 ms.author: alkohli
 ---
 # Azure Data Box: Frequently Asked Questions
@@ -39,7 +39,9 @@ Once the device is received, you quickly set it up using the local web UI. Copy 
 A. If you have 40 - 500 TB of data that you want to transfer to or from Azure, you would benefit from using Data Box. For data sizes < 40 TB, use Data Box Disk and for data sizes > 500 TB, sign up for [Data Box Heavy](data-box-heavy-overview.md).
 
 ### Q. What is the price of Data Box?
-A. Data Box is available at a nominal charge for 10 days. When you select the product model while creating an order in the Azure portal, the charges for the device are displayed. Shipping is also free, however, the charges for Azure storage apply. For more information, go to [Azure Data Box pricing](https://azure.microsoft.com/pricing/details/storage/databox/). 
+A. Data Box is available at a nominal charge for 10 days. When you select the product model while creating an order in the Azure portal, the charges for the device are displayed. Standard shipping charges and charges for Azure storage also apply. Export orders follow a similar pricing model as for import orders, though additional egress charges may apply. 
+
+For more information, go to [Azure Data Box pricing](https://azure.microsoft.com/pricing/details/storage/databox/) and [Egress charges](https://azure.microsoft.com/pricing/details/bandwidth/). 
 
 ### Q. What is the maximum amount of data I can transfer with Data Box in one instance?
 A. Data Box has a raw capacity of 100 TB and usable capacity of 80 TB. You can transfer up to 80 TB of data with Data Box. To transfer more data, you need to order more devices.
@@ -49,6 +51,18 @@ A.  For information on which countries/regions the Data Box is available, go to 
 
 ### Q. Which regions can I store data in with Data Box?
 A. Data Box is supported for all regions within US, West Europe, North Europe, France, UK, Japan, Australia, and Canada. For more information, go to [Region availability](data-box-overview.md#region-availability).
+
+### Q. How can I import source data at my location in a particular country to an Azure region in a different country/region or export data from an Azure region in one country to a different country/region?
+
+Data Box supports data ingestion or egress only within the same country/region as their destination and will not cross any international borders. The only exception is for orders in the European Union (EU), where Data Boxes can ship to and from any EU country/region.
+
+For example, in the import scenario, if you had the source data in Canada that you wanted to move to an Azure WestUS storage account, then you could achieve it in the following way:
+
+1. Order Data Box in Canada by choosing a storage account in Cananda. The device is shipped from an Azure datacenter in Canada to the shipping address (in Canada) provided during order creation.
+
+2. Once the on-prem data copy to the Data Box is done, return the device to the Azure datacenter in Canada. The data present on the Data Box then gets uploaded to the destination storage account in the Canada Azure region chosen during order creation.
+
+3. You can then use a tool like AzCopy to copy the data to a storage account in WestUS . This step incurs [standard storage](https://azure.microsoft.com/pricing/details/storage/) and [bandwidth charges](https://azure.microsoft.com/pricing/details/bandwidth/) that aren't included in the Data Box billing.
 
 ### Q. Whom should I contact if I encounter any issues with Data Box?
 A. If you encounter any issues with Data Box, please [contact Microsoft Support](data-box-disk-contact-microsoft-support.md).
@@ -245,7 +259,7 @@ A.  Following reporting is available to support chain of custody:
 A.  Carrier tracking logs are captured in the Data Box order history. This report is available to you after the device has returned to Azure datacenter and the data on device disks is cleaned up. For immediate need, you can also go directly to the carrier's website with the order tracking number and get the tracking information.
 
 ### Can I transport the Data Box to Azure datacenter? 
-A.  No. If you have chosen Microsoft managed shipping, you can't transport the date. Currently Azure datacenter does not accept delivery of the Data Box from customers or from carriers other than UPS.
+A.  No. If you have chosen Microsoft managed shipping, you can't transport the data. Currently Azure datacenter does not accept delivery of the Data Box from customers or from carriers other than UPS.
 
 If you chose self managed shipping, then you can pick up or drop off your Data Box from the Azure datacenter.
 

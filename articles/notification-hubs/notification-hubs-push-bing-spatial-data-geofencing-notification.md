@@ -14,7 +14,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: "mvc, devx-track-csharp"
 ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
@@ -59,7 +59,7 @@ In this tutorial, you take the following steps:
 
     The pipe file represents this entity:
 
-    ![Screenshot of a ap of the San Francisco waterfront with a red polygon outlining an area of the piers.](./media/notification-hubs-geofence/bing-maps-geofence.png)
+    ![Screenshot of a map of the San Francisco waterfront with a red polygon outlining an area of the piers.](./media/notification-hubs-geofence/bing-maps-geofence.png)
 5. In the **Upload a data source** page, do the following actions:
    1. Select **pipe** for **Data format**.
    2. Browse and select the `NotificationHubGeofence.pipe` file that you created in the previous step.
@@ -160,7 +160,7 @@ In this tutorial, you take the following steps:
     }
     ```
 
-    To learn more about getting the user's location in UWP apps, see[Get the user's location](https://msdn.microsoft.com/library/windows/apps/mt219698.aspx).
+    To learn more about getting the user's location in UWP apps, see[Get the user's location](/windows/uwp/maps-and-location/get-location).
 5. To check that the location acquisition is actually working, open the code side of your main page (`MainPage.xaml.cs`). Create a new event handler for the `Loaded` event in the `MainPage` constructor.
 
     ```csharp
@@ -389,7 +389,7 @@ In this tutorial, you take the following steps:
 
 There are a couple of steps that you might need to follow to make the solution production-ready.
 
-1. First, you need to ensure that geofences are dynamic. It requires some extra work with the Bing API to be able to upload new boundaries within the existing data source. For more information, see [Bing Spatial Data Services API documentation](https://msdn.microsoft.com/library/ff701734.aspx).
+1. First, you need to ensure that geofences are dynamic. It requires some extra work with the Bing API to be able to upload new boundaries within the existing data source. For more information, see [Bing Spatial Data Services API documentation](/bingmaps/spatial-data-services/).
 2. Second, as you are working to ensure that the delivery is done to the right participants, you might want to target them via [tagging](notification-hubs-tags-segment-push-message.md).
 
-The solution shown in this tutorial describes a scenario in which you might have a wide variety of target platforms, so it does not limit the geofencing to system-specific capabilities. That said, the Universal Windows Platform offers capabilities to [detect geofences right out-of-the-box](https://msdn.microsoft.com/windows/uwp/maps-and-location/set-up-a-geofence).
+The solution shown in this tutorial describes a scenario in which you might have a wide variety of target platforms, so it does not limit the geofencing to system-specific capabilities. That said, the Universal Windows Platform offers capabilities to [detect geofences right out-of-the-box](/windows/uwp/maps-and-location/set-up-a-geofence).

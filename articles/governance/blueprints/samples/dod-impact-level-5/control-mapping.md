@@ -1,7 +1,7 @@
 ---
 title: DoD Impact Level 5 blueprint sample controls
 description: Control mapping of the DoD Impact Level 5 blueprint sample. Each control is mapped to one or more Azure Policies that assist with assessment.
-ms.date: 06/30/2020
+ms.date: 09/17/2020
 ms.topic: sample
 ---
 # Control mapping of the DoD Impact Level 5 blueprint sample
@@ -46,8 +46,8 @@ appropriate action to ensure account management requirements are met.
 
 ## AC-2 (7) Account Management | Role-Based Schemes
 
-Azure implements [role-based access control](../../../../role-based-access-control/overview.md)
-(RBAC) to help you manage who has access to resources in Azure. Using the Azure portal, you can
+Azure implements [Azure role-based access control (Azure RBAC)](../../../../role-based-access-control/overview.md)
+to help you manage who has access to resources in Azure. Using the Azure portal, you can
 review who has access to Azure resources and their permissions. This blueprint also assigns
 [Azure Policy](../../../policy/overview.md) definitions to audit use of Azure Active Directory
 authentication for SQL Servers and Service Fabric. Using Azure Active Directory authentication
@@ -101,8 +101,8 @@ virtual machine administrator permissions can help you implement appropriate sep
 
 ## AC-6 (7) Least Privilege | Review of User Privileges
 
-Azure implements [role-based access control](../../../../role-based-access-control/overview.md)
-(RBAC) to help you manage who has access to resources in Azure. Using the Azure portal, you can
+Azure implements [Azure role-based access control (Azure RBAC)](../../../../role-based-access-control/overview.md)
+to help you manage who has access to resources in Azure. Using the Azure portal, you can
 review who has access to Azure resources and their permissions. This blueprint assigns
 [Azure Policy](../../../policy/overview.md) definitions to audit accounts that should be prioritized
 for review. Reviewing these account indicators can help you ensure least privilege controls are
@@ -460,12 +460,9 @@ of the operating system for virtual machine scale sets.
 ## SI-02 (06) Flaw Remediation | Removal of Previous Versions of Software / Firmware
 
 This blueprint assigns policy definitions that help you ensure applications are using the latest
-version of the .NET Framework, HTTP, Java, PHP, Python, and TLS. This blueprint also assigns
+version of HTTP, Java, PHP, Python, and TLS. This blueprint also assigns
 a policy definition that ensures that Kubernetes Services is upgraded to its non-vulnerable version.
 
-- Ensure that '.NET Framework' version is the latest, if used as a part of the API app
-- Ensure that '.NET Framework' version is the latest, if used as a part of the Function App
-- Ensure that '.NET Framework' version is the latest, if used as a part of the Web app
 - Ensure that 'HTTP Version' is the latest, if used to run the Api app
 - Ensure that 'HTTP Version' is the latest, if used to run the Function app
 - Ensure that 'HTTP Version' is the latest, if used to run the Web app
@@ -473,7 +470,6 @@ a policy definition that ensures that Kubernetes Services is upgraded to its non
 - Ensure that 'Java version' is the latest, if used as a part of the Function app
 - Ensure that 'Java version' is the latest, if used as a part of the Web app
 - Ensure that 'PHP version' is the latest, if used as a part of the Api app
-- Ensure that 'PHP version' is the latest, if used as a part of the Function app
 - Ensure that 'PHP version' is the latest, if used as a part of the WEB app
 - Ensure that 'Python version' is the latest, if used as a part of the Api app
 - Ensure that 'Python version' is the latest, if used as a part of the Function app

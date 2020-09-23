@@ -9,7 +9,7 @@ services: iot-hub
 ms.devlang: javascript
 ms.topic: conceptual
 ms.date: 06/16/2017
-ms.custom: [amqp, mqtt]
+ms.custom: [amqp, mqtt, devx-track-js]
 ---
 
 # Send cloud-to-device messages with IoT Hub (Node.js)

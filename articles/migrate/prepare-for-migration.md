@@ -104,11 +104,13 @@ Configure this setting manually as follows:
 
 Azure Migrate completes these actions automatically for these versions
 
-- Red Hat Enterprise Linux 7.0+, 6.5+
-- CentOS 7.0+, 6.5+
+- Red Hat Enterprise Linux 8.1, 8.0, 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x
+- Cent OS 8.1, 8.0, 7.7, 7.6, 7.5, 7.4, 6.x
 - SUSE Linux Enterprise Server 12 SP1+
-- Ubuntu 18.04LTS, 16.04LTS, 14.04LTS
+- SUSE Linux Enterprise Server 15 SP1
+- Ubuntu 19.04, 19.10, 18.04LTS, 16.04LTS, 14.04LTS
 - Debian 8, 7
+- Oracle Linux 7.7, 7.7-CI
 
 For other versions, prepare machines as summarized in the table.  
 
@@ -122,6 +124,19 @@ For other versions, prepare machines as summarized in the table.
 **Remove udev rule** | Remove any udev rules that reserves interface names based on mac address etc. | Remove manually for all versions except those called out above.
 **Update network interfaces** | Update network interfaces to receive IP address based on DHCP.nst | Update manually for all versions except those called out above.
 **Enable ssh** | Ensure ssh is enabled and the sshd service is set to start automatically on reboot.<br/><br/> Ensure that incoming ssh connection requests are not blocked by the OS firewall or scriptable rules.| Enable manually for all versions except those called out above.
+
+The following table summarizes the steps performed automatically for the operating systems listed above.
+
+
+| Action                                      | Agent\-Based VMware Migration | Agentless VMware Migration | Hyper\-V   |
+|---------------------------------------------|-------------------------------|----------------------------|------------|
+| Install Hyper\-V Linux Integration Services | Yes                           | Yes                        | Not needed |
+| Enable Azure Serial Console logging         | Yes                           | Yes                        | No         |
+| Update device map file                      | Yes                           | No                         | No         |
+| Update fstab entries                        | Yes                           | Yes                        | No         |
+| Remove udev rule                            | Yes                           | Yes                        | No         |
+| Update network interfaces                   | Yes                           | Yes                        | No         |
+| Enable ssh                                  | No                            | No                         | No         |
 
 Learn more about steps for [running a Linux VM on Azure](../virtual-machines/linux/create-upload-generic.md), and get instructions for some of the popular Linux distributions.
 

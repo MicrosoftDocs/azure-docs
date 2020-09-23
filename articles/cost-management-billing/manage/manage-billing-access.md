@@ -1,15 +1,17 @@
 ---
 title: Manage access to Azure billing
-description: Learn how to give access to your Azure billing information for members of your team.
+description: Learn how to give access to your Azure billing information to members of your team.
 author: vikramdesai01
 ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
-ms.topic: conceptual
-ms.date: 02/12/2020
+ms.subservice: billing
+ms.topic: how-to
+ms.date: 08/20/2020
 ms.author: banders
 ms.custom: seodec18
 ---
+
 # Manage access to billing information for Azure
 
 You can provide others access to the billing information for your account in the Azure portal. The type of billing roles and the instructions to provide access to the billing information vary by the type of your billing account. To determine the type of your billing account, see [Check the type of your billing account](#check-the-type-of-your-billing-account).
@@ -99,7 +101,7 @@ The Billing Reader feature is in preview, and does not yet support non-global cl
 ## Next steps
 
 - Users in other roles, such as Owner or Contributor, can access not just billing information, but Azure services as well. To manage these roles, see [Manage access using RBAC and the Azure portal](../../role-based-access-control/role-assignments-portal.md).
-- For more information about roles, see [Built-in roles for Azure resources](../../role-based-access-control/built-in-roles.md).
+- For more information about roles, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
 
 ## Need help? Contact us.
 

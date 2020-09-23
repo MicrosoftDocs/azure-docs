@@ -1,7 +1,7 @@
 ﻿---
 title: Security controls
 titleSuffix: Azure Storage
-description: A checklist of security controls for evaluating Azure Storage.
+description: View security control checklists for evaluating Azure Storage. Areas covered are data protection, network, monitoring and logging, identity, and configuration.
 services: storage
 author: msmbaldwin
 ms.author: mbaldwin

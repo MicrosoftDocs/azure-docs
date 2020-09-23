@@ -40,7 +40,7 @@ Account Administrator, Service Administrator, and Co-Administrator are the three
 
 | Classic subscription administrator | Limit | Permissions | Notes |
 | --- | --- | --- | --- |
-| Account Administrator | 1 per Azure account | <ul><li>Access the [Azure Account Center](https://account.azure.com/Subscriptions)</li><li>Manage all subscriptions in an account</li><li>Create new subscriptions</li><li>Cancel subscriptions</li><li>Change the billing for a subscription</li><li>Change the Service Administrator</li></ul> | Conceptually, the billing owner of the subscription.<br>The Account Administrator has no access to the Azure portal. |
+| Account Administrator | 1 per Azure account | <ul><li>Manage billing in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)</li><li>Manage all subscriptions in an account</li><li>Create new subscriptions</li><li>Cancel subscriptions</li><li>Change the billing for a subscription</li><li>Change the Service Administrator</li></ul> | Conceptually, the billing owner of the subscription.<br>The Account Administrator has no access to the Azure portal. |
 | Service Administrator | 1 per Azure subscription | <ul><li>Manage services in the [Azure portal](https://portal.azure.com)</li><li>Cancel the subscription</li><li>Assign users to the Co-Administrator role</li></ul> | By default, for a new subscription, the Account Administrator is also the Service Administrator.<br>The Service Administrator has the equivalent access of a user who is assigned the Owner role at the subscription scope.<br>The Service Administrator has full access to the Azure portal. |
 | Co-Administrator | 200 per subscription | <ul><li>Same access privileges as the Service Administrator, but can’t change the association of subscriptions to Azure directories</li><li>Assign users to the Co-Administrator role, but cannot change the Service Administrator</li></ul> | The Co-Administrator has the equivalent access of a user who is assigned the Owner role at the subscription scope. |
 
@@ -62,7 +62,7 @@ Azure subscriptions help you organize access to Azure resources. They also help 
 
 Each subscription is associated with an Azure AD directory. To find the directory the subscription is associated with, open **Subscriptions** in the Azure portal and then select a subscription to see the directory.
 
-Accounts and subscriptions are managed in the [Azure Account Center](https://account.azure.com/Subscriptions).
+Accounts and subscriptions are managed in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 
 ## Azure roles
 
@@ -127,4 +127,3 @@ Several Azure AD roles span Azure AD and Microsoft Office 365, such as the Globa
 - [What is Azure role-based access control (Azure RBAC)?](overview.md)
 - [Administrator role permissions in Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md)
 - [Azure classic subscription administrators](classic-administrators.md)
-- [Cloud Adoption Framework: Resource access management in Azure](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management)

@@ -1,23 +1,16 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with F5 | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and F5.
+title: 'Tutorial: Azure AD single sign-on integration with F5 | Microsoft Docs'
+description: Learn how to configure single sign-on (SSO) between Azure Active Directory and F5.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 39382eab-05fe-4dc2-8792-62d742dfb4e1
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with F5
@@ -282,45 +275,45 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 You configure an Active Directory AAA server in Access Policy Manager (APM) to specify domain controllers and credentials for APM to use for authenticating users.
 
-1.    On the Main tab, click **Access Policy > AAA Servers > Active Directory**. The Active Directory Servers list screen opens.
+1. On the Main tab, click **Access Policy > AAA Servers > Active Directory**. The Active Directory Servers list screen opens.
 
-2.    Click **Create**. The New Server properties screen opens.
+2. Click **Create**. The New Server properties screen opens.
 
-3.    In the **Name** field, type a unique name for the authentication server.
+3. In the **Name** field, type a unique name for the authentication server.
 
-4.    In the **Domain Name** field, type the name of the Windows domain.
+4. In the **Domain Name** field, type the name of the Windows domain.
 
-5.    For the **Server Connection** setting, select one of these options:
+5. For the **Server Connection** setting, select one of these options:
 
-    * Select **Use Pool** to set up high availability for the AAA server.
+   * Select **Use Pool** to set up high availability for the AAA server.
 
-    * Select **Direct** to set up the AAA server for standalone functionality.
+   * Select **Direct** to set up the AAA server for standalone functionality.
 
-6.    If you selected **Direct**, type a name in the **Domain Controller** field.
+6. If you selected **Direct**, type a name in the **Domain Controller** field.
 
-7.    If you selected Use **Pool**, configure the pool:
+7. If you selected Use **Pool**, configure the pool:
 
-    * Type a name in the **Domain Controller Pool Name** field.
+   * Type a name in the **Domain Controller Pool Name** field.
 
-    * Specify the **Domain Controllers** in the pool by typing the IP address and host name for each, and clicking the **Add** button.
+   * Specify the **Domain Controllers** in the pool by typing the IP address and host name for each, and clicking the **Add** button.
 
-    * To monitor the health of the AAA server, you have the option of selecting a health monitor: only the **gateway_icmp** monitor is appropriate in this case; you can select it from the **Server Pool Monitor** list.
+   * To monitor the health of the AAA server, you have the option of selecting a health monitor: only the **gateway_icmp** monitor is appropriate in this case; you can select it from the **Server Pool Monitor** list.
 
-8.    In the **Admin Name** field, type a is case-sensitive name for an administrator who has Active Directory administrative permissions. APM uses the information in the **Admin Name** and **Admin Password** fields for AD Query. If Active Directory is configured for anonymous queries, you do not need to provide an Admin Name. Otherwise, APM needs an account with sufficient privilege to bind to an Active Directory server, fetch user group information, and fetch Active Directory password policies to support password-related functionality. (APM must fetch password policies, for example, if you select the Prompt user to change password before expiration option in an AD Query action.) If you do not provide Admin account information in this configuration, APM uses the user account to fetch information. This works if the user account has sufficient privilege.
+8. In the **Admin Name** field, type a is case-sensitive name for an administrator who has Active Directory administrative permissions. APM uses the information in the **Admin Name** and **Admin Password** fields for AD Query. If Active Directory is configured for anonymous queries, you do not need to provide an Admin Name. Otherwise, APM needs an account with sufficient privilege to bind to an Active Directory server, fetch user group information, and fetch Active Directory password policies to support password-related functionality. (APM must fetch password policies, for example, if you select the Prompt user to change password before expiration option in an AD Query action.) If you do not provide Admin account information in this configuration, APM uses the user account to fetch information. This works if the user account has sufficient privilege.
 
-9.    In the **Admin Password** field, type the administrator password associated with the Domain Name.
+9. In the **Admin Password** field, type the administrator password associated with the Domain Name.
 
-10.    In the **Verify Admin Password** field, retype the administrator password associated with the **Domain Name** setting.
+10. In the **Verify Admin Password** field, retype the administrator password associated with the **Domain Name** setting.
 
-11.    In the **Group Cache Lifetime** field, type the number of days. The default lifetime is 30 days.
+11. In the **Group Cache Lifetime** field, type the number of days. The default lifetime is 30 days.
 
-12.    In the **Password Security Object Cache Lifetime** field, type the number of days. The default lifetime is 30 days.
+12. In the **Password Security Object Cache Lifetime** field, type the number of days. The default lifetime is 30 days.
 
-13.    From the **Kerberos Preauthentication Encryption Type** list, select an encryption type. The default is **None**. If you specify an encryption type, the BIG-IP system includes Kerberos preauthentication data within the first authentication service request (AS-REQ) packet.
+13. From the **Kerberos Preauthentication Encryption Type** list, select an encryption type. The default is **None**. If you specify an encryption type, the BIG-IP system includes Kerberos preauthentication data within the first authentication service request (AS-REQ) packet.
 
-14.    In the **Timeout** field, type a timeout interval (in seconds) for the AAA server. (This setting is optional.)
+14. In the **Timeout** field, type a timeout interval (in seconds) for the AAA server. (This setting is optional.)
 
-15.    Click **Finished**. The new server displays on the list. 
+15. Click **Finished**. The new server displays on the list. 
 This adds the new Active Directory server to the Active Directory Servers list.
 
     ![F5 (Kerberos) configuration](./media/kerbf5-tutorial/configure17.png)

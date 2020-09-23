@@ -8,7 +8,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.custom: amqp
+ms.custom: [amqp, 'Role: Cloud Development']
 ---
 
 # Read device-to-cloud messages from the built-in endpoint

@@ -1,11 +1,11 @@
 ---
 title: Create a consulting service offer - Microsoft commercial marketplace
 description: Learn how to publish a consulting service offer to either Microsoft AppSource or Azure Marketplace using Partner Center.
-author: anbene
-ms.author: mingshen
+author: Microsoft-BradleyWright
+ms.author: brwrigh
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/17/2020
 ---
 
@@ -33,7 +33,7 @@ Benefits of publishing to the commercial marketplace:
     ![Illustrates the left-navigation menu.](./media/new-offer-consulting-service.png)
 
 >[!NOTE]
->After an offer is published, edits made to it in Partner Center only appear in storefronts after republishing the offer. Make sure you always republish after making changes.
+>After an offer is published, edits made to it in Partner Center only appear in online stores after republishing the offer. Make sure you always republish after making changes.
 
 ## New offer
 
@@ -197,17 +197,21 @@ Add up to three (but at least one) supporting PDF documents for your offer.
 
 Provide logos and images to use with your offer. All images must be in .png format. Blurry images will be rejected.
 
+[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+
 >[!Note]
 >If you have an issue uploading files, make sure your local network does not block the https://upload.xboxlive.com service used by Partner Center.
 
 #### Store logos
 
-Provide PNG files of your offer's logo in each of the following pixel sizes:
+Provide a PNG file for the **Large** size logo. Partner Center will use this to create a **Small** logo. You can optionally replace this with a different image later.
 
-- **Small (48 x 48)**
-- **Large (216 x 216)**
+- **Large** (from 216 x 216 to 350 x 350 px, required)
+- **Small** (48 x 48 px, optional)
 
-All logos are required and are used in different places in the marketplace listing.
+These logos are used in different places in the listing.
+
+[!INCLUDE [Logo tips](../includes/graphics-suggestions.md)]
 
 #### Screenshots (optional)
 

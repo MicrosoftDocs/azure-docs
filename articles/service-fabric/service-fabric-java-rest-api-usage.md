@@ -5,6 +5,7 @@ author: rapatchi
 
 ms.topic: conceptual
 ms.date: 11/27/2017
+ms.custom: devx-track-java
 ms.author: rapatchi
 ---
 # Azure Service Fabric Java Client APIs

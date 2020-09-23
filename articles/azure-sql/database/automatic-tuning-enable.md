@@ -45,7 +45,7 @@ On the server level you can choose to inherit automatic tuning configuration fro
 
 To enable automatic tuning on a [server](logical-servers.md) in Azure SQL Database, navigate to the server in the Azure portal and then select **Automatic tuning** in the menu.
 
-![Server](./media/automatic-tuning-enable/server.png)
+![Screenshot shows Automatic tuning in the Azure portal, where you can apply options for a server.](./media/automatic-tuning-enable/server.png)
 
 > [!NOTE]
 > Please note that the **DROP_INDEX** option at this time is not compatible with applications using partition switching and index hints and should not be enabled in these cases. Dropping unused indexes is not supported for Premium and Business Critical service tiers.
@@ -71,7 +71,7 @@ To enable automatic tuning on a **single database**, navigate to the database in
 
 Individual automatic tuning settings can be separately configured for each database. You can manually configure an individual automatic tuning option, or specify that an option inherits its settings from the server.
 
-![Database](./media/automatic-tuning-enable/database.png)
+![Screenshot shows Automatic tuning in the Azure portal, where you can apply options for a single database.](./media/automatic-tuning-enable/database.png)
 
 Please note that DROP_INDEX option at this time is not compatible with applications using partition switching and index hints and should not be enabled in these cases.
 
@@ -111,7 +111,7 @@ Automatic tuning is monitoring all the actions it takes on the database and in s
 
 ## Permissions
 
-As automatic tuning is an Azure feature, to use it you will need to use Azure's built-in RBAC roles. Using SQL Authentication only will not be sufficient to use the feature from the Azure portal.
+As automatic tuning is an Azure feature, to use it you will need to use Azure's built-in roles. Using SQL Authentication only will not be sufficient to use the feature from the Azure portal.
 
 To use automatic tuning, the minimum required permission to grant to the user is Azure's built-in [SQL Database contributor](../../role-based-access-control/built-in-roles.md#sql-db-contributor) role. You can also consider using higher privilege roles such as SQL Server Contributor, SQL Managed Instance Contributor, Contributor, and Owner.
 

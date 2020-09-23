@@ -97,7 +97,7 @@ Next, you create a contained database user in your SQL Database that is mapped t
 
 ## Grant Stream Analytics job permissions
 
-Once you've created a contained database user and given access to Azure services in the portal as described in the previous section, your Stream Analytics job has permission from Managed Identity to **CONNECT** to your SQL Database resource via managed identity. We recommend that you grant the SELECT and INSERT permissions to the Stream Analytics job as those will be needed later in the Stream Analytics workflow. The **SELECT** permission allows the job to test its connection to the table in the SQL Database. The **INSERT** permission allows testing end-to-end Stream Analytics queries once you have configured an input and the SQL Database output.You can grant those permissions to the Stream Analytics job using SQL Server Management Studio. For more information, see the [GRANT (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/grant-transact-sql?view=sql-server-ver15) reference.
+Once you've created a contained database user and given access to Azure services in the portal as described in the previous section, your Stream Analytics job has permission from Managed Identity to **CONNECT** to your SQL Database resource via managed identity. We recommend that you grant the SELECT and INSERT permissions to the Stream Analytics job as those will be needed later in the Stream Analytics workflow. The **SELECT** permission allows the job to test its connection to the table in the SQL Database. The **INSERT** permission allows testing end-to-end Stream Analytics queries once you have configured an input and the SQL Database output.You can grant those permissions to the Stream Analytics job using SQL Server Management Studio. For more information, see the GRANT (Transact-SQL)reference.
 
 To only grant permission to a certain table or object in the database, use the following T-SQL syntax and run the query. 
 
@@ -117,7 +117,7 @@ Ensure you have created a table in your SQL Database with the appropriate output
 
 1. Select **Add > SQL Database**. In the output properties window of the SQL Database output sink, select **Managed Identity** from the Authentication mode drop-down.
 
-1. Fill out the rest of the properties. To learn more about creating an SQL Database output, see [Create a SQL Database output with Stream Analytics](stream-analytics-define-outputs.md#sql-database). When you are finished, select **Save**. 
+1. Fill out the rest of the properties. To learn more about creating an SQL Database output, see [Create a SQL Database output with Stream Analytics](sql-database-output.md). When you are finished, select **Save**. 
 
 ## Next steps
 

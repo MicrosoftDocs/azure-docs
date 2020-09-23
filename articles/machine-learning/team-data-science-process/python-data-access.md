@@ -10,7 +10,7 @@ ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
-ms.custom: seodec18, tracking-python, previous-author=deguhath, previous-ms.author=deguhath
+ms.custom: seodec18, devx-track-python, previous-author=deguhath, previous-ms.author=deguhath
 ---
 # Access datasets with Python using the Azure Machine Learning Python client library
 The preview of Microsoft Azure Machine Learning Python client library can enable secure access to your Azure Machine Learning datasets from a local Python environment and enables the creation and management of datasets in a workspace.

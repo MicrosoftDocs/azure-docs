@@ -1,6 +1,6 @@
 ---
 title: Upload image data in the cloud with Azure Storage | Microsoft Docs 
-description: Use Azure Blob storage with a web app to store app data
+description: Use Azure Blob storage with web apps to store app data to a storage account. This tutorial creates a web app that stores and displays images from Azure storage.
 author: mhopkins-msft
 
 ms.service: storage
@@ -9,6 +9,7 @@ ms.topic: tutorial
 ms.date: 06/24/2020
 ms.author: mhopkins
 ms.reviewer: dineshm
+ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
 # Tutorial: Upload image data in the cloud with Azure Storage

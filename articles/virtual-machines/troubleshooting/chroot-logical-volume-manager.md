@@ -26,7 +26,7 @@ This troubleshooting guide is of benefit for scenarios where a Linux VM is not b
 Take a snapshot of the affected VM. 
 
 The snapshot will then be attached to a **rescue** VM. 
-Follow instructions [here](https://docs.microsoft.com/azure/virtual-machines/linux/snapshot-copy-managed-disk#use-azure-portal) on how to take a **snapshot**.
+Follow instructions [here](../linux/snapshot-copy-managed-disk.md#use-azure-portal) on how to take a **snapshot**.
 
 ## Create a rescue VM
 Usually a rescue VM of the same or similar Operating system version is recommended. Use the same **region** and **resource group** of the affected VM
@@ -212,7 +212,7 @@ If needed remove or upgrade the **kernel**
 
 
 ### Example 3 - enable Serial Console
-If access has not been possible to the Azure serial console, verify GRUB configuration parameters for your Linux VM and correct them. Detailed information can be found [in this doc](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-grub-proactive-configuration)
+If access has not been possible to the Azure serial console, verify GRUB configuration parameters for your Linux VM and correct them. Detailed information can be found [in this doc](./serial-console-grub-proactive-configuration.md)
 
 ### Example 4 - kernel loading with problematic LVM swap volume
 
@@ -276,6 +276,6 @@ If the VM is running the Disk Swap will shut it down, reboot the VM once the dis
 ## Next steps
 Learn more about
 
- [Azure Serial Console]( https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux)
+ [Azure Serial Console]( ./serial-console-linux.md)
 
-[Single user mode](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-grub-single-user-mode)
+[Single user mode](./serial-console-grub-single-user-mode.md)

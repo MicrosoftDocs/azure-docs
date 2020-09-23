@@ -6,10 +6,10 @@ documentationcenter: na
 author: asudbring
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: overview
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/05/2020
+ms.date: 07/13/2020
 ms.author: allensu
 
 ---
@@ -38,9 +38,9 @@ For more information, see [Configure the distribution mode for Azure Load Balanc
 
 The following image displays the hash-based distribution:
 
-  ![Hash-based distribution](./media/load-balancer-overview/load-balancer-distribution.png)
+![Hash-based distribution](./media/load-balancer-overview/load-balancer-distribution.png)
 
-  *Figure: Hash-based distribution*
+*Figure: Hash-based distribution*
 
 ## Application independence and transparency
 
@@ -50,16 +50,38 @@ Load balancer doesn't directly interact with TCP or UDP or the application layer
 * Application payloads are transparent to the load balancer. Any UDP or TCP application can be supported.
 * Because the load balancer doesn't interact with the TCP payload and provide TLS offload, you can build comprehensive encrypted scenarios. Using load balancer gains large scale-out for TLS applications by ending the TLS connection on the VM itself. For example, your TLS session keying capacity is only limited by the type and number of VMs you add to the back-end pool.
 
-## Load Balancer Terminology
-| Concept | What does it mean? | Detailed document |
-| ---------- | ---------- | ----------|
-Outbound connections | Flows from the backend pool to public IPs are mapped to the frontend. Azure translates outbound connections to the public frontend IP address via the load-balancing outbound rule. This configuration has the following advantages. Easy upgrade and disaster recovery of services, because the front end can be dynamically mapped to another instance of the service. Easier access control list (ACL) management. ACLs expressed as front-end IPs don't change as services scale up or down or get redeployed. Translating outbound connections to a smaller number of IP addresses than machines reduces the burden of implementing safe recipient lists.| To learn more about Source Network Address Translation (SNAT) and Azure Load Balancer, see [SNAT and Azure Load Balancer](load-balancer-outbound-connections.md).
-Availability Zones | Standard load balancer supports additional abilities in regions where Availability Zones are available. These features are incremental to all standard load balancer provides.  Availability Zones configurations are available for both types of Standard load balancer; public and internal.A zone-redundant frontend survives zone failure by using dedicated infrastructure in all of the zones simultaneously. Additionally, you can guarantee a frontend to a specific zone. A zonal frontend is served by dedicated infrastructure in a single zone. Cross-zone load balancing is available for the backend pool. Any virtual machine resource in a virtual network can be part of a backend pool.Basic load balancer doesn't support zones.| Review [detailed discussion of Availability Zones related abilities](load-balancer-standard-availability-zones.md) and [Availability Zones Overview](../availability-zones/az-overview.md) for more information.
-| HA Ports | You can configure HA port load-balancing rules to make your application scale and be highly reliable. Load balancing per flow on short-lived ports of the internal load balancer's frontend IP is provided by these rules. The feature is useful when it's impractical or undesirable to specify individual ports. An HA ports rule allows you to create active-passive or active-active n+1 scenarios. These scenarios are for network virtual appliances and any application, which requires large ranges of inbound ports. A health probe can be used to determine which back-ends should be receiving new flows.  You can use a Network Security Group to emulate a port range scenario. Basic load balancer doesn't support HA Ports. | Review [detailed discussion of HA Ports](load-balancer-ha-ports-overview.md)
-| Multiple frontends | Load balancer supports multiple rules with multiple frontends.  Standard Load Balancer expands this capability to outbound scenarios. Outbound rules are the inverse of an inbound rule. The outbound rule creates an association for outbound connections. Standard load balancer uses all frontends associated with a virtual machine resource through a load-balancing rule. Additionally, a parameter on the load-balancing rule allows you to suppress a load-balancing rule for the purposes of outbound connectivity, which allows the selection of specific frontends including none. For comparison, Basic load balancer selects a single frontend at random. There isn't an ability to control which frontend was selected.|
+## Outbound connections 
+
+Flows from the backend pool to public IPs are mapped to the frontend. Azure translates outbound connections to the public frontend IP address via the load-balancing outbound rule. This configuration has the following advantages. Easy upgrade and disaster recovery of services, because the front end can be dynamically mapped to another instance of the service. Easier access control list (ACL) management. ACLs expressed as front-end IPs don't change as services scale up or down or get redeployed. Translating outbound connections to a smaller number of IP addresses than machines reduces the burden of implementing safe recipient lists. To learn more about Source Network Address Translation (SNAT) and Azure Load Balancer, see [SNAT and Azure Load Balancer](load-balancer-outbound-connections.md).
+
+## Availability Zones 
+
+Standard load balancer supports additional abilities in regions where Availability Zones are available. Availability Zones configurations are available for both types of Standard Load Balancer; public and internal. A zone-redundant frontend survives zone failure by using dedicated infrastructure in all of the zones simultaneously. Additionally, you can guarantee a frontend to a specific zone. A zonal frontend is served by dedicated infrastructure in a single zone. Cross-zone load balancing is available for the backend pool. Any virtual machine resource in a virtual network can be part of a backend pool. Basic load balancer doesn't support zones. Review [detailed discussion of Availability Zones related abilities](load-balancer-standard-availability-zones.md) and [Availability Zones Overview](../availability-zones/az-overview.md) for more information.
+
+## HA ports
+
+You can configure HA port load-balancing rules to make your application scale and be highly reliable. Load balancing per flow on short-lived ports of the internal load balancer's frontend IP is provided by these rules. The feature is useful when it's impractical or undesirable to specify individual ports. An HA ports rule allows you to create active-passive or active-active n+1 scenarios. These scenarios are for network virtual appliances and any application, which requires large ranges of inbound ports. A health probe can be used to determine which back-ends should be receiving new flows.  You can use a Network Security Group to emulate a port range scenario. Basic load balancer doesn't support HA Ports. Review [detailed discussion of HA Ports](load-balancer-ha-ports-overview.md).
+
+## Multiple frontends 
+
+Load balancer supports multiple rules with multiple frontends.  Standard Load Balancer expands this capability to outbound scenarios. Outbound rules are the inverse of an inbound rule. The outbound rule creates an association for outbound connections. Standard load balancer uses all frontends associated with a virtual machine resource through a load-balancing rule. Additionally, a parameter on the load-balancing rule allows you to suppress a load-balancing rule for the purposes of outbound connectivity, which allows the selection of specific frontends including none. For comparison, Basic load balancer selects a single frontend at random. There isn't an ability to control which frontend was selected.
+
+## Floating IP
+
+Some application scenarios prefer or require the same port to be used by multiple application instances on a single VM in the backend pool. Common examples of port reuse include clustering for high availability, network virtual appliances, and exposing multiple TLS endpoints without re-encryption. If you want to reuse the backend port across multiple rules, you must enable Floating IP in the rule definition.
+
+**Floating IP** is Azure's terminology for a portion of what is known as Direct Server Return (DSR). DSR consists of two parts: 
+
+- Flow topology
+- An IP address mapping scheme
+
+At a platform level, Azure Load Balancer always operates in a DSR flow topology regardless of whether Floating IP is enabled or not. This means that the outbound part of a flow is always correctly rewritten to flow directly back to the origin.
+Without Floating IP, Azure exposes a traditional load balancing IP address mapping scheme for ease of use (the VM instances' IP). Enabling Floating IP changes the IP address mapping to the Frontend IP of the load Balancer to allow for additional flexibility. Learn more [here](load-balancer-multivip-overview.md).
 
 
 ## <a name = "limitations"></a>Limitations
+
+- Floating IP is not currently supported on secondary IP configurations for Internal Load Balancing scenarios or Public Load Balancing scenarios.
 
 - A load balancer rule can't span two virtual networks.  Frontends and their backend instances must be located in the same virtual network.  
 

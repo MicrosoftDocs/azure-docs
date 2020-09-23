@@ -2,7 +2,7 @@
 title: Refresh Azure Analysis Services models with Azure Automation | Microsoft Docs
 description: This article describes how to code model refreshes for Azure Analysis Services by using Azure Automation.
 author: chrislound
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: chlound
@@ -59,7 +59,10 @@ The Service Principal you create must have server administrator permissions on t
 
     ![Import Runbook](./media/analysis-services-refresh-azure-automation/8.png)
 
-4. Browse for the **Refresh-Model.ps1** file, provide a **Name** and **Description**, and then click **Create**.
+4. Browse for the [Refresh-Model.ps1](#sample-powershell-runbook) file, provide a **Name** and **Description**, and then click **Create**.
+
+    > [!NOTE]
+    > Use script from [Sample Powershell Runbook](#sample-powershell-runbook) section at the bottom of this document to create a file called Refresh-Model.ps1 and save to local machine to import into Runbook.
 
     ![Import Runbook](./media/analysis-services-refresh-azure-automation/9.png)
 

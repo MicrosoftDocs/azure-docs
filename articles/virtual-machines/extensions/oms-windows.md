@@ -25,13 +25,14 @@ Azure Monitor Logs provides monitoring capabilities across cloud and on-premises
 
 ### Operating system
 
-For details about the supported Windows operating systems, refer to the [Log Analytics agent overview](../../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems) article.
+For details about the supported Windows operating systems, refer to the [Overview of Azure Monitor agents](../../azure-monitor/platform/agents-overview.md#supported-operating-systems) article.
 
 ### Agent and VM Extension version
 The following table provides a mapping of the version of the Windows Log Analytics VM extension and Log Analytics agent bundle for each release. 
 
 | Log Analytics Windows agent bundle version | Log Analytics Windows VM extension version | Release Date | Release Notes |
 |--------------------------------|--------------------------|--------------------------|--------------------------|
+| 10.20.18040 | 1.0.18040.2 | August 2020   | <ul><li>Resolves an issue on Azure Arc</li></ul> |
 | 10.20.18038 | 1.0.18038 | April 2020   | <ul><li>Enables connectivity over Private Link using Azure Monitor Private Link Scopes</li><li>Adds ingestion throttling to avoid a sudden, accidental influx in ingestion to a workspace</li><li>Adds support for additional Azure Government clouds and regions</li><li>Resolves a bug where HealthService.exe crashed</li></ul> |
 | 10.20.18029 | 1.0.18029 | March 2020   | <ul><li>Adds SHA-2 code signing support</li><li>Improves VM extension installation and management</li><li>Resolves a bug in Azure Arc for Servers integration</li><li>Adds a built-in troubleshooting tool for customer support</li><li>Adds support for additional Azure Government regions</li> |
 | 10.20.18018 | 1.0.18018 | October 2019 | <ul><li> Minor bug fixes and stabilization improvements </li></ul> |
@@ -94,7 +95,7 @@ The following JSON shows the schema for the Log Analytics agent extension. The e
 \* The workspaceId is called the consumerId in the Log Analytics API.
 
 > [!NOTE]
-> For additional properties see Azure [Connect Windows Computers to Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows).
+> For additional properties see Azure [Connect Windows Computers to Azure Monitor](../../azure-monitor/platform/agent-windows.md).
 
 ## Template deployment
 

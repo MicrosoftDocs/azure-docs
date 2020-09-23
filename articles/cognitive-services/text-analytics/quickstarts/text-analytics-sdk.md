@@ -1,22 +1,23 @@
 ---
-title: "Quickstart: Text Analytics client library v3 | Microsoft Docs"
+title: "Quickstart: Text mining using the Text Analytics client library"
 titleSuffix: Azure Cognitive Services
-description: Use this quickstart to connect your applications to the Text Analytics API from Azure Cognitive Services.
+description: Use this quickstart to perform sentiment analysis and more, using the Text Analytics API from Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 06/11/2020
+ms.date: 09/09/2020
 ms.author: aahi
-ms.custom: tracking-python
+keywords: text mining, sentiment analysis, text analytics
+ms.custom: "devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020"
 zone_pivot_groups: programming-languages-text-analytics
 ---
 
 # Quickstart: Use the Text Analytics client library
 
-Get started with the Text Analytics client library. Follow these steps to install the package and try out the example code for basic tasks.
+Use this article to get started with the Text Analytics client library. Follow these steps to install the package and try out the example code for mining text.
 
 Use the Text Analytics client library to perform:
 

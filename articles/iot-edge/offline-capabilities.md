@@ -90,7 +90,7 @@ You can modify the [query](../iot-hub/iot-hub-devguide-query-language.md) to sel
 
 #### Option 3: Use IoT Hub Service SDK
 
-Finally, you can manage parent child relationships programmatically using either C#, Java or Node.js IoT Hub Service SDK. Here is an [example of assigning a child device](https://aka.ms/set-child-iot-device-c-sharp) using the C# SDK.
+Finally, you can manage parent child relationships programmatically using either C#, Java or Node.js IoT Hub Service SDK. Here is an [example of assigning a child device](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/e2e/test/iothub/service/RegistryManagerE2ETests.cs) using the C# SDK.
 
 ### Set up the parent device as a gateway
 

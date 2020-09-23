@@ -4,7 +4,7 @@ description: Learn how to create a cluster that distributes nodes across availab
 services: container-service
 ms.custom: fasttrack-edit, references_regions
 ms.topic: article
-ms.date: 02/27/2020
+ms.date: 09/04/2020
 
 ---
 
@@ -24,6 +24,7 @@ You need the Azure CLI version 2.0.76 or later installed and configured. Run `a
 
 AKS clusters can currently be created using availability zones in the following regions:
 
+* Australia East
 * Central US
 * East US 2
 * East US
@@ -95,7 +96,7 @@ First, get the AKS cluster credentials using the [az aks get-credentials][az-aks
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Next, use the [kubectl describe][kubectl-describe] command to list the nodes in the cluster. Filter on the *failure-domain.beta.kubernetes.io/zone* value as shown in the following example:
+Next, use the [kubectl describe][kubectl-describe] command to list the nodes in the cluster and filter on the *failure-domain.beta.kubernetes.io/zone* value. The following example is for a Bash shell.
 
 ```console
 kubectl describe nodes | grep -e "Name:" -e "failure-domain.beta.kubernetes.io/zone"
@@ -127,7 +128,7 @@ az aks scale \
     --node-count 5
 ```
 
-When the scale operation completes after a few minutes, the command `kubectl describe nodes | grep -e "Name:" -e "failure-domain.beta.kubernetes.io/zone"` should give an output similar to this sample:
+When the scale operation completes after a few minutes, the command `kubectl describe nodes | grep -e "Name:" -e "failure-domain.beta.kubernetes.io/zone"` in a Bash shell should give an output similar to this sample:
 
 ```console
 Name:       aks-nodepool1-28993262-vmss000000
@@ -145,10 +146,11 @@ Name:       aks-nodepool1-28993262-vmss000004
 We now have two additional nodes in zones 1 and 2. You can deploy an application consisting of three replicas. We will use NGINX as an example:
 
 ```console
-kubectl run nginx --image=nginx --replicas=3
+kubectl create deployment nginx --image=nginx
+kubectl scale deployment nginx --replicas=3
 ```
 
-By viewing nodes where your pods are running, you see pods are running on the nodes corresponding to three different availability zones. For example, with the command `kubectl describe pod | grep -e "^Name:" -e "^Node:"` you would get an output similar to this:
+By viewing nodes where your pods are running, you see pods are running on the nodes corresponding to three different availability zones. For example, with the command `kubectl describe pod | grep -e "^Name:" -e "^Node:"` in a Bash shell you would get an output similar to this:
 
 ```console
 Name:         nginx-6db489d4b7-ktdwg

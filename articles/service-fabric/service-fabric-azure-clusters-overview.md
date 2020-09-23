@@ -1,6 +1,6 @@
 ---
 title: Create clusters on Windows Server and Linux 
-description: Service Fabric clusters run on Windows Server and Linux, which means you'll be able to deploy and host Service Fabric applications anywhere you can run Windows Server or Linux.
+description: Service Fabric clusters run on Windows Server and Linux. You can deploy and host Service Fabric applications anywhere you can run Windows Server or Linux.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -101,6 +101,7 @@ You are able to create clusters on virtual machines running these operating syst
 | Windows Server 1809 | 6.4.654.9590 |
 | Windows Server 2019 | 6.4.654.9590 |
 | Linux Ubuntu 16.04 | 6.0 |
+| Linux Ubuntu 18.04 | 7.1 |
 
 For additional information see [Supported Cluster Versions in Azure](./service-fabric-versions.md#supported-operating-systems)
 

@@ -11,6 +11,7 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 07/02/2020
 ms.author: sbowles
+ms.custom: devx-track-csharp
 ---
 
 # Example: Identify faces in images

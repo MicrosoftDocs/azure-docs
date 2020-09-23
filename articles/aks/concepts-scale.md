@@ -53,7 +53,7 @@ Cluster autoscaler is typically used alongside the horizontal pod autoscaler. Wh
 
 To get started with the cluster autoscaler in AKS, see [Cluster Autoscaler on AKS][aks-cluster-autoscaler].
 
-### Scale up events
+### Scale out events
 
 If a node doesn't have sufficient compute resources to run a requested pod, that pod can't progress through the scheduling process. The pod can't start unless additional compute resources are available within the node pool.
 
@@ -61,7 +61,7 @@ When the cluster autoscaler notices pods that can't be scheduled because of node
 
 If your application needs to scale rapidly, some pods may remain in a state waiting to be scheduled until the additional nodes deployed by the cluster autoscaler can accept the scheduled pods. For applications that have high burst demands, you can scale with virtual nodes and Azure Container Instances.
 
-### Scale down events
+### Scale in events
 
 The cluster autoscaler also monitors the pod scheduling status for nodes that haven't recently received new scheduling requests. This scenario indicates the node pool has more compute resources than are required, and the number of nodes can be decreased.
 

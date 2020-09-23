@@ -27,10 +27,11 @@ To set up SSO for an application that you added to your Azure AD tenant, you nee
 - Optional: Completion of [View your apps](view-applications-portal.md).
 - Optional: Completion of [Add an app](add-application-portal.md).
 - Optional: Completion of [Configure an app](add-application-portal-configure.md).
+- Optional: Completion of [Assign users to an app](add-application-portal-assign-users.md).
 
 
 >[!IMPORTANT]
->Use a nonproduction environment to test the steps in this quickstart.
+>Use a non-production environment to test the steps in this quickstart.
 
 
 ## Enable single sign-on for an app
@@ -50,10 +51,22 @@ To set up single sign-on for an application:
 
 1. The process of configuring an application to use Azure AD for SAML-based SSO varies depending on the application. There's a link to the guidance for GitHub. To find guides for other apps, see [Tutorials for integrating SaaS applications with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/saas-apps/).
 1. Follow the guide to set up SSO for the application. Many applications have specific subscription requirements for SSO functionality. For example, GitHub requires an Enterprise subscription.
+    > [!TIP]
+    > To learn more about the SAML configuration options, see [Configure SAML-based single sign-on](configure-saml-single-sign-on.md).
 
     :::image type="content" source="media/add-application-portal-setup-sso/github-pricing.png" alt-text="Screenshot shows the Single sign-on option in the Enterprise subscription of the GitHub pricing page.":::
 
 
-## Next step
+> [!TIP]
+> You can automate app management using the Graph API, see [Automate app management with Microsoft Graph API](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
 
-- [Delete an app](delete-application-portal.md)
+
+## Clean up resources
+
+When your done with this quickstart series, consider deleting the app to clean up your test tenant. Deleting the app is covered in the last quickstart in this series, see [Delete an app](delete-application-portal.md).
+
+## Next steps
+
+Advance to the next article to learn how to delete an app.
+> [!div class="nextstepaction"]
+> [Delete an app](delete-application-portal.md)

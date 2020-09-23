@@ -1,6 +1,6 @@
 ---
 title: How to log events to Azure Event Hubs in Azure API Management | Microsoft Docs
-description: Learn how to log events to Azure Event Hubs in Azure API Management.
+description: Learn how to log events to Azure Event Hubs in Azure API Management. Event Hubs is a highly scalable data ingress service.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -59,9 +59,12 @@ Once your logger is configured in API Management, you can configure your log-to-
 ```
 Replace `logger-id` with the value you used for `{loggerId}` in the request URL to create the logger in the previous step.
 
-You can use any expression that returns a string as the value for the `log-to-eventhub` element. In this example, a string in JSON format containing the date and time, service name, request id, request ip address, and operation name is logged.
+You can use any expression that returns a string as the value for the `log-to-eventhub` element. In this example, a string in JSON format containing the date and time, service name, request ID, request IP address, and operation name is logged.
 
 Click **Save** to save the updated policy configuration. As soon as it is saved the policy is active and events are logged to the designated Event Hub.
+
+> [!NOTE]
+> The maximum supported message size that can be sent to an event hub from this API Management policy is 200 kilobytes (KB). If a message that is sent to an event hub is larger than 200 KB, it will be automatically truncated, and the truncated message will be transferred to event hubs.
 
 ## Preview the log in Event Hubs by using Azure Stream Analytics
 

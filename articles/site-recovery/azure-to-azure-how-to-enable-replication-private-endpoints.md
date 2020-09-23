@@ -1,22 +1,19 @@
 ---
 title: Enable replication for private endpoints in Azure Site Recovery 
 description: This article describes how to configure replication for VMs with private endpoints from one Azure region to another by using Site Recovery.
-author: mayurigupta13
-ms.author: mayg
+author: Harsha-CS
+ms.author: harshacs
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/13/2020
+ms.date: 07/14/2020
 ms.custom: references_regions
 ---
 # Replicate machines with private endpoints
 
 Azure Site Recovery allows you to use
 [Azure Private Link](../private-link/private-endpoint-overview.md) private endpoints for replicating
-your machines from inside an isolated virtual network. Support for private endpoint access to
-a recovery vault is supported for the following regions:
-
-- Azure commercial: South Central US, West US 2, East US
-- Azure Government: US Gov Virginia, US Gov Arizona, US Gov Texas, US DoD East, US DoD Central
+your machines from inside an isolated virtual network. Private endpoint access to
+a recovery vault is supported in all Azure Commercial & Government regions.
 
 This article provides instructions for you to perform the following steps:
 
@@ -164,7 +161,7 @@ additional fully qualified domain names are added to the same private endpoint.
 
 The five domain names are formatted with the following pattern:
 
-`{Vault-GUID}-asr-pod01-{type}-.{target-geo-code}.siterecovery.windowsazure.com`
+`{Vault-ID}-asr-pod01-{type}-.{target-geo-code}.siterecovery.windowsazure.com`
 
 ## Approve private endpoints for Site Recovery
 
@@ -309,7 +306,7 @@ domain names to private IPs.
       private DNS zone.
 
       These fully qualified domain names match the pattern:
-      `{Vault-GUID}-asr-pod01-{type}-.{target-geo-code}.siterecovery.windowsazure.com`
+      `{Vault-ID}-asr-pod01-{type}-.{target-geo-code}.siterecovery.windowsazure.com`
 
       :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/add-record-set.png" alt-text="Shows the page to add a DNS A type record for the fully qualified domain name to the private endpoint in the Azure portal.":::
 

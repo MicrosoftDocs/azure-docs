@@ -1,6 +1,6 @@
 ---
 title: 'Azure PowerShell script sample - Download device configuration template | Microsoft Docs'
-description: Download device configuration template.
+description: Learn how to use a PowerShell script to download the VPN device configuration template for a connection.
 services: vpn-gateway
 documentationcenter: vpn-gateway
 author: yushwang
@@ -52,4 +52,4 @@ This script uses the following commands to create the deployment. Each item in t
 
 ## Next steps
 
-For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/overview).
+For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/).

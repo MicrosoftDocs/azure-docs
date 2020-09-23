@@ -3,7 +3,7 @@ title: Filtering and preprocessing in the Application Insights SDK | Microsoft D
 description: Write telemetry processors and telemetry initializers for the SDK to filter or add properties to the data before the telemetry is sent to the Application Insights portal.
 ms.topic: conceptual
 ms.date: 11/23/2016
-
+ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
 # Filter and preprocess telemetry in the Application Insights SDK
@@ -13,7 +13,7 @@ You can write and configure plug-ins for the Application Insights SDK to customi
 * [Sampling](sampling.md) reduces the volume of telemetry without affecting your statistics. It keeps together related data points so that you can navigate between them when you diagnose a problem. In the portal, the total counts are multiplied to compensate for the sampling.
 * Filtering with telemetry processors lets you filter out telemetry in the SDK before it's sent to the server. For example, you could reduce the volume of telemetry by excluding requests from robots. Filtering is a more basic approach to reducing traffic than sampling. It allows you more control over what's transmitted, but it affects your statistics. For example, you might filter out all successful requests.
 * [Telemetry initializers add or modify properties](#add-properties) to any telemetry sent from your app, which includes telemetry from the standard modules. For example, you could add calculated values or version numbers by which to filter the data in the portal.
-* [The SDK API](../../azure-monitor/app/api-custom-events-metrics.md) is used to send custom events and metrics.
+* [The SDK API](./api-custom-events-metrics.md) is used to send custom events and metrics.
 
 Before you start:
 
@@ -30,7 +30,7 @@ To filter telemetry, you write a telemetry processor and register it with `Telem
 > [!WARNING]
 > Filtering the telemetry sent from the SDK by using processors can skew the statistics that you see in the portal and make it difficult to follow related items.
 >
-> Instead, consider using [sampling](../../azure-monitor/app/sampling.md).
+> Instead, consider using [sampling](./sampling.md).
 >
 >
 
@@ -322,24 +322,22 @@ Insert a telemetry initializer immediately after the initialization code that yo
     // This is called whenever a new telemetry item
     // is created.
 
-    appInsights.queue.push(function () {
-        appInsights.context.addTelemetryInitializer(function (envelope) {
-            var telemetryItem = envelope.data.baseData;
+    appInsights.addTelemetryInitializer(function (envelope) {
+        var telemetryItem = envelope.data.baseData;
 
-            // To check the telemetry items type - for example PageView:
-            if (envelope.name == Microsoft.ApplicationInsights.Telemetry.PageView.envelopeType) {
-                // this statement removes url from all page view documents
-                telemetryItem.url = "URL CENSORED";
-            }
+        // To check the telemetry items type - for example PageView:
+        if (envelope.name == Microsoft.ApplicationInsights.Telemetry.PageView.envelopeType) {
+            // this statement removes url from all page view documents
+            telemetryItem.url = "URL CENSORED";
+        }
 
-            // To set custom properties:
-            telemetryItem.properties = telemetryItem.properties || {};
-            telemetryItem.properties["globalProperty"] = "boo";
-
-            // To set custom metrics:
-            telemetryItem.measurements = telemetryItem.measurements || {};
-            telemetryItem.measurements["globalMetric"] = 100;
-        });
+        // To set custom properties:
+        telemetryItem.properties = telemetryItem.properties || {};
+        telemetryItem.properties["globalProperty"] = "boo";
+        
+        // To set cloud role name / instance
+        envelope.tags["ai.cloud.role"] = "your role name";
+        envelope.tags["ai.cloud.roleInstance"] = "your role instance";
     });
 
     // End of inserted code.
@@ -348,7 +346,7 @@ Insert a telemetry initializer immediately after the initialization code that yo
 </script>
 ```
 
-For a summary of the noncustom properties available on the telemetry item, see [Application Insights Export Data Model](../../azure-monitor/app/export-data-model.md).
+For a summary of the noncustom properties available on the telemetry item, see [Application Insights Export Data Model](./export-data-model.md).
 
 You can add as many initializers as you like. They're called in the order that they're added.
 
@@ -494,7 +492,7 @@ public void Initialize(ITelemetry telemetry)
 
 #### Add information from HttpContext
 
-The following sample initializer reads data from [`HttpContext`](https://docs.microsoft.com/aspnet/core/fundamentals/http-context?view=aspnetcore-3.1) and appends it to a `RequestTelemetry` instance. The `IHttpContextAccessor` is automatically provided through constructor dependency injection.
+The following sample initializer reads data from [`HttpContext`](/aspnet/core/fundamentals/http-context?view=aspnetcore-3.1) and appends it to a `RequestTelemetry` instance. The `IHttpContextAccessor` is automatically provided through constructor dependency injection.
 
 ```csharp
 public class HttpContextRequestTelemetryInitializer : ITelemetryInitializer
@@ -538,8 +536,8 @@ What's the difference between telemetry processors and telemetry initializers?
 
 ## Reference docs
 
-* [API overview](../../azure-monitor/app/api-custom-events-metrics.md)
-* [ASP.NET reference](https://msdn.microsoft.com/library/dn817570.aspx)
+* [API overview](./api-custom-events-metrics.md)
+* [ASP.NET reference](/previous-versions/azure/dn817570(v=azure.100))
 
 ## SDK code
 
@@ -548,6 +546,7 @@ What's the difference between telemetry processors and telemetry initializers?
 * [JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS)
 
 ## <a name="next"></a>Next steps
-* [Search events and logs](../../azure-monitor/app/diagnostic-search.md)
-* [Sampling](../../azure-monitor/app/sampling.md)
-* [Troubleshooting](../../azure-monitor/app/troubleshoot-faq.md)
+* [Search events and logs](./diagnostic-search.md)
+* [sampling](./sampling.md)
+* [Troubleshooting](../faq.md)
+

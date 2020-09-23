@@ -108,7 +108,7 @@ The following section describes the configuration of auditing on your managed in
 
         ```SQL
         CREATE SERVER AUDIT [<your_audit_name>]
-        TO URL ( PATH ='<container_url>' [, RETENTION_DAYS =  integer ])
+        TO URL ( PATH ='<container_url>' , RETENTION_DAYS =  integer )
         GO
         ```
 

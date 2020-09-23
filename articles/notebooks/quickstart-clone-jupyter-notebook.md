@@ -44,7 +44,7 @@ None.
 
 1. Once cloning is finished, Azure Notebooks takes you to the new project where you can see the copies of all the files.
 
-    [![](media/quickstarts/completed-clone.png "View of a completed clone")](media/quickstarts/completed-clone.png#lightbox)
+    :::image type="content" source="media/quickstarts/completed-clone.png" alt-text="View of a completed clone." lightbox="media/quickstarts/completed-clone.png":::
 
 ## Share a notebook
 

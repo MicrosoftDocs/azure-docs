@@ -4,7 +4,7 @@ description: Use this tutorial to enable the Ingress Controller Add-On for your 
 services: application-gateway
 author: caya
 ms.service: application-gateway
-ms.topic: how-to
+ms.topic: tutorial
 ms.date: 06/10/2020
 ms.author: caya
 ---
@@ -37,7 +37,7 @@ az feature register --name AKS-IngressApplicationGatewayAddon --namespace micros
 
 It might take a few minutes for the status to show Registered. You can check on the registration status using the [az feature list](https://docs.microsoft.com/cli/azure/feature#az-feature-register) command:
 ```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-IngressApplicationGatewayAddon')].{Name:name,State:properties.state}"
+az feature list -o table --query "[?contains(name, 'microsoft.containerservice/AKS-IngressApplicationGatewayAddon')].{Name:name,State:properties.state}"
 ```
 
 When ready, refresh the registration of the Microsoft.ContainerService resource provider using the [az provider register](https://docs.microsoft.com/cli/azure/provider#az-provider-register) command:

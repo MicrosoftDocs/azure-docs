@@ -2,7 +2,7 @@
 title: Frequently asked questions for Azure Kubernetes Service (AKS)
 description: Find answers to some of the common questions about Azure Kubernetes Service (AKS).
 ms.topic: conceptual
-ms.date: 05/14/2020
+ms.date: 08/06/2020
 
 ---
 
@@ -75,7 +75,7 @@ As you work with the node resource group, keep in mind that you cannot:
 
 ## Can I modify tags and other properties of the AKS resources in the node resource group?
 
-If you modify or delete Azure-created tags and other resource properties in the node resource group, you could get unexpected results such as scaling and upgrading errors. AKS allows you to create and modify custom tags created by end-users. You might want to create or modify custom tags, for example, to assign a business unit or cost center. This can be achieved by creating Azure Policies with a scope on the managed resource group.
+If you modify or delete Azure-created tags and other resource properties in the node resource group, you could get unexpected results such as scaling and upgrading errors. AKS allows you to create and modify custom tags created by end-users, and you can add those tags when [creating a node pool](use-multiple-node-pools.md#specify-a-taint-label-or-tag-for-a-node-pool). You might want to create or modify custom tags, for example, to assign a business unit or cost center. This can also be achieved by creating Azure Policies with a scope on the managed resource group.
 
 However, modifying any **Azure-created tags** on resources under the node resource group in the AKS cluster is an unsupported action which breaks the service-level objective (SLO). For more information, see [Does AKS offer a service-level agreement?](#does-aks-offer-a-service-level-agreement)
 
@@ -133,7 +133,7 @@ AKS agent nodes are billed as standard Azure virtual machines, so if you've purc
 
 ## Can I move/migrate my cluster between Azure tenants?
 
-The `az aks update-credentials` command can be used to move an AKS cluster between Azure tenants. Follow the instructions in [Choose to update or create a service principal](./update-credentials.md) and then [update aks cluster with new credentials](./update-credentials.md#update-aks-cluster-with-new-service-principal-credentials).
+Moving your AKS cluster between tenants is currently unsupported.
 
 ## Can I move/migrate my cluster between subscriptions?
 
@@ -171,6 +171,10 @@ Please confirm your service principal has not expired.  Please see: [AKS service
 
 Please confirm your service principal has not expired.  Please see: [AKS service principal](./kubernetes-service-principal.md)  and [AKS update credentials](./update-credentials.md).
 
+## Can I scale my AKS cluster to zero?
+You can completely [stop a running AKS cluster](start-stop-cluster.md), saving on the respective compute costs. Additionally, you may also choose to [scale or auto-scale all or specific `User` node pools](scale-cluster.md#scale-user-node-pools-to-0) to 0, maintaining only the necessary cluster configuration.
+You cannot directly scale [system node pools](use-system-pools.md) to 0.
+
 ## Can I use the virtual machine scale set APIs to scale manually?
 
 No, scale operations by using the virtual machine scale set APIs aren't supported. Use the AKS APIs (`az aks scale`).
@@ -186,6 +190,10 @@ While AKS has resilience mechanisms to withstand such a config and recover from 
 ## Can I use custom VM extensions?
 
 No AKS is a managed service, and manipulation of the IaaS resources is not supported. To install custom components, etc. please leverage the Kubernetes APIs and mechanisms. For example, leverage DaemonSets to install required components.
+
+## Does AKS store any customer data outside of the cluster's region?
+
+The feature to enable storing customer data in a single region is currently only available in the Southeast Asia Region (Singapore) of the Asia Pacific Geo. For all other regions, customer data is stored in Geo.
 
 <!-- LINKS - internal -->
 

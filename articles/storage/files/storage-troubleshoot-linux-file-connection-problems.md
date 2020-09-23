@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot Azure Files problems in Linux | Microsoft Docs
-description: Troubleshooting Azure Files problems in Linux
+description: Troubleshooting Azure Files problems in Linux. See common issues related to Azure Files when you connect from Linux clients, and see possible resolutions.
 author: jeffpatt24
 ms.service: storage
 ms.topic: troubleshooting
@@ -8,11 +8,14 @@ ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
 ---
-# Troubleshoot Azure Files problems in Linux
+# Troubleshoot Azure Files problems in Linux (SMB)
 
 This article lists common problems that are related to Azure Files when you connect from Linux clients. It also provides possible causes and resolutions for these problems. 
 
 In addition to the troubleshooting steps in this article, you can use [AzFileDiagnostics](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Linux) to ensure that the Linux client has correct prerequisites. AzFileDiagnostics automates the detection of most of the symptoms mentioned in this article. It helps set up your environment to get optimal performance. You can also find this information in the [Azure Files shares troubleshooter](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares). The troubleshooter provides steps to help you with problems connecting, mapping, and mounting Azure Files shares.
+
+> [!IMPORTANT]
+> The content of this article only applies to SMB shares. For details on NFS shares, see [Troubleshoot Azure NFS file shares](storage-troubleshooting-files-nfs.md).
 
 ## Cannot connect to or mount an Azure file share
 
@@ -40,7 +43,7 @@ Common causes for this problem are:
 
 ### Solution
 
-To resolve the problem, use the [troubleshooting tool for Azure Files mounting errors on Linux](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089). This tool:
+To resolve the problem, use the [troubleshooting tool for Azure Files mounting errors on Linux](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Linux). This tool:
 
 * Helps you to validate the client running environment.
 * Detects the incompatible client configuration that would cause access failure for Azure Files.

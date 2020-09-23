@@ -35,7 +35,7 @@ A DDoS protection plan defines a set of virtual networks that have DDoS protecti
 Creation of more than one plan is not required for most organizations. A plan cannot be moved between subscriptions. If you want to change the subscription a plan is in, you have to [delete the existing plan](#work-with-ddos-protection-plans) and create a new one.
 
 1. Select **Create a resource** in the upper left corner of the Azure portal.
-2. Search for *DDoS*. When **DDos protection plan** appears in the search results, select it.
+2. Search for *DDoS*. When **DDoS protection plan** appears in the search results, select it.
 3. Select **Create**.
 4. Enter or select your own values, or enter, or select the following example values, and then select **Create**:
 
@@ -58,7 +58,7 @@ Creation of more than one plan is not required for most organizations. A plan ca
     | Subscription    | Select your subscription.                                    |
     | Resource group  | Select **Use existing**, and then select **myResourceGroup** |
     | Location        | East US                                                      |
-    | DDos protection | Select **Standard** and then under **DDoS protection**, select **myDdosProtectionPlan**. The plan you select can be in the same, or different subscription than the virtual network, but both subscriptions must be associated to the same Azure Active Directory tenant.|
+    | DDoS Protection Standard | Select **Enable**. The plan you select can be in the same, or different subscription than the virtual network, but both subscriptions must be associated to the same Azure Active Directory tenant.|
 
 You cannot move a virtual network to another resource group or subscription when DDoS Standard is enabled for the virtual network. If you need to move a virtual network with DDoS Standard enabled, disable DDoS Standard first, move the virtual network, and then enable DDoS standard. After the move, the auto-tuned policy thresholds for all the protected public IP addresses in the virtual network are reset.
 
@@ -78,8 +78,7 @@ You cannot move a virtual network to another resource group or subscription when
 ## Disable DDoS for a virtual network
 
 1. Enter the name of the virtual network you want to disable DDoS protection standard for in the **Search resources, services, and docs box** at the top of the portal. When the name of the virtual network appears in the search results, select it.
-2. Select **DDoS protection**, under **SETTINGS**.
-3. Select **Basic** under **DDoS protection plan** and then select **Save**.
+2. Select **Under DDoS Protection Standard**, select **Disable**.
 
 **Commands** 
 - Azure CLI: [az network ddos-protection delete](https://docs.microsoft.com/cli/azure/network/ddos-protection?view=azure-cli-latest#az-network-ddos-protection-delete)
@@ -189,7 +188,7 @@ Attack Mitigation Flow Logs allow you to review the dropped traffic, forwarded t
     - **Archive to a storage account**: Data is written to an Azure Storage account. To learn more about this option, see [Archive resource logs](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
     - **Stream to an event hub**: Allows a log receiver to pick up logs using an Azure Event Hub. Event hubs enable integration with Splunk or other SIEM systems. To learn more about this option, see [Stream resource logs to an event hub](../azure-monitor/platform/resource-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
     - **Send to Log Analytics**: Writes logs to the Azure Monitor service. To learn more about this option, see [Collect logs for use in Azure Monitor logs](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-1. To view the flow logs data in Azure analytics dashboard, you can import the sample dashboard from https://github.com/Anupamvi/Azure-DDoS-Protection/raw/master/flowlogsbyip.zip
+1. To view the flow logs data in Azure analytics Workbook, you can import the sample dashboard from https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20DDoS%20Protection/Azure%20DDoS%20Protection%20Workbook
 
 Flow logs will have the following fields: 
 - Source IP

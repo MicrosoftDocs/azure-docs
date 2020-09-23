@@ -1,5 +1,5 @@
 ---
-title: Overview - Query data in storage using SQL on-demand (preview) 
+title: Query data in storage using SQL on-demand (preview) 
 description: This article describes how to query Azure storage using the SQL on-demand (preview) resource within Azure Synapse Analytics.
 services: synapse analytics
 author: azaricstefan
@@ -48,7 +48,7 @@ Review the [Query Parquet files](query-parquet-files.md) article for usage examp
 
 ## Query CSV files
 
-To query Parquet source data, use FORMAT = 'CSV'. You can specify schema of the CSV file as part of `OPENROWSET` function when you query CSV files:
+To query CSV source data, use FORMAT = 'CSV'. You can specify schema of the CSV file as part of `OPENROWSET` function when you query CSV files:
 
 ```sql
 SELECT * FROM
@@ -87,7 +87,7 @@ WITH (
 ```
 
 For every column, you need to specify column name and type in `WITH` clause.
-For samples, refer to [Read CSV files without specifying all columns](query-single-csv-file.md#returning-subset-of-columns).
+For samples, refer to [Read CSV files without specifying all columns](query-single-csv-file.md#return-a-subset-of-columns).
 
 ## Schema inference
 
@@ -183,7 +183,7 @@ By default, the `OPENROWSET` function matches the source field name and path wit
 - If the property can't be found at the specified column_name, the function returns an error.
 - If the property can't be found at the specified column_path, depending on [Path mode](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#PATHMODE), the function returns an error when in strict mode or null when in lax mode.
 
-For query samples, review the Access elements from nested columns section in the [Query Parquet nested types](query-parquet-nested-types.md#access-elements-from-nested-columns) article.
+For query samples, review the Access elements from nested columns section in the [Query Parquet nested types](query-parquet-nested-types.md#read-properties-from-nested-object-columns) article.
 
 #### Access elements from repeated columns
 
@@ -225,7 +225,7 @@ The tools you need to issue queries:
 
 ### Demo setup
 
-Your first step is to **create a database** where you will execute the queries. Then you'll initialize the objects by executing [setup script](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) on that database. 
+Your first step is to **create a database** where you'll execute the queries. Then you'll initialize the objects by executing [setup script](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) on that database. 
 
 This setup script will create the data sources, database scoped credentials, and external file formats that are used to read data in these samples.
 

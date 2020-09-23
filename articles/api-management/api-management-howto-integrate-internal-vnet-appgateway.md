@@ -84,6 +84,11 @@ In this guide we will also expose the **developer portal** to external audiences
 
 > [!WARNING]
 > To prevent Application Gateway WAF from breaking the download of OpenAPI specification in the developer portal, you need to disable the firewall rule `942200 - "Detects MySQL comment-/space-obfuscated injections and backtick termination"`.
+> 
+> Application Gateway WAF rules, which may break portal's functionality include:
+> 
+> - `920300`, `920330`, `931130`, `942100`, `942110`, `942180`, `942200`, `942260`, `942340`, `942370` for the administrative mode
+> - `942200`, `942260`, `942370`, `942430`, `942440` for the published portal
 
 ## Create a resource group for Resource Manager
 

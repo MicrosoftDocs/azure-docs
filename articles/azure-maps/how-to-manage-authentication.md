@@ -1,11 +1,11 @@
 ---
 title: Manage authentication
 titleSuffix: Azure Maps
-description: Use the Azure portal to manage authentication in Microsoft Azure Maps.
-author: philmea
-ms.author: philmea
+description: Become familiar with Azure Maps authentication. See which approach works best in which scenario. Learn how to use the portal to view authentication settings.
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 06/12/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
@@ -51,7 +51,7 @@ The links in the table take you to detailed configuration information for each s
 
 ## View role definitions
 
-To view RBAC roles that are available for Azure Maps, go to **Access control (IAM)**. Select **Roles**, and then search for roles that begin with *Azure Maps*. These Azure Maps roles are the roles that you can grant access to.
+To view Azure roles that are available for Azure Maps, go to **Access control (IAM)**. Select **Roles**, and then search for roles that begin with *Azure Maps*. These Azure Maps roles are the roles that you can grant access to.
 
 > [!div class="mx-imgBorder"]
 > ![View available roles](./media/how-to-manage-authentication/how-to-view-avail-roles.png)

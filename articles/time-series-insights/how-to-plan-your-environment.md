@@ -49,7 +49,7 @@ To start, you need three additional items:
 * An [event source connected to Time Series Insights](./concepts-streaming-ingestion-event-sources.md)
 * [Events flowing into the event source](./time-series-insights-send-events.md) that are both mapped to the model and are in valid JSON format
 
-## Review Gen2 limits
+## Review Azure Time Series Insights Gen2 limits
 
 [!INCLUDE [Review Azure Time Series Insights Gen2 limits](../../includes/time-series-insights-preview-limits.md)]
 
@@ -64,16 +64,13 @@ You can select up to three keys to uniquely differentiate your resources. For mo
 
 The **Timestamp** property is also important. You can designate this property when you add event sources. Each event source has an optional Timestamp property that's used to track event sources over time. Timestamp values are case sensitive and must be formatted to the individual specification of each event source.
 
-> [!TIP]
-> Verify the formatting and parsing requirements for your event sources.
-
-When left blank, the Event Enqueue Time of an event source is used as the event Timestamp. If you send historical data or batched events, customizing the Timestamp property is more helpful than the default Event Enqueue Time. For more information, read about how to [add event sources in Azure IoT Hub](./time-series-insights-how-to-add-an-event-source-iothub.md).
+When left blank, the time when the event was enqueued into the IoT Hub or Event Hub is used as the event Timestamp. In general, users should opt to customize the Timestamp property and use the time when the sensor or tag generated the reading, rather than the hub enqueued time. For more information and to read about time zone offsets read [Event source timestamp](./concepts-streaming-ingestion-event-sources.md#event-source-timestamp).
 
 ## Understand the Time Series Model
 
 You can now configure your Azure Time Series Insights environment's Time Series Model. The new model makes it easy to find and analyze IoT data. It enables the curation, maintenance, and enrichment of time series data and helps to prepare consumer-ready data sets. The model uses Time Series IDs, which map to an instance that associates the unique resource with variables, known as types, and hierarchies. Read about the [Time Series Model](./concepts-model-overview.md) overview to learn more.
 
-The model is dynamic, so it can be built at any time. To get started quickly, build and upload it prior to pushing data into Azure Time Series Insights. To build your model, read [Use the Time Series Model](./time-series-insights-update-how-to-tsm.md).
+The model is dynamic, so it can be built at any time. To get started quickly, build and upload it prior to pushing data into Azure Time Series Insights. To build your model, read [Use the Time Series Model](/azure/time-series-insights/concepts-model-overview).
 
 For many customers, the Time Series Model maps to an existing asset model or ERP system already in place. If you don't have an existing model, a prebuilt user experience is [provided](https://github.com/Microsoft/tsiclient) to get up and running quickly. To envision how a model might help you, view the [sample demo environment](https://insights.timeseries.azure.com/preview/demo).
 
@@ -86,7 +83,7 @@ A good rule of thumb:
 * Store metadata in your Time Series Model.
 * Ensure that Time Series Mode, instance fields, and events include only necessary information, such as a Time Series ID or Timestamp property.
 
-For more information, read [Shape events](./time-series-insights-send-events.md#supported-json-shapes).
+For more information and to understand how events will be flattened and stored, read the [JSON flattening and escaping rules](./concepts-json-flattening-escaping-rules.md).
 
 [!INCLUDE [business-disaster-recover](../../includes/time-series-insights-business-recovery.md)]
 

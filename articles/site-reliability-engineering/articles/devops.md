@@ -3,10 +3,10 @@ title: "FAQ: SRE and DevOps | Microsoft Docs"
 titleSuffix: Azure
 description: "FAQ: Understanding the relationship between SRE and DevOps"
 author: dnblankedelman
-manager: efreeman
+manager: ScottCa
 ms.service: site-reliability-engineering
 ms.topic: article
-ms.date: 04/22/2020
+ms.date: 09/14/2020
 ms.author: dnb
 
 ---

@@ -5,7 +5,7 @@ description: Learn how to build a LUIS app programmatically from preexisting dat
 services: cognitive-services
 author: diberry
 manager: nitinme
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-js
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
@@ -22,7 +22,7 @@ LUIS provides a programmatic API that does everything that the [LUIS](luis-refer
 ## Prerequisites
 
 * Sign in to the [LUIS](luis-reference-regions.md) website and find your [authoring key](luis-how-to-azure-subscription.md#authoring-key) in Account Settings. You use this key to call the Authoring APIs.
-* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 * This article starts with a CSV for a hypothetical company's log files of user requests. Download it [here](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/IoT.csv).
 * Install the latest Node.js with NPM. Download it from [here](https://nodejs.org/en/download/).
 * **[Recommended]** Visual Studio Code for IntelliSense and debugging, download it from [here](https://code.visualstudio.com/) for free.

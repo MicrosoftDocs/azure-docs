@@ -14,7 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 07/13/2020
-ms.author: magoedte
+ms.author: magoedte 
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 # Introduction to the Azure Desired State Configuration extension handler
 
@@ -55,7 +56,7 @@ When the extension is called for the first time, it installs a version of WMF by
 - If the **wmfVersion** property is specified, that version of WMF is installed, unless that version is incompatible with the VM's OS.
 - If no **wmfVersion** property is specified, the latest applicable version of WMF is installed.
 
-Installing WMF requires a restart. After restarting, the extension downloads the .zip file that's specified in the **modulesUrl** property, if provided. If this location is in Azure Blob storage, you can specify an SAS token in the **sasToken** property to access the file. After the .zip is downloaded and unpacked, the configuration function defined in **configurationFunction** runs to generate an .mof([Managed Object Format](https://docs.microsoft.com/windows/win32/wmisdk/managed-object-format--mof-)) file. The extension then runs `Start-DscConfiguration -Force` by using the generated .mof file. The extension captures output and writes it to the Azure status channel.
+Installing WMF requires a restart. After restarting, the extension downloads the .zip file that's specified in the **modulesUrl** property, if provided. If this location is in Azure Blob storage, you can specify an SAS token in the **sasToken** property to access the file. After the .zip is downloaded and unpacked, the configuration function defined in **configurationFunction** runs to generate an .mof([Managed Object Format](/windows/win32/wmisdk/managed-object-format--mof-)) file. The extension then runs `Start-DscConfiguration -Force` by using the generated .mof file. The extension captures output and writes it to the Azure status channel.
 
 ### Default configuration script
 
@@ -79,7 +80,7 @@ This information can be seen in the Azure portal or you can use PowerShell.
 
 For the Node Configuration name, make sure the node configuration exists in Azure State Configuration.  If it does not, the extension deployment will return a failure.  Also make sure you are using the name of the *Node Configuration* and not the Configuration.
 A Configuration is defined in a script that is used
-[to compile the Node Configuration (MOF file)](https://docs.microsoft.com/azure/automation/automation-dsc-compile).
+[to compile the Node Configuration (MOF file)](../../automation/automation-dsc-compile.md).
 The name will always be the Configuration followed by a period `.` and either `localhost` or a specific computer name.
 
 ## DSC extension in Resource Manager templates
@@ -190,7 +191,7 @@ The portal collects the following input:
 
 - **WMF Version**: Specifies the version of Windows Management Framework (WMF) that should be installed on your VM. Setting this property to latest installs the most recent version of WMF. Currently, the only possible values for this property are 4.0, 5.0, 5.1, and latest. These possible values are subject to updates. The default value is **latest**.
 
-- **Data Collection**: Determines if the extension will collect telemetry. For more information, see [Azure DSC extension data collection](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/).
+- **Data Collection**: Determines if the extension will collect telemetry. For more information, see [Azure DSC extension data collection](https://devblogs.microsoft.com/powershell/azure-dsc-extension-data-collection-2/).
 
 - **Version**: Specifies the version of the DSC extension to install. For information about versions, see [DSC extension version history](/powershell/scripting/dsc/getting-started/azuredscexthistory).
 

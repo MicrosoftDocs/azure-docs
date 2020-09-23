@@ -19,6 +19,9 @@ A business continuity and disaster recovery (BCDR) strategy helps keep your busi
 - [Azure Backup](../backup/backup-overview.md) backs up your on-premises and Azure VM data. You can back up a file and folders, specific workloads, or an entire VM. 
 - [Azure Site Recovery](site-recovery-overview.md) provides resilience and disaster recovery for apps and workloads running on on-premises machines, or Azure IaaS VMs. Site Recovery orchestrates replication, and handles failover to Azure when outages occur. It also handles recovery from Azure to your primary site. 
 
+> [!NOTE]
+> Site Recovery does not move or store customer data out of the target region, in which disaster recovery has been setup for the source machines. Customers may select a Recovery Services Vault from a different region if they so choose. The Recovery Services Vault contains metadata but no actual customer data.
+
 ## How does Site Recovery do disaster recovery?
 
 1. After preparing Azure and your on-premises site, you set up and enable replication for your on-premises machines.

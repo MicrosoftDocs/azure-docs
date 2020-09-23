@@ -4,7 +4,7 @@ description: This article explains how to secure a data catalog and its data ass
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/01/2019
 ---
 
