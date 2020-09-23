@@ -24,7 +24,13 @@ You've built your client application object. Now, you'll use it to acquire a tok
 
 # [ASP.NET Core](#tab/aspnetcore)
 
-The controller methods are protected by an `[Authorize]` attribute that forces users being authenticated to use the web app. Here's the code that calls Microsoft Graph:
+The controller methods are protected by an `[Authorize]` attribute that forces users being authenticated to use the web app.
+
+*Microsoft.Identity.Web* adds extension methods that provide convenience services for calling Microsoft Graph or a downstream web API. These methods are explained in detail in [A web app that calls web APIs: Call an API](scenario-web-app-call-api-call-api.md). With these helper methods, you don't need to manually acquire a token.
+If, however, you do want to manually acquire a token, the following code shows an example of using *Microsoft.Identity.Web* to do so in an API controller. It calls Microsoft graph using the REST API (instead of the Graph SDK).
+To get a token to call the downstream API, you inject the `ITokenAcquisition` service by dependency injection in your controller's constructor (or your page constructor if you use Blazor), and you use it in your controller actions, getting a token for the user (`GetAccessTokenForUserAsync`) or for the application itself (`GetAccessTokenForAppAsync`) in the case of a daemon scenario.
+
+Here's the code that calls Microsoft Graph:
 
 ```csharp
 [Authorize]
