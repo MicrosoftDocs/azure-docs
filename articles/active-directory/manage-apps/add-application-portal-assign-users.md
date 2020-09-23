@@ -61,4 +61,7 @@ After you're done with the quickstart, consider deleting the app. That way you c
 
 Advance to the next article to learn how to set up single sign-on for an app.
 > [!div class="nextstepaction"]
-> [Set up single sign-on](add-application-portal-setup-sso.md)
+> [Set up SAML-based single sign-on](add-application-portal-setup-sso.md)
+> OR
+> [!div class="nextstepaction"]
+> [Set up OIDC-based single sign-on](add-application-portal-setup-sso.md)
