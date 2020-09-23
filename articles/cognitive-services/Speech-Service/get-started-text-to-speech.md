@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.date: 10/01/2020
 ms.author: trbye
 ms.custom: "devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020"
-zone_pivot_groups: speech-full-stack
+zone_pivot_groups: speech-full-stack-objectivec-swift
 keywords: text to speech
 ---
 
