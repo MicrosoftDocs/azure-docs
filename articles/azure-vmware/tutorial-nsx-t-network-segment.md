@@ -66,7 +66,7 @@ An Azure VMware Solution private cloud with access to the vCenter and NSX-T Mana
 
 ## Next steps
 
-In this tutorial, you created the NSX-T network segments that are used for VMs in vCenter. You can now [create a content Library to deploy VMs in Azure VMware Solution](deploy-vm-from-content-library.md) and the provision a VM on the network you created in this tutorial.
+In this tutorial, you created the NSX-T network segments that are used for VMs in vCenter. You can now [create a content Library to deploy VMs in Azure VMware Solution](deploy-vm-content-library.md) and the provision a VM on the network you created in this tutorial.
 
 If not, then continue to the next tutorial to learn how to create ExpressRoute Global Reach peering to a private cloud in an Azure VMware Solution.
 

@@ -92,10 +92,10 @@ If you use the **zone redundancy** for your namespace, you need to do a few addi
     <name>-s2.cloudapp.net
     <name>-s3.cloudapp.net
     ```
+3. Run nslookup for each one with suffixes s1, s2, and s3 to get the IP addresses of all three instances running in three availability zones, 
 
     > [!NOTE]
     > The IP address returned by the `nslookup` command isn't a static IP address. However, it remains constant until the underlying deployment is deleted or moved to a different cluster.
-3. Run nslookup for each one with suffixes s1, s2, and s3 to get the IP addresses of all three instances running in three availability zones, 
 
 ### Where can I find client IP sending or receiving messages to my namespace?
 First, enable [IP filtering](event-hubs-ip-filtering.md) on the namespace. 

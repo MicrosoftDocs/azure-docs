@@ -80,7 +80,7 @@
   - name: Export data
     expanded: false
     items:
-    - name: De-identified export
+    - name: Export data
       href: export-data.md
   - name: Find identity object IDs
     href: find-identity-object-ids.md
