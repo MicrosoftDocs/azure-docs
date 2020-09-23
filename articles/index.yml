@@ -171,6 +171,7 @@ productDirectory:
       azureCategories:
         - web
         - mobile
+        - featured
       url: communication-services/overview.md
     # Card
     - title: Computer Vision
