@@ -39,7 +39,8 @@ To set up single sign-on for an application:
 
 1. In the quickstart earlier in this series, you learned how to add an app that will use your Azure AD tenant for identity management. If the app developer used the OIDC standard to implement SSO, then you are presented with a sign-up button when adding the app. 
 
-    :::image type="content" source="media/add-application-portal-setup-oidc-sso/sign-up-oidc-sso.png" alt-text="Screenshot shows the single sign-on option and the sign-up button.":::
+    :::image type="content" source="media/add-application-portal-setup-oidc-sso/sign-up-oidc-sso.png" alt-text="Screenshot shows the single sign-on option and the sign-up button." lightbox="media/add-application-portal-setup-oidc-sso/sign-up-oidc-sso.png":::
+
 
 2. Select **Sign-up** and you will be taken the app developers sign-on page. Sign in using Azure Active Directory sign-in credentials. 
 
@@ -48,7 +49,7 @@ To set up single sign-on for an application:
 
 3. After successful authentication, a dialog appears asking for admin consent. Select **Consent on behalf of your organization** and then select **Accept**. 
 
-:::image type="content" source="media/add-application-portal-setup-oidc-sso/consent.png" alt-text="Screenshot shows the consent screen for an app.":::
+    :::image type="content" source="media/add-application-portal-setup-oidc-sso/consent.png" alt-text="Screenshot shows the consent screen for an app." lightbox="media/add-application-portal-setup-oidc-sso/consent.png":::
 
 4. The application is added to your tenant and the application home page appears.
 
