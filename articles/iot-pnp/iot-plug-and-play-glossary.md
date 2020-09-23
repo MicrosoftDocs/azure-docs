@@ -33,7 +33,7 @@ IoT Hub is a managed service, hosted in the cloud, that acts as a central messag
 
 ## Azure IoT device SDK
 
-There are device SDKs for multiple languages that you can use to build IoT Plug and Play device client applications. USe **DeviceClient** for devices, and **ModuleClient** for IoT Edge modules.
+There are device SDKs for multiple languages that you can use to build IoT Plug and Play device client applications. USe **DeviceClient** for devices, and **ModuleClient** for modules and IoT Edge modules.
 
 ## Commands
 
@@ -112,7 +112,7 @@ An API for managing and interacting with the model repository. For example, you 
 
 ## Module builder
 
-A module builder uses a [device model](#device-model) and [interfaces](#interface) when implementing code to run on an [IoT Plug and Play device](#iot-plug-and-play-device). Module builders implement the code as an IoT Edge module to deploy to the IoT Edge runtime on a device.
+A module builder uses a [device model](#device-model) and [interfaces](#interface) when implementing code to run on an [IoT Plug and Play device](#iot-plug-and-play-device). Module builders implement the code as a module or an IoT Edge module to deploy to the IoT Edge runtime on a device.
 
 ## Properties
 
