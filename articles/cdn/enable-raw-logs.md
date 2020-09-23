@@ -174,116 +174,6 @@ Azure CDN from Microsoft Service currently provides Raw logs. Raw logs provide i
     AzureDiagnostics | where Category == "AzureCdnAccessLog"
     ```
 
-## Metrics
-Azure CDN from Microsoft is integrated with Azure Monitor and publishes 4 CDN metrics to help track, troubleshoot and debug issues. The Metrics are displayed in charts and also accessible via PowerShell, CLI and API. The CDN metrics are free of charge.
-
-If there are requests flowing through Azure CDN from Microsoft, it measures and sends its metrics in 60-second intervals and takes up to 3 mins to appear in the portal. For more information, see Azure Monitor metrics.
-
-**Metrics supported by Azure CDN from Microsoft**
-| Metrics | Description | Notes |
-|-|-|-|
-| Cache hit ratio | The percentage of egress from CDN cache, computed against the total egress. | Cache Hit Ratio = (edge - egress from origin)/egress from edge <br>Scenarios for cache hit ratio calculation:<ul><li> HIT at edge</li><li> MISS at edge and HIT at origin shield </li><li> PARTIAL_HIT at edge and HIT at origin shield</li><li> MISS at edge and MISS at origin shield</li></ul> <br> Scenarios excluded in cache hit ratio calculation: <ul><li> Customer explicitly configure to not cache</li><li>Cache-control directive with no-store or private cache </li></ul> <br> Dimensions: Endpoint
-| RequestCount | The number of client requests served by CDN | Dimensions: Endpoint, client country, client region, HTTP status, HTTP status group |
-| ResponseSize | The number of bytes sent as responses from CDN edge to clients. | Dimensions: Endpoint, client country, client region, HTTP status, HTTP status group |
-| TotalLatency | The total time from the client request received by CDN until the last response byte sent from CDN to client. | Dimensions: Endpoint, client country, client region, HTTP status, HTTP status group |
-
-### Metrics dimensions
-Customer is also able to look at different dimensions by endpoint, by client country, by client region, HTTP status code or status code group to further understand their user distribution and how CDN is performing. Cache hit ratio will only have endpoint as the dimension.
-
-### Metrics configuration
-
-1. From the Azure portal menu, select **All Resources** >> **\<your-CDN-profile>**.
-2. Under **Monitoring**, select **Metrics**.
-3. Select **Add metric**, select the metric to add:
-4. Select **Add filter** to add a filter:
-5. Select **Apply** splitting to see trend by different dimensions:
-6. Select **New chart** to add a new chart:
-
-### Alerting
-You can also setup alerts on Microsoft CDN by clicking on **Alert** and **+ New alert rule** for metrics listed in Metrics section. Alert will be charged based on Azure Monitor. For more details about alerts, please refer to Azure Monitor Alert.
-
-### Additional Metrics
-In addition to default metrics, you can enable additional metrics using Azure Log Analytics and Raw Log for additional cost. For more information about cost, please refer to Azure Monitor.
-
-1. Follow steps above in raw log to send raw log to log analytics.
-2. Click on the Log Analytics workspace you created:
-3. Go to Logs under the Log Analytics Workspace, use Kusto query to retrieve different Metrics.  You can refer to the Microsoft CDN Kusto query samples in Logs under selected Analytics Workspace and do further analysis on additional metrics. You can refer to Help on the upper right to learn more about Kusto query language.
-4. You can also view data by Chart and click Pin to dashboard.
-5. Setup alerts for Metrics of interest. For example, you want to monitor 4XX error code and receive alerts based on your needs.
-6. Add New alert rule per your needs, you can also choose to send notification via email, SMS and secure webhook, webhook, Function, etc. For more details, please refer to Azure Monitor Alert action groups.  
-
-## Stream Raw Log to Azure Data Explorer
-Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. Azure Data Explorer is ideal for analyzing large volumes of diverse data from any data source, such as websites, applications, IoT devices, and more. This data is used for diagnostics, monitoring, reporting, machine learning, and additional analytics capabilities. Azure Data Explorer makes it simple to ingest this data and enables you to perform complex ad hoc queries on the data in seconds. For more details of Azure Data Explorer, please refer to What is Azure Data Explorer.
-
-This section will teach you how to ingest data from raw logs to an Azure Data Explorer cluster without writing code. With this simple ingestion method, you can quickly begin querying Azure Data Explorer for data analysis.
-
-### Create database
-
-Create a cluster and then create one or more databases in that cluster. Quickstart: Create an Azure Data Explorer cluster and database
-
-### Set up an ingestion pipeline in Azure Data Explorer
-
-Go to the database you just created, which is jtestcdnrawlog in this case, select Query to open the Azure Data Explorer Web UI.
-
-### Create the target tables
-
-The structure of the Azure Monitor logs isn't tabular. You'll manipulate the data and expand each event to one or more records. The raw data will be ingested to an intermediate table DiagnosticRawRecords for diagnostic metrics and logs. At that time, the data will be manipulated and expanded.
-
-In the jtestcdnrawlog database, create a table CDNRawLogs (in this doc) to store the raw log records. Use the following **.create table** command:
-
-```
-.create table CDNRawLogs (Time:datetime, ResourceId:string, Category:string, TrackingReference:string, HttpMethod:string, HttpVersion:string, RequestUri:string, RequestBytes:int, ResponseBytes:int, UserAgent:string, ClientIp:string, SocketIp:string, ClientPort:string, TimeTaken:int, SecurityProtocol:string, Endpoint:string, RulesEngineMatchNames:string, Origin:string, isReceivedfromClient:bool, HttpStatusCode:int, HttpStatusDetails:string, Pop:string, CacheStatus:string)
-
-```
-### Create table mappings
-
-Because the data format is json, data mapping is required. The json mapping maps each json path to a table column name.
-
-```
-.create table CDNRawLogs ingestion json mapping 'CDNRawLogsMapping' '[ { "column": "Time", "Properties": { "path": "$.time" } }, { "column": "ResourceId", "Properties": { "path": "$.resourceId" } }, { "column": "Category", "Properties": { "path": "$.category" } }, { "column": "TrackingReference", "Properties": { "path": "$.trackingReference" } }, { "column": "HttpMethod", "Properties": { "path": "$.httpMethod" } }, { "column": "HttpVersion", "Properties": { "path": "$.httpVersion" } }, { "column": "RequestUri", "Properties": { "path": "$.requestUri" } }, { "column": "RequestBytes", "Properties": { "path": "$.requestBytes" } }, { "column": "ResponseBytes", "Properties": { "path": "$.responseBytes" } }, { "column": "UserAgent", "Properties": { "path": "$.userAgent" } }, { "column": "ClientIp", "Properties": { "path": "$.clientIp" } }, { "column": "SocketIp", "Properties": { "path": "$.socketIp" } }, { "column": "ClientPort", "Properties": { "path": "$.clientPort" } }, { "column": "TimeTaken", "Properties": { "path": "$.timeTaken" } }, { "column": " SecurityProtocol", "Properties": { "path": "$.securityProtocol" } }, { "column": "Endpoint", "Properties": { "path": "$.endpoint" } },}, { "column": "RulesEngineMatchName", "Properties": { "path": "$.rulesEngineMatchNames" } }, { "column": "Origin", "Properties": { "path": "$.backendHostname" } }, { "column": "isReceivedfromClient", "Properties": { "path": "$.isReceivedfromClient" } }, { "column": "HttpStatusCode", "Properties": { "path": "$.httpStatusCode" } }, { "column": "HttpStatusDetails", "Properties": { "path": "$.httpStatusDetails" } }, { "column": "Pop", "Properties": { "path": "$.pop" } }, { "column": "CacheStatus", "Properties": { "path": "$.cacheStatus" } } ]'
-```
-### Create an Azure Event Hubs namespace and an Event Hub
-
-Please follow this doc Create an [Azure Event Hubs namespace](https://docs.microsoft.com/azure/data-explorer/ingest-data-no-code?tabs=diagnostic-metrics#create-an-azure-event-hubs-namespace).
-
-### Connect Azure CDN raw logs to your event hub
-
-Follow steps in previous Raw Log session to send raw logs to the event hub you created.
-
-### Connect an event hub to Azure Data Explorer
-
-Now you need to create the data connections for your diagnostic metrics and logs and activity logs.
-
-1. Go to the database you created, in this case, it is jtestcdnrawlog.
-2. In the left menu, select Data ingestion.
-3. In the Data ingestion window, click + Add Data Connection.
-4. In the Data connection window, enter the relevant info you created above. It look like this in this guidance.
-
-### Query database
-
-Use Azure Data Explorer web application to run, review, and share queries and results. It is available in the Azure portal and as a stand-alone application. In addition, you can send queries programmatically (using an SDK) or to a REST API endpoint. Quickstart: Query data in Azure Data Explorer.
-
-## Diagnostic settings to send CDN raw logs to different destinations - PowerShell
-
-Use the [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting?view=latest) cmdlet to create a diagnostic setting with Azure PowerShell. See the documentation for this cmdlet for descriptions of its parameters.
-
-Following is an example PowerShell cmdlet to create a diagnostic setting using all three destinations. You can define retention data by altering RetentionInDays.
-
-**Stream raw logs to storage**
-
-```azurepowershell-interactive
-Set-AzDiagnosticSetting -Name CDNDiagnosticSettings -ResourceId /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/MS-CDN-Test/providers/Microsoft.Cdn/profiles/mycdnprofile -Category AzureCdnAccessLog -Enabled $true -Verbose -RetentionEnabled 1 -RetentionInDays 30 -StorageAccountId /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount 
-```
-
-**Stream raw logs to Log Analytics**
-
-```azurepowershell-interactive
-Set-AzDiagnosticSetting -Name CDNDiagnosticSettings -ResourceId /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/MS-CDN-Test/providers/Microsoft.Cdn/profiles/mycdnprofile -Category AzureCdnAccessLog -Enabled $true -Verbose -RetentionEnabled 1 -RetentionInDays 30 -WorkspaceId /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.OperationalInsights/workspaces/myworkspace
-```
-
-**Stream raw logs to Event Hubs**
-
-
 ### Sent to origin shield deprecation
 The raw log property **isSentToOriginShield** has been deprecated and replaced by a new field **isReceivedFromClient**. Use the new field if you're already using the deprecated field. 
 
@@ -308,7 +198,54 @@ AzureDiagnostics
 ```
 
 > [!IMPORTANT]
-> The HTTP Raw logs feature is available automatically for any profiles created or updated after **25th February 2020**. For CDN profiles created earlier, one should update the CDN endpoint after setting up logging. For example, one can navigate to geo filtering under CDN endpoints and block any country/region not relevant to their workload and hit save. 
+> The HTTP Raw logs feature is available automatically for any profiles created or updated after **25th February 2020**. For CDN profiles created earlier, one should update the CDN endpoint after setting up logging. For example, one can navigate to geo filtering under CDN endpoints and block any country/region not relevant to their workload and hit save.
+
+
+## Metrics
+Azure CDN from Microsoft is integrated with Azure Monitor and publishes 4 CDN metrics to help track, troubleshoot and debug issues. The Metrics are displayed in charts and also accessible via PowerShell, CLI and API. The CDN metrics are free of charge.
+
+If there are requests flowing through Azure CDN from Microsoft, it measures and sends its metrics in 60-second intervals and takes up to 3 mins to appear in the portal. For more information, see Azure Monitor metrics.
+
+**Metrics supported by Azure CDN from Microsoft**
+
+| Metrics         | Description                                                                                                      | Dimension                                                                                   |
+|-----------------|------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|
+| Bytes Hit ratio* | The percentage of egress from CDN cache, computed against the total egress.                                      | Endpoint                                                                                    |
+| RequestCount    | The number of client requests served by CDN.                                                                     | Endpoint </br> Client country </br> Client region </br> HTTP status </br> HTTP status group |
+| ResponseSize    | The number of bytes sent as responses from CDN edge to clients.                                                  |Endpoint </br> Client country </br> Client region </br> HTTP status </br> HTTP status group                                                                                          |
+| TotalLatency    | The total time from the client request received by CDN **until the last response byte send from CDN to client**. |Endpoint </br> Client country </br> Client region </br> HTTP status </br> HTTP status group                                                                                             |
+
+***Bytes Hit Ration = (egress from edge - egress from origin)/egress from edge**
+
+Scenarios excluded in bytes hit ratio calculation:
+
+* You explicitly configure no cache either through Rules Engine or Query String caching behavior.
+* You explicitly configure cache-control directive with no-store or private cache.
+
+### Metrics configuration
+
+1. From the Azure portal menu, select **All Resources** >> **\<your-CDN-profile>**.
+2. Under **Monitoring**, select **Metrics**.
+3. Select **Add metric**, select the metric to add:
+4. Select **Add filter** to add a filter:
+5. Select **Apply** splitting to see trend by different dimensions:
+6. Select **New chart** to add a new chart:
+
+### Alerting
+You can also setup alerts on Microsoft CDN by clicking on **Alert** and **+ New alert rule** for metrics listed in Metrics section. Alert will be charged based on Azure Monitor. For more details about alerts, please refer to Azure Monitor Alert.
+
+### Additional Metrics
+In addition to default metrics, you can enable additional metrics using Azure Log Analytics and Raw Log for additional cost. For more information about cost, please refer to Azure Monitor.
+
+1. Follow steps above in raw log to send raw log to log analytics.
+2. Click on the Log Analytics workspace you created:
+3. Go to Logs under the Log Analytics Workspace, use Kusto query to retrieve different Metrics.  You can refer to the Microsoft CDN Kusto query samples in Logs under selected Analytics Workspace and do further analysis on additional metrics. You can refer to Help on the upper right to learn more about Kusto query language.
+4. You can also view data by Chart and click Pin to dashboard.
+5. Setup alerts for Metrics of interest. For example, you want to monitor 4XX error code and receive alerts based on your needs.
+6. Add New alert rule per your needs, you can also choose to send notification via email, SMS and secure webhook, webhook, Function, etc. For more details, please refer to Azure Monitor Alert action groups.  
+
+
+ 
 
 ## Next Steps
 In this article, you enabled HTTP raw logs for the Microsoft CDN service.
