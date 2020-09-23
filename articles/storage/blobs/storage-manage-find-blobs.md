@@ -199,7 +199,7 @@ You can authorize access to blob index using one of the following approaches:
 Blob index tags are a sub-resource to the blob data. A user with permissions or a SAS token to read or write blobs may not have access to the blob index tags.
 
 ### Role-based access control
-Callers using an [AAD identity](../common/storage-auth-aad.md) may be granted the following permissions to operate on blob index tags.
+Callers using an [Azure AD identity](../common/storage-auth-aad.md) may be granted the following permissions to operate on blob index tags.
 
 |   Blob operations  |  RBAC action   |
 |--------------------|----------------|
