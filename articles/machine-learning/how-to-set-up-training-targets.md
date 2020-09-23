@@ -65,7 +65,6 @@ Create an experiment in your workspace.
 from azureml.core import Experiment
 
 experiment_name = 'my_experiment'
-
 experiment = Experiment(workspace=ws, name=experiment_name)
 ```
 
