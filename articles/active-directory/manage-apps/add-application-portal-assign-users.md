@@ -50,8 +50,7 @@ To assign users to an app that you added to your Azure AD tenant, you need:
     > If the application doesn't support role selection, the default access role is assigned. In this case, the application manages the level of access users have.
 9. On the **Add Assignment** pane, select the **Assign** button at the bottom of the pane.
 
-> [!NOTE]
-> You can unassign users or groups using the same procedure. Select the user or group you want to unassign and then select **Remove**. Some of the Microsoft 365 and Office 365 apps require the use of PowerShell. 
+You can unassign users or groups using the same procedure. Select the user or group you want to unassign and then select **Remove**. Some of the Microsoft 365 and Office 365 apps require the use of PowerShell. 
 
 ## Clean up resources
 
