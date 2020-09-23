@@ -34,9 +34,15 @@ In this quickstart, you access the Azure App Configuration service from Python i
 
 7. Select **Apply**.
 
-## Store the access key in an environment variable
+## Configure your environment
 
-Set an environment variable named **ConnectionString**, and set it to the access key to your App Configuration store. At the command line, run the following command:
+1. Use pip to install the Azure App Configuration client library for Python:
+
+    ```python
+    pip install azure-appconfiguration
+    ```
+
+2. Set an environment variable named **ConnectionString**, and set it to the access key to your App Configuration store. At the command line, run the following command:
 
 ```cmd
 setx ConnectionString "connection-string-of-your-app-configuration-store"
@@ -55,12 +61,6 @@ export ConnectionString='connection-string-of-your-app-configuration-store'
 ```
 
 Restart the command prompt to allow the change to take effect. Print out the value of the environment variable to validate that it is set properly.
-
-Use pip to install the Azure App Configuration client library for Python:
-
-```python
-pip install azure-appconfiguration
-```
 
 ## Connect to an App Configuration store
 
