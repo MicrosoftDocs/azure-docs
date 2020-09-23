@@ -44,11 +44,11 @@ For the list of supported subscription types, see [Supported subscription types]
 
 **Which Azure regions are supported?**
 
-Managed instances can be created in most of the Azure regions; see [Supported regions for SQL Managed Instance](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). If you need managed instance in a region that is currently not supported, [send a support request via the Azure Portal](../database/quota-increase-request.md).
+Managed instances can be created in most of the Azure regions; see [Supported regions for SQL Managed Instance](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). If you need managed instance in a region that is currently not supported, [send a support request via the Azure portal](../database/quota-increase-request.md).
 
 **Are there any quota limitations for SQL Managed Instance deployments?**
 
-Managed instance has two default limits: limit on the number of subnets you can use and a limit on the number of vCores you can provision. Limits vary across the subscription types and regions. For the list of regional resource limitations by subscription type, see table from [Regional resource limitation](resource-limits.md#regional-resource-limitations). These are soft limits that can be increased on demand. If you need to provision more managed instances in your current regions, send a support request to increase the quota using the Azure Portal. For more information, see [Request quota increases for Azure SQL Database](../database/quota-increase-request.md).
+Managed instance has two default limits: limit on the number of subnets you can use and a limit on the number of vCores you can provision. Limits vary across the subscription types and regions. For the list of regional resource limitations by subscription type, see table from [Regional resource limitation](resource-limits.md#regional-resource-limitations). These are soft limits that can be increased on demand. If you need to provision more managed instances in your current regions, send a support request to increase the quota using the Azure portal. For more information, see [Request quota increases for Azure SQL Database](../database/quota-increase-request.md).
 
 **Can I increase the number of databases limit (100) on my managed instance on demand?**
 
@@ -76,7 +76,7 @@ For new and preview features, see [Release notes](../database/doc-changes-update
 
 **How can I provision SQL Managed Instance?**
 
-You can provision an instance from [Azure Portal](instance-create-quickstart.md), [PowerShell](scripts/create-configure-managed-instance-powershell.md), [Azure CLI](https://techcommunity.microsoft.com/t5/azure-sql-database/create-azure-sql-managed-instance-using-azure-cli/ba-p/386281) and [ARM templates](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/creating-azure-sql-managed-instance-using-arm-templates).
+You can provision an instance from [Azure portal](instance-create-quickstart.md), [PowerShell](scripts/create-configure-managed-instance-powershell.md), [Azure CLI](https://techcommunity.microsoft.com/t5/azure-sql-database/create-azure-sql-managed-instance-using-azure-cli/ba-p/386281) and [ARM templates](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/creating-azure-sql-managed-instance-using-arm-templates).
 
 **Can I provision Managed Instances in an existing subscription?**
 
@@ -88,7 +88,7 @@ This is a current limitation on underlying component that verifies subnet name a
 
 **How can I scale my managed instance?**
 
-You can scale your managed instance from [Azure Portal](../database/service-tiers-vcore.md?tabs=azure-portal#selecting-a-hardware-generation), [PowerShell](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/change-size-azure-sql-managed-instance-using-powershell), [Azure CLI](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-update&preserve-view=true) or [ARM templates](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/updating-azure-sql-managed-instance-properties-using-arm-templates).
+You can scale your managed instance from [Azure portal](../database/service-tiers-vcore.md?tabs=azure-portal#selecting-a-hardware-generation), [PowerShell](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/change-size-azure-sql-managed-instance-using-powershell), [Azure CLI](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-update&preserve-view=true) or [ARM templates](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/updating-azure-sql-managed-instance-properties-using-arm-templates).
 
 **Can I move my Managed Instance from one region to another?**
 
@@ -96,7 +96,7 @@ Yes, you can. For instructions, see [Move resources across regions](../database/
 
 **How can I delete my Managed Instance?**
 
-You can delete Managed Instances via Azure Portal, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstance?view=azps-4.3.0&preserve-view=true), [Azure CLI](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-delete&preserve-view=true) or [Resource Manager REST APIs](https://docs.microsoft.com/rest/api/sql/managedinstances/delete).
+You can delete Managed Instances via Azure portal, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstance?view=azps-4.3.0&preserve-view=true), [Azure CLI](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-delete&preserve-view=true) or [Resource Manager REST APIs](https://docs.microsoft.com/rest/api/sql/managedinstances/delete).
 
 **How much time does it take to create or update an instance, or to restore a database?**
 
@@ -320,7 +320,7 @@ Management and deployment services connect to a managed instance by using a [man
 
 **Could I use the public endpoint to access the data in Managed Instance databases?**
 
-Yes. The customer will need to enable public endpoint data access from [Azure Portal](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-in-the-azure-portal) / [PowerShell](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-using-powershell) / ARM and configure NSG to lock down access to the data port (port number 3342). For more information, see [Configure public endpoint in Azure SQL Managed Instance](public-endpoint-configure.md) and [Use Azure SQL Managed Instance securely with public endpoint](public-endpoint-overview.md). 
+Yes. The customer will need to enable public endpoint data access from [Azure portal](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-in-the-azure-portal) / [PowerShell](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-using-powershell) / ARM and configure NSG to lock down access to the data port (port number 3342). For more information, see [Configure public endpoint in Azure SQL Managed Instance](public-endpoint-configure.md) and [Use Azure SQL Managed Instance securely with public endpoint](public-endpoint-overview.md). 
 
 **Can I specify a custom port for SQL data endpoint(s)?**
 
@@ -330,7 +330,7 @@ No, this option is not available.  For private data endpoint, Managed Instance u
 
 Express Route circuit peering is the preferred way to do that. This is not to be mixed with the cross-region virtual network peering that is not supported due to internal load balancer related [constraint](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
 
-If Express Route circuit peering is not possible, the only other option is to create Site-to-Site VPN connection ([Azure Portal](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal), [PowerShell](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell), [Azure CLI](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli)).
+If Express Route circuit peering is not possible, the only other option is to create Site-to-Site VPN connection ([Azure portal](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal), [PowerShell](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell), [Azure CLI](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli)).
 
 ## Mitigate data exfiltration risks  
 
@@ -434,7 +434,7 @@ To explore Managed Instance pricing options, see [Pricing page](https://azure.mi
 
 **How can I track billing cost for my managed instance?**
 
-You can do so using the [Azure Cost Management solution](https://docs.microsoft.com/azure/cost-management-billing/). Navigate to **Subscriptions** in the [Azure Portal](https://portal.azure.com) and select **Cost Analysis**. 
+You can do so using the [Azure Cost Management solution](https://docs.microsoft.com/azure/cost-management-billing/). Navigate to **Subscriptions** in the [Azure portal](https://portal.azure.com) and select **Cost Analysis**. 
 
 Use the **Accumulated costs** option and then filter by the **Resource type** as `microsoft.sql/managedinstances`.
 
@@ -444,7 +444,7 @@ You get the equal amount of free backup storage space as the reserved data stora
 
 **How can I monitor billing cost for my backup storage consumption?**
 
-You can monitor cost for backup storage via Azure Portal. For instructions, see [Monitor costs for automated backups](https://docs.microsoft.com/azure/azure-sql/database/automated-backups-overview?tabs=managed-instance#monitor-costs). 
+You can monitor cost for backup storage via Azure portal. For instructions, see [Monitor costs for automated backups](https://docs.microsoft.com/azure/azure-sql/database/automated-backups-overview?tabs=managed-instance#monitor-costs). 
 
 **How can I optimize my backup storage costs on the managed instance?**
 
