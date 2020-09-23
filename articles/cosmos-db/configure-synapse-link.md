@@ -19,8 +19,8 @@ Synapse Link for Azure Cosmos DB is a cloud-native hybrid transactional and anal
 Azure Synapse Link is available for Azure Cosmos DB SQL API containers or for Azure Cosmos DB API for Mongo DB collections. Use the following steps to run analytical queries with the Azure Synapse Link for Azure Cosmos DB:
 
 * [Enable Synapse Link for your Azure Cosmos DB accounts](#enable-synapse-link)
-* [Create an analytical store enabled Azure Cosmos container](#create-analytical-ttl)
-* [Connect your Azure Cosmos database to a Synapse workspace](#connect-to-cosmos-database)
+* [Create an analytical store enabled Azure Cosmos DB container](#create-analytical-ttl)
+* [Connect your Azure Cosmos DB database to a Synapse workspace](#connect-to-cosmos-database)
 * [Query the analytical store using Synapse Spark](#query-analytical-store-spark)
 * [Query the analytical store using Synapse SQL serverless](#query-analytical-store-sql-on-demand)
 * [Use Synapse SQL serverless to analyze and visualize data in Power BI](#analyze-with-powerbi)
