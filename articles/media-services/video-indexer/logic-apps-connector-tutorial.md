@@ -6,7 +6,7 @@ manager: johndeu
 ms.author: alzam
 ms.service: media-services
 ms.subservice: video-indexer
-ms.topic: tutorial #Required
+ms.topic: tutorial #required
 ms.date: 05/01/2020
 ---
 

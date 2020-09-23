@@ -10,59 +10,70 @@ ms.author: gopalv
 
 The entry script receives data submitted to a deployed web service and passes it to the model. It then takes the response returned by the model and returns that to the client. *The script is specific to your model*. It must understand the data that the model expects and returns.
 
-The script contains two functions that load and run the model:
+The two things you need to accomplish in your entry script are:
 
-* `init()`: Typically, this function loads the model into a global object. This function is run only once, when the Docker container for your web service is started.
+1. Loading your model (using a function called `init()`)
+1. Running your model on input data (using a function called `run()`)
 
-* `run(input_data)`: This function uses the model to predict a value based on the input data. Inputs and outputs of the run typically use JSON for serialization and deserialization. You can also work with raw binary data. You can transform the data before sending it to the model or before returning it to the client.
+Let's go through these steps in detail.
 
-The REST API expects the body of the request to be a JSON document with the following structure:
+### Writing init() 
+
+#### Loading a registered model
+
+Your registered models are stored at a path pointed to by an environment variable called `AZUREML_MODEL_DIR`. For more information on the exact directory structure, see [Locate model files in your entry script](../articles/machine-learning/how-to-deploy-advanced-entry-script.md#load-registered-models)
+
+#### Loading a local model
+
+If you opted against registering your model and passed your model as part of your source directory, you can read it in like you would locally, by passing the path to the model relative to your scoring script. For example, if you had a directory structured as:
+
+```bash
+
+- source_dir
+    - score.py
+    - models
+        - model1.onnx
+
+```
+
+you could load your models with the following Python code:
+
+```python
+import os
+
+model = open(os.path.join('.', 'models', 'model1.onnx'))
+```
+
+#### Writing run()
+
+`run()` is executed every time your model receives a scoring request, and expects the body of the request to be a JSON document with the following structure:
 
 ```json
 {
-    "data":
-        [
-            <model-specific-data-structure>
-        ]
+    "data": <model-specific-data-structure>
 }
+
 ```
+
+The input to `run()` is a Python string containing whatever follows the "data" key.
 
 The following example demonstrates how to load a registered scikit-learn model and score it with numpy data:
 
 ```python
-#Example: scikit-learn and Swagger
 import json
 import numpy as np
 import os
 from sklearn.externals import joblib
-from sklearn.linear_model import Ridge
-
-from inference_schema.schema_decorators import input_schema, output_schema
-from inference_schema.parameter_types.numpy_parameter_type import NumpyParameterType
 
 
 def init():
     global model
-    # AZUREML_MODEL_DIR is an environment variable created during deployment. Join this path with the filename of the model file.
-    # It holds the path to the directory that contains the deployed model (./azureml-models/$MODEL_NAME/$VERSION).
-    # If there are multiple models, this value is the path to the directory containing all deployed models (./azureml-models).
     model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'sklearn_mnist_model.pkl')
-
-    # If your model were stored in the same directory as your score.py, you could also use the following:
-    # model_path = os.path.abspath(os.path.join(os.path.dirname(__file_), 'sklearn_mnist_model.pkl')
-
-    # Deserialize the model file back into a sklearn model
     model = joblib.load(model_path)
 
-
-input_sample = np.array([[10, 9, 8, 7, 6, 5, 4, 3, 2, 1]])
-output_sample = np.array([3726.995])
-
-
-@input_schema('data', NumpyParameterType(input_sample))
-@output_schema(NumpyParameterType(output_sample))
 def run(data):
     try:
+        data = np.array(json.loads(data))
         result = model.predict(data)
         # You can return any data type, as long as it is JSON serializable.
         return result.tolist()
@@ -71,11 +82,4 @@ def run(data):
         return error
 ```
 
-For more examples, see the following scripts:
-
-* [PyTorch](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/pytorch)
-* [TensorFlow](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/tensorflow)
-* [Keras](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras)
-* [AutoML](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features)
-* [ONNX](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx/)
-* [Binary Data](../articles/machine-learning/how-to-deploy-advanced-entry-script.md#binary-data)
+For more advanced examples, including automatic Swagger schema generation and binary (i.e. image) data, read [the article on advanced entry script authoring](../articles/machine-learning/how-to-deploy-advanced-entry-script.md)

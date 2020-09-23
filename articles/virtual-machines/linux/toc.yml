@@ -362,6 +362,9 @@
       href: ../../bastion/bastion-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
   - name: States and lifecycle
     href: ../states-lifecycle.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+  - name: PUT calls for create or update operations
+    href: ../put-calls-create-or-update.md
+    maintainContext: true
   - name: Monitoring
     href: ../../azure-monitor/insights/monitor-vm-azure.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
   - name: Boot diagnostics
@@ -372,6 +375,8 @@
     href: /azure/cloud-adoption-framework/get-started/
   - name: Architecture center
     href: /azure/architecture/
+  - name: Azure Hybrid Benefit
+    href: azure-hybrid-benefit-linux.md
 - name: How-to guides
   items:
   - name: Create VMs
@@ -532,7 +537,7 @@
         - name: Create a VM from Image Version
           href: https://azure.microsoft.com/resources/templates/101-vm-from-sig/
       - name: Troubleshoot shared images
-        href: troubleshooting-shared-images.md
+        href: ../troubleshooting-shared-images.md
       - name: Using customer-managed keys
         displayName: SSE, CMK, encrypt
         href: ../image-version-encryption.md
@@ -615,6 +620,8 @@
         href: how-to-verify-encryption-status.md
       - name: How to configure LVM RAID on crypt
         href: how-to-configure-lvm-raid-on-crypt.md
+      - name: How to resize encrypted lvm volumes
+        href: how-to-resize-encrypted-lvm.md
       - name: Disk encryption troubleshooting
         href: disk-encryption-troubleshooting.md
       - name: Disk encryption FAQ
@@ -955,6 +962,8 @@
         href: add-disk.md
       - name: Azure portal
         href: attach-disk-portal.md
+    - name: Change disk tier
+      href: ../disks-performance-tiers.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Detach a disk
       href: detach-disk.md
     - name: Deploy disks with ARM template
