@@ -11,7 +11,7 @@ keywords: azure media services, stream
 ms.service: media-services
 ms.workload: media
 ms.topic: tutorial
-ms.custom: mvc, devx-track-javascript
+ms.custom: mvc, devx-track-js
 ms.date: 08/31/2020
 ms.author: inhenkel
 #Customer intent: As a developer, I want to create a Media Services account so that I can store, encrypt, encode, manage, and stream media content in Azure.
@@ -71,7 +71,7 @@ The sample performs the following actions:
 
 After it is done running, you should see similar output:
 
-![Run](./media/stream-files-nodejs-quickstart/run.png)
+![Screenshot of a command window with output from the StreamFileSample sample app showing the URLs of three files downloaded to the local directory.](./media/stream-files-nodejs-quickstart/run.png)
 
 ## Test with Azure Media Player
 

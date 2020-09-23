@@ -6,7 +6,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 03/13/2020
+ms.date: 09/13/2020
 ms.author: memildin
 
 ---
