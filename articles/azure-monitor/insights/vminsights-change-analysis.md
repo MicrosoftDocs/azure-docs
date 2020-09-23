@@ -5,7 +5,7 @@ ms.subservice:
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 07/27/2020
+ms.date: 09/23/2020
 
 ---
 
@@ -21,7 +21,7 @@ The Application Change Analysis service aggregates changes from [Azure Resource 
 To onboard change analysis in Azure Monitor for VMs, you must register the *Microsoft.ChangeAnalysis* resource provider. The first time you launch Azure Monitor for VMs or Application Change Analysis in the Azure portal, this resource provider will automatically be registered for you. Application Change Analysis is a free service that has no performance overhead on resources.
 
 ## View change analysis
-Change analysis is available from the **Performance** tab of Azure Monitor for VMs by selecting the **Change** option. 
+Change analysis is available from the **Performance** or **Map** tab of Azure Monitor for VMs by selecting the **Change** option. 
 
 [![Investigate changes](media/vminsights-change-analysis/investigate-changes.png)](media/vminsights-change-analysis/investigate-changes-zoom.png#lightbox)
 
