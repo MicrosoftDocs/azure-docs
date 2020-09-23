@@ -71,7 +71,7 @@ To build, extend, and develop the IoT Plug and Play bridge you'll need:
 
 ## IoT Plug and Play bridge Architecture
 
-:::image type="content" source="media/concepts-iot-pnp-bridge/iot-pnp-bridge-components.png" alt-text="On the left hand side there are several boxes indicating various peripherals attached to a Windows or Linux PC containing IoT Plug and Play bridge. From the top, a box labelled configuration points toward the bridge. The bridge then connects to an IoT hub on the right side of the diagram.":::
+:::image type="content" source="media/concepts-iot-pnp-bridge/iot-pnp-bridge-components.png" alt-text="On the left hand side there are several boxes indicating various peripherals attached to a Windows or Linux PC containing IoT Plug and Play bridge. From the top, a box labeled configuration points toward the bridge. The bridge then connects to an IoT hub on the right side of the diagram.":::
 
 ## Download IoT Plug and Play bridge
 
