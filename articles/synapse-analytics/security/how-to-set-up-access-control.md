@@ -91,8 +91,8 @@ The Synapse workspace needs access to STG1 and CNT1 so it can run pipelines and 
 
 - Open the Azure portal
 - Navigate to WS1
-- Under **Settings**, click **SQL Active Directory admin**
-- Click **Set admin** and choose WS1\_SQLAdmins
+- Under **Settings**, select **SQL Active Directory admin**
+- Select **Set admin** and choose WS1\_SQLAdmins
 
 ## STEP 6: Maintain access control
 
@@ -117,8 +117,9 @@ Users in each role need to complete the following steps:
 
 > [!NOTE]
 > [1] To create SQL or Spark pools the user must have at least Contributor role on the Synapse workspace.
-> [!TIP]
 >
+ 
+>[!TIP]
 > - Some steps will deliberately not be allowed depending on the role.
 > - Keep in mind that some tasks may fail if the security was not fully configured. These tasks are noted in the table.
 

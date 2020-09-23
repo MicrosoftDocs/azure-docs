@@ -39,7 +39,7 @@ Use the following steps to run analytical queries with the Synapse Link for Azur
 
    :::image type="content" source="./media/configure-synapse-link/find-synapse-link-feature.png" alt-text="Find Synapse Link preview feature":::
 
-1. Next it prompts you to enable synapse link on your account. Select Enable.
+1. Next it prompts you to enable synapse link on your account. Select **Enable**. This process can take 1 to 5 minutes to complete.
 
    :::image type="content" source="./media/configure-synapse-link/enable-synapse-link-feature.png" alt-text="Enable Synapse Link feature":::
 
@@ -65,9 +65,11 @@ You can turn on analytical store on an Azure Cosmos container while creating the
 
    :::image type="content" source="./media/configure-synapse-link/create-container-analytical-store.png" alt-text="Turn on analytical store for Azure Cosmos container":::
 
-1. If you have previously not enabled Synapse Link on this account, it will prompt you to do so because it's a pre-requisite to create an analytical store enabled container. If prompted, select **Enable Synapse Link**.
+1. If you have previously not enabled Synapse Link on this account, it will prompt you to do so because it's a pre-requisite to create an analytical store enabled container. If prompted, select **Enable Synapse Link**. This process can take 1 to 5 minutes to complete.
 
 1. Select **OK**, to create an analytical store enabled Azure Cosmos container.
+
+1. After the container is created, verify that analytical store has been enabled by clicking **Settings**, right below Documents in Data Explorer, and check if the **Analytical Store Time to Live** option is turned on.
 
 ### .NET SDK
 
@@ -210,7 +212,7 @@ Use the instructions in the [Query Azure Cosmos DB analytical store](../synapse-
 
 ## <a id="query-analytical-store-sql-on-demand"></a> Query the analytical store using Synapse SQL serverless
 
-Synapse SQL serverless (a preview feature which, was previously referred to as **SQL on-demand**) allows you to query and analyze data in your Azure Cosmos DB containers that are enabled with Azure Synapse Link. You can analyze data in near real-time without impacting the performance of your transactional workloads. It offers a familiar T-SQL syntax to query data from the analytical store and integrated connectivity to a wide range of BI and ad-hoc querying tools via the T-SQL interface. To learn more, see the [Query analytical store using Synapse SQL serverless](../synapse-analytics/sql/on-demand-workspace-overview.md) article.
+Synapse SQL serverless (a preview feature which, was previously referred to as **SQL on-demand**) allows you to query and analyze data in your Azure Cosmos DB containers that are enabled with Azure Synapse Link. You can analyze data in near real-time without impacting the performance of your transactional workloads. It offers a familiar T-SQL syntax to query data from the analytical store and integrated connectivity to a wide range of BI and ad-hoc querying tools via the T-SQL interface. To learn more, see the [Query analytical store using Synapse SQL serverless](../synapse-analytics/sql/query-cosmos-db-analytical-store.md) article.
 
 > [!NOTE]
 > Using the Azure Cosmos DB analytic store with Synapse SQL serverless is currently under gated preview. To request access, reach out to the [Azure Cosmos DB team](mailto:cosmosdbsynapselink@microsoft.com).

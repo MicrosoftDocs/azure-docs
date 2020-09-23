@@ -71,7 +71,7 @@ The sample performs the following actions:
 
 After it is done running, you should see similar output:
 
-![Run](./media/stream-files-nodejs-quickstart/run.png)
+![Screenshot of a command window with output from the StreamFileSample sample app showing the URLs of three files downloaded to the local directory.](./media/stream-files-nodejs-quickstart/run.png)
 
 ## Test with Azure Media Player
 

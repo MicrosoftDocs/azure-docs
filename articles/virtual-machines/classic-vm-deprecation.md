@@ -60,7 +60,7 @@ Start planning your migration to Azure Resource Manager, today.
 
 - [Azure Migration Support](https://ms.portal.azure.com/#create/Microsoft.Support/Parameters/{"pesId":"6f16735c-b0ae-b275-ad3a-03479cfa1396","supportTopicId":"1135e3d0-20e2-aec5-4ef0-55fd3dae2d58"}): Dedicated support team for technical assistance during migration.
 
-- [Microsoft Fast Track](https://www.microsoft.com/fasttrack): Team that can provide technical assistance during migration to eligible customers. 
+- [Microsoft Fast Track](https://www.microsoft.com/fasttrack): Fast track can assist eligible customers with planning & execution of this migration. [Nominate yourself](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fprograms%2Fazure-fasttrack%2F%23nomination&data=02%7C01%7CTanmay.Gore%40microsoft.com%7C3e75bbf3617944ec663a08d85c058340%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637360526032558561&sdata=CxWTVQQPVWNwEqDZKktXzNV74pX91uyJ8dY8YecIgGc%3D&reserved=0).  
 
-If your company/organization has partnered with Microsoft or works with Microsoft representatives (like cloud solution architects (CSAs) or technical account managers (TAMs)), please work with them for additional resources for migration. 
+- If your company/organization has partnered with Microsoft or works with Microsoft representatives (like cloud solution architects (CSAs) or technical account managers (TAMs)), please work with them for additional resources for migration. 
 

@@ -34,7 +34,7 @@ Your first step is to enable content trust at the registry level. Once you enabl
 
 To enable content trust for your registry, first navigate to the registry in the Azure portal. Under **Policies**, select **Content Trust** > **Enabled** > **Save**. You can also use the [az acr config content-trust update][az-acr-config-content-trust-update] command in the Azure CLI.
 
-![Enabling content trust for a registry in the Azure portal][content-trust-01-portal]
+![Screenshot shows enabling content trust for a registry in the Azure portal.][content-trust-01-portal]
 
 ## Enable client content trust
 
