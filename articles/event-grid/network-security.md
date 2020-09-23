@@ -1,6 +1,6 @@
 ---
 title: Network security for Azure Event Grid resources
-description: This article describes how to configure access from private endpoints
+description: This article describes how to use service tags for egress, IP firewall rules for ingress, and private endpoints for ingress with Azure Event Grid.
 author: VidyaKukke
 ms.topic: conceptual
 ms.date: 07/07/2020

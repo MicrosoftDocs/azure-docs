@@ -76,6 +76,15 @@ The following is a high-level migration plan.
 5. Test your migrated application.
 6. Deploy your migrated application to production.
 
+## Create an Azure Maps account
+
+To create an Azure Maps account and get access to the Azure Maps platform, follow these steps:
+
+1. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+2. Sign in to the [Azure portal](https://portal.azure.com/).
+3. Create an [Azure Maps account](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys). 
+4. [Get your Azure Maps subscription key](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication#view-authentication-details) or setup Azure Active Directory authentication for enhanced security.
+
 ## Azure Maps technical resources
 
 Here is a list of useful technical resources for Azure Maps.

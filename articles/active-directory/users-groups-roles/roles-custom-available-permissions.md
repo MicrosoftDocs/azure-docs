@@ -1,6 +1,6 @@
 ---
-title: Available custom admin role permissions - Azure AD | Microsoft Docs
-description: Custom administrator role permissions for delegating identity management. 
+title: Custom role permissions for app registration - Azure AD | Microsoft Docs
+description: Delegate custom administrator role permissions for managing app registrations. 
 services: active-directory
 author: curtand
 manager: daveba
@@ -8,22 +8,22 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 11/08/2019
+ms.date: 09/22/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# Application registration subtypes and permissions in Azure Active Directory
+# Application registration permissions for custom roles in Azure Active Directory
 
 This article contains the currently available app registration permissions for custom role definitions in Azure Active Directory (Azure AD).
 
-## Permissions for managing single-directory applications
+## Permissions for managing single-tenant applications
 
-When choosing the permissions for your custom role, you have the option to grant access to manage only single-directory applications. Single-directory applications are available only to users in the Azure AD organization where the application is registered. Single-directory applications are defined as having **Supported account types** set to "Accounts in this organizational directory only." In the Graph API, single-directory applications have the signInAudience property set to "AzureADMyOrg."
+When choosing the permissions for your custom role, you have the option to grant access to manage only single-tenant applications. single-tenant applications are available only to users in the Azure AD organization where the application is registered. single-tenant applications are defined as having **Supported account types** set to "Accounts in this organizational directory only." In the Graph API, single-tenant applications have the signInAudience property set to "AzureADMyOrg."
 
-To grant access to manage only single-directory applications, use the permissions below with the subtype **applications.myOrganization**. For example, microsoft.directory/applications.myOrganization/basic/update.
+To grant access to manage only single-tenant applications, use the permissions below with the subtype **applications.myOrganization**. For example, microsoft.directory/applications.myOrganization/basic/update.
 
 See the [custom roles overview](roles-custom-overview.md) for an explanation of what the general terms subtype, permission, and property set mean. The following information is specific to application registrations.
 
@@ -90,7 +90,7 @@ Grants the same permissions as microsoft.directory/applications/standard/read, b
 
 #### microsoft.directory/applications/allProperties/update
 
-Ability to update all properties on single-directory and multi-directory applications.
+Ability to update all properties on single-tenant and multi-tenant applications.
 
 #### microsoft.directory/applications.myOrganization/allProperties/update
 
@@ -98,7 +98,7 @@ Grants the same permissions as microsoft.directory/applications/allProperties/up
 
 #### microsoft.directory/applications/audience/update
 
-Ability to update the supported account type (signInAudience) property on single-directory and multi-directory applications.
+Ability to update the supported account type (signInAudience) property on single-tenant and multi-tenant applications.
 
 ![This permission grants access to app registration supported account type property on authentication page](./media/roles-custom-available-permissions/supported-account-types.png)
 
@@ -134,7 +134,7 @@ Ability to update the certificates and client secrets properties on single-tenan
 
 #### microsoft.directory/applications.myOrganization/credentials/update
 
-Grants the same permissions as microsoft.directory/applications/credentials/update, but only for single-directory applications.
+Grants the same permissions as microsoft.directory/applications/credentials/update, but only for single-tenant applications.
 
 #### microsoft.directory/applications/owners/update
 

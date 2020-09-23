@@ -138,4 +138,4 @@ To update Azure Machine Learning to use the new key, use the following steps:
 
 ## Next steps
 
-For more information on registering datastores, see the [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py&preserve-view=true) class reference.
+For more information on registering datastores, see the [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore%28class%29?view=azure-ml-py&preserve-view=true) class reference.

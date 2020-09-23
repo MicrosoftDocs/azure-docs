@@ -91,7 +91,7 @@ Core and memory correspond to the `--cpus` and `--memory` settings, which are us
 
 ## Request approval to the run the container
 
-Fill out and submit the [request form](https://aka.ms/cognitivegate) to request access to the container. 
+Fill out and submit the [request form](https://aka.ms/csgate) to request access to the container. 
 
 [!INCLUDE [Request access to public preview](../../../includes/cognitive-services-containers-request-access.md)]
 

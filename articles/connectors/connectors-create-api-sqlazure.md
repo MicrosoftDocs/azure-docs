@@ -74,7 +74,7 @@ The first time that you add either a [SQL trigger](#add-sql-trigger) or [SQL act
 
    This example continues with **Azure AD Integrated**:
 
-   ![Select authentication type to use](./media/connectors-create-api-sqlazure/select-azure-ad-authentication.png)
+   ![Screenshot that shows the "SQL Server" connection window with the opened "Authentication Type" list and "Azure AD Integrated" selected.](./media/connectors-create-api-sqlazure/select-azure-ad-authentication.png)
 
 1. After you select **Azure AD Integrated**, select **Sign In**. Based on whether you use Azure SQL Database or Azure SQL Managed Instance, select your user credentials for authentication.
 

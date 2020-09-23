@@ -3,7 +3,7 @@ title: Exempt a resource from Azure Security Center security recommendations and
 description: Learn how to exempt a resource from security recommendations and the secure score
 author: memildin
 ms.author: memildin
-ms.date: 9/12/2020
+ms.date: 9/22/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin

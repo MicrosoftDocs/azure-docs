@@ -94,7 +94,7 @@ The following steps help you create an ExpressRoute circuit from the ExpressRout
 
 1. In the ExpressRoute Direct **Settings** section, select **Circuits**, and then select **+Add**. 
 
-    :::image type="content" source="./media/how-to-expressroute-direct-portal/add.png" alt-text="Add" lightbox="./media/how-to-expressroute-direct-portal/add-expand.png":::
+    :::image type="content" source="./media/how-to-expressroute-direct-portal/add.png" alt-text="Screenshot shows the ExpressRoute Settings with Circuits selected and Add highlighted." lightbox="./media/how-to-expressroute-direct-portal/add-expand.png":::
 
 1. Configure the settings in the **Configuration** page.
 
