@@ -84,7 +84,7 @@ When you use Microsoft.Identity.Web, you have three cases:
                 });
             return View(value);
         }
-   ```CSharp
+   ```
 
    The `CallWebApiForUserAsync` also has strongly typed generic overrides that enable you to directly receive an object.
    For instance the following method received a `Todo` instance, which is a strongly typed representation of the JSON 
