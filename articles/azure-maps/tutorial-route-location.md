@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.custom: mvc, devx-track-javascript
+ms.custom: mvc, devx-track-js
 ---
 
 # Tutorial: How to display route directions using Azure Maps Route service and Map control

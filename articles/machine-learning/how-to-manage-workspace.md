@@ -82,6 +82,11 @@ To create a workspace, you need an Azure subscription. If you don't have an Azur
     > 3. Select __Add__. From the __Add virtual network link__ page, provide a unique __Link name__, and then select the __Virtual network__ to be added. Select __OK__ to add the network link.	
     >	
     > For more information, see [Azure Private Endpoint DNS configuration](/azure/private-link/private-endpoint-dns).	
+
+### Vulnerability scanning
+
+Azure Security Center provides unified security management and advanced threat protection across hybrid cloud workloads. You should allow Azure Security Center to scan your resources and follow its recommendations. For more, see  [Azure Container Registry image scanning by Security Center](https://docs.microsoft.com/azure/security-center/azure-container-registry-integration) and [Azure Kubernetes Services integration with Security Center](https://docs.microsoft.com/azure/security-center/azure-kubernetes-service-integration).
+
 ### Advanced	
 
 By default, metrics and metadata for the workspace is stored in an Azure Cosmos DB instance that Microsoft maintains. This data is encrypted using Microsoft-managed keys. 	

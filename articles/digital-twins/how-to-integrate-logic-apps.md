@@ -37,9 +37,9 @@ The rest of this section will walk you through these steps:
 
 To connect an Azure Digital Twins instance to Logic Apps in this article, you'll need to have the **Azure Digital Twins instance** already set up. 
 
-If you need to set up a new instance now, the simplest way to do so is to run an automated deployment script sample. Follow the instructions in [*How-to: Set up an instance and authentication (scripted)*](how-to-set-up-instance-scripted.md) to set up a new instance and the required Azure AD app registration. The instructions also contain steps to verify that you have completed each step successfully and are ready to move on to using your new instance.
+First, set up an Azure Digital Twins instance and the required authentication to be able to work with it. To do this, follow the instructions in [*How-to: Set up an instance and authentication*](how-to-set-up-instance-portal.md). Depending on your preferred experience, the setup article is offered for the [Azure portal](how-to-set-up-instance-portal.md), [CLI](how-to-set-up-instance-cli.md), or [automated Cloud Shell deployment script sample](how-to-set-up-instance-scripted.md). All versions of the instructions also contain steps to verify that you have completed each step successfully and are ready to move on to using your new instance.
 
-In this tutorial, you will need the following values from when you set up your instance. 
+In this tutorial, you will need several values from when you set up your instance. 
 If you need to gather these values again, use the links below to the corresponding sections in the setup article for finding them in the [Azure portal](https://portal.azure.com).
 * Azure Digital Twins instance **_host name_** ([find in portal](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))
 * Azure AD app registration **_Application (client) ID_** ([find in portal](how-to-set-up-instance-portal.md#collect-important-values))
