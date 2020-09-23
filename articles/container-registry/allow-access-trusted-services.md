@@ -2,7 +2,7 @@
 title: Access network-restricted registry with trusted service
 description: Enable a trusted service instance to securely access a network-restricted container registry using a system-assigned managed identity 
 ms.topic: article
-ms.date: 09/15/2020
+ms.date: 09/23/2020
 ---
 
 # Allow trusted services to securely access a network-restricted container registry
@@ -35,7 +35,7 @@ The following services are allowed to access a network-restricted container regi
 |Trusted service  |Supported usage scenarios  |
 |---------|---------|
 |ACR Tasks     | [Access a registry in an ACR Task](container-registry-tasks-cross-registry-authentication.md)       |
-|Machine Learning | [Deploy model from a workspace]() | [Deploy](../machine-learning/how-to-deploy-custom-docker-image/.md) or [train](../machine-learning/how-to-train-with-custom-image.md) a model in a Machine Learning workspace using a custom Docker container image |
+|Machine Learning | [Deploy model from a workspace]() | [Deploy](../machine-learning/how-to-deploy-custom-docker-image.md) or [train](../machine-learning/how-to-train-with-custom-image.md) a model in a Machine Learning workspace using a custom Docker container image |
 |Azure Container Registry | [Import images from another Azure container registry](container-registry-import-images.md#import-from-another-azure-container-registry) | 
 
 
