@@ -26,15 +26,13 @@ To avoid the requirement to install the Azure CLI locally, you can use the Azure
 Create an Azure resource group for the resources:
 
 ```azurecli-interactive
-az group create --name my-pnp-resourcegroup \
-    --location centralus
+az group create --name my-pnp-resourcegroup --location centralus
 ```
 
 Create an IoT hub. The following command uses the name `my-pnp-hub` as an example for the name of the IoT hub to create. Choose a unique name for your IoT hub to use in place of `my-pnp-hub`:
 
 ```azurecli-interactive
-az iot hub create --name my-pnp-hub \
-    --resource-group my-pnp-resourcegroup --sku F1 --partition-count 2
+az iot hub create --name my-pnp-hub --resource-group my-pnp-resourcegroup --sku F1 --partition-count 2
 ```
 
 Create a DPS instance. The following command uses the name `my-pnp-dps` as an example for the name of the DPS instance to create. Choose a unique name for your DPS instance to use in place of `my-pnp-dps`:
@@ -46,7 +44,7 @@ az iot dps create --name my-pnp-dps --resource-group my-pnp-resourcegroup
 To link the DPS instance to your IoT hub, use the following commands. Replace `my-pnp-dps` and `my-pnp-hub` with the unique names you chose previously:
 
 ```azurecli-interactive
-hubConnectionString=$(az iot hub show-connection-string --name my-pnp-hub --key primary --query connectionString -o tsv)
+hubConnectionString=$(az iot hub connection-string show -n my-pnp-hub --key primary --query connectionString -o tsv)
 az iot dps linked-hub create --dps-name my-pnp-dps --resource-group my-pnp-resourcegroup --location centralus --connection-string $hubConnectionString
 ```
 
@@ -55,7 +53,7 @@ az iot dps linked-hub create --dps-name my-pnp-dps --resource-group my-pnp-resou
 Some quickstarts and tutorials use the connection string for your IoT hub. You also need the connection string when you set up the Azure IoT explorer tool. Retrieve the connection string and make a note of it now. Replace `my-pnp-hub` with the unique name you chose for your IoT hub:
 
 ```azurecli-interactive
-az iot hub show-connection-string --name my-pnp-hub --key primary --query connectionString
+az iot hub connection-string show -n my-pnp-hub --key primary --query connectionString
 ```
 
 Most of the quickstarts and tutorials use the *ID scope* of your DPS configuration. Retrieve the ID scope and make a note of it now. Replace `my-pnp-dps` with the unique name you chose for your DPS instance:
@@ -94,6 +92,7 @@ export IOTHUB_DEVICE_DPS_DEVICE_ID="my-pnp-device"
 export IOTHUB_DEVICE_DPS_DEVICE_KEY="<Your enrolment primary key>"
 export IOTHUB_CONNECTION_STRING="<Your IoT hub connection string>"
 export IOTHUB_DEVICE_ID="my-pnp-device"
+export DEVICE_ID="my-pnp-device"
 ```
 
 For example, at the Windows command line:
@@ -105,6 +104,7 @@ set IOTHUB_DEVICE_DPS_DEVICE_ID=my-pnp-device
 set IOTHUB_DEVICE_DPS_DEVICE_KEY=<Your enrolment primary key>
 set IOTHUB_CONNECTION_STRING=<Your IoT hub connection string>
 set IOTHUB_DEVICE_ID=my-pnp-device
+set DEVICE_ID=my-pnp-device
 ```
 
 ## Download the model files

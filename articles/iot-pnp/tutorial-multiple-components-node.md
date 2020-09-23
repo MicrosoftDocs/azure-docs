@@ -32,7 +32,7 @@ node --version
 
 ## Download the code
 
-In this tutorial, you prepare a development environment you can use to clone and build the Azure IoT Hub Device SDK for Node.js.
+If you completed [Quickstart: Connect a sample IoT Plug and Play device application running on Windows to IoT Hub (Node)](quickstart-connect-device-node.md), you've already cloned the repository.
 
 Open a command prompt in the directory of your choice. Execute the following command to clone the [Microsoft Azure IoT SDK for Node.js](https://github.com/Azure/azure-iot-sdk-node) GitHub repository into this location:
 
@@ -52,12 +52,6 @@ npm install
 
 This will install the relevant npm files required to run the samples in the folder.
 
-1. Configure the environment variable with the device connection string you made a note of previously:
-
-```cmd/sh
-set DEVICE_CONNECTION_STRING=<YourDeviceConnectionString>
-```
-
 ## Review the code
 
 Navigate to the *azure-iot-sdk-node\device\samples\pnp* folder.
@@ -68,45 +62,47 @@ The code in the *pnpTemperatureController.js* file implements an IoT Plug and Pl
 
 Open the *pnpTemperatureController.js* file in a code editor of your choice. The sample code shows how to:
 
-1. Define the `modelId` which is the DTMI for the device that's being implemented. This DTMI is user-defined and must match the DTMI of the [temperature controller DTDL model](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json).
+- Define the `modelId` which is the DTMI for the device that's being implemented. This DTMI is user-defined and must match the DTMI of the [temperature controller DTDL model](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json).
 
-2. Implement the components defined in the temperature controller DTDL model. The components in a real temperature controller should implement these two interfaces. These two interfaces are already published in a central repository. In this sample, the two interfaces are:
+- Implement the components defined in the temperature controller DTDL model. The components in a real temperature controller should implement these two interfaces. These two interfaces are already published in a central repository. In this sample, the two interfaces are:
+
   - Thermostat
   - Device information developed by Azure
 
-3. Define component names. This sample has two thermostats and one device information component.
+- Define component names. This sample has two thermostats and one device information component.
 
-4. Define command name. These are the commands the device responds to.
+- Define command name. These are the commands the device responds to.
 
-5. Define the `serialNumber` constant. The `serialNumber` is fixed any given device.
+- Define the `serialNumber` constant. The `serialNumber` is fixed any given device.
 
-6. Define the command handlers.
+- Define the command handlers.
 
-7. Define the functions to send command responses.
+- Define the functions to send command responses.
 
-8. Define helper functions to log command requests.
+- Define helper functions to log command requests.
 
-9. Define a helper function to create the properties.
+- Define a helper function to create the properties.
 
-10. Define a listener for property updates.
+- Define a listener for property updates.
 
-11. Define a function to send telemetry from this device. Both thermostats and the root component send telemetry. This function receives the component name as parameter.
+- Define a function to send telemetry from this device. Both thermostats and the root component send telemetry. This function receives the component name as parameter.
 
-12. Define a `main` function that:
+- Define a `main` function that:
 
-    1. Uses the device SDK to create a device client and connect to your IoT hub. The device  supplies the `modelId` so that IoT Hub can identify the device as an IoT Plug and Play device.
+  - Uses the device SDK to create a device client and connect to your IoT hub. The device  supplies the `modelId` so that IoT Hub can identify the device as an IoT Plug and Play device.
 
-    1. Starts listening for command requests using the `onDeviceMethod` function. The function sets up a listener for command requests from the service:
-        - The device DTDL defines the `reboot` and `getMaxMinReport` commands.
-        - The `commandHandler` function defines how the device responds to a command.
+  - Starts listening for command requests using the `onDeviceMethod` function. The function sets up a listener for command requests from the service:
 
-    1. Starts sending telemetry by using `setInterval` and `sendTelemetry`.
+    - The device DTDL defines the `reboot` and `getMaxMinReport` commands.
+    - The `commandHandler` function defines how the device responds to a command.
 
-    1. Uses the `helperCreateReportedPropertiesPatch` function to create the properties and the `updateComponentReportedProperties` to update the properties.
+  - Starts sending telemetry by using `setInterval` and `sendTelemetry`.
 
-    1. Uses `desiredPropertyPatchListener` to listen for property updates.
+  - Uses the `helperCreateReportedPropertiesPatch` function to create the properties and the `updateComponentReportedProperties` to update the properties.
 
-    1. Disables all the listeners and tasks, and exits the loop when you press **Q** or **q**.
+  - Uses `desiredPropertyPatchListener` to listen for property updates.
+
+  - Disables all the listeners and tasks, and exits the loop when you press **Q** or **q**.
 
 [!INCLUDE [iot-pnp-environment](../../includes/iot-pnp-environment.md)]
 

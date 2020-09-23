@@ -55,6 +55,8 @@ To complete this tutorial on Windows, install the following software on your loc
 
 ## Download the code
 
+If you completed the [Quickstart: Connect a sample IoT Plug and Play device application running on Linux or Windows to IoT Hub (C)](quickstart-connect-device-c.md) you've already downloaded the code.
+
 In this tutorial, you prepare a development environment you can use to clone and build the Azure IoT Hub Device C SDK.
 
 Open a command prompt in a folder of your choice. Execute the following command to clone the [Azure IoT C SDKs and Libraries](https://github.com/Azure/azure-iot-sdk-c) GitHub repository into this location:
@@ -140,7 +142,8 @@ To run the sample:
 
     ```cmd
     REM Windows
-    iothub_client\samples\pnp\pnp_temperature_controller\Debug\pnp_temperature_controller.exe
+    cd iothub_client\samples\pnp\pnp_temperature_controller\Debug
+    pnp_temperature_controller.exe
     ```
 
 The device is now ready to receive commands and property updates, and has started sending telemetry data to the hub. Keep the sample running as you complete the next steps.

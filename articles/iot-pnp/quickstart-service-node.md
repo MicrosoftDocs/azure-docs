@@ -71,24 +71,13 @@ In [Set up your environment for the IoT Plug and Play quickstarts and tutorials]
 
 In this quickstart, you use a sample IoT solution in Node.js to interact with the sample device you just set up.
 
-1. Open another terminal window to use as your **service** terminal. 
+1. Open another terminal window to use as your **service** terminal.
 
 1. In the cloned Node SDK repository, navigate to the */azure-iot-sdk-node/service/samples/javascript* folder. Install all the dependencies by running the following command:
 
     ```cmd/sh
     npm install
     ```
-1. Ensure that you have the most recent preview version of the Node service SDK, **azure-iothub@1.13.0-pnp-rc.0**. You can verify by running:
-
-     ```cmd/sh
-     npm list
-     ```
-     If not, run the following command to update to the most recent Node service package:
-     
-     ```cmd/sh
-     npm i azure-iothub@1.13.0-pnp-rc.0
-     ```
-     
 
 ### Read a property
 

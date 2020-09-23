@@ -30,7 +30,7 @@ To complete this tutorial on Windows, install the following software on your loc
 
 ## Download the code
 
-In this tutorial, you prepare a development environment you can use to clone and build the Azure IoT Hub Device Java SDK.
+If you completed [Quickstart: Connect a sample IoT Plug and Play device application running on Windows to IoT Hub (Java)](quickstart-connect-device-java.md), you've already cloned the repository.
 
 Open a command prompt in the directory of your choice. Execute the following command to clone the [Azure IoT Java SDKs and Libraries](https://github.com/Azure/azure-iot-sdk-java) GitHub repository into this location:
 
@@ -42,7 +42,7 @@ Expect this operation to take several minutes to complete.
 
 ## Build the code
 
-On Windows, navigate to the root folder of the cloned Java SDK repository. Then navigate to the *\device\iot-device-samples\pnp-device-sample\temerature-controller-device-sample* folder.
+On Windows, navigate to the root folder of the cloned Java SDK repository. Then navigate to the *\device\iot-device-samples\pnp-device-sample\temperature-controller-device-sample* folder.
 
 Run the following command to build the sample application:
 
