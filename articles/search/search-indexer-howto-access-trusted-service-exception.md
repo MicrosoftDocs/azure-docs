@@ -15,6 +15,9 @@ ms.date: 09/22/2020
 
 Indexers that access data in storage accounts can make use of the [trusted service exception](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) capability to securely access data. This mechanism offers customers who are unable to grant [indexer access via IP firewall rules](search-indexer-howto-access-ip-restricted.md) a simple, secure, and free alternative to access data in storage accounts.
 
+> [!NOTE]
+> Support for accessing data in storage accounts via a trusted service exception is limited to Azure Blob storage and Azure Data Lake Gen2 storage. Azure table storage is not supported.
+
 ## Step 1: Configure connection to the storage account via identity
 
 Follow the details outlined in [the managed identity access guide](search-howto-managed-identities-storage.md) to configure indexers to access storage accounts via the search service's managed identity.

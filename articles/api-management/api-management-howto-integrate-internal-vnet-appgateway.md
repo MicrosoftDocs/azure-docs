@@ -87,7 +87,7 @@ In this guide we will also expose the **developer portal** to external audiences
 > 
 > Application Gateway WAF rules, which may break portal's functionality include:
 > 
-> - `920330`, `931130`, `942100`, `942110`, `942180`, `942200`, `942260`, `942370`, `949110`, `980130` for the administrative mode
+> - `920300`, `920330`, `931130`, `942100`, `942110`, `942180`, `942200`, `942260`, `942340`, `942370` for the administrative mode
 > - `942200`, `942260`, `942370`, `942430`, `942440` for the published portal
 
 ## Create a resource group for Resource Manager

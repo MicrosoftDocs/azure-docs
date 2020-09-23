@@ -116,6 +116,8 @@ df.write.format("cosmos.oltp").
     save()
 ```
 
+## Load streaming DataFrame from container
+In this gesture, you'll use Spark Streaming capability to load data from a container into a dataframe. The data will be stored in the primary data lake account (and file system) you connected to the workspace. 
 > [!NOTE]
 > If you are looking to reference external libraries in Synapse Apache Spark, learn more [here](#external-library-management). For instance, if you are looking to ingest a Spark DataFrame to a container of Cosmos DB API for Mongo DB, you can leverage the Mongo DB connector for Spark [here](https://docs.mongodb.com/spark-connector/master/).
 

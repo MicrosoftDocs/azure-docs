@@ -50,4 +50,4 @@ az vm create \
 
 ## Next steps
 
-If you run into any issues, you can [troubleshoot shared image galleries](troubleshooting-shared-images.md).
+If you run into any issues, you can [troubleshoot shared image galleries](../troubleshooting-shared-images.md).
