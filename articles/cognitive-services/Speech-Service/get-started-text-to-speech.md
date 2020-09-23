@@ -47,16 +47,16 @@ This article assumes that you have an Azure account and Speech service subscript
 [!INCLUDE [JavaScript Basics include](includes/how-to/text-to-speech-basics/text-to-speech-basics-javascript.md)]
 ::: zone-end
 
+::: zone pivot="programming-languages-objectivec-swift"
+[!INCLUDE [Objective-C and Swift Basics include](includes/how-to/text-to-speech-basics/text-to-speech-basics-objectivec-swift.md)]
+::: zone-end
+
 ::: zone pivot="programming-language-python"
 [!INCLUDE [Python Basics include](includes/how-to/text-to-speech-basics/text-to-speech-basics-python.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-spx"
 [!INCLUDE [CLI Basics include](includes/how-to/text-to-speech-basics/text-to-speech-basics-cli.md)]
-::: zone-end
-
-::: zone pivot="programming-languages-objectivec-swift"
-[!INCLUDE [Objective-C and Swift Basics include](includes/how-to/text-to-speech-basics/text-to-speech-basics-objectivec-swift.md)]
 ::: zone-end
 
 ## Next steps
