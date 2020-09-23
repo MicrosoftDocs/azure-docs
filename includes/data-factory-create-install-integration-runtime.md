@@ -7,7 +7,7 @@ ms.author: jingwang
 ---
 ## Create a self-hosted integration runtime
 
-In this section, you create a self-hosted integration runtime and associate it with an on-premises machine with the SQL Server database. The self-hosted integration runtime is the component that copies data from SQL Server on your machine to Azure SQL database. 
+In this section, you create a self-hosted integration runtime and associate it with an on-premises machine with the SQL Server database. The self-hosted integration runtime is the component that copies data from SQL Server on your machine to Azure SQL Database. 
 
 1. Create a variable for the name of the integration runtime. Use a unique name, and make a note of it. You use it later in this tutorial. 
 

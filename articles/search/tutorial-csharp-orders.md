@@ -1,17 +1,18 @@
 ---
 title: C# tutorial on ordering results
 titleSuffix: Azure Cognitive Search
-description: This tutorial demonstrates how to order search results. It builds on a previous hotels project, ordering by primary property, secondary property, and includes a scoring profile to add boosting criteria.
+description: This C# tutorial demonstrates how to order search results. It builds on a previous hotels project, sorting by primary property, secondary property, and includes a scoring profile to add boosting criteria.
 
 manager: nitinme
-author: tchristiani
-ms.author: terrychr
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 02/10/2020
+ms.date: 06/20/2020
+ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
-# C# tutorial: Order the results - Azure Cognitive Search
+# Tutorial: Order search results using the .NET SDK
 
 Up until this point in our series of tutorials, results are returned and displayed in a default order. This can be the order in which the data is located, or possibly a default _scoring profile_ has been defined, which will be used when no ordering parameters are specified. In this tutorial, we will go into how to order results based on a primary property, and then for results that have the same primary property, how to order that selection on a secondary property. As an alternative to ordering based on numerical values, the final example shows how to order based on a custom scoring profile. We will also go a bit deeper into the display of _complex types_.
 
@@ -457,8 +458,8 @@ To display results based on geographical distance, several steps are required.
 
 4. Now you have to tie these concepts together. However, these code snippets are as far as our tutorial goes, building a map-based app is left as an exercise for the reader. To take this example further, consider either entering a city name with a radius, or locating a point on a map, and selecting a radius. To investigate these options further, see the following resources:
 
-* [Azure Maps Documentation](https://docs.microsoft.com/azure/azure-maps/)
-* [Find an address using the Azure Maps search service](https://docs.microsoft.com/azure/azure-maps/how-to-search-for-address)
+* [Azure Maps Documentation](../azure-maps/index.yml)
+* [Find an address using the Azure Maps search service](../azure-maps/how-to-search-for-address.md)
 
 ## Order results based on a scoring profile
 
@@ -954,7 +955,7 @@ Let's look at three examples of scoring profiles, and consider how each _should_
 
 ### Resources
 
-For more information, see the following [Add scoring profiles to an Azure Cognitive Search index](https://docs.microsoft.com/azure/search/index-add-scoring-profiles).
+For more information, see the following [Add scoring profiles to an Azure Cognitive Search index](/azure/search/index-add-scoring-profiles).
 
 ## Takeaways
 
@@ -970,4 +971,4 @@ Consider the following takeaways from this project:
 
 You have completed this series of C# tutorials - you should have gained valuable knowledge of the Azure Cognitive Search APIs.
 
-For further reference and tutorials, consider browsing [Microsoft Learn](https://docs.microsoft.com/learn/browse/?products=azure), or the other tutorials in the [Azure Cognitive Search Documentation](https://docs.microsoft.com/azure/search/).
+For further reference and tutorials, consider browsing [Microsoft Learn](/learn/browse/?products=azure), or the other tutorials in the [Azure Cognitive Search Documentation](./index.yml).

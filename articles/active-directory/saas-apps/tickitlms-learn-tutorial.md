@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with TickitLMS Learn | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and TickitLMS Learn.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 9ba9d67d-17c0-4dce-bb4d-b89a9d645160
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 03/30/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with TickitLMS Learn
@@ -93,13 +87,13 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In addition to above, TickitLMS Learn application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
 	
-	| Name |   |  Source Attribute|
-	| ---------------| --------------- | --------- |
-	| samlaccount |  | user.samlaccount |
-	| employeeid |  | user.employeeid |
-	| role |  | user.role |
-	| department |  | user.department |
-    | reportsto |  | user.reportsto |
+	| Name | Source Attribute|
+	| ---- | --------------- |
+	| samlaccount | user.samlaccount |
+	| employeeid | user.employeeid |
+	| role | user.role |
+	| department | user.department |
+    | reportsto | user.reportsto |
 
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 

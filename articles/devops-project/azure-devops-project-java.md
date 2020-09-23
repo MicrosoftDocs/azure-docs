@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Create a CI/CD pipeline for Java - Azure DevOps Starter' 
-description: DevOps Starter makes it easy to get started on Azure. It helps you launch an app on an Azure service of your choice in few quick steps.
+description: Learn to use the simplified Azure DevOps Starter experience to set up a continuous integration (CI) and continuous delivery (CD) pipeline for your Java app in Azure Pipelines.
 ms.prod: devops
 ms.technology: devops-cicd
 services: vsts
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: mlearned
-ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
+ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
 ---
 
 # Set up a CI/CD pipeline for a Java app with Azure DevOps Starter

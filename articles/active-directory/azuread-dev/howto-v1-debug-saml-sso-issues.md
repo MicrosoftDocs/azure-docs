@@ -7,7 +7,7 @@ manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: azuread-dev
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 02/18/2019
 ms.author: ryanwi
@@ -100,4 +100,4 @@ To resolve the error, follow these steps:
 
 ## Next steps
 
-Now that single sign-on is working to your application, you could [Automate user provisioning and de-provisioning to SaaS applications](../manage-apps/user-provisioning.md) or [get started with Conditional Access](../conditional-access/app-based-conditional-access.md).
+Now that single sign-on is working to your application, you could [Automate user provisioning and de-provisioning to SaaS applications](../app-provisioning/user-provisioning.md) or [get started with Conditional Access](../conditional-access/app-based-conditional-access.md).

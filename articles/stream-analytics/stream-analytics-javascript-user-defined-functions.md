@@ -6,8 +6,8 @@ ms.author: rodrigoa
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.reviewer: mamccrea
-ms.custom: mvc
-ms.date: 03/23/2020
+ms.custom: mvc, devx-track-js
+ms.date: 06/16/2020
 
 #Customer intent: "As an IT admin/developer I want to run JavaScript user-defined functions within Stream Analytics jobs."
 ---
@@ -127,6 +127,60 @@ INTO
     output
 FROM
     input PARTITION BY PARTITIONID
+```
+
+### Cast string to JSON object to process
+
+If you have a string field that is JSON and want to convert it to a JSON object for processing in a JavaScript UDF, you can use the **JSON.parse()** function to create a JSON object that can then be used.
+
+**JavaScript user-defined function definition:**
+
+```javascript
+function main(x) {
+var person = JSON.parse(x);  
+return person.name;
+}
+```
+
+**Sample query:**
+```SQL
+SELECT
+    UDF.getName(input) AS Name
+INTO
+    output
+FROM
+    input
+```
+
+### Use try/catch for error handling
+
+Try/catch blocks can help you identify problems with malformed input data that are passed into a JavaScript UDF.
+
+**JavaScript user-defined function definition:**
+
+```javascript
+function main(input, x) {
+    var obj = null;
+
+    try{
+        obj = JSON.parse(x);
+    }catch(error){
+        throw input;
+    }
+    
+    return obj.Value;
+}
+```
+
+**Sample query: Pass entire record as first parameter so that it can be returned if there is an error.**
+```SQL
+SELECT
+    A.context.company AS Company,
+    udf.getValue(A, A.context.value) as Value
+INTO
+    output
+FROM
+    input A
 ```
 
 ## Next steps

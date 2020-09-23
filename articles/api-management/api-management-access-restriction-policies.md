@@ -72,7 +72,7 @@ Use the `check-header` policy to enforce that a request has a specified HTTP hea
 
 ### Usage
 
-This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
 
 -   **Policy sections:** inbound, outbound
 
@@ -132,7 +132,7 @@ The `rate-limit` policy prevents API usage spikes on a per subscription basis by
 
 ### Usage
 
-This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
 
 -   **Policy sections:** inbound
 
@@ -145,7 +145,7 @@ This policy can be used in the following policy [sections](https://azure.microso
 
 The `rate-limit-by-key` policy prevents API usage spikes on a per key basis by limiting the call rate to a specified number per a specified time period. The key can have an arbitrary string value and is typically provided using a policy expression. Optional increment condition can be added to specify which requests should be counted towards the limit. When this policy is triggered the caller receives a `429 Too Many Requests` response status code.
 
-For more information and examples of this policy, see [Advanced request throttling with Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).
+For more information and examples of this policy, see [Advanced request throttling with Azure API Management](./api-management-sample-flexible-throttling.md).
 
 > [!CAUTION]
 > Due to the distributed nature of throttling architecture, rate limiting is never completely accurate. The difference between configured and the real number of allowed requests vary based on request volume and rate, backend latency, and other factors.
@@ -196,7 +196,7 @@ In the following example, the rate limit is keyed by the caller IP address.
 
 ### Usage
 
-This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
 
 -   **Policy sections:** inbound
 
@@ -243,7 +243,7 @@ In the following example, the policy only allows requests coming either from the
 
 ### Usage
 
-This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
 
 -   **Policy sections:** inbound
 -   **Policy scopes:** all scopes
@@ -300,7 +300,7 @@ The `quota` policy enforces a renewable or lifetime call volume and/or bandwidth
 
 ### Usage
 
-This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
 
 -   **Policy sections:** inbound
 -   **Policy scopes:** product
@@ -312,7 +312,7 @@ This policy can be used in the following policy [sections](https://azure.microso
 
 The `quota-by-key` policy enforces a renewable or lifetime call volume and/or bandwidth quota, on a per key basis. The key can have an arbitrary string value and is typically provided using a policy expression. Optional increment condition can be added to specify which requests should be counted towards the quota. If multiple policies would increment the same key value, it is incremented only once per request. When the call limit is reached, the caller receives a `403 Forbidden` response status code.
 
-For more information and examples of this policy, see [Advanced request throttling with Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).
+For more information and examples of this policy, see [Advanced request throttling with Azure API Management](./api-management-sample-flexible-throttling.md).
 
 ### Policy statement
 
@@ -361,7 +361,7 @@ In the following example, the quota is keyed by the caller IP address.
 
 ### Usage
 
-This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
 
 -   **Policy sections:** inbound
 -   **Policy scopes:** all scopes
@@ -530,7 +530,7 @@ This example shows how to use the [Validate JWT](api-management-access-restricti
 
 ### Usage
 
-This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
 
 -   **Policy sections:** inbound
 -   **Policy scopes:** all scopes
@@ -541,5 +541,5 @@ For more information working with policies, see:
 
 -   [Policies in API Management](api-management-howto-policies.md)
 -   [Transform APIs](transform-api.md)
--   [Policy Reference](api-management-policy-reference.md) for a full list of policy statements and their settings
+-   [Policy Reference](./api-management-policies.md) for a full list of policy statements and their settings
 -   [Policy samples](policy-samples.md)

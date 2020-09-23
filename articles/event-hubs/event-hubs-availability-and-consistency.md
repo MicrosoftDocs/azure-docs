@@ -1,20 +1,9 @@
 ---
 title: Availability and consistency - Azure Event Hubs | Microsoft Docs
 description: How to provide the maximum amount of availability and consistency with Azure Event Hubs using partitions.
-services: event-hubs
-documentationcenter: na
-author: ShubhaVijayasarathy
-editor: ''
-
-ms.assetid: 8f3637a1-bbd7-481e-be49-b3adf9510ba1
-ms.service: event-hubs
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 03/27/2020
-ms.author: shvija
-
+ms.date: 06/23/2020
+ms.custom: devx-track-csharp
 ---
 
 # Availability and consistency in Event Hubs
@@ -148,5 +137,5 @@ This example sends your event to one of the available partitions in your event h
 ## Next steps
 You can learn more about Event Hubs by visiting the following links:
 
-* [Event Hubs service overview](event-hubs-what-is-event-hubs.md)
+* [Event Hubs service overview](./event-hubs-about.md)
 * [Create an event hub](event-hubs-create.md)

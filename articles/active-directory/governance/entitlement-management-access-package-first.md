@@ -3,7 +3,7 @@ title: Tutorial - Create access package - Azure AD entitlement management
 description: Step-by-step tutorial for how to create your first access package in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: barclayn
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -12,8 +12,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.subservice: compliance
-ms.date: 03/30/2020
-ms.author: ajburnle
+ms.date: 07/22/2020
+ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 
@@ -39,6 +39,8 @@ In this tutorial, you learn how to:
 For a step-by-step demonstration of the process of deploying Azure Active Directory entitlement management, including creating your first access package, view the following video:
 
 >[!VIDEO https://www.youtube.com/embed/zaaKvaaYwI4]
+
+You can also create an access package programmatically using Microsoft Graph. For a tutorial that shows how to create an access package programmatically, see [entitlement management API](https://docs.microsoft.com/graph/tutorial-access-package-api?view=graph-rest-beta).
 
 ## Prerequisites
 
@@ -104,7 +106,7 @@ An *access package* is a bundle of resources that a team or project needs and is
 
 9. In the Select groups pane, find and select the **Marketing resources** group you created earlier.
 
-    By default, you see groups inside and outside the **General** catalog. When you select a group outside of the **General** catalog, it will be added to the **General** catalog.
+     By default, you see groups inside the General catalog. When you select a group outside of the General catalog, which you can see if you check the **See all** check box, it will be added to the General catalog.
 
     ![New access package - Resource roles tab](./media/entitlement-management-access-package-first/resource-roles-select-groups.png)
 

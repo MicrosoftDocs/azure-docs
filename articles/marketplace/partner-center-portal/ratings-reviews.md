@@ -1,39 +1,36 @@
 ---
-title: Ratings and Reviews dashboard in commercial marketplace analytics on Partner Center
-description: Learn how to access a consolidated view of customer feedback for your offers on Azure Marketplace and AppSource.
-author: dsindona
-ms.author: dsindona
+title: Ratings & Reviews analytics dashboard in Partner Center
+description: Learn how to access a consolidated view of customer feedback for your offers on Microsoft AppSource and Azure Marketplace.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
+author: mingshen-ms
+ms.author: mingshen
 ---
 
-# Ratings and reviews dashboard in commercial marketplace analytics
+# Ratings & Reviews analytics dashboard in Partner Center
 
-This article provides information on the Ratings & reviews dashboard in Partner Center. This dashboard displays a consolidated view of customer feedback for offers on Azure Marketplace and AppSource.
+This article provides information on the Ratings & Reviews dashboard in Partner Center. This dashboard displays a consolidated view of customer feedback for offers on Microsoft AppSource and Azure Marketplace. As customers browse, search, and purchase offers in both marketplaces, they can leave ratings and reviews for the offers they've acquired.
 
-To access the **Ratings & reviews dashboard** in the Partner Center analytics tools, open the **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** dashboard under Commercial Marketplace.
+- Customers can submit a new rating or review and update or delete an existing rating or review they have submitted. Customers can make changes only to the ratings and reviews they own.  
+- Reviews are posted on the Reviews tab on the product display page of the offer in Azure Marketplace or AppSource. Customers can include their name or post anonymously.  
 
 >[!NOTE]
 > For detailed definitions of analytics terminology, see [Frequently asked questions and terminology for commercial marketplace analytics](./faq-terminology.md).
 
-## Ratings & reviews
+## Access the dashboard
 
-As customers browse, search, and purchase offers in both marketplaces, they can leave ratings and reviews for the offers they've acquired.
+In the [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) in Partner Center, expand the **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** section and select **Ratings & Reviews**.
 
-- Customers can submit a new rating or review and update or delete an existing rating or review they have submitted. Customers can make changes only to the ratings and reviews they own.  
-- Reviews are posted on the Reviews tab on the product display page of the offer in Azure marketplace or AppSource. Customers can include their name or post anonymously.  
-
-The **Ratings & review dashboard** displays the trends and insights of this activity by customers. You can view a graphical representation of the following items:
+The dashboard displays a graphical representation of the following customer activity:
 
 - Ratings & reviews  
 - Review comments
 
-The **Marketplace storefront tabs** allow publishers to view their offer metrics separately in the AppSource & Azure Marketplace tabs. To view specific offer metrics, select the offer from the offer dropdown list.
+Use the **Marketplace Insights** tabs to view your offer Microsoft AppSource and Azure Marketplace metrics separately. To view specific offer metrics, select the offer from the offer dropdown list.
 
-
-### Ratings and reviews summary
+### Ratings & reviews summary
 
 The ratings & reviews summary section displays the metrics below for a selected date range:
 

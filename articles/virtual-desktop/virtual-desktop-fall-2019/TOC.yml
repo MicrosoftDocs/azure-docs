@@ -1,10 +1,10 @@
-- name: Windows Virtual Desktop Fall 2019 Release
+- name: Windows Virtual Desktop (classic)
   href: ../index.yml
 - name: Overview
   items:
   - name: What is Windows Virtual Desktop?
     href: ../overview.md
-  - name: Spring 2020 Release documentation
+  - name: Windows Virtual Desktop documentation
     href: ../create-host-pools-azure-marketplace.md
 - name: Tutorials
   items:
@@ -22,8 +22,12 @@
     href: set-up-service-alerts-2019.md
 - name: How-to
   items:
+  - name: Migrate manually
+    href: ../manual-migration.md
   - name: Connect to Windows Virtual Desktop resources
     items:
+      - name: Connect with the Windows Desktop client
+        href: connect-windows-7-10-2019.md
       - name: Connect with the web client
         href: connect-web-2019.md
       - name: Connect with the Android client
@@ -68,6 +72,8 @@
           href: diagnostics-log-analytics-2019.md
   - name: Publish built-in apps
     href: publish-apps-2019.md
+  - name: Set up Azure Multi-Factor Authentication
+    href: ../set-up-mfa.md
 - name: Concepts
   items:
   - name: Windows Virtual Desktop environment

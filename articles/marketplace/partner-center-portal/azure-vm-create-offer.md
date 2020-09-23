@@ -1,234 +1,214 @@
 ---
-title: Create an Azure virtual machine offer in the Azure Marketplace
-description: Learn how to create a virtual machine offer in the Azure Marketplace with the required SKU.
-author: emuench
-ms.author: mingshen
+title: Create an Azure virtual machine offer on Azure Marketplace
+description: Learn how to publish a virtual machine offer to Azure Marketplace.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 05/01/2020
+ms.topic: how-to
+author: emuench
+ms.author: mingshen
+ms.date: 08/07/2020
 ---
 
-# Create an Azure virtual machine offer in the Azure Marketplace
+# Create an Azure virtual machine offer on Azure Marketplace
 
-> [!IMPORTANT]
-> We're moving the management of your Azure VM offers from Cloud Partner Portal to Partner Center. Until your offers are migrated, please continue to follow the instructions in [Create Virtual Machine offer](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-create-offer) in Cloud Partner Portal to manage your offers.
+This article describes how to create and publish an Azure virtual machine offer to [Azure Marketplace](https://azuremarketplace.microsoft.com/). It addresses both Windows-based and Linux-based virtual machines that contain an operating system, a virtual hard disk (VHD), and up to 16 data disks. 
 
-This article describes how to create and publish an Azure virtual machine offer to [Azure Marketplace](https://azuremarketplace.microsoft.com/). It addresses both Windows- and Linux-based virtual machines that contain an operating system, virtual hard disk (VHD), and up to 16 data disks. Before starting, [Create a Commercial Marketplace account in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) if you haven't done so yet. Ensure your account is enrolled in the commercial marketplace program.
+Before you start, [Create a commercial marketplace account in Partner Center](create-account.md). Ensure that your account is enrolled in the commercial marketplace program.
 
 ## Introduction
 
-### Publishing benefits
+### The benefits of publishing to Azure Marketplace
 
-Publishing to Azure Marketplace has the following benefits:
+When you publish your offers on Azure Marketplace, you can:
 
-- Promote your company using the Microsoft brand
-- Reach over 100 million Office 365 and Dynamics 365 users and more than 200,000 organizations through Azure Marketplace
-- Get high-quality leads from these marketplaces
-- Get your services promoted by the Microsoft field and telesales teams
+- Promote your company with the help of the Microsoft brand.
+- Reach over 100 million Microsoft 365 and Dynamics 365 users and more than 200,000 organizations.
+- Get high-quality leads from these marketplaces.
+- Get your services promoted by the Microsoft field sales and telesales teams.
 
 ### Before you begin
 
-If you haven't done so yet, review the [Virtual machine offer publishing guide](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines) and this Azure virtual machine material:
+If you haven't done so yet, review the [Virtual machine offer publishing guide](../marketplace-virtual-machines.md) and this Azure Virtual Machine material:
 
 - Quickstart guides
-  - [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/)
-  - [GitHub Azure Quickstart templates](https://github.com/azure/azure-quickstart-templates)
+  - [Azure quickstart templates](https://azure.microsoft.com/resources/templates/)
+  - [GitHub Azure quickstart templates](https://github.com/azure/azure-quickstart-templates)
 - Tutorials
-  - [Linux VMs](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
-  - [Windows VMs](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
+  - [Linux VMs](../../virtual-machines/linux/tutorial-manage-vm.md)
+  - [Windows VMs](../../virtual-machines/windows/tutorial-manage-vm.md)
 - Samples
-  - [Azure CLI Samples for Linux VMs](https://docs.microsoft.com/azure/virtual-machines/linux/cli-samples)
-  - [Azure PowerShell for Linux VMs](https://docs.microsoft.com/azure/virtual-machines/linux/powershell-samples)
-  - [Azure CLI Samples for Windows VMs](https://docs.microsoft.com/azure/virtual-machines/windows/cli-samples)
-  - [Azure PowerShell for Windows VMs](https://docs.microsoft.com/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-quick)
+  - [Azure CLI samples for Linux VMs](../../virtual-machines/linux/cli-samples.md)
+  - [Azure PowerShell for Linux VMs](../../virtual-machines/linux/powershell-samples.md)
+  - [Azure CLI samples for Windows VMs](../../virtual-machines/windows/cli-samples.md)
+  - [Azure PowerShell for Windows VMs](../../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-quick.md)
 
 ### Fundamentals in technical knowledge
 
-Designing, building, and testing these assets takes time and requires technical knowledge of both the Azure platform and the technologies used to build the offer.
+The process of designing, building, and testing offers takes time and requires expertise in both the Azure platform and the technologies that are used to build your offer.
 
-Your engineering team should understand the following Microsoft technologies:
+Your engineering team should have a basic understanding and working knowledge of the following Microsoft technologies:
 
-- Basic understanding of [Azure Services](https://azure.microsoft.com/services/)
-- How to [design and architect Azure applications](https://azure.microsoft.com/solutions/architecture/)
-- Working knowledge of [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/), [Azure Storage](https://azure.microsoft.com/services/?filter=storage#storage), and [Azure Networking](https://azure.microsoft.com/services/?filter=networking#networking)
+- [Azure services](https://azure.microsoft.com/services/)
+- [Design and architecture of Azure applications](https://azure.microsoft.com/solutions/architecture/)
+- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/), [Azure Storage](https://azure.microsoft.com/services/?filter=storage#storage), and [Azure Networking](https://azure.microsoft.com/services/?filter=networking#networking)
 
 ## Create a new offer
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
-2. In the left-nav menu, select **Commercial Marketplace** > **Overview**.
-3. On the Overview page, select **+ New offer** > **Azure Virtual Machine**.
+2. On the left pane, select **Commercial Marketplace** > **Overview**.
+3. On the **Overview** page, select **New offer** > **Azure Virtual Machine**.
 
-    ![Illustrates the left-navigation menu.](./media/new-offer-azure-vm.png)
+    ![Screenshot showing the left pane menu options and the "New offer" button.](./media/new-offer-azure-virtual-machine.png)
 
 > [!NOTE]
-> After an offer is published, edits made to it in Partner Center only appear in storefronts after republishing the offer. Make sure you always republish after making changes.
+> After your offer is published, any edits you make to it in Partner Center appear on Azure Marketplace only after you republish the offer. Be sure to always republish an offer after making changes to it.
 
 ## New offer
 
 Enter an **Offer ID**. This is a unique identifier for each offer in your account.
 
-- This ID is visible to customers in the web address for the marketplace offer and in Azure PowerShell and Azure CLI, if applicable.
-- Use only lowercase letters and numbers. It can include hyphens and underscores, but no spaces, and is limited to 50 characters. For example, if you enter **test-offer-1** here, the offer web address will be `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+- This ID is visible to customers in the web address for the Azure Marketplace offer and in Azure PowerShell and the Azure CLI, if applicable.
+- Use only lowercase letters and numbers. The ID can include hyphens and underscores, but no spaces, and is limited to 50 characters. For example, if you enter **test-offer-1**, the offer web address will be `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
 - The Offer ID can't be changed after you select **Create**.
 
-Enter an **Offer alias**. This is the name used for the offer in Partner Center.
+Enter an **Offer alias**. The offer alias is the name that's used for the offer in Partner Center.
 
-- This name isn't used in the marketplace and is different from the offer name and other values shown to customers.
+- This name isn't used on Azure Marketplace. It is different from the offer name and other values that are shown to customers.
 
 Select **Create** to generate the offer and continue.
 
 ## Offer setup
 
-### Test drive
+### Test Drive
 
-A test drive is a great way to showcase your offer to potential customers by giving them the option to "try before you buy", resulting in increased conversion and the generation of highly qualified leads. [Learn more about test drives](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive).
+A *Test Drive* is a great way to showcase your offer to potential customers. It gives them the option to "try before you buy," which can help increase your conversions and generate highly qualified leads. For more information, see [What is a Test Drive?](../what-is-test-drive.md).
 
-To enable a test drive for a fixed period of time, select the **Enable a test drive** check box. To remove test drive from your offer, clear this check box.
+To enable a Test Drive for a fixed period of time, select the **Enable a test drive** check box. To remove the Test Drive from your offer, clear the check box.
 
-Additional test drive resources:
+Additional Test Drive resources:
 
 - [Technical best practices](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
-- [Marketing best practices](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices)
-- [Test drives overview](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) PDF (make sure your pop-up blocker is off)
+- [Marketing best practices](../what-is-test-drive.md)
+- [Download the Test Drive overview](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) PDF file (make sure that your pop-up blocker is turned off).
 
-### Lead management
+### Customer leads
 
-When publishing your offer to the commercial marketplace with Partner Center, connect it to your Customer Relationship Management (CRM) system. This lets you receive customer contact information as soon as someone expresses interest in or uses your product. Connecting to a CRM is required if you will enable **Test Drive** (see prior section), otherwise it's optional.
+When you're publishing your offer to the commercial marketplace with Partner Center, connect it to your Customer Relationship Management (CRM) system. This lets you receive customer contact information as soon as someone expresses interest in or uses your product. Connecting to a CRM is required if you want to enable a Test Drive (see the preceding section). Otherwise, connecting to a CRM is optional.
 
 1. Select a lead destination where you want us to send customer leads. Partner Center supports the following CRM systems:
-    - [Dynamics 365](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics) for customer engagement
-    - [Marketo](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-marketo)
-    - [Salesforce](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce)
+    - [Dynamics 365](commercial-marketplace-lead-management-instructions-dynamics.md) for customer engagement
+    - [Marketo](commercial-marketplace-lead-management-instructions-marketo.md)
+    - [Salesforce](commercial-marketplace-lead-management-instructions-salesforce.md)
 
     > [!NOTE]
-    > If your CRM system isn't listed above, use [Azure Table](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table) or [Https Endpoint](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-https) to store customer lead data. Then export the data to your CRM system.
+    > If your CRM system isn't listed here, use [Azure Table storage](commercial-marketplace-lead-management-instructions-azure-table.md) or an [HTTPS endpoint](commercial-marketplace-lead-management-instructions-https.md) to store your customer lead data. Then export the data to your CRM system.
 
-2. Connect your offer to the lead destination when publishing in Partner Center.
-3. Confirm that the connection to the lead destination is configured properly. After you publish it in Partner Center, we'll validate the connection and send you a test lead. While you preview the offer before it goes live, you can also test your lead connection by trying to deploy the offer yourself in the preview environment.
-4. Ensure the connection to the lead destination stays updated so you don't lose any leads.
+1. Connect your offer to the lead destination when you're publishing in Partner Center.
+1. Confirm that the connection to the lead destination is configured properly. After you publish it in Partner Center, Microsoft validates the connection and sends you a test lead. While you're previewing the offer before it goes live, you can also test your lead connection by trying to deploy the offer yourself in the preview environment.
+1. Ensure that the connection to the lead destination stays updated so that you don't lose any leads.
 
-Select **Save draft** before continuing.
+1. Select **Save draft** before you continue.
 
 ## Properties
 
-This page lets you define the categories and industries used to group your offer on the marketplace, your app version, and the legal contracts that support your offer.
+On the **Properties** page, you define the categories that are used to group your offer on Azure Marketplace, your application version, and the legal contracts that support your offer.
 
-### Categories
+### Category
 
-Select a minimum of one and a maximum of five categories. These categories are used to place your offer in the appropriate marketplace search areas. In the offer description, explain how your offer supports these categories. Virtual machine offers appear under the **Compute** category in Azure Marketplace.
+Select categories and subcategories to place your offer in the appropriate marketplace search areas. Be sure to describe how your offer supports these categories in the offer description. Select:
+
+- At least one and up to two categories, including a primary and a secondary category (optional).
+- Up to two subcategories for each primary and/or secondary category. If no subcategory is applicable to your offer, select **Not applicable**.
+
+See the full list of categories and subcategories in [Offer Listing Best Practices](../gtm-offer-listing-best-practices.md). Virtual machine offers always appear under the **Compute** category on Azure Marketplace.
 
 ### Legal
 
-You must provide terms and conditions for the offer. You have two options:
+You must provide offer terms and conditions to your customers. You have two options:
 
-- Use your own terms and conditions
-- Use the Standard Contract for the Microsoft commercial marketplace
+- **Use your own terms and conditions**
 
-#### Use your own terms and conditions
+   To provide your own custom terms and conditions, enter up to 10,000 characters of text in the **Terms and conditions** box. If you require a longer description, enter a single web address for your terms and conditions. It will be displayed to customers as an active link.
 
-To provide your own custom terms and conditions, enter up to 10,000 characters of text in the **Terms and conditions** box. If you require a longer description, enter a single web address that points to where your terms and conditions can be found. It will display to customers as an active link.
+   Your customers must accept these terms before they can try your offer.
 
-Customers must accept these terms before they can try your offer.
+- **Use the Standard Contract for the Microsoft commercial marketplace**
 
-#### Use the Standard Contract for the Microsoft commercial marketplace
+   To simplify the procurement process for customers and reduce legal complexity for software vendors, Microsoft offers a Standard Contract for the commercial marketplace. When you offer your software under the Standard Contract, customers need to read and accept it only once, and you don't have to creating custom terms and conditions.
 
-To simplify the procurement process for customers and reduce legal complexity for software vendors, Microsoft offers a Standard Contract for the commercial marketplace. When you offer your software under the Standard Contract, customers only need to read and accept it once, and you don't have to creating custom terms and conditions.
+   Use the Standard Contract by selecting the **Use the Standard Contract for Microsoft's commercial marketplace** check box and then, in the pop-up window, select **Accept** (you might have to scroll up to view it).
 
-Use the Standard Contract by selecting the **Use the Standard Contract for Microsoft's commercial marketplace** check box and then **Accept** on the pop-up window (you may have to scroll up to see it).
+   ![Screenshot showing the Legal pane in Partner Center with the "Use the Standard Contract for Microsoft's commercial marketplace" check box.](media/use-standard-contract.png)
 
-![Illustrates the Overview page in Partner Center with the New offer button and Consulting service offer selected.](media/use-standard-contract.png)
+  > [!NOTE]
+  > After you publish an offer by using the Standard Contract for the commercial marketplace, you can't use your own custom terms and conditions. You can offer a solution under either the Standard Contract or your own terms and conditions.
 
-> [!NOTE]
-> After you publish an offer using the Standard Contract for commercial marketplace, you can't use your own custom terms and conditions. Either offer your solution under the Standard Contract **or** under your own terms and conditions.
+  For more information, see [Standard Contract for the Microsoft commercial marketplace](../standard-contract.md). Download the [Standard Contract](https://go.microsoft.com/fwlink/?linkid=2041178) PDF file (make sure that your pop-up blocker is turned off).
 
-To learn more about the Standard Contract, see Standard Contract for the Microsoft [commercial marketplace](https://docs.microsoft.com/azure/marketplace/standard-contract). You can download the [Standard Contract](https://go.microsoft.com/fwlink/?linkid=2041178) as a PDF (make sure your pop-up blocker is off).
+  **Standard Contract amendments**
 
-##### Standard Contract Amendments
+  Standard Contract amendments let you select the Standard Contract terms for simplicity and create the terms for your product or business. Customers need to review the amendments to the contract only if they've already reviewed and accepted the Microsoft Standard Contract. There are two types of amendments:
 
-Standard Contract Amendments let you select the Standard Contract terms for simplicity and create the terms for your product or business. Customers only need to review the amendments to the contract if they have already reviewed and accepted the Microsoft Standard Contract. There are two kinds of amendments available: universal and custom.
+  * **Universal amendments**: These amendments are applied universally to the Standard Contract for all customers. They are shown to every customer of the offer in the purchase flow. Customers must accept the terms of the Standard Contract and the amendments before they can use your offer. You can provide a single universal amendment per offer. You can enter an unlimited number of characters in this box. These terms are displayed to customers in AppSource, Azure Marketplace, and/or the Azure portal during the discovery and purchase flow.
 
-**Universal Amendments** – These are applied universally to the Standard Contract for all customers. They are shown to every customer of the offer in the purchase flow. Customers must accept the terms of the Standard Contract and the amendment(s) before they can use your offer. You can provide a single universal amendment per offer. You can enter an unlimited number of characters in this box. These terms are displayed to customers in AppSource, Azure Marketplace, and/or Azure portal during the discovery and purchase flow.
+  * **Custom amendments**: These special amendments to the Standard Contract are targeted to specific customers through Azure tenant IDs. You can choose the tenant you want to target. Only customers from the tenant are presented with the custom amendment terms in the offer's purchase flow. Customers must accept the terms of the Standard Contract and the amendments before they can use your offer.
 
-**Custom Amendments** – These are special amendments to the Standard Contract that are targeted to specific customers through Azure tenant IDs. You can choose the tenant you want to target. Only customers from the tenant will be presented with the custom amendment terms in the offer's purchase flow. Customers must accept the terms of the Standard Contract and the amendment(s) before they can use your offer.
+    1. Start by selecting **Add custom amendment terms (Max 10)**. You can provide up to ten custom amendment terms per offer. Do the following:
 
-Start by selecting **Add custom amendment terms (Max 10)**. You can provide up to ten custom amendment terms per offer.
+       a. Enter your own amendment terms in the **Custom amendment terms** box. You can enter an unlimited number of characters. Only customers from the tenant IDs that you specify for these custom terms will see them in the offer's purchase flow in the Azure portal.
 
-- **Custom amendment terms** – Enter your own amendment terms in the custom amendment terms box. You can enter an unlimited number of characters. Only customers from the tenant IDs you specify for these custom terms will see these in the offer's purchase flow in the Azure portal.
-- **Tenant IDs** (required) – Each custom amendment can be targeted to up to 20 tenant IDs. If you add a custom amendment, you must provide at least one tenant ID, which identifies your customer in Azure. your customer can find for you in the Azure  under, then Properties. The directory ID value is the tenant ID (for example, 50c464d3-4930-494c-963c-1e951d15360e). You can also find the organization's tenant ID of your customer by using their domain name web address at [What is my Microsoft Azure and Office 365 tenant ID?](https://www.whatismytenantid.com/).
-- **Description** (optional) – Provide a friendly description for the tenant ID that helps you identify the customer you're targeting with the amendment.
+       b. (Required) Provide **Tenant IDs**. Each custom amendment can be targeted to up to 20 tenant IDs. If you add a custom amendment, you must provide at least one tenant ID, which identifies your customer in Azure. Your customer can find this for you in Azure by selecting **Azure Active Directory** > **Properties**. The directory ID value is the tenant ID (for example, 50c464d3-4930-494c-963c-1e951d15360e). You can also find the organization's tenant ID of your customer by using their domain name web address at [What is my Microsoft Azure and Microsoft 365 tenant ID?](https://www.whatismytenantid.com/).
 
-> [!NOTE]
-> These two types of amendments stack on top of each other. Customers targeted with custom amendments will also get the universal amendment to the Standard Contract during purchase.
+       c. (Optional) Provide a friendly **Description** for the tenant ID, one that helps you identify the customer that you're targeting with the amendment.
 
-Select **Save draft** before continuing.
+        > [!NOTE]
+        > These two types of amendments are paired with each other. Customers who are targeted with custom amendments will also get the universal amendments to the Standard Contract during the purchase.
+
+    1. Select **Save draft** before you continue.
 
 ## Offer listing
 
-This page lets you define offer details such as offer name, description, links, and contacts.
+On the **Offer listing** page, you define the offer details, such as offer name, description, links, and contacts.
 
 > [!NOTE]
-> Offer listing content (such as the description, documents, screenshots, and terms of use) is not required to be in English, as long as the offer description begins with the phrase, "This application is available only in [non-English language]." You can also provide a _Useful Link web address_ to offer content in a language other than the one used in the Offer listing content.
+> Your offer listing content, such as the description, documents, screenshots, and terms of use, doesn't have to be in English, as long as the offer description begins with the phrase, "This application is available only in \<non-English language>." You can also provide a URL to link to a site that offers content in a language other than the one that's used in the offer listing content.
 
 ### Marketplace details
 
 #### Name
 
-The name you enter here is shown to customers as the title of your offer listing. This field is pre-filled with the text you entered in the **Offer alias** box when you created the offer. You can change this name later.
+The name that you enter here is shown to customers as the title of your offer listing. This field is autofilled with the name that you entered in the **Offer alias** box when you created the offer. You can change this name later. The name:
 
-The name:
-
-- Can be trademarked (and you can include trademark and copyright symbols)
-- Can't be more than 50 characters long
+- Can be trademarked. You can include trademark and copyright symbols.
+- Can't contain more than 50 characters.
 - Can't include emojis.
 
 #### Search results summary
 
-A short description of your offer. This can be up to 100 characters long and is used in marketplace search results.
+Provide a short description of your offer, to be displayed in Azure Marketplace search results. It can contain up to 100 characters.
 
 #### Long summary
 
-Provide a longer description of your offer. This can be up to 256 characters long and is used in marketplace search results.
+Provide a longer description of your offer, to be displayed in Azure Marketplace search results. It can contain up to 256 characters.
 
 #### Description
 
-Provide a detailed description of your offer, up to 3,000 characters. This is displayed to customers in the commercial marketplace listing overview.
+[!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
-Include one or more of the following in your description:
+[!INCLUDE [Long description-2](./includes/long-description-2.md)]
 
-- The value and key benefits of your offer
-- Category or industry associations, or both
-- In-app purchase opportunities
-- Any required disclosures
-
-Here are some tips for writing your description:
-
-- Clearly describe the value proposition of your offer in the first few sentences of your description. Include the following items:
-  - Description of your offer.
-  - The type of user that benefits from your offer.
-  - Customer needs or issues that the offer addresses.
-- Remember that the first few sentences might be displayed in search engine results.
-- Don't rely on features and functionality to sell your offer. Instead, focus on the value your offer provides.
-- Use industry-specific or benefit-based words.
-
-To make your offer description more engaging, use the rich text editor to apply formatting.
-
-![Using the rich text editor](./media/rich-text-editor.png)
-
-| <center>Change text format | <center>Add bullets or numbering | <center>Add or remove text indent |
-| --- | --- | --- |
-| <center>![Using the rich text editor to change text format](./media/text-editor3.png) |  <center>![Using the rich text editor to add lists](./media/text-editor4.png) |  <center>![Using the rich text editor to indent](./media/text-editor5.png) |
+[!INCLUDE [Long description-3](./includes/long-description-3.md)]
 
 #### Privacy policy link
 
-Enter the web address (URL) to your organization's privacy policy. Ensure your offer complies with privacy laws and regulations. You must also post a valid privacy policy on your website.
+Enter the web address (URL) of your organization's privacy policy. Ensure that your offer complies with privacy laws and regulations. You must also post a valid privacy policy on your website.
 
 ### Useful links
 
-Provide supplemental online documents about your offer. To add a link, select **+ Add a link** and then complete the following fields:
+Provide supplemental online documents about your offer. To add a link, select **Add a link**, and then complete the following fields:
 
-- **Name** – Customers will see the name on the details page.
-- **Link (URL)** – Enter a link for customers to view your online document.
+- **Name**: Customers will see the name on the details page.
+- **Link (URL)**: Enter a link that lets customers view your online document.
 
 ### Customer support links
 
@@ -239,7 +219,7 @@ Provide the support website where customers can reach your support team.
 
 ### Partner support contact
 
-Provide contact information for Microsoft partners to use when your customers open a support ticket. This will not be listed in the marketplace.
+Provide contact information for Microsoft partners to use when your customers open a support ticket. This information isn't listed on Azure Marketplace.
 
 - Name
 - Email
@@ -247,63 +227,70 @@ Provide contact information for Microsoft partners to use when your customers op
 
 ### Engineering contact
 
-Provide contact information for Microsoft to use when there are issues with your offer, including issues with certification. This will not be listed in the marketplace.
+Provide contact information for Microsoft to use when there are issues with your offer, including issues with certification. This information isn't listed on Azure Marketplace.
 
 - Name
 - Email
 - Phone
 
-### Marketplace media
+### Azure Marketplace media
 
 Provide logos and images to use with your offer. All images must be in PNG format. Blurry images will cause your submission to be rejected.
 
->[!Note]
->If you have an issue uploading files, ensure your local network does not block the https://upload.xboxlive.com service used by Partner Center.
+[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
 
-#### Marketplace logos
+>[!NOTE]
+>If you have an issue uploading files, ensure that your local network doesn't block the https://upload.xboxlive.com service that's used by Partner Center.
 
-Provide PNG files of your offer's logo in the following four pixel sizes:
+#### Azure Marketplace logos
 
-- **Small** (48 x 48)
-- **Medium** (90 x 90)
-- **Large** (216 x 216)
-- **Wide** (255 x 115)
+Provide a PNG file for the **Large** size logo. Partner Center will use this to create a **Small** and a **Medium** logo. You can optionally replace these with different images later.
 
-All four logos are required and are used in different places in the marketplace listing.
+- **Large** (from 216 x 216 to 350 x 350 px, required)
+- **Medium** (90 x 90 px, optional)
+- **Small** (48 x 48 px, optional)
+
+These logos are used in different places in the listing:
+
+[!INCLUDE [logos-azure-marketplace-only](../includes/logos-azure-marketplace-only.md)]
+
+[!INCLUDE [Logo tips](../includes/graphics-suggestions.md)]
 
 #### Screenshots
 
-Add up to five screenshots that show how your offer works. Each screenshot must be 1280 x 720 pixels in size and in PNG format. Each screenshot must include a caption.
+Add up to five screenshots that show how your offer works. Each screenshot must be 1280 &times; 720 pixels in size and in PNG format. Each screenshot must include a caption.
 
 #### Videos
 
-Add up to five videos that demonstrate your offer. These should be hosted on an external video service. Enter each video's name, web address, and a thumbnail PNG image of the video at 1280 x 720 pixels.
+Add up to five videos that demonstrate your offer. The videos should be hosted on an external video service. Enter each video's name, web address, and a thumbnail PNG image of the video at 1280 &times; 720 pixels.
 
-For additional marketplace listing resources, see [Best practices for marketplace offer listings](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices).
+For additional marketplace listing resources, see [Best practices for marketplace offer listings](../gtm-offer-listing-best-practices.md).
 
-Select **Save draft** before continuing.
+Select **Save draft** before you continue.
 
 ## Preview
 
-On the Preview tab, choose a limited **Preview Audience** for validating your offer before you publish it live to the broader marketplace audience.
+Select the **Preview** tab, and then select a limited **Preview Audience** for validating your offer before you publish it live to the broader commercial marketplace audience.
 
 > [!IMPORTANT]
-> After checking your offer in Preview, select **Go live** to publish your offer to the commercial marketplace public audience.
+> After checking your offer on the **Preview** pane, select **Go live** to publish your offer for the commercial marketplace public audience.
 
-Your preview audience is identified by Azure subscription ID GUIDs, along with an optional description for each. Neither of these fields can be seen by customers. You can find your Azure subscription ID on the **Subscriptions** page in Azure portal.
+Your preview audience is identified by Azure subscription ID GUIDs, along with an optional description for each. Neither of these fields can be seen by customers. You can find your Azure subscription ID on the **Subscriptions** page in the Azure portal.
 
-Add at least one Azure subscription ID, either individually (up to 10) or by uploading a CSV file (up to 100). By adding these subscription IDs, you define who can preview your offer before it is published live. If your offer is already live, you may still define a preview audience for testing offer changes or updates to your offer.
+Add at least one Azure subscription ID, either individually (up to 10 IDs) or by uploading a CSV file (up to 100 IDs). By adding these subscription IDs, you define who can preview your offer before it is published live. If your offer is already live, you can still define a preview audience for testing offer changes or updates to your offer.
 
 > [!NOTE]
-> A preview audience differs from a private audience. A preview audience can access to your offer _before_ it's published live in the marketplaces. They can see and validate all plans, including those which will be available only to a private audience after your offer is fully published to the marketplace. A private audience (defined in the plan **Pricing and Availability** tab) has exclusive access to a particular plan.
+> A preview audience differs from a private audience. A preview audience can access your offer _before_ it's published live on Azure Marketplace. The preview audience can see and validate all plans, including those that will be available only to a private audience after your offer is fully published to Azure Marketplace. A private audience (defined on the plan **Pricing and Availability** pane) has exclusive access to a particular plan.
 
-Select **Save draft** before proceeding to the next section, Plan overview.
+Select **Save draft** before you proceed to the next section.
 
 ## Plan overview
 
-You can provide different plan options within the same offer in Partner Center. These plans were previously referred to as SKUs. An offer requires at least one plan, which can differ in terms of monetization audience, Azure regions, features, or VM images.
+You can provide a variety of plan options within the same offer in Partner Center. An offer requires at least one plan (formerly called a SKU), which can vary by monetization audience, Azure region, features, or VM images.
 
-After you create your plans, the **Plan overview** tab shows:
+You can create up to 100 plans for each offer: up to 45 of these can be private. Learn more about private plans in [Private offers in the Microsoft commercial marketplace](../private-offers.md).
+
+After you create your plans, select the **Plan overview** tab to display:
 
 - Plan names
 - License models
@@ -311,145 +298,150 @@ After you create your plans, the **Plan overview** tab shows:
 - Current publishing status
 - Available actions
 
-Actions available in the Plan overview vary depending on the current status of your plan. They include:
+The actions that are available on the **Plan overview** pane vary depending on the current status of your plan.
 
-- **Delete draft** – If the plan status is a draft
-- **Stop sell plan** or **Sync private audience** – If the plan status is published live
+- If the plan status is a draft, select **Delete draft**.
+- If the plan status is published live, select **Stop sell plan** or **Sync private audience**.
 
-### Create new plan
+### Create a new plan
 
-Select **+ Create new plan** at the top. The **New plan** dialog box appears.
+Select **Create new plan** at the top. The **New plan** dialog box appears.
 
 In the **Plan ID** box, create a unique plan ID for each plan in this offer. This ID will be visible to customers in the product web address. Use only lowercase letters and numbers, dashes, or underscores, and a maximum of 50 characters.
 
 > [!NOTE]
 > The plan ID can't be changed after you select **Create**.
 
-In the **Plan name** box, enter a name for this plan. Customers see this name when deciding which plan to select within your offer. Create a unique name that clearly points out the differences of each plan. For example, you might use **Windows Server** with plans **Pay-as-you-go**, **BYOL**, **Advanced**, and **Enterprise**.
+In the **Plan name** box, enter a name for this plan. Customers see this name when they're deciding which plan to select within your offer. Create a unique name that clearly points out the differences between plans. For example, you might enter **Windows Server** with *Pay-as-you-go*, *BYOL*, *Advanced*, and *Enterprise* plans.
 
 Select **Create**.
 
 ### Plan setup
 
-Set the high-level configuration for the type of plan, whether it reuses technical configuration from another plan, and in which Azure regions the plan should be available. Your selections here determine which fields are displayed on other tabs for the same plan.
+Set the high-level configuration for the type of plan, specify whether it reuses a technical configuration from another plan, and identify the Azure regions where the plan should be available. Your selections here determine which fields are displayed on other panes for the same plan.
 
-#### Re-use technical configuration
+#### Reuse a technical configuration
 
-If you have more than one plan of the same type, and the packages are identical between them, you can select **this plan reuses technical configuration from another plan**. This option lets you select one of the other plans of the same type for this offer and reuse its technical configuration.
+If you have more than one plan of the same type, and the packages are identical between them, you can select **This plan reuses technical configuration from another plan**. This option lets you select one of the other plans of the same type for this offer and lets you reuse its technical configuration.
 
 > [!NOTE]
-> When you reuse the technical configuration from another plan, the entire **Technical configuration** tab disappears from this plan. The Technical configuration details from the other plan, including any updates you make in the future, will be used for this plan as well. This setting can't be changed after this plan is published.
+> When you reuse the technical configuration from another plan, the entire **Technical configuration** tab disappears from this plan. The technical configuration details from the other plan, including any updates you make in the future, will be used for this plan as well. This setting can't be changed after the plan is published.
 
 #### Azure regions
 
 Your plan must be made available in at least one Azure region.
 
-Select the **Azure Global** option to make your plan available to customers in all Azure Global regions that have commercial marketplace integration. For details, see [Geographic availability and currency support](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies).
+Select the **Azure Global** option to make your plan available to customers in all Azure Global regions that have commercial marketplace integration. For more information, see [Geographic availability and currency support](../marketplace-geo-availability-currencies.md).
 
-Select the **Azure Government** option to make your plan available in the [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome) region. This region provides controlled access for customers from  U.S. federal, state, local, or tribal entities, as well as partners eligible to serve them. You, as the publisher, are responsible for any compliance controls, security measures, and best practices. Azure Government uses physically isolated data centers and networks (located in the U.S. only).
+Select the **Azure Government** option to make your plan available in the [Azure Government](../../azure-government/documentation-government-welcome.md) region. This region provides controlled access for customers from  US federal, state, local, or tribal entities, as well as for partners who are eligible to serve them. You, as the publisher, are responsible for any compliance controls, security measures, and best practices. Azure Government uses physically isolated datacenters and networks (located in the US only).
 
-Before publishing to [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners), test and validate your plan in the environment as certain endpoints may differ. To set up and test your plan, request a trial account from [Microsoft Azure Government trial](https://azure.microsoft.com/global-infrastructure/government/request/).
+Before you publish to [Azure Government](../../azure-government/documentation-government-manage-marketplace-partners.md), test and validate your plan in the environment, because certain endpoints may differ. To set up and test your plan, request a trial account from the [Microsoft Azure Government trial](https://azure.microsoft.com/global-infrastructure/government/request/) page.
 
 > [!NOTE]
 > After your plan is published and available in a specific Azure region, you can't remove that region.
 
 #### Azure Government certifications
 
-This option is only visible if you selected **Azure Government**.
+This option is visible only if you selected **Azure Government** as the Azure region in the preceding section.
 
-Azure Government services handle data that is subject to certain government regulations and requirements. For example, FedRAMP, NIST 800.171 (DIB), ITAR, IRS 1075, DoD L4, and CJIS. To bring awareness to your certifications for these programs, you can provide up to 100 links that describe them. These can be either links to your listing on the program directly or links to descriptions of your compliance with them on your own websites. These links visible to Azure Government customers only.
+Azure Government services handle data that's subject to certain government regulations and requirements. For example, FedRAMP, NIST 800.171 (DIB), ITAR, IRS 1075, DoD L4, and CJIS. To bring awareness to your certifications for these programs, you can provide up to 100 links that describe them. These can be either links to your listing on the program directly or links to descriptions of your compliance with them on your own websites. These links are visible to Azure Government customers only.
 
-Select **Save draft** before continuing.
+Select **Save draft** before you continue.
 
 ### Plan listing
 
-This is where you configure listing details of the plan. This tab displays specific information that can differ between plans in the same offer.
+In this section, you configure the listing details of the plan. This pane displays specific information, which can differ from other plans in the same offer.
 
 #### Plan name
 
-This is pre-filled in with the name you gave your plan when you created it. This name appears in the marketplace as the title of this plan and is limited to 100 characters.
+This field is automatically filled with the name that you gave your plan when you created it. This name appears on Azure Marketplace as the title of this plan. It is limited to 100 characters.
 
 #### Plan summary
 
-Provide a short summary of your plan (not the offer). This summary is limited to 100 characters.
+Provide a short summary of your plan, not the offer. This summary is limited to 100 characters.
 
 #### Plan description
 
-Describe what makes this software plan unique, as well as differences between plans within your offer. Don't describe the offer, just the plan. The plan description can contain up to 2,000 characters.
+Describe what makes this software plan unique, and describe any differences between plans within your offer. Describe the plan only, not the offer. The plan description can contain up to 2,000 characters.
 
-Select **Save draft** before continuing.
+Select **Save draft** before you continue.
 
 ### Pricing and availability
 
-On this tab, you'll configure the following:
+On this pane, you configure:
 
-- Markets this plan will be available in
-- The price per hour
-- Whether to make the plan visible to everyone or only to specific customers (a private audience)
+- Markets where this plan is available. Every plan must be available in at least one [market](../marketplace-geo-availability-currencies.md).
+- The price per hour.
+- Whether to make the plan visible to everyone or only to specific customers (a private audience).
 
 #### Markets
 
-Every plan must be available in at least one market. Select the check box for every market location where this plan should be available for purchase (users in these markets can still deploy the offer to all Azure regions selected in **[Plan setup](#plan-setup)**). The **Tax Remitted** button shows countries in which Microsoft remits sales and use tax on your behalf. Publishing to China is limited to plans that are either **Free** or **Bring your own license** (BYOL).
+Every plan must be available in at least one market. Select the check box for every market location where this plan should be available for purchase. (Users in these markets can still deploy the offer to all Azure regions selected in the ["Plan setup"](#plan-setup) section.) The **Tax Remitted** button shows countries/regions in which Microsoft remits sales and use tax on your behalf. Publishing to China is limited to plans that are either *Free* or *Bring-your-own-license* (BYOL).
 
-If you've already set prices for your plan in United States Dollars (USD) and add another market location, the price for the new market will be calculated according to current exchange rates. Always review the price for each market before publishing. Review prices using the **Export prices (xlsx)** link after saving your changes.
+If you've already set prices for your plan in US dollar (USD) currency and add another market location, the price for the new market is calculated according to current exchange rates. Always review the price for each market before you publish. Review your pricing by selecting **Export prices (xlsx)** after you save your changes.
 
-When you remove a market, customers from that market using active deployments will not be able to create new deployments or scale up their existing deployments. Existing deployments will not be affected.
+When you remove a market, customers from that market who are using active deployments will not be able to create new deployments or scale up their existing deployments. Existing deployments are not affected.
 
 #### Pricing
 
-**License model** – Select **Usage-based monthly billed plan** to configure pricing for this plan or **Bring your own license** to let customers use this plan with their existing license.
+For the **License model**, select **Usage-based monthly billed plan** to configure pricing for this plan, or select **Bring your own license** to let customers use this plan with their existing license.
 
-For a Usage-based monthly billed plan, use one of the following three pricing entry options:
+For a usage-based monthly billed plan, use one of the following three pricing entry options:
 
-- **Per core** – Provide the price per core in United States Dollars (USD). We'll calculate the pricing per core size and convert into local currencies using the current exchange rate.
-- **Per core size** – Provide prices per core size in USD. We'll convert the prices into local currencies using the current exchange rate.
-- **Per market and core size** – Provide prices for each core size for all markets. You may import prices from a spreadsheet.
+- **Per core**: Provide pricing per core in USD. Microsoft calculates the pricing per core size and converts it into local currencies by using the current exchange rate.
+- **Per core size**: Provide pricing per core size in USD. Microsoft calculates the pricing and converts it into local currencies by using the current exchange rate.
+- **Per market and core size**: Provide pricing for each core size for all markets. You can import the prices from a spreadsheet.
 
 > [!NOTE]
-> Save pricing changes to enable the export of pricing data. After a price for a market in your plan is published, it can't be changed later. Ensure these prices are right before publishing by exporting the pricing spreadsheet and reviewing the price in each market.
+> Save pricing changes to enable the export of pricing data. After a price for a market in your plan is published, it can't be changed later. To ensure that the prices are right before you publish them, export the pricing spreadsheet and review the prices in each market.
 
-#### Free trial
+#### Free Trial
 
-You can offer a one-month or three-month free trial to your customers.
+You can offer a one-month or three-month *Free Trial* to your customers.
 
 #### Visibility
 
-You can design each plan to be visible to everyone or to only a preselected audience. Assign memberships in this restricted audience using Azure subscription IDs.
+You can design each plan to be visible to everyone or only to a preselected audience. Assign memberships in this restricted audience by using Azure subscription IDs.
 
-**Public** – Your plan can be seen by everyone.
+**Public**: Your plan can be seen by everyone.
 
-**Private audience** – Make your plan visible only to a preselected audience. After it's published as a private plan, you can update the audience or change it to public. After you make a plan public, it must remain public; you can't change it back to private.
-
-**Restricted Audience (Azure subscription IDs)** – Assign the audience that will have access to this private plan using Azure subscription IDs. Optionally, include a description of each Azure subscription ID you assigned. Add up to 10 subscription IDs manually or 20,000 if importing a CSV spreadsheet. Azure subscription IDs are represented as GUIDs and letters must be lowercase.
+**Private audience**: Make your plan visible only to a preselected audience. After it's published as a private plan, you can update the audience or change it to public. After you make a plan public, it must remain public. It can't be changed back to a private plan.
 
 > [!NOTE]
-> A private or restricted audience is different from the preview audience you defined on the **Preview** tab. A preview audience can access your offer _before_ its published live in the marketplace. While the private audience choice only applies to a specific plan, the preview audience can view all plans (private or not) for validation purposes.
+> A private or restricted audience is different from the preview audience that you defined on the **Preview** pane. A preview audience can access your offer _before_ it's published live to Azure Marketplace. Although the private audience choice applies only to a specific plan, the preview audience can view all private and public plans for validation purposes.
 
-#### Hide plan
+**Restricted audience (Azure subscription IDs)**: Assign the audience that will have access to this private plan by using Azure subscription IDs. Optionally, include a description of each Azure subscription ID that you've assigned. Add up to 10 subscription IDs manually or up to 20,000 IDs if you're importing a CSV spreadsheet. Azure subscription IDs are represented as GUIDs, and all letters must be lowercase.
 
-If your virtual machine is meant to be used only indirectly when referenced through another solution template or managed application, select this box to publish your virtual machine but hide it from customers searching and browsing for it directly.
+>[!Note]
+>Private offers are not supported with Azure subscriptions established through a reseller of the Cloud Solution Provider program (CSP).
+
+#### Hide a plan
+
+If your virtual machine is meant to be used only indirectly when it's referenced through another solution template or managed application, select this check box to publish the virtual machine but hide it from customers who might be searching or browsing for it directly.
 
 > [!NOTE]
 > Hidden plans don't support preview links.
 
-Select **Save draft** before continuing.
+Select **Save draft** before you continue.
 
 ### Technical configuration
 
-Provide the images and other technical properties associated with this plan. For details, see [Create an Azure VM technical asset](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-container-technical-assets).
+Provide the images and other technical properties that are associated with this plan. For more information, see [Create an Azure VM technical asset](create-azure-container-technical-assets.md).
 
 > [!NOTE]
-> This tab isn't shown if you configured this plan to reuse packages from another plan on the **Plan setup** tab.
+> The **Technical configuration** tab isn't displayed if you configured this plan to reuse packages from another plan on the **Plan setup** tab.
 
-#### Operating System
+#### Operating system
 
-- **Operating system family** – Select from **Windows** or **Linux** operating system
-- **Release** or **Vendor** – Choose the Windows release or Linux vendor
-- **OS friendly name** – Choose a friendly operating system name. This name is visible to customers
+On the **Operating system** pane, do the following:
 
-#### Recommended VM Sizes
+- For **Operating system family**, select the **Windows** or **Linux** operating system.
+- For **Release** or **Vendor**, select the Windows release or Linux vendor.
+- For **OS friendly name**, enter a friendly operating system name. This name is visible to customers.
 
-Select up to six recommended virtual machine sizes to display in Azure Marketplace.
+#### Recommended VM sizes
+
+Select up to six recommended virtual machine sizes to display on Azure Marketplace.
 
 #### Open ports
 
@@ -457,106 +449,148 @@ Open public or private ports on a deployed virtual machine.
 
 #### Storage option for deployment
 
-**Disk deployment option** – Select what kind of disk deployment your users can use when using the virtual machine. Microsoft recommends limiting the deployment to Managed disk deployment only.
+For **Disk deployment option**, select the type of disk deployment that your customers can use for the virtual machine. Microsoft recommends limiting the deployment to **Managed disk deployment** only.
 
 #### Properties
 
-**Support accelerated networking** – Select if your VM supports [accelerated networking](https://go.microsoft.com/fwlink/?linkid=2124513).
+For **Support Accelerated Networking**, select whether your VM supports [Accelerated Networking](https://go.microsoft.com/fwlink/?linkid=2124513).
 
-#### VM Images
+#### VM images
 
-Provide a disk version and the SAS URI for the virtual machine images. Add up to 16 data disks for each VM image. Provide only one new image version per plan in a given submission. After an image has been published you can't edit it, but you can delete it. Deleting a version will prevent both new and existing users from deploying a new instance of the deleted version.
+Provide a disk version and the shared access signature (SAS) URI for the virtual machine images. Add up to 16 data disks for each VM image. Provide only one new image version per plan in a specified submission. After an image has been published, you can't edit it, but you can delete it. Deleting a version prevents both new and existing users from deploying a new instance of the deleted version.
 
-- **Disc version** is the version of the image you are providing.
-- **SAS URI** is the location in Azure Storage where you have stored the operating system VHD.
-- Data disk images are also VHD SAS URIs stored in their Azure storage.
+- **Disc version**: The version of the image you are providing.
+- **SAS URI**: The location in your Azure storage account where you've stored the operating system VHD. To learn how to get a SAS URI, see [Get shared access signature URI for your VM image](get-sas-uri.md).
+- Data disk images are also VHD shared access signature URIs that are stored in their Azure storage accounts.
 - Add only one image per submission in a plan.
 
-Regardless of which operating system you use, add only the minimum number of data disks needed by the solution. Customers cannot remove disks that are part of an image at the time of deployment, but they can always add disks during or after deployment.
+Regardless of which operating system you use, add only the minimum number of data disks that the solution requires. During deployment, customers can't remove disks that are part of an image, but they can always add disks during or after deployment.
 
-Select **Save draft** before continuing and return to **Plan overview**.
+Select **Save draft** before you continue and return to **Plan overview**.
 
 ## Resell through CSPs
 
-Expand the reach of your offer by making it available to partners in the [Cloud Solution Providers](https://azure.microsoft.com/offers/ms-azr-0145p/) (CSP) program. All Bring Your Own License (BYOL) plans are automatically opted in; you can choose to opt in your non-BYOL plans.
+Expand the reach of your offer by making it available to partners in the [Cloud Solution Provider (CSP)](https://azure.microsoft.com/offers/ms-azr-0145p/) program. All Bring-your-own-license (BYOL) plans are automatically opted in to the program. You can also choose to opt in your non-BYOL plans.
 
-Select **Save draft** before continuing.
+Select **Save draft** before you continue.
 
-## Test drive
+## Test Drive
 
-Set up a demonstration (test drive) that lets customers try your offer before purchasing it. To create a demonstration environment that lets customers try your offer for a fixed period of time, see [Test Drive your offer in the commercial marketplace](https://docs.microsoft.com/azure/marketplace/partner-center-portal/test-drive).
+Set up a demonstration, or *Test Drive*, that lets customers try your offer for a fixed period of time before they buy it. To create a demonstration environment for your customers, see [Test Drive offers in the commercial marketplace](test-drive.md).
 
-To enable a test drive, select the Enable a test drive check box on the [Offer setup](#test-drive) tab. To remove test drive from your offer, clear this check box.
+To enable a Test Drive, select the **Enable a test drive** check box on the **Offer setup** pane. To remove the Test Drive from your offer, clear the check box.
 
-Additional test drive resources:
+Additional Test Drive resources:
 
-- [Marketing best practices](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices)
+- [Marketing best practices](../what-is-test-drive.md)
 - [Technical best practices](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
-- [Overview](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) (PDF; make sure your pop-up blocker is off)
+- [Test Drive overview](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) PDF file (make sure that your pop-up blocker is turned off)
 
-Select **Save draft** before continuing.
+Select **Save draft** before you continue.
 
 ## Review and publish
 
-After you've completed all the required sections of the offer, you can submit it to review and publish.
+After you've completed all the required sections of the offer, you can submit it for review and publication.
 
-In the top-right corner of the portal, select **Review and publish**.
+At the upper right, select **Review and publish**.
 
-On this page you can:
+On this pane you can:
 
-- See the completion status for each section of the offer.
-  - **Not started** – The section has not been started and needs to be completed.
-  - **Incomplete** – The section has errors that must be fixed or requires that you provide more information. See the sections earlier in this document for guidance about how to update this section.
-  - **Complete** – The section is complete and there are no errors. All sections of the offer must be complete before you can submit the offer.
-- **Notes for certification** – Provide testing instructions to the certification team to ensure your app is tested correctly. Provide any supplementary notes helpful for understanding your app.
+- View the completion status for each section of the offer:
+
+  - **Not started**: The section has not been started and needs to be completed.
+  - **Incomplete**: The section has errors that must be fixed or requires that you provide more information. For guidance about updating the incomplete information, see this article's earlier sections.
+  - **Complete**: The section is complete and there are no errors. All sections of the offer must be complete before you can submit the offer.
+- Provide **Notes for certification** to the certification team to help ensure that your application is tested correctly. Include testing instructions and any supplementary notes that can help the team understand your application.
 
 To submit the offer for publishing, select **Review and publish**.
 
-We'll send you an email to let you know when a preview version of the offer is available to review and approve. To publish your offer to the public (or if a private offer, to a private audience), go to Partner Center, locate your offer's **Overview** page, and select **Go-live**. The status of your offer will appear on the top of the page when publishing is in progress.
+Microsoft will send an email message to let you know when a preview version of the offer is available to review and approve. To publish your offer to the public (or, if it's a private offer, publish it to a private audience), go to Partner Center, go to your offer's **Overview** page, and then select **Go-live**. The status of your offer appears at the top of the page when publishing is in progress.
 
 ### Errors and review feedback
 
-The **Manual validation** step in the publishing process represents an extensive review of your offer and its associated technical assets. If this process uncovers errors with your offer, you will receive a certification report that details the issues. Simply make the required corrections and republish your offer.
+The **Manual validation** step in the publishing process represents an extensive review of your offer and its associated technical assets. If this process uncovers errors with your offer, you'll receive a certification report that details the issues. Simply make the required corrections and republish your offer.
 
 ## Offer overview
 
-The **Offer overview** page shows a visual representation of the steps required to publish this offer (both completed and in progress) and how long each step should take to complete.
+The **Offer overview** page shows a visual representation of the steps, both completed and in progress, that are required to publish your offer and the length of time each step should take to complete.
 
-This page includes links to perform operations on this offer based on the selection you make. For example:
+This page also includes links to help you work with the offer, depending on its status:
 
-- If the offer is a draft - [Delete draft offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#delete-a-draft-offer)
-- If the offer is live - [Stop selling the offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#stop-selling-an-offer-or-plan)
-- If the offer is in preview - [Go-live](https://docs.microsoft.com/azure/marketplace/partner-center-portal/publishing-status#publisher-approval)
-- If you haven't completed publisher sign-off - [Cancel publishing](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#cancel-publishing)
+- If the offer is a draft: [Delete draft offer](update-existing-offer.md#delete-a-draft-offer)
+- If the offer is live: [Stop selling the offer](update-existing-offer.md#stop-selling-an-offer-or-plan)
+- If the offer is in preview: [Go-live](publishing-status.md#publisher-approval)
+- If you haven't completed publisher sign-out: [Cancel publishing](update-existing-offer.md#cancel-publishing)
 
 ## Marketplace examples
 
-These examples show how the offer appears in Azure Marketplace.
+Here's an example of how offer information appears in Azure Marketplace:
 
-### Azure Marketplace offer details
+:::image type="content" source="media/example-azure-marketplace-virtual-machine-offer.png" alt-text="Illustrates how this offer appears in Azure Marketplace.":::
 
-![Azure Marketplace offer details screen example](media/avm-create1.png)
+#### Call-out descriptions
 
-### Azure Marketplace search results
+1. Large logo
+2. Price
+3. Categories
+4. Terms and conditions
+5. Privacy policy address (link)
+6. Offer name
+7. Description
+8. Useful links
+9. Screenshots/videos
 
-![Azure Marketplace search details screen example](media/avm-create2.png)
+<br>Here's an example of how offer information appears in Azure Marketplace search results:
 
-### Azure Marketplace plan details
+:::image type="content" source="media/example-azure-marketplace-virtual-machine-search-results.png" alt-text="Illustrates how this offer appears in Azure Marketplace search results.":::
 
-![Azure Marketplace plan details screen example](media/avm-create3.png)
+#### Call-out descriptions
 
-### Azure portal offer details
+1. Small logo
+2. Offer name
+3. Search results summary
+4. Trial
 
-![Azure portal offer details screen example](media/avm-create4.png)
+<br>Here's an example of Azure Marketplace plan details:
 
-### Azure portal search results
+:::image type="content" source="media/example-azure-marketplace-virtual-machine-plan-details.png" alt-text="Illustrates Azure Marketplace plan details.":::
 
-![Azure portal search results screen example](media/avm-create5.png)
+#### Call-out descriptions
 
-### Azure portal plan details
+1. Plan name and summary
+2. Recommend VM sizes
+3. Plan pricing
 
-![Azure portal plan details screen example](media/avm-create6.png)
+<br>Here's an example of how offer information appears in the Azure portal:
+
+:::image type="content" source="media/example-azure-portal-virtual-machine-offer.png" alt-text="Illustrates how this offer appears in the Azure portal.":::
+
+#### Call-out descriptions
+
+1. Name
+2. Description
+3. Useful links
+4. Screenshots/videos
+
+<br>Here's an example of how offer information appears in the Azure portal search results:
+
+:::image type="content" source="media/example-azure-portal-virtual-machine-search-results.png" alt-text="Illustrates how this offer appears in the Azure portal search results.":::
+
+#### Call-out descriptions
+
+1. Small logo
+2. Offer name
+3. Search results summary
+
+<br>Here's an example of the Azure portal plan details:
+
+:::image type="content" source="media/example-azure-portal-virtual-machine-plan-details.png" alt-text="Illustrates the Azure portal plan details.":::
+
+#### Call-out descriptions
+
+1. Plan name
+2. Plan description
 
 ## Next step
 
-- [Update an existing offer in the commercial marketplace](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer)
+- [Update an existing offer in the commercial marketplace](update-existing-offer.md)

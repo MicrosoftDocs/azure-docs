@@ -1,10 +1,10 @@
-﻿---
-title: CLI example- Failover group - Azure SQL Database managed instance 
-description: Azure CLI example script to create an Azure SQL Database managed instance, add it to a failover group, and test failover. 
+---
+title: "Azure CLI: Add managed instance to failover group"  
+description: Learn how to create two managed instances, add them to a failover group, and then test the failover.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
-ms.custom: 
+ms.custom: devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: sample
 author: MashaMSFT
@@ -12,7 +12,7 @@ ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 07/16/2019
 ---
-# Use CLI to add an Azure SQL Database managed instance to a failover group
+# Use CLI to create an Azure SQL Managed Instance to a failover group
 
 This Azure CLI example creates two managed instances, adds them to a failover group, and then tests failover from the primary managed instance to the secondary managed instance.
 
@@ -40,20 +40,20 @@ az group delete --name $resource
 
 This script uses the following commands. Each command in the table links to command specific documentation.
 
-| | |
+| Command | Description |
 |---|---|
 | [az network vnet](/cli/azure/network/vnet) | Virtual network commands.  |
 | [az network vnet subnet](/cli/azure/network/vnet/subnet) | Virtual network subnet commands. |
 | [az network nsg](/cli/azure/network/nsg) | Network security group commands. |
 | [az network nsg rule](/cli/azure/network/nsg/rule)| Network security rule commands. |
 | [az network route-table](/cli/azure/network/route-table) | Route table commands. |
-| [az sql mi](/cli/azure/sql/mi) | Managed instance commands. |
+| [az sql mi](/cli/azure/sql/mi) | SQL Managed Instance commands. |
 | [az network public-ip](/cli/azure/network/public-ip) | Network public IP address commands. |
 | [az network vnet-gateway](/cli/azure/network/vnet-gateway) | Virtual Network Gateway commands |
-| [az sql instance-failover-group](/cli/azure/sql/instance-failover-group) | Managed instance failover group commands. |
+| [az sql instance-failover-group](/cli/azure/sql/instance-failover-group) | SQL Managed Instance failover group commands. |
 
 ## Next steps
 
 For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).
 
-Additional SQL Database CLI script samples can be found in the [Azure SQL Database documentation](../sql-database-cli-samples.md).
+Additional SQL Database CLI script samples can be found in the [Azure SQL Database documentation](../../azure-sql/database/az-cli-script-samples-content-guide.md).

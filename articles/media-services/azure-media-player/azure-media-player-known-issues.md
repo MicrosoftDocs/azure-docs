@@ -5,7 +5,7 @@ author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: reference
-ms.date: 04/20/2020
+ms.date: 05/11/2020
 ---
 
 # Known Issues #
@@ -36,6 +36,7 @@ The current release has the following known issues:
 
 - Ads may have issues being inserted (on demand or live) when an ad-blocker is installed in the browser
 - Mobile devices may have issues playing back ads.
+- MP4 Midroll ads aren't currently supported by Azure Media Player.
 
 ## AzureHtml5JS ##
 
@@ -44,7 +45,7 @@ The current release has the following known issues:
 
 - Assets that are audio only will not play back via the AzureHtml5JS tech.
   - If you’d like to play back assets without audio, you can do so by inserting blank audio using the [Azure Media Services Explorer tool](https://aka.ms/amse)
-  - Instructions on how to insert silent audio can be found [here](https://azure.microsoft.com/documentation/articles/media-services-advanced-encoding-with-mes/#silent_audio)
+  - Instructions on how to insert silent audio can be found [here](../previous/media-services-advanced-encoding-with-mes.md#silent_audio)
 
 ## Flash ##
 

@@ -1,29 +1,20 @@
 ---
-title: Add an Azure IoT Edge device to Azure IoT Central | Microsoft Docs
-description: As an operator, add an Azure IoT Edge device to your Azure IoT Central application
+title: Tutorial - Add an Azure IoT Edge device to Azure IoT Central | Microsoft Docs
+description: Tutorial - As an operator, add an Azure IoT Edge device to your Azure IoT Central application
 author: rangv
 ms.author: rangv
-ms.date: 12/09/2019
+ms.date: 05/29/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.custom: mvc
-manager: peterpr
-
-# Create IoT Central app
-# Import manifest to create template
-# Add telemetry to manifest
-# Add views to template
-# Create device and get credentials
-# Deploy simulated Edge device to VM
-# Configure with device credentials
+ms.custom: [mvc, device-developer, iot-edge]
 ---
 
 # Tutorial: Add an Azure IoT Edge device to your Azure IoT Central application
 
-*This article applies to solution builders and device developers.*
+*This article applies to operators, solution builders, and device developers.*
 
-This tutorial shows you how to configure and add an Azure IoT Edge device to your Azure IoT Central application. The tutorial uses an IoT Edge-enabled Linux virtual machine (VM) from Azure Marketplace to simulate an IoT Edge device. The IoT Edge device uses a module that generates simulated environmental telemetry. You view the telemetry on a dashboard in your IoT Central application.
+This tutorial shows you how to configure and add an Azure IoT Edge device to your Azure IoT Central application. The tutorial uses an IoT Edge-enabled Linux virtual machine (VM) to simulate an IoT Edge device. The IoT Edge device uses a module that generates simulated environmental telemetry. You view the telemetry on a dashboard in your IoT Central application.
 
 In this tutorial, you learn how to:
 
@@ -44,7 +35,7 @@ Download the IoT Edge manifest file from GitHub. Right-click on the following li
 
 ## Create device template
 
-In this section, you create a device template for an IoT Edge device that connects to your IoT Central application. You import an IoT Edge manifest to get started, and then modify the template to add telemetry definitions and views:
+In this section, you create an IoT Central device template for an IoT Edge device. You import an IoT Edge manifest to get started, and then modify the template to add telemetry definitions and views:
 
 ### Import manifest to create template
 
@@ -54,31 +45,29 @@ To create a device template from an IoT Edge manifest:
 
 1. On the **Select template type** page, select the **Azure IoT Edge** tile. Then select **Next: Customize**.
 
-1. On the **Upload an Azure IoT Edge deployment manifest** page, select **Browse** to upload the **EnvironmentalSensorManifest.json** you downloaded previously. Then select **Next: Review**.
+1. On the **Upload an Azure IoT Edge deployment manifest** page, enter *Environmental Sensor Edge Device* as the device template name. Then select **Browse** to upload the **EnvironmentalSensorManifest.json** you downloaded previously. Then select **Next: Review**.
 
 1. On the **Review** page, select **Create**.
 
-1. When the template has been created, change its name to *Environmental Sensor Edge Device*.
-
 1. Select the **Manage** interface in the **SimulatedTemperatureSensor** module to view the two properties defined in the manifest:
 
-![Device template created from IoT Edge manifest](./media/tutorial-add-edge-as-leaf-device/imported-manifest.png)
+:::image type="content" source="media/tutorial-add-edge-as-leaf-device/imported-manifest.png" alt-text="Device template created from IoT Edge manifest":::
 
 ### Add telemetry to manifest
 
-An IoT Edge manifest doesn't define the telemetry a module sends. You must add the telemetry definitions to the device template. The **SimulatedTemperatureSensor** module sends telemetry messages that look like the following JSON:
+An IoT Edge manifest doesn't define the telemetry a module sends. You add the telemetry definitions to the device template in IoT Central. The **SimulatedTemperatureSensor** module sends telemetry messages that look like the following JSON:
 
 ```json
 {
-	"machine": {
-		"temperature": 75.0,
-		"pressure": 40.2
-	},
-	"ambient": {
-		"temperature": 23.0,
-		"humidity": 30.0
-	},
-	"timeCreated": ""
+  "machine": {
+    "temperature": 75.0,
+    "pressure": 40.2
+  },
+  "ambient": {
+    "temperature": 23.0,
+    "humidity": 30.0
+  },
+  "timeCreated": ""
 }
 ```
 
@@ -102,7 +91,7 @@ To add the telemetry definitions to the device template:
 
 The **Manage** interface now includes the **machine**, **ambient**, and **timeCreated** telemetry types:
 
-![Interface with machine and ambient telemetry types](./media/tutorial-add-edge-as-leaf-device/manage-interface.png)
+:::image type="content" source="media/tutorial-add-edge-as-leaf-device/manage-interface.png" alt-text="Interface with machine and ambient telemetry types":::
 
 ### Add views to template
 
@@ -118,15 +107,15 @@ The device template doesn't yet have a view that lets an operator see the teleme
 
 1. Select **Save** to save the **View IoT Edge device telemetry** view.
 
-![Device template with telemetry view](./media/tutorial-add-edge-as-leaf-device/template-telemetry-view.png)
+:::image type="content" source="media/tutorial-add-edge-as-leaf-device/template-telemetry-view.png" alt-text="Device template with telemetry view":::
 
 ### Publish the template
 
 Before you can add a device that uses the **Environmental Sensor Edge Device** template, you must publish the template.
 
-Navigate to the **Environmental Sensor Edge Device** template and select **Publish**. Then select **Publish** to publish the template:
+Navigate to the **Environmental Sensor Edge Device** template and select **Publish**. On the **Publish this device template to the application** panel, select **Publish** to publish the template:
 
-![Publish the device template](./media/tutorial-add-edge-as-leaf-device/publish-template.png)
+:::image type="content" source="media/tutorial-add-edge-as-leaf-device/publish-template.png" alt-text="Publish the device template":::
 
 ## Add IoT Edge device
 
@@ -134,11 +123,11 @@ Now you've published the **Environmental Sensor Edge Device** template, you can 
 
 1. In your IoT Central application, navigate to the **Devices** page and select **Environmental Sensor Edge Device** in the list of available templates.
 
-1. Select **+** to add a new device from the template. On the **Create new device** page, select **Create**.
+1. Select **+ New** to add a new device from the template. On the **Create new device** page, select **Create**.
 
 You now have a new device with the status **Registered**:
 
-![Publish the device template](./media/tutorial-add-edge-as-leaf-device/new-device.png)
+:::image type="content" source="media/tutorial-add-edge-as-leaf-device/new-device.png" alt-text="New, registered device":::
 
 ### Get the device credentials
 
@@ -156,38 +145,49 @@ You've now finished configuring your IoT Central application to enable an IoT Ed
 
 ## Deploy an IoT Edge device
 
-In this tutorial, you use an Azure IoT Edge-enabled Linux VM, created on Azure to simulate an IoT Edge device. To create the IoT Edge-enabled VM:
+In this tutorial, you use an Azure IoT Edge-enabled Linux VM, created on Azure to simulate an IoT Edge device. To create the IoT Edge-enabled VM in your Azure subscription, click:
 
-1. Navigate to [Azure IoT Edge on Ubuntu](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft_iot_edge.iot_edge_vm_ubuntu?tab=Overview) in the Azure Marketplace. Then select **Get it now**.
+[![Deploy to Azure Button for iotedge-vm-deploy](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fiotedge-vm-deploy%2Fmaster%2FedgeDeploy.json)
 
-1. On the **Create this app in Azure** page, select **Continue**. This link takes you to the Azure portal, where you may need to sign in to your Azure subscription.
+On the **Custom deployment** page:
 
-1. On the **Azure IoT Edge on Ubuntu** page in the Azure portal, select **Create**.
+1. Select your Azure subscription.
 
-1. On the **Create a virtual machine > Basics** page:
+1. Select **Create new** to create a new resource group called *central-edge-rg*.
 
-    - Select your Azure subscription.
-    - Create a new resource group called **iot-edge-devices**.
-    - Use the virtual machine name: **iotedgevm**.
-    - Choose the closest region to you.
-    - Set the authentication type to **Password**.
-    - Choose a username and password.
-    - You can leave the other options to their default values.
-    - Select **Review + create**.
+1. Choose a region close to you.
 
-1. When the validation completes, select **Create**.
+1. Add a unique **DNS Label Prefix** such as *contoso-central-edge*.
 
-After a few minutes, when the deployment is complete, select **Go to resource**.
+1. Choose an admin user name for the virtual machine.
 
-### Provision VM as an IoT Edge device 
+1. Enter *temp* as the connection string. Later, you configure the device to connect using DPS.
 
-To provision VM as an IoT Edge device:
+1. Accept the default values for the VM size, Ubuntu version, and location.
 
-1. In the **Support + troubleshooting** section, select **Serial console**.
+1. Select **password** as the authentication type.
+
+1. Enter a password for the VM.
+
+1. Then select **Review + Create**.
+
+1. Review your choices and then select **Create**:
+
+    :::image type="content" source="media/tutorial-add-edge-as-leaf-device/vm-deployment.png" alt-text="Create an IoT Edge VM":::
+
+The deployment takes a couple of minutes to complete. When the deployment is complete, navigate to the **central-edge-rg** resource group in the Azure portal.
+
+### Configure the IoT Edge VM
+
+To configure IoT Edge in the VM to use DPS to register and connect to your IoT Central application:
+
+1. In the **contoso-edge-rg** resource group, select the virtual machine instance.
+
+1. In the **Support + troubleshooting** section, select **Serial console**. If you're prompted to configure boot diagnostics, follow the instructions in the portal.
 
 1. Press **Enter** to see the `login:` prompt. Enter your username and password to sign in.
 
-1. Run the following command to check the IoT Edge runtime version. At the time of writing, the version is 1.0.8:
+1. Run the following command to check the IoT Edge runtime version. At the time of writing, the version is 1.0.9.1:
 
     ```bash
     sudo iotedge --version
@@ -205,7 +205,7 @@ To provision VM as an IoT Edge device:
     # Manual provisioning configuration
     #provisioning:
     #  source: "manual"
-    #  device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
+    #  device_connection_string: "temp"
     ```
 
 1. Scroll down until you see `# DPS symmetric key provisioning configuration`. Uncomment the next eight lines as shown in the following snippet:
@@ -222,7 +222,10 @@ To provision VM as an IoT Edge device:
         symmetric_key: "{symmetric_key}"
     ```
 
-1. Replace `{scope_id}` with the **ID Scope** for you made a note of previously.
+    > [!TIP]
+    > Make sure there's no space left in front of `provisioning:`
+
+1. Replace `{scope_id}` with the **ID Scope** you made a note of previously.
 
 1. Replace `{registration_id}` with the **Device ID** you made a note of previously.
 
@@ -242,7 +245,7 @@ To provision VM as an IoT Edge device:
     iotedge list
     ```
 
-    The output looks like the following:
+    The following sample output shows the running modules:
 
     ```bash
     NAME                        STATUS           DESCRIPTION      CONFIG
@@ -251,25 +254,38 @@ To provision VM as an IoT Edge device:
     edgeHub                     running          Up 22 seconds    mcr.microsoft.com/azureiotedge-hub:1.0
     ```
 
+    > [!TIP]
+    > You may need to wait for all the modules to start running.
+
 ## View the telemetry
 
 The simulated IoT Edge device is now running in the VM. In your IoT Central application, the device status is now **Provisioned** on the **Devices** page:
 
-![Provisioned device](./media/tutorial-add-edge-as-leaf-device/provisioned-device.png)
+:::image type="content" source="media/tutorial-add-edge-as-leaf-device/provisioned-device.png" alt-text="Provisioned IoT Edge device":::
 
-You can see the telemetry on the **View IoT Edge device telemetry** page:
+You can see the telemetry from the device on the **View IoT Edge device telemetry** page:
 
-![Device telemetry](./media/tutorial-add-edge-as-leaf-device/device-telemetry-view.png)
+:::image type="content" source="media/tutorial-add-edge-as-leaf-device/device-telemetry-view.png" alt-text="Device telemetry":::
 
-The **Modules** page shows the status of the IoT Edge modules:
+The **Modules** page shows the status of the IoT Edge modules on the device:
 
-![Device telemetry](./media/tutorial-add-edge-as-leaf-device/edge-module-status.png)
+:::image type="content" source="media/tutorial-add-edge-as-leaf-device/edge-module-status.png" alt-text="Device module status":::
+
+## Clean up resources
+
+If you plan to continue working with the IoT Edge VM, you can keep and reuse the resources you used in this tutorial. Otherwise, you can delete the resources you created in this tutorial to avoid additional charges:
+
+* To delete the IoT Edge VM and its associated resources, delete the the **contoso-edge-rg** resource group in the Azure portal.
+* To delete the IoT Central application, navigate to the **Your application** page in the **Administration** section of the application and select **Delete**.
+
+As a solution developer or operator, now that you've learned how to work with and manage IoT Edge devices in IoT Central, a suggested next step is to:
+
+> [!div class="nextstepaction"]
+> [Use device groups to analyze device telemetry](./tutorial-use-device-groups.md)
 
 ## Next steps
 
 As a device developer, now that you've learned how to work with and manage IoT Edge devices in IoT Central, a suggested next step is to read:
 
-<!-- Next how-tos in the sequence -->
-
 > [!div class="nextstepaction"]
-> [Get connected to Azure IoT Central](./concepts-get-connected.md)
+> [Develop IoT Edge modules](../../iot-edge/tutorial-develop-for-linux.md)

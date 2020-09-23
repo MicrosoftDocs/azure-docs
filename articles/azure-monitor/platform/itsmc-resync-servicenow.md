@@ -34,7 +34,7 @@ Use the following synchronization process to reactivate the connection and refre
     1. Click the Connector name in order to configure it
     1. Delete any connectors no longer in use
 
-    1. Update the fields according to [these definitions](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-connections) based on your partner type
+    1. Update the fields according to [these definitions](./itsmc-connections.md) based on your partner type
 
     1. Click on sync
 

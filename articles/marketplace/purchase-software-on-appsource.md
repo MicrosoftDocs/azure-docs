@@ -1,11 +1,12 @@
 ---
+# This file is currently not connected to TOC. We are working on a new location Sept 2020
 title: How to Purchase Software on AppSource | Azure Marketplace
 description: Steps for one to purchase software on AppSource | Azure Marketplace. 
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 03/20/2020
 ---
 
@@ -24,11 +25,11 @@ To purchase SaaS offers, you need:
 - A valid credit card in the country/region where you are purchasing the offer.
 
     > [!Note]
-    > The credit card billing country may be locked to the location of your Azure Active Directory instance.
+    > The credit card billing country/region may be locked to the location of your Azure Active Directory instance.
 
 ## Steps for making purchases on AppSource
 
-1. Select your billing/country region on [AppSource](https://appsource.microsoft.com/).
+1. Select your billing country/region on [AppSource](https://appsource.microsoft.com/).
 1. Find the application you wish to purchase.
 1. Select **Get it now**.
 1. Choose the plan:
@@ -54,10 +55,10 @@ After your order is received, it can take several seconds to get confirmed. You 
 
 ## Contact support
 
-One can [submit a support ticket](https://admin.microsoft.com/Adminportal/Home?source=applauncher#/homepage) through the Microsoft 365 Admin Center.
+One can [submit a support ticket](https://admin.microsoft.com/Adminportal/Home?source=applauncher#/homepage) through the Microsoft 365 admin center.
 
-For business products, [contact help here](https://docs.microsoft.com/office365/admin/contact-support-for-business-products?view=o365-worldwide&tabs=phone).
+For business products, [contact help here](/office365/admin/contact-support-for-business-products?tabs=phone).
 
 ## Next steps
 
-- See the [Commercial Marketplace documentation](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-overview) for more information.
+- See the [Commercial Marketplace documentation](partner-center-portal/commercial-marketplace-overview.md) for more information.

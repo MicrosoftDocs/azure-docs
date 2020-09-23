@@ -70,11 +70,20 @@ Here are some related resources for Azure Maps:
 The following is a high-level migration plan.
 
 1. Take inventory of the Google Maps SDKs and services that your application uses. Verify that Azure Maps provides alternative SDKs and services.
-2. If you don’t already have one, create an Azure subscription at [https://azure.com](https://azure.com).
+2. If you don't already have one, create an Azure subscription at [https://azure.com](https://azure.com).
 3. Create an Azure Maps account ([documentation](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys)) and authentication key or Azure Active Directory ([documentation](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication)).
 4. Migrate your application code.
 5. Test your migrated application.
 6. Deploy your migrated application to production.
+
+## Create an Azure Maps account
+
+To create an Azure Maps account and get access to the Azure Maps platform, follow these steps:
+
+1. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+2. Sign in to the [Azure portal](https://portal.azure.com/).
+3. Create an [Azure Maps account](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys). 
+4. [Get your Azure Maps subscription key](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication#view-authentication-details) or setup Azure Active Directory authentication for enhanced security.
 
 ## Azure Maps technical resources
 
@@ -88,7 +97,7 @@ Here is a list of useful technical resources for Azure Maps.
 - Blog: [https://aka.ms/AzureMapsBlog](https://aka.ms/AzureMapsBlog)
 - Tech Blog: [https://aka.ms/AzureMapsTechBlog](https://aka.ms/AzureMapsTechBlog)
 - Azure Maps Feedback (UserVoice): [https://aka.ms/AzureMapsFeedback](https://aka.ms/AzureMapsFeedback)
-- [Azure Maps Jupyter Notebook][https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook]
+- [Azure Maps Jupyter Notebook](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook)
 
 ## Migration support
 

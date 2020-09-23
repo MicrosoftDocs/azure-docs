@@ -1,10 +1,9 @@
 ---
 title: Azure Functions networking options
 description: An overview of all networking options available in Azure Functions.
-author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 4/11/2019
-ms.author: alkarche
+ms.custom: fasttrack-edit
 
 ---
 # Azure Functions networking options
@@ -23,13 +22,7 @@ You can host function apps in a couple of ways:
 
 ## Matrix of networking features
 
-|                |[Consumption plan](functions-scale.md#consumption-plan)|[Premium plan](functions-scale.md#premium-plan)|[App Service plan](functions-scale.md#app-service-plan)|[App Service Environment](../app-service/environment/intro.md)|
-|----------------|-----------|----------------|---------|-----------------------|  
-|[Inbound IP restrictions and private site access](#inbound-ip-restrictions)|✅Yes|✅Yes|✅Yes|✅Yes|
-|[Virtual network integration](#virtual-network-integration)|❌No|✅Yes (Regional)|✅Yes (Regional and Gateway)|✅Yes|
-|[Virtual network triggers (non-HTTP)](#virtual-network-triggers-non-http)|❌No| ✅Yes |✅Yes|✅Yes|
-|[Hybrid connections](#hybrid-connections) (Windows only)|❌No|✅Yes|✅Yes|✅Yes|
-|[Outbound IP restrictions](#outbound-ip-restrictions)|❌No| ✅Yes|✅Yes|✅Yes|
+[!INCLUDE [functions-networking-features](../../includes/functions-networking-features.md)]
 
 ## Inbound IP restrictions
 
@@ -42,15 +35,7 @@ To learn more, see [Azure App Service static access restrictions](../app-service
 
 ## Private site access
 
-Private site access refers to making your app accessible only from a private network, such as an Azure virtual network.
-
-* Private site access is available in the [Premium](./functions-premium-plan.md), [Consumption](functions-scale.md#consumption-plan), and [App Service](functions-scale.md#app-service-plan) plans when service endpoints are configured.
-    * Service endpoints can be configured on a per-app basis under **Platform features** > **Networking** > **Configure Access Restrictions** > **Add Rule**. Virtual networks can now be selected as a rule type.
-    * For more information, see [Virtual network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md).
-    * Keep in mind that with service endpoints, your function still has full outbound access to the internet, even with virtual network integration configured.
-* Private site access is also available within an App Service Environment that's configured with an internal load balancer (ILB). For more information, see [Create and use an internal load balancer with an App Service Environment](../app-service/environment/create-ilb-ase.md).
-
-To learn how to set up private site access, see [Establish Azure Functions private site access](functions-create-private-site-access.md).
+[!INCLUDE [functions-private-site-access](../../includes/functions-private-site-access.md)]
 
 ## Virtual network integration
 
@@ -97,9 +82,9 @@ Currently, you can use non-HTTP trigger functions from within a virtual network 
 
 ### Premium plan with virtual network triggers
 
-When you run a Premium plan, you can connect non-HTTP trigger functions to services that run inside a virtual network. To do this, you must enable virtual network trigger support for your function app. The **Virtual network trigger support** setting is found in the [Azure portal](https://portal.azure.com) under **Function app settings**.
+When you run a Premium plan, you can connect non-HTTP trigger functions to services that run inside a virtual network. To do this, you must enable virtual network trigger support for your function app. The **Runtime Scale Monitoring** setting is found in the [Azure portal](https://portal.azure.com) under **Configuration** > **Function runtime settings**.
 
-![Virtual network toggle](media/functions-networking-options/virtual-network-trigger-toggle.png)
+:::image type="content" source="media/functions-networking-options/virtual-network-trigger-toggle.png" alt-text="VNETToggle":::
 
 You can also enable virtual network triggers by using the following Azure CLI command:
 
@@ -128,7 +113,7 @@ For example, assume you want to configure Azure Cosmos DB to accept traffic only
 
 ## Hybrid Connections
 
-[Hybrid Connections](../service-bus-relay/relay-hybrid-connections-protocol.md) is a feature of Azure Relay that you can use to access application resources in other networks. It provides access from your app to an application endpoint. You can't use it to access your application. Hybrid Connections is available to functions that run on Windows in all but the Consumption plan.
+[Hybrid Connections](../azure-relay/relay-hybrid-connections-protocol.md) is a feature of Azure Relay that you can use to access application resources in other networks. It provides access from your app to an application endpoint. You can't use it to access your application. Hybrid Connections is available to functions that run on Windows in all but the Consumption plan.
 
 As used in Azure Functions, each hybrid connection correlates to a single TCP host and port combination. This means that the hybrid connection's endpoint can be on any operating system and any application as long as you're accessing a TCP listening port. The Hybrid Connections feature doesn't know or care what the application protocol is or what you're accessing. It just provides network access.
 
@@ -142,6 +127,12 @@ To learn more, see the [App Service documentation for Hybrid Connections](../app
 Outbound IP restrictions are available in a Premium plan, App Service plan, or App Service Environment. You can configure outbound restrictions for the virtual network where your App Service Environment is deployed.
 
 When you integrate a function app in a Premium plan or an App Service plan with a virtual network, the app can still make outbound calls to the internet by default. By adding the application setting `WEBSITE_VNET_ROUTE_ALL=1`, you force all outbound traffic to be sent into your virtual network, where network security group rules can be used to restrict traffic.
+
+## Automation
+The following APIs let you programmatically manage regional virtual network integrations:
+
++ **Azure CLI**: Use the [`az functionapp vnet-integration`](/cli/azure/functionapp/vnet-integration) commands to add, list, or remove a regional virtual network integrations.  
++ **ARM templates**: Regional virtual network integration can be enabled by using an Azure Resource Manager template. For a full example, see [this Functions quickstart template](https://azure.microsoft.com/resources/templates/101-function-premium-vnet-integration/).
 
 ## Troubleshooting
 

@@ -1,6 +1,6 @@
 ---
 title: Microsoft identity platform scopes, permissions, and consent
-description: A description of authorization in the Microsoft identity platform endpoint, including scopes, permissions, and consent.
+description: Learn about authorization in the Microsoft identity platform endpoint, including scopes, permissions, and consent.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 1/3/2020
+ms.date: 09/23/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: aaddev, fasttrack-edit
@@ -24,11 +24,11 @@ Applications that integrate with Microsoft identity platform follow an authoriza
 The Microsoft identity platform implements the [OAuth 2.0](active-directory-v2-protocols.md) authorization protocol. OAuth 2.0 is a method through which a third-party app can access web-hosted resources on behalf of a user. Any web-hosted resource that integrates with the Microsoft identity platform has a resource identifier, or *Application ID URI*. For example, some of Microsoft's web-hosted resources include:
 
 * Microsoft Graph: `https://graph.microsoft.com`
-* Office 365 Mail API: `https://outlook.office.com`
+* Microsoft 365 Mail API: `https://outlook.office.com`
 * Azure Key Vault: `https://vault.azure.net`
 
 > [!NOTE]
-> We strongly recommend that you use Microsoft Graph instead of Office 365 Mail API, etc.
+> We strongly recommend that you use Microsoft Graph instead of Microsoft 365 Mail API, etc.
 
 The same is true for any third-party resources that have integrated with the Microsoft identity platform. Any of these resources also can define a set of permissions that can be used to divide the functionality of that resource into smaller chunks. As an example, [Microsoft Graph](https://graph.microsoft.com) has defined permissions to do the following tasks, among others:
 
@@ -64,7 +64,9 @@ _Effective permissions_ are the permissions that your app will have when making 
 
 ## OpenID Connect scopes
 
-The Microsoft identity platform implementation of OpenID Connect has a few well-defined scopes that do not apply to a specific resource: `openid`, `email`, `profile`, and `offline_access`. The `address` and `phone` OpenID Connect scopes are not supported.
+The Microsoft identity platform implementation of OpenID Connect has a few well-defined scopes that are also hosted on the Microsoft Graph: `openid`, `email`, `profile`, and `offline_access`. The `address` and `phone` OpenID Connect scopes are not supported.
+
+Requesting the OIDC scopes and a token will give you a token to call the [UserInfo endpoint](userinfo.md).
 
 ### openid
 
@@ -296,6 +298,16 @@ response_type=token            //code or a hybrid flow is also possible here
 
 This produces a consent screen for all registered permissions (if applicable based on the above descriptions of consent and `/.default`), then returns an id_token, rather than an access token.  This behavior exists for certain legacy clients moving from ADAL to MSAL, and **should not** be used by new clients targeting the Microsoft identity platform endpoint.
 
+### Client credentials grant flow and /.default
+
+Another use of `./default` is when requesting application permissions (or *roles*) in a non-interactive application like a daemon app that uses the [client credentials](v2-oauth2-client-creds-grant-flow.md) grant flow to call a web API.
+
+To create application permissions (roles) for a web API, see [How to: Add app roles in your application](howto-add-app-roles-in-azure-ad-apps.md).
+
+Client credentials requests in your client app **must** include `scope={resource}/.default`, where `{resource}` is the web API that your app intends to call. Issuing a client credentials request with individual application permissions (roles) is **not** supported. All the application permissions (roles) that have been granted for that web API will be included in the returned access token.
+
+To grant access to the application permissions you define, including granting admin consent for the application, see [Quickstart: Configure a client application to access a web API](quickstart-configure-app-access-web-apis.md).
+
 ### Trailing slash and /.default
 
 Some resource URIs have a trailing slash (`https://contoso.com/` as opposed to `https://contoso.com`), which can cause problems with token validation.  This can occur primarily when requesting a token for Azure Resource Management (`https://management.azure.com/`), which has a trailing slash on their resource URI and requires it to be present when the token is requested.  Thus, when requesting a token for `https://management.azure.com/` and using `/.default`, you must request `https://management.azure.com//.default` - note the double slash!
@@ -305,3 +317,8 @@ In general - if you've validated that the token is being issued, and the token i
 ## Troubleshooting permissions and consent
 
 If you or your application's users are seeing unexpected errors during the consent process, see this article for troubleshooting steps: [Unexpected error when performing consent to an application](../manage-apps/application-sign-in-unexpected-user-consent-error.md).
+
+## Next steps
+
+* [ID tokens | Microsoft identity platform](id-tokens.md)
+* [Access tokens | Microsoft identity platform](access-tokens.md)

@@ -1,23 +1,21 @@
 ---
-title: Interpret model results
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (classic): Interpret model results - Azure'
 description: How to choose the optimal parameter set for an algorithm using and visualizing score model outputs.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 
 author: likebupt
 ms.author: keli19
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 11/29/2017
 ---
 # Interpret model results in Azure Machine Learning Studio (classic)
 
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+**APPLIES TO:**  ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+
+
 This topic explains how to visualize and interpret prediction results in Azure Machine Learning Studio (classic). After you have trained a model and done predictions on top of it ("scored the model"), you need to understand and interpret the prediction result.
-
-
 
 There are four major kinds of machine learning models in Azure Machine Learning Studio (classic):
 
@@ -32,11 +30,11 @@ The modules used for prediction on top of these models are:
 * [Assign to Clusters][assign-to-clusters] module for clustering
 * [Score Matchbox Recommender][score-matchbox-recommender] for recommendation systems
 
-This document explains how to interpret prediction results for each of these modules. For an overview of these modules, see [How to choose parameters to optimize your algorithms in Azure Machine Learning Studio (classic)](algorithm-parameters-optimize.md).
+Learn how to [choose parameters to optimize your algorithms in ML Studio (classic)](algorithm-parameters-optimize.md).
 
-This topic addresses prediction interpretation but not model evaluation. For more information about how to evaluate your model, see [How to evaluate model performance in Azure Machine Learning Studio (classic)](evaluate-model-performance.md).
+To learn how to evaluate your models, see [How to evaluate model performance](evaluate-model-performance.md).
 
-If you are new to Azure Machine Learning Studio (classic) and need help creating a simple experiment to get started, see [Create a simple experiment in Azure Machine Learning Studio (classic)](create-experiment.md).
+If you are new to ML Studio (classic), [learn how to create a simple experiment](create-experiment.md).
 
 ## Classification
 There are two subcategories of classification problems:
@@ -94,7 +92,7 @@ Figure 5. Web service result of iris two-class classification
 ### Multi-class classification
 **Example experiment**
 
-In this experiment, you perform a letter-recognition task as an example of multiclass classification. The classifier attempts to predict a certain letter (class) based on some hand-written attribute values extracted from the hand-written images.
+In this experiment, you perform a letter-recognition task as an example of multiclass classification. The classifier attempts to predict a certain letter %28class%29 based on some hand-written attribute values extracted from the hand-written images.
 
 ![Letter recognition example](./media/interpret-model-results/5_1.png)
 

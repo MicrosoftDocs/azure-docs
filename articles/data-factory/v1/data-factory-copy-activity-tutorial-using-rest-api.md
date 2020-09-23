@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Use REST API to create an Azure Data Factory pipeline '
-description: In this tutorial, you use REST API to create an Azure Data Factory pipeline with a Copy Activity to copy data from an Azure blob storage an Azure SQL database. 
+description: In this tutorial, you use REST API to create an Azure Data Factory pipeline with a Copy Activity to copy data from an Azure blob storage to Azure SQL Database. 
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -31,7 +31,7 @@ robots: noindex
 > [!NOTE]
 > This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [copy activity tutorial](../quickstart-create-data-factory-rest-api.md). 
 
-In this article, you learn how to use REST API to create a data factory with a pipeline that copies data from an Azure blob storage to an Azure SQL database. If you are new to Azure Data Factory, read through the [Introduction to Azure Data Factory](data-factory-introduction.md) article before doing this tutorial.   
+In this article, you learn how to use REST API to create a data factory with a pipeline that copies data from an Azure blob storage to Azure SQL Database. If you are new to Azure Data Factory, read through the [Introduction to Azure Data Factory](data-factory-introduction.md) article before doing this tutorial.   
 
 In this tutorial, you create a pipeline with one activity in it: Copy Activity. The copy activity copies data from a supported data store to a supported sink data store. For a list of data stores supported as sources and sinks, see [supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats). The activity is powered by a globally available service that can copy data between various data stores in a secure, reliable, and scalable way. For more information about the Copy Activity, see [Data Movement Activities](data-factory-data-movement-activities.md).
 
@@ -53,7 +53,7 @@ A pipeline can have more than one activity. And, you can chain two activities (r
   2. Get **client ID** and **secret key**. 
   3. Get **tenant ID**. 
   4. Assign the **ADFCopyTutorialApp** application to the **Data Factory Contributor** role.  
-* Install [Azure PowerShell](/powershell/azure/overview).  
+* Install [Azure PowerShell](/powershell/azure/).  
 * Launch **PowerShell** and do the following steps. Keep Azure PowerShell open until the end of this tutorial. If you close and reopen, you need to run the commands again.
   
   1. Run the following command and enter the user name and password that you use to sign in to the Azure portal:
@@ -117,7 +117,7 @@ For details about JSON properties, see [Azure Storage linked service](data-facto
 
 ### azuresqllinkedservice.json
 > [!IMPORTANT]
-> Replace **servername**, **databasename**, **username**, and **password** with name of your Azure SQL server, name of SQL database, user account, and password for the account.  
+> Replace **servername**, **databasename**, **username**, and **password** with name of your server, name of SQL database, user account, and password for the account.  
 > 
 >
 
@@ -218,7 +218,7 @@ The following table provides descriptions for the JSON properties used in the sn
 
 | Property | Description |
 |:--- |:--- |
-| type | The type property is set to **AzureSqlTable** because data is copied to a table in an Azure SQL database. |
+| type | The type property is set to **AzureSqlTable** because data is copied to a table in Azure SQL Database. |
 | linkedServiceName | Refers to the **AzureSqlLinkedService** that you created earlier. |
 | tableName | Specified the **table** to which the data is copied. | 
 | frequency/interval | The frequency is set to **Hour** and interval is **1**, which means that the output slices are produced **hourly** between the pipeline start and end times, not before or after these times.  |
@@ -237,7 +237,7 @@ For more information about these JSON properties, see [Azure SQL connector artic
     "activities": [
       {
         "name": "CopyFromBlobToSQL",
-        "description": "Push Regional Effectiveness Campaign data to Azure SQL database",
+        "description": "Push Regional Effectiveness Campaign data to Azure SQL Database",
         "type": "Copy",
         "inputs": [
           {
@@ -377,7 +377,7 @@ You create linked services in a data factory to link your data stores and comput
 
 The AzureStorageLinkedService links your Azure storage account to the data factory. This storage account is the one in which you created a container and uploaded the data as part of [prerequisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).   
 
-AzureSqlLinkedService links your Azure SQL database to the data factory. The data that is copied from the blob storage is stored in this database. You created the emp table in this database as part of [prerequisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).  
+AzureSqlLinkedService links Azure SQL Database to the data factory. The data that is copied from the blob storage is stored in this database. You created the emp table in this database as part of [prerequisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).  
 
 ### Create Azure Storage linked service
 In this step, you link your Azure storage account to your data factory. You specify the name and key of your Azure storage account in this section. See [Azure Storage linked service](data-factory-azure-blob-connector.md#azure-storage-linked-service) for details about JSON properties used to define an Azure Storage linked service.  
@@ -399,7 +399,7 @@ In this step, you link your Azure storage account to your data factory. You spec
     ```
 
 ### Create Azure SQL linked service
-In this step, you link your Azure SQL database to your data factory. You specify the Azure SQL server name, database name, user name, and user password in this section. See [Azure SQL linked service](data-factory-azure-sql-connector.md#linked-service-properties) for details about JSON properties used to define an Azure SQL linked service.
+In this step, you link Azure SQL Database to your data factory. You specify the logical SQL server name, database name, user name, and user password in this section. See [Azure SQL linked service](data-factory-azure-sql-connector.md#linked-service-properties) for details about JSON properties used to define an Azure SQL linked service.
 
 1. Assign the command to variable named **cmd**. 
    
@@ -418,11 +418,11 @@ In this step, you link your Azure SQL database to your data factory. You specify
     ```
 
 ## Create datasets
-In the previous step, you created linked services to link your Azure Storage account and Azure SQL database to your data factory. In this step, you define two datasets named AzureBlobInput and AzureSqlOutput that represent input and output data that is stored in the data stores referred by AzureStorageLinkedService and AzureSqlLinkedService respectively.
+In the previous step, you created linked services to link your Azure Storage account and Azure SQL Database to your data factory. In this step, you define two datasets named AzureBlobInput and AzureSqlOutput that represent input and output data that is stored in the data stores referred by AzureStorageLinkedService and AzureSqlLinkedService respectively.
 
 The Azure storage linked service specifies the connection string that Data Factory service uses at run time to connect to your Azure storage account. And, the input blob dataset (AzureBlobInput) specifies the container and the folder that contains the input data.  
 
-Similarly, the Azure SQL Database linked service specifies the connection string that Data Factory service uses at run time to connect to your Azure SQL database. And, the output SQL table dataset (OututDataset) specifies the table in the database to which the data from the blob storage is copied. 
+Similarly, the Azure SQL Database linked service specifies the connection string that Data Factory service uses at run time to connect to Azure SQL Database. And, the output SQL table dataset (OututDataset) specifies the table in the database to which the data from the blob storage is copied. 
 
 ### Create input dataset
 In this step, you create a dataset named AzureBlobInput that points to a blob file (emp.txt) in the root folder of a blob container (adftutorial) in the Azure Storage represented by the AzureStorageLinkedService linked service. If you don't specify a value for the fileName (or skip it), data from all blobs in the input folder are copied to the destination. In this tutorial, you specify a value for the fileName. 
@@ -444,7 +444,7 @@ In this step, you create a dataset named AzureBlobInput that points to a blob fi
     ```
 
 ### Create output dataset
-The Azure SQL Database linked service specifies the connection string that Data Factory service uses at run time to connect to your Azure SQL database. The output SQL table dataset (OututDataset) you create in this step specifies the table in the database to which the data from the blob storage is copied.
+The Azure SQL Database linked service specifies the connection string that Data Factory service uses at run time to connect to Azure SQL Database. The output SQL table dataset (OututDataset) you create in this step specifies the table in the database to which the data from the blob storage is copied.
 
 1. Assign the command to variable named **cmd**.
 
@@ -483,7 +483,7 @@ Currently, output dataset is what drives the schedule. In this tutorial, output 
 	Write-Host $results
     ```
 
-**Congratulations!** You have successfully created an Azure data factory, with a pipeline that copies data from Azure Blob Storage to Azure SQL database.
+**Congratulations!** You have successfully created an Azure data factory, with a pipeline that copies data from Azure Blob Storage to Azure SQL Database.
 
 ## Monitor pipeline
 In this step, you use Data Factory REST API to monitor slices being produced by the pipeline.
@@ -511,22 +511,22 @@ IF ((ConvertFrom-Json $results2).value -ne $NULL) {
 }
 ```
 
-Run the Invoke-Command and the next one until you see a slice in **Ready** state or **Failed** state. When the slice is in Ready state, check the **emp** table in your Azure SQL database for the output data. 
+Run the Invoke-Command and the next one until you see a slice in **Ready** state or **Failed** state. When the slice is in Ready state, check the **emp** table in Azure SQL Database for the output data. 
 
-For each slice, two rows of data from the source file are copied to the emp table in the Azure SQL database. Therefore, you see 24 new records in the emp table when all the slices are successfully processed (in Ready state). 
+For each slice, two rows of data from the source file are copied to the emp table in Azure SQL Database. Therefore, you see 24 new records in the emp table when all the slices are successfully processed (in Ready state). 
 
 ## Summary
-In this tutorial, you used REST API to create an Azure data factory to copy data from an Azure blob to an Azure SQL database. Here are the high-level steps you performed in this tutorial:  
+In this tutorial, you used REST API to create an Azure data factory to copy data from an Azure blob to Azure SQL Database. Here are the high-level steps you performed in this tutorial:  
 
 1. Created an Azure **data factory**.
 2. Created **linked services**:
    1. An Azure Storage linked service to link your Azure Storage account that holds input data.     
-   2. An Azure SQL linked service to link your Azure SQL database that holds the output data. 
+   2. An Azure SQL linked service to link your database that holds the output data. 
 3. Created **datasets**, which describe input data and output data for pipelines.
 4. Created a **pipeline** with a Copy Activity with BlobSource as source and SqlSink as sink. 
 
 ## Next steps
-In this tutorial, you used Azure blob storage as a source data store and an Azure SQL database as a destination data store in a copy operation. The following table provides a list of data stores supported as sources and destinations by the copy activity: 
+In this tutorial, you used Azure blob storage as a source data store and Azure SQL Database as a destination data store in a copy operation. The following table provides a list of data stores supported as sources and destinations by the copy activity: 
 
 [!INCLUDE [data-factory-supported-data-stores](../../../includes/data-factory-supported-data-stores.md)]
 

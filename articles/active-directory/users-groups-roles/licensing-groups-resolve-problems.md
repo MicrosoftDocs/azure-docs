@@ -9,7 +9,7 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.workload: identity
 ms.date: 11/08/2019
 ms.author: curtand
@@ -105,7 +105,7 @@ If you use Exchange Online, some users in your organization might be incorrectly
 > Get-Recipient -ResultSize unlimited | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.com"} | fL Name, RecipientType,emailaddresses
 > ```
 > For more information about this problem, see ["Proxy address 
-> is already being used" error message in Exchange Online](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online). The article also includes information on [how to connect to Exchange Online by using remote PowerShell](https://technet.microsoft.com/library/jj984289.aspx).
+> is already being used" error message in Exchange Online](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online). The article also includes information on [how to connect to Exchange Online by using remote PowerShell](/powershell/exchange/connect-to-exchange-online-powershell?view=exchange-ps).
 
 After you resolve any proxy address problems for the affected users, make sure to force license processing on the group to make sure that the licenses can now be applied.
 
@@ -118,7 +118,7 @@ Updating license assignment on a user causes the proxy address calculation to be
 ## LicenseAssignmentAttributeConcurrencyException in audit logs
 
 **Problem:** User has LicenseAssignmentAttributeConcurrencyException for license assignment in audit logs.
-When group-based licensing tries to process concurrent license assignment of same license to a user, this exception is recorded on the user. This usually happens when a user is a member of more than one group with same assigned license. AZure AD will retry processing the user license and will resolve the issue. There is no action required from the customer to fix this issue.
+When group-based licensing tries to process concurrent license assignment of same license to a user, this exception is recorded on the user. This usually happens when a user is a member of more than one group with same assigned license. Azure AD will retry processing the user license and will resolve the issue. There is no action required from the customer to fix this issue.
 
 ## More than one product license assigned to a group
 

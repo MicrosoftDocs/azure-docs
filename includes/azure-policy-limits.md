@@ -4,7 +4,7 @@ description: "include file"
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: "include"
-ms.date: 04/23/2020
+ms.date: 09/22/2020
 ms.author: dacoulte
 ---
 
@@ -14,11 +14,12 @@ the subscription or the [management group](../articles/governance/management-gro
 | Where | What | Maximum count |
 |---|---|---|
 | Scope | Policy definitions | 500 |
-| Scope | Initiative definitions | 100 |
-| Tenant | Initiative definitions | 1,000 |
-| Scope | Policy or initiative assignments | 100 |
+| Scope | Initiative definitions | 200 |
+| Tenant | Initiative definitions | 2,500 |
+| Scope | Policy or initiative assignments | 200 |
+| Scope | Exemptions | 1000 |
 | Policy definition | Parameters | 20 |
-| Initiative definition | Policies | 100 |
+| Initiative definition | Policies | 1000 |
 | Initiative definition | Parameters | 100 |
 | Policy or initiative assignments | Exclusions (notScopes) | 400 |
 | Policy rule | Nested conditionals | 512 |

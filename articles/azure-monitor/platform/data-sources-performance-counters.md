@@ -58,13 +58,15 @@ Instead of configuring Linux performance counters using the Azure portal, you ha
 
 Each object, or category, of performance metrics to collect should be defined in the configuration file as a single `<source>` element. The syntax follows the pattern below.
 
-	<source>
-	  type oms_omi  
-	  object_name "Processor"
-	  instance_regex ".*"
-	  counter_name_regex ".*"
-	  interval 30s
-	</source>
+```xml
+<source>
+    type oms_omi  
+    object_name "Processor"
+    instance_regex ".*"
+    counter_name_regex ".*"
+    interval 30s
+</source>
+```
 
 
 The parameters in this element are described in the following table.
@@ -138,37 +140,39 @@ The following table lists the objects and counters that you can specify in the c
 
 Following is the default configuration for performance metrics.
 
-	<source>
-	  type oms_omi
-	  object_name "Physical Disk"
-	  instance_regex ".*"
-	  counter_name_regex ".*"
-	  interval 5m
-	</source>
+```xml
+<source>
+    type oms_omi
+	object_name "Physical Disk"
+	instance_regex ".*"
+	counter_name_regex ".*"
+	interval 5m
+</source>
 
-	<source>
-	  type oms_omi
-	  object_name "Logical Disk"
-	  instance_regex ".*
-	  counter_name_regex ".*"
-	  interval 5m
-	</source>
+<source>
+	type oms_omi
+	object_name "Logical Disk"
+	instance_regex ".*
+	counter_name_regex ".*"
+	interval 5m
+</source>
 
-	<source>
-	  type oms_omi
-	  object_name "Processor"
-	  instance_regex ".*
-	  counter_name_regex ".*"
-	  interval 30s
-	</source>
+<source>
+    type oms_omi
+	object_name "Processor"
+	instance_regex ".*
+	counter_name_regex ".*"
+	interval 30s
+</source>
 
-	<source>
-	  type oms_omi
-	  object_name "Memory"
-	  instance_regex ".*"
-	  counter_name_regex ".*"
-	  interval 30s
-	</source>
+<source>
+	type oms_omi
+	object_name "Memory"
+	instance_regex ".*"
+	counter_name_regex ".*"
+	interval 30s
+</source>
+```
 
 ## Data collection
 Azure Monitor collects all specified performance counters at their specified sample interval on all agents that have that counter installed.  The data is not aggregated, and the raw data is available in all log query views for the duration specified by your log analytics workspace.
@@ -190,7 +194,7 @@ Performance records have a type of **Perf** and have the properties in the follo
 ## Sizing estimates
  A rough estimate for collection of a particular counter at 10-second intervals is about 1 MB per day per instance.  You can estimate the storage requirements of a particular counter with the following formula.
 
-    1 MB x (number of counters) x (number of agents) x (number of instances)
+> 1 MB x (number of counters) x (number of agents) x (number of instances)
 
 ## Log queries with Performance records
 The following table provides different examples of log queries that retrieve Performance records.

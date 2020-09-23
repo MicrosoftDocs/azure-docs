@@ -1,21 +1,18 @@
 ---
 title: Network security for Azure Event Grid resources
-description: This article describes how to configure access from private endpoints
-services: event-grid
+description: This article describes how to use service tags for egress, IP firewall rules for ingress, and private endpoints for ingress with Azure Event Grid.
 author: VidyaKukke
-
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 03/11/2020
+ms.date: 07/07/2020
 ms.author: vkukke
 ---
 
 # Network security for Azure Event Grid resources
 This article describes how to use the following security features with Azure Event Grid: 
 
-- Service tags for egress (preview)
+- Service tags for egress
 - IP Firewall rules for ingress (preview)
-- Private endpoints for ingress (preview)
+- Private endpoints for ingress
 
 
 ## Service tags
@@ -24,8 +21,8 @@ A service tag represents a group of IP address prefixes from a given Az
 You can use service tags to define network access controls on [network security groups](../virtual-network/security-overview.md#security-rules) or [Azure Firewall](../firewall/service-tags.md). Use service tags in place of specific IP addresses when you create security rules. By specifying the service tag name (for example, **AzureEventGrid**) in the appropriate *source* or *destination* field of a rule, you can allow or deny the traffic for the corresponding service.
 
 | Service tag | Purpose | Can use inbound or outbound? | Can be regional? | Can use with Azure Firewall? |
-| --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| AzureEventGrid | Azure Event Grid. <br/><br/>*Note:* This tag covers Azure Event Grid endpoints in US South Central, US East, US East 2, US West 2, and US Central only. | Both | No | No |
+| --- | -------- |:---:|:---:|:---:|
+| AzureEventGrid | Azure Event Grid. | Both | No | No |
 
 
 ## IP firewall 
@@ -33,6 +30,7 @@ Azure Event Grid supports IP-based access controls for publishing to topics and 
 
 By default, topic and domain are accessible from internet as long as the request comes with valid authentication and authorization. With IP firewall, you can restrict it further to only a set of IP addresses or IP address ranges in [CIDR (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation. Publishers originating from any other IP address will be rejected and will receive a 403 (Forbidden) response.
 
+For step-by-step instructions to configure IP firewall for topics and domains, see [Configure IP firewall](configure-firewall.md).
 
 ## Private endpoints
 You can use [private endpoints](../private-link/private-endpoint-overview.md) to allow ingress of events directly from your virtual network to your topics and domains securely over a [private link](../private-link/private-link-overview.md) without going through the public internet. A private endpoint is a special network interface for an Azure service in your VNet. When you create a private endpoint for your topic or domain, it provides secure connectivity between clients on your VNet and your Event Grid resource. The private endpoint is assigned an IP address from the IP address range of your VNet. The connection between the private endpoint and the Event Grid service uses a secure private link.
@@ -57,7 +55,7 @@ When you resolve the topic or domain endpoint URL from outside the VNet with the
 | Name                                          | Type      | Value                                         |
 | --------------------------------------------- | ----------| --------------------------------------------- |  
 | `topicA.westus.eventgrid.azure.net`             | CNAME     | `topicA.westus.privatelink.eventgrid.azure.net` |
-| `topicA.westus.privatelink.eventgrid.azure.net` | CNAME     | \<azure traffic manager profile\>
+| `topicA.westus.privatelink.eventgrid.azure.net` | CNAME     | \<Azure traffic manager profile\>
 
 You can deny or control access for a client outside the VNet through the public endpoint using the [IP firewall](#ip-firewall). 
 
@@ -88,12 +86,13 @@ The following table describes the various states of the private endpoint connect
 For publishing to be successful, the private endpoint connection state should be **approved**. If a connection is rejected, it can't be approved using the Azure portal. The only possibility is to delete the connection and create a new one instead.
 
 ## Pricing and quotas
-**Private endpoints** are only available with premium tier topics and domains. Event Grid allows up to 64 private endpoint connections to be created per topic or domain. To upgrade from basic tier to premium tier, see the [Update pricing tier](update-tier.md) article.
+**Private endpoints** is available in both basic and premium tiers of Event Grid. Event Grid allows up to 64 private endpoint connections to be created per topic or domain. 
 
 **IP Firewall** feature is available in both basic and premium tiers of Event Grid. We allow up to 16 IP Firewall rules to be created per topic or domain.
-
 
 ## Next steps
 You can configure IP firewall for your Event Grid resource to restrict access over the public internet from only a select set of IP Addresses or IP Address ranges. For step-by-step instructions, see [Configure IP firewall](configure-firewall.md).
 
 You can configure private endpoints to restrict access from only from selected virtual networks. For step-by-step instructions, see [Configure private endpoints](configure-private-endpoints.md).
+
+To troubleshoot network connectivity issues, see [Troubleshoot network connectivity issues](troubleshoot-network-connectivity.md)

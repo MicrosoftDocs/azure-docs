@@ -3,8 +3,8 @@ title: Resource Manager templates for Azure Cosmos DB Cassandra API
 description: Use Azure Resource Manager templates to create and configure Azure Cosmos DB Cassandra API. 
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
-ms.date: 04/30/2020
+ms.topic: how-to
+ms.date: 05/19/2020
 ms.author: mjbrown
 ---
 
@@ -24,21 +24,21 @@ To create any of the Azure Cosmos DB resources below, copy the following example
 
 <a id="create-autoscale"></a>
 
-## Azure Cosmos account for Cassandra with autoscale throughput
+## Azure Cosmos account for Cassandra with autoscale provisioned throughput
 
 This template creates an Azure Cosmos account in two regions with options for consistency and failover, with a keyspace and table configured for autoscale throughput. This template is also available for one-click deploy from Azure Quickstart Templates Gallery.
 
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-cassandra-autosscale%2Fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Deploy to Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-cassandra-autoscale%2Fazuredeploy.json)
 
 :::code language="json" source="~/quickstart-templates/101-cosmosdb-cassandra-autoscale/azuredeploy.json":::
 
 <a id="create-manual"></a>
 
-## Azure Cosmos account for Cassandra with manual throughput
+## Azure Cosmos account for Cassandra with standard provisioned throughput
 
-This template creates an Azure Cosmos account in two regions with options for consistency and failover, with a keyspace and table configured for manual throughput. This template is also available for one-click deploy from Azure Quickstart Templates Gallery.
+This template creates an Azure Cosmos account in two regions with options for consistency and failover, with a keyspace and table configured for standard throughput. This template is also available for one-click deploy from Azure Quickstart Templates Gallery.
 
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-cassandra%2Fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Deploy to Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-cassandra%2Fazuredeploy.json)
 
 :::code language="json" source="~/quickstart-templates/101-cosmosdb-cassandra/azuredeploy.json":::
 

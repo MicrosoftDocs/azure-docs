@@ -41,7 +41,7 @@ A policy can contain multiple [conditions](concept-conditional-access-conditions
 
 #### Sign-in risk
 
-For organizations with [Azure AD Identity Protection](../identity-protection/overview.md), the risk detections generated there can influence your Conditional Access policies.
+For organizations with [Azure AD Identity Protection](../identity-protection/overview-identity-protection.md), the risk detections generated there can influence your Conditional Access policies.
 
 #### Device platforms
 

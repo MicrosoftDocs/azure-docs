@@ -17,7 +17,7 @@ Color materials are more efficient to render than [PBR materials](pbr-materials.
 
 These properties are common to all materials:
 
-* **albedoColor:** This color is multiplied with other colors, such as the *albedoMap* or *vertex colors*. If *transparency* is enabled on a material, the alpha channel is used to adjust the opacity, with `1` meaning fully opaque and `0` meaning fully transparent. Default is white.
+* **albedoColor:** This color is multiplied with other colors, such as the *albedoMap* or *:::no-loc text="vertex"::: colors*. If *transparency* is enabled on a material, the alpha channel is used to adjust the opacity, with `1` meaning fully opaque and `0` meaning fully transparent. Default is white.
 
   > [!NOTE]
   > Since color materials don't reflect the environment, a fully transparent color material becomes invisible. This is different for [PBR materials](pbr-materials.md).
@@ -28,15 +28,15 @@ These properties are common to all materials:
 
 * **textureCoordinateScale** and **textureCoordinateOffset:** The scale is multiplied into the UV texture coordinates, the offset is added to it. Can be used to stretch and shift the textures. The default scale is (1, 1) and offset is (0, 0).
 
-* **useVertexColor:** If the mesh contains vertex colors and this option is enabled, the meshes' vertex colors are multiplied into the *albedoColor* and *albedoMap*. By default vertex colors are disabled.
+* **useVertexColor:** If the mesh contains :::no-loc text="vertex"::: colors and this option is enabled, the meshes' :::no-loc text="vertex"::: color is multiplied into the *albedoColor* and *albedoMap*. By default *useVertexColor* is disabled.
 
-* **isDoubleSided:** If double-sidedness is set to true, triangles with this material are rendered even if the camera is looking at their back faces. By default this option is disabled. See also [Single-sided rendering](single-sided-rendering.md).
+* **isDoubleSided:** If double-sidedness is set to true, triangles with this material are rendered even if the camera is looking at their back faces. By default this option is disabled. See also [:::no-loc text="Single-sided"::: rendering](single-sided-rendering.md).
 
 ## Color material properties
 
 The following properties are specific to color materials:
 
-* **vertexMix:** This value between `0` and `1` specifies how strongly the vertex color in a [mesh](../../concepts/meshes.md) contributes to the final color. At the default value of 1, the vertex color is multiplied into the albedo color fully. With a value of 0, the vertex colors are ignored entirely.
+* **vertexMix:** This value between `0` and `1` specifies how strongly the :::no-loc text="vertex"::: color in a [mesh](../../concepts/meshes.md) contributes to the final color. At the default value of 1, the :::no-loc text="vertex"::: color is multiplied into the albedo color fully. With a value of 0, the :::no-loc text="vertex"::: colors are ignored entirely.
 
 * **transparencyMode:** Contrary to [PBR materials](pbr-materials.md), color materials distinguish between different transparency modes:
 
@@ -45,6 +45,13 @@ The following properties are specific to color materials:
   1. **AlphaBlended:** This mode is similar to the transparency mode for PBR materials. It should be used for see-through materials like glass.
 
   1. **Additive:** This mode is the simplest and most efficient transparency mode. The contribution of the material is added to the rendered image. This mode can be used to simulate glowing (but still transparent) objects, such as markers used for highlighting important objects.
+
+## API documentation
+
+* [C# ColorMaterial class](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.colormaterial)
+* [C# RemoteManager.CreateMaterial()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.creatematerial)
+* [C++ ColorMaterial class](https://docs.microsoft.com/cpp/api/remote-rendering/colormaterial)
+* [C++ RemoteManager::CreateMaterial()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#creatematerial)
 
 ## Next steps
 

@@ -15,7 +15,7 @@ author: mlearned
 Azure DevOps Starter presents a simplified experience where you can bring your existing code and Git repo or choose a sample application to create a continuous integration (CI) and continuous delivery (CD) pipeline to Azure. 
 
 DevOps Starter also:
-* Automatically creates Azure resources, such as an Azure SQL database.
+* Automatically creates Azure resources, such as a database in Azure SQL Database.
 * Creates and configures a release pipeline in Azure Pipelines that includes a build pipeline for CI.
 * Sets up a release pipeline for CD. 
 * Creates an Azure Application Insights resource for monitoring.
@@ -28,16 +28,16 @@ In this tutorial, you will:
 > * Examine the CI pipeline
 > * Examine the CD pipeline
 > * Commit changes to Azure Repos and automatically deploy them to Azure
-> * Connect to the Azure SQL database 
+> * Connect to Azure SQL Database 
 > * Clean up resources
 
 ## Prerequisites
 
 * An Azure subscription. You can get one free through [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
-## Create a project in DevOps Projects for an ASP.NET app and an Azure SQL database
+## Create a project in DevOps Projects for an ASP.NET app and Azure SQL Database
 
-DevOps Starter creates a CI/CD pipeline in Azure Pipelines. You can create a new Azure DevOps organization or use an existing organization. DevOps Starter also creates Azure resources, such as an Azure SQL database, in the Azure subscription of your choice.
+DevOps Starter creates a CI/CD pipeline in Azure Pipelines. You can create a new Azure DevOps organization or use an existing organization. DevOps Starter also creates Azure resources, such as Azure SQL Database, in the Azure subscription of your choice.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -135,11 +135,11 @@ You're now ready to collaborate with a team on your app by using a CI/CD process
 
 1. After the release is completed, refresh your application to verify your changes.
 
-## Connect to the Azure SQL database
+## Connect to Azure SQL Database
 
-You need appropriate permissions to connect to the Azure SQL database.
+You need appropriate permissions to connect to Azure SQL Database.
 
-1. On the DevOps Starter dashboard, select **SQL Database** to go to the management page for the SQL database.
+1. On the DevOps Starter dashboard, select **SQL Database** to go to the management page for SQL Database.
    
 1. Select **Set server firewall**, and then select **Add client IP**. 
 
@@ -151,7 +151,7 @@ You need appropriate permissions to connect to the Azure SQL database.
 
 1. Select **Reset password**, enter a password for the SQL Server admin login, and then select **Save**. Be sure to keep this password to use later in this tutorial.
 
-    You may now optionally use client tools such as SQL Server Management Studio or Visual Studio to connect to SQL Server and the Azure SQL database. Use the **Server name** property to connect.
+    You may now optionally use client tools such as SQL Server Management Studio or Visual Studio to connect to SQL Server and Azure SQL Database. Use the **Server name** property to connect.
 
     If you didn't change the database username when you initially configured the project in DevOps Projects, your username is the local part of your email address. For example, if your email address is *johndoe\@microsoft.com*, your username is *johndoe*.
 
@@ -160,7 +160,7 @@ You need appropriate permissions to connect to the Azure SQL database.
 
 ## Clean up resources
 
-If you are testing, you can avoid accruing billing charges by cleaning up your resources. When they are no longer needed, you can delete the Azure SQL database and related resources that you created in this tutorial. To do so, use the **Delete** functionality on the DevOps Starter dashboard.
+If you are testing, you can avoid accruing billing charges by cleaning up your resources. When they are no longer needed, you can delete Azure SQL Database and related resources that you created in this tutorial. To do so, use the **Delete** functionality on the DevOps Starter dashboard.
 
 > [!IMPORTANT]
 > The following procedure permanently deletes resources. The *Delete* functionality destroys the data that's created by the project in DevOps Starter in both Azure and Azure DevOps, and you will be unable to retrieve it. Use this procedure only after you've carefully read the prompts.
@@ -179,7 +179,7 @@ You can optionally modify these build and release pipelines to meet the needs of
 > * Examine the CI pipeline
 > * Examine the CD pipeline
 > * Commit changes to Azure Repos and automatically deploy them to Azure
-> * Connect to the Azure SQL database 
+> * Connect to Azure SQL Database 
 > * Clean up resources
 
 To learn more about the CI/CD pipeline, see:

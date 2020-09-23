@@ -53,7 +53,7 @@ Start creating your tests to monitor network connectivity to the service endpoin
 
     * Select **Web** to monitor connectivity to a service that responds to HTTP/S requests, such as outlook.office365.com or bing.com.<br>
     * Select **Network** to monitor connectivity to a service that responds to TCP requests but doesn't respond to HTTP/S requests, such as a SQL server, FTP server, or SSH port. 
-    * For example: To create a web test to a blob storage account, select **Web** and enter target as *yourstorageaccount*.blob.core.windows.net. Similarly you can create tests for other table storage, queue storage and Azure Files using [this link.](https://docs.microsoft.com/azure/storage/common/storage-account-overview#storage-account-endpoints)
+    * For example: To create a web test to a blob storage account, select **Web** and enter target as *yourstorageaccount*.blob.core.windows.net. Similarly you can create tests for other table storage, queue storage and Azure Files using [this link.](../../storage/common/storage-account-overview.md#storage-account-endpoints)
 4. If you don't want to perform network measurements, such as network latency, packet loss, and topology discovery, clear the **Perform network measurements** check box. Keep it selected to get maximum benefit from the capability. 
 5. In **Target**, enter the URL/FQDN/IP address to which you want to monitor network connectivity.
 6. In **Port number**, enter the port number of the target service. 
@@ -129,4 +129,5 @@ For US Government Virginia region, only DOD URLs are built-in NPM. Customers usi
 | MS Teams | gov.teams.microsoft.us | 
 
 ## Next steps
-[Search logs](../../azure-monitor/log-query/log-query-overview.md) to view detailed network performance data records.
+[Search logs](../log-query/log-query-overview.md) to view detailed network performance data records.
+

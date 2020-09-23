@@ -1,43 +1,38 @@
 ---
+title: Tax details for Microsoft commercial marketplace
 Description: To understand your tax considerations for price selection, payout implications, and tax responsibility, see your countries/regions of distribution in the tables below.
-title: Tax details | Azure Marketplace
-ms.date: 2/13/2020
-ms.topic: conceptual
-author: dsindona
-ms.author: dsindona
+ms.topic: article
 ms.service: marketplace
+ms.date: 09/02/2020
+author: mingshen-ms
+ms.author: mingshen
 ---
 
 # Tax details for commercial marketplace publishers
 
-To understand your tax considerations for price selection, and tax responsibility under the [Microsoft Azure Marketplace Publisher Agreement](https://go.microsoft.com/fwlink/p/?LinkID=699560) or Modern Publisher Agreement, see your countries/regions of distribution in the tables below.
+To understand your tax considerations for price selection, and tax responsibility under the [Microsoft Azure Marketplace Publisher Agreement](https://go.microsoft.com/fwlink/p/?LinkID=699560) or Modern Publisher Agreement, see your countries/regions of distribution in the following tables.
 
-> [!NOTE]
-> The Commerce Expansion Adjustment may have payout implications in a limited set of countries/regions. For further details about the Commerce Expansion Adjustment and the markets where it applies, see the [Microsoft Azure Marketplace Publisher Agreement](https://go.microsoft.com/fwlink/p/?LinkID=699560) and the list of affected countries/regions.
+The Commerce Expansion Adjustment may have payout implications in a limited set of countries/regions. For further details about the Commerce Expansion Adjustment and the markets where it applies, see the [Microsoft Azure Marketplace Publisher Agreement](https://go.microsoft.com/fwlink/p/?LinkID=699560) and the list of affected countries/regions.
 
 > [!IMPORTANT]
 > Tax responsibility for Reseller countries/regions and circumstances (as described [below](#reseller-countriesregions)) is covered by Exhibit A of the [Microsoft Azure Marketplace Publisher Agreement](https://go.microsoft.com/fwlink/p/?LinkID=699560), notwithstanding the information in the table below.
 > Note that the **Payout implication** column only applies to publishers. Tax rates noted in this column are subject to change at any time, and Microsoft cannot guarantee that the rates in the tables below will always be accurate.
 
-
-
- 
-
-| Country/region                   | Tax consideration for price selection                                                                                                             | Payout implication                    | Tax responsibility |
-|----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------|--------------------|
+| Country/region  | Tax consideration for price selection  | Payout implication  | Tax responsibility |
+|---|---|---|---|
 | Afghanistan                      | Price being selected is the final sale price and includes any applicable taxes.                                                                   | Price minus Store fee                 | Publisher          |
 | Albania                          | Price being selected is the final sale price and includes any applicable taxes.                                                                   | Price minus Store fee                 | Publisher          |
 | Algeria                          | Price being selected is the final sale price and includes any applicable taxes.                                                                   | Price minus Store fee                 | Publisher          |
 | American Samoa                   | Price being selected is the final sale price and includes any applicable taxes.                                                                   | Price minus Store fee                 | Publisher          |
 | Andorra                          | Price being selected is the final sale price and includes any applicable taxes.                                                                   | Price minus Store fee                 | Publisher          |
-| Anguilla                         | Price being selected is the final sale price and includes any applicable taxes.                                                                   | Price minus Store fee                 | Publisher          |
 | Angola                           | Price being selected is the final sale price and includes any applicable taxes.                                                                   | Price minus Store fee                 | Publisher          |
+| Anguilla                         | Price being selected is the final sale price and includes any applicable taxes.                                                                   | Price minus Store fee                 | Publisher          |
 | Antarctica                       | Price being selected is the final sale price and includes any applicable taxes.                                                                   | Price minus Store fee                 | Publisher          |
 | Antigua and Barbuda              | Price being selected is the final sale price and includes any applicable taxes.                                                                   | Price minus Store fee                 | Publisher          |
 | Argentina                        | Price being selected is the final sale price and includes any applicable taxes.  | Price minus Store fee  | Publisher          |
 | Armenia                          | Price being selected is the final sale price and includes any applicable taxes.                                                                   | Price minus 20% tax, minus Store fee       | Microsoft          |
 | Aruba                      | Price being selected is the final sale price and includes any applicable taxes.                                                                   | Price minus Store fee                 | Publisher          |
-| Australia                        | Price being selected is the final sale price and includes any applicable taxes.                                                             | Price minus 10% tax, minus Store fee             | Microsoft          |
+| Australia                        | Price being selected excludes any applicable taxes.*        | Price minus Store fee*        | Microsoft          |
 | Austria                          | Price being selected is the final sale price and includes any applicable taxes. Taxes are subtracted from the price prior to payout.       | Price minus 20% tax, minus Store fee     | Microsoft          |
 | Azerbaijan                       | Price being selected is the final sale price and includes any applicable taxes.                                                                   | Price minus Store fee                 | Publisher          |
 | The Bahamas                      | Price being selected is the final sale price and includes any applicable taxes.                                                                   | Price minus Store fee                 | Publisher          |
@@ -78,11 +73,11 @@ To understand your tax considerations for price selection, and tax responsibilit
 | Congo (DRC)                      | Price being selected is the final sale price and includes any applicable taxes.                                                                   | Price minus Store fee                 | Publisher          |
 | Cook Islands                     | Price being selected is the final sale price and includes any applicable taxes.                                                                   | Price minus Store fee                 | Publisher          |
 | Costa Rica                       | Price being selected is the final sale price and includes any applicable taxes.  | Price minus Store fee                 | Publisher          |
-| Côte d’Ivoire                    | Price being selected is the final sale price and includes any applicable taxes.                                                                   | Price minus Store fee                 | Publisher          |
+| Côte d'Ivoire                    | Price being selected is the final sale price and includes any applicable taxes.                                                                   | Price minus Store fee                 | Publisher          |
 | Croatia                          | Price being selected is the final sale price and includes any applicable taxes. Taxes are subtracted from the price prior to payout.       | Price minus 25% tax, minus Store fee   | Microsoft          |
 | Curaçao                          | Price being selected is the final sale price and includes any applicable taxes.                                                                   | Price minus Store fee                 | Publisher          |
 | Cyprus                           | Price being selected is the final sale price and includes any applicable taxes. Taxes are subtracted from the price prior to payout.       | Price minus 19% tax, minus Store fee  | Microsoft          |
-| Czech Republic                   | Price being selected is the final sale price and includes any applicable taxes. Taxes are subtracted from the price prior to payout.       | Price minus 21% tax, minus Store fee   | Microsoft        |
+| Czechia                          | Price being selected is the final sale price and includes any applicable taxes. Taxes are subtracted from the price prior to payout.       | Price minus 21% tax, minus Store fee   | Microsoft        |
 | Denmark                          | Price being selected is the final sale price and includes any applicable taxes. Taxes are subtracted from the price prior to payout.       | Price minus 25% tax, minus Store fee   | Microsoft          |
 | Djibouti                         | Price being selected is the final sale price and includes any applicable taxes.                                                                   | Price minus Store fee                 | Publisher          |
 | Dominica                         | Price being selected is the final sale price and includes any applicable taxes.                                                                   | Price minus Store fee                 | Publisher          |
@@ -147,7 +142,6 @@ To understand your tax considerations for price selection, and tax responsibilit
 | Lithuania                        | Price being selected is the final sale price and includes any applicable taxes. Taxes are subtracted from the price prior to payout.              | Price minus 21% tax, minus Store fee | Microsoft          |
 | Luxembourg                       | Price being selected is the final sale price and includes any applicable taxes. Taxes are subtracted from the price prior to payout.              | Price minus 17% tax, minus Store fee | Microsoft          |
 | Macao SAR                        | Price being selected is the final sale price and includes any applicable taxes.                                                                   | Price minus Store fee                 | Publisher          |
-| Macedonia (FYROM)                | Price being selected is the final sale price and includes any applicable taxes.                                                                   | Price minus Store fee                 | Publisher          |
 | Madagascar                       | Price being selected is the final sale price and includes any applicable taxes.                                                                   | Price minus Store fee                 | Publisher          |
 | Malawi                           | Price being selected is the final sale price and includes any applicable taxes.                                                                   | Price minus Store fee                 | Publisher          |
 | Malaysia                         | Price being selected is the final sale price and includes any applicable taxes.                                                                   | Price minus Store fee                 | Publisher          |
@@ -179,6 +173,7 @@ To understand your tax considerations for price selection, and tax responsibilit
 | Nigeria                          | Price being selected is the final sale price and includes any applicable taxes.                                                                   | Price minus Store fee                 | Publisher          |
 | Niue                             | Price being selected is the final sale price and includes any applicable taxes.                                                                   | Price minus Store fee                 | Publisher          |
 | Norfolk Island                   | Price being selected is the final sale price and includes any applicable taxes.                                                                   | Price minus Store fee                 | Publisher          |
+| North Macedonia                | Price being selected is the final sale price and includes any applicable taxes.                                                                   | Price minus Store fee                 | Publisher          |
 | Northern Mariana Islands         | Price being selected is the final sale price and includes any applicable taxes.                                                                   | Price minus Store fee                 | Publisher          |
 | Norway                           | Price being selected is the final sale price and includes any applicable taxes. Taxes are subtracted from the price prior to payout.              | Price minus 25% tax, minus Store fee | Microsoft          |
 | Oman                             | Price being selected is the final sale price and includes any applicable taxes.                                                                   | Price minus Store fee                 | Publisher          |
@@ -251,25 +246,26 @@ To understand your tax considerations for price selection, and tax responsibilit
 | Vanuatu                          | Price being selected is the final sale price and includes any applicable taxes.                                                                   | Price minus Store fee                 | Publisher          |
 | Vatican City                     | Price being selected is the final sale price and includes any applicable taxes.                                                                   | Price minus Store fee                 | Publisher          |
 | Venezuela                        | Price being selected is the final sale price and includes any applicable taxes.                                                                   | Price minus Store fee                 | Publisher          |
-| Vietnam                          | Price being selected is the final sale price and includes any applicable taxes. [Read more about tax considerations for this country.](#mixed-remittance-countriesregions-for-publishers) | Price minus Store fee                 | Publisher          |
+| Vietnam                          | Price being selected is the final sale price and includes any applicable taxes. [Read more about tax considerations for this country/region.](#mixed-remittance-countriesregions-for-publishers) | Price minus Store fee                 | Publisher          |
 | Wallis and Futuna                | Price being selected is the final sale price and includes any applicable taxes.                                                                   | Price minus Store fee                 | Publisher          |
 | Yemen                            | Price being selected is the final sale price and includes any applicable taxes.                                                                   | Price minus Store fee                 | Publisher          |
 | Zambia                           | Price being selected is the final sale price and includes any applicable taxes.                                                                   | Price minus Store fee                 | Publisher          |
 | Zimbabwe                         | Price being selected is the final sale price and includes any applicable taxes.                                                                   | Price minus Store fee                 | Publisher          |
 
-The following applies only to Azure Marketplace Publishers, notwithstanding anything to the contrary above: 
+\* For purchases made through all customer purchase scenarios except Enterprise Agreement.
 
-| Country/region                   | Tax consideration for price selection                                                                                                             | Tax management                    | 
-|----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------|
+The following applies only to Azure Marketplace Publishers, notwithstanding anything to the contrary above:
+
+| Country/region | Tax consideration for price selection | Tax management |
+| --- |--- | --- |
 | Australia (for purchases made through all customer purchase scenarios except Enterprise Agreement) | Price being selected is the final sale price and includes any applicable taxes. | Microsoft |
 | Australia (only for purchases made through the Enterprise Agreement customer purchase scenario) | Price being selected is the final sale price and includes any applicable taxes. | Publisher |
-| Brazil | Price being selected is the final sale price and includes any applicable taxes. | Publisher **(See Reseller countries/regions)** |
-| Mexico | Price being selected is the final sale price and includes any applicable taxes. | Publisher **(See Reseller countries/regions)** |
+| Brazil | Price being selected is the final sale price and includes any applicable taxes. | Publisher (**See Reseller countries/regions**) |
+| Mexico | Price being selected is the final sale price and includes any applicable taxes. | Publisher (**See Reseller countries/regions**) |
 
 ## Mixed remittance countries/regions for publishers
 
-
-Certain Microsoft billing partners may collect and remit sales, use, goods and services, value added or similar taxes, if any, applicable to Customers' acquisition of your App(s) or In-App Product(s) through the Store in the countries/regions listed below. The [reports](payout-summary.md#transaction-history-download-export) that Microsoft makes available to you will identify the transactions for which a billing partner has collected sales, use, goods and services, value added or similar taxes applicable to Customers' acquisition of your App(s) or In-App Product(s) through the Store. Except for the transactions described in such reporting, neither Microsoft nor its billing services providers will remit any sales, use, goods and services, value added or other similar tax in connection with Customers' acquisition of your App(s) or In-App Product(s) in these country(s). You are responsible for reviewing the reporting provided to you and determining and complying with your obligations, if any, to register, collect, and remit taxes in connection with transactions involving your App(s) or In-App Product(s).
+Certain Microsoft billing partners may collect and remit sales, use, goods and services, value added or similar taxes, if any, applicable to Customers' acquisition of your App(s) or In-App Product(s) through the Store in the countries/regions listed below. The [reports](payout-summary-overview.md#transaction-history-download-export) that Microsoft makes available to you will identify the transactions for which a billing partner has collected sales, use, goods and services, value added or similar taxes applicable to Customers' acquisition of your App(s) or In-App Product(s) through the Store. Except for the transactions described in such reporting, neither Microsoft nor its billing services providers will remit any sales, use, goods and services, value added or other similar tax in connection with Customers' acquisition of your App(s) or In-App Product(s) in these country/region(s). You are responsible for reviewing the reporting provided to you and determining and complying with your obligations, if any, to register, collect, and remit taxes in connection with transactions involving your App(s) or In-App Product(s).
 
 | Mixed remittance countries/regions |
 |------------------------------------|
@@ -280,16 +276,13 @@ Certain Microsoft billing partners may collect and remit sales, use, goods and s
 
 In certain countries/regions, Microsoft acts as a reseller, rather than your agent, in making your app(s) and in-app product(s) available in the Store. For further details about terms and conditions for reseller countries/regions, see the [Microsoft Azure Marketplace Publisher Agreement](https://go.microsoft.com/fwlink/p/?LinkID=699560).
 
-The following applies only to Azure Marketplace Publishers: 
+The following applies only to Azure Marketplace Publishers:
 
 |                    Reseller countries/regions                                                                          |
 |------------------------------------------------------------------------------------------------------------------------|
 | Brazil (for purchases made through all customer purchase scenarios except CSP) |
 | Mexico (only for purchases made through the Enterprise Agreement customer purchase scenario) |
 
+## Next step
 
- 
-
-
-
-
+[Set up your payout account and tax forms](set-up-your-payout-account-tax-forms.md)

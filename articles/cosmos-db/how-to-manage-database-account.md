@@ -3,8 +3,8 @@ title: Learn how to manage database accounts in Azure Cosmos DB
 description: Learn how to manage Azure Cosmos DB resources by using the Azure portal, PowerShell, CLI, and Azure Resource Manager templates
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
-ms.date: 04/30/2020
+ms.topic: how-to
+ms.date: 09/18/2020
 ms.author: mjbrown
 ---
 
@@ -44,7 +44,7 @@ Please see [Create Azure Cosmos DB account with Azure Resource Manager templates
 
 1. To save your changes, select **OK**.
 
-   ![Add or remove regions menu](./media/how-to-manage-database-account/add-region.png)
+   :::image type="content" source="./media/how-to-manage-database-account/add-region.png" alt-text="Add or remove regions menu":::
 
 In a single-region write mode, you cannot remove the write region. You must fail over to a different region before you can delete the current write region.
 
@@ -64,7 +64,7 @@ Please see [Add or remove regions with PowerShell](manage-with-powershell.md#upd
 
 Open the **Replicate Data Globally** tab and select **Enable** to enable multi-region writes. After you enable multi-region writes, all the read regions that you currently have on the account will become read and write regions.
 
-![Azure Cosmos account configures multi-master screenshot](./media/how-to-manage-database-account/single-to-multi-master.png)
+:::image type="content" source="./media/how-to-manage-database-account/single-to-multi-master.png" alt-text="Azure Cosmos account configures multi-master screenshot":::
 
 ### <a id="configure-multiple-write-regions-cli"></a>Azure CLI
 
@@ -144,13 +144,13 @@ The Automatic failover option allows Azure Cosmos DB to failover to the region w
 
 2. At the top of the pane, select **Automatic Failover**.
 
-   ![Replicate data globally menu](./media/how-to-manage-database-account/replicate-data-globally.png)
+   :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="Replicate data globally menu":::
 
 3. On the **Automatic Failover** pane, make sure that **Enable Automatic Failover** is set to **ON**. 
 
 4. Select **Save**.
 
-   ![Automatic failover portal menu](./media/how-to-manage-database-account/automatic-failover.png)
+   :::image type="content" source="./media/how-to-manage-database-account/automatic-failover.png" alt-text="Automatic failover portal menu":::
 
 ### <a id="enable-automatic-failover-via-cli"></a>Azure CLI
 
@@ -173,7 +173,7 @@ After a Cosmos account is configured for automatic failover, the failover priori
 
 2. At the top of the pane, select **Automatic Failover**.
 
-   ![Replicate data globally menu](./media/how-to-manage-database-account/replicate-data-globally.png)
+   :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="Replicate data globally menu":::
 
 3. On the **Automatic Failover** pane, make sure that **Enable Automatic Failover** is set to **ON**.
 
@@ -181,7 +181,7 @@ After a Cosmos account is configured for automatic failover, the failover priori
 
 5. Select **Save**.
 
-   ![Automatic failover portal menu](./media/how-to-manage-database-account/automatic-failover.png)
+   :::image type="content" source="./media/how-to-manage-database-account/automatic-failover.png" alt-text="Automatic failover portal menu":::
 
 ### <a id="set-failover-priorities-via-cli"></a>Azure CLI
 
@@ -207,13 +207,13 @@ The process for performing a manual failover involves changing the account's wri
 
 2. At the top of the menu, select **Manual Failover**.
 
-   ![Replicate data globally menu](./media/how-to-manage-database-account/replicate-data-globally.png)
+   :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="Replicate data globally menu":::
 
 3. On the **Manual Failover** menu, select your new write region. Select the check box to indicate that you understand this option changes your write region.
 
 4. To trigger the failover, select **OK**.
 
-   ![Manual failover portal menu](./media/how-to-manage-database-account/manual-failover.png)
+   :::image type="content" source="./media/how-to-manage-database-account/manual-failover.png" alt-text="Manual failover portal menu":::
 
 ### <a id="enable-manual-failover-via-cli"></a>Azure CLI
 

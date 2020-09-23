@@ -1,11 +1,11 @@
 ---
-title: Optimize Spark jobs for performance in Azure Synapse Analytics
-description: This article provides an introduction to Apache Spark in Azure Synapse Analytics and the different concepts.
+title: Optimize Spark jobs for performance
+description: This article provides an introduction to Apache Spark in Azure Synapse Analytics.
 services: synapse-analytics
 author: euangMS
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice: 
+ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
@@ -13,7 +13,7 @@ ms.reviewer: euang
 
 # Optimize Apache Spark jobs (preview) in Azure Synapse Analytics
 
-Learn how to optimize [Apache Spark](https://spark.apache.org/) cluster configuration for your particular workload.  The most common challenge is memory pressure, because of improper configurations (particularly wrong-sized executors), long-running operations, and tasks that result in Cartesian operations. You can speed up jobs with appropriate caching, and by allowing for [data skew](#optimize-joins-and-shuffles). For the best performance, monitor and review long-running and resource-consuming Spark job executions.
+Learn how to optimize an [Apache Spark](https://spark.apache.org/) cluster configuration for your particular workload.  The most common challenge is memory pressure, because of improper configurations (particularly wrong-sized executors), long-running operations, and tasks that result in Cartesian operations. You can speed up jobs with appropriate caching, and by allowing for [data skew](#optimize-joins-and-shuffles). For the best performance, monitor and review long-running and resource-consuming Spark job executions.
 
 The following sections describe common Spark job optimizations and recommendations.
 
@@ -47,7 +47,7 @@ Earlier Spark versions use RDDs to abstract data, Spark 1.3, and 1.6 introduced 
 
 Spark supports many formats, such as csv, json, xml, parquet, orc, and avro. Spark can be extended to support many more formats with external data sources - for more information, see [Apache Spark packages](https://spark-packages.org).
 
-The best format for performance is parquet with *snappy compression*, which is the default in Spark 2.x. Parquet stores data in columnar format, and is highly optimized in Spark. In addition while *snappy compression* may result in larger files than say gzip compression. Due to the splittable nature of those files they will decompress faster]
+The best format for performance is parquet with *snappy compression*, which is the default in Spark 2.x. Parquet stores data in columnar format, and is highly optimized in Spark. In addition, while *snappy compression* may result in larger files than say gzip compression. Due to the splittable nature of those files, they will decompress faster]
 
 ## Use the cache
 

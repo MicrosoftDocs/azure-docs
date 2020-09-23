@@ -6,7 +6,7 @@ ms.service: open-datasets
 ms.topic: sample
 author: cjgronlund
 ms.author: cgronlun
-ms.date: 11/04/2019
+ms.date: 05/06/2020
 ---
 
 # Example Jupyter notebooks show how to enrich data with Open Datasets 
@@ -35,6 +35,7 @@ The example Jupyter notebooks for Azure Open Datasets show you how to load open 
 
 ## Next steps
 
-* [Tutorial: Regression modeling with automated machine learning and an open dataset](/azure/machine-learning/service/tutorial-auto-train-models?context=azure/open-datasets/context/open-datasets-context)
+* [Tutorial: Regression modeling with automated machine learning and an open dataset](/azure/machine-learning/tutorial-auto-train-models?context=azure/open-datasets/context/open-datasets-context)
 * [Python SDK for Open Datasets](/python/api/azureml-opendatasets/azureml.opendatasets?view=azure-ml-py)
 * [Azure Open Datasets catalog](https://azure.microsoft.com/services/open-datasets/catalog/)
+* [Create Azure Machine Learning dataset from Open Dataset](how-to-create-azure-machine-learning-dataset-from-open-dataset.md)

@@ -14,14 +14,14 @@ ms.reviewer: mbullwin
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 You can also deploy Azure Application Insights Profiler on these services:
-* [Azure App Service](../../azure-monitor/app/profiler.md?toc=/azure/azure-monitor/toc.json)
+* [Azure App Service](./profiler.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
 * [Azure Cloud Services](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
-* [Azure Service Fabric](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
+* [Azure Service Fabric](?toc=%2fazure%2fazure-monitor%2ftoc.json)
 
 ## Deploy Profiler on a virtual machine or a virtual machine scale set
 This article shows you how to get Application Insights Profiler running on your Azure virtual machine (VM) or Azure virtual machine scale set. Profiler is installed with the Azure Diagnostics extension for VMs. Configure the extension to run Profiler, and build the Application Insights SDK into your application.
 
-1. Add the Application Insights SDK to your [ASP.NET application](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net).
+1. Add the Application Insights SDK to your [ASP.NET application](./asp-net.md).
 
    To view profiles for your requests, you must send request telemetry to Application Insights.
 
@@ -63,12 +63,12 @@ This article shows you how to get Application Insights Profiler running on your 
 
 1. If the intended application is running through [IIS](https://www.microsoft.com/web/downloads/platform.aspx), enable the `IIS Http Tracing` Windows feature.
 
-   a. Establish remote access to the environment, and then use the [Add Windows features]( https://docs.microsoft.com/iis/configuration/system.webserver/tracing/) window. Or run the following command in PowerShell (as administrator):  
+   a. Establish remote access to the environment, and then use the [Add Windows features](/iis/configuration/system.webserver/tracing/) window. Or run the following command in PowerShell (as administrator):  
 
     ```powershell
     Enable-WindowsOptionalFeature -FeatureName IIS-HttpTracing -Online -All
     ```  
-   b. If establishing remote access is a problem, you can use the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) to run the following command:  
+   b. If establishing remote access is a problem, you can use the [Azure CLI](/cli/azure/get-started-with-azure-cli) to run the following command:  
 
     ```powershell
     az vm run-command invoke -g MyResourceGroupName -n MyVirtualMachineName --command-id RunPowerShellScript --scripts "Enable-WindowsOptionalFeature -FeatureName IIS-HttpTracing -Online -All"
@@ -113,3 +113,4 @@ We have no plan to support Application Insights Profiler for on-premises servers
 [resourceexplorerput]: ./media/profiler-vm/resource-explorer-put.png
 [resourceexplorersinksconfig]: ./media/profiler-vm/resource-explorer-sinks-config.png
 [wadextension]: ./media/profiler-vm/wad-extension.png
+

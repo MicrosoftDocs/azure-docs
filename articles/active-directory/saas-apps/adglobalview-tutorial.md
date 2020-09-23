@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with ADP Globalview | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and ADP Globalview.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: ffb6464f-714d-41a9-869a-2b7e5ae9f125
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/10/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with ADP Globalview
@@ -82,11 +75,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     
     In the **Identifier** text box, type a URL using the following pattern:
 
-	| |
-	|--|
-	| `https://<subdomain>.globalview.adp.com/federate`|
-	| `https://<subdomain>.globalview.adp.com/federate2`|
-	| |
+    ```https
+    https://<subdomain>.globalview.adp.com/federate
+    https://<subdomain>.globalview.adp.com/federate2
+    ```
+
 
 	> [!NOTE]
 	> This value is not real. Update the value with the actual Identifier. Contact [ADP Globalview Client support team](https://www.adp.com/contact-us/overview.aspx) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.

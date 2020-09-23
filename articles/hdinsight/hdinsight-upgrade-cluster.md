@@ -6,7 +6,7 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh 
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/31/2020
 ---
@@ -45,7 +45,7 @@ The following documents provide guidance on how to migrate specific workloads:
 
 ## Backup and restore
 
-For more information about database backup and restore, see [Recover an Azure SQL database by using automated database backups](../sql-database/sql-database-recovery-using-backups.md).
+For more information about database backup and restore, see [Recover a database in Azure SQL Database by using automated database backups](../azure-sql/database/recovery-using-backups.md).
 
 ## Next steps
 

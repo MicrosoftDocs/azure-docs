@@ -1,14 +1,14 @@
 ---
 title: Manage indexing in Azure Cosmos DB's API for MongoDB
-description: This article presents an overview of Azure Cosmos DB indexing capabilities using the MongoDB API.
+description: This article presents an overview of Azure Cosmos DB indexing capabilities using Azure Cosmos DB's API for MongoDB
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
-ms.topic: conceptual
-ms.date: 04/03/2020
+ms.topic: how-to
+ms.date: 08/07/2020
 author: timsander1
 ms.author: tisande
-
+ms.custom: devx-track-js
 ---
 # Manage indexing in Azure Cosmos DB's API for MongoDB
 
@@ -16,7 +16,7 @@ Azure Cosmos DB's API for MongoDB takes advantage of the core index-management c
 
 ## Indexing for MongoDB server version 3.6
 
-Azure Cosmos DB's API for MongoDB server version 3.6 automatically indexes the `_id` field, which can't be dropped. It automatically enforces the uniqueness of the `_id` field per shard key.
+Azure Cosmos DB's API for MongoDB server version 3.6 automatically indexes the `_id` field, which can't be dropped. It automatically enforces the uniqueness of the `_id` field per shard key. In Azure Cosmos DB's API for MongoDB, sharding and indexing are separate concepts. You don't have to index your shard key. However, as with any other property in your document, if this property is a common filter in your queries, we recommend to index the shard key.
 
 To index additional fields, you apply the MongoDB index-management commands. As in MongoDB, Azure Cosmos DB's API for MongoDB automatically indexes the `_id` field only. This default indexing policy differs from the Azure Cosmos DB SQL API, which indexes all fields by default.
 
@@ -34,7 +34,7 @@ One query uses multiple single field indexes where available. You can create up 
 
 ### Compound indexes (MongoDB server version 3.6)
 
-Azure Cosmos DB's API for MongoDB supports compound indexes for accounts that use the version 3.6 wire protocol. You can include up to eight fields in a compound index. Unlike in MongoDB, you should create a compound index only if your query needs to sort efficiently on multiple fields at once. For queries with multiple filters that don't need to sort, create multiple single field indexes instead of a single compound index.
+Azure Cosmos DB's API for MongoDB supports compound indexes for accounts that use the version 3.6 wire protocol. You can include up to eight fields in a compound index. **Unlike in MongoDB, you should create a compound index only if your query needs to sort efficiently on multiple fields at once.** For queries with multiple filters that don't need to sort, create multiple single field indexes instead of a single compound index.
 
 The following command creates a compound index on the fields `name` and `age`:
 
@@ -52,6 +52,9 @@ However, the sequence of the paths in the compound index must exactly match the 
 
 `db.coll.find().sort({age:1,name:1})`
 
+> [!NOTE]
+> You can't create compound indexes on nested properties or arrays.
+
 ### Multikey indexes
 
 Azure Cosmos DB creates multikey indexes to index content stored in arrays. If you index a field with an array value, Azure Cosmos DB automatically indexes every element in the array.
@@ -67,6 +70,98 @@ Here's an example of creating a geospatial index on the `location` field:
 ### Text indexes
 
 Azure Cosmos DB's API for MongoDB does not currently support text indexes. For text search queries on strings, you should use [Azure Cognitive Search](https://docs.microsoft.com/azure/search/search-howto-index-cosmosdb) integration with Azure Cosmos DB.
+
+## Wildcard indexes
+
+You can use wildcard indexes to support queries against unknown fields. Let's imagine you have a collection that holds data about families.
+
+Here is part of an example document in that collection:
+
+```json
+  "children": [
+     {
+         "firstName": "Henriette Thaulow",
+         "grade": "5"
+     }
+  ]
+```
+
+Here's another example , this time with a slightly different set of properties in `children`:
+
+```json
+  "children": [
+      {
+        "familyName": "Merriam",
+        "givenName": "Jesse",
+        "pets": [
+            { "givenName": "Goofy" },
+            { "givenName": "Shadow" }
+      },
+      {
+        "familyName": "Merriam",
+        "givenName": "John",
+      }
+  ]
+```
+
+In this collection, documents can have many different possible properties. If you wanted to index all the data in the `children` array, you have two options: create separate indexes for each individual property or create one wildcard index for the entire `children` array.
+
+### Create a wildcard index
+
+The following command creates a wildcard index on any properties within `children`:
+
+`db.coll.createIndex({"children.$**" : 1})`
+
+**Unlike in MongoDB, wildcard indexes can support multiple fields in query predicates**. There will not be a difference in query performance if you use one single wildcard index instead of creating a separate index for each property.
+
+You can create the following index types using wildcard syntax:
+
+- Single field
+- Geospatial
+
+### Indexing all properties
+
+Here's how you can create a wildcard index on all fields:
+
+`db.coll.createIndex( { "$**" : 1 } )`
+
+As you are starting development, it may be useful to create a wildcard index on all fields. As more properties are indexed in a document, the Request Unit (RU) charge for writing and updating the document will increase. Therefore, if you have a write-heavy workload, you should opt to individually index paths as opposed to using wildcard indexes.
+
+### Limitations
+
+Wildcard indexes do not support any of the following index types or properties:
+
+- Compound
+- TTL
+- Unique
+
+**Unlike in MongoDB**, in Azure Cosmos DB's API for MongoDB you **can't** use wildcard indexes for:
+
+- Creating a wildcard index that includes multiple specific fields
+
+`db.coll.createIndex(
+    { "$**" : 1 },
+    { "wildcardProjection " :
+        {
+           "children.givenName" : 1,
+           "children.grade" : 1
+        }
+    }
+)`
+
+- Creating a wildcard index that excludes multiple specific fields
+
+`db.coll.createIndex(
+    { "$**" : 1 },
+    { "wildcardProjection" :
+        {
+           "children.givenName" : 0,
+           "children.grade" : 0
+        }
+    }
+)`
+
+As an alternative, you could create multiple wildcard indexes.
 
 ## Index properties
 
@@ -217,11 +312,16 @@ The index progress details show the percentage of progress for the current index
    }
    ```
 
-### Background index updates
+## Background index updates
 
 Regardless of the value specified for the **Background** index property, index updates are always done in the background. Because index updates consume Request Units (RUs) at a lower priority than other database operations, index changes won't result in any downtime for writes, updates, or deletes.
 
-When you add a new index, queries will immediately use the index. This means that queries might not return all matching results and will do so without returning any errors. When the index transformation completes, query results will be consistent. You can [track index progress](#track-index-progress).
+There is no impact to read availability when adding a new index. Queries will only utilize new indexes once the index transformation is complete. During the index transformation, the query engine will continue to use existing indexes, so you'll observe similar read performance during the indexing transformation to what you had observed before initiating the indexing change. When adding new indexes, there is also no risk of incomplete or inconsistent query results.
+
+When removing indexes and immediately running queries the have filters on the dropped indexes, results might be inconsistent and incomplete until the index transformation finishes. If you remove indexes, the query engine does not guarantee consistent or complete results when queries filter on these newly removed indexes. Most developers do not drop indexes and then immediately try to query them so, in practice, this situation is unlikely.
+
+> [!NOTE]
+> You can [track index progress](#track-index-progress).
 
 ## Migrate collections with indexes
 
@@ -248,7 +348,12 @@ After dropping the default indexes, you can add more indexes as you would in ver
 
 Compound indexes hold references to multiple fields of a document. If you want to create a compound index, upgrade to version 3.6 by filing a [support request](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
+### Wildcard indexes (version 3.2)
+
+If you want to create a wildcard index, upgrade to version 3.6 by filing a [support request](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+
 ## Next steps
 
 * [Indexing in Azure Cosmos DB](../cosmos-db/index-policy.md)
 * [Expire data in Azure Cosmos DB automatically with time to live](../cosmos-db/time-to-live.md)
+* To learn about the relationship between partitioning and indexing, see how to [Query an Azure Cosmos container](how-to-query-container.md) article.

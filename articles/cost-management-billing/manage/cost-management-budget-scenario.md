@@ -5,8 +5,9 @@ author: bandersmsft
 ms.reviewer: adwise
 tags: billing
 ms.service: cost-management-billing
-ms.topic: reference
-ms.date: 04/01/2020
+ms.subservice: cost-management
+ms.topic: how-to
+ms.date: 08/20/2020
 ms.author: banders
 ---
 
@@ -273,7 +274,7 @@ Next, you'll configure **Postman** to create a budget by calling the Azure Consu
 1. Set the **Value** to the token that was created using the ArmClient at the end of the last section.
 1. Select **Body** tab within Postman.
 1. Select the **raw** button option.
-1. In the textbox, paste in the below sample budget definition, however you must replace the **subscriptionID**, **budgetname**, and **actiongroupname** parameters with your subscription ID, a unique name for your budget, and the action group name you created in both the URL and the request body:
+1. In the textbox, paste in the below sample budget definition, however you must replace the `subscriptionID`, `resourcegroupname`, and `actiongroupname` parameters with your subscription ID, a unique name for your resource group, and the action group name you created in both the URL and the request body:
 
     ```
         {
@@ -285,28 +286,26 @@ Next, you'll configure **Postman** to create a budget by calling the Azure Consu
                 "startDate": "2018-06-01T00:00:00Z",
                 "endDate": "2018-10-31T00:00:00Z"
                 },
-                "filters": {
-                },
+                "filters": {},
             "notifications": {
                 "Actual_GreaterThan_80_Percent": {
                     "enabled": true,
                     "operator": "GreaterThan",
                     "threshold": 80,
-                    "contactEmails": [
-                    ],
-                    "contactRoles": [
-                    ],
+                    "contactEmails": [],
+                    "contactRoles": [],
                     "contactGroups": [
-                    "/subscriptions/{subscriptionid}/resourceGroups/{resourcegroupname}/providers/microsoft.insights/actionGroups/{actiongroupname}
+                        "/subscriptions/{subscriptionid}/resourceGroups/{resourcegroupname}/providers/microsoft.insights/actionGroups/{actiongroupname}"
                     ]
                 },
-            "Actual_EqualTo_100_Percent": {
-                    "operator": "EqualTo",
-                    "threshold": 100,
-                    "contactGroups": [
-                "/subscriptions/{subscriptionid}/resourceGroups/{resourcegroupname}/providers/microsoft.insights/actionGroups/{actiongroupname}"
-                    ]
-                }
+               "Actual_EqualTo_100_Percent": {
+                       "operator": "EqualTo",
+                       "threshold": 100,
+                       "contactGroups": [
+                           "/subscriptions/{subscriptionid}/resourceGroups/{resourcegroupname}/providers/microsoft.insights/actionGroups/{actiongroupname}"
+                       ]
+                   }
+               }
             }
         }
     ```

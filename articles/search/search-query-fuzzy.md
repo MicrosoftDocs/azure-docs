@@ -81,37 +81,49 @@ Assume the following string exists in a `"Description"` field in a search docume
 
 Start with a fuzzy search on "special" and add hit highlighting to the Description field:
 
-    search=special~&highlight=Description
+```console
+search=special~&highlight=Description
+```
 
 In the response, because you added hit highlighting, formatting is applied to "special" as the matching term.
 
-    "@search.highlights": {
-        "Description": [
-            "Test queries with <em>special</em> characters, plus strings for MSFT, SQL and Java."
-        ]
+```output
+"@search.highlights": {
+    "Description": [
+        "Test queries with <em>special</em> characters, plus strings for MSFT, SQL and Java."
+    ]
+```
 
 Try the request again, misspelling "special" by taking out several letters ("pe"):
 
-    search=scial~&highlight=Description
+```console
+search=scial~&highlight=Description
+```
 
 So far, no change to the response. Using the default of 2 degrees distance, removing two characters "pe" from "special" still allows for a successful match on that term.
 
-    "@search.highlights": {
-        "Description": [
-            "Test queries with <em>special</em> characters, plus strings for MSFT, SQL and Java."
-        ]
+```output
+"@search.highlights": {
+    "Description": [
+        "Test queries with <em>special</em> characters, plus strings for MSFT, SQL and Java."
+    ]
+```
 
 Trying one more request, further modify the search term by taking out one last character for a total of three deletions (from "special" to "scal"):
 
-    search=scal~&highlight=Description
+```console
+search=scal~&highlight=Description
+```
 
 Notice that the same response is returned, but now instead of matching on "special", the fuzzy match is on "SQL".
 
-            "@search.score": 0.4232868,
-            "@search.highlights": {
-                "Description": [
-                    "Mix of special characters, plus strings for MSFT, <em>SQL</em>, 2019, Linux, Java."
-                ]
+```output
+        "@search.score": 0.4232868,
+        "@search.highlights": {
+            "Description": [
+                "Mix of special characters, plus strings for MSFT, <em>SQL</em>, 2019, Linux, Java."
+            ]
+```
 
 The point of this expanded example is to illustrate the clarity that hit highlighting can bring to ambiguous results. In all cases, the same document is returned. Had you relied on document IDs to verify a match, you might have missed the shift from "special" to "SQL".
 
@@ -119,5 +131,5 @@ The point of this expanded example is to illustrate the clarity that hit highlig
 
 + [How full text search works in Azure Cognitive Search (query parsing architecture)](search-lucene-query-architecture.md)
 + [Search explorer](search-explorer.md)
-+ [How to query in .NET](search-query-dotnet.md)
-+ [How to query in REST](search-create-index-rest-api.md)
++ [How to query in .NET](./search-get-started-dotnet.md)
++ [How to query in REST](./search-get-started-powershell.md)

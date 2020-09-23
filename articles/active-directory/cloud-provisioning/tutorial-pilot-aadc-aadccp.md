@@ -1,13 +1,13 @@
 ---
 title: Tutorial - Pilot Azure AD Connect cloud provisioning for an existing synced AD forest 
-description: tutorial.
+description: Learn how to pilot cloud provisioning for a test Active Directory forest that is already synced using Azure Active Directory (Azure AD) Connect sync.
 services: active-directory
 author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.topic: overview
-ms.date: 03/04/2020
+ms.topic: tutorial
+ms.date: 05/19/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -162,18 +162,18 @@ Use the following steps to configure provisioning:
  2. Click **Azure Active Directory**
  3. Click **Azure AD Connect**
  4. Select **Manage provisioning (Preview)**
- ![](media/how-to-configure/manage1.png)</br>
+ ![Screenshot showing "Manage provisioning (Preview)" link.](media/how-to-configure/manage1.png)</br>
  5.  Click **New Configuration**
- ![](media/tutorial-single-forest/configure1.png)</br>
+ ![Screenshot of Azure AD Provisioning (Preview) screen with "New configuration" link highlighted.](media/tutorial-single-forest/configure1.png)</br>
  6.  On the configuration screen, enter a **Notification email**, move the selector to **Enable** and click **Save**.
- ![](media/tutorial-single-forest/configure2.png)</br>
+ ![Screenshot of Configure screen with Notification email filled in and Enable selected.](media/tutorial-single-forest/configure2.png)</br>
  7. Under **Configure**, select **All users** to change the scope of the configuration rule.
- ![](media/how-to-configure/scope2.png)</br>
+ ![Screenshot of Configure screen with "All users" highlighted next to "Scope users".](media/how-to-configure/scope2.png)</br>
  8. On the right, change the scope to include the specific OU you just created "OU=CPUsers,DC=contoso,DC=com".
- ![](media/tutorial-existing-forest/scope2.png)</br>
+ ![Screenshot of the Scope users screen highlighting the scope changed to the OU you created.](media/tutorial-existing-forest/scope2.png)</br>
  9.  Click **Done** and **Save**.
  10. The scope should now be set to one organizational unit. 
- ![](media/tutorial-existing-forest/scope3.png)</br>
+ ![Screenshot of Configure screen with "1 organizational unit" highlighted next to "Scope users".](media/tutorial-existing-forest/scope3.png)</br>
  
 
 ## Verify users are provisioned by cloud provisioning
@@ -196,7 +196,9 @@ Azure AD Connect sync synchronizes changes occurring in your on-premises directo
 3.  Run `Start-ADSyncSyncCycle`.  Hit Enter.  
 
 >[!NOTE] 
->If you are running your own custom scheduler for AAD Connect sync, then please enable the scheduler. 
+>If you are running your own custom scheduler for Azure AD Connect sync, then please enable the scheduler. 
+
+Once the scheduler is enabled, Azure AD Connect will stop exporting any changes on objects with `cloudNoFlow=true` in the metaverse, unless any reference attribute (eg. manager) is being updated. In case there is any reference attribute update on the object, Azure AD Connect will ignore the `cloudNoFlow` signal and export all updates on the object.
 
 ## Something went wrong
 In case the pilot does not work as expected, you can go back to the Azure AD Connect sync setup by following the steps below:

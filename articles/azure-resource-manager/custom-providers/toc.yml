@@ -43,6 +43,11 @@
     href: reference-custom-providers-csharp-endpoint.md
   - name: REST
     href: /rest/api/customproviders/
+  - name: Azure CLI
+    href: /cli/azure/ext/custom-providers/custom-providers/
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
 - name: Resources
   items:
   - name: Azure Roadmap

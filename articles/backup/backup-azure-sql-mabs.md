@@ -14,9 +14,37 @@ To back up a SQL Server database and recover it from Azure:
 1. Create on-demand backup copies in Azure.
 1. Recover the database in Azure.
 
+## Prerequisites and limitations
+
+* If you have a database with files on a remote file share, protection will fail with Error ID 104. MABS doesn't support protection for SQL Server data on a remote file share.
+* MABS can't protect databases that are stored on remote SMB shares.
+* Ensure that the [availability group replicas are configured as read-only](/sql/database-engine/availability-groups/windows/configure-read-only-access-on-an-availability-replica-sql-server).
+* You must explicitly add the system account **NTAuthority\System** to the Sysadmin group on SQL Server.
+* When you perform an alternate location recovery for a partially contained database, you must ensure that the target SQL instance has the [Contained Databases](/sql/relational-databases/databases/migrate-to-a-partially-contained-database#enable) feature enabled.
+* When you perform an alternate location recovery for a file stream database, you must ensure that the target SQL instance has the [file stream database](/sql/relational-databases/blob/enable-and-configure-filestream) feature enabled.
+* Protection for SQL Server AlwaysOn:
+  * MABS detects Availability Groups when running inquiry at protection group creation.
+  * MABS detects a failover and continues protection of the database.
+  * MABS supports multi-site cluster configurations for an instance of SQL Server.
+* When you protect databases that use the AlwaysOn feature, MABS has the following limitations:
+  * MABS will honor the backup policy for availability groups that's set in SQL Server based on the backup preferences, as follows:
+    * Prefer secondary - Backups should occur on a secondary replica except when the primary replica is the only replica online. If there are multiple secondary replicas available, then the node with the highest backup priority will be selected for backup. IF only the primary replica is available, then the backup should occur on the primary replica.
+    * Secondary only - Backup shouldn't be performed on the primary replica. If the primary replica is the only one online, the backup shouldn't occur.
+    * Primary - Backups should always occur on the primary replica.
+    * Any Replica - Backups can happen on any of the availability replicas in the availability group. The node to be backed up from will be based on the backup priorities for each of the nodes.
+  * Note the following:
+    * Backups can happen from any readable replica -  that is, primary, synchronous secondary, asynchronous secondary.
+    * If any replica is excluded from backup, for example **Exclude Replica** is enabled or is marked as not readable, then that replica won't be selected for backup under any of the options.
+    * If multiple replicas are available and readable, then the node with the highest backup priority will be selected for backup.
+    * If the backup fails on the selected node, then the backup operation fails.
+    * Recovery to the original location isn't supported.
+* SQL Server 2014 or above backup issues:
+  * SQL server 2014 added a new feature to create a [database for on-premises SQL Server in Windows Azure Blob storage](/sql/relational-databases/databases/sql-server-data-files-in-microsoft-azure). MABS can't be used to protect this configuration.
+  * There are some known issues with "Prefer secondary" backup preference for the SQL AlwaysOn option. MABS always takes a backup from secondary. If no secondary can be found, then the backup fails.
+
 ## Before you start
 
-Before you begin, ensure that you have [installed and prepared Azure Backup Server](backup-azure-microsoft-azure-backup.md).
+Before you begin, ensure that you've [installed and prepared Azure Backup Server](backup-azure-microsoft-azure-backup.md).
 
 ## Create a backup policy
 
@@ -30,7 +58,7 @@ To protect SQL Server databases in Azure, first create a backup policy:
 1. For the protection group type, select **Servers**.
 
     ![Select the Servers protection group type](./media/backup-azure-backup-sql/pg-servers.png)
-1. Expand the SQL Server machine where the databases that you want to back up are located. You see the data sources that can be backed up from that server. Expand **All SQL Shares** and then select the databases that you want to back up. In this example, we select ReportServer$MSDPM2012 and ReportServer$MSDPM2012TempDB. Select **Next**.
+1. Expand the SQL Server instance where the databases that you want to back up are located. You see the data sources that can be backed up from that server. Expand **All SQL Shares** and then select the databases that you want to back up. In this example, we select ReportServer$MSDPM2012 and ReportServer$MSDPM2012TempDB. Select **Next**.
 
     ![Select a SQL Server database](./media/backup-azure-backup-sql/pg-databases.png)
 1. Name the protection group and then select **I want online protection**.
@@ -58,14 +86,14 @@ To protect SQL Server databases in Azure, first create a backup policy:
 
     ![Choose a replica-creation method in MABS](./media/backup-azure-backup-sql/pg-manual.png)
 
-    The initial backup copy requires the transfer of the entire data source (SQL Server database). The backup data moves from the production server (SQL Server machine) to MABS. If this backup is large, then transferring the data over the network could cause bandwidth congestion. For this reason, administrators can choose to use removable media to transfer the initial backup **Manually**. Or they can transfer the data **Automatically over the network** at a specified time.
+    The initial backup copy requires the transfer of the entire data source (SQL Server database). The backup data moves from the production server (SQL Server computer) to MABS. If this backup is large, then transferring the data over the network could cause bandwidth congestion. For this reason, administrators can choose to use removable media to transfer the initial backup **Manually**. Or they can transfer the data **Automatically over the network** at a specified time.
 
     After the initial backup finishes, backups continue incrementally on the initial backup copy. Incremental backups tend to be small and are easily transferred across the network.
 1. Choose when to run a consistency check. Then select **Next**.
 
     ![Choose when to run a consistency check](./media/backup-azure-backup-sql/pg-consistent.png)
 
-    MABS can run a consistency check on the integrity of the backup point. It calculates the checksum of the backup file on the production server (the SQL Server machine in this example) and the backed-up data for that file in MABS. If the check finds a conflict, then the backed-up file in MABS is assumed to be corrupt. MABS fixes the backed-up data by sending the blocks that correspond to the checksum mismatch. Because the consistency check is a performance-intensive operation, administrators can choose to schedule the consistency check or run it automatically.
+    MABS can run a consistency check on the integrity of the backup point. It calculates the checksum of the backup file on the production server (the SQL Server computer in this example) and the backed-up data for that file in MABS. If the check finds a conflict, then the backed-up file in MABS is assumed to be corrupt. MABS fixes the backed-up data by sending the blocks that correspond to the checksum mismatch. Because the consistency check is a performance-intensive operation, administrators can choose to schedule the consistency check or run it automatically.
 1. Select the data sources to protect in Azure. Then select **Next**.
 
     ![Select data sources to protect in Azure](./media/backup-azure-backup-sql/pg-sqldatabases.png)

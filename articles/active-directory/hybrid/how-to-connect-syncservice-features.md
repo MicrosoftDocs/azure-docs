@@ -11,8 +11,8 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 06/25/2018
+ms.topic: how-to
+ms.date: 05/18/2020
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -57,7 +57,7 @@ The following settings are configured by Azure AD Connect and cannot be modified
 | [DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) |Allows an attribute to be quarantined when it is a duplicate of another object rather than failing the entire object during export. |
 | Password Hash Sync |[Implementing password hash synchronization with Azure AD Connect sync](how-to-connect-password-hash-synchronization.md) |
 |Pass-through Authentication|[User sign-in with Azure Active Directory Pass-through Authentication](how-to-connect-pta.md)|
-| UnifiedGroupWriteback |[Preview: Group writeback](how-to-connect-preview.md#group-writeback) |
+| UnifiedGroupWriteback |Group writeback|
 | UserWriteback |Not currently supported. |
 
 ## Duplicate attribute resiliency

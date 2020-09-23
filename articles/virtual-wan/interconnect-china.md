@@ -1,12 +1,12 @@
 ---
 title: 'Interconnect with China using Azure Virtual WAN and secure Hub'
-description: Learn about Virtual WAN automated scalable branch-to-branch connectivity, available regions, and partners.
+description: Learn how to interconnect with China using Azure Virtual WAN and a secured hub.
 services: virtual-wan
 author: skishen525
 
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 09/22/2020
 ms.author: sukishen
 
 ---
@@ -134,7 +134,7 @@ The traffic that goes to the interconnected branches or from them to the locatio
 
 ![ExpressRoute Global Reach](./media/interconnect-china/expressroute-virtual.png)
 
-Currently ExpressRoute Global Reach is not available in every country, but you can configure a solution using Azure Virtual WAN.
+Currently ExpressRoute Global Reach is not available in every country/region, but you can configure a solution using Azure Virtual WAN.
 
 You can, for example, configure an ExpressRoute with Microsoft Peering and connect a VPN tunnel through that peering to Azure Virtual WAN. Now you have enabled, again, the transit between VPN and ExpressRoute without Global Reach and 3rd party provider and service, such as Megaport Cloud.
 

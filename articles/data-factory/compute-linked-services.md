@@ -1,6 +1,6 @@
 ---
 title: Compute environments supported by Azure Data Factory 
-description: Learn about compute environments that you can use in Azure Data Factory pipelines (such as Azure HDInsight) to transform or process data.
+description: Compute environments that can be used with Azure Data Factory pipelines (such as Azure HDInsight) to transform or process data.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -9,7 +9,7 @@ ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
 manager: anandsub
-ms.date: 10/10/2019
+ms.date: 05/08/2019
 ---
 
 # Compute environments supported by Azure Data Factory
@@ -28,21 +28,32 @@ The following table provides a list of compute environments supported by Data Fa
 | [Azure Machine Learning](#azure-machine-learning-linked-service) | [Azure Machine Learning Execute Pipeline](transform-data-machine-learning-service.md) |
 | [Azure Machine Learning](#azure-machine-learning-linked-service) | [Azure Machine Learning Execute Pipeline](transform-data-machine-learning-service.md) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) | [Data Lake Analytics U-SQL](transform-data-using-data-lake-analytics.md) |
-| [Azure SQL](#azure-sql-database-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) | [Stored Procedure](transform-data-using-stored-procedure.md) |
+| [Azure SQL](#azure-sql-database-linked-service), [Azure Synapse Analytics (formerly SQL Data Warehouse)](#azure-synapse-analytics-linked-service), [SQL Server](#sql-server-linked-service) | [Stored Procedure](transform-data-using-stored-procedure.md) |
 | [Azure Databricks](#azure-databricks-linked-service)         | [Notebook](transform-data-databricks-notebook.md), [Jar](transform-data-databricks-jar.md), [Python](transform-data-databricks-python.md) |
 | [Azure Function](#azure-function-linked-service)         | [Azure Function activity](control-flow-azure-function-activity.md)
 >  
 
-## On-demand HDInsight compute environment
+## HDInsight compute environment
+
+Refer to below table for details about the supported storage linked service types for configuration in On-demand and BYOC (Bring your own compute) environment.
+
+| In Compute Linked Service | Property Name                | Description                                                  | Blob | ADLS Gen2 | Azure SQL DB | ADLS Gen 1 |
+| ------------------------- | ---------------------------- | ------------------------------------------------------------ | ---- | --------- | ------------ | ---------- |
+| On-demand                 | linkedServiceName            | Azure Storage linked service to   be used by the on-demand cluster for storing and processing data. | Yes  | Yes       | No           | No         |
+|                           | additionalLinkedServiceNames | Specifies additional storage   accounts for the HDInsight linked service so that the Data Factory service   can register them on your behalf. | Yes  | No        | No           | No         |
+|                           | hcatalogLinkedServiceName    | The name of Azure SQL linked   service that point to the HCatalog database. The on-demand HDInsight cluster   is created by using the Azure SQL database as the metastore. | No   | No        | Yes          | No         |
+| BYOC                      | linkedServiceName            | The Azure Storage linked service   reference.                | Yes  | Yes       | No           | No         |
+|                           | additionalLinkedServiceNames | Specifies additional storage   accounts for the HDInsight linked service so that the Data Factory service   can register them on your behalf. | No   | No        | No           | No         |
+|                           | hcatalogLinkedServiceName    | A reference to the Azure SQL   linked service that points to the HCatalog database. | No   | No        | No           | No         |
+
+### Azure HDInsight on-demand linked service
 
 In this type of configuration, the computing environment is fully managed by the Azure Data Factory service. It is automatically created by the Data Factory service before a job is submitted to process data and removed when the job is completed. You can create a linked service for the on-demand compute environment, configure it, and control granular settings for job execution, cluster management, and bootstrapping actions.
 
 > [!NOTE]
-> The on-demand configuration is currently supported only for Azure HDInsight clusters. Azure Databricks also supports on-demand jobs using job clusters, refer to [Azure databricks linked service](#azure-databricks-linked-service) for more details.
+> The on-demand configuration is currently supported only for Azure HDInsight clusters. Azure Databricks also supports on-demand jobs using job clusters. For more information, see [Azure databricks linked service](#azure-databricks-linked-service).
 
-## Azure HDInsight on-demand linked service
-
-The Azure Data Factory service can automatically create an on-demand HDInsight cluster to process data. The cluster is created in the same region as the storage account (linkedServiceName property in the JSON) associated with the cluster. The storage account must be a general-purpose standard Azure Storage account. 
+The Azure Data Factory service can automatically create an on-demand HDInsight cluster to process data. The cluster is created in the same region as the storage account (linkedServiceName property in the JSON) associated with the cluster. The storage account `must` be a general-purpose standard Azure Storage account. 
 
 Note the following **important** points about on-demand HDInsight linked service:
 
@@ -54,7 +65,7 @@ Note the following **important** points about on-demand HDInsight linked service
 > [!IMPORTANT]
 > It typically takes **20 minutes** or more to provision an Azure HDInsight cluster on demand.
 
-### Example
+#### Example
 
 The following JSON defines a Linux-based on-demand HDInsight linked service. The Data Factory service automatically creates a **Linux-based** HDInsight cluster to process the required activity. 
 
@@ -93,9 +104,9 @@ The following JSON defines a Linux-based on-demand HDInsight linked service. The
 > [!IMPORTANT]
 > The HDInsight cluster creates a **default container** in the blob storage you specified in the JSON (**linkedServiceName**). HDInsight does not delete this container when the cluster is deleted. This behavior is by design. With on-demand HDInsight linked service, a HDInsight cluster is created every time a slice needs to be processed unless there is an existing live cluster (**timeToLive**) and is deleted when the processing is done. 
 >
-> As more activity runs, you see many containers in your Azure blob storage. If you do not need them for troubleshooting of the jobs, you may want to delete them to reduce the storage cost. The names of these containers follow a pattern: `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp`. Use tools such as [Microsoft Storage Explorer](https://storageexplorer.com/) to delete containers in your Azure blob storage.
+> As more activity runs, you see many containers in your Azure blob storage. If you do not need them for troubleshooting of the jobs, you may want to delete them to reduce the storage cost. The names of these containers follow a pattern: `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp`. Use tools such as [Microsoft Azure Storage Explorer](https://storageexplorer.com/) to delete containers in your Azure blob storage.
 
-### Properties
+#### Properties
 
 | Property                     | Description                              | Required |
 | ---------------------------- | ---------------------------------------- | -------- |
@@ -126,7 +137,7 @@ The following JSON defines a Linux-based on-demand HDInsight linked service. The
 > [!IMPORTANT]
 > Currently, HDInsight linked services does not support HBase, Interactive Query (Hive LLAP), Storm. 
 
-#### additionalLinkedServiceNames JSON example
+* additionalLinkedServiceNames JSON example
 
 ```json
 "additionalLinkedServiceNames": [{
@@ -135,7 +146,7 @@ The following JSON defines a Linux-based on-demand HDInsight linked service. The
 }]
 ```
 
-### Service principal authentication
+#### Service principal authentication
 
 The On-Demand HDInsight linked service requires a service principal authentication to create HDInsight clusters on your behalf. To use service principal authentication, register an application entity in Azure Active Directory (Azure AD) and grant it the **Contributor** role of the subscription or the resource group in which the HDInsight cluster is created. For detailed steps, see [Use portal to create an Azure Active Directory application and service principal that can access resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal). Make note of the following values, which you use to define the linked service:
 
@@ -151,7 +162,7 @@ Use service principal authentication by specifying the following properties:
 | **servicePrincipalKey** | Specify the application's key.           | Yes      |
 | **tenant**              | Specify the tenant information (domain name or tenant ID) under which your application resides. You can retrieve it by hovering the mouse in the upper-right corner of the Azure portal. | Yes      |
 
-### Advanced Properties
+#### Advanced Properties
 
 You can also specify the following properties for the granular configuration of the on-demand HDInsight cluster.
 
@@ -166,7 +177,7 @@ You can also specify the following properties for the granular configuration of 
 | stormConfiguration     | Specifies the Storm configuration parameters (storm-site.xml) for the HDInsight cluster. | No       |
 | yarnConfiguration      | Specifies the Yarn configuration parameters (yarn-site.xml) for the HDInsight cluster. | No       |
 
-#### Example – On-demand HDInsight cluster configuration with advanced properties
+* Example – On-demand HDInsight cluster configuration with advanced properties
 
 ```json
 {
@@ -220,7 +231,7 @@ You can also specify the following properties for the granular configuration of 
 }
 ```
 
-### Node sizes
+#### Node sizes
 You can specify the sizes of head, data, and zookeeper nodes using the following properties: 
 
 | Property          | Description                              | Required |
@@ -229,7 +240,7 @@ You can specify the sizes of head, data, and zookeeper nodes using the following
 | dataNodeSize      | Specifies the size of the data node. The default value is: Standard_D3. | No       |
 | zookeeperNodeSize | Specifies the size of the Zoo Keeper node. The default value is: Standard_D3. | No       |
 
-#### Specifying node sizes
+* Specifying node sizes
 See the [Sizes of Virtual Machines](../virtual-machines/linux/sizes.md) article for string values you need to specify for the properties mentioned in the previous section. The values need to conform to the **CMDLETs & APIS** referenced in the article. As you can see in the article, the data node of Large (default) size has 7-GB memory, which may not be good enough for your scenario. 
 
 If you want to create D4 sized head nodes and worker nodes, specify **Standard_D4** as the value for headNodeSize and dataNodeSize properties. 
@@ -241,7 +252,7 @@ If you want to create D4 sized head nodes and worker nodes, specify **Standard_D
 
 If you specify a wrong value for these properties, you may receive the following **error:** Failed to create cluster. Exception: Unable to complete the cluster create operation. Operation failed with code '400'. Cluster left behind state: 'Error'. Message: 'PreClusterCreationValidationFailure'. When you receive this error, ensure that you are using the **CMDLET & APIS** name from the table in the [Sizes of Virtual Machines](../virtual-machines/linux/sizes.md) article.  	 	
 
-## Bring your own compute environment
+### Bring your own compute environment
 In this type of configuration, users can register an already existing computing environment as a linked service in Data Factory. The computing environment is managed by the user and the Data Factory service uses it to execute the activities.
 
 This type of configuration is supported for the following compute environments:
@@ -250,7 +261,7 @@ This type of configuration is supported for the following compute environments:
 * Azure Batch
 * Azure Machine Learning
 * Azure Data Lake Analytics
-* Azure SQL DB, Azure SQL DW, SQL Server
+* Azure SQL DB, Azure Synapse Analytics, SQL Server
 
 ## Azure HDInsight linked service
 You can create an Azure HDInsight linked service to register your own HDInsight cluster with Data Factory.
@@ -432,7 +443,7 @@ You create an Azure Machine Learning linked service to connect an Azure Machine 
 | servicePrincipalId     | Specify the application's client ID.     | No |
 | servicePrincipalKey    | Specify the application's key.           | No |
 | tenant                 | Specify the tenant information (domain name or tenant ID) under which your application resides. You can retrieve it by hovering the mouse in the upper-right corner of the Azure portal. | Required if updateResourceEndpoint is specified | No |
-| connectVia             | The Integration Runtime to be used to dispatch the activities to this linked service. You can use Azure Integration Runtime or Self-hosted Integration Runtime. If not specified, it uses the default Azure Integration Runtime. | No |    
+| connectVia             | The Integration Runtime to be used to dispatch the activities to this linked service. You can use Azure Integration Runtime or Self-hosted Integration Runtime. If not specified, it uses the default Azure Integration Runtime. | No |
 
 ## Azure Data Lake Analytics linked service
 You create an **Azure Data Lake Analytics** linked service to link an Azure Data Lake Analytics compute service to an Azure data factory. The Data Lake Analytics U-SQL activity in the pipeline refers to this linked service. 
@@ -547,9 +558,9 @@ You can create **Azure Databricks linked service** to register Databricks worksp
 
 You create an Azure SQL linked service and use it with the [Stored Procedure Activity](transform-data-using-stored-procedure.md) to invoke a stored procedure from a Data Factory pipeline. See [Azure SQL Connector](connector-azure-sql-database.md#linked-service-properties) article for details about this linked service.
 
-## Azure SQL Data Warehouse linked service
+## Azure Synapse Analytics linked service
 
-You create an Azure SQL Data Warehouse linked service and use it with the [Stored Procedure Activity](transform-data-using-stored-procedure.md) to invoke a stored procedure from a Data Factory pipeline. See [Azure SQL Data Warehouse Connector](connector-azure-sql-data-warehouse.md#linked-service-properties) article for details about this linked service.
+You create an Azure Synapse Analytics (formerly SQL Data Warehouse) linked service and use it with the [Stored Procedure Activity](transform-data-using-stored-procedure.md) to invoke a stored procedure from a Data Factory pipeline. See [Azure Synapse Analytics (formerly SQL Data Warehouse) Connector](connector-azure-sql-data-warehouse.md#linked-service-properties) article for details about this linked service.
 
 ## SQL Server linked service
 

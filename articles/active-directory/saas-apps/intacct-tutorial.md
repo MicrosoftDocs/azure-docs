@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Sage Intacct | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Sage Intacct.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 92518e02-a62c-4b1b-a8e9-2803eb2b49ac
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/12/2019
+ms.date: 08/05/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Integrate Sage Intacct with Azure Active Directory
@@ -42,6 +35,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Sage Intacct supports **IDP** initiated SSO
+* Once you configure Sage Intacct you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## Adding Sage Intacct from the gallery
 
@@ -54,7 +48,7 @@ To configure the integration of Sage Intacct into Azure AD, you need to add Sage
 1. In the **Add from the gallery** section, type **Sage Intacct** in the search box.
 1. Select **Sage Intacct** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-## Configure and test Azure AD single sign-on for Sage Intacct
+## Configure and test Azure AD SSO for Sage Intacct
 
 Configure and test Azure AD SSO with Sage Intacct using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Sage Intacct.
 
@@ -86,13 +80,12 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![image](common/edit-attribute.png)
 
-1. In addition to above, Sage Intacct application expects few more attributes to be passed back in SAML response. In the **User Claims** section on the **User Attributes** dialog, perform the following steps to add SAML token attribute as shown in the below table:
+1. In addition to above, Sage Intacct application expects few more attributes to be passed back in SAML response. In the **User Attributes & Claims** dialog, perform the following steps to add SAML token attribute as shown in the below table:
 
-	| Name  |  Source Attribute|
+	| Attribute Name  |  Source Attribute|
 	| ---------------| --------------- |
 	| Company Name | **Sage Intacct Company ID** |
 	| name | Value should be same as the Sage Intacct **User ID**, which you enter in the **Create Sage Intacct test user section**, which is explained later in the tutorial |
-	| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier` | Value should be same as the Sage Intacct **Federated SSO User ID**, which you enter in the **Create Sage Intacct test user section**, which is explained later in the tutorial |
 
 	a. Click **Add new claim** to open the **Manage user claims** dialog.
 
@@ -102,7 +95,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	d. Select Source as **Attribute**.
 
-	e. From the **Source attribute** list, type the attribute value shown for that row.
+	e. From the **Source attribute** list, type or select the attribute value shown for that row.
 
 	f. Click **Ok**
 
@@ -226,3 +219,4 @@ When you click the Sage Intacct tile in the Access Panel, you should be automati
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
+- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

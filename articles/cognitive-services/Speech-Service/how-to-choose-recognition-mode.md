@@ -10,7 +10,8 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.author: trbye
-zone_pivot_groups: programming-languages-set-two
+zone_pivot_groups: programming-languages-set-two-with-js
+ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
 # Choose a speech recognition mode
@@ -59,6 +60,17 @@ result = speech_recognizer.recognize_once()
 ```
 
 ::: zone-end
+
+::: zone pivot="programming-language-javascript"
+
+For more information on using the `recognizeOnceAsync` function, see the [Speech SDK for JavaScript docs](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest#recognizeonceasync--e--speechrecognitionresult-----void---e--string-----void-).
+
+```JavaScript
+recognizer.recognizeOnceAsync((result)=>{}, (error)=>{}));
+```
+
+::: zone-end
+
 ::: zone pivot="programming-language-more"
 
 For additional languages, see the [Speech SDK reference docs](speech-to-text.md#speech-sdk-reference-docs).
@@ -147,6 +159,26 @@ speech_recognizer.stop_continuous_recognition()
 ```
 
 ::: zone-end
+
+::: zone pivot="programming-language-javascript"
+
+```JavaScript
+recognizer.recognized = (s, e) => {
+    if (e.result.reason == ResultReason.RecognizedSpeech) {
+        // Do something with the recognized text
+        // e.getResult().getText()
+    }
+});
+
+// Start continuous speech recognition
+recognizer.startContinuousRecognitionAsync(()=>{}, (error)=>{});
+
+// Stop continuous speech recognition
+recognizer.stopContinuousRecognitionAsync(()=>{}, (error)=>{});
+```
+
+::: zone-end
+
 ::: zone pivot="programming-language-more"
 
 For additional languages, see the [Speech SDK reference docs](speech-to-text.md#speech-sdk-reference-docs).
@@ -197,6 +229,18 @@ SpeechConfig.enable_dictation()
 ```
 
 ::: zone-end
+
+::: zone pivot="programming-language-javascript"
+
+For more information on using the `enableDictation` function, see the [Speech SDK for JavaScript docs](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest#enabledictation--).
+
+```JavaScript
+// Enable diction
+speechConfig.enableDictation();
+```
+
+::: zone-end
+
 ::: zone pivot="programming-language-more"
 
 For additional languages, see the [Speech SDK reference docs](speech-to-text.md#speech-sdk-reference-docs).

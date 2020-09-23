@@ -87,7 +87,7 @@ After failing over to Azure, you reprotect Azure VMs by replicating them to the 
 10. Verify the following scenarios in which you can't fail back:
     - If you're using either the ESXi 5.5 free edition or the vSphere 6 Hypervisor free edition. Upgrade to a different version.
     - If you have a Windows Server 2008 R2 SP1 physical server.
-    - VMs that have [been migrated](migrate-overview.md#what-do-we-mean-by-migration).
+    - VMs that have been migrated.
     - A VM that's been moved to another resource group.
     - A replica Azure VM that's been deleted.
     - A replica Azure VM that isn't protected (replicating to the on-premises site).

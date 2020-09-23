@@ -1,19 +1,19 @@
 ---
-title: Configure Microsoft commercial marketplace lead management with an Azure table
-description: Learn how to use an Azure table to manage leads from Microsoft AppSource and Azure Marketplace.
-author: qianw211
+title: Lead management with Azure Table storage - Microsoft commercial marketplace
+description: Learn how to use Azure Table storage to configure leads for Microsoft AppSource and Azure Marketplace
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 03/30/2020
-ms.author: dsindona
+author: keferna
+ms.author: keferna
+ms.date: 08/25/2020
 ---
 
-# Configure lead management by using an Azure table
+# Use Azure Table storage to manage commercial marketplace leads
 
-If your customer relationship management (CRM) system isn't explicitly supported in Partner Center to receive Microsoft AppSource and Azure Marketplace leads, you can use an Azure table to handle these leads. You can then choose to export the data and import it into your CRM system. The instructions in this article walk you through the process of creating an Azure Storage account and an Azure table under that account. In addition, you can create a new flow by using Power Automate to send an email notification when your offer receives a lead.
+If your customer relationship management (CRM) system isn't explicitly supported in Partner Center to receive Microsoft AppSource and Azure Marketplace leads, you can use Azure Table storage to handle these leads. You can then choose to export the data and import it into your CRM system. This article explains how to create an Azure storage account and a table under that account. In addition, you can create a new flow by using Power Automate to send an email notification when your offer receives a lead.
 
-## Configure an Azure table
+## Configure an Azure storage account
 
 1. If you don't have an Azure account, you can [create a free trial account](https://azure.microsoft.com/pricing/free-trial/).
 1. After your Azure account is active, sign in to the [Azure portal](https://portal.azure.com).
@@ -21,17 +21,21 @@ If your customer relationship management (CRM) system isn't explicitly supported
 
     1. Select **+ Create a resource** in the left menu bar. The **New** pane appears to the right.
     1. Select **Storage** in the **New** pane. A **Featured** list appears to the right.
-    1. Select **Storage account** to begin account creation. Follow the instructions in [Create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal).
+    1. Select **Storage account** to begin account creation. Follow the instructions in [Create a storage account](../../storage/common/storage-quickstart-create-account.md?tabs=azure-portal).
 
-        ![Steps to create an Azure storage account](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-create.png)
+        :::image type="content" source="media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-create.png" alt-text="Steps to create an Azure storage account.":::
 
-        For more information about storage accounts, see [Quickstart tutorial](https://docs.microsoft.com/azure/storage/). For more information about storage pricing, see [Storage pricing](https://azure.microsoft.com/pricing/details/storage/).
+        For more information about storage accounts, see [Quickstart tutorial](../../storage/index.yml). For more information about storage pricing, see [Storage pricing](https://azure.microsoft.com/pricing/details/storage/).
 
-1. Wait until your storage account is provisioned. This process typically takes a few minutes. Then access your storage account from the **Home** page of the Azure portal by selecting **See all your resources**. You can also select **All resources** from the left menu bar of the Azure portal.
+1. Wait until your storage account is provisioned. This process typically takes a few minutes.
 
-    ![Access your Azure storage account](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-access.png)
+## Create a table in your storage account
 
-1. From your storage account pane, select **Access keys** and copy the **Connection string** value for the key. Save this value because it's the **Storage Account Connection String** value that you'll need to provide in the publishing portal to receive leads for your Azure Marketplace offer. 
+1. From the **Home** page of the Azure portal, select **See all your resources** to access your storage account. You can also select **All resources** from the left menu bar of the Azure portal.
+
+    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-access.png" alt-text="Access your Azure storage account.":::
+
+1. From your storage account pane, select **Access keys** and copy the **Connection string** value for the key. Save this value because it's the **Storage Account Connection String** value that you'll need to provide in the publishing portal to receive leads for your Azure Marketplace offer.
 
     Here's an example of a connection string.
 
@@ -39,25 +43,26 @@ If your customer relationship management (CRM) system isn't explicitly supported
     DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.screens.net
     ```
 
-    ![Azure storage key](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-keys.png)
+    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-keys.png" alt-text="Azure storage key.":::
+
 
 1. From your storage account pane, select **Tables**, and select **+ Table** to create a table. Enter a name for your table, and select **OK**. Save this value because you'll need it if you want to configure a flow to receive email notifications when leads are received.
 
     ![Azure tables](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-tables.png)
 
-    You can use [Azure Storage Explorer](https://archive.codeplex.com/?p=azurestorageexplorer) or any other tool to see the data in your storage table. You can also export the data in the Azure table. 
+    You can use [Azure Storage Explorer](https://archive.codeplex.com/?p=azurestorageexplorer) or any other tool to see the data in your storage table. You can also export the data in the Azure table.
 
-## (Optional) Use Power Automate with an Azure table 
+## (Optional) Use Power Automate to get lead notifications
 
-You can use [Power Automate](https://docs.microsoft.com/flow/) to automate notifications every time a lead is added to an Azure table. If you don't have an account, you can [sign up for a free account](https://flow.microsoft.com/).
+You can use [Power Automate](https://docs.microsoft.com/flow/) to automate notifications every time a lead is added to your Azure Storage table. If you don't have an account, you can [sign up for a free account](https://flow.microsoft.com/).
 
 ### Lead notification example
 
-Use this example as a guide to create a simple flow that automatically sends an email notification when a new lead is added to an Azure table. This example sets up a recurrence to send lead information every hour if the table storage is updated.
+The example creates a flow that automatically sends an email notification when a new lead is added to Azure Table storage. This example sets up a recurrence to send lead information every hour if the table storage is updated.
 
 1. Sign in to your Power Automate account.
 1. On the left bar, select **My flows**.
-1. On the top bar, select **+ New**. 
+1. On the top bar, select **+ New**.
 1. In the drop-down list, select **+ Scheduled--from blank**.
 
    ![My flows + Scheduled--from blank](./media/commercial-marketplace-lead-management-instructions-azure-table/ms-flow-scheduled-from-blank.png)
@@ -77,28 +82,28 @@ Use this example as a guide to create a simple flow that automatically sends an 
 1. In the **Get past time** window, set **Interval** to **1**. From the **Time unit** drop-down list, select **Hour**.
 
     >[!IMPORTANT]
-    >Make sure that the interval and time unit you sent in step 8 match the interval and frequency that you configured for recurrence in step 5.
+    >Make sure that the interval and time unit you sent in Step 8 match the interval and frequency that you configured for recurrence in Step 5.
 
     ![Set Get past time interval](./media/commercial-marketplace-lead-management-instructions-azure-table/ms-flow-getpast-time.png)
 
-   >[!TIP] 
+   >[!TIP]
    >You can check your flow at any time to verify each step is configured correctly. To check your flow, select **Flow checker** from the **Flow** menu bar.
 
-   In the next set of steps, you'll connect to your Azure table and set up the processing logic to handle new leads.
+   In the next set of steps, you'll connect to your table and set up the processing logic to handle new leads.
 
-1. After step 8, select **+ New step**. Then search for **Get entities** In the **Choose an action** window.
+1. Select **+ New step**. Then search for **Get entities** In the **Choose an action** window.
 1. Under **Actions**, select **Get entities (Azure Table Storage)**.
 1. In the **Azure Table Storage** window, provide information for the following boxes and select **Create**:
 
-    * **Connection Name**: Provide a meaningful name for the connection you're establishing between this flow and the Azure table.
-    * **Storage Account Name**: Provide the name of the storage account for your Azure table. You can find this name on the storage account's **Access keys** page.
-    * **Shared Storage Key**: Provide the key value for your store account for your Azure table. You can find this value on the storage account's **Access keys** page.
+    * **Connection Name**: Provide a meaningful name for the connection you're establishing between this flow and the table.
+    * **Storage Account Name**: Provide the name of the storage account for your table. You can find this name on the storage account's **Access keys** page.
+    * **Shared Storage Key**: Provide the key value for your store account for your table. You can find this value on the storage account's **Access keys** page.
 
       ![Azure Table Storage window](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-storage.png)
 
    After you select **Create**, the **Get entities** window appears. Here, select **Show advanced options**, and provide information for the following boxes:
 
-   * **Table**: Select the name of your Azure table storage (from step 6 of the instructions in the "Configure an Azure table" section). The following image shows the prompt when "marketplaceleads" table is selected for this example.
+   * **Table**: Select the name of your table (from [Create a table](#create-a-table-in-your-storage-account)). The following image shows the prompt when `marketplaceleads` table is selected for this example.
 
      ![Get entities window](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities.png)
 
@@ -114,7 +119,7 @@ Use this example as a guide to create a simple flow that automatically sends an 
 
 1. In the **Condition** window, select **Choose a value**. Then select **Expression** in the pop-up window.
 
-1. Paste `length(body('Get_entities')?['value'])` into the **fx** box. Select **OK** to add this function. 
+1. Paste `length(body('Get_entities')?['value'])` into the **fx** box. Select **OK** to add this function.
 
 1. To finish setting up the condition:
     1. Select **is greater than** from the drop-down list.
@@ -125,7 +130,7 @@ Use this example as a guide to create a simple flow that automatically sends an 
    In the next few steps, you set up the action to take based on the result of the condition:
 
    * If the condition resolves to **If no**, don't do anything.
-   * If the condition resolves to **If yes**, trigger an action that connects your Office 365 account to send an email. 
+   * If the condition resolves to **If yes**, trigger an action that connects your work or school account to send an email. 
 
 1. Select **Add an action** under **If yes**.
 
@@ -172,9 +177,19 @@ If you're not getting any lead email notifications, it means that new leads have
 When you're ready to configure the lead management information for your offer in the publishing portal, follow these steps.
 
 1. Go to the **Offer setup** page for your offer.
-1. Select **Connect** under the **Lead management** section.
-1. In the **Connection details** pop-up window, select **Azure Table** for the **Lead destination**. Paste in the connection string from the Azure storage account you created by following earlier steps in the **Storage account connection string** box.
+
+1. Under the **Customer leads** section, select **Connect**.
+
+    :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-azure-table/customer-leads.png" alt-text="Customer leads":::
+
+1. In the **Connection details** pop-up window, select **Azure Table** for the **Lead destination**. 
+     ![Lead management, Connection details](./media/commercial-marketplace-lead-management-instructions-azure-table/connection-details.png)
+
+1. Paste in the connection string from the Azure storage account you created by following earlier steps in the **Storage account connection string** box.
+     ![Lead management, Connection details storage account](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-connection-details.png)
+
 1. **Contact email**: Provide emails for people in your company who should receive email notifications when a new lead is received. You can provide multiple emails by separating them with semicolons.
+
 1. Select **OK**.
 
 To make sure you have successfully connected to a lead destination, select the **Validate** button. If successful, you'll have a test lead in the lead destination.
@@ -183,10 +198,3 @@ To make sure you have successfully connected to a lead destination, select the *
 >You must finish configuring the rest of the offer and publish it before you can receive leads for the offer.
 
 When leads are generated, Microsoft sends leads to the Azure table. If you configured a flow, an email will also be sent to the email address you configured.
-
-![Lead management](./media/commercial-marketplace-lead-management-instructions-azure-table/lead-management.png)
-
-![Lead management, Connection details](./media/commercial-marketplace-lead-management-instructions-azure-table/connection-details.png)
-
-![Lead management, Connection details storage account](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-connection-details.png)
-

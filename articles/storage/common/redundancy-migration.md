@@ -7,10 +7,11 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/10/2020
+ms.date: 05/05/2020
 ms.author: tamram
 ms.reviewer: artek
-ms.subservice: common
+ms.subservice: common 
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Change how a storage account is replicated
@@ -22,7 +23,7 @@ Azure Storage offers the following types of replication:
 - Locally redundant storage (LRS)
 - Zone-redundant storage (ZRS)
 - Geo-redundant storage (GRS) or read-access geo-redundant storage (RA-GRS)
-- Geo-zone-redundant storage (GZRS) or read-access geo-zone-redundant storage (RA-GZRS) (preview)
+- Geo-zone-redundant storage (GZRS) or read-access geo-zone-redundant storage (RA-GZRS)
 
 For an overview of each of these options, see [Azure Storage redundancy](storage-redundancy.md).
 
@@ -36,13 +37,14 @@ The following table provides an overview of how to switch from each type of repl
 |--------------------|----------------------------------------------------|---------------------------------------------------------------------|----------------------------------------------------|---------------------------------------------------------------------|
 | <b>…from LRS</b> | N/A | Use Azure portal, PowerShell, or CLI to change the replication setting<sup>1</sup> | Perform a manual migration <br /><br />Request a live migration | Perform a manual migration <br /><br /> OR <br /><br /> Switch to GRS/RA-GRS first and then request a live migration<sup>1</sup> |
 | <b>…from GRS/RA-GRS</b> | Use Azure portal, PowerShell, or CLI to change the replication setting | N/A | Perform a manual migration <br /><br /> OR <br /><br /> Switch to LRS first and then request a live migration | Perform a manual migration <br /><br /> Request a live migration |
-| <b>…from ZRS</b> | Perform a manual migration | Perform a manual migration | N/A | Use Azure portal, PowerShell, or CLI to change the replication setting<sup>1</sup> |
+| <b>…from ZRS</b> | Perform a manual migration | Perform a manual migration | N/A | Use Azure portal, PowerShell, or CLI to change the replication setting<sup>1,2</sup> |
 | <b>…from GZRS/RA-GZRS</b> | Perform a manual migration | Perform a manual migration | Use Azure portal, PowerShell, or CLI to change the replication setting | N/A |
 
-<sup>1</sup> Incurs a one-time egress charge.
+<sup>1</sup> Incurs a one-time egress charge.<br />
+<sup>2</sup> Conversion from ZRS to GZRS/RA-GZRS or vice versa is not supported in the following regions: US East 2, US East, Europe West.
 
 > [!CAUTION]
-> If you performed an [account failover](https://docs.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance) for your (RA-)GRS or (RA-)GZRS account, it is configured to be locally redundant in the new primary region. Live migration to ZRS or GZRS for such LRS accounts is not supported. You will need to perform [manual migration](https://docs.microsoft.com/azure/storage/common/redundancy-migration#perform-a-manual-migration-to-zrs).
+> If you performed an [account failover](storage-disaster-recovery-guidance.md) for your (RA-)GRS or (RA-)GZRS account, the account is locally redundant in the new primary region after the failover. Live migration to ZRS or GZRS for an LRS account resulting from a failover is not supported. This is true even in the case of so-called failback operations. For example, if you perform an account failover from RA-GZRS to the LRS in the secondary region, and then configure it again to RA-GRS and perform another account failover to the original primary region, you can't contact support for the original live migration to RA-GZRS in the primary region. Instead, you'll need to perform a [manual migration](#perform-a-manual-migration-to-zrs) to ZRS or GZRS.
 
 ## Change the replication setting
 
@@ -191,4 +193,4 @@ If you migrate your storage account from GRS to LRS, there is no additional cost
 
 - [Azure Storage redundancy](storage-redundancy.md)
 - [Check the Last Sync Time property for a storage account](last-sync-time-get.md)
-- [Designing highly available applications using read-access geo-redundant storage](storage-designing-ha-apps-with-ragrs.md)
+- [Use geo-redundancy to design highly available applications](geo-redundant-design.md)

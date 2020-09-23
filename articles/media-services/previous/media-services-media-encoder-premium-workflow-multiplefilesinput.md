@@ -16,9 +16,13 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: xpouyat
 ms.reviewer: anilmur;juliako
+ms.custom: devx-track-csharp
 
 ---
 # Using multiple input files and component properties with Premium Encoder
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 ## Overview
 There are scenarios in which you might need to customize component properties, specify Clip List XML content, or send multiple input files when you submit a task with the **Media Encoder Premium Workflow** media processor. Some examples are:
 
@@ -362,7 +366,7 @@ Now add the **ISO Mpeg-4 Multiplexer** and **File Output** components and connec
 
 You need to set the name for the output file. Click the **File Output** component and edit the expression for the file:
 
-    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_withoverlay.mp4
+`${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_withoverlay.mp4`
 
 ![File output name](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture17_filenameoutput.png)
 

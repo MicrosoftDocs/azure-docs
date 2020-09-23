@@ -1,9 +1,9 @@
 ---
 title: Best practices for Azure Maps Search Service | Microsoft Azure Maps 
 description: Learn how to apply the best practices when using the Search Service from Microsoft Azure Maps.
-author: philmea
-ms.author: philmea
-ms.date: 01/23/2020
+author: anastasia-ms
+ms.author: v-stharr
+ms.date: 09/02/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -12,29 +12,27 @@ manager: philmea
 
 # Best practices for Azure Maps Search Service
 
-Azure Maps [Search Service](https://docs.microsoft.com/rest/api/maps/search) includes APIs that offer various capabilities. For example, the Search Address API can find points of interest (POI) or data around a specific location. 
+Azure Maps [Search Service](https://docs.microsoft.com/rest/api/maps/search) includes APIs that offer various capabilities to help developers to search addresses, places, business listings by name or category, and other geographic information. For example,[Fuzzy Search API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) allows users to search for an address or Point of Interest (POI).
 
 This article explains how to apply sound practices when you call data from Azure Maps Search Service. You'll learn how to:
-
-* Build queries to return relevant matches.
-* Limit search results.
-* Learn the differences between result types.
-* Read the address search-response structure.
+> [!div class="checklist"]
+> * Build queries to return relevant matches
+> * Limit search results
+> * Learn the differences between result types
+> * Read the address search-response structure
 
 ## Prerequisites
 
-To make calls to the Azure Maps service APIs, you need an Azure Maps account and a key. For more information, see [Create an account](quick-demo-map-app.md#create-an-account-with-azure-maps) and [Get a primary key](quick-demo-map-app.md#get-the-primary-key-for-your-account). 
+1. [Make an Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account)
+2. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key.
 
-For information about authentication in Azure Maps, see [Manage authentication in Azure Maps](./how-to-manage-authentication.md).
-
-> [!TIP]
-> To query Search Service, you can use the [Postman app](https://www.getpostman.com/apps) to build REST calls. Or you can use any API development environment that you prefer.
+This article uses the [Postman app](https://www.postman.com/downloads/) to build REST calls, but you can choose any API development environment.
 
 ## Best practices to geocode addresses
 
-When you search for a full or partial address by using Azure Maps Search Service, the API reads keywords from your search query. Then it returns the longitude and latitude coordinates of the address. This process is called *geocoding*. 
+When you search for a full or partial address by using Azure Maps Search Service, the API reads keywords from your search query. Then it returns the longitude and latitude coordinates of the address. This process is called *geocoding*.
 
-The ability to geocode in a country depends on the availability of road data and the precision of the geocoding service. For more information about Azure Maps geocoding capabilities by country or region, see [Geocoding coverage](https://docs.microsoft.com/azure/azure-maps/geocoding-coverage).
+The ability to geocode in a country/region depends on the availability of road data and the precision of the geocoding service. For more information about Azure Maps geocoding capabilities by country or region, see [Geocoding coverage](https://docs.microsoft.com/azure/azure-maps/geocoding-coverage).
 
 ### Limit search results
 
@@ -47,7 +45,7 @@ The ability to geocode in a country depends on the availability of road data and
 
 To geobias results to the relevant area for your user, always add as many location details as possible. You might want to restrict the search results by specifying some input types:
 
-* Set the `countrySet` parameter. You can set it to `US,FR`, for example. By default, the API searches the entire world, so it can return unnecessary results. If your query has no `countrySet` parameter, then the search might return inaccurate results. For example, a search for a city named *Bellevue* returns results from the USA and France because both countries contain a city named *Bellevue*.
+* Set the `countrySet` parameter. You can set it to `US,FR`, for example. By default, the API searches the entire world, so it can return unnecessary results. If your query has no `countrySet` parameter, then the search might return inaccurate results. For example, a search for a city named *Bellevue* returns results from the USA and France because both countries/regions contain a city named *Bellevue*.
 
 * You can use the `btmRight` and `topleft` parameters to set the bounding box. These parameters restrict the search to a specific area on the map.
 
@@ -56,7 +54,7 @@ To geobias results to the relevant area for your user, always add as many locati
 
 #### Fuzzy search parameters
 
-We recommend that you use the Azure Maps [Search Fuzzy API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) when you don't know your user inputs for a search query. The API combines POI searching and geocoding into a canonical *single-line search*: 
+We recommend that you use the Azure Maps [Search Fuzzy API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) when you don't know your user inputs for a search query. For example, input from the user could be an address or the type of Point of Interest (POI), like *shopping mall*. The API combines POI searching and geocoding into a canonical *single-line search*: 
 
 * The `minFuzzyLevel` and `maxFuzzyLevel` parameters help return relevant matches even when query parameters don't exactly match the information that the user wants. To maximize performance and reduce unusual results, set search queries to defaults of `minFuzzyLevel=1` and `maxFuzzyLevel=2`. 
 
@@ -65,7 +63,7 @@ We recommend that you use the Azure Maps [Search Fuzzy API](https://docs.microso
 * Use the `idxSet` parameter to prioritize the exact set of result types. To prioritize an exact set of results, you can submit a comma-separated list of indexes. In your list, the item order doesn't matter. Azure Maps supports the following indexes:
 
 * `Addr` - **Address ranges**: Address points that are interpolated from the beginning and end of the street. These points are represented as address ranges.
-* `Geo` - **Geographies**: Administrative divisions of land. A geography can be a country, state, or city, for example.
+* `Geo` - **Geographies**: Administrative divisions of land. A geography can be a country/region, state, or city, for example.
 * `PAD` - **Point addresses**: Addresses that include a street name and number. Point addresses can be found in an index. An example is *Soquel Dr 2501*. A point address provides the highest level of accuracy available for addresses.  
 * `POI` - **Points of interest**: Points on a map that are considered to be worth attention or that might be interesting. The [Search Address API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) doesn't return POIs.  
 * `Str` - **Streets**: Streets on the map.
@@ -80,7 +78,7 @@ We recommend that you use the Azure Maps [Search Fuzzy API](https://docs.microso
 
 ### Reverse-geocode and filter for a geography entity type
 
-When you do a reverse-geocode search in the [Search Address Reverse API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse), the service can return polygons for administrative areas. To narrow the search to specific geography entity types, include the `entityType` parameter in your requests. 
+When you do a reverse-geocode search in the [Search Address Reverse API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse), the service can return polygons for administrative areas. For example, you might want to fetch the area polygon for a city. To narrow the search to specific geography entity types, include the `entityType` parameter in your requests. 
 
 The resulting response contains the geography ID and the entity type that was matched. If you provide more than one entity, then the endpoint returns the *smallest entity available*. You can use the returned geometry ID to get the geography's geometry through the [Search Polygon service](https://docs.microsoft.com/rest/api/maps/search/getsearchpolygon).
 
@@ -423,7 +421,7 @@ query=1st%20Avenue%20%26%20E%20111th%20St%2C%20New%20York
 You can use the following methods.
 
 JavaScript or TypeScript:
-```Javascript
+```javascript
 encodeURIComponent(query)
 ```
 
@@ -475,7 +473,7 @@ url.QueryEscape(query)
 
 In a POI search, you can request POI results by name. For example, you can search for a business by name. 
 
-We strongly recommend that you use the `countrySet` parameter to specify countries where your application needs coverage. The default behavior is to search the entire world. This broad search might return unnecessary results, and the search might take a long time.
+We strongly recommend that you use the `countrySet` parameter to specify countries/regions where your application needs coverage. The default behavior is to search the entire world. This broad search might return unnecessary results, and the search might take a long time.
 
 ### Brand search
 
@@ -764,7 +762,7 @@ https://atlas.microsoft.com/search/address/json?subscription-key={subscription-k
 
 * **Address Range**: The range of address points that are interpolated from the beginning and end of the street.  
 
-* **Geography**: Areas on a map that represent administrative divisions of a land, for example, country, state, or city. 
+* **Geography**: Areas on a map that represent administrative divisions of a land, for example, country/region, state, or city. 
 
 * **POI**: Points on a map that are worth attention and that might be interesting.
 
@@ -962,7 +960,7 @@ Responses for the [Search Address](https://docs.microsoft.com/rest/api/maps/sear
 
 ## Next steps
 
-To learn more, please see :
+To learn more, please see:
 
 > [!div class="nextstepaction"]
 > [How to build Azure Maps Search Service requests](https://docs.microsoft.com/azure/azure-maps/how-to-search-for-address)

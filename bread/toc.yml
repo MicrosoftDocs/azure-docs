@@ -54,6 +54,9 @@
       - name: Identity Governance
         tocHref: /azure/active-directory/governance/
         topicHref: /azure/active-directory/governance/
+      - name: Application provisioning
+        tocHref: /azure/active-directory/app-provisioning/
+        topicHref: /azure/active-directory/app-provisioning/
       - name: Application management
         tocHref: /azure/active-directory/manage-apps/
         topicHref: /azure/active-directory/manage-apps/
@@ -99,6 +102,12 @@
     - name: Mobile Apps
       tocHref: /azure/app-service-mobile/
       topicHref: /azure/app-service-mobile/
+  - name: Azure Automanage
+    tocHref: /azure/automanage/
+    topicHref: /azure/automanage/
+  - name: Static Web Apps
+    tocHref: /azure/static-web-apps/
+    topicHref: /azure/static-web-apps/
   - name: Advisor
     tocHref: /azure/advisor/
     topicHref: /azure/advisor/
@@ -108,9 +117,22 @@
   - name: Synapse Analytics
     tocHref: /azure/synapse-analytics/
     topicHref: /azure/synapse-analytics/
+  - name: Azure Arc
+    tocHref: /azure/azure-arc/
+    topicHref: /azure/azure-arc/
+    items:
+      - name: Arc enabled Kubernetes
+        tocHref: /azure/azure-arc/kubernetes/
+        topicHref: /azure/azure-arc/kubernetes/
+      - name: Arc enabled servers
+        tocHref: /azure/azure-arc/servers/
+        topicHref: /azure/azure-arc/servers/
   - name: ASC for IoT
     tocHref: /azure/asc-for-iot/
     topicHref: /azure/asc-for-iot/
+  - name: Attestation
+    tocHref: /azure/attestation/
+    topicHref: /azure/attestation/
   - name: Automation
     tocHref: /azure/automation/
     topicHref: /azure/automation/
@@ -349,7 +371,7 @@
       topicHref: /azure/cognitive-services/entitylinking/home
     - name: Anomaly Finder
       tocHref: /azure/cognitive-services/labs/anomaly-finder/
-      topicHref: /azure/cognitive-services/labs/anomaly-finder/overview
+      topicHref: /azure/cognitive-services/anomaly-detector/overview
     - name: Conversation Learner
       tocHref: /azure/cognitive-services/labs/conversation-learner/
       topicHref: /azure/cognitive-services/labs/conversation-learner/overview
@@ -383,7 +405,7 @@
     - name: Text Analytics
       tocHref: /azure/cognitive-services/text-analytics/
       topicHref: /azure/cognitive-services/text-analytics/
-    - name: Translator Text
+    - name: Translator
       tocHref: /azure/cognitive-services/translator/
       topicHref: /azure/cognitive-services/translator/
 #    - name: Translator Speech
@@ -397,7 +419,7 @@
       topicHref: /azure/cognitive-services/web-language-model/home
     - name: Personality Chat
       tocHref: /azure/cognitive-services/project-personality-chat/
-      topicHref: /azure/cognitive-services/project-personality-chat/overview
+      topicHref: /azure/cognitive-services/qnamaker/overview/overview
     - name: Project Acoustics
       tocHref: /azure/cognitive-services/acoustics/
       topicHref: /azure/cognitive-services/acoustics/what-is-acoustics
@@ -413,6 +435,9 @@
     - name: Immersive Reader
       tocHref: /azure/cognitive-services/immersive-reader/
       topicHref: /azure/cognitive-services/immersive-reader/
+  - name: Communication Services
+    tocHref: /azure/communication-services/
+    topicHref: /azure/communication-services/
   - name: Connectors
     tocHref: /azure/connectors/
     topicHref: /azure/connectors/
@@ -438,9 +463,9 @@
   - name: Cosmos DB
     tocHref: /azure/cosmos-db/
     topicHref: /azure/cosmos-db/
-  - name: Data Box family
-    tocHref: /azure/databox-family/
-    topicHref: /azure/databox-family/
+  - name: Storage
+    tocHref: /azure/storage/
+    topicHref: /azure/storage/
     items:
     - name: Data Box offline transfer
       tocHref: /azure/databox/
@@ -463,9 +488,9 @@
   - name: Dedicated HSM
     tocHref: /azure/dedicated-hsm/
     topicHref: /azure/dedicated-hsm/
-  - name: Devtest Lab
-    tocHref: /azure/devtest-lab/
-    topicHref: /azure/devtest-lab/
+  - name: Devtest Labs
+    tocHref: /azure/devtest-labs/
+    topicHref: /azure/devtest-labs/
   - name: FXT Edge Filer
     tocHref: /azure/fxt-edge-filer/
     topicHref: /azure/fxt-edge-filer/
@@ -576,6 +601,9 @@
       - name: Secrets
         tocHref: /azure/key-vault/secrets/
         topicHref: /azure/key-vault/secrets/
+      - name: Managed HSM
+        tocHref: /azure/key-vault/managed-hsm/
+        topicHref: /azure/key-vault/managed-hsm/
   - name: Azure Kinect DK
     tocHref: /azure/kinect-dk/
     topicHref: /azure/kinect-dk/
@@ -603,10 +631,10 @@
       topicHref: /azure/machine-learning/data-science-virtual-machine/
   - name: Marketplace Consumer
     tocHref: /azure/marketplace-consumer/
-    topicHref: /azure/marketplace-consumer/
+    topicHref: /azure/marketplace/
   - name: Marketplace Publishing
     tocHref: /azure/marketplace-publishing/
-    topicHref: /azure/marketplace-publishing/
+    topicHref: /azure/marketplace/marketplace-publishers-guide
   - name: Media Services
     tocHref: /azure/media-services/
     topicHref: /azure/media-services/
@@ -623,6 +651,9 @@
       - name: Azure Media Player
         tocHref: /azure/media-services/azure-media-player/
         topicHref: /azure/media-services/azure-media-player/
+      - name: Live Video Analytics on IoT Edge
+        tocHref: /azure/media-services/live-video-analytics-edge/
+        topicHref: /azure/media-services/live-video-analytics-edge/        
   - name: Messaging services
     tocHref: /azure/messaging-services/
     topicHref: /azure/messaging-services/
@@ -636,9 +667,9 @@
       - name: Service Bus Messaging
         tocHref: /azure/service-bus-messaging/
         topicHref: /azure/service-bus-messaging/
-      - name: Service Bus Relay
+      - name: Azure Relay
         tocHref: /azure/service-bus-relay/
-        topicHref: /azure/service-bus-relay/
+        topicHref: /azure/azure-relay/
   - name: Migrate
     tocHref: /azure/migrate/
     topicHref: /azure/migrate/
@@ -647,7 +678,7 @@
     topicHref: /azure/mobile-engagement/
   - name: Mobile Services
     tocHref: /azure/mobile-services/
-    topicHref: /azure/mobile-services/
+    topicHref: /previous-versions/azure/app-service-mobile/app-service-mobile-value-prop
   - name: Multi-Factor Authentication
     tocHref: /azure/multi-factor-authentication/
     topicHref: /azure/multi-factor-authentication/
@@ -751,7 +782,7 @@
     topicHref: /azure/remoteapp/
   - name: Resiliency
     tocHref: /azure/resiliency/
-    topicHref: /azure/resiliency/
+    topicHref: /azure/architecture/framework/resiliency/overview
   - name: Role-based access control
     tocHref: /azure/role-based-access-control/
     topicHref: /azure/role-based-access-control/
@@ -795,12 +826,29 @@
   - name: Synapse Analytics
     tocHref: /azure/synapse-analytics/
     topicHref: /azure/synapse-analytics/
-  - name: SQL Database
-    tocHref: /azure/sql-database/
-    topicHref: /azure/sql-database/
-  - name: SQL Database Edge
-    tocHref: /azure/sql-database-edge/
-    topicHref: /azure/sql-database-edge/
+  - name: Azure SQL 
+    tocHref: /azure/azure-sql/
+    topicHref: /azure/azure-sql/
+    items: 
+      - name: SQL Database
+        tocHref: /azure/azure-sql/database
+        topicHref: /azure/azure-sql/database
+      - name: SQL Managed Instance
+        tocHref: /azure/azure-sql/managed-instance
+        topicHref: /azure/azure-sql/managed-instance
+      - name: SQL Server on Azure VM 
+        tocHref: /azure/azure-sql/virtual-machines
+        topicHref: /azure/azure-sql/virtual-machines
+        items: 
+          - name: Windows
+            tocHref: /azure/azure-sql/virtual-machines/windows
+            topicHref: /azure/azure-sql/virtual-machines/windows
+          - name: Linux
+            tocHref: /azure/azure-sql/virtual-machines/linux
+            topicHref: /azure/azure-sql/virtual-machines/linux
+  - name: Azure SQL Edge
+    tocHref: /azure/azure-sql-edge/
+    topicHref: /azure/azure-sql-edge/
   - name: SQL Server Stretch Database
     tocHref: /azure/sql-server-stretch-database/
     topicHref: /azure/sql-server-stretch-database/
@@ -871,7 +919,7 @@
             topicHref: /azure/virtual-machines/windows/sql
   - name: Confidential Computing
     tocHref: /azure/confidential-computing/
-    topicHref: /azure/confidential-computing/
+    topicHref: /azure/confidential-computing/overview
   - name: Windows Virtual Desktop
     tocHref: /azure/virtual-desktop/
     topicHref: /azure/virtual-desktop/

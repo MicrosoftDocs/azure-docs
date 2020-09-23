@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Migrate web services from Google Maps | Microsoft Azure Maps'
-description: How to migrate web services from Google Maps to Microsoft Azure Maps.
+title: 'How to migrate web services from Google Maps to Microsoft Azure Maps'
+description: Learn how to migrate web services from Google Maps to Microsoft Azure Maps.
 author: rbrundritt
 ms.author: richbrun
-ms.date: 12/17/2019
-ms.topic: tutorial
+ms.date: 08/19/2020
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
@@ -51,7 +51,7 @@ Geocoding is the process of converting an address into a coordinate. For example
 Azure Maps provides several methods for geocoding addresses:
 
 - [**Free-form address geocoding**](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress): Specify a single address string and process the request immediately. "1 Microsoft way, Redmond, WA" is an example of a single address string. This API is recommended if you need to geocode individual addresses quickly.
-- [**Structured address geocoding**](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressstructured): Specify the parts of a single address, such as the street name, city, country, and postal code and process the request immediately. This API is recommended if you need to geocode individual addresses quickly and the data is already parsed into its individual address parts.
+- [**Structured address geocoding**](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressstructured): Specify the parts of a single address, such as the street name, city, country/region, and postal code and process the request immediately. This API is recommended if you need to geocode individual addresses quickly and the data is already parsed into its individual address parts.
 - [**Batch address geocoding**](https://docs.microsoft.com/rest/api/maps/search/postsearchaddressbatchpreview): Create a request containing up to 10,000 addresses and have them processed over a period of time. All the addresses will be geocoded in parallel on the server and when completed the full result set can be downloaded. This is recommended for geocoding large data sets.
 - [**Fuzzy search**](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy): This API combines address geocoding with point of interest search. This API takes in a free-form string. This string can be an address, place, landmark, point of interest, or point of interest category. This API process the request near real time. This API is recommended for applications where users search for addresses or points of interest in the same textbox.
 - [**Fuzzy batch search**](https://docs.microsoft.com/rest/api/maps/search/postsearchfuzzybatchpreview): Create a request containing up to 10,000 addresses, places, landmarks, or point of interests and have them processed over a period of time. All the data will be processed in parallel on the server and when completed the full result set can be downloaded.
@@ -62,7 +62,7 @@ The following table cross-references the Google Maps API parameters with the com
 |---------------------------|--------------------------------------|
 | `address`                   | `query`                            |
 | `bounds`                    | `topLeft` and `btmRight`           |
-| `components`                | `streetNumber`<br/>`streetName`<br/>`crossStreet`<br/>`postalCode`<br/>`municipality` - city / town<br/>`municipalitySubdivision` – neighborhood, sub / super city<br/>`countrySubdivision` - state or province<br/>`countrySecondarySubdivision` - county<br/>`countryTertiarySubdivision` - district<br/>`countryCode` - two letter country code |
+| `components`                | `streetNumber`<br/>`streetName`<br/>`crossStreet`<br/>`postalCode`<br/>`municipality` - city / town<br/>`municipalitySubdivision` – neighborhood, sub / super city<br/>`countrySubdivision` - state or province<br/>`countrySecondarySubdivision` - county<br/>`countryTertiarySubdivision` - district<br/>`countryCode` - two letter country/region code |
 | `key`                       | `subscription-key` – See also the [Authentication with Azure Maps](azure-maps-authentication.md) documentation. |
 | `language`                  | `language` – See [supported languages](supported-languages.md) documentation.  |
 | `region`                    | `countrySet`                       |
@@ -174,7 +174,7 @@ Calculate routes and directions using Azure Maps. Azure Maps has many of the sam
 
 The Azure Maps routing service provides the following APIs for calculating routes:
 
-- [**Calculate route**](https://docs.microsoft.com/rest/api/maps/route/getroutedirections): Calculate a route and have the request processed immediately. This API supports both GET and POST requests. POST requests are recommended when specifying a large number of waypoints or when using lots of the route options to ensure that the URL request doesn’t become too long and cause issues. The POST Route Direction in Azure Maps has an option can that take in thousands of [supporting points](https://docs.microsoft.com/rest/api/maps/route/postroutedirections#supportingpoints) and will use them to recreate a logical route path between them (snap to road). 
+- [**Calculate route**](https://docs.microsoft.com/rest/api/maps/route/getroutedirections): Calculate a route and have the request processed immediately. This API supports both GET and POST requests. POST requests are recommended when specifying a large number of waypoints or when using lots of the route options to ensure that the URL request doesn't become too long and cause issues. The POST Route Direction in Azure Maps has an option can that take in thousands of [supporting points](https://docs.microsoft.com/rest/api/maps/route/postroutedirections#supportingpoints) and will use them to recreate a logical route path between them (snap to road). 
 - [**Batch route**](https://docs.microsoft.com/rest/api/maps/route/postroutedirectionsbatchpreview): Create a request containing up to 1,000 route request and have them processed over a period of time. All the data will be processed in parallel on the server and when completed the full result set can be downloaded.
 - [**Mobility services**](https://docs.microsoft.com/rest/api/maps/mobility): Calculate routes and directions using public transit.
 
@@ -289,9 +289,8 @@ For example, let's add a red, mid-sized marker to the map at longitude: -110, la
 &markers=color:red|size:mid|45,-110
 ```
 
-<center>
 
-![Google Maps marker](media/migrate-google-maps-web-services/google-maps-marker.png)</center>
+![Google Maps marker](media/migrate-google-maps-web-services/google-maps-marker.png)
 
 **After: Azure Maps**
 
@@ -324,7 +323,7 @@ Add pin styles with the `optionNameValue` format. Separate multiple styles with 
 - `ro` – A value in degrees to rotate the icon. Choose a number between -360 and 360.
 - `sc` – A scale value for the pin icon. Choose a number greater than 0.
 
-Specify label values for each pin location. This approach is more efficient than applying a single label value to all markers in the list of locations. The label value can be a string of multiple characters. Wrap the string with single quotes to ensure that it isn’t mistaken as a style or location value.
+Specify label values for each pin location. This approach is more efficient than applying a single label value to all markers in the list of locations. The label value can be a string of multiple characters. Wrap the string with single quotes to ensure that it isn't mistaken as a style or location value.
 
 Let's add a red (`FF0000`) default icon, with the label "Space Needle", positioned below (15 50). The icon is at longitude: -122.349300, latitude: 47.620180:
 
@@ -332,9 +331,8 @@ Let's add a red (`FF0000`) default icon, with the label "Space Needle", position
 &pins=default|coFF0000|la15 50||'Space Needle' -122.349300 47.620180
 ```
 
-<center>
 
-![Azure Maps marker](media/migrate-google-maps-web-services/azure-maps-marker.png)</center>
+![Azure Maps marker](media/migrate-google-maps-web-services/azure-maps-marker.png)
 
 Add three pins with the label values '1', '2', and '3':
 
@@ -342,9 +340,9 @@ Add three pins with the label values '1', '2', and '3':
 &pins=default||'1'-122 45|'2'-119.5 43.2|'3'-121.67 47.12
 ```
 
-<center>
 
-![Azure Maps multiple markers](media/migrate-google-maps-web-services/azure-maps-multiple-markers.png)</center>
+
+![Azure Maps multiple markers](media/migrate-google-maps-web-services/azure-maps-multiple-markers.png)
 
 ### Path URL parameter format comparison
 
@@ -373,9 +371,7 @@ Add a red line opacity and pixel thickness to the map between the coordinates, i
 &path=color:0xFF000088|weight:4|45,-110|50,-100
 ```
 
-<center>
-
-![Google Maps polyline](media/migrate-google-maps-web-services/google-maps-polyline.png)</center>
+![Google Maps polyline](media/migrate-google-maps-web-services/google-maps-polyline.png)
 
 **After: Azure Maps**
 
@@ -402,9 +398,7 @@ Add a red line opacity and pixel thickness between the coordinates, in the URL p
 &path=lcFF0000|la.5|lw4||-110 45|-100 50
 ```
 
-<center>
-
-![Azure Maps polyline](media/migrate-google-maps-web-services/azure-maps-polyline.png)</center>
+![Azure Maps polyline](media/migrate-google-maps-web-services/azure-maps-polyline.png)
 
 ## Calculate a distance matrix
 
@@ -492,6 +486,9 @@ Learn more about the Azure Maps REST services.
 
 > [!div class="nextstepaction"]
 > [How to use the services module (Web SDK)](how-to-use-best-practices-for-routing.md)
+
+> [!div class="nextstepaction"]
+> [Azure Maps REST Service API reference documentation](https://docs.microsoft.com/rest/api/maps/)
 
 > [!div class="nextstepaction"]
 > [Code samples](https://docs.microsoft.com/samples/browse/?products=azure-maps)

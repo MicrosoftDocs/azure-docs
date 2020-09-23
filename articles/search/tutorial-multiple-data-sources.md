@@ -1,5 +1,5 @@
 ---
-title: 'C# Tutorial: Index multiple data sources'
+title: C# tutorial indexing multiple Azure data sources
 titleSuffix: Azure Cognitive Search
 description: Learn how to import data from multiple data sources into a single Azure Cognitive Search index using indexers. This tutorial and sample code are in C#.
 
@@ -8,16 +8,17 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 02/28/2020
+ms.date: 06/20/2020
+ms.custom: devx-track-csharp
 ---
 
-# Tutorial: Index data from multiple data sources in C#
+# Tutorial: Index from multiple data sources using the .NET SDK
 
 Azure Cognitive Search can import, analyze, and index data from multiple data sources into a single consolidate search index. This supports situations where structured data is aggregated with less-structured or even plain text data from other sources, like text, HTML, or JSON documents.
 
 This tutorial describes how to index hotel data from an Azure Cosmos DB data source and merge that with hotel room details drawn from Azure Blob Storage documents. The result will be a combined hotel search index containing complex data types.
 
-This tutorial uses C# and the [.NET SDK](https://aka.ms/search-sdk). In this tutorial, you'll perform the following tasks:
+This tutorial uses C# and the [.NET SDK](/dotnet/api/overview/azure/search). In this tutorial, you'll perform the following tasks:
 
 > [!div class="checklist"]
 > * Upload sample data and create data sources
@@ -30,8 +31,8 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-+ [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/create-cosmosdb-resources-portal)
-+ [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
++ [Azure Cosmos DB](../cosmos-db/create-cosmosdb-resources-portal.md)
++ [Azure Storage](../storage/common/storage-account-create.md)
 + [Visual Studio 2019](https://visualstudio.microsoft.com/)
 + [Create](search-create-service-portal.md) or [find an existing search service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
 
@@ -76,7 +77,7 @@ This sample uses two small sets of data that describe seven fictional hotels. On
 
 1. Sign in to the [Azure portal](https://portal.azure.com), navigate to your Azure storage account, click **Blobs**, and then click **+ Container**.
 
-1. [Create a blob container](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) named **hotel-rooms** to store the sample hotel room JSON files. You can set the Public Access Level to any of its valid values.
+1. [Create a blob container](../storage/blobs/storage-quickstart-blobs-portal.md) named **hotel-rooms** to store the sample hotel room JSON files. You can set the Public Access Level to any of its valid values.
 
    ![Create a blob container](media/tutorial-multiple-data-sources/blob-add-container.png "Create a blob container")
 
@@ -167,7 +168,7 @@ This simple C#/.NET console app performs the following tasks:
 
 ### Create an index
 
-This sample program uses the .NET SDK to define and create an Azure Cognitive Search index. It takes advantage of the [FieldBuilder](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.fieldbuilder) class to generate an index structure from a C# data model class.
+This sample program uses the .NET SDK to define and create an Azure Cognitive Search index. It takes advantage of the [FieldBuilder](/dotnet/api/microsoft.azure.search.fieldbuilder) class to generate an index structure from a C# data model class.
 
 The data model is defined by the Hotel class, which also contains references to the Address and Room classes. The FieldBuilder drills down through multiple class definitions to generate a complex data structure for the index. Metadata tags are used to define the attributes of each field, such as whether it is searchable or sortable.
 
@@ -315,7 +316,7 @@ The JSON blobs contain a key field named **`Id`** instead of **`HotelId`**. The 
 
 Blob storage indexers can use parameters that identify the parsing mode to be used. The parsing mode differs for blobs that represent a single document, or multiple documents within the same blob. In this example, each blob represents a single index document, so the code uses the `IndexingParameters.ParseJson()` parameter.
 
-For more information about indexer parsing parameters for JSON blobs, see [Index JSON blobs](search-howto-index-json-blobs.md). For more information about specifying these parameters using the .NET SDK, see the [IndexerParametersExtension](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexingparametersextensions) class.
+For more information about indexer parsing parameters for JSON blobs, see [Index JSON blobs](search-howto-index-json-blobs.md). For more information about specifying these parameters using the .NET SDK, see the [IndexerParametersExtension](/dotnet/api/microsoft.azure.search.models.indexingparametersextensions) class.
 
 The program will delete any existing indexers with the same name before creating the new one, in case you want to run this example more than once.
 

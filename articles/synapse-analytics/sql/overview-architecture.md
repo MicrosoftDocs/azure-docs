@@ -1,5 +1,5 @@
 ---
-title: Azure Synapse SQL architecture 
+title: Synapse SQL architecture 
 description: Learn how Azure Synapse SQL combines massively parallel processing (MPP) with Azure Storage to achieve high performance and scalability. 
 services: synapse-analytics
 author: mlee3gsd
@@ -112,4 +112,4 @@ The diagram below shows a replicated table that is cached on the first distribut
 
 ## Next steps
 
-Now that you know a bit about Synapse SQL, learn how to quickly [create a SQL pool](../quickstart-create-sql-pool.md) and [load sample data](../sql-data-warehouse/sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md) (./sql-data-warehouse-load-sample-databases.md). Or you start [using SQL on-demand](../quickstart-sql-on-demand.md). If you are new to Azure, you may find the [Azure glossary](../../azure-glossary-cloud-terminology.md) helpful as you encounter new terminology. 
+Now that you know a bit about Synapse SQL, learn how to quickly [create a SQL pool](../quickstart-create-sql-pool-portal.md) and [load sample data](../sql-data-warehouse/sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md) (./sql-data-warehouse-load-sample-databases.md). Or you start [using SQL on-demand](../quickstart-sql-on-demand.md). If you are new to Azure, you may find the [Azure glossary](../../azure-glossary-cloud-terminology.md) helpful as you encounter new terminology. 

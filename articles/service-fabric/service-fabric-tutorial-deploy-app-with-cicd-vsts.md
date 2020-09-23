@@ -34,7 +34,7 @@ Before you begin this tutorial:
 * [Install Visual Studio 2019](https://www.visualstudio.com/) and install the **Azure development** and **ASP.NET and web development** workloads.
 * [Install the Service Fabric SDK](service-fabric-get-started.md)
 * Create a Windows Service Fabric cluster on Azure, for example by [following this tutorial](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
-* Create an [Azure DevOps organization](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student). This allows you to create a project in Azure DevOps and use Azure Pipelines.
+* Create an [Azure DevOps organization](/azure/devops/organizations/accounts/create-organization-msa-or-work-student). This allows you to create a project in Azure DevOps and use Azure Pipelines.
 
 ## Download the Voting sample application
 
@@ -134,7 +134,7 @@ Verify that the deployment succeeded and the application is running in the clust
 
 To verify that the continuous integration pipeline is functioning by checking in some code changes to Azure DevOps.
 
-As you write your code, your changes are automatically tracked by Visual Studio. Commit changes to your local Git repository by selecting the pending changes icon (![Pending][pending]) from the status bar in the bottom right.
+As you write your code, your changes are automatically tracked by Visual Studio. Commit changes to your local Git repository by selecting the pending changes icon (![Pending changes icon shows a pencil and a number.][pending]) from the status bar in the bottom right.
 
 On the **Changes** view in Team Explorer, add a message describing your update and commit your changes.
 

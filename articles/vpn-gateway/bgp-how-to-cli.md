@@ -5,8 +5,8 @@ services: vpn-gateway
 author: yushwang
 
 ms.service: vpn-gateway
-ms.topic: article
-ms.date: 09/25/2018
+ms.topic: how-to
+ms.date: 09/02/2020
 ms.author: yushwang
 
 ---
@@ -299,4 +299,4 @@ After you complete these steps, the connection will be established in a few minu
 
 ## Next steps
 
-After your connection is completed, you can add virtual machines to your virtual networks. For steps, see [Create a virtual machine](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+After your connection is completed, you can add virtual machines to your virtual networks. For steps, see [Create a virtual machine](../virtual-machines/windows/quick-create-portal.md).

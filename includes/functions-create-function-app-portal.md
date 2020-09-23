@@ -42,7 +42,7 @@ ms.custom: include file
 
     | Setting      | Suggested value  | Description |
     | ------------ | ---------------- | ----------- |
-    | **[Application Insights](../articles/azure-functions/functions-monitoring.md)** | Default | Creates an Application Insights resource of the same *App name* in the nearest supported region. By expanding this setting, you can change the **New resource name** or choose a different **Location** in an [Azure geography](https://azure.microsoft.com/global-infrastructure/geographies/) where you want to store your data. |
+    | **[Application Insights](../articles/azure-functions/functions-monitoring.md)** | Default | Creates an Application Insights resource of the same *App name* in the nearest supported region. By expanding this setting or selecting **Create new**, you can change the Application Insights name or choose a different region in an [Azure geography](https://azure.microsoft.com/global-infrastructure/geographies/) where you want to store your data. |
 
     ![Monitoring](./media/functions-create-function-app-portal/function-app-create-monitoring.png)
 
@@ -50,7 +50,7 @@ ms.custom: include file
 
 1. On the **Review + create** page, review your settings, and then select **Create** to provision and deploy the function app.
 
-1. Select the Notification icon in the upper-right corner of the portal and watch for the **Deployment succeeded** message.
+1. Select the **Notifications** icon in the upper-right corner of the portal and watch for the **Deployment succeeded** message.
 
 1. Select **Go to resource** to view your new function app. You can also select **Pin to dashboard**. Pinning makes it easier to return to this function app resource from your dashboard.
 

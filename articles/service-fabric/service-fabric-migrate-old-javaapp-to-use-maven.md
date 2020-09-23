@@ -5,6 +5,7 @@ author: rapatchi
 
 ms.topic: conceptual
 ms.date: 08/23/2017
+ms.custom: devx-track-java
 ms.author: rapatchi
 ---
 # Update your previous Java Service Fabric application to fetch Java libraries from Maven

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: C# and AI over Azure blobs'
+title: C# tutorial using AI on Azure blobs
 titleSuffix: Azure Cognitive Search
 description: Step through an example of text extraction and natural language processing over content in Blob storage using C# and the Azure Cognitive Search .NET SDK. 
 
@@ -8,14 +8,15 @@ author: MarkHeff
 ms.author: maheff
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 02/27/2020
+ms.date: 08/20/2020
+ms.custom: devx-track-csharp
 ---
 
-# Tutorial: Use C# and AI to generate searchable content from Azure blobs
+# Tutorial: AI-generated searchable content from Azure blobs using the .NET SDK
 
 If you have unstructured text or images in Azure Blob storage, an [AI enrichment pipeline](cognitive-search-concept-intro.md) can extract information and create new content that is useful for full-text search or knowledge mining scenarios. In this C# tutorial, apply Optical Character Recognition (OCR) on images and perform natural language processing to create new fields that you can leverage in queries, facets, and filters.
 
-This tutorial uses C# and the [.NET SDK](https://aka.ms/search-sdk) to perform the following tasks:
+This tutorial uses C# and the [.NET SDK](/dotnet/api/overview/azure/search) to perform the following tasks:
 
 > [!div class="checklist"]
 > * Start with application files and images in Azure Blob storage.
@@ -39,7 +40,9 @@ If you don't have an Azure subscription, open a [free account](https://azure.mic
 
 1. Open this [OneDrive folder](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) and on the top-left corner, click **Download** to copy the files to your computer. 
 
-1. Right-click the zip file and select **Extract All**. There are 14 files of various types. Use all of them for this tutorial.
+1. Right-click the zip file and select **Extract All**. There are 14 files of various types. You'll use 7 for this exercise.
+
+You can also download the source code for this tutorial. Source code is in the tutorial-ai-enrichment folder in the [azure-search-dotnet-samples](https://github.com/Azure-Samples/azure-search-dotnet-samples) repository.
 
 ## 1 - Create services
 
@@ -71,22 +74,22 @@ If possible, create both in the same region and resource group for proximity and
 
 1. Click **Blobs** service.
 
-1. Click **+ Container** to create a container and name it *basic-demo-data-pr*.
+1. Click **+ Container** to create a container and name it *cog-search-demo*.
 
-1. Select *basic-demo-data-pr* and then click **Upload** to open the folder where you saved the download files. Select all fourteen files and click **OK** to upload.
+1. Select *cog-search-demo* and then click **Upload** to open the folder where you saved the download files. Select all fourteen files and click **OK** to upload.
 
    ![Upload sample files](media/cognitive-search-quickstart-blob/sample-data.png "Upload sample files")
 
 1. Before you leave Azure Storage, get a connection string so that you can formulate a connection in Azure Cognitive Search. 
 
-   1. Browse back to the Overview page of your storage account (we used *blobstragewestus* as an example). 
+   1. Browse back to the Overview page of your storage account (we used *blobstoragewestus* as an example). 
    
    1. In the left navigation pane, select **Access keys** and copy one of the connection strings. 
 
    The connection string is a URL similar to the following example:
 
       ```http
-      DefaultEndpointsProtocol=https;AccountName=cogsrchdemostorage;AccountKey=<your account key>;EndpointSuffix=core.windows.net
+      DefaultEndpointsProtocol=https;AccountName=blobstoragewestus;AccountKey=<your account key>;EndpointSuffix=core.windows.net
       ```
 
 1. Save the connection string to Notepad. You'll need it later when setting up the data source connection.
@@ -95,7 +98,7 @@ If possible, create both in the same region and resource group for proximity and
 
 AI enrichment is backed by Cognitive Services, including Text Analytics and Computer Vision for natural language and image processing. If your objective was to complete an actual prototype or project, you would at this point provision Cognitive Services (in the same region as Azure Cognitive Search) so that you can attach it to indexing operations.
 
-For this exercise, however, you can skip resource provisioning because Azure Cognitive Search can connect to Cognitive Services behind the scenes and give you 20 free transactions per indexer run. Since this tutorial uses 7 transactions, the free allocation is sufficient. For larger projects, plan on provisioning Cognitive Services at the pay-as-you-go S0 tier. For more information, see [Attach Cognitive Services](cognitive-search-attach-cognitive-services.md).
+For this exercise, however, you can skip resource provisioning because Azure Cognitive Search can connect to Cognitive Services behind the scenes and give you 20 free transactions per indexer run. Since this tutorial uses 14 transactions, the free allocation is sufficient. For larger projects, plan on provisioning Cognitive Services at the pay-as-you-go S0 tier. For more information, see [Attach Cognitive Services](cognitive-search-attach-cognitive-services.md).
 
 ### Azure Cognitive Search
 
@@ -121,19 +124,19 @@ Begin by opening Visual Studio and creating a new Console App project that can r
 
 ### Install NuGet packages
 
-The [Azure Cognitive Search .NET SDK](https://aka.ms/search-sdk) consists of a few client libraries that enable you to manage your indexes, data sources, indexers, and skillsets, as well as upload and manage documents and execute queries, all without having to deal with the details of HTTP and JSON. These client libraries are all distributed as NuGet packages.
+The [Azure Cognitive Search .NET SDK](/dotnet/api/overview/azure/search) consists of a few client libraries that enable you to manage your indexes, data sources, indexers, and skillsets, as well as upload and manage documents and execute queries, all without having to deal with the details of HTTP and JSON. These client libraries are all distributed as NuGet packages.
 
 For this project, install version 9 or later of the `Microsoft.Azure.Search` NuGet package.
 
-1. Open the Package Manager Console. Select **Tools** > **NuGet Package Manager** > **Package Manager Console**. 
-
-1. Navigate to [Microsoft.Azure.Search NuGet package page](https://www.nuget.org/packages/Microsoft.Azure.Search).
+1. In a browser, go to [Microsoft.Azure.Search NuGet package page](https://www.nuget.org/packages/Microsoft.Azure.Search).
 
 1. Select the latest version (9 or later).
 
 1. Copy the Package Manager command.
 
-1. Return to the Package Manager console and run the command you copied in the previous step.
+1. Open the Package Manager Console. Select **Tools** > **NuGet Package Manager** > **Package Manager Console**. 
+
+1. Paste and run the command that you copied in the previous step.
 
 Next, install the latest `Microsoft.Extensions.Configuration.Json` NuGet package.
 
@@ -163,8 +166,10 @@ Next, install the latest `Microsoft.Extensions.Configuration.Json` NuGet package
       "AzureBlobConnectionString": "Put your Azure Blob connection string here",
     }
     ```
-
+    
 Add your search service and blob storage account information. Recall that you can get this information from the service provisioning steps indicated in the previous section.
+
+For **SearchServiceName**, enter the short service name and not the full URL.
 
 ### Add namespaces
 
@@ -242,7 +247,7 @@ private static DataSource CreateOrUpdateDataSource(SearchServiceClient serviceCl
     DataSource dataSource = DataSource.AzureBlobStorage(
         name: "demodata",
         storageConnectionString: configuration["AzureBlobConnectionString"],
-        containerName: "basic-demo-data-pr",
+        containerName: "cog-search-demo",
         description: "Demo files to demonstrate cognitive search capabilities.");
 
     // The data source does not need to be deleted if it was already created
@@ -278,34 +283,6 @@ public static void Main(string[] args)
     DataSource dataSource = CreateOrUpdateDataSource(serviceClient, configuration);
 ```
 
-
-<!-- 
-```csharp
-DataSource dataSource = DataSource.AzureBlobStorage(
-    name: "demodata",
-    storageConnectionString: configuration["AzureBlobConnectionString"],
-    containerName: "basic-demo-data-pr",
-    deletionDetectionPolicy: new SoftDeleteColumnDeletionDetectionPolicy(
-        softDeleteColumnName: "IsDeleted",
-        softDeleteMarkerValue: "true"),
-    description: "Demo files to demonstrate cognitive search capabilities.");
-```
-
-Now that you have initialized the `DataSource` object, create the data source. `SearchServiceClient` has a `DataSources` property. This property provides all the methods you need to create, list, update, or delete Azure Cognitive Search data sources.
-
-For a successful request, the method will return the data source that was created. If there is a problem with the request, such as an invalid parameter, the method will throw an exception.
-
-```csharp
-try
-{
-    serviceClient.DataSources.CreateOrUpdate(dataSource);
-}
-catch (Exception e)
-{
-    // Handle the exception
-}
-``` -->
-
 Build and run the solution. Since this is your first request, check the Azure portal to confirm the data source was created in Azure Cognitive Search. On the search service dashboard page, verify the Data Sources tile has a new item. You might need to wait a few minutes for the portal page to refresh.
 
   ![Data sources tile in the portal](./media/cognitive-search-tutorial-blob/data-source-tile.png "Data sources tile in the portal")
@@ -339,15 +316,19 @@ The **OCR** skill extracts text from images. This skill assumes that a normalize
 ```csharp
 private static OcrSkill CreateOcrSkill()
 {
-    List<InputFieldMappingEntry> inputMappings = new List<InputFieldMappingEntry>();
-    inputMappings.Add(new InputFieldMappingEntry(
+    List<InputFieldMappingEntry> inputMappings = new List<InputFieldMappingEntry>
+    {
+        new InputFieldMappingEntry(
         name: "image",
-        source: "/document/normalized_images/*"));
+        source: "/document/normalized_images/*")
+    };
 
-    List<OutputFieldMappingEntry> outputMappings = new List<OutputFieldMappingEntry>();
-    outputMappings.Add(new OutputFieldMappingEntry(
+    List<OutputFieldMappingEntry> outputMappings = new List<OutputFieldMappingEntry>
+    {
+        new OutputFieldMappingEntry(
         name: "text",
-        targetName: "text"));
+        targetName: "text")
+    };
 
     OcrSkill ocrSkill = new OcrSkill(
         description: "Extract text (plain and structured) from image",
@@ -368,21 +349,25 @@ In this section you'll create a **Merge** skill that merges the document content
 ```csharp
 private static MergeSkill CreateMergeSkill()
 {
-    List<InputFieldMappingEntry> inputMappings = new List<InputFieldMappingEntry>();
-    inputMappings.Add(new InputFieldMappingEntry(
+    List<InputFieldMappingEntry> inputMappings = new List<InputFieldMappingEntry>
+    {
+        new InputFieldMappingEntry(
         name: "text",
-        source: "/document/content"));
-    inputMappings.Add(new InputFieldMappingEntry(
+        source: "/document/content"),
+        new InputFieldMappingEntry(
         name: "itemsToInsert",
-        source: "/document/normalized_images/*/text"));
-    inputMappings.Add(new InputFieldMappingEntry(
+        source: "/document/normalized_images/*/text"),
+        new InputFieldMappingEntry(
         name: "offsets",
-        source: "/document/normalized_images/*/contentOffset"));
+        source: "/document/normalized_images/*/contentOffset")
+    };
 
-    List<OutputFieldMappingEntry> outputMappings = new List<OutputFieldMappingEntry>();
-    outputMappings.Add(new OutputFieldMappingEntry(
+    List<OutputFieldMappingEntry> outputMappings = new List<OutputFieldMappingEntry>
+    {
+        new OutputFieldMappingEntry(
         name: "mergedText",
-        targetName: "merged_text"));
+        targetName: "merged_text")
+    };
 
     MergeSkill mergeSkill = new MergeSkill(
         description: "Create merged_text which includes all the textual representation of each image inserted at the right location in the content field.",
@@ -403,15 +388,19 @@ The **Language Detection** skill detects the language of the input text and repo
 ```csharp
 private static LanguageDetectionSkill CreateLanguageDetectionSkill()
 {
-    List<InputFieldMappingEntry> inputMappings = new List<InputFieldMappingEntry>();
-    inputMappings.Add(new InputFieldMappingEntry(
+    List<InputFieldMappingEntry> inputMappings = new List<InputFieldMappingEntry>
+    {
+        new InputFieldMappingEntry(
         name: "text",
-        source: "/document/merged_text"));
+        source: "/document/merged_text")
+    };
 
-    List<OutputFieldMappingEntry> outputMappings = new List<OutputFieldMappingEntry>();
-    outputMappings.Add(new OutputFieldMappingEntry(
+    List<OutputFieldMappingEntry> outputMappings = new List<OutputFieldMappingEntry>
+    {
+        new OutputFieldMappingEntry(
         name: "languageCode",
-        targetName: "languageCode"));
+        targetName: "languageCode")
+    };
 
     LanguageDetectionSkill languageDetectionSkill = new LanguageDetectionSkill(
         description: "Detect the language used in the document",
@@ -430,19 +419,22 @@ The below **Split** skill will split text by pages and limit the page length to 
 ```csharp
 private static SplitSkill CreateSplitSkill()
 {
-    List<InputFieldMappingEntry> inputMappings = new List<InputFieldMappingEntry>();
-
-    inputMappings.Add(new InputFieldMappingEntry(
+    List<InputFieldMappingEntry> inputMappings = new List<InputFieldMappingEntry>
+    {
+        new InputFieldMappingEntry(
         name: "text",
-        source: "/document/merged_text"));
-    inputMappings.Add(new InputFieldMappingEntry(
+        source: "/document/merged_text"),
+        new InputFieldMappingEntry(
         name: "languageCode",
-        source: "/document/languageCode"));
+        source: "/document/languageCode")
+    };
 
-    List<OutputFieldMappingEntry> outputMappings = new List<OutputFieldMappingEntry>();
-    outputMappings.Add(new OutputFieldMappingEntry(
+    List<OutputFieldMappingEntry> outputMappings = new List<OutputFieldMappingEntry>
+    {
+        new OutputFieldMappingEntry(
         name: "textItems",
-        targetName: "pages"));
+        targetName: "pages")
+    };
 
     SplitSkill splitSkill = new SplitSkill(
         description: "Split content into pages",
@@ -465,18 +457,24 @@ Notice that the "context" field is set to ```"/document/pages/*"``` with an aste
 ```csharp
 private static EntityRecognitionSkill CreateEntityRecognitionSkill()
 {
-    List<InputFieldMappingEntry> inputMappings = new List<InputFieldMappingEntry>();
-    inputMappings.Add(new InputFieldMappingEntry(
+    List<InputFieldMappingEntry> inputMappings = new List<InputFieldMappingEntry>
+    {
+        new InputFieldMappingEntry(
         name: "text",
-        source: "/document/pages/*"));
+        source: "/document/pages/*")
+    };
 
-    List<OutputFieldMappingEntry> outputMappings = new List<OutputFieldMappingEntry>();
-    outputMappings.Add(new OutputFieldMappingEntry(
+    List<OutputFieldMappingEntry> outputMappings = new List<OutputFieldMappingEntry>
+    {
+        new OutputFieldMappingEntry(
         name: "organizations",
-        targetName: "organizations"));
+        targetName: "organizations")
+    };
 
-    List<EntityCategory> entityCategory = new List<EntityCategory>();
-    entityCategory.Add(EntityCategory.Organization);
+    List<EntityCategory> entityCategory = new List<EntityCategory>
+    {
+        EntityCategory.Organization
+    };
 
     EntityRecognitionSkill entityRecognitionSkill = new EntityRecognitionSkill(
         description: "Recognize organizations",
@@ -563,13 +561,15 @@ Add the following lines to `Main`.
 
     // Create the skillset
     Console.WriteLine("Creating or updating the skillset...");
-    List<Skill> skills = new List<Skill>();
-    skills.Add(ocrSkill);
-    skills.Add(mergeSkill);
-    skills.Add(languageDetectionSkill);
-    skills.Add(splitSkill);
-    skills.Add(entityRecognitionSkill);
-    skills.Add(keyPhraseExtractionSkill);
+    List<Skill> skills = new List<Skill>
+    {
+        ocrSkill,
+        mergeSkill,
+        languageDetectionSkill,
+        splitSkill,
+        entityRecognitionSkill,
+        keyPhraseExtractionSkill
+    };
 
     Skillset skillset = CreateOrUpdateDemoSkillSet(serviceClient, skills);
 ```
@@ -580,10 +580,13 @@ In this section, you define the index schema by specifying which fields to inclu
 
 This exercise uses the following fields and field types:
 
-| field-names: | `id`       | content   | languageCode | keyPhrases         | organizations     |
-|--------------|----------|-------|----------|--------------------|-------------------|
-| field-types: | Edm.String|Edm.String| Edm.String| List<Edm.String>  | List<Edm.String>  |
-
+| Field names | Field types |
+| --- | --- |
+| id | Edm.String |
+| content | Edm.String |
+| languageCode | Edm.String |
+| keyPhrases | List<Edm.String> |
+| organizations | List<Edm.String> |
 
 #### Create DemoIndex Class
 
@@ -626,33 +629,6 @@ namespace EnrichwithAI
 }
 ```
 
-<!-- Add the below model class definition to `DemoIndex.cs` and include it in the same namespace where you'll create the index.
-
-```csharp
-// The SerializePropertyNamesAsCamelCase attribute is defined in the Azure Cognitive Search .NET SDK.
-// It ensures that Pascal-case property names in the model class are mapped to camel-case
-// field names in the index.
-[SerializePropertyNamesAsCamelCase]
-public class DemoIndex
-{
-    [System.ComponentModel.DataAnnotations.Key]
-    [IsSearchable, IsSortable]
-    public string Id { get; set; }
-
-    [IsSearchable]
-    public string Content { get; set; }
-
-    [IsSearchable]
-    public string LanguageCode { get; set; }
-
-    [IsSearchable]
-    public string[] KeyPhrases { get; set; }
-
-    [IsSearchable]
-    public string[] Organizations { get; set; }
-}
-``` -->
-
 Now that you've defined a model class, back in `Program.cs` you can create an index definition fairly easily. The name for this index will be `demoindex`. If an index already exists with that name, it will be deleted.
 
 ```csharp
@@ -692,29 +668,16 @@ Add the following lines to `Main`.
 ```csharp
     // Create the index
     Console.WriteLine("Creating the index...");
-    Index demoIndex = CreateDemoIndex(serviceClient);
+    Microsoft.Azure.Search.Models.Index demoIndex = CreateDemoIndex(serviceClient);
 ```
 
-<!-- ```csharp
-try
-{
-    bool exists = serviceClient.Indexes.Exists(index.Name);
+Add the following using statement to resolve the disambiguate reference.
 
-    if (exists)
-    {
-        serviceClient.Indexes.Delete(index.Name);
-    }
-
-    serviceClient.Indexes.Create(index);
-}
-catch (Exception e)
-{
-    // Handle exception
-}
+```csharp
+using Index = Microsoft.Azure.Search.Models.Index;
 ```
- -->
 
-To learn more about defining an index, see [Create Index (Azure Cognitive Search REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index).
+To learn more about defining an index, see [Create Index (Azure Cognitive Search REST API)](/rest/api/searchservice/create-index).
 
 ### Step 4: Create and run an indexer
 
@@ -737,26 +700,30 @@ private static Indexer CreateDemoIndexer(SearchServiceClient serviceClient, Data
         key: "imageAction",
         value: "generateNormalizedImages");
 
-    List<FieldMapping> fieldMappings = new List<FieldMapping>();
-    fieldMappings.Add(new FieldMapping(
+    List<FieldMapping> fieldMappings = new List<FieldMapping>
+    {
+        new FieldMapping(
         sourceFieldName: "metadata_storage_path",
         targetFieldName: "id",
         mappingFunction: new FieldMappingFunction(
-            name: "base64Encode")));
-    fieldMappings.Add(new FieldMapping(
+            name: "base64Encode")),
+        new FieldMapping(
         sourceFieldName: "content",
-        targetFieldName: "content"));
+        targetFieldName: "content")
+    };
 
-    List<FieldMapping> outputMappings = new List<FieldMapping>();
-    outputMappings.Add(new FieldMapping(
+    List<FieldMapping> outputMappings = new List<FieldMapping>
+    {
+        new FieldMapping(
         sourceFieldName: "/document/pages/*/organizations/*",
-        targetFieldName: "organizations"));
-    outputMappings.Add(new FieldMapping(
+        targetFieldName: "organizations"),
+        new FieldMapping(
         sourceFieldName: "/document/pages/*/keyPhrases/*",
-        targetFieldName: "keyPhrases"));
-    outputMappings.Add(new FieldMapping(
+        targetFieldName: "keyPhrases"),
+        new FieldMapping(
         sourceFieldName: "/document/languageCode",
-        targetFieldName: "languageCode"));
+        targetFieldName: "languageCode")
+    };
 
     Indexer indexer = new Indexer(
         name: "demoindexer",
@@ -795,7 +762,7 @@ Add the following lines to `Main`.
 
 ```csharp
     // Create the indexer, map fields, and execute transformations
-    Console.WriteLine("Creating the indexer...");
+    Console.WriteLine("Creating the indexer and executing the pipeline...");
     Indexer demoIndexer = CreateDemoIndexer(serviceClient, dataSource, skillset, demoIndex);
 ```
 
@@ -935,7 +902,7 @@ catch (Exception e)
 }
 ```
 
-Repeat for additional fields: content, languageCode, keyPhrases, and organizations in this exercise. You can return multiple fields via the [Select](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.searchparameters.select?view=azure-dotnet) property using a comma-delimited list.
+Repeat for additional fields: content, languageCode, keyPhrases, and organizations in this exercise. You can return multiple fields via the [Select](/dotnet/api/microsoft.azure.search.models.searchparameters.select?view=azure-dotnet) property using a comma-delimited list.
 
 <a name="reset"></a>
 

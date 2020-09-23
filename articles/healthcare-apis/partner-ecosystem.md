@@ -13,10 +13,10 @@ ms.author: chrupa
 # Partner ecosystem for Azure API for FHIR
 We are excited that Azure API for FHIR has been released in generally availability to all Azure Customers. We are even more excited about the solutions that you will build with our service.  
 
-When creating an end-to-end solution built around Azure API for FHIR, you may require the help of a partner for their unique IP or for help stitching everything together. We are hard at work growing this ecosystem of diverse partners and I’d like to introduce you to a few of them.
+When creating an end-to-end solution built around Azure API for FHIR, you may require the help of a partner for their unique IP or for help stitching everything together. We are hard at work growing this ecosystem of diverse partners and I'd like to introduce you to a few of them.
 
 
-| Partner          | Capabilities                               | Supported Countries         | Contact                                                                                                                                |
+| Partner          | Capabilities                               | Supported Countries/Regions         | Contact                                                                                                                                |
 |------------------|--------------------------------------------|-----------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
 | Medal            | De-identification, Legacy-FHIR conversion  | USA                         | [Contact](http://www.medal.com/)                                                                                           |
 | Rhapsody         | Legacy-FHIR conversion                     | USA, Australia, New Zealand | [Contact](https://rhapsody.health/contact-us)                                                                                          |

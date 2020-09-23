@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/17/2020
+ms.date: 05/08/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom:
@@ -23,7 +23,9 @@ If you are trying to understand how an Azure role works or if you are creating y
 
 ## Role definition
 
-A *role definition* is a collection of permissions. It's sometimes just called a *role*. A role definition lists the operations that can be performed, such as read, write, and delete. It can also list the operations that can't be performed or operations related to underlying data. A role definition has the following properties:
+A *role definition* is a collection of permissions. It's sometimes just called a *role*. A role definition lists the operations that can be performed, such as read, write, and delete. It can also list the operations that are excluded from allowed operations or operations related to underlying data.
+
+The following shows an example of the properties in a role definition when displayed using Azure PowerShell:
 
 ```
 Name
@@ -37,17 +39,33 @@ NotDataActions []
 AssignableScopes []
 ```
 
+The following shows an example of the properties in a role definition when displayed using the Azure portal, Azure CLI, or the REST API:
+
+```
+roleName
+name
+type
+description
+actions []
+notActions []
+dataActions []
+notDataActions []
+assignableScopes []
+```
+
+The following table describes what the role properties mean.
+
 | Property | Description |
 | --- | --- |
-| `Name` | The display name of the role. |
-| `Id` | The unique ID of the role. |
-| `IsCustom` | Indicates whether this is a custom role. Set to `true` for custom roles. |
-| `Description` | The description of the role. |
-| `Actions` | An array of strings that specifies the management operations that the role allows to be performed. |
-| `NotActions` | An array of strings that specifies the management operations that are excluded from the allowed `Actions`. |
-| `DataActions` | An array of strings that specifies the data operations that the role allows to be performed to your data within that object. |
-| `NotDataActions` | An array of strings that specifies the data operations that are excluded from the allowed `DataActions`. |
-| `AssignableScopes` | An array of strings that specifies the scopes that the role is available for assignment. |
+| `Name`</br>`roleName` | The display name of the role. |
+| `Id`</br>`name` | The unique ID of the role. |
+| `IsCustom`</br>`roleType` | Indicates whether this is a custom role. Set to `true` or `CustomRole` for custom roles. Set to `false` or `BuiltInRole` for built-in roles. |
+| `Description`</br>`description` | The description of the role. |
+| `Actions`</br>`actions` | An array of strings that specifies the management operations that the role allows to be performed. |
+| `NotActions`</br>`notActions` | An array of strings that specifies the management operations that are excluded from the allowed `Actions`. |
+| `DataActions`</br>`dataActions` | An array of strings that specifies the data operations that the role allows to be performed to your data within that object. |
+| `NotDataActions`</br>`notDataActions` | An array of strings that specifies the data operations that are excluded from the allowed `DataActions`. |
+| `AssignableScopes`</br>`assignableScopes` | An array of strings that specifies the scopes that the role is available for assignment. |
 
 ### Operations format
 
@@ -67,7 +85,9 @@ The `{action}` portion of an operation string specifies the type of operations y
 
 ### Role definition example
 
-Here's the [Contributor](built-in-roles.md#contributor) role definition in JSON format. The wildcard (`*`) operation under `Actions` indicates that the principal assigned to this role can perform all actions, or in other words, it can manage everything. This includes actions defined in the future, as Azure adds new resource types. The operations under `NotActions` are subtracted from `Actions`. In the case of the [Contributor](built-in-roles.md#contributor) role, `NotActions` removes this role's ability to manage access to resources and also assign access to resources.
+Here's the [Contributor](built-in-roles.md#contributor) role definition as displayed in Azure PowerShell and Azure CLI. The wildcard (`*`) operation under `Actions` indicates that the principal assigned to this role can perform all actions, or in other words, it can manage everything. This includes actions defined in the future, as Azure adds new resource types. The operations under `NotActions` are subtracted from `Actions`. In the case of the [Contributor](built-in-roles.md#contributor) role, `NotActions` removes this role's ability to manage access to resources and also manage Azure Blueprint assignments.
+
+Contributor role as displayed in Azure PowerShell:
 
 ```json
 {
@@ -81,13 +101,47 @@ Here's the [Contributor](built-in-roles.md#contributor) role definition in JSON 
   "NotActions": [
     "Microsoft.Authorization/*/Delete",
     "Microsoft.Authorization/*/Write",
-    "Microsoft.Authorization/elevateAccess/Action"
+    "Microsoft.Authorization/elevateAccess/Action",
+    "Microsoft.Blueprint/blueprintAssignments/write",
+    "Microsoft.Blueprint/blueprintAssignments/delete"
   ],
   "DataActions": [],
   "NotDataActions": [],
   "AssignableScopes": [
     "/"
   ]
+}
+```
+
+Contributor role as displayed in Azure CLI:
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Lets you manage everything except access to resources.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c",
+  "name": "b24988ac-6180-42a0-ab88-20f7382dd24c",
+  "permissions": [
+    {
+      "actions": [
+        "*"
+      ],
+      "notActions": [
+        "Microsoft.Authorization/*/Delete",
+        "Microsoft.Authorization/*/Write",
+        "Microsoft.Authorization/elevateAccess/Action",
+        "Microsoft.Blueprint/blueprintAssignments/write",
+        "Microsoft.Blueprint/blueprintAssignments/delete"
+      ],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
@@ -111,6 +165,8 @@ To support data operations, new data properties have been added to the role defi
 
 Here's the [Storage Blob Data Reader](built-in-roles.md#storage-blob-data-reader) role definition, which includes operations in both the `Actions` and `DataActions` properties. This role allows you to read the blob container and also the underlying blob data.
 
+Storage Blob Data Reader role as displayed in Azure PowerShell:
+
 ```json
 {
   "Name": "Storage Blob Data Reader",
@@ -118,7 +174,8 @@ Here's the [Storage Blob Data Reader](built-in-roles.md#storage-blob-data-reader
   "IsCustom": false,
   "Description": "Allows for read access to Azure Storage blob containers and data",
   "Actions": [
-    "Microsoft.Storage/storageAccounts/blobServices/containers/read"
+    "Microsoft.Storage/storageAccounts/blobServices/containers/read",
+    "Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action"
   ],
   "NotActions": [],
   "DataActions": [
@@ -128,6 +185,35 @@ Here's the [Storage Blob Data Reader](built-in-roles.md#storage-blob-data-reader
   "AssignableScopes": [
     "/"
   ]
+}
+```
+
+Storage Blob Data Reader role as displayed in Azure CLI:
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows for read access to Azure Storage blob containers and data",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/2a2b9908-6ea1-4ae2-8e65-a410df84e7d1",
+  "name": "2a2b9908-6ea1-4ae2-8e65-a410df84e7d1",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Storage/storageAccounts/blobServices/containers/read",
+        "Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Storage Blob Data Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
@@ -154,9 +240,11 @@ Storage Blob Data Contributor
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/delete`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/read`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/write`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;DataActions<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/move/action`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write`
 
 Since Alice has a wildcard (`*`) action at a subscription scope, their permissions inherit down to enable them to perform all management actions. Alice can read, write, and delete containers. However, Alice cannot perform data operations without taking additional steps. For example, by default, Alice cannot read the blobs inside a container. To read the blobs, Alice would have to retrieve the storage access keys and use them to access the blobs.

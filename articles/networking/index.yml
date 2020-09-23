@@ -5,7 +5,7 @@ summary: Learn about the various Azure networking services available that provid
 brand: azure ## Used for color theming of icons and hero area 
 
 metadata: 
-  title: Azure Networking documentation
+  title: Azure networking documentation
   description: Azure networking services provide connectivity to your resources in Azure, deliver and protect applications, and help secure your network. 
   ms.service: virtual-network
   ms.topic: hub-page
@@ -30,9 +30,9 @@ highlightedContent:
     - title: Hub-spoke network topology in Azure
       itemType: architecture
       url: https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke
-    - title: Private access to a SQL database server
-      itemType: tutorial
-      url: ../private-link/create-private-endpoint-portal.md
+    - title: What is routing preference?
+      itemType: concept
+      url: ../virtual-network/routing-preference-overview.md
     - title: Working remotely using Azure services
       itemType: concept
       url: working-remotely-support.md
@@ -119,12 +119,12 @@ conceptualContent:
         - url: ../load-balancer/load-balancer-overview.md
           itemType: overview
           text: What is Azure Load Balancer? 
+        - url: https://azure.microsoft.com/updates/?category=networking&query=load%20balancer
+          itemType: whats-new
+          text: What's new
         - url: ../load-balancer/quickstart-load-balancer-standard-public-portal.md
           itemType: quickstart
           text: Load balance internet traffic to VMs
-        - url: ../load-balancer/tutorial-load-balancer-port-forwarding-portal.md
-          itemType: tutorial
-          text: Configure port forwarding
         - url: ../load-balancer/load-balancer-troubleshoot.md
           itemType: how-to-guide
           text: Troubleshoot Azure Load Balancer
@@ -316,7 +316,7 @@ conceptualContent:
         url: ../cdn/index.yml
         text: See more  
 
-    - title: Automated branch connectivity
+    - title: Unified hub and spoke networking
       links:
         - url: ../virtual-wan/virtual-wan-about.md
           itemType: overview

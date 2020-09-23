@@ -18,5 +18,5 @@ Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pul
 For a full description of available tags for the Text Analytics containers, see the [Language Detection](https://go.microsoft.com/fwlink/?linkid=2018759) container on the Docker Hub.
 
 ```
-docker pull mcr.microsoft.com/azure-cognitive-services/language:latest
+docker pull mcr.microsoft.com/azure-cognitive-services/textanalytics/language:latest
 ```

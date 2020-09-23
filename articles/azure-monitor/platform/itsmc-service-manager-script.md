@@ -11,7 +11,7 @@ ms.date: 01/23/2018
 
 # Create Service Manager Web app using the automated script
 
-Use the following script to create the Web app for your Service Manager instance. More information about Service Manager connection is here: [Service Manager Web app](../../azure-monitor/platform/itsmc-connections.md#create-and-deploy-service-manager-web-app-service)
+Use the following script to create the Web app for your Service Manager instance. More information about Service Manager connection is here: [Service Manager Web app](./itsmc-connections.md#create-and-deploy-service-manager-web-app-service)
 
 Run the script by providing the following required details:
 
@@ -310,6 +310,9 @@ Write-Host "URI:"  $azureSite
 if(!$err)
 {
     Write-Host "ServiceBus Namespace:"  $serviceName  
-}```
+}
+```
+
 ## Next steps
-[Configure the Hybrid connection](../../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection).
+[Configure the Hybrid connection](./itsmc-connections.md#configure-the-hybrid-connection).
+

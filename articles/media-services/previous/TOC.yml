@@ -318,33 +318,17 @@
         href: hybrid-design-drm-sybsystem.md
       - name: Reference multi-DRM design
         href: media-services-cenc-with-multidrm-access-control.md
-  - name: Analyze
-    href: media-services-analytics-overview.md
-    items:
-    - name: Analyze media using Azure portal
-      href: media-services-portal-analyze.md
-    - name: Process with Indexer 2
-      href: media-services-process-content-with-indexer2.md
     - name: Process with Indexer
       href: media-services-index-content.md
       items:
       - name: Task preset
         href: indexer-task-preset.md
-    - name: Process with Face Detector
-      href: media-services-face-and-emotion-detection.md
-    - name: Process with Motion Detector
-      href: media-services-motion-detection.md
+  - name: Analyze content
+    items:
     - name: Process with Face Redactor
       href: media-services-face-redaction.md
-      items:
-      - name: Face Redactor walkthrough
-        href: media-services-redactor-walkthrough.md
-    - name: Process with video thumbnails
-      href: media-services-video-summarization.md
-    - name: Process with OCR
-      href: media-services-video-optical-character-recognition.md
-    - name: Process with Content Moderator
-      href: media-services-content-moderation.md
+    - name: Face Redactor walkthrough
+      href: media-services-redactor-walkthrough.md
   - name: Configure telemetry
     href: media-services-telemetry-overview.md
     items:
@@ -445,11 +429,11 @@
   - name: Azure PowerShell (Resource Manager)
     href: /powershell/module/az.media
   - name: Azure PowerShell 
-    href: /powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0
+    href: /powershell/module/servicemanagement/azure.service/?view=azuresmps-3.7.0
   - name: .NET
     href: /dotnet/api/microsoft.windowsazure.mediaservices.client
   - name: REST
-    href: https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference
+    href: /rest/api/media/operations/azure-media-services-rest-api-reference
   - name: Specifications
     items:
     - name: Live Ingest - Fragmented MP4 live ingest specification

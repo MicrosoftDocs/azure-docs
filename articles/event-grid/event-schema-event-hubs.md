@@ -1,13 +1,8 @@
 ---
 title: Azure Event Hubs as Event Grid source
 description: Describes the properties that are provided for event hubs events with Azure Event Grid
-services: event-grid
-author: spelluru
-
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/09/2020
-ms.author: spelluru
+ms.date: 07/07/2020
 ---
 
 # Azure Event Hubs as an Event Grid source

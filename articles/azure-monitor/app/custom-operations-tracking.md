@@ -2,6 +2,7 @@
 title: Track custom operations with Azure Application Insights .NET SDK 
 description: Tracking custom operations with Azure Application Insights .NET SDK
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 11/26/2019
 
 ms.reviewer: sergkanz
@@ -203,7 +204,7 @@ public async Task Process(BrokeredMessage message)
 The following example shows how to track the [Azure Storage queue](../../storage/queues/storage-dotnet-how-to-use-queues.md) operations and correlate telemetry between the producer, the consumer, and Azure Storage. 
 
 The Storage queue has an HTTP API. All calls to the queue are tracked by the Application Insights Dependency Collector for HTTP requests.
-It is configured by default on ASP.NET and ASP.NET Core applications, with other kinds of applicaiton, you can refer to [console applications documentation](../../azure-monitor/app/console.md)
+It is configured by default on ASP.NET and ASP.NET Core applications, with other kinds of applicaiton, you can refer to [console applications documentation](./console.md)
 
 You also might want to correlate the Application Insights operation ID with the Storage request ID. For information on how to set and get a Storage request client and a server request ID, see [Monitor, diagnose, and troubleshoot Azure Storage](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md#end-to-end-tracing).
 
@@ -343,7 +344,7 @@ When you instrument message deletion, make sure you set the operation (correlati
 
 ### Dependency Types
 
-Application Insights uses dependency type to customize UI experiences. For queues it recognizes following types of `DependencyTelemetry` that improve [Transaction diagnostics experience](/azure/azure-monitor/app/transaction-diagnostics):
+Application Insights uses dependency type to customize UI experiences. For queues it recognizes following types of `DependencyTelemetry` that improve [Transaction diagnostics experience](./transaction-diagnostics.md):
 - `Azure queue` for Azure Storage Queues
 - `Azure Event Hubs` for Azure Event Hubs
 - `Azure Service Bus` for Azure Service Bus
@@ -422,7 +423,7 @@ public async Task RunMyTaskAsync()
 
 Disposing operation causes operation to be stopped, so you may do it instead of calling `StopOperation`.
 
-*Warning*: in some cases unhanded exception may [prevent](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/try-finally) `finally` to be called so operations may not be tracked.
+*Warning*: in some cases unhanded exception may [prevent](/dotnet/csharp/language-reference/keywords/try-finally) `finally` to be called so operations may not be tracked.
 
 ### Parallel operations processing and tracking
 
@@ -475,8 +476,9 @@ Each Application Insights operation (request or dependency) involves `Activity` 
 ## Next steps
 
 - Learn the basics of [telemetry correlation](correlation.md) in Application Insights.
-- Check out how correlated data powers [Transaction Diagnostics Experience](../../azure-monitor/app/transaction-diagnostics.md) and [Application Map](../../azure-monitor/app/app-map.md).
-- See the [data model](../../azure-monitor/app/data-model.md) for Application Insights types and data model.
-- Report custom [events and metrics](../../azure-monitor/app/api-custom-events-metrics.md) to Application Insights.
+- Check out how correlated data powers [Transaction Diagnostics Experience](./transaction-diagnostics.md) and [Application Map](./app-map.md).
+- See the [data model](./data-model.md) for Application Insights types and data model.
+- Report custom [events and metrics](./api-custom-events-metrics.md) to Application Insights.
 - Check out standard [configuration](configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet) for context properties collection.
 - Check the [System.Diagnostics.Activity User Guide](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) to see how we correlate telemetry.
+

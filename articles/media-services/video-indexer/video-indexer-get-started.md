@@ -21,7 +21,7 @@ When creating a Video Indexer account, you can choose a free trial account (wher
 
 ## Sign up for Video Indexer
 
-To start developing with Video Indexer, browse to the [Video Indexer](https://www.videoindexer.com) website and sign up.
+To start developing with Video Indexer, browse to the [Video Indexer](https://www.videoindexer.ai/) website and sign up.
 
 > [!NOTE]
 > Once you start using Video Indexer, all your stored data and uploaded content are encrypted at rest with a Microsoft managed key.

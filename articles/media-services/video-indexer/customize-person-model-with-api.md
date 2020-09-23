@@ -9,7 +9,7 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
 ms.date: 01/14/2020
-ms.author: anzaman
+ms.author: kumud
 ---
 
 # Customize a Person model with the Video Indexer API

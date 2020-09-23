@@ -4,7 +4,7 @@ titleSuffix: Azure Media Services
 description: Learn how to stream live with Azure Media Services v3.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 
@@ -13,18 +13,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: "mvc, devx-track-csharp"
 ms.date: 06/13/2019
-ms.author: juliako
+ms.author: inhenkel
 
 ---
 
 # Tutorial: Stream live with Media Services
 
 > [!NOTE]
-> Even though the tutorial uses [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) examples, the general steps are the same for [REST API](https://docs.microsoft.com/rest/api/media/liveevents), [CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest), or other supported [SDKs](media-services-apis-overview.md#sdks).
+> Even though the tutorial uses [.NET SDK](/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) examples, the general steps are the same for [REST API](/rest/api/media/liveevents), [CLI](/cli/azure/ams/live-event?view=azure-cli-latest), or other supported [SDKs](media-services-apis-overview.md#sdks).
 
-In Azure Media Services, [Live Events](https://docs.microsoft.com/rest/api/media/liveevents) are responsible for processing live streaming content. A Live Event provides an input endpoint (ingest URL) that you then provide to a live encoder. The Live Event receives live input streams from the live encoder and makes it available for streaming through one or more [Streaming Endpoints](https://docs.microsoft.com/rest/api/media/streamingendpoints). Live Events also provide a preview endpoint (preview URL) that you use to preview and validate your stream before further processing and delivery. This tutorial shows how to use .NET Core to create a **pass-through** type of a live event.
+In Azure Media Services, [Live Events](/rest/api/media/liveevents) are responsible for processing live streaming content. A Live Event provides an input endpoint (ingest URL) that you then provide to a live encoder. The Live Event receives live input streams from the live encoder and makes it available for streaming through one or more [Streaming Endpoints](/rest/api/media/streamingendpoints). Live Events also provide a preview endpoint (preview URL) that you use to preview and validate your stream before further processing and delivery. This tutorial shows how to use .NET Core to create a **pass-through** type of a live event.
 
 The tutorial shows you how to:
 
@@ -41,8 +41,8 @@ The tutorial shows you how to:
 The following items are required to complete the tutorial:
 
 - Install Visual Studio Code or Visual Studio.
-- [Create a Media Services account](create-account-cli-how-to.md).<br/>Make sure to remember the values you use for the resource group name and Media Services account name.
-- Follow the steps in [Access Azure Media Services API with the Azure CLI](access-api-cli-how-to.md) and save the credentials. You'll need to use them to access the API.
+- [Create a Media Services account](./create-account-howto.md).<br/>Make sure to remember the values you use for the resource group name and Media Services account name.
+- Follow the steps in [Access Azure Media Services API with the Azure CLI](./access-api-howto.md) and save the credentials. You'll need to use them to access the API.
 - A camera or a device (like a laptop) that's used to broadcast an event.
 - An on-premises live encoder that converts signals from the camera to streams that are sent to the Media Services live streaming service, see [recommended on-premises live encoders](recommended-on-premises-live-encoders.md). The stream has to be in **RTMP** or **Smooth Streaming** format.
 
@@ -59,7 +59,7 @@ Clone a GitHub repository that contains the streaming .NET sample to your machin
 
 The live streaming sample is located in the [Live](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/Live/MediaV3LiveApp) folder.
 
-Open [appsettings.json](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/blob/master/NETCore/Live/MediaV3LiveApp/appsettings.json) in your downloaded project. Replace the values with the credentials you got from [accessing APIs](access-api-cli-how-to.md).
+Open [appsettings.json](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/blob/master/NETCore/Live/MediaV3LiveApp/appsettings.json) in your downloaded project. Replace the values with the credentials you got from [accessing APIs](./access-api-howto.md).
 
 > [!IMPORTANT]
 > This sample uses a unique suffix for each resource. If you cancel the debugging or terminate the app without running it through, you'll end up with multiple Live Events in your account. <br/>Make sure to stop the running Live Events. Otherwise, you'll be **billed**!

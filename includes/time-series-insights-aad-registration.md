@@ -61,7 +61,7 @@ ms.date: 02/03/2020
    > [!NOTE]
    > You have the ability to import a certificate instead. For enhanced security, a certificate is recommended. To use a certificate, select **Upload certificate**.
 
-1. Associate your Azure Active Directory app Azure TIme Series Insights. Select **API permissions** > **Add a permission** > **APIs my organization uses**. 
+1. Associate your Azure Active Directory app Azure Time Series Insights. Select **API permissions** > **Add a permission** > **APIs my organization uses**. 
 
     [![Associate an API with your Azure Active Directory app](media/time-series-insights-aad-registration/active-directory-app-api-permission.png)](media/time-series-insights-aad-registration/active-directory-app-api-permission.png#lightbox)
 

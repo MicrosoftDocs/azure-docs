@@ -5,6 +5,7 @@ author: sffamily
 ms.service: signalr
 ms.devlang: dotnet
 ms.topic: quickstart
+ms.custom: devx-track-csharp
 ms.date: 11/04/2019
 ms.author: zhshang
 ---
@@ -27,9 +28,13 @@ The code for this tutorial is available for download in the [AzureSignalR-sample
 * Install the [.NET Core SDK](https://www.microsoft.com/net/download/windows).
 * Download or clone the [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples) GitHub repository. 
 
+[Having issues? Let us know.](https://aka.ms/asrs/qsnetcore)
+
 ## Create an Azure SignalR resource
 
 [!INCLUDE [azure-signalr-create](../../includes/signalr-create.md)]
+
+[Having issues? Let us know.](https://aka.ms/asrs/qsnetcore)
 
 ## Create an ASP.NET Core web app
 
@@ -39,8 +44,11 @@ In this section, you use the [.NET Core command-line interface (CLI)](https://do
 
 2. In the new folder, run the following command to create the project:
 
-        dotnet new mvc
+    ```dotnetcli
+    dotnet new mvc
+    ```
 
+[Having issues? Let us know.](https://aka.ms/asrs/qsnetcore)
 
 ## Add Secret Manager to the project
 
@@ -63,16 +71,22 @@ In this section, you'll add the [Secret Manager tool](https://docs.microsoft.com
     </ItemGroup>
     </Project>    
     ```
+    
+[Having issues? Let us know.](https://aka.ms/asrs/qsnetcore)
 
 ## Add Azure SignalR to the web app
 
 1. Add a reference to the `Microsoft.Azure.SignalR` NuGet package by running the following command:
 
-        dotnet add package Microsoft.Azure.SignalR
+    ```dotnetcli
+    dotnet add package Microsoft.Azure.SignalR
+    ```
 
 2. Run the following command to restore packages for your project:
 
-        dotnet restore
+    ```dotnetcli
+    dotnet restore
+    ```
 
 3. Add a secret named *Azure:SignalR:ConnectionString* to Secret Manager. 
 
@@ -80,7 +94,7 @@ In this section, you'll add the [Secret Manager tool](https://docs.microsoft.com
 
     You must run this command in the same directory as the *.csproj* file.
 
-    ```
+    ```dotnetcli
     dotnet user-secrets set Azure:SignalR:ConnectionString "<Your connection string>"    
     ```
 
@@ -213,30 +227,37 @@ In this section, you'll add a development runtime environment for ASP.NET Core. 
     }
     ```
 
+[Having issues? Let us know.](https://aka.ms/asrs/qsnetcore)
 
 ## Build and run the app locally
 
 1. To build the app by using the .NET Core CLI, run the following command in the command shell:
 
-        dotnet build
+    ```dotnetcli
+    dotnet build
+    ```
 
 2. After the build successfully finishes, run the following command to run the web app locally:
 
-        dotnet run
+    ```dotnetcli
+    dotnet run
+    ```
 
     The app will be hosted locally on port 5000, as configured in our development runtime profile:
 
-        E:\Testing\chattest>dotnet run
-        Hosting environment: Development
-        Content root path: E:\Testing\chattest
-        Now listening on: http://localhost:5000
-        Application started. Press Ctrl+C to shut down.    
+    ```output
+    E:\Testing\chattest>dotnet run
+    Hosting environment: Development
+    Content root path: E:\Testing\chattest
+    Now listening on: http://localhost:5000
+    Application started. Press Ctrl+C to shut down.    
+    ```
 
 3. Open two browser windows. In each browser, go to `http://localhost:5000`. You're prompted to enter your name. Enter a client name for both clients and test pushing message content between both clients by using the **Send** button.
 
     ![Example of an Azure SignalR group chat](media/signalr-quickstart-dotnet-core/signalr-quickstart-complete-local.png)
 
-
+[Having issues? Let us know.](https://aka.ms/asrs/qsnetcore)
 
 ## Clean up resources
 
@@ -261,7 +282,7 @@ You're asked to confirm the deletion of the resource group. Enter the name of yo
    
 After a few moments, the resource group and all of its resources are deleted.
 
-
+[Having issues? Let us know.](https://aka.ms/asrs/qsnetcore)
 
 ## Next steps
 
@@ -270,4 +291,5 @@ In this quickstart, you created a new Azure SignalR Service resource. You then u
 > [!div class="nextstepaction"]
 > [Azure SignalR Service authentication](./signalr-concept-authenticate-oauth.md)
 
+[Having issues? Let us know.](https://aka.ms/asrs/qsnetcore)
 
