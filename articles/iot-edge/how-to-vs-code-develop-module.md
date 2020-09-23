@@ -9,7 +9,7 @@ ms.author: xshi
 ms.date: 08/07/2019
 ms.topic: conceptual
 ms.service: iot-edge
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 # Use Visual Studio Code to develop and debug modules for Azure IoT Edge

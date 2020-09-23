@@ -15,7 +15,7 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/08/2020
+ms.date: 09/23/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -81,6 +81,7 @@ In this section you can find information in how to configure SSO with most of th
 
 ## Change Log
 
+- 09/02/2020: Add new certified SKUs for HLI in [Available SKUs for HLI](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-available-skus) 
 - 09/08/2020: Change in [High availability of SAP HANA on Azure VMs on SLES](./sap-hana-high-availability.md) to clarify stonith definitions
 - 09/03/2020: Change in [SAP HANA Azure virtual machine storage configurations](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) to adapt to minimal 2 IOPS per 1 GB capacity with Ultra disk
 - 09/02/2020: Change in [Available SKUs for HLI](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-available-skus) to get more transparent in what SKUs are HANA certified
