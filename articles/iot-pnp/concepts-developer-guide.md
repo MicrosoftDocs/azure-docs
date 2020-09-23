@@ -412,7 +412,7 @@ The service SDKs let you access device information from a solution, such as a de
 
 ### REST API
 
-The following examples use the IoT Hub REST API to interact with a connected IoT Plug and Play device. The current version of the API is `2020-05-31-preview`. Append `?api-version=2020-05-31` to your REST PI calls.
+The following examples use the IoT Hub REST API to interact with a connected IoT Plug and Play device. The current version of the API is `2020-09-30`. Append `?api-version=2020-05-31` to your REST PI calls.
 
 > [!NOTE]
 > Module twins are not currently supported by the `digitalTwins` API.

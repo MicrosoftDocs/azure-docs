@@ -99,12 +99,12 @@ In Azure IoT explorer, you can see that the device isn't an IoT Plug and Play de
 
 IoT Plug and Play device must follow a set of simple conventions. If a device sends a model ID when it connects, it becomes an IoT Plug and Play device.
 
-In this sample, you add a model ID to the MQTT connection packet. You pass the model ID as querystring parameter in the `USERNAME` and change the `api-version` to `2020-05-31-preview`:
+In this sample, you add a model ID to the MQTT connection packet. You pass the model ID as querystring parameter in the `USERNAME` and change the `api-version` to `2020-09-30`:
 
 ```c
 // computed Host Username and Topic
 //#define USERNAME IOTHUBNAME ".azure-devices.net/" DEVICEID "/?api-version=2018-06-30"
-#define USERNAME IOTHUBNAME ".azure-devices.net/" DEVICEID "/?api-version=2020-05-31-preview&model-id=dtmi:com:example:Thermostat;1"
+#define USERNAME IOTHUBNAME ".azure-devices.net/" DEVICEID "/?api-version=2020-09-30&model-id=dtmi:com:example:Thermostat;1"
 #define PORT 8883
 #define HOST IOTHUBNAME //".azure-devices.net"
 #define TOPIC "devices/" DEVICEID "/messages/events/"
