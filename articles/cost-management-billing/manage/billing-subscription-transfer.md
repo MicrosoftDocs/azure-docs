@@ -73,7 +73,8 @@ If you've accepted the billing ownership of an Azure subscription, we recommend 
 Use the following troubleshooting information if you're having trouble transferring subscriptions.
 
 ### The "Transfer subscription" option is unavailable
-<a>no-button></a> 
+
+<a name="no-button"></a> 
 
 The self-service subscription transfer isn't available for your billing account. Currently, we don't support transferring the billing ownership of subscriptions in Enterprise Agreement (EA) accounts in the Azure portal. Also, Microsoft Customer Agreement accounts that are created while working with a Microsoft representative don't support transferring billing ownership.
 
