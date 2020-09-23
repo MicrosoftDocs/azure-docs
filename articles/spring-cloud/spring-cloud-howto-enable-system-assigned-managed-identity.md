@@ -10,6 +10,9 @@ ms.custom: devx-track-java
 ---
 
 # How to enable system-assigned managed identity for Azure Spring Cloud application
+
+**This article applies to:** ✔️ Java ✔️ C#
+
 Managed identities for Azure resources provide an automatically managed identity in Azure Active Directory to an Azure resource such as your Azure Spring Cloud application. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code.
 
 This article shows how to enable and disable system-assigned managed identities for an Azure Spring Cloud app, using the Azure portal and CLI (available from version 0.2.4).
@@ -77,7 +80,8 @@ az spring-cloud app identity remove -n app_name -s service_name -g resource_grou
 ```
 
 ## Next steps
-* [How to use managed identities with Java SDK](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples)
+
 * [Access Azure Key Vault with managed identities in Spring boot starter](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-boot-starter-keyvault-secrets/README.md#use-msi--managed-identities)
 * [Learn more about managed identities for Azure resources](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/overview.md)
+* [How to use managed identities with Java SDK](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples)
 

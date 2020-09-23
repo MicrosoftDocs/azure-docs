@@ -48,6 +48,8 @@ For Azure to communicate between the resources that you create, it needs a virtu
 1. Create the subnet configurations using `New-AzVirtualNetworkSubnetConfig`.
 2. Create the virtual network with the subnet configurations using `New-AzVirtualNetwork`. 
 3. Create the public IP address using `New-AzPublicIpAddress`. 
+> [!NOTE]
+> [Virtual network service endpoint policies](../virtual-network/virtual-network-service-endpoint-policies-overview.md) are currently not supported in an Application Gateway subnet.
 
 ```azurepowershell-interactive
 $agSubnetConfig = New-AzVirtualNetworkSubnetConfig `

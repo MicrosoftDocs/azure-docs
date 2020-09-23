@@ -50,7 +50,7 @@ Follow below steps to set up the connection between Azure Data Lake Store File S
 
 In SSIS package design view, add an **Azure Data Lake Store File System Task**, a **Foreach Loop Container** and an **Azure Data Lake Analytics Task** in the Foreach Loop Container. The Azure Data Lake Store File System Task helps to download U-SQL files in your ADLS account to a temporary folder. The Foreach Loop Container and the Azure Data Lake Analytics Task help to submit every U-SQL file under the temporary folder to the Azure Data Lake Analytics account as a U-SQL job.
 
-![Use U-SQL files in Azure Data Lake Store](./media/data-lake-analytics-schedule-jobs-ssis/use-u-sql-files-in-azure-data-lake-store.png)
+![Diagram that shows an Azure Data Lake Store File System Task being added to a Foreach Loop Container.](./media/data-lake-analytics-schedule-jobs-ssis/use-u-sql-files-in-azure-data-lake-store.png)
 
 ### Configure Azure Data Lake Store File System Task
 
@@ -71,7 +71,7 @@ In SSIS package design view, add an **Azure Data Lake Store File System Task**, 
 
 3. Set **Files** under **Enumerator configuration** to `*.usql` so that the loop container only catches the files ending with `.usql`.
 
-    ![Configure Foreach Loop Container](./media/data-lake-analytics-schedule-jobs-ssis/configure-foreach-loop-container-collection.png)
+    ![Screenshot that shows the Foreach Loop Editor with "Collection" selected and the Enumerator and Enumerator configuration sections highlighted.](./media/data-lake-analytics-schedule-jobs-ssis/configure-foreach-loop-container-collection.png)
 
 4. In **Variable Mappings** page, add a user defined variable to get the file name for each U-SQL file. Set the **Index** to 0 to get the file name. In this example, define a variable called `User::FileName`. This variable will be used to dynamically get U-SQL script file connection and set U-SQL job name in Azure Data Lake Analytics Task.
 
@@ -88,7 +88,7 @@ In SSIS package design view, add an **Azure Data Lake Store File System Task**, 
    1. Choose **\<New Connection...>** in FileConnection setting.
    2. Set **Usage type** to **Existing file**, and set the **File** to any existing file's file path.
 
-       ![Configure Foreach Loop Container](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-for-foreach-loop-container.png)
+       ![Screenshot that shows the File Connection Manager Editor with "Existing file" selected for "Usage type".](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-for-foreach-loop-container.png)
 
    3. In **Connection Managers** view, right-click the file connection created just now, and choose **Properties**.
 

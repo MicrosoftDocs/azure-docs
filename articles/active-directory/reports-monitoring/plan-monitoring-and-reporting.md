@@ -89,7 +89,7 @@ Your current infrastructure and policies will drive your reporting and monitorin
 
 ## Plan an Azure AD reporting and monitoring deployment
 
-Reporting and monitoring are used to meet your business requirements, gain insights into usage patterns, and t increase your organizations security posture.
+Reporting and monitoring are used to meet your business requirements, gain insights into usage patterns, and increase your organization's security posture.
 
 ### Business use cases
 

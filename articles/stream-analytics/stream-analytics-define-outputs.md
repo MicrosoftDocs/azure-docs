@@ -6,6 +6,7 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
+ms.custom: contperfq1
 ms.date: 08/25/2020
 ---
 
@@ -21,7 +22,7 @@ Some outputs types support [partitioning](#partitioning), and [output batch size
 |-------------|--------------|----------|
 |[Azure Data Lake Storage Gen 1](azure-data-lake-storage-gen1-output.md)|Yes|Azure Active Directory user </br> MSI|
 |[Azure SQL Database](sql-database-output.md)|Yes, needs to enabled.|SQL user auth </br> MSI (Preview)|
-|[Azure Synapse Analytics (Preview)](azure-synapse-analytics-output.md)|No|SQL user auth|
+|[Azure Synapse Analytics](azure-synapse-analytics-output.md)|No|SQL user auth|
 |[Blob storage and Azure Data Lake Gen 2](blob-storage-azure-data-lake-gen2-output.md)|Yes|MSI </br> Access key|
 |[Azure Event Hubs](event-hubs-output.md)|Yes|Access key|
 |[Power BI](power-bi-output.md)|No|Azure Active Directory user </br> MSI|
