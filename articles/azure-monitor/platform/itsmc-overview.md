@@ -134,6 +134,10 @@ When creating/editing an Azure alert rule, use an Action group, which has an ITS
 >
 > For information on pricing of ITSM Action, see the [pricing page](https://azure.microsoft.com/pricing/details/monitor/) for Action Groups.
 
+> [!NOTE]
+>
+> Short description field in the alert rule definition is limited to 40 characters when it is sent using ITSM action.
+
 
 ## Visualize and analyze the incident and change request data
 
