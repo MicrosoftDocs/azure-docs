@@ -63,12 +63,12 @@ Core and memory correspond to the `--cpus` and `--memory` settings, which are us
 
 | Implementation |	Required runtime argument(s) |
 |---------|---------|
-|File level (default)	| `/share` directory. |
+|File level (default)	| No runtime arguments required. `/share` directory will be used. |
 |Azure Blob	| `Storage:ObjectStore:AzureBlob:ConnectionString={AzureStorageConnectionString}` |
 
 ## Queue implementations
 
-In v3.x of the container, RabbitMQ is not currently not supported. The supported backing implementations are:
+In v3.x of the container, RabbitMQ is currently not supported. The supported backing implementations are:
 
 | Implementation | Runtime Argument(s) | Intended use |
 |---------|---------|-------|
