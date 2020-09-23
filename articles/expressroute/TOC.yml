@@ -6,22 +6,17 @@
     href: expressroute-introduction.md
 - name: Quickstart
   items:
-  - name: Create an ExpressRoute circuit - ARM Template
+  - name: Create an ExpressRoute circuit - Portal
+    href: expressroute-howto-circuit-portal-resource-manager.md
+  - name: Create an ExpressRoute circuit - PowerShell
+    href: expressroute-howto-circuit-arm.md
+  - name: Create an ExpressRoute circuit - CLI
+    href: howto-circuit-cli.md
+  - name: Create an ExpressRoute circuit - ARM template
     href: quickstart-create-expressroute-vnet-template.md
   expanded: true
 - name: Tutorials
   items:
-  - name: Create and modify a circuit
-    items:
-    - name: Azure portal
-      href: expressroute-howto-circuit-portal-resource-manager.md
-    - name: Azure PowerShell
-      href: expressroute-howto-circuit-arm.md
-    - name: Azure CLI
-      href: howto-circuit-cli.md
-    - name: Azure Resource Manager template
-      displayName: ARM,resource manager template
-      href: expressroute-howto-circuit-resource-manager-template.md
   - name: Create and modify peering configuration
     items:
     - name: Azure portal
