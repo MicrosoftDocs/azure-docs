@@ -9,7 +9,7 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 09/21/2020
 ms.author: pafarley
-ms.custom: "devx-track-javascript, devx-track-csharp"
+ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
 > [!IMPORTANT]
