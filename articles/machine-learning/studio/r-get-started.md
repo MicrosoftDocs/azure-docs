@@ -220,7 +220,7 @@ load("src/yourData.rdata") # Reads a zipped R data file
 
 We already discussed loading datasets in [Load the dataset](#loading). Once you have created and tested the R script shown in the previous section, do the following:
 
-1. Save the R script into a .R file. I call my script file "simpleplot.R". Here's the contents.
+1. Save the R script into a .R file. I call my script file "simpleplot.R". Here's what's in the file:
 
    ```r
    ## Only one of the following two lines should be used
@@ -565,7 +565,7 @@ It looks like everything is working. We have the new column with the expected va
 
 In this section we will perform some simple transformations on the values in some of the columns of our dataframe. The R language supports nearly arbitrary value transformations. The references in [Further reading](#appendixb) below contain extensive examples.
 
-If you look at the values in the summaries of our dataframe you should see something odd here. Is more ice cream than milk produced in California? No, of course not, as this makes no sense, sad as this fact may be to some of us ice cream lovers. The units are different. The price is in units of US pounds, milk is in units of 1 M US pounds, ice cream is in units of 1,000 US gallons, and cottage cheese is in units of 1,000 US pounds. Assuming ice cream weighs about 6.5 pounds per gallon, we can easily do the multiplication to convert these values so they are all in equal units of 1,000 pounds.
+If you look at the values in the summaries of our dataframe, you should see something odd here. Is more ice cream than milk produced in California? No, of course not, as this makes no sense, sad as this fact may be to some of us ice cream lovers. The units are different. The price is in units of US pounds, milk is in units of 1 M US pounds, ice cream is in units of 1,000 US gallons, and cottage cheese is in units of 1,000 US pounds. Assuming ice cream weighs about 6.5 pounds per gallon, we can easily do the multiplication to convert these values, so they are all in equal units of 1,000 pounds.
 
 For our forecasting model we use a multiplicative model for trend and seasonal adjustment of this data. A log transformation allows us to use a linear model, simplifying this process. We can apply the log transformation in the same function where the multiplier is applied.
 
@@ -768,7 +768,7 @@ There is some odd-looking structure in the relationships between these variables
 
 ### Correlation analysis
 
-To perform correlation analysis we need to both de-trend and standardize the variables. We could simply use the R `scale()` function, which both centers and scales variables. This function might well run faster. However, I want to show you an example of defensive programing in R.
+To perform correlation analysis we need to both de-trend and standardize the variables. We could simply use the R `scale()` function, which both centers and scales variables. This function might well run faster. However, I want to show you an example of defensive programming in R.
 
 The `ts.detrend()` function shown below performs both of these operations. The following two lines of code de-trend the data and then standardize the values.
 
@@ -823,7 +823,7 @@ We have already discussed an example of defensive programming in Value transform
 
 Note that the linear regression used for de-trending is a time series regression. The predictor variable is a time series object.  
 
-Once `ts.detrend()` is defined we apply it to the variables of interest in our dataframe. We must coerce the resulting list created by `lapply()` to data dataframe by using `as.data.frame()`. Because of defensive aspects of `ts.detrend()`, failure to process one of the variables will not prevent correct processing of the others.  
+Once `ts.detrend()` is defined, we apply it to the variables of interest in our dataframe. We must coerce the resulting list created by `lapply()` to data dataframe by using `as.data.frame()`. Because of defensive aspects of `ts.detrend()`, failure to process one of the variables will not prevent correct processing of the others.  
 
 The final line of code creates a pairwise scatterplot. After running the R code, the results of the scatterplot are shown in Figure 17.
 
@@ -1131,7 +1131,7 @@ It looks like the trend model fits the data fairly well. Further, there does not
 
 With a trend model in hand, we need to push on and include the seasonal effects. We will use the month of the year as a dummy variable in the linear model to capture the month-by-month effect. Note that when you introduce factor variables into a model, the intercept must not be computed. If you do not do this, the formula is over-specified and R will drop one of the desired factors but keep the intercept term.
 
-Since we have a satisfactory trend model we can use the `update()` function to add the new terms to the existing model. The -1 in the update formula drops the intercept term. Continuing in RStudio for the moment:
+Since we have a satisfactory trend model, we can use the `update()` function to add the new terms to the existing model. The -1 in the update formula drops the intercept term. Continuing in RStudio for the moment:
 
 ```r
 milk.lm2 <- update(milk.lm, . ~ . + Month - 1)
@@ -1333,7 +1333,7 @@ RStudio is quite well documented. Here are some links to the key sections of the
 This R programming tutorial covers the basics of what you need to use the R language with Azure Machine Learning Studio (classic). If you are not familiar with R, two introductions are available on CRAN:
 
 * [R for Beginners](https://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf) by Emmanuel Paradis is a good place to start.  
-* [An Introduction to R](https://cran.r-project.org/doc/manuals/R-intro.html) by W. N. Venables et. al. goes into a bit more depth.
+* [An Introduction to R](https://cran.r-project.org/doc/manuals/R-intro.html) by W. N. Venables et al. goes into a bit more depth.
 
 There are many books on R that can help you get started. Here are a few I find useful:
 
@@ -1350,7 +1350,8 @@ The book **Introductory Time Series** with R by Paul Cowpertwait and Andrew Metc
 Here are some great internet resources:
 
 * DataCamp teaches R in the comfort of your browser with video lessons and coding exercises. There are interactive tutorials on the latest R techniques and packages. Take the free [interactive R tutorial](https://www.datacamp.com/courses/introduction-to-r).
-* [Learn R Programming, The Definitive Guide](https://www.programiz.com/r-programming) from Programiz.
+* [Learn R Programming, The Definitive Guide](https://www.datamentor.io/r-programming/) from DataMentor.
+* [R CODER](https://r-coder.com/). Detailed R tutorials and a free R course for beginners.
 * A quick [R Tutorial](https://www.cyclismo.org/tutorial/R/) by Kelly Black from Clarkson University.
 * There are over 60 R resources listed at [Top R language resources to improve your data skills](https://www.computerworld.com/article/2497464/business-intelligence-60-r-resources-to-improve-your-data-skills.html).
 

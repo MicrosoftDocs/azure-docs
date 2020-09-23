@@ -63,7 +63,7 @@ Azure App Service default configuration for Node.js apps is intended to best sui
 
 
 ## Next Steps
-For more information on best practices, visit [App Service Diagnostics](https://docs.microsoft.com/azure/app-service/overview-diagnostics) to find out actionable best practices specific to your resource.
+For more information on best practices, visit [App Service Diagnostics](./overview-diagnostics.md) to find out actionable best practices specific to your resource.
 
 - Navigate to your Web App in the [Azure portal](https://portal.azure.com).
 - Click on **Diagnose and solve problems** in the left navigation, which opens App Service Diagnostics.

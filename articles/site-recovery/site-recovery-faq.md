@@ -252,8 +252,6 @@ A replication policy defines the settings for the retention history of recovery 
 - 24 hours for the retention history of recovery points.
 - 4 hours for the frequency of app-consistent snapshots.
 
-[Learn more about replication settings](./azure-to-azure-tutorial-enable-replication.md#configure-replication-settings).
-
 ### What is a crash-consistent recovery point?
 
 A crash-consistent recovery point has the on-disk data as if you pulled the power cord from the server during the snapshot. The crash-consistent recovery point doesn't include anything that was in memory when the snapshot was taken.

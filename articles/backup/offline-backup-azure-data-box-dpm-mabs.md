@@ -8,7 +8,7 @@ ms.date: 08/12/2020
 
 > [!NOTE]
 > This feature is applicable for Data Protection Manager (DPM) 2019 UR2 and later.<br><br>
-> This feature is currently in preview for Microsoft Azure Backup Server (MABS). If you are interested in using Azure Data Box for offline seeding with MABS, reach out to us at [systemcenterfeedback@microsoft.com](mailto:systemcenterfeedback@microsoft.com).
+> This feature is currently in preview for Microsoft Azure Backup Server (MABS). If you're interested in using Azure Data Box for offline seeding with MABS, reach out to us at [systemcenterfeedback@microsoft.com](mailto:systemcenterfeedback@microsoft.com).
 
 This article explains how you can use Azure Data Box to seed initial backup data offline from DPM and MABS to an Azure Recovery Services vault.
 
@@ -54,27 +54,27 @@ Ensure the following:
 - The user intended to perform the offline backup policy must be an owner of the Azure subscription.
 - The Data Box job and the Recovery Services vault to which the data needs to be seeded must be available in the same subscriptions.
     > [!NOTE]
-    > We recommend that the target storage account and the Recovery Services vault be in the same region. However, this is not mandatory.
+    > We recommend that the target storage account and the Recovery Services vault be in the same region. However, this isn't mandatory.
 
 ### Order and receive the Data Box device
 
 Ensure that the required Data Box devices are in *Delivered* state before triggering offline backup. See [Backup Data Size and supported Data Box SKUs](#backup-data-size-and-supported-data-box-skus) to order the most suitable SKU for your requirement. Follow the steps in [this article](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-ordered) to order and receive your Data Box devices.
 
 > [!IMPORTANT]
-> Do not select *BlobStorage* for the **Account kind**. The DPM/MABS server requires an account that supports Page Blobs which is not supported when *BlobStorage* is selected. Select  **Storage V2 (general purpose v2)** as the **Account kind** when creating the target storage account for your Azure Data Box job.
+> Don't select *BlobStorage* for the **Account kind**. The DPM/MABS server requires an account that supports Page Blobs which isn't supported when *BlobStorage* is selected. Select  **Storage V2 (general purpose v2)** as the **Account kind** when creating the target storage account for your Azure Data Box job.
 
 ![Setup azure databox](./media/offline-backup-azure-data-box-dpm-mabs/setup-azure-databox.png)
 
 ## Setup Azure Data Box devices
 
-Once you receive the Azure Data Box device, depending on the Azure Data Box SKU you have ordered, perform the steps in the appropriate sections below to set up and prepare the Data Box devices for the DPM/MABS Server to identify and transfer the initial backup data.
+Once you receive the Azure Data Box device, depending on the Azure Data Box SKU you've ordered, perform the steps in the appropriate sections below to set up and prepare the Data Box devices for the DPM/MABS Server to identify and transfer the initial backup data.
 
 ### Setup Azure Data Box disk
 
 If you ordered one or more Azure Data Box disks (up to 8 TB each), follow the steps mentioned [here](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-set-up) to unpack, connect, and unlock your Data Box disk.
 
 > [!NOTE]
-> It is possible that the DPM/MABS server does not have a USB port. In such a scenario, you can connect your Azure Data Box disk to another server/client and expose the root of the device as a network share.
+> It's possible that the DPM/MABS server doesn't have a USB port. In such a scenario, you can connect your Azure Data Box disk to another server/client and expose the root of the device as a network share.
 
 ## Setup Azure Data Box
 
@@ -104,7 +104,7 @@ Specify alternate source: *WIM:D:\Sources\Install.wim:4*
 
 ## Transfer initial backup data to Azure Data Box devices
 
-1. On your DPM/MABS Server, follow the steps to [create a new protection group](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-2019). If you're adding an online protection to the existing protection group, right-click the existing protection group, and select **Add Online Protection** and start from **Step 8**.
+1. On your DPM/MABS Server, follow the steps to [create a new protection group](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups). If you're adding an online protection to the existing protection group, right-click the existing protection group, and select **Add Online Protection** and start from **Step 8**.
 2. On the **Select Group Members** page, specify the computers and sources you want to back up.
 3. On the **Select data protection method** page, specify how you want to handle short and long-term backup. Make sure you select **I want online protection.**
 
@@ -125,7 +125,7 @@ Specify alternate source: *WIM:D:\Sources\Install.wim:4*
     ![Choose initial online replication](./media/offline-backup-azure-data-box-dpm-mabs/choose-initial-online-replication.png)
 
     >[!NOTE]
-    > The option to select **Transfer using Microsoft Owned disks** is not available for MABS v3 since the feature is in preview. Reach out to us at [systemcenterfeedback@microsoft.com](mailto:systemcenterfeedback@microsoft.com) if you want to use this feature for MABS v3.
+    > The option to select **Transfer using Microsoft Owned disks** isn't available for MABS v3 since the feature is in preview. Reach out to us at [systemcenterfeedback@microsoft.com](mailto:systemcenterfeedback@microsoft.com) if you want to use this feature for MABS v3.
 
 12. Sign into Azure when prompted, using the user credentials that have owner access on the Azure Subscription. After a successful sign-in, the following screen is displayed:
 
@@ -143,7 +143,7 @@ Specify alternate source: *WIM:D:\Sources\Install.wim:4*
           - Azure.Storage       *4.6.1*<br>
      >  - The Azure AD application is registered as *AzureOfflineBackup_\<object GUID of the user>*.
 
-13. Select the correct Data box order for which you have unpacked, connected, and unlocked your Data Box disk. Select **Next**.
+13. Select the correct Data box order for which you've unpacked, connected, and unlocked your Data Box disk. Select **Next**.
 
     ![Select the databox](./media/offline-backup-azure-data-box-dpm-mabs/select-databox.png)
 
@@ -197,7 +197,7 @@ Follow these steps once the data backup to the Azure Data Box Disk is successful
 
 ## Troubleshooting
 
-The Microsoft Azure Backup (MAB) agent on the DPM server creates an Azure AD application for you, in your tenant. This application requires a certificate for authentication that is created and uploaded when configuring offline seeding policy.
+The Microsoft Azure Backup (MAB) agent on the DPM server creates an Azure AD application for you, in your tenant. This application requires a certificate for authentication that's created and uploaded when configuring offline seeding policy.
 
 We use Azure PowerShell for creating and uploading the certificate to the Azure AD Application.
 
@@ -228,7 +228,7 @@ To resolve this issue, do the following steps and retry the policy configuration
 2. If no other server has offline seeding configured and no other server is dependent on the `AzureOfflineBackup_<Azure User Id>` application, then delete this application from **Azure portal > Azure Active Directory > App registrations**.
 
    > [!NOTE]
-   > Check if the application `AzureOfflineBackup_<Azure User Id>` does not have any other offline seeding configured and also no other server is dependent on this application. Go to **Settings > Keys** under the Public Keys section it should not have any other **public keys** added. See the following screenshot for reference:
+   > Check if the application `AzureOfflineBackup_<Azure User Id>` doesn't have any other offline seeding configured and also no other server is dependent on this application. Go to **Settings > Keys** under the Public Keys section. It shouldn't have any other **public keys** added. See the following screenshot for reference:
    >
    > ![Public keys](./media/offline-backup-azure-data-box-dpm-mabs/public-keys.png)
 

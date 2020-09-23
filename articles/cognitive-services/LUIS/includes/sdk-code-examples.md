@@ -6,9 +6,9 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.date: 08/12/2020
+ms.date: 09/01/2020
 ms.topic: include
-ms.custom: include file, devx-track-javascript
+ms.custom: include file, devx-track-js
 ms.author: diberry
 ---
 
@@ -21,5 +21,5 @@ These code snippets show you how to do the following with the Language Understan
 * [Add entities](#create-entities-for-the-app)
 * [Add example utterances](#add-example-utterance-to-intent)
 * [Train the app](#train-the-app)
-* [Publish the app](#publish-a-language-understanding-app)
+* [Publish the app](#publish-app-to-production-slot)
 * [Prediction by slot](#get-prediction-from-runtime)

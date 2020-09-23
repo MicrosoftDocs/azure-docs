@@ -1,6 +1,6 @@
 ---
 title: Azure AD Connect in Microsoft Cloud Germany
-description: Azure AD Connect will integrate your on-premises directories with Azure Active Directory. This allows you to provide a common identity for Office 365, Azure, and SaaS applications integrated with Azure AD.
+description: Azure AD Connect will integrate your on-premises directories with Azure Active Directory. This allows you to provide a common identity for Microsoft 365, Azure, and SaaS applications integrated with Azure AD.
 keywords: introduction to Azure AD Connect, Azure AD Connect overview, what is Azure AD Connect, install active directory, Germany, Black Forest
 services: active-directory
 documentationcenter: ''

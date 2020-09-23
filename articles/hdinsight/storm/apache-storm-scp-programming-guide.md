@@ -6,8 +6,9 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive
+ms.custom: "hdinsightactive, devx-track-csharp"
 ms.date: 01/13/2020
+
 ---
 
 # SCP programming guide for Apache Storm in Azure HDInsight

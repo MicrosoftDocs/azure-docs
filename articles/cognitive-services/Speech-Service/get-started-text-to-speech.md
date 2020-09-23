@@ -1,5 +1,5 @@
 ---
-title: "Speech synthesis quickstart - Speech service"
+title: "Text-to-speech quickstart - Speech service"
 titleSuffix: Azure Cognitive Services
 description: Learn how to use the Speech SDK to convert text-to-speech. In this quickstart, you learn about object construction and design patterns, supported audio output formats, the Speech CLI, and custom configuration options for speech synthesis.
 services: cognitive-services
@@ -8,13 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 08/11/2020
+ms.date: 09/01/2020
 ms.author: trbye
-ms.custom: devx-track-python, devx-track-javascript
+ms.custom: "devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020"
 zone_pivot_groups: speech-full-stack
+keywords: text to speech
 ---
 
-# Get started with speech synthesis
+# Get started with text-to-speech
 
 In this quickstart, you learn common design patterns for doing text-to-speech synthesis using the Speech SDK. You start by doing basic configuration and synthesis, and move on to more advanced examples for custom application development including:
 

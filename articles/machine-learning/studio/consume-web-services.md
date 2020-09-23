@@ -8,7 +8,7 @@ ms.topic: how-to
 
 author: likebupt
 ms.author: keli19
-ms.custom: seodec18, devx-track-python, devx-track-javascript
+ms.custom: "seodec18, devx-track-python, devx-track-js, devx-track-csharp"
 ms.date: 05/29/2020
 ---
 # How to consume a Machine Learning Studio (classic) web service

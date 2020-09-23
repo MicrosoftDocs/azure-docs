@@ -28,7 +28,7 @@ Examples of output field mappings:
 * You don’t have a skillset but are indexing a complex type from a Cosmos DB database. You would like to get to a node on that complex type and map it into a field in your index.
 
 > [!NOTE]
-> We recently enabled the functionality of mapping functions on output field mappings. For more details on mapping functions, see [Field mapping functions](https://docs.microsoft.com/azure/search/search-indexer-field-mappings#field-mapping-functions)
+> We recently enabled the functionality of mapping functions on output field mappings. For more details on mapping functions, see [Field mapping functions](./search-indexer-field-mappings.md#field-mapping-functions)
 
 ## Use outputFieldMappings
 

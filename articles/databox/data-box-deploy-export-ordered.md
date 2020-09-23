@@ -2,13 +2,13 @@
 title: Tutorial to export data from Azure Data Box | Microsoft Docs
 description: Learn the deployment prerequisites and how to export data from an Azure Data Box
 services: databox
-author: twooley
+author: alkohli
 
 ms.service: databox
 ms.subservice: pod
 ms.topic: how-to
-ms.date: 07/10/2020
-ms.author: twooley
+ms.date: 09/10/2020
+ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to export data from Azure to another location, such as, another cloud provider or my location.
 ---
 # Tutorial: Create export order for Azure Data Box (Preview)
@@ -111,9 +111,20 @@ Perform the following steps in the Azure portal to order a device.
 
    To see an example of the xml input, see [Sample XML input](data-box-deploy-export-ordered.md#sample-xml-file)
 
-9. In **Data selection**, review your settings and select **Next: Contact details>**.
+9. In **Data selection**, review your settings and select **Next: Security>**.
 
    ![Contact Details](media/data-box-deploy-export-ordered/azure-data-box-export-05.png)
+
+1. In **Security**, if you want to enable software-based double encryption, select **Enable double encryption for the order**. 
+
+   The software-based encryption is performed in addition to the AES-256 bit encryption of the data on the Data Box.
+
+   > [!NOTE]
+   > Enabling this option could make order processing and data copy take longer. You can't change this option after you create your order.
+
+   ![Security screen for data box import, double encryption](media/data-box-deploy-export-ordered/azure-data-box-export-05b.png)
+
+   Select **Next: Contact details** to continue.
 
 10. In the **Contact details**, select **+ Add Shipping Address** to enter your shipping information.
 

@@ -264,17 +264,7 @@ Your template has a `resources` object, which is an array that contains definiti
 
 ### View resource definitions
 
-To review the resource definitions for all the resources in an Azure resource group, either [download your logic app from Azure into Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md), which is the easiest way to create a valid parameterized logic app template that's mostly ready for deployment, or follow these steps in the Azure portal:
-
-1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure account credentials.
-
-1. Find the Azure resource group that contains your logic app, connections, and other resources.
-
-1. On the resource group toolbar, select **Overview**, and then select all the resources in the resource group.
-
-1. On the resource group toolbar, under **Settings**, select **Export template**.
-
-   The portal shows the definitions for the resources that you selected. For more information, see [Single and multi-resource export to a template in Azure portal](../azure-resource-manager/templates/export-template-portal.md).
+To review the resource definitions for all the resources in an Azure resource group, [download your logic app from Azure into Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md), which is the easiest way to create a valid parameterized logic app template that's mostly ready for deployment.
 
 For general information about template resources and their attributes, see these topics:
 
@@ -582,7 +572,7 @@ For more information about workflow definition parameters, see [Parameters - Wor
 
 ## Connection resource definitions
 
-When your logic app creates and uses connections to other services and system by using [managed connectors](../connectors/apis-list.md), your template's `resources` object contains the resource definitions for those connections.
+When your logic app creates and uses connections to other services and system by using [managed connectors](../connectors/apis-list.md), your template's `resources` object contains the resource definitions for those connections. Although you create connections from within a logic app, connections are separate Azure resources with their own resource definitions. To review these connection resource definitions, [download your logic app from Azure into Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md), which is the easiest way to create a valid parameterized logic app template that's mostly ready for deployment.
 
 ```json
 {

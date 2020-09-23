@@ -16,7 +16,7 @@ ms.date: 06/12/2020
 > [!IMPORTANT] 
 > This skill is currently in public preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). There is currently no .NET SDK support.
 
-The **AML** skill allows you to extend AI enrichment with a custom [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/overview-what-is-azure-ml) (AML) model. Once an AML model is [trained and deployed](https://docs.microsoft.com/azure/machine-learning/concept-azure-machine-learning-architecture#workflow), an **AML** skill integrates it into AI enrichment.
+The **AML** skill allows you to extend AI enrichment with a custom [Azure Machine Learning](../machine-learning/overview-what-is-azure-ml.md) (AML) model. Once an AML model is [trained and deployed](../machine-learning/concept-azure-machine-learning-architecture.md#workspace), an **AML** skill integrates it into AI enrichment.
 
 Like built-in skills, an **AML** skill has inputs and outputs. The inputs are sent to your deployed AML service as a JSON object, which outputs a JSON payload as a response along with a success status code. The response is expected to have the outputs specified by your **AML** skill. Any other response is considered an error and no enrichments are performed.
 
@@ -27,9 +27,9 @@ Like built-in skills, an **AML** skill has inputs and outputs. The inputs are se
 
 ## Prerequisites
 
-* An [AML workspace](https://docs.microsoft.com/azure/machine-learning/concept-workspace)
-* An [Azure Kubernetes Service AML compute target](https://docs.microsoft.com/azure/machine-learning/concept-compute-target) in this workspace with a [deployed model](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-azure-kubernetes-service)
-  * The [compute target should have SSL enabled](https://docs.microsoft.com/azure/machine-learning/how-to-secure-web-service#deploy-on-aks-and-field-programmable-gate-array-fpga). Azure Cognitive Search only allows access to **https** endpoints
+* An [AML workspace](../machine-learning/concept-workspace.md)
+* An [Azure Kubernetes Service AML compute target](../machine-learning/concept-compute-target.md) in this workspace with a [deployed model](../machine-learning/how-to-deploy-azure-kubernetes-service.md)
+  * The [compute target should have SSL enabled](../machine-learning/how-to-secure-web-service.md#deploy-on-aks-and-field-programmable-gate-array-fpga). Azure Cognitive Search only allows access to **https** endpoints
   * Self-signed certificates may not be used.
 
 ## @odata.type  
@@ -41,8 +41,8 @@ Parameters are case-sensitive. Which parameters you choose to use depends on wha
 
 | Parameter name | Description |
 |--------------------|-------------|
-| `uri` | (Required for [no authentication or key authentication](#WhatSkillParametersToUse)) The [scoring URI of the AML service](https://docs.microsoft.com/azure/machine-learning/how-to-consume-web-service) to which the _JSON_ payload will be sent. Only the **https** URI scheme is allowed. |
-| `key` | (Required for [key authentication](#WhatSkillParametersToUse)) The [key for the AML service](https://docs.microsoft.com/azure/machine-learning/how-to-consume-web-service#authentication-with-keys). |
+| `uri` | (Required for [no authentication or key authentication](#WhatSkillParametersToUse)) The [scoring URI of the AML service](../machine-learning/how-to-consume-web-service.md) to which the _JSON_ payload will be sent. Only the **https** URI scheme is allowed. |
+| `key` | (Required for [key authentication](#WhatSkillParametersToUse)) The [key for the AML service](../machine-learning/how-to-consume-web-service.md#authentication-with-keys). |
 | `resourceId` | (Required for [token authentication](#WhatSkillParametersToUse)). The Azure Resource Manager resource ID of the AML service. It should be in the format subscriptions/{guid}/resourceGroups/{resource-group-name}/Microsoft.MachineLearningServices/workspaces/{workspace-name}/services/{service_name}. |
 | `region` | (Optional for [token authentication](#WhatSkillParametersToUse)). The [region](https://azure.microsoft.com/global-infrastructure/regions/) the AML service is deployed in. |
 | `timeout` | (Optional) When specified, indicates the timeout for the http client making the API call. It must be formatted as an XSD "dayTimeDuration" value (a restricted subset of an [ISO 8601 duration](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) value). For example, `PT60S` for 60 seconds. If not set, a default value of 30 seconds is chosen. The timeout can be set to a maximum of 230 seconds and a minimum of 1 second. |
@@ -54,9 +54,9 @@ Parameters are case-sensitive. Which parameters you choose to use depends on wha
 
 Which AML skill parameters are required depends on what authentication your AML service uses, if any. AML services provide three authentication options:
 
-* [Key-Based Authentication](https://docs.microsoft.com/azure/machine-learning/concept-enterprise-security#authentication-for-web-service-deployment). A static key is provided to authenticate scoring requests from AML skills
+* [Key-Based Authentication](../machine-learning/concept-enterprise-security.md#authentication-for-web-service-deployment). A static key is provided to authenticate scoring requests from AML skills
   * Use the _uri_ and _key_ parameters
-* [Token-Based Authentication](https://docs.microsoft.com/azure/machine-learning/concept-enterprise-security#authentication). The AML service is [deployed using token based authentication](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-azure-kubernetes-service#authentication-with-tokens). The Azure Cognitive Search service's [managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) is granted the [Reader Role](https://docs.microsoft.com/azure/machine-learning/how-to-assign-roles) in the AML service's workspace. The AML skill then uses the Azure Cognitive Search service's managed identity to authenticate against the AML service, with no static keys required.
+* [Token-Based Authentication](../machine-learning/concept-enterprise-security.md#authentication). The AML service is [deployed using token based authentication](../machine-learning/how-to-deploy-azure-kubernetes-service.md#authentication-with-tokens). The Azure Cognitive Search service's [managed identity](../active-directory/managed-identities-azure-resources/overview.md) is granted the [Reader Role](../machine-learning/how-to-assign-roles.md) in the AML service's workspace. The AML skill then uses the Azure Cognitive Search service's managed identity to authenticate against the AML service, with no static keys required.
   * Use the _resourceId_ parameter.
   * If the Azure Cognitive Search service is in a different region from the AML workspace, use the _region_ parameter to set the region the AML service was deployed in
 * No Authentication. No authentication is required to use the AML service
@@ -167,4 +167,4 @@ For cases when the AML service is unavailable or returns an HTTP error, a friend
 ## See also
 
 + [How to define a skillset](cognitive-search-defining-skillset.md)
-+ [AML Service troubleshooting](https://docs.microsoft.com/azure/machine-learning/how-to-troubleshoot-deployment)
++ [AML Service troubleshooting](../machine-learning/how-to-troubleshoot-deployment.md)

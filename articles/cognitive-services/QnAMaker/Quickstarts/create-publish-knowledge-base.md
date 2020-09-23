@@ -85,7 +85,7 @@ In the upper right, select **Save and train** to save your edits and train QnA M
 
 ## Publish the knowledge base
 
-When you publish a knowledge base, the contents of your knowledge base moves from the `test` index to a `prod` index in Azure search.
+When you publish a knowledge base, the contents of your knowledge base move from the `test` index to a `prod` index in Azure search.
 
 ![Screenshot of moving the contents of your knowledge base](../media/qnamaker-how-to-publish-kb/publish-prod-test.png)
 

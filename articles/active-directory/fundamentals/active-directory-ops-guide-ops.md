@@ -44,8 +44,8 @@ As you review your list, you may find you need to either assign an owner for tas
 
 #### Owners recommended reading
 
-- [Assigning administrator roles in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal)
-- [Governance in Azure](https://docs.microsoft.com/azure/security/governance-in-azure)
+- [Assigning administrator roles in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md)
+- [Governance in Azure](../../governance/index.yml)
 
 ## Hybrid management
 
@@ -64,12 +64,12 @@ Unless one has been established, you should define a process to upgrade these co
 
 #### Hybrid management recommended reading
 
-- [Azure AD Connect: Automatic upgrade](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)
-- [Understand Azure AD Application Proxy connectors | Automatic updates](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectors#automatic-updates)
+- [Azure AD Connect: Automatic upgrade](../hybrid/how-to-connect-install-automatic-upgrade.md)
+- [Understand Azure AD Application Proxy connectors | Automatic updates](../manage-apps/application-proxy-connectors.md#automatic-updates)
 
 ### Azure AD Connect Health alert baseline
 
-Organizations should deploy [Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-azure-ad-connect#what-is-azure-ad-connect-health) for monitoring and reporting of Azure AD Connect and AD FS. Azure AD Connect and AD FS are critical components that can break lifecycle management and authentication and therefore lead to outages. Azure AD Connect Health helps monitor and gain insights into your on-premises identity infrastructure thus ensuring the reliability of your environment.
+Organizations should deploy [Azure AD Connect Health](../hybrid/whatis-azure-ad-connect.md#what-is-azure-ad-connect-health) for monitoring and reporting of Azure AD Connect and AD FS. Azure AD Connect and AD FS are critical components that can break lifecycle management and authentication and therefore lead to outages. Azure AD Connect Health helps monitor and gain insights into your on-premises identity infrastructure thus ensuring the reliability of your environment.
 
 ![Azure AD Connect Heath architecture](./media/active-directory-ops-guide/active-directory-ops-img16.png)
 
@@ -77,7 +77,7 @@ As you monitor the health of your environment, you must immediately address any 
 
 #### Azure AD Connect Health recommended reading
 
-- [Azure AD Connect Health Agent Installation](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-agent-install)
+- [Azure AD Connect Health Agent Installation](../hybrid/how-to-connect-health-agent-install.md)
 
 ### On-premises agents logs
 
@@ -85,11 +85,11 @@ Some identity and access management services require on-premises agents to enabl
 
 #### On-premises agents logs recommended reading
 
-- [Troubleshoot Application Proxy](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-troubleshoot)
-- [Self-service password reset troubleshooting- Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#password-writeback-event-log-error-codes)
-- [Understand Azure AD Application Proxy connectors](https://docs.microsoft.com/azure/active-directory/application-proxy-understand-connectors)
-- [Azure AD Connect: Troubleshoot Pass-through Authentication](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-pass-through-authentication#collecting-pass-through-authentication-agent-logs)
-- [Troubleshoot error codes for the Azure MFA NPS extension](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-nps-errors)
+- [Troubleshoot Application Proxy](../manage-apps/application-proxy-troubleshoot.md)
+- [Self-service password reset troubleshooting- Azure Active Directory](../authentication/active-directory-passwords-troubleshoot.md#password-writeback-event-log-error-codes)
+- [Understand Azure AD Application Proxy connectors](../manage-apps/application-proxy-connectors.md)
+- [Azure AD Connect: Troubleshoot Pass-through Authentication](../hybrid/tshoot-connect-pass-through-authentication.md#collecting-pass-through-authentication-agent-logs)
+- [Troubleshoot error codes for the Azure MFA NPS extension](../authentication/howto-mfa-nps-extension-errors.md)
 
 ### On-premises agents management
 
@@ -101,14 +101,14 @@ Adopting best practices can help the optimal operation of on-premises agents. Co
 
 #### On-premises agents management recommended reading
 
-- [Understand Azure AD Application Proxy connectors](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectors)
+- [Understand Azure AD Application Proxy connectors](../manage-apps/application-proxy-connectors.md)
 - [Azure AD Pass-through Authentication - quickstart](../hybrid/how-to-connect-pta-quick-start.md#step-4-ensure-high-availability)
 
 ## Management at scale
 
 ### Identity secure score
 
-The [identity secure score](https://docs.microsoft.com/azure/active-directory/fundamentals/identity-secure-score) provides a quantifiable measure of the security posture of your organization. It is key to constantly review and address findings reported and strive to have the highest score possible. The score helps you to:
+The [identity secure score](./identity-secure-score.md) provides a quantifiable measure of the security posture of your organization. It is key to constantly review and address findings reported and strive to have the highest score possible. The score helps you to:
 
 - Objectively measure your identity security posture
 - Plan identity security improvements
@@ -120,15 +120,15 @@ If your organization currently has no program in place to monitor changes in Ide
 
 ### Notifications
 
-Microsoft sends email communications to administrators to notify various changes in the service, configuration updates that are needed, and errors that require admin intervention. It is important that customers set the notification email addresses so that notifications are sent to the proper team members who can acknowledge and act upon all notifications. We recommend you add multiple recipients to the [Office 365 Message Center](https://docs.microsoft.com/office365/admin/manage/message-center) and request that notifications (including Azure AD Connect Health notifications) be sent to a distribution list or shared mailbox. If you only have one global admin account with an email address, be sure to configure at least two email-capable accounts.
+Microsoft sends email communications to administrators to notify various changes in the service, configuration updates that are needed, and errors that require admin intervention. It is important that customers set the notification email addresses so that notifications are sent to the proper team members who can acknowledge and act upon all notifications. We recommend you add multiple recipients to the [Message Center](/office365/admin/manage/message-center) and request that notifications (including Azure AD Connect Health notifications) be sent to a distribution list or shared mailbox. If you only have one global admin account with an email address, be sure to configure at least two email-capable accounts.
 
-There are two "From" addresses used by Azure AD: <o365mc@email2.microsoft.com>, which sends Office 365 Message Center notifications; and <azure-noreply@microsoft.com>, which sends notifications related to:
+There are two "From" addresses used by Azure AD: <o365mc@email2.microsoft.com>, which sends Message Center notifications; and <azure-noreply@microsoft.com>, which sends notifications related to:
 
-- [Azure AD Access Reviews](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
-- [Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-operations#enable-email-notifications)
-- [Azure AD Identity Protection](/azure/active-directory/identity-protection/howto-identity-protection-configure-notifications)
-- [Azure AD Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-email-notifications)
-- [Enterprise App Expiring Certificate Notifications](https://docs.microsoft.com/azure/active-directory/manage-apps/manage-certificates-for-federated-single-sign-on#add-email-notification-addresses-for-certificate-expiration)
+- [Azure AD Access Reviews](../governance/access-reviews-overview.md)
+- [Azure AD Connect Health](../hybrid/how-to-connect-health-operations.md#enable-email-notifications)
+- [Azure AD Identity Protection](../identity-protection/howto-identity-protection-configure-notifications.md)
+- [Azure AD Privileged Identity Management](../privileged-identity-management/pim-email-notifications.md)
+- [Enterprise App Expiring Certificate Notifications](../manage-apps/manage-certificates-for-federated-single-sign-on.md#add-email-notification-addresses-for-certificate-expiration)
 - Enterprise App Provisioning Service Notifications
 
 Refer to the following table to learn the type of notifications that are sent and where to check for them:
@@ -136,20 +136,20 @@ Refer to the following table to learn the type of notifications that are sent an
 | Notification source | What is sent | Where to check |
 |:-|:-|:-|
 | Technical contact | Sync errors | Azure portal - properties blade |
-| Office 365 Message Center | Incident and degradation notices of Identity Services and O365 backend services | Office Portal |
+| Message Center | Incident and degradation notices of Identity Services and Microsoft 365 backend services | Office Portal |
 | Identity Protection Weekly Digest | Identity Protection Digest | Azure AD Identity Protection blade |
 | Azure AD Connect Health | Alert notifications | Azure portal - Azure AD Connect Health blade |
 | Enterprise Applications Notifications | Notifications when certificates are about to expire and provisioning errors | Azure portal - Enterprise Application blade (each app has its own email address setting) |
 
 #### Notifications recommended reading
 
-- [Change your organization's address, technical contact, and more - Office 365](https://docs.microsoft.com/office365/admin/manage/change-address-contact-and-more)
+- [Change your organization's address, technical contact, and more](/office365/admin/manage/change-address-contact-and-more)
 
 ## Operational surface area
 
 ### AD FS lockdown
 
-Organizations, which configure applications to authenticate directly to Azure AD benefit from [Azure AD smart lockout](https://docs.microsoft.com/azure/active-directory/active-directory-secure-passwords). If you use AD FS in Windows Server 2012 R2, implement AD FS [extranet lockout protection](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection). If you use AD FS on Windows Server 2016 or later, implement [extranet smart lockout](https://support.microsoft.com/help/4096478/extranet-smart-lockout-feature-in-windows-server-2016). At a minimum, we recommend you enable extranet lockout to contain the risk of brute force attacks against on-premises Active Directory. However, if you have AD FS in Windows 2016 or higher, you should also enable extranet smart lockout that will help to mitigate [password spray](https://www.microsoft.com/microsoft-365/blog/2018/03/05/azure-ad-and-adfs-best-practices-defending-against-password-spray-attacks/) attacks.
+Organizations, which configure applications to authenticate directly to Azure AD benefit from [Azure AD smart lockout](../authentication/concept-sspr-howitworks.md). If you use AD FS in Windows Server 2012 R2, implement AD FS [extranet lockout protection](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection). If you use AD FS on Windows Server 2016 or later, implement [extranet smart lockout](https://support.microsoft.com/help/4096478/extranet-smart-lockout-feature-in-windows-server-2016). At a minimum, we recommend you enable extranet lockout to contain the risk of brute force attacks against on-premises Active Directory. However, if you have AD FS in Windows 2016 or higher, you should also enable extranet smart lockout that will help to mitigate [password spray](https://www.microsoft.com/microsoft-365/blog/2018/03/05/azure-ad-and-adfs-best-practices-defending-against-password-spray-attacks/) attacks.
 
 If AD FS is only used for Azure AD federation, there are some endpoints that can be turned off to minimize the attack surface area. For example, if AD FS is only used for Azure AD, you should disable WS-Trust endpoints other than the endpoints enabled for **usernamemixed** and **windowstransport**.
 
@@ -159,7 +159,7 @@ Organizations should lock down access to the machines with on-premises hybrid co
 
 The Active Directory administrative tier model was designed to protect identity systems using a set of buffer zones between full control of the Environment (Tier 0) and the high-risk workstation assets that attackers frequently compromise. ![Diagram showing the three layers of the Tier model](./media/active-directory-ops-guide/active-directory-ops-img18.png)
 
-The [tier model](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material) is composed of three levels and only includes administrative accounts, not standard user accounts.
+The [tier model](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material) is composed of three levels and only includes administrative accounts, not standard user accounts.
 
 - **Tier 0** - Direct Control of enterprise identities in the environment. Tier 0 includes accounts, groups, and other assets that have direct or indirect administrative control of the Active Directory forest, domains, or domain controllers, and all the assets in it. The security sensitivity of all Tier 0 assets is equivalent as they are all effectively in control of each other.
 - **Tier 1** - Control of enterprise servers and applications. Tier 1 assets include server operating systems, cloud services, and enterprise applications. Tier 1 administrator accounts have administrative control of a significant amount of business value that is hosted on these assets. A common example role is server administrators who maintain these operating systems with the ability to impact all enterprise services.

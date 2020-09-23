@@ -1,14 +1,9 @@
 - name: Immersive Reader Documentation
   href: index.yml
-- name: Overview
-  items:
-  - name: What is Immersive Reader?
-    href: Overview.md
-- name: Quickstarts
-  expanded: true
-  items:
-  - name: Using the client library
-    href: ./quickstarts/client-libraries.md
+- name: What is Immersive Reader?
+  href: Overview.md
+- name: Quickstart
+  href: ./quickstarts/client-libraries.md
 - name: Tutorials
   items:
   - name: Launch the Immersive Reader (Android)

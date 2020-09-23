@@ -45,16 +45,16 @@ You can use this restore option to restore the complete file share in the origin
 
    ![Select Restore Share](./media/restore-afs/restore-share.png)
 
-1. After you select **Restore Share**, the **Restore** pane opens. To select the restore point you want to use for performing the restore operation, click  the **Select** link text below the **Restore Point** text box.
+1. After you select **Restore Share**, the **Restore** pane opens. To select the restore point you want to use for performing the restore operation, choose  the **Select** link text below the **Restore Point** text box.
 
-    ![Select restore point by clicking Select](./media/restore-afs/select-restore-point.png)
+    ![Select restore point by choosing Select](./media/restore-afs/select-restore-point.png)
 
 1. The **Select Restore Point** context pane opens on the right, listing the restore points available for the selected file share. Select the restore point you want to use to perform the restore operation, and select **OK**.
 
     ![Select restore point](./media/restore-afs/restore-point.png)
 
     >[!NOTE]
-    >By default, the **Select Restore Point** pane lists restore points from the last 30 days. If you want to look at the restore points created during a specific duration, specify the range by selecting the appropriate **Start Time** and **End Time** and click the **Refresh** button.
+    >By default, the **Select Restore Point** pane lists restore points from the last 30 days. If you want to look at the restore points created during a specific duration, specify the range by selecting the appropriate **Start Time** and **End Time** and select the **Refresh** button.
 
 1. The next step is to choose the **Restore Location**. In the **Recovery Destination** section, specify where or how to restore the data. Select one of the following two options by using the toggle button:
 
@@ -88,9 +88,9 @@ You can use this restore option to restore individual files or folders in the or
 
     ![Select File Recovery](./media/restore-afs/file-recovery.png)
 
-1. After you select **File Recovery**, the **Restore** pane opens. To select the restore point you want to use for performing the restore operation, click the **Select** link text below the **Restore Point** text box.
+1. After you select **File Recovery**, the **Restore** pane opens. To select the restore point you want to use for performing the restore operation, select the **Select** link text below the **Restore Point** text box.
 
-    ![Select restore point by clicking Select](./media/restore-afs/select-restore-point.png)
+    ![Select restore point by choosing the Select link](./media/restore-afs/select-restore-point.png)
 
 1. The **Select Restore Point** context pane opens on the right, listing the restore points available for the selected file share. Select the restore point you want to use to perform the restore operation, and select **OK**.
 
@@ -107,7 +107,7 @@ You can use this restore option to restore individual files or folders in the or
 
     ![Original Location for item-level recovery](./media/restore-afs/original-location-item-level.png)
 
-1. To select the files or folders you want to restore, click the **Add File** button. This will open a context pane on the right, displaying the contents of the file share recovery point you selected for restore.
+1. To select the files or folders you want to restore, select the **Add File** button. This will open a context pane on the right, displaying the contents of the file share recovery point you selected for restore.
 
     ![Choose Add File](./media/restore-afs/add-file.png)
 
@@ -127,7 +127,7 @@ You can use this restore option to restore individual files or folders in the or
 1. The **Select File Share** drop-down list displays the file shares present in the storage account you selected in step 2. Select the file share where you want to restore the backed-up contents.
 1. In the **Folder Name** box, specify a folder name you want to create in the destination file share with the restored contents.
 1. Select whether to skip or overwrite if there are conflicts.
-1. To select the files or folders you want to restore, click the **Add File** button. This will open a context pane on the right displaying the contents of the file share recovery point you selected for restore.
+1. To select the files or folders you want to restore, select the **Add File** button. This will open a context pane on the right displaying the contents of the file share recovery point you selected for restore.
 
     ![Select items to restore to alternate location](./media/restore-afs/restore-to-alternate-location.png)
 

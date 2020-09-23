@@ -5,7 +5,7 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: peshultz
-ms.custom: mvc
+ms.custom: "mvc, devx-track-csharp"
 ---
 
 # Tutorial: Trigger a Batch job using Azure Functions

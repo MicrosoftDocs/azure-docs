@@ -36,6 +36,9 @@ To complete this tutorial:
 Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 
 ## Create a new dashboard
+> [!WARNING]
+> If you move your application insights resource over to a different resource group or subscription, you will need to manually update the dashboard by removing the old tiles and pinning new tiles from the same application insights resource at new location. 
+
 A single dashboard can contain resources from multiple applications, resource groups, and subscriptions.  Start the tutorial by creating a new dashboard for your application.  
 
 1. On the dashboard pane, select **New dashboard**.

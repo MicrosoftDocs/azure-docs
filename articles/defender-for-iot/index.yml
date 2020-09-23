@@ -1,0 +1,114 @@
+### YamlMime:Landing
+
+title: Azure Defender for IoT documentation
+summary: Azure Defender for IoT is an Azure based cloud security service providing comprehensive IoT device threat protection.
+
+metadata:
+  title: Azure Defender for IoT documentation
+  description: Learn how Azure Defender for IoT, an Azure based cloud security service provides comprehensive IoT device threat protection.
+  services: service
+  ms.service: defender-for-iot
+  ms.topic: landing-page
+  ms.collection: M365-security-compliance
+  author: mlottner
+  ms.author: mlottner
+  ms.date: 09/07/2020
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+
+  - title: About Azure Defender for IoT
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Defender for IoT?
+            url: overview.md
+          - text: Security Module for Azure RTOS 
+            url: iot-security-azure-rtos.md
+          - text: Plan your solution
+            url: service-prerequisites.md
+      - linkListType: architecture
+        links:
+          - text: Understand Azure Defender for IoT architecture
+            url: architecture.md
+          - text: Azure Defender for IoT Agents
+            url: security-agent-architecture.md
+          - text: Edge security module
+            url: security-edge-architecture.md
+  - title: Onboard Azure Defender for IoT into IoT Hub
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Get started with Azure Defender for IoT
+            url: getting-started.md
+          - text: IoT Hub
+            url: iot-hub-integration.md
+          - text: Get started with Security Module for Azure RTOS
+            url: concept-rtos-security-module.md
+          - text: Security agents
+            url: security-agents.md
+  - title: Configure your solution
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Enable Azure Defender for IoT in IoT Hub
+            url: quickstart-onboard-iot-hub.md
+          - text: Configure your IoT security solution
+            url: quickstart-configure-your-solution.md
+          - text: Configure your Security Module for Azure RTOS 
+            url: quickstart-azure-rtos-security-module.md
+          - text: Create an Azure Defender for IoT module twin
+            url: quickstart-create-security-twin.md
+          - text: Create custom security alerts
+            url: quickstart-create-custom-alerts.md
+          - text: Investigate security alerts
+            url: quickstart-investigate-security-alerts.md
+  - title: Customize your solution
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Customize the Security Module for Azure RTOS 
+            url: how-to-azure-rtos-security-module.md
+          - text: Choose an agent
+            url: how-to-deploy-agent.md
+          - text: Deploy an Azure Defender for IoT C#-based security agent for Windows
+            url: how-to-deploy-windows-cs.md
+          - text: Deploy Azure Defender for IoT C# based security agent for Linux
+            url: how-to-deploy-linux-cs.md
+          - text: Deploy Azure Defender for IoT C based security agent for Linux
+            url: how-to-deploy-linux-c.md
+          - text: Deploy Edge security module
+            url: how-to-deploy-edge.md
+          - text: Configure security agents
+            url: how-to-agent-configuration.md
+          - text: Send your own security messages
+            url: how-to-send-security-messages.md
+          - text: Access raw security data
+            url: how-to-security-data-access.md
+          - text: Investigate a device
+            url: how-to-investigate-device.md
+  - title: Troubleshoot a security agent
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Security agent troubleshoot guide (Linux)
+            url: troubleshoot-agent.md
+          - text: Understanding the LocalConfiguration.json file - C agent
+            url: azure-iot-security-local-configuration-c.md
+          - text: Understanding the Local configuration file - C# agent
+            url: azure-iot-security-local-configuration-csharp.md
+  - title: Azure Defender for IoT solution resources
+    linkLists:
+      - linkListType: video
+        links:
+          - text: What is Azure Defender for IoT?
+            url: https://youtu.be/pq5uSp9u_x0
+          - text: Understanding Azure Defender for IoT
+            url: https://www.youtube.com/watch?time_continue=5&v=YOqkahQsKek
+      - linkListType: reference
+        links:
+          - text: Frequently asked questions
+            url: resources-frequently-asked-questions.md
+          - text: Pricing and associated costs
+            url: concept-pricing.md

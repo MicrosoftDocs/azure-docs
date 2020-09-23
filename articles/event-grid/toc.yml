@@ -48,7 +48,7 @@
     href: resize-images-on-storage-blob-upload-event.md
   - name: Trigger Automation runbook
     href: ensure-tags-exists-on-new-virtual-machines.md
-  - name: Email when IoT Hub device added
+  - name: Email when IoT Hub device disconnects
     href: publish-iot-hub-events-to-logic-apps.md
   - name: Respond to Service Bus events
     href: ../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json
@@ -94,8 +94,6 @@
     href: template-samples.md
   - name: Code samples
     href: /samples/browse/?term=Event+Grid
-  - name: Azure Policy built-ins
-    href: ./policy-samples.md
 - name: Concepts
   items:    
   - name: Event Grid terminology
@@ -216,7 +214,7 @@
     href: auth0-how-to.md
   - name: Receive events at HTTP endpoint
     href: receive-events.md
-  - name: Dead letter and retry
+  - name: Set dead-letter location and retry policy
     href: manage-event-delivery.md
   - name: Filter events
     href: how-to-filter-events.md
@@ -234,13 +232,23 @@
     href: custom-disaster-recovery.md
   - name: Track asynchronous REST operations
     href: ../azure-resource-manager/management/async-operations.md?toc=%2fazure%2fevent-grid%2ftoc.json
+  - name: Move
+    items:
+    - name: Move system topics across regions
+      href: move-system-topics-across-regions.md
+    - name: Move custom topics across regions
+      href: move-custom-topics-across-regions.md
+    - name: Move domains across regions
+      href: move-domains-across-regions.md
+    - name: Move partner namespaces across regions
+      href: move-partner-namespaces-across-regions.md
   - name: Secure
     items:
     - name: Configure private endpoints
       href: configure-private-endpoints.md
     - name: Configure IP firewall
       href: configure-firewall.md
-    - name: Secure Webhook with AAD
+    - name: Secure Webhook with Azure Active Directory
       href: secure-webhook-delivery.md
     - name: Event delivery with managed identity
       href: managed-service-identity.md
@@ -286,6 +294,9 @@
       href: /azure/templates/microsoft.eventgrid/topics
   - name: SDKs
     href: sdk-overview.md
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn

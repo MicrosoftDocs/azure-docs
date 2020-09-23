@@ -13,7 +13,8 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 
-ms.collection: M365-identity-device-management
+ms.collection: M365-identity-device-management 
+ms.custom: devx-track-azurepowershell
 ---
 # Pre-populate user authentication contact information for Azure Active Directory self-service password reset (SSPR)
 

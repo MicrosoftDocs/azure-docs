@@ -383,6 +383,8 @@ For an example of how to delete all twins at once, download the sample app used 
 
 Twins can also be managed using the Azure Digital Twins CLI. The commands can be found in [*How-to: Use the Azure Digital Twins CLI*](how-to-use-cli.md).
 
+[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
+
 ## Next steps
 
 See how to create and manage relationships between your digital twins:

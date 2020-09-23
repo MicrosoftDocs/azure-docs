@@ -9,7 +9,7 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: douglas, carlrab, sstein
-ms.date: 08/18/2020
+ms.date: 08/31/2020
 ---
 
 # User-initiated manual failover on SQL Managed Instance
@@ -31,6 +31,15 @@ You might consider executing a [manual failover](../database/high-availability-s
 > Ensuring that your applications are failover resilient prior to deploying to production will help mitigate the risk of application faults in production and will contribute to application availability for your customers.
 
 ## Initiate manual failover on SQL Managed Instance
+
+### RBAC permissions required
+
+User initiating a failover will need to have one of the following RBAC roles:
+
+- Subscription Owner role, or
+- Managed Instance Contributor role, or
+- Custom role with the following permission:
+  - `Microsoft.Sql/managedInstances/failover/action`
 
 ### Using PowerShell
 

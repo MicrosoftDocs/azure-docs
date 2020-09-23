@@ -16,9 +16,12 @@ ms.topic: article
 ms.date: 05/07/2020
 ms.author: willzhan
 ms.reviewer: dwgeo
+ms.custom: devx-track-csharp
 
 ---
-# Offline FairPlay Streaming for iOS 
+# Offline FairPlay Streaming for iOS
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
 > * [Version 3](../latest/offline-fairplay-for-ios.md)

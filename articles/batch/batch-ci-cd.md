@@ -23,8 +23,8 @@ In this example, we will create a build and release pipeline to deploy an Azure 
 
 To follow the steps in this article, you need an Azure DevOps organization and a team project.
 
-* [Create an Azure DevOps Organization](/azure/devops/organizations/accounts/create-organization?view=azure-devops)
-* [Create a project in Azure DevOps](/azure/devops/organizations/projects/create-project?view=azure-devops)
+* [Create an Azure DevOps Organization](/azure/devops/organizations/accounts/create-organization)
+* [Create a project in Azure DevOps](/azure/devops/organizations/projects/create-project)
 
 ### Source control for your environment
 
@@ -43,7 +43,7 @@ The codebase structure used in this sample resembles the following;
 
 This section assumes you are familiar with version control and designing Resource Manager templates. If you aren't familiar with these concepts, see the following pages for more information.
 
-* [What is source control?](/azure/devops/user-guide/source-control?view=azure-devops)
+* [What is source control?](/azure/devops/user-guide/source-control)
 * [Understand the structure and syntax of Azure Resource Manager Templates](../azure-resource-manager/templates/template-syntax.md)
 
 #### Azure Resource Manager templates
@@ -304,7 +304,7 @@ Now that the source code is set up, we can begin the first build.
 
 ## Continuous integration
 
-[Azure Pipelines](/azure/devops/pipelines/get-started/?view=azure-devops), within Azure DevOps Services, helps you implement a build, test, and deployment pipeline for your applications.
+[Azure Pipelines](/azure/devops/pipelines/get-started/), within Azure DevOps Services, helps you implement a build, test, and deployment pipeline for your applications.
 
 In this stage of your pipeline, tests are typically run to validate code and build the appropriate pieces of the software. The number and types of tests, and any additional tasks that you run will depend on your wider build and release strategy.
 
@@ -318,9 +318,9 @@ In this example, we will focus on the **hpc-application** folder. The **hpc-appl
 
 1. You have two options to create a Build pipeline:
 
-    a. [Using the Visual Designer](/azure/devops/pipelines/get-started-designer?view=azure-devops&tabs=new-nav). To use this, click "Use the visual designer" on the **New pipeline** page.
+    a. [Using the Visual Designer](/azure/devops/pipelines/get-started-designer). To use this, click "Use the visual designer" on the **New pipeline** page.
 
-    b. [Using YAML Builds](/azure/devops/pipelines/get-started-yaml?view=azure-devops). You can create a new YAML pipeline by clicking the Azure Repos or GitHub option on the New pipeline page. Alternatively, you can store the example below in your source control and reference an existing YAML file by clicking on Visual Designer, and then using the YAML template.
+    b. [Using YAML Builds](/azure/devops/pipelines/get-started-yaml). You can create a new YAML pipeline by clicking the Azure Repos or GitHub option on the New pipeline page. Alternatively, you can store the example below in your source control and reference an existing YAML file by clicking on Visual Designer, and then using the YAML template.
 
     ```yml
     # To publish an application into Azure Batch, we need to
@@ -352,7 +352,7 @@ In this example, we will focus on the **hpc-application** folder. The **hpc-appl
     ![View live outputs from your build](media/batch-ci-cd/Build-1.jpg)
 
 > [!NOTE]
-> If you use a client application to execute your HPC Batch Application, you need to create a separate build definition for that application. You can find a number of how-to guides in the [Azure Pipelines](/azure/devops/pipelines/get-started/index?view=azure-devops) documentation.
+> If you use a client application to execute your HPC Batch Application, you need to create a separate build definition for that application. You can find a number of how-to guides in the [Azure Pipelines](/azure/devops/pipelines/get-started/index) documentation.
 
 ## Continuous deployment
 

@@ -20,6 +20,22 @@ ms.custom: devx-track-python
 
 A workflow is defined by a YAML (.yml) file in the `/.github/workflows/` path in your repository. This definition contains the various steps and parameters that make up the workflow.
 
+## Use the Deployment Center
+
+You can quickly get started with GitHub Actions by using the App Service Deployment Center. This will automatically generate a workflow file based on your application stack and commit it to your GitHub repository in the correct directory.
+
+1. Navigate to your webapp in the Azure Portal
+1. On the left side, click **Deployment Center**
+1. Under **Continuous Deployment (CI / CD)**, select **GitHub**
+1. Next, select **GitHub Actions**
+1. Use the dropdowns to select your GitHub repository, branch, and application stack
+    - If the selected branch is protected, you can still continue to add the workflow file. Be sure to review your branch protections before continuing.
+1. On the final screen, you can review your selections and preview the workflow file that will be committed to the repository. If the selections are correct, click **Finish**
+
+This will commit the workflow file to the repository. The workflow to build and deploy your app will start immediately.
+
+## Add the workflow manually
+
 For an Azure App Service workflow, the file has three sections:
 
 |Section  |Tasks  |
@@ -32,7 +48,7 @@ For an Azure App Service workflow, the file has three sections:
 
 # [User-level credentials](#tab/userlevel)
 
-You can create a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) by using the [az ad sp create-for-rbac](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) command in the [Azure CLI](https://docs.microsoft.com/cli/azure/). You can run this command using [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
+You can create a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) by using the [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) command in the [Azure CLI](/cli/azure/). You can run this command using [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "myApp" --role contributor \

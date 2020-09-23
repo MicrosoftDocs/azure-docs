@@ -6,7 +6,7 @@ ms.date: 05/24/2020
 ---
 # Back up VMware VMs with Azure Backup Server
 
-This article explains how to back up VMware VMs running on VMware ESXi hosts/vCenter Server to Azure using Azure Backup Server.
+This article explains how to back up VMware VMs running on VMware ESXi hosts/vCenter Server to Azure using Azure Backup Server (MABS).
 
 This article explains how to:
 
@@ -15,6 +15,31 @@ This article explains how to:
 - Add the account credentials to Azure Backup.
 - Add the vCenter or ESXi server to Azure Backup Server.
 - Set up a protection group that contains the VMware VMs you want to back up, specify backup settings, and schedule the backup.
+
+## Supported VMware features
+
+MABS provides the following features when backing up VMware virtual machines:
+
+- Agentless backup: MABS doesn't require an agent to be installed on the vCenter or ESXi server, to back up the virtual machine. Instead, just provide the IP address or fully qualified domain name (FQDN), and login credentials used to authenticate the VMware server with MABS.
+- Cloud Integrated Backup: MABS protects workloads to disk and cloud. MABS's backup and recovery workflow helps you manage long-term retention and offsite backup.
+- Detect and protect VMs managed by vCenter: MABS detects and protects VMs deployed on a VMware server (vCenter or ESXi server). As your deployment size grows, use vCenter to manage your VMware environment. MABS also detects VMs managed by vCenter, allowing you to protect large deployments.
+- Folder level auto protection: vCenter lets you organize your VMs in VM folders. MABS detects these folders and lets you protect VMs at the folder level and includes all subfolders. When protecting folders, MABS not only protects the VMs in that folder, but also protects VMs added later. MABS detects new VMs on a daily basis and protects them automatically. As you organize your VMs in recursive folders, MABS automatically detects and protects the new VMs deployed in the recursive folders.
+- MABS protects VMs stored on a local disk, network file system (NFS), or cluster storage.
+- MABS protects VMs migrated for load balancing: As VMs are migrated for load balancing, MABS automatically detects and continues VM protection.
+- MABS can recover files/folders from a Windows VM without recovering the entire VM, which helps recover necessary files faster.
+
+## Prerequisites and limitations
+
+Before you start backing up a VMware virtual machine, review the following list of limitations and prerequisites.
+
+- If you have been using MABS to protect a vCenter server (running on Windows) as a Windows Server using the FQDN of the server, you can't protect that vCenter server as a VMware server using the FQDN of the server.
+  - You can use the static IP address of vCenter Server as a workaround.
+  - If you want to use the FQDN, you should stop the protection as a Windows Server, remove the protection agent, and then add as a VMware Server using FQDN.
+- If you use vCenter to manage ESXi servers in your environment, add vCenter (and not ESXi) to the MABS protection group.
+- You can't back up user snapshots before the first MABS backup. Once MABS completes the first backup, then you can back up user snapshots.
+- MABS can't protect VMware VMs with pass-through disks and physical raw device mappings (pRDM).
+- MABS can't detect or protect VMware vApps.
+- MABS can't protect VMware VMs with existing snapshots.
 
 ## Before you start
 
@@ -327,7 +352,7 @@ Add VMware VMs for backup. Protection groups gather multiple VMs and apply the s
 
    - The recommended disk allocations are based on the retention range you specified, the type of workload, and the size of the protected data. Make any changes required, and then select **Next**.
    - **Data size:** Size of the data in the protection group.
-   - **Disk space:** The recommended amount of disk space for the protection group. If you want to modify this setting, you should allocate total space that is slightly larger than the amount that you estimate each data source grows.
+   - **Disk space:** The recommended amount of disk space for the protection group. If you want to modify this setting, you should allocate total space that's slightly larger than the amount that you estimate each data source grows.
    - **Colocate data:** If you turn on colocation, multiple data sources in the protection can map to a single replica and recovery point volume. Colocation isn't supported for all workloads.
    - **Automatically grow:** If you turn on this setting, if data in the protected group outgrows the initial allocation, Azure Backup Server tries to increase the disk size by 25 percent.
    - **Storage pool details:** Shows the status of the storage pool, including total and remaining disk size.
@@ -386,7 +411,7 @@ You can modify the number of jobs by using the registry key as shown below (not 
 
 To back up vSphere 6.7, do the following:
 
-- Enable TLS 1.2 on DPM Server
+- Enable TLS 1.2 on the MABS Server
 
 >[!NOTE]
 >VMWare 6.7 onwards had TLS enabled as communication protocol.
@@ -435,7 +460,7 @@ To configure the disk exclusion, follow the steps below:
 
 Navigate to the MABS server where the VMware VM is configured for protection to configure disk exclusion.
 
-  1. Get the details of the VMware host that is protected on the MABS server.
+  1. Get the details of the VMware host that's protected on the MABS server.
 
         ```powershell
         $psInfo = get-DPMProductionServer
@@ -478,7 +503,7 @@ Navigate to the MABS server where the VMware VM is configured for protection to 
   4. To exclude the disk, navigate to the `Bin` folder and run the *ExcludeDisk.ps1* script with the following parameters:
 
         > [!NOTE]
-        > Before running this command, stop the DPMRA service on the MABS server. Otherwise, the script returns success, but does not update the exclusion list. Ensure there are no jobs in progress before stopping the service.
+        > Before running this command, stop the DPMRA service on the MABS server. Otherwise, the script returns success, but doesn't update the exclusion list. Ensure there are no jobs in progress before stopping the service.
 
      **To add/remove the disk from exclusion, run the following command:**
 

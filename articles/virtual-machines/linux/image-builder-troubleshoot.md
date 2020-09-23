@@ -3,7 +3,7 @@ title: Troubleshoot Azure Image Builder Service
 description: Troubleshoot common problems and errors when using Azure VM Image Builder Service
 author: cynthn
 ms.author: danis
-ms.date: 08/07/2020
+ms.date: 09/03/2020
 ms.topic: troubleshooting
 ms.service: virtual-machines
 ms.subservice: imaging
@@ -497,6 +497,28 @@ The cause may be a timing issue due to the D1_V2 VM size. If customizations are 
 
 Increase the VM size. Or, you can add a 60-second PowerShell sleep customization to avoid the timing issue.
 
+### Cancelling builder after context cancellation context canceled
+
+#### Error
+```text
+PACKER ERR 2020/03/26 22:11:23 Cancelling builder after context cancellation context canceled
+PACKER OUT Cancelling build after receiving terminated
+PACKER ERR 2020/03/26 22:11:23 packer-builder-azure-arm plugin: Cancelling hook after context cancellation context canceled
+..
+PACKER ERR 2020/03/26 22:11:23 packer-builder-azure-arm plugin: Cancelling provisioning due to context cancellation: context canceled
+PACKER ERR 2020/03/26 22:11:25 packer-builder-azure-arm plugin: [ERROR] Remote command exited without exit status or exit signal.
+PACKER ERR 2020/03/26 22:11:25 packer-builder-azure-arm plugin: [INFO] RPC endpoint: Communicator ended with: 2300218
+PACKER ERR 2020/03/26 22:11:25 [INFO] 148974 bytes written for 'stdout'
+PACKER ERR 2020/03/26 22:11:25 [INFO] 0 bytes written for 'stderr'
+PACKER ERR 2020/03/26 22:11:25 [INFO] RPC client: Communicator ended with: 2300218
+PACKER ERR 2020/03/26 22:11:25 [INFO] RPC endpoint: Communicator ended with: 2300218
+```
+#### Cause
+Image Builder service uses port 22(Linux), or 5986(Windows)to connect to the build VM, this occurs when the service is disconnected from the build VM during an image build. Reasons for disconnection can vary, but enabling or configuring firewalls in script can block the ports above.
+
+#### Solution
+Review your scripts for firewall changes/enablement, or changes to SSH or WinRM, and ensure any changes allow for constant connectivity between the service and build VM on the ports above. For more infomation on Image Builder networking, please review the [requirements](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-networking).
+
 ## DevOps task 
 
 ### Troubleshooting the task
@@ -629,9 +651,9 @@ If you have referred to the guidance, and still cannot troubleshoot your issue, 
 Selecting the case product:
 ```bash
 Product Family: Azure
-Product: Virtual Machine Running Windows
-Support Topic: Management
-Support Subtopic: Issues with Azure Image Builder
+Product: Virtual Machine Running (Window\Linux)
+Support Topic: Azure Features
+Support Subtopic: Azure Image Builder
 ```
 
 ## Next steps

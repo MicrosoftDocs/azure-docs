@@ -5,7 +5,7 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: dekapur
-ms.custom: mvc, devcenter 
+ms.custom: "mvc, devcenter, devx-track-csharp"
 #Customer intent: As a developer, I want to make code changes to my Service Fabric Mesh app and upgrade my app on Azure
 ---
 

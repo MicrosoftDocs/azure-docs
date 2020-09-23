@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 05/28/2019
 ms.author: lbosq
 ms.reviewer: sngun
+ms.custom: devx-track-csharp
 ---
 
 # Using the graph bulk executor .NET library to perform bulk operations in Azure Cosmos DB Gremlin API

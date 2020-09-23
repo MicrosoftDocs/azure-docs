@@ -8,7 +8,7 @@ ms.topic: how-to
 
 author: likebupt
 ms.author: keli19
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurepowershell
 ms.date: 02/05/2018
 ---
 # Deploy Azure Machine Learning Studio (classic) Workspace Using Azure Resource Manager

@@ -3,7 +3,7 @@ title: Manage resource groups - Azure PowerShell
 description: Use Azure PowerShell to manage your resource groups through Azure Resource Manager. Shows how to create, list, and delete resource groups.
 author: mumian
 ms.topic: conceptual
-ms.date: 02/11/2019
+ms.date: 09/01/2020
 ms.author: jgao
 
 ---
@@ -26,15 +26,10 @@ The resource group stores metadata about the resources. When you specify a locat
 
 ## Create resource groups
 
-The following PowerShell script creates a resource group, and then shows the resource group.
+The following PowerShell script creates a resource group.
 
 ```azurepowershell-interactive
-$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
-
-New-AzResourceGroup -Name $resourceGroupName -Location $location
-
-Get-AzResourceGroup -Name $resourceGroupName
+New-AzResourceGroup -Name demoResourceGroup -Location westus
 ```
 
 ## List resource groups

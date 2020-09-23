@@ -1,6 +1,6 @@
 ---
 title: Overview of Recovery Services vaults
-description: An overview and comparison between Recovery Services vaults and Azure Backup vaults.
+description: An overview of Recovery Services vaults.
 ms.topic: conceptual
 ms.date: 08/17/2020
 ---
@@ -14,7 +14,7 @@ This article describes the features of a Recovery Services vault. A Recovery Ser
 
 - **Role-Based Access Control (RBAC)**: RBAC provides fine-grained access management control in Azure. [Azure provides various built-in roles](../role-based-access-control/built-in-roles.md), and Azure Backup has three [built-in roles to manage recovery points](backup-rbac-rs-vault.md). Recovery Services vaults are compatible with RBAC, which restricts backup and restore access to the defined set of user roles. [Learn more](backup-rbac-rs-vault.md)
 
-- **Soft Delete**:  With soft delete, even if a malicious actor deletes a backup (or backup data is accidentally deleted), the backup data is retained for 14 additional days, allowing the recovery of that backup item with no data loss. The additional 14 days of retention for backup data in the "soft delete" state don't incur any cost to the customer. [Learn more](backup-azure-security-feature-cloud.md).
+- **Soft Delete**:  With soft delete, even if a malicious actor deletes a backup (or backup data is accidentally deleted), the backup data is retained for 14 additional days, allowing the recovery of that backup item with no data loss. The additional 14 days of retention for backup data in the "soft delete" state don't incur any cost to you. [Learn more](backup-azure-security-feature-cloud.md).
 
 - **Cross Region Restore**:  Cross Region Restore (CRR) allows you to restore Azure VMs in a secondary region, which is an Azure paired region. If Azure declares a disaster in the primary region, the data replicated in the secondary region is available to restore in the secondary region to mitigate real downtime disaster in the primary region for their environment. [Learn more](backup-azure-arm-restore-vms.md#cross-region-restore).
 
@@ -24,7 +24,7 @@ A Recovery Services vault is an entity that stores the backups and recovery poin
 
 - Azure Backup automatically handles storage for the vault. See how [storage settings can be changed](./backup-create-rs-vault.md#set-storage-redundancy).
 
-- To learn more about storage redundancy, see these articles on [geo](../storage/common/storage-redundancy.md) and [local](../storage/common/storage-redundancy.md) redundancy.
+- To learn more about storage redundancy, see these articles on [geo](../storage/common/storage-redundancy.md#geo-zone-redundant-storage), [local](../storage/common/storage-redundancy.md#locally-redundant-storage) and [zonal](../storage/common/storage-redundancy.md#zone-redundant-storage) redundancy.
 
 ## Encryption settings in the Recovery Services vault
 

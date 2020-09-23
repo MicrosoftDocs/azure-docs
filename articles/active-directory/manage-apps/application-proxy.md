@@ -19,7 +19,7 @@ Azure Active Directory's Application Proxy provides secure remote access to on-p
 
 Azure AD Application Proxy is:
 
-- **Simple to use**. Users can access your on-premises applications the same way they access O365 and other SaaS apps integrated with Azure AD. You don't need to change or update your applications to work with Application Proxy.
+- **Simple to use**. Users can access your on-premises applications the same way they access Microsoft 365 and other SaaS apps integrated with Azure AD. You don't need to change or update your applications to work with Application Proxy.
 
 - **Secure**. On-premises applications can use Azure's authorization controls and security analytics. For example, on-premises applications can use Conditional Access and two-step verification. Application Proxy doesn't require you to open inbound connections through your firewall.
 
@@ -52,6 +52,11 @@ The following diagram shows how Azure AD and Application Proxy work together to 
 4. If you have configured single sign-on, the connector performs any additional authentication required on behalf of the user.
 5. The connector sends the request to the on-premises application.
 6. The response is sent through the connector and Application Proxy service to the user.
+
+> [!NOTE]
+> Like most Azure AD hybrid agents, the Application Proxy Connector doesn't require you to open inbound connections through your firewall. User traffic in step 3 terminates at the Application Proxy Service (in Azure AD). The Application Proxy Connector (on-premises) is responsible for the rest of the communication.
+>
+
 
 | Component | Description |
 | --------- | ----------- |

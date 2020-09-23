@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 08/06/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
 
@@ -36,7 +36,7 @@ The following connectivity matrix summarizes the flows supported in this scenari
 | **DMZ VNet** | &#8594;|       X |            X |      X    |      X       |
 | **Branches** | &#8594;|  Static |            X |      X    |      X       |
 
-Each of the cells in the connectivity matrix describes whether a Virtual WAN connection (the "From" side of the flow, the row headers) learns a destination prefix (the "To" side of the flow, the column headers in italics) for a specific traffic flow. Let's go in detail over the different rows:
+Each of the cells in the connectivity matrix describes whether a Virtual WAN connection (the "From" side of the flow, the row headers) learns a destination prefix (the "To" side of the flow, the column headers in italics) for a specific traffic flow. An "X" means that connectivity is provided natively by Virtual WAN, and "Static" means that connectivity is provided by Virtual WAN using static routes. Let's go in detail over the different rows:
 
 * NVA Spokes:
   * Spokes will reach other spokes directly over Virtual WAN hubs.

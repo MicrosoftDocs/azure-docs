@@ -10,6 +10,7 @@ ms.date: 06/15/2020
 ms.author: tamram
 ms.reviewer: wielriac
 ms.subservice: blobs
+ms.custom: devx-track-csharp
 ---
 
 # Overview of Azure page blobs

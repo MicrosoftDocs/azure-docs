@@ -2,11 +2,11 @@
 title: 'Azure ExpressRoute: Move a public peering to Microsoft peering'
 description: This article shows you the steps to move your public peering to Microsoft peering on ExpressRoute.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 12/12/2019
-ms.author: cherylmc
+ms.author: duau
 
 ---
 

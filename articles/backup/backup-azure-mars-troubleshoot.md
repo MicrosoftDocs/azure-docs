@@ -78,7 +78,7 @@ We recommend that you check the following before you start troubleshooting Micro
 
 ## Backup jobs completed with warning
 
-- When the MARS agent iterates over files and folders during backup, it might encounter various conditions that can cause the backup to be marked as completed with warnings. During these conditions, a job shows as completed with warnings. That is fine, but it means that at least one file wasn't able to be backed up. So the job skipped that file, but backed up all other files in question on the data source.
+- When the MARS agent iterates over files and folders during backup, it might encounter various conditions that can cause the backup to be marked as completed with warnings. During these conditions, a job shows as completed with warnings. That's fine, but it means that at least one file wasn't able to be backed up. So the job skipped that file, but backed up all other files in question on the data source.
 
   ![Backup job completed with warnings](./media/backup-azure-mars-troubleshoot/backup-completed-with-warning.png)
 

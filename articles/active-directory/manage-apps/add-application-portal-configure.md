@@ -26,7 +26,7 @@ To configure the properties of an application in your Azure AD tenant, you need:
 - Optional: Completion of [Add an app](add-application-portal.md).
 
 >[!IMPORTANT]
->Use a nonproduction environment to test the steps in this quickstart.
+>Use a non-production environment to test the steps in this quickstart.
 
 ## Configure app properties
 
@@ -42,7 +42,7 @@ To edit the application properties:
 3. Take a moment to understand the options available to configure:
     - **Enabled for users to sign in?** determines whether users assigned to the application can sign in.
     - **User assignment required?** determines whether users who aren't assigned to the application can sign in.
-    - **Visible to users?** determines whether users assigned to an app can see it in [My Apps](https://myapps.microsoft.com) and Office 365 app launcher. (See the waffle menu in the upper-left corner of an Office 365 or Microsoft 365 website.)
+    - **Visible to users?** determines whether users assigned to an app can see it in [My Apps](https://myapps.microsoft.com) and Microsoft 365 app launcher. (See the waffle menu in the upper-left corner of a Microsoft 365 website.)
     
     > [!TIP]
     > Assigning users happens on the **Users and groups** section of navigation.
@@ -88,6 +88,6 @@ If you're not going to continue with the quickstart series, then consider deleti
 
 ## Next steps
 
-Advance to the next article to learn how to set up single sign-on for an app.
+Advance to the next article to learn how to assign users to the app.
 > [!div class="nextstepaction"]
-> [Set up single sign-on](add-application-portal-setup-sso.md)
+> [Assign users to an app](add-application-portal-assign-users.md)

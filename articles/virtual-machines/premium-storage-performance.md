@@ -125,7 +125,7 @@ The PerfMon counters are available for processor, memory and, each logical disk 
 | **Max. Memory** |Amount of memory required to run application smoothly |% Committed Bytes in Use |Use vmstat |
 | **Max. CPU** |Amount CPU required to run application smoothly |% Processor time |%util |
 
-Learn more about [iostat](https://linux.die.net/man/1/iostat) and [PerfMon](https://msdn.microsoft.com/library/aa645516.aspx).
+Learn more about [iostat](https://linux.die.net/man/1/iostat) and [PerfMon](https://docs.microsoft.com/windows/win32/perfctrs/performance-counters-portal).
 
 
 
@@ -225,7 +225,7 @@ Table below summarizes the cost breakdown of this scenario for Standard and Prem
 
 *Linux Distros*  
 
-With Azure Premium Storage, you get the same level of Performance for VMs running Windows and Linux. We support many flavors of Linux distros, and you can see the complete list [here](~/articles/virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). It is important to note that different distros are better suited for different types of workloads. You will see different levels of performance depending on the distro your workload is running on. Test the Linux distros with your application and choose the one that works best.
+With Azure Premium Storage, you get the same level of Performance for VMs running Windows and Linux. We support many flavors of Linux distros, and you can see the complete list [here](linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). It is important to note that different distros are better suited for different types of workloads. You will see different levels of performance depending on the distro your workload is running on. Test the Linux distros with your application and choose the one that works best.
 
 When running Linux with Premium Storage, check the latest updates about required drivers to ensure high performance.
 
