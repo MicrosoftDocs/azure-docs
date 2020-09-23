@@ -199,21 +199,21 @@ VBS example
 
 **tpm_att_data**: TPM-related attestation data
 
-- srtm_boot_log (BASE64URL(OCTETS)): SRTM boot log as retrieved by function Tbsi_Get_TCG_Log_Ex with log type = TBS_TCGLOG_SRTM_BOOT
+- **srtm_boot_log (BASE64URL(OCTETS))**: SRTM boot log as retrieved by function Tbsi_Get_TCG_Log_Ex with log type = TBS_TCGLOG_SRTM_BOOT
 
-- srtm_resume_log (BASE64URL(OCTETS)): SRTM resume log as retrieved by function Tbsi_Get_TCG_Log_Ex with log type = TBS_TCGLOG_SRTM_RESUME
+- **srtm_resume_log (BASE64URL(OCTETS))**: SRTM resume log as retrieved by function Tbsi_Get_TCG_Log_Ex with log type = TBS_TCGLOG_SRTM_RESUME
 
-- drtm_boot_log (BASE64URL(OCTETS)): DRTM boot log as retrieved by function Tbsi_Get_TCG_Log_Ex with log type = TBS_TCGLOG_DRTM_BOOT
+- **drtm_boot_log (BASE64URL(OCTETS))**: DRTM boot log as retrieved by function Tbsi_Get_TCG_Log_Ex with log type = TBS_TCGLOG_DRTM_BOOT
 
-- drtm_resume_log (BASE64URL(OCTETS)): DRTM resume log as retrieved by function Tbsi_Get_TCG_Log_Ex with log type = TBS_TCGLOG_DRTM_RESUME
+- **drtm_resume_log (BASE64URL(OCTETS))**: DRTM resume log as retrieved by function Tbsi_Get_TCG_Log_Ex with log type = TBS_TCGLOG_DRTM_RESUME
 
-- aik_cert (BASE64URL(OCTETS)): The X.509 certificate for the AIK as returned by function NCryptGetProperty with property = NCRYPT_CERTIFICATE_PROPERTY
+- **aik_cert (BASE64URL(OCTETS))**: The X.509 certificate for the AIK as returned by function NCryptGetProperty with property = NCRYPT_CERTIFICATE_PROPERTY
 
-- aik_pub: The public part of the AIK represented as a JSON Web Key (JWK) object (RFC 7517)
+- **aik_pub**: The public part of the AIK represented as a JSON Web Key (JWK) object (RFC 7517)
 
-- current_claim (BASE64URL(OCTETS)): The attestation claim for the current PCR state as returned by function NCryptCreateClaim with dwClaimType = NCRYPT_CLAIM_PLATFORM and parameter NCRYPTBUFFER_TPM_PLATFORM_CLAIM_PCR_MASK set to include all PCRs. The challenge sent by the service should also be used in the computation of this claim
+- **current_claim (BASE64URL(OCTETS))**: The attestation claim for the current PCR state as returned by function NCryptCreateClaim with dwClaimType = NCRYPT_CLAIM_PLATFORM and parameter NCRYPTBUFFER_TPM_PLATFORM_CLAIM_PCR_MASK set to include all PCRs. The challenge sent by the service should also be used in the computation of this claim
 
-  boot_claim (BASE64URL(OCTETS)): The attestation claim for the PCR state at boot as returned by function NCryptCreateClaim with dwClaimType = NCRYPT_CLAIM_PLATFORM and parameter NCRYPTBUFFER_TPM_PLATFORM_CLAIM_PCR_MASK set to include all PCRs
+- **boot_claim (BASE64URL(OCTETS))**: The attestation claim for the PCR state at boot as returned by function NCryptCreateClaim with dwClaimType = NCRYPT_CLAIM_PLATFORM and parameter NCRYPTBUFFER_TPM_PLATFORM_CLAIM_PCR_MASK set to include all PCRs
 
 **vbs report** (BASE64URL(OCTETS)): The VBS enclave attestation report as returned by function EnclaveGetAttestationReport. The EnclaveData parameter must be the SHA-512 hash of the value of report_signed (including the opening and closing braces). The hash function input is UTF8(report_signed)
 
@@ -221,11 +221,11 @@ VBS example
 
 **custom_claims**: Array of custom enclave claims sent to the service that can be evaluated by the policy. The claim
 
-  name (String): Name of the claim. This name will be appended to a url determined by the Attestation Service (to avoid conflicts) and the concatenated string becomes the type of the claim that can be used in the policy
+- **name (String)**: Name of the claim. This name will be appended to a url determined by the Attestation Service (to avoid conflicts) and the concatenated string becomes the type of the claim that can be used in the policy
 
-  value (String): Value of the claim
+- **value (String)**: Value of the claim
 
-  value_type (String): Data type of the claim’s value
+- **value_type (String)**: Data type of the claim’s value
 
 **service_context** (BASE64URL(OCTETS)): Opaque, encrypted context created by the service which includes, among others, the challenge and an expiration time for that challenge.
 
