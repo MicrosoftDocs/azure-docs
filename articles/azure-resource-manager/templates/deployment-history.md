@@ -3,7 +3,7 @@ title: Deployment history
 description: Describes how to view Azure Resource Manager deployment operations with the portal, PowerShell, Azure CLI, and REST API.
 tags: top-support-issue
 ms.topic: conceptual
-ms.date: 05/26/2020
+ms.date: 09/23/2020
 ---
 # View deployment history with Azure Resource Manager
 
@@ -15,7 +15,7 @@ For help with resolving particular deployment errors, see [Resolve common errors
 
 ## Get deployments and correlation ID
 
-You can view details about a deployment through the Azure portal, PowerShell, Azure CLI, or REST API. Each deployment has a correlation ID, which is used to track related events. It can be helpful when working with technical support to troubleshoot a deployment.
+You can view details about a deployment through the Azure portal, PowerShell, Azure CLI, or REST API. Each deployment has a correlation ID, which is used to track related events. If you [create an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md), support may ask you for the correlation ID. Support uses the correlation ID to identify the operations for the failed deployment.
 
 # [Portal](#tab/azure-portal)
 
