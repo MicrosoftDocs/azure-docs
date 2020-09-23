@@ -547,7 +547,7 @@ Streamline this process by creating diagnostic settings for Azure AD user accoun
 
 **Guidance**: Use tags to assist in tracking Azure resources that store or process sensitive information.
 
-**Azure Security Center monitoring**: Currently not available 
+**Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
