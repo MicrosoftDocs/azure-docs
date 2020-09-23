@@ -573,6 +573,8 @@ groups:
     title: JavaScript
   - id: programming-language-spx
     title: CLI
+  - id: programming-languages-objectivec-swift
+    title: Objective-C/Swift
 - id: programming-languages-voice-assistants
   title: Programming languages
   prompt: Choose a programming language
