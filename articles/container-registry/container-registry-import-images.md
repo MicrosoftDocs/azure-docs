@@ -31,10 +31,10 @@ To import container images, this article requires that you run the Azure CLI in 
 > If you need to distribute identical container images across multiple Azure regions, Azure Container Registry also supports [geo-replication](container-registry-geo-replication.md). By geo-replicating a registry (Premium service tier required), you can serve multiple regions with identical image and tag names from a single registry.
 >
 
-> [!CAUTION]
-> Breaking changes to image import are introduced in API version XXX:
-> * image import is now a feature of the **Premium** service tier. For information about registry service tiers and limits, see [Azure Container Registry service tiers](container-registry-skus.md).
-> * import to or from a network-restricted Azure container registry requires the restricted registry to enable [**trusted services**](allow-access-trusted-services.md) to access the network. If the option isn't enabled, import will fail. This change to secure access to networked Azure container registries affects only newly created registries.
+> [!IMPORTANT]
+> Changes to image import are introduced in API version XXX:
+> * Import to or from a network-restricted Azure container registry requires the restricted registry to [**enable trusted services**](allow-access-trusted-services.md) to bypass the network. If the option isn't enabled in a newly created registry with a private endpoint or with registry firewall rules, import will fail. In existing network-restricted Azure container registries that are used as an import source or target, enabling this network security feature is optional but recommended.
+> * Enabling or disabling network access by trusted services is a feature of the **Premium** service tier. For information about registry service tiers and limits, see [Azure Container Registry service tiers](container-registry-skus.md).
 
 ## Prerequisites
 
