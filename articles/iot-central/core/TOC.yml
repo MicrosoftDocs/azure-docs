@@ -81,6 +81,8 @@
       items:
         - name: Set up a device template
           href: howto-set-up-template.md
+        - name: howto-use-properties
+          href: howto-use-properties.md
         - name: Prepare and connect an Azure Sphere DevKit
           href: howto-connect-sphere.md
         - name: Prepare and connect a RuuviTag device
