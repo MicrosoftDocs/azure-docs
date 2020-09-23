@@ -128,6 +128,31 @@ az aks update \
     --api-server-authorized-ip-ranges ""
 ```
 
+## Troubleshooting - How to find my IP to include in `--api-server-authorized-ip-ranges`?
+
+You must add your tooling IP addresses to the AKS cluster list of approved IP ranges in order to access the API server from there. Another option is to configure a jumpbox with the needed tooling inside a separate subnet in the Firewall's virtual network.
+
+Add another IP address to the approved ranges with the following command.
+
+```bash
+# Retrieve your IP address
+CURRENT_IP=$(dig @resolver1.opendns.com ANY myip.opendns.com +short)
+# Add to AKS approved list
+az aks update -g $RG -n $AKSNAME --api-server-authorized-ip-ranges $CURRENT_IP/32
+```
+
+Another option is to use the below command on Windows systems to get the public IPv4 address, or you can use the steps in [Find your IP address](https://support.microsoft.com/en-gb/help/4026518/windows-10-find-your-ip-address).
+
+```azurepowershell-interactive
+Invoke-RestMethod http://ipinfo.io/json | Select -exp ip
+```
+
+You can also find this address by searching "what is my IP address" in an internet browser.
+
+## Troubleshooting - I'm unable to view resources in Kubernetes resource viewer in Azure portal for my cluster configured with API server authorized IP ranges.
+
+The [Kubernetes resource viewer](kubernetes-portal.md) requires `--api-server-authorized-ip-ranges` to be updated to include access for the local client computer or IP address range (from which portal is being browsed). Refer section on 'How to find my IP' on this page.
+
 ## Next steps
 
 In this article, you enabled API server authorized IP ranges. This approach is one part of how you can run a secure AKS cluster.
