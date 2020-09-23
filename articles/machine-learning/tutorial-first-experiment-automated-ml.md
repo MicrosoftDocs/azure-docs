@@ -239,7 +239,7 @@ In this automated machine learning tutorial, you used Azure Machine Learning's a
 + Learn more about [automated machine learning](concept-automated-ml.md).
 + For more information on classification metrics and charts, see the [Understand automated machine learning results](how-to-understand-automated-ml.md#classification) article.
 + Learn more about [featurization](how-to-configure-auto-features.md#featurization).
-+ Learn more about [data profiling](how-to-use-automated-ml-for-ml-models.md#profile).
++ Learn more about [data profiling](how-to-connect-data-ui.md#profile).
 
 
 >[!NOTE]

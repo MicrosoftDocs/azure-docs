@@ -24,7 +24,7 @@ If you don't have an Azure subscription, [create an account](https://azure.micro
 > Free trial accounts do not have access to the virtual machines used in this tutorial. Please upgrade to a Pay-As-You-Go subscription.
 
 > [!IMPORTANT]
-> The following RBAC permission is needed to enable Automanage: **Owner** role or **Contributor** along with **User Access Administrator** roles.
+> You need to have the **Contributor** role to enable Automanage using an existing Automanage Account. If you are enabling Automanage with a new Automanage Account, you need the following permissions: **Owner** role or **Contributor** along with **User Access Administrator** roles.
 
 
 ## Sign in to Azure

@@ -43,7 +43,7 @@ PostgreSQL - Hyperscale (Citus) server group.
 - See the [pricing
   page](https://azure.microsoft.com/pricing/details/postgresql/) for cost
 comparisons and calculators. Hyperscale (Citus) offers prepaid Reserved
-Instance discounts as well, see [Hyperscale RI
+Instance discounts as well, see [Hyperscale (Citus) RI
 pricing](concepts-hyperscale-reserved-pricing.md) pages for details.
 - Determine the best [initial
   size](howto-hyperscale-scaling.md#picking-initial-size) for your server group

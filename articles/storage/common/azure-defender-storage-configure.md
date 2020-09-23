@@ -1,21 +1,21 @@
 ---
-title: Configure Azure Defender
+title: Configure Azure Defender for Storage
 titleSuffix: Azure Storage
-description: Configure Azure Defender for Azure Storage to detect anomalies in account activity and be notified of potentially harmful attempts to access your account.
+description: Configure Azure Defender for Storage to detect anomalies in account activity and be notified of potentially harmful attempts to access your account.
 services: storage
 author: tamram
 
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.date: 09/17/2020
+ms.date: 09/22/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ---
 
-# Configure Azure Defender for Azure Storage
+# Configure Azure Defender for Storage
 
-Azure Defender for Azure Storage provides an additional layer of security intelligence that detects unusual and potentially harmful attempts to access or exploit storage accounts. This layer of protection allows you to address threats without being a security expert or managing security monitoring systems.
+Azure Defender for Storage provides an additional layer of security intelligence that detects unusual and potentially harmful attempts to access or exploit storage accounts. This layer of protection allows you to address threats without being a security expert or managing security monitoring systems.
 
 Security alerts are triggered when anomalies in activity occur. These security alerts are integrated with [Azure Security Center](https://azure.microsoft.com/services/security-center/), and are also sent via email to subscription administrators, with details of suspicious activity and recommendations on how to investigate and remediate threats.
 
@@ -23,13 +23,13 @@ The service ingests resource logs of read, write, and delete requests to Blob st
 
 ## Availability
 
-Azure Defender for Azure Storage is currently available for Blob storage, Azure Files (preview), and Azure Data Lake Storage Gen2 (preview). Account types that support Azure Defender include general-purpose v2, block blob, and Blob storage accounts. Azure Defender for Azure Storage is available in all public clouds and US government clouds, but not in other sovereign or Azure Government cloud regions.
+Azure Defender for Storage is currently available for Blob storage, Azure Files (preview), and Azure Data Lake Storage Gen2 (preview). Account types that support Azure Defender include general-purpose v2, block blob, and Blob storage accounts. Azure Defender for Storage is available in all public clouds and US government clouds, but not in other sovereign or Azure Government cloud regions.
 
 Accounts with hierarchical namespaces enabled for Data Lake Storage support transactions using both the Azure Blob storage APIs and the Data Lake Storage APIs. Azure file shares support transactions over SMB.
 
 For pricing details, including a free 30 day trial, see the [Azure Security Center pricing page](https://azure.microsoft.com/pricing/details/security-center/).
 
-The following list summarizes the availability of Azure Defender for Azure Storage:
+The following list summarizes the availability of Azure Defender for Storage:
 
 - Release state:
   - [Blob Storage](https://azure.microsoft.com/services/storage/blobs/) (general availability)
@@ -42,7 +42,7 @@ The following list summarizes the availability of Azure Defender for Azure Stora
 
 ## Set up Azure Defender
 
-You can configure Azure Defender for Azure Storage in any of several ways, described in the following sections.
+You can configure Azure Defender for Storage in any of several ways, described in the following sections.
 
 ### [Azure Security Center](#tab/azure-security-center)
 
@@ -55,7 +55,7 @@ When you subscribe to the Standard tier in Azure Security Center, Azure Defender
 1. Under **Select Azure Defender plan by resource type**, locate the **Storage** row, and select **Enabled** in the **Plan** column.
 1. Save your changes.
 
-    :::image type="content" source="media/azure-defender-storage-configure/enable-azure-defender-security-center.png" alt-text="Screenshot showing how to enable Azure Defender for Azure Storage in Security Center":::
+    :::image type="content" source="media/azure-defender-storage-configure/enable-azure-defender-security-center.png" alt-text="Screenshot showing how to enable Azure Defender for Storage in Security Center":::
 
 Azure Defender is now enabled for all storage accounts in this subscription.
 
@@ -81,7 +81,7 @@ Use an Azure Policy to enable Azure Defender across storage accounts under a spe
 1. Launch the Azure **Policy - Definitions** page.
 1. Search for the **Deploy Azure Defender on Storage Accounts** policy.
 
-    :::image type="content" source="media/azure-defender-storage-configure/storage-atp-policy-definitions.png" alt-text="Apply policy to enable Azure Defender for Azure Storage accounts":::
+    :::image type="content" source="media/azure-defender-storage-configure/storage-atp-policy-definitions.png" alt-text="Apply policy to enable Azure Defender for Storage accounts":::
 
 1. Select an Azure subscription or resource group.
 
@@ -89,7 +89,7 @@ Use an Azure Policy to enable Azure Defender across storage accounts under a spe
 
 1. Assign the policy.
 
-    :::image type="content" source="media/azure-defender-storage-configure/storage-atp-policy1.png" alt-text="Assign policy to enable Azure Defender for Azure Storage":::
+    :::image type="content" source="media/azure-defender-storage-configure/storage-atp-policy1.png" alt-text="Assign policy to enable Azure Defender for Storage":::
 
 ### [REST API](#tab/rest-api)
 
@@ -122,11 +122,11 @@ When storage activity anomalies occur, you receive an email notification with in
 
 The email also includes details on possible causes and recommended actions to investigate and mitigate the potential threat.
 
-:::image type="content" source="media/azure-defender-storage-configure/storage-advanced-threat-protection-alert-email.png" alt-text="Azure Defender for Azure Storage alert email":::
+:::image type="content" source="media/azure-defender-storage-configure/storage-advanced-threat-protection-alert-email.png" alt-text="Azure Defender for Storage alert email":::
 
 You can review and manage your current security alerts from Azure Security Center's [Security alerts tile](../../security-center/security-center-managing-and-responding-alerts.md). Clicking on a specific alert provides details and actions for investigating the current threat and addressing future threats.
 
-:::image type="content" source="media/azure-defender-storage-configure/storage-advanced-threat-protection-alert.png" alt-text="Azure Defender for Azure Storage alert":::
+:::image type="content" source="media/azure-defender-storage-configure/storage-advanced-threat-protection-alert.png" alt-text="Azure Defender for Storage alert":::
 
 ## Security alerts
 
