@@ -12,7 +12,7 @@ ms.custom: references_regions
 
 # Performance tiers for managed disks (preview)
 
-Azure Disk Storage currently offers built-in bursting capabilities to achieve higher performance for handling short-term unexpected traffic. Premium SSDs have the flexibility to increase disk performance without increasing the actual disk size, allowing you to match your workload performance needs and reduce costs. This is ideal for events that temporarily require a consistently higher level of performance, such as holiday shopping, performance testing, or running a training environment. To handle these events, you can select a higher performance tier as long as necessary, and return to the original tier when the additional performance is no longer necessary.
+Azure Disk Storage currently offers built-in bursting capabilities to achieve higher performance for handling short-term unexpected traffic. Premium SSDs have the flexibility to increase disk performance without increasing the actual disk size, allowing you to match your workload performance needs and reduce costs, this feature is currently in preview. This is ideal for events that temporarily require a consistently higher level of performance, such as holiday shopping, performance testing, or running a training environment. To handle these events, you can select a higher performance tier as long as necessary, and return to the original tier when the additional performance is no longer necessary.
 
 ## How it works
 
@@ -46,59 +46,49 @@ When you first deploy or provision a disk, the baseline performance tier for tha
 Adjusting the performance tier of a managed disk is currently only available to premium SSDs in the following regions:
 
 - West Central US 
-- East 2 US 
-- Europe West
-- East Australia 
-- South East Australia 
-- South India
 
-## Create/update a data disk with a tier higher than the baseline tier
+## Create an empty data disk with a tier higher than the baseline tier
 
-1. Create an empty data disk with a tier higher than the baseline tier or update the tier of a disk higher than the baseline tier using the sample template [CreateUpdateDataDiskWithTier.json](https://github.com/Azure/azure-managed-disks-performance-tiers/blob/main/CreateUpdateDataDiskWithTier.json)
+```azurecli
+subscriptionId=<yourSubscriptionIDHere>
+resourceGroupName=<yourResourceGroupNameHere>
+diskName=<yourDiskNameHere>
+diskSize=<yourDiskSizeHere>
+performanceTier=<yourDesiredPerformanceTier>
+region=westcentralus
 
-     ```cli
-     subscriptionId=<yourSubscriptionIDHere>
-     resourceGroupName=<yourResourceGroupNameHere>
-     diskName=<yourDiskNameHere>
-     diskSize=<yourDiskSizeHere>
-     performanceTier=<yourDesiredPerformanceTier>
-     region=<yourRegionHere>
-    
-     az login
-    
-     az account set --subscription $subscriptionId
-    
-     az group deployment create -g $resourceGroupName \
-     --template-uri "https://raw.githubusercontent.com/Azure/azure-managed-disks-performance-tiers/main/CreateUpdateDataDiskWithTier.json" \
-     --parameters "region=$region" "diskName=$diskName" "performanceTier=$performanceTier" "dataDiskSizeInGb=$diskSize"
-     ```
+az login
 
-1. Confirm the tier of the disk
+az account set --subscription $subscriptionId
 
-    ```cli
-    az resource show -n $diskName -g $resourceGroupName --namespace Microsoft.Compute --resource-type disks --api-version 2020-06-30 --query [properties.tier] -o tsv
-     ```
+az disk create -n $diskName -g $resourceGroupName -l $region --sku Premium_LRS --size-gb $diskSize --tier $performanceTier
+```
+## Create an OS disk with a tier higher than the baseline tier from an Azure Marketplace image
 
-## Create/update an OS disk with a tier higher than the baseline tier
+```azurecli
+resourceGroupName=<yourResourceGroupNameHere>
+diskName=<yourDiskNameHere>
+performanceTier=<yourDesiredPerformanceTier>
+region=westcentralus
+image=Canonical:UbuntuServer:18.04-LTS:18.04.202002180
 
-1. Create an OS disk from a marketplace image or update the tier of an OS disk higher than the baseline tier using the sample template [CreateUpdateOSDiskWithTier.json](https://github.com/Azure/azure-managed-disks-performance-tiers/blob/main/CreateUpdateOSDiskWithTier.json)
+az disk create -n $diskName -g $resourceGroupName -l $region --image-reference $image --sku Premium_LRS --tier $performanceTier
+```
+     
+## Update the tier of a disk
 
-     ```cli
-     resourceGroupName=<yourResourceGroupNameHere>
-     diskName=<yourDiskNameHere>
-     performanceTier=<yourDesiredPerformanceTier>
-     region=<yourRegionHere>
-    
-     az group deployment create -g $resourceGroupName \
-     --template-uri "https://raw.githubusercontent.com/Azure/azure-managed-disks-performance-tiers/main/CreateUpdateOSDiskWithTier.json" \
-     --parameters "region=$region" "diskName=$diskName" "performanceTier=$performanceTier"
-     ```
- 
- 1. Confirm the tier of the disk
- 
-     ```cli
-     az resource show -n $diskName -g $resourceGroupName --namespace Microsoft.Compute --resource-type disks --api-version 2020-06-30 --query [properties.tier] -o tsv
-     ```
+```azurecli
+resourceGroupName=<yourResourceGroupNameHere>
+diskName=<yourDiskNameHere>
+performanceTier=<yourDesiredPerformanceTier>
+
+az disk update -n $diskName -g $resourceGroupName --set tier=$performanceTier
+```
+## Show the tier of a disk
+
+```azurecli
+az disk show -n $diskName -g $resourceGroupName --query [tier] -o tsv
+```
 
 ## Next steps
 

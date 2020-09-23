@@ -153,6 +153,7 @@ The below table lists the properties supported by a delimited text source. You c
 | Column to store file name | Create a new column with the source file name and path | no | String | rowUrlColumn |
 | After completion | Delete or move the files after processing. File path starts from the container root | no | Delete: `true` or `false` <br> Move: `['<from>', '<to>']` | purgeFiles <br> moveFiles |
 | Filter by last modified | Choose to filter files based upon when they were last altered | no | Timestamp | modifiedAfter <br> modifiedBefore |
+| Allow no files found | If true, an error is not thrown if no files are found | no | `true` or `false` | ignoreNoFilesFound |
 
 ### Source example
 

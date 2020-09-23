@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure Stack Edge Pro system requirements| Microsoft Docs
-description: Learn about the software and networking requirements for your Azure Stack Edge Pro
+title: Microsoft Azure Stack Edge system requirements| Microsoft Docs
+description: Learn about the system requirements for your Microsoft Azure Stack Edge solution and for the clients connecting to Azure Stack Edge.
 services: databox
 author: alkohli
 

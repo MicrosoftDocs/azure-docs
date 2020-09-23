@@ -65,6 +65,7 @@ The schema for resource logs varies depending on the resource and log category. 
 | Event Hubs |[Azure Event Hubs logs](../../event-hubs/event-hubs-diagnostic-logs.md) |
 | Express Route | Schema not available. |
 | Azure Firewall | Schema not available. |
+| Front Door | [Logging for Front Door](../../frontdoor/front-door-diagnostics.md) |
 | IoT Hub | [IoT Hub Operations](../../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
 | Key Vault |[Azure Key Vault Logging](../../key-vault/general/logging.md) |
 | Kubernetes Service |[Azure Kubernetes Logging](../../aks/view-master-logs.md#log-event-schema) |

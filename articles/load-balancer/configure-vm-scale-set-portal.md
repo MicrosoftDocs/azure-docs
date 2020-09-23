@@ -1,6 +1,6 @@
 ---
 title: Configure virtual machine scale set with an existing Azure Load Balancer - Azure portal
-description: Learn how to configure a virtual machine scale set with an existing Azure Load Balancer.
+description: Learn how to configure a virtual machine scale set with an existing Azure Load Balancer by using the Azure portal.
 author: asudbring
 ms.author: allensu
 ms.service: load-balancer

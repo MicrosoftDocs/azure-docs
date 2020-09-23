@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2020
+ms.date: 09/22/2020
 ms.author: memildin
 ---
 
@@ -75,7 +75,7 @@ Both of these are described below.
 
 
 1. Optionally, configure email notification for security alerts. 
-    You can set a list of recipients to receive an email notification when Security Center alerts are generated. The email contains a direct link to the alert in Azure Security Center with all the relevant details. For more information, see [Set up email notifications for security alerts](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details).
+    You can set a list of recipients to receive an email notification when Security Center alerts are generated. The email contains a direct link to the alert in Azure Security Center with all the relevant details. For more information, see [Set up email notifications for security alerts](security-center-provide-security-contact-details.md).
 
 
 
@@ -117,7 +117,7 @@ Azure Defender alerts are available in Security Center's alerts page, the resour
     * Enable SQL Server's auditing feature for further investigations. If you're an Azure Sentinel user, you can upload the SQL auditing logs from the Windows Security Log events to Sentinel and enjoy a rich investigation experience. [Learn more about SQL Server Auditing](https://docs.microsoft.com/sql/relational-databases/security/auditing/create-a-server-audit-and-server-audit-specification?view=sql-server-ver15).
     * To improve your security posture, use Security Center's recommendations for the host machine indicated in each alert. This will reduce the risks of future attacks. 
 
-    [Learn more about managing and responding to alerts](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts).
+    [Learn more about managing and responding to alerts](security-center-managing-and-responding-alerts.md).
 
 
 ## Next steps

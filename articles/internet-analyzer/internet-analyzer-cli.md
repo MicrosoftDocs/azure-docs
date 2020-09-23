@@ -1,6 +1,6 @@
 ---
 title: 'Create an Internet Analyzer test using CLI | Microsoft Docs'
-description: In this article, learn how to create your first Internet Analyzer test. 
+description: In this article, learn how to create your first Internet Analyzer test by using Azure CLI. 
 services: internet-analyzer
 author: diego-perez-botero
 

@@ -1,6 +1,6 @@
 ---
 title: Restore VMs by using the Azure portal
-description: Restore an Azure virtual machine from a recovery point by using the Azure portal
+description: Restore an Azure virtual machine from a recovery point by using the Azure portal, including the Cross Region Restore feature.
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 08/02/2020
@@ -132,18 +132,21 @@ As one of the [restore options](#restore-options), Cross Region Restore (CRR) al
 
 To onboard to the feature during the preview, read the [Before You Begin section](./backup-create-rs-vault.md#set-cross-region-restore).
 
-To see if CRR is enabled, follow the instructions in [Configure Cross Region Restore](backup-create-rs-vault.md#configure-cross-region-restore)
+To see if CRR is enabled, follow the instructions in [Configure Cross Region Restore](backup-create-rs-vault.md#configure-cross-region-restore).
 
 ### View backup items in secondary region
 
 If CRR is enabled, you can view the backup items in the secondary region.
 
-1. From the portal, go to **Recovery Services vault** > **Backup items**
+1. From the portal, go to **Recovery Services vault** > **Backup items**.
 1. Select **Secondary Region** to view the items in the secondary region.
 
-    ![Virtual machines in secondary region](./media/backup-azure-arm-restore-vms/secbackedupitem.png)
+>[!NOTE]
+>Only Backup Management Types supporting the CRR feature will be shown in the list. Currently, only support for restoring secondary region data to a secondary region is allowed.
 
-    ![Select Secondary Region](./media/backup-azure-arm-restore-vms/backupitems-sec.png)
+![Virtual machines in secondary region](./media/backup-azure-arm-restore-vms/secbackedupitem.png)
+
+![Select Secondary Region](./media/backup-azure-arm-restore-vms/backupitems-sec.png)
 
 ### Restore in secondary region
 
@@ -154,9 +157,6 @@ The secondary region restore user experience will be similar to the primary regi
 ![Select restore point](./media/backup-azure-arm-restore-vms/sec-rp.png)
 
 ![Restore configuration](./media/backup-azure-arm-restore-vms/rest-config.png)
-
->[!NOTE]
->The virtual network in the secondary region needs to be assigned uniquely, and can't be used for any other VMs in that resource group.
 
 ![Trigger restore in progress notification](./media/backup-azure-arm-restore-vms/restorenotifications.png)
 

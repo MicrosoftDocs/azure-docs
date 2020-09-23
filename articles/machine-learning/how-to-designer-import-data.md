@@ -27,7 +27,7 @@ We recommend that you use [datasets](concept-data.md#datasets) to import data in
 
 ### Register a dataset
 
-You can register existing datasets [programatically with the SDK](how-to-create-register-datasets.md#datasets-sdk) or [visually in Azure Machine Learning studio](how-to-create-register-datasets.md#datasets-ui).
+You can register existing datasets [programatically with the SDK](how-to-create-register-datasets.md#datasets-sdk) or [visually in Azure Machine Learning studio](how-to-connect-data-ui.md#create-datasets).
 
 You can also register the output for any designer module as a dataset.
 
@@ -63,7 +63,7 @@ While we recommend that you use datasets to import data, you can also use the [I
 For detailed information on how to use the Import Data module, see the [Import Data reference page](algorithm-module-reference/import-data.md).
 
 > [!NOTE]
-> If your dataset has too many columns, you may encounter the following error: "Validation failed due to size limitation". To avoid this, [register the dataset in the Datasets interface](how-to-create-register-datasets.md#datasets-ui).
+> If your dataset has too many columns, you may encounter the following error: "Validation failed due to size limitation". To avoid this, [register the dataset in the Datasets interface](how-to-connect-data-ui.md#create-datasets).
 
 ## Supported sources
 

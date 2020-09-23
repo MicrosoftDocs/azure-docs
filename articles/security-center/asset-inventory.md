@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 services: security-center
 ms.author: memildin
-ms.date: 08/11/2020
+ms.date: 09/22/2020
 ms.service: security-center
 ms.topic: how-to
 ---
@@ -49,7 +49,7 @@ The inventory page provides the following tools:
 - **Summaries** - Before you define any filters, a prominent strip of values at the top of the inventory view shows:
 
     - **Total resources**: The total number of resources connected to Security Center.
-    - **Unhealthy resources**: Resources with active security recommendations. [Learn more about security recommendations](https://docs.microsoft.com/azure/security-center/security-center-recommendations).
+    - **Unhealthy resources**: Resources with active security recommendations. [Learn more about security recommendations](security-center-recommendations.md).
     - **Unmonitored resources**: Resources with agent monitoring issues - they have the Log Analytics agent deployed, but the agent isn't sending data or has other health issues.
 
 - **Filters** - The multiple filters at the top of the page provide a way to quickly refine the list of resources according to the question you're trying to answer. For example, if you wanted to answer the question *Which of my machines with the tag 'Production' are missing the Log Analytics agent?* you could combine the **Agent monitoring** filter with the **Tags** filter as shown in the following clip:
