@@ -44,7 +44,18 @@ This is required. You can find your connection string in your Application Insigh
 
 :::image type="content" source="media/java-ipa/connection-string.png" alt-text="Application Insights Connection String":::
 
+
+```json
+{
+  "instrumentationSettings": {
+    "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000"
+  }
+}
+```
+
 You can also set the connection string using the environment variable `APPLICATIONINSIGHTS_CONNECTION_STRING`.
+
+you can disable Java agent to send any telemetries to Application Insights by removing 'connectionString' from the `ApplicationInsights.json`.
 
 ## Cloud role name
 
