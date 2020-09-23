@@ -5,7 +5,7 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 09/21/2020
+ms.date: 09/22/2020
 ---
 
 # Use managed identities to access Azure SQL Database or Azure Synapse Analytics from an Azure Stream Analytics job (Preview)
@@ -30,9 +30,11 @@ The following are required to use this feature:
 
 - An Azure Stream Analytics job.
 
-- An Azure Synapse Analytics SQL pool
+- An Azure Synapse Analytics SQL pool.
 
---- 
+- An Azure Storage account that is [configured to your Stream Analytics job](azure-synapse-analytics-output.md).
+
+---
 
 ## Create a managed identity
 
@@ -108,21 +110,43 @@ Next, you create a contained database user in your Azure SQL or Azure Synapse da
 
 ## Grant Stream Analytics job permissions
 
-Once you've created a contained database user and given access to Azure services in the portal as described in the previous section, your Stream Analytics job has permission from Managed Identity to **CONNECT** to your Azure SQL or Azure Synapse database resource via managed identity. We recommend that you grant the SELECT and INSERT permissions to the Stream Analytics job as those will be needed later in the Stream Analytics workflow. The **SELECT** permission allows the job to test its connection to the table in the Azure SQL or Azure Synapse database. The **INSERT** permission allows testing end-to-end Stream Analytics queries once you have configured an input and the Azure SQL or Azure Synapse database output.You can grant those permissions to the Stream Analytics job using SQL Server Management Studio. For more information, see the GRANT (Transact-SQL)reference.
+#### [Azure SQL Database](#tab/azure-sql)
+
+Once you've created a contained database user and given access to Azure services in the portal as described in the previous section, your Stream Analytics job has permission from Managed Identity to **CONNECT** to your Azure SQL database resource via managed identity. We recommend that you grant the SELECT and INSERT permissions to the Stream Analytics job as those will be needed later in the Stream Analytics workflow. The **SELECT** permission allows the job to test its connection to the table in the Azure SQL database. The **INSERT** permission allows testing end-to-end Stream Analytics queries once you have configured an input and the Azure SQL database output.
+
+#### [Azure Synapse Analytics](#tab/azure-synapse)
+
+Once you've created a contained database user and given access to Azure services in the portal as described in the previous section, your Stream Analytics job has permission from Managed Identity to **CONNECT** to your Azure Synapse database resource via managed identity. We recommend that you further grant the SELECT, INSERT, and ADMINISTER DATABASE BULK OPERATIONS permissions to the Stream Analytics job as those will be needed later in the Stream Analytics workflow. The **SELECT** permission allows the job to test its connection to the table in the Azure Synapse database. The **INSERT** and **ADMINISTER DATABASE BULK OPERATIONS** permissions allow testing end-to-end Stream Analytics queries once you have configured an input and the Azure Synapse database output.
+
+To grant the ADMINISTER DATABASE BULK OPERATIONS permission, you will need to grant all permissions that are labeled as **CONTROL** under [Implied by database permission](/sql/t-sql/statements/grant-database-permissions-transact-sql?view=azure-sqldw-latest#remarks) to the Stream Analytics job. You need this permission because the Stream Analytics job performs the COPY statement which [requries ADMINISTER DATABASE BULK OPERATIONS and INSERT](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest).
+
+---
+
+You can grant those permissions to the Stream Analytics job using SQL Server Management Studio. For more information, see the GRANT (Transact-SQL)reference.
 
 To only grant permission to a certain table or object in the database, use the following T-SQL syntax and run the query. 
 
+#### [Azure SQL Database](#tab/azure-sql)
+
 ```sql
-GRANT SELECT, INSERT ON OBJECT::TABLE_NAME TO ASA_JOB_NAME; 
+GRANT SELECT, INSERT ON OBJECT::TABLE_NAME TO ASA_JOB_NAME;
 ```
+
+#### [Azure Synapse Analytics](#tab/azure-synapse)
+
+```sql
+GRANT [PERMISSION NAME] OBJECT::TABLE_NAME TO ASA_JOB_NAME;
+```
+
+---
 
 Alternatively, you can right-click on your Azure SQL or Azure Synapse database in SQL Server Management Studio and select **Properties > Permissions**. From the permissions menu, you can see the Stream Analytics job you added previously, and you can manually grant or deny permissions as you see fit.
 
 ## Create an Azure SQL Database or Azure Synapse output
 
-Now that your managed identity is configured, you're ready to add an Azure SQL Database or Azure Synapse output to your Stream Analytics job.
-
 #### [Azure SQL Database](#tab/azure-sql)
+
+Now that your managed identity is configured, you're ready to add an Azure SQL Database or Azure Synapse output to your Stream Analytics job.
 
 Ensure you have created a table in your SQL Database with the appropriate output schema. The name of this table is one of the required properties that has to be filled out when you add the SQL Database output to the Stream Analytics job. Also, ensure that the job has **SELECT** and **INSERT** permissions to test the connection and run Stream Analytics queries. Refer to the [Grant Stream Analytics job permissions](#grant-stream-analytics-job-permissions) section if you haven't already done so. 
 
@@ -133,6 +157,8 @@ Ensure you have created a table in your SQL Database with the appropriate output
 1. Fill out the rest of the properties. To learn more about creating an SQL Database output, see [Create a SQL Database output with Stream Analytics](sql-database-output.md). When you are finished, select **Save**.
 
 #### [Azure Synapse Analytics](#tab/azure-synapse)
+
+Now that your managed identity and storage account are configured, you're ready to add an Azure SQL Database or Azure Synapse output to your Stream Analytics job.
 
 Ensure you have created a table in your Azure Synapse database with the appropriate output schema. The name of this table is one of the required properties that has to be filled out when you add the Azure Synapse output to the Stream Analytics job. Also, ensure that the job has **SELECT** and **INSERT** permissions to test the connection and run Stream Analytics queries. Refer to the [Grant Stream Analytics job permissions](#grant-stream-analytics-job-permissions) section if you haven't already done so.
 
