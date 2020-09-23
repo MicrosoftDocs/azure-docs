@@ -51,7 +51,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | `en-AU` | English (Australia)               | Acoustic model<br>Language model                  |
 | `en-CA` | English (Canada)                  | Acoustic model<br>Language model                  |
 | `en-GB` | English (United Kingdom)          | Acoustic model<br>Language model<br>Pronunciation |
-| `en-HK` | English (Hong kong)               | Language Model                                    | 
+| `en-HK` | English (Hong Kong)               | Language Model                                    | 
 | `en-IE` | English (Ireland)                 | Language Model                                    | 
 | `en-IN` | English (India)                   | Acoustic model<br>Language model                  |
 | `en-NZ` | English (New Zealand)             | Acoustic model<br>Language model                  |
@@ -145,7 +145,7 @@ For more information about regional availability, see [regions](regions.md#stand
 | `en-US` | English  (United States) | Male | `en-US-GuyNeural` | General |
 | `en-US` <sup>New</sup> | English  (United States) | Female | `en-US-JennyNeural` | General, multiple voice styles available |
 | `es-ES` | Spanish  (Spain) | Female | `es-ES-ElviraNeural` | General |
-| `es-ES` <sup>New</sup> | Spainish  (Spain) | Male | `es-ES-AlvaroNeural` | General |
+| `es-ES` <sup>New</sup> | Spanish  (Spain) | Male | `es-ES-AlvaroNeural` | General |
 | `es-MX` | Spanish  (Mexico) | Female | `es-MX-DaliaNeural` | General |
 | `es-MX` <sup>New</sup> | Spanish (Mexico) | Male | `es-MX-JorgeNeural` | General |
 | `fi-FI` | Finnish  (Finland) | Female | `fi-FI-NooraNeural` | General |
@@ -171,7 +171,7 @@ For more information about regional availability, see [regions](regions.md#stand
 | `nl-NL` | Dutch  (Netherlands) | Female | `nl-NL-ColetteNeural` | General |
 | `pl-PL` | Polish  (Poland) | Female | `pl-PL-ZofiaNeural` | General |
 | `pt-BR` | Portuguese  (Brazil) | Female | `pt-BR-FranciscaNeural` | General, multiple voice styles available |
-| `pt-BR` <sup>New</sup> | Brazilian Portugues (Brazil) | Male | `pt-BR-AntonioNeural` | General |
+| `pt-BR` <sup>New</sup> | Brazilian Portuguese (Brazil) | Male | `pt-BR-AntonioNeural` | General |
 | `pt-PT` | Portuguese  (Portugal) | Female | `pt-PT-FernandaNeural` | General |
 | `ro-RO` <sup>New</sup> | Romanian (Romania) | Female | `ro-RO-AlinaNeural` | General |
 | `ru-RU` | Russian  (Russia) | Female | `ru-RU-DariyaNeural` | General |
