@@ -35,7 +35,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * F5 supports **SP and IDP** initiated SSO
-* F5 SSO can be configured in three different ways.
+F5 SSO can be configured in three different ways:
 
 - [Configure F5 single sign-on for Advanced Kerberos application](#configure-f5-single-sign-on-for-advanced-kerberos-application)
 
