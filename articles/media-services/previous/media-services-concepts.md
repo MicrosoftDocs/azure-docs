@@ -103,7 +103,7 @@ Media Services supports the following on-demand encoder that is described in thi
 
 * [Media Encoder Standard](media-services-encode-asset.md#media-encoder-standard)
 
-For information about supported encoders, see [Encoders](media-services-encode-asset.md).
+For information about this supported encoder, see [Encoder](media-services-encode-asset.md).
 
 ## Live Streaming
 In Azure Media Services, a Channel represents a pipeline for processing live streaming content. A Channel receives live input streams in one of two ways:

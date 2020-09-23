@@ -32,11 +32,11 @@ Media Services provides dynamic packaging which allows you to deliver your adapt
 
 When your Media Services account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state. Billing for streaming endpoints occurs whenever the endpoint is in a **Running** state.
 
-Media Services supports the following on demand encoder that is described in this article:
+Media Services supports the following on demand encoder:
 
 * [Media Encoder Standard](media-services-encode-asset.md#media-encoder-standard)
 
-This article gives a brief overview of on demand media encoders and provides links to articles that give more detailed information. The topic also provides comparison of the encoders.
+This article gives a brief overview of on demand media encoders and links to articles with more detailed information.
 
 By default each Media Services account can have one active encoding task at a time. You can reserve encoding units that allow you to have multiple encoding tasks running concurrently, one for each encoding reserved unit you purchase. For information, see [Scaling encoding units](media-services-scale-media-processing-overview.md).
 
