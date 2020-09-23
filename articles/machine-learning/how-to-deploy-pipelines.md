@@ -88,13 +88,14 @@ The `json` argument to the POST request must contain, for the `ParameterAssignme
 | `ExperimentName` | The name of the experiment associated with this endpoint |
 | `Description` | Freeform text describing the endpoint | 
 | `Tags` | Freeform key-value pairs that can be used to label and annotate requests  |
-| `DataSetDefinitionValueAssignments` | Dictionary used for changing datasets without retraining (see discussing below) | 
+| `DataSetDefinitionValueAssignments` | Dictionary used for changing datasets without retraining (see discussion below) | 
+| `DataPathAssignments` | Dictionary used for changing datapaths without retraining (see discussion below) | 
 
-### Changing datasets without retraining
+### Changing datasets and datapaths without retraining
 
-You may want to train and inference on different datasets. For instance, you may wish to train on a smaller, sparser dataset but inference on the complete dataset. You switch datasets with the `DataSetDefinitionValueAssignments` key in the request's `json` argument. To do this:
+You may want to train and inference on different datasets and datapaths. For instance, you may wish to train on a smaller, sparser dataset but inference on the complete dataset. You switch datasets with the `DataSetDefinitionValueAssignments` key in the request's `json` argument. You switch datapaths with `DataPathAssignments`. The technique for both is similar:
 
-1. In your pipeline definition script, create a `PipelineParameter` for the dataset. Create a `DatasetConsumptionConfig` from the `PipelineParameter`:
+1. In your pipeline definition script, create a `PipelineParameter` for the dataset. Create a `DatasetConsumptionConfig` or `DataPath` from the `PipelineParameter`:
 
     ```python
     tabular_dataset = Dataset.Tabular.from_delimited_files('https://dprepdata.blob.core.windows.net/demo/Titanic.csv')
