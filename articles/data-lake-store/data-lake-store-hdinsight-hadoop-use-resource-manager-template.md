@@ -137,4 +137,4 @@ You can also use the `hdfs dfs -put` command to upload some files to Data Lake S
 
 ## Next steps
 * [Copy data from Azure Storage Blobs to Data Lake Storage Gen1](data-lake-store-copy-data-wasb-distcp.md)
-* [Use Data Lake Storage Gen1 with Azure HDInsight clusters](../hdinsight/hdinsight-hadoop-use-data-lake-store.md)
+* [Use Data Lake Storage Gen1 with Azure HDInsight clusters](../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen1.md)

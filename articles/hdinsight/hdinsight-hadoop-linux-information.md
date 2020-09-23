@@ -130,7 +130,7 @@ When using [**Azure Data Lake Storage Gen2**](./hdinsight-hadoop-use-data-lake-s
 
 * `abfs://<container-name>@<account-name>.dfs.core.windows.net/`: Used when communicating with a non-default storage account. For example, when you have an additional storage account or when accessing data stored in a publicly accessible storage account.
 
-When using [**Azure Data Lake Storage Gen1**](./hdinsight-hadoop-use-data-lake-store.md), use one of the following URI schemes:
+When using [**Azure Data Lake Storage Gen1**](../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen1.md), use one of the following URI schemes:
 
 * `adl:///`: Access the default Data Lake Storage for the cluster.
 

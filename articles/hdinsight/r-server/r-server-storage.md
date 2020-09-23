@@ -23,7 +23,7 @@ You also have the option of accessing multiple Azure storage accounts or contain
 When you create an Apache Hadoop cluster in HDInsight, you specify either an **Azure Storage** account or **Data Lake Storage**. A specific storage container from that account holds the file system for the cluster that you create (for example, the Hadoop Distributed File System). For more information and guidance, see:
 
 - [Use Azure Storage with HDInsight](../hdinsight-hadoop-use-blob-storage.md)
-- [Use Data Lake Storage with Azure HDInsight clusters](../hdinsight-hadoop-use-data-lake-store.md)
+- [Use Data Lake Storage Gen1 with Azure HDInsight clusters](../hdinsight-hadoop-use-data-lake-storage-gen1.md)
 
 ## Use Azure Blob storage accounts with ML Services cluster
 

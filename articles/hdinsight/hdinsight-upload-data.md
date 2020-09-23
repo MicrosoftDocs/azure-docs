@@ -21,7 +21,7 @@ Note the following requirements before you begin:
 * An Azure HDInsight cluster. For instructions, see [Get started with Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 * Knowledge of the following articles:
     * [Use Azure Storage with HDInsight](hdinsight-hadoop-use-blob-storage.md)
-    * [Use Data Lake Storage Gen1 with HDInsight](hdinsight-hadoop-use-data-lake-store.md)
+    * [Use Data Lake Storage Gen1 with HDInsight](hdinsight-hadoop-use-data-lake-storage-gen1.md)
     * [Use Data Lake Storage Gen2 with HDInsight](hdinsight-hadoop-use-data-lake-storage-gen2.md)  
 
 ## Upload data to Azure Storage

@@ -80,8 +80,8 @@ Azure Data Lake Storage implements HDFS and POSIX style access control model. It
 
 For more information, see the following articles:
 
-- [Create HDInsight clusters with Data Lake Storage by using the Azure portal](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)
-- [Use Data Lake Storage with Azure HDInsight clusters](../hdinsight-hadoop-use-data-lake-store.md)
+- [Create HDInsight clusters with Data Lake Storage using the Azure portal](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)
+- [Use Data Lake Storage Gen1 with Azure HDInsight clusters](../hdinsight-hadoop-use-data-lake-storage-gen1.md)
 
 ### Azure Data Lake Storage Gen2
 
