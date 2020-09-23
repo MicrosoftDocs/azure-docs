@@ -6,8 +6,9 @@ ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 09/03/2020
+ms.date: 09/23/2020
 ms.author: banders
+ms.custom: contperfq1
 ---
 
 # Managing Azure Enterprise roles
@@ -29,6 +30,86 @@ The first enrollment administrator that is set up during the enrollment provisio
 For example, if the initial authentication type is set to Mixed, the EA will be added as a Microsoft account and the Bill-to contact will have read-only EA admin privileges. If the EA admin doesn’t approve Microsoft account authorization for an existing Bill-to contact, the EA admin may delete the user in question and ask the customer to add the user back as a read-only administrator with a Work or School account Only set at enrollment level in the EA portal.
 
 These roles are specific to managing Azure Enterprise Agreements and are in addition to the built-in roles Azure has to control access to resources. For more information, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
+
+## Azure Enterprise portal hierarchy
+
+The Azure Enterprise portal hierarchy consists of:
+
+- **Azure Enterprise portal** - an online management portal that helps you manage costs for your Azure EA services. You can:
+
+  - Create an Azure EA hierarchy with departments, accounts, and subscriptions.
+  - Reconcile the costs of your consumed services, download usage reports, and view price lists.
+  - Create API keys for your enrollment.
+
+- **Departments** help you segment costs into logical groupings. Departments enable you to set a budget or quota at the department level.
+
+- **Accounts** are organizational units in the Azure Enterprise portal. You can use accounts to manage subscriptions and access reports.
+
+- **Subscriptions** are the smallest unit in the Azure Enterprise portal. They're containers for Azure services managed by the service administrator.
+
+The following diagram illustrates simple Azure EA hierarchies.
+
+![Diagram of simple Azure EA hierarchies](./media/ea-portal-get-started/ea-hierarchies.png)
+
+## Enterprise user roles
+
+The following administrative user roles are part of your enterprise enrollment:
+
+- Enterprise administrator
+- Department administrator
+- Account owner
+- Service administrator
+- Notification contact
+
+Roles work in two different portals to complete tasks. You use the [Azure Enterprise portal](https://ea.azure.com) to manage billing and costs, and the [Azure portal](https://portal.azure.com) to manage Azure services.
+
+User roles are associated with a user account. To validate user authenticity, each user must have a valid work, school, or Microsoft account. Ensure that each account is associated with an email address that's actively monitored. Account notifications are sent to the email address.
+
+When setting up users, you can assign multiple accounts to the enterprise administrator role. However, only one account can hold the account owner role. Also, you can assign both the enterprise administrator and account owner roles to a single account.
+
+### Enterprise administrator
+
+Users with this role have the highest level of access. They can:
+
+- Manage accounts and account owners.
+- Manage other enterprise administrators.
+- Manage department administrators.
+- Manage notification contacts.
+- View usage across all accounts.
+- View unbilled charges across all accounts.
+
+You can have multiple enterprise administrators in an enterprise enrollment. You can grant read-only access to enterprise administrators. They all inherit the department administrator role.
+
+### Department administrator
+
+Users with this role can:
+
+- Create and manage departments.
+- Create new account owners.
+- View usage details for the departments that they manage.
+- View costs, if they have the necessary permissions.
+
+You can have multiple department administrators for each enterprise enrollment.
+
+You can grant department administrators read-only access when you edit or create a new department administrator. Set the read-only option to **Yes**.
+
+### Account owner
+
+Users with this role can:
+
+- Create and manage subscriptions.
+- Manage service administrators.
+- View usage for subscriptions.
+
+Each account requires a unique work, school, or Microsoft account. For more information about Azure Enterprise portal administrative roles, see [Understand Azure Enterprise Agreement administrative roles in Azure](understand-ea-roles.md).
+
+### Service administrator
+
+The service administrator role has permissions to manage services in the Azure portal and assign users to the coadministrator role.
+
+### Notification contact
+
+The notification contact receives usage notifications related to the enrollment.
 
 The following sections describe the limitations and capabilities of each role.
 

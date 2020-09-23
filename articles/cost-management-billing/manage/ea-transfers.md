@@ -6,8 +6,9 @@ ms.reviewer: baolcsva
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 09/03/2020
+ms.date: 09/23/2020
 ms.author: banders
+ms.custom: contperfq1
 ---
 
 # Azure Enterprise transfers
@@ -87,6 +88,10 @@ Azure Prepayment isn't transferrable between enrollments. Azure Prepayment balan
 ### No services affected for account and enrollment transfers
 
 There's no downtime during an account or enrollment transfer. It can be completed on the same day of your request if all requisite information is provided.
+
+## Transfer an Enterprise subscription to a Pay-As-You-Go subscription
+
+To transfer an Enterprise subscription to an individual subscription with Pay-As-You-Go rates, you must create a new support request in the Azure Enterprise portal. To create a support request, select **+ New support request** in the **Help and Support** area.
 
 ## Change account owner
 
