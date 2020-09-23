@@ -7,7 +7,7 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql
-ms.date: 04/15/2020
+ms.date: 09/23/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ---
@@ -29,6 +29,61 @@ Stored procedures are a great way for encapsulating your SQL code and storing it
 SQL pool provides a simplified and streamlined stored procedure implementation. The biggest difference compared to SQL Server is that the stored procedure is not pre-compiled code. In data warehouses, the compilation time is small in comparison to the time it takes to run queries against large data volumes. It is more important to ensure the stored procedure code is correctly optimized for large queries. The goal is to save hours, minutes, and seconds, not milliseconds. It is therefore more helpful to think of stored procedures as containers for SQL logic.
 
 When SQL pool executes your stored procedure, the SQL statements are parsed, translated, and optimized at run time. During this process, each statement is converted into distributed queries. The SQL code that is executed against the data is different than the query submitted.
+
+## Encapsulate validation rules
+
+Stored procedures enable you to to locate validaiton logic in a single module stored in SQL database. In the following example you can see how to valuedate values of parameters and chande default values of parameters.
+
+```sql
+CREATE PROCEDURE count_objects_by_date_created 
+                            @start_date DATETIME2,
+                            @end_date DATETIME2
+AS BEGIN 
+
+    IF( @start_date >= GETUTCDATE() )
+    BEGIN
+        THROW 51000, 'Invalid argument @start_date. Value should be in past.', 1;  
+    END
+
+    IF( @end_date IS NULL )
+    BEGIN
+        SET @end_date = GETUTCDATE();
+    END
+
+    IF( @start_date >= @end_date )
+    BEGIN
+        THROW 51000, 'Invalid argument @end_date. Value should be greater than @start_date.', 2;  
+    END
+
+    SELECT
+         year = YEAR(create_date),
+         month = MONTH(create_date),
+         objects_created = COUNT(*)
+    FROM
+        sys.objects
+    WHERE
+        create_date BETWEEN @start_date AND @end_date
+    GROUP BY
+        YEAR(create_date), MONTH(create_date);
+END
+```
+
+The logic in the sql procedure will validate the input parameters when the procedure is called.
+
+```sql
+
+EXEC count_objects_by_date_created '2020-08-01', '2020-09-01'
+
+EXEC count_objects_by_date_created '2020-08-01', NULL
+
+EXEC count_objects_by_date_created '2020-09-01', '2020-08-01'
+-- Error
+-- Invalid argument @end_date. Value should be greater than @start_date.
+
+EXEC count_objects_by_date_created '2120-09-01', NULL
+-- Error
+-- Invalid argument @start_date. Value should be in past.
+```
 
 ## Nesting stored procedures
 
