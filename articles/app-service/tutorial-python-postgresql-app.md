@@ -73,10 +73,15 @@ Once signed in, you can run Azure commands with the Azure CLI to work with resou
 
 # [Git clone](#tab/clone)
 
-Clone the sample repository and navigate into the folder:
+Clone the sample repository:
 
 ```terminal
 git clone https://github.com/Azure-Samples/djangoapp
+```
+
+Then navigate into that folder:
+
+```terminal
 cd djangoapp
 ```
 
@@ -150,7 +155,7 @@ In this section, you create app host in App Service app, connect this app to the
 
 ### Create the App Service app
 
-In the terminal, make sure you're in the repository root (`djangoapp`) that contains the app code.
+In the terminal, make sure you're in the *djangoapp* repository folder that contains the app code.
 
 Create an App Service app (the host process) with the [`az webapp up`](/cli/azure/webapp#az-webapp-up) command:
 
@@ -432,10 +437,12 @@ By default, the portal shows your app's **Overview** page, which provides a gene
 If you'd like to keep the app or continue to the next tutorial, skip ahead to [Next steps](#next-steps). Otherwise, to avoid incurring ongoing charges you can delete the resource group create for this tutorial:
 
 ```azurecli
-az group delete
+az group delete --no-wait
 ```
 
 The command uses the resource group name cached in the *.azure/config* file. By deleting the resource group, you also deallocate and delete all the resources contained within it.
+
+Deleting all the resources can take some time. The `--no-wait` argument allows the command to return immediately.
 
 [Having issues? Let us know.](https://aka.ms/DjangoCLITutorialHelp)
 

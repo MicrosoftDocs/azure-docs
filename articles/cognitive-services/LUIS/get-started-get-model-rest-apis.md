@@ -5,7 +5,7 @@ description: In this REST API quickstart, add example utterances to change a mod
 services: cognitive-services
 author: diberry
 manager: nitinme
-ms.custom: "seodec18, devx-track-python, devx-track-javascript, devx-track-csharp"
+ms.custom: "seodec18, devx-track-python, devx-track-js, devx-track-csharp"
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
