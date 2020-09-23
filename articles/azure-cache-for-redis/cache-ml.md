@@ -20,9 +20,9 @@ Azure Cache for Redis is extremely performant and scalable – when paired with 
 
 ## Prerequisites
 * Azure subscription - [create one for free](https://azure.microsoft.com/free/).
-* An Azure Machine Learning workspace. For more information, see the [Create a workspace](how-to-manage-workspace.md) article.
+* An Azure Machine Learning workspace. For more information, see the [Create a workspace](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace) article.
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
-* A trained machine learning model registered in your workspace. If you do not have a model, use the [Image classification tutorial: train model](tutorial-train-models-with-aml.md) to train and register one.
+* A trained machine learning model registered in your workspace. If you do not have a model, use the [Image classification tutorial: train model](https://docs.microsoft.com/azure/machine-learning/tutorial-train-models-with-aml) to train and register one.
 
 > [!IMPORTANT]
 > The code snippets in this article assume that you have set the following variables:
@@ -31,7 +31,7 @@ Azure Cache for Redis is extremely performant and scalable – when paired with 
 > * `model` - The registered model that will be deployed.
 > * `inference_config` - The inference configuration for the model.
 >
-> For more information on setting these variables, see [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
+> For more information on setting these variables, see [Deploy models with Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where).
 
 ## Create an Azure Cache for Redis instance 
 You’ll be able to deploy a machine learning model to Azure Functions with any Basic, Standard, or Premium cache instance. To create a cache instance, follow these steps.  
@@ -139,9 +139,9 @@ These entities are encapsulated into an __inference configuration__. The inferen
 > inference_config = InferenceConfig(entry_script="score.py", environment=myenv)
 > ```
 
-For more information on environments, see [Create and manage environments for training and deployment](how-to-use-environments.md).
+For more information on environments, see [Create and manage environments for training and deployment](https://docs.microsoft.com/azure/machine-learning/how-to-use-environments).
 
-For more information on inference configuration, see [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
+For more information on inference configuration, see [Deploy models with Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where).
 
 > [!IMPORTANT]
 > When deploying to Functions, you do not need to create a __deployment configuration__.
@@ -159,7 +159,7 @@ pip install azureml-contrib-functions
 To create the Docker image that is deployed to Azure Functions, use [azureml.contrib.functions.package](https://docs.microsoft.com/python/api/azureml-contrib-functions/azureml.contrib.functions?view=azure-ml-py&preserve-view=true) or the specific package function for the trigger you are interested in using. The following code snippet demonstrates how to create a new package with a HTTP trigger from the model and inference configuration:
 
 > [!NOTE]
-> The code snippet assumes that `model` contains a registered model, and that `inference_config` contains the configuration for the inference environment. For more information, see [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
+> The code snippet assumes that `model` contains a registered model, and that `inference_config` contains the configuration for the inference environment. For more information, see [Deploy models with Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where).
 
 ```python
 from azureml.contrib.functions import package
