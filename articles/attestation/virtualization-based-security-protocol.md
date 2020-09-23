@@ -199,19 +199,19 @@ VBS example
 
 **tpm_att_data**: TPM-related attestation data
 
-  srtm_boot_log (BASE64URL(OCTETS)): SRTM boot log as retrieved by function Tbsi_Get_TCG_Log_Ex with log type = TBS_TCGLOG_SRTM_BOOT
+- srtm_boot_log (BASE64URL(OCTETS)): SRTM boot log as retrieved by function Tbsi_Get_TCG_Log_Ex with log type = TBS_TCGLOG_SRTM_BOOT
 
-  srtm_resume_log (BASE64URL(OCTETS)): SRTM resume log as retrieved by function Tbsi_Get_TCG_Log_Ex with log type = TBS_TCGLOG_SRTM_RESUME
+- srtm_resume_log (BASE64URL(OCTETS)): SRTM resume log as retrieved by function Tbsi_Get_TCG_Log_Ex with log type = TBS_TCGLOG_SRTM_RESUME
 
-  drtm_boot_log (BASE64URL(OCTETS)): DRTM boot log as retrieved by function Tbsi_Get_TCG_Log_Ex with log type = TBS_TCGLOG_DRTM_BOOT
+- drtm_boot_log (BASE64URL(OCTETS)): DRTM boot log as retrieved by function Tbsi_Get_TCG_Log_Ex with log type = TBS_TCGLOG_DRTM_BOOT
 
-  drtm_resume_log (BASE64URL(OCTETS)): DRTM resume log as retrieved by function Tbsi_Get_TCG_Log_Ex with log type = TBS_TCGLOG_DRTM_RESUME
+- drtm_resume_log (BASE64URL(OCTETS)): DRTM resume log as retrieved by function Tbsi_Get_TCG_Log_Ex with log type = TBS_TCGLOG_DRTM_RESUME
 
-  aik_cert (BASE64URL(OCTETS)): The X.509 certificate for the AIK as returned by function NCryptGetProperty with property = NCRYPT_CERTIFICATE_PROPERTY
+- aik_cert (BASE64URL(OCTETS)): The X.509 certificate for the AIK as returned by function NCryptGetProperty with property = NCRYPT_CERTIFICATE_PROPERTY
 
-  aik_pub: The public part of the AIK represented as a JSON Web Key (JWK) object (RFC 7517)
+- aik_pub: The public part of the AIK represented as a JSON Web Key (JWK) object (RFC 7517)
 
-  current_claim (BASE64URL(OCTETS)): The attestation claim for the current PCR state as returned by function NCryptCreateClaim with dwClaimType = NCRYPT_CLAIM_PLATFORM and parameter NCRYPTBUFFER_TPM_PLATFORM_CLAIM_PCR_MASK set to include all PCRs. The challenge sent by the service should also be used in the computation of this claim
+- current_claim (BASE64URL(OCTETS)): The attestation claim for the current PCR state as returned by function NCryptCreateClaim with dwClaimType = NCRYPT_CLAIM_PLATFORM and parameter NCRYPTBUFFER_TPM_PLATFORM_CLAIM_PCR_MASK set to include all PCRs. The challenge sent by the service should also be used in the computation of this claim
 
   boot_claim (BASE64URL(OCTETS)): The attestation claim for the PCR state at boot as returned by function NCryptCreateClaim with dwClaimType = NCRYPT_CLAIM_PLATFORM and parameter NCRYPTBUFFER_TPM_PLATFORM_CLAIM_PCR_MASK set to include all PCRs
 
@@ -244,61 +244,3 @@ Azure Attestation -> Client
 ```
 
 **report** (JWT): The attestation report in JSON Web Token (JWT) format (RFC 7519).
-
-
-
-## Protocol
-![VBS attestation protocol](./media/vbs-protocol.png)
-
-Network calls between the enclave and the Azure Attestation are actually made from VTL0 (unprotected). The figure does not show that detail for simplification. However, the attestation protocol is guaranteed to be protected even on untrusted transport mechanisms so it is not a problem that a VTL0 process is sending/receiving the data.
-
-Messages shown in the protocol diagram and ensuing description are just a simple representation for simplification. The actual message formats are detailed in protocol messages section.
-
-1. Enclave starts the protocol by requesting a challenge from the service (shown as the Init message)
-2. Azure Attestation generates a random challenge and creates a session context which contains such challenge and a timestamp. The session context is encrypted and signed using    K-Context **ENC_SIGN(K-Context)[Timestamp || Challenge]**.  Context is opaque to the client
-3. The enclave then:
-
-    a.	Generates a key pair Kpriv/pub-Enclave
-    
-    b.	Retrieves the Boot/Resume logs and quote from the TPM using the challenge received from the service (notice that the enclave itself cannot call the TPM functions so it           calls back to VTL-0 to retrieve those values but this does not affect security as invalid/replayed logs or quotes will be detected)
-    
-    c.	Requests a signed report from VBS  [(EnclaveGetAttestationReport())](/windows/win32/api/winenclaveapi/nf-winenclaveapi-enclavegetattestationreport?redirectedfrom=MSDN)           with the hash of the fields in the request
-    
-    d.	VBS Report is signed by Kpriv-IDKS (VBS Signing IDK) in the secure kernel
-    
-    e.	A message to be sent to the service is created with the following format:
-
-    ```
-    Signature algorithm || Request || SIGN(Kpriv-Enclave)[Request]
-
-    Request = RP id || RP custom data || Challenge || Boot/Resume logs || AIK X.509 Certificate || TPM Quote || Kpub-Enclave || Custom claims || VBS Report || SIGN(Kpriv-IDKS)       [VBS Report] || Context
-
-    ```
-
-4. Azure Attestation receives the message from the client and:
-
-    a.	Verifies the signature and decrypts the session context. If the context has expired, the service fails the request
-    
-    b.	Verifies that the AIK X.509 Certificate is valid and trusted, i.e., issued by a trusted CA
-    
-    c.	Verifies the TPM quote was signed properly by a “known” TPM key (“known” in this context means that the TPM key used to sign the quote is indirectly trusted given that           the client uses AIK to sign the quote and the AIK Cert has already been verified). The quote must also include the same challenge as present in the context
-    
-    d.	Verifies the Boot/Resume logs against the PCRs in the TPM quote
-    
-    e.	Gets Kpub-IDKS from the now trusted Boot/Resume logs and verifies that the VBS Report was signed with it **(VERIFY(Kpub-IDKS)[VBS Report])**
-    
-    f.	Computes hash of the fields in the request and compares such hash against the hash present in the VBS Report, which is now trusted
-    
-    g.	Using the Kpub-Enclave received, confirm the client has possession of Kpriv-Enclave by verifying that the request was signed by such key **(VERIFY(Kpub-Enclave)                   [Request])**
-    
-    h.	Applies the policy:
-    
-    - Uses the authorization rules to make sure the client platform is trusted, e.g. expected enclave ID and SVN, enclave does not permit debugging, secure boot is                     enabled, test signing is disabled, etc.;
-        
-    - Uses the issuance rules to add claims to the final report
-        
-    i.	Issues an attestation report signed by Kpriv-Attestation, the attestation Service key
-
-5. Client application can now request the attestation report from the enclave. The report can then be parsed and trusted by relying parties as it is signed by Azure                Attestation       
-
-The reason for sending the encrypted context to the client is to relieve the service from having to keep state (context) about an attestation session. Security in this case is therefore tied to the strength of K-Context. For increased security or other reasons, it is possible to change the protocol not to send the context to the client and instead keep state in the service on a memory cache, if the connection between the client and the service node is persistent. If the connection is not persistent, the state can be stored in a database shared by all nodes, however in this case, a session identifier must be sent to the client. In this case, special care has to be taken with the session identifier to prevent an attacker from using another session’s identifier.
