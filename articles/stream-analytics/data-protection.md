@@ -57,6 +57,9 @@ Connection details of your resources, which are used by your Stream Analytics jo
 
 To help you meet your compliance obligations in any regulated industry or environment, you can read more about [Microsoft's compliance offerings](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942). 
 
+## Enables Data Residency 
+You may use this feature to enforce any data residency requirements you may have by providing storage account accordingly.
+
 ## Known issues
 There is a known issue where a job using customer managed key runs into failures when using managed identity to authenticate to any inputs or outputs. A fix for this issue is being worked on and will become available in the near future. 
 
