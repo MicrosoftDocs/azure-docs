@@ -74,7 +74,7 @@ productDirectory:
     # Card
     - title: Azure Communication Services (Preview)
       summary: Add smart API capabilities to enable contextual interactions
-      imageSrc: https://static.docs.com/ui/media/product/azure/azure.svg
+      imageSrc: ./media/index/azure-communication-services.svg
       azureCategories:
         - mobile
         - web
@@ -265,7 +265,7 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/azure.svg
       azureCategories:
         - ai-machine-learning
-      url: cognitive-services/metrics-advisor//index.yml
+      url: cognitive-services/metrics-advisor/index.yml
     # Card
     - title: Personalizer
       summary: An AI service that delivers a personalized user experience
