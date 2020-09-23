@@ -49,29 +49,29 @@ If you are validating server certificates as documented here, your applicationâ€
 
 ## Frequently asked questions
 
-### 1. If I am not using SSL/TLS, do I still need to update the root CA?
+### If I am not using SSL/TLS, do I still need to update the root CA?
 No actions regarding this change are required if you are not using SSL/TLS. Still you should set a plan for start using latest TLS version as we plan for TLS enforcement in near future.
 
-### 2. What will happen if I do not update the root certificate before October 26, 2020?
+### What will happen if I do not update the root certificate before October 26, 2020?
 If you do not update the root certificate before November 30, 2020, your applications that connect via SSL/TLS and does verification for the root certificate will be unable to communicate to the Azure SQL Database & SQL Managed Instance and application will experience connectivity issues to your Azure SQL Database & SQL Managed Instance.
 
-### 3. Do I need to plan a maintenance downtime for this change?<BR>
+### Do I need to plan a maintenance downtime for this change?<BR>
 No. Since the change here is only on the client side to connect to the server, there is no maintenance downtime needed here for this change.
 
-### 4.  What if I cannot get a scheduled downtime for this change before October 26, 2020?
+### What if I cannot get a scheduled downtime for this change before October 26, 2020?
 Since the clients used for connecting to the server needs to be updating the certificate information as described in the fix section [here](./ssl-root-certificate-expiring.md#what-do-i-need-to-do-to-maintain-connectivity), we do not need to a downtime for the server in this case.
 
-### 5. If I create a new server after November 30, 2020, will I be impacted?
+### If I create a new server after November 30, 2020, will I be impacted?
 For servers created after October 26, 2020, you can use the newly issued certificate for your applications to connect using SSL.
 
-### 6. How often does Microsoft update their certificates or what is the expiry policy?
+### How often does Microsoft update their certificates or what is the expiry policy?
 These certificates used by Azure SQL Database & SQL Managed Instance are provided by trusted Certificate Authorities (CA). So the support of these certificates on Azure SQL Database & SQL Managed Instance is tied to the support of these certificates by CA. However, as in this case, there can be unforeseen bugs in these predefined certificates, which need to be fixed at the earliest.
 
-### 7. If I am using read replicas, do I need to perform this update only on master server or all the read replicas?
+### If I am using read replicas, do I need to perform this update only on master server or all the read replicas?
 Since this update is a client-side change, if the client used to read data from the replica server, we will need to apply the changes for those clients as well. 
 
-### 8. Do we have server-side query to verify if SSL is being used?
+### Do we have server-side query to verify if SSL is being used?
 Since this configuration is client-side, information is not available on server side.
 
-### 9. What if I have further questions?
+### What if I have further questions?
 If you have a support plan and you need technical help, create Azure support request, see [How to create Azure support request](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request).
