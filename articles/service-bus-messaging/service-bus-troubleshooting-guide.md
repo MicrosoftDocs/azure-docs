@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting guide for Azure Service Bus | Microsoft Docs
-description: This article provides troubleshooting tips and recommendations for a few issues that you may see when using Azure Service Bus. 
+description: Learn about troubleshooting tips and recommendations for a few issues that you may see when using Azure Service Bus.
 ms.topic: article
 ms.date: 09/16/2020
 ---
