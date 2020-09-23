@@ -20,7 +20,7 @@ ms.date: 02/06/2019
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
 
-In this quickstart, you create a machine learning experiment in [Azure Machine Learning Studio (classic)](what-is-ml-studio.md) that predicts the price of a car based on different variables such as make and technical specifications.
+In this quickstart, you create a machine learning experiment in [Azure Machine Learning Studio (classic)](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio) that predicts the price of a car based on different variables such as make and technical specifications.
 
 If you're brand new to machine learning, the video series [Data Science for Beginners](data-science-for-beginners-the-5-questions-data-science-answers.md) is a great introduction to machine learning using everyday language and concepts.
 
