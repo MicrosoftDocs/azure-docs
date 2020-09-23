@@ -274,7 +274,9 @@ except Exception as e:
 
 ## Set an ACL recursively
 
-When you *set* an ACL, you **replace** the entire ACL including all of it's entries. If you want to change the permission level of a security principal or add a new security principal to the ACL without affecting other existing entries, you should *update* the ACL instead. To update an ACL instead of replace it, see the [Update an ACL recursively](#update-an-acl-recursively) section of this article.    
+When you *set* an ACL, you **replace** the entire ACL including all of it's entries. If you want to change the permission level of a security principal or add a new security principal to the ACL without affecting other existing entries, you should *update* the ACL instead. To update an ACL instead of replace it, see the [Update an ACL recursively](#update-an-acl-recursively) section of this article.   
+
+This section contains examples for how to set an ACL 
 
 ### [PowerShell](#tab/azure-powershell)
 
@@ -364,9 +366,9 @@ def set_permission_recursively():
 
 When you *update* an ACL, you modify the ACL instead of replacing the ACL. For example, you can add a new security principal to the ACL without affecting other security principals listed in the ACL.  To replace the ACL instead of update it, see the [Set an ACL recursively](#set-an-acl-recursively) section of this article. 
 
-To update an ACL, create a new ACL object that identifies the security principal that you want to update, and then apply that object by using the appropriate command or API. An error will occur if your client gets the existing ACL object, adds the security principal to that object, and then attempts to apply that object.
+To update an ACL, create a new ACL object with the ACL entry that you want to update, and then use that object in update ACL operation. Do not get the existing ACL, just provide ACL entries to be updated.
 
-This section contains examples for how to update an ACL correctly.
+This section contains examples for how to update an ACL.
 
 ### [PowerShell](#tab/azure-powershell)
 
@@ -444,11 +446,9 @@ def update_permission_recursively():
 
 ## Remove ACL entries recursively
 
-You can remove one or more ACL entries recursively.
+You can remove one or more ACL entries recursively. To remove an ACL entry, create a new ACL object for ACL entry to be removed, and then use that object in remove ACL operation. Do not get the existing ACL, just provide the ACL entries to be removed. 
 
-To remove an ACL entry, create a new ACL object that identifies the security principal that you want to remove, and then apply that object by using the appropriate command or API. An error will occur if your client gets the existing ACL object, adds the security principal to that object, and then attempts to apply that object.
-
-This section contains examples for how to remove an ACL correctly.
+This section contains examples for how to remove an ACL.
 
 ### [PowerShell](#tab/azure-powershell)
 
