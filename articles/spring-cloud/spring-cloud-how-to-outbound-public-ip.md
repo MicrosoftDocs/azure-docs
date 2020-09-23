@@ -45,4 +45,4 @@ az spring-cloud show --resource-group <group_name> --name <service_name> --query
 ## Next steps
 > [!div class="nextstepaction"]
 * [Learn more about managed identities for Azure resources](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/overview.md)
-* [Learn more about key vault in Azure Spring Cloud](articles\spring-cloud\spring-cloud-tutorial-managed-identities-key-vault.md)
+* [Learn more about key vault in Azure Spring Cloud](spring-cloud-tutorial-managed-identities-key-vault.md)
