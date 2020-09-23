@@ -17,7 +17,7 @@ We will implement the following custom roles:
 * **Developer role**: 
     * Deploy
     * Test
-    * Rrestart apps
+    * Restart apps
     * Can apply and make changes to app configurations in the git repository
     * Can get the log stream
 * **Ops engineer role**: 
@@ -30,7 +30,7 @@ We will implement the following custom roles:
     * Cannot make changes to apps or configurations
 * **Azure Pipelines/Jenkins/Github Actions role**:
     * Can perform create, read, update, delete operations
-    * Can create and configure everything in Azure Spring Cloud and apps within service instance (Azure Pipelines, Jenkins or GitHub Actions, using Terraform or ARM Templates)
+    * Can create and configure everything in Azure Spring Cloud and apps within service instance: Azure Pipelines, Jenkins or GitHub Actions, using Terraform or ARM Templates
 
 ## Define Developer role
 
@@ -190,10 +190,10 @@ From: **Microsoft.AppPlatform/Spring/apps/deployments/skus**, select:
 
 6. Click **Review and create**.
 
+
+## See also
+* [Create or update Azure custom roles using the Azure portal](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-portal)
 For more information about three methods that define a custom permissions see:
 * [Clone a role](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-portal#clone-a-role)
 * [Start from scratch](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-portal#start-from-scratch)
 * [Start from JSON](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-portal#start-from-json)
-
-## See also
-[Create or update Azure custom roles using the Azure portal](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-portal)
