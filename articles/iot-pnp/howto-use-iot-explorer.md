@@ -36,12 +36,9 @@ To use the Azure IoT explorer tool, you need:
 
 Go to [Azure IoT explorer releases](https://github.com/Azure/azure-iot-explorer/releases) and expand the list of assets for the most recent release. Download and install the most recent version of the application.
 
->[!Important]
->From version 0.11.0 IoT Explorer only supports the IoT Plug and Play May 2020 preview-release. To use the features available in the previous preview-release from Aug 2019 you must install a 0.10.x version.
-
 ## Use Azure IoT explorer
 
-For a device, you can either connect your own device, or use one of our sample simulated devices. Follow [these instructions](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview/iothub_client/samples) to run the simulated device sample.
+For a device, you can either connect your own device, or use one of the sample simulated devices. Follow [these instructions](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples) to run the simulated device sample.
 
 ### Connect to your hub
 
