@@ -27,7 +27,7 @@ Security Center continuously analyzes your hybrid cloud workloads using advanced
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
-To step through the features covered in this tutorial, you must be on Security Center's standard pricing tier. You can try Security Center Standard at no cost. To learn more, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/). The quickstart [Onboard your Azure subscription to Security Center Standard](security-center-get-started.md) walks you through how to upgrade to Standard.
+To step through the features covered in this tutorial, you must have Azure Defender enabled. You can try Azure Defender at no cost. To learn more, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/). The quickstart [Get started with Security Center](security-center-get-started.md) walks you through how to upgrade.
 
 ## Scenario
 Contoso recently migrated some of their on-premises resources to Azure, including some virtual machine-based line-of-business workloads and SQL databases. Currently, Contoso's Core Computer Security Incident Response Team (CSIRT) has a problem investigating security issues because of security intelligence not being integrated with their current incident response tools. This lack of integration introduces a problem during the Detect stage (too many false positives), as well as during the Assess and Diagnose stages. As part of this migration, they decided to opt in for Security Center to help them address this problem.
@@ -63,15 +63,15 @@ Security Center provides a unified view of all security alerts. Security alerts 
 
    ![Security alerts](./media/tutorial-security-incident/tutorial-security-incident-fig1.png)
 
-2. In the list of alerts, click on a security incident, which is a collection of alerts, to learn more about this incident. **Security incident detected** opens.
+2. In the list of alerts, select a security incident, which is a collection of alerts, to learn more about this incident. **Security incident detected** opens.
 
-   ![Security incident](./media/tutorial-security-incident/tutorial-security-incident-fig2.png)
+   ![Security incident detected](./media/tutorial-security-incident/tutorial-security-incident-fig2.png)
 
 3. On this screen you have the security incident description on top, and the list of alerts that are part of this incident. Click on the alert that you want to investigate further to obtain more information.
 
-   ![Security incident](./media/tutorial-security-incident/tutorial-security-incident-fig3.png)
+   ![Alert details from incident](./media/tutorial-security-incident/tutorial-security-incident-fig3.png)
 
-   The type of alert can vary, read [Understanding security alerts in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type) for more details about the type of alert, and potential remediation steps. For alerts that can be safely dismissed, you can right click on the alert and select the option **Dismiss**:
+   The type of alert can vary, read [Understanding security alerts in Azure Security Center](security-center-alerts-type.md) for more details about the type of alert, and potential remediation steps. For alerts that can be safely dismissed, you can right click on the alert and select the option **Dismiss**:
 
    ![Alert](./media/tutorial-security-incident/tutorial-security-incident-fig4.png)
 
@@ -94,13 +94,12 @@ To perform a search open the **Security Center** dashboard, click **Search** in 
 
 ## Clean up resources
 
-Other quickstarts and tutorials in this collection build upon this quickstart. If you plan to continue on to work with subsequent quickstarts and tutorials, continue running the standard tier and keep automatic provisioning enabled. If you do not plan to continue or wish to return to the Free tier:
+Other quickstarts and tutorials in this collection build upon this quickstart. If you plan to continue to work with subsequent quickstarts and tutorials, keep automatic provisioning and Azure Defender enabled. If you do not plan to continue or wish to disable Azure Defender:
 
-1. Return to the Security Center main menu and select **Security Policy**.
-2. Select the subscription or policy that you want to return to Free. **Security policy** opens.
-3. Under **POLICY COMPONENTS**, select **Pricing tier**.
-4. Select **Free** to change subscription from standard tier to Free tier.
-5. Select **Save**.
+1. Return to the Security Center main menu and select **Pricing and settings**.
+1. Select the subscription that you want to downgrade.
+1. Set **Azure Defender** to Off.
+1. Select **Save**.
 
 If you wish to disable automatic provisioning:
 

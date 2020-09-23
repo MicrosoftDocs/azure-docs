@@ -10,7 +10,7 @@ Every time you deploy a template, information about the deployment is written to
 
 Azure Resource Manager automatically deletes deployments from your history as you near the limit. Automatic deletion is a change from past behavior. Previously, you had to manually delete deployments from the deployment history to avoid getting an error. This change was implemented on August 6, 2020.
 
-**Automatic deletions are supported for resource group deployments. Currently, deployments in the deployment history for [subscription](deploy-to-subscription.md), [management group](deploy-to-management-group.md), and [tenant](deploy-to-tenant.md) deployments aren't deleted.**
+**Automatic deletions are supported for resource group deployments. Currently, deployments in the history for [subscription](deploy-to-subscription.md), [management group](deploy-to-management-group.md), and [tenant](deploy-to-tenant.md) deployments aren't automatically deleted.**
 
 > [!NOTE]
 > Deleting a deployment from the history doesn't affect any of the resources that were deployed.

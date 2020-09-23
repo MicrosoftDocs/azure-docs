@@ -552,6 +552,12 @@ Azurite supports read-access geo-redundant replication (RA-GRS). For storage res
 
 `http://127.0.0.1:10000/devstoreaccount1-secondary/mycontainer/myblob.txt`
 
+### Table support
+
+Support for tables in Azurite is currently under development and open to contribution! For the latest progress, check the [Azurite V3 Table](https://github.com/Azure/Azurite/wiki/Azurite-V3-Table) project.
+
+Support for durable functions requires tables.
+
 ## Azurite is open-source
 
 Contributions and suggestions for Azurite are welcome. Go to the Azurite [GitHub project](https://github.com/Azure/Azurite/projects) page or [GitHub issues](https://github.com/Azure/Azurite/issues) for milestones and work items we're tracking for upcoming features and bug fixes. Detailed work items are also tracked in GitHub.

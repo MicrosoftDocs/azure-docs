@@ -18,7 +18,8 @@ ms.author: aahi
 > [!NOTE]
 > * The container for Sentiment Analysis v3 is now Generally Available. The key phrase extraction and language detection containers are available as an ungated public preview.
 > * Entity linking and NER are not currently available as a container.
-> * Currently, you will not be billed for Text Analytics for Health container usage.
+> * Accessing the Text Analytics for health container requires a [request form](https://aka.ms/csgate). Currently, you will not be billed for its usage.
+> * The container image locations may have recently changed. Read this article to see the updated location for this container.
 
 Containers enable you to run the Text Analytic APIs in your own environment and are great for your specific security and data governance requirements. The Text Analytics containers provide advanced natural language processing over raw text, and include three main functions: sentiment analysis, key phrase extraction, and language detection. 
 
