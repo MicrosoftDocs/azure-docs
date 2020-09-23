@@ -149,7 +149,8 @@ Important factors to consider when choosing a storage class for the data control
 - The storage capacity required is variable with the number of database instances that you have deployed because logs and metrics are collected for each database instance. Data is retained in the logs and metrics DB for 2 weeks before it is purged. 
 - Changing the storage class post deployment is very difficult, not documented, and not supported. Be sure to choose the storage class correctly at deployment time.
 
-> **Note:** If no storage class is specified the default storage class will be used. There can be only one default storage class per Kubernetes cluster. You can [change the default storage class](https://kubernetes.io/docs/tasks/administer-cluster/change-default-storage-class/).
+> [!NOTE]
+> If no storage class is specified the default storage class will be used. There can be only one default storage class per Kubernetes cluster. You can [change the default storage class](https://kubernetes.io/docs/tasks/administer-cluster/change-default-storage-class/).
 
 ### Database instance storage configuration
 
@@ -157,7 +158,8 @@ Each database instance has data, logs, and backup persistent volumes. The storag
 
 When creating an instance using `azdata arc sql mi create` or `azdata arc postgres server create` commands there are two parameters which can be used to set the storage classes:
 
-> **Note:** Some of these parameters are in development and will become available on `azdata arc sql mi create` and `azdata arc postgres server create` in the upcoming releases.
+> [!NOTE]
+> Some of these parameters are in development and will become available on `azdata arc sql mi create` and `azdata arc postgres server create` in the upcoming releases.
 
 |Parameter name, short name|Used for|
 |---|---|
