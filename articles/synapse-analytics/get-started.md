@@ -19,8 +19,7 @@ You will learn to:
 * Provision a Synapse workspace in an Azure subscription
 * Configure access control on an ADLSGEN2 account so that it seamlessly works with the Synapse workspace
 * Load in the NYCTaxi sample data into the Synapse workspace so that it can be used by SQL, SQL on-demand, and Spark
-* Edit and run SQL scripts and Synapse Notebooks using Synapse Studio
-* Query SQL tables and Spark tables
+
 
 
 
