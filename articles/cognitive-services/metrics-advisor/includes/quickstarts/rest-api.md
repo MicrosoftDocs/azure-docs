@@ -18,6 +18,7 @@ ms.author: aahi
     * The following BASH examples use the `\` line continuation character. If you console or terminal uses a different line continuation character, use this character.
 
 > [!TIP]
+> * You can find a Python sample that calls the REST API [on GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/python/MetricsAdvisor).
 > * It may 10 to 30 minutes for your Metrics Advisor resource to deploy a service instance for you to use. Click **Go to resource** once it successfully deploys. After deployment, you can start using your Metrics Advisor instance with both the web portal and REST API. 
 > * You can find the URL for the REST API in Azure portal, in the **Overview** section of your resource. it will look like this:
 >    * `https://<instance-name>.cognitiveservices.azure.com/`
