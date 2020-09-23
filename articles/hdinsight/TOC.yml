@@ -108,7 +108,7 @@
       - name: Use Data Lake Storage Gen2 with Azure CLI
         href: hdinsight-hadoop-use-data-lake-storage-gen2-azure-cli.md
       - name: Use Data Lake Storage Gen1
-        href: hdinsight-hadoop-use-data-lake-store-gen1.md
+        href: hdinsight-hadoop-use-data-lake-storage-gen1.md
     - name: Extend clusters
       items:
       - name: Install HDInsight apps
