@@ -102,7 +102,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	`https://samsara-dev.auth0.com/login/callback?connection=samlp-orgid-<ORGID>`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign-on URL, Reply URL, and Identifier. Contact [Samsara Client support team](mailto:support@samsara.com) to get these values, or in Samsara, go to **Settings** > **Single-Sign-On** > **New SAML Connection** to obtain the <ORGID>. You also can refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Sign-on URL, Reply URL, and Identifier. Contact the [Samsara Client support team](mailto:support@samsara.com) to get these values, or in Samsara, go to **Settings** > **Single-Sign-On** > **New SAML Connection** to obtain the \<ORGID\>. You also can refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
@@ -142,7 +142,7 @@ To configure single sign-on on **Samsara** side, you need to send the downloaded
 
 ### Create Samsara test user
 
-In this section, a user called Britta Simon is created in Samsara. Samsara supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Samsara, a new one is created after authentication with a default role of Standard Admin (No Dash Cam Access) for Organization. The user's access can then be increased or decreased as needed in Samsara.
+In this section, a user called B.Simon is created in Samsara. Samsara supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Samsara, a new one is created after authentication with a default role of Standard Admin (No Dash Cam Access) for Organization. The user's access can then be increased or decreased as needed in Samsara.
 
 ## Test SSO 
 
