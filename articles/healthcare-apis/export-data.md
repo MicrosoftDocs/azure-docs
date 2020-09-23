@@ -10,11 +10,11 @@ ms.author: matjazl
 ---
 # How to export FHIR data
 
-Before using $export, you will want to make sure that the Azure API for FHIR is configured to use it. For configuring export settings and creating Azure storage account, please refer to [here](configure-export-data.md).
+Before using $export, you will want to make sure that the Azure API for FHIR is configured to use it. For configuring export settings and creating Azure storage account, refer to [the configure export data page](configure-export-data.md).
 
 ## Using $export command
 
-After configuring the Azure API for FHIR for export, you can use the $export command to export the data out of the service. The data will be stored into the storage account you specified while configuring export. To learn how to invoke $export command in FHIR server, please read documentation on [$export specification](https://hl7.org/Fhir/uv/bulkdata/export/index.html). 
+After configuring the Azure API for FHIR for export, you can use the $export command to export the data out of the service. The data will be stored into the storage account you specified while configuring export. To learn how to invoke $export command in FHIR server, read documentation on the [$export specification](https://hl7.org/Fhir/uv/bulkdata/export/index.html). 
 
 The $export command in Azure API for FHIR takes an optional _\_container_ parameter that specifies the container within the configured storage account where the data should be exported.
 
@@ -22,7 +22,7 @@ The $export command in Azure API for FHIR takes an optional _\_container_ parame
 
 ## Supported scenarios
 
-We support $export at the system, patient, and group level. For group export, we will export all related resources but do not export the characterists of the group.
+Azure API for FHIR supports $export at the system, patient, and group level. For group export, we export all related resources but do not export the characteristics of the group.
 
 > [!Note] $export will export duplicate resources if the resource is in a compartment of more than one resource, or is in multiple groups.
 
