@@ -66,4 +66,4 @@ Advance to the next article to learn how to set up single sign-on for an app.
 OR
 
 > [!div class="nextstepaction"]
-> [Set up OIDC-based single sign-on](add-application-portal-setup-sso.md)
+> [Set up OIDC-based single sign-on](add-application-portal-setup-oidc-sso.md)
