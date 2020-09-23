@@ -33,7 +33,7 @@ To set up SSO for an application that you added to your Azure AD tenant, you nee
 
 ## Enable single sign-on for an app
 
-When you add an app that uses the OIDC standard for SSO, you have a setup button. When you select the button, you go to the applications site and complete the sign-up process for the app. The process of adding an app is covered in the Add an app quickstart earlier in this series. If you're configuring an application that was already added, look at the first quickstart. It walks you through viewing the applications added to your tenant. 
+When you add an app that uses the OIDC standard for SSO, you have a setup button. When you select the button, you go to the applications site and complete the sign-up process for the app. The process of adding an app is covered in the Add an app quickstart earlier in this series. If you're configuring an application that was already added, look at the first quickstart. It walks you through viewing the applications already in your tenant. 
 
 To set up single sign-on for an application:
 
@@ -41,15 +41,16 @@ To set up single sign-on for an application:
 
     :::image type="content" source="media/add-application-portal-setup-oidc-sso/sign-up-oidc-sso.png" alt-text="Screenshot shows the single sign-on option and the sign-up button.":::
 
-2. Select **Sign-up** and you will be taken the app developers sign-on page. Sign in by using Azure Active Directory sign-in credentials. 
+2. Select **Sign-up** and you will be taken the app developers sign-on page. Sign in using Azure Active Directory sign-in credentials. 
 
    > [!IMPORTANT]
-    > If you already have the application subscription, application will validate the user details along with tenant/directory information. If application is not able to verify the user then it will redirect user to Sign-up for the application service or to the error page.
+    > If you already have a subscription to the application then validation of user details and tenant/directory information will happen. If the application is not able to verify the user then it will redirect you to sign-up for the application service or to the error page.
 
 3. After successful authentication, a dialog appears asking for admin consent. Select **Consent on behalf of your organization** and then select **Accept**. 
-    :::image type="content" source="media/add-application-portal-setup-oidc-sso/consent.png" alt-text="Screenshot shows the consent screen for an app.":::
 
-4. The application is added to the tenant and the application home page appears.
+:::image type="content" source="media/add-application-portal-setup-oidc-sso/consent.png" alt-text="Screenshot shows the consent screen for an app.":::
+
+4. The application is added to your tenant and the application home page appears.
 
 
 > [!TIP]
