@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory sign-in activity reports - preview | Microsoft Docs
-description: Introduction to the sign in activity reports in the Azure Active Directory portal 
+description: Introduction to the sign-in activity reports in the Azure Active Directory portal 
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -121,13 +121,13 @@ Each tab in the sign-ins blade shows the default columns below. Some tabs have a
 
 Interactive user sign-ins are sign-ins where a user provides an authentication factor to Azure AD or interacts directly with Azure AD or a helper app, such as the Microsoft Authenticator app. The factors users provide include passwords, responses to MFA challenges, biometric factors, or QR codes that a user provides to Azure AD or to a helper app.
 
-This report also includes federated sign ins from identity providers that are federated to Azure AD.  
+This report also includes federated sign-ins from identity providers that are federated to Azure AD.  
 
 
 **Report size:** small <br> 
 **Examples:**
 
-- A user provides username and password in the Azure AD sign in screen.
+- A user provides username and password in the Azure AD sign-in screen.
 
 - A user passes an SMS MFA challenge.
 
@@ -165,7 +165,7 @@ Select an item in the list view to get more detailed information about the relat
 
 ### Non-interactive user sign-ins
 
-Non-interactive user sign-ins are sign-ins that were performed by a client app or OS components on behalf of a user. Like interactive user sign-ins, these sign ins are done on behalf of a user. Unlike interactive user sign-ins, these sign-ins do not require the user to provide an authentication factor. Instead, the device or client app uses a token or code to authenticate or access a resource on behalf of a user. In general, the user will perceive these sign-ins as happening in the background of the user’s activity.
+Non-interactive user sign-ins are sign-ins that were performed by a client app or OS components on behalf of a user. Like interactive user sign-ins, these sign-ins are done on behalf of a user. Unlike interactive user sign-ins, these sign-ins do not require the user to provide an authentication factor. Instead, the device or client app uses a token or code to authenticate or access a resource on behalf of a user. In general, the user will perceive these sign-ins as happening in the background of the user’s activity.
 
 
 **Report size:** Large <br>
@@ -175,7 +175,7 @@ Non-interactive user sign-ins are sign-ins that were performed by a client app o
 
 - A client uses an OAuth 2.0 authorization code to get an access token and refresh token.
 
-- A user performs single sign on (SSO) to a web or Windows app on an Azure AD joined PC.
+- A user performs single sign-on (SSO) to a web or Windows app on an Azure AD joined PC.
 
 - A user signs in to a second Microsoft Office app while they have a session on a mobile device using FOCI (Family of Client IDs).
 
@@ -196,7 +196,7 @@ You can't customize the fields shown in this report.
 
 ![Disabled columns](./media/concept-all-sign-ins/disabled-columns.png "Disabled columns")
 
-To make it easier to digest the data, non-interactive sign-in events are grouped. Clients often create many non-interactive sign-ins on behalf of the same user in a short time period, which share all the same characteristics except for the time the sign-in was attempted. For example, a client may get an access token once per hour on behalf of a user. If the user or client do not change state, the IP address, resource, and all other information is the same for each access token request. When Azure AD logs multiple sign-ins that are identical other than time and date, those sign ins will be from the same entity are aggregated into a single row. A row with multiple identical sign ins (except for date and time issued) will have a value greater than 1 in the # sign ins column. You can expand the row to see all the different sign-ins and their different time stamps. Sign-ins are aggregated in the non-interactive users when the following data matches:
+To make it easier to digest the data, non-interactive sign-in events are grouped. Clients often create many non-interactive sign-ins on behalf of the same user in a short time period, which share all the same characteristics except for the time the sign-in was attempted. For example, a client may get an access token once per hour on behalf of a user. If the user or client do not change state, the IP address, resource, and all other information is the same for each access token request. When Azure AD logs multiple sign-ins that are identical other than time and date, those sign-ins will be from the same entity are aggregated into a single row. A row with multiple identical sign-ins (except for date and time issued) will have a value greater than 1 in the # sign-ins column. You can expand the row to see all the different sign-ins and their different time stamps. Sign-ins are aggregated in the non-interactive users when the following data matches:
 
 
 - Application
@@ -224,7 +224,7 @@ You can:
 
 ## Service principal sign-ins
 
-Unlike interactive and non-interactive user sign-ins, service principal sign-ins do not involve a user. Instead, they are sign-ins by any non-user account, such as apps or service principals (except managed identity sign in, which are in included only in the managed identity sign ins report). In these sign-ins, the app or service provides its own credential, such as a certificate or app secret to authenticate or access resources.
+Unlike interactive and non-interactive user sign-ins, service principal sign-ins do not involve a user. Instead, they are sign-ins by any non-user account, such as apps or service principals (except managed identity sign-in, which are in included only in the managed identity sign-ins report). In these sign-ins, the app or service provides its own credential, such as a certificate or app secret to authenticate or access resources.
 
 
 **Report size:** Large <br>
@@ -304,7 +304,7 @@ This report has a default list view that shows:
 
 You can't customize the fields shown in this report.
 
-To make it easier to digest the data managed identities for Azure resources sign in logs, non-interactive sign-in events are grouped. Sign-ins from the same entity are aggregated into a single row. You can expand the row to see all the different sign-ins and their different time stamps. Sign-ins are aggregated in the managed identities report when all of the following data matches:
+To make it easier to digest the data-managed identities for Azure resources sign in logs, non-interactive sign-in events are grouped. Sign-ins from the same entity are aggregated into a single row. You can expand the row to see all the different sign-ins and their different time stamps. Sign-ins are aggregated in the managed identities report when all of the following data matches:
 
 - Managed identity name or ID
 
