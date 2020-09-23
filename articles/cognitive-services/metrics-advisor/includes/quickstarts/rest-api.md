@@ -9,7 +9,7 @@ ms.topic: include
 ms.date: 09/10/2020
 ms.author: aahi
 ---
- 
+
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
@@ -20,8 +20,8 @@ ms.author: aahi
 > [!TIP]
 > * You can find a Python sample that uses the REST API on [GitHub](https://github.com/Azure-Samples/cognitive-services-rest-api-samples/).
 > * It may 10 to 30 minutes for your Metrics Advisor resource to deploy. Click **Go to resource** once it successfully deploys.
-> * After deployment, you can start using your Metrics Advisor instance with the web portal and REST API. You can find both URLs in the resource you created.
-> * You will need the key and endpoint from the resource you create to start using the service, which can be found in **Keys and Endpoint**, in your resource. You'll paste your key and endpoint into the code below later in the quickstart.
+> * After deployment, you can start using your Metrics Advisor instance with the web portal and REST API endpoint. You can find both URLs in the Cognitive service resource you've created.
+> * You will need the **resource key** and the **API key** from the resource you've created to start using the REST API service. The **resource key** can be found in **Keys and Endpoint** menu of the Cognitive service resource you've created.The API key can be found in built-in web portal of Metrics Advisor, you can find it in **API keys** page.
 
 ## Add a data feed from a sample or data source
 
@@ -85,7 +85,7 @@ The cURL command is executed from a BASH shell. Edit this command with your own 
 curl -i https://REPLACE-WITH-YOUR-ENDPOINT/anomalydetector-ee/v1.0/datafeeds \
 -X POST \
 -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY" \
--H "x-api-key: REPLACE-WITH-YOUR-RESOURCE-KEY" \
+-H "x-api-key: REPLACE-WITH-YOUR-API-KEY" \
 -H "Content-Type:application/json" \
 -d @body.json
 ```
@@ -109,7 +109,7 @@ Using above URL, you can query detailed information of the data feed you've crea
 ```bash
 curl https://REPLACE-WITH-YOUR-ENDPOINT/anomalydetector-ee/v1.0/datafeeds/REPLACE-WITH-YOUR-DATA-FEED-ID \
 -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY" \
--H "x-api-key: REPLACE-WITH-YOUR-RESOURCE-KEY"
+-H "x-api-key: REPLACE-WITH-YOUR-API-KEY"
 ```
 
 #### Example response
@@ -200,7 +200,7 @@ The cURL command is executed from a BASH shell. Edit this command with your own 
 curl https://REPLACE-WITH-YOUR-ENDPOINT/anomalydetector-ee/v1.0/datafeeds/REPLACE-WITH-YOUR-DATA-FEED-ID/ingestionStatus/query \
 -X POST \
 -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY" \
--H "x-api-key: REPLACE-WITH-YOUR-RESOURCE-KEY" \
+-H "x-api-key: REPLACE-WITH-YOUR-API-KEY" \
 -H "Content-Type:application/json" \
 -d @body.json
 ```
@@ -263,7 +263,7 @@ The cURL command is executed from a BASH shell. Edit this command with your own 
 curl -i https://REPLACE-WITH-YOUR-ENDPOINT/anomalydetector-ee/v1.0/enrichment/anomalyDetection/configurations \
 -X POST \
 -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY" \
--H "x-api-key: REPLACE-WITH-YOUR-RESOURCE-KEY" \
+-H "x-api-key: REPLACE-WITH-YOUR-API-KEY" \
 -H "Content-Type:application/json" \
 -d @body.json
 ```
@@ -286,10 +286,10 @@ In above **Location** header, it contains the URL of the new created resource(de
 
 Using above URL in **Location** header , you can query detection configuration you've created (We will use **anomalyDetectionConfigurationId** in response content  in the following steps)
 
-```
+```bash
 curl https://REPLACE-WITH-YOUR-ENDPOINT/anomalydetector-ee/v1.0/enrichment/anomalyDetection/configurations/REPLACE-WITH-YOUR-DETECTION-CONFIGURATION-ID \
 -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY" \
--H "x-api-key: REPLACE-WITH-YOUR-RESOURCE-KEY"
+-H "x-api-key: REPLACE-WITH-YOUR-API-KEY"
 ```
 
 #### Example response
@@ -347,7 +347,7 @@ The cURL command is executed from a BASH shell. Edit this command with your own 
 curl -i https://REPLACE-WITH-YOUR-ENDPOINT/anomalydetector-ee/v1.0/hooks \
 -X POST \
 -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY" \
--H "x-api-key: REPLACE-WITH-YOUR-RESOURCE-KEY" \
+-H "x-api-key: REPLACE-WITH-YOUR-API-KEY" \
 -H "Content-Type:application/json" \
 -d @body.json
 ```
@@ -368,10 +368,10 @@ Date: Tue, 08 Sep 2020 10:37:59 GMT
 
 Using above URL in **Location** header , you can query the webhook you've created.
 
-```
+```bash
 curl https://REPLACE-WITH-YOUR-ENDPOINT/anomalydetector-ee/v1.0/hooks/REPLACE-WITH-YOUR-HOOK-ID \
 -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY" \
--H "x-api-key: REPLACE-WITH-YOUR-RESOURCE-KEY"
+-H "x-api-key: REPLACE-WITH-YOUR-API-KEY"
 ```
 
 #### Example response
@@ -435,7 +435,7 @@ The cURL command is executed from a BASH shell. Edit this command with your own 
 curl -i https://REPLACE-WITH-YOUR-ENDPOINT/anomalydetector-ee/v1.0/alert/anomaly/configurations \
 -X POST \
 -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY" \
--H "x-api-key: REPLACE-WITH-YOUR-RESOURCE-KEY" \
+-H "x-api-key: REPLACE-WITH-YOUR-API-KEY" \
 -H "Content-Type:application/json" \
 -d @body.json
 ```
@@ -458,10 +458,10 @@ In above **Location** header, it contains the URL of the new created resource(de
 
 Using above URL in **Location** header , you can query alert configuration you've created. (We will use **anomalyAlertingConfigurationId** in alert configuration  in the following steps)
 
-```
+```bash
 curl https://REPLACE-WITH-YOUR-ENDPOINT/anomalydetector-ee/v1.0/alert/anomaly/configurations/REPLACE-WITH-YOUR-ANOMALY-ALERTING-CONFIGURATION-ID \
 -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY" \
--H "x-api-key: REPLACE-WITH-YOUR-RESOURCE-KEY"
+-H "x-api-key: REPLACE-WITH-YOUR-API-KEY"
 ```
 
 #### Example response
@@ -503,10 +503,10 @@ In following sample, it shows how to query alert, and using this alert to query 
 
 You can use alert configuration created in above step to query the alert.
 
-```
+```bash
 curl https://REPLACE-WITH-YOUR-ENDPOINT/anomalydetector-ee/v1.0/anomalydetector-ee/v1.0/alert/anomaly/configurations/REPLACE-WITH-YOUR-ANOMALY-ALERTING-CONFIGURATION-ID/alerts/query \
 -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY" \
--H "x-api-key: REPLACE-WITH-YOUR-RESOURCE-KEY"
+-H "x-api-key: REPLACE-WITH-YOUR-API-KEY"
 ```
 
 #### Example response
@@ -531,10 +531,10 @@ In above response, we got an alert. Using this **alertID**, we can query all rel
 
 #### Query anomalies using alertID
 
-```
+```bash
 curl https://REPLACE-WITH-YOUR-ENDPOINT/anomalydetector-ee/v1.0/alert/anomaly/configurations/REPLACE-WITH-YOUR-ANOMALY-ALERTING-CONFIGURATION-ID/alerts/REPLACE-WITH-YOUR-ALERTID/anomalies \
 -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY" \
--H "x-api-key: REPLACE-WITH-YOUR-RESOURCE-KEY"
+-H "x-api-key: REPLACE-WITH-YOUR-API-KEY"
 ```
 
 #### Example response
