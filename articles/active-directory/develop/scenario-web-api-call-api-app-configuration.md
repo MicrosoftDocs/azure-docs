@@ -128,7 +128,7 @@ You have three options in *Microsoft.Identity.Web* for calling a downstream web 
    }
    ```
 
-3. When you want to call another web API, Microsoft.Identity.Web offers a wrapper that requests access tokens and calls the downstream web API.
+3. To call downstream web API other than Microsoft Graph, *Microsoft.Identity.Web* provides `AddDownstreamWebApi()`, which requests tokens and calls the downstream web API.
 
    ```csharp
    using Microsoft.Identity.Web;
