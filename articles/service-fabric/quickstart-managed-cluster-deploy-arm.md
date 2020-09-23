@@ -43,7 +43,7 @@ Take note of the certificate thumbprint as this will be required to deploy the t
 <!-- Link to be updated when template is merged into the quickstart repo -->
 1. Select the following image to sign in to Azure and open a template. 
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fpeterpogorski%2Fazure-quickstart-templates%2Fmanaged-sfrp-sample-templates%2F101-managed-service-fabric-cluster-basic%2Fazuredeploy.json)
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fpeterpogorski%2Fazure-quickstart-templates%2Fmanaged-sfrp-sample-templates%2F101-managed-service-fabric-cluster-standard-1-nt%2Fazuredeploy.json)
 
 2. Select or enter the following values
 

@@ -29,7 +29,7 @@ Follow the steps below to use the module before the official release is availabl
 * [Download and load Modules](https://github.com/a-santamaria/ServiceFabricManagedClustersClients#download-and-load-modules)
 * [Documentation and Examples](https://github.com/a-santamaria/ServiceFabricManagedClustersClients#documentation-and-examples). 
 
-## Scale a Managed Service Fabric cluster (using preview modules)
+## Scale a Managed Service Fabric cluster
 Change the instance count to increase or decrease the number of nodes on the node type that you would like to scale. You can find node type names in the Azure Resource Manager template (ARM template) from your cluster deployment, or in the Service Fabric Explorer.  
 
 > [!Note]

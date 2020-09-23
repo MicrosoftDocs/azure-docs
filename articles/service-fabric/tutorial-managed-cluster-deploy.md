@@ -76,10 +76,10 @@ For this step, provide your own values for the following  parameters:
 ```powershell
 $clusterName = "myCluster" 
 $password = "Password4321!@#" | ConvertTo-SecureString -AsPlainText -Force
-$thumbprint = "<Certificate Thumbprint>"
+$clientThumbprint = "<Certificate Thumbprint>"
 $clusterSku = "Standard"
 
-New-AzServiceFabricManagedCluster -ResourceGroupName $resourceGroup -Location $location -ClusterName $clusterName -ClientCertThumbprint $thumbprint -ClientCertIsAdmin -AdminPassword $password -Sku $clusterSKU -Verbose
+New-AzServiceFabricManagedCluster -ResourceGroupName $resourceGroup -Location $location -ClusterName $clusterName -ClientCertThumbprint $clientThumbprint -ClientCertIsAdmin -AdminPassword $password -Sku $clusterSKU -Verbose
 ```
 
 ### Add a Primary Node Type to the Managed Service Fabric cluster

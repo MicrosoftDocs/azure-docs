@@ -10,7 +10,7 @@ ms.date: 09/1/2020
 In this tutorial series we will discuss:
 
 > [!div class="checklist"]
-> * [How to deploy a Managed Service Fabric cluster.](tutorial-managed-cluster-deploy.md) 
+> * [How to deploy a Managed Service Fabric cluster](tutorial-managed-cluster-deploy.md) 
 > * [How to scale out a Managed Service Fabric cluster](tutorial-managed-cluster-scale.md)
 > * How to add and remove nodes in a Managed Service Fabric cluster
 > * [How to add a certificate to a Managed Service Fabric cluster](tutorial-managed-cluster-certificate.md)
