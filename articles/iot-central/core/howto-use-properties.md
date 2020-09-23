@@ -231,6 +231,12 @@ hubClient.getTwin((err, twin) => {
 
 The response message should include the `ac` and `av` fields. The `ad` field is optional. See the following snippets for examples.
 
+* `ac` is a numeric field that uses the values in the following table:
+
+* `av` is the version number sent to the device.
+
+* `ad` is an option string description.
+
 | Value | Label | Description |
 | ----- | ----- | ----------- |
 | `'ac': 200` | Completed | The property change operation was successfully completed. |
@@ -238,11 +244,6 @@ The response message should include the `ac` and `av` fields. The `ad` field is 
 | `'ac': 4xx` | Error | The requested property change was not valid or had an error |
 | `'ac': 5xx` | Error | The device experienced an unexpected error when processing the requested change. |
 
-* `ac` is a numeric field that uses the values in the following table:
-
-* `av` is the version number sent to the device.
-
-* `ad` is an option string description.
 
 For more information, see [device twins](https://docs.microsoft.com/azure/iot-hub/tutorial-device-twins).
 
