@@ -28,8 +28,8 @@ The code that you use to configure your web API so that it calls downstream web 
 
 Given that your web API now calls a downstream web API, you need to provide a client secret or client certificate in the *appsettings.json* file. You can also add a section that describes:
 - the URL where the downstream web API will be called, 
-- and the scopes that I required to call it
-In the example below this section is named "GraphBeta".
+- and the scopes that are required to call it
+In the example below, this section is named "GraphBeta".
 
 ```JSON
 {
@@ -126,7 +126,7 @@ Using Microsoft.Identity.Web, if you want your web API to call downstream web AP
    }
    ```
 
-3. When you want to call another Web API, Microsoft.Identity.Web offers a wrapper that requests access tokens and calls the downstream web API.
+3. When you want to call another web API, Microsoft.Identity.Web offers a wrapper that requests access tokens and calls the downstream web API.
 
    ```csharp
    using Microsoft.Identity.Web;

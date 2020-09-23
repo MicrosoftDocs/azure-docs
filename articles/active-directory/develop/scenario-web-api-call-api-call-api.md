@@ -25,7 +25,7 @@ After you have a token, you can call a protected web API. You usually call the d
 
 When you use Microsoft.Identity.Web, you have three cases:
 
-1. you want to call Microsoft.Graph. In that case you have added `AddMicrosoftGraph` in the Startup.cs, and you can directly inject the `GraphServiceClient` in your controller's or page constructor, and use it in the actions. Below is an example of a Razor page, which displays the photo of the signed-in user.
+1. you want to call Microsoft.Graph. In that case you have added `AddMicrosoftGraph` in the Startup.cs, and you can directly inject the `GraphServiceClient` in your controller or page constructor, and use it in the actions. Below is an example of a Razor page, which displays the photo of the signed-in user.
 
    ```CSharp
     [Authorize]
@@ -86,7 +86,7 @@ When you use Microsoft.Identity.Web, you have three cases:
         }
    ```CSharp
 
-   The `CallWebApiForUserAsync` also has strongly typed generic overrides that enables you to directly receive an object.
+   The `CallWebApiForUserAsync` also has strongly typed generic overrides that enable you to directly receive an object.
    For instance the following method received a `Todo` instance, which is a strongly typed representation of the JSON 
    returned by the web API.
 
