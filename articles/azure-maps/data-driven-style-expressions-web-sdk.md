@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
-ms.custom: codepen, devx-track-javascript
+ms.custom: codepen, devx-track-js
 ---
 
 # Data-driven Style Expressions (Web SDK)
