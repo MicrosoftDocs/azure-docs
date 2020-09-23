@@ -29,6 +29,9 @@ To fix this issue, retrieve the image from Azure Marketplace and make changes to
 - [Linux images](../../virtual-machines/linux/endorsed-distros.md?toc=/azure/virtual-machines/linux/toc.json)
 - [Windows images](create-azure-vm-technical-asset.md#create-a-vm-image-using-an-approved-base)
 
+> [!Note]
+> If you are using a Linux base image not taken from Marketplace, you can offset the first partition by 2048 KB. This allows the unformatted space to be used for adding new billing info and allows Azure to go ahead with publishing your VM to Marketplace.  
+
 ## VM extension failure
 
 Check to see whether your image supports VM extensions.
