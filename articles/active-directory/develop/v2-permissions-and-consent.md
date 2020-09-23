@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/29/2020
+ms.date: 09/23/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: aaddev, fasttrack-edit
@@ -304,7 +304,7 @@ Another use of `./default` is when requesting application permissions (or *roles
 
 To create application permissions (roles) for a web API, see [How to: Add app roles in your application](howto-add-app-roles-in-azure-ad-apps.md).
 
-Client credentials requests in your client app must include `scope={resource}/.default`, where `{resource}` is the web API that your app intends to call. All the application permissions (roles) that have been granted for that web API will be included in the returned access token.
+Client credentials requests in your client app **must** include `scope={resource}/.default`, where `{resource}` is the web API that your app intends to call. Issuing a client credentials request with individual application permissions (roles) is **not** supported. All the application permissions (roles) that have been granted for that web API will be included in the returned access token.
 
 To grant access to the application permissions you define, including granting admin consent for the application, see [Quickstart: Configure a client application to access a web API](quickstart-configure-app-access-web-apis.md).
 
