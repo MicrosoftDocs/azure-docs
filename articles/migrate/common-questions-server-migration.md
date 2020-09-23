@@ -216,11 +216,6 @@ Azure Migrate server migration capabilities support like for like migrations cur
 
 Agentless replication results in some performance impact on VMware vCenter Server and VMware ESXi hosts. Because agentless replication uses snapshots, it consumes IOPS on storage, so some IOPS storage bandwidth is required. We don't recommend using agentless replication if you have constraints on storage or IOPs in your environment.
 
-## Can I do agentless migration of UEFI VMs to Azure Gen 2?
-
-No. You can use the [VMware agent-based migration](https://docs.microsoft.com/azure/migrate/tutorial-migrate-vmware-agent), [Hyper-V migration](https://docs.microsoft.com/azure/migrate/tutorial-migrate-physical-virtual-machines), or [physical servers migration](https://docs.microsoft.com/azure/migrate/tutorial-migrate-physical-virtual-machines) options to migrate these VMs to Gen 2 Azure VMs.
-
-***Note:*** Ensure that you select the appropriate VM size that supports Generation 2 UEFI in Azure.
 
 ## Next steps
 
