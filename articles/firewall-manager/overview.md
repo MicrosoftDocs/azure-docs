@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 08/25/2020
+ms.date: 09/23/2020
 ms.author: victorh
 ---
 
@@ -82,6 +82,8 @@ Azure Firewall Manager has the following known issues:
 |All Secured Virtual Hubs sharing the same virtual WAN must be in the same resource group.|This behavior is aligned with Virtual WAN Hubs today.|Create multiple Virtual WANs to allow Secured Virtual Hubs to be created in different resource groups.|
 |Bulk IP address addition fails|The secure hub firewall goes into a failed state if you add multiple public IP addresses.|Add smaller public IP address increments. For example, add 10 at a time.|
 |Application rules fail in a secure hub with custom DNS (preview) configured.|Custom DNS (preview) doesn’t work in  secure hub deployments and Hub virtual network deployments where forced tunneling is enabled.|Fix under investigation.|
+|DDoS Protection Standard not supported with secured virtual hubs|DDoS Protection Standard is not integrated with vWANs.|Investigating|
+|Activity logs not fully supported|Firewall policy does not currently support Activity logs.|Investigating|
 
 ## Next steps
 

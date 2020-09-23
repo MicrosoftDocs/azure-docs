@@ -26,7 +26,7 @@ The Azure Security Baseline for Microsoft Azure Machine Learning contains recomm
 
 Azure Firewall can be used to control access to your Azure Machine Learning workspace and the public internet.
 
-- [How to securely run experiments and inference in an isolated virtual network](how-to-enable-virtual-network.md)
+- [Virtual network isolation and privacy overview](how-to-network-security-overview.md)
 
 - [Use workspace behind Azure Firewall for Azure Machine Learning](how-to-access-azureml-behind-firewall.md)
 
@@ -56,7 +56,7 @@ Enable network security group flow logs and send the logs to an Azure Storage ac
 
 - [Use TLS to secure a web service through Azure Machine Learning](how-to-secure-web-service.md)
 
-- [Network isolation during training &amp; inference with private virtual networks](how-to-enable-virtual-network.md)
+- [Virtual network isolation and privacy overview](how-to-network-security-overview.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -92,7 +92,7 @@ Deploy Azure Firewall at each of the organization's network boundaries with thre
 
 **Guidance**: Deploy the firewall solution of your choice at each of your organization's network boundaries to detect and/or block malicious traffic.
 
-Select an offer from the Azure Marketplace that supports IDS/IPS functionality with payload inspection capabilities.  When payload inspection is not a requirement, Azure Firewall threat intelligence can be used. Azure Firewall threat intelligence-based filtering is used to alert on and/or block traffic to and from known malicious IP addresses and domains. The IP addresses and domains are sourced from the Microsoft Threat Intelligence feed.
+Select an offer from Azure Marketplace that supports IDS/IPS functionality with payload inspection capabilities.  When payload inspection is not a requirement, Azure Firewall threat intelligence can be used. Azure Firewall threat intelligence-based filtering is used to alert on and/or block traffic to and from known malicious IP addresses and domains. The IP addresses and domains are sourced from the Microsoft Threat Intelligence feed.
 
 - [How to deploy Azure Firewall](../firewall/tutorial-firewall-deploy-portal.md)
 
@@ -120,7 +120,7 @@ Azure Machine Learning service documents a list of service tags for its compute 
 
 - [For more information about using service tags](../virtual-network/service-tags-overview.md)
 
-- [For Azure Machine Learning virtual network](how-to-enable-virtual-network.md)
+- [Virtual network isolation and privacy overview](how-to-network-security-overview.md)
 
 **Azure Security Center monitoring**: Not Applicable
 

@@ -1,6 +1,6 @@
 ---
 title: Deactivate and delete a StorSimple 8000 series device | Microsoft Docs
-description: Describes how to remove StorSimple device from service by  first deactivating it and then deleting it.
+description: Learn how to deactivate and delete a StorSimple device that is connected to a StorSimple Device Manager service.
 services: storsimple
 documentationcenter: ''
 author: alkohli

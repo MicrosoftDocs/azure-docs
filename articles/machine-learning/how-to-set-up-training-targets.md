@@ -15,8 +15,6 @@ ms.custom: how-to, devx-track-python, contperfq1
 
 # Configure and submit training runs
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
-
 In this article, you learn how to configure and submit Azure Machine Learning runs to train your models.
 
 When training, it is common to start on your local computer, and then later scale out to a cloud-based cluster. With Azure Machine Learning, you can run your script on various compute targets without having to change your training script.
@@ -24,6 +22,7 @@ When training, it is common to start on your local computer, and then later scal
 All you need to do is define the environment for each compute target within a **script run configuration**.  Then, when you want to run your training experiment on a different compute target, specify the run configuration for that compute.
 
 ## Prerequisites
+
 * If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today
 * The [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true) (>= 1.13.0)
 * An [Azure Machine Learning workspace](how-to-manage-workspace.md), `ws`
@@ -31,7 +30,7 @@ All you need to do is define the environment for each compute target within a **
   * [Python SDK](how-to-create-attach-compute-sdk.md) 
   * [Azure Machine Learning studio](how-to-create-attach-compute-studio.md)
 
-## <a name="whats-a-run-configuration"></a>What's a script run configuration (ScriptRunConfig)?
+## <a name="whats-a-run-configuration"></a>What's a script run configuration?
 A [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) is used to configure the information necessary for submitting a training run as part of an experiment.
 
 You submit your training experiment with a ScriptRunConfig object.  This object includes the:

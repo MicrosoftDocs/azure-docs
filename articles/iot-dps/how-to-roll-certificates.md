@@ -15,14 +15,14 @@ During the lifecycle of your IoT solution, you'll need to roll certificates. Two
 
 Rolling certificates is a security best practice to help secure your system in the event of a breach. As part of [Assume Breach Methodology](https://download.microsoft.com/download/C/1/9/C1990DBA-502F-4C2A-848D-392B93D9B9C3/Microsoft_Enterprise_Cloud_Red_Teaming.pdf), Microsoft advocates the need for having reactive security processes in place along with preventative measures. Rolling your device certificates should be included as part of these security processes. The frequency in which you roll your certificates will depend on the security needs of your solution. Customers with solutions involving highly sensitive data may roll certificate daily, while others roll their certificates every couple years.
 
-Rolling device certificates will involve updating the certificate stored on the device and the IoT hub. Afterwards, the device can reprovision itself with the IoT hub using normal [auto-provisioning](concepts-auto-provisioning.md) with the Device Provisioning Service.
+Rolling device certificates will involve updating the certificate stored on the device and the IoT hub. Afterwards, the device can reprovision itself with the IoT hub using normal [provisioning](about-iot-dps.md#provisioning-process) with the Device Provisioning Service (DPS).
 
 
 ## Obtain new certificates
 
 There are many ways to obtain new certificates for your IoT devices. These include obtaining certificates from the device factory, generating your own certificates, and having a third party manage certificate creation for you. 
 
-Certificates are signed by each other to form a chain of trust from a root CA certificate to a [leaf certificate](concepts-security.md#end-entity-leaf-certificate). A signing certificate is the certificate used to sign the leaf certificate at the end of the chain of trust. A signing certificate can be a root CA certificate, or an intermediate certificate in chain of trust. For more information, see [X.509 certificates](concepts-security.md#x509-certificates).
+Certificates are signed by each other to form a chain of trust from a root CA certificate to a [leaf certificate](concepts-x509-attestation.md#end-entity-leaf-certificate). A signing certificate is the certificate used to sign the leaf certificate at the end of the chain of trust. A signing certificate can be a root CA certificate, or an intermediate certificate in chain of trust. For more information, see [X.509 certificates](concepts-x509-attestation.md#x509-certificates).
  
 There are two different ways to obtain a signing certificate. The first way, which is recommended for production systems, is to purchase a signing certificate from a root certificate authority (CA). This way chains security down to a trusted source. 
 
@@ -31,7 +31,7 @@ The second way is to create your own X.509 certificates using a tool like OpenSS
 
 ## Roll the certificate on the device
 
-Certificates on a device should always be stored in a safe place like a [hardware security module (HSM)](concepts-device.md#hardware-security-module). The way you roll device certificates will depend on how they were created and installed in the devices in the first place. 
+Certificates on a device should always be stored in a safe place like a [hardware security module (HSM)](concepts-service.md#hardware-security-module). The way you roll device certificates will depend on how they were created and installed in the devices in the first place. 
 
 If you got your certificates from a third party, you must look into how they roll their certificates. The process may be included in your arrangement with them, or it may be a separate service they offer. 
 
@@ -70,7 +70,7 @@ If you're rolling certificates in response to a security breach, you should use 
 
     These steps should be completed for the primary and secondary certificate, if both are compromised.
 
-    ![Manage individual enrollments](./media/how-to-roll-certificates/manage-individual-enrollments-portal.png)
+    ![Manage individual enrollments with a security breach](./media/how-to-roll-certificates/manage-individual-enrollments-portal.png)
 
 3. Once the compromised certificate has been removed from the provisioning service, the certificate can still be used to make device connections to the IoT hub as long as a device registration for it exists there. You can address this two ways: 
 
@@ -91,7 +91,7 @@ Later when the secondary certificate also nears expiration, and needs to be roll
 
 2. Click **Secondary Certificate** and then, click the folder icon to select the new certificate to be uploaded for the enrollment entry. Click **Save**.
 
-    ![Manage individual enrollments using the secondary certificate](./media/how-to-roll-certificates/manage-individual-enrollments-secondary-portal.png)
+    ![Manage individual enrollments using the secondary certificate expiration](./media/how-to-roll-certificates/manage-individual-enrollments-secondary-portal.png)
 
 3. Later when the primary certificate has expired, come back and delete that primary certificate by clicking the **Delete current certificate** button.
 
@@ -113,7 +113,7 @@ To update a group enrollment in response to a security breach, you should use on
 
 5. Click **CA Certificate**, and select your new root CA certificate. Then click **Save**. 
 
-    ![Select the new root CA certificate](./media/how-to-roll-certificates/select-new-root-cert.png)
+    ![Select the new root CA certificate for a compromised certificate](./media/how-to-roll-certificates/select-new-root-cert.png)
 
 6. Once the compromised certificate has been removed from the provisioning service, the certificate can still be used to make device connections to the IoT hub as long as device registrations for it exists there. You can address this two ways: 
 
@@ -131,9 +131,9 @@ To update a group enrollment in response to a security breach, you should use on
 
 2. Click **Intermediate Certificate**, and **Delete current certificate**. Click the folder icon to navigate to the new intermediate certificate to be uploaded for the enrollment group. Click **Save** when you're finished. These steps should be completed for both the primary and secondary certificate, if both are compromised.
 
-    This new intermediate certificate should be signed by a verified root CA certificate that has already been added into provisioning service. For more information, see [X.509 certificates](concepts-security.md#x509-certificates).
+    This new intermediate certificate should be signed by a verified root CA certificate that has already been added into provisioning service. For more information, see [X.509 certificates](concepts-x509-attestation.md#x509-certificates).
 
-    ![Manage individual enrollments](./media/how-to-roll-certificates/enrollment-group-delete-intermediate-cert.png)
+    ![Manage individual enrollments for a compromised intermediate](./media/how-to-roll-certificates/enrollment-group-delete-intermediate-cert.png)
 
 
 3. Once the compromised certificate has been removed from the provisioning service, the certificate can still be used to make device connections to the IoT hub as long as device registrations for it exists there. You can address this two ways: 
@@ -159,7 +159,7 @@ Later when the secondary certificate also nears expiration, and needs to be roll
 
 3. Click **CA Certificate**, and select your new root CA certificate under the **Secondary Certificate** configuration. Then click **Save**. 
 
-    ![Select the new root CA certificate](./media/how-to-roll-certificates/select-new-root-secondary-cert.png)
+    ![Select the new root CA certificate for expiration](./media/how-to-roll-certificates/select-new-root-secondary-cert.png)
 
 4. Later when the primary certificate has expired, click the **Certificates** tab for your Device Provisioning service instance. Click the expired certificate in the list, and then click the **Delete** button. Confirm the delete by entering the certificate name, and click **OK**.
 
@@ -174,9 +174,9 @@ Later when the secondary certificate also nears expiration, and needs to be roll
 
 2. Click **Secondary Certificate** and then, click the folder icon to select the new certificate to be uploaded for the enrollment entry. Click **Save**.
 
-    This new intermediate certificate should be signed by a verified root CA certificate that has already been added into provisioning service. For more information, see [X.509 certificates](concepts-security.md#x509-certificates).
+    This new intermediate certificate should be signed by a verified root CA certificate that has already been added into provisioning service. For more information, see [X.509 certificates](concepts-x509-attestation.md#x509-certificates).
 
-   ![Manage individual enrollments using the secondary certificate](./media/how-to-roll-certificates/manage-enrollment-group-secondary-portal.png)
+   ![Manage enrollment groups using the secondary certificate expiring](./media/how-to-roll-certificates/manage-enrollment-group-secondary-portal.png)
 
 3. Later when the primary certificate has expired, come back and delete that primary certificate by clicking the **Delete current certificate** button.
 
@@ -203,6 +203,6 @@ Once a certificate is included as part of a disabled enrollment entry, any attem
 
 ## Next steps
 
-- To learn more about X.509 certificates in the Device Provisioning Service, see [Security](concepts-security.md) 
+- To learn more about X.509 certificates in the Device Provisioning Service, see [X.509 certificate attestation](concepts-x509-attestation.md) 
 - To learn about how to do proof-of-possession for X.509 CA certificates with the Azure IoT Hub Device Provisioning Service, see [How to verify certificates](how-to-verify-certificates.md)
 - To learn about how to use the portal to create an enrollment group, see [Managing device enrollments with Azure portal](how-to-manage-enrollments.md).

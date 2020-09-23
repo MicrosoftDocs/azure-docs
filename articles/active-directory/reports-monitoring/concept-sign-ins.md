@@ -144,13 +144,13 @@ The **Location** - The location the connection was initiated from:
 |Authenticated SMTP| |Used by POP and IMAP client's to send email messages.|
 |Autodiscover| |Used by Outlook and EAS clients to find and connect to mailboxes in Exchange Online.|
 |Exchange ActiveSync| |This filter shows all sign-in attempts where the EAS protocol has been attempted.|
-|Browser|![Check](./media/concept-sign-ins/check.png)|Shows all sign-in attempts from users using web browsers|
-|Exchange ActiveSync| | Shows all sign-in attempts from users with client apps using Exchange ActiceSync to connect to Exchange Online|
+|Browser|![Checkmark](./media/concept-sign-ins/check.png)|Shows all sign-in attempts from users using web browsers|
+|Exchange ActiveSync| | Shows all sign-in attempts from users with client apps using Exchange ActiveSync to connect to Exchange Online|
 |Exchange Online PowerShell| |Used to connect to Exchange Online with remote PowerShell. If you block basic authentication for Exchange Online PowerShell, you need to use the Exchange Online PowerShell module to connect. For instructions, see [Connect to Exchange Online PowerShell using multi-factor authentication](/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).|
 |Exchange Web Services| |A programming interface that's used by Outlook, Outlook for Mac, and third-party apps.|
 |IMAP4| |A legacy mail client using IMAP to retrieve email.|
 |MAPI over HTTP| |Used by Outlook 2010 and later.|
-|Mobile apps and desktop clients|![Check](./media/concept-sign-ins/check.png)|Shows all sign-in attempts from users using mobile apps and desktop clients.|
+|Mobile apps and desktop clients|![Blue checkmark](./media/concept-sign-ins/check.png)|Shows all sign-in attempts from users using mobile apps and desktop clients.|
 |Offline Address Book| |A copy of address list collections that are downloaded and used by Outlook.|
 |Outlook Anywhere (RPC over HTTP)| |Used by Outlook 2016 and earlier.|
 |Outlook Service| |Used by the Mail and Calendar app for Windows 10.|
@@ -268,11 +268,11 @@ When you click on a day in the app usage graph, you get a detailed list of the s
 
 The **Sign-ins** option gives you a complete overview of all sign-in events to your applications.
 
-## Office 365 activity logs
+## Microsoft 365 activity logs
 
-You can view Office 365 activity logs from the [Microsoft 365 admin center](/office365/admin/admin-overview/about-the-admin-center). Consider the point  that, Office 365 activity and Azure AD activity logs share a significant number of the directory resources. Only the Microsoft 365 admin center provides a full view of the Office 365 activity logs. 
+You can view Microsoft 365 activity logs from the [Microsoft 365 admin center](/office365/admin/admin-overview/about-the-admin-center). Consider the point  that, Microsoft 365 activity and Azure AD activity logs share a significant number of the directory resources. Only the Microsoft 365 admin center provides a full view of the Microsoft 365 activity logs. 
 
-You can also access the Office 365 activity logs programmatically by using the [Office 365 Management APIs](/office/office-365-management-api/office-365-management-apis-overview).
+You can also access the Microsoft 365 activity logs programmatically by using the [Office 365 Management APIs](/office/office-365-management-api/office-365-management-apis-overview).
 
 ## Next steps
 

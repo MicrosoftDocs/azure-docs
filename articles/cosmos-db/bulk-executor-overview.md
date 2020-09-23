@@ -20,6 +20,9 @@ The bulk executor library helps you leverage this massive throughput and storage
 
 > [!NOTE] 
 > Currently, bulk executor library supports import and update operations and this library is supported by Azure Cosmos DB SQL API and Gremlin API accounts only.
+
+> [!IMPORTANT]
+> The bulk executor library is not currently supported on [serverless](serverless.md) accounts. On .NET, it is recommended to use the [bulk support](https://devblogs.microsoft.com/cosmosdb/introducing-bulk-support-in-the-net-sdk/) available in the V3 version of the SDK.
  
 ## Key features of the bulk executor library  
  

@@ -43,6 +43,11 @@ For apps running in .NET Core 3.0 or higher, the following counters are collecte
 |`System.Runtime` | `threadpool-completed-items-count` |
 |`System.Runtime` | `active-timer-count` |
 
+> [!NOTE]
+> Starting with 2.15.0-beta3 version of either [AspNetCore SDK](asp-net-core.md) or [WorkerService SDK](worker-service.md),
+> no counters are collected by default. The module itself is enabled, so users can simply add the desired counters to
+> collect them.
+
 ## Customizing counters to be collected
 
 The following example shows how to add/remove counters. This customization would be done in the `ConfigureServices` method of your application after Application Insights telemetry collection is enabled using either `AddApplicationInsightsTelemetry()` or `AddApplicationInsightsWorkerService()`. Following is an example code from an ASP.NET Core application. For other type of applications, refer to [this](worker-service.md#configuring-or-removing-default-telemetrymodules) document.

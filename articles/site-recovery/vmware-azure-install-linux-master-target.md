@@ -6,7 +6,7 @@ services: site-recovery
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 03/06/2019
+ms.date: 09/15/2020
 ms.author: mayg
 ---
 
@@ -44,16 +44,7 @@ Create the master target in accordance with the following sizing guidelines:
 - **OS disk size**: 100 GB or more (to install OS)
 - **Additional disk size for retention drive**: 1 TB
 - **CPU cores**: 4 cores or more
-
-The following Ubuntu kernels are supported.
-
-
-|Kernel Series  |Support up to  |
-|---------|---------|
-|4.4      |4.4.0-81-generic         |
-|4.8      |4.8.0-56-generic         |
-|4.10     |4.10.0-24-generic        |
-
+- **Kernel**: 4.16.*
 
 ## Deploy the master target server
 

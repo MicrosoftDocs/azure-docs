@@ -1,5 +1,5 @@
 ---
-title: Create compute resources with Python SDK
+title: Create training & deploy computes (Python)
 titleSuffix: Azure Machine Learning
 description: Use the Azure Machine Learning Python SDK to create training and deployment compute resources (compute targets) for machine learning
 services: machine-learning
@@ -14,8 +14,6 @@ ms.custom: how-to, devx-track-python, contperfq1
 ---
 # Create compute targets for model training and deployment with Python SDK
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
-
 In this article, use the Azure Machine Learning Python SDK to create and manage compute targets. You can also create and manage compute targets with:
 * [Azure Machine Learning studio](how-to-create-attach-compute-studio.md), 
 * The [CLI extension](reference-azure-machine-learning-cli.md#resource-management) for Azure Machine Learning
@@ -23,13 +21,18 @@ In this article, use the Azure Machine Learning Python SDK to create and manage 
 
 
 ## Prerequisites
+
 * If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today
-* The [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)
+* The [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)
 * An [Azure Machine Learning workspace](how-to-manage-workspace.md)
 
 ## Limitations
 
-Some of the scenarios listed in this document are marked as __preview__. Preview functionality is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+* **Do not create multiple, simultaneous attachments to the same compute** from your workspace. For example, attaching one Azure Kubernetes Service cluster to a workspace using two different names. Each new attachment will break the previous existing attachment(s).
+
+    If you want to re-attach a compute target, for example to change TLS or other cluster configuration setting, you must first remove the existing attachment.
+
+* Some of the scenarios listed in this document are marked as __preview__. Preview functionality is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## What's a compute target?
 
@@ -72,7 +75,7 @@ When performing inference, Azure Machine Learning creates a Docker container tha
 
 When you use your local computer for **training**, there is no need to create a compute target.  Just [submit the training run](how-to-set-up-training-targets.md) from your local machine.
 
-When you use your local computer for **inference**, you must have Docker installed. To perform the deployment, use [LocalWebservice.deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py#deploy-configuration-port-none-) to define the port that the web service will use. Then use the normal deployment process as described in [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
+When you use your local computer for **inference**, you must have Docker installed. To perform the deployment, use [LocalWebservice.deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py&preserve-view=true#deploy-configuration-port-none-) to define the port that the web service will use. Then use the normal deployment process as described in [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## <a id="amlcompute"></a>Azure Machine Learning compute cluster
 
@@ -262,6 +265,9 @@ Use the Azure Data Science Virtual Machine (DSVM) as the Azure VM of choice for 
 
    Or you can attach the DSVM to your workspace [using Azure Machine Learning studio](how-to-create-attach-compute-studio.md#attached-compute).
 
+    > [!WARNING]
+    > Do not create multiple, simultaneous attachments to the same DSVM from your workspace. Each new attachment will break the previous existing attachment(s).
+
 1. **Configure**: Create a run configuration for the DSVM compute target. Docker and conda are used to create and configure the training environment on the DSVM.
 
    ```python
@@ -324,6 +330,9 @@ Azure HDInsight is a popular platform for big-data analytics. The platform provi
 
    Or you can attach the HDInsight cluster to your workspace [using Azure Machine Learning studio](how-to-create-attach-compute-studio.md#attached-compute).
 
+    > [!WARNING]
+    > Do not create multiple, simultaneous attachments to the same HDInsight from your workspace. Each new attachment will break the previous existing attachment(s).
+
 1. **Configure**: Create a run configuration for the HDI compute target. 
 
    [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/hdi.py?name=run_hdi)]
@@ -370,6 +379,9 @@ except ComputeTargetException:
 
 print("Using Batch compute:{}".format(batch_compute.cluster_resource_id))
 ```
+
+> [!WARNING]
+> Do not create multiple, simultaneous attachments to the same Azure Batch from your workspace. Each new attachment will break the previous existing attachment(s).
 
 ### <a id="databricks"></a>Azure Databricks
 
@@ -424,6 +436,9 @@ except ComputeTargetException:
 
 For a more detailed example, see an [example notebook](https://aka.ms/pl-databricks) on GitHub.
 
+> [!WARNING]
+> Do not create multiple, simultaneous attachments to the same Azure Databricks from your workspace. Each new attachment will break the previous existing attachment(s).
+
 ### <a id="adla"></a>Azure Data Lake Analytics
 
 Azure Data Lake Analytics is a big data analytics platform in the Azure cloud. It can be used as a compute target with an Azure Machine Learning pipeline.
@@ -473,8 +488,12 @@ except ComputeTargetException:
 ```
 
 For a more detailed example, see an [example notebook](https://aka.ms/pl-adla) on GitHub.
+
+> [!WARNING]
+> Do not create multiple, simultaneous attachments to the same ADLA from your workspace. Each new attachment will break the previous existing attachment(s).
+
 > [!TIP]
-> Azure Machine Learning pipelines can only work with data stored in the default data store of the Data Lake Analytics account. If the data you need to work with is in a non-default store, you can use a [`DataTransferStep`](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py) to copy the data before training.
+> Azure Machine Learning pipelines can only work with data stored in the default data store of the Data Lake Analytics account. If the data you need to work with is in a non-default store, you can use a [`DataTransferStep`](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py&preserve-view=true) to copy the data before training.
 
 ## Notebook examples
 

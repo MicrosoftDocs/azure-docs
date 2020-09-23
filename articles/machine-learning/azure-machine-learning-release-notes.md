@@ -17,6 +17,54 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
 
 See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
 
+## 2020-09-21
+
+### Azure Machine Learning SDK for Python v1.14.0
++ **Bug fixes and improvements**
+  + **azure-cli-ml**
+    + Grid Profiling removed from the SDK and is not longer supported.
+  + **azureml-accel-models**
+    + azureml-accel-models package now supports Tensorflow 2.x
+  + **azureml-automl-core**
+    + Added error handling in get_output for cases when local versions of pandas/sklearn don't match the ones used during training
+  + **azureml-automl-runtime**
+    + Fixed a bug where AutoArima iterations would fail with a PredictionException and the message: "Silent failure occurred during prediction."
+  + **azureml-cli-common**
+    + Grid Profiling removed from the SDK and is not longer supported.
+  + **azureml-contrib-server**
+    + Update description of the package for pypi overview page.
+  + **azureml-core**
+    + Grid Profiling removed from the SDK and is no longer supported.
+    + Reduce number of error messages when workspace retrieval fails.
+    + Don't show warning when fetching metadata fails
+    + New Kusto Step and Kusto Compute Target.
+    + Update document for sku parameter. Remove sku in workspace update functionality in CLI and SDK.
+    + Update description of the package for pypi overview page.
+    + Updated documentation for AzureML Environments.
+    + Expose service managed resources settings for AML workspace in SDK.
+  + **azureml-dataprep**
+    + Enable execute permission on files for Dataset mount.
+  + **azureml-mlflow**
+    + Updated AzureML MLflow documentation and notebook samples 
+    + New support for MLflow projects with AzureML backend
+    + MLflow model registry support
+    + Added RBAC support for AzureML-MLflow operations 
+    
+  + **azureml-pipeline-core**
+    + Improved the documentation of the PipelineOutputFileDataset.parse_* methods.
+    + New Kusto Step and Kusto Compute Target.
+    + Provided Swaggerurl property for pipeline-endpoint entity via that user can see the schema definition for published pipeline endpoint.
+  + **azureml-pipeline-steps**
+    + New Kusto Step and Kusto Compute Target.
+  + **azureml-telemetry**
+    + Update description of the package for pypi overview page.
+  + **azureml-train**
+    + Update description of the package for pypi overview page.
+  + **azureml-train-automl-client**
+    + Added error handling in get_output for cases when local versions of pandas/sklearn don't match the ones used during training
+  + **azureml-train-core**
+    + Update description of the package for pypi overview page.
+    
 ## 2020-08-31
 
 ### Azure Machine Learning SDK for Python v1.13.0
@@ -590,9 +638,9 @@ Get started [here](https://docs.microsoft.com/azure/machine-learning/how-to-run-
 
 Access the following web-based authoring tools from the studio:
 	
-| Web-based tool  | 	Description  | Edition | 
-|---|---|---|
-| Azure ML Studio Notebooks	  |  	First in-class authoring for notebook files and support all operation available in the Azure ML Python SDK. | Basic & Enterprise  |   
+| Web-based tool  | 	Description  |
+|---|---|
+| Azure ML Studio Notebooks	  |  	First in-class authoring for notebook files and support all operation available in the Azure ML Python SDK. | 
 
 ## 2020-04-27
 
@@ -1096,17 +1144,17 @@ Access the following web-based authoring tools from the studio:
 
 ### Web experience
 
-The collaborative workspace landing page at [https://ml.azure.com](https://ml.azure.com) has been enhanced and rebranded as the Azure Machine Learning studio (preview).
+The collaborative workspace landing page at [https://ml.azure.com](https://ml.azure.com) has been enhanced and rebranded as the Azure Machine Learning studio.
 
 From the studio, you can train, test, deploy, and manage Azure Machine Learning assets such as datasets, pipelines, models, endpoints, and more.
 
 Access the following web-based authoring tools from the studio:
 
-| Web-based tool | Description | Edition |
+| Web-based tool | Description | 
 |-|-|-|
-| Notebook VM(preview) | Fully managed cloud-based workstation | Basic & Enterprise |
-| [Automated machine learning](tutorial-first-experiment-automated-ml.md) (preview) | No code experience for automating machine learning model development | Enterprise |
-| [Designer](concept-designer.md) (preview) | Drag-and-drop machine learning modeling tool formerly known as the designer | Enterprise |
+| Notebook VM(preview) | Fully managed cloud-based workstation | 
+| [Automated machine learning](tutorial-first-experiment-automated-ml.md) (preview) | No code experience for automating machine learning model development | 
+| [Designer](concept-designer.md) | Drag-and-drop machine learning modeling tool formerly known as the visual interface | 
 
 
 ### Azure Machine Learning designer enhancements
@@ -1209,7 +1257,7 @@ Azure Machine Learning is now a resource provider for Event Grid, you can config
   + [**azureml-datadrift**](https://docs.microsoft.com/python/api/azureml-datadrift)
     + Moved from `azureml-contrib-datadrift` into `azureml-datadrift`
     + Added support for monitoring time series datasets for drift and other statistical measures
-    + New methods `create_from_model()` and `create_from_dataset()` to the [`DataDriftDetector`](https://docs.microsoft.com/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector(class)) class. The `create()` method will be deprecated.
+    + New methods `create_from_model()` and `create_from_dataset()` to the [`DataDriftDetector`](https://docs.microsoft.com/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector%28class%29) class. The `create()` method will be deprecated.
     + Adjustments to the visualizations in Python and UI in the Azure Machine Learning studio.
     + Support weekly and monthly monitor scheduling, in addition to daily for dataset monitors.
     + Support backfill of data monitor metrics to analyze historical data for dataset monitors.
@@ -1314,14 +1362,14 @@ Azure Machine Learning is now a resource provider for Event Grid, you can config
     + Support using environment for model deployment, and service update.
   + **[azureml-datadrift](https://docs.microsoft.com/python/api/azureml-datadrift)**
     + The show attribute of [DataDriftDetector](https://docs.microsoft.com/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector.datadriftdetector) class won't support optional argument 'with_details' anymore. The show attribute will only present data drift coefficient and data drift contribution of feature columns.
-    + DataDriftDetector function [get_output]https://docs.microsoft.com/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector.datadriftdetector#get-output-start-time-none--end-time-none--run-id-none-) behavior changes:
+    + DataDriftDetector function [get_output]python/api/azureml-datadrift/azureml.datadrift.datadriftdetector.datadriftdetector#get-output-start-time-none--end-time-none--run-id-none-) behavior changes:
       + Input parameter start_time, end_time are optional instead of mandatory;
       + Input specific start_time and/or end_time with a specific run_id in the same invoking will result in value error exception because they are mutually exclusive;
       + By input specific start_time and/or end_time, only results of scheduled runs will be returned;
       + Parameter 'daily_latest_only' is deprecated.
     + Support retrieving Dataset-based Data Drift outputs.
   + **azureml-explain-model**
-    + Add support for [ScoringExplainer](/python/api/azureml-interpret/azureml.interpret.scoring.scoring_explainer.scoringexplainer?view=azure-ml-py) to be created directly using MimicWrapper
+    + Add support for [ScoringExplainer](/python/api/azureml-interpret/azureml.interpret.scoring.scoring_explainer.scoringexplainer?view=azure-ml-py&preserve-view=true) to be created directly using MimicWrapper
   + **[azureml-pipeline-core](https://docs.microsoft.com/python/api/azureml-pipeline-core)**
     + Improved performance for large Pipeline creation.
   + **[azureml-train-core](https://docs.microsoft.com/python/api/azureml-train-core)**
@@ -1408,7 +1456,7 @@ The Experiment tab in the [new workspace portal](https://ml.azure.com) has been 
     + Supported training_data, validation_data, label_column_name, weight_column_name as data input format
     + Added deprecation message for explain_model() and retrieve_model_explanations()
   + **[azureml-pipeline-core](https://docs.microsoft.com/python/api/azureml-pipeline-core)**
-    + Added a [notebook](https://aka.ms/pl-modulestep) to describe [Module](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.module(class)), [ModuleVersion, and [ModuleStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.modulestep).
+    + Added a [notebook](https://aka.ms/pl-modulestep) to describe [Module](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.module%28class%29), [ModuleVersion, and [ModuleStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.modulestep).
   + **[azureml-pipeline-steps](https://docs.microsoft.com/python/api/azureml-pipeline-steps)**
     + Added [RScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.rscriptstep) to support R script run via AML pipeline.
     + Fixed metadata parameters parsing in [AzureBatchStep that was causing the error message "assignment for parameter SubscriptionId is not specified".
@@ -1904,7 +1952,7 @@ At the time, of this release, the following browsers are supported: Chrome, Fire
 
 Azure Machine Learning SDK for Python v1.0.30 released.
 
-The [`PipelineEndpoint`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline_endpoint.pipelineendpoint?view=azure-ml-py) was introduced to add a new version of a published pipeline while maintaining same endpoint.
+The [`PipelineEndpoint`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline_endpoint.pipelineendpoint?view=azure-ml-py&preserve-view=true) was introduced to add a new version of a published pipeline while maintaining same endpoint.
 
 ## 2019-04-15
 
@@ -1923,8 +1971,8 @@ The [`PipelineEndpoint`](https://docs.microsoft.com/python/api/azureml-pipeline-
   + Azure Machine Learning DNN Estimators now provide built-in multi-version support. For example,
   `TensorFlow` estimator now accepts a `framework_version` parameter, and users can specify
   version '1.10' or '1.12'. For a list of the versions supported by your current SDK release, call
-  `get_supported_versions()` on the desired framework class (for example, `TensorFlow.get_supported_versions()`).?view=azure-ml-py&preserve-view=true)
-  For a list of the versions supported by the latest SDK release, see the [DNN Estimator documentation](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn?view=azure-ml-py).
+  `get_supported_versions()` on the desired framework class (for example, `TensorFlow.get_supported_versions()`).
+  For a list of the versions supported by the latest SDK release, see the [DNN Estimator documentation](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn?view=azure-ml-py&preserve-view=true).
 
 ## 2019-03-25
 
@@ -1961,13 +2009,13 @@ The [`PipelineEndpoint`](https://docs.microsoft.com/python/api/azureml-pipeline-
 ### Azure Machine Learning SDK for Python v1.0.17
 
 + **New features**
-  + Azure Machine Learning now provides first class support for popular DNN framework Chainer. Using [`Chainer`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) class users can easily train and deploy Chainer models.
+  + Azure Machine Learning now provides first class support for popular DNN framework Chainer. Using [`Chainer`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py&preserve-view=true) class users can easily train and deploy Chainer models.
     + Learn how to [run distributed training with ChainerMN](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/chainer/training/distributed-chainer/distributed-chainer.ipynb)
     + Learn how to [run hyperparameter tuning with Chainer using HyperDrive](https://github.com/Azure/MachineLearningNotebooks/blob/b881f78e4658b4e102a72b78dbd2129c24506980/how-to-use-azureml/ml-frameworks/chainer/deployment/train-hyperparameter-tune-deploy-with-chainer/train-hyperparameter-tune-deploy-with-chainer.ipynb)
   + Azure Machine Learning Pipelines added ability to trigger a Pipeline run based on datastore modifications. The pipeline [schedule notebook](https://aka.ms/pl-schedule) is updated to showcase this feature.
 
 + **Bug fixes and improvements**
-  + We have added support in Azure Machine Learning pipelines for setting the source_directory_data_store property to a desired datastore (such as a blob storage) on [RunConfigurations](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) that are supplied to the [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py). By default Steps use Azure File store as the backing datastore, which may run into throttling issues when a large number of steps are executed concurrently.
+  + We have added support in Azure Machine Learning pipelines for setting the source_directory_data_store property to a desired datastore (such as a blob storage) on [RunConfigurations](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py&preserve-view=true) that are supplied to the [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py&preserve-view=true). By default Steps use Azure File store as the backing datastore, which may run into throttling issues when a large number of steps are executed concurrently.
 
 ### Azure portal
 

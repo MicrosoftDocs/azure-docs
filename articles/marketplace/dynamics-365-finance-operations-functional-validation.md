@@ -30,7 +30,7 @@ The Microsoft certification team reviews the video and files, then either approv
 
 ### Option 1: 30-minute conference call
 
-To schedule a final review call, contact [appsourceCRM@microsoft.com](mailto:appsourceCRM@microsoft.com) with the name of your offer and some potential time slots between 8 a.m. and 5 p.m. Pacific Time.
+To schedule a final review call, contact [appsourceCRM@microsoft.com](mailto:appsourceCRM@microsoft.com) with the name of your offer and some potential time slots between 8 AM and 5 PM Pacific Time.
 
 ### Option 2: Upload a demo video and LCS screenshots
 

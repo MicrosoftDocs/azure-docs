@@ -10,6 +10,9 @@ ms.custom: devx-track-java
 ---
 
 # Map an existing custom domain to Azure Spring Cloud
+
+**This article applies to:** ✔️ Java ✔️ C#
+
 Domain Name Service (DNS) is a technique for storing network node names throughout a network. This tutorial maps a domain, such as www.contoso.com, using a CNAME record. It secures the custom domain with a certificate and shows how to enforce Transport Layer Security (TLS), also known as Secure Sockets Layer (SSL). 
 
 Certificates encrypt web traffic. These TLS/SSL certificates can be stored in Azure Key Vault. 

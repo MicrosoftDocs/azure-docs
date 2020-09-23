@@ -5,7 +5,7 @@ ms.subservice:
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 09/08/2020
+ms.date: 09/22/2020
 
 ---
 
@@ -51,7 +51,7 @@ The **Dependency** view helps visualize how the resource is configured. Currentl
 
 ![Azure Monitor for Networks  - Application Gateway view](media/network-insights-overview/application-gateway.png)
 
-The **Dependency** view for Application Gateway provides a simplified view of how the front-end IPs are connected to the listeners, rules and backend pool. The connecting edges are color coded and provide additional details based on the backend pool health. The view also provides a detailed view of Application Gateway metrics and metrics for all related backend pools such as VMSS and VM instances.
+The **Dependency** view for Application Gateway provides a simplified view of how the front-end IPs are connected to the listeners, rules and backend pool. The connecting edges are color coded and provide additional details based on the backend pool health. The view also provides a detailed view of Application Gateway metrics and metrics for all related backend pools such as virtual machine scale set and VM instances.
 
 ![Azure Monitor for Networks  - Dependency view](media/network-insights-overview/dependency-view.png)
 
