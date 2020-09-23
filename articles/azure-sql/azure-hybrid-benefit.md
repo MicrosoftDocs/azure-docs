@@ -9,7 +9,7 @@ ms.custom: sqldbrb=4
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: sashan, moslake, carlrab
+ms.reviewer: sashan, moslake
 ms.date: 11/13/2019
 ---
 # Azure Hybrid Benefit - Azure SQL Database & SQL Managed Instance
