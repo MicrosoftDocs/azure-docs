@@ -27,9 +27,13 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
 ## Add a security principal to a security role
 
-To add a security principal to a Catalog administrator security role:
+To add a security principal to a Catalog administrator security role in an Azure Babylon account:
 
-1. Go to the [**Babylon portal**](https://aka.ms/babylonportal) in the Azure portal.
+1. Go to the [**Babylon accounts**](https://aka.ms/babylonportal) page in the Azure portal.
+
+1. Select the Azure Babylon account you want to modify.
+
+1. On the **Babylon account** page, select **Launch babylon account**.
 
 1. Select **Management Center** in the left pane, and then select **Assign roles**.
 
@@ -51,7 +55,7 @@ To add a security principal to a Catalog administrator security role:
 
    You can add multiple users or Azure Active Directory groups at once. All names must validate against the catalog's Azure tenant's Azure Active Directory.
 
-   :::image type="content" source="./media/add-security-principal/add-catalog-administrator.png" alt-text="Screenshot showing how to add security principals to the catalog administrator role.":::
+   :::image type="content" source="./media/add-security-principal/add-catalog-administrator.png" alt-text="Screenshot showing how to add security principals to the Catalog administrator role.":::
 
 ## Assign permission to scan content into the catalog
 
@@ -73,13 +77,13 @@ The previous section described how to add a security principal to the Catalog ad
 
 1. In the **Select** drop-down list, choose the user you want to set up for scanning, and then select **Save**.
 
-   :::image type="content" source="./media/add-security-principal/add-role-assignment-dialog.png" alt-text="Screenshot showing how to set the role assignment to contributor.":::
+   :::image type="content" source="./media/add-security-principal/add-role-assignment-dialog.png" alt-text="Screenshot showing how to set the role assignment to Contributor.":::
 
 ## Clean up resources
 
-If you no longer need the role assignment you made for your security principal in the Babylon portal, remove it with the following steps:
+If you no longer need the role assignment you made for your security principal in the Azure Babylon portal, remove it with the following steps:
 
-1. In the [**Babylon portal**](https://aka.ms/babylonportal), select **Management Center** in the left pane, and then select **Assign roles**.
+1. In the Azure Babylon portal for your account, select **Management Center** in the left pane, and then select **Assign roles**.
 
 1. In the **Catalog administrator** list, select the name of the security principal that you want to remove, and then select **Remove access** from the top menu.
 
@@ -95,7 +99,7 @@ If you no longer need the role assignment you made in the Azure portal, remove i
 
 ## Next steps
 
-In this quickstart, you learned how to add to security principal to a Babylon role.
+In this quickstart, you learned how to add to security principal to an Azure Babylon role.
 
 <!--
 Advance to the next article to learn how to scan data into the catalog.

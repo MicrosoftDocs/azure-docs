@@ -1,6 +1,5 @@
 ---
 title: Product limitations for Azure Babylon (preview)
-titleSuffix: Azure Babylon
 description: This document describes current limitations and product warnings for the Azure Babylon preview. 
 author: hophan
 ms.author: hophan
@@ -44,7 +43,7 @@ Read this document carefully. It includes warnings that Azure Babylon preview cu
 
 * **Solution**: This limitation is expected to continue until the public preview.
 
-### Catalogs can only be created in the regions available at the drop-down menu when you create a Babylon account
+### Catalogs can only be created in the regions available at the drop-down menu when you create an Azure Babylon account
 
 * **Limitation**: Azure Babylon is currently deployed in a limited number of regions. More regions are planned. During preview, your Azure Babylon account can be created only in those regions, but this limitation doesn't prevent scans. However, the scan process does take samples of your data for classification purposes. If you scan your production data, there will be implication for moving data across regions.
 
@@ -70,6 +69,6 @@ Read this document carefully. It includes warnings that Azure Babylon preview cu
 
 ### We don't support soft delete on Azure Babylon accounts
 
-* **Limitation**: If a customer chooses to delete their Babylon account, all their data is lost without the possibility of recovery.
+* **Limitation**: If a customer chooses to delete their Azure Babylon account, all their data is lost without the possibility of recovery.
 
 * **Solution**: While Azure Babylon is in preview, it supports *soft delete*, where Microsoft stores a deleted Azure Babylon account for a while (typically 30 days). Customers can then ask, before the end of the time window, to have the Azure Babylon account restored. After the time window has elapsed, the account is irretrievably deleted.

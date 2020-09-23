@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Create a Babylon account"
-description: This tutorial describes how top create a Babylon account. 
+title: "Quickstart: Create an Azure Babylon account"
+description: This tutorial describes how top create an Azure Babylon account. 
 author: hophan
 ms.author: hophan
 ms.service: data-catalog
@@ -10,9 +10,9 @@ ms.date: 09/01/2020
 # Customer intent: As a data steward, I want create a new Azure Data Catalog so that I can scan and classify my data.
 ---
 
-# Quickstart: Create a Babylon account
+# Quickstart: Create an Azure Babylon account
 
-In this quickstart, you create a Babylon account.
+In this quickstart, you create an Azure Babylon account.
 
 ## Prerequisites
 
@@ -26,7 +26,7 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
 ## Configure your subscription
 
-If necessary, follow these steps to configure your subscription to enable Babylon to run in your subscription:
+If necessary, follow these steps to configure your subscription to enable Azure Babylon to run in your subscription:
 
    1. In the Azure portal, search for and select **Subscriptions**.
 
@@ -38,17 +38,17 @@ If necessary, follow these steps to configure your subscription to enable Babylo
 
       :::image type="content" source="./media/create-catalog-portal/register-babylon-resource-provider.png" alt-text="Screenshot showing how to register the  Microsoft dot Project Babylon resource provider in the Azure portal.":::
 
-## Create a new Babylon account
+## Create an Azure Babylon account instance
 
-1. Go to the [**Babylon accounts**](https://aka.ms/babylonportal) page in the Azure portal and select **Add** to create a new Babylon instance.
+1. Go to the [**Babylon accounts**](https://aka.ms/babylonportal) page in the Azure portal and select **Add** to create a new Azure Babylon instance.
 
-   :::image type="content" source="./media/create-catalog-portal/add-bablylon-instance.png" alt-text="Screenshot showing how to create a Babylon instance in the Azure portal.":::
+   :::image type="content" source="./media/create-catalog-portal/add-bablylon-instance.png" alt-text="Screenshot showing how to create an Azure Babylon account instance in the Azure portal.":::
 
-   You can add only one Babylon instance at a time.
+   You can add only one Azure Babylon instance at a time.
 
 1. If necessary, change the subscription to a subscription that's in the allow list for your preview access.
 
-   :::image type="content" source="./media/create-catalog-portal/change-subscription.png" alt-text="Screenshot showing the catalog creation screen with the allow-listed subscription selected.":::
+   :::image type="content" source="./media/create-catalog-portal/change-subscription.png" alt-text="Screenshot showing the New Babylon account page with the allow-listed subscription selected.":::
 
 1. Enter a **Babylon account name** for your catalog. Spaces and symbols aren't allowed.
 
@@ -60,24 +60,24 @@ If necessary, follow these steps to configure your subscription to enable Babylo
    These tags are for use only in the Azure portal, not the catalog. They don't affect the catalog for the purposes of the preview.
 1. Select **Review & Create**, and then select **Create**.
 
-   It takes a few minutes to complete catalog creation. The newly created Babylon instance appears in the list on your **Babylon accounts** page.
-1. When Babylon creation is finished, select **Go to resource**.
+   It takes a few minutes to complete catalog creation. The newly created Azure Babylon account instance appears in the list on your **Babylon accounts** page.
+1. When the new account is ready, select **Go to resource**.
 
 1. Select **Launch babylon account**.
 
-   :::image type="content" source="./media/create-catalog-portal/launch-bablylon-account.png" alt-text="Screenshot of the button to launch the catalog.":::
+   :::image type="content" source="./media/create-catalog-portal/launch-bablylon-account.png" alt-text="Screenshot of the selection to launch the Azure Babylon account catalog.":::
 
 ## Clean up resources
 
-If you no longer need this Babylon account, delete it with the following steps:
+If you no longer need this Azure Babylon account, delete it with the following steps:
 
-1. Go to the [**Babylon portal**](https://aka.ms/babylonportal) in the Azure portal.
+1. Go to the [**Babylon accounts**](https://aka.ms/babylonportal) page in the Azure portal.
 
-2. Select the Babylon instance that you created at the beginning of the tutorial. Select **Delete**, enter the name of the data catalog instance, and then select **Delete**.
+2. Select the Azure Babylon instance that you created at the beginning of the tutorial. Select **Delete**, enter the name of the data catalog instance, and then select **Delete**.
 
 ## Next steps
 
-In this quickstart, you learned how to create a Babylon account.
+In this quickstart, you learned how to create an Azure Babylon account.
 
 Advance to the next article to learn how to add a security principal to a role.
 
