@@ -118,6 +118,8 @@
       href: understand/mca-overview.md
     - name: Billing accounts for Microsoft Partner Agreement
       href: understand/mpa-overview.md
+    - name: About transferring subscriptions
+      href: understand/subscription-transfer.md 
     - name: Transfer subscriptions between partners (Preview)
       href: manage/azure-plan-subscription-transfer-partners.md 
 - name: How-to guides
