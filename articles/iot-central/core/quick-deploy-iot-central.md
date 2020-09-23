@@ -1,6 +1,6 @@
 ---
-title: Create an Azure IoT Central application | Microsoft Docs
-description: Create a new Azure IoT Central application. Create the application using either the free pricing plan or one of the standard pricing plans.
+title: Quickstart - Create an Azure IoT Central application | Microsoft Docs
+description: Quickstart - Create a new Azure IoT Central application. Create the application using either the free pricing plan or one of the standard pricing plans.
 author: viv-liu
 ms.author: viviali
 ms.date: 07/30/2020
@@ -11,7 +11,7 @@ ms.custom: mvc
 manager: corywink
 ---
 
-# Create an Azure IoT Central application
+# Quickstart - Create an Azure IoT Central application
 
 This quickstart shows you how to create an Azure IoT Central application.
 

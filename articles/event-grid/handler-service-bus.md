@@ -46,7 +46,7 @@ az eventgrid event-subscription create \
 ```
 
 ## Message properties
-If you use a **Service Bus topic or queue** as an event handler for events from Event Grid, set the following message headers: 
+If you use a **Service Bus topic or queue** as an event handler for events from Event Grid, these are the properties you receive in the message headers: 
 
 | Property name | Description |
 | ------------- | ----------- | 

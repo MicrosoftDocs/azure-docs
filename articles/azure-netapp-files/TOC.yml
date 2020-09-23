@@ -113,6 +113,8 @@
     items:
     - name: Troubleshoot cross-region replication
       href: troubleshoot-cross-region-replication.md
+    - name: Troubleshoot snapshot policies
+      href: troubleshoot-snapshot-policies.md
 - name: Reference
   items:
   - name: REST

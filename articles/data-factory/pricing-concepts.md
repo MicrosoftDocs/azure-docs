@@ -33,7 +33,7 @@ To accomplish the scenario, you need to create a pipeline with the following ite
 
 3. A schedule trigger to execute the pipeline every hour.
 
-   ![Scenario1](media/pricing-concepts/scenario1.png)
+   ![Diagram shows a pipeline with a schedule trigger. In the pipeline, copy activity flows to an input dataset, which flows to an A W S S3 linked service and copy activity also flows to an output dataset, which flows to an Azure Storage linked service.](media/pricing-concepts/scenario1.png)
 
 | **Operations** | **Types and Units** |
 | --- | --- |
@@ -64,7 +64,7 @@ To accomplish the scenario, you need to create a pipeline with the following ite
 2. One Azure Databricks activity for the data transformation.
 3. One schedule trigger to execute the pipeline every hour.
 
-![Scenario2](media/pricing-concepts/scenario2.png)
+![Diagram shows a pipeline with a schedule trigger. In the pipeline, copy activity flows to an input dataset, an output dataset, and a DataBricks activity, which runs on Azure Databricks. The input dataset flows to an A W S S3 linked service. The output dataset flows to an Azure Storage linked service.](media/pricing-concepts/scenario2.png)
 
 | **Operations** | **Types and Units** |
 | --- | --- |
@@ -98,7 +98,7 @@ To accomplish the scenario, you need to create a pipeline with the following ite
 3. One Azure Databricks activity for the data transformation.
 4. One schedule trigger to execute the pipeline every hour.
 
-![Scenario3](media/pricing-concepts/scenario3.png)
+![Diagram shows a pipeline with a schedule trigger. In the pipeline, copy activity flows to an input dataset, an output dataset, and lookup activity that flows to a DataBricks activity, which runs on Azure Databricks. The input dataset flows to an A W S S3 linked service. The output dataset flows to an Azure Storage linked service.](media/pricing-concepts/scenario3.png)
 
 | **Operations** | **Types and Units** |
 | --- | --- |

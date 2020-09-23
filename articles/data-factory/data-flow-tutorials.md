@@ -5,7 +5,7 @@ author: djpmsft
 ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 09/02/2020
+ms.date: 09/23/2020
 ---
 
 # Mapping data flow video tutorials
@@ -167,3 +167,7 @@ As updates are constantly made to the product, some features have added or diffe
 [Data Quality Expressions](https://www.youtube.com/watch?v=O8gmv5-lXhs)
 
 [Collect aggregate function](https://www.youtube.com/watch?v=zneE18EHJSE)
+
+## Metadata
+
+[Metadata validation rules](https://www.youtube.com/watch?v=E_UD3R-VpYE)
