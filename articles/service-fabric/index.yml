@@ -21,7 +21,7 @@ landingContent:
           - text: What are Service Fabric managed clusters (preview)
             url: overview-managed-cluster.md
           - text: Deploy a Service Fabric managed cluster
-            url: quickstart-managed-cluster-deploy-arm.md
+            url: quickstart-managed-cluster-template.md
 
       - linkListType: tutorial
         links:

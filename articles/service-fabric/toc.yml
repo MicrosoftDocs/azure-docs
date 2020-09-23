@@ -13,7 +13,7 @@
     displayName: Resource Manager
     href: quickstart-cluster-template.md
   - name: Managed cluster
-    href: quickstart-managed-cluster-deploy-arm.md
+    href: quickstart-managed-cluster-template.md
   - name: Create .NET application
     href: service-fabric-quickstart-dotnet.md
   - name: Deploy a Linux container application
