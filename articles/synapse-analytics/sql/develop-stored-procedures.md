@@ -24,7 +24,7 @@ To maintain the scale and performance of SQL pool, there are also some features 
 
 ## Stored procedures in Synapse SQL
 
-Stored procedures are a great way for encapsulating your SQL code and storing it close to your data in the data warehouse. Stored procedures help developers modularize their solutions by encapsulating the code into manageable units, facilitating greater reusability of code. Each stored procedure can also accept parameters to make them even more flexible. In the following example, you can see the procedures that drop an external objects if they exist in the database:
+Stored procedures are a great way for encapsulating your SQL code and storing it close to your data in the data warehouse. Stored procedures help developers modularize their solutions by encapsulating the code into manageable units, facilitating greater reusability of code. Each stored procedure can also accept parameters to make them even more flexible. In the following example, you can see the procedures that drop external objects if they exist in the database:
 
 ```sql
 CREATE PROCEDURE drop_external_table_if_exists @name SYSNAME
@@ -125,7 +125,7 @@ EXEC count_objects_by_date_created '2120-09-01', NULL
 ## Nesting stored procedures
 
 When stored procedures call other stored procedures, or execute dynamic SQL, then the inner stored procedure or code invocation is said to be nested.
-An example of nested proceure is shown in the following code:
+An example of nested procedure is shown in the following code:
 
 ```sql
 CREATE PROCEDURE clean_up @name SYSNAME
