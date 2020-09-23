@@ -1,6 +1,6 @@
 ---
 title: Azure VMs high availability for SAP NW on RHEL with Azure NetApp Files| Microsoft Docs
-description: Azure Virtual Machines high availability for SAP NetWeaver on Red Hat Enterprise Linux
+description: Establish high availability for SAP NW on Azure virtual machines (VMs) RHEL with Azure NetApp Files.
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: rdeltcheva

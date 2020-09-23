@@ -12,6 +12,9 @@ manager: philmea
 
 # OPC Twin architecture
 
+> [!IMPORTANT]
+> While we update this article, see [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/) for the most up to date content.
+
 The following diagrams illustrate the OPC Twin architecture.
 
 ## Discover and activate
