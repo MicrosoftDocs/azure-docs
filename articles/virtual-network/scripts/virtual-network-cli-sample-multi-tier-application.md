@@ -1,6 +1,6 @@
 ---
 title: Create a VNet for multi-tier applications - Azure CLI script sample
-description: Azure CLI script sample - Create a virtual network for multi-tier applications.
+description: Create a virtual network for multi-tier applications - Azure CLI script sample.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD

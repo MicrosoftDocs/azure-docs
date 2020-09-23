@@ -125,6 +125,8 @@ You may have a limited number of email actions in an Action Group. See the [rate
 ### Email Azure Resource Manager Role
 Send email to the members of the subscription's role. Email will only be sent to **Azure AD user** members of the role. Email will not be sent to Azure AD groups or service principals.
 
+A notification email is sent only to the *primary email* address.
+
 You may have a limited number of email actions in an Action Group. See the [rate limiting information](./alerts-rate-limiting.md) article.
 
 ### Function

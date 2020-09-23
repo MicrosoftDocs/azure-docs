@@ -1,6 +1,6 @@
 ---
 title: "Web Service Input/Output: Module reference"
-description: Learn about the web service modules in Azure Machine Learning designer (preview)
+description: Learn about the web service modules in Azure Machine Learning designer
 titleSuffix: Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
@@ -13,7 +13,7 @@ ms.date: 04/13/2020
 ---
 # Web Service Input and Web Service Output modules
 
-This article describes the Web Service Input and Web Service Output modules in Azure Machine Learning designer (preview).
+This article describes the Web Service Input and Web Service Output modules in Azure Machine Learning designer.
 
 The Web Service Input module can only connect to an input port with the type **DataFrameDirectory**. The Web Service Output module can only be connected from an output port with the type **DataFrameDirectory**. You can find the two modules in the module tree, under the **Web Service** category. 
 
