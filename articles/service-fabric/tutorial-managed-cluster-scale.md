@@ -2,7 +2,7 @@
 title: Scale out a Service Fabric managed cluster (preview)
 description: In this tutorial, learn how to scale out a node type of a Service Fabric managed cluster.
 ms.topic: tutorial
-ms.date: 09/1/2020
+ms.date: 09/28/2020
 ---
 
 # Tutorial: Scale out a Service Fabric managed cluster (preview)
@@ -29,8 +29,8 @@ This part of the series covers how to:
 ## Scale a Service Fabric managed cluster
 Change the instance count to increase or decrease the number of nodes on the node type that you would like to scale. You can find node type names in the Azure Resource Manager template (ARM template) from your cluster deployment, or in the Service Fabric Explorer.  
 
-> [!Note]
-> If the node type is primary you will not be able to go below 3 nodes for a Basic SKU cluster, and 5 nodes for a Standard SKU cluster. 
+> [!NOTE]
+> If the node type is primary you will not be able to go below 3 nodes for a Basic SKU cluster, and 5 nodes for a Standard SKU cluster.
 
 ```powershell
 $resourceGroup = "myResourceGroup" 

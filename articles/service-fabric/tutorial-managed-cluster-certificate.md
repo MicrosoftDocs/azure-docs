@@ -2,7 +2,7 @@
 title: Add a client certificate to a Service Fabric managed cluster (preview)
 description: In this tutorial, learn how to add a client certificate Service Fabric managed cluster.
 ms.topic: tutorial
-ms.date: 07/31/2020
+ms.date: 09/28/2020
 ---
 
 # Tutorial: Add a client certificate to a Service Fabric managed cluster (preview)
@@ -33,7 +33,6 @@ You'll want to make sure you have a certificate ready for use with a Service Fab
 ## Deploying a Service Fabric managed cluster with a certificate
 
 If we take a look at the template used in [Deploy a Service Fabric managed cluster](tutorial-managed-cluster-deploy.md), there are parameters corresponding to a client certificate thumbprint in a few places. This thumbprint is used to authenticate client connections to the managed cluster.
-
 
 ```json
 {

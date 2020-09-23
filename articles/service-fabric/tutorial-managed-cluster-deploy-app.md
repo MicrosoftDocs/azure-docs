@@ -2,8 +2,7 @@
 title: Deploy an application to a Service Fabric managed cluster (preview)
 description: In this tutorial, you will connect to a Service Fabric managed cluster and deploy an application.
 ms.topic: tutorial
-ms.date: 09/21/2020
-#Customer intent: As a Service Fabric customer, I want to connect to my cluster and deploy an application.
+ms.date: 09/28/2020
 ---
 
 # Tutorial: Deploy an app to a Service Fabric managed cluster (preview)
@@ -21,28 +20,30 @@ In this tutorial series we will discuss:
 This part of the series covers how to:
 
 > [!div class="checklist"]
-> * Connect your Azure account
-> * Create a new resource group
-> * Deploy a Service Fabric managed cluster
-> * Deploy an application to a Service Fabric managed cluster
+> * Connect to your Service Fabric managed cluster
+> * Upload an application to a cluster
+> * Instantiate an application in a cluster
+> * Remove an application from a cluster
 
 ## Prerequisites
 
 * A Service Fabric managed cluster (see [*Deploy a managed cluster*](tutorial-managed-cluster-deploy.md)).
 
-> [!Note]
+> [!NOTE]
 > In the Service Fabric managed cluster preview you will not be able to publish applications directly from Visual Studio.
 
 ## Connect to your cluster
 
-To connect to your cluster you must first take note of the cluster certificate thumbprint. You can find this value in the cluster properties output of your resource deployment or by querying the cluster properties on an existing resource. 
+To connect to your cluster you must first take note of the cluster certificate thumbprint. You can find this value in the cluster properties output of your resource deployment or by querying the cluster properties on an existing resource.
 
-The following command can be used to query your cluster resource for the cluster certificate thumbprint. 
+The following command can be used to query your cluster resource for the cluster certificate thumbprint.
+
 ```powershell
 $serverThumbprint = (Get-AzResource -ResourceId /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ServiceFabric/managedclusters/myCluster).Properties.clusterCertificateThumbprint
-``` 
+```
 
-Once you have retrieved the value for the cluster certificate thumbprint you can connect to your cluster. 
+Once you have retrieved the value for the cluster certificate thumbprint you can connect to your cluster.
+
 ```powershell
 $connectionEndpoint = "mycluster.eastus2.cloudapp.azure.com:19000"
 Connect-ServiceFabricCluster -ConnectionEndpoint $connectionEndpoint -KeepAliveIntervalInSec 10 `
@@ -55,7 +56,8 @@ Connect-ServiceFabricCluster -ConnectionEndpoint $connectionEndpoint -KeepAliveI
 
 ```
 
-### Upload Application Package 
+### Upload an application package
+
 In this tutorial, we will be using the [Service Fabric Voting Application](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart) sample. For more details on Service Fabric application deployment through PowerShell see [Service Fabric deploy and remove applications](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications).
 
 ```powershell
@@ -64,16 +66,18 @@ Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $path -ImageStoreCo
 Register-ServiceFabricApplicationType -ApplicationPathInImageStore Debug
 ```
 
-### Create an Application
+### Create an application
+
 You can instantiate an application from any application type version that has been registered successfully by using the New-ServiceFabricApplication cmdlet. The name of each application must start with the "fabric:" scheme and must be unique for each application instance. Any default services defined in the application manifest of the target application type are also created.
 
 ```powershell
 New-ServiceFabricApplication fabric:/Voting VotingType 1.0.0
 ```
 
-Once this operation completes, you can should see your application instances running in the Service Fabric Explorer. 
+Once this operation completes, you can should see your application instances running in the Service Fabric Explorer.
 
-### Remove an Application
+### Remove an application
+
 When an application instance is no longer needed, you can permanently remove it by name using the Remove-ServiceFabricApplication cmdlet. Remove-ServiceFabricApplication automatically removes all services that belong to the application as well, permanently removing all service state.
 
 ```powershell

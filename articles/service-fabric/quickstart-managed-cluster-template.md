@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Deploy a Service Fabric managed cluster (preview) using Azure Resource Manager'
+title: Deploy a Service Fabric managed cluster (preview) using Azure Resource Manager
 description: Learn how to create a Service Fabric managed cluster with an Azure Resource Manager template
 ms.topic: quickstart
 ms.date: 09/28/2020
@@ -17,7 +17,6 @@ Before you begin this quickstart:
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 
-<!-- Section to be completed when templates are merged into the quickstart repo. -->
 ## Review the template
 
 The template used in this quickstart is from [Azure Samples - Service Fabric cluster templates](https://github.com/Azure-Samples/service-fabric-cluster-templates/3-VM-Windows-1-NodeType-Managed-Basic).
@@ -31,7 +30,7 @@ The template used in this quickstart is from [Azure Samples - Service Fabric clu
 
 Service Fabric managed clusters use a client certificate as a key for access control. If you already have a client certificate that you would like to use for access control to your cluster, you can skip this step.
 
-If you need to create a new client certificate, please follow the steps in [set and retrieve a certificate from Azure Key Vault](../key-vault/certificates/quick-create-portal.md).
+If you need to create a new client certificate, follow the steps in [set and retrieve a certificate from Azure Key Vault](../key-vault/certificates/quick-create-portal.md).
 
 Take note of the certificate thumbprint as this will be required to deploy the template in the next step.
 
@@ -43,28 +42,29 @@ Take note of the certificate thumbprint as this will be required to deploy the t
 
 2. Select or enter the following values
 
-For this quickstart, provide your own values for the following template parameters: 
-* **Subscription**: Select an Azure subscription.
-* **Resource Group**: Select **Create new**. Enter a unique name for the resource group, such as *myResourceGroup*, then choose **OK**.
-* **Location**: Select a location, such as **eastus2**.
-  > [!NOTE]
-  > Supported regions for Service Fabric managed clusters preview include `centraluseuap`, `eastus2euap`, `eastasia`, `northeurope`, `westcentralus`, and `eastus2`.
-* **Cluster Name**: Enter a unique name for your cluster, such as *mySFCluster*.
-* **Admin Username**: Enter a name for the admin to be used for RDP on the underlying VMs in the cluster.
-* **Admin Password**: Enter a password for the admin to be used for RDP on the underlying VMs in the cluster.
-* **Client Certificate Thumbprint**: Provide the thumbprint of the client certificate that you would like to use to access your cluster. If you do not have a certificate, follow [set and retrieve a certificate](../key-vault/certificates/quick-create-portal.md) to create a self-signed certificate. 
-* **Node Type Name**: Enter a unique name for your node type, such as *myNodeType*.
-* **I agree to the terms and conditions stated above**: Check this box to agree. 
+For this quickstart, provide your own values for the following template parameters:
+
+    * **Subscription**: Select an Azure subscription.
+    * **Resource Group**: Select **Create new**. Enter a unique name for the resource group, such as *myResourceGroup*, then choose **OK**.
+    * **Location**: Select a location, such as **eastus2**.
+      > [!NOTE]
+      > Supported regions for Service Fabric managed clusters preview include `centraluseuap`, `eastus2euap`, `eastasia`, `northeurope`, `westcentralus`, and `eastus2`.
+    * **Cluster Name**: Enter a unique name for your cluster, such as *mySFCluster*.
+    * **Admin Username**: Enter a name for the admin to be used for RDP on the underlying VMs in the cluster.
+    * **Admin Password**: Enter a password for the admin to be used for RDP on the underlying VMs in the cluster.
+    * **Client Certificate Thumbprint**: Provide the thumbprint of the client certificate that you would like to use to access your cluster. If you do not have a certificate, follow [set and retrieve a certificate](../key-vault/certificates/quick-create-portal.md) to create a self-signed certificate. 
+    * **Node Type Name**: Enter a unique name for your node type, such as *myNodeType*.
+    * **I agree to the terms and conditions stated above**: Check this box to agree. 
 
 3. Select **Purchase**.
 
-4. It takes a few minutes for your managed Service Fabric cluster to deploy. Wait for the deployment to complete successfully before moving onto the next steps. 
+4. It takes a few minutes for your managed Service Fabric cluster to deploy. Wait for the deployment to complete successfully before moving onto the next steps.
 
-## Validate the deployment 
+## Validate the deployment
 
-### Review deployed resources 
+### Review deployed resources
 
-Once the deployment completes, find the Service Fabric Explorer value in the output and open the address in a web browser to view your cluster in Service Fabric Explorer. When prompted for a certificate, use the certificate for which the client thumbprint was provided in the template. 
+Once the deployment completes, find the Service Fabric Explorer value in the output and open the address in a web browser to view your cluster in Service Fabric Explorer. When prompted for a certificate, use the certificate for which the client thumbprint was provided in the template.
 
 > [!NOTE]
 > You can find the output of the deployment in Azure Portal under the resource group deployments tab.
@@ -73,10 +73,10 @@ Once the deployment completes, find the Service Fabric Explorer value in the out
 
 When no longer needed, delete the resource group, which deletes the resources in the resource group.
 
-```powershell
-$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-Remove-AzResourceGroup -Name $resourceGroupName
-```
+    ```powershell
+    $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+    Remove-AzResourceGroup -Name $resourceGroupName
+    ```
 
 ## Next steps
 
@@ -84,4 +84,3 @@ In this quickstart, you deployed a managed Service Fabric cluster.
 
 > [!div class="nextstepaction"]
 > [Learn how to add and remove node types](tutorial-managed-cluster-add-remove-node-type.md)
- 

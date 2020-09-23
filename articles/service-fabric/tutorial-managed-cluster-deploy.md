@@ -19,9 +19,10 @@ In this tutorial series we will discuss:
 This part of the series covers how to:
 
 > [!div class="checklist"]
-> * Connect your Azure account
+> * Connect to your Azure account
 > * Create a new resource group
 > * Deploy a Service Fabric managed cluster
+> * Add a primary node type to the cluster
 
 ## Prerequisites
 
@@ -77,7 +78,7 @@ $clusterSku = "Standard"
 New-AzServiceFabricManagedCluster -ResourceGroupName $resourceGroup -Location $location -ClusterName $clusterName -ClientCertThumbprint $clientThumbprint -ClientCertIsAdmin -AdminPassword $password -Sku $clusterSKU -Verbose
 ```
 
-### Add a Primary Node Type to the Service Fabric managed cluster
+### Add a primary node type to the Service Fabric managed cluster
 
 In this step, you will add a primary node type to the cluster that you have just created. Every Service Fabric cluster must have at least one primary node type.
 
@@ -95,11 +96,11 @@ New-AzServiceFabricManagedNodeType -ResourceGroupName $resourceGroup -ClusterNam
 
 This command may take a few minutes to complete.
 
-## Validate the deployment 
+## Validate the deployment
 
-### Review deployed resources 
+### Review deployed resources
 
-Once the deployment completes, find the Service Fabric Explorer value in the Service Fabric managed cluster resource overview page in Portal. When prompted for a certificate, use the certificate for which the client thumbprint was provided in the PowerShell command. 
+Once the deployment completes, find the Service Fabric Explorer value in the Service Fabric managed cluster resource overview page in Portal. When prompted for a certificate, use the certificate for which the client thumbprint was provided in the PowerShell command.
 
 ## Next steps
 

@@ -2,7 +2,7 @@
 title: Upgrade a Service Fabric managed cluster (preview)
 description: In this tutorial, learn how to upgrade a Service Fabric managed cluster.
 ms.topic: tutorial
-ms.date: 07/31/2020
+ms.date: 09/38/2020
 ---
 
 # Tutorial: Upgrade a Service Fabric managed cluster (preview)
