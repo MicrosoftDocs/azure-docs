@@ -14,6 +14,8 @@ ms.reviewer: jamesbak
 
 Azure Data Lake Storage Gen2 implements an access control model that supports both Azure role-based access control (Azure RBAC) and POSIX-like access control lists (ACLs). This article describes access control lists in Data Lake Storage Gen2. To learn about how to incorporate RBAC together with ACLs, and how system evaluates them to make authorization decisions, see [Access control model in Azure Data Lake Storage Gen2](data-lake-storage-access-control-model.md).
 
+<a id="access-control-lists-on-files-and-directories"></a>
+
 ## About ACLs
 
 You can associate a [security principal](https://docs.microsoft.com/azure/role-based-access-control/overview#security-principal) with an access level for files and directories. These associations are captured in an *access control list (ACL)*. Each file and directory in your storage account has an access control list. When a security principal attempts an operation on a file or directory, An ACL check determines whether that security principal (user, group, service principal, or managed identity) has the correct permission level to perform the operation.
