@@ -13,7 +13,7 @@ The **Azure Schema Registry** is a feature of Event Hubs, which provides a centr
 
 > [!NOTE]
 > - The **Schema Registry** feature is currently in **preview** and is available only in **standard** and **dedicated** tiers, not in the **basic** tier.
-> - This preview is currenlty available only in the **West Central US** region. 
+> - This preview is currently available only in the **West Central US** region. 
 
 With schema-driven serialization frameworks like Apache Avro, externalizing serialization metadata into shared schemas can also help with dramatically reducing the per-message overhead of type information and field names included with every data set as it's the case with tagged formats such as JSON. Having schemas stored alongside the events and inside the eventing infrastructure ensures that the metadata required for serialization/de-serialization is always in reach and schemas can't be misplaced. 
 
