@@ -67,9 +67,9 @@ In this article, you will download and install the following software packages. 
 | Linux OS | [Ubuntu Desktop 18.04 LTS](http://releases.ubuntu.com/18.04/) must be installed on the host computer.  |
 
 
-## Request access to the spatial analysis functionality
+## Request approval to run the container
 
-Fill out and submit the [request form](https://aka.ms/cognitivegate) to request access to the container. 
+Fill out and submit the [request form](https://aka.ms/csgate) to request approval to run the container.
 
 The form requests information about you, your company, and the user scenario for which you'll use the container. After you submit the form, the Azure Cognitive Services team will review it and email you with a decision.
 

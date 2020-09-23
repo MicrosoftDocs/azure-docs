@@ -641,7 +641,7 @@ You may want to integrate spatial analysis detection or events into your applica
 
 In order to get best performance and utilization of the GPUs, you can deploy any spatial analysis operations on multiple cameras using graph instances. Below is a sample for running the cognitiveservices.vision.spatialanalysis-personcount operation on five(5) cameras.
 
-```
+```json
  "properties.desired": {
       "globalSettings": {
           "PlatformTelemetryEnabled": false,
@@ -720,11 +720,9 @@ In order to get best performance and utilization of the GPUs, you can deploy any
       }
   }
   ```
-
 | Name | Type| Description|
 |---------|---------|---------|
-| `batch_size` | int | Indicates the number of cameras will be used in that operation  .|
-  
+| `batch_size` | int | Indicates the number of cameras that will be used in the operation. |
 
 ## Next steps
 

@@ -107,7 +107,7 @@ A simple analogy for understanding conditions on which alert rules can be create
 
 1. In the Azure portal, select **Monitor** > **Alerts**. Select **Manage alert rules** in the upper-left corner of the window.
 
-    ![Manage alert rules](media/alerts-activity-log/manage-alert-rules.png)
+    ![Screenshot shows the activity log with the search box highlighted.](media/alerts-activity-log/manage-alert-rules.png)
 
     The list of available rules appears.
 

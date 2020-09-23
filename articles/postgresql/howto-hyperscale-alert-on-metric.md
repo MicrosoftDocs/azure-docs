@@ -30,19 +30,19 @@ You can configure and get information about alert rules using:
 
 2. Under the **Monitoring** section of the sidebar, select **Alerts** as shown:
 
-   ![Select Alert Rules](./media/howto-hyperscale-alert-on-metric/2-alert-rules.png)
+   :::image type="content" source="./media/howto-hyperscale-alert-on-metric/2-alert-rules.png" alt-text="Select Alert Rules":::
 
 3. Select **New alert rule** (+ icon).
 
 4. The **Create rule** page opens as shown below. Fill in the required information:
 
-   ![Add metric alert form](./media/howto-hyperscale-alert-on-metric/4-add-rule-form.png)
+   :::image type="content" source="./media/howto-hyperscale-alert-on-metric/4-add-rule-form.png" alt-text="Add metric alert form":::
 
 5. Within the **Condition** section, select **Add**.
 
 6. Select a metric from the list of signals to be alerted on. In this example, select "Storage percent".
    
-   ![Select metric](./media/howto-hyperscale-alert-on-metric/6-configure-signal-logic.png)
+   :::image type="content" source="./media/howto-hyperscale-alert-on-metric/6-configure-signal-logic.png" alt-text="Select metric":::
 
 7. Configure the alert logic:
 
@@ -53,13 +53,13 @@ You can configure and get information about alert rules using:
    
    Select **Done** when complete.
 
-   ![Select metric](./media/howto-hyperscale-alert-on-metric/7-set-threshold-time.png)
+   :::image type="content" source="./media/howto-hyperscale-alert-on-metric/7-set-threshold-time.png" alt-text="Select metric":::
 
 8. Within the **Action Groups** section, select **Create New** to create a new group to receive notifications on the alert.
 
 9. Fill out the "Add action group" form with a name, short name, subscription, and resource group.
 
-    ![Action group](./media/howto-hyperscale-alert-on-metric/9-add-action-group.png)
+    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/9-add-action-group.png" alt-text="Action group":::
 
 10. Configure an **Email/SMS/Push/Voice** action type.
     
@@ -67,11 +67,11 @@ You can configure and get information about alert rules using:
    
     Select **OK** when completed.
 
-    ![Action group](./media/howto-hyperscale-alert-on-metric/10-action-group-type.png)
+    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/10-action-group-type.png" alt-text="Action group":::
 
 11. Specify an Alert rule name, Description, and Severity.
 
-    ![Action group](./media/howto-hyperscale-alert-on-metric/11-name-description-severity.png) 
+    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/11-name-description-severity.png" alt-text="Action group"::: 
 
 12. Select **Create alert rule** to create the alert.
 

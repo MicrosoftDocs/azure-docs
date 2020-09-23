@@ -16,7 +16,7 @@ Use a C# .NET chat bot with a Personalizer loop to provide the correct content t
 > [!div class="checklist"]
 > * Set up Azure resources
 > * Configure and run bot
-> * Interact with bot using Bot emulator
+> * Interact with bot using Bot Framework Emulator
 > * Understand where and how the bot uses Personalizer
 
 
@@ -169,7 +169,7 @@ Keep the web site running because the tutorial explains what the bot is doing, s
 
 ## Set up the bot emulator
 
-1. Open the Bot Emulator, and select **Open Bot**.
+1. Open the Bot Framework Emulator, and select **Open Bot**.
 
     :::image type="content" source="media/tutorial-chat-bot/bot-emulator-startup.png" alt-text="Screenshot of bot emulator startup screen.":::
 

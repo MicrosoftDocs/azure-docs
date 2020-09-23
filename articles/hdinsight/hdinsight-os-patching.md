@@ -27,11 +27,16 @@ HDInsight provides support for you to perform common tasks on your cluster such 
 
 Patch on a representative non-production environment prior to  deploying to production. Develop a plan to adequately test your system prior to your actual patching.
 
-From time-to-time, from an ssh session with your cluster, you may receive a message that an upgrade is available. The message may looks something like:
+From time-to-time, from an ssh session with your cluster, you may receive a message that security updates are available. The message may looks something like:
 
 ```
-New release '18.04.3 LTS' available.
-Run 'do-release-upgrade' to upgrade it
+89 packages can be updated.
+82 updates are security updates.
+
+*** System restart required ***
+
+Welcome to Spark on HDInsight.
+
 ```
 
 Patching is optional and at your discretion.

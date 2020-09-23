@@ -10,8 +10,8 @@ ms.devlang:
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: sstein, carlrab
-ms.date: 03/17/2020
+ms.reviewer: sstein
+ms.date: 09/21/2020
 ---
 # Azure SQL Managed Instance frequently asked questions (FAQ)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -76,7 +76,7 @@ For new and preview features, see [Release notes](../database/doc-changes-update
 
 **How can I provision SQL Managed Instance?**
 
-You can provision an instance from [Azure Portal](instance-create-quickstart.md), [PowerShell](scripts/create-configure-managed-instance-powershell.md), [Azure CLI](https://techcommunity.microsoft.com/t5/azure-sql-database/create-azure-sql-managed-instance-using-azure-cli/ba-p/386281) and [ARM templates](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/creating-azure-sql-managed-instance-using-arm-templates).
+You can provision an instance from [Azure portal](instance-create-quickstart.md), [PowerShell](scripts/create-configure-managed-instance-powershell.md), [Azure CLI](https://techcommunity.microsoft.com/t5/azure-sql-database/create-azure-sql-managed-instance-using-azure-cli/ba-p/386281) and [ARM templates](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/creating-azure-sql-managed-instance-using-arm-templates).
 
 **Can I provision Managed Instances in an existing subscription?**
 
@@ -88,7 +88,7 @@ This is a current limitation on underlying component that verifies subnet name a
 
 **How can I scale my managed instance?**
 
-You can scale your managed instance from [Azure Portal](../database/service-tiers-vcore.md?tabs=azure-portal#selecting-a-hardware-generation), [PowerShell](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/change-size-azure-sql-managed-instance-using-powershell), [Azure CLI](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-update) or [ARM templates](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/updating-azure-sql-managed-instance-properties-using-arm-templates).
+You can scale your managed instance from [Azure portal](../database/service-tiers-vcore.md?tabs=azure-portal#selecting-a-hardware-generation), [PowerShell](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/change-size-azure-sql-managed-instance-using-powershell), [Azure CLI](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-update) or [ARM templates](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/updating-azure-sql-managed-instance-properties-using-arm-templates).
 
 **Can I move my Managed Instance from one region to another?**
 
@@ -96,7 +96,7 @@ Yes, you can. For instructions, see [Move resources across regions](../database/
 
 **How can I delete my Managed Instance?**
 
-You can delete Managed Instances via Azure Portal, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstance?view=azps-4.3.0), [Azure CLI](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-delete) or [Resource Manager REST APIs](https://docs.microsoft.com/rest/api/sql/managedinstances/delete).
+You can delete Managed Instances via Azure portal, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstance?view=azps-4.3.0), [Azure CLI](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-delete) or [Resource Manager REST APIs](https://docs.microsoft.com/rest/api/sql/managedinstances/delete).
 
 **How much time does it take to create or update an instance, or to restore a database?**
 
@@ -310,7 +310,7 @@ For this reason, we strongly discourage relying on immutability of the IP addres
 
 **Does Managed Instance have a public endpoint?**
 
-Yes. Managed Instance has a public endpoint that is by default used only for service management, but a customer may enable it for data access as well. For more details, see [Use SQL Managed Instance with public endpoints](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-securely). To configure public endpoint, go to [Configure public endpoint in SQL Managed Instance](public-endpoint-configure.md).
+Yes. Managed Instance has a public endpoint that is by default used only for Service Management, but a customer may enable it for data access as well. For more details, see [Use SQL Managed Instance with public endpoints](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-securely). To configure public endpoint, go to [Configure public endpoint in SQL Managed Instance](public-endpoint-configure.md).
 
 **How does Managed Instance control access to the public endpoint?**
 
@@ -320,7 +320,7 @@ Management and deployment services connect to a managed instance by using a [man
 
 **Could I use the public endpoint to access the data in Managed Instance databases?**
 
-Yes. The customer will need to enable public endpoint data access from [Azure Portal](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-in-the-azure-portal) / [PowerShell](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-using-powershell) / ARM and configure NSG to lock down access to the data port (port number 3342). For more information, see [Configure public endpoint in Azure SQL Managed Instance](public-endpoint-configure.md) and [Use Azure SQL Managed Instance securely with public endpoint](public-endpoint-overview.md). 
+Yes. The customer will need to enable public endpoint data access from [Azure portal](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-in-the-azure-portal) / [PowerShell](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-using-powershell) / ARM and configure NSG to lock down access to the data port (port number 3342). For more information, see [Configure public endpoint in Azure SQL Managed Instance](public-endpoint-configure.md) and [Use Azure SQL Managed Instance securely with public endpoint](public-endpoint-overview.md). 
 
 **Can I specify a custom port for SQL data endpoint(s)?**
 
@@ -344,7 +344,7 @@ To mitigate any data exfiltration risks, customers are recommended to apply a se
 - Access the instance with a low-privileged DBA account.
 - Configure JIT jumpbox access for the sysadmin account.
 - Turn on [SQL auditing](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine), and integrate it with alerting mechanisms.
-- Turn on [Threat Detection](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection) from the [advanced data security (ADS)](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security) suite.
+- Turn on [Threat Detection](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection) from the [Azure Defender for SQL](https://docs.microsoft.com/azure/azure-sql/database/azure-defender-for-sql) suite.
 
 ## DNS
 
@@ -444,7 +444,7 @@ You get the equal amount of free backup storage space as the reserved data stora
 
 **How can I monitor billing cost for my backup storage consumption?**
 
-You can monitor cost for backup storage via Azure Portal. For instructions, see [Monitor costs for automated backups](https://docs.microsoft.com/azure/azure-sql/database/automated-backups-overview?tabs=managed-instance#monitor-costs). 
+You can monitor cost for backup storage via Azure portal. For instructions, see [Monitor costs for automated backups](https://docs.microsoft.com/azure/azure-sql/database/automated-backups-overview?tabs=managed-instance#monitor-costs). 
 
 **How can I optimize my backup storage costs on the managed instance?**
 

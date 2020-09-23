@@ -306,7 +306,9 @@ You can export logs from the Azure Blob Storage when troubleshooting issues.
 
 If you see the following message in the module logs, it might mean your Azure subscription needs to be approved: 
 
-``` Container is not in a valid state. Subscription validation failed with status 'Mismatch'. Api Key is not intended for the given container type. ```
+"Container is not in a valid state. Subscription validation failed with status 'Mismatch'. Api Key is not intended for the given container type."
+
+For more information, see [Request approval to run the container](spatial-analysis-container.md#request-approval-to-run-the-container).
 
 ## Troubleshooting the Azure Stack Edge device
 

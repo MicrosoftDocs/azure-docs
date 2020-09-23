@@ -59,7 +59,7 @@ See [Configure agent to report to an Operations Manager management group](agent-
 
 ## Security limitations
 
-* The Windows agent supports the [FIPS 140 standard](/windows/security/threat-protection/fips-140-validation), while the Linux agent does not support it.  
+* The Windows and Linux agents support the [FIPS 140 standard](/windows/security/threat-protection/fips-140-validation), but [other types of hardening may not be supported](agent-linux.md#supported-linux-hardening).
 
 
 ## Installation options

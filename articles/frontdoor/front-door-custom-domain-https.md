@@ -238,7 +238,7 @@ We encountered an unexpected error while processing your HTTPS request. Please t
 
     No, a Certificate Authority Authorization record is not currently required. However, if you do have one, it must include DigiCert as a valid CA.
 
-## Clean up resources - disable HTTPS
+## Clean up resources
 
 In the preceding steps, you enabled the HTTPS protocol on your custom domain. If you no longer want to use your custom domain with HTTPS, you can disable HTTPS by performing theses steps:
 
