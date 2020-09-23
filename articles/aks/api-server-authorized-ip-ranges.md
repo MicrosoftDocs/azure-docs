@@ -151,7 +151,7 @@ You can also find this address by searching "what is my IP address" in an intern
 
 ## Troubleshooting - I'm unable to view resources in Kubernetes resource viewer in Azure portal for my cluster configured with API server authorized IP ranges.
 
-The [Kubernetes resource viewer](kubernetes-portal.md) requires `--api-server-authorized-ip-ranges` to be updated to include access for the local client computer or IP address range (from which portal is being browsed). Refer section on 'How to find my IP' on this page.
+The [Kubernetes resource viewer](kubernetes-portal.md) requires `--api-server-authorized-ip-ranges` to include access for the local client computer or IP address range (from which portal is being browsed). Refer section on 'How to find my IP' on this page.
 
 ## Next steps
 
