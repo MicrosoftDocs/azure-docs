@@ -18,7 +18,7 @@ This article answers common questions about the Azure Migrate: Server Migration 
 Azure Migrate: Server Migration tool migrates all the UEFI-based machines to Azure as Azure generation 2 VMs. We no longer support the conversion of UEFI-based VMs to BIOS-based VMs. Note that all the BIOS-based machines are migrated to Azure as Azure generation 1 VMs only.
 
 ## How can I migrate UEFI-based machines to Azure as Azure generation 1 VMs?
-Azure Migrate: Server Migration tool migrates UEFI-based machines to Azure as Azure generation 2 VMs. If you want to migrate them to Azure generation 1 VMs, convert the boot-type to BIOS on-premises, and then use the Azure Migrate: Server Migration tool to migrate Azure.
+Azure Migrate: Server Migration tool migrates UEFI-based machines to Azure as Azure generation 2 VMs. If you want to migrate them to Azure generation 1 VMs, convert the boot-type to BIOS before starting replication, and then use the Azure Migrate: Server Migration tool to migrate to Azure.
  
 ## Where should I install the replication appliance for agent-based migrations?
 
