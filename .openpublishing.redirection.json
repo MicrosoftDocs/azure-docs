@@ -43058,11 +43058,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/application-insights/app-insights-nuget.md",
-      "redirect_url": "/azure/azure-monitor/app/nuget ",
-      "redirect_document_id": true
-    },
-    {
       "source_path": "articles/application-insights/micrometer-java.md",
       "redirect_url": "/azure/azure-monitor/app/micrometer-java ",
       "redirect_document_id": true
@@ -57490,6 +57485,11 @@
     {
       "source_path": "articles/azure-government/documentation-government-gpu.md",
       "redirect_url": "/azure/azure-government/compare-azure-government-global-azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/nuget.md",
+      "redirect_url": "/azure/azure-monitor/azure-monitor-app-hub",
       "redirect_document_id": false
     }
   ]
