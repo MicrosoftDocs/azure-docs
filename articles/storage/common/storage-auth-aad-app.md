@@ -31,9 +31,9 @@ To authenticate a security principal from your Azure Storage application, first 
 
 ## Register your application with an Azure AD tenant
 
-The first step in using Azure AD to authorize access to storage resources is registering your client application with an Azure AD tenant from the [Azure portal](https://portal.azure.com). When you register your client application, you supply information about the application to Azure AD. Azure AD then provides a client ID (also called an *application ID*) that you use to associate your application with Azure AD at runtime. To learn more about the client ID, see [Application and service principal objects in Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md).
+The first step in using Azure AD to authorize access to storage resources is registering your client application with an Azure AD tenant from the [Azure portal](https://portal.azure.com). When you register your client application, you supply information about the application to Azure AD. Azure AD then provides a client ID (also called an *application ID*) that you use to associate your application with Azure AD at runtime. To learn more about the client ID, see [Application and service principal objects in Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md). To register your Azure Storage application, follow the steps shown in [Quickstart: Register an application with the Microsoft identity platform](../../active-directory/develop/quickstart-configure-app-access-web-apis.md). 
 
-To register your Azure Storage application, follow the steps shown in [Quickstart: Register an application with the Microsoft identity platform](../../active-directory/develop/quickstart-configure-app-access-web-apis.md). The following image shows common settings for registering a web application. Note that in this example, the redirect URI is set to `http://localhost:5000/signin-oidc` for testing the sample application in the development environment:
+The following image shows common settings for registering a web application. Note that in this example, the redirect URI is set to `http://localhost:5000/signin-oidc` for testing the sample application in the development environment. You can modify this setting later under the **Authentication** setting for your registered application in the Azure portal:
 
 :::image type="content" source="media/storage-auth-aad-app/app-registration.png" alt-text="Screenshot showing how to register your storage application with Azure AD":::
 
@@ -84,16 +84,6 @@ Next, configure implicit grant flow for your application. Follow these steps:
 1. In the **Implicit grant** section, select the check box to enable ID tokens, as shown in the following image:
 
     :::image type="content" source="media/storage-auth-aad-app/enable-implicit-grant-flow.png" alt-text="Screenshot showing how to enable settings for implicit grant flow":::
-
-### Update the port used by localhost
-
-To run the sample application in your local environment, update the redirect URI specified in your app registration to use the *localhost* port assigned at runtime. To update the redirect URI to use the assigned port, follow these steps:
-
-1. Navigate to your app registration in the Azure portal.
-1. In the **Manage** section, select the **Authentication** setting.
-1. Locate your platform configuration, and then under **Redirect URIs**, edit the port to match that used by the sample application, as shown in the following image:
-
-    :::image type="content" source="media/storage-auth-aad-app/redirect-uri.png" alt-text="Screenshot showing redirect URIs for app registration":::
 
 ## Client libraries for token acquisition
 
