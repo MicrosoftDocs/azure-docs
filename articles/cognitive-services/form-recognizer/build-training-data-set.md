@@ -23,7 +23,7 @@ If you want to use manually labeled training data, you must start with at least 
 
 ## Custom model input requirements
 
-First, make sure your training data set follows the input requirements for custom model training.
+First, make sure your training data set follows the input requirements for Form Recognizer.
 
 [!INCLUDE [input requirements](./includes/input-requirements.md)]
 

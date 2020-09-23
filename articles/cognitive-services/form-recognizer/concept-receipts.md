@@ -70,10 +70,7 @@ The Receipt API also returns the following information:
   > Language input 
   >
   > Prebuilt Receipt v2.1-preview.1 has an optional request parameter to specify a receipt locale from additional English markets. For sales receipts in English from Australia (EN-AU), Canada (EN-CA), Great Britain (EN-GB), and India (EN-IN), you can specify the locale to get improved results. If no locale is specified in v2.1-preview.1, the model will default to the EN-US model.
-  
- ### Input Requirements 
 
-[!INCLUDE [input reqs](./includes/input-requirements-receipts.md)]
 
 ## The Analyze Receipt operation
 
