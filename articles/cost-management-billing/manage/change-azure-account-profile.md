@@ -28,21 +28,21 @@ If you want to update your Azure Active Directory user profile information, only
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) using the email address, which has the account administrator permission on the account.
 1. Search for **Cost Management + Billing**.  
-    ![Screenshot that shows search in portal for cost management + billing](./media/change-azure-account-profile/search-cmb.png)
+    ![Screenshot that shows where to search in the Azure portal for cost management + billing](./media/change-azure-account-profile/search-cmb.png)
 1. Select **Properties** from the left-hand side.  
-    ![Screenshot that shows update address page](./media/change-azure-account-profile/update-contact-information-select-properties.png)
+    ![Screenshot that shows MOSP billing account properties](./media/change-azure-account-profile/update-contact-information-select-properties.png)
 1. Select **Update billing address** to update the sold-to and the bill-to addresses. Enter the new address and then select **Save**.  
-    ![Screenshot that shows update address page](./media/change-azure-account-profile/update-contact-information-mosp.png)
+    ![Screenshot that shows update address for the MOSP billing account](./media/change-azure-account-profile/update-contact-information-mosp.png)
 
 ## Update an MCA billing account sold-to address
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) using the email address, which has an owner or a contributor role on the billing account for a Microsoft Customer Agreement.
 1. Search for **Cost Management + Billing**.  
-    ![Screenshot that shows search in portal for cost management + billing](./media/change-azure-account-profile/search-cmb.png)
+    ![Screenshot that shows where to search in the Azure portal](./media/change-azure-account-profile/search-cmb.png)
 1. Select **Properties** from the left-hand side and then select **Update sold-to**.  
-    ![Screenshot that shows selecting update sold-to](./media/change-azure-account-profile/update-sold-to-list-properties-mca.png)
+    ![Screenshot that shows the properties for an MCA billing account where can modify the sold-to address](./media/change-azure-account-profile/update-sold-to-list-properties-mca.png)
 1. Enter the new address and select **Save**.  
-    ![Screenshot that shows updating address](./media/change-azure-account-profile/update-sold-to-save-mca.png)
+    ![Screenshot that shows updating the sold-to address for an MCA account](./media/change-azure-account-profile/update-sold-to-save-mca.png)
 
     > [!IMPORTANT]
     > Some accounts require additional verification before their sold-to can be updated. If your account requires manual approval, you would be asked to contact Azure support.
@@ -51,15 +51,14 @@ If you want to update your Azure Active Directory user profile information, only
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) using the email address, which has an owner or a contributor role on a billing account or a billing profile for an MCA.
 1. Search for **Cost Management + Billing**.  
-    ![Screenshot that shows search in portal for cost management + billing](./media/change-azure-account-profile/search-cmb.png)
 1. Select **Billing profiles** from the left-hand side.
 1. Select a billing profile to update the billing address.  
-    ![Screenshot that shows search in portal for cost management + billing](./media/change-azure-account-profile/update-bill-to-list-profiles-mca.png)
+    ![Screenshot that shows the Billing profiles page where you select a billing profile](./media/change-azure-account-profile/update-bill-to-list-profiles-mca.png)
 1. Select **Properties** from the left-hand side.
 1. Select **Update address**.  
-    ![Screenshot that shows search in portal for cost management + billing](./media/change-azure-account-profile/update-bill-to-list-properties-mca.png)
+    ![Screenshot that shows where to update the address](./media/change-azure-account-profile/update-bill-to-list-properties-mca.png)
 1. Enter the new address and then select **Save**.  
-    ![Screenshot that shows updating address](./media/change-azure-account-profile/update-bill-to-save-mca.png)
+    ![Screenshot that shows updating the address](./media/change-azure-account-profile/update-bill-to-save-mca.png)
 
 ## Service and marketing emails
 
