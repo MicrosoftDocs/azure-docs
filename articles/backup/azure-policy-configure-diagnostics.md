@@ -28,7 +28,7 @@ To assign the policy for vaults in the required scope, follow the steps below:
 
 1. Sign in to the Azure portal and navigate to the **Policy** Dashboard.
 2. Select **Definitions** in the left menu to get a list of all built-in policies across Azure Resources.
-3. Filter the list for **Category=Monitoring**. Locate the policy named **[Preview]: Deploy Diagnostic Settings for Recovery Services Vault to Log Analytics workspace for resource-specific categories**.
+3. Filter the list for **Category=Backup**. Locate the policy named **[Preview]: Deploy Diagnostic Settings for Recovery Services Vault to Log Analytics workspace for resource-specific categories**.
 
     ![Policy Definition pane](./media/backup-azure-policy-configure-diagnostics/policy-definition-blade.png)
 
