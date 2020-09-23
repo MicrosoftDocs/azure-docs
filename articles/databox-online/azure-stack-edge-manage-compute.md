@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Edge compute management | Microsoft Docs 
-description: Describes how to manage the Edge compute settings such as trigger, modules, view compute configuration, remove configuration via the Azure portal on your Azure Stack Edge.
+title: Azure Stack Edge Pro compute management | Microsoft Docs 
+description: Describes how to manage the Edge compute settings such as trigger, modules, view compute configuration, remove configuration via the Azure portal on your Azure Stack Edge Pro.
 services: databox
 author: alkohli
 
@@ -10,9 +10,9 @@ ms.topic: how-to
 ms.date: 05/20/2019
 ms.author: alkohli
 ---
-# Manage compute on your Azure Stack Edge
+# Manage compute on your Azure Stack Edge Pro
 
-This article describes how to manage compute on your Azure Stack Edge. You can manage the compute via the Azure portal or via the local web UI. Use the Azure portal to manage modules, triggers, and compute configuration, and the local web UI to manage compute settings.
+This article describes how to manage compute on your Azure Stack Edge Pro. You can manage the compute via the Azure portal or via the local web UI. Use the Azure portal to manage modules, triggers, and compute configuration, and the local web UI to manage compute settings.
 
 In this article, you learn how to:
 
@@ -23,7 +23,7 @@ In this article, you learn how to:
 
 ## Manage triggers
 
-Events are things that happen within your cloud environment or on your device that you might want to take action on. For example, when a file is created in a share, it is an event. Triggers raise the events. For your Azure Stack Edge, triggers can be in response to file events or a schedule.
+Events are things that happen within your cloud environment or on your device that you might want to take action on. For example, when a file is created in a share, it is an event. Triggers raise the events. For your Azure Stack Edge Pro, triggers can be in response to file events or a schedule.
 
 - **File**: These triggers are in response to file events such as creation of a file, modification of a file.
 - **Scheduled**: These triggers are in response to a schedule that you can define with a start date, start time, and the repeat interval.
@@ -77,7 +77,7 @@ The list of triggers updates to reflect the deletion.
 
 ## Manage compute configuration
 
-Use the Azure portal to view the compute configuration, remove an existing compute configuration, or to refresh the compute configuration to sync up access keys for the IoT device and IoT Edge device for your Azure Stack Edge.
+Use the Azure portal to view the compute configuration, remove an existing compute configuration, or to refresh the compute configuration to sync up access keys for the IoT device and IoT Edge device for your Azure Stack Edge Pro.
 
 ### View compute configuration
 
@@ -106,11 +106,11 @@ Take the following steps in the Azure portal to remove the existing Edge compute
 
 ### Sync up IoT device and IoT Edge device access keys
 
-When you configure compute on your Azure Stack Edge, an IoT device and an IoT Edge device are created. These devices are automatically assigned symmetric access keys. As a security best practice, these keys are rotated regularly via the IoT Hub service.
+When you configure compute on your Azure Stack Edge Pro, an IoT device and an IoT Edge device are created. These devices are automatically assigned symmetric access keys. As a security best practice, these keys are rotated regularly via the IoT Hub service.
 
 To rotate these keys, you can go to the IoT Hub service that you created and select the IoT device or the IoT Edge device. Each device has a primary access key and a secondary access keys. Assign the primary access key to the secondary access key and then regenerate the primary access key.
 
-If your IoT device and IoT Edge device keys have been rotated, then you need to refresh the configuration on your Azure Stack Edge to get the latest access keys. The sync helps the device get the latest keys for your IoT device and IoT Edge device. Azure Stack Edge uses only the primary access keys.
+If your IoT device and IoT Edge device keys have been rotated, then you need to refresh the configuration on your Azure Stack Edge Pro to get the latest access keys. The sync helps the device get the latest keys for your IoT device and IoT Edge device. Azure Stack Edge Pro uses only the primary access keys.
 
 Take the following steps in the Azure portal to sync the access keys for your device.
 

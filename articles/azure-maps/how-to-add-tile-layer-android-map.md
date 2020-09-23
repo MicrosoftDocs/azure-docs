@@ -4,7 +4,7 @@ description: Learn how to add a tile layer to a map. See an example that uses th
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 04/26/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea

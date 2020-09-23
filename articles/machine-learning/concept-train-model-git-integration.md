@@ -64,12 +64,10 @@ The git information is stored in the properties for a training run. You can view
 
 ### Azure portal
 
-1. From the [Azure portal](https://portal.azure.com), select your workspace.
+1. From the [studio portal](https://ml.azure.com), select your workspace.
 1. Select __Experiments__, and then select one of your experiments.
 1. Select one of the runs from the __RUN NUMBER__ column.
-1. Select __Logs__, and then expand the __logs__ and __azureml__ entries. Select the link that begins with __###\_azure__.
-
-    ![The ###_azure entry in the portal](./media/concept-train-model-git-integration/azure-machine-learning-logs.png)
+1. Select __Outputs + logs__, and then expand the __logs__ and __azureml__ entries. Select the link that begins with __###\_azure__.
 
 The logged information contains text similar to the following JSON:
 
