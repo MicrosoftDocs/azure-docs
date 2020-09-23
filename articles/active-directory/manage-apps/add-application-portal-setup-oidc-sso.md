@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Set up single sign-on (SSO) for an application in your Azure Active Directory (Azure AD) tenant'
+title: 'Quickstart: Set up OIDC-based single sign-on (SSO) for an application in your Azure Active Directory (Azure AD) tenant'
 description: This quickstart walks through the process of setting up single sign-on (SSO) for an application in your Azure Active Directory (Azure AD) tenant.
 services: active-directory
 author: kenwith
@@ -12,7 +12,7 @@ ms.date: 07/01/2020
 ms.author: kenwith
 ---
 
-# Quickstart: Set up SAML-based single sign-on (SSO) for an application in your Azure Active Directory (Azure AD) tenant
+# Quickstart: Set up OIDC-based single sign-on (SSO) for an application in your Azure Active Directory (Azure AD) tenant
 
 Get started with simplified user logins by setting up single sign-on (SSO) for an application that you added to your Azure Active Directory (Azure AD) tenant. After you set up SSO, your users can sign in to an application by using their Azure AD credentials. SSO is included in the free edition of Azure AD.
 
@@ -32,9 +32,33 @@ To set up SSO for an application that you added to your Azure AD tenant, you nee
 >[!IMPORTANT]
 >Use a non-production environment to test the steps in this quickstart.
 
+
 ## Enable single sign-on for an app
 
-After you finish adding an application to your Azure AD tenant, the overview page appears. If you're configuring an application that was already added, look at the first quickstart. It walks you through viewing the applications added to your tenant. 
+When you add an app that uses the OIDC standard for SSO you have a setup button. When you click the button you go to the applications site and complete the sign up process for the app. The process of adding an app is covered in the Add an app quickstart earlier in this series. If you're configuring an application that was already added, look at the first quickstart. It walks you through viewing the applications added to your tenant. 
+
+To set up single sign-on for an application:
+
+1. In the quickstart earlier in this series you learned how to add an app that will use your Azure AD tenant for identity management. If the app developer used the OIDC standard to implement SSO then you were presented with a sign-up button when adding the app. 
+1. 
+
+    :::image type="content" source="media/add-application-portal-setup-sso/github-pricing.png" alt-text="Screenshot shows the Single sign-on option in the Enterprise subscription of the GitHub pricing page.":::
+
+
+> [!TIP]
+> You can automate app management using the Graph API, see [Automate app management with Microsoft Graph API](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
+
+
+## Clean up resources
+
+When your done with this quickstart series, consider deleting the app to clean up your test tenant. Deleting the app is covered in the last quickstart in this series, see [Delete an app](delete-application-portal.md).
+
+## Next steps
+
+Advance to the next article to learn how to delete an app.
+> [!div class="nextstepaction"]
+> [Delete an app](delete-application-portal.md)
+
 
 To set up single sign-on for an application:
 
@@ -53,6 +77,7 @@ To set up single sign-on for an application:
     > To learn more about the SAML configuration options, see [Configure SAML-based single sign-on](configure-saml-single-sign-on.md).
 
     :::image type="content" source="media/add-application-portal-setup-sso/github-pricing.png" alt-text="Screenshot shows the Single sign-on option in the Enterprise subscription of the GitHub pricing page.":::
+
 
 > [!TIP]
 > You can automate app management using the Graph API, see [Automate app management with Microsoft Graph API](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
