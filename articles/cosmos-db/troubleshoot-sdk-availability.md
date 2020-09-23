@@ -19,7 +19,7 @@ All the Azure Cosmos SDKs give you an option to customize the regional preferenc
 * The [CosmosClientOptions.ApplicationRegion](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.applicationregion) or [CosmosClientOptions.ApplicationPreferredRegions](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.applicationpreferredregions) properties in .NET V3 SDK.
 * The [CosmosClientBuilder.preferredRegions](/java/api/com.azure.cosmos.cosmosclientbuilder.preferredregions) method in Java V4 SDK.
 * The [CosmosClient.preferred_locations](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient) parameter in Node SDK.
-* The [CosmosClientOptions.ConnectionPolicy.preferredLocations](/javascript/api/@azure/cosmos/connectionpolicy?view=azure-node-latest#preferredlocations) parameter in JS SDK.
+* The [CosmosClientOptions.ConnectionPolicy.preferredLocations](/javascript/api/@azure/cosmos/connectionpolicy#preferredlocations) parameter in JS SDK.
 
 When you set the regional preference, the client will connect to a region as mentioned in the following table:
 
