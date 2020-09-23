@@ -184,7 +184,7 @@ For every request that goes to origin shield, there are 2-log entries:
 * One for edge nodes
 * One for origin shield. 
 
-To differentiate the egress or responses from the edge nodes vs. origin shield, you can use the field isReceivedFromClient to get the correct data. 
+To differentiate the egress or responses from the edge nodes vs. origin shield, you can use the field **isReceivedFromClient** to get the correct data. 
 
 If the value is false, then it means the request is responded from origin shield to edge nodes. This approach is effective to compare raw logs with billing data. Charges aren't incurred for egress from origin shield to the edge nodes. Charges are incurred for egress from the edge nodes to clients. 
 
