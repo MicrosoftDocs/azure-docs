@@ -47,7 +47,7 @@ The way you control access to resources using Azure RBAC is to create role assig
 
 A *security principal* is an object that represents a user, group, service principal, or managed identity that is requesting access to Azure resources.
 
-![Security principal for a role assignment](./media/overview/rbac-security-principal.png)
+![Security principal for a role assignment](./media/shared/rbac-security-principal.png)
 
 - User - An individual who has a profile in Azure Active Directory. You can also assign roles to users in other tenants. For information about users in other organizations, see [Azure Active Directory B2B](../active-directory/b2b/what-is-b2b.md).
 - Group - A set of users created in Azure Active Directory. When you assign a role to a group, all users within that group have that role. 
@@ -58,7 +58,7 @@ A *security principal* is an object that represents a user, group, service princ
 
 A *role definition* is a collection of permissions. It's typically just called a *role*. A role definition lists the operations that can be performed, such as read, write, and delete. Roles can be high-level, like owner, or specific, like virtual machine reader.
 
-![Role definition for a role assignment](./media/overview/rbac-role-definition.png)
+![Role definition for a role assignment](./media/shared/rbac-role-definition.png)
 
 Azure includes several [built-in roles](built-in-roles.md) that you can use. The following lists four fundamental built-in roles. The first three apply to all resource types.
 
@@ -81,7 +81,7 @@ Azure has data operations that enable you to grant access to data within an obje
 
 In Azure, you can specify a scope at multiple levels: [management group](../governance/management-groups/overview.md), subscription, resource group, or resource. Scopes are structured in a parent-child relationship.
 
-![Scope for a role assignment](./media/overview/rbac-scope.png)
+![Scope for a role assignment](./media/shared/rbac-scope.png)
 
 When you grant access at a parent scope, those permissions are inherited to the child scopes. For example:
 
