@@ -1,17 +1,17 @@
 ---
-title: 'Tutorial: Migrate web services from Google Maps | Microsoft Azure Maps'
-description: Tutorial on how to migrate web services from Google Maps to Microsoft Azure Maps
+title: 'Migrate web services from Google Maps | Microsoft Azure Maps'
+description: How to migrate web services from Google Maps to Microsoft Azure Maps
 author: rbrundritt
 ms.author: richbrun
 ms.date: 12/17/2019
-ms.topic: tutorial
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: 
 ---
 
-# Tutorial: Migrate web service from Google Maps
+# Migrate web service from Google Maps
 
 Both Azure and Google Maps provide access to spatial APIs through REST web services. The API interfaces of these platforms perform similar functionalities. But, they each use different naming conventions and response objects.
 
@@ -43,18 +43,6 @@ Azure Maps has several additional REST web services that may be of interest:
 
 - [Spatial operations](https://docs.microsoft.com/rest/api/maps/spatial): Offload complex spatial calculations and operations, such as geofencing, to a service.
 - [Traffic](https://docs.microsoft.com/rest/api/maps/traffic): Access real-time traffic flow and incident data.
-
-> [!div class="checklist"]
-> * Geocoding addresses
-> * Reverse geocode a coordinate
-> * Search for points of interest
-> * Calculate routes and directions
-> * Retrieve a map image
-> * Calculate a distance matrix 
-> * Get a time zone
-> * Client libraries
-> * Additional resources
-> * Next steps
 
 ## Geocoding addresses
 
@@ -492,8 +480,4 @@ The following are additional documentation and resources for the Azure Maps REST
 - [Best practices for routing](how-to-use-best-practices-for-routing.md)
 - [Azure Maps REST Service API reference documentation](https://docs.microsoft.com/rest/api/maps/)
 - [Code samples](https://docs.microsoft.com/samples/browse/?products=azure-maps)
-
-## Next steps
-
-> [!div class="nextstepaction"]
-> [How to use the services module (Web SDK)](how-to-use-best-practices-for-routing.md)
+- [How to use the services module (Web SDK)](how-to-use-best-practices-for-routing.md)

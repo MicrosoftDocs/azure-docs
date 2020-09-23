@@ -1,17 +1,17 @@
 ---
-title: 'Tutorial: Migrate an Android app |Microsoft Azure Maps'
-description: 'Tutorial: How to migrate an Android app from Google Maps to Microsoft Azure Maps'
+title: 'Migrate an Android app |Microsoft Azure Maps'
+description: 'How to migrate an Android app from Google Maps to Microsoft Azure Maps'
 author: rbrundritt
 ms.author: richbrun
 ms.date: 12/17/2019
-ms.topic: tutorial
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: 
 ---
 
-# Tutorial: Migrate an Android app from Google Maps
+# Migrate an Android app from Google Maps
 
 The Azure Maps Android SDK has an API interface that is similar to the Web SDK. If you've developed with one of these SDKs, many of the same concepts, best practices, and architectures apply.
 
@@ -20,9 +20,6 @@ The Azure Maps Android SDK supports a minimum Android version of API 21: Android
 All examples are provided in Java; however, you can use Kotlin with the Azure Maps Android SDK.
 
 For more information on developing with the Android SDK by Azure Maps, see the [How-to guides for the Azure Maps Android SDK](how-to-use-android-map-control-library.md).
-
-> [!div class="checklist"]
-> * 
 
 ## Load a map
 
@@ -779,8 +776,6 @@ mapControl.onReady(map -> {
 <center>
 
 ![Azure Maps traffic](media/migrate-google-maps-android-app/azure-maps-traffic.png)</center>
-
-## Next steps
 
 Learn more about the Azure Maps Android SDK.
 

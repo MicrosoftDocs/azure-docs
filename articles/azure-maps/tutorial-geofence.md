@@ -469,4 +469,4 @@ You can also [Send email notifications using Event Grid and Logic Apps](https://
 ## Next steps
 
 > [!div class="nextstepaction"]
-> Handle content types in Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-content-type)
+> [Handle content types in Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-content-type)

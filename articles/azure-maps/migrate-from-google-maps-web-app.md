@@ -1,17 +1,17 @@
 ---
-title: 'Tutorial: Migrate a web app from Google Maps | Microsoft Azure Maps'
-description: Tutorial on how to migrate a web app from Google Maps to Microsoft Azure Maps
+title: 'Migrate a web app from Google Maps | Microsoft Azure Maps'
+description: How to migrate a web app from Google Maps to Microsoft Azure Maps
 author: rbrundritt
 ms.author: richbrun
 ms.date: 12/17/2019
-ms.topic: tutorial
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: devx-track-javascript
 ---
 
-# Tutorial: Migrate a web app from Google Maps
+# Migrate a web app from Google Maps
 
 Most web apps, which use Google Maps, are using the Google Maps V3 JavaScript SDK. The Azure Maps Web SDK is the suitable Azure-based SDK to migrate to. The Azure Maps Web SDK lets you customize interactive maps with your own content and imagery. You can run your app on both web or mobile applications. This control makes use of WebGL, allowing you to render large data sets with high performance. Develop with this SDK using JavaScript or TypeScript.
 
@@ -21,17 +21,6 @@ If migrating an existing web application, check to see if it is using an open-so
 - Cesium - A 3D map control for the web. [Code sample](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Raster%20Tiles%20in%20Cesium%20JS) \| [Documentation](https://cesiumjs.org/)
 - Leaflet – Lightweight 2D map control for the web. [Code sample](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Azure%20Maps%20Raster%20Tiles%20in%20Leaflet%20JS) \| [Documentation](https://leafletjs.com/)
 - OpenLayers - A 2D map control for the web that supports projections. [Code sample](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Raster%20Tiles%20in%20OpenLayers) \| [Documentation](https://openlayers.org/)
-
-> [!div class="checklist"]
-> * Key features support
-> * Notable differences in the web SDKs
-> * Web SDK side-by-side examples
-> * Add KML to the map
-> * Additional code samples
-> * Google Maps V3 to Azure Maps Web SDK class mapping
-> * Overlay Classes
-> * Service Classes
-> * Libraries
 
 If developing using a JavaScript framework, one of the following open-source projects may be useful:
 
@@ -1781,9 +1770,9 @@ place of these Google Maps libraries
 | Geometry library      | [atlas.math](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.math)   |
 | Visualization library | [Heat map layer](map-add-heat-map-layer.md) |
 
-You can learn more about [how to use the services module](how-to-use-services-module.md),  [how to use the drawing tools module](set-drawing-options.md) and [How to use the services module](how-to-use-services-module.md).
+To learn more about migrating Google Maps:
 
-## Next steps
-
-> [!div class="nextstepaction"]
-> [How to use the map control](how-to-use-map-control.md)
+* [how to use the services module](how-to-use-services-module.md) 
+* [how to use the drawing tools module](set-drawing-options.md)
+* [how to use the services module](how-to-use-services-module.md)
+* [how to use the map control](how-to-use-map-control.md)
