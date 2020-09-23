@@ -11,7 +11,7 @@ ms.workload: identity
 ms.topic: article
 ms.date: 06/07/2019
 ms.author: jeedes
----cccccccc
+---
 
 # Tutorial: Configure Smartsheet for automatic user provisioning
 
