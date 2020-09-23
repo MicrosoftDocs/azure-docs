@@ -3,7 +3,7 @@ title: Azure Defender for servers - the benefits and features
 description: Learn about the benefits and features of Azure Defender for servers.
 author: memildin
 ms.author: memildin
-ms.date: 9/12/2020
+ms.date: 9/23/2020
 ms.topic: conceptual
 ms.service: security-center
 manager: rkarlin
@@ -77,9 +77,9 @@ The threat detection and protection capabilities provided with Azure Defender fo
 
 You can simulate alerts by downloading one of the following playbooks:
 
-- For Windows: [Azure Security Center Playbook: Security Alerts](https://gallery.technet.microsoft.com/Azure-Security-Center-f621a046)
+- For Windows: [Azure Security Center Playbook: Security Alerts](https://github.com/Azure/Azure-Security-Center/blob/master/Simulations/Azure%20Security%20Center%20Security%20Alerts%20Playbook_v2.pdf)
 
-- For Linux: [Azure Security Center Playbook: Linux Detections](https://gallery.technet.microsoft.com/Azure-Security-Center-0ac8a5ef).
+- For Linux: [Azure Security Center Playbook: Linux Detections](https://github.com/Azure/Azure-Security-Center/blob/master/Simulations/Azure%20Security%20Center%20Linux%20Detections_v2.pdf).
 
 
 

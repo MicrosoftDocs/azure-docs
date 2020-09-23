@@ -60,7 +60,7 @@ titanic_ds = titanic_ds.register(workspace = workspace,
 
 ### Retrieve a dataset by name
 
-By default, the [get_by_name()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#&preserve-view=trueget-by-name-workspace--name--version--latest--) method on the `Dataset` class returns the latest version of the dataset registered with the workspace. 
+By default, the [get_by_name()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-by-name-workspace--name--version--latest--) method on the `Dataset` class returns the latest version of the dataset registered with the workspace. 
 
 The following code gets version 1 of the `titanic_ds` dataset.
 
@@ -155,7 +155,7 @@ prep_step = PythonScriptStep(script_name="prepare.py",
 
 For each Machine Learning experiment, you can easily trace the datasets used as the input through the experiment `Run` object.
 
-The following code uses the [`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#&preserve-view=trueget-details--) method to track which input datasets were used with the experiment run:
+The following code uses the [`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-details--) method to track which input datasets were used with the experiment run:
 
 ```Python
 # get input datasets

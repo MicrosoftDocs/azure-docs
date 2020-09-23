@@ -1,6 +1,6 @@
 ---
 title: Get billing ownership of Azure subscriptions for Microsoft Partner Agreement (MPA)
-description: Learn how to request billing ownership of Azure subscriptions from other users.
+description: Learn how to request billing ownership of Azure subscriptions from other users for Microsoft Partner Agreement (MPA).
 author: amberbhargava
 tags: billing
 ms.service: cost-management-billing

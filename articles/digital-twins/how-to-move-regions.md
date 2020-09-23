@@ -114,7 +114,7 @@ Next, you will complete the "move" of your instance by creating a new instance i
 
 ### Create a new instance
 
-First, **create a new instance of Azure Digital Twins in your target region**. To do this, follow the steps in [*How-to: Set up an instance and authentication*](how-to-set-up-instance-scripted.md), keeping these pointers in mind:
+First, **create a new instance of Azure Digital Twins in your target region**. To do this, follow the steps in [*How-to: Set up an instance and authentication*](how-to-set-up-instance-portal.md), keeping these pointers in mind:
 * You can keep the same name for the new instance **if** it is in a different resource group. If you need to use the same resource group that contains your original instance, then your new instance will need its own distinct name.
 * Enter the target new region when prompted for a location.
 * You do **not need** to recreate the app registration. Your new instance can reuse the same app registration you already have.

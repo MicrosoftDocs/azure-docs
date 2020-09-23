@@ -331,8 +331,13 @@
               displayName: parameter
               href: how-to-tune-hyperparameters.md
         - name: Work with MLflow
-          displayName: log, monitor, deploy, metrics, Databricks, model registry, register
-          href: how-to-use-mlflow.md
+          items: 
+            - name: Track experiments with MLflow
+              displayName: log, monitor, deploy, metrics,  model registry, register
+              href: how-to-use-mlflow.md
+            - name: Track Azure Databricks runs with MLflow
+              displayName: log, monitor, deploy, metrics, databricks
+              href: how-to-use-mlflow-azure-databricks.md              
         - name: Scikit-learn
           href: how-to-train-scikit-learn.md
         - name: TensorFlow

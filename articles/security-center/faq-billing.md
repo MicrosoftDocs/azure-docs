@@ -23,7 +23,7 @@ Security Center is offered with and without Azure Defender:
 
 - **Without Azure Defender**, Security Center provides visibility into the security state of your Azure resources, basic security policy, security recommendations, and integration with security products and services from partners.
 
-- **Azure Defender** adds threat protection capabilities that includes security alerts, threat intelligence, behavioral analysis, anomaly detection, and threat attribution reports. You can start a free 30-day trial of Azure Defender. To upgrade, select [Pricing Tier](https://docs.microsoft.com/azure/security-center/security-center-pricing) in the security policy. To learn more, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
+- **Azure Defender** adds threat protection capabilities that includes security alerts, threat intelligence, behavioral analysis, anomaly detection, and threat attribution reports. You can start a free 30-day trial of Azure Defender. [Learn more about upgrading](security-center-pricing.md).
 
 ## How can I track who in my organization enabled Azure Defender changes in Azure Security Center
 Azure Subscriptions may have multiple administrators with permissions to change the pricing settings. To find out which user performed a change, use the Azure Activity Log. 
