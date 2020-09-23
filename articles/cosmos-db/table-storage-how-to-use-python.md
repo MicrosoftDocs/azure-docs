@@ -1,6 +1,6 @@
 ---
 title: Use Azure Cosmos DB Table API and Azure Table storage using Python
-description: Store structured data in the cloud using Azure Table storage or the Azure Cosmos DB Table API.
+description: Store structured data in the cloud using Azure Table storage or the Azure Cosmos DB Table API by using Python.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: python
