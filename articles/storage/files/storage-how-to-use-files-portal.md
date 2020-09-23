@@ -32,7 +32,7 @@ To create an Azure file share:
 Share names need to be all lower case letters, numbers, and single hyphens but cannot start with a hyphen. For complete details about naming file shares and files, see [Naming and Referencing Shares, Directories, Files, and Metadata](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
 
 ## Use your Azure file share
-Azure Files provides two methods of working with files and folders within your Azure file share: the industry standard [Server Message Block (SMB) protocol](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) and the [File REST protocol](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api). 
+Azure Files provides three methods of working with files and folders within your Azure file share: the industry standard [Server Message Block (SMB) protocol](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx), the Network File System (NFS) protocol (preview), and the [File REST protocol](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api). 
 
 To mount a file share with SMB, see the following document based on your OS:
 - [Windows](storage-how-to-use-files-windows.md)

@@ -60,7 +60,7 @@ This example logic app sends a daily summary for a website RSS feed.
 The app uses a "Foreach" loop that sends an email for each new item.
 
 1. [Create this sample logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md) 
-with an Outlook.com or Office 365 Outlook account.
+with an Outlook.com account or a work or school account.
 
 2. Between the RSS trigger and send email action, 
 add a "Foreach" loop. 

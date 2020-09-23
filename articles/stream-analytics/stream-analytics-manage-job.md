@@ -182,7 +182,7 @@ The last step is to define an output sink for the job where it can write the tra
 
    ![Configure Stream Analytics output](media/stream-analytics-manage-job/configure-stream-analytics-output.png)
 
-4. When you select **Authorize**, a pop-up window opens and you are asked to provide credentials to authenticate to your Power BI account. Once the authorization is successful, **Save** the settings.
+4. When you select **Authorize**, a pop-up window opens and you are asked to provide credentials to authenticate to your Power BI account. Once the authorization is successful, **Save** the settings. To use Managed Identity, see [Use Managed Identity to authenticate your Azure Stream Analytics job to Power BI](powerbi-output-managed-identity.md).
 
 ## Define a query to analyze input data
 

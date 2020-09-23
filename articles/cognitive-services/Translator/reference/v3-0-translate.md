@@ -276,7 +276,7 @@ The response body is:
     }
 ]
 ```
-The response is similar to the response from the previous example. Since language auto-detection was requested, the response also includes information about the language detected for the input text. 
+The response is similar to the response from the previous example. Since language auto-detection was requested, the response also includes information about the language detected for the input text. The language auto-detection works better with longer input text.
 
 ### Translate with transliteration
 

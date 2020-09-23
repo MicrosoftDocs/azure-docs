@@ -7,7 +7,7 @@ ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 07/10/2020
+ms.date: 09/02/2020
 ---
 
 # Build the landing page for your transactable SaaS offer in the commercial marketplace
@@ -33,15 +33,15 @@ The landing page typically includes the following:
 The following sections will guide you through the process of building a landing page:
 
 1. [Create an Azure AD app registration](#create-an-azure-ad-app-registration) for the landing page.
-2. [Use a code sample as a starting point](#use-a-code-sample-as-a-starting-point) for your app.
-3. [Resolve the marketplace purchase identification token](#resolve-the-marketplace-purchase-identification-token) added to the URL by the commercial marketplace.
-4. [Read information from claims encoded in the ID token](#read-information-from-claims-encoded-in-the-id-token), which was received from Azure AD after login, that was sent with the request.
-5. [Use the Microsoft Graph API](#use-the-microsoft-graph-api) to gather additional information, as required.
-6. [Use two Azure AD apps to improve security in production](#use-two-azure-ad-apps-to-improve-security-in-production).
+1. [Use a code sample as a starting point](#use-a-code-sample-as-a-starting-point) for your app.
+1. [Use two Azure AD apps to improve security in production](#use-two-azure-ad-apps-to-improve-security-in-production).
+1. [Resolve the marketplace purchase identification token](#resolve-the-marketplace-purchase-identification-token) added to the URL by the commercial marketplace.
+1. [Read information from claims encoded in the ID token](#read-information-from-claims-encoded-in-the-id-token), which was received from Azure AD after sign in, that was sent with the request.
+1. [Use the Microsoft Graph API](#use-the-microsoft-graph-api) to gather additional information, as required.
 
 ## Create an Azure AD app registration
 
-The commercial marketplace is fully integrated with Azure AD. Buyers arrive at the marketplace authenticated with an [Azure AD account or Microsoft account (MSA)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology). After purchase, the buyer goes from the commercial marketplace to your landing page URL to activate and manage their subscription of your SaaS application. You must let the buyer sign in to your application with Azure AD SSO. (The landing page URL is specified in the offer’s [Technical configuration](partner-center-portal/offer-creation-checklist.md#technical-configuration-page) page.
+The commercial marketplace is fully integrated with Azure AD. Buyers arrive at the marketplace authenticated with an [Azure AD account or Microsoft account (MSA)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology). After purchase, the buyer goes from the commercial marketplace to your landing page URL to activate and manage their subscription of your SaaS application. You must let the buyer sign in to your application with Azure AD SSO. (The landing page URL is specified in the offer’s [Technical configuration](plan-saas-offer.md#technical-information) page.
 
 The first step to using the identity is to make sure your landing page is registered as an Azure AD application. Registering the application lets you use Azure AD to authenticate users and request access to user resources. It can be considered the application’s definition, which lets the service know how to issue tokens to the app based on the app's settings.
 
@@ -77,7 +77,7 @@ This enables the solution to work in scenarios that observe the [separation of c
 When the buyer is sent to your landing page, a token is added to the URL parameter. This token is different from both the Azure AD-issued token and the access token used for service-to-service authentication, and is used as an input for the [SaaS fulfillment APIs](./partner-center-portal/pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription) resolve call to get the details of the subscription. As with all calls to the SaaS fulfillment APIs, your service-to-service request will be authenticated with an access token that is based on the app’s Azure AD Application ID user for service-to-service authentication.
 
 > [!NOTE]
-> In most cases, it’s preferable to make this call from a second, single-tenant application. See [Use two Azure AD apps to improve security in production](#use-two-azure-ad-apps-to-improve-security-in-production) later in this article.
+> In most cases, it’s preferable to make this call from a second, single-tenant application. See [Use two Azure AD apps to improve security in production](#use-two-azure-ad-apps-to-improve-security-in-production) earlier in this article.
 
 ### Request an access token
 
@@ -126,4 +126,4 @@ Most apps that are registered with Azure AD grant delegated permissions to read 
 
 ## Next steps
 
-- [Create a SaaS offer in the commercial marketplace](./partner-center-portal/create-new-saas-offer.md)
+- [How to create a SaaS offer in the commercial marketplace](create-new-saas-offer.md)

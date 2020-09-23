@@ -111,9 +111,6 @@
       href: storage-samples-blobs-powershell.md
     - name: Azure CLI
       href: storage-samples-blobs-cli.md
-    - name: Azure Policy built-ins
-      displayName: samples, policies, definitions
-      href: ../common/policy-samples.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Concepts
     items:
     - name: Storage accounts
@@ -140,14 +137,14 @@
       - name: Azure Storage encryption at rest
         href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         items:
-        - name: Customer-managed keys with Azure Key Vault
-          href: ../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Customer-provided keys on the request
-          href: ../common/encryption-customer-provided-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Encryption with customer-managed keys
+          href: ../common/customer-managed-keys-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Encryption on the request with customer-provided keys
+          href: encryption-customer-provided-keys.md
+        - name: Encryption scopes
+          href: encryption-scope-overview.md
       - name: Immutable blobs
         href: storage-blob-immutable-storage.md
-      - name: Advanced threat protection
-        href: ../common/storage-advanced-threat-protection.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Built-in security controls
         href: ../common/storage-security-controls.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Use Azure Private Endpoints
@@ -210,7 +207,7 @@
       href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Find, search, and understand blob data
       items:
-      - name: Use Blob Index to manage and find blob data
+      - name: Use blob index to manage and find blob data
         href: storage-manage-find-blobs.md
       - name: Use AI to understand blob data
         href: ../../search/search-blob-ai-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -313,16 +310,18 @@
         href: storage-blobs-list.md
       - name: Manage blob properties and metadata (.NET)
         href: storage-blob-properties-metadata.md
-      - name: Copy a blob (.NET)
+      - name: Copy a blob (SDK)
         href: storage-blob-copy.md
+      - name: Utilize blob index
+        href: storage-blob-index-how-to.md
     - name: Authorize access to blob data
       items:
       - name: Authorization options for users
         items:
         - name: Portal
-          href: ../common/storage-access-blobs-queues-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          href: authorize-blob-access-portal.md
         - name: PowerShell
-          href: ../common/authorize-active-directory-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          href: authorize-active-directory-powershell.md
         - name: Azure CLI
           href: ../common/authorize-data-operations-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Manage access rights with RBAC
@@ -383,19 +382,17 @@
           items:
           - name: Check the encryption key model for the account
             href: ../common/storage-encryption-key-model-get.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-          - name: Configure customer-managed encryption keys
+          - name: Configure encryption with customer-managed keys
             items:
-            - name: Portal
-              href: ../common/storage-encryption-keys-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: PowerShell
-              href: ../common/storage-encryption-keys-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Azure CLI
-              href: ../common/storage-encryption-keys-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Store customer-managed keys in a key vault
+              href: ../common/customer-managed-keys-configure-key-vault.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Store customer-managed keys in a managed HSM
+              href: ../common/customer-managed-keys-configure-key-vault-hsm.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Provide an encryption key on a request
           href: storage-blob-customer-provided-key.md
         - name: Manage encryption scopes
           href: encryption-scope-manage.md
-        - name: Enable infrastructure encryption for a storage account
+        - name: Enable infrastructure encryption for the account
           href: ../common/infrastructure-encryption-enable.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Configure client-side encryption
         items:
@@ -417,6 +414,8 @@
             href: ../common/transport-layer-security-configure-minimum-version.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json 
           - name: Configure TLS version for a client application
             href: ../common/transport-layer-security-configure-client-version.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Configure Azure Defender for threat protection
+        href: ../common/azure-defender-storage-configure.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Set and manage immutability policies
         href: storage-blob-immutability-policies-manage.md
     - name: Manage data redundancy
@@ -463,8 +462,6 @@
       href: storage-custom-domain-name.md
     - name: Route events to a custom endpoint
       href: storage-blob-event-quickstart.md
-    - name: Utilize Blob Index
-      href: storage-blob-index-how-to.md
     - name: Transfer data
       items:
       - name: AzCopy
@@ -554,6 +551,9 @@
       href: /azure/templates/microsoft.storage/allversions
     - name: Monitoring data
       href: ../common/monitor-storage-reference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Azure Policy built-ins
+      displayName: samples, policies, definitions
+      href: ../common/policy-reference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Resources
     items:
     - name: Azure updates
@@ -826,6 +826,9 @@
     - name: Resource Manager template
       displayName: ARM
       href: /azure/templates/microsoft.storage/allversions
+    - name: Azure Policy built-ins
+      displayName: samples, policies, definitions
+      href: ../common/policy-reference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Resources
     items:
     - name: Known issues

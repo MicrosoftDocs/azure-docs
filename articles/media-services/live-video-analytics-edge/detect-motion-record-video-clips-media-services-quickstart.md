@@ -28,7 +28,8 @@ You can use an application like [VLC Player](https://www.videolan.org/vlc/), lau
 
 When you complete the steps below, you will have used Live Video Analytics on IoT Edge to detect that motion of the car, and record a video clip starting at around that 5-second mark. The diagram below is the visual representation of the overall flow.
 
-![Event-based video recording to Assets based on motion events](./media/quickstarts/topology.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/quickstarts/topology.svg" alt-text="Event-based video recording to Assets based on motion events":::
 
 ## Use direct method calls
 

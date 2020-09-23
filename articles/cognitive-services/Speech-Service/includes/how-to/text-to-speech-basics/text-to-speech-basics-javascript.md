@@ -4,7 +4,7 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/15/2020
 ms.author: trbye
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 ## Prerequisites
@@ -70,6 +70,8 @@ In this example, you create a [`SpeechConfig`](https://docs.microsoft.com/javasc
 function synthesizeSpeech() {
     const speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
 }
+
+synthesizeSpeech();
 ```
 
 ## Synthesize speech to a file

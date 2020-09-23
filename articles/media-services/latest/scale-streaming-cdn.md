@@ -10,12 +10,14 @@ manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: 
-ms.topic: article
-ms.date: 02/13/2020
+ms.topic: conceptual
+ms.date: 08/31/2020
 ms.author: inhenkel
 ---
 
 # Stream content with CDN integration
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Azure Content Delivery Network (CDN) offers developers a global solution for rapidly delivering high-bandwidth content to users by caching their content at strategically placed physical nodes across the world.  
 

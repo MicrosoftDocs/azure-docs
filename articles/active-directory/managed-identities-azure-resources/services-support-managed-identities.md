@@ -279,6 +279,7 @@ Refer to the following list to configure managed identity for Azure Virtual Mach
 - [Azure CLI](qs-configure-cli-windows-vm.md)
 - [Azure Resource Manager templates](qs-configure-template-windows-vm.md)
 - [REST](qs-configure-rest-vm.md)
+- [Azure SDKs](qs-configure-sdk-windows-vm.md)
 
 
 ### Azure VM Image Builder

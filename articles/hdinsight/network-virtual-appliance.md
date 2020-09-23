@@ -50,6 +50,7 @@ You can optionally enable one or more of the following service endpoints which w
 | security.ubuntu.com:80                                                |
 | ocsp.msocsp.com:80                                                    |
 | ocsp.digicert.com:80                                                  |
+| microsoft.com:80                                                      |
 
 ## Next steps
 

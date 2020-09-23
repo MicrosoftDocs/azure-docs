@@ -22,7 +22,7 @@ A. Azure Synapse is an analytics service that brings together data warehousing a
 
 Q. What happened to Azure SQL Data Warehouse?
 
-A. Azure Synapse is Azure SQL Data Warehouse (SQL DW) evolved. We've taken the same industry-leading data warehouse to a whole new level of performance and capabilities. You can continue running your existing data warehouse workloads in production with Azure Synapse. For more information, see [What is Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
+A. Azure Synapse is Azure SQL Data Warehouse evolved. We've taken the same industry-leading data warehouse to a whole new level of performance and capabilities. You can continue running your existing data warehouse workloads in production with Azure Synapse. For more information, see [What is Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
 
 Q. What is Synapse SQL pool?
 

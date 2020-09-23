@@ -3,7 +3,7 @@ title: Create Azure Virtual Machine technical assets
 description: Learn how to create and configure technical assets for a virtual machine (VM) offer for Azure Marketplace.  
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 08/14/2020

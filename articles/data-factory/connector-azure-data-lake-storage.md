@@ -10,7 +10,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/28/2020
+ms.date: 09/09/2020
 ---
 
 # Copy and transform data in Azure Data Lake Storage Gen2 using Azure Data Factory
@@ -63,7 +63,7 @@ The Azure Data Lake Storage Gen2 connector supports the following authentication
 - [Managed identities for Azure resources authentication](#managed-identity)
 
 >[!NOTE]
->When using PolyBase to load data into SQL Data Warehouse, if your source Data Lake Storage Gen2 is configured with Virtual Network endpoint, you must use managed identity authentication as required by PolyBase. See the [managed identity authentication](#managed-identity) section with more configuration prerequisites.
+>When using PolyBase to load data into Azure Synapse Analytics (formerly SQL Data Warehouse), if your source Data Lake Storage Gen2 is configured with Virtual Network endpoint, you must use managed identity authentication as required by PolyBase. See the [managed identity authentication](#managed-identity) section with more configuration prerequisites.
 
 ### Account key authentication
 
@@ -126,12 +126,16 @@ These properties are supported for the linked service:
 | type | The type property must be set to **AzureBlobFS**. |Yes |
 | url | Endpoint for Data Lake Storage Gen2 with the pattern of `https://<accountname>.dfs.core.windows.net`. | Yes |
 | servicePrincipalId | Specify the application's client ID. | Yes |
-| servicePrincipalKey | Specify the application's key. Mark this field as a `SecureString` to store it securely in Data Factory. Or, you can [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| servicePrincipalCredentialType | The credential type to use for service principal authentication. Allowed values are **ServicePrincipalKey** and **ServicePrincipalCert**. | Yes |
+| servicePrincipalCredential | The service principal credential. <br/> When you use **ServicePrincipalKey** as the credential type, specify the the application's key. Mark this field as **SecureString** to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). <br/> When you use **ServicePrincipalCert** as the credential, reference a certificate in Azure Key Vault. | Yes |
+| servicePrincipalKey | Specify the application's key. Mark this field as **SecureString** to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). <br/> This property is still supported as-is for `servicePrincipalId` + `servicePrincipalKey`. As ADF adds new service principal certificate authentication, the new model for service principal authentication is  `servicePrincipalId` + `servicePrincipalCredentialType` + `servicePrincipalCredential`. | No |
 | tenant | Specify the tenant information (domain name or tenant ID) under which your application resides. Retrieve it by hovering the mouse in the upper-right corner of the Azure portal. | Yes |
 | azureCloudType | For service principal authentication, specify the type of Azure cloud environment to which your Azure Active Directory application is registered. <br/> Allowed values are **AzurePublic**, **AzureChina**, **AzureUsGovernment**, and **AzureGermany**. By default, the data factory's cloud environment is used. | No |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure integration runtime or a self-hosted integration runtime if your data store is in a private network. If not specified, the default Azure integration runtime is used. |No |
 
-**Example:**
+**Example: using service principal key authentication**
+
+You can also store service principal key in Azure Key Vault.
 
 ```json
 {
@@ -141,9 +145,38 @@ These properties are supported for the linked service:
         "typeProperties": {
             "url": "https://<accountname>.dfs.core.windows.net", 
             "servicePrincipalId": "<service principal id>",
-            "servicePrincipalKey": {
+            "servicePrincipalCredentialType": "ServicePrincipalKey",
+            "servicePrincipalCredential": {
                 "type": "SecureString",
                 "value": "<service principal key>"
+            },
+            "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>" 
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+**Example: using service principal certificate authentication**
+```json
+{
+    "name": "AzureDataLakeStorageGen2LinkedService",
+    "properties": {
+        "type": "AzureBlobFS",
+        "typeProperties": {
+            "url": "https://<accountname>.dfs.core.windows.net", 
+            "servicePrincipalId": "<service principal id>",
+            "servicePrincipalCredentialType": "ServicePrincipalCert",
+            "servicePrincipalCredential": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<AKV reference>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<certificate name in AKV>" 
             },
             "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>" 
         },
@@ -172,7 +205,7 @@ To use managed identities for Azure resource authentication, follow these steps.
 >If you use Data Factory UI to author and the managed identity is not set with "Storage Blob Data Reader/Contributor" role in IAM, when doing test connection or browsing/navigating folders, choose "Test connection to file path" or "Browse from specified path", and specify a path with **Read + Execute** permission to continue.
 
 >[!IMPORTANT]
->If you use PolyBase to load data from Data Lake Storage Gen2 into SQL Data Warehouse, when using  managed identity authentication for Data Lake Storage Gen2, make sure you also follow steps 1 and 2 in [this guidance](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage) to 1) register your with Azure Active Directory (Azure AD) and 2) assign the Storage Blob Data Contributor role to your server; the rest are handled by Data Factory. If your Data Lake Storage Gen2 is configured with an Azure Virtual Network endpoint, to use PolyBase to load data from it, you must use managed identity authentication as required by PolyBase.
+>If you use PolyBase to load data from Data Lake Storage Gen2 into Azure Synapse Analytics (formerly SQL Data Warehouse), when using  managed identity authentication for Data Lake Storage Gen2, make sure you also follow steps 1 and 2 in [this guidance](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage) to 1) register your with Azure Active Directory (Azure AD) and 2) assign the Storage Blob Data Contributor role to your server; the rest are handled by Data Factory. If your Data Lake Storage Gen2 is configured with an Azure Virtual Network endpoint, to use PolyBase to load data from it, you must use managed identity authentication as required by PolyBase.
 
 These properties are supported for the linked service:
 

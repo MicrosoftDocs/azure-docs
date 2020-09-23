@@ -77,7 +77,7 @@ You'll use the Docker engine to run the sample labeling tool. Follow these steps
     ```
     # [v2.1 preview](#tab/v2-1)    
     ```
-    docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:2.1.012970002-amd64-preview    
+    docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:2.1.012970002-amd64-preview eula=accept    
     ```
 
     --- 
@@ -221,7 +221,9 @@ The following value types and variations are currently supported:
 > [!NOTE]
 > See these rules for date formatting:
 > 
-> The following characters can be used as DMY date delimiters: `, - / . \`. Whitespace cannot be used as a delimiter. For example:
+> You must specify a format (`dmy`, `mdy`, `ymd`) for date formatting to work.
+>
+> The following characters can be used as date delimiters: `, - / . \`. Whitespace cannot be used as a delimiter. For example:
 > * 01,01,2020
 > * 01-01-2020
 > * 01/01/2020
@@ -230,11 +232,11 @@ The following value types and variations are currently supported:
 > * 1-1-2020
 > * 1-01-20
 >
-> If a DMY date string has eight digits, the delimiter is optional:
+> If a date string has eight digits, the delimiter is optional:
 > * 01012020
 > * 01 01 2020
 >
-> The month can also be written as its full or short name. If the name is used, delimiter characters are optional:
+> The month can also be written as its full or short name. If the name is used, delimiter characters are optional. However, this format may be recognized less accurately than others.
 > * 01/Jan/2020
 > * 01Jan2020
 > * 01 Jan 2020

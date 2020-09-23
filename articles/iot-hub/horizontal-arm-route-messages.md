@@ -27,8 +27,8 @@ The template used in this quickstart is called `101-iothub-auto-route-messages` 
 :::code language="json" source="~/quickstart-templates/101-iothub-auto-route-messages/azuredeploy.json":::
 
 Two Azure resources are defined in the template: 
-* [Microsoft.Devices/Iothubs](/azure/templates/microsoft.iothubs)
-* [Microsoft.Storage/](/azure/templates/microsoft.storage)
+* [Microsoft.Devices/Iothubs](/azure/templates/microsoft.devices/iothubs)
+* [Microsoft.Storage/](/azure/templates/microsoft.storage/allversions)
 
 ## Deploy the template and run the sample app
 
@@ -41,7 +41,7 @@ This section provides the steps to deploy the template, create a virtual device,
 
     [![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-iothub-auto-route-messages%2Fazuredeploy.json)
 
-1. Download and unzip the [IoT C# Samples](https://Azure-Samples/azure-iot-samples-csharp).
+1. Download and unzip the [IoT C# Samples](https://docs.microsoft.com/samples/azure-samples/azure-iot-samples-csharp/azure-iot-samples-for-csharp-net/).
 
 1. Open a command window and go to the folder where you unzipped the IoT C# Samples. Find the folder with the arm-read-write.csproj file. You create the environment variables in this command window. Log into the [Azure portal](https://portal.azure.com] to get the keys. Select **Resource Groups** then select the resource group used for this quickstart.
 

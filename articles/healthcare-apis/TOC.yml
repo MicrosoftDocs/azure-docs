@@ -46,11 +46,6 @@
     items:
     - name: Receive device data through Azure IoT Hub
       href: device-data-through-iot-hub.md
-- name: Samples
-  items:
-  - name: Azure Policy built-ins
-    displayName: samples, policies, definitions
-    href: ./policy-samples.md
 - name: How-to guides
   expanded: false
   items:
@@ -85,7 +80,7 @@
   - name: Export data
     expanded: false
     items:
-    - name: De-identified export
+    - name: Export data
       href: export-data.md
   - name: Find identity object IDs
     href: find-identity-object-ids.md
@@ -123,3 +118,6 @@
   items:
   - name: Azure CLI
     href: /cli/azure/ext/healthcareapis/healthcareapis
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md

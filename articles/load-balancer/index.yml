@@ -31,7 +31,7 @@ landingContent:
           - text: Load Balancer components
             url: components.md
           - text: What's new?
-            url: whats-new.md
+            url: https://azure.microsoft.com/updates/?category=networking&query=load%20balancer
           - text: Load Balancer SKUs
             url: skus.md     
   # Card (optional)

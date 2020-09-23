@@ -1,13 +1,13 @@
 ---
 title: "Quickstart: Form Recognizer client library for Java"
-description: In this quickstart, get started with the Form Recognizer client library for Java.
+description: Use the Form Recognizer client library for Java to create a forms processing app that extracts key/value pairs and table data from your custom documents.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 06/15/2020
+ms.date: 09/21/2020
 ms.custom: devx-track-java
 ms.author: pafarley
 ---
@@ -56,7 +56,7 @@ mkdir -p src/main/java
 
 This quickstart uses the Gradle dependency manager. You can find the client library and information for other dependency managers on the [Maven Central Repository](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer).
 
-In your project's *build.gradle.kts* file, be sure to include the client library as an `implementation` statement, along with the required plugins and settings.
+In your project's *build.gradle.kts* file, include the client library as an `implementation` statement, along with the required plugins and settings.
 
 ```kotlin
 plugins {
@@ -74,7 +74,7 @@ dependencies {
 }
 ```
 
-Navigate to the new **src/main/java** folder and create a file called *FormRecognizer.java*. Open it in your preferred editor or IDE and add the following `import` statements:
+Navigate to the new **src/main/java** folder and create a file called *Management.java*. Open it in your preferred editor or IDE and add the following `import` statements:
 
 ```java
 import com.azure.ai.formrecognizer.*;
@@ -127,7 +127,8 @@ With Form Recognizer, you can create two different client types. The first, `For
 - Managing models created in your account.
 - Copying a custom model from one Form Recognizer resource to another.
 
-Note that models can also be trained using a graphical user interface such as the [Form Recognizer Labeling Tool](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/label-tool).
+> [!NOTE]
+> Models can also be trained using a graphical user interface such as the [Form Recognizer Labeling Tool](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/label-tool).
 
 ## Code examples
 

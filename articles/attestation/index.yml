@@ -60,13 +60,14 @@ landingContent:
             url: /samples/browse/?expanded=azure&terms=attestation
 
   # Card
-  - title: Examples
+  - title: References
     linkLists:
       - linkListType: reference
         links:
-          - text: Policy examples
-            url: policy-examples.md
-          - text: Policy signer examples
-            url: policy-signer-examples.md
           - text: Frequently asked questions
-            url: faq.md     
+            url: faq.md  
+          - text: REST
+            url: /rest/api/attestation/ 
+          - text: Azure PowerShell
+            url: /powershell/module/az.attestation/?view=azps-4.3.0#attestation
+

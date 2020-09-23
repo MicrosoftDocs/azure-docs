@@ -8,8 +8,8 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/15/2020
-ms.custom: "devx-track-javascript, devx-track-csharp"
+ms.date: 09/08/2020
+ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
 # Add autocomplete and suggestions to client apps
@@ -135,9 +135,11 @@ source: "/home/suggest?highlights=true&fuzzy=true&",
 
 ### Suggest function
 
-If you are using C# and an MVC application, **HomeController.cs** file under the Controllers directory is where you might create a class for suggested results. In .NET, a Suggest function is based on the [DocumentsOperationsExtensions.Suggest method](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest?view=azure-dotnet).
+If you are using C# and an MVC application, **HomeController.cs** file under the Controllers directory is where you might create a class for suggested results. In .NET, a Suggest function is based on the [DocumentsOperationsExtensions.Suggest method](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest?view=azure-dotnet). For more information about the .NET SDK, see [How to use Azure Cognitive Search from a .NET Application](./search-howto-dotnet-sdk.md).
 
-The `InitSearch` method creates an authenticated HTTP index client to the Azure Cognitive Search service. For more information about the .NET SDK, see [How to use Azure Cognitive Search from a .NET Application](./search-howto-dotnet-sdk.md).
+The `InitSearch` method creates an authenticated HTTP index client to the Azure Cognitive Search service. Properties on the [SuggestParameters](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggestparameters) class determine which fields are searched and returned in the results, the number of matches, and whether fuzzy matching is used. 
+
+For autocomplete, fuzzy matching is limited to one edit distance (one omitted or misplaced character). Note that fuzzy matching in autocomplete queries can sometimes produce unexpected results depending on index size and how it's sharded. For more information, see [partition and sharding concepts](search-capacity-planning.md#concepts-search-units-replicas-partitions-shards).
 
 ```csharp
 public ActionResult Suggest(bool highlights, bool fuzzy, string term)
@@ -246,5 +248,5 @@ The Autocomplete function takes the search term input. The method creates an [Au
 Follow these links for end-to-end instructions or code demonstrating both search-as-you-type experiences. Both code examples include hybrid implementations of suggestions and autocomplete together.
 
 + [Tutorial: Create your first app in C# (lesson 3)](tutorial-csharp-type-ahead-and-suggestions.md)
-+ [C# code sample: azure-search-dotnet-samples/create-first-app/3-add-typeahead/](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/3-add-typeahead)
++ [C# code sample: azure-search-dotnet-samples/create-first-app/3-add-typeahead/](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v10/3-add-typeahead)
 + [C# and JavaScript with REST side-by-side code sample](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete)

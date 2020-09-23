@@ -33,19 +33,19 @@ This quickstart walks you through programmatically getting an answer from a publ
 
 At the top of the Program.cs file, replace the single using statement with the following lines to add necessary dependencies to the project:
 
-[!code-csharp[Add the required dependencies](~/samples-qnamaker-csharp/documentation-samples/quickstarts/get-answer/QnAMakerAnswerQuestion/Program.cs?range=1-3 "Add the required dependencies")]
+:::code language="csharp" source="~/cognitive-services-quickstart-code/dotnet/QnAMaker/rest/query-kb.cs" id="dependencies":::
 
 ## Add the required constants
 
 At the top of the `Program` class, inside the `Main`, add the required constants to access QnA Maker. These values are on the **Publish** page after you publish the knowledge base.
 
-[!code-csharp[Add the required constants](~/samples-qnamaker-csharp/documentation-samples/quickstarts/get-answer/QnAMakerAnswerQuestion/Program.cs?range=9-41 "Add the required constants")]
+:::code language="csharp" source="~/cognitive-services-quickstart-code/dotnet/QnAMaker/rest/query-kb.cs" id="constants":::
 
 ## Add a POST request to send question and get answer
 
 The following code makes an HTTPS request to the QnA Maker API to send the question to the knowledge base and receives the response:
 
-[!code-csharp[Add a POST request to send question to knowledge base](~/samples-qnamaker-csharp/documentation-samples/quickstarts/get-answer/QnAMakerAnswerQuestion/Program.cs?range=43-76 "Add a POST request to send question to knowledge base")]
+:::code language="csharp" source="~/cognitive-services-quickstart-code/dotnet/QnAMaker/rest/query-kb.cs" id="post":::
 
 The `Authorization` header's value includes the string `EndpointKey`.
 

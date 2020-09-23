@@ -8,10 +8,11 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 09/01/2020
 ms.author: trbye
-ms.custom: "devx-track-javascript, devx-track-csharp"
+ms.custom: "devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020"
 zone_pivot_groups: programming-languages-set-two-with-js
+keywords: speech translation
 ---
 
 # Get started with speech translation

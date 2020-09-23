@@ -1,23 +1,23 @@
 ---
-title: What are FPGA - how to deploy 
+title: Deploy ML models to FPGAs  
 titleSuffix: Azure Machine Learning
-description: Learn how to deploy a web service with a model running on an FPGA with Azure Machine Learning for ultra-low latency inference. 
+description: Learn about FPGA's & how to deploy a web service with a model running on an FPGA with Azure Machine Learning for ultra-low latency inference. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
 ms.author: jordane
 author: jpe316
-ms.date: 06/03/2020
+ms.date: 09/03/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, devx-track-python
 ---
 
 # What are field-programmable gate arrays (FPGA) and how to deploy
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-This article provides an introduction to field-programmable gate arrays (FPGA), and shows you how to deploy your models using [Azure Machine Learning](overview-what-is-azure-ml.md) to an Azure FPGA.
+
+In this article, you learn about field-programmable gate arrays (FPGA) and how to deploy your machine learning models to an Azure FPGA using the [hardware-accelerated models Python package](https://docs.microsoft.com/python/api/azureml-accel-models/azureml.accel?view=azure-ml-py&preserve-view=true) from [Azure Machine Learning](overview-what-is-azure-ml.md).
 
 ## What are FPGAs
 
@@ -37,7 +37,7 @@ FPGAs make it possible to achieve low latency for real-time inference (or model 
 
 You can reconfigure FPGAs for different types of machine learning models. This flexibility makes it easier to accelerate the applications based on the most optimal numerical precision and memory model being used. Because FPGAs are reconfigurable, you can stay current with the requirements of rapidly changing AI algorithms.
 
-### FPGA support in Azure
+## FPGA support in Azure
 
 Microsoft Azure is the world's largest cloud investment in FPGAs. Microsoft uses FPGAs for DNN evaluation, Bing search ranking, and software defined networking (SDN) acceleration to reduce latency, while freeing CPUs for other tasks.
 
@@ -71,9 +71,9 @@ To optimize latency and throughput, your client sending data to the FPGA model s
 The **PBS Family of Azure VMs** contains Intel Arria 10 FPGAs. It will show as "Standard PBS Family vCPUs" when you check your Azure quota allocation. The PB6 VM has six vCPUs and one FPGA, and it will automatically be provisioned by Azure ML as part of deploying a model to an FPGA. It is only used with Azure ML, and it cannot run arbitrary bitstreams. For example, you will not be able to flash the FPGA with bitstreams to do encryption, encoding, etc.
 
 
-## Deploy models on FPGAs
+## Deploy ML models on FPGAs
 
-You can deploy a model as a web service on FPGAs with [Azure Machine Learning Hardware Accelerated Models](https://docs.microsoft.com/python/api/azureml-accel-models/azureml.accel?view=azure-ml-py). Using FPGAs provides ultra-low latency inference, even with a single batch size. Inference, or model scoring, is the phase where the deployed model is used for prediction, most commonly on production data.
+You can deploy a model as a web service on FPGAs with [Azure Machine Learning Hardware Accelerated Models](https://docs.microsoft.com/python/api/azureml-accel-models/azureml.accel?view=azure-ml-py&preserve-view=true). Using FPGAs provides ultra-low latency inference, even with a single batch size. Inference, or model scoring, is the phase where the deployed model is used for prediction, most commonly on production data.
 
 Deploying a model to an FPGA involves the following steps:
 
@@ -87,7 +87,7 @@ In this sample, you create a TensorFlow graph to preprocess the input image, mak
 ### Prerequisites
 
 - An Azure subscription. If you do not have one, you will need to create a [pay-as-you-go](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) account (free Azure accounts are not eligible for FPGA quota).
-- [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)
 - FPGA quota. Use the Azure CLI to check whether you have quota:
 
     ```azurecli-interactive
@@ -116,7 +116,7 @@ In this sample, you create a TensorFlow graph to preprocess the input image, mak
     ```
 ### 1. Define the TensorFlow model
 
-Use the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) to create a service definition. A service definition is a file describing a pipeline of graphs (input, featurizer, and classifier) based on TensorFlow. The deployment command automatically compresses the definition and graphs into a ZIP file, and uploads the ZIP to Azure Blob storage. The DNN is already deployed to run on the FPGA.
+Use the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) to create a service definition. A service definition is a file describing a pipeline of graphs (input, featurizer, and classifier) based on TensorFlow. The deployment command automatically compresses the definition and graphs into a ZIP file, and uploads the ZIP to Azure Blob storage. The DNN is already deployed to run on the FPGA.
 
 1. Load Azure Machine Learning workspace
 

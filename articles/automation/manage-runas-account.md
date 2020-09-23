@@ -21,16 +21,16 @@ Azure Automation uses two types of Run As accounts:
 >[!NOTE]
 >Azure Cloud Solution Provider (CSP) subscriptions support only the Azure Resource Manager model. Non-Azure Resource Manager services are not available in the program. When you are using a CSP subscription, the Azure Classic Run As account is not created, but the Azure Run As account is created. To learn more about CSP subscriptions, see [Available services in CSP subscriptions](/azure/cloud-solution-provider/overview/azure-csp-available-services).
 
-The service principal for a Run as Account does not have permissions to read Azure AD by default. If you want to add permissions to read or manage Azure AD, you'll need to grant the permissions on the service principal under **API permissions**. To learn more, see [Add permissions to access web APIs](../active-directory/develop/quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis).
+The service principal for a Run as Account does not have permissions to read Azure AD by default. If you want to add permissions to read or manage Azure AD, you'll need to grant the permissions on the service principal under **API permissions**. To learn more, see [Add permissions to access your web API](../active-directory/develop/quickstart-configure-app-access-web-apis.md#add-permissions-to-access-your-web-api).
 
 ### Run As account
 
 The Run As account manages [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md) resources. It does the following tasks.
 
 * Creates an Azure AD application with a self-signed certificate, creates a service principal account for the application in Azure AD, and assigns the Contributor role for the account in your current subscription. You can change the certificate setting to Owner or any other role. For more information, see [Role-based access control in Azure Automation](automation-role-based-access-control.md).
-  
+
 * Creates an Automation certificate asset named `AzureRunAsCertificate` in the specified Automation account. The certificate asset holds the certificate private key that the Azure AD application uses.
-  
+
 * Creates an Automation connection asset named `AzureRunAsConnection` in the specified Automation account. The connection asset holds the application ID, tenant ID, subscription ID, and certificate thumbprint.
 
 ### Azure Classic Run As Account
@@ -75,7 +75,7 @@ To verify that the situation producing the error message has been remedied:
 
 1. From the Azure Active Directory pane in the Azure portal, select **Users and groups**.
 2. Select **All users**.
-3. Choose your name, then select **Profile**. 
+3. Choose your name, then select **Profile**.
 4. Ensure that the value of the **User type** attribute under your user's profile is not set to **Guest**.
 
 ### <a name="permissions-classic"></a>Get permissions to configure Classic Run As accounts
@@ -94,7 +94,7 @@ Perform the following steps to update your Azure Automation account in the Azure
 
 4. In the left pane, select **Run As Accounts** in the account settings section.
 
-5. Depending on which account you require, select either **Azure Run As Account** or **Azure Classic Run As Account**. 
+5. Depending on which account you require, select either **Azure Run As Account** or **Azure Classic Run As Account**.
 
 6. Depending on the account of interest, use the **Add Azure Run As** or **Add Azure Classic Run As Account** pane. After reviewing the overview information, click **Create**.
 
@@ -108,7 +108,7 @@ This section describes how to delete a Run As or Classic Run As account. When yo
 
 2. In the left pane, select **Run As Accounts** in the account settings section.
 
-3. On the Run As Accounts properties page, select either the Run As account or Classic Run As account that you want to delete. 
+3. On the Run As Accounts properties page, select either the Run As account or Classic Run As account that you want to delete.
 
 4. On the Properties pane for the selected account, click **Delete**.
 
@@ -122,7 +122,7 @@ This section describes how to delete a Run As or Classic Run As account. When yo
 
 ## <a name="cert-renewal"></a>Renew a self-signed certificate
 
-The self-signed certificate that you have created for the Run As account expires one year from the date of creation. At some point before your Run As account expires, you must renew the certificate. You can renew it any time before it expires. 
+The self-signed certificate that you have created for the Run As account expires one year from the date of creation. At some point before your Run As account expires, you must renew the certificate. You can renew it any time before it expires.
 
 When you renew the self-signed certificate, the current valid certificate is retained to ensure that any runbooks that are queued up or actively running, and that authenticate with the Run As account, aren't negatively affected. The certificate remains valid until its expiration date.
 
@@ -163,10 +163,10 @@ $roleDefinition.NotActions.Add("Microsoft.Compute/*")
 $roleDefinition | Set-AzRoleDefinition
 ```
 
-You can determine if the service principal used by your Run As account is in the Contributor role definition or a custom one. 
+You can determine if the service principal used by your Run As account is in the Contributor role definition or a custom one.
 
 1. Go to your Automation account and select **Run As Accounts** in the account settings section.
-2. Select **Azure Run As Account**. 
+2. Select **Azure Run As Account**.
 3. Select **Role** to locate the role definition that is being used.
 
 :::image type="content" source="media/manage-runas-account/verify-role.png" alt-text="Verify the Run As Account role." lightbox="media/manage-runas-account/verify-role-expanded.png":::
@@ -181,7 +181,7 @@ You can allow Azure Automation to verify if Key Vault and your Run As account se
 * Grant permissions to Key Vault.
 * Set the access policy.
 
-You can use the [Extend-AutomationRunAsAccountRoleAssignmentToKeyVault.ps1](https://aka.ms/AA5hugb) script in the PowerShell Gallery to give your Run As account permissions to Key Vault. See [Grant applications access to a key vault](../key-vault/general/group-permissions-for-apps.md) for more details on setting permissions on Key Vault.
+You can use the [Extend-AutomationRunAsAccountRoleAssignmentToKeyVault.ps1](https://aka.ms/AA5hugb) script in the PowerShell Gallery to give your Run As account permissions to Key Vault. See [Assign a Key Vault access policy](/azure/key-vault/general/assign-access-policy-powershell) for more details on setting permissions on Key Vault.
 
 ## Resolve misconfiguration issues for Run As accounts
 
@@ -202,7 +202,7 @@ When you select the Run As account, the account properties pane displays the fol
 The Run As account is incomplete. Either one of these was deleted or not created - Azure Active Directory Application, Service Principal, Role, Automation Certificate asset, Automation Connect asset - or the Thumbprint is not identical between Certificate and Connection. Please delete and then re-create the Run As Account.
 ```
 
-You can quickly resolve these Run As account issues by deleting and re-creating the account.
+You can quickly resolve these Run As account issues by deleting and re-creating the Run As account.
 
 ## Next steps
 

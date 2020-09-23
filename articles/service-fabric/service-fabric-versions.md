@@ -42,6 +42,7 @@ The following table lists the versions of Service Fabric and their support end d
 | 7.1.417.* | 7.0.466.* |Less than or equal to version  4.1 |Current version, so no end date |
 | 7.1.428.* | 7.0.466.* |Less than or equal to version  4.1 |Current version, so no end date |
 | 7.1.456.* | 7.0.466.* |Less than or equal to version  4.1 |Current version, so no end date |
+| 7.1.458.* | 7.0.466.* |Less than or equal to version  4.1 |Current version, so no end date |
 
 ## Supported operating systems
 
@@ -114,4 +115,5 @@ The following table lists the version names of Service Fabric and their correspo
 | 7.1 CU1 | 7.1.417.9590 | 7.1.418.1 |
 | 7.1 CU2 | 7.1.428.9590 | 7.1.428.1 |
 | 7.1 CU3 | 7.1.456.9590 | 7.1.452.1 |
+| 7.1 CU5 | 7.1.458.9590 | 7.1.454.1 |
 

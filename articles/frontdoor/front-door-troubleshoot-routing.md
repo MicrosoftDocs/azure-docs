@@ -3,7 +3,7 @@ title: Troubleshoot Azure Front Door configuration issues
 description: In this tutorial, you learn how to self-troubleshoot some of the common issues that you may face for your Front Door.
 services: frontdoor
 documentationcenter: ''
-author: sharad4u
+author: duongau
 editor: ''
 ms.service: frontdoor
 ms.workload: infrastructure-services
@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/22/2018
-ms.author: sharadag
+ms.author: duau
 ---
 
 # Troubleshooting common routing issues

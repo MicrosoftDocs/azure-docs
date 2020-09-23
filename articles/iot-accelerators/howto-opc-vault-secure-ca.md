@@ -12,6 +12,9 @@ manager: philmea
 
 # Run the OPC Vault certificate management service securely
 
+> [!IMPORTANT]
+> While we update this article, see [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/) for the most up to date content.
+
 This article explains how to run the OPC Vault certificate management service securely in Azure, and reviews other security guidelines to consider.
 
 ## Roles

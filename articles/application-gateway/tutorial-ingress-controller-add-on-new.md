@@ -4,7 +4,7 @@ description: Learn how to use the Azure CLI to enable the Ingress Controller add
 services: application-gateway
 author: caya
 ms.service: application-gateway
-ms.topic: how-to
+ms.topic: tutorial
 ms.date: 06/10/2020
 ms.author: caya
 ---

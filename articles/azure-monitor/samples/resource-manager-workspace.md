@@ -17,8 +17,9 @@ This article includes sample [Azure Resource Manager templates](../../azure-reso
 
 ## Template references
 
-- [Microsoft.OperationalInsights workspaces](/azure/templates/microsoft.operationalinsights/2020-08-01/workspaces) 
-- [Microsoft.OperationalInsights workspaces/dataSources](/azure/templates/microsoft.operationalinsights/2020-08-01/workspaces/datasources)
+- [Microsoft.OperationalInsights workspaces](/azure/templates/microsoft.operationalinsights/2020-03-01-preview/workspaces
+) 
+- [Microsoft.OperationalInsights workspaces/dataSources](/azure/templates/microsoft.operationalinsights/2020-03-01-preview/workspaces/datasources)
 
 ## Create a Log Analytics workspace
 The following sample creates a new empty Log Analytics workspace.

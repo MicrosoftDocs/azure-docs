@@ -15,8 +15,6 @@ ms.custom: how-to, devx-track-python, contperfq1
 
 # Submit a training run to a compute target
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
-
 In this article, you learn how to use various training environments ([compute targets](concept-compute-target.md)) to train your machine learning model.
 
 When training, it is common to start on your local computer, and later run that training script on a different compute target. With Azure Machine Learning, you can run your script on various compute targets without having to change your training script.
@@ -26,7 +24,7 @@ All you need to do is define the environment for each compute target within a **
 ## Prerequisites
 
 * If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today
-* The [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)
+* The [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)
 * An [Azure Machine Learning workspace](how-to-manage-workspace.md), `ws`
 * A compute target, `my_compute_target`.  Create a compute target with:
   * [Python SDK](how-to-create-attach-compute-sdk.md) 
@@ -34,11 +32,11 @@ All you need to do is define the environment for each compute target within a **
 
 ## <a name="whats-a-run-configuration"></a>What's a script run configuration?
 
-You submit your training experiment with a [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) object.  This object includes the:
+You submit your training experiment with a [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) object.  This object includes the:
 
 * **source_directory**: The source directory that contains your training script
 * **script**: Identify the training script
-* **run_config**: The [run configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py), which in turn defines where the training will occur. In the `run_config` you specify the compute target and the environment to use when running the training script.  
+* **run_config**: The [run configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py&preserve-view=true), which in turn defines where the training will occur. In the `run_config` you specify the compute target and the environment to use when running the training script.  
 
 ## What's an environment?
 
@@ -162,7 +160,7 @@ See these notebooks for examples of training with various compute targets:
 ## Next steps
 
 * [Tutorial: Train a model](tutorial-train-models-with-aml.md) uses a managed compute target to  train a model.
-* Learn how to [efficiently tune hyperparameters](how-to-tune-hyperparameters.md) to build better models.
+* Learn how to [efficiently tune hyperparameters](how-to-tune-hyperparameters.md) to build better models.?view=azure-ml-py&preserve-view=true)
 * Once you have a trained model, learn [how and where to deploy models](how-to-deploy-and-where.md).
-* View the [RunConfiguration class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) SDK reference.
+* View the [RunConfiguration class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py&preserve-view=true) SDK reference.
 * [Use Azure Machine Learning with Azure Virtual Networks](how-to-enable-virtual-network.md)

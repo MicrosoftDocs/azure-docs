@@ -62,7 +62,7 @@ For simplicity, the diagrams shown in this article display the version ID as a s
 
 The following diagram shows how write operations affect blob versions. When a blob is created, that blob is the current version. When the same blob is modified, a new version is created to save the blob's previous state, and the updated blob becomes the current version.
 
-:::image type="content" source="media/versioning-overview/write-operations-blob-versions.png" alt-text="Diagram showing how write operations affect versioned blobs":::
+:::image type="content" source="media/versioning-overview/write-operations-blob-versions.png" alt-text="Diagram showing how write operations affect versioned blobs.":::
 
 > [!NOTE]
 > A blob that was created prior to versioning being enabled for the storage account does not have a version ID. When that blob is modified, the modified blob becomes the current version, and a version is created to save the blob's state before the update. The version is assigned a version ID that is its creation time.
@@ -75,11 +75,11 @@ Calling the [Delete Blob](/rest/api/storageservices/delete-blob) operation witho
 
 The following diagram shows the effect of a delete operation on a versioned blob:
 
-:::image type="content" source="media/versioning-overview/delete-versioned-base-blob.png" alt-text="Diagram showing deletion of versioned blob":::
+:::image type="content" source="media/versioning-overview/delete-versioned-base-blob.png" alt-text="Diagram showing deletion of versioned blob.":::
 
 Writing new data to the blob creates a new version of the blob. Any existing versions are unaffected, as shown in the following diagram.
 
-:::image type="content" source="media/versioning-overview/recreate-deleted-base-blob.png" alt-text="Diagram showing re-creation of versioned blob after deletion":::
+:::image type="content" source="media/versioning-overview/recreate-deleted-base-blob.png" alt-text="Diagram showing re-creation of versioned blob after deletion.":::
 
 ### Blob types
 
@@ -118,7 +118,7 @@ You can read or delete versions using the version ID after versioning is disable
 
 The following diagram shows how modifying a blob after versioning is disabled creates a blob that is not versioned. Any existing versions associated with the blob persist.
 
-:::image type="content" source="media/versioning-overview/modify-base-blob-versioning-disabled.png" alt-text="Diagram showing base blob modified after versioning disabled":::
+:::image type="content" source="media/versioning-overview/modify-base-blob-versioning-disabled.png" alt-text="Diagram showing base blob modified after versioning disabled.":::
 
 ## Blob versioning and soft delete
 
@@ -134,7 +134,7 @@ To remove a previous version of a blob, explicitly delete it by specifying the v
 
 The following diagram shows what happens when you delete a blob or a blob version.
 
-:::image type="content" source="media/versioning-overview/soft-delete-historical-version.png" alt-text="Diagram showing deletion of a version with soft delete enabled":::
+:::image type="content" source="media/versioning-overview/soft-delete-historical-version.png" alt-text="Diagram showing deletion of a version with soft delete enabled.":::
 
 If both versioning and soft delete are enabled on a storage account, then no soft-deleted snapshot is created when a blob or blob version is modified or deleted.
 
@@ -146,7 +146,7 @@ Restoring soft-deleted versions with the **Undelete Blob** operation does not pr
 
 The following diagram shows how to restore soft-deleted blob versions with the **Undelete Blob** operation, and how to restore the current version of the blob with the **Copy Blob** operation.
 
-:::image type="content" source="media/versioning-overview/undelete-version.png" alt-text="Diagram showing how to restore soft-deleted versions":::
+:::image type="content" source="media/versioning-overview/undelete-version.png" alt-text="Diagram showing how to restore soft-deleted versions.":::
 
 After the soft-delete retention period has elapsed, any soft-deleted blob versions are permanently deleted.
 
@@ -165,7 +165,7 @@ When you take a snapshot of a versioned blob, a new version is created at the sa
 
 The following diagram shows what happens when you take a snapshot of a versioned blob. In the diagram, blob versions and snapshots with version ID 2 and 3 contain identical data.
 
-:::image type="content" source="media/versioning-overview/snapshot-versioned-blob.png" alt-text="Diagram showing snapshots of a versioned blob ":::
+:::image type="content" source="media/versioning-overview/snapshot-versioned-blob.png" alt-text="Diagram showing snapshots of a versioned blob.":::
 
 ## Authorize operations on blob versions
 
@@ -227,25 +227,25 @@ The following scenarios demonstrate how charges accrue for a block blob and its 
 
 In scenario 1, the blob has a previous version. The blob has not been updated since the version was created, so charges are incurred only for unique blocks 1, 2, and 3.
 
-![Diagram 1 showing billing for unique blocks in base blob and previous version](./media/versioning-overview/versions-billing-scenario-1.png)
+![Diagram 1 showing billing for unique blocks in base blob and previous version.](./media/versioning-overview/versions-billing-scenario-1.png)
 
 #### Scenario 2
 
 In scenario 2, one block (block 3 in the diagram) in the blob has been updated. Even though the updated block contains the same data and the same ID, it is not the same as block 3 in the previous version. As a result, the account is charged for four blocks.
 
-![Diagram 2 showing billing for unique blocks in base blob and previous version](./media/versioning-overview/versions-billing-scenario-2.png)
+![Diagram 2 showing billing for unique blocks in base blob and previous version.](./media/versioning-overview/versions-billing-scenario-2.png)
 
 #### Scenario 3
 
 In scenario 3, the blob has been updated, but the version has not. Block 3 was replaced with block 4 in the base blob, but the previous version still reflects block 3. As a result, the account is charged for four blocks.
 
-![Diagram 3 showing billing for unique blocks in base blob and previous version](./media/versioning-overview/versions-billing-scenario-3.png)
+![Diagram 3 showing billing for unique blocks in base blob and previous version.](./media/versioning-overview/versions-billing-scenario-3.png)
 
 #### Scenario 4
 
 In scenario 4, the base blob has been completely updated and contains none of its original blocks. As a result, the account is charged for all eight unique blocks &mdash; four in the base blob, and four in the previous version. This scenario can occur if you are writing to a blob with the [Put Blob](/rest/api/storageservices/put-blob) operation, because it replaces the entire contents of the base blob.
 
-![Diagram 4 showing billing for unique blocks in base blob and previous version](./media/versioning-overview/versions-billing-scenario-4.png)
+![Diagram 4 showing billing for unique blocks in base blob and previous version.](./media/versioning-overview/versions-billing-scenario-4.png)
 
 ### Billing when the blob tier has been explicitly set
 
@@ -262,6 +262,10 @@ The following table describes the billing behavior for a blob or version when it
 | A previous version | The version in the new tier and the base blob in the original tier, plus any unique blocks in other versions.<sup>1</sup> |
 
 <sup>1</sup>If there are other previous versions or snapshots that have not been moved from their original tier, those versions or snapshots are charged based on the number of unique blocks they contain, as described in [Billing when the blob tier has not been explicitly set](#billing-when-the-blob-tier-has-not-been-explicitly-set).
+
+The following diagram illustrates how objects are billed when a versioned blob is moved to a different tier.
+
+:::image type="content" source="media/versioning-overview/versioning-billing-tiers.png" alt-text="Diagram showing how objects are billed when a versioned blob is explicitly tiered.":::
 
 Explicitly setting the tier for a blob, version, or snapshot cannot be undone. If you move a blob to a new tier and then move it back to its original tier, you are charged for the full content length of the object even if it shares blocks with other objects in the original tier.
 

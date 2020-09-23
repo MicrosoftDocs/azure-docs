@@ -13,9 +13,8 @@ ms.custom: troubleshooting, devx-track-python
 ---
 
 # Debug and troubleshoot machine learning pipelines
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this article, you learn how to troubleshoot and debug [machine learning pipelines](concept-ml-pipelines.md) in the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) and [Azure Machine Learning designer (preview)](https://docs.microsoft.com/azure/machine-learning/concept-designer). 
+In this article, you learn how to debug and troubleshoot [machine learning pipelines](concept-ml-pipelines.md) in the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) and [Azure Machine Learning designer](https://docs.microsoft.com/azure/machine-learning/concept-designer). Information is provided on how to:
 
 ## Troubleshooting tips
 
@@ -28,7 +27,7 @@ The following table contains common problems during pipeline development, with p
 | Ambiguous errors with compute targets | Try deleting and re-creating compute targets. Re-creating compute targets is quick and can solve some transient issues. |
 | Pipeline not reusing steps | Step reuse is enabled by default, but ensure you haven't disabled it in a pipeline step. If reuse is disabled, the `allow_reuse` parameter in the step will be set to `False`. |
 | Pipeline is rerunning unnecessarily | To ensure that steps only rerun when their underlying data or scripts change, decouple your source-code directories for each step. If you use the same source directory for multiple steps, you may experience unnecessary reruns. Use the `source_directory` parameter on a pipeline step object to point to your isolated directory for that step, and ensure you aren't using the same `source_directory` path for multiple steps. |
-
+| Step slowing down over training epochs or other looping behavior | Try switching any file writes, including logging, from `as_mount()` to `as_upload()`. The **mount** mode uses a remote virtualized filesystem and uploads the entire file each time it is appended to. |
 
 ## Debugging techniques
 
@@ -68,7 +67,7 @@ The table below provides information for different debug options for pipelines. 
 
 | Library                    | Type   | Example                                                          | Destination                                  | Resources                                                                                                                                                                                                                                                                                                                    |
 |----------------------------|--------|------------------------------------------------------------------|----------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Azure Machine Learning SDK | Metric | `run.log(name, val)`                                             | Azure Machine Learning Portal UI             | [How to track experiments](how-to-track-experiments.md)<br>[azureml.core.Run class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=experimental)                                                                                                                                                 |
+| Azure Machine Learning SDK | Metric | `run.log(name, val)`                                             | Azure Machine Learning Portal UI             | [How to track experiments](how-to-track-experiments.md)<br>[azureml.core.Run class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true)                                                                                                                                                 |
 | Python printing/logging    | Log    | `print(val)`<br>`logging.info(message)`                          | Driver logs, Azure Machine Learning designer | [How to track experiments](how-to-track-experiments.md)<br><br>[Python logging](https://docs.python.org/2/library/logging.html)                                                                                                                                                                       |
 | OpenCensus Python          | Log    | `logger.addHandler(AzureLogHandler())`<br>`logging.log(message)` | Application Insights - traces                | [Debug pipelines in Application Insights](how-to-debug-pipelines-application-insights.md)<br><br>[OpenCensus Azure Monitor Exporters](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)<br>[Python logging cookbook](https://docs.python.org/3/howto/logging-cookbook.html) |
 
@@ -104,32 +103,7 @@ logger.warning("I am an OpenCensus warning statement, find me in Application Ins
 logger.error("I am an OpenCensus error statement with custom dimensions", {'step_id': run.id})
 ``` 
 
-### Finding and reading pipeline log files
-
-The log file `70_driver_log.txt` contains: 
-
-* All printed statements during your script's execution
-* The stack trace for the script 
-
-To find this and other log files in the portal, first click on the pipeline run in your workspace.
-
-![Pipeline run list page](./media/how-to-debug-pipelines/pipelinerun-01.png)
-
-Navigate to the pipeline run detail page.
-
-![Pipeline run detail page](./media/how-to-debug-pipelines/pipelinerun-02.png)
-
-Click on the module for the specific step. Navigate to the **Logs** tab. Other logs include information about your environment image build process and step preparation scripts.
-
-![Pipeline run detail page log tab](./media/how-to-debug-pipelines/pipelinerun-03.png)
-
-> [!TIP]
-> Runs for *published pipelines* can be found in the **Endpoints** tab in your workspace. 
-> Runs for *non-published pipelines* can be found in **Experiments** or **Pipelines**.
-
-For more information on logging and tracing from a `ParallelRunStep`, see [Debug and troubleshoot ParallelRunStep](how-to-debug-parallel-run-step.md).
-
-## Logging in Azure Machine Learning designer (preview)
+## Azure Machine Learning designer
 
 For pipelines created in the designer, you can find the **70_driver_log** file in either the authoring page, or in the pipeline run detail page.
 
@@ -145,7 +119,7 @@ When you submit a pipeline run and stay in the authoring page, you can find the 
 1. In the right pane of the module, go to the  **Outputs + logs** tab.
 1. Expand the right pane, and select the **70_driver_log.txt** to view the file in browser. You can also download logs locally.
 
-    ![Expanded output pane in the designer](./media/how-to-debug-pipelines/designer-logs.png)
+    ![Expanded output pane in the designer](./media/how-to-debug-pipelines/designer-logs.png)?view=azure-ml-py&preserve-view=true)?view=azure-ml-py&preserve-view=true)
 
 ### Get logs from pipeline runs
 
@@ -171,6 +145,6 @@ In some cases, you may need to interactively debug the Python code used in your 
 
 ## Next steps
 
-* See the SDK reference for help with the [azureml-pipelines-core](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) package and the [azureml-pipelines-steps](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py) package.
+* See the SDK reference for help with the [azureml-pipelines-core](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py&preserve-view=true) package and the [azureml-pipelines-steps](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py&preserve-view=true) package.
 
 * See the list of [designer exceptions and error codes](algorithm-module-reference/designer-error-codes.md).

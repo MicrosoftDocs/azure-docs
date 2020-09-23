@@ -83,7 +83,9 @@ In this quickstart, you prepare a development environment you can use to clone a
 Open a command prompt in the directory of your choice. Execute the following command to clone the [Azure IoT C SDKs and Libraries](https://github.com/Azure/azure-iot-sdk-c) GitHub repository into this location:
 
 ```cmd\bash
-git clone --depth 1 --recurse-submodules https://github.com/Azure/azure-iot-sdk-c.git
+git clone https://github.com/Azure/azure-iot-sdk-c.git
+cd azure-iot-sdk-c
+git submodule update --init
 ```
 
 Expect this operation to take several minutes to complete.
@@ -129,7 +131,8 @@ cd iothub_client/samples/pnp/pnp_simple_thermostat/
 
 ```cmd
 REM Windows
-cd  iothub_client\samples\pnp\pnp_simple_thermostat\Debug\pnp_simple_thermostat.exe
+cd iothub_client\samples\pnp\pnp_simple_thermostat\Debug
+.\pnp_simple_thermostat.exe
 ```
 
 > [!TIP]

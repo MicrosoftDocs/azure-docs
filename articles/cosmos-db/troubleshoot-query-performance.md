@@ -4,7 +4,7 @@ description: Learn how to identify, diagnose, and troubleshoot Azure Cosmos DB S
 author: timsander1
 ms.service: cosmos-db
 ms.topic: troubleshooting
-ms.date: 04/22/2020
+ms.date: 09/12/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
@@ -20,22 +20,21 @@ You can broadly categorize query optimizations in Azure Cosmos DB:
 
 If you reduce the RU charge of a query, you'll almost certainly decrease latency as well.
 
-This article provides examples that you can re-create by using the [nutrition](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) dataset.
+This article provides examples that you can re-create by using the [nutrition dataset](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json).
 
 ## Common SDK issues
 
 Before reading this guide, it is helpful to consider common SDK issues that aren't related to the query engine.
 
-- For best performance, follow these [Performance tips](performance-tips.md).
-    > [!NOTE]
-    > For improved performance, we recommend Windows 64-bit host processing. The SQL SDK includes a native ServiceInterop.dll to parse and optimize queries locally. ServiceInterop.dll is supported only on the Windows x64 platform. For Linux and other unsupported platforms where ServiceInterop.dll isn't available, an additional network call will be made to the gateway to get the optimized query.
+- Follow these [SDK Performance tips](performance-tips.md).
+    - [.NET SDK troubleshooting guide](troubleshoot-dot-net-sdk.md)
+    - [Java SDK troubleshooting guide](troubleshoot-java-sdk-v4-sql.md)
 - The SDK allows setting a `MaxItemCount` for your queries but you can't specify a minimum item count.
     - Code should handle any page size, from zero to the `MaxItemCount`.
-    - The number of items in a page will always be less or equal to the specified `MaxItemCount`. However, `MaxItemCount` is strictly a maximum and there could be fewer results than this amount.
 - Sometimes queries may have empty pages even when there are results on a future page. Reasons for this could be:
     - The SDK could be doing multiple network calls.
     - The query might be taking a long time to retrieve the documents.
-- All queries have a continuation token that will allow the query to continue. Be sure to drain the query completely. Look at the SDK samples, and use a `while` loop on `FeedIterator.HasMoreResults` to drain the entire query.
+- All queries have a continuation token that will allow the query to continue. Be sure to drain the query completely. Learn more about [handling multiple pages of results](sql-query-pagination.md#handling-multiple-pages-of-results)
 
 ## Get query metrics
 

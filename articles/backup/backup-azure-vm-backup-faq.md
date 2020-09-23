@@ -191,6 +191,6 @@ Yes, there's a limit of 100 VMs that can be associated to the same backup policy
 
 Currently, you can view retention settings at a backup item (VM) level based on the backup policy that's assigned to the VM.
 
-One way to view the retention settings for your backups, is to navigate to the backup item [dashboard](https://docs.microsoft.com/azure/backup/backup-azure-manage-vms#view-vms-on-the-dashboard) for your VM, in the Azure portal. Clicking on the link to its backup policy helps you view the retention duration of all the daily, weekly, monthly and yearly retention points associated with the VM.
+One way to view the retention settings for your backups, is to navigate to the backup item [dashboard](https://docs.microsoft.com/azure/backup/backup-azure-manage-vms#view-vms-on-the-dashboard) for your VM, in the Azure portal. Selecting the link to its backup policy helps you view the retention duration of all the daily, weekly, monthly and yearly retention points associated with the VM.
 
 You can also use [Backup Explorer](https://docs.microsoft.com/azure/backup/monitor-azure-backup-with-backup-explorer) to view the retention settings for all your VMs within a single pane of glass. Navigate to Backup Explorer from any Recovery Services vault, go to the **Backup Items** tab and select the Advanced View to see detailed retention information for each VM.

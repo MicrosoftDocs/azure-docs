@@ -9,7 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 07/15/2020
-ms.custom: "devx-track-javascript, devx-track-csharp"
+ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
 # Tutorial: Add autocomplete and suggestions using the .NET SDK
@@ -27,7 +27,7 @@ In this tutorial, you learn how to:
 
 This tutorial is part of a series and builds on the paging project created in the [C# Tutorial: Search results pagination - Azure Cognitive Search](tutorial-csharp-paging.md).
 
-Alternatively, you can download and run the solution for this specific tutorial: [3-add-typeahead](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/3-add-typeahead).
+Alternatively, you can download and run the solution for this specific tutorial: [3-add-typeahead](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v10/3-add-typeahead).
 
 ## Add suggestions
 

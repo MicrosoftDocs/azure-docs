@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/29/2019
+ms.date: 09/22/2020
 ms.author: memildin
 
 ---
@@ -52,6 +52,7 @@ Security Center analyzes the security state of your resources to identify potent
 
     The page includes:
 
+    - **Enforce** and **Deny** buttons on supported recommendations (see [Prevent misconfigurations with Enforce/Deny recommendations](prevent-misconfigurations.md))
     - **Severity indicator**
     - **Freshness interval**  (where relevant) 
     - **Description** - A short description of the issue
@@ -63,10 +64,19 @@ Security Center analyzes the security state of your resources to identify potent
 
             :::image type="content" source="./media/security-center-recommendations/recommendations-not-applicable-reasons.png" alt-text="Not applicable resources with reasons.":::
 
+## Preview recommendations
 
+Recommendations flagged as **Preview** aren't included in the calculations of your secure score.
+
+They should still be remediated wherever possible, so that when the preview period ends they'll contribute towards your score.
+
+An example of a preview recommendation:
+
+:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="Recommendation with the preview flag":::
  
 ## Next steps
 
 In this document, you were introduced to security recommendations in Security Center. To learn how to remediate the recommendations:
 
-* [Remediate recommendations](security-center-remediate-recommendations.md) — Learn how to configure security policies for your Azure subscriptions and resource groups.
+- [Remediate recommendations](security-center-remediate-recommendations.md) — Learn how to configure security policies for your Azure subscriptions and resource groups.
+- [Prevent misconfigurations with Enforce/Deny recommendations](prevent-misconfigurations.md).

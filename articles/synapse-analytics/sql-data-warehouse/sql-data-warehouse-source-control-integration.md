@@ -23,31 +23,39 @@ This tutorial outlines how to integrate your SQL Server Data tools (SSDT) databa
 
 ## Set up and connect to Azure DevOps
 
-1. In your Azure DevOps Organization, create a project that will host your SSDT database project via an Azure Repo repository
+1. In your Azure DevOps Organization, create a project that will host your SSDT database project via an Azure Repo repository.
 
    ![Create Project](./media/sql-data-warehouse-source-control-integration/1-create-project-azure-devops.png "Create Project")
 
-2. Open Visual Studio and connect to your Azure DevOps organization and project from step 1 by selecting "Manage Connections"
+2. Open Visual Studio and connect to your Azure DevOps organization and project from step one by selecting **Manage Connection**.
 
    ![Manage Connections](./media/sql-data-warehouse-source-control-integration/2-manage-connections.png "Manage Connections")
 
-   ![Connect](./media/sql-data-warehouse-source-control-integration/3-connect.png "Connect")
+3. Connect to your project by selecting **Manage Connections**, then **Connect to a project**.
+ ![Connect1](./media/sql-data-warehouse-source-control-integration/3-connect-project.png "Connect")
 
-3. Clone your Azure Repo repository from your project to your local machine
+
+4. Find the project you created in step one, select **Connect**.
+![Connect2](./media/sql-data-warehouse-source-control-integration/3.5-connect.png "Connect")
+
+
+3. Clone your Azure DevOps repository from your project to your local machine.
 
    ![Clone repo](./media/sql-data-warehouse-source-control-integration/4-clone-repo.png "Clone repo")
 
+For more information about connecting projects using Visual Studio, see the [Connect to projects in Team Explorer](https://docs.microsoft.com/visualstudio/ide/connect-team-project?view=vs-2019). For guidance on cloning a repo using Visual Studio, review the [Clone an exiting Git repo](https://docs.microsoft.com/azure/devops/repos/git/clone?view=azure-devops&tabs=visual-studio) article. 
+
 ## Create and connect your project
 
-1. In Visual Studio, create a new SQL Server Database Project with both a directory and local Git repository in your **local cloned repository**
+1. In Visual Studio, create a new SQL Server Database Project with both a directory and local Git repository in your **local cloned repository**.
 
    ![Create new project](./media/sql-data-warehouse-source-control-integration/5-create-new-project.png "Create new project")  
 
-2. Right-click on your empty sqlproject and import your data warehouse into the database project
+2. Right-click on your empty sqlproject and import your data warehouse into the database project.
 
    ![Import Project](./media/sql-data-warehouse-source-control-integration/6-import-new-project.png "Import Project")  
 
-3. In team explorer in Visual Studio, commit your all changes to your local Git repository
+3. In Team Explorer in Visual Studio, commit your changes to your local Git repository.
 
    ![Commit](./media/sql-data-warehouse-source-control-integration/6.5-commit-push-changes.png "Commit")  
 
@@ -59,19 +67,19 @@ This tutorial outlines how to integrate your SQL Server Data tools (SSDT) databa
 
 ## Validation
 
-1. Verify changes have been pushed to your Azure Repo by updating a  table column in your database project from Visual Studio SQL Server Data Tools (SSDT)
+1. Verify changes have been pushed to your Azure Repo by updating a  table column in your database project from Visual Studio SQL Server Data Tools (SSDT).
 
    ![Validate update column](./media/sql-data-warehouse-source-control-integration/8-validation-update-column.png "Validate update column")
 
-2. Commit and push the change from your local repository to your Azure Repo
+2. Commit and push the change from your local repository to your Azure Repo.
 
    ![Push changes](./media/sql-data-warehouse-source-control-integration/9-push-column-change.png "Push changes")
 
-3. Verify the change has been pushed in your Azure Repo repository
+3. Verify the change has been pushed in your Azure Repo repository.
 
    ![Verify](./media/sql-data-warehouse-source-control-integration/10-verify-column-change-pushed.png "Verify changes")
 
-4. (**Optional**) Use Schema Compare and update the changes to your target data warehouse using SSDT to ensure the object definitions in your Azure Repo repository and local repository reflect your data warehouse
+4. (**Optional**) Use Schema Compare and update the changes to your target data warehouse using SSDT to ensure the object definitions in your Azure Repo repository and local repository reflect your data warehouse.
 
 ## Next steps
 

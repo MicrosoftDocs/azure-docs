@@ -13,19 +13,17 @@ ms.reviewer: jrasnick
 
 # Analyze complex data types in Azure Synapse Analytics
 
-This article is relevant for Parquet files and containers in [Synapse Link for Azure Cosmos DB](.\synapse-link\how-to-connect-synapse-link-cosmos-db.md). It explains how users can use Spark or SQL to read or transform data with complex schemas such as arrays or nested structures. The following example is completed with a single document but can easily scale to billions of documents with Spark or SQL. The code included in this article uses PySpark (Python).
+This article is relevant for Parquet files and containers in [Azure Synapse Link for Azure Cosmos DB](.\synapse-link\how-to-connect-synapse-link-cosmos-db.md). You can use Spark or SQL to read or transform data with complex schemas such as arrays or nested structures. The following example is completed with a single document, but it can easily scale to billions of documents with Spark or SQL. The code included in this article uses PySpark (Python).
 
-## Use Case
+## Use case
 
-Complex data types are increasingly common and represent a challenge for data engineers as analyzing nested schema and arrays tend to include time-consuming and complex SQL queries. Additionally, it can be difficult to rename or cast the nested columns data type. Also, performance issues arise when working with deeply nested objects.
+Complex data types are increasingly common and represent a challenge for data engineers. Analyzing nested schema and arrays can involve time-consuming and complex SQL queries. Additionally, it can be difficult to rename or cast the nested columns data type. Also, when you're working with deeply nested objects, you can encounter performance problems.
 
-Data Engineers need to understand how to efficiently process complex data types and make them easily accessible to everyone.
-
-In the following example, Synapse Spark is used to read and transform objects into a flat structure through data frames. Synapse SQL serverless is used to query such objects directly and return those results as a regular table.
+Data engineers need to understand how to efficiently process complex data types and make them easily accessible to everyone. In the following example, you use Spark in Azure Synapse Analytics to read and transform objects into a flat structure through data frames. You use the serverless model of SQL in Azure Synapse Analytics to query such objects directly, and return those results as a regular table.
 
 ## What are arrays and nested structures?
 
-The following object comes from [App Insight](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview). In this object, there are nested structures and arrays that contain nested structures.
+The following object comes from [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview). In this object, there are nested structures and arrays that contain nested structures.
 
 ```json
 {
@@ -65,24 +63,26 @@ The following object comes from [App Insight](https://docs.microsoft.com/azure/a
 ```
 
 ### Schema example of arrays and nested structures
-When printing the schema of the object's data frame (called **df**) with the command `df.printschema`, we see the following representation:
+When you're printing the schema of the object's data frame (called **df**) with the command `df.printschema`, you see the following representation:
 
-* Yellow color represents nested structure
-* Green color represents an array with two elements
+* Yellow represents nested structures.
+* Green represents an array with two elements.
 
-[![Schema origin](./media/how-to-complex-schema/schema-origin.png)](./media/how-to-complex-schema/schema-origin.png#lightbox)
+[![Code with yellow and green highlighting, showing schema origin](./media/how-to-complex-schema/schema-origin.png)](./media/how-to-complex-schema/schema-origin.png#lightbox)
 
-**_rid**, **_ts**, and **_etag** have been added to the system as the document was ingested into Azure Cosmos DB transactional store.
+`_rid`, `_ts`, and `_etag` have been added to the system as the document was ingested into the Azure Cosmos DB transactional store.
 
-The data frame above counts for 5 columns and 1 row only. After transformation, the curated data frame will have 13 columns and 2 rows in a tabular format.
+The preceding data frame counts for 5 columns and 1 row only. After transformation, the curated data frame will have 13 columns and 2 rows, in a tabular format.
 
-## Flatten nested structures and explode arrays with Apache Spark
+## Flatten nested structures and explode arrays
 
-With Synapse Spark, it's easy to transform nested structures into columns and array elements into multiple rows. The following steps can be used for implementation.
+With Spark in Azure Synapse Analytics, it's easy to transform nested structures into columns and array elements into multiple rows. Use the following steps for implementation.
 
-[![Spark transformations steps](./media/how-to-complex-schema/spark-transform-steps.png)](./media/how-to-complex-schema/spark-transform-steps.png#lightbox)
+[![Flowchart showing steps for Spark transformations](./media/how-to-complex-schema/spark-transform-steps.png)](./media/how-to-complex-schema/spark-transform-steps.png#lightbox)
 
-**Step 1**: We define a function to flatten the nested schema. This function can be used without change. Create a cell in a [PySpark notebook](quickstart-apache-spark-notebook.md) with the following function:
+### Define a function to flatten the nested schema
+
+You can use this function without change. Create a cell in a [PySpark notebook](quickstart-apache-spark-notebook.md) with the following function:
 
 ```python
 from pyspark.sql.functions import col
@@ -115,7 +115,9 @@ def flatten_df(nested_df):
     return nested_df.select(columns)
 ```
 
-**Step 2**: Use the function to flatten the nested schema of the data frame (**df**) into a new data frame `df_flat`:
+### Use the function to flatten the nested schema
+
+In this step, you flatten the nested schema of the data frame (**df**) into a new data frame (`df_flat`):
 
 ```python
 from pyspark.sql.types import StringType, StructField, StructType
@@ -125,7 +127,9 @@ display(df_flat.limit(10))
 
 The display function should return 10 columns and 1 row. The array and its nested elements are still there.
 
-**Step 3**: Transform the array `context_custom_dimensions` in the data frame `df_flat` into a new dataframe `df_flat_explode`. In the following code, we also define which column to select:
+### Transform the array
+
+Here, you transform the array, `context_custom_dimensions`, in the data frame `df_flat`, into a new data frame `df_flat_explode`. In the following code, you also define which column to select:
 
 ```python
 from pyspark.sql.functions import explode
@@ -139,7 +143,9 @@ display(df_flat_explode.limit(10))
 
 The display function should return 10 columns and 2 rows. The next step is to flatten nested schemas with the function defined in step 1.
 
-**Step 4**: Use the function to flatten the nested schema of the data frame `df_flat_explode` into a new data frame `df_flat_explode_flat`:
+### Use the function to flatten the nested schema
+
+Finally, you use the function to flatten the nested schema of the data frame `df_flat_explode`, into a new data frame, `df_flat_explode_flat`:
 ```python
 df_flat_explode_flat = flatten_df(df_flat_explode)
 display(df_flat_explode_flat.limit(10))
@@ -149,26 +155,23 @@ The display function should show 13 columns and 2 rows.
 
 The function `printSchema` of the data frame `df_flat_explode_flat` returns the following result:
 
-[![Schema final](./media/how-to-complex-schema/schema-final.png)](./media/how-to-complex-schema/schema-final.png#lightbox)
+[![Code showing the final schema](./media/how-to-complex-schema/schema-final.png)](./media/how-to-complex-schema/schema-final.png#lightbox)
 
-## Read arrays and nested structures directly with SQL serverless
+## Read arrays and nested structures directly
 
-Querying and creating views and tables over such objects is possible with SQL serverless.
+With the serverless model of SQL, you can query and create views and tables over such objects.
 
-First, depending how the data has been stored, users should use the following taxonomy. Everything shown in UPPER CASE is specific to your use case:
+First, depending how the data has been stored, users should use the following taxonomy. Everything shown in uppercase is specific to your use case:
 
-| BULK              | FORMAT |
-| -------------------- | --- |
+| Bulk | Format |
+| ------ | ------ |
 | 'https://ACCOUNTNAME.dfs.core.windows.net/FILESYSTEM/PATH/FINENAME.parquet' |'Parquet' (ADLSg2)|
-| N'endpoint=https://ACCOUNTNAME.documents-staging.windows-ppe.net:443/;account=ACCOUNTNAME;database=DATABASENAME;collection=COLLECTIONNAME;region=REGIONTOQUERY', SECRET='YOURSECRET' |'CosmosDB' (Synapse Link)|
+| N'endpoint=https://ACCOUNTNAME.documents-staging.windows-ppe.net:443/;account=ACCOUNTNAME;database=DATABASENAME;collection=COLLECTIONNAME;region=REGIONTOQUERY', SECRET='YOURSECRET' |'CosmosDB' (Azure Synapse Link)|
 
-
-> [!NOTE]
-> SQL serverless will support Linked Service for Synapse Link for Azure Cosmos and AAD passthrough. The capability is currently under gated preview for Synapse Link.
 
 Replace each field as follows:
-* 'YOUR BULK ABOVE' = the connection string of the data source you connect to
-* 'YOUR TYPE ABOVE' = the format you use to connect to the source
+* 'YOUR BULK ABOVE' is the connection string of the data source you connect to.
+* 'YOUR TYPE ABOVE' is the format you use to connect to the source.
 
 ```sql
 select *
@@ -195,22 +198,22 @@ with ( ProfileType varchar(50) '$.customerInfo.ProfileType',
 
 There are two different types of operations:
 
-The first operation type is indicated in the following line of code, which defines the column called `contextdataeventTime` that refers to the nested element: Context.Data.eventTime 
-```sql
-contextdataeventTime varchar(50) '$.context.data.eventTime'
-```
+- The first operation type is indicated in the following line of code, which defines the column called `contextdataeventTime` that refers to the nested element, `Context.Data.eventTime`. 
+  ```sql
+  contextdataeventTime varchar(50) '$.context.data.eventTime'
+  ```
 
-This line will define the column called contextdataeventTime that refers to the nest element: Context>Data>eventTime
+  This line defines the column called `contextdataeventTime` that refers to the nested element, `Context>Data>eventTime`.
 
-The second operation type uses `cross apply` to create new rows for each element under the array and then with defines each nested object similar to the first bullet point: 
-```sql
-cross apply openjson (contextcustomdimensions) 
-with ( ProfileType varchar(50) '$.customerInfo.ProfileType', 
-```
+- The second operation type uses `cross apply` to create new rows for each element under the array. Then it defines each nested object. 
+  ```sql
+  cross apply openjson (contextcustomdimensions) 
+  with ( ProfileType varchar(50) '$.customerInfo.ProfileType', 
+  ```
 
-If the array had 5 elements with 4 nested structures, SQL serverless would return 5 rows and 4 columns. SQL serverless can query in-place, map the array in 2 rows and, display all nested structures into columns.
+  If the array had 5 elements with 4 nested structures, the serverless model of SQL returns 5 rows and 4 columns. The serverless model of SQL can query in place, map the array in 2 rows, and display all nested structures into columns.
 
 ## Next steps
 
 * [Learn how to query Synapse Link for Azure Cosmos DB with Spark](./synapse-link/how-to-query-analytical-store-spark.md)
-* [Query parquet nested types](./sql/query-parquet-nested-types.md) 
+* [Query Parquet nested types](./sql/query-parquet-nested-types.md) 

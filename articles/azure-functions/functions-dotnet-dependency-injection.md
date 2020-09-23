@@ -165,9 +165,9 @@ The following example `host.json` file adds the log filter.
     "version": "2.0",
     "logging": {
         "applicationInsights": {
-            "samplingExcludedTypes": "Request",
             "samplingSettings": {
-                "isEnabled": true
+                "isEnabled": true,
+                "excludedTypes": "Request"
             }
         },
         "logLevel": {

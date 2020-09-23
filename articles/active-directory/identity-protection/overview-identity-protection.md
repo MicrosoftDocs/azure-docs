@@ -100,17 +100,17 @@ Conditional Access administrators can also create policies that factor in sign-i
 
 [!INCLUDE [Active Directory P2 license](../../../includes/active-directory-p2-license.md)]
 
-| Capability | Details | Azure AD Premium P2 | Azure AD Premium P1 | Azure AD Free / Office 365 Apps |
+| Capability | Details  | Azure AD Free / Microsoft 365 Apps | Azure AD Premium P1|Azure AD Premium P2 |
 | --- | --- | --- | --- | --- |
-| Risk policies | User risk policy (via Identity Protection) | Yes | No | No |
-| Risk policies | Sign-in risk policy (via Identity Protection or Conditional Access) | Yes | No | No |
-| Security reports | Overview | Yes | No | No |
-| Security reports | Risky users | Full access | Limited Information | Limited Information |
-| Security reports | Risky sign-ins | Full access | Limited Information | Limited Information |
-| Security reports | Risk detections | Full access | Limited Information | No |
-| Notifications | Users at risk detected alerts | Yes | No | No |
-| Notifications | Weekly digest | Yes | No | No |
-| | MFA registration policy | Yes | No | No |
+| Risk policies | User risk policy (via Identity Protection)  | No | No |Yes | 
+| Risk policies | Sign-in risk policy (via Identity Protection or Conditional Access)  | No |  No |Yes |
+| Security reports | Overview |  No | No |Yes |
+| Security reports | Risky users  | Limited Information | Limited Information | Full access|
+| Security reports | Risky sign-ins  | Limited Information | Limited Information | Full access|
+| Security reports | Risk detections   | No | Limited Information| Full access|
+| Notifications | Users at risk detected alerts  | No | No |Yes |
+| Notifications | Weekly digest| No | No | Yes | 
+| | MFA registration policy | No | No | Yes |
 
 ## Next steps
 

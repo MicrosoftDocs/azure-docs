@@ -2,12 +2,12 @@
 title: 'Azure ExpressRoute: Link a VNet to a circuit: classic'
 description: This document provides an overview of how to link virtual networks (VNets) to ExpressRoute circuits by using the classic deployment model and PowerShell.
 services: expressroute
-author: cherylmc
+author: duongau
 
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 12/06/2019
-ms.author: cherylmc 
+ms.author: duau 
 ms.custom: devx-track-azurepowershell
 
 ---

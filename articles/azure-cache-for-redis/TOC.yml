@@ -161,7 +161,8 @@
   - name: Resource Manager template
     href: /azure/templates/microsoft.cache/allversions
   - name: Azure Policy built-ins
-    href: ./policy-samples.md
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
   - name: Redis commands
     href: https://redis.io/commands#
 - name: Resources

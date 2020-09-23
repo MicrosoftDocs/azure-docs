@@ -14,9 +14,9 @@ ms.custom: how-to, devx-track-python,contperfq1
 ---
 
 # Configure automated ML experiments in Python
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this guide, learn how to define various configuration settings of your automated machine learning experiments with the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). Automated machine learning picks an algorithm and hyperparameters for you and generates a model ready for deployment. There are several options that you can use to configure automated machine learning experiments.
+
+In this guide, learn how to define various configuration settings of your automated machine learning experiments with the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true). Automated machine learning picks an algorithm and hyperparameters for you and generates a model ready for deployment. There are several options that you can use to configure automated machine learning experiments.
 
 To view examples of automated machine learning experiments, see [Tutorial: Train a classification model with automated machine learning](tutorial-auto-train-models.md) or [Train models with automated machine learning in the cloud](how-to-auto-train-remote.md).
 
@@ -41,7 +41,7 @@ For this article you need,
     To install the SDK you can either, 
     * Create a compute instance, which automatically installs the SDK and is preconfigured for ML workflows. See [What is an Azure Machine Learning compute instance?](concept-compute-instance.md#managing-a-compute-instance) for more information. 
 
-    * [Install the SDK yourself](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py). Just be sure to include the `automl` extra. 
+    * [Install the SDK yourself](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true). Just be sure to include the `automl` extra. 
 
 ## Select your experiment type
 
@@ -64,7 +64,7 @@ Requirements for training data:
 - Data must be in tabular form.
 - The value to predict, target column, must be in the data.
 
-**For remote experiments**, training data must be accessible from the remote compute. AutoML only accepts [Azure Machine Learning TabularDatasets](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) when working on a remote compute. 
+**For remote experiments**, training data must be accessible from the remote compute. AutoML only accepts [Azure Machine Learning TabularDatasets](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true) when working on a remote compute. 
 
 Azure Machine Learning datasets expose functionality to:
 
