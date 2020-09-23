@@ -82,7 +82,7 @@ Throughout the MNIST code file, mnist_with_summaries.py, notice that there are l
 
 In the following, we configure our experiment and set up directories for logs and data. These logs will be uploaded to the run history, which TensorBoard accesses later.
 
->[!Note]
+> [!Note]
 > For this TensorFlow example, you will need to install TensorFlow on your local machine. Further, the TensorBoard module (that is, the one included with TensorFlow) must be accessible to this notebook's kernel, as the local machine is what runs TensorBoard.
 
 ```Python
@@ -176,8 +176,8 @@ tb.start()
 tb.stop()
 ```
 
->[!Note]
- While this example used TensorFlow, TensorBoard can be used as easily with PyTorch or Chainer. TensorFlow must be available on the machine running TensorBoard, but is not necessary on the machine doing PyTorch or Chainer computations. 
+> [!Note]
+> While this example used TensorFlow, TensorBoard can be used as easily with PyTorch or Chainer. TensorFlow must be available on the machine running TensorBoard, but is not necessary on the machine doing PyTorch or Chainer computations. 
 
 
 <a name="export"></a>
@@ -265,8 +265,8 @@ export_to_tensorboard(root_run, logdir)
 root_run.complete()
 ```
 
->[!Note]
- You can also export a particular run to TensorBoard by specifying the name of the run  `export_to_tensorboard(run_name, logdir)`
+> [!Note]
+> You can also export a particular run to TensorBoard by specifying the name of the run  `export_to_tensorboard(run_name, logdir)`
 
 ### Start and stop TensorBoard
 Once our run history for this experiment is exported, we can launch TensorBoard with the [start()](https://docs.microsoft.com/python/api/azureml-tensorboard/azureml.tensorboard.tensorboard?view=azure-ml-py&preserve-view=true#&preserve-view=truestart-start-browser-false-) method. 
