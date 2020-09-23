@@ -28,9 +28,7 @@ To complete this quickstart, you need Python 3.7 on your development machine. Yo
 python --version
 ```
 
-The **azure-iot-device** package is published as a PIP for the public preview refresh. The package version should be latest or `2.1.4`
-
-In your local python environment install the file as follows:
+In your local python environment install the package as follows:
 
 ```cmd/sh
 pip install azure-iot-device

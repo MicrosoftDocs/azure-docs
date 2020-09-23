@@ -29,6 +29,8 @@ To complete this quickstart on Windows, you need the following software installe
 
 ### Clone the SDK repository with the sample code
 
+If you completed [Quickstart: Connect a sample IoT Plug and Play device application running on Windows to IoT Hub (C#)](quickstart-connect-device-csharp.md), you've already cloned the repository.
+
 Clone the samples from the Microsoft Azure IoT SDK for .NET GitHub repository. Open a command prompt in a folder of your choice. Run the following command to clone the [Microsoft Azure IoT SDK for .NET](https://github.com/Azure/azure-iot-sdk-csharp) GitHub repository:
 
 ```cmd
@@ -62,7 +64,7 @@ In this quickstart, you use a sample thermostat device that's written in C# as t
 In [Set up your environment for the IoT Plug and Play quickstarts and tutorials](set-up-environment.md) you created two environment variables to configure the sample to connect to your IoT hub and device:
 
 * **IOTHUB_CONNECTION_STRING**: the IoT hub connection string you made a note of previously.
-* **IOTHUB_DEVICE_ID**: `"my-pnp-device"`.
+* **DEVICE_ID**: `"my-pnp-device"`.
 
 In this quickstart, you use a sample IoT solution in C# to interact with the sample device you just set up.
 

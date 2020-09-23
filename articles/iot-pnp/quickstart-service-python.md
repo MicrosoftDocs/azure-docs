@@ -28,10 +28,18 @@ To complete this quickstart, you need Python 3.7 on your development machine. Yo
 python --version
 ```
 
-Install the [Python service SDK preview package](https://pypi.org/project/azure-iot-hub/2.2.2rc0/) by running the following command:
+The **azure-iot-device** package is published as a PIP.
+
+In your local python environment install the package as follows:
 
 ```cmd/sh
-pip3 install azure-iot-hub==2.2.2rc0
+pip install azure-iot-device
+```
+
+Install the **azure-iot-hub** package by running the following command:
+
+```cmd/sh
+pip install azure-iot-hub
 ```
 
 ## Run the sample device

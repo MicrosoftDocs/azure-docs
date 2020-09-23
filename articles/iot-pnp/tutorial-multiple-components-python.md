@@ -31,13 +31,15 @@ You can download the latest recommended version for multiple platforms from [pyt
 
 ## Download the code
 
-The **azure-iot-device** package is published as a PIP for the public preview refresh. The package version should be latest or `2.1.4`
+The **azure-iot-device** package is published as a PIP.
 
-In your local python environment install the file as follows:
+In your local python environment install the package as follows:
 
 ```cmd/sh
 pip install azure-iot-device
 ```
+
+If you completed [Quickstart: Connect a sample IoT Plug and Play device application running on Windows to IoT Hub (Python)](quickstart-connect-device-python.md), you've already cloned the repository.
 
 Clone the Python SDK IoT repository:
 

@@ -28,6 +28,8 @@ To complete this tutorial on Windows, install the following software on your loc
 
 ### Clone the SDK repository with the sample code
 
+If you completed [Quickstart: Connect a sample IoT Plug and Play device application running on Windows to IoT Hub (C#)](quickstart-connect-device-csharp.md), you've already cloned the repository.
+
 Clone the samples from the Microsoft Azure IoT SDK for .NET GitHub repository. Open a command prompt in a folder of your choice. Run the following command to clone the [Microsoft Azure IoT SDK for .NET](https://github.com/Azure/azure-iot-sdk-csharp) GitHub repository:
 
 ```cmd
