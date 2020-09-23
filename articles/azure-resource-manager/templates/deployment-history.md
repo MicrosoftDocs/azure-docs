@@ -55,13 +55,13 @@ To get the correlation ID, use:
 
 # [Azure CLI](#tab/azure-cli)
 
-To list the deployment for a resource group, use [az deployment group list](/cli/azure/group/deployment?view=azure-cli-latest#az-deployment-group-list).
+To list the deployment for a resource group, use [az deployment group list](/cli/azure/group/deployment#az-deployment-group-list).
 
 ```azurecli-interactive
 az deployment group list --resource-group ExampleGroup
 ```
 
-To get a specific deployment, use the [az deployment group show](/cli/azure/group/deployment?view=azure-cli-latest#az-deployment-group-show).
+To get a specific deployment, use the [az deployment group show](/cli/azure/group/deployment#az-deployment-group-show).
 
 ```azurecli-interactive
 az deployment group show --resource-group ExampleGroup --name ExampleDeployment
