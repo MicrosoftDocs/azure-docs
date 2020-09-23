@@ -28,7 +28,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + **azureml-contrib-notebook**
     + Pin nbcovert dependency to < 6 so that papermill 1.x continues to work.
   + **azureml-core**
-    + Added additional parameters to the ScriptRunConfig constructor to enable a more clear and streamlined initialization of the class attributes without requiring the user to set each individual attribute on the ScriptRunConfig's RunConfiguration property.
+    + Added parameters to the TensorflowConfiguration and MpiConfiguration constructor to enable a more streamlined initialization of the class attributes without requiring the user to set each individual attribute. Added a PyTorchConfiguration class for configuring distributed PyTorch jobs in ScriptRunConfig.
     + Pin the version of azure-mgmt-resource to fix the authentication error.
     + Support Triton No Code Deploy
     + outputs directories specified in Run.start_logging() will now be tracked when using run in interactive scenarios. The tracked files will be visible on ML Studio upon calling Run.complete()
