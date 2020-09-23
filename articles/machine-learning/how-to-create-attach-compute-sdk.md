@@ -14,8 +14,6 @@ ms.custom: how-to, devx-track-python, contperfq1
 ---
 # Create compute targets for model training and deployment with Python SDK
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
-
 In this article, use the Azure Machine Learning Python SDK to create and manage compute targets. You can also create and manage compute targets with:
 * [Azure Machine Learning studio](how-to-create-attach-compute-studio.md), 
 * The [CLI extension](reference-azure-machine-learning-cli.md#resource-management) for Azure Machine Learning
@@ -77,7 +75,7 @@ When performing inference, Azure Machine Learning creates a Docker container tha
 
 When you use your local computer for **training**, there is no need to create a compute target.  Just [submit the training run](how-to-set-up-training-targets.md) from your local machine.
 
-When you use your local computer for **inference**, you must have Docker installed. To perform the deployment, use [LocalWebservice.deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py#deploy-configuration-port-none-) to define the port that the web service will use. Then use the normal deployment process as described in [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
+When you use your local computer for **inference**, you must have Docker installed. To perform the deployment, use [LocalWebservice.deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py&preserve-view=true#deploy-configuration-port-none-) to define the port that the web service will use. Then use the normal deployment process as described in [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## <a id="amlcompute"></a>Azure Machine Learning compute cluster
 
