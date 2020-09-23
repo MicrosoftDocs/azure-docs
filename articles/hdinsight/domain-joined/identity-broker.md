@@ -17,7 +17,7 @@ This article describes how to set up and use the HDInsight ID Broker (HIB) featu
 
 HIB simplifies complex authentication setups in the following scenarios:
 
-* Your organization relies on federation to authenticate users for accessing cloud resources. Previously, to use HDInsight Enterprise Security Package (ESP) clusters, you had to enable password hash sync from your on-premises environment to Azure Active Directory (AAD). This requirement might be difficult or undesirable for some organizations.
+* Your organization relies on federation to authenticate users for accessing cloud resources. Previously, to use HDInsight Enterprise Security Package (ESP) clusters, you had to enable password hash sync from your on-premises environment to Azure Active Directory (Azure AD). This requirement might be difficult or undesirable for some organizations.
 
 * Your organization would like to enforce MFA for web/HTTP based access to Apache Ambari and other cluster resources.
 
@@ -106,7 +106,7 @@ HDIsngith tools are updated to natively support OAuth. We highly recommend to us
 
 To SSH to a domain-joined VM, or to run the `kinit` command, you need to provide a password. SSH Kerberos authentication requires the hash to be available in AAD-DS. If you want to use SSH for administrative scenarios only, you can create one cloud-only account and use that to SSH to the cluster. Other on-prem users can still use Ambari or HDInsight tools or HTTP basic auth without having the password hash available in AAD-DS.
 
-If your organization is not syncing password hashes to AAD-DS, as a best practice, create one cloud only user in AAD and assign it as cluster admin when creating the cluster and use that for administration purposes which includes getting root access to the VMs via SSH.
+If your organization is not syncing password hashes to AAD-DS, as a best practice, create one cloud only user in Azure AD and assign it as cluster admin when creating the cluster and use that for administration purposes which includes getting root access to the VMs via SSH.
 
 To troubleshoot authentication issues, please see this [guide](https://docs.microsoft.com/azure/hdinsight/domain-joined/domain-joined-authentication-issues).
 
