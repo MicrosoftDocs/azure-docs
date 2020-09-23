@@ -40,7 +40,7 @@ Currently, the supported list of Kubernetes services and distributions are the f
 > [!NOTE]
 > If you are using Red Hat OpenShift Container Platform on Azure, it is recommended to use the latest available version.
 
-Depending on the option you choose, certain tools will be _required_, but it is recommended to [install all the client tools](install-client-tools.md) before you begin to create the Azure Arc data controller.
+Depending on the option you choose, certain tools will be _required_, but it is recommended to [install all the client tools](./install-client-tools.md) before you begin to create the Azure Arc data controller.
 
 Regardless of the option you choose, during the creation process you will need to provide the following information:
 
@@ -48,7 +48,7 @@ Regardless of the option you choose, during the creation process you will need t
 - **Data controller username** - Any username for the data controller administrator user.
 - **Data controller password** - A password for the data controller administrator user.
 - **Name of your Kubernetes namespace** - the name of the Kubernetes namespace that you want to create the data controller in.
-- **Connectivity mode** - The [connectivity mode](connectivity.md) of your cluster. Currently only "indirect" is supported.
+- **Connectivity mode** - The [connectivity mode](./connectivity.md) of your cluster. Currently only "indirect" is supported.
 - **Azure subscription ID** - The Azure subscription GUID for where you want the data controller resource in Azure to be created.
 - **Azure resource group name** - The name of the resource group where you want the data controller resource in Azure to be created.
 - **Azure location** - The Azure location where the data controller resource metadata will be stored in Azure. For a list of available regions, see [Azure global infrastructure / Products by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc).
@@ -63,5 +63,5 @@ There are multiple options for creating the Azure Arc data controller:
 - [Create a data controller with Azure Data CLI (azdata)](create-data-controller-using-azdata.md)
 - [Create a data controller with Azure Data Studio](create-data-controller-azure-data-studio.md)
 - [Create a data controller from the Azure portal via a Jupyter notebook in Azure Data Studio](create-data-controller-resource-in-azure-portal.md)
-- [Create a data controller with Kubernetes tools such as kubectl or oc](create-data-controller-using-k8s-native-tools.md)
+- [Create a data controller with Kubernetes tools such as kubectl or oc](create-data-controller-using-kubernetes-native-tools.md)
 - [Create a data controller with Azure Arc Jumpstart for an accelerated experience of a test deployment](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services)

@@ -11,16 +11,16 @@
     - name: Introduction
       href: get-started.md
       displayName: get, started
-    - name: 1 Create a Synapse workspace
+    - name: 1 Create a workspace
       href: get-started-create-workspace.md
       displayName: get, started
-    - name: 2 Analyze using a SQL Pool
+    - name: 2 Use SQL pools
       href: get-started-analyze-sql-pool.md
       displayName: get, started
-    - name: 3 Analyze using Spark
+    - name: 3 Use Spark
       href: get-started-analyze-spark.md
       displayName: get, started
-    - name: 4 Analyze using SQL on-demand
+    - name: 4 Use SQL on-demand
       href: get-started-analyze-sql-on-demand.md
       displayName: get, started
     - name: 5 Analyze data in a storage account
@@ -35,7 +35,7 @@
     - name: 8 Monitor
       href: get-started-monitor.md
       displayName: get, started
-    - name: 9 Explore the Knowledge Center
+    - name: 9 Explore the Knowledge center
       href: get-started-knowledge-center.md
       displayName: get, started
   - name: Cheat sheet 
@@ -84,6 +84,8 @@
   items:
   - name: Run Apache Spark applications
     href: ./spark/intellij-tool-synapse.md
+  - name: Run PySpark applications for Spark pools
+    href: ./spark/vscode-tool-synapse.md
   - name: Spark job definitions
     href: ./spark/apache-spark-job-definitions.md 
   - name: Power BI Desktop
