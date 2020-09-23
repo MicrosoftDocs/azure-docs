@@ -152,7 +152,7 @@ You have three options in *Microsoft.Identity.Web* for calling a downstream web 
 
 As with web apps, you can choose various token cache implementations. For details, see [Microsoft identity web - Token cache serialization](https://aka.ms/ms-id-web/token-cache-serialization) on GitHub.
 
-The following picture image the various possibilities of *Microsoft.Identity.Web* and their impact on the *Startup.cs* file:
+The following image shows the various possibilities of *Microsoft.Identity.Web* and their impact on the *Startup.cs* file:
 
 :::image type="content" source="media/scenarios/microsoft-identity-web-startup-cs.svg" alt-text="When creating a web api, you can choose to call a downstream api, including Microsoft Graph, as well as token cache implementations.":::
 
