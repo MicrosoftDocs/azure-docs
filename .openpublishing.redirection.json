@@ -1652,6 +1652,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/resource-manager-template.md",
+      "redirect_url": "/azure/cognitive-services/create-account-resource-manager-template",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/cognitive-services/Welcome.md",
       "redirect_url": "/azure/cognitive-services/what-are-cognitive-services",
       "redirect_document_id": true
