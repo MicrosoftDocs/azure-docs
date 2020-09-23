@@ -8,7 +8,7 @@ manager: guillasi
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/14/2020
-ms.custom: devx-track-java, devx-track-javascript
+ms.custom: devx-track-java, devx-track-js
 ms.author: dylankil
 ---
 

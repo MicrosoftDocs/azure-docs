@@ -1,19 +1,25 @@
 ---
-title: "Quickstart: Create an Azure Cognitive Services resource using ARM templates | Microsoft Docs"
-description: Get started with using an Azure Resource Manager template to deploy a Cognitive Services resource.
+title: Create an Azure Cognitive Services resource using ARM templates | Microsoft Docs
+description: Create a Azure Cognitive Service resource with ARM template.
+keywords: cognitive services, cognitive solutions, cognitive intelligence, cognitive artificial intelligence
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: quickstart
-ms.date: 07/27/2020
+ms.date: 09/14/2020
 ms.author: aahi
 ms.custom: subject-armqs
 ---
 
 # Quickstart: Create a Cognitive Services resource using an ARM template
 
-Use this article to create and deploy a Cognitive Services resource, using an Azure Resource Manager template (ARM template). This multi-service resource lets you:
+This quickstart describes how to use an Azure Resource Manager template (ARM template) to create Cognitive Services.
+
+Azure Cognitive Services are cloud-base services with REST APIs, and client library SDKs available to help developers build cognitive intelligence into applications without having direct artificial intelligence (AI) or data science skills or knowledge. Azure Cognitive Services enables developers to easily add cognitive features into their applications with cognitive solutions that can see, hear, speak, understand, and even begin to reason.
+
+Create a resource using an Azure Resource Manager template (ARM template). This multi-service resource lets you:
+
 * Access multiple Azure Cognitive Services with a single key and endpoint.
 * Consolidate billing from the services you use.
 
@@ -21,7 +27,7 @@ Use this article to create and deploy a Cognitive Services resource, using an Az
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cognitive-services-universalkey%2Fazuredeploy.json)
+[![Deploy your cognitive service to Azure](../media/template-deployments/deploy-to-azure.svg "Deploy your cognitive service to Azure")](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cognitive-services-universalkey%2Fazuredeploy.json)
 
 ## Prerequisites
 
@@ -45,7 +51,7 @@ One Azure resource is defined in the template:
     [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cognitive-services-universalkey%2Fazuredeploy.json)
 
 2. Enter the following values.
-    
+
     |Value  |Description  |
     |---------|---------|
     | **Subscription** | Select an Azure subscription. |
@@ -54,7 +60,7 @@ One Azure resource is defined in the template:
     | **Cognitive Service Name** | Replace with a unique name for your resource. You will need the name in the next section when you validate the deployment. |
     | **Location** | Replace with the region used above. |
     | **Sku** | The [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/) for your resource. |
-    
+
     :::image type="content" source="media/arm-template/universal-key-portal-template.png" alt-text="Resource creation screen.":::
 
 3. Select **Review + Create**, then **Create**. After the resource has successfully finished deploying, the **Go to resource** button will be highlighted.
@@ -82,7 +88,7 @@ read
 [!INCLUDE [Register Azure resource for subscription](./includes/register-resource-subscription.md)]
 
 
-## Validate the deployment
+## Review deployed resources
 
 # [Portal](#tab/portal)
 
@@ -116,7 +122,7 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 
 # [Azure CLI](#tab/CLI)
 
-Using the Azure CLI, run the following script, and enter the name of the resource group you created earlier. 
+Using the Azure CLI, run the following script, and enter the name of the resource group you created earlier.
 
 ```azurecli-interactive
 echo "Enter the resource group name, for deletion:" &&

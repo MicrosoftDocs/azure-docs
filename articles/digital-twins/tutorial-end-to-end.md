@@ -258,13 +258,13 @@ Next, configure the device simulator to send data to your IoT Hub instance.
 Begin by getting the *IoT hub connection string* with this command:
 
 ```azurecli
-az iot hub show-connection-string -n <your-IoT-hub-name>
+az iot hub connection-string show -n <your-IoT-hub-name>
 ```
 
 Then, get the *device connection string* with this command:
 
 ```azurecli
-az iot hub device-identity show-connection-string --device-id thermostat67 --hub-name <your-IoT-hub-name>
+az iot hub device-identity connection-string show --device-id thermostat67 --hub-name <your-IoT-hub-name>
 ```
 
 You'll plug these values into the device simulator code in your local project to connect the simulator into this IoT hub and IoT hub device.
