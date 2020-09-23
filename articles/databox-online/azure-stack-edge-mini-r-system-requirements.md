@@ -70,7 +70,7 @@ Use the following table for port configuration for the servers hosting Azure IoT
 |----------|-----------|------------|----------|----------|
 | TCP 443 (HTTPS)| Out       | WAN        | Yes      | Outbound open for IoT Edge   provisioning. This configuration is required when using manual scripts or Azure IoT Device Provisioning Service (DPS).|
 
-For complete information, go to [Firewall and port configuration rules for IoT Edge deployment](https://docs.microsoft.com/azure/iot-edge/troubleshoot).
+For complete information, go to [Firewall and port configuration rules for IoT Edge deployment](../iot-edge/troubleshoot).
 
 ## URL patterns for firewall rules
 
@@ -136,10 +136,10 @@ To understand and refine the performance of your solution, you could use:
     - `dkr image [prune]` to clean up unused images and free up space.
     - `dkr ps --size` to view the approximate size of a running container. 
 
-    For more information on the available commands, go to [Monitor and troubleshoot compute modules](azure-stack-edge-j-series-connect-powershell-interface.md#monitor-and-troubleshoot-compute-modules).
+    For more information on the available commands, go to [Monitor and troubleshoot compute modules](azure-stack-edge-placeholder.md).
 
 Finally, make sure that you validate your solution on your dataset and quantify the performance on Azure Stack Edge Mini R before deploying in production.
 
 ## Next step
 
-- [Deploy your Azure Stack Edge Mini R](azure-stack-edge-j-series-deploy-prep.md)
+- [Deploy your Azure Stack Edge Mini R](azure-stack-edge-placeholder.md)

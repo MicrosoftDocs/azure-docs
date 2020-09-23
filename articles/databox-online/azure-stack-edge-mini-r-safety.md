@@ -7,7 +7,7 @@ author:   alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 09/22/2020
 ms.author: alkohli
 ---
 
@@ -47,8 +47,8 @@ The Azure Stack Edge Mini R device has the following handling precautions and si
 ![Electrical Shock Icon](./media/azure-stack-edge-mini-r-safety/icon-safety-electric-shock.png)
 ![No User Serviceable Parts Icon](./media/azure-stack-edge-mini-r-safety/icon-safety-do-not-access.png) **CAUTION:**
 
-* Inspect the *as-received* device for damages. If the device enclosure is damaged, [contact Microsoft Support](azure-stack-edge-j-series-contact-microsoft-support.md) to obtain a replacement. Do not attempt to operate the device.
-* If you suspect the device is malfunctioning, [contact Microsoft Support](azure-stack-edge-j-series-contact-microsoft-support.md) to obtain a replacement. Do not attempt to service the device.
+* Inspect the *as-received* device for damages. If the device enclosure is damaged, [contact Microsoft Support](azure-stack-edge-placeholder.md) to obtain a replacement. Do not attempt to operate the device.
+* If you suspect the device is malfunctioning, [contact Microsoft Support](azure-stack-edge-placeholder.md) to obtain a replacement. Do not attempt to service the device.
 * The device contains no user-serviceable parts. Hazardous voltage, current, and energy levels are present inside. Do not open. Return the device to Microsoft for servicing.
 
 ![Warning Icon](./media/azure-stack-edge-mini-r-safety/icon-safety-warning.png) **CAUTION:**

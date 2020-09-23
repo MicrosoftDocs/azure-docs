@@ -1,13 +1,13 @@
 ---
 title: Microsoft Azure Stack Edge Pro R technical specifications and compliance| Microsoft Docs
-description: Learn about the technical specifications and compliance for your Azure Stack Edge
+description: Learn about the technical specifications and compliance for your Azure Stack Edge Pro R device
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 09/22/2020
 ms.author: alkohli
 ---
 # Azure Stack Edge Pro R technical specifications
@@ -81,9 +81,7 @@ The following table has the details for the storage capacity of the 4-node devic
 
 The following tables list the various enclosure specifications for dimensions and weight.
 
-### Enclosure dimensions
-
-#### For the 1-node system
+### Enclosure dimensions 
 
 The following table lists the dimensions of the device and the UPS with the rugged case in millimeters and inches.
 
@@ -114,12 +112,7 @@ The following table lists the dimensions of the 4U UPS case:
 |    Length         |    901.7          |   35.50       |
 -->
 
-
-
-
-### Enclosure weight
-
-#### For the 1-node system
+### Enclosure weight 
 
 The weight of the device depends on the configuration of the enclosure.
 
@@ -177,4 +170,4 @@ End of this section-->
 
 ## Next steps
 
-<!--- [Deploy your Azure Stack Edge](azure-stack-edge-gpu-prep.md)-->
+- [Deploy your Azure Stack Edge](azure-stack-edge-placeholder.md)

@@ -7,7 +7,7 @@ author:   alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 09/22/2020
 ms.author: alkohli
 ---
 
@@ -186,4 +186,4 @@ A device that has a UPS installed is designed to operate in the following enviro
 
 ## Next steps
 
-<!--[Prepare to deploy Azure Stack Edge Pro R Edge](azure-stack-edge-gpu-deploy-prep.md)-->
+-[Prepare to deploy Azure Stack Edge Pro R Edge](azure-stack-edge-placeholder.md)
