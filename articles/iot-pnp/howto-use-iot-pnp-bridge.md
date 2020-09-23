@@ -1,19 +1,20 @@
 ---
-title: Connect IoT Plug and Play bridge to IoT Hub | Microsoft Docs
+title: How to connect an IoT Plug and Play bridge sample running on Linux or Windows to an IoT hub | Microsoft Docs
 description: Build and run IoT Plug and Play bridge on Linux or Windows that connects to an IoT hub. Use the Azure IoT explorer tool to view the information sent by the device to the hub.
 author: usivagna
 ms.author: ugans
-ms.date: 08/23/2020
+ms.date: 09/22/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
 
-# As a device builder, I want to see a working IoT Plug and Play device sample connecting to IoT Hub and sending properties and telemetry, and responding to commands. As a solution builder, I want to use a tool to view the properties, commands, and telemetry an IoT Plug and Play device reports to the IoT hub it connects to.
+# As a device builder, I want to see a working IoT Plug and Play device sample connecting to an IoT hub and sending properties and telemetry, and responding to commands. As a solution builder, I want to use a tool to view the properties, commands, and telemetry an IoT Plug and Play device reports to the IoT hub it connects to.
 ---
 
-# How to connect a sample IoT Plug and Play bridge running on Linux or Windows to IoT Hub
+# How to connect an  IoT Plug and Play bridge sample running on Linux or Windows to IoT Hub
 
-This how-to shows you how to build the IoT Plug and Play bridge's sample environmental adapter, connect it to your IoT Hub, and use the Azure IoT explorer tool to view the telemetry it sends. The IoT Plug and Play bridge is written in C and includes the Azure IoT device SDK for C. A solution builder can use the Azure IoT explorer tool to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
+This how-to shows you how to build the IoT Plug and Play bridge's sample environmental adapter, connect it to your IoT hub, and use the Azure IoT explorer tool to view the telemetry it sends. The IoT Plug and Play bridge is written in C and includes the Azure IoT device SDK for C. By the end of this tutorial you should be able to run the IoT Plug and Play bridge and see it report telemetry in Azure IoT explorer:
+:::image type="content" source="media/concepts-iot-pnp-bridge/iot-pnp-bridge-explorer-telemetry.png" alt-text="A screen shot showing Azure IoT explorer with a table of reported telemetry (humidity, temperature) from Iot Plug and Play bridge.":::
 
 ## Prerequisites
 
@@ -45,7 +46,7 @@ gcc --version
 
 To complete this quickstart on Windows, install the following software on your local Windows environment:
 
-* [Visual Studio (Community, Professional, or Enterprise)](https://visualstudio.microsoft.com/downloads/) - make sure you include the **Desktop Development with C++** workload when you [install](https://docs.microsoft.com/cpp/build/vscpp-step-0-installation?view=vs-2019) Visual Studio.
+* [Visual Studio (Community, Professional, or Enterprise)](https://visualstudio.microsoft.com/downloads/) - make sure you include the **Desktop Development with C++** workload when you [install](https://docs.microsoft.com/cpp/build/vscpp-step-0-installation?view=vs-2019&preserve-view=true) Visual Studio.
 * [Git](https://git-scm.com/download/).
 * [CMake](https://cmake.org/download/).
 
@@ -62,7 +63,7 @@ az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
 ```
 
 > [!TIP]
-> You can also use the Azure IoT explorer tool to find the IoT Hub connection string.
+> You can also use the Azure IoT explorer tool to find the IoT hub connection string.
 
 Run the following command to get the _device connection string_ for the device you added to the hub. Make a note of this connection string, you use it later in this quickstart:
 
@@ -70,15 +71,15 @@ Run the following command to get the _device connection string_ for the device y
 az iot hub device-identity show-connection-string --hub-name <YourIoTHubName> --device-id <YourDeviceID> --output table
 ```
 
-## Download the model
+## View the model
 
-You will use Azure IoT Explorer in later steps to view the device when it connects to your IoT Hub. Azure IoT Explorer will need a local copy of the model file that matches the **Model ID** your device sends. The model file lets the IoT Explorer display the telemetry, properties, and commands that your device implements.
+You will use Azure IoT Explorer in later steps to view the device when it connects to your IoT hub. Azure IoT Explorer will need a local copy of the model file that matches the **Model ID** your device sends. The model file lets the IoT Explorer display the telemetry, properties, and commands that your device implements.
 
-Download the sample model files:
+When you download the code in the step below it includes the sample model files under the `pnpbridge/docs/schema` folder. To prep Azure IoT explorer:
 
 1. Create a folder called *models* on your local machine.
-1. Right-click [EnvironmentalSensor.json](https://aka.ms/iot-pnp-bridge-env-model) and save the JSON file to the *models* folder.
-1. Right-click [RootBridgeSampleDevice.json](https://aka.ms/iot-pnp-bridge-root-model) and save the JSON file to the *models* folder.
+1. View [EnvironmentalSensor.json](https://aka.ms/iot-pnp-bridge-env-model) and save the JSON file to the *models* folder
+1. View [RootBridgeSampleDevice.json](https://aka.ms/iot-pnp-bridge-root-model) and save the JSON file to the *models* folder.
 
 ## Download the code
 
@@ -102,9 +103,9 @@ Expect this operation to take several minutes to complete.
 
 ## Setting up the Configuration JSON
 
-After cloning the IoT Plug and Play bridge repo to your machine, navigate to the directory of the cloned repository. For convenience, a sample `config.json` for the environmental sensor can be found [here](https://aka.ms/iot-pnp-bridge-env-config). You can learn more about config files in the IoT Plug and Play bridge concepts document [here](concepts-iot-pnp-bridge.md)
+After cloning the IoT Plug and Play bridge repo to your machine, navigate to the `pnpbridge/docs/schema` directory of the cloned repository where you can find the [configuration JSON](https://aka.ms/iot-pnp-bridge-env-config) or `config.json` for the environmental sensor sample of the bridge. You can learn more about config files in the [IoT Plug and Play bridge concepts document](concepts-iot-pnp-bridge.md).
 
-Modify the folowing parameters under **pnp_bridge_parameters** node in the `config.json` file:
+Modify the following parameters under **pnp_bridge_parameters** node in the `config.json` file in the ':
 
   Using Connection string (Note: the symmetric_key must match the SAS key in the connection string):
 

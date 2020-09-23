@@ -3,7 +3,7 @@ title: IoT Plug and Play bridge | Microsoft Docs
 description: Understand the IoT Plug and Play bridge and how to use it to connect existing devices attached to a Windows or Linux gateway as IoT Plug and Play devices.
 author: usivagna
 ms.author: ugans
-ms.date: 08/23/2020
+ms.date: 09/22/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
@@ -14,9 +14,13 @@ ms.custom: mvc
 
 # IoT Plug and Play bridge
 
-The IoT Plug and Play bridge is an open-source application for connecting existing devices attached to Windows or Linux gateway as IoT Plug and Play devices. After installing and configuring the application on your local machine, you can use it to connect attached devices to an IoT Hub. You can use the bridge to map IoT Plug and Play interfaces to the telemetry the attached devices are sending, work with device properties, and invoke commands.
+The IoT Plug and Play bridge is an open-source application for connecting existing devices attached to Windows or Linux gateway as IoT Plug and Play devices. After installing and configuring the application on your local machine, you can use it to connect attached devices to an IoT hub. You can use the bridge to map IoT Plug and Play interfaces to the telemetry the attached devices are sending, work with device properties, and invoke commands.
+
+:::image type="content" source="media/concepts-iot-pnp-bridge/iot-pnp-bridge-high-level.png" alt-text="On the left hand side there are a couple of existing sensors attached (both wired and wireless) to a Windows or Linux PC containing IoT Plug and Play bridge. The IoT Plug and Play bridge then connects to an IoT hub on the right side":::
 
 IoT Plug and Play bridge can be deployed as a standalone executable on any IoT device, industrial PC, server, or gateway running Windows 10 or Linux. It can also be compiled into your application code. A simple configuration JSON file tells the IoT Plug and Play bridge which attached devices/peripherals should be exposed up to Azure.
+
+## Supported Protocols and Sensors
 
 IoT Plug and Play bridge supports the following types of peripherals by default, with links to the adapter documentation:
 
@@ -51,7 +55,7 @@ The following OS platforms and versions are supported:
 
 ### Development Environment
 
-To build, extend, and develop the IoT Plug and Play  
+To build, extend, and develop the IoT Plug and Play bridge you'll need:  
 
 - A development environment that supports compiling C++ such as: [Visual Studio (Community, Professional, or Enterprise)](https://visualstudio.microsoft.com/downloads/)- make sure that you include the Desktop Development with C++ workload when you install Visual Studio.
 - [CMake](https://cmake.org/download/) - when you install CMake, select the option `Add CMake to the system PATH`.
@@ -60,14 +64,14 @@ To build, extend, and develop the IoT Plug and Play
 
 ### Azure IoT Products and Tools
 
-- **Azure IoT Hub** - You'll need an [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/) in your Azure subscription to connect your device to. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin. If you don't have an IoT Hub, [follow these instructions to create one](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-using-cli).
+- **Azure IoT Hub** - You'll need an [Azure IoT hub](https://docs.microsoft.com/azure/iot-hub/) in your Azure subscription to connect your device to. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin. If you don't have an IoT hub, [follow these instructions to create one](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-using-cli).
 
 > [!Note]
-> IoT Plug and Play is currently available on IoT Hubs created in the Central US, North Europe, and East Japan regions. IoT Plug and Play support is not included in basic-tier IoT Hubs. To interact with the your IoT Plug and Play device, you can use the Azure IoT explorer tool. [Download and install the latest release of Azure IoT explorer](./howto-use-iot-explorer.md) for your operating system.
+> IoT Plug and Play is currently available on IoT hubs created in the Central US, North Europe, and East Japan regions. IoT Plug and Play support is not included in basic-tier IoT hubs. To interact with the your IoT Plug and Play device, you can use the Azure IoT explorer tool. [Download and install the latest release of Azure IoT explorer](./howto-use-iot-explorer.md) for your operating system.
 
 ## IoT Plug and Play bridge Architecture
 
-:::image type="content" source="media/concepts-iot-pnp-bridge/iot-pnp-bridge-components.png" alt-text="On the left hand side there are several boxes indicating various peripherals attached to a Windows or Linux PC containing IoT Plug and Play bridge. From the top, a box labelled configuration points toward the bridge. The bridge ":::
+:::image type="content" source="media/concepts-iot-pnp-bridge/iot-pnp-bridge-components.png" alt-text="On the left hand side there are several boxes indicating various peripherals attached to a Windows or Linux PC containing IoT Plug and Play bridge. From the top, a box labelled configuration points toward the bridge. The bridge then connects to an IoT hub on the right side of the diagram.":::
 
 ## Download IoT Plug and Play bridge
 
@@ -81,4 +85,4 @@ Now that you have an overview of the architecture of IoT Plug and Play bridge, t
 
 - [How to use IoT Plug and Play bridge](./howto-use-iot-pnp-bridge.md)
 - [See the GitHub Developer reference for IoT Plug and Play bridge](https://aka.ms/iot-pnp-bridge-dev-doc)
-- [IoT Plug and Play bridge on GitHub](https://aka.ms/bridge)
+- [IoT Plug and Play bridge on GitHub](https://aka.ms/iotplugandplaybridge)
