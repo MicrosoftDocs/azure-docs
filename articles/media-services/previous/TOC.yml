@@ -323,11 +323,12 @@
       items:
       - name: Task preset
         href: indexer-task-preset.md
+  - name: Analyze content
+    items:
     - name: Process with Face Redactor
       href: media-services-face-redaction.md
-      items:
-      - name: Face Redactor walkthrough
-        href: media-services-redactor-walkthrough.md
+    - name: Face Redactor walkthrough
+      href: media-services-redactor-walkthrough.md
   - name: Configure telemetry
     href: media-services-telemetry-overview.md
     items:

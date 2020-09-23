@@ -35,7 +35,7 @@ You must meet the following prerequisites before using the containers:
 
 ## Request approval to run the container
 
-Fill out and submit the [request form](https://aka.ms/cognitivegate) to request approval to run the container. 
+Fill out and submit the [request form](https://aka.ms/csgate) to request approval to run the container. 
 
 [!INCLUDE [Request access to public preview](../../../includes/cognitive-services-containers-request-access.md)]
 

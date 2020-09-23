@@ -43,7 +43,7 @@ Alternately, clicking **+Add 0.0.0.0 - 255.255.255.255** (to the right of option
 
 ## Connecting from Azure
 
-There is an easy way to grant Hyperscale database access to applications hosted on Azure (such as an Azure Web Apps application, or those running in an Azure VM). Simply set the **Allow Azure services and resources to access this server group** option to **Yes** in the portal from the **Networking** pane and hit **Save**.
+There is an easy way to grant Hyperscale (Citus) database access to applications hosted on Azure (such as an Azure Web Apps application, or those running in an Azure VM). Simply set the **Allow Azure services and resources to access this server group** option to **Yes** in the portal from the **Networking** pane and hit **Save**.
 
 > [!IMPORTANT]
 > This option configures the firewall to allow all connections from Azure including connections from the subscriptions of other customers. When selecting this option, make sure your login and user permissions limit access to only authorized users.
