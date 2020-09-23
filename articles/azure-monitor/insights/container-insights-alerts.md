@@ -273,7 +273,7 @@ InsightsMetrics
 
 ## Create an alert rule
 
-Follow these steps to create a log alert in Azure Monitor by using one of the log search rules that was provided earlier. To create using an ARM template, see [Sample Log alert creation using Azure Resource Template](../platform/alerts-log.md#sample-log-alert-creation-using-azure-resource-template).
+Follow these steps to create a log alert in Azure Monitor by using one of the log search rules that was provided earlier. To create using an ARM template, see [Samples of Log alert creation using Azure Resource Template](../platform/alerts-log-create-templates.md).
 
 >[!NOTE]
 >The following procedure to create an alert rule for container resource utilization requires you to switch to a new log alerts API as described in [Switch API preference for log alerts](../platform/alerts-log-api-switch.md).

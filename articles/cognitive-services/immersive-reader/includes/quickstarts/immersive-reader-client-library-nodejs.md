@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/14/2020
 ms.author: nitinme
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 [Immersive Reader](https://www.onenote.com/learningtools) is an inclusively designed tool that implements proven techniques to improve reading comprehension for new readers, language learners, and people with learning differences such as dyslexia. You can use Immersive Reader in your applications to isolate text to improve focus, display pictures for commonly used words, highlight parts of speech, read selected text out loud, translate words and phrases in real-time, and more.
