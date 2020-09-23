@@ -18,7 +18,7 @@ This tutorial is a step-by-step guide through the major feature areas of Azure S
 You will learn to:
 * Provision a Synapse workspace in an Azure subscription
 * Configure access control on an ADLSGEN2 account so that it seamlessly works with the Synapse workspace
-* Load in the NYCTaxi sample data into the Synapse workspace so that it can be used by SQL, SQL on-demand, and Spark
+
 
 
 
