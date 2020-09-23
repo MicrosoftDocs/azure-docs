@@ -57,7 +57,7 @@ In this quickstart, you will need the following values from when you set up your
 
 ### Set ADT Explorer permissions
 
-Next, prepare the Azure Digital Twins instance you created to work with ADT explorer, which is a locally-hosted web application. Visit the [App registrations](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) page in the Azure portal and select the name of your app registration from the list.
+Next, prepare the Azure Digital Twins instance you created to work with ADT Explorer, which is a locally-hosted web application. Visit the [App registrations](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) page in the Azure portal and select the name of your app registration from the list.
 
 Select *Authentication* from the registration's menu, and hit *+ Add a platform*.
 
@@ -104,10 +104,13 @@ Hit the *Sign in* button at the top of the window to configure ADT Explorer to w
 Enter the important information you gathered earlier in the [Prerequisites](#prerequisites) section:
 * Application (client) ID
 * Directory (tenant) ID
-* ADT URL, in the format *https://{instance host name}*
+* Azure Digital Twins instance URL, in the format *https://{instance host name}*
 
 >[!NOTE]
 > You can revisit/edit this information at any time by selecting the same icon to pull up the Sign In box again. It will keep the values that you passed in.
+
+> [!TIP]
+> If a `SignalRService.subscribe` error message is shown when you connect, make sure that your Azure Digital Twins URL begins with *https://*.
 
 If you see a *Permissions requested* pop-up window from Microsoft, grant consent for this application and accept to continue.
 

@@ -131,12 +131,24 @@ wmrBinding->BlitRemoteFrame();
 ### Simulation
 
 `GraphicsApiType.SimD3D11` is the simulation binding and if selected it creates the `GraphicsBindingSimD3d11` graphics binding. This interface is used to simulate head movement, for example in a desktop application and renders a monoscopic image.
+
+To implement the simulation binding, it is important to understand the difference between the local camera and the remote frame as described on the [camera](../overview/features/camera.md) page.
+
+Two cameras are needed:
+
+* **Local camera**: This camera represents the current camera position that is driven by the application logic.
+* **Proxy camera**: This camera matches the current *Remote Frame* that was sent by the server. As there is a time delay between the client requesting a frame and its arrival, the *Remote Frame* is always a bit behind the movement of the local camera.
+
+The basic approach here is that both the remote image and the local content are rendered into an off-screen target using the proxy camera. The proxy image is then reprojected into the local camera space, which is further explained in [late stage reprojection](../overview/features/late-stage-reprojection.md).
+
 The setup is a bit more involved and works as follows:
 
 #### Create proxy render target
 
 Remote and local content needs to be rendered to an offscreen color / depth render target called 'proxy' using
-the proxy camera data provided by the `GraphicsBindingSimD3d11.Update` function. The proxy must match the resolution of the back buffer. Once a session is ready, `GraphicsBindingSimD3d11.InitSimulation` needs to be called before connecting to it:
+the proxy camera data provided by the `GraphicsBindingSimD3d11.Update` function.
+
+The proxy must match the resolution of the back buffer and should be int the *DXGI_FORMAT_R8G8B8A8_UNORM* or *DXGI_FORMAT_B8G8R8A8_UNORM* format. Once a session is ready, `GraphicsBindingSimD3d11.InitSimulation` needs to be called before connecting to it:
 
 ```cs
 AzureSession currentSession = ...;
@@ -239,4 +251,6 @@ else
 
 ## Next steps
 
+* [Camera](../overview/features/camera.md)
+* [Late stage reprojection](../overview/features/late-stage-reprojection.md)
 * [Tutorial: Viewing remotely rendered models](../tutorials/unity/view-remote-models/view-remote-models.md)

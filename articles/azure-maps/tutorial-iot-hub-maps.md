@@ -250,6 +250,7 @@ When your Azure function is running, you can now send telemetry data to the IoT 
     dotnet run
     ```
 
+
   Your local terminal should look like the one below.
 
 :::image type="content" source="./media/tutorial-iot-hub-maps/terminal.png" alt-text="Screenshot of terminal output.":::
@@ -284,6 +285,7 @@ To get a list of devices that are Azure certified for IoT, visit:
 ## Next steps
 
 To learn more about how to send device-to-cloud telemetry, and the other way around, see:
+
 
 > [!div class="nextstepaction"]
 > [Send telemetry from a device](https://docs.microsoft.com/azure/iot-hub/quickstart-send-telemetry-dotnet)

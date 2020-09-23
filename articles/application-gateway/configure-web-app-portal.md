@@ -62,9 +62,9 @@ In this article, you learn how to:
 
 5. Click **OK** to create the HTTP setting.
 
-   ![HTTP-setting1](./media/configure-web-app-portal/http-setting1.png)
+   ![Screenshot shows the Add H T T P setting pane with Use for App service and OK selected.](./media/configure-web-app-portal/http-setting1.png)
 
-   ![HTTP-setting2](./media/configure-web-app-portal/http-setting2.png)
+   ![Screenshot shows a health probe with Pick host name form backend http settings selected.](./media/configure-web-app-portal/http-setting2.png)
 
 
 
@@ -80,7 +80,7 @@ In this article, you learn how to:
 
 5. Click **OK** to save this rule.
 
-   ![Rule](./media/configure-web-app-portal/rule.png)
+   ![Screenshot shows the Add basic rule pane with Listener, Backend pool and H T T P setting highlighted.](./media/configure-web-app-portal/rule.png)
 
 ## Additional configuration in case of redirection to app service's relative path
 

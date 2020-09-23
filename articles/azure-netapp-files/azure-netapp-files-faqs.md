@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/09/2020
+ms.date: 09/22/2020
 ms.author: b-juche
 ---
 # FAQs About Azure NetApp Files
@@ -126,6 +126,12 @@ Azure NetApp Files supports NFSv3 and NFSv4.1. You can [create a volume](azure-n
 ### How do I enable root squashing?
 
 You can specify whether the root account can access the volume or not by using the volume’s export policy. See [Configure export policy for an NFS volume](azure-netapp-files-configure-export-policy.md) for details.
+
+### Can I use the same file path (volume creation token) for multiple volumes?
+
+Yes, you can. However, the file path must be used in either a different subscription or a different region.   
+
+For example, you create a volume called `vol1`. And then you create another volume also called `vol1` in a different capacity pool but in the same subscription and region. In this case, using the same volume name `vol1` will cause an error. To use the same file path, the name must be in a different region or subscription.
 
 ## SMB FAQs
 

@@ -4,7 +4,7 @@ description: Server firewall exceptions required by Application Insights
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 06/18/2020
+ms.date: 09/15/2020
 
 ---
 

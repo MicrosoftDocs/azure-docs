@@ -24,6 +24,8 @@ This tutorial shows you how to build and modify a Blazor Server app. You'll lear
 * Install [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) (Version >= 16.3)
 > Visual Studio 2019 Preview version also works which is releasing with latest Blazor Server app template targeting newer .Net Core version.
 
+[Having issues? Let us know.](https://aka.ms/asrs/qsblazor)
+
 ## Build a local chat room in Blazor Server app
 
 From Visual Studio 2019 version 16.2.0, Azure SignalR Service is build-in web app publish process, and manage dependencies between web app and SignalR service would be much more convenient. You can experience working on local SignalR in dev local environment and working on Azure SignalR Service for Azure App Service at the same time without any code changes.
@@ -349,6 +351,8 @@ From Visual Studio 2019 version 16.2.0, Azure SignalR Service is build-in web ap
 1. Click <kbd>F5</kbd> to run the app. You'll be able to chat like below.
 
    [ ![blazor-chat](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat.gif) ](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat.gif#lightbox)
+   
+[Having issues? Let us know.](https://aka.ms/asrs/qsblazor)
 
 ## Publish to Azure
 
@@ -392,6 +396,8 @@ From Visual Studio 2019 version 16.2.0, Azure SignalR Service is build-in web ap
    > Besides, you can use browser debugger mode with <kbd>F12</kbd> to validate the traffic has already redirect to Azure SignalR Service.
 
    [ ![blazor-chat-azure](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-azure.png) ](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-azure.png#lightbox)
+   
+[Having issues? Let us know.](https://aka.ms/asrs/qsblazor)
 
 ## Further topic: Enable Azure SignalR Service in local development
 
@@ -435,6 +441,8 @@ From Visual Studio 2019 version 16.2.0, Azure SignalR Service is build-in web ap
 >        "ASPNETCORE_HOSTINGSTARTUPASSEMBLIES": "Microsoft.Azure.SignalR"
 >      }
 >    ```
+
+[Having issues? Let us know.](https://aka.ms/asrs/qsblazor)
 
 ## Clean up resources
 

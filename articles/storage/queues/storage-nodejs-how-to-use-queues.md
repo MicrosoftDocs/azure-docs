@@ -9,7 +9,7 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.custom: seo-javascript-september2019, devx-track-javascript
+ms.custom: seo-javascript-september2019, devx-track-js
 ---
 
 # How to use Azure Queue storage from Node.js

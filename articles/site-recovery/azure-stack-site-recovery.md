@@ -30,7 +30,7 @@ With these steps complete, you can then run a full failover to Azure as and when
 
 ## Architecture
 
-![Architecture](./media/azure-stack-site-recovery/architecture.png)
+![Diagram shows Recovery Services vaults for two tenants in clouds associated with tenant subscriptions both on a common Azure Stack infrastructure.](./media/azure-stack-site-recovery/architecture.png)
 
 **Location** | **Component** |**Details**
 --- | --- | ---

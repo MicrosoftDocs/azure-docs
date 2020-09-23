@@ -64,6 +64,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 Select resources you want to move.
 
 - All supported resource types in resource groups within the selected source region are displayed.
+- Resources that have already been added for moving across regions aren't shown.
 - You move resources to a target region in the same subscription as the source region. If you want to change the subscription, you can do that after the resources are moved.
 
 1. In the Azure portal, search for *resource mover*. Then, under **Services**, select **Azure Resource Mover**.
@@ -85,7 +86,7 @@ Select resources you want to move.
     ![Page to select VMs to move](./media/tutorial-move-region-virtual-machines/select-vm.png)
 
 8.  In **Resources to move**, click **Next**.
-9. In **Review + Add**, check the source and destination settings. Verify that you understand that metadata about the move will be stored in a resource group created for this purpose in the metadata region.
+9. In **Review + Add**, check the source and destination settings. 
 
     ![Page to review settings and proceed with move](./media/tutorial-move-region-virtual-machines/review.png)
 10. Click **Proceed**, to begin adding the resources.
@@ -230,7 +231,8 @@ If you want to complete the move process, commit the move.
 
 ## Configure settings after the move
 
-The Mobility service isn't uninstalled automatically from VMs. Uninstall it manually, or leave it if you plan to move the server again.
+- The Mobility service isn't uninstalled automatically from VMs. Uninstall it manually, or leave it if you plan to move the server again.
+- Modify Azure role-based access control (Azure RBAC) rules after the move.
 
 ## Delete source resources after commit
 

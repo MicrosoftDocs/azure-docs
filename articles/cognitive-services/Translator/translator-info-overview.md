@@ -10,6 +10,7 @@ ms.subservice: translator-text
 ms.topic: overview
 ms.date: 09/11/2020
 ms.author: swmachan
+ms.custom: cog-serv-seo-aug-2020
 keywords: translator, text translation, machine translation, translation service
 ---
 
