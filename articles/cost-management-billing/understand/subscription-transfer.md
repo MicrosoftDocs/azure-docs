@@ -109,7 +109,7 @@ While accepting the transfer request, you can select an existing payment method 
 
 ## Transfer Enterprise Agreement subscription ownership
 
-The Enterprise Administrator can update account ownership for any account, even after an original account owner is no longer part of the organization. For more information about transferring Azure Enterprise Agreement accounts, see [Azure Enterprise transfers](../manage/ea-transfers.md)
+The Enterprise Administrator can update account ownership for any account, even after an original account owner is no longer part of the organization. For more information about transferring Azure Enterprise Agreement accounts, see [Azure Enterprise transfers](../manage/ea-transfers.md).
 
 ## Need help? Contact us.
 
