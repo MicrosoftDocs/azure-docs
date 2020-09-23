@@ -34,6 +34,7 @@ The following table describes the features of Recovery Services vaults:
 **Move vaults** | You can [move vaults](./backup-azure-move-recovery-services-vault.md) across subscriptions or between resource groups in the same subscription. However, moving vaults across regions isn't supported.
 **Move data between vaults** | Moving backed-up data between vaults isn't supported.
 **Modify vault storage type** | You can modify the storage replication type (either geo-redundant storage or locally redundant storage) for a vault before backups are stored. After backups begin in the vault, the replication type can't be modified.
+**Zone-redundant storage (ZRS)** | Available in the UK South (UKS) and South East Asia (SEA) regions.
 
 ## On-premises backup support
 
