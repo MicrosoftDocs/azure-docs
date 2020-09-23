@@ -29,7 +29,7 @@ Roles such as [Owner](https://docs.microsoft.com/azure/role-based-access-control
 
 ## Access control lists (ACLs)
 
-ACLs give you the ability to apply "finer grain" level of access to directories and files. An ACL is a permission construct that contains a series of ACL entries. Each ACL entry associates security principal with an access level.  To learn more, see [Access control lists (ACLs) in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
+ACLs give you the ability to apply "finer grain" level of access to directories and files. An *ACL* is a permission construct that contains a series of *ACL entries*. Each ACL entry associates security principal with an access level.  To learn more, see [Access control lists (ACLs) in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
 
 ## How permissions are evaluated
 
@@ -44,7 +44,7 @@ During security principal-based authorization, permissions are evaluated in the 
 > [!div class="mx-imgBorder"]
 > ![data lake storage permission flow](./media/control-access-permissions-data-lake-storage/data-lake-storage-permissions-flow.png)
 
-Based on this model, choose RBAC roles that provide the minimal level of required access, and then use ACLs to grant **elevated** access permissions to directories and files. Because of the way that access permissions are evaluated by the system, you **cannot** use an ACL to **restrict** access that has already been granted by a role assignment. The system evaluates RBAC role assignments before it evaluates ACLs. If the assignment grants sufficient access permission, ACLs are ignored. 
+Based on this model, you should choose RBAC roles that provide only the minimal level of required access, and then use ACLs to grant **elevated** access permissions to directories and files. Because of the way that access permissions are evaluated by the system, you **cannot** use an ACL to **restrict** access that has already been granted by a role assignment. That's because the system evaluates RBAC role assignments first, and if the assignment grants sufficient access permission, ACLs are ignored. 
 
 The following diagram shows the permission flow for three common operations: listing directory contents, reading a file, and writing a file.
 
@@ -87,31 +87,14 @@ This table shows a column that represents each level of a fictitious directory h
 |                          |   Storage Blob Data Reader       |   `---`       |   `---`       |  `---`      | `---`      |
 |                          |   None                           |   `--X`       |   `--X`       |  `R-X`      | `---`      |
 
-## Permissions required to use Azure Storage Explorer
 
-To view the contents of a container, security principals must (at a minimum) have read access (R--) to the root folder (`\`) of a container. This level of permission does give the security principal the ability to list the contents of the root folder. Alternatively, you can assign them [Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) role. With that role, the security principal can connect to the account by using Storage Explorer. They'll be able to see the containers in the account, but not container contents. You can then grant access to specific directories and files by using ACLs.   
+> [!NOTE] To view the contents of a container in Azure Storage Explorer, security principals must (at a minimum) have read access (R--) to the root folder (`\`) of a container. This level of permission does give them the ability to list the contents of the root folder. If you don't want the contents of the root folder to be visible, you can assign them [Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) role. With that role, they'll be able to list the containers in the account, but not container contents. You can then grant access to specific directories and files by using ACLs.   
 
-## Best practices
+### Security groups
 
-### Use security groups
-
-In general, you should assign permissions to [groups](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups) and not individual users or service principals. There's a few reasons for this:
-
-First, using groups reduces the risk of exceeding the number of allowed RBAC role assignments in a subscription. For the latest information about those limits, see [Role assignments](https://docs.microsoft.com/azure/role-based-access-control/overview#role-assignments). Also, for each directory or file, there's a limit of **32** ACL entries. After the four default entries, that leaves only **28** remaining for permission assignments. If you have to provide access to more than **28** named users, you'll exceed the number of allowed entries. 
-
-If you group security principals together, you can change the access level of multiple security principals by changing only one ACL entry. It's also far easier to add and remove users and service principals. You can do so without the need to reapply ACLs to an entire directory structure. Instead, you simply need to add or remove them from the appropriate Azure AD security group. Keep in mind that ACLs are not inherited and so reapplying ACLs requires updating the ACL on every file and subdirectory. 
-
-Decide how best to group users, service principals, and managed identities. Some recommended groups to start with might be **ReadOnlyUsers**, **WriteAccessUsers**, and **FullAccessUsers** for the root of the container, and even separate ones for key subdirectories. If there are any other anticipated groups of users that might be added later, but have not been identified yet, you might consider creating dummy security groups that have access to certain folders. Using security group ensures that you can avoid long processing time when assigning new permissions to thousands of files.
-
-Something here about how you can nest groups by adding groups to other groups.
+In general, you should assign permissions to [groups](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups) and not individual users or service principals. That way, you're less likely to exceed the maximum number of role assignments per subscription and the maximum number of ACl entries per file or directory. Currently, the maximum number of role assignments is 2000 and the maximum number of ACLs per item is **32**. After the four default ACL entries, that leaves only **28** remaining for permission assignments. It's also easier to add and remove users and service principals because you only have to remove them from a group instead of having to remove an ACL entry from all ACLs in a directory structure.
 
 To create a group and add members, see [Create a basic group and add members using Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal).
-
-### Correctly identify service principals
-
-If you plan to grant permission to a [service principal](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object) or add a service principal to a group, it's important to use the object ID of the service principal and not the object ID of the related app registration. 
-
-To get the object ID of the service principal open the Azure CLI, and then use this command: `az ad sp show --id <your-app-id> --query objectId`. Make sure to replace the `<your-app-id>` placeholder with the App ID of your app registration.
 
 ## Next steps
 

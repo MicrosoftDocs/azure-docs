@@ -85,7 +85,8 @@ The following table shows you the ACL entries required to enable a security prin
 
 This table shows a column that represents each level of a fictitious directory hierarchy. There's a column for the root directory of the container (`\`), a subdirectory named **Oregon**, a subdirectory of the Oregon directory named **Portland**, and a text file in the Portland directory named **Data.txt**. 
 
-This table assumes that you are granting access to a security principal by using **only** ACLs without any RBAC role assignments. 
+> [!IMPORANT] 
+> This table assumes that you are using **only** ACLs without any RBAC role assignments. To see a similar table that combines RBAC together with ACLs, see [Permissions table: Combining RBAC and ACL](data-lake-storage-access-control-model.md#permissions-table-combining-rbac-and-acl).
 
 |    Operation             |    /    | Oregon/ | Portland/ | Data.txt     |
 |--------------------------|---------|----------|-----------|--------------|
@@ -96,8 +97,6 @@ This table assumes that you are granting access to a security principal by using
 | List /                   |   `R-X`   |   `---`    |  `---`      | `---`          |
 | List /Oregon/           |   `--X`   |   `R-X`    |  `---`      | `---`          |
 | List /Oregon/Portland/  |   `--X`   |   `--X`    |  `R-X`      | `---`          |
-
-To see a similar table that combines RBAC together with ACLs, see [Combining RBAC and ACL](data-lake-storage-access-control-model.md#permissions-table-combining-rbac-and-acl).
 
 > [!NOTE]
 > Write permissions on the file are not required to delete it, so long as the previous two conditions are true.
