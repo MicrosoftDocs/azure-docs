@@ -8,7 +8,7 @@ ms.topic: sample
 ms.date: 07/23/2020
 author: sakash279
 ms.author: akshanka
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 # How to use Azure Table storage or the Azure Cosmos DB Table API from Node.js
 
