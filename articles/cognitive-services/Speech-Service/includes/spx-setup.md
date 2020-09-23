@@ -9,7 +9,7 @@ ms.author: v-demjoh
 
 ## Prerequisites
 
-The only prerequisite is an Azure Speech subscription. See the [guide](../get-started.md#new-resource) on creating a new subscription if you don't already have one.
+This article assumes that you have an Azure account and Speech service subscription. If you don't have an account and subscription, [try the Speech service for free](../../../get-started.md).
 
 ## Download and install
 
