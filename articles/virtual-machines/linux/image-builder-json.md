@@ -90,7 +90,7 @@ By default, Image Builder will not change the size of the image, it will use the
 ```
 
 ## vnetConfig
-If you do not specify any VNET properties, then Image Builder will create its own VNET, Public IP, and NSG. The Public IP is used for the service to communicate with the build VM, however if you do not want a Public IP or want Image Builder to have access to your existing VNET resources, such as configuration servers (DSC, Chef, Puppet, Ansible), file shares etc., then you can specify a VNET. For more information, review the [networking documentation](https://github.com/danielsollondon/azvmimagebuilder/blob/master/aibNetworking.md#networking-with-azure-vm-image-builder), this is optional.
+If you do not specify any VNET properties, then Image Builder will create its own VNET, Public IP, and NSG. The Public IP is used for the service to communicate with the build VM, however if you do not want a Public IP or want Image Builder to have access to your existing VNET resources, such as configuration servers (DSC, Chef, Puppet, Ansible), file shares etc., then you can specify a VNET. For more information, review the [networking documentation](image-builder-networking.md), this is optional.
 
 ```json
     "vnetConfig": {
@@ -114,7 +114,7 @@ For more information, see [Define resource dependencies](../../azure-resource-ma
 
 ## Identity
 
-Required - For Image Builder to have permissions to read/write images, read in scripts from Azure Storage you must create an Azure User-Assigned Identity, that has permissions to the individual resources. For details on how Image Builder permissions work, and relevant steps, please review the [documentation](https://github.com/danielsollondon/azvmimagebuilder/blob/master/aibPermissions.md#azure-vm-image-builder-permissions-explained-and-requirements).
+Required - For Image Builder to have permissions to read/write images, read in scripts from Azure Storage you must create an Azure User-Assigned Identity, that has permissions to the individual resources. For details on how Image Builder permissions work, and relevant steps, please review the [documentation](image-builder-user-assigned-identity.md).
 
 
 ```json

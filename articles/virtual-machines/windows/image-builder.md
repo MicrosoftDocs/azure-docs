@@ -156,7 +156,7 @@ vi helloImageTemplateWin.json
 ```
 
 > [!NOTE]
-> For the source image, you must always [specify a version](../linux/image-builder-troubleshoot.md#image-version-failure), you cannot use `latest`.
+> For the source image, you must always [specify a version](../linux/image-builder-troubleshoot.md#build--step-failed-for-image-version), you cannot use `latest`.
 > If you add or change the resource group where the image is distributed to, you must make the [permissions are set](#create-a-user-assigned-identity-and-set-permissions-on-the-resource-group) on the resource group.
  
 ## Create the image
@@ -203,7 +203,7 @@ az resource invoke-action \
 
 Wait until the build is complete. This can take about 15 minutes.
 
-If you encounter any errors, please review these [troubleshooting](../linux/image-builder-troubleshoot.md#image-build-errors--troubleshooting) steps.
+If you encounter any errors, please review these [troubleshooting](../linux/image-builder-troubleshoot.md#troubleshoot-common-build-errors) steps.
 
 
 ## Create the VM
