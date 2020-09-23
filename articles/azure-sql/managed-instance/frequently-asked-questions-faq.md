@@ -76,7 +76,7 @@ For new and preview features, see [Release notes](../database/doc-changes-update
 
 **How can I provision SQL Managed Instance?**
 
-You can provision an instance from [Azure portal](instance-create-quickstart.md), [PowerShell](scripts/create-configure-managed-instance-powershell.md), [Azure CLI](https://techcommunity.microsoft.com/t5/azure-sql-database/create-azure-sql-managed-instance-using-azure-cli/ba-p/386281) and [ARM templates](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/creating-azure-sql-managed-instance-using-arm-templates).
+You can provision an instance from [Azure Portal](instance-create-quickstart.md), [PowerShell](scripts/create-configure-managed-instance-powershell.md), [Azure CLI](https://techcommunity.microsoft.com/t5/azure-sql-database/create-azure-sql-managed-instance-using-azure-cli/ba-p/386281) and [ARM templates](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/creating-azure-sql-managed-instance-using-arm-templates).
 
 **Can I provision Managed Instances in an existing subscription?**
 
@@ -320,7 +320,7 @@ Management and deployment services connect to a managed instance by using a [man
 
 **Could I use the public endpoint to access the data in Managed Instance databases?**
 
-Yes. The customer will need to enable public endpoint data access from [Azure portal](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-in-the-azure-portal) / [PowerShell](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-using-powershell) / ARM and configure NSG to lock down access to the data port (port number 3342). For more information, see [Configure public endpoint in Azure SQL Managed Instance](public-endpoint-configure.md) and [Use Azure SQL Managed Instance securely with public endpoint](public-endpoint-overview.md). 
+Yes. The customer will need to enable public endpoint data access from [Azure Portal](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-in-the-azure-portal) / [PowerShell](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-using-powershell) / ARM and configure NSG to lock down access to the data port (port number 3342). For more information, see [Configure public endpoint in Azure SQL Managed Instance](public-endpoint-configure.md) and [Use Azure SQL Managed Instance securely with public endpoint](public-endpoint-overview.md). 
 
 **Can I specify a custom port for SQL data endpoint(s)?**
 
@@ -330,7 +330,7 @@ No, this option is not available.  For private data endpoint, Managed Instance u
 
 Express Route circuit peering is the preferred way to do that. This is not to be mixed with the cross-region virtual network peering that is not supported due to internal load balancer related [constraint](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
 
-If Express Route circuit peering is not possible, the only other option is to create Site-to-Site VPN connection ([Azure portal](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal), [PowerShell](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell), [Azure CLI](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli)).
+If Express Route circuit peering is not possible, the only other option is to create Site-to-Site VPN connection ([Azure Portal](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal), [PowerShell](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell), [Azure CLI](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli)).
 
 ## Mitigate data exfiltration risks  
 
@@ -434,7 +434,7 @@ To explore Managed Instance pricing options, see [Pricing page](https://azure.mi
 
 **How can I track billing cost for my managed instance?**
 
-You can do so using the [Azure Cost Management solution](https://docs.microsoft.com/azure/cost-management-billing/). Navigate to **Subscriptions** in the [Azure portal](https://portal.azure.com) and select **Cost Analysis**. 
+You can do so using the [Azure Cost Management solution](https://docs.microsoft.com/azure/cost-management-billing/). Navigate to **Subscriptions** in the [Azure Portal](https://portal.azure.com) and select **Cost Analysis**. 
 
 Use the **Accumulated costs** option and then filter by the **Resource type** as `microsoft.sql/managedinstances`.
 
@@ -444,7 +444,7 @@ You get the equal amount of free backup storage space as the reserved data stora
 
 **How can I monitor billing cost for my backup storage consumption?**
 
-You can monitor cost for backup storage via Azure portal. For instructions, see [Monitor costs for automated backups](https://docs.microsoft.com/azure/azure-sql/database/automated-backups-overview?tabs=managed-instance#monitor-costs). 
+You can monitor cost for backup storage via Azure Portal. For instructions, see [Monitor costs for automated backups](https://docs.microsoft.com/azure/azure-sql/database/automated-backups-overview?tabs=managed-instance#monitor-costs). 
 
 **How can I optimize my backup storage costs on the managed instance?**
 
