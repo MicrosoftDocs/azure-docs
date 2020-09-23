@@ -63,11 +63,12 @@ A common scenario that makes it easy to sort through blobs of any content type i
 > To learn more about Blob Index, see [Manage and find data on Azure Blob Storage with Blob Index](../storage/blobs/storage-manage-find-blobs.md).
 
 ### Indexing JSON blobs
+
 Indexers can be configured to extract structured content found in blobs that contain JSON. An indexer can read JSON blobs and parse the structured content into the appropriate fields of a search document. Indexers can also take blobs that contain an array of JSON objects and map each element to a separate search document. You can set a parsing mode to affect the type of JSON object created by the indexer.
 
 ## Search blob content in a search index 
 
-The output of an indexing is a search index, used for interactive exploration using free text and filtered queries in a client app. For initial exploration and verification of content, we recommend starting with [Search Explorer](search-explorer.md) in the portal to examine document structure. You can use [simple query syntax](query-simple-syntax.md), [full query syntax](query-lucene-syntax.md), and [filter expression syntax](query-odata-filter-orderby-syntax.md) in Search explorer.
+The output of an indexer is a search index, used for interactive exploration using free text and filtered queries in a client app. For initial exploration and verification of content, we recommend starting with [Search Explorer](search-explorer.md) in the portal to examine document structure. You can use [simple query syntax](query-simple-syntax.md), [full query syntax](query-lucene-syntax.md), and [filter expression syntax](query-odata-filter-orderby-syntax.md) in Search explorer.
 
 A more permanent solution is to gather query inputs and present the response as search results in a client application. The following C# tutorial explains how to build a search application: [Create your first application in Azure Cognitive Search](tutorial-csharp-create-first-app.md).
 

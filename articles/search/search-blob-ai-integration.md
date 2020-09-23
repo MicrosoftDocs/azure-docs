@@ -32,7 +32,7 @@ In this article, we view AI enrichment through a wide lens so that you can quick
 
 Inputs are your blobs, in a single container, in Azure Blob storage. Blobs can be almost any kind of text or image data. 
 
-Output is always a search index, used for fast text search, retrieval, and exploration in client applications. Additionally, output can also be a *knowledge store* that projects enriched documents into Azure blobs or Azure tables for downstream analysis in tools like Power BI or in data science workloads.
+Output is always a search index, used for fast text search, retrieval, and exploration in client applications. Additionally, output can also be a [*knowledge store*](knowledge-store-concept-intro.md) that projects enriched documents into Azure blobs or Azure tables for downstream analysis in tools like Power BI or in data science workloads.
 
 In between is the pipeline architecture itself. The pipeline is based on the *indexer* feature, to which you can assign a *skillset*, which is composed of one or more *skills* providing the AI. The purpose of the pipeline is to produce *enriched documents* that enter as raw content but pick up additional structure, context, and information while moving through the pipeline. Enriched documents are consumed during indexing to create inverted indexes and other structures used in full text search or exploration and analytics.
 
