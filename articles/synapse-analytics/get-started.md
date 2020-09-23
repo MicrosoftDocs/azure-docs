@@ -21,7 +21,7 @@ You will learn to:
 * Load in the NYCTaxi sample data into the Synapse workspace so that it can be used by SQL, SQL on-demand, and Spark
 * Edit and run SQL scripts and Synapse Notebooks using Synapse Studio
 * Query SQL tables and Spark tables
-* Load data from SQL tables into Spark dataframes
+
 
 
 Follow the steps *in order* as shown below and you'll take a tour through many of the capabilities and learn how to exercise its core features.
