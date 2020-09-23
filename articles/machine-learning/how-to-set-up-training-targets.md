@@ -8,24 +8,24 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 08/28/2020
+ms.date: 09/25/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
 ---
 
-# Configure a training run
+# Configure and submit training runs
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this article, you learn how to configure and submit Azure Machine Learning runs train your models.
+In this article, you learn how to configure and submit Azure Machine Learning runs to train your models.
 
-When training, it is common to start on your local computer, and later run that training script on a different compute target. With Azure Machine Learning, you can run your script on various compute targets without having to change your training script.
+When training, it is common to start on your local computer, and then later scale out to a cloud-based cluster. With Azure Machine Learning, you can run your script on various compute targets without having to change your training script.
 
 All you need to do is define the environment for each compute target within a **script run configuration**.  Then, when you want to run your training experiment on a different compute target, specify the run configuration for that compute.
 
 ## Prerequisites
 * If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today
-* The [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)
+* The [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true) (>= 1.13.0)
 * An [Azure Machine Learning workspace](how-to-manage-workspace.md), `ws`
 * A compute target, `my_compute_target`.  Create a compute target with:
   * [Python SDK](how-to-create-attach-compute-sdk.md) 
@@ -76,7 +76,7 @@ Select the compute target where your training script will run on. If no compute 
 The example code in this article assumes that you have already created a compute target `my_compute_target` from the "Prerequisites" section.
 
 ## Create an environment
-Azure Machine Learning [environments](concept-environments.md) are an encapsulation of the environment where your machine learning training happens. They specify the Python packages, Docker image, environment variables, and software settings around your training and scoring scripts. They also specify run times (Python, Spark, or Docker).
+Azure Machine Learning [environments](concept-environments.md) are an encapsulation of the environment where your machine learning training happens. They specify the Python packages, Docker image, environment variables, and software settings around your training and scoring scripts. They also specify runtimes (Python, Spark, or Docker).
 
 You can either define your own environment, or use an Azure ML curated environment. [Curated environments](https://docs.microsoft.com/azure/machine-learning/how-to-use-environments#use-a-curated-environment) are predefined environments that are available in your workspace by default. These environments are backed by cached Docker images which reduces the run preparation cost. See [Azure Machine Learning Curated Environments](https://docs.microsoft.com/azure/machine-learning/resource-curated-environments) for the full list of available curated environments.
 
@@ -124,11 +124,8 @@ If you have command-line arguments you want to pass to your training script, you
 
 If you want to override the default maximum time allowed for the run, you can do so via the **`max_run_duration_seconds`** parameter. The system will attempt to automatically cancel the run if it takes longer than this value.
 
-### (Optional) Specify Docker runtime configurations
-If you want to specify additional Docker runtime configurations such as extra argument to pass to the Docker run command or shm_size, you can do so by creating a [DockerConfiguration]() object and passing it to the **`docker_runtime_config`** parameter.
-
-### (Optional) Specify a distributed job configuration
-If you want to run a distributed training job, you can provide the distributed job-specific config to the **`distributed_job_config`** parameter. Supported config types include [MpiConfiguration](), [TensorflowConfiguration]() and [PyTorchConfiguration](). 
+### Specify a distributed job configuration
+If you want to run a distributed training job, provide the distributed job-specific config to the **`distributed_job_config`** parameter. Supported config types include [MpiConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?view=azure-ml-py&preserve-view=true), [TensorflowConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration?view=azure-ml-py&preserve-view=true). 
 
 For more information and examples on running distributed Horovod, TensorFlow and PyTorch jobs, see:
 
