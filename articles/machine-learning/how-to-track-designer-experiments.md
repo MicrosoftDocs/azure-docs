@@ -1,5 +1,5 @@
 ---
-title: Log metrics in the designer (preview)
+title: Log metrics in the designer
 titleSuffix: Azure Machine Learning
 description: Monitor your Azure ML designer experiments. Enable logging using the Execute Python Script module and view the logged results in the studio.
 services: machine-learning
@@ -13,8 +13,8 @@ ms.topic: conceptual
 ms.custom: how-to
 ---
 
-# Enable logging in Azure Machine Learning designer (preview) pipelines
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+# Enable logging in Azure Machine Learning designer pipelines
+
 
 In this article, you learn how to add logging code to designer pipelines. You also learn how to view those logs using the Azure Machine Learning studio web portal.
 
@@ -73,5 +73,6 @@ After the pipeline run completes, you can see the *Mean_Absolute_Error* in the E
 
 In this article, you learned how to use logs in the designer. For next steps, see these related articles:
 
-* Learn how to troubleshoot designer pipelines, see [Debug & troubleshoot ML pipelines](how-to-debug-pipelines.md#logging-in-azure-machine-learning-designer-preview).
+
+* Learn how to troubleshoot designer pipelines, see [Debug & troubleshoot ML pipelines](how-to-debug-pipelines.md#azure-machine-learning-designer).
 * Learn how to use the Python SDK to log metrics in the SDK authoring experience, see [Enable logging in Azure ML training runs](how-to-track-experiments.md).

@@ -8,7 +8,7 @@ ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 09/04/2020
 ms.subservice: blobs
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 
 ---
 

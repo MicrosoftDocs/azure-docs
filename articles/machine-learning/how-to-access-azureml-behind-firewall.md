@@ -28,6 +28,10 @@ On your firewall, create an _application rule_ allowing traffic to and from the 
 >
 > For more information on configuring Azure Firewall, see [Deploy and configure Azure Firewall](../firewall/tutorial-firewall-deploy-portal.md#configure-an-application-rule).
 
+## Routes
+
+When configuring the outbound route for the subnet that contains Azure Machine Learning resources, use the guidance in the [forced tunneling](how-to-secure-training-vnet.md#forced-tunneling) section for securing the training environment.
+
 ## Microsoft hosts
 
 If not configured correctly, the firewall can cause problems using your workspace. There are a variety of host names that are used both by the Azure Machine Learning workspace.
@@ -36,6 +40,8 @@ The hosts in this section are owned by Microsoft, and provide services required 
 
 | **Host name** | **Purpose** |
 | ---- | ---- |
+| **login.microsoftonline.com** | Authentication |
+| **management.azure.com** | Used to get the workspace information |
 | **\*.batchai.core.windows.net** | Training clusters |
 | **ml.azure.com** | Azure Machine Learning studio |
 | **default.exp-tas.com** | Used by the Azure Machine Learning studio |
@@ -54,13 +60,16 @@ The hosts in this section are owned by Microsoft, and provide services required 
 | **\*.notebooks.azure.net** | Needed by the notebooks in Azure Machine Learning studio. |
 | **graph.windows.net** | Needed for notebooks |
 
+> [!TIP]
+> If you plan on using federated identity, follow the [Best practices for securing Active Directory Federation Services](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs) article.
+
 ## Python hosts
 
 The hosts in this section are used to install Python packages. They are required during development, training, and deployment. 
 
 | **Host name** | **Purpose** |
 | ---- | ---- |
-| **anaconda.com** | Used to install default packages. |
+| **anaconda.com**</br>**\*.anaconda.com** | Used to install default packages. |
 | **\*.anaconda.org** | Used to get repo data. |
 | **pypi.org** | Used to list dependencies from the default index, if any, and the index is not overwritten by user settings. If the index is overwritten, you must also allow **\*.pythonhosted.org**. |
 

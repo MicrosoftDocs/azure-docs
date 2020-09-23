@@ -92,8 +92,12 @@
       href: vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md
     - name: Connect to multiple policy-based VPN devices
       href: vpn-gateway-connect-multiple-policybased-rm-ps.md
-    - name: Site-to-Site and ExpressRoute coexisting connections
+  - name: Site-to-Site with ExpressRoute connections
+    items:
+    - name: Coexisting connections
       href: ../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
+    - name: VPN over private peering
+      href: site-to-site-vpn-private-peering.md
   - name: VNet-to-VNet connections
     items:
     - name: Configure VNet-to-VNet connections
@@ -134,6 +138,8 @@
         href: point-to-site-how-to-vpn-client-install-azure-cert.md
       - name: Create and install VPN client configuration files
         href: point-to-site-vpn-client-configuration-azure-cert.md
+      - name: Session management
+        href: p2s-session-management.md
     - name: RADIUS authentication
       items:
       - name: Configure a P2S VPN
@@ -178,6 +184,8 @@
     items:
     - name: Configure BGP for a VPN gateway
       items:
+      - name: Azure portal
+        href: bgp-howto.md
       - name: Azure PowerShell
         href: vpn-gateway-bgp-resource-manager-ps.md
       - name: Azure CLI
@@ -221,7 +229,9 @@
     - name: Create a zone-redundant gateway
       href: create-zone-redundant-vnet-gateway.md
   - name: Configure IPsec/IKE policies on connections
-    items: 
+    items:
+    - name: Azure portal
+      href: ipsec-ike-policy-howto.md 
     - name: PowerShell
       href: vpn-gateway-ipsecikepolicy-rm-powershell.md
   - name: Configure active-active connections
