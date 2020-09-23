@@ -27,7 +27,6 @@ Managed identities for Azure resources is a feature of Azure Active Directory (A
 
 - You don't need to manage any credentials." Storing credentials in code is a specific case and assumes you have access to the credentials. Customer don't even have access to the credentials.
 - You can use managed identities to authenticate to any Azure service that supports Azure AD authentication including Azure Key Vault.
-- You don't need to worry about changing passwords because credential rotation is handled automatically by Azure. 
 - Managed identities can be used without any additional cost.
 
 > [!NOTE]
