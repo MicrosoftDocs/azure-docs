@@ -102,7 +102,9 @@ Using Microsoft.Identity.Web, if you want your web API to call downstream web AP
    }
    ```
 
-2. If you want to call Microsoft Graph, Microsoft.Identity.Web enables you to directly use the `GraphServiceClient` (exposed by the Microsoft Graph SDK) in your API actions. To expose Microsoft Graph, you need to add `.AddMicrosoftGraph()` after `.EnableTokenAcquisitionToCallDownstreamApi()`. `.AddMicrosoftGraph()` has several overrides. Using the override taking a configuration section, the code becomes:
+2. If you want to call Microsoft Graph, Microsoft.Identity.Web enables you to directly use the `GraphServiceClient` (exposed by the Microsoft Graph SDK) in your API actions. To expose Microsoft Graph, you need to:
+   - add the `Microsoft.Identity.Web.MicrosoftGraph` NuGet package to your project
+   - add `.AddMicrosoftGraph()` after `.EnableTokenAcquisitionToCallDownstreamApi()` in the **Startup.cs** file. `.AddMicrosoftGraph()` has several overrides. Using the override taking a configuration section, the code becomes:
 
    ```csharp
    using Microsoft.Identity.Web;
