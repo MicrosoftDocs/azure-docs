@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Use your own data"
 titleSuffix: Azure Machine Learning
-description: Part 4 of the Azure ML Get Started series shows how to use your own data in a remote training run.
+description: Part 4 of the Azure Machine Learning get-started series shows how to use your own data in a remote training run.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -13,31 +13,31 @@ ms.date: 09/15/2020
 ms.custom: tracking-python
 ---
 
-# Tutorial: Use your own data (Part 4 of 4)
+# Tutorial: Use your own data (part 4 of 4)
 
 This tutorial shows you how to upload and use your own data to train machine learning models in Azure Machine Learning.
 
-This tutorial is **part four of a four-part tutorial series** in which you learn the fundamentals of Azure Machine Learning and complete jobs-based machine learning tasks in Azure. This tutorial builds off the work you completed in [Part 1: Set up](tutorial-1st-experiment-sdk-setup-local.md), [Part 2: Run "Hello World"](tutorial-1st-experiment-hello-world.md), and [Part 3: Train a model](tutorial-1st-experiment-sdk-train.md).
+This tutorial is *part 4 of a four-part tutorial series* in which you learn the fundamentals of Azure Machine Learning and complete jobs-based machine learning tasks in Azure. This tutorial builds on the work you completed in [Part 1: Set up](tutorial-1st-experiment-sdk-setup-local.md), [Part 2: Run "Hello World!"](tutorial-1st-experiment-hello-world.md), and [Part 3: Train a model](tutorial-1st-experiment-sdk-train.md).
 
-In [Part 3: Train a model](tutorial-1st-experiment-sdk-train.md), data was downloaded using the inbuilt `torchvision.datasets.CIFAR10` method in the PyTorch API. However, in many cases you are going to want to use your own data in a remote training run. This article shows the workflow you can use to work with your own data in Azure Machine Learning.
+In [Part 3: Train a model](tutorial-1st-experiment-sdk-train.md), data was downloaded using the inbuilt `torchvision.datasets.CIFAR10` method in the PyTorch API. However, in many cases you are going to want to use your own data in a remote training run. This article shows the workflow that you can use to work with your own data in Azure Machine Learning.
 
 In this tutorial, you:
 
 > [!div class="checklist"]
-> * Configure training script to use data in a local directory
-> * Test the training script locally
-> * Upload data to Azure
-> * Create control script
-> * Understand the new Azure Machine Learning concepts (passing parameters, Datasets, Datastores)
-> * Submit and run your training script
-> * View your code output in the cloud
+> * Configure training script to use data in a local directory.
+> * Test the training script locally.
+> * Upload data to Azure.
+> * Create control script.
+> * Understand the new Azure Machine Learning concepts (passing parameters, datasets, datastores).
+> * Submit and run your training script.
+> * View your code output in the cloud.
 
 ## Prerequisites
 
-* Complete [Part 3](tutorial-1st-experiment-sdk-train.md) of the series.
+* Complete [part 3](tutorial-1st-experiment-sdk-train.md) of the series.
 * Introductory knowledge of the Python language and machine learning workflows.
-* Local development environment. This includes but is not limited to Visual Studio Code, Jupyter or PyCharm.
-* Python (version 3.5-3.7).
+* Local development environment, such as Visual Studio Code, Jupyter, or PyCharm.
+* Python (version 3.5 to 3.7).
 
 ## Adjust the training script
 By now you have your training script (tutorial/src/train.py) running in Azure Machine Learning, and can monitor the model performance. Let's parametrize the training script by introducing arguments. Using arguments will allow you to easily compare different hyperparmeters.
@@ -125,7 +125,7 @@ if __name__ == "__main__":
 
 ### Understanding the code changes
 
-The code used in `train.py` has leveraged the `argparse` library to set up the `data_path`, `learning_rate`, and `momentum`.
+The code used in `train.py` has used the `argparse` library to set up the `data_path`, `learning_rate`, and `momentum`.
 
 ```python
 # .... other code
@@ -137,7 +137,7 @@ args = parser.parse_args()
 # ... other code
 ```
 
-Also the `train.py` script was adapted to update the optimizer to use the user-defined parameters:
+Also, the `train.py` script was adapted to update the optimizer to use the user-defined parameters:
 
 ```python
 optimizer = optim.SGD(
@@ -168,8 +168,7 @@ tutorial
 └──04-run-pytorch.py
 ```
 
-If you did not run `train.py` locally in the previous tutorial, you won't have the `data/` directory. In this case, run the `torchvision.datasets.CIFAR10` method locally with
-`download=True` in your `train.py` script.
+If you did not run `train.py` locally in the previous tutorial, you won't have the `data/` directory. In this case, run the `torchvision.datasets.CIFAR10` method locally with `download=True` in your `train.py` script.
 
 To run the modified training script locally, call:
 
@@ -177,16 +176,14 @@ To run the modified training script locally, call:
 python src/train.py --data_path ./data --learning_rate 0.003 --momentum 0.92
 ```
 
-You avoid having to download the CIFAR10 dataset by passing in a local path to the
-data. Also you can experiment with different values for _learning rate_ and
-_momentum_ hyperparameters without having to hard-code them in the training script.
+You avoid having to download the CIFAR10 dataset by passing in a local path to the data. Also you can experiment with different values for _learning rate_ and _momentum_ hyperparameters without having to hard-code them in the training script.
 
 ## Upload the data to Azure
 
-In order to run this script in Azure Machine Learning, you need to make your training data available in Azure. Your Azure Machine Learning workspace comes equipped with a _default_ **Datastore** - an Azure Blob storage account - that you can use to store your training data.
+In order to run this script in Azure Machine Learning, you need to make your training data available in Azure. Your Azure Machine Learning workspace comes equipped with a _default_ **Datastore**. This is an Azure Blob storage account where you can store your training data.
 
 >[!NOTE] 
-> Azure Machine Learning allows you to connect other cloud-based datastores that store your data. For more details, see [datastores documentation](./concept-data.md).  
+> Azure Machine Learning allows you to connect other cloud-based datastores that store your data. For more details, see the [datastores documentation](./concept-data.md).  
 
 Create a new Python control script called `05-upload-data.py` in the `tutorial` directory:
 
@@ -203,7 +200,7 @@ The `target_path` specifies the path on the datastore where the CIFAR10 data wil
 >[!TIP] 
 > Whilst you are using Azure Machine Learning to upload the data, you can use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to upload ad-hoc files. If you need an ETL tool, [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction) can be used to ingest your data into Azure.
 
-Run the Python file to upload the data (Note: The upload should be quick, less than 60 seconds.)
+Run the Python file to upload the data (The upload should be quick, less than 60 seconds.)
 
 ```bash
 python 05-upload-data.py
@@ -270,7 +267,7 @@ The control script is similar to the one from [Part 3 of this series](tutorial-1
       `dataset = Dataset.File.from_files( ... )`
    :::column-end:::
    :::column span="2":::
-      A [Dataset](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py&preserve-view=true) is used to reference the data you uploaded to the Azure Blob Store. Datasets are an abstraction layer on top of your data that are designed to improve reliability and trustworthiness.
+      A [Dataset](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py&preserve-view=true) is used to reference the data you uploaded to the Azure blob store. Datasets are an abstraction layer on top of your data that are designed to improve reliability and trustworthiness.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -290,11 +287,11 @@ Now resubmit the run to use the new configuration:
 python 06-run-pytorch-data.py
 ```
 
-This will print a URL to the Experiment in Azure Machine Learning Studio. If you navigate to that link you will be able to see your code running.
+This will print a URL to the experiment in Azure Machine Learning Studio. If you go to that link, you'll be able to see your code running.
 
 ### Inspect the 70_driver_log log file
 
-In the Azure Machine Learning studio navigate to the experiment run (by clicking the URL output from the above cell) followed by **Outputs + logs**. Click on the 70_driver_log.txt file - you should see the following output:
+In Azure Machine Learning Studio, go to the experiment run (by selecting the URL output from the above cell) followed by **Outputs + logs**. Select the 70_driver_log.txt file. You should see the following output:
 
 ```txt
 Processing 'input'.
@@ -330,8 +327,8 @@ LIST FILES IN DATA PATH...
 
 Notice:
 
-1. Azure Machine Learning has mounted the blob store to the compute cluster automatically for you.
-2. The ``dataset.as_named_input('input').as_mount()`` used in the control script resolves to the mount point
+- Azure Machine Learning has mounted the blob store to the compute cluster automatically for you.
+- The ``dataset.as_named_input('input').as_mount()`` used in the control script resolves to the mount point.
 
 ## Clean up resources
 
@@ -341,10 +338,10 @@ You can also keep the resource group but delete a single workspace. Display the 
 
 ## Next steps
 
-In this tutorial, we saw how to upload data to Azure using a `Datastore`. The datastore served as cloud storage for your workspace, giving you a persistent and flexible place to keep your data.
+In this tutorial, we saw how to upload data to Azure by using `Datastore`. The datastore served as cloud storage for your workspace, giving you a persistent and flexible place to keep your data.
 
-You saw how to modify your training script to accept a data path via the command line. By using a `Dataset` you were able to mount a directory to the remote run. 
+You saw how to modify your training script to accept a data path via the command line. By using `Dataset`, you were able to mount a directory to the remote run. 
 
 Now that you have a model, learn:
 
-* How to [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md)
+* How to [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
