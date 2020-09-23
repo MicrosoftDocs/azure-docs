@@ -1,16 +1,16 @@
 ---
 title: "Face Go client library quickstart"
-description: Get started with the Face client library for Go.
+description: Use the Face client library for Go to detect faces, find similar (face search by image), identify faces (facial recognition search) and migrate your face data.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: 
 ms.topic: include
-ms.date: 08/17/2020
+ms.date: 09/17/2020
 ms.author: pafarley
 ---
-Get started with the Face client library for Go. Follow these steps to install the library and try out our examples for basic tasks. The Face service provides you with access to advanced algorithms for detecting and recognizing human faces in images.
+Get started with facial recognition using the Face client library for Go. Follow these steps to install the package and try out the example code for basic tasks. The Face service provides you with access to advanced algorithms for detecting and recognizing human faces in images.
 
 Use the Face service client library for Go to:
 
@@ -129,7 +129,7 @@ The next block of code takes the first element in the array of **[DetectedFace](
 
 ## Find similar faces
 
-The following code takes a single detected face (source) and searches a set of other faces (target) to find matches. When it finds a match, it prints the ID of the matched face to the console.
+The following code takes a single detected face (source) and searches a set of other faces (target) to find matches (face search by image). When it finds a match, it prints the ID of the matched face to the console.
 
 ### Detect faces for comparison
 
@@ -186,7 +186,7 @@ Once you've assigned faces, you train the **PersonGroup** so it can identify the
 
 ## Identify a face
 
-The following code takes an image with multiple faces and looks to find the identity of each person in the image. It compares each detected face to a **PersonGroup**, a database of different **Person** objects whose facial features are known.
+The Identify operation takes an image of a person (or multiple people) and looks to find the identity of each face in the image (facial recognition search). It compares each detected face to a **PersonGroup**, a database of different **Person** objects whose facial features are known.
 
 > [!IMPORTANT]
 > In order to run this example, you must first run the code in [Create and train a person group](#create-and-train-a-person-group).
@@ -289,7 +289,7 @@ Once you've completed these steps, you can access your face data constructs from
 
 ## Run the application
 
-Run your Go application with the `go run [arguments]` command from your application directory.
+Run your face recognition app from the application directory with the `go run <app-name>` command.
 
 ```bash
 go run sample-app.go
@@ -306,7 +306,7 @@ If you created a **PersonGroup** in this quickstart and you want to delete it, c
 
 ## Next steps
 
-In this quickstart, you learned how to use the Face library for Go to do basis tasks. Next, explore the reference documentation to learn more about the library.
+In this quickstart, you learned how to use the Face client library for Go to do basis facial recognition tasks. Next, explore the reference documentation to learn more about the library.
 
 > [!div class="nextstepaction"]
 > [Face API reference (Go)](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face)

@@ -1,18 +1,21 @@
 ---
 title: "Content Moderator Python client library quickstart"
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, learn how to get started with the Azure Cognitive Services Content Moderator client library for Python.
+description: In this quickstart, learn how to get started with the Azure Content Moderator client library for Python. Build content filtering software into your app to comply with regulations or maintain the intended environment for your users.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: include
-ms.date: 08/17/2020
+ms.date: 09/15/2020
+ms.custom: "cog-serv-seo-aug-2020"
 ms.author: pafarley
 ---
 
-Get started with the Content Moderator client library for Python. Follow these steps to install the package and try out the example code for basic tasks. Content Moderator is a cognitive service that checks text, image, and video content for material that is potentially offensive, risky, or otherwise undesirable. When such material is found, the service applies appropriate labels (flags) to the content. Your app can then handle flagged content in order to comply with regulations or maintain the intended environment for users.
+Get started with the Azure Content Moderator client library for Python. Follow these steps to install the PiPy package and try out the example code for basic tasks. 
+
+Content Moderator is an AI service that lets you handle content that is potentially offensive, risky, or otherwise undesirable. Use the AI-powered content moderation service to scan text, image, and videos and apply content flags automatically. Then, integrate your app with the Review tool, an online moderator environment for a team of human reviewers. Build content filtering software into your app to comply with regulations or maintain the intended environment for your users.
 
 Use the Content Moderator client library for Python to:
 
@@ -29,9 +32,7 @@ Use the Content Moderator client library for Python to:
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
 * [Python 3.x](https://www.python.org/)
 
-## Setting up
-
-### Create a Content Moderator Azure resource
+## Create a Content Moderator resource
 
 Azure Cognitive Services are represented by Azure resources that you subscribe to. Create a resource for Content Moderator using the [Azure portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) or [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) on your local machine. You can also:
 
@@ -39,7 +40,7 @@ Azure Cognitive Services are represented by Azure resources that you subscribe t
 
 After you get a key from your resource, [create environment variables](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key and endpoint URL, named `CONTENT_MODERATOR_SUBSCRIPTION_KEY` and `CONTENT_MODERATOR_ENDPOINT`, respectively.
  
-### Create a python script
+## Create a new python script
 
 Create a new Python script and open it in your preferred editor or IDE. Then add the following `import` statements to the top of the file.
 
@@ -52,7 +53,7 @@ Next, create variables for your resource's endpoint location and key as environm
 > [!NOTE]
 > If you created the environment variables after you launched the application, you will need to close and reopen the editor, IDE, or shell running it to access the variables.
 
-### Install the client library
+## Install the client library
 
 You can install the Content Moderator client library with the following command:
 
@@ -172,7 +173,7 @@ Use the following code to clear a list of all its terms.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ContentModerator/ContentModeratorQuickstart.py?name=snippet_termslist_removeall)]
 
-### Delete list
+### Delete a list
 
 Use the following code to delete a custom terms list.
 
@@ -182,7 +183,7 @@ Use the following code to delete a custom terms list.
 
 The following code uses a Content Moderator client, along with an [ImageModerationOperations](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.imagemoderationoperations?view=azure-python) object, to analyze images for adult and racy content.
 
-### Get images
+### Get sample images
 
 Define a reference to some images to analyze.
 

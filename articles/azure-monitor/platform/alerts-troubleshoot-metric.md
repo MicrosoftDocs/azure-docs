@@ -3,7 +3,7 @@ title: Troubleshooting Azure metric alerts
 description: Common issues with Azure Monitor metric alerts and possible solutions. 
 author: harelbr
 ms.author: harelbr
-ms.topic: reference
+ms.topic: troubleshooting
 ms.date: 09/14/2020
 ms.subservice: alerts
 ---

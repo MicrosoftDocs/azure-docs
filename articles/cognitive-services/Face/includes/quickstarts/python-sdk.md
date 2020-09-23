@@ -1,16 +1,16 @@
 ---
 title: "Face Python client library quickstart"
-description: This quickstart will help you get started with the Face client library for Python to detect, find similar, identify, verify and more.
+description: Use the Face client library for Python to detect faces, find similar (face search by image), identify faces (facial recognition search) and migrate your face data.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: include
-ms.date: 08/17/2020
+ms.date: 09/17/2020
 ms.author: pafarley
 ---
-Get started with the Face client library for Python. Follow these steps to install the package and try out the example code for basic tasks. The Face service provides you with access to advanced algorithms for detecting and recognizing human faces in images.
+Get started with facial recognition using the Face client library for Python. Follow these steps to install the package and try out the example code for basic tasks. The Face service provides you with access to advanced algorithms for detecting and recognizing human faces in images.
 
 Use the Face client library for Python to:
 
@@ -108,7 +108,7 @@ The following code outputs the given image to the display and draws rectangles a
 
 ## Find similar faces
 
-The following code takes a single detected face and searches a set of other faces to find matches. When it finds a match, it prints the rectangle coordinates of the matched face to the console. 
+The following code takes a single detected face (source) and searches a set of other faces (target) to find matches (face search by image). When it finds a match, it prints the ID of the matched face to the console.
 
 ### Find matches
 
@@ -158,7 +158,7 @@ Once you've assigned faces, you must train the **PersonGroup** so that it can id
 
 ## Identify a face
 
-The following code takes an image with multiple faces and looks to find the identity of each person in the image. It compares each detected face to a **PersonGroup**, a database of different **Person** objects whose facial features are known.
+The Identify operation takes an image of a person (or multiple people) and looks to find the identity of each face in the image (facial recognition search). It compares each detected face to a **PersonGroup**, a database of different **Person** objects whose facial features are known.
 
 > [!IMPORTANT]
 > In order to run this example, you must first run the code in [Create and train a person group](#create-and-train-a-person-group).
@@ -249,7 +249,7 @@ Once you've completed these steps, you'll be able to access your face data const
 
 ## Run the application
 
-Run the application with the `python` command on your quickstart file.
+Run your face recognition app from the application directory with the `python` command.
 
 ```console
 python quickstart-file.py
@@ -272,7 +272,7 @@ If you migrated data using the Snapshot feature in this quickstart, you'll also 
 
 ## Next steps
 
-In this quickstart, you learned how to use the Face library for Python to do basis tasks. Next, explore the reference documentation to learn more about the library.
+In this quickstart, you learned how to use the Face client library for Python to do basis facial recognition tasks. Next, explore the reference documentation to learn more about the library.
 
 > [!div class="nextstepaction"]
 > [Face API reference (Python)](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/?view=azure-python)
