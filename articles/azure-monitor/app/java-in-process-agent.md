@@ -20,7 +20,7 @@ You can still send custom telemetry from your application. The 3.0 agent will tr
 
 **1. Download the agent**
 
-Download [applicationinsights-agent-3.0.0-PREVIEW.7.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.5/applicationinsights-agent-3.0.0-PREVIEW.7.jar)
+Download [applicationinsights-agent-3.0.0-PREVIEW.7.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.7/applicationinsights-agent-3.0.0-PREVIEW.7.jar)
 
 **2. Point the JVM to the agent**
 
