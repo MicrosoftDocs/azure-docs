@@ -67,7 +67,7 @@ Always try to reset a password using the [Azure portal or Azure PowerShell](rese
      0Parameters=
      ```
      
-     ![Create scripts.ini](./media/reset-local-password-without-agent/create-scripts-ini.png)
+     ![Create scripts.ini](./media/reset-local-password-without-agent/create-scripts-ini-1.png)
 
 5. Create `FixAzureVM.cmd` in `\Windows\System32\GroupPolicy\Machine\Scripts\Startup\` with the following contents, replacing `<username>` and `<newpassword>` with your own values:
    
@@ -77,7 +77,7 @@ Always try to reset a password using the [Azure portal or Azure PowerShell](rese
     net localgroup "remote desktop users" <username> /add
     ```
 
-    ![Create FixAzureVM.cmd](./media/reset-local-password-without-agent/create-fixazure-cmd.png)
+    ![Create FixAzureVM.cmd](./media/reset-local-password-without-agent/create-fixazure-cmd-1.png)
    
     You must meet the configured password complexity requirements for your VM when defining the new password.
 
@@ -171,7 +171,7 @@ Always try to reset a password using the [Azure portal or Azure PowerShell](/pre
      0Parameters=
      ```
      
-     ![Create scripts.ini](./media/reset-local-password-without-agent/create-scripts-ini-classic.png)
+     ![Create scripts.ini](./media/reset-local-password-without-agent/create-scripts-ini-classic-1.png)
 
 6. Create `FixAzureVM.cmd` in `\Windows\System32\GroupPolicy\Machine\Scripts\Startup\` with the following contents, replacing `<username>` and `<newpassword>` with your own values:
    
@@ -181,7 +181,7 @@ Always try to reset a password using the [Azure portal or Azure PowerShell](/pre
     net localgroup "remote desktop users" <username> /add
     ```
 
-    ![Create FixAzureVM.cmd](./media/reset-local-password-without-agent/create-fixazure-cmd-classic.png)
+    ![Create FixAzureVM.cmd](./media/reset-local-password-without-agent/create-fixazure-cmd-classic-1.png)
    
     You must meet the configured password complexity requirements for your VM when defining the new password.
 
