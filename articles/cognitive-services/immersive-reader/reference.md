@@ -510,7 +510,7 @@ enum CookiePolicy { Disable, Enable }
 
 ## Supported Languages
 
-The translation feature of Immersive Reader supports many languages. See [this article](https://www.onenote.com/learningtools/languagesupport) for more details.
+The translation feature of Immersive Reader supports many languages. See [Language Support](./language-support.md) for more details.
 
 <br>
 
