@@ -111,19 +111,19 @@ The Spring Data value-add also comes from its simple, clean, standardized and pl
 
 * Item creation and updates by using the `save` method.
 
-    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/azure-spring-data-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java?name=Create)]
+    [!code-java[](~/spring-data-azure-cosmos-db-sql-tutorial/azure-spring-data-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java?name=Create)]
    
 * Point-reads using the derived query method defined in the repository. The `findByIdAndLastName` performs point-reads for `UserRepository`. The fields mentioned in the method name cause Spring Data to execute a point-read defined by the `id` and `lastName` fields:
 
-    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/azure-spring-data-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java?name=Read)]
+    [!code-java[](~/spring-data-azure-cosmos-db-sql-tutorial/azure-spring-data-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java?name=Read)]
 
 * Item deletes using `deleteAll`:
 
-    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/azure-spring-data-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java?name=Delete)]
+    [!code-java[](~/spring-data-azure-cosmos-db-sql-tutorial/azure-spring-data-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java?name=Delete)]
 
 * Derived query based on repository method name. Spring Data implements the `UserRepository` `findByFirstName` method as a Java SDK SQL query on the `firstName` field (this query could not be implemented as a point-read):
 
-    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/azure-spring-data-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java?name=Query)]
+    [!code-java[](~/spring-data-azure-cosmos-db-sql-tutorial/azure-spring-data-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java?name=Query)]
 
 ## Run the app
 
