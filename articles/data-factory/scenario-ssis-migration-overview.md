@@ -79,7 +79,7 @@ It is also a practical way to use [SSIS DevOps Tools](https://docs.microsoft.com
 
 - [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction)
 - [Database Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview)
-- [Lift and shift SSIS workloads to the cloud](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-lift-shift-ssis-packages-overview?view=sql-server-2017)
+- [Lift and shift SSIS workloads to the cloud](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-lift-shift-ssis-packages-overview)
 - [SSIS DevOps Tools](https://docs.microsoft.com/sql/integration-services/devops/ssis-devops-overview)
 - [Migrate SSIS packages to Azure SQL Managed Instance](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages-managed-instance)
 - [Redeploy packages to Azure SQL Database](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages)
