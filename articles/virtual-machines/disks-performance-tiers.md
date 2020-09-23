@@ -63,7 +63,7 @@ az account set --subscription $subscriptionId
 
 az disk create -n $diskName -g $resourceGroupName -l $region --sku Premium_LRS --size-gb $diskSize --tier $performanceTier
 ```
-## Create an OS disk with a tier higher than the baseline tier from an Azure marketplace image
+## Create an OS disk with a tier higher than the baseline tier from an Azure Marketplace image
 
 ```azurecli
 resourceGroupName=<yourResourceGroupNameHere>
