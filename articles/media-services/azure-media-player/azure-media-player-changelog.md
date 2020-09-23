@@ -15,7 +15,7 @@ ms.date: 09/23/2020
 
 Added audio-only support for the azureHtml5JS tech (DASH)
 Support late start of live transcription
-Support language change in live transcripition
+Support language change in live transcription
 
 ### Bug Fixes 2.3.6
 
