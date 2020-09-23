@@ -126,7 +126,7 @@ At times, either random failures may happen in backup and restore operations or 
 
 | Error message | Possible causes | Recommended action |
 |---|---|---|
-| The log backup used for recovery contains bulk-logged changes. It cannot be used to stop at an arbitrary point in time according to the SQL guidelines. | When a database is in bulk-logged recovery mode, the data between a bulk-logged transaction and the next log transaction can't be recovered. | Choose a different point in time for recovery. [Learn more](/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-ver15).
+| The log backup used for recovery contains bulk-logged changes. It cannot be used to stop at an arbitrary point in time according to the SQL guidelines. | When a database is in bulk-logged recovery mode, the data between a bulk-logged transaction and the next log transaction can't be recovered. | Choose a different point in time for recovery. [Learn more](/sql/relational-databases/backup-restore/recovery-models-sql-server).
 
 ### FabricSvcBackupPreferenceCheckFailedUserError
 

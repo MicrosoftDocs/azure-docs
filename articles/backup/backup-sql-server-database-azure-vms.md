@@ -238,7 +238,7 @@ To create a backup policy:
 
     * In **Log Backup**, select **Enable**, and then set the frequency and retention controls.
     * Log backups can occur as often as every 15 minutes and can be retained for up to 35 days.
-    * If the database is in the [simple recovery model](/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-ver15), the log backup schedule for that database will be paused and so no log backups will be triggered.
+    * If the database is in the [simple recovery model](/sql/relational-databases/backup-restore/recovery-models-sql-server), the log backup schedule for that database will be paused and so no log backups will be triggered.
     * If the recovery model of the database changes from **Full** to **Simple**, log backups will be paused within 24 hours of the change in the recovery model. Similarly, if the recovery model changes from **Simple**, implying log backups can now be supported for the database, the log backups schedules will be enabled within 24 hours of the change in recovery model.
 
       ![Log Backup policy](./media/backup-azure-sql-database/log-backup-policy.png)
