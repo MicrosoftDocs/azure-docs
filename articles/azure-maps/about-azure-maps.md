@@ -50,6 +50,14 @@ Use the Azure Maps Android SDK to create mobile mapping applications.
 
 :::image type="content" source="./media/about-azure-maps/android_sdk.png" border="false" alt-text="Map examples on a mobile device":::
 
+## Map Controls
+
+### Web Control
+
+The Azure Maps Web Control lets you customize interactive maps with your own content and imagery for display in your web or mobile applications. This control makes use of WebGL, allowing you to render large data sets with high performance. Develop with the control using JavaScript or TypeScript.
+
+![Azure Maps Web Control](media/about-azure-maps/Introduction_WebMapControl.png)
+
 ## Services in Azure Maps
 
 Azure Maps consists of the following services that can provide geographic context to your Azure applications.
