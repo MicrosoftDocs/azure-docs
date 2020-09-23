@@ -103,7 +103,7 @@ You may want to train and inference on different datasets and datapaths. For ins
     tabular_ds_consumption = DatasetConsumptionConfig("tabular_dataset", tabular_pipeline_param)
     ```
 
-1. In your ML script, access the dynamically-specified dataset using `Run.get_context().input_datasets`:
+1. In your ML script, access the dynamically specified dataset using `Run.get_context().input_datasets`:
 
     ```python
     from azureml.core import Run
