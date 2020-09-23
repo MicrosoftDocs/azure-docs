@@ -46,11 +46,6 @@ When you first deploy or provision a disk, the baseline performance tier for tha
 Adjusting the performance tier of a managed disk is currently only available to premium SSDs in the following regions:
 
 - West Central US 
-- East 2 US 
-- Europe West
-- East Australia 
-- South East Australia 
-- South India
 
 ## Create/update a data disk with a tier higher than the baseline tier
 

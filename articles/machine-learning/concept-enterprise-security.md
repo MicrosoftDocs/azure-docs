@@ -286,6 +286,10 @@ Scoring request details are stored in Application Insights. Application Insights
 >
 > Some of these actions appear in the **Activities** area of your workspace, but these notifications don't indicate who initiated the activity.
 
+### Vulnerability scanning
+
+Azure Security Center provides unified security management and advanced threat protection across hybrid cloud workloads. For Azure machine learning, you should enable scanning of your Azure Container Registry resource and Azure Kubernetes Service resources. See [Azure Container Registry image scanning by Security Center](https://docs.microsoft.com/azure/security-center/azure-container-registry-integration) and [Azure Kubernetes Services integration with Security Center](https://docs.microsoft.com/azure/security-center/azure-kubernetes-service-integration).
+
 ## Data flow diagrams
 
 ### Create workspace

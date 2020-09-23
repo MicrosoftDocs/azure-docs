@@ -184,7 +184,7 @@ The table below lists the security controls in Azure Security Center. For each c
     <td class="tg-lboi"; width=55%>- Auditing on SQL server should be enabled<br>- Diagnostic logs in App Services should be enabled<br>- Diagnostic logs in Azure Data Lake Store should be enabled<br>- Diagnostic logs in Azure Stream Analytics should be enabled<br>- Diagnostic logs in Batch accounts should be enabled<br>- Diagnostic logs in Data Lake Analytics should be enabled<br>- Diagnostic logs in Event Hub should be enabled<br>- Diagnostic logs in IoT Hub should be enabled<br>- Diagnostic logs in Key Vault should be enabled<br>- Diagnostic logs in Logic Apps should be enabled<br>- Diagnostic logs in Search service should be enabled<br>- Diagnostic logs in Service Bus should be enabled<br>- Diagnostic logs in Virtual Machine Scale Sets should be enabled<br>- Metric alert rules should be configured on Batch accounts<br>- SQL Auditing settings should have Action-Groups configured to capture critical activities<br>- SQL servers should be configured with auditing retention days greater than 90 days.</td>
   </tr>
   <tr>
-    <td class="tg-lboi"><strong><p style="font-size: 16px">Enable advanced threat protection (max score 0)</p></strong>Azure Security Center's threat protection provides comprehensive defenses for your environment. When Security Center detects a threat in any area of your environment, it generates an alert. These alerts describe details of the affected resources, suggested remediation steps, and in some cases an option to trigger a logic app in response.<br>Each threat protection bundle is a separate, optional offering which you can enable using the relevant recommendation in this security control.<br><a href="https://docs.microsoft.com/azure/security-center/threat-protection">Learn more about threat protection in Security Center</a>.</td>
+    <td class="tg-lboi"><strong><p style="font-size: 16px">Enable advanced threat protection (max score 0)</p></strong>Azure Security Center's optional Azure Defender threat protection plans provide comprehensive defenses for your environment. When Security Center detects a threat in any area of your environment, it generates an alert. These alerts describe details of the affected resources, suggested remediation steps, and in some cases an option to trigger a logic app in response.<br>Each Azure Defender plan is a separate, optional offering which you can enable using the relevant recommendation in this security control.<br><a href="https://docs.microsoft.com/azure/security-center/threat-protection">Learn more about threat protection in Security Center</a>.</td>
     <td class="tg-lboi"; width=55%>- Advanced data security should be enabled on Azure SQL Database servers<br>- Advanced data security should be enabled on SQL servers on machines<br>- Advanced threat protection should be enabled on Virtual Machines<br>- Advanced threat protection should be enabled on Azure App Service plans<br>- Advanced threat protection should be enabled on Azure Storage accounts<br>- Advanced threat protection should be enabled on Azure Kubernetes Service clusters<br>- Advanced threat protection should be enabled on Azure Container Registry registries<br>- Advanced threat protection should be enabled on Azure Key Vault vaults</td>
   </tr>
   <tr>
@@ -202,14 +202,8 @@ The table below lists the security controls in Azure Security Center. For each c
 
 ## Secure score FAQ
 
-### Why has my secure score gone down?
-Security Center has switched to an enhanced secure score which includes changes in the way the score is calculated. Now, you must solve all recommendation for a resource to receive points. The scores also changed to a scale of 0-10.
-
 ### If I address only three out of four recommendations in a security control, will my secure score change?
 No. It won't change until you remediate all of the recommendations for a single resource. To get the maximum score for a control, you must remediate all recommendations, for all resources.
-
-### Is the previous experience of the secure score still available? 
-No. For a while they ran side by side to ease the transition. The previous model has now been deprecated. 
 
 ### If a recommendation isn't applicable to me, and I disable it in the policy, will my security control be fulfilled and my secure score updated?
 Yes. We recommend disabling recommendations when they're inapplicable in your environment. For instructions on how to disable a specific recommendation, see [Disable security policies](https://docs.microsoft.com/azure/security-center/tutorial-security-policy#disable-security-policies).

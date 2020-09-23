@@ -126,6 +126,8 @@ For example, every function app requires an associated storage account, which is
 
 App settings and connection strings are stored encrypted in Azure. They're decrypted only before being injected into your app's process memory when the app starts. The encryption keys are rotated regularly. If you prefer to instead manage the secure storage of your secrets, the app setting should instead be references to Azure Key Vault. 
 
+You can also encrypt settings by default in the local.settings.json file when developing functions on your local computer. To learn more, see the `IsEncrypted` property in the [local settings file](functions-run-local.md#local-settings-file).  
+
 #### Key Vault references
 
 While application settings are sufficient for most many functions, you may want to share the same secrets across multiple services. In this case, redundant storage of secrets results in more potential vulnerabilities. A more secure approach is to a central secret storage service and use references to this service instead of the secrets themselves.      
