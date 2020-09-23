@@ -15,21 +15,27 @@
 - name: Tutorials
   expanded: true
   items: 
-    - name: Python SDK
+    - name: "Python Day 1 get started"
       expanded: true
-      items: 
-        - name: Create first ML experiment
-          items: 
-            - name: 1. Set up workspace & dev environment
-              href: tutorial-1st-experiment-sdk-setup.md
-            - name: 2. Train your first model
-              href: tutorial-1st-experiment-sdk-train.md
+      items:
+        - name: 1. Set up local computer
+          href: tutorial-1st-experiment-sdk-setup-local.md
+        - name: '2. "Hello world"'
+          href: tutorial-1st-experiment-hello-world.md
+        - name: 3. Train your model
+          href: tutorial-1st-experiment-sdk-train.md
+        - name: 4. Bring your own data
+          href: tutorial-1st-experiment-bring-data.md
+    - name: Jupyter Notebooks
+      items:
         - name: Image classification (MNIST data)
           items: 
-            - name: 1. Train a model
+            - name: 1. Set up compute instance
+              href: tutorial-1st-experiment-sdk-setup.md
+            - name: 2. Train a model
               displayName: build modeling
               href: tutorial-train-models-with-aml.md
-            - name: 2. Deploy a model
+            - name: 3. Deploy a model
               href: tutorial-deploy-models-with-aml.md
         - name: Regression with Automated ML (NYC Taxi data)
           items: 
@@ -92,8 +98,6 @@
       href: /azure/open-datasets/samples?context=azure/machine-learning/context/ml-context
 - name: Concepts
   items: 
-    - name: Enterprise vs. Basic editions
-      href: concept-editions.md
     - name: Plan and manage costs
       displayName: low priority VM
       href: concept-plan-manage-cost.md
@@ -103,9 +107,9 @@
           displayName: studio
           href: concept-designer.md
         - name: Algorithm cheat sheet
-          href: /azure/machine-learning/algorithm-cheat-sheet
+          href: algorithm-cheat-sheet.md
         - name: How to select algorithms
-          href: /azure/machine-learning/how-to-select-algorithms
+          href: how-to-select-algorithms.md
     - name: Automated ML
       items: 
         - name: Automated ML overview
@@ -166,11 +170,23 @@
               href: how-to-use-azure-ad-identity.md
         - name: Network security
           items:
-            - name: Use virtual networks
+            - name: Virtual network overview
               displayName: vnet, blob
-              href: how-to-enable-virtual-network.md
-            - name: Use Private Link	
-              displayName: private endpoint	
+              href: how-to-network-security-overview.md
+            - name: Secure workspace resources
+              displayName: vnet, workspace, container instance, container registry
+              href: how-to-secure-workspace-vnet.md
+            - name: Secure training environment
+              displayName: vnet
+              href: how-to-secure-training-vnet.md
+            - name: Secure inferencing environment
+              displayName: vnet
+              href: how-to-secure-inferencing-vnet.md
+            - name: Use studio in a virtual network
+              displayName: vnet
+              href: how-to-enable-studio-virtual-network.md
+            - name: Use Private Link
+              displayName: private endpoint
               href: how-to-configure-private-link.md
             - name: Configure secure web services
               displayName: ssl, tls
@@ -189,7 +205,9 @@
         - name: Secure coding
           href: concept-secure-code-best-practice.md
           displayName: security threat
-        
+        - name: Audit and manage compliance
+          href: how-to-integrate-azure-policy.md
+          displayName: policy
         
     - name: Responsible ML
       items: 
@@ -277,12 +295,15 @@
               href: how-to-designer-import-data.md
         - name: Access data
           items: 
-            - name: Connect to Azure Storage
+            - name: Connect to Azure storage (Python)
               displayName: blob, get, fileshare, access, mount, download, data lake, datastore
               href: how-to-access-data.md
-            - name: Get data from a datastore
+            - name: Get data from a datastore (Python)
               displayName: data, data set, register, access data
               href: how-to-create-register-datasets.md
+            - name: Connect to data (UI)
+              displayName: blob, get, fileshare, access, mount, download, data lake, datastore, dataset, data set
+              href: how-to-connect-data-ui.md
         - name: Manage & consume data
           items: 
             - name: Train with datasets
@@ -309,6 +330,14 @@
             - name: Tune hyperparameters
               displayName: parameter
               href: how-to-tune-hyperparameters.md
+        - name: Work with MLflow
+          items: 
+            - name: Track experiments with MLflow
+              displayName: log, monitor, deploy, metrics,  model registry, register
+              href: how-to-use-mlflow.md
+            - name: Track Azure Databricks runs with MLflow
+              displayName: log, monitor, deploy, metrics, databricks
+              href: how-to-use-mlflow-azure-databricks.md              
         - name: Scikit-learn
           href: how-to-train-scikit-learn.md
         - name: TensorFlow
@@ -330,9 +359,6 @@
             - name: View logs
               displayName: troubleshoot, log, files, tracing
               href: how-to-monitor-view-training-logs.md
-            - name: Track experiments with MLflow
-              displayName: log, monitor, metrics, Databricks
-              href: how-to-use-mlflow.md
             - name: Visualize runs with TensorBoard
               displayName: log, monitor, metrics
               href: how-to-monitor-tensorboard.md
@@ -438,6 +464,9 @@
       - name: Profile models
         displayName: profile resource requirement
         href: how-to-deploy-profile-model.md
+      - name: Deploy designer models
+        displayName: designer, studio
+        href: how-to-deploy-model-designer.md
       - name: (Preview) No code deployment
         displayName: no code
         href: how-to-deploy-no-code-deployment.md
@@ -523,8 +552,14 @@
       href: monitor-resource-reference.md
     - name: Machine learning pipeline YAML reference
       href: reference-pipeline-yaml.md
-    - name: Sovereign cloud parity	
+    - name: Sovereign cloud parity
       href: reference-machine-learning-cloud-parity.md
+    - name: Azure Policy built-ins
+      displayName: samples, policies, definitions
+      href: ./policy-reference.md
+    - name: Curated environments
+      displayName: environments, curated environments
+      href: resource-curated-environments.md         
 - name: Resources
   items: 
     - name: Release notes
@@ -550,7 +585,4 @@
       href: overview-what-happened-to-workbench.md
     - name: Designer accessibility features
       displayName: accessibility, designer, visual interface, screen reader, keyboard shortcuts
-      href: designer-accessibility.md
-    - name: Curated Environments
-      displayName: environments, curated environments
-      href: resource-curated-environments.md      
+      href: designer-accessibility.md   

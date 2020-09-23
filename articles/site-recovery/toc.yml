@@ -466,6 +466,8 @@
     href: site-recovery-monitor-and-troubleshoot.md
   - name: Monitor Site Recovery with Azure Monitor Logs
     href: monitor-log-analytics.md
+  - name: Monitoring churn patterns on Virtual Machines
+    href: monitoring-high-churn.md
   - name: Monitor process servers
     href: vmware-physical-azure-monitor-process-server.md
 - name: Troubleshooting

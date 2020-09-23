@@ -2,11 +2,38 @@
   href: index.yml
 - name: Introduction
   href: introduction.md
-- name: Security Controls
+- name: Security Controls (v2)
   expanded: true
   items:
   - name: Overview of Azure security controls
     href: overview.md
+  - name: Network security
+    href: security-controls-v2-network-security.md
+  - name: Identity management 
+    href: security-controls-v2-identity-management.md
+  - name: Privileged access
+    href: security-controls-v2-privileged-access.md
+  - name: Data protection
+    href: security-controls-v2-data-protection.md
+  - name: Asset management
+    href: security-controls-v2-asset-management.md
+  - name: Logging and threat detection
+    href: security-controls-v2-logging-threat-detection.md
+  - name: Incident response
+    href: security-controls-v2-incident-response.md
+  - name: Posture and vulnerability management
+    href: security-controls-v2-posture-vulnerability-management.md
+  - name: Endpoint security
+    href: security-controls-v2-endpoint-security.md
+  - name: Backup and recovery
+    href: security-controls-v2-backup-recovery.md
+  - name: Governance and Strategy
+    href: security-controls-v2-governance-strategy.md
+
+- name: Security Controls (v1)
+  items:
+  - name: Overview of Azure security controls (v1)
+    href: overview-v1.md
   - name: Network security
     href: security-control-network-security.md
   - name: Logging and monitoring
@@ -29,7 +56,6 @@
     href: security-control-incident-response.md
   - name: Penetration tests and red team exercises
     href: security-control-penetration-tests-red-team-exercises.md
-
 - name: Security baselines for Azure
   items:
   - name: Overview of security baselines for Azure
@@ -62,6 +88,8 @@
     href: ../../azure-databricks/security-baseline.md
   - name: Azure DNS security baseline
     href: ../../dns/security-baseline.md
+  - name: Azure DevTest Labs security baseline
+    href: ../../devtest-labs/security-baseline.md
   - name: Azure Firewall security baseline
     href: ../../firewall/security-baseline.md
   - name: Azure Functions security baseline
@@ -74,8 +102,14 @@
     href: ../../machine-learning/security-baseline.md
   - name: Azure Policy security baseline
     href: ../../governance/policy/concepts/azure-security-benchmark-baseline.md
+  - name: Azure Private Link security baseline
+    href: ../../private-link/security-baseline.md
+  - name: Azure Public IP security baseline
+    href: ../../virtual-network/public-ip-security-baseline.md
   - name: Azure Resource Graph security baseline
     href: ../../governance/resource-graph/concepts/azure-security-benchmark-baseline.md
+  - name: Azure Sentinel security baseline
+    href: ../../sentinel/security-baseline.md
   - name: Azure SQL Database security baseline
     href: ../../sql-database/security-baseline.md
   - name: Azure Storage security baseline

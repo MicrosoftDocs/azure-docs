@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 09/09/2020
+ms.date: 09/22/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# Custom role permissions for enterprise app access assignments
+# Assign custom roles to manage enterprise apps in Azure Active Directory
 
 This article explains how to create a custom role with permissions to manage enterprise app assignments for users and groups in Azure Active Directory (Azure AD). For the elements of roles assignments and the meaning of terms such as subtype, permission, and property set, see the [custom roles overview](roles-custom-overview.md).
 
@@ -38,9 +38,9 @@ Granting the update permission is done in two steps:
 ### Create a new custom role
 
 >[!NOTE]
-> Custom roles are created and managed at an organization level and are available only from the organization blade.
+> Custom roles are created and managed at an organization-wide level and are available only from the organization's Overview page.
 
-1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with Privileged Role administrator or Global administrator permissions in your organization.
+1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with Privileged Role Administrator or Global Administrator permissions in your organization.
 1. Select **Azure Active Directory**, select **Roles and administrators**, and then select **New custom role**.
 
     ![Add a new custom role from the roles list in Azure AD](./media/custom-enterprise-apps/new-custom-role.png)
@@ -59,7 +59,7 @@ Granting the update permission is done in two steps:
 
 ### Assign the role to a user using the Azure AD portal
 
-1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with Privileged Role administrator or Global administrator permissions in your organization.
+1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with Privileged Role administrator role permissions.
 1. Select **Azure Active Directory** and then select **Roles and administrators**.
 1. Select the **Grant permissions to manage user and group assignments** role.
 
@@ -149,16 +149,9 @@ Create a custom role using the provided example in the Microsoft Graph API. For 
 
 HTTP request to create the custom role.
 
+```HTTP
 POST
-
-HTTP
-```http
 https://graph.microsoft.com/beta/roleManagement/directory/roleDefinitionsIsEnabled $true
-```
-
-Body
-HTTP
-```http
 {
     "description":"Can manage user and group assignments for Applications.",
     "displayName":" Manage user and group assignments",
@@ -187,17 +180,9 @@ The role assignment combines a security principal ID (which can be a user or ser
 
 HTTP request to assign a custom role.
 
-POST
+```HTTP
+POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
 
-HTTP
-```http
-https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
-```
-
-Body
-
-HTTP
-```http
 {
     "principalId":"<PROVIDE OBJECTID OF USER TO ASSIGN HERE>",
     "roleDefinitionId":"<PROVIDE OBJECTID OF ROLE DEFINITION HERE>",
@@ -205,3 +190,6 @@ HTTP
 }
 ```
 
+## Next steps
+
+* [Explore the available custom role permissions for enterprise apps](custom-enterprise-app-permissions.md)

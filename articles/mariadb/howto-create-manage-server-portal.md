@@ -29,7 +29,7 @@ You can scale from General Purpose to Memory Optimized and vice-versa. Changing 
 
 2. Select **General Purpose** or **Memory Optimized**, depending on what you are scaling to. 
 
-    ![change-pricing-tier](./media/howto-create-manage-server-portal/change-pricing-tier.png)
+    ![Screenshot shows the Azure portal with Pricing tier selected and a value of Memory Optimized selected.](./media/howto-create-manage-server-portal/change-pricing-tier.png)
 
     > [!NOTE]
     > Changing tiers causes a server restart.
@@ -74,7 +74,7 @@ You can change the administrator role's password using the Azure portal.
 
 2. Enter a new password and confirm the password. The textbox will prompt you about password complexity requirements.
 
-   ![reset-password](./media/howto-create-manage-server-portal/reset-password.png)
+   ![Screenshot shows the Reset the password dialog box with Password and Confirm password.](./media/howto-create-manage-server-portal/reset-password.png)
 
 3. Select **OK** to save the new password.
 
@@ -89,7 +89,7 @@ You can delete your server if you no longer need it.
 
 2. Type the name of the server into the input box to confirm that this is the server you want to delete.
 
-    ![confirm-delete](./media/howto-create-manage-server-portal/confirm-delete.png)
+    ![Screenshot shows a dialog that verifies whether you want to delete a database, which is irreversible.](./media/howto-create-manage-server-portal/confirm-delete.png)
 
     > [!NOTE]
     > Deleting a server is irreversible.

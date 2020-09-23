@@ -14,7 +14,7 @@ metadata:
   ms.collection: collection
   author: j-martens
   ms.author: jmartens
-  ms.date: 08/17/2020
+  ms.date: 09/21/2020
   ms.custom: contperfq1
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
@@ -24,51 +24,53 @@ landingContent:
 # Start card title with a verb
            
   # GET STARTED
-  - title: Get started with machine learning
+  - title: 'Get started: Code-first'
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Using Python notebooks
+          - text: Get started tutorial (Python)
+            url: tutorial-1st-experiment-sdk-setup-local.md
+          - text: Use Jupyter Notebooks tutorial
             url: tutorial-1st-experiment-sdk-setup.md
-          - text: With AutoML (no code/low-code)
-            url: tutorial-first-experiment-automated-ml.md
-          - text: In the designer (drag & drop)
-            url: tutorial-designer-automobile-price-train-score.md
-          - text: Using RStudio
+          - text: Batch inference with ML pipelines (Python)
+            url: tutorial-pipeline-batch-scoring-classification.md            
+          - text: Get started with R
             url: tutorial-1st-r-experiment.md
+
+# GET STARTED
+  - title: 'Get started: Low or no code'
+    linkLists:
+      - linkListType: overview
+        links:
+        - text: Azure Machine Learning studio
+          url: overview-what-is-machine-learning-studio.md   
+        - text: What's automated ML (AutoML)?
+          url: concept-automated-ml.md   
+        - text: What's drag & drop designer?
+          url: concept-designer.md   
+      - linkListType: tutorial
+        links:
+          - text: 'Get started (AutoML)'
+            url: tutorial-first-experiment-automated-ml.md                  
+          - text: 'Get started (designer)'
+            url: tutorial-designer-automobile-price-train-score.md
+      - linkListType: reference
+        links:
+          - text: Designer algorithms & modules
+            url: algorithm-module-reference/module-reference.md                 
 
 # BYO
   - title: 'Bring your ML model to Azure'
     linkLists:
       - linkListType: how-to-guide
         links:
-        - text: Deploy your local model to the cloud
+        - text: Deploy your model to the cloud
           url: how-to-deploy-existing-model.md  
-
- 
-  # Studio
-  - title: 'Use AutoML or drag & drop in studio'
-    linkLists:
-      - linkListType: overview
-        links:
-        - text: What's automated machine learning (AutoML)?
-          url: concept-automated-ml.md   
-        - text: What's the designer (drag & drop)?
-          url: concept-designer.md   
-        - text: How to choose an algorithm
-          url: how-to-select-algorithms.md   
-      - linkListType: tutorial
-        links:
-          - text: 'AutoML: build a classification model'
-            url: tutorial-first-experiment-automated-ml.md                  
-          - text: 'The designer: predict auto prices'
-            url: tutorial-designer-automobile-price-train-score.md
-          - text: Label images for classification  
-            url: tutorial-labeling.md
-
+        - text: Track & deploy MLflow models
+          url: how-to-use-mlflow.md
  
   # MLOps
-  - title: 'MLOps: Deploy & manage models'
+  - title: 'Deploy & manage models (MLOps)'
     linkLists:
       - linkListType: how-to-guide
         links:
@@ -76,56 +78,11 @@ landingContent:
             url: concept-model-management-and-deployment.md
           - text: How & where to deploy
             url: how-to-deploy-and-where.md
-          - text: Realtime prediction
-            url: how-to-consume-web-service.md
-          - text: Batch prediction 
-            url: how-to-use-parallel-run-step.md
-          - text: MLOps examples repository
-            url: https://github.com/microsoft/MLOps   
- 
-             
-  # PYTHON
-  - title: 'Train with the Python SDK'
-    linkLists:
-      - linkListType: tutorial
-        links:
-          - text: Create your first ML experiment
-            url: tutorial-1st-experiment-sdk-setup.md
-          - text: Predict taxi fares with AutoML
-            url: tutorial-auto-train-models.md 
-          - text: Create Azure ML pipelines
-            url: tutorial-pipeline-batch-scoring-classification.md            
-          - text: Classify images 
-            url: tutorial-train-models-with-aml.md                     
-      - linkListType: how-to-guide
-        links:
-          - text: Set up your environment
-            url: how-to-configure-environment.md
-          - text: Train Scikit-learn models 
-            url: how-to-train-scikit-learn.md
-          - text: Train TensorFlow models
-            url: how-to-train-tensorflow.md
-          - text: Train PyTorch models
-            url: how-to-train-pytorch.md
-          - text: Train Keras models 
-            url: how-to-train-keras.md
-          - text: What are ML pipelines?
-            url: concept-ml-pipelines.md                  
-
-# Reference
-  - title: Go to reference docs
-    linkLists:
       - linkListType: reference
         links:
-          - text: SDK for Python
-            url: https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py
-          - text: Designer algorithms & modules
-            url: algorithm-module-reference/module-reference.md        
+          - text: Python SDK
+            url: https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py  
           - text: REST API
             url: https://docs.microsoft.com/rest/api/azureml/
           - text: Machine learning CLI
             url: https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest
-          - text: AI reference architectures (GitHub)
-            url: https://github.com/Microsoft/AI
-          - text: SDK for R
-            url: https://azure.github.io/azureml-sdk-for-r/reference/index.html

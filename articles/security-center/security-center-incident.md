@@ -57,6 +57,5 @@ In Security Center, a security incident is an aggregation of all alerts for a re
 
 This page explained the security incident capabilities of Security Center. For related information, see the following pages:
 
-* [Threat protection in Security Center](threat-protection.md)
-* [Security alerts in Security Center](security-center-alerts-overview.md)
-* [Manage and respond to security alerts](security-center-managing-and-responding-alerts.md)
+- [Security alerts in Security Center](security-center-alerts-overview.md)
+- [Manage and respond to security alerts](security-center-managing-and-responding-alerts.md)
