@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps 
 ms.devlang: nodejs
-ms.custom: mvc, devx-track-javascript
+ms.custom: mvc, devx-track-js
 ---
  
 # Quickstart: Enroll X.509 devices to the Device Provisioning Service using Node.js

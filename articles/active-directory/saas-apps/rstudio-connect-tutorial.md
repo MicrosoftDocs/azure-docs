@@ -123,7 +123,7 @@ To configure Azure AD single sign-on with RStudio Connect, perform the following
 
 ### Configure RStudio Connect Single Sign-On
 
-To configure single sign-on on for **RStudio Connect**, you need to use the **App Federation Metadata Url** and **Server Address** used above. This is done in the RStudio Connect configuration file at `/etc/rstudio-connect.rstudio-connect.gcfg`.
+To configure single sign-on on for **RStudio Connect**, you need to use the **App Federation Metadata Url** and **Server Address** used above. This is done in the RStudio Connect configuration file at `/etc/rstudio-connect/rstudio-connect.gcfg`.
 
 This is an example configuration file:
 

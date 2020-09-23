@@ -22,10 +22,7 @@ You will learn to:
 * Edit and run SQL scripts and Synapse Notebooks using Synapse Studio
 * Query SQL tables and Spark tables
 * Load data from SQL tables into Spark dataframes
-* Load data into SQL tables from Spark dataframes
-* Explore the contents of an ADLSGEN2 account
-* Analyze  parquet datafiles in ADLSGEN2 accounts using Spark and SQL on-demand 
-* Build a data pipeline that automatically runs a Synapse notebook every hour
+
 
 Follow the steps *in order* as shown below and you'll take a tour through many of the capabilities and learn how to exercise its core features.
 

@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 06/29/2020
+ms.date: 09/11/2020
 ms.author: pafarley
 ---
 
@@ -17,6 +17,10 @@ ms.author: pafarley
 Learn what's new in the service. These items may be release notes, videos, blog posts, and other types of information. Bookmark this page to stay up to date with the service.
 
 ## September 2020
+
+### Spatial analysis container preview
+
+The [spatial analysis container](spatial-analysis-container.md) is now in preview. The spatial analysis feature of Computer Vision lets you to analyze real-time streaming video to understand spatial relationships between people and their movement through physical environments. Spatial analysis is a Docker container you can use on-premises. 
 
 ### Read API v3.1 Public Preview adds OCR for Japanese
 Computer Vision's Read API v3.1 public preview adds these capabilities:

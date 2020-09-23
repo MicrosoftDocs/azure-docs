@@ -44,12 +44,12 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Configure Cofense to support provisioning with Azure AD
 
-1. Login to Cofense PhishMe. Navigate to Recipients > Recipient Sync. 
-2. Accept the terms and conditions and then click Get Started.
+1. Login to Cofense PhishMe. Navigate to **Recipients > Recipient Sync**. 
+2. Accept the terms and conditions and then click **Get Started**.
 
 	![Recepient Sync tnc](media/cofense-provisioning-tutorial/recipient-sync-toc.png)
 
-3. Copy the values from the URL and Token fields.
+3. Copy the values from the **URL** and **Token fields**.
 
 	![Recepient Sync](media/cofense-provisioning-tutorial/recipient-sync-getting-started.png)
 

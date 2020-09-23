@@ -1,6 +1,6 @@
 ---
 title: Azure Monitor Workbooks Overview
-description: Simplify complex reporting with prebuilt and custom parameterized workbooks
+description: Learn how workbooks provide a flexible canvas for data analysis and the creation of rich visual reports within the Azure portal.
 author: mrbullwinkle
 manager: carmonm
 services: azure-monitor

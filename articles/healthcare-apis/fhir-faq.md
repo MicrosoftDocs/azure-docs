@@ -44,6 +44,23 @@ From a development standpoint, every feature is deployed to the open-source Micr
 SMART (Substitutable Medical Applications and Reusable Technology) on FHIR is a set of open specifications to integrate partner applications with FHIR Servers and other Health IT systems, such as Electronic Health Records and Health Information Exchanges. By creating a SMART on FHIR application, you can ensure that your application can be accessed and leveraged by a plethora of different systems.
 Authentication and Azure API for FHIR. To learn more about SMART, visit [SMART Health IT](https://smarthealthit.org/).
 
+### Can I create a custom FHIR resource?
+
+We do not allow custom FHIR resources. If you need a custom FHIR resource, you can build a custom resource on top of the [Basic resource](http://www.hl7.org/fhir/basic.html) with extensions. 
+
+### Are [extensions](https://www.hl7.org/fhir/extensibility.html) supported on Azure API for FHIR?
+
+We allow you to load any valid FHIR JSON data into the server. If you want to store the structure definition that defines the extension, you could save this as a structure definition resource. Currently, you cannot search on extensions.
+
+### What is the limit on _count?
+
+The current limit on count is 100.
+
+### Are there any limitations on the Group Export functionality?
+
+For Group Export we only export the included references from the group, not all the characteristics of the [group resource](https://www.hl7.org/fhir/group.html).
+
+
 ## Azure IoT Connector for FHIR (preview)
 
 ### What is IoMT?
