@@ -29792,6 +29792,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/security-center/azure-container-registry-integration.md",
+      "redirect_url": "/azure/security-center/defender-for-container-registries-introduction",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/azure-kubernetes-service-integration.md",
+      "redirect_url": "/azure/security-center/defender-for-kubernetes-introduction",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/security-center/security-center-intro.md",
       "redirect_url": "/azure/security-center/security-center-introduction",
       "redirect_document_id": false
