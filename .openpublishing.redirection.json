@@ -53111,7 +53111,7 @@
     {
       "source_path": "articles/sql-data-warehouse/sql-data-warehouse-develop-views.md",
       "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-views",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": " \"articles/synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-views.md\"",
