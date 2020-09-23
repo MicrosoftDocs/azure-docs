@@ -450,7 +450,10 @@ The Receipt API also powers the [AIBuilder Receipt Processing feature](https://d
 
 ## Next steps
 
-- Follow the quickstart to get started [Receipt API Python quickstart](./quickstarts/python-receipts.md).
-- Learn about the [Form Recognizer REST API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer/api).
-- Learn more about [Form Recognizer](overview.md).
+- Complete a [Form Recognizer client library quickstart](quickstarts/client-library.md) to get started writing a receipt processing app with Form Recognizer in the language of your choice.
+- Or, follow the [Receipt API Python quickstart](./quickstarts/python-receipts.md) to recognize receipts using the REST API.
 
+## See also
+
+* [What is Form Recognizer?](./overview.md)
+* [REST API reference docs](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer/api)
