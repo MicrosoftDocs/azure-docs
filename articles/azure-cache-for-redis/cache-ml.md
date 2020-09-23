@@ -85,7 +85,7 @@ Before deploying, you must define what is needed to run the model as a web servi
     >
     > By default when packaging for functions, the input is treated as text. If you are interested in consuming the raw bytes of the input (for instance for Blob triggers), you should use [AMLRequest to accept raw data](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where#binary-data).
 
-For the run method, ensure it connects to a Redis endpoint
+For the run function, ensure it connects to a Redis endpoint
 
 ```python
 import json
