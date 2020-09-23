@@ -99,7 +99,7 @@ print(fetched_config_setting.value)
 
 > Output:
 > ```python
-> 'Data from Azure App Configuration'
+> Data from Azure App Configuration
 > ```
 
 
