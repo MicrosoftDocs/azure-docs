@@ -147,8 +147,8 @@ Now go back to the Azure portal to get your connection string information and la
     mvn spring-boot:run
     ```
     
-4. The app load **application.config** and connects the resources in your Azure Cosmos DB account.
-5. The app will perform point CRUD operations using object IDs and partition key value (which is lastName in our sample). 
+4. The app loasd **application.config** and connects the resources in your Azure Cosmos DB account.
+5. The app will perform point CRUD operations described above.
 6. The app will perform a derived query.
 7. The app doesn't delete your resources. Switch back to the portal to [clean up the resources](#clean-up-resources) from your account if you want to avoid incurring charges.
 
