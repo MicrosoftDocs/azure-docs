@@ -12,11 +12,16 @@ ms.date: 09/17/2020
 
 # Create a cluster with Data Lake Storage Gen2 using Azure CLI
 
-To create an HDInsight cluster that uses Data Lake Storage Gen3 for storage, follow these steps.
+To create an HDInsight cluster that uses Data Lake Storage Gen2 for storage, follow these steps.
 
 ## Prerequisites
 
-Azure CLI. If you haven't installed the Azure CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) for steps.
+- If you're unfamiliar with Azure Data Lake Storage Gen2, check out the [overview section](hdinsight-hadoop-use-data-lake-storage-gen2.md). 
+- If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before continuing.
+- To run the CLI script examples, you have three options:
+    - Use [Azure Cloud Shell](../cloud-shell/overview.md) from the Azure portal (see next section).
+    - Use the embedded Azure Cloud Shell via the "Try It" button, located in the top-right corner of each code block.
+    - [Install the latest version of the Azure CLI](../cli/azure/install-azure-cli) (2.0.13 or later) if you prefer to use a local CLI console. Sign in to Azure using `az login`, using an account that is associated with the Azure subscription under which you would like to deploy the user-assigned managed identity.Azure CLI. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
