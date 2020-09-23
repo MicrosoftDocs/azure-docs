@@ -12,31 +12,8 @@ ms.author: alkohli
 ---
 # Azure Stack Edge Mini R technical specifications
 
-The hardware components of your Microsoft Azure Stack Edge Mini R device adhere to the technical specifications and regulatory standards outlined in this article. The technical specifications describe the device dimensions, CPU, memory, power supply units (PSUs), and storage capacity.
+The hardware components of your Microsoft Azure Stack Edge Mini R device adhere to the technical specifications and regulatory standards outlined in this article. The technical specifications describe the CPU, memory, power supply units (PSUs), storage capacity, enclosure dimensions, and weight.
 
-## Enclosure dimensions and weight specifications
-
-The following tables list the various enclosure specifications for dimensions and weight.
-
-### Enclosure dimensions
-
-The following table lists the dimensions of the device and the USP with the rugged case in millimeters and inches.
-
-|     Enclosure     |     Millimeters     |     Inches     |
-|-------------------|---------------------|----------------|
-|    Height         |    68            |    2.68          |
-|    Width          |    208          |      8.19          |
-|    Length          |   259           |    10.20          |
-
-
-
-### Enclosure weight
-
-The weight of the device depends on the configuration of the enclosure. For example:
-
-|     Enclosure                                 |     Weight          |
-|-----------------------------------------------|---------------------|
-|    Total weight of the device     |    7 lbs.          |
 
 ## Compute, memory specifications
 
@@ -46,7 +23,15 @@ The Azure Stack Edge Mini R device has the following specifications for compute 
 |-------------------------|------------------------|
 | CPU    | 16-core CPU, Intel Xeon-D 1577 |
 | Memory              | 48 GB RAM (2400 MT/s)                  |
-| Compute Acceleration card         | Intel Movidius Myriad X VPU <br> For more information, see [Intel Movidius Myriad X VPU](https://www.movidius.com/MyriadX) | 
+
+
+## Compute acceleration specifications
+
+A Vision Processing Unit (VPU) is included on every Azure Stack Edge Mini R device that enables Kubernetes, deep neural network and computer vision based applications.
+
+| Specification           | Value                  |
+|-------------------------|------------------------|
+| Compute Acceleration card         | Intel Movidius Myriad X VPU <br> For more information, see [Intel Movidius Myriad X VPU](https://www.movidius.com/MyriadX) |
 
 
 ## Storage specifications
@@ -110,6 +95,28 @@ An additional type 2590 battery can be used in conjunction with the onboard batt
 |-------------------------|----------------------------|
 | Onboard battery capacity | 73 WHr                    |
 
+## Enclosure dimensions and weight specifications
+
+The following tables list the various enclosure specifications for dimensions and weight.
+
+### Enclosure dimensions
+
+The following table lists the dimensions of the device and the USP with the rugged case in millimeters and inches.
+
+|     Enclosure     |     Millimeters     |     Inches     |
+|-------------------|---------------------|----------------|
+|    Height         |    68            |    2.68          |
+|    Width          |    208          |      8.19          |
+|    Length          |   259           |    10.20          |
+
+
+### Enclosure weight
+
+The following table lists the weight of the device including the battery.
+
+|     Enclosure                                 |     Weight          |
+|-----------------------------------------------|---------------------|
+|    Total weight of the device     |    7 lbs.          |
 
 <!--## Enclosure environment specifications
 
@@ -153,4 +160,4 @@ End of this section-->
 
 ## Next steps
 
-=- [Deploy your Azure Stack Edge Mini R](azure-stack-edge-placeholder.md)
+- [Deploy your Azure Stack Edge Mini R](azure-stack-edge-placeholder.md)
