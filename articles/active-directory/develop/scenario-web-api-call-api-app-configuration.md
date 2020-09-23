@@ -81,7 +81,7 @@ Microsoft.Identity.Web provides several ways to describe certificates, both by c
 
 ## Startup.cs
 
-Using Microsoft.Identity.Web, if you want your web API to call downstream web APIs, you have three possibilities. These possibilities depend on the API you want to call (Microsoft Graph or not), and how you'll want to call it from your controller actions or pages:
+You have three options in *Microsoft.Identity.Web* for calling a downstream web API from another API. The option you choose depends on whether you want to call Microsoft Graph or another API, and how you'll want to call the API from your controller actions or pages.
 
 1. In any case, your web API will need to acquire a token for the downstream API. You specify that this is the case by adding the `.EnableTokenAcquisitionToCallDownstreamApi()` line after `.AddMicrosoftIdentityWebApi(Configuration)`. This line exposes the ITokenAcquisition service, that you can use in your controller/pages actions. However, as you'll see in the next two bullet points, you can do even simpler. You'll also need to choose a token cache implementation, for example `.AddInMemoryTokenCaches()`, in *Startup.cs*:
 
