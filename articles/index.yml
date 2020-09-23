@@ -34,7 +34,7 @@ highlightedContent:
     # Card
     - title: Build your skills with Microsoft Learn
       itemType: learn
-      url: https://docs.microsoft.com/learn/browse/?products=azure&resource_type=learning+path
+      url: https://docs.microsoft.com/learn/browse/?products=azure&resource_type=learning%20path
 
 productDirectory:
   title: Browse Azure products
@@ -74,7 +74,7 @@ productDirectory:
     # Card
     - title: Azure Communication Services (Preview)
       summary: Add smart API capabilities to enable contextual interactions
-      imageSrc: 
+      imageSrc: https://static.docs.com/ui/media/product/azure/azure.svg
       azureCategories:
         - mobile
         - web
@@ -262,7 +262,7 @@ productDirectory:
     # Card
     - title: Metrics Advisor (Preview)
       summary: An AI service that monitors metrics and diagnoses issues
-      imageSrc: 
+      imageSrc: https://static.docs.com/ui/media/product/azure/azure.svg
       azureCategories:
         - ai-machine-learning
       url: cognitive-services/metrics-advisor//index.yml
@@ -1295,14 +1295,14 @@ productDirectory:
     # Card
     - title: Azure Defender
       summary: Protect hybrid cloud workloads
-      imageSrc: 
+      imageSrc: https://static.docs.com/ui/media/product/azure/azure.svg
       azureCategories:
         - security
       url: security-center/azure-defender.md
     # Card
     - title: Azure Defender for IoT (Preview)
       summary: Continuous asset management and threat detection for both unmanaged and managed IoT/OT devices
-      imageSrc: 
+      imageSrc: https://static.docs.com/ui/media/product/azure/azure.svg
       azureCategories:
         - security
         - iot
@@ -1354,7 +1354,7 @@ productDirectory:
     # Card
     - title: Azure Orbital (Preview)
       summary: Satellite ground station and scheduling service connected to Azure for fast downlinking of data
-      imageSrc: 
+      imageSrc: https://static.docs.com/ui/media/product/azure/azure.svg
       azureCategories:
         - networking
       url: networking/azure-orbital-overview.md
