@@ -18,9 +18,9 @@ ms.author: aahi
     * The following BASH examples use the `\` line continuation character. If you console or terminal uses a different line continuation character, use this character.
 
 > [!TIP]
-> * You can find a Python sample that uses the REST API on [GitHub](https://github.com/Azure-Samples/cognitive-services-rest-api-samples/).
+> * You can find a Python sample that uses the REST API on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/MetricsAdvisor/metrics_advisor_rest_api.py).
 > * It may 10 to 30 minutes for your Metrics Advisor resource to deploy. Click **Go to resource** once it successfully deploys.
-> * After deployment, you can start using your Metrics Advisor instance with the web portal and REST API endpoint. You can find both URLs in the Cognitive service resource you've created.
+> * After deployment, you can start using your Metrics Advisor instance with both the web portal and REST API endpoint. You can find the URLs for both in the resource you've created.
 > * You will need the **resource key** and the **API key** from the resource you've created to start using the REST API service. The **resource key** can be found in **Keys and Endpoint** menu of the Cognitive service resource you've created.The API key can be found in built-in web portal of Metrics Advisor, you can find it in **API keys** page.
 
 ## Add a data feed from a sample or data source
