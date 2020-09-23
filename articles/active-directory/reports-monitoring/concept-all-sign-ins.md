@@ -330,7 +330,7 @@ Possible values are:
 
 - Seven days
 
-- Twenty four hours
+- Twenty-four hours
 
 - Custom
 
