@@ -41,20 +41,20 @@ The developer role includes permissions to restart apps and see their log stream
 Follow these steps to start defining a role.
 
 1. In the Azure portal, open the subscription and resource group where you want the custom role to be assignable.
-1. Open **Access control (IAM)**.
-1. Click **+ Add**.
-1. Click **Add custom role**.
-1. Click **Next**.
+2. Open **Access control (IAM)**.
+3. Click **+ Add**.
+4. Click **Add custom role**.
+5. Click **Next**.
 
    ![Create custom role](media/spring-cloud-permissions/create-custom-role.png)
 
-1. Click **Add permissions**.
+6. Click **Add permissions**.
 
    ![Add permissions start](media/spring-cloud-permissions/add-permissions.png)
 
 ### Select the permissions:
-1. In the search box, search for *Microsoft.app*.
-1. Select *Microsoft Azure Spring Cloud*.
+7. In the search box, search for *Microsoft.app*.
+Select *Microsoft Azure Spring Cloud*.
 
    ![Select Azure Spring Cloud](media/spring-cloud-permissions/spring-cloud-permissions.png)
 
@@ -78,14 +78,18 @@ From: **Microsoft.AppPlatform/Spring/apps/deployments**, select:
 
   [ ![Create Developler permissions](media/spring-cloud-permissions/developer-permissions.png) ](media/spring-cloud-permissions/developer-permissions-box.png#lightbox)
 
-3. Click **Add**.
+8. Click **Add**.
+
+9. Review the permissions.
+
+10. Click **Review and create**.
 
 
 ## Define Ops engineer role
 This procedure defines a role with permissions to deploy, test, and restart Azure Spring Cloud apps.
 
 1. Repeat the procedure to navigate subscription, resource group,and access Access control (IAM).
-1. Select the permissions:
+2. Select the permissions:
 
 From **Microsoft.AppPlatform/Spring**, select:
 
@@ -101,14 +105,18 @@ From **Microsoft.AppPlatform/Spring/apps/deployments**, select:
 
    [ ![App platform permissions](media/spring-cloud-permissions/app-platform-permissions.png) ](media/spring-cloud-permissions/app-platform-permissions.png#lightbox)
 
-7. Click **Add**.
+3. Click **Add**.
+
+4. Review the permissions.
+
+5. Click **Review and create**.
 
 ## Define Ops - Site Reliability Engineering role
 This role can deploy, test, and restart apps. The role has the same permissions as Ops engineer role.
 
 1. Repeat the procedure to navigate subscription, resource group,and access Access control (IAM).
 
-1. Select the permissions:
+2. Select the permissions:
 
 From **Microsoft.AppPlatform/Spring**, select:
 
@@ -122,11 +130,11 @@ From **Microsoft.AppPlatform/Spring/apps/deployments**, select:
 
 * Other : Stop Microsoft Azure Spring Cloud application deployment
 
-1. Click **Add**.
+3. Click **Add**.
 
-1. Review the permissions.
+4. Review the permissions.
 
-1. Click **Review and create**.
+5. Click **Review and create**.
 
 ## Define Azure Pipelines/Provisioning role
 This Jenkins/Github Actions role can create and configure everything in Azure Spring Cloud and apps with a service instance. 
