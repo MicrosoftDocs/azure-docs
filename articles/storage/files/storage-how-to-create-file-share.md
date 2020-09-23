@@ -161,7 +161,7 @@ Once you've created your storage account, all that is left is to create your fil
 Standard file shares may be deployed into one of the standard tiers: transaction optimized (default), hot, or cool. This is a per file share tier that is not affected by the **blob access tier** of the storage account (this property only relates to Azure Blob storage - it does not relate to Azure Files at all). You can change the tier of the share at any time after it has been deployed. Premium file shares cannot be directly converted to standard file shares in any standard tier.
 
 > [!Important]  
-> You can move file shares between tiers within GPv2 storage account types (transaction optimized, hot, and cool). Share moves between tiers incur transactions: moving from a hotter tier to a cooler tier will incur the cooler tier's write transaction charge for each file in the share, while a move from a cooler tier to a hotter tier will incur the cool tier's read transaction charge for each file the share. As an example, moving from hot to cool will incur a cool write transaction for each file in the share while moving from cool to hot will incur a cool read transaction for each file to share.
+> You can move file shares between tiers within GPv2 storage account types (transaction optimized, hot, and cool). Share moves between tiers incur transactions: moving from a hotter tier to a cooler tier will incur the cooler tier's write transaction charge for each file in the share, while a move from a cooler tier to a hotter tier will incur the cool tier's read transaction charge for each file the share.
 
 The **quota** property means something slightly different between premium and standard file shares:
 
@@ -252,7 +252,17 @@ az storage share-rm create \
 File shares deployed in **general purpose v2 (GPv2) storage account** can be in the transaction optimized, hot, or cool tiers. You can change the tier of the Azure file share at any time, subject to transaction costs as described above.
 
 # [Portal](#tab/azure-portal)
-The Azure portal does not yet support creating hot and cool file shares, or moving existing transaction optimized file shares to hot or cool. Please view the instructions for creating a file share with PowerShell or the Azure CLI.
+On the main storage account page, select **File shares**  select the tile labeled **File shares** (you can also navigate to **File shares** via the table of contents for the storage account).
+
+![A screenshot of the File shares tile](media/storage-how-to-create-file-share/create-file-share-1.png)
+
+In the table list of file shares, select the file share for which you would like to change the tier. On the file share overview page, select **Change tier** from the menu.
+
+![A screenshot of the file share overview page with the change tier button highlighted](media/storage-how-to-create-file-share/change-tier-0.png)
+
+On the resulting dialog, select the desired tier: transaction optimized, hot, or cool.
+
+![A screenshot of the change tier dialog](media/storage-how-to-create-file-share/change-tier-1.png)
 
 # [PowerShell](#tab/azure-powershell)
 The following PowerShell cmdlet assumes that you have set the `$resourceGroupName`, `$storageAccountName`, `$shareName` variables as described in the earlier sections of this document.
