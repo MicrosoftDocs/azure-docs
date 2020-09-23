@@ -340,7 +340,7 @@ You can use the following operation to synchronously read an image.
 
 # [Version 3.0-preview](#tab/version-3)
 
-`POST /vision/v3.0/read/SyncAnalyze`
+`POST /vision/v3.0/read/syncAnalyze`
 
 ---
 
