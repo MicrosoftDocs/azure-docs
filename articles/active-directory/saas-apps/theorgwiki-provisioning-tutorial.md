@@ -90,7 +90,7 @@ To configure TheOrgWiki for automatic user provisioning with Azure AD, you need 
 
 5. Select the **Sign-up for TheOrgWiki** button which will redirect you to TheOrgWiki's login page. 
 
-	![Screenshot of TheOrgWiki login page with the URL called out](media/theorgwiki-provisioning-tutorial/image00.png)
+	![Screenshot of The Org Wiki login page with the URL called out](media/theorgwiki-provisioning-tutorial/image00.png)
 
 6.  In the top right-hand corner, select **Login**.
 

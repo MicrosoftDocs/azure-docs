@@ -117,7 +117,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 10. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Zscaler**.
 
-	![Screenshot of the MAppings section with the Synchronize Azure Active Directory Users to Zscaler option highlighted.](./media/zscaler-provisioning-tutorial/user-mappings.png)
+	![Screenshot of the Mappings section with the Synchronize Azure Active Directory Users to Zscaler option highlighted.](./media/zscaler-provisioning-tutorial/user-mappings.png)
 
 11. Review the user attributes that are synchronized from Azure AD to Zscaler in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Zscaler for update operations. Select the **Save** button to commit any changes.
 
@@ -125,7 +125,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 12. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Zscaler**.
 
-	![Screenshot of the MAppings section with the Synchronize Azure Active Directory Groups to Zscaler option highlighted.](./media/zscaler-provisioning-tutorial/group-mappings.png)
+	![Screenshot of the Mappings section with the Synchronize Azure Active Directory Groups to Zscaler option highlighted.](./media/zscaler-provisioning-tutorial/group-mappings.png)
 
 13. Review the group attributes that are synchronized from Azure AD to Zscaler in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the groups in Zscaler for update operations. Select the **Save** button to commit any changes.
 

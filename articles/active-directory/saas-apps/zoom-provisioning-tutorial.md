@@ -51,7 +51,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 3. Navigate to your created Azure AD app. 
 	
-	![Screenshot of the Created Apps section with the Azure AD app called out.](media/zoom-provisioning-tutorial/zoom03.png)
+	![Screenshot of the Created Apps section with the Azure A D app called out.](media/zoom-provisioning-tutorial/zoom03.png)
 
 4. Select **App Credentials** in the left navigation pane.
 

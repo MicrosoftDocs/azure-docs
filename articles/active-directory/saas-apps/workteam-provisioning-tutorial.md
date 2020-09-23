@@ -49,7 +49,7 @@ Before configuring Workteam  for automatic user provisioning with Azure AD, you 
 
 1. Log in into [Workteam](https://app.workte.am/account/signin). Click **Organization settings** > **SETTINGS**.
 
-	![Screenshot of the Workteam UI with the Organization settings and SETTINGS options called out.](media/workteam-provisioning-tutorial/settings.png)
+	![Screenshot of the Workteam U I with the Organization settings and SETTINGS options called out.](media/workteam-provisioning-tutorial/settings.png)
 
 2. Scroll to bottom and enable the provisioning capabilities of Workteam.
 

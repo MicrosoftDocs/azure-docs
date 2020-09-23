@@ -49,7 +49,7 @@ Before configuring Workgrid  for automatic user provisioning with Azure AD, you 
 
 1. Log in into Workgrid. Navigate to **Users > User Provisioning**.
 
-	![Screenshot of the Workgrid UI with the Users and User Provisioning options called out.](media/Workgrid-provisioning-tutorial/user.png)
+	![Screenshot of the Workgrid U I with the Users and User Provisioning options called out.](media/Workgrid-provisioning-tutorial/user.png)
 
 2. Under **Account Management API**, click **Create Credentials**.
 

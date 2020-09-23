@@ -122,7 +122,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 8. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Symantec Web Security Service (WSS)**.
 
-	![Screenshot of the Mappings section with the Synchronize Azure Active Directory Users to Symantec Web Security Service (WSS) option called out.](media/symantec-web-security-service/usermapping.png)
+	![Screenshot of the Mappings section with the Synchronize Azure Active Directory Users to Symantec Web Security Service W S S option called out.](media/symantec-web-security-service/usermapping.png)
 
 9. Review the user attributes that are synchronized from Azure AD to Symantec Web Security Service (WSS) in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Symantec Web Security Service (WSS) for update operations. Select the **Save** button to commit any changes.
 
@@ -130,7 +130,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 10. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Symantec Web Security Service**.
 
-	![Screenshot of the Mappings section with the Synchronize Azure Active Directory Groups to Symantec Web Security Service (WSS) option called out.](media/symantec-web-security-service/groupmapping.png)
+	![Screenshot of the Mappings section with the Synchronize Azure Active Directory Groups to Symantec Web Security Service W S S option called out.](media/symantec-web-security-service/groupmapping.png)
 
 11. Review the group attributes that are synchronized from Azure AD to Symantec Web Security Service (WSS) in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the groups in Symantec Web Security Service (WSS) for update operations. Select the **Save** button to commit any changes.
 
