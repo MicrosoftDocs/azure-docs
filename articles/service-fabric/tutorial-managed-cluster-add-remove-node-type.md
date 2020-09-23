@@ -23,12 +23,9 @@ This part of the series covers how to:
 > * Delete a node type from a Service Fabric managed cluster
 
 ## Prerequisites
-> [!Note]
-> This tutorial uses Azure PowerShell commands which have not yet been released. They will become released as part of the Azure PowerShell module on 9/22/2020.
 
-Follow the steps below to use the module before the official release is available:
-* [Download and load Modules](https://github.com/a-santamaria/ServiceFabricManagedClustersClients#download-and-load-modules)
-* [Documentation and Examples](https://github.com/a-santamaria/ServiceFabricManagedClustersClients#documentation-and-examples). 
+* A Service Fabric managed cluster (see [*Deploy a managed cluster*](tutorial-managed-cluster-deploy.md)).
+* [Azure PowerShell 4.7.0](https://docs.microsoft.com/en-us/powershell/azure/release-notes-azureps?view=azps-4.7.0#azservicefabric) or later (see [*Install Azure PowerShell*](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-4.7.0)).
 
 
 ## Add a node type to a Service Fabric managed cluster

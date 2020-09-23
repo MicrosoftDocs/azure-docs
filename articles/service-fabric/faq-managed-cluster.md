@@ -4,7 +4,6 @@ description: Frequently asked questions about Service Fabric managed clusters, i
 ms.topic: troubleshooting
 ms.author: pepogors
 ms.date: 09/1/2020
-ms.custom: references_regions
 ---
 
 # Service Fabric managed clusters frequently asked questions

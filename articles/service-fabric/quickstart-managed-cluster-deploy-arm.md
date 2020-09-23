@@ -1,12 +1,11 @@
 ---
-title: 'Quickstart: Deploy a Service Fabric managed cluster (preview) by using an Azure Resource Manager template'
-description: In this quickstart, you will learn how to create a Service Fabric managed cluster using an Azure Resource Manager template.
+title: 'Quickstart: Deploy a Service Fabric managed cluster (preview) using Azure Resource Manager'
+description: Learn how to create a Service Fabric managed cluster with an Azure Resource Manager template
 ms.topic: quickstart
-ms.date: 09/01/2020
-ms.custom: "armqs, references_regions"
+ms.date: 09/28/2020
 ---
 
-# Quickstart: Deploy a Service Fabric managed cluster (preview) using an Azure Resource Manager template
+# Quickstart: Deploy a Service Fabric managed cluster (preview) with an Azure Resource Manager template
 
 Service Fabric managed clusters are an evolution of the Azure Service Fabric cluster resource model that streamlines your deployment and cluster management experience. Service Fabric managed clusters are a fully encapsulated resource that enable you to deploy a single Service Fabric cluster resource rather than having to deploy all of the underlying resources that make up a Service Fabric cluster. This article describes how to do deploy a Service Fabric managed cluster for testing in Azure using an Azure Resource Manager template (ARM template).
 
@@ -15,6 +14,7 @@ The three-node Basic SKU cluster deployed in this tutorial is only intended to b
 ## Prerequisites
 
 Before you begin this quickstart:
+
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 
 <!-- Section to be completed when templates are merged into the quickstart repo. -->
@@ -24,10 +24,10 @@ The template used in this quickstart is from [Azure Samples - Service Fabric clu
 
 <!-- To be updated when samples are added 
 
-:::code language="json" source="~peterpogorski/quickstart-templates/101-managed-service-fabric-cluster-basic/azuredeploy.json" range="1-112" :::
+:::code language="json" source="https://github.com/Azure-Samples/service-fabric-cluster-templates/3-VM-Windows-1-NodeType-Managed-Basic/azuredeploy.json" range="1-112" :::
 -->
 
-## Create a client certificate (optional)
+## Create a client certificate
 
 Service Fabric managed clusters use a client certificate as a key for access control. If you already have a client certificate that you would like to use for access control to your cluster, you can skip this step.
 
@@ -37,24 +37,22 @@ Take note of the certificate thumbprint as this will be required to deploy the t
 
 ## Deploy the template
 
-> [!NOTE]
-> Supported regions for Service Fabric managed clusters preview include `centraluseuap`, `eastus2euap`, `eastasia`, `northeurope`, `westcentralus`, and `eastus2`.
-
-<!-- Link to be updated when template is merged into the quickstart repo -->
 1. Select the following image to sign in to Azure and open a template.
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fpeterpogorski%2Fazure-quickstart-templates%2Fmanaged-sfrp-sample-templates%2F101-managed-service-fabric-cluster-standard-1-nt%2Fazuredeploy.json)
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure-samples%2Fservice-fabric-cluster-templates%2F3-vm-windows-1-nodetype-managed-basic%2Fazuredeploy.json)
 
 2. Select or enter the following values
 
 For this quickstart, provide your own values for the following template parameters: 
 * **Subscription**: Select an Azure subscription.
 * **Resource Group**: Select **Create new**. Enter a unique name for the resource group, such as *myResourceGroup*, then choose **OK**.
-* **Location**: Select a location, such as **East US**.
+* **Location**: Select a location, such as **eastus2**.
+  > [!NOTE]
+  > Supported regions for Service Fabric managed clusters preview include `centraluseuap`, `eastus2euap`, `eastasia`, `northeurope`, `westcentralus`, and `eastus2`.
 * **Cluster Name**: Enter a unique name for your cluster, such as *mySFCluster*.
 * **Admin Username**: Enter a name for the admin to be used for RDP on the underlying VMs in the cluster.
 * **Admin Password**: Enter a password for the admin to be used for RDP on the underlying VMs in the cluster.
-* **Client Certificate Thumbprint**: Provide the thumbprint of the client certificate that you would like to use to access your cluster. If you do not have a certificate, follow [set and retrieve a certificate](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-portal) to create a self-signed certificate. 
+* **Client Certificate Thumbprint**: Provide the thumbprint of the client certificate that you would like to use to access your cluster. If you do not have a certificate, follow [set and retrieve a certificate](../key-vault/certificates/quick-create-portal.md) to create a self-signed certificate. 
 * **Node Type Name**: Enter a unique name for your node type, such as *myNodeType*.
 * **I agree to the terms and conditions stated above**: Check this box to agree. 
 
@@ -85,5 +83,5 @@ Remove-AzResourceGroup -Name $resourceGroupName
 In this quickstart, you deployed a managed Service Fabric cluster.
 
 > [!div class="nextstepaction"]
-> [Learn how to add and remove node types](./tutorial-managed-cluster-add-remove-node-type.md)
+> [Learn how to add and remove node types](tutorial-managed-cluster-add-remove-node-type.md)
  

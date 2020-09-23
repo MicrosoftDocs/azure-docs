@@ -3,8 +3,6 @@ title: Deploy a Service Fabric managed cluster (preview)
 description: In this tutorial, you will deploy a Service Fabric managed cluster for testing.
 ms.topic: tutorial
 ms.date: 08/27/2020
-ms.custom: references_regions
-#Customer intent: As a Service Fabric customer, I want to learn about managed clusters so that I can deploy clusters without needing to manipulate numerous resources.
 ---
 
 # Tutorial: Deploy a Service Fabric managed cluster (preview)
@@ -28,20 +26,14 @@ This part of the series covers how to:
 ## Prerequisites
 
 Before you begin this tutorial:
-* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* [Install the Service Fabric SDK](service-fabric-get-started.md)
 
-> [!Note]
-> This tutorial uses Azure PowerShell commands which have not yet been released. They will become released as part of the Azure PowerShell module on 9/22/2020.
+* Create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) if you don't already have an Azure subscription
 
-Follow the steps below to use the module before the official release is available:
-* [Download and load Modules](https://github.com/a-santamaria/ServiceFabricManagedClustersClients#download-and-load-modules)
-* [Documentation and Examples](https://github.com/a-santamaria/ServiceFabricManagedClustersClients#documentation-and-examples). 
+* Install the [Service Fabric SDK and PowerShell module](service-fabric-get-started.md).
 
-## Connect your Azure account
+* Install [Azure PowerShell 4.7.0](https://docs.microsoft.com/powershell/azure/release-notes-azureps?view=azps-4.7.0#azservicefabric) (or later).
 
-> [!Note]
-> Supported regions for the public preview include centraluseuap, eastus2euap, eastasia, northeurope, westcentralus, and eastus2.
+## Connect to your Azure account
 
 Replace `<your-subscription>` with the subscription string for your Azure account, and connect:
 
@@ -54,6 +46,9 @@ Set-AzContext -SubscriptionId <your-subscription>
 ## Create a new resource group
 
 Next, create the resource group for the Managed Service Fabric cluster, replacing `<your-rg>` and `<location>` with the desired group name and location.
+
+> [!NOTE]
+> Supported regions for the public preview include `centraluseuap`, `eastus2euap`, `eastasia`, `northeurope`, `westcentralus`, and `eastus2`.
 
 ```powershell
 $resourceGroup = "myResourceGroup"

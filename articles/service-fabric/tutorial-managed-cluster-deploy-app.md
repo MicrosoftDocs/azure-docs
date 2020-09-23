@@ -3,7 +3,6 @@ title: Deploy an application to a Service Fabric managed cluster (preview)
 description: In this tutorial, you will connect to a Service Fabric managed cluster and deploy an application.
 ms.topic: tutorial
 ms.date: 09/21/2020
-ms.custom: references_regions
 #Customer intent: As a Service Fabric customer, I want to connect to my cluster and deploy an application.
 ---
 
@@ -28,8 +27,8 @@ This part of the series covers how to:
 > * Deploy an application to a Service Fabric managed cluster
 
 ## Prerequisites
-Before you begin this tutorial:
-* You must already have created a Service Fabric managed cluster.
+
+* A Service Fabric managed cluster (see [*Deploy a managed cluster*](tutorial-managed-cluster-deploy.md)).
 
 > [!Note]
 > In the Service Fabric managed cluster preview you will not be able to publish applications directly from Visual Studio.
