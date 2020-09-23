@@ -4,7 +4,7 @@
   items:
   - name: What is Service Fabric?
     href: service-fabric-overview.md
-  - name: Service Fabric Managed clusters
+  - name: Service Fabric managed clusters
     href: overview-managed-cluster.md
 - name: Quickstarts
   expanded: true
@@ -12,7 +12,7 @@
   - name: ARM template
     displayName: Resource Manager
     href: quickstart-cluster-template.md
-  - name: Managed cluster (preview)
+  - name: Managed cluster
     href: quickstart-managed-cluster-deploy-arm.md
   - name: Create .NET application
     href: service-fabric-quickstart-dotnet.md
@@ -68,19 +68,19 @@
       href: service-fabric-tutorial-package-containers.md
     - name: 3- Fail over and scale
       href: service-fabric-tutorial-containers-failover.md
-  - name: Create a Managed Service Fabric cluster (preview)
+  - name: Create a Service Fabric managed cluster
     items:
-    - name: 1- Deploy a Managed Service Fabric cluster (preview)
+    - name: 1- Deploy a Service Fabric managed cluster
       href: tutorial-managed-cluster-deploy.md
-    - name: 2- Scale out a managed cluster node type (preview)
+    - name: 2- Scale out a managed cluster node type
       href: tutorial-managed-cluster-scale.md
-    - name: 3- Add and remove managed cluster node types (preview)
+    - name: 3- Add and remove managed cluster node types
       href: tutorial-managed-cluster-add-remove-node-type.md
-    - name: 4- Upgrade a managed cluster (preview)
+    - name: 4- Upgrade a managed cluster
       href: tutorial-managed-cluster-upgrade.md
-    - name: 5- Add a managed cluster client certificate (preview)
+    - name: 5- Add a managed cluster client certificate
       href: tutorial-managed-cluster-certificate.md
-    - name: 6- Connect to a managed cluster and depoy an application (preview)
+    - name: 6- Connect to a managed cluster and depoy an application
       href: tutorial-managed-cluster-deploy-app.md
   - name: Create and manage a cluster
     items:
@@ -173,7 +173,7 @@
       items:
       - name: Containers overview
         href: service-fabric-containers-overview.md
-      - name: Docker compose (preview)
+      - name: Docker compose
         href: service-fabric-docker-compose.md
       - name: Probes
         href: probes-codepackage.md
@@ -449,7 +449,7 @@
         href: service-fabric-deploy-existing-app.md
     - name: Build a container service
       items:      
-      - name: Docker compose (preview)
+      - name: Docker compose
         href: service-fabric-docker-compose.md
       - name: Volume and logging drivers
         href: service-fabric-containers-volume-logging-drivers.md
@@ -528,7 +528,7 @@
           href: service-fabric-application-secret-management-windows.md
         - name: Set up an encryption certificate and encrypt secrets on Linux
           href: service-fabric-application-secret-management-linux.md
-        - name: Securely store secrets with KeyVaultReference (preview)
+        - name: Securely store secrets with KeyVaultReference
           href: service-fabric-keyvault-references.md
       - name: Configure reverse proxy for secure communication
         href: service-fabric-reverseproxy-configure-secure-communication.md
