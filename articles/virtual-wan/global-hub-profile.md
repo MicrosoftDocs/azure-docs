@@ -6,7 +6,7 @@ author: kumudD
 
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 4/20/2020
+ms.date: 09/22/2020
 ms.author: alzam
 
 ---

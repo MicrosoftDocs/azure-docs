@@ -88,6 +88,8 @@
       href: firewall-diagnostics.md
     - name: Azure Monitor logs
       href: log-analytics-samples.md
+    - name: Azure Firewall Workbook
+      href: firewall-workbook.md
 - name: Reference
   items:
   - name: Azure CLI

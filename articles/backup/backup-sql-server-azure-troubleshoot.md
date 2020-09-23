@@ -168,7 +168,7 @@ Operation is blocked as the vault has reached its maximum limit for such operati
 
 | Error message | Possible causes | Recommended action |
 |---|---|---|
-The VM is not able to contact Azure Backup service due to internet connectivity issues. | The VM needs outbound connectivity to Azure Backup Service, Azure Storage, or Azure Active Directory services.| - If you use NSG to restrict connectivity, then you should use the AzureBackup service tag to allows outbound access to Azure Backup Service, Azure Storage, or Azure Active Directory services. Follow these [steps](./backup-sql-server-database-azure-vms.md#nsg-tags) to grant access.<br>- Ensure DNS is resolving Azure endpoints.<br>- Check if the VM is behind a load balancer blocking internet access. By assigning public IP to the VMs, discovery will work.<br>- Verify there's no firewall/antivirus/proxy that are blocking calls to the above three target services.
+The VM is not able to contact Azure Backup service due to internet connectivity issues. | The VM needs outbound connectivity to Azure Backup Service, Azure Storage, or Azure Active Directory services.| - If you use NSG to restrict connectivity, then you should use the *AzureBackup* service tag to allows outbound access to Azure Backup Service, and similarly for the Azure AD (*AzureActiveDirectory*) and Azure Storage(*Storage*) services. Follow these [steps](./backup-sql-server-database-azure-vms.md#nsg-tags) to grant access.<br>- Ensure DNS is resolving Azure endpoints.<br>- Check if the VM is behind a load balancer blocking internet access. By assigning public IP to the VMs, discovery will work.<br>- Verify there's no firewall/antivirus/proxy that are blocking calls to the above three target services.
 
 ## Re-registration failures
 

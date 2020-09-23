@@ -16,7 +16,6 @@ ms.custom: contperfq4, tracking-python
 ---
 
 # Use Azure Machine Learning studio in an Azure virtual network
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In this article, you learn how to use Azure Machine Learning studio in a virtual network. You learn how to:
 
@@ -54,8 +53,7 @@ For example, if you are using network security groups (NSG) to restrict outbound
 
 ## Access data using the studio
 
-If your data is stored in a virtual network, you must configure your storage accounts to use [managed identity](../active-directory/managed-identities-azure-resources/overview.md) to grant the studio access to your data.
-
+After you [add an Azure storage account to your virtual network](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts), you must configure your storage account to use [managed identity](../active-directory/managed-identities-azure-resources/overview.md) to grant the studio access to your data. The studio supports storage accounts configured to use service endpoints or private endpoints. Storage accounts use service endpoints by default. To enable private endpoints for storage, see [Use private endpoints for Azure Storage](../storage/common/storage-private-endpoints.md)
 
 If you do not enable managed identity, you will receive this error, `Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.` Additionally, the following operations will be disabled:
 
@@ -70,7 +68,6 @@ The studio supports reading data from the following datastore types in a virtual
 * Azure Data Lake Storage Gen1
 * Azure Data Lake Storage Gen2
 * Azure SQL Database
-
 
 ### Configure datastores to use managed identity
 

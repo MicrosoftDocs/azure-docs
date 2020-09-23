@@ -150,7 +150,7 @@ Backup of Azure VMs with locks | Unsupported for unmanaged VMs. <br><br> Support
 
 **Component** | **Support**
 --- | ---
-Azure VM data disks | Support for backup of Azure VMs with up to 32 disks is in public preview in all regions.<br><br> Support for backup of Azure VMs with unmanaged disks or classic VMs is up to 16 disks only.
+Azure VM data disks | Support for backup of Azure VMs with up to 32 disks.<br><br> Support for backup of Azure VMs with unmanaged disks or classic VMs is up to 16 disks only.
 Data disk size | Individual disk size can be up to 32 TB and a maximum of 256 TB combined for all disks in a VM.
 Storage type | Standard HDD, Standard SSD, Premium SSD.
 Managed disks | Supported.

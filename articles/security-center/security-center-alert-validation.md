@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date:  11/04/2019
+ms.date:  09/22/2020
 ms.author: memildin
 
 ---
@@ -67,6 +67,6 @@ For more information about the integration of Azure Kubernetes Service and Azure
 This article introduced you to the alerts validation process. Now that you're familiar with this validation, try the following articles:
 
 * [Validating Azure Key Vault Threat Detection in Azure Security Center](https://techcommunity.microsoft.com/t5/azure-security-center/validating-azure-key-vault-threat-detection-in-azure-security/ba-p/1220336)
-* [Managing and responding to security alerts in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts) - Learn how to manage alerts, and respond to security incidents in Security Center.
+* [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) - Learn how to manage alerts, and respond to security incidents in Security Center.
 * [Security health monitoring in Azure Security Center](security-center-monitoring.md) - Learn how to monitor the health of your Azure resources.
-* [Understanding security alerts in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type) - Learn about the different types of security alerts.
+* [Understanding security alerts in Azure Security Center](security-center-alerts-type.md) - Learn about the different types of security alerts.

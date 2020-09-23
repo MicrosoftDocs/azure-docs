@@ -24,7 +24,7 @@ This section shows you how to use the Azure portal to create IP firewall rules f
 1. Navigate to your **Relay namespace** in the [Azure portal](https://portal.azure.com).
 2. On the left menu, select **Networking** option. If you select the **All networks** option in the  **Allow access from** section, the Relay namespace accepts connections from any IP address. This setting is equivalent to a rule that accepts the 0.0.0.0/0 IP address range. 
 
-    ![Firewall - All networks option selected](./media/ip-firewall/all-networks-selected.png)
+    ![Screenshot shows the Networking page with the All networks option selected.](./media/ip-firewall/all-networks-selected.png)
 1. To restrict access to specific networks and IP addresses, select the **Selected networks** option. In the **Firewall** section, follow these steps:
     1. Select **Add your client IP address** option to give your current client IP the access to the namespace. 
     2. For **address range**, enter a specific IPv4 address or a range of IPv4 address in CIDR notation. 

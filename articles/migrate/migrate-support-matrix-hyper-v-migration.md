@@ -36,9 +36,9 @@ You can select up to 10 VMs at once for replication. If you want to migrate more
 **Linux VMs in Azure** | Some VMs might require changes so that they can run in Azure.<br/><br/> For Linux, Azure Migrate makes the changes automatically for these operating systems:<br/> - Red Hat Enterprise Linux 6.5+, 7.0+<br/> - CentOS 6.5+, 7.0+</br> - SUSE Linux Enterprise Server 12 SP1+<br/> - Ubuntu 14.04LTS, 16.04LTS, 18.04LTS<br/> - Debian 7, 8. For other operating systems you make the [required changes](prepare-for-migration.md#linux-machines) manually.
 | **Required changes for Azure** | Some VMs might require changes so that they can run in Azure. Make adjustments manually before migration. The relevant articles contain instructions about how to do this. |
 | **Linux boot**                 | If /boot is on a dedicated partition, it should reside on the OS disk, and not be spread across multiple disks.<br/> If /boot is part of the root (/) partition, then the '/' partition should be on the OS disk, and not span other disks. |
-| **UEFI boot**                  | Supported. Ensure that you select a VM size supported by Azure generation 2 VM  |
+| **UEFI boot**                  | Supported. UEFI-based VMs will be migrated to Azure generation 2 VMs.  |
 | **UEFI - Secure boot**         | Not supported for migration.|
-| **Disk size**                  | 2 TB for the OS disk, 4 TB for data disks.|
+| **Disk size**                  | 2 TB for the OS disk (BIOS boot), 4 TB for the OS disk (UEFI boot), 4 TB for the data disks.|
 | **Disk number** | A maximum of 16 disks per VM.|
 | **Encrypted disks/volumes**    | Not supported for migration.|
 | **RDM/passthrough disks**      | Not supported for migration.|

@@ -14,6 +14,9 @@ This article answers common questions about the Azure Migrate: Server Migration 
 - Questions about [discovery, assessment, and dependency visualization](common-questions-discovery-assessment.md)
 - Get questions answered in the [Azure Migrate forum](https://aka.ms/AzureMigrateForum)
 
+## How does Azure Migrate migrate UEFI-based machines and servers to Azure?
+Azure Migrate: Server Migration tool migrates all the UEFI-based machines and servers to Azure as Azure generation 2 VMs. We no longer support the conversion of UEFI-based VMs to BIOS-based VMs. In case, you want to migrate to Azure generation 1 VM, convert the boot-type to BIOS and then use the Azure Migrate: Server Migration tool to Azure. Note that all the BIOS-based machines are migrated to Azure as Azure generation 1 VMs only.
+ 
 ## Where should I install the replication appliance for agent-based migrations?
 
 The replication appliance should be installed on a dedicated machine. The replication appliance shouldn't be installed on a source machine that you want to replicate or on the Azure Migrate discovery and assessment appliance you may have installed before. Follow the [tutorial](https://docs.microsoft.com/azure/migrate/tutorial-migrate-physical-virtual-machines) for more details.

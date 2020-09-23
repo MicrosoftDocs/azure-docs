@@ -1,6 +1,6 @@
 ---
 title: Use JavaScript to create a chat room with Azure Functions and SignalR Service
-description: A quickstart for using Azure SignalR Service and Azure Functions to create a chat room.
+description: A quickstart for using Azure SignalR Service and Azure Functions to create a chat room using JavaScript.
 author: sffamily
 ms.service: signalr
 ms.devlang: javascript
