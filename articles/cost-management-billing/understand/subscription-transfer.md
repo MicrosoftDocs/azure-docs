@@ -62,7 +62,7 @@ All your resources like VMs, disks, and websites transfer to the new account. Ho
 
 ## Transfer account ownership to another country/region
 
-Unfortunately, you can't transfer subscriptions across countries or regions using the Azure portal. However they can get transferred if you open an Azure support requests. To create a support request, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Unfortunately, you can't transfer subscriptions across countries or regions using the Azure portal. However they can get transferred if you open an Azure support request. To create a support request, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ## Transfer a subscription from one account to another
 
@@ -79,17 +79,17 @@ The only information available to the users for the new account is the last mont
 
 ## Manually migrate data and services
 
-When you transfer a subscription, it's resources stay with it. If you can't transfer subscription ownership, you can manually migrate its resources. For more information, see [Move resources to new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
+When you transfer a subscription, its resources stay with it. If you can't transfer subscription ownership, you can manually migrate its resources. For more information, see [Move resources to new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
 ## Remaining subscription credits 
 
 If you have a Visual Studio or Microsoft Partner Network subscription, you get monthly credits. Your credit doesn't carry forward with the subscription in the new account. The user who accepts the transfer request needs to have a Visual Studio license to accept the transfer request. The subscription uses the Visual Studio credit that's available in the user's account. For more information, see [Transferring Visual Studio and Partner Network subscriptions](../manage/billing-subscription-transfer.md#transfer-visual-studio-and-partner-network-subscriptions).
 
-## Users retain access to transferred resources
+## Users keep access to transferred resources
 
 Keep in mind that users with access to resources in a subscription keep their access when ownership is transferred. However, [administrator roles](add-change-subscription-administrator.md) and [Azure role assignments](../../role-based-access-control/role-assignments-portal.md) might get removed. Losing access occurs when your account is in an Azure AD tenant other than the subscription's tenant and the user who sent the transfer request moves the subscription to your account's tenant. 
 
-You can view thew users who have Azure role assignments to access resources in the subscription in the Azure portal. Visit the [Subscription page in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Then select the subscription you want to check, and then select **Access control (IAM)** from the left-hand pane. Next, select **Role assignments** from the top of the page. The role assignments page lists all users who have access on the subscription.
+You can view the users who have Azure role assignments to access resources in the subscription in the Azure portal. Visit the [Subscription page in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Then select the subscription you want to check, and then select **Access control (IAM)** from the left-hand pane. Next, select **Role assignments** from the top of the page. The role assignments page lists all users who have access on the subscription.
 
 Even if the [Azure role assignments](../../role-based-access-control/role-assignments-portal.md) are removed during transfer, users in the original owner account might continue to have access to the subscription through other security mechanisms, including:
 
@@ -97,7 +97,7 @@ Even if the [Azure role assignments](../../role-based-access-control/role-assign
 * Access keys for services like Storage. For more information, see [About Azure storage accounts](../../storage/common/storage-create-storage-account.md).
 * Remote Access credentials for services like Azure Virtual Machines.
 
-If the recipient needs to restrict access to their resources, they should consider updating any secrets associated with the service. Most resources can be updated. Sign in to the [Azure portal](https://portal.azure.com) and then on the Hub menu, select **All resources**. Next, Select the resource. Then in the resource page, select **Settings**. There you can view and update existing secrets.
+If the recipient needs to restrict access to resources, they should consider updating any secrets associated with the service. Most resources can be updated. Sign in to the [Azure portal](https://portal.azure.com) and then on the Hub menu, select **All resources**. Next, Select the resource. Then in the resource page, select **Settings**. There you can view and update existing secrets.
 
 ## You pay for usage when you receive ownership
 
