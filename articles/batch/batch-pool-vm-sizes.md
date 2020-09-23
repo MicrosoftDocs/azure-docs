@@ -64,7 +64,7 @@ Batch pools in the Virtual Machine configuration support almost all VM sizes ([L
 <sup>2</sup> These VM series can only be used with generation 2 VM Images.
 
 ### Using Generation 2 VM Images
-Some VM series, such as [Mv2](../virtual-machines/mv2-series.md), can only be used with [generation 2 VM images](../virtual-machines/generation-2.md). Generation 2 VM images are specified like any VM image, using the 'sku' property of the ['imageReference'](https://docs.microsoft.com/rest/api/batchservice/pool/add#imagereference) configuration; the 'sku' strings have a suffix such as "-g2" or "-gen2". To get a list of VM images supported by Batch, including generation 2 images, use the ['list supported images'](https://docs.microsoft.com/rest/api/batchservice/account/listsupportedimages) API, [PowerShell](https://docs.microsoft.com/powershell/module/az.batch/get-azbatchsupportedimage), or [Azure CLI](https://docs.microsoft.com/cli/azure/batch/pool/supported-images).
+Some VM series, such as [Mv2](../virtual-machines/mv2-series.md), can only be used with [generation 2 VM images](../virtual-machines/generation-2.md). Generation 2 VM images are specified like any VM image, using the 'sku' property of the ['imageReference'](/rest/api/batchservice/pool/add#imagereference) configuration; the 'sku' strings have a suffix such as "-g2" or "-gen2". To get a list of VM images supported by Batch, including generation 2 images, use the ['list supported images'](/rest/api/batchservice/account/listsupportedimages) API, [PowerShell](/powershell/module/az.batch/get-azbatchsupportedimage), or [Azure CLI](/cli/azure/batch/pool/supported-images).
 
 ### Pools in Cloud Service configuration
 
