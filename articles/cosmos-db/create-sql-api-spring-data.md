@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Use Spring Data Azure Cosmos DB to create a document database using Azure Cosmos DB
-description: This quickstart presents a Spring Data Azure Cosmos DB code sample you can use to connect to and query the Azure Cosmos DB SQL API
+title: Quickstart - Use Spring Data Azure Cosmos DB v3 to create a document database using Azure Cosmos DB
+description: This quickstart presents a Spring Data Azure Cosmos DB v3 code sample you can use to connect to and query the Azure Cosmos DB SQL API
 author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -11,7 +11,7 @@ ms.author: anfeldma
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
 ---
 
-# Quickstart: Build a Spring Data Azure Cosmos DB app to manage Azure Cosmos DB SQL API data
+# Quickstart: Build a Spring Data Azure Cosmos DB v3 app to manage Azure Cosmos DB SQL API data
 
 
 > [!div class="op_single_selector"]
@@ -23,10 +23,17 @@ ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
 
-In this quickstart, you create and manage an Azure Cosmos DB SQL API account from the Azure portal, and by using a Java app cloned from GitHub. First, you create an Azure Cosmos DB SQL API account using the Azure portal, then create a Java app using the SQL Java SDK, and then add resources to your Cosmos DB account by using the Java application. Azure Cosmos DB is a multi-model database service that lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities.
+In this quickstart, you create and manage an Azure Cosmos DB SQL API account from the Azure portal, and by using a Spring Data Azure Cosmos DB v3 app cloned from GitHub. First, you create an Azure Cosmos DB SQL API account using the Azure portal, then create a Spring Boot app using the Spring Data Azure Cosmos DB v3 connector, and then add resources to your Cosmos DB account by using the Spring Boot application. Azure Cosmos DB is a multi-model database service that lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities.
 
 > [!IMPORTANT]  
-> This quickstart is for Azure Cosmos DB Java SDK v4 only. Please view the Azure Cosmos DB Java SDK v4 [Release notes](sql-api-sdk-java-v4.md), [Maven repository](https://mvnrepository.com/artifact/com.azure/azure-cosmos), Azure Cosmos DB Java SDK v4 [performance tips](performance-tips-java-sdk-v4-sql.md), and Azure Cosmos DB Java SDK v4 [troubleshooting guide](troubleshoot-java-sdk-v4-sql.md) for more information. If you are currently using an older version than v4, see the [Migrate to Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) guide for help upgrading to v4.
+> These release notes are for version 3 of Spring Data Azure Cosmos DB. You can find [release notes for version 2 here](sql-api-sdk-java-spring-v2.md). 
+>
+> Spring Data Azure Cosmos DB supports only the SQL API.
+>
+> See these articles for information about Spring Data on other Azure Cosmos DB APIs:
+> * [Spring Data for Apache Cassandra with Azure Cosmos DB](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db)
+> * [Spring Data MongoDB with Azure Cosmos DB](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db)
+> * [Spring Data Gremlin with Azure Cosmos DB](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db)
 >
 
 ## Prerequisites
@@ -74,7 +81,7 @@ Now let's switch to working with code. Let's clone a SQL API app from GitHub, se
 Run the following command to clone the sample repository. This command creates a copy of the sample app on your computer.
 
 ```bash
-git clone https://github.com/Azure-Samples/azure-cosmos-java-getting-started.git
+git clone https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-spring-data-cosmos
 ```
 
 ## Review the code
@@ -82,66 +89,41 @@ git clone https://github.com/Azure-Samples/azure-cosmos-java-getting-started.git
 This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. Otherwise, you can skip ahead to [Run the app
 ](#run-the-app). 
 
+### Application configuration file
 
-# [Sync API](#tab/sync)
+Here we showcase how Spring Boot and Spring Data enhance user experience - the process of establishing a Cosmos client and connecting to Cosmos resources is now config rather than code. At application startup Spring Boot handles all of this boilerplate using the settings in **application.properties**:
 
-### Managing database resources using the synchronous (sync) API
+```xml
+cosmos.uri=${ACCOUNT_HOST}
+cosmos.key=${ACCOUNT_KEY}
+cosmos.secondaryKey=${SECONDARY_ACCOUNT_KEY}
 
-* `CosmosClient` initialization. The `CosmosClient` provides client-side logical representation for the Azure Cosmos database service. This client is used to configure and execute requests against the service.
-    
-    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=CreateSyncClient)]
+dynamic.collection.name=spel-property-collection
+# Populate query metrics
+cosmos.queryMetricsEnabled=true
+```
 
-* `CosmosDatabase` creation.
+Once you create an Azure Cosmos DB account, database, and container, just fill-in-the-blanks in the config file and Spring Boot/Spring Data will automatically do the following: (1) create an underlying Java SDK `CosmosClient` instance with the URI and key, and (2) connect to the database and container. You're all set - **no more resource management code!**
 
-    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=CreateDatabaseIfNotExists)]
+### Java source
 
-* `CosmosContainer` creation.
+The Spring Data value-add also comes from its simple, clean, standardized and platform-independent interface for operating on datastores. Building on the Spring Data GitHub sample linked above, below are CRUD and query samples for manipulating Azure Cosmos DB documents with Spring Data Azure Cosmos DB.
 
-    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=CreateContainerIfNotExists)]
+* Item creation and updates by using the `save` method.
 
-* Item creation by using the `createItem` method.
-
-    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=CreateItem)]
+    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/azure-spring-data-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java?name=Create)]
    
-* Point reads are performed using `readItem` method.
+* Point-reads using the derived query method defined in the repository. The `findByIdAndLastName` performs point-reads for `UserRepository`. The fields mentioned in the method name cause Spring Data to execute a point-read defined by the `id` and `lastName` fields:
 
-    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=ReadItem)]
+    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/azure-spring-data-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java?name=Read)]
 
-* SQL queries over JSON are performed using the `queryItems` method.
+* Item deletes using `deleteAll`:
 
-    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=QueryItems)]
+    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/azure-spring-data-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java?name=Delete)]
 
-# [Async API](#tab/async)
+* Derived query based on repository method name. Spring Data implements the `UserRepository` `findByFirstName` method as a Java SDK SQL query on the `firstName` field (this query could not be implemented as a point-read):
 
-### Managing database resources using the asynchronous (async) API
-
-* Async API calls return immediately, without waiting for a response from the server. In light of this, the following code snippets show proper design patterns for accomplishing all of the preceding management tasks using async API.
-
-* `CosmosAsyncClient` initialization. The `CosmosAsyncClient` provides client-side logical representation for the Azure Cosmos database service. This client is used to configure and execute asynchronous requests against the service.
-    
-    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/async/AsyncMain.java?name=CreateAsyncClient)]
-
-* `CosmosAsyncDatabase` creation.
-
-    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=CreateDatabaseIfNotExists)]
-
-* `CosmosAsyncContainer` creation.
-
-    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=CreateContainerIfNotExists)]
-
-* As with the sync API, item creation is accomplished using the `createItem` method. This example shows how to efficiently issue numerous async `createItem` requests by subscribing to a Reactive Stream which issues the requests and prints notifications. Since this simple example runs to completion and terminates, `CountDownLatch` instances are used to ensure the program does not terminate during item creation. **The proper asynchronous programming practice is not to block on async calls - in realistic use-cases requests are generated from a main() loop that executes indefinitely, eliminating the need to latch on async calls.**
-
-    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/async/AsyncMain.java?name=CreateItem)]
-   
-* As with the sync API, point reads are performed using `readItem` method.
-
-    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/async/AsyncMain.java?name=ReadItem)]
-
-* As with the sync API, SQL queries over JSON are performed using the `queryItems` method.
-
-    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/async/AsyncMain.java?name=QueryItems)]
-
----
+    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/azure-spring-data-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java?name=Query)]
 
 ## Run the app
 
@@ -150,30 +132,25 @@ Now go back to the Azure portal to get your connection string information and la
 1. In the git terminal window, `cd` to the sample code folder.
 
     ```bash
-    cd azure-cosmos-java-getting-started
+    cd azure-spring-data-cosmos-java-sql-api-getting-started/azure-spring-data-cosmos-java-getting-started/
     ```
 
-2. In the git terminal window, use the following command to install the required Java packages.
+2. In the git terminal window, use the following command to install the required Spring Data Azure Cosmos DB packages.
 
     ```bash
-    mvn package
+    mvn clean package
     ```
 
-3. In the git terminal window, use the following command to start the Java application (replace SYNCASYNCMODE with `sync` or `async` depending on which sample code you would like to run, replace YOUR_COSMOS_DB_HOSTNAME with the quoted URI value from the portal, and replace YOUR_COSMOS_DB_MASTER_KEY with the quoted primary key from portal)
+3. In the git terminal window, use the following command to start the Spring Data Azure Cosmos DB application:
 
     ```bash
-    mvn exec:java@SYNCASYNCMODE -DACCOUNT_HOST=YOUR_COSMOS_DB_HOSTNAME -DACCOUNT_KEY=YOUR_COSMOS_DB_MASTER_KEY
-
+    mvn spring-boot:run
     ```
-
-    The terminal window displays a notification that the FamilyDB database was created. 
     
-4. The app creates database with name `AzureSampleFamilyDB`
-5. The app creates container with name `FamilyContainer`
-6. The app will perform point reads using object IDs and partition key value (which is lastName in our sample). 
-7. The app will query items to retrieve all families with last name in ('Andersen', 'Wakefield', 'Johnson')
-
-7. The app doesn't delete the created resources. Switch back to the portal to [clean up the resources](#clean-up-resources).  from your account so that you don't incur charges.
+4. The app load **application.config** and connects the resources in your Azure Cosmos DB account.
+5. The app will perform point CRUD operations using object IDs and partition key value (which is lastName in our sample). 
+6. The app will perform a derived query.
+7. The app doesn't delete your resources. Switch back to the portal to [clean up the resources](#clean-up-resources) from your account if you want to avoid incurring charges.
 
 ## Review SLAs in the Azure portal
 
@@ -185,7 +162,7 @@ Now go back to the Azure portal to get your connection string information and la
 
 ## Next steps
 
-In this quickstart, you've learned how to create an Azure Cosmos DB SQL API account, create a document database and container using the Data Explorer, and run a Java app to do the same thing programmatically. You can now import additional data into your Azure Cosmos DB account. 
+In this quickstart, you've learned how to create an Azure Cosmos DB SQL API account, create a document database and container using the Data Explorer, and run a Spring Data app to do the same thing programmatically. You can now import additional data into your Azure Cosmos DB account. 
 
 > [!div class="nextstepaction"]
 > [Import data into Azure Cosmos DB](import-data.md)
