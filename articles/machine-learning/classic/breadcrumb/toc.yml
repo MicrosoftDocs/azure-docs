@@ -8,7 +8,7 @@
     items:
     - name: Studio (classic)
       tocHref: /azure/architecture/data-guide/technology-choices/
-      topicHref: /azure/machine-learning/studio/index
+      topicHref: /azure/machine-learning/classic/index
       items:
       - name: Data Architecture Guide
         tocHref: /azure/architecture/data-guide/

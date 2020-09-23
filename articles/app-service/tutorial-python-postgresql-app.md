@@ -3,7 +3,7 @@ title: 'Tutorial: Deploy a Python Django app with Postgres'
 description: Create a Python web app with a PostgreSQL database and deploy it to Azure. The tutorial uses the Django framework and the app is hosted on Azure App Service on Linux.
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 07/22/2020
+ms.date: 09/22/2020
 ms.custom: [mvc, seodec18, seo-python-october2019, cli-validate, devx-track-python, devx-track-azurecli]
 ---
 # Tutorial: Deploy a Django web app with PostgreSQL in Azure App Service
@@ -15,7 +15,7 @@ In this tutorial, you use the Azure CLI to complete the following tasks:
 > [!div class="checklist"]
 > * Set up your initial environment with Python and the Azure CLI
 > * Create an Azure Database for PostgreSQL database
-> * Deploy code to Azure App Service and connect to Postgres
+> * Deploy code to Azure App Service and connect to PostgreSQL
 > * Update your code and redeploy
 > * View diagnostic logs
 > * Manage the web app in the Azure portal
@@ -95,14 +95,14 @@ Then open a terminal window in that *djangoapp* folder.
 
 ---
 
-The djangoapp sample contains the data-driven Django polls app you get by following [Writing your first Django app](https://docs.djangoproject.com/en/2.1/intro/tutorial01/) in the Django documentation. The completed app is provided here for your convenience.
+The djangoapp sample contains the data-driven Django polls app you get by following [Writing your first Django app](https://docs.djangoproject.com/en/3.1/intro/tutorial01/) in the Django documentation. The completed app is provided here for your convenience.
 
 The sample is also modified to run in a production environment like App Service:
 
 - Production settings are in the *azuresite/production.py* file. Development details are in *azuresite/settings.py*.
 - The app uses production settings when the `DJANGO_ENV` environment variable is set to "production". You create this environment variable later in the tutorial along with others used for the PostgreSQL database configuration.
 
-These changes are specific to configuring Django to run in any production environment and aren't particular to App Service. For more information, see the [Django deployment checklist](https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/).
+These changes are specific to configuring Django to run in any production environment and aren't particular to App Service. For more information, see the [Django deployment checklist](https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/).
 
 [Having issues? Let us know.](https://aka.ms/DjangoCLITutorialHelp)
 

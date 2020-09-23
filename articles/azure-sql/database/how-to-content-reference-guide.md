@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: carlr
+ms.reviewer: sstein
 ms.date: 01/14/2020
 ---
 # Configure and manage content reference - Azure SQL Database
