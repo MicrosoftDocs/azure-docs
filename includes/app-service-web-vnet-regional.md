@@ -50,7 +50,7 @@ One address is used for each plan instance. If you scale your app to five instan
 
 If you want your apps in another plan to reach a VNet that's already connected to by apps in another plan, select a different subnet than the one being used by the preexisting VNet Integration.
 
-The feature is fully supported for both Windows and Linux web apps. All of the behaviors act the same between Windows apps and Linux apps.
+The feature is fully supported for both Windows and Linux apps, including [custom containers](../articles/app-service/quickstart-custom-container.md). All of the behaviors act the same between Windows apps and Linux apps.
 
 ### Service endpoints
 

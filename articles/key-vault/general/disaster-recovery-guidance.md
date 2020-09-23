@@ -1,6 +1,6 @@
 ---
-title: What to do if an Azure service disruption affects Azure Key Vault - Azure Key Vault | Microsoft Docs
-description: Learn what to do of an Azure service disruption affects Azure Key Vault.
+title: Azure Key Vault availability and redundancy - Azure Key Vault | Microsoft Docs
+description: Learn about Azure Key Vault availability and redundancy.
 services: key-vault
 author: ShaneBala-keyvault
 manager: ravijan
@@ -16,7 +16,11 @@ ms.author: sudbalas
 
 Azure Key Vault features multiple layers of redundancy to make sure that your keys and secrets remain available to your application even if individual components of the service fail.
 
+> [!NOTE]
+> This guide applies to vaults. Managed HSM pools use a different high availability and disaster recovery model. See [Managed HSM Disaster Recovery Guide](../managed-hsm/disaster-recovery-guide.md) for more information.
+
 The contents of your key vault are replicated within the region and to a secondary region at least 150 miles away but within the same geography to maintain high durability of your keys and secrets. See the [Azure paired regions](../../best-practices-availability-paired-regions.md) document for details on specific region pairs.
+
 
 If individual components within the key vault service fail, alternate components within the region step in to serve your request to make sure that there is no degradation of functionality. You do not need to take any action to start this process, it happens automatically and will be transparent to you.
 
@@ -41,6 +45,7 @@ There are a few caveats to be aware of:
   * Verify
   * Sign
   * Backup
-* During failover, you will not be able to make changes to key vault properties. You will not be able to change access policy or firewall configurations and settings.
-* After a failover is failed back, all request types (including read *and* write requests) are available.
 
+* During failover, you will not be able to make changes to key vault properties. You will not be able to change access policy or firewall configurations and settings.
+
+* After a failover is failed back, all request types (including read *and* write requests) are available.
