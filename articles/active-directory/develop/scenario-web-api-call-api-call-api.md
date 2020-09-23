@@ -113,7 +113,7 @@ When you use Microsoft.Identity.Web, you have three cases:
    ```csharp
    private async Task CallTodoListService(string accessToken)
    {
-    // After the token has been returned by Microsoft Identity Web, add it to the HTTP authorization header before making the call to access the To Do list service.
+    // After the token has been returned by Microsoft.Identity.Web, add it to the HTTP authorization header before making the call to access the todolist service.
    _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.AccessToken);
 
    // Call the todolist service.
