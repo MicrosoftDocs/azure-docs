@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: sstein
+ms.reviewer:
 ms.date: 01/14/2019
 ---
 # Use geo-restore to recover a multitenant SaaS application from database backups
