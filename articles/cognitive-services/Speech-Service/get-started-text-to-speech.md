@@ -55,7 +55,7 @@ This article assumes that you have an Azure account and Speech service subscript
 [!INCLUDE [CLI Basics include](includes/how-to/text-to-speech-basics/text-to-speech-basics-cli.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-objectivec-swift"
+::: zone pivot="programming-languages-objectivec-swift"
 [!INCLUDE [Objective-C and Swift Basics include](includes/how-to/text-to-speech-basics/text-to-speech-basics-objectivec-swift.md)]
 ::: zone-end
 
