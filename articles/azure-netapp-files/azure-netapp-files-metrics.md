@@ -33,7 +33,7 @@ Azure NetApp Files provides metrics on allocated storage, actual storage usage, 
     The total of logical space (GiB) used across volumes in a capacity pool.  
 
 - *Total Snapshot Size for the Pool*    
-    The sum of the snapshot size of all volumes in the pool.
+    The sum of snapshot size from all volumes in the pool.
 
 ## <a name="volumes"></a>Usage metrics for volumes
 
@@ -41,6 +41,8 @@ Azure NetApp Files provides metrics on allocated storage, actual storage usage, 
 - *Percentage Volume Consumed Size*    
     The percentage of the volume consumed, including snapshots.  
 -->
+- *Volume Allocated Size*   
+    The provisioned size of a volume
 - *Volume Quota Size*    
     The quota size (GiB) the volume is provisioned with.   
 - *Volume Consumed Size*   
