@@ -100,9 +100,9 @@ VMware 6.7 onwards had TLS enabled as the communication protocol.
 
 1. Right-click the TLS.REG file, and select **Merge** or **Open** to add the settings to the registry.
 
-## Add the provisioning IP address for Azure VMware Solution ESXi hosts on Azure Backup Server
+## Add the provisioning IP address 
 
-During the preview, Azure VMware Solution doesn't resolve the ESX host from the virtual machine deployed in the virtual network. You'll need to perform additional steps to add the host file entry on the Azure Backup Server virtual machine.
+Azure VMware Solution doesn't resolve the ESX host from the VM deployed in the virtual network. You'll need to do additional steps to add the host file entry on the Azure Backup Server VM.
 
 ### Identify the IP address for ESXi hosts
 
@@ -139,7 +139,7 @@ During the preview, Azure VMware Solution doesn't resolve the ESX host from the 
 
 1. In the **Manage Credentials** dialog box, select **Add**.
 
-   ![Azure Backup Server Manage Credentials dialog box](../backup/media/backup-azure-backup-server-vmware/mabs-manage-credentials-dialog.png)
+   ![In the Manage Credentials dialog box, select Add.](../backup/media/backup-azure-backup-server-vmware/mabs-manage-credentials-dialog.png)
 
 1. In the **Add Credential** dialog box, enter a name and a description for the new credential. Specify the user name and password you defined on the VMware server.
 
@@ -150,7 +150,7 @@ During the preview, Azure VMware Solution doesn't resolve the ESX host from the 
 
 1. Select **Add** to add the new credential.
 
-   ![Azure Backup Server Manage Credentials dialog box](../backup/media/backup-azure-backup-server-vmware/new-list-of-mabs-creds.png)
+   ![Screenshot shows the Azure Backup Server Manage Credentials dialog box with new credentials displayed.](../backup/media/backup-azure-backup-server-vmware/new-list-of-mabs-creds.png)
 
 ## Add the vCenter server to Azure Backup Server
 
@@ -183,11 +183,14 @@ During the preview, Azure VMware Solution doesn't resolve the ESX host from the 
 
    ![Add VMware server to Azure Backup Server](../backup/media/backup-azure-backup-server-vmware/tasks-screen.png)
 
-1. On the **Finish** page, review the settings and then select **Close**.
+1. On the **Finish** page, review the settings, and then select **Close**.
 
    ![Finish page](../backup/media/backup-azure-backup-server-vmware/summary-screen.png)
 
-   You should see the vCenter server listed under **Production Server** with the type as **VMware Server** and **Agent Status** as **OK**. If you see **Agent Status** as **Unknown**, select **Refresh**.
+   You should see the vCenter server listed under **Production Server** with the type as **VMware Server** and **Agent Status** as **OK**. 
+
+   >[!TIP]
+   >If you see **Agent Status** as **Unknown**, select **Refresh**.
 
 ## Configure a protection group
 
@@ -237,7 +240,7 @@ Protection groups gather multiple VMs and apply the same data retention and back
 
 1. On the **Choose Replica Creation Method** page, indicate how you want to take the initial backup, and select **Next**.
 
-   - The default is **Automatically over the network** and **Now**. If you use the default, specify an off-peak time. If you choose **Later**, specify a day and time.
+   - The default is **Automatically over the network** and **Now**. If you use the default, specify an off-peak time. If you select **Later**, specify a day and time.
    - For large amounts of data or less-than-optimal network conditions, consider replicating the data offline by using removable media.
 
    ![Choose replica creation method](../backup/media/backup-azure-backup-server-vmware/replica-creation.png)
@@ -295,7 +298,7 @@ In the Azure Backup Server Administrator Console, there are two ways to find rec
 
 1. In the Azure Backup Server Administrator Console, select the **Recovery** view. 
 
-1. Using the **Browse** pane, browse or filter to find the VM you want to recover. After you select a VM or folder, the **Recovery points for** pane displays the available recovery points.
+1. From the **Browse** pane, browse or filter to find the VM you want to recover. After you select a VM or folder, the available recovery points display.
 
    ![Available recovery points](../backup/media/restore-azure-backup-server-vmware/recovery-points.png)
 
@@ -312,12 +315,13 @@ In the Azure Backup Server Administrator Console, there are two ways to find rec
 
    ![Recovery Wizard, Review Recovery Selection page](../backup/media/restore-azure-backup-server-vmware/recovery-wizard.png)
 
-1. Select **Next** to go to the **Specify Recovery Options** screen. Select **Next** again to go to the **Select Recovery Type** screen. 
+1. Select **Next** to go to the **Specify Recovery Options** screen. 
+1. Select **Next** again to go to the **Select Recovery Type** screen. 
 
    > [!NOTE]
    > VMware workloads don't support enabling network bandwidth throttling.
 
-1. On the **Select Recovery Type** page, choose whether to recover to the original instance or a new location, and then select **Next**.
+1. On the **Select Recovery Type** page, select recover to the original instance or a new location, and then select **Next**.
 
    - If you choose **Recover to original instance**, you don't need to make any more choices in the wizard. The data for the original instance is used.
    - If you choose **Recover as virtual machine on any host**, then on the **Specify Destination** screen, provide the information for **ESXi Host**, **Resource Pool**, **Folder**, and **Path**.
@@ -337,7 +341,7 @@ You can restore individual files from a protected VM recovery point. This featur
 
 1. In the Azure Backup Server Administrator Console, select the **Recovery** view.
 
-1. Using the **Browse** pane, browse or filter to find the VM you want to recover. After you select a VM or folder, the **Recovery points for** pane displays the available recovery points.
+1. From the **Browse** pane, browse or filter to find the VM you want to recover. After you select a VM or folder, the available recovery points display.
 
    ![Recovery points available](../backup/media/restore-azure-backup-server-vmware/vmware-rp-disk.png)
 

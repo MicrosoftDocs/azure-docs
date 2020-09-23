@@ -152,7 +152,7 @@ Azure Remote Rendering hooks into the Unity render pipeline to do the frame comp
 ## Checkerboard pattern is rendered after model loading
 
 If the rendered image looks like this:
-![Checkerboard](../reference/media/checkerboard.png)
+![Screenshot shows a grid of black and white squares with a Tools menu.](../reference/media/checkerboard.png)
 then the renderer hits the [polygon limits for the standard configuration size](../reference/vm-sizes.md). To mitigate, either switch to **premium** configuration size or reduce the number of visible polygons.
 
 ## The rendered image in Unity is upside-down
@@ -213,7 +213,7 @@ If the above steps have been exhausted and the remaining z-fighting is unaccepta
 
 ARR has a feature for determining if surfaces could z-fight: [Checkerboard highlighting](../overview/features/z-fighting-mitigation.md). You can also determine visually what causes the z-fighting. The following first animation shows an example of depth-precision loss in the distance, and the second one shows an example of nearly coplanar surfaces:
 
-![depth-precision-z-fighting](./media/depth-precision-z-fighting.gif)  ![coplanar-z-fighting](./media/coplanar-z-fighting.gif)
+![Animation shows an example of depth-precision loss in the distance.](./media/depth-precision-z-fighting.gif)  ![Animation shows an example of nearly coplanar surfaces.](./media/coplanar-z-fighting.gif)
 
 Compare these examples with your z-fighting to determine the cause or optionally follow this step-by-step workflow:
 

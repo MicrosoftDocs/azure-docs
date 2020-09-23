@@ -47,11 +47,11 @@ The server needs to be restarted after a change of this parameter. Internally, t
 
 1. Set Azure replication support to **logical**. Select **Save**.
 
-   ![Azure Database for PostgreSQL - Replication - Azure replication support](./media/concepts-logical/replication-support.png)
+   :::image type="content" source="./media/concepts-logical/replication-support.png" alt-text="Azure Database for PostgreSQL - Replication - Azure replication support":::
 
 2. Restart the server to apply the change by selecting **Yes**.
 
-   ![Azure Database for PostgreSQL - Replication - Confirm restart](./media/concepts-logical/confirm-restart.png)
+   :::image type="content" source="./media/concepts-logical/confirm-restart.png" alt-text="Azure Database for PostgreSQL - Replication - Confirm restart":::
 
 
 ## Start logical decoding
