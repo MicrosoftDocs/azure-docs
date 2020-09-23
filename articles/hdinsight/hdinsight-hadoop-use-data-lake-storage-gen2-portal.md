@@ -18,9 +18,9 @@ The Azure portal is a web-based management tool for services and resources hoste
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-To create an HDInsight cluster that uses Data Lake Storage Gen2 for storage, follow these steps to configure a Data Lake Storage Gen2 account.
+To create an HDInsight cluster that uses Data Lake Storage Gen2 for storage, follow these steps to configure a storage account that has a hierarchical namespace.
 
-### Create a user-assigned managed identity
+## Create a user-assigned managed identity
 
 Create a user-assigned managed identity, if you don’t already have one.
 
@@ -35,9 +35,9 @@ For more information on how managed identities work in Azure HDInsight, see [Man
 
 ![Create a user-assigned managed identity](./media/hdinsight-hadoop-use-data-lake-storage-gen2/create-user-assigned-managed-identity-portal.png)
 
-### Create a Data Lake Storage Gen2 account
+## Create a storage account to use with Data Lake Storage Gen2
 
-Create an Azure Data Lake Storage Gen2 storage account.
+Create an storage account to use with Azure Data Lake Storage Gen2.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the upper-left click **Create a resource**.
@@ -51,11 +51,11 @@ Create an Azure Data Lake Storage Gen2 storage account.
     1. Click **Review + create**.
     1. Click **Create**
 
-For more information on other options during storage account creation, see [Quickstart: Create an Azure Data Lake Storage Gen2 storage account](../storage/blobs/data-lake-storage-quickstart-create-account.md).
+For more information on other options during storage account creation, see [Quickstart: Create an Azure Data Lake Storage Gen2 storage account](../storage/blobs/create-data-lake-storage-account).
 
 ![Screenshot showing storage account creation in the Azure portal](./media/hdinsight-hadoop-use-data-lake-storage-gen2/azure-data-lake-storage-account-create-advanced.png)
 
-### Set up permissions for the managed identity on the Data Lake Storage Gen2 account
+## Set up permissions for the managed identity on the Data Lake Storage Gen2
 
 Assign the managed identity to the **Storage Blob Data Owner** role on the storage account.
 
