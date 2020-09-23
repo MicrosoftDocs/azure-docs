@@ -66,16 +66,11 @@ az disk create -n $diskName -g $resourceGroupName -l $region --sku Premium_LRS -
 ## Create an OS disk with a tier higher than the baseline tier from an Azure marketplace image
 
 ```azurecli
-subscriptionId=<yourSubscriptionIDHere>
 resourceGroupName=<yourResourceGroupNameHere>
 diskName=<yourDiskNameHere>
 performanceTier=<yourDesiredPerformanceTier>
 region=westcentralus
 image=Canonical:UbuntuServer:18.04-LTS:18.04.202002180
-
-az login
-
-az account set --subscription $subscriptionId
 
 az disk create -n $diskName -g $resourceGroupName -l $region --image-reference $image --sku Premium_LRS --tier $performanceTier
 ```
