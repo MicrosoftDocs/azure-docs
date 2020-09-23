@@ -131,7 +131,7 @@ FROM input
 
 SELECT udf.score(Dataframe)
 INTO output
-FROM input
+FROM Dataframe
 ```
 
 The following JSON is an example request from the previous query:

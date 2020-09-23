@@ -29,7 +29,7 @@ This article will show you how to:
 - Create new `Dataset` objects from `PipelineData` you wish to persist
 
 > [!TIP]
-> An improved experience for passing temporary data between pipeline steps and persisting your data after pipeline runs is available in the public preview classes,  [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true) and [`OutputTabularDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.output_dataset_config.outputtabulardatasetconfig?view=azure-ml-py&preserve-view=true).  These classes are [experimental](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py#&preserve-view=truestable-vs-experimental) preview features, and may change at any time.
+> An improved experience for passing temporary data between pipeline steps and persisting your data after pipeline runs is available in the public preview classes,  [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true) and [`OutputTabularDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.output_dataset_config.outputtabulardatasetconfig?view=azure-ml-py&preserve-view=true).  These classes are [experimental](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true#&preserve-view=truestable-vs-experimental) preview features, and may change at any time.
 
 
 ## Prerequisites

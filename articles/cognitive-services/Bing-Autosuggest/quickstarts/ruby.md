@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Suggest search queries with the Bing Autosuggest REST API and Ruby"
 titleSuffix: Azure Cognitive Services
-description: Learn how to quickly start suggesting search terms in real time with the Bing Autosuggest API.
+description: Learn how to quickly start suggesting search terms in real time with the Bing Autosuggest API and Ruby.
 services: cognitive-services
 author: aahill
 manager: nitinme

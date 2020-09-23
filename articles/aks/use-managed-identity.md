@@ -44,7 +44,7 @@ AKS uses several managed identities for built-in services and add-ons.
 | Add-on | Ingress application gateway | Manages required network resources| Contributor role for node resource group | No
 | Add-on | omsagent | Used to send AKS metrics to Azure Monitor | Monitoring Metrics Publisher role | No
 | Add-on | Virtual-Node (ACIConnector) | Manages required network resources for Azure Container Instances (ACI) | Contributor role for node resource group | No
-
+| OSS project | aad-pod-identity | Enables applications to access cloud resources securely with Azure Active Directory (AAD) | NA | Steps to grant permission at https://github.com/Azure/aad-pod-identity#role-assignment.
 
 ## Create an AKS cluster with managed identities
 

@@ -28,7 +28,7 @@ For more information, see [Deploy an application with Azure Resource Manager tem
 
 * An **Azure subscription**. If you do not have one, try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
 
-* To use a template from a CLI, you need either [Azure PowerShell](https://docs.microsoft.com/powershell/azure/?view=azps-1.2.0) or the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* To use a template from a CLI, you need either [Azure PowerShell](https://docs.microsoft.com/powershell/azure/?view=azps-1.2.0) or the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
 
 * Some scenarios require you to open a support ticket. These scenarios are:
 

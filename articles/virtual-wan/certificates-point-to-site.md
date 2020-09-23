@@ -1,6 +1,6 @@
 ---
 title: 'Generate and export certificates for User VPN connections | Azure Virtual WAN'
-description: Create a self-signed root certificate, export the public key, and generate client certificates using PowerShell on Windows 10 or Windows Server 2016.
+description: Create a self-signed root certificate, export the public key, and generate client certificates for User VPN connections using PowerShell on Windows 10 or Windows Server 2016.
 services: virtual-wan
 author: cherylmc
 

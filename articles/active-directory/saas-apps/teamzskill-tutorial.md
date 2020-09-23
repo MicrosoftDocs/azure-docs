@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/04/2020
+ms.date: 09/17/2020
 ms.author: jeedes
 ---
 
@@ -101,6 +101,10 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     | employeeid | user.employeeid |
 	| postalcode | user.postalcode |
 	| country | user.country |
+    | role | user.assignedroles |
+
+    > [!NOTE]
+    > TeamzSkill expects roles for users assigned to the application. Please set up these roles in Azure AD so that users can be assigned the appropriate roles. To understand how to configure roles in Azure AD, see [here](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management).
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
@@ -132,7 +136,6 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
 1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
 1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
-
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
 ## Configure TeamzSkill SSO

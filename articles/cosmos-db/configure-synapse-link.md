@@ -39,7 +39,7 @@ Use the following steps to run analytical queries with the Synapse Link for Azur
 
    :::image type="content" source="./media/configure-synapse-link/find-synapse-link-feature.png" alt-text="Find Synapse Link preview feature":::
 
-1. Next it prompts you to enable synapse link on your account. Select Enable.
+1. Next it prompts you to enable synapse link on your account. Select **Enable**. This process can take 1 to 5 minutes to complete.
 
    :::image type="content" source="./media/configure-synapse-link/enable-synapse-link-feature.png" alt-text="Enable Synapse Link feature":::
 
@@ -65,9 +65,11 @@ You can turn on analytical store on an Azure Cosmos container while creating the
 
    :::image type="content" source="./media/configure-synapse-link/create-container-analytical-store.png" alt-text="Turn on analytical store for Azure Cosmos container":::
 
-1. If you have previously not enabled Synapse Link on this account, it will prompt you to do so because it's a pre-requisite to create an analytical store enabled container. If prompted, select **Enable Synapse Link**.
+1. If you have previously not enabled Synapse Link on this account, it will prompt you to do so because it's a pre-requisite to create an analytical store enabled container. If prompted, select **Enable Synapse Link**. This process can take 1 to 5 minutes to complete.
 
 1. Select **OK**, to create an analytical store enabled Azure Cosmos container.
+
+1. After the container is created, verify that analytical store has been enabled by clicking **Settings**, right below Documents in Data Explorer, and check if the **Analytical Store Time to Live** option is turned on.
 
 ### .NET SDK
 

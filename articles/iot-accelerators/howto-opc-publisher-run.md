@@ -13,6 +13,9 @@ ms.custom:  [amqp, mqtt]
 
 # Run OPC Publisher
 
+> [!IMPORTANT]
+> While we update this article, see [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/) for the most up to date content.
+
 This article describes how to run ad debug OPC Publisher. It also addresses performance and memory considerations.
 
 ## Command-line options
