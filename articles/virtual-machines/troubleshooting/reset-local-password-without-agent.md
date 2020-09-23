@@ -63,13 +63,13 @@ Always try to reset a password using the [Azure portal or Azure PowerShell](rese
      
      ```
      [Startup]
-     0CmdLine=C:\Windows\System32\FixAzureVM.cmd
+     0CmdLine=FixAzureVM.cmd
      0Parameters=
      ```
      
      ![Create scripts.ini](./media/reset-local-password-without-agent/create-scripts-ini.png)
 
-5. Create `FixAzureVM.cmd` in `\Windows\System32` with the following contents, replacing `<username>` and `<newpassword>` with your own values:
+5. Create `FixAzureVM.cmd` in `\Windows\System32\GroupPolicy\Machine\Scripts\Startup\` with the following contents, replacing `<username>` and `<newpassword>` with your own values:
    
     ```
     net user <username> <newpassword> /add
@@ -89,7 +89,7 @@ Always try to reset a password using the [Azure portal or Azure PowerShell](rese
 
 9. From your remote session to the new VM, remove the following files to clean up the environment:
     
-    * From %windir%\System32
+    * From %windir%\System32\GroupPolicy\Machine\Scripts\Startup
       * remove FixAzureVM.cmd
     * From %windir%\System32\GroupPolicy\Machine\Scripts
       * remove scripts.ini
@@ -167,13 +167,13 @@ Always try to reset a password using the [Azure portal or Azure PowerShell](/pre
 
      ```
      [Startup]
-     0CmdLine=C:\Windows\System32\FixAzureVM.cmd
+     0CmdLine=FixAzureVM.cmd
      0Parameters=
      ```
      
      ![Create scripts.ini](./media/reset-local-password-without-agent/create-scripts-ini-classic.png)
 
-6. Create `FixAzureVM.cmd` in `\Windows\System32` with the following contents, replacing `<username>` and `<newpassword>` with your own values:
+6. Create `FixAzureVM.cmd` in `\Windows\System32\GroupPolicy\Machine\Scripts\Startup\` with the following contents, replacing `<username>` and `<newpassword>` with your own values:
    
     ```
     net user <username> <newpassword> /add
@@ -209,7 +209,7 @@ Always try to reset a password using the [Azure portal or Azure PowerShell](/pre
 
 2. From your remote session to the new VM, remove the following files to clean up the environment:
     
-    * From `%windir%\System32`
+    * From `%windir%\System32\GroupPolicy\Machine\Scripts\Startup\`
       * remove `FixAzureVM.cmd`
     * From `%windir%\System32\GroupPolicy\Machine\Scripts`
       * remove `scripts.ini`
