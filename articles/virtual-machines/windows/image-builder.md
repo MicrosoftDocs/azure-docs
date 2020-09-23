@@ -180,7 +180,7 @@ In the background, Image Builder will also create a staging resource group in yo
 > You must not delete the staging resource group directly. First delete the image template artifact, this will cause the staging resource group to be deleted.
 
 If the service reports a failure during the image configuration template submission:
--  Review these [troubleshooting](../linux/image-builder-troubleshoot.md#template-submission-errors--troubleshooting) steps. 
+-  Review these [troubleshooting](../linux/image-builder-troubleshoot.md#troubleshoot-image-template-submission-errors) steps. 
 - You will need to delete the template, using the following snippet, before you retry submission.
 
 ```azurecli-interactive
