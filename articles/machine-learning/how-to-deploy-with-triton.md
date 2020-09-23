@@ -18,7 +18,7 @@ Learn how to use [NVIDIA Triton Inference Server](https://developer.nvidia.com/n
 
 One of the ways to deploy a model for inference is as a web service. For example, a deployment to Azure Kubernetes Service or Azure Container Instances. By default, Azure Machine Learning uses a single-threaded, *general purpose* web framework for web service deployments.
 
-Triton is a framework that is *optimized for inference*. It provides better utilization of GPUs and more cost-effective inference. It batches incoming requests and submits these batches for inference. This better utilizes GPU resources, and is a key part of it's performance.
+Triton is a framework that is *optimized for inference*. It provides better utilization of GPUs and more cost-effective inference. On the server-side, it batches incoming requests and submits these batches for inference. This better utilizes GPU resources, and is a key part of it's performance.
 
 > [!IMPORTANT]
 > Using Triton for deployment from Azure Machine Learning is currently in __preview__. Preview functionality may not be covered by customer support. For more information, see the [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
@@ -95,7 +95,7 @@ The following examples demonstrate how to register the model(s) to use for the d
 from azureml.core.model import Model
 
 model = Model.register(
-    model_path=os.path.join("..", "models"),
+    model_path=os.path.join("..", "triton"),
     model_name="bidaf_onnx",
     tags={'area': "Natural language processing", 'type': "Question answering"},
     description="Question answering model from ONNX model zoo",
@@ -107,7 +107,7 @@ model = Model.register(
 # [Azure CLI](#tab/azure-cli)
 
 ```bash
-az ml model register --model-path='models' \
+az ml model register --model-path='triton' \
 --name='bidaf_onnx' \
 --model-framework='Multi' \
 --model-framework-version='20.07-py3' \
@@ -118,10 +118,6 @@ az ml model register --model-path='models' \
 ## Use no-code deployment
 
 When using [no-code deployment](./how-to-deploy-no-code-deployment.md) with `Model.Framework.MULTI`, Azure Machine Learning tries to deploy any models in the `triton` subdirectory of the registered model. The following examples demonstrated how to deploy using the Python SDK and Azure CLI:
-
-<!-- This step is primarily about ensuring your [Triton model repository](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/model_repository.html) is structured correctly and that your [Model Configuration](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/model_configuration.html#section-model-configuration) is written correctly.
-
-The simplest way to ensure that Triton can serve your model is by using [No-code deployment](./how-to-deploy-no-code-deployment.md). When you deploy with `Model.Framework.MULTI`, we attempt to deploy any models in the `triton` subdirectory of your registered model with Triton. Using code like the below, you can tell Azure Machine Learning to attempt to serve models with Triton on your local machine. -->
 
 # [Python](#tab/python)
 
