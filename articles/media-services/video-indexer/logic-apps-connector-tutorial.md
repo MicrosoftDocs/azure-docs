@@ -6,7 +6,7 @@ manager: johndeu
 ms.author: alzam
 ms.service: media-services
 ms.subservice: video-indexer
-ms.topic: tutorial #Required
+ms.topic: tutorial #required
 ms.date: 05/01/2020
 ---
 
@@ -22,7 +22,7 @@ The "upload and index your video automatically" scenario covered in this tutoria
 * The first flow is triggered when a blob is added or modified in an Azure Storage account. It uploads the new file to Video Indexer with a callback URL to send a notification once the indexing operation completes. 
 * The second flow is triggered based on the callback URL and saves the extracted insights back to a JSON file in Azure Storage. This two flow approach is used to support async upload and indexing of larger files effectively. 
 
-In this tutorial, you learn how to use Logic App to:
+This tutorial is using Logic App to show how to:
 
 > [!div class="checklist"]
 > * Set up the file upload flow
@@ -54,7 +54,7 @@ Once you can connect to your Azure Storage and Video Indexer accounts, find and 
 
 Next, find and select the "Create SAS URI by path” action. In the dialog for the action, select List of Files Path from the Dynamic content options.  
 
-Also, add a new "Shared Access Protocol" parameter. Choose HttpsOnly for the value of the paramter.
+Also, add a new "Shared Access Protocol" parameter. Choose HttpsOnly for the value of the parameter.
 
 ![SAS uri by path](./media/logic-apps-connector-tutorial/sas-uri-by-path.jpg)
 

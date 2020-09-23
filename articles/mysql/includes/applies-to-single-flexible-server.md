@@ -1,0 +1,1 @@
+<Token>**APPLIES TO:** :::image type="content" source="../media/applies-to/yes.png" alt-text="yes-single-server":::Azure Database for MySQL - Single Server :::image type="content" source="../media/applies-to/yes.png" alt-text="yes-flexible-server":::Azure Database for MySQL - Flexible Server </Token>

@@ -23,10 +23,9 @@ The new certificate will be used starting October 26, 2020 (10/26/2020). If you 
 ## How do I know if my database is going to be affected?
 
 All applications that use SSL/TLS and verify the root certificate needs to update the root certificate. You can identify whether your connections verify the root certificate by reviewing your connection string.
--	If your connection string includes `sslmode=verify-ca` or ``
--	If your connection string includes `sslmode=disable`, you do not need to update certificates.
--	If your connection string includes `sslmode=allow`, `sslmode=prefer`, or `sslmode=require`, you do not need to update certificates. 
--	If your connection string does not specific sslmode, you do not need to update certificates.
+-	If your connection string includes `sslmode=verify-ca` or `sslmode=verify-full`, you need to update the certificate.
+-	If your connection string includes `sslmode=disable`, `sslmode=allow`, `sslmode=prefer`, or `sslmode=require`, you do not need to update certificates. 
+-	If your connection string does not specify sslmode, you do not need to update certificates.
 
 If you are using a client that abstracts the connection string away, review the client’s documentation to understand whether it verifies certificates.
 
@@ -122,5 +121,8 @@ Since this update is a client-side change, if the client used to read data from 
 ### 12. Do we have server-side query to verify if SSL is being used?
 To verify if you are using SSL connection to connect to the server refer [SSL verification](concepts-ssl-connection-security.md#applications-that-require-certificate-verification-for-tls-connectivity).
 
-###	13. What if I have further questions?
+### 13. Is there an action needed if I already have the DigiCertGlobalRootG2 in my certificate file?
+No. There is no action needed if your certificate file already has the **DigiCertGlobalRootG2**.
+
+###	14. What if I have further questions?
 If you have questions, get answers from community experts in [Microsoft Q&A](mailto:AzureDatabaseforPostgreSQL@service.microsoft.com). If you have a support plan and you need technical help,  [contact us](mailto:AzureDatabaseforPostgreSQL@service.microsoft.com)

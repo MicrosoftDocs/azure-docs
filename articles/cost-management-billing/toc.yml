@@ -180,6 +180,8 @@
         href: manage/grant-access-to-create-subscription.md
       - name: Export subscription information
         href: manage/export-subscriptions.md
+      - name: Delete an Azure billing payment method
+        href: manage/delete-azure-payment-method.md
       - name: Change credit card
         href: manage/change-credit-card.md
       - name: Change administrator
