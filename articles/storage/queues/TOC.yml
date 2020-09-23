@@ -48,8 +48,8 @@
     - name: Azure Storage encryption at rest
       href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
       items:
-      - name: Customer-managed keys with Azure Key Vault
-        href: ../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+      - name: Encryption with customer-managed keys
+        href: ../common/customer-managed-keys-overview.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Authorizing data operations
       href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
       items:
@@ -69,8 +69,6 @@
         href: ../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Authorizing management operations
       href: ../common/authorization-resource-provider.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-    - name: Advanced threat protection
-      href: ../common/storage-advanced-threat-protection.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Built-in security controls
       href: ../common/storage-security-controls.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Use Azure Private Endpoints
@@ -167,17 +165,15 @@
       items:
       - name: Create an account that supports customer-managed keys
         href: ../common/account-encryption-key-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-      - name: Configure customer-managed keys
-        items:  
-        - name: Portal
-          href: ../common/storage-encryption-keys-portal.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-        - name: PowerShell
-          href: ../common/storage-encryption-keys-powershell.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-        - name: Azure CLI
-          href: ../common/storage-encryption-keys-cli.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+      - name: Configure encryption with customer-managed keys
+        items:
+        - name: Store customer-managed keys in a key vault
+          href: ../common/customer-managed-keys-configure-key-vault.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        - name: Store customer-managed keys in a managed HSM
+          href: ../common/customer-managed-keys-configure-key-vault-hsm.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
       - name: Check the encryption key model for the account
         href: ../common/storage-encryption-key-model-get.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-      - name: Enable infrastructure encryption for a storage account
+      - name: Enable infrastructure encryption for the account
         href: ../common/infrastructure-encryption-enable.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Configure client-side encryption
       items:
@@ -199,6 +195,8 @@
           href: ../common/transport-layer-security-configure-minimum-version.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json 
         - name: Configure TLS version for a client application
           href: ../common/transport-layer-security-configure-client-version.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+    - name: Configure Azure Defender for threat protection
+      href: ../common/azure-defender-storage-configure.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
   - name: Manage data redundancy
     items:
     - name: Change how data is replicated

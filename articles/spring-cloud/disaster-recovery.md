@@ -11,6 +11,8 @@ ms.custom: devx-track-java
 
 # Azure Spring Cloud disaster recovery
 
+**This article applies to:** ✔️ Java ✔️ C#
+
 This article explains some strategies you can use to protect your Azure Spring Cloud applications from experiencing downtime.  Any region or data center may experience downtime caused by regional disasters, but careful planning can mitigate impact on your customers.
 
 ## Plan your application deployment
@@ -58,3 +60,8 @@ Here is the traffic manager profile:
 4. Create a CNAME record in DNS Zone: bcdr-test.contoso.com CNAME asc-bcdr.trafficmanager.net. 
 
 5. Now, the environment is completely set up. Customers should be able to access the app via: bcdr-test.contoso.com
+
+## Next steps
+
+* [Quickstart: Deploy your first Azure Spring Cloud application](spring-cloud-quickstart.md)
+ 

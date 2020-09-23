@@ -50,7 +50,7 @@ There are two ways to enable application monitoring for Azure App Services hoste
 
 2. After specifying which resource to use, you can choose how you want application insights to collect data per platform for your application. ASP.NET app monitoring is on-by-default with two different levels of collection.
 
-    ![Choose options per platform](./media/azure-web-apps/choose-options-new.png)
+    ![Screenshot shows the Application Insights site extensions page with Create new resource selected.](./media/azure-web-apps/choose-options-new.png)
  
  Below is a summary of data collected for each route:
         
@@ -335,7 +335,7 @@ Starting with version 2.8.9 the pre-installed site extension is used. If you are
 
 * [Upgrade through PowerShell](#enabling-through-powershell):
 
-    1. Set the application settings to enable the pre-installed site extension ApplicationInsightsAgent. See [Enabling through powershell](#enabling-through-powershell).
+    1. Set the application settings to enable the pre-installed site extension ApplicationInsightsAgent. See [Enabling through PowerShell](#enabling-through-powershell).
     2. Manually remove the private site extension named Application Insights extension for Azure App Service.
 
 If the upgrade is done from a version prior to 2.5.1, check that the ApplicationInsigths dlls are removed from the application bin folder [see troubleshooting steps](#troubleshooting).

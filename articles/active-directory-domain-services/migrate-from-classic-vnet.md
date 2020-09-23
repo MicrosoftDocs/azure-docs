@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/10/2020
+ms.date: 09/16/2020
 ms.author: iainfou
 
 ---
@@ -135,6 +135,14 @@ There are some restrictions on the virtual networks that a managed domain can be
 * The Resource Manager virtual network's subnet should be a dedicated subnet for Azure AD DS, and shouldn't host any other workloads.
 
 For more information on virtual network requirements, see [Virtual network design considerations and configuration options][network-considerations].
+
+You must also create a network security group to restrict traffic in the virtual network for the managed domain. An Azure standard load balancer is created during the migration process that requires these rules to be place. This network security group secures Azure AD DS and is required for the managed domain to work correctly.
+
+For more information on what rules are required, see [Azure AD DS network security groups and required ports](network-considerations.md#network-security-groups-and-required-ports).
+
+### LDAPS and TLS/SSL certificate expiration
+
+If your managed domain is configured for LDAPS, confirm that your current TLS/SSL certificate is valid for more than 30 days. A certificate that expires within the next 30 days causes the migration processes to fail. If needed, renew the certificate and apply it to your managed domain, then begin the migration process.
 
 ## Migration steps
 
