@@ -2,7 +2,7 @@
 title: Set up vRealize Operations for Azure VMware Solution
 description: Learn how to set up vRealize Operations for your Azure VMware Solution private cloud. 
 ms.topic: how-to
-ms.date: 08/06/2020
+ms.date: 09/22/2020
 ---
 
 # Set up vRealize Operations for Azure VMware Solution
@@ -53,7 +53,23 @@ After deploying the Azure VMware Solution instance of vRealize Operations you ca
 > Refer to the [VMware documentation](https://docs.vmware.com/en/vRealize-Operations-Manager/8.1/com.vmware.vcom.vapp.doc/GUID-7FFC61A0-7562-465C-A0DC-46D092533984.html) for step-by-step guide for installing vRealize Operations Manager.
 
 
+## Known limitations
 
+- The **cloudadmin@vsphere.local** user in Azure VMware Solution has [limited privileges](concepts-rbac.md). In-guest memory collection using VMware tools is not supported with virtual machines (VMs) on Azure VMware Solution. Active and consumed memory utilizations continue to work in this case.
+- Workload optimization for host-based business intent does not work because Azure VMware Solutions manage cluster configurations, including DRS settings.
+- Workload optimization for the cross cluster placement within the SDDC using the cluster-based business intent is fully supported with vRealize Operations Manager 8.0  and onwards. However, workload optimization is not aware of resource pools and places the virtual machines at the cluster level. A user can manually correct this in the Azure VMware Solution vCenter Server interface.
+- You cannot sign in to vRealize Operations Manager using your Azure VMware Solution vCenter Server credentials. 
+- Azure VMware Solution does not support the vRealize Operations Manager plugin.
+
+When connecting the Azure VMware Solution vCenter to vRealize Operations Manager using a vCenter Server Cloud Account, you'll encounter the following warning:
+
+:::image type="content" source="./media/vrealize-operations-manager/warning-adapter-instance-creation-succeeded.png" alt-text="Warning adapter instance creation succeeded":::
+
+The warning occurs because the **cloudadmin@vsphere.local** user in Azure VMware Solution doesn't have sufficient privileges to do all vCenter Server actions required for registration. However, the privileges are sufficient for the adapter instance to do data collection, as seen below:
+
+:::image type="content" source="./media/vrealize-operations-manager/adapter-instance-to-perform-data-collection.png" alt-text="Adapter instance to perform data collection":::
+
+For more information, see [Privileges Required for Configuring a vCenter Adapter Instance](https://docs.vmware.com/en/vRealize-Operations-Manager/8.1/com.vmware.vcom.core.doc/GUID-3BFFC92A-9902-4CF2-945E-EA453733B426.html).
 
 <!-- LINKS - external -->
 
