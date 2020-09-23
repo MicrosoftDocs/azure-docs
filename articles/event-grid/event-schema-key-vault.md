@@ -73,7 +73,7 @@ An event has the following top-level data:
 |Title  |Description  |
 |---------|---------|
 | [Monitoring Key Vault events with Azure Event Grid](../key-vault/general/event-grid-overview.md) | Overview of integrating Key Vault with Event Grid. |
-| [Tutorial: Create and monitor Key Vault events with Event Grid](../key-vault/general/event-grid-logicapps) | Learn how to set up Event Grid notifications for Key Vault. |
+| [Tutorial: Create and monitor Key Vault events with Event Grid](../key-vault/general/event-grid-logicapps.md) | Learn how to set up Event Grid notifications for Key Vault. |
 
 
 ## Next steps
