@@ -27,10 +27,6 @@ In this quickstart, you learn common design patterns for doing text-to-speech sy
 > [!TIP]
 > If you want to skip straight to sample code, see the [quickstart samples](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart) on GitHub.
 
-## Prerequisites
-
-This article assumes that you have an Azure account and Speech service subscription. If you don't have an account and subscription, [try the Speech service for free](overview.md#try-the-speech-service-for-free).
-
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# Basics include](includes/how-to/text-to-speech-basics/text-to-speech-basics-csharp.md)]
 ::: zone-end
