@@ -37,10 +37,9 @@ For more information on the supported interpretability techniques and machine le
 ## Generate feature importance value on your personal machine 
 The following example shows how to use the interpretability package on your personal machine without contacting Azure services.
 
-1. Install `azureml-interpret` and `azureml-contrib-interpret` packages.
+1. Install `azureml-interpret` package.
     ```bash
     pip install azureml-interpret
-    pip install azureml-contrib-interpret
     ```
 
 2. Train a sample model in a local Jupyter notebook.
@@ -234,15 +233,14 @@ The following example shows how you can use the `ExplanationClient` class to ena
 * Use the `ExplanationClient` in the remote run to upload the interpretability context.
 * Download the context later in a local environment.
 
-1. Install `azureml-interpret` and `azureml-contrib-interpret` packages.
+1. Install `azureml-interpret` package.
     ```bash
     pip install azureml-interpret
-    pip install azureml-contrib-interpret
     ```
 1. Create a training script in a local Jupyter notebook. For example, `train_explain.py`.
 
     ```python
-    from azureml.contrib.interpret.explanation.explanation_client import ExplanationClient
+    from azureml.interpret import ExplanationClient
     from azureml.core.run import Run
     from interpret.ext.blackbox import TabularExplainer
 
@@ -275,7 +273,7 @@ The following example shows how you can use the `ExplanationClient` class to ena
 1. Download the explanation in your local Jupyter notebook.
 
     ```python
-    from azureml.contrib.interpret.explanation.explanation_client import ExplanationClient
+    from azureml.interpret import ExplanationClient
     
     client = ExplanationClient.from_run(run)
     
@@ -492,7 +490,7 @@ You can deploy the explainer along with the original model and use it at inferen
 
          # WARNING: to install this, g++ needs to be available on the Docker image and is not by default (look at the next cell)
 
-         azureml_pip_packages = ['azureml-defaults', 'azureml-contrib-interpret', 'azureml-core', 'azureml-telemetry', 'azureml-interpret']
+         azureml_pip_packages = ['azureml-defaults', 'azureml-core', 'azureml-telemetry', 'azureml-interpret']
  
 
          # specify CondaDependencies obj
