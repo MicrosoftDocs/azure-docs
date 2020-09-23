@@ -74,7 +74,7 @@ postgres=#
 ```
 > [!NOTE]
 >
-> - The password of the _postgresql_ user indicated in the end point named "_PostgreSQL Instance_ is the password you chose when you created the server group.
+> - The password of the _postgres_ user indicated in the end point named "_PostgreSQL Instance_" is the password you chose when deploying the server group.
 > - About azdata: the lease associated to your connection lasts about 10 hours. After that you need to reconnect. If your lease has expired, you will get the following error message when you try to execute a command with azdata (other than azdata login):
 > _ERROR: (401)_
 > _Reason: Unauthorized_

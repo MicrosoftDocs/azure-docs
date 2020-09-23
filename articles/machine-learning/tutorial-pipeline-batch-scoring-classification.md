@@ -383,7 +383,7 @@ To run the pipeline from the REST endpoint, you need an OAuth2 Bearer-type authe
 
 Service principal authentication involves creating an *App Registration* in *Azure Active Directory*. First, you generate a client secret, and then you grant your service principal *role access* to your machine learning workspace. Use the [`ServicePrincipalAuthentication`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?view=azure-ml-py&preserve-view=true) class to manage your authentication flow. 
 
-Both [`InteractiveLoginAuthentication`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.interactiveloginauthentication?view=azure-ml-py&preserve-view=true) and `ServicePrincipalAuthentication` inherit from `AbstractAuthentication`. In both cases, use the [`get_authentication_header()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.abstractauthentication?view=azure-ml-py#&preserve-view=trueget-authentication-header--) function in the same way to fetch the header:
+Both [`InteractiveLoginAuthentication`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.interactiveloginauthentication?view=azure-ml-py&preserve-view=true) and `ServicePrincipalAuthentication` inherit from `AbstractAuthentication`. In both cases, use the [`get_authentication_header()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.abstractauthentication?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-authentication-header--) function in the same way to fetch the header:
 
 ```python
 from azureml.core.authentication import InteractiveLoginAuthentication

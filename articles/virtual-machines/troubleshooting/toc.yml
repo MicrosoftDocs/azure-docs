@@ -116,6 +116,8 @@
       href: windows-stop-error-bad-system-config-info.md
     - name: Windows stop error - Status No Memory
       href: troubleshoot-windows-stop-error.md
+    - name: Windows stop error - System Process Terminated
+      href: windows-stop-error-system-process-terminated.md
 - name: Cannot connect to my VM
   items:
   - name: RDP

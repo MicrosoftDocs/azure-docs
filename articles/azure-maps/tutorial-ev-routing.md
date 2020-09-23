@@ -382,8 +382,6 @@ display(Image(staticMapImage))
 
 ![A map showing the route](./media/tutorial-ev-routing/route.png)
 
-## Next steps
-
 In this tutorial, you learned how to call Azure Maps REST APIs directly and visualize Azure Maps data by using Python.
 
 To explore the Azure Maps APIs that are used in this tutorial, see:
@@ -397,4 +395,9 @@ To explore the Azure Maps APIs that are used in this tutorial, see:
 
 For a complete list of Azure Maps REST APIs, see [Azure Maps REST APIs](https://docs.microsoft.com/azure/azure-maps/consumption-model).
 
-To learn more about Azure Notebooks, see [Azure Notebooks](https://docs.microsoft.com/azure/notebooks).
+## Next steps
+
+To learn more about Azure Notebooks, see
+
+> [!div class="nextstepaction"]
+> [Azure Notebooks](https://docs.microsoft.com/azure/notebooks)

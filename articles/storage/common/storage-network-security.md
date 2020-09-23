@@ -252,7 +252,7 @@ IP network rules are only allowed for **public internet** IP addresses. IP addre
 
 Only IPV4 addresses are supported for configuration of storage firewall rules.
 
-Each storage account supports up to 100 IP network rules.
+Each storage account supports up to 200 IP network rules.
 
 ### Configuring access from on-premises networks
 
