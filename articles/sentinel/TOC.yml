@@ -66,6 +66,8 @@
         href: connect-microsoft-defender-advanced-threat-protection.md
       - name: Microsoft Defender for Identity (formerly Azure ATP)
         href: connect-azure-atp.md
+      - name: Microsoft Defender for Office 365 (formerly Office 365 ATP)
+        href: connect-office-365-advanced-threat-protection.md
       - name: Azure DDoS Protection
         href: connect-azure-ddos-protection.md
       - name: Azure Firewall

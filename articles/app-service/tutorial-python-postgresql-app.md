@@ -73,15 +73,10 @@ Once signed in, you can run Azure commands with the Azure CLI to work with resou
 
 # [Git clone](#tab/clone)
 
-Clone the sample repository:
+Clone the sample repository and navigate into the folder:
 
 ```terminal
 git clone https://github.com/Azure-Samples/djangoapp
-```
-
-Then go into that folder:
-
-```terminal
 cd djangoapp
 ```
 
@@ -211,19 +206,31 @@ az webapp config appsettings set --settings DJANGO_ENV="production" DBHOST="<pos
 
 Django database migrations ensure that the schema in the PostgreSQL on Azure database match those described in your code.
 
-1. Open an SSH session in the browser by navigating to *https://\<app-name>.scm.azurewebsites.net/webssh/host* and sign in with your Azure account credentials (not the database server credentials).
+1. Open an SSH session in the browser by navigating to the following URL and signing in with your Azure account credentials (not the database server credentials).
+
+    ```
+    https://<app-name>.scm.azurewebsites.net/webssh/host
+    ```
+
+    Replace `<app-name>` with the name used earlier in the `az webapp up` command.
+
+    On macOS and Linux, you can alternately connect to an SSH session with the [`az webapp ssh`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_ssh) command.
 
 1. In the SSH session, run the following commands (you can paste commands using **Ctrl**+**Shift**+**V**):
 
     ```bash
+    # Change to the folder where the app code is deployed
     cd site/wwwroot
     
     # Activate default virtual environment in App Service container
     source /antenv/bin/activate
+
     # Install packages
     pip install -r requirements.txt
+
     # Run database migrations
     python manage.py migrate
+
     # Create the super user (follow prompts)
     python manage.py createsuperuser
     ```

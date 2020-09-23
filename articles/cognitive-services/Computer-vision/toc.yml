@@ -134,6 +134,8 @@
       displayName: docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull, on-premises
     - name: Configure containers
       href: computer-vision-resource-container-config.md
+    - name: Migrate to v3 of the Read container
+      href: read-container-migration-guide.md
       displayName: docker, container, billing, apikey, pull, logging, on-premises
     - name: Use with Kubernetes and Helm
       href: deploy-computer-vision-on-premises.md

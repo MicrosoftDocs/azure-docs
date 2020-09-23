@@ -85,7 +85,7 @@ Using the above restore point name and the restore mode, let's create the recove
 
 * **--target-item-name** This is the name that the restored database will be using. In this case, we used the name *restored_database*.
 * **--target-server-name** This is the name of an SAP HANA server that's successfully registered to a Recovery Services vault and lies in the same region as the database to be restored. For this tutorial, we'll restore the database to the same SAP HANA server that we've protected, named *hxehost*.
-* **--target-server-type** For the restore of SAP HANA databases, **SapHanaDatabase** must be used.
+* **--target-server-type** For the restore of SAP HANA databases, **HANAInstance** must be used.
 
 ```azurecli-interactive
 

@@ -21,7 +21,7 @@ SQL on-demand is a query service over the data in your data lake. It enables you
 
 SQL on-demand is a distributed data processing system, built for large scale of data and compute. SQL on-demand enables you to analyze your Big Data in seconds to minutes, depending on the workload. Thanks to built-in query execution fault-tolerance, the system provides high reliability and success rates even for long-running queries involving large data sets.
 
-SQL on-demand is serverless, hence there is no infrastructure to setup or clusters to maintain. A default endpoint for this service is provided within every Azure Synapse workspace, so you can start querying data as soon as the workspace is created. There is no charge for resources reserved, you are only being charged for the data scanned by queries you run, hence this model is a true pay-per-use model.  
+SQL on-demand is serverless, hence there is no infrastructure to setup or clusters to maintain. A default endpoint for this service is provided within every Azure Synapse workspace, so you can start querying data as soon as the workspace is created. There is no charge for resources reserved, you are only being charged for the data processed by queries you run, hence this model is a true pay-per-use model.  
 
 If you use Apache Spark for Azure Synapse in your data pipeline, for data preparation, cleansing or enrichment, you can [query external Spark tables](develop-storage-files-spark-tables.md) you've created in the process, directly from SQL on-demand. Use [Private Link](../security/how-to-connect-to-workspace-with-private-links.md) to bring your SQL on-demand endpoint into your [managed workspace VNet](../security/synapse-workspace-managed-vnet.md).  
 

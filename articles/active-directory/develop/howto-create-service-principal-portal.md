@@ -125,10 +125,11 @@ When programmatically signing in, you need to pass the tenant ID with your authe
 
    ![Copy the application (client) ID](./media/howto-create-service-principal-portal/copy-app-id.png)
 
-## Upload a certificate or create a secret for signing in
-There are two types of authentication available for service principals: password-based authentication (application secret) and certificate-based authentication.  We recommend using a certificate, but you can also create a new application secret.
+## Authentication: Two options
 
-### Upload a certificate
+There are two types of authentication available for service principals: password-based authentication (application secret) and certificate-based authentication. *We recommend using a certificate*, but you can also create a new application secret.
+
+### Option 1: Upload a certificate
 
 You can use an existing certificate if you have one.  Optionally, you can create a self-signed certificate for *testing purposes only*. To create a self-signed certificate, open PowerShell and run [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) with the following parameters to create the cert in the user certificate store on your computer: 
 
@@ -159,7 +160,7 @@ To upload the certificate:
 
 After registering the certificate with your application in the application registration portal, you need to enable the client application code to use the certificate.
 
-### Create a new application secret
+### Option 2: Create a new application secret
 
 If you choose not to use a certificate, you can create a new application secret.
 

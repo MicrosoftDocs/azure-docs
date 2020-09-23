@@ -31,7 +31,9 @@ The following are prerequisites for enabling Azure Automanage:
 
 **What RBAC permission is needed to enable Automanage?**
 
-Users must have the Owner role. Alternatively, users can have the Contributor role along with User Access Administrator role to apply Automanage.
+If you are enabling Automanage on an VM with an existing Automanage Account, you need Contributor role to the Resource Group where the VM resides. 
+
+If you are using a new Automanage Account when enabling, users must have either the Owner role or have Contributor + User Access Administrator role to the subscription.
 
 
 **What regions are supported?**
@@ -77,6 +79,11 @@ Yes, we have a built-in policy that will automatically apply Automanage to all V
 **What is an Automanage account?**
 
 The Automanage Account is an MSI (Managed Service Identity) that provides the security context or the identity under which the automated operations occur.
+
+
+**When enabling Automanage, does it impact any additional VMs besides the VM(s) I selected?**
+
+If your VM is linked to an existing Log Analytics workspace, we will reuse that workspace to apply these solutions: Change Tracking, Inventory, and Update Management. All VMs connected to that workspace will have those solutions enabled. 
 
 
 **Can I change the configuration profile of my VM?**

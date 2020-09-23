@@ -1366,6 +1366,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-arc/data/create-data-controller-using-k8s-native-tools.md",
+      "redirect_url": "/azure/azure-arc/data/create-data-controller-using-kubernetes-native-tools",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-arc/data/create-sql-managed-instance-using-k8s-native-tools.md",
+      "redirect_url": "/azure/azure-arc/data/create-sql-managed-instance-using-kubernetes-native-tools",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-arc/data/create-postgresql-hyperscale-server-group-k8s-native-tools.md",
+      "redirect_url": "/azure/azure-arc/data/create-postgresql-hyperscale-server-group-kubernetes-native-tools",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-arc/servers/quickstart-onboard-portal.md",
       "redirect_url": "/azure/azure-arc/servers/onboard-portal",
       "redirect_document_id": false

@@ -3,7 +3,11 @@ title: 'Migrate web services from Google Maps | Microsoft Azure Maps'
 description: How to migrate web services from Google Maps to Microsoft Azure Maps
 author: rbrundritt
 ms.author: richbrun
+<<<<<<< HEAD
 ms.date: 12/17/2019
+=======
+ms.date: 08/19/2020
+>>>>>>> dbd61c09a87f1a8e4ab6ee68e683cce796e7c4d4
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
@@ -289,9 +293,8 @@ For example, let's add a red, mid-sized marker to the map at longitude: -110, la
 &markers=color:red|size:mid|45,-110
 ```
 
-<center>
 
-![Google Maps marker](media/migrate-google-maps-web-services/google-maps-marker.png)</center>
+![Google Maps marker](media/migrate-google-maps-web-services/google-maps-marker.png)
 
 **After: Azure Maps**
 
@@ -332,9 +335,8 @@ Let's add a red (`FF0000`) default icon, with the label "Space Needle", position
 &pins=default|coFF0000|la15 50||'Space Needle' -122.349300 47.620180
 ```
 
-<center>
 
-![Azure Maps marker](media/migrate-google-maps-web-services/azure-maps-marker.png)</center>
+![Azure Maps marker](media/migrate-google-maps-web-services/azure-maps-marker.png)
 
 Add three pins with the label values '1', '2', and '3':
 
@@ -342,9 +344,9 @@ Add three pins with the label values '1', '2', and '3':
 &pins=default||'1'-122 45|'2'-119.5 43.2|'3'-121.67 47.12
 ```
 
-<center>
 
-![Azure Maps multiple markers](media/migrate-google-maps-web-services/azure-maps-multiple-markers.png)</center>
+
+![Azure Maps multiple markers](media/migrate-google-maps-web-services/azure-maps-multiple-markers.png)
 
 ### Path URL parameter format comparison
 
@@ -373,9 +375,7 @@ Add a red line opacity and pixel thickness to the map between the coordinates, i
 &path=color:0xFF000088|weight:4|45,-110|50,-100
 ```
 
-<center>
-
-![Google Maps polyline](media/migrate-google-maps-web-services/google-maps-polyline.png)</center>
+![Google Maps polyline](media/migrate-google-maps-web-services/google-maps-polyline.png)
 
 **After: Azure Maps**
 
@@ -402,9 +402,7 @@ Add a red line opacity and pixel thickness between the coordinates, in the URL p
 &path=lcFF0000|la.5|lw4||-110 45|-100 50
 ```
 
-<center>
-
-![Azure Maps polyline](media/migrate-google-maps-web-services/azure-maps-polyline.png)</center>
+![Azure Maps polyline](media/migrate-google-maps-web-services/azure-maps-polyline.png)
 
 ## Calculate a distance matrix
 

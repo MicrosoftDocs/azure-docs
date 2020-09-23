@@ -155,11 +155,13 @@ In this tutorial, two routes will be calculated and rendered on the map. The fir
 
     ```
 
+
     In the Map control's `ready` event handler, a data source is created to store the route from start to finish. [Expressions](data-driven-style-expressions-web-sdk.md) are used to retrieve the line width and color from properties on the route line feature. To ensure that the route line doesn't cover up the road labels, we've passed a second parameter with the value of `'labels'`.
 
     Next, a symbol layer is created and attached to the data source. This layer specifies how the start and end points are rendered.Expressions have been added to retrieve the icon image and text label information from properties on each point object. To learn more about expressions, see [Data-driven style expressions](data-driven-style-expressions-web-sdk.md).
 
 2. Set the start point as a fictitious company in Seattle called Fabrikam, and the end point as a Microsoft office.  In the Map control's `ready` event handler, append the following code.
+
 
     ```JavaScript
     //Create the GeoJSON objects which represent the start and end point of the route.
@@ -277,6 +279,7 @@ This section shows you how to use the Azure Maps Route service to get directions
 You can obtain the full source code for the sample [here](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/truckRoute.html). A live sample can be found [here](https://azuremapscodesamples.azurewebsites.net/?sample=Multiple%20routes%20by%20mode%20of%20travel).
 
 You can also [Use data-driven style expressions](data-driven-style-expressions-web-sdk.md)
+
 
 
 ## Next steps

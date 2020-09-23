@@ -4,7 +4,7 @@ description: Learn how to use the Spatial IO module provided by the Azure Maps W
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 02/28/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
