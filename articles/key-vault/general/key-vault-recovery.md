@@ -30,6 +30,14 @@ Soft delete and purge protection are two different key vault recovery features.
 
 # [Option 1](#tab/azure-portal)
 
+## [Option 1a](#tab/azure-portal1)
+
+CONTENT 1 - TEST
+
+## [Option 1b](#tab/azure-portal2)
+
+CONTENT 2 - TEST
+
 ## Grant access to recover and purge key vaults (Portal)
 
 ## Verify if my key vault has soft delete enabled (Portal)
