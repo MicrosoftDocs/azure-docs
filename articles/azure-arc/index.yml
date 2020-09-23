@@ -96,7 +96,7 @@ conceptualContent:
   # summary: # < 160 chars (optional)
   items:
     # Card
-    - title: Azure Arc enabled servers (preview)
+    - title: Azure Arc enabled servers
       links:
         - url: ./servers/learn/quick-enable-hybrid-vm.md
           itemType: get-started
