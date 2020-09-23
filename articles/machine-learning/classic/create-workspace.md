@@ -62,7 +62,7 @@ Once the workspace is deployed, you can open it in Machine Learning Studio (clas
     ![Open experiments](./media/create-workspace/my-experiments.png)
 
 For information about managing your Studio (classic) workspace, see [Manage an Azure Machine Learning Studio (classic) workspace](manage-workspace.md).
-If you encounter a problem creating your workspace, see [Troubleshooting guide: Create and connect to a Machine Learning Studio (classic) workspace](troubleshooting-creating-ml-workspace.md).
+If you encounter a problem creating your workspace, see [Troubleshooting guide: Create and connect to a Machine Learning Studio (classic) workspace](index.yml).
 
 
 ## Share an Azure Machine Learning Studio (classic) workspace
