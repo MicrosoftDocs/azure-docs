@@ -123,7 +123,7 @@ The device or module should confirm that it received the property by sending a r
 - `av` - an acknowledgment version that refers to the `$version` of the desired property. You can find this value in the desired property JSON payload.
 - `ad` - an optional acknowledgment description.
 
-When a device starts up, it should check for updates to writable properties. If the version of a writable property increased while the device was offline, the device should confirm that it received the property by sending a reported property.
+When a device starts up, it should request the device twin, and check for any writable property updates. If the version of a writable property increased while the device was offline, the device should send a reported property response to confirm that it received the update.
 
 When a device starts up for the first time, it can send an initial value for a reported property if it doesn't receive an initial desired property from the hub. In this case, the device should set `av` to `1`. For example:
 
@@ -179,6 +179,8 @@ A device could report an error such as:
 
 ### Sample no component writable property
 
+When a device receives multiple reported properties in a single payload, it can send the reported property responses across multiple payloads.
+
 A device or module can send any valid JSON that follows the DTDL v2 rules:
 
 DTDL:
@@ -204,17 +206,31 @@ Sample desired property payload:
 ```json
 "desired" :
 {
-  "targetTemperature" : 21.3
+  "targetTemperature" : 21.3,
+  "targetHumidity" : 80
 },
 "$version" : 3
 ```
 
-Sample reported property payload:
+Sample reported property first payload:
 
 ```json
 "reported": {
   "targetTemperature": {
     "value": 21.3,
+    "ac": 200,
+    "av": 3,
+    "ad": "complete"
+  }
+}
+```
+
+Sample reported property second payload:
+
+```json
+"reported": {
+  "targetHumidity": {
+    "value": 80,
     "ac": 200,
     "av": 3,
     "ad": "complete"
@@ -228,7 +244,9 @@ The device or module must add the `{"__t": "c"}` marker to indicate that the ele
 
 The marker is sent only for updates to properties defined in a component. Updates to properties defined in the main interface don't include the marker, see [Sample no component writable property](#sample-no-component-writable-property)
 
-The device or module should confirm that it received the property by sending a reported property:
+When a device receives multiple reported properties in a single payload, it can send the reported property responses across multiple payloads.
+
+The device or module should confirm that it received the properties by sending reported properties:
 
 DTDL:
 
@@ -268,13 +286,14 @@ Sample desired property payload:
 "desired": {
   "thermostat1": {
     "__t": "c",
-    "targetTemperature": 21.3
+    "targetTemperature": 21.3,
+    "targetHumidity": 80
   }
 },
 "$version" : 3
 ```
 
-Sample reported property payload:
+Sample reported property first payload:
 
 ```json
 "reported": {
@@ -282,6 +301,22 @@ Sample reported property payload:
     "__t": "c",
     "targetTemperature": {
       "value": 23,
+      "ac": 200,
+      "av": 3,
+      "ad": "complete"
+    }
+  }
+}
+```
+
+Sample reported property second payload:
+
+```json
+"reported": {
+  "thermostat1": {
+    "__t": "c",
+    "targetHumidity": {
+      "value": 80,
       "ac": 200,
       "av": 3,
       "ad": "complete"
