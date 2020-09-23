@@ -1,14 +1,14 @@
 ---
 title: Use AI to understand Blob storage data
 titleSuffix: Azure Cognitive Search
-description: Add semantic, natural language processing and image analysis to Azure blobs using an AI enrichment pipeline in Azure Cognitive Search.
+description: Learn about the natural language and image analysis capabilities in Azure Cognitive Search, and how those processes apply to content stored in Azure blobs.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 09/23/2020
 ---
 
 # Use AI to understand Blob storage data
@@ -36,15 +36,15 @@ Output is always a search index, used for fast text search, retrieval, and explo
 
 In between is the pipeline architecture itself. The pipeline is based on the *indexer* feature, to which you can assign a *skillset*, which is composed of one or more *skills* providing the AI. The purpose of the pipeline is to produce *enriched documents* that enter as raw content but pick up additional structure, context, and information while moving through the pipeline. Enriched documents are consumed during indexing to create inverted indexes and other structures used in full text search or exploration and analytics.
 
-## Start with services
+## Required services
 
-You need Azure Cognitive Search and Azure Blob storage. Within Blob storage, you need a container that provides source content.
+You need Azure Blob storage, Azure Cognitive Search, and a third Azure service that provides the AI. For built-in AI, Cognitive Search integrates with Cognitive Services vision and natural language processing APIs. You can [attach a Cognitive Services resource](cognitive-search-attach-cognitive-services.md) to add Optical Character Recognition (OCR), image analysis, or natural language processing (language detection, text translation, entity recognition, key phrase extraction). For custom AI, you can define a custom skill that wraps the external function or model you want to use.
 
-You can start directly in your Storage account portal page. In the left navigation page, under **Blob service** click **Add Azure Cognitive Search** to create a new service or select an existing one. 
+If you don't have all of the services readily available, start directly in your Storage account portal page. In the left navigation page, under **Blob service** click **Add Azure Cognitive Search** to create a new service or select an existing one. 
 
-Once you add Azure Cognitive Search to your storage account, you can follow the standard process to enrich data in any Azure data source. We recommend the **Import data** wizard in Azure Cognitive Search for an easy initial introduction to AI enrichment. This quickstart walks you through the steps: [Create an AI enrichment pipeline in the portal](cognitive-search-quickstart-blob.md). 
+Once you add Azure Cognitive Search to your storage account, you can follow the standard process to enrich data in any Azure data source. We recommend the **Import data** wizard in Azure Cognitive Search for an easy initial introduction to AI enrichment. You can attach a Cognitive Services resource during the workflow. This quickstart walks you through the steps: [Create an AI enrichment pipeline in the portal](cognitive-search-quickstart-blob.md). 
 
-In the following sections, we'll explore more components and concepts.
+The following sections take a closer look at components and concepts.
 
 ## Use a Blob indexer
 
