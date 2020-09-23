@@ -28,15 +28,9 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32074.).
 
-**Guidance**: The integration of Service Bus with virtual network service endpoints enables secure access to messaging capabilities from workloads such as virtual machines that are bound to virtual networks, with the network traffic path being secured on both ends.
-
-Once bound to at least one virtual network subnet service endpoint, the respective Service Bus namespace no longer accepts traffic from anywhere but authorized subnets in virtual networks. From the virtual network perspective, binding your Service Bus namespace to a service endpoint configures an isolated networking tunnel from the virtual network subnet to the messaging service.
-
-You can also create a private endpoint, which is a network interface that connects you privately and securely to Azure Service Bus service by using the Azure Private Link service. The private endpoint uses a private IP address from your virtual network, effectively bringing the service into your virtual network. All traffic to the service can be routed through the private endpoint, so no gateways, NAT devices, ExpressRoute or VPN connections, or public IP addresses are needed.
+**Guidance**: The integration of Service Bus with the Azure Private Link service enables secure private access to messaging capabilities from workloads such as virtual machines that are bound to virtual networks. Create a private endpoint connection to your Service Bus namespace. The private endpoint uses a private IP address from your virtual network, effectively bringing the service into your virtual network. All traffic to the service can be routed through that private endpoint, so no gateways, NAT devices, ExpressRoute or VPN connections, or public IP addresses are needed.
 
 You can also secure your Azure Service Bus namespace by using firewalls. Azure Service Bus supports IP-based access controls for inbound firewall support. You can set firewall rules by using the Azure portal, Azure Resource Manager templates, or through the Azure CLI or Azure PowerShell.
-
-- [Allow access to Azure Service Bus namespace from specific virtual networks](service-bus-service-endpoints.md)
 
 - [Allow access to Azure Service Bus namespaces via private endpoints](private-link-service.md)
 
@@ -51,9 +45,15 @@ You can also secure your Azure Service Bus namespace by using firewalls. Azure S
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32075.).
 
-**Guidance**: Use Azure Security Center and follow network protection recommendations to help secure your Service Bus resources in Azure. If using Azure virtual machines to access your Service Bus entities, enable network security group (NSG) flow logs and send logs into a storage account for traffic audit.
+**Guidance**: If using Azure virtual machines to access your Service Bus entities, enable network security group (NSG) flow logs and send logs into a storage account for traffic audit. You may also send NSG flow logs to a Log Analytics workspace and use Traffic Analytics to provide insights into traffic flow in your Azure cloud. Some advantages of Traffic Analytics are the ability to visualize network activity and identify hot spots, identify security threats, understand traffic flow patterns, and pinpoint network misconfigurations. 
+
+Use Azure Security Center and follow network protection recommendations to help secure your Service Bus resources in Azure.
 
 - [How to Enable NSG Flow Logs](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
+
+- [How to Enable and use Traffic Analytics](../network-watcher/traffic-analytics.md)
+
+- [How to enable Network Watcher](../network-watcher/network-watcher-create.md)
 
 - [Understanding Network Security provided by Azure Security Center](../security-center/security-center-network-recommendations.md)
 
@@ -70,7 +70,7 @@ You can also secure your Azure Service Bus namespace by using firewalls. Azure S
 
 - [How to configure DDoS protection](../virtual-network/manage-ddos-protection.md)
 
-- [For more information about the Azure Security Center Integrated Threat Intelligence](/azure/security-center/security-center-alerts-service-layer)
+- [Azure Security Center Integrated Threat Intelligence](/azure/security-center/security-center-alerts-service-layer)
 
 **Azure Security Center monitoring**: Yes
 
@@ -81,13 +81,7 @@ You can also secure your Azure Service Bus namespace by using firewalls. Azure S
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32078.).
 
-**Guidance**: If using Azure virtual machines to access your Service Bus entities, enable network security group (NSG) flow logs and send logs into a storage account for traffic audit. You may also send NSG flow logs to a Log Analytics workspace and use Traffic Analytics to provide insights into traffic flow in your Azure cloud. Some advantages of Traffic Analytics are the ability to visualize network activity and identify hot spots, identify security threats, understand traffic flow patterns, and pinpoint network misconfigurations.
-
-If required for investigating anomalous activity, enable Network Watcher packet capture.
-
-- [How to Enable NSG Flow Logs](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
-
-- [How to Enable and use Traffic Analytics](../network-watcher/traffic-analytics.md)
+**Guidance**: If using Azure virtual machines to access your Service Bus entities, you can use Network Watcher packet capture to investigate anomalous activities.
 
 - [How to enable Network Watcher](../network-watcher/network-watcher-create.md)
 
@@ -133,6 +127,8 @@ If required for investigating anomalous activity, enable Network Watcher packet 
 - Service Bus should use a virtual network service endpoint
 - Diagnostic logs in Service Bus should be enabled
 
+You may also construct custom policy definitions if the built-in definitions do not fit your organization's needs.
+
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 - [Azure Built-in Policy for Service Bus namespace](/azure/service-bus-messaging/policy-samples#azure-service-bus-messaging)
@@ -150,7 +146,7 @@ If required for investigating anomalous activity, enable Network Watcher packet 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32083.).
 
-**Guidance**: Use tags for virtual networks and other resources related to network security and traffic flow that are associated with your Service Bus namespaces. For individual network security group rules, use the "Description" field to specify business need. duration, and other descriptive information for any rules that allow traffic to/from a network associated with your Service Bus namespaces. 
+**Guidance**: Use tags for virtual networks and other resources related to network security and traffic flow that are associated with your Service Bus namespaces. For individual network security group rules, use the "Description" field to specify business need, duration, and other descriptive information for any rules that allow traffic to or from a network associated with your Service Bus namespaces. 
 
 Use any of the built-in Azure policy definitions related to tagging, such as "Require tag and its value" to ensure that all resources are created with tags and to notify you of existing untagged resources. 
 
@@ -190,11 +186,15 @@ You may use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32086.).
 
-**Guidance**: Within Azure Monitor, configure logs related to Service Bus entities within the Activity Log and Service Bus diagnostic settings to send logs into a Log Analytics workspace to be queried or into a storage account for long-term archival storage.
+**Guidance**: Ingest logs via Azure Monitor to aggregate security data generated by Service Bus resources. In Azure Monitor, use Log Analytics workspaces to query and perform analytics, configure Azure Storage accounts for long term or archival storage. You can also configure logs related to Service Bus to be sent to Azure Sentinel or a third-party SIEM.
 
 - [How to configure Diagnostic Settings for Azure Service Bus](service-bus-diagnostic-logs.md)
 
 - [Understanding Azure Activity Log](../azure-monitor/platform/platform-logs-overview.md)
+
+- [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md) 
+
+- [How to get started with Azure Monitor and third-party SIEM integration](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
 **Azure Security Center monitoring**: Yes
 
@@ -233,7 +233,7 @@ You may use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32090.).
 
-**Guidance**: Analyze and monitor logs for anomalous behavior and regularly review results related to your Service Bus entities. Use Azure Monitor's Log Analytics to review logs and perform queries on log data.
+**Guidance**: Analyze and monitor logs for anomalous behavior and regularly review results related to your Service Bus entities. Use Azure Monitor to review logs and perform queries on log data related to Service Bus.
 
 - [For more information about the Log Analytics workspace](../azure-monitor/log-query/get-started-portal.md)
 
@@ -250,15 +250,13 @@ You may use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32091.).
 
-**Guidance**: Within Azure Monitor, configure logs related to Azure Service Bus within the Activity Log, and Service Bus diagnostic settings to send logs into a Log Analytics workspace to be queried or into a storage account for long-term archival storage. Use Log Analytics workspace to create alerts for anomalous activity found in security logs and events.
-
-- [Understand the Azure Activity Log](../azure-monitor/platform/platform-logs-overview.md)
-
-- [How to configure Diagnostic Settings for Azure Service Bus](service-bus-diagnostic-logs.md)
-
-- [How to alert on Log Analytics workspace log data](../azure-monitor/learn/tutorial-response.md)
+**Guidance**: Use Azure Security Center with Log Analytics workspace for monitoring and alerting on anomalous activity found in security logs and events. Alternatively, you can also enable and on-board data to Azure Sentinel.
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
+
+- [How to manage alerts in Azure Security Center](../security-center/security-center-managing-and-responding-alerts.md)
+
+- [How to alert on log analytics log data](../azure-monitor/learn/tutorial-response.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -273,13 +271,11 @@ You may use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32095.).
 
-**Guidance**: Azure Active Directory (AD) has built-in roles that must be explicitly assigned and are queryable. Use the Azure AD PowerShell module to perform ad hoc queries to discover accounts that are members of administrative groups.
+**Guidance**: Azure role-based access control (RBAC) allows you to manage access to Azure resources through role assignments. You can assign these roles to users, groups service principals and managed identities. There are pre-defined built-in roles for Service Bus, these roles can be inventoried or queried through tools such as Azure CLI, Azure PowerShell or the Azure portal.
 
-Built-in roles for Azure Service Bus
+- [Built-in roles for Azure Service Bus](authenticate-application.md#azure-built-in-roles-for-azure-service-bus)
 
-authenticate-application.md#azure-built-in-roles-for-azure-service-bus
-
-- [How to get a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [How to get a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0) 
 
 - [How to get members of a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
@@ -294,7 +290,7 @@ authenticate-application.md#azure-built-in-roles-for-azure-service-bus
 
 **Guidance**: Control plane access to Service Bus is controlled through Azure Active Directory (Azure AD). Azure AD does not have the concept of default passwords.
 
-Data plane access to Service Bus is controlled through Azure AD with Managed Identities or App registrations as well as shared access signatures. Shared access signatures are used by the clients connecting to your Service Bus namespace and can be regenerated at any time.
+Data plane access to Service Bus is controlled through Azure AD by using Managed Identities, App registrations, or shared access signatures. Shared access signatures are used by the clients connecting to your Service Bus namespace and can be regenerated at any time.
 
 - [Understand shared access signatures for Service Bus](service-bus-sas.md)
 
@@ -314,6 +310,8 @@ Additionally, to help you keep track of dedicated administrative accounts, you m
 - There should be more than one owner assigned to your subscription
 - Deprecated accounts with owner permissions should be removed from your subscription
 - External accounts with owner permissions should be removed from your subscription
+
+You may also construct custom policy definitions if the built-in definitions do not fit your organization's needs.
 
 - [How to use Azure Security Center to monitor identity and access](../security-center/security-center-identity-access.md)
 
@@ -373,13 +371,12 @@ Additionally, to help you keep track of dedicated administrative accounts, you m
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32101.).
 
-**Guidance**: Use Azure Active Directory (Azure AD) Privileged Identity Management (PIM) for generation of logs and alerts when suspicious or unsafe activity occurs in the environment. Use Azure AD risk detections to view alerts and reports on risky user behavior. For additional logging, send Azure Security Center risk detection alerts into Azure Monitor and configure custom alerting/notifications using action groups.
+**Guidance**: 
+Use Azure Active Directory security reports and monitoring to detect when suspicious or unsafe activity occurs in the environment. Use Azure Security Center to monitor identity and access activity.
 
-- [How to deploy Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-deployment-plan.md)
+- [How to identify Azure AD users flagged for risky activity](/azure/active-directory/reports-monitoring/concept-user-at-risk)
 
-- [Understand Azure AD risk detections](/azure/active-directory/reports-monitoring/concept-risk-events)
-
-- [How to configure action groups for custom alerting and notification](../azure-monitor/platform/action-groups.md)
+- [How to monitor users' identity and access activity in Azure Security Center](../security-center/security-center-identity-access.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -390,9 +387,10 @@ Additionally, to help you keep track of dedicated administrative accounts, you m
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32102.).
 
-**Guidance**: Use Conditional Access Named Locations to allow access from only specific logical groupings of IP address ranges or countries/regions.
+**Guidance**: 
+Use Azure AD named locations to allow access only from specific logical groupings of IP address ranges or countries/regions. 
 
-- [How to configure Named Locations in Azure](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
+- [How to configure Azure AD named locations](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -403,7 +401,7 @@ Additionally, to help you keep track of dedicated administrative accounts, you m
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32103.).
 
-**Guidance**: Use Azure Active Directory (AD) as the central authentication and authorization system for Azure resources such as Service Bus. This allows for role-based access control (RBAC) to administrative sensitive resources.
+**Guidance**: Use Azure Active Directory (AD) as the central authentication and authorization system for Azure resources such as Service Bus. This allows for Azure role-based access control (Azure RBAC) to administrative sensitive resources.
 
 - [How to create and configure an Azure AD instance](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
@@ -437,9 +435,9 @@ In additional, regularly rotate your Service Bus namespace's shared access signa
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32105.).
 
-**Guidance**: You have access to Azure Active Directory (Azure AD) sign-in activity, audit and risk event log sources, which allow you to integrate with any SIEM/Monitoring tool.
+**Guidance**: You have access to Azure Active Directory (Azure AD) sign-in activity, audit and risk event log sources, which allow you to integrate with Azure Sentinel or a third-party SIEM tool.
 
-You can streamline this process by creating diagnostic settings for Azure AD user accounts and sending the audit logs and sign-in logs to a Log Analytics workspace. You can configure desired log alerts within Log Analytics.
+You can streamline this process by creating diagnostic settings for Azure AD user accounts and sending the audit logs and sign-in logs to a Log Analytics workspace. Then in Azure Monitor you can configure desired log alerts for certain actions that occur in the logs.
 
 - [How to integrate Azure Activity Logs into Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
 
@@ -501,15 +499,11 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32109.).
 
-**Guidance**: Implement separate subscriptions and/or management groups for development, test, and production. Service Bus namespaces should be separated by virtual network with service endpoints enabled and tagged appropriately.
-
-You may also secure your Azure Service Bus namespace by using firewalls. Azure Service Bus supports IP-based access controls for inbound firewall support. You can set firewall rules by using the Azure portal, Azure Resource Manager templates, or through the Azure CLI or Azure PowerShell.
+**Guidance**: Implement separate subscriptions and management groups for development, test, and production. Service Bus namespaces should be separated by virtual networks with private endpoints configured and tagged appropriately.
 
 - [How to create additional Azure subscriptions](/azure/billing/billing-create-subscription)
 
 - [How to create Management Groups](/azure/governance/management-groups/create)
-
-- [Configure IP firewall rules for Azure Service Bus namespaces](service-bus-ip-filtering.md)
 
 - [How to create and utilize tags](/azure/azure-resource-manager/resource-group-using-tags)
 
@@ -524,13 +518,13 @@ You may also secure your Azure Service Bus namespace by using firewalls. Azure S
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32110.).
 
-**Guidance**: When using virtual machines to access your Service Bus entities, make use of virtual networks, service endpoints, Service Bus firewall, network security groups, and service tags to mitigate the possibility of data exfiltration.
+**Guidance**: When using virtual machines to access your Service Bus entities, make use of virtual networks, private endpoints, Service Bus firewall, network security groups, and service tags to mitigate the possibility of data exfiltration.
 
 Microsoft manages the underlying infrastructure for Azure Service Bus and has implemented strict controls to prevent the loss or exposure of customer data.
 
 - [Configure IP firewall rules for Azure Service Bus namespaces](service-bus-ip-filtering.md)
 
-- [Allow access to Azure Service Bus namespace from specific virtual networks](service-bus-service-endpoints.md)
+- [Allow access to Azure Service Bus namespace from specific virtual networks](private-link-service.md)
 
 - [Allow access to Azure Service Bus namespaces via private endpoints](private-link-service.md)
 
@@ -547,7 +541,7 @@ Microsoft manages the underlying infrastructure for Azure Service Bus and has im
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32111.).
 
-**Guidance**: Azure Service Bus enforces TLS-encrypted communications by default. TLS versions 1.0, 1.1 and 1.2 are currently supported. However, TLS 1.0 and 1.1 are on a path to deprecation industry-wide, so use TLS 1.2 if at all possible.
+**Guidance**: Azure Service Bus enforces TLS-encrypted communications by default. TLS versions 1.0, 1.1 and 1.2 are currently supported. However, TLS 1.0 and 1.1 are on a path to deprecation industry-wide, so use TLS 1.2 or newer where possible.
 
 - [To understand security features of Service Bus, see Network security](network-security.md)
 
@@ -700,6 +694,8 @@ In addition, use Azure Resource Graph to query and discover resources within the
 - Not allowed resource types
 - Allowed resource types
 
+You may also construct custom policy definitions if the built-in definitions do not fit your organization's needs.
+
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 - [How to deny a specific resource type with Azure Policy](/azure/governance/policy/samples/not-allowed-resource-types)
@@ -730,9 +726,12 @@ In addition, use Azure Resource Graph to query and discover resources within the
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32135.).
 
-**Guidance**: Define and implement standard security configurations for your Azure Service Bus deployments. Use Azure Policy aliases in the "Microsoft.ServiceBus" namespace to create custom policies to audit or enforce configurations. You may also make use of built-in policy definitions for Azure Service Bus such as:
+**Guidance**: Define and implement standard security configurations for your Azure Service Bus deployments. You may also make use of built-in policy definitions for Azure Service Bus such as:
 
-Diagnostic logs in Service Bus should be enabled/ Service Bus should use a virtual network service endpoint to limit network traffic to your private networks.
+- Diagnostic logs in Service Bus should be enabled
+- Service Bus should use a virtual network service endpoint to limit network traffic to your private networks.
+
+Use Azure Policy aliases in the "Microsoft.ServiceBus" namespace to create custom policies to audit or enforce configurations.
 
 - [Azure Built-in policies for Service Bus ](/azure/service-bus-messaging/policy-samples)
 
@@ -790,7 +789,7 @@ Diagnostic logs in Service Bus should be enabled/ Service Bus should use a virtu
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32145.).
 
-**Guidance**:  For Azure virtual machines or web applications running on Azure App Service being used to access your Service Bus entities, use Managed Service Identity in conjunction with Azure Key Vault to simplify and secure shared access signature management for your Azure Service Bus deployments. Ensure Key Vault soft-delete is enabled.
+**Guidance**:  For Azure virtual machines or web applications running on Azure App Service being used to access your Service Bus entities, use a Managed Service Identity in conjunction with Azure Key Vault to simplify and secure shared access signature management for your Azure Service Bus deployments. Ensure Key Vault soft-delete is enabled.
 
 - [Authenticate a managed identity with Azure Active Directory to access Service Bus resources](service-bus-managed-service-identity.md)
 
@@ -809,7 +808,7 @@ Diagnostic logs in Service Bus should be enabled/ Service Bus should use a virtu
 
 **Guidance**: For Azure virtual machines or web applications running on Azure App Service being used to access your Service Bus entities, use Managed Service Identity in conjunction with Azure Key Vault to simplify and secure Azure Service Bus. Ensure Key Vault soft-delete is enabled.
 
-Use Managed Identities to provide Azure services with an automatically managed identity in Azure Active Directory (AD). Managed Identities allows you to authenticate to any service that supports Azure AD authentication, including Azure Key Vault, without any credentials in your code.
+Use Managed Identities to provide Azure services with an automatically managed identity in Azure Active Directory (Azure AD). Managed Identities allows you to authenticate to any service that supports Azure AD authentication, including Azure Key Vault, without any credentials in your code.
 
 - [Authenticate a managed identity with Azure Active Directory to access Service Bus Resources](service-bus-managed-service-identity.md)
 
@@ -843,7 +842,7 @@ Use Managed Identities to provide Azure services with an automatically managed i
 
 **Guidance**: Pre-scan any content being uploaded to non-compute Azure resources, such as Azure Service Bus, App Service, Data Lake Storage, Blob Storage, Azure Database for PostgreSQL, etc. Microsoft cannot access your data in these instances.
 
-Microsoft anti-malware is enabled on the underlying host that supports Azure services (for example, Azure Cache for Redis), however it does not run on customer content.
+Microsoft anti-malware is enabled on the underlying host that supports Azure services, however it does not run on customer content.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -888,7 +887,9 @@ Ensure regular automated backups of your Key Vault Secrets with the following Po
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32153.).
 
-**Guidance**: Test restoration of backed up customer managed keys.
+**Guidance**: Test restoration of backed up customer-managed keys use to encrypt Service Bus data.
+
+- [How to configure customer-managed keys for encrypting Azure Service Bus data at rest](configure-customer-managed-key.md)
 
 - [How to restore key vault keys in Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
@@ -940,7 +941,7 @@ Develop an incident response guide for your organization. Ensure there are writt
 
 **Guidance**: Azure Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytic used to issue the alert as well as the confidence level that there was malicious intent behind the activity that led to the alert.
 
-Additionally, mark subscriptions using tags and create a naming system to identify and categorize Azure resources, especially those processing sensitive data.  It's your responsibility to prioritize the remediation of alerts based on the criticality of the Azure resources and environment where the incident occurred. 
+Additionally, mark subscriptions using tags and create a naming system to identify and categorize Azure resources, especially those processing sensitive data. It's your responsibility to prioritize the remediation of alerts based on the criticality of the Azure resources and environment where the incident occurred. 
 
 - [Security alerts in Azure Security Center](../security-center/security-center-alerts-overview.md) 
 
