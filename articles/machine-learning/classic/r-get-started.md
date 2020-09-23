@@ -43,13 +43,11 @@ We'll use RStudio to develop, test, and debug R code on a small scale. This code
 
 ### The Execute R Script module
 
-Within Machine Learning Studio (classic), R scripts are run within the [Execute R Script][execute-r-script] module. An example of the [Execute R Script][execute-r-script] module in Machine Learning Studio (classic) is shown in Figure 1.
+Within Machine Learning Studio (classic), R scripts are run within the [Execute R Script][execute-r-script] module. An example of the [Execute R Script][execute-r-script] module in Machine Learning Studio (classic) is shown here.
 
  ![Screenshot that shows R programming language: The Execute R Script module selected in Machine Learning Studio (classic).](./media/r-quickstart/fig1.png)
 
-*Figure 1. The Machine Learning Studio (classic) environment showing the Execute R Script module selected.*
-
-Figure 1 shows some of the key parts of the Machine Learning Studio (classic) environment for working with the [Execute R Script][execute-r-script] module:
+The preceding image shows some of the key parts of the Machine Learning Studio (classic) environment for working with the [Execute R Script][execute-r-script] module:
 
 * The modules in the experiment are shown in the center pane.
 * The upper part of the right pane contains a window you can use to view and edit your R scripts.
@@ -84,11 +82,9 @@ x <- 1.0
 z <- x + y
 ```
 
-This code fails to execute, which results in an error condition. Selecting **View error log** on the properties pane produces the display shown in Figure 2.
+This code fails to execute, which results in an error condition. Selecting **View error log** on the properties pane produces the following display.
 
   ![Screenshot that shows an error message pop-up.](./media/r-quickstart/fig2.png)
-
-*Figure 2. Error message pop-up.*
 
 It looks like we need to look in output.log to see the R error message. Select the [Execute R Script][execute-r-script] module, and then select the **View output.log** item on the properties pane to the right. A new browser window opens, and the following error message appears.
 
@@ -161,19 +157,16 @@ Now that we have some data in Machine Learning Studio (classic), we need to crea
 1. Connect the output of **csdairydata.csv dataset** to the leftmost input (**Dataset1**) of the [Execute R Script][execute-r-script].
 1. Select **Save**.
 
-At this point, your experiment should look something like Figure 3.
+At this point, your experiment should look something like this example.
 
 ![Diagram that shows the CA Dairy Analysis experiment with dataset and Execute R Script module.](./media/r-quickstart/fig3.png)
 
-*Figure 3. The CA Dairy Analysis experiment with dataset and Execute R Script module.*
 
 #### Check on the data
 
-Let's have a look at the data we've loaded into our experiment. In the experiment, select the output of the **cadairydata.csv dataset**, and select **Visualize**. You should see something like Figure 4.
+Let's have a look at the data we've loaded into our experiment. In the experiment, select the output of the **cadairydata.csv dataset**, and select **Visualize**. You should see something like this summary.
 
 ![Screenshot that shows a summary of the cadairydata.csv dataset.](./media/r-quickstart/fig4.png)
-
-*Figure 4. Summary of the cadairydata.csv dataset.*
 
 This view shows a lot of useful information. We can see the first several rows of the dataset. If we select a column, the **Statistics** section shows more information about the column. For example, the **Feature Type** row shows what data types Machine Learning Studio (classic) assigned to the column. Check this view before you start to do any serious work.
 
@@ -245,11 +238,9 @@ We already discussed loading datasets in [Load the dataset](#loading). After you
 
 1. Select **Save**.
 
-After these steps are finished, the [Execute R Script][execute-r-script] module executes the R script in the zip file when the experiment is run. At this point, your experiment should look something like Figure 5.
+After these steps are finished, the [Execute R Script][execute-r-script] module executes the R script in the zip file when the experiment is run. At this point, your experiment should look something like this example.
 
 ![Diagram that shows an experiment using a zipped R script.](./media/r-quickstart/fig6.png)
-
-*Figure 5. Experiment using zipped R script.*
 
 #### Dataset1
 
@@ -317,11 +308,9 @@ You can output the contents of an R dataframe as a rectangular table through the
 maml.mapOutputPort('cadairydata')
 ```
 
-After you run the experiment, select the Result Dataset1 output port, and then select **Visualize**. You should see something like Figure 6.
+After you run the experiment, select the Result Dataset1 output port, and then select **Visualize**. You should see something like this example.
 
 ![Screenshot that shows the visualization of the output of the California dairy data.](./media/r-quickstart/fig7.png)
-
-*Figure 6. The visualization of the output of the California dairy data.*
 
 This output looks identical to the input, exactly as we expected.
 
@@ -329,17 +318,13 @@ This output looks identical to the input, exactly as we expected.
 
 The Device output of the [Execute R Script][execute-r-script] module contains messages and graphics output. Both standard output and standard error messages from R are sent to the R Device output port.
 
-To view the R Device output, select the port, and then select **Visualize**. We see the standard output and standard error from the R script in Figure 7.
+To view the R Device output, select the port, and then select **Visualize**. We see the standard output and standard error from the R script here.
 
 ![Screenshot that shows the standard output and standard error from the R Device port.](./media/r-quickstart/fig8.png)
 
-*Figure 7. Standard output and standard error from the R Device port.*
-
-Scrolling down, we see the graphics output from our R script in Figure 8.
+Scrolling down, we see the graphics output from our R script.
 
 ![Screenshot that shows the graphics output from the R Device port.](./media/r-quickstart/fig9.png)
-
-*Figure 8. Graphics output from the R Device port.*
 
 ## <a id="filtering"></a>Data filtering and transformation
 
@@ -384,7 +369,7 @@ str(cadairydata) # Check the result
 maml.mapOutputPort('cadairydata')
 ```
 
-Let's execute this code and look at the output log for the R script. The relevant data from the log is shown in Figure 9.
+Let's execute this code and look at the output log for the R script. The relevant data from the log is shown here.
 
 ```output
 [ModuleOutput] [1] "Loading variable port1..."
@@ -414,8 +399,6 @@ Let's execute this code and look at the output log for the R script. The relevan
 [ModuleOutput] [1] "Saving the following item(s):  .maml.oport1"
 ```
 
-*Figure 9. Summary of the dataframe with a factor variable.*
-
 The type for Month should now say **Factor w/ 14 levels**. This type is a problem because there are only 12 months in the year. You can also check to see that the type in **Visualize** of the Result Dataset port is **Categorical**.
 
 The problem is that the Month column hasn't been coded systematically. In some cases, a month is called April, and in others it's abbreviated as Apr. We can solve this problem by trimming the string to three characters. The line of code now looks like the following example.
@@ -425,7 +408,7 @@ The problem is that the Month column hasn't been coded systematically. In some c
 cadairydata$Month <- as.factor(substr(cadairydata$Month, 1, 3))
 ```
 
-Rerun the experiment, and view the output log. The expected results are shown in Figure 10.
+Rerun the experiment, and view the output log. The expected results are shown here.
 
 ```output
 [ModuleOutput] [1] "Loading variable port1..."
@@ -455,7 +438,6 @@ Rerun the experiment, and view the output log. The expected results are shown in
 [ModuleOutput] [1] "Saving the following item(s):  .maml.oport1"
 ```
 
-*Figure 10. Summary of the dataframe with correct number of factor levels.*
 
 Our factor variable now has the desired 12 levels.
 
@@ -475,7 +457,7 @@ We add the following line to the R code in the [Execute R Script][execute-r-scri
 cadairydata <- cadairydata[, c(-1, -2)]
 ```
 
-Run this code in your experiment, and check the result from the output log. These results are shown in Figure 11.
+Run this code in your experiment, and check the result from the output log. These results are shown here.
 
 ```output
 [ModuleOutput] [1] "Loading variable port1..."
@@ -501,8 +483,6 @@ Run this code in your experiment, and check the result from the output log. Thes
 [ModuleOutput] [1] "Saving the following item(s):  .maml.oport1"
 ```
 
-*Figure 11. Summary of the dataframe with two columns removed.*
-
 We now get the expected results.
 
 ### Add a new column
@@ -527,7 +507,7 @@ num.month <- function(Year, Month) {
 cadairydata$Month.Count <- num.month(cadairydata$Year, cadairydata$Month.Number)
 ```
 
-Now run the updated experiment, and use the output log to view the results. These results are shown in Figure 12.
+Now run the updated experiment, and use the output log to view the results. These results are shown here.
 
 ```output
 [ModuleOutput] [1] "Loading variable port1..."
@@ -555,7 +535,6 @@ Now run the updated experiment, and use the output log to view the results. Thes
 [ModuleOutput] [1] "Saving the following item(s):  .maml.oport1"
 ```
 
-*Figure 12. Summary of the dataframe with the additional column.*
 
 It looks like everything is working. We have the new column with the expected values in our dataframe.
 
@@ -613,7 +592,7 @@ If you aren't used to defensive programming in R, all this code might be overwhe
 1. Checks are run on the arguments to the function. In each case, if an error is detected, a default value is returned and a message is produced by the `warning()` function. We're using `warning()` rather than `stop()` because the latter will terminate execution, which is what we're trying to avoid. This code is written in a procedural style, because in this case a functional approach seemed complex and obscure.
 1. The log computations are wrapped in `tryCatch()` so that exceptions won't cause an abrupt halt to processing. Without `tryCatch()`, most errors raised by R functions result in a stop signal, which does just that.
 
-Execute this R code in your experiment and have a look at the printed output in the output.log file. You'll now see the transformed values of the four columns in the log, as shown in Figure 13.
+Execute this R code in your experiment and have a look at the printed output in the output.log file. You'll now see the transformed values of the four columns in the log, as shown here.
 
 ```output
 [ModuleOutput] [1] "Loading variable port1..."
@@ -640,8 +619,6 @@ Execute this R code in your experiment and have a look at the printed output in 
 [ModuleOutput] 
 [ModuleOutput] [1] "Saving the following item(s):  .maml.oport1"
 ```
-
-*Figure 13. Summary of the transformed values in the dataframe.*
 
 We see the values have been transformed. Milk production now greatly exceeds all other dairy product production, recalling that we're now looking at a log scale.
 
@@ -675,7 +652,7 @@ cadairydata <- maml.mapInputPort(1)
 str(cadairydata) # Check the results
 ```
 
-Now, run the experiment. The log of the new Execute R Script shape should look like Figure 14.
+Now, run the experiment. The log of the new Execute R Script shape should look like this example.
 
 ```output
 [ModuleOutput] [1] "Loading variable port1..."
@@ -699,8 +676,6 @@ Now, run the experiment. The log of the new Execute R Script shape should look l
 [ModuleOutput]  $ Month.Count      : num  0 1 2 3 4 5 6 7 8 9 ...
 ```
 
-*Figure 14. Summary of the dataframe in the Execute R Script module.*
-
 This data is of the expected types and format. Now the Month column is of type factor and has the expected number of levels.
 
 #### Create a time series object
@@ -718,7 +693,7 @@ cadairydata$Time <- as.POSIXct(strptime(paste(as.character(cadairydata$Year), "-
 str(cadairydata) # Check the results
 ```
 
-Now, check the log. It should look like Figure 15.
+Now, check the log. It should look like this example.
 
 ```output
 [ModuleOutput] [1] "Loading variable port1..."
@@ -744,8 +719,6 @@ Now, check the log. It should look like Figure 15.
 [ModuleOutput]  $ Time             : POSIXct, format: "1995-01-01" "1995-02-01" ...
 ```
 
-*Figure 15. Summary of the dataframe with a time series object.*
-
 We can see from the summary that the new column is in fact of class POSIXct.
 
 ### Explore and transform the data
@@ -756,11 +729,9 @@ Let's explore some of the variables in this dataset. A scatter plot matrix is a 
 pairs(~ Cotagecheese.Prod + Icecream.Prod + Milk.Prod + N.CA.Fat.Price, data = cadairydata, main = "Pairwise Scatterplots of dairy time series")
 ```
 
-Run this code, and see what happens. The plot produced at the R Device port should look like Figure 16.
+Run this code, and see what happens. The plot produced at the R Device port should look like this example.
 
 ![Screenshot that shows the scatter plot matrix of selected variables.](./media/r-quickstart/fig17.png)
-
-*Figure 16. Scatter plot matrix of selected variables.*
 
 There's some odd-looking structure in the relationships between these variables. Perhaps this structure arises from trends in the data and from the fact that we haven't standardized the variables.
 
@@ -823,13 +794,11 @@ Note that the linear regression used for de-trending is a time series regression
 
 After `ts.detrend()` is defined, we apply it to the variables of interest in our dataframe. We must coerce the resulting list created by `lapply()` to data in the dataframe by using `as.data.frame()`. Because of defensive aspects of `ts.detrend()`, failure to process one of the variables won't prevent correct processing of the others.
 
-The final line of code creates a pairwise scatter plot. After running the R code, the results of the scatter plot are shown in Figure 17.
+The final line of code creates a pairwise scatter plot. After running the R code, the results of the scatter plot are shown here.
 
 ![Screenshot that shows the pairwise scatter plot of de-trended and standardized time series.](./media/r-quickstart/fig18.png)
 
-*Figure 17. Pairwise scatter plot of de-trended and standardized time series.*
-
-You can compare these results to those shown in Figure 16. With the trend removed and the variables standardized, we see a lot less structure in the relationships between these variables.
+You can compare these results to those shown in the preceding example. With the trend removed and the variables standardized, we see a lot less structure in the relationships between these variables.
 
 The code to compute the correlations as R ccf objects is as follows.
 
@@ -849,7 +818,7 @@ cadairycorrelations <- lapply(corpairs, pair.cor, df.detrend)
 cadairycorrelations
 ```
 
-Running this code produces the log shown in Figure 18.
+Running this code produces the log shown here.
 
 ```output
 [ModuleOutput] Loading objects:
@@ -905,8 +874,6 @@ Running this code produces the log shown in Figure 18.
 [ModuleOutput] -0.002 -0.074 -0.124 
 ```
 
-*Figure 18. List of ccf objects from the pairwise correlation analysis.*
-
 There's a correlation value for each lag. None of these correlation values is large enough to be significant. We can conclude that we can model each variable independently.
 
 ### Output a dataframe
@@ -946,11 +913,9 @@ The first line of code is a bit tricky, and some explanation might help you unde
 
 Note that the row names are in a column of the dataframe. Doing so preserves the row names when they're output from the [Execute R Script][execute-r-script].
 
-Running the code produces the output shown in Figure 19 when we select **Visualize** to view the output at the Result Dataset port. The row names are in the first column, as intended.
+Running the code produces the output shown here when we select **Visualize** to view the output at the Result Dataset port. The row names are in the first column, as intended.
 
 ![Screenshot that shows the results output from the correlation analysis.](./media/r-quickstart/fig20.png)
-
-*Figure 19. Results output from the correlation analysis.*
 
 ## <a id="seasonalforecasting"></a>Time series example: Seasonal forecasting
 
@@ -962,11 +927,9 @@ The complete R code for this section is in [MachineLearningSamples-Notebooks/stu
 
 ### Create the dataframe for analysis
 
-Start by adding a new [Execute R Script][execute-r-script] module to your experiment. Connect the Result Dataset output of the existing [Execute R Script][execute-r-script] module to the **Dataset1** input of the new module. The result should look something like Figure 20.
+Start by adding a new [Execute R Script][execute-r-script] module to your experiment. Connect the Result Dataset output of the existing [Execute R Script][execute-r-script] module to the **Dataset1** input of the new module. The result should look something like this example.
 
 ![Diagram that shows the experiment with the new Execute R Script module added.](./media/r-quickstart/fig21.png)
-
-*Figure 20. The experiment with the new Execute R Script module added.*
 
 As with the correlation analysis we just completed, we need to add a column with a POSIXct time series object. The following code will add the column.
 
@@ -981,7 +944,7 @@ cadairydata$Time <- as.POSIXct(strptime(paste(as.character(cadairydata$Year), "-
 str(cadairydata)
 ```
 
-Run this code, and look at the log. The result should look like Figure 21.
+Run this code, and look at the log. The result should look like this example.
 
 ```output
 [ModuleOutput] [1] "Loading variable port1..."
@@ -1007,8 +970,6 @@ Run this code, and look at the log. The result should look like Figure 21.
 [ModuleOutput]  $ Time             : POSIXct, format: "1995-01-01" "1995-02-01" ...
 ```
 
-*Figure 21. A summary of the dataframe.*
-
 With this result, we're ready to start our analysis.
 
 ### Create a training dataset
@@ -1026,7 +987,7 @@ Ylabs  <- list("Log CA Cotage Cheese Production, 1000s lb",
 Map(function(y, Ylabs){plot(cadairytrain$Time, y, xlab = "Time", ylab = Ylabs, type = "l")}, cadairytrain[, 4:7], Ylabs)
 ```
 
-Running the code produces the series of time series plots from the R Device output shown in Figure 22. The time axis is in units of dates, which is a nice benefit of the time series plot method.
+Running the code produces the series of time series plots from the R Device output shown here. The time axis is in units of dates, which is a nice benefit of the time series plot method.
 
 ![First time series plot of California dairy production and price data.](./media/r-quickstart/unnamed-chunk-161.png)
 
@@ -1035,8 +996,6 @@ Running the code produces the series of time series plots from the R Device outp
 ![Third time series plot of California dairy production and price data.](./media/r-quickstart/unnamed-chunk-163.png).
 
 ![Fourth time series plot of California dairy production and price data](./media/r-quickstart/unnamed-chunk-164.png)
-
-*Figure 22. Time series plots of California dairy production and price data.*
 
 ### A trend model
 
@@ -1110,7 +1069,7 @@ This function generates the following output.
 
 This output looks better. All of the terms are significant. The 2e-16 value is a default value and shouldn't be taken too seriously.  
 
-As a sanity test, let's make a time series plot of the California dairy production data with the trend curve shown. We've added the following code in the Machine Learning Studio (classic) [Execute R Script][execute-r-script] model (not RStudio) to create the model and make a plot. The result is shown in Figure 23.
+As a sanity test, let's make a time series plot of the California dairy production data with the trend curve shown. We've added the following code in the Machine Learning Studio (classic) [Execute R Script][execute-r-script] model (not RStudio) to create the model and make a plot. The result is shown in the following example.
 
 ```r
 milk.lm <- lm(Milk.Prod ~ Time + I(Month.Count^3), data = cadairytrain)
@@ -1120,8 +1079,6 @@ lines(cadairytrain$Time, predict(milk.lm, cadairytrain), lty = 2, col = 2)
 ```
 
 ![California milk production data with trend model shown.](./media/r-quickstart/unnamed-chunk-18.png)
-
-*Figure 23. California milk production data with trend model shown.*
 
 It looks like the trend model fits the data fairly well. Further, there doesn't seem to be evidence of over-fitting, such as odd wiggles in the model curve.
 
@@ -1183,13 +1140,11 @@ plot(cadairytrain$Time, cadairytrain$Milk.Prod, xlab = "Time", ylab = "Log CA Mi
 lines(cadairytrain$Time, predict(milk.lm2, cadairytrain), lty = 2, col = 2)
 ```
 
-Running this code in Machine Learning Studio (classic) produces the plot shown in Figure 24.
+Running this code in Machine Learning Studio (classic) produces the plot shown here.
 
 ![California milk production with model including seasonal effects.](./media/r-quickstart/unnamed-chunk-20.png)
 
-*Figure 24. California milk production with model including seasonal effects.*
-
-The fit to the data shown in Figure 24 is rather encouraging. Both the trend and the seasonal effect (monthly variation) look reasonable.
+The fit to the data shown in this example is rather encouraging. Both the trend and the seasonal effect (monthly variation) look reasonable.
 
 As another check on our model, let's have a look at the residuals. The following code computes the predicted values from our two models, computes the residuals for the seasonal model, and then plots these residuals for the training data.
 
@@ -1203,15 +1158,13 @@ residuals <- cadairydata$Milk.Prod - predict2
 plot(cadairytrain$Time, residuals[1:216], xlab = "Time", ylab ="Residuals of Seasonal Model")
 ```
 
-The residual plot is shown in Figure 25.
+The residual plot is shown here.
 
 ![Residuals of the seasonal model for the training data.](./media/r-quickstart/unnamed-chunk-21.png)
 
-*Figure 25. Residuals of the seasonal model for the training data.*
-
 These residuals look reasonable. There's no particular structure, except the effect of the 2008-2009 recession, which our model doesn't account for particularly well.
 
-The plot shown in Figure 25 is useful for detecting any time-dependent patterns in the residuals. The explicit approach of computing and plotting the residuals we used places the residuals in time order on the plot. If we had plotted `milk.lm$residuals`, the plot wouldn't have been in time order.
+The plot shown in this example is useful for detecting any time-dependent patterns in the residuals. The explicit approach of computing and plotting the residuals we used places the residuals in time order on the plot. If we had plotted `milk.lm$residuals`, the plot wouldn't have been in time order.
 
 You can also use `plot.lm()` to produce a series of diagnostic plots.
 
@@ -1220,7 +1173,7 @@ You can also use `plot.lm()` to produce a series of diagnostic plots.
 plot(milk.lm2, ask = FALSE)
 ```
 
-This code produces a series of diagnostic plots shown in Figure 26.
+This code produces a series of diagnostic plots shown in the following examples.
 
 ![First diagnostic plot for the seasonal model.](./media/r-quickstart/unnamed-chunk-221.png)
 
@@ -1229,8 +1182,6 @@ This code produces a series of diagnostic plots shown in Figure 26.
 ![Third diagnostic plot for the seasonal model.](./media/r-quickstart/unnamed-chunk-223.png)
 
 ![Fourth diagnostic plot for the seasonal model.](./media/r-quickstart/unnamed-chunk-224.png)
-
-*Figure 26. Diagnostic plots for the seasonal model.*
 
 There are a few highly influential points identified in these plots, but nothing to cause great concern. Further, we can see from the Normal Q-Q plot that the residuals are close to normally distributed, which is an important assumption for linear models.
 
@@ -1310,11 +1261,9 @@ RMS.df
 maml.mapOutputPort('RMS.df')
 ```
 
-Running this code produces the output shown in Figure 27 at the Result Dataset output port.
+Running this code produces the output shown here at the Result Dataset output port.
 
 ![Screenshot that shows the comparison of RMS errors for the models.](./media/r-quickstart/fig26.png)
-
-*Figure 27. Comparison of RMS errors for the models.*
 
 From these results, we see that adding the seasonal factors to the model reduces the RMS error significantly. Not too surprisingly, the RMS error for the training data is a bit less than for the forecast.
 
