@@ -4,7 +4,7 @@ description: Use an Azure Service Fabric cluster to host an existing Node.js app
 
 ms.topic: conceptual
 ms.date: 12/06/2017
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 # Host a Node.js application on Azure Service Fabric
