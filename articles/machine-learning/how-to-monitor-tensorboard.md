@@ -5,8 +5,8 @@ description: Launch TensorBoard to visualize experiment run histories, and ident
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-author: maxluk
-ms.author: maxluk
+author: minxia
+ms.author: minxia
 ms.date: 02/27/2020
 ms.topic: conceptual
 ms.custom: how-to
@@ -29,25 +29,17 @@ How you launch TensorBoard with Azure Machine Learning experiments depends on th
 
 ## Prerequisites
 
-* To launch TensorBoard and view your experiment run histories, your experiments need to have previously enabled logging to    track its metrics and performance.  
-
+* To launch TensorBoard and view your experiment run histories, your experiments need to have previously enabled logging to track its metrics and performance.  
 * The code in this document can be run in either of the following environments: 
-
     * Azure Machine Learning compute instance - no downloads or installation necessary
-
         * Complete the [Tutorial: Setup environment and workspace](tutorial-1st-experiment-sdk-setup.md) to create a dedicated notebook server pre-loaded with the SDK and the sample repository.
-
         * In the samples folder on the notebook server, find  two completed and expanded notebooks by navigating to these directories:
             * **how-to-use-azureml > training-with-deep-learning > export-run-history-to-tensorboard > export-run-history-to-tensorboard.ipynb**
-
             * **how-to-use-azureml > track-and-monitor-experiments > tensorboard.ipynb**
-
     * Your own Juptyer notebook server
        * [Install the Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true) with the `tensorboard` extra
         * [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).  
         * [Create a workspace configuration file](how-to-configure-environment.md#workspace).
-  
-<a name="direct"></a>
 
 ## Option 1: Directly view run history in TensorBoard
 
@@ -111,7 +103,7 @@ os.environ["TEST_TMPDIR"] = data_dir
 
 # Writing logs to ./logs results in their being uploaded to Artifact Service,
 # and thus, made accessible to our TensorBoard instance.
-script_params = ["--log_dir", logs_dir]
+args = ["--log_dir", logs_dir]
 
 # Create an experiment
 exp = Experiment(ws, experiment_name)
@@ -147,19 +139,23 @@ compute_target.wait_for_completion(show_output=True, min_node_count=None)
 
 [!INCLUDE [low-pri-note](../../includes/machine-learning-low-pri-vm.md)]
 
-### Submit run with TensorFlow estimator
+### Configure and submit training run
 
-The TensorFlow estimator provides a simple way of launching a TensorFlow training job on a compute target. It's implemented through the generic [`estimator`](https://docs.microsoft.com//python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py&preserve-view=true) class, which can be used to support any framework. For more information about training models using the generic estimator, see [train models with Azure Machine Learning using estimator](how-to-train-ml-models.md)
+Configure a training job by creating a ScriptRunConfig object.
 
 ```Python
-from azureml.train.dnn import TensorFlow
+from azureml.core import ScriptRunConfig
+from azureml.core import Environment
 
-tf_estimator = TensorFlow(source_directory=exp_dir,
-                          compute_target=compute_target,
-                          entry_script='mnist_with_summaries.py',
-                          script_params=script_params)
+# Here we will use the TensorFlow 2.2 curated environment
+tf_env = Environment.get(ws, 'AzureML-TensorFlow-2.2-GPU')
 
-run = exp.submit(tf_estimator)
+src = ScriptRunConfig(source_directory=exp_dir,
+                      script='mnist_with_summaries.py',
+                      arguments=args,
+                      compute_target=compute_target,
+                      environment=tf_env)
+run = exp.submit(src)
 ```
 
 ### Launch TensorBoard
@@ -181,7 +177,7 @@ tb.stop()
 ```
 
 >[!Note]
- While this example used TensorFlow, TensorBoard can be used as easily with PyTorch or Chainer models. TensorFlow must be available on the machine running TensorBoard, but is not necessary on the machine doing PyTorch or Chainer computations. 
+ While this example used TensorFlow, TensorBoard can be used as easily with PyTorch or Chainer. TensorFlow must be available on the machine running TensorBoard, but is not necessary on the machine doing PyTorch or Chainer computations. 
 
 
 <a name="export"></a>
