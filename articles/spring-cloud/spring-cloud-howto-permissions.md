@@ -24,7 +24,7 @@ We will implement the following custom roles:
     * Restart apps
     * Get log streams
     * Cannot make changes to apps or configurations
-* **DevOps role**: 
+* **Ops - Site Reliability Engineering**: 
     * Restart apps
     * Get log streams
     * Cannot make changes to apps or configurations
@@ -103,12 +103,41 @@ From **Microsoft.AppPlatform/Spring/apps/deployments**, select:
 
 7. Click **Add**.
 
-## Define DevOps role
-This role can deploy, test, and restart apps.
+## Define Ops - Site Reliability Engineering role
+This role can deploy, test, and restart apps. The role has the same permissions as Ops engineer role.
 
 1. Repeat the procedure to navigate subscription, resource group,and access Access control (IAM).
 
-   ![Create DevOps role](media/spring-cloud-permissions/create-dev-opps-role.png)
+1. Select the permissions:
+
+From **Microsoft.AppPlatform/Spring**, select:
+
+* Read : Get Azure Spring Cloud service instance
+
+* Other : List Azure Spring Cloud service instance test keys
+
+From **Microsoft.AppPlatform/Spring/apps/deployments**, select: 
+
+* Other : Start Microsoft Azure Spring Cloud application deployment
+
+* Other : Stop Microsoft Azure Spring Cloud application deployment
+
+1. Click **Add**.
+
+1. Review the permissions.
+
+1. Click **Review and create**.
+
+## Define Azure Pipelines/Provisioning role
+This Jenkins/Github Actions role can create and configure everything in Azure Spring Cloud and apps with a service instance. 
+
+Need permissions specs <-------
+ 
+## Define Pipelines role
+This role is for releasing or deploying code.
+
+1. Repeat the procedure to navigate subscription, resource group,and access Access control (IAM).
+
 2. Open the **Permissions** options.
 
 3. Select the permissions:
@@ -147,20 +176,11 @@ From: **Microsoft.AppPlatform/Spring/apps/deployments/skus**, select:
 
 * Read: List application deployment available skus    
 
-   [ ![Create DevOps permissions](media/spring-cloud-permissions/create-dev-opps-role-2.png) ](media/spring-cloud-permissions/create-dev-opps-role-box.png#lightbox)
-
 4. Click **Add**.
 
 5. Review the permissions.
 
-   ![Review permissions](media/spring-cloud-permissions/dev-ops-review-permissions.png)
-
 6. Click **Review and create**.
-
-## Azure Pipelines/Jenkins/Github Actions role
- 
-Need permissions specs <<<<<<<---
-
 
 For more information about three methods that define a custom permissions see:
 * [Clone a role](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-portal#clone-a-role)
