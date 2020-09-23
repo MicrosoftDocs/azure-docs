@@ -921,6 +921,8 @@
     href: https://azure.microsoft.com/roadmap/
   - name: Common questions
     href: service-fabric-common-questions.md
+  - name: Service Fabric managed clusters common questions
+    href: faq-managed-cluster.md
   - name: Microsoft Q&A question page
     href: /answers/topics/azure-service-fabric.html
   - name: Azure Resource Manager Deployment Guardrails
