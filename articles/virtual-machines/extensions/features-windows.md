@@ -32,7 +32,7 @@ Several different Azure VM extensions are available, each with a specific use ca
 
 - Apply PowerShell Desired State configurations to a VM with the DSC extension for Windows. For more information, see [Azure Desired State configuration extension](dsc-overview.md).
 - Configure monitoring of a VM with the Log Analytics Agent VM extension. For more information, see [Connect Azure VMs to Azure Monitor logs](../../azure-monitor/learn/quick-collect-azurevm.md).
-- Configure an Azure VM by using Chef. For more information, see [Automating Azure VM deployment with Chef](../../chef/chef-automation.md).
+- Configure an Azure VM by using Chef. For more information, see [Automating Azure VM deployment with Chef](/azure/developer/chef/windows-vm-configure).
 - Configure monitoring of your Azure infrastructure with the Datadog extension. For more information, see the [Datadog blog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 
 

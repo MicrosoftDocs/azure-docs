@@ -22,7 +22,7 @@ To get started, complete the AKS quickstart [in the Azure portal][aks-portal] or
 
 ## Access, security, and monitoring
 
-For improved security and management, AKS lets you integrate with Azure Active Directory and use Kubernetes role-based access controls. You can also monitor the health of your cluster and resources.
+For improved security and management, AKS lets you integrate with Azure Active Directory and use Kubernetes role-based access control (RBAC). You can also monitor the health of your cluster and resources.
 
 ### Identity and security management
 
@@ -136,6 +136,6 @@ Learn more about deploying and managing AKS with the Azure CLI quickstart.
 [aks-master-logs]: view-master-logs.md
 [aks-supported versions]: supported-kubernetes-versions.md
 [concepts-clusters-workloads]: concepts-clusters-workloads.md
-[kubernetes-rbac]: concepts-identity.md#kubernetes-role-based-access-controls-rbac
+[kubernetes-rbac]: concepts-identity.md#kubernetes-role-based-access-control-rbac
 [concepts-identity]: concepts-identity.md
 [concepts-storage]: concepts-storage.md

@@ -6,9 +6,9 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: reference
-ms.date: 05/11/2020
+ms.date: 08/12/2020
 ms.author: anfeldma
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 
 ---
 # Azure Cosmos DB Node.js SDK for SQL API: Release notes and resources
@@ -21,6 +21,9 @@ ms.custom: devx-track-javascript
 > * [Java SDK v4](sql-api-sdk-java-v4.md)
 > * [Async Java SDK v2](sql-api-sdk-async-java.md)
 > * [Sync Java SDK v2](sql-api-sdk-java.md)
+> * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
+> * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
+> * [Spark Connector](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
 > * [REST Resource Provider](/rest/api/cosmos-db-resource-provider/)
@@ -52,7 +55,7 @@ ms.custom: devx-track-javascript
 * Fixes bug when user supplies partial retry options
 
 ### <a name="3.0.3"></a>3.0.3
-* Prevent Webpack from resolving modules called with require
+* Prevent webpack from resolving modules called with require
 
 ### <a name="3.0.2"></a>3.0.2
 * Fixes a long outstanding bug where RUs were always being reported as 0 for aggregate queries
@@ -178,7 +181,7 @@ Add DISTINCT and LIMIT/OFFSET queries (#306)
 ```
 
 #### Improved browser experience
-While it was possible to use the v2 SDK in the browser it was not an ideal experience. You needed to polyfill several node.js built-in libraries and use a bundler like Webpack or Parcel. The v3 SDK makes the out of the box experience much better for browser users.
+While it was possible to use the v2 SDK in the browser it was not an ideal experience. You needed to polyfill several node.js built-in libraries and use a bundler like webpack or Parcel. The v3 SDK makes the out of the box experience much better for browser users.
 
 * Replace request internals with fetch (#245)
 * Remove usage of Buffer (#330)

@@ -12,6 +12,6 @@ Once you set up an Azure Digital Twins instance, it is common to interact with t
 This app registration is where you configure access permissions to the [Azure Digital Twins APIs](../articles/digital-twins/how-to-use-apis-sdks.md). Later, the client app will authenticate against the app registration, and as a result be granted the configured access permissions to the APIs.
 
 >[!TIP]
-> As a subscription Owner, you may prefer to set up a new app registration for every new Azure Digital Twins instance, *or* to do this only once, establishing a single app registration that will be shared among all Azure Digital Twins instances in the subscription.
+> As a subscription Owner/administrator, you may prefer to set up a new app registration for every new Azure Digital Twins instance, *or* to do this only once, establishing a single app registration that will be shared among all Azure Digital Twins instances in the subscription.
 
 ### Create the registration

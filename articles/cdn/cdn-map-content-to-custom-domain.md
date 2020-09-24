@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Add a custom domain to your Azure CDN endpoint | Microsoft Docs
-description: In this tutorial, you map Azure CDN endpoint content to a custom domain.
+description: Use this tutorial to add a custom domain to an Azure Content Delivery Network endpoint so that your domain name is visible in your URL.
 services: cdn
 documentationcenter: ''
 author: asudbring

@@ -5,10 +5,12 @@ author: bandersmsft
 ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 08/20/2020
 ms.author: banders
 ---
+
 # Account Administrator tasks in the Azure portal
 
 This article explains how to perform the following tasks in the Azure portal:
@@ -28,14 +30,14 @@ You must be the Account Administrator to perform any of these tasks.
 
 1. In the **My subscriptions** list, select the subscription you'd like to add the credit card to.
 
-   ![Screenshot that shows my subscriptions grid in overview](./media/account-admin-tasks/cost-management-billing-overview-x.png)
+   ![Screenshot that shows my subscriptions where you can add a subscription](./media/account-admin-tasks/cost-management-billing-overview-x.png)
 
    > [!NOTE]
    > If you don't see some of your subscriptions here, it might be because you changed the subscription directory at some point. For these subscriptions, you need to switch the directory to the original directory (the directory in which you initially signed up). Then, repeat step 2.
 
 1. Select **Payment methods**.
 
-    ![Screenshot that shows payment methods blade selected.](./media/account-admin-tasks/subscription-payment-methods-blade.png)
+    ![Screenshot that shows payment methods blade selected where you can add a payment method.](./media/account-admin-tasks/subscription-payment-methods-blade.png)
 
 Here you can add a new credit card, change the active payment method, edit credit card details, and delete credit cards.
 
@@ -117,7 +119,7 @@ The spending limit isn’t available for subscriptions with commitment plans or 
 
 1. In the **My subscriptions** list, select your Visual Studio Enterprise subscription.
 
-   ![Screenshot that shows my subscriptions grid in overview](./media/account-admin-tasks/cost-management-overview-msdn-x.png)
+   ![Screenshot that shows my subscriptions area where you can select your subscription](./media/account-admin-tasks/cost-management-overview-msdn-x.png)
 
     > [!NOTE]
     > If you don't see some of your Visual Studio subscriptions here, it might be because you changed a subscription directory at some point. For these subscriptions, you need to switch the directory to the original directory (the directory in which you initially signed up). Then, repeat step 2.
@@ -145,7 +147,7 @@ If you have an Azure in Open Licensing subscription, you can add credits to your
 
 1. In the **My subscriptions** list, select your Azure in Open subscription.
 
-    ![Screenshot that shows my subscriptions grid in overview](./media/account-admin-tasks/cost-management-overview-aio-x.png)
+    ![Screenshot that shows my subscriptions area where you select your Azure in Open subscription](./media/account-admin-tasks/cost-management-overview-aio-x.png)
 
    > [!NOTE]
    > If you don't see your subscription here, it might be because you changed its directory at some point. You need to switch the subscription's directory to the original directory (the directory in which you initially signed up). Then, repeat step 2.
@@ -176,4 +178,4 @@ If you have an Azure in Open Licensing subscription, you can add credits to your
 We do not support virtual or prepaid cards. If you are getting errors when adding or updating a valid credit card, try opening your browser in private mode.
 
 ## Next steps
-- Learn more about [analyzing and preventing unexpected costs the Azure portal](getting-started.md)
+- Learn more about [analyzing unexpected charges](../understand/analyze-unexpected-charges.md)

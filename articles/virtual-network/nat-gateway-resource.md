@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/27/2020
+ms.date: 08/11/2020
 ms.author: allensu
 ---
 
@@ -214,7 +214,7 @@ If your scenario requires inbound endpoints, you have two options:
 You can't achieve a zonal promise with NAT gateway resources when virtual machine instances are deployed in multiple zones within the same subnet.   And even if there were multiple zonal NAT gateways attached to a subnet, the virtual machine instance wouldn't know which NAT gateway resource to select.
 
 A zonal promise does't exist when 
-a) the zone of a virtual machine instance and the zones of a zonal NAT gateway are not aligned, or
+a) the zone of a virtual machine instance and the zone of a zonal NAT gateway are not aligned, or
 b) a regional NAT gateway resource is used with zonal virtual machine instances.
 
 While the scenario will appear to work, its health model and failure mode is undefined from an availability zone point of view. Consider going with zonal stacks or all regional instead.
@@ -320,7 +320,6 @@ A SNAT port is available for reuse to the same destination IP address and destin
 
 - NAT is compatible with standard SKU public IP, public IP prefix, and load balancer resources.   Basic resources (for example basic load balancer) and any products derived from them aren't compatible with NAT.  Basic resources must be placed on a subnet not configured with NAT.
 - IPv4 address family is supported.  NAT doesn't interact with IPv6 address family.  NAT can't be deployed on a subnet with an IPv6 prefix.
-- NSG flow logging isn't supported when using NAT.
 - NAT can't span multiple virtual networks.
 
 ## Suggestions

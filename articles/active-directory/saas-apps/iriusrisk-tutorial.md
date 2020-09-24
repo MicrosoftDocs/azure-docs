@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with IriusRisk | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and IriusRisk.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: d2c854d5-101d-4d67-80e0-87749e1a0352
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with IriusRisk
 

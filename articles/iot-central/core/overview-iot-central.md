@@ -29,10 +29,10 @@ This article outlines, for IoT Central:
 
 The IoT Central documentation refers to four personas who interact with an IoT Central application:
 
-- A _solution builder_ is responsible for defining the types of devices that connect to the application and customizing the application for the operator.
-- An _operator_ manages the devices connected to the application.
+- A _solution builder_ is responsible for [defining the types of devices](howto-set-up-template.md) that connect to the application and customizing the application for the operator.
+- An _operator_ [manages the devices](howto-manage-devices.md) connected to the application.
 - An _administrator_ is responsible for administrative tasks such as managing [user roles and permissions](howto-administer.md) within the application.
-- A _device developer_ creates the code that runs on a device or IoT Edge module connected to your application.
+- A _device developer_ [creates the code that runs on a device](concepts-telemetry-properties-commands.md) or [IoT Edge module](concepts-iot-edge.md) connected to your application.
 
 ## Create your IoT Central application
 
@@ -50,7 +50,7 @@ As a solution builder, you use the web-based tools to create a _device template_
 - Device properties that are set by a device and are read-only in the application.
 - Properties, that an operator sets, that determine the behavior of the device.
 
-This device template includes:
+This [device template](howto-set-up-template.md) includes:
 
 - A _device capability model_ that describes the capabilities a device should implement such as the telemetry it sends and the properties it reports.
 - Cloud properties that aren't stored on the device.
@@ -78,13 +78,13 @@ As a solution builder, you can also customize the IoT Central application UI for
 
 ## Manage your devices
 
-As an operator, you use the IoT Central application to manage the devices in your IoT Central solution. Operators do tasks such as:
+As an operator, you use the IoT Central application to [manage the devices](howto-manage-devices.md) in your IoT Central solution. Operators do tasks such as:
 
 - Monitoring the devices connected to the application.
 - Troubleshooting and remediating issues with devices.
 - Provisioning new devices.
 
-As a solution builder, you can define custom rules and actions that operate over data streaming from connected devices. An operator can enable or disable these rules at the device level to control and automate tasks within the application.
+As a solution builder, you can [define custom rules and actions](howto-configure-rules.md) that operate over data streaming from connected devices. An operator can enable or disable these rules at the device level to control and automate tasks within the application.
 
 With any IoT solution designed to operate at scale, a structured approach to device management is important. It's not enough just to connect your devices to the cloud, you need to keep your devices connected and healthy. An operator can use the following IoT Central capabilities to manage your devices throughout the application life cycle:
 
@@ -147,9 +147,8 @@ Each Azure subscription has default quotas that could impact the scope of your I
 Now that you have an overview of IoT Central, here are some suggested next steps:
 
 - Understand the available [Azure technologies and services for creating IoT solutions](../../iot-fundamentals/iot-services-and-technologies.md).
+- If you're a device developer and want to dive into some code, the suggested next step is to [Create and connect a client application to your Azure IoT Central application](./tutorial-connect-device-nodejs.md).
 - Familiarize yourself with the [Azure IoT Central UI](overview-iot-central-tour.md).
 - Get started by [creating an Azure IoT Central application](quick-deploy-iot-central.md).
 - Learn how to [Connect an Azure IoT Edge device](./tutorial-add-edge-as-leaf-device.md).
 - Learn more about [Azure IoT technologies and services](../../iot-fundamentals/iot-services-and-technologies.md).
-
-If you're a device developer and want to dive into some code, the suggested next step is to [Create and connect a client application to your Azure IoT Central application](./tutorial-connect-device-nodejs.md).

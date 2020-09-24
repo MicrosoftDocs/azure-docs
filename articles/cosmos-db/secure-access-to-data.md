@@ -6,6 +6,7 @@ ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/21/2020
+ms.custom: devx-track-csharp
 
 ---
 # Secure access to data in Azure Cosmos DB
@@ -52,7 +53,7 @@ The process of rotating your master key is simple.
 
 ### Code sample to use a master key
 
-The following code sample illustrates how to use a Cosmos DB account endpoint and master key to instantiate a DocumentClient and create a database.
+The following code sample illustrates how to use a Cosmos DB account endpoint and master key to instantiate a DocumentClient and create a database:
 
 ```csharp
 //Read the Azure Cosmos DB endpointUrl and authorization keys from config.
@@ -64,6 +65,10 @@ private static readonly string authorizationKey = ConfigurationManager.AppSettin
 
 CosmosClient client = new CosmosClient(endpointUrl, authorizationKey);
 ```
+
+The following code sample illustrates how to use the Azure Cosmos DB account endpoint and master key to instantiate a `CosmosClient` object:
+
+:::code language="python" source="~/cosmosdb-python-sdk/sdk/cosmos/azure-cosmos/samples/access_cosmos_with_resource_token.py" id="configureConnectivity":::
 
 ## Resource tokens <a id="resource-tokens"></a>
 

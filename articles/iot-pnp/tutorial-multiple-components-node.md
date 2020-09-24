@@ -7,7 +7,7 @@ ms.date: 07/10/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 
 # As a device builder, I want to see a working IoT Plug and Play device sample connecting to IoT Hub and using multiple components to send properties and telemetry, and responding to commands. As a solution builder, I want to use a tool to view the properties, commands, and telemetry an IoT Plug and Play device reports to the IoT hub it connects to.
 ---
@@ -95,29 +95,29 @@ Open the *pnpTemperatureController.js* file in a code editor of your choice. The
 
 1. Define the `modelId` which is the DTMI for the device that's being implemented. This DTMI is user-defined and must match the DTMI of the [temperature controller DTDL model](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json).
 
-1. Implement the components defined in the temperature controller DTDL model. The components in a real temperature controller should implement these two interfaces. These two interfaces are already published in a central repository. In this sample, the two interfaces are:
+2. Implement the components defined in the temperature controller DTDL model. The components in a real temperature controller should implement these two interfaces. These two interfaces are already published in a central repository. In this sample, the two interfaces are:
   - Thermostat
   - Device information developed by Azure
 
-1. Define component names. This sample has two thermostats and one device information component.
+3. Define component names. This sample has two thermostats and one device information component.
 
-1. Define command name. These are the commands the device responds to.
+4. Define command name. These are the commands the device responds to.
 
-1. Define the `serialNumber` constant. The `serialNumber` is fixed any given device.
+5. Define the `serialNumber` constant. The `serialNumber` is fixed any given device.
 
-1. Define the command handlers.
+6. Define the command handlers.
 
-1. Define the functions to send command responses.
+7. Define the functions to send command responses.
 
-1. Define helper functions to log command requests.
+8. Define helper functions to log command requests.
 
-1. Define a helper function to create the properties.
+9. Define a helper function to create the properties.
 
-1. Define a listener for property updates.
+10. Define a listener for property updates.
 
-1. Define a function to send telemetry from this device. Both thermostats and the root component send telemetry. This function receives the component name as parameter.
+11. Define a function to send telemetry from this device. Both thermostats and the root component send telemetry. This function receives the component name as parameter.
 
-1. Define a `main` function that:
+12. Define a `main` function that:
 
     1. Uses the device SDK to create a device client and connect to your IoT hub. The device  supplies the `modelId` so that IoT Hub can identify the device as an IoT Plug and Play device.
 

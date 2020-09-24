@@ -27,7 +27,7 @@ You make the choice between configuring your server for either locally redundant
 
 While creating a server through the Azure portal, the **Pricing Tier** window is where you select either **Locally Redundant** or **Geographically Redundant** backups for your server. This window is also where you select the **Backup Retention Period** - how long (in number of days) you want the server backups stored for.
 
-   ![Pricing Tier - Choose Backup Redundancy](./media/howto-restore-server-portal/pricing-tier.png)
+   :::image type="content" source="./media/howto-restore-server-portal/pricing-tier.png" alt-text="Pricing Tier - Choose Backup Redundancy":::
 
 For more information about setting these values during create, see the [Azure Database for MySQL server quickstart](quickstart-create-mysql-server-database-using-azure-portal.md).
 
@@ -36,7 +36,7 @@ The backup retention period can be changed on a server through the following ste
 2. Select your Azure Database for MySQL server. This action opens the **Overview** page.
 3. Select **Pricing Tier** from the menu, under **SETTINGS**. Using the slider you can change the **Backup Retention Period** to your preference between 7 and 35 days.
 In the screenshot below it has been increased to 34 days.
-![Backup retention period increased](./media/howto-restore-server-portal/3-increase-backup-days.png)
+:::image type="content" source="./media/howto-restore-server-portal/3-increase-backup-days.png" alt-text="Backup retention period increased":::
 
 4. Click **OK** to confirm the change.
 
@@ -52,11 +52,11 @@ The following steps restore the sample server to a point-in-time:
 
 2. In the toolbar of the server's **Overview** page, select **Restore**.
 
-   ![Azure Database for MySQL - Overview - Restore button](./media/howto-restore-server-portal/2-server.png)
+   :::image type="content" source="./media/howto-restore-server-portal/2-server.png" alt-text="Azure Database for MySQL - Overview - Restore button":::
 
 3. Fill out the Restore form with the required information:
 
-   ![Azure Database for MySQL - Restore information](./media/howto-restore-server-portal/3-restore.png)
+   :::image type="content" source="./media/howto-restore-server-portal/3-restore.png" alt-text="Azure Database for MySQL - Restore information":::
    - **Restore point**: Select the point-in-time you want to restore to.
    - **Target server**: Provide a name for the new server.
    - **Location**: You cannot select the region. By default it is same as the source server.
@@ -67,6 +67,12 @@ The following steps restore the sample server to a point-in-time:
 5. Once the restore finishes, locate the new server that is created to verify the data was restored as expected.
 
 The new server created by point-in-time restore has the same server admin login name and password that was valid for the existing server at the point-in-time chose. You can change the password from the new server's **Overview** page.
+
+Additionally, after the restore operation finishes, there are two server parameters which are reset to default values (and are not copied over from the primary server) after the restore operation
+*   time_zone - This value to set to DEFAULT value **SYSTEM**
+*   event_scheduler - The event_scheduler is set to **OFF** on the restored server
+
+You will need to copy over the value from teh primary server and set it on the restored server by reconfiguring the [server parameter](howto-server-parameters.md)
 
 The new server created during a restore does not have the VNet service endpoints that existed on the original server. These rules need to be set up separately for this new server. Firewall rules from the original server are restored.
 

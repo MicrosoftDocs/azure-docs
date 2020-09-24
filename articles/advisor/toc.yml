@@ -19,15 +19,15 @@
     href: advisor-get-started.md
 - name: How-to guides
   items:
-  - name: Improve reliability of Azure application
+  - name: Reliability
     href: advisor-high-availability-recommendations.md
-  - name: Make resources more secure
+  - name: Security
     href: advisor-security-recommendations.md
-  - name: Improve performance of Azure applications
+  - name: Performance efficiency
     href: advisor-performance-recommendations.md
-  - name: Reduce service costs
+  - name: Cost optimization
     href: advisor-cost-recommendations.md
-  - name: Achieve operational excellence
+  - name: Operational excellence
     href: advisor-operational-excellence-recommendations.md
   - name: Configure recommendations
     href: view-recommendations.md
@@ -35,10 +35,14 @@
     href: permissions.md
   - name: Configure Alerts for recommendations
     href: advisor-alerts-portal.md
+  - name: Configure recommendations summary
+    href: advisor-recommendations-digest.md
   - name: Bulk remediation for recommendations
     href: advisor-quick-fix.md
   - name: Advisor data in Azure Resource Graph
     href: advisor-azure-resource-graph.md
+  - name: Consume Advisor score 
+    href: azure-advisor-score.md
 - name: Reference
   items:
   - name: Security Center

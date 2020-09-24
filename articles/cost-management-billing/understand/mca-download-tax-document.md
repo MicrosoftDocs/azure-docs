@@ -6,7 +6,8 @@ ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/10/2020
+ms.date: 08/20/2020
+ms.subservice: billing
 ms.author: banders
 ms.custom: seodec18
 ---

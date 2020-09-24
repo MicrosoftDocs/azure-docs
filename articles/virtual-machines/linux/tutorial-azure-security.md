@@ -40,7 +40,7 @@ To access the Security Center dashboard, in the Azure portal, on the menu, selec
 
 Security Center goes beyond data discovery to provide recommendations for issues that it detects. For example, if a VM was deployed without an attached network security group, Security Center displays a recommendation, with remediation steps you can take. You get automated remediation without leaving the context of Security Center.  
 
-![Recommendations](./media/tutorial-azure-security/recommendations.png)
+![Screenshot shows Recommendations page, which includes a description, resource, state, and severity of recommendations.](./media/tutorial-azure-security/recommendations.png)
 
 ## Set up data collection
 
@@ -132,4 +132,4 @@ In this tutorial, you set up Azure Security Center, and then reviewed VMs in Sec
 Advance to the next tutorial to learn more about creating a CI/CD pipeline with Jenkins, GitHub, and Docker.
 
 > [!div class="nextstepaction"]
-> [Create CI/CD infrastructure with Jenkins, GitHub, and Docker](../../jenkins/tutorial-jenkins-github-docker-cicd.md)
+> [Create CI/CD infrastructure with Jenkins, GitHub, and Docker](/azure/developer/jenkins/pipeline-with-github-and-docker)

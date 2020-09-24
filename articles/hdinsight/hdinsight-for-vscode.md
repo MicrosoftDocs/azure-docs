@@ -7,7 +7,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 04/07/2020
-ms.custom: tracking-python
+ms.custom: devx-track-python
 ---
 
 # Use Spark & Hive Tools for Visual Studio Code

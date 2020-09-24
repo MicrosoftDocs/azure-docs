@@ -9,10 +9,9 @@ ms.subservice: alerts
 ---
 # Prepare your logic apps and runbooks for migration of classic alert rules
 
-As [previously announced](monitoring-classic-retirement.md), classic alerts in Azure Monitor are being retired in September 2019 (was originally July 2019). A migration tool is available in the Azure portal to customers who use classic alert rules and who want to trigger migration themselves.
-
 > [!NOTE]
-> Due to delay in roll-out of migration tool, the retirement date for classic alerts migration has been extended to August 31st, 2019 from the originally announced date of June 30th, 2019.
+> As [previously announced](monitoring-classic-retirement.md), classic alerts in Azure Monitor are retired, though still in limited use for resources that do not yet support the new alerts. The retirement date for those alerts has been further extended. A new date will be announced soon.
+>
 
 If you choose to voluntarily migrate your classic alert rules to new alert rules, be aware that there are some differences between the two systems. This article explains those differences and how you can prepare for the change.
 

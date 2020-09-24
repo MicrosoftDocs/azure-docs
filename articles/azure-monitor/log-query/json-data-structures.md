@@ -81,7 +81,7 @@ print hosts_object
 | mvexpand hosts_object.hosts[0]
 ```
 
-![mvexpand](media/json-data-structures/mvexpand.png)
+![Screenshot shows hosts_0 with values for location, status, and rate.](media/json-data-structures/mvexpand.png)
 
 ### buildschema
 Use `buildschema` to get the schema that admits all values of an object:

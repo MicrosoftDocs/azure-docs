@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 03/03/2020
+ ms.date: 08/27/2020
  ms.author: cherylmc
  ms.custom: include file
 ---
@@ -40,7 +40,6 @@ You can create a VNet with the Resource Manager deployment model and the Azure p
 
    ![IP addresses tab](./media/vpn-gateway-basic-vnet-rm-portal-include/addresses.png "IP addresses tab")  
    - **IPv4 address space**: By default, an address space is automatically created. You can click the address space to adjust it to reflect your own values. You can also add additional address spaces.
-   - **IPv6**: If your configuration requires IPv6 address space, select the **Add IPv6 address space** box to enter that information.
    - **Subnet**: If you use the default address space, a default subnet is created automatically. If you change the address space, you need to add a subnet. Select **+ Add subnet** to open the **Add subnet** window. Configure the following settings and then select **Add** to add the values:
       - **Subnet name**: In this example, we named the subnet "FrontEnd".
       - **Subnet address range**: The address range for this subnet.

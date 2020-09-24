@@ -1,6 +1,6 @@
 ---
-title: Discover role-assignable groups to manage in PIM - Azure AD | Microsoft Docs
-description: Learn how to discover role-assignable groups to manage as privileged access groups in Privileged Identity Management (PIM).
+title: Identify a group to manage in Privileged Identity Management - Azure AD | Microsoft Docs
+description: Learn how to onboard role-assignable groups to manage as privileged access groups in Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -11,34 +11,34 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 07/27/2020
+ms.date: 08/03/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
 ---
 
-# Discover privileged access groups (preview) to manage in Privileged Identity Management
+# Bring privileged access groups (preview) into Privileged Identity Management
 
-In Azure Active Directory (Azure AD), you can assign Azure AD built-in roles to cloud groups to simplify the management of role assignments. Now you can use Privileged Identity Management (PIM) to assign eligibility for membership or ownership of these groups, to protect Azure AD roles and to secure access. Before you can manage an Azure AD role-assignable group as a privileged access group in Privileged Identity Management, you must discover it and bring it under management in PIM.
+In Azure Active Directory (Azure AD), you can assign Azure AD built-in roles to cloud groups to simplify how you manage role assignments. To protect Azure AD roles and to secure access, you can now use Privileged Identity Management (PIM) to manage just-in-time access for members or owners of these groups. To manage an Azure AD role-assignable group as a privileged access group in Privileged Identity Management, you must bring it under management in PIM.
 
-## Discover resources
+## Identify groups to manage
+
+You can create a role-assignable group in Azure AD as described in [Create a role-assignable group in Azure Active Directory](../users-groups-roles/roles-groups-create-eligible.md). You have be an owner of the group to bring it under management with Privileged Identity Management.
 
 1. [Sign in to Azure AD](https://aad.portal.azure.com) with Privileged Role Administrator role permissions.
-1. Create a role-assignable group In Azure AD. You must be an owner of the group to discover and manage it with Privileged Identity Management.
-1. Open **Privileged Identity Management**.
-1. Select **Privileged access (preview)**.
+1. Select **Groups** and then select the role-assignable group you want to manage in PIM. You can search and filter the list.
 
-    ![Discover groups command for first time experience](./media/groups-discover-groups/groups-discover-groups.png)
+    ![find a role-assignable group to manage in PIM](./media/groups-discover-groups/groups-list-in-azure-ad.png)
 
-1. Select **Discover groups**.
-1. Search by group name.
-1. Select your group and select **Manage groups** to bring it under PIM management.
+1. Open the group and select **Privileged access (Preview)**.
 
-    ![Discover groups with no resources listed for first time experience](./media/groups-discover-groups/groups-bring-under-management.png)
+    ![Open the Privileged Identity Management experience](./media/groups-discover-groups/groups-discover-groups.png)
 
-    > [!NOTE]
-    > Once a privileged access group is managed, it can't be taken out of management. This prevents another resource administrator from removing Privileged Identity Management settings.
+1. Start managing assignments in PIM.
 
-1. If you see a message to confirm the onboarding of the selected resource for management, select **Yes**.
+    ![Manage assignments in Privileged Identity Management](./media/groups-discover-groups/groups-bring-under-management.png)
+
+> [!NOTE]
+> Once a privileged access group is managed, it can't be taken out of management. This prevents another resource administrator from removing Privileged Identity Management settings.
 
 ## Next steps
 

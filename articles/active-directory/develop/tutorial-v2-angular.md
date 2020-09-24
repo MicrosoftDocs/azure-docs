@@ -12,7 +12,7 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 03/05/2020
 ms.author: hahamil
-ms.custom: aaddev, identityplatformtop40, devx-track-javascript
+ms.custom: aaddev, identityplatformtop40, devx-track-js
 ---
 
 # Tutorial: Sign in users and call the Microsoft Graph API from an Angular single-page application
@@ -67,7 +67,7 @@ ng generate component page-name                  # To add a new page (such as a 
 
 ## Register your application
 
-Follow the [instructions to register a single-page application](https://docs.microsoft.com/azure/active-directory/develop/scenario-spa-app-registration) in the Azure portal.
+Follow the [instructions to register a single-page application](./scenario-spa-app-registration.md) in the Azure portal.
 
 On the app **Overview** page of your registration, note the **Application (client) ID** value for later use.
 
@@ -120,7 +120,7 @@ Register your **Redirect URI** value as **http://localhost:4200/** and enable im
     |Value name|About|
     |---------|---------|
     |Enter_the_Application_Id_Here|On the **Overview** page of your application registration, this is your **Application (client) ID** value. |
-    |Enter_the_Cloud_Instance_Id_Here|This is the instance of the Azure cloud. For the main or global Azure cloud, enter **https://login.microsoftonline.com**. For national clouds (for example, China), see [National clouds](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud).|
+    |Enter_the_Cloud_Instance_Id_Here|This is the instance of the Azure cloud. For the main or global Azure cloud, enter **https://login.microsoftonline.com**. For national clouds (for example, China), see [National clouds](./authentication-national-cloud.md).|
     |Enter_the_Tenant_Info_Here| Set to one of the following options: If your application supports *accounts in this organizational directory*, replace this value with the directory (tenant) ID or tenant name (for example, **contoso.microsoft.com**). If your application supports *accounts in any organizational directory*, replace this value with **organizations**. If your application supports *accounts in any organizational directory and personal Microsoft accounts*, replace this value with **common**. To restrict support to *personal Microsoft accounts only*, replace this value with **consumers**. |
     |Enter_the_Redirect_Uri_Here|Replace with **http://localhost:4200**.|
 

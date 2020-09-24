@@ -56,14 +56,14 @@ landingContent:
             url: kubernetes-walkthrough-rm-template.md
 
   # Card
-  - title: Develop and debug applications with Local Process with Kubernetes
+  - title: Develop and debug applications with Bridge to Kubernetes
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Use Local Process with Kubernetes with Visual Studio Code (preview)
-            url: ../dev-spaces/how-to/local-process-kubernetes-vs-code.md
-          - text: Use Local Process with Kubernetes with Visual Studio (preview)
-            url: /visualstudio/containers/local-process-kubernetes
+          - text: Use Bridge to Kubernetes with Visual Studio Code
+            url: https://code.visualstudio.com/docs/containers/bridge-to-kubernetes
+          - text: Use Bridge to Kubernetes with Visual Studio
+            url: /visualstudio/containers/bridge-to-kubernetes
 
   # Card
   - title: Deploy, manage, and update applications

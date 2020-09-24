@@ -9,7 +9,7 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: tagore
-ms.custom: tracking-python
+ms.custom: devx-track-python
 
 ---
 # Python web and worker roles with Python Tools for Visual Studio
@@ -283,7 +283,7 @@ else
 #### ps.cmd
 The Visual Studio templates should have created a **ps.cmd** file in the **./bin** folder. This shell script calls out the PowerShell wrapper scripts above and provides logging based on the name of the PowerShell wrapper called. If this file wasn't created, here is what should be in it. 
 
-```bat
+```cmd
 @echo off
 
 cd /D %~dp0

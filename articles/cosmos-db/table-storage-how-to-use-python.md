@@ -1,6 +1,6 @@
 ---
 title: Use Azure Cosmos DB Table API and Azure Table storage using Python
-description: Store structured data in the cloud using Azure Table storage or the Azure Cosmos DB Table API.
+description: Store structured data in the cloud using Azure Table storage or the Azure Cosmos DB Table API by using Python.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: python
@@ -9,7 +9,7 @@ ms.date: 07/23/2020
 author: sakash279
 ms.author: akshanka
 ms.reviewer: sngun
-ms.custom: tracking-python
+ms.custom: devx-track-python
 ---
 # Get started with Azure Table storage and the Azure Cosmos DB Table API using Python
 
@@ -203,7 +203,7 @@ You can also restrict which properties are returned for each entity in a query. 
 The query in the following code returns only the descriptions of entities in the table.
 
 > [!NOTE]
-> The following snippet works only against the Azure Storage. It is not supported by the storage emulator.
+> The following snippet works only against the Azure Storage. It is not supported by the Storage Emulator.
 
 ```python
 tasks = table_service.query_entities(

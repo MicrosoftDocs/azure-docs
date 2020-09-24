@@ -5,7 +5,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 07/24/2020
+ms.date: 08/14/2020
 ms.author: victorh
 #Customer intent: As an IT administrator, I want to use the Azure portal to configure Application Gateway with TLS termination so I can secure my application traffic.
 ---
@@ -26,7 +26,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## Sign in to Azure
+## Prerequisites
 
 Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com)
 
@@ -255,6 +255,10 @@ In this example, you install IIS on the virtual machines only to verify Azure cr
     Your secured IIS website is then displayed as in the following example:
 
     ![Test base URL in application gateway](./media/create-ssl-portal/application-gateway-iistest.png)
+
+## Clean up resources
+
+When no longer needed, delete the resource group and all related resources. To do so, select the resource group and select **Delete resource group**.
 
 ## Next steps
 

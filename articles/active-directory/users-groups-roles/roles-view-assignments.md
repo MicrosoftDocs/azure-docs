@@ -33,7 +33,7 @@ This procedure describes viewing assignments of a role with organization-wide sc
 
 ## View role assignments using Azure AD PowerShell
 
-This section describes viewing assignments of a role with organization-wide scope. This article uses the [Azure Active Directory PowerShell Version 2](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#directory_roles) module. To view single-application scope assignments using PowerShell, you can use the cmdlets in [Assign custom roles with PowerShell](roles-assign-powershell.md).
+This section describes viewing assignments of a role with organization-wide scope. This article uses the [Azure Active Directory PowerShell Version 2](/powershell/module/azuread/?view=azureadps-2.0#directory_roles) module. To view single-application scope assignments using PowerShell, you can use the cmdlets in [Assign custom roles with PowerShell](roles-assign-powershell.md).
 
 ### Prepare PowerShell
 

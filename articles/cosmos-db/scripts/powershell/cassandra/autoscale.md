@@ -37,7 +37,7 @@ This script uses the following commands. Each command in the table links to comm
 | [New-AzCosmosDBAccount](/powershell/module/az.cosmosdb/new-azcosmosdbaccount) | Creates a Cosmos DB Account. |
 | [New-AzCosmosDBCassandraKeyspace](/powershell/module/az.cosmosdb/new-azcosmosdbcassandrakeyspace) | Creates a Cosmos DB Cassandra API Keyspace. |
 | [New-AzCosmosDBCassandraClusterKey](/powershell/module/az.cosmosdb/new-azcosmosdbcassandraclusterkey) | Creates a Cosmos DB Cassandra API Cluster Key. |
-| [New-AzCosmosDBCassandraColumn](/module/az.cosmosdb/new-azcosmosdbcassandracolumn) | Creates a Cosmos DB Cassandra API Column. |
+| [New-AzCosmosDBCassandraColumn](/powershell/module/az.cosmosdb/new-azcosmosdbcassandracolumn) | Creates a Cosmos DB Cassandra API Column. |
 | [New-AzCosmosDBCassandraSchema](/powershell/module/az.cosmosdb/new-azcosmosdbcassandraschema) | Creates a Cosmos DB Cassandra API Schema. |
 | [New-AzCosmosDBCassandraTable](/powershell/module/az.cosmosdb/new-azcosmosdbcassandratable) | Creates a Cosmos DB Cassandra API Table. |
 |**Azure Resource Groups**| |

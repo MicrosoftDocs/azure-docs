@@ -80,4 +80,4 @@ If you no longer need to use an app that requires an app password, you can delet
 
 ## For more information
 
-- For more information about the **Security info** page and how to set it up, see [Security info overview](user-help-security-info-overview.md)
+- For more information about the **Security info** page and how to set it up, see [Security info overview](./security-info-setup-signin.md)

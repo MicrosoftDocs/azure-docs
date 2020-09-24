@@ -11,7 +11,8 @@ This quickstart walks you through the steps to get started with Live Video Analy
 
 After completing the setup steps, you'll be able to run a simulated live video stream through a media graph that detects and reports any motion in that stream. The following diagram graphically represents that media graph.
 
-![Live Video Analytics based on motion detection](./media/analyze-live-video/motion-detection.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/analyze-live-video/motion-detection.svg" alt-text="Live Video Analytics based on motion detection":::
 
 ## Prerequisites
 
@@ -79,7 +80,10 @@ If the connection succeeds, the list of edge devices appears. You should see at 
 
 ![lva-sample-device node](./media/quickstarts/lva-sample-device-node.png)
 
-## Use direct methods
+> [!TIP]
+> If you have [manually deployed Live Video Analytics on IoT Edge](deploy-iot-edge-device.md) yourselves on an edge device (such as an ARM64 device), then you will see the module show up under that device, under the Azure IoT Hub. You can select that module, and follow the rest of the steps below.
+
+## Use direct method calls
 
 You can use the module to analyze live video streams by invoking direct methods. For more information, see [Direct methods for Live Video Analytics on IoT Edge](direct-methods.md). 
 

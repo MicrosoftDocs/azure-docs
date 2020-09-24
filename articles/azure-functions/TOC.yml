@@ -103,6 +103,7 @@
           href: functions-bindings-example.md
         - name: Register binding extensions
           href: functions-bindings-register.md
+          displayName: bundles, extension bundles
         - name: Binding expression patterns
           href: functions-bindings-expressions-patterns.md
         - name: Use binding return values
@@ -174,6 +175,7 @@
               href: functions-develop-vs.md
             - name: Core Tools development
               href: functions-run-local.md
+              displayName: local, runtime
         - name: Create functions
           items:
             - name: HTTP trigger
@@ -263,7 +265,7 @@
         - name: On-premises functions
           href: functions-runtime-install.md
         - name: Deploy using the Jenkins plugin
-          href: /azure/jenkins/jenkins-azure-functions-deploy
+          href: /azure/developer/jenkins/deploy-to-azure-functions
           maintainContext: true
     - name: Configure
       items:
@@ -272,8 +274,6 @@
           displayName: app setting, application setting
         - name: Set the runtime version
           href: set-runtime-version.md
-        - name: Manually register an extension
-          href: install-update-binding-extensions-manual.md
         - name: Disable a function
           href: disable-function.md
         - name: Geo-disaster recovery
@@ -345,8 +345,8 @@
       items:
         - name: Troubleshoot storage
           href: functions-recover-storage-account.md
-        - name: Troubleshoot Python dependencies
-          href: recover-module-not-found.md
+        - name: Troubleshoot Python functions
+          href: recover-python-functions.md
 - name: Reference
   items:
     - name: API references
@@ -399,6 +399,8 @@
                 - name: Output
                   href: functions-bindings-cosmosdb-v2-output.md
                   displayName: Azure Cosmos DB
+        - name: Dapr
+          href: https://github.com/dapr/azure-functions-extension
         - name: Event Grid
           items:
             - name: Overview
@@ -432,6 +434,8 @@
             - name: Output
               href: functions-bindings-event-iot-output.md
               displayName: Azure IoT Hubs
+        - name: Kafka
+          href: https://github.com/azure/azure-functions-kafka-extension
         - name: HTTP and webhooks
           items:
             - name: Overview
@@ -443,8 +447,6 @@
             - name: Output
               href: functions-bindings-http-webhook-output.md
               displayName: HTTP
-        - name: Microsoft Graph
-          href: functions-bindings-microsoft-graph.md
         - name: Mobile Apps
           href: functions-bindings-mobile-apps.md
         - name: Notification Hubs
@@ -460,6 +462,8 @@
             - name: Output
               href: functions-bindings-storage-queue-output.md
               displayName: Queue storage
+        - name: RabbitMQ
+          href: https://github.com/azure/azure-functions-rabbitmq-extension
         - name: SendGrid
           href: functions-bindings-sendgrid.md
         - name: Service Bus

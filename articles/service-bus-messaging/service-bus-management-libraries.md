@@ -4,6 +4,7 @@ description: This article explains how to use Azure Service Bus management libra
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/23/2020
+ms.custom: devx-track-csharp
 ---
 
 # Service Bus management libraries
@@ -21,11 +22,11 @@ The Azure Service Bus management libraries can dynamically provision Service Bus
 
 To get started using the Service Bus management libraries, you must authenticate with the Azure Active Directory (Azure AD) service. Azure AD requires that you authenticate as a service principal, which provides access to your Azure resources. For information about creating a service principal, see one of these articles:  
 
-* [Use the Azure portal to create Active Directory application and service principal that can access resources](/azure/azure-resource-manager/resource-group-create-service-principal-portal)
-* [Use Azure PowerShell to create a service principal to access resources](/azure/azure-resource-manager/resource-group-authenticate-service-principal)
-* [Use Azure CLI to create a service principal to access resources](/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli)
+* [Use the Azure portal to create Active Directory application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md)
+* [Use Azure PowerShell to create a service principal to access resources](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
+* [Use Azure CLI to create a service principal to access resources](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)
 
-These tutorials provide you with an `AppId` (Client ID), `TenantId`, and `ClientSecret` (authentication key), all of which are used for authentication by the management libraries. You must have at-least [**Azure Service Bus Data Owner**](/azure/role-based-access-control/built-in-roles#azure-service-bus-data-owner) or [**Contributor**](/azure/role-based-access-control/built-in-roles#contributor) permissions for the resource group on which you wish to run.
+These tutorials provide you with an `AppId` (Client ID), `TenantId`, and `ClientSecret` (authentication key), all of which are used for authentication by the management libraries. You must have at-least [**Azure Service Bus Data Owner**](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner) or [**Contributor**](../role-based-access-control/built-in-roles.md#contributor) permissions for the resource group on which you wish to run.
 
 ## Programming pattern
 

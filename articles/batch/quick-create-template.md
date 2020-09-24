@@ -2,7 +2,7 @@
 title: Azure Quickstart - Create a Batch account - Azure Resource Manager template
 description: Quickly learn to run a Batch job with the Azure CLI. Create and manage Azure resources from the command line or in scripts.
 ms.topic: quickstart
-ms.date: 05/19/2020
+ms.date: 08/17/2020
 ms.custom: subject-armqs
 ---
 
@@ -26,7 +26,7 @@ You must have an active Azure subscription.
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-batchaccount-with-storage/).
 
-:::code language="json" source="~/quickstart-templates/101-batchaccount-with-storage/azuredeploy.json" range="1-80" highlight="36-69":::
+:::code language="json" source="~/quickstart-templates/101-batchaccount-with-storage/azuredeploy.json":::
 
 Two Azure resources are defined in the template:
 
@@ -49,7 +49,7 @@ Two Azure resources are defined in the template:
    - **Batch Account Name**: Leave the default value.
    - **Storage Accountsku**: select a storage account type. For example, **Standard_LRS**.
    - **Location**: Leave the default so that the resources will be in the same location as your resource group.
-   - I agree to the terms and conditions state above: **Select**.
+   - I agree to the terms and conditions stated above: **Select**.
 
 1. Select **Purchase**.
 

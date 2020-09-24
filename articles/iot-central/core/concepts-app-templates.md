@@ -42,6 +42,7 @@ Azure IoT Central is an industry agnostic application platform. Application temp
   - In-store analytics - condition monitoring
   - In-store analytics - checkout
   - Smart Inventory Management
+  - Video analytics - object and motion detection
 - [Energy](../energy/overview-iot-central-energy.md)
   - Smart meter monitoring
   - Solar panel monitoring

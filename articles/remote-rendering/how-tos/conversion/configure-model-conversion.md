@@ -44,6 +44,12 @@ The contents of the file should satisfy the following json schema:
             },
             "minItems": 3,
             "maxItems": 3
+        },
+        "metadataKeys": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
         }
     },
     "additionalProperties" : false
@@ -82,6 +88,12 @@ if that assumption isn't true of a particular model, this parameter should be se
 ### Material de-duplication
 
 * `deduplicateMaterials` - This parameter enables or disables automatic de-duplication of materials that share the same properties and textures. De-duplication happens after material overrides have been processed. It's enabled by default.
+
+* If even after de-duplication a model has more than 65,535 materials, the service will attempt to merge materials with similar properties. As a last resort any materials exceeding the limit will be replaced by a red error material.
+
+![Image shows two cubes of 68,921 colored triangles.](media/mat-dedup.png?raw=true)
+
+Two cubes of 68,921 colored triangles. Left: Before de-duplication with 68,921 color materials. Right: After de-duplication with 64,000 color materials. The limit is 65,535 materials. (See [limits](../../reference/limits.md).)
 
 ### Color space parameters
 
@@ -125,6 +137,12 @@ The `none` mode has the least runtime overhead and also slightly better loading 
 ### Coordinate system overriding
 
 * `axis` - To override coordinate system unit-vectors. Default values are `["+x", "+y", "+z"]`. In theory, the FBX format has a header where those vectors are defined and the conversion uses that information to transform the scene. The glTF format also defines a fixed coordinate system. In practice, some assets either have incorrect information in their header or were saved with a different coordinate system convention. This option allows you to override the coordinate system to compensate. For example: `"axis" : ["+x", "+z", "-y"]` will exchange the Z-axis and the Y-axis and keep coordinate system handedness by inverting the Y-axis direction.
+
+### Node meta data
+
+* `metadataKeys` - Allows you to specify keys of node metadata properties that you want to keep in the conversion result. You can specify exact keys or wildcard keys. Wildcard keys are of the format "ABC*" and match any key that starts with "ABC". Supported metadata value types are `bool`, `int`, `float`, and `string`.
+
+    For GLTF files this data comes from the [extras object on nodes](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#nodeextras). For FBX files this data comes from the `Properties70` data on `Model nodes`. Please consult the documentation of your 3D Asset Tool for further details.
 
 ### :::no-loc text="Vertex"::: format
 

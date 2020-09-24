@@ -32,6 +32,10 @@ Yes. But you should set up DPM first, and then install the Azure Backup agent.  
 
 For the DPM servers with data sources that are protected to the cloud (by using an update rollup earlier than Update Rollup 7), you must wait at least one day after installing the UR7 and latest Azure Backup agent, to start **Add External DPM server**. The one-day time period is needed to upload the metadata of the DPM protection groups to Azure. Protection group metadata is uploaded the first time through a nightly job.
 
+### Are there recommendations for configuring exclusions for antivirus software?
+
+Yes, it's recommended to configure antivirus exclusion. For exclusions for DPM, see [Run antivirus software on the DPM server](https://docs.microsoft.com/system-center/dpm/run-antivirus-server). For exclusions for MABS, see [Configure antivirus for MABS server](backup-azure-mabs-troubleshoot.md#configure-antivirus-for-mabs-server).
+
 ## VMware and Hyper-V backup
 
 ### Can I back up VMware vCenter servers to Azure?
@@ -56,7 +60,7 @@ Yes, the item can be recovered to the original SharePoint site.
 
 ### Can I recover a SharePoint database to the original location if SharePoint is configured by using SQL AlwaysOn?
 
-Because SharePoint databases are configured in SQL AlwaysOn, they cannot be modified unless the availability group is removed. As a result, DPM cannot restore a database to the original location. You can recover a SQL Server database to another SQL Server instance.
+Because SharePoint databases are configured in SQL AlwaysOn, they can't be modified unless the availability group is removed. As a result, DPM can't restore a database to the original location. You can recover a SQL Server database to another SQL Server instance.
 
 ## Next steps
 

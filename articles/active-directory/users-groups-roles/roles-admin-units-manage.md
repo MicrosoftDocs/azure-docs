@@ -1,5 +1,5 @@
 ---
-title: Add and remove administrative units (preview) - Azure Active Directory | Microsoft Docs
+title: Add and remove administrative units - Azure Active Directory | Microsoft Docs
 description: Use administrative units to restrict the scope of role permissions in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 04/16/2020
+ms.date: 09/22/2020
 ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
@@ -40,7 +40,7 @@ For more granular administrative control in Azure Active Directory (Azure AD), y
 
 1. In the Azure portal, go to Azure AD, and then, in the left pane, select **Administrative units**.
 
-    ![Screenshot of the Administrative units (Preview) link in Azure AD](./media/roles-admin-units-manage/nav-to-admin-units.png)
+    ![Screenshot of the Administrative unitslink in Azure AD](./media/roles-admin-units-manage/nav-to-admin-units.png)
 
 1. Select **Add** and then enter the name of the administrative unit. Optionally, add a description of the administrative unit.
 

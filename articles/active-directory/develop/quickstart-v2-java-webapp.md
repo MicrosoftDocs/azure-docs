@@ -208,7 +208,7 @@ If you would like to deploy the web sample to Tomcat, you will need to make a co
 
 
 > [!IMPORTANT]
-> This quickstart application uses a client secret to identify itself as confidential client. Because the client secret is added as a plain-text to your project files, for security reasons it is recommended that you use a certificate instead of a client secret before considering the application as production application. For more information on how to use a certificate, see [Certificate credentials for application authentication](https://docs.microsoft.com/azure/active-directory/develop/active-directory-certificate-credentials).
+> This quickstart application uses a client secret to identify itself as confidential client. Because the client secret is added as a plain-text to your project files, for security reasons it is recommended that you use a certificate instead of a client secret before considering the application as production application. For more information on how to use a certificate, see [Certificate credentials for application authentication](./active-directory-certificate-credentials.md).
 
 ## More information
 
@@ -250,11 +250,11 @@ import com.microsoft.aad.msal4j.*;
 Learn more about permissions and consent:
 
 > [!div class="nextstepaction"]
-> [Permissions and Consent](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent)
+> [Permissions and Consent](./v2-permissions-and-consent.md)
 
 To know more about the auth flow for this scenario, see the Oauth 2.0 authorization code flow:
 
 > [!div class="nextstepaction"]
-> [Authorization Code Oauth flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow)
+> [Authorization Code Oauth flow](./v2-oauth2-auth-code-flow.md)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

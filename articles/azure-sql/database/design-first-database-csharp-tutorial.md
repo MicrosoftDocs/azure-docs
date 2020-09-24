@@ -4,11 +4,11 @@ description: Learn to design your first relational database in Azure SQL Databas
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: seo-lt-2019, sqldbrb=1
+ms.custom: "seo-lt-2019, sqldbrb=1, devx-track-csharp"
 ms.topic: tutorial
 author: MightyPen
 ms.author: genemi
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 07/29/2019
 ---
 # Tutorial: Design a relational database in Azure SQL Database C&#x23; and ADO.NET

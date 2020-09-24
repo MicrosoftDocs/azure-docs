@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 02/10/2020
+ms.date: 09/02/2020
 ms.author: cherylmc
 
 ---
@@ -20,8 +20,9 @@ A P2S VPN connection is started from Windows and Mac devices. Connecting clients
 
 * RADIUS server
 * VPN Gateway native certificate authentication
+* Native Azure Active Directory authentication (Windows 10 only)
 
-This article helps you configure a P2S configuration with authentication using RADIUS server. If you want to authenticate using generated certificates and VPN gateway native certificate authentication instead, see [Configure a Point-to-Site connection to a VNet using VPN gateway native certificate authentication](vpn-gateway-howto-point-to-site-rm-ps.md).
+This article helps you configure a P2S configuration with authentication using RADIUS server. If you want to authenticate using generated certificates and VPN gateway native certificate authentication instead, see [Configure a Point-to-Site connection to a VNet using VPN gateway native certificate authentication](vpn-gateway-howto-point-to-site-rm-ps.md) or [Create an Azure Active Directory tenant for P2S OpenVPN protocol connections](openvpn-azure-ad-tenant.md) for Azure Active Directory authentication.
 
 ![Connection diagram - RADIUS](./media/point-to-site-how-to-radius-ps/p2sradius.png)
 
@@ -36,7 +37,7 @@ Point-to-Site connections do not require a VPN device or a public-facing IP addr
 P2S connections require the following:
 
 * A RouteBased VPN gateway. 
-* A RADIUS server to handle user authentication. The RADIUS server can be deployed on-premises, or in the Azure VNet.
+* A RADIUS server to handle user authentication. The RADIUS server can be deployed on-premises, or in the Azure VNet. You can also configure two RADIUS servers for high availability.
 * A VPN client configuration package for the Windows devices that will connect to the VNet. A VPN client configuration package provides the settings required for a VPN client to connect over P2S.
 
 ## <a name="aboutad"></a>About Active Directory (AD) Domain Authentication for P2S VPNs
@@ -217,6 +218,17 @@ New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
     Set-AzVirtualNetworkGateway -VirtualNetworkGateway $Gateway `
     -VpnClientAddressPool "172.16.201.0/24" -VpnClientProtocol @( "SSTP", "IkeV2" ) `
     -RadiusServerAddress "10.51.0.15" -RadiusServerSecret $Secure_Secret
+    ```
+
+   To specify **two** RADIUS servers **(Preview)** use the following syntax. Modify the **-VpnClientProtocol** value as needed
+
+    ```azurepowershell-interactive
+    $radiusServer1 = New-AzRadiusServer -RadiusServerAddress 10.1.0.15 -RadiusServerSecret $radiuspd -RadiusServerScore 30
+    $radiusServer2 = New-AzRadiusServer -RadiusServerAddress 10.1.0.16 -RadiusServerSecret $radiuspd -RadiusServerScore 1
+
+    $radiusServers = @( $radiusServer1, $radiusServer2 )
+
+    Set-AzVirtualNetworkGateway -VirtualNetworkGateway $actual -VpnClientAddressPool 201.169.0.0/16 -VpnClientProtocol "IkeV2" -RadiusServerList $radiusServers
     ```
 
 ## 6. <a name="vpnclient"></a>Download the VPN client configuration package and set up the VPN client

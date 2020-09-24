@@ -25,27 +25,13 @@ This version of this article goes through these steps manually, one by one, usin
 * To go through these steps manually using the CLI, see the CLI version of this article: [*How-to: Set up an instance and authentication (CLI)*](how-to-set-up-instance-cli.md).
 * To run through an automated setup using a deployment script sample, see the scripted version of this article: [*How-to: Set up an instance and authentication (scripted)*](how-to-set-up-instance-scripted.md).
 
-[!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
- 
-Then, log in to the [Azure portal](https://ms.portal.azure.com/) with your credentials.
-
-## Prerequisites: Permission requirements
-
-To be able to complete all the steps in this article, you need to be classified as an Owner in your Azure subscription. 
-
-You can check your permission level in the [subscriptions page](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) in the Azure portal (you can use this link or look for *Subscriptions* with the portal search bar). Look for the name of the subscription you are using, and view your role for it in the *My role* column. If you are an owner, this value is *Owner*:
-
-:::image type="content" source="media/how-to-set-up-instance/portal/subscriptions-role.png" alt-text="View of the Subscriptions page in the Azure portal, showing user as an owner" lightbox="media/how-to-set-up-instance/portal/subscriptions-role.png":::
-
-If you find that the value is *Contributor* or something other than *Owner*, you can proceed in one of the following ways:
-* Contact your subscription Owner and request for the Owner to complete the steps in this article on your behalf
-* Contact either your subscription Owner or someone with User Access Admin role on the subscription, and request that they elevate you to Owner on the subscription so that you will have the permissions to proceed yourself. Whether this is appropriate depends on your organization and your role within it.
+[!INCLUDE [digital-twins-setup-steps-prereq.md](../../includes/digital-twins-setup-steps-prereq.md)]
 
 ## Create the Azure Digital Twins instance
 
-In this section, you will **create a new instance of Azure Digital Twins** using the Azure portal.
+In this section, you will **create a new instance of Azure Digital Twins** using the [Azure portal](https://ms.portal.azure.com/). Navigate to the portal and log in with your credentials.
 
-After you are logged into [Azure portal](https://ms.portal.azure.com/), start by selecting _Create a resource_ in the Azure services home page menu.
+Once in the portal, start by selecting _Create a resource_ in the Azure services home page menu.
 
 :::image type="content" source= "media/how-to-set-up-instance/portal/create-resource.png" alt-text="Selecting 'Create a resource' from the home page of the Azure portal":::
 
@@ -63,7 +49,7 @@ On the following *Create Resource* page, fill in the values given below:
 
 When finished, select _Review + create_. This will take you to a summary page, where you can review the instance details you entered and hit _Create_. 
 
-### Verify success
+### Verify success and collect important values
 
 After pushing *Create*, you can view the status of your instance's deployment in your Azure notifications along the portal icon bar. The notification will indicate when deployment has succeeded, and you'll be able to select the _Go to resource_ button to view your created instance.
 
@@ -88,7 +74,7 @@ First, open the page for your Azure Digital Twins instance in the Azure portal. 
 
 :::image type="content" source="media/how-to-set-up-instance/portal/add-role-assignment-1.png" alt-text="Selecting to add a role assignment from the 'Access control (IAM)' page":::
 
-On the following *Add role assignment* page, fill in the values (must be completed by an owner of the Azure subscription):
+On the following *Add role assignment* page, fill in the values (must be completed by a user with [sufficient permissions](#prerequisites-permission-requirements) in the Azure subscription):
 * **Role**: Select *Azure Digital Twins Owner (Preview)* from the dropdown menu
 * **Assign access to**: Select *Azure AD user, group or service principal* from the dropdown menu
 * **Select**: Search for the name or email address of the user to assign. When you select the result, the user will show up in a *Selected members* section.
@@ -122,7 +108,7 @@ Start by navigating to [Azure Active Directory](https://portal.azure.com/#blade/
 In the *Register an application* page that follows, fill in the requested values:
 * **Name**: An Azure AD application display name to associate with the registration
 * **Supported account types**: Select *Accounts in this organizational directory only (Default Directory only - Single tenant)*
-* **Redirect URI**: An *Azure AD application reply URL* for the Azure AD application. You can use `http://localhost`.
+* **Redirect URI**: An *Azure AD application reply URL* for the Azure AD application. Add a *Public client/native (mobile & desktop)* URI for `http://localhost`.
 
 When you are finished, hit the *Register* button.
 
@@ -141,6 +127,9 @@ From the portal page for your app registration, select *API permissions* from th
 In the *Request API permissions* page that follows, switch to the *APIs my organization uses* tab and search for *azure digital twins*. Select *Azure Digital Twins* from the search results to proceed with assigning permissions for the Azure Digital Twins APIs.
 
 :::image type="content" source="media/how-to-set-up-instance/portal/request-api-permissions-1.png" alt-text="View of the 'Request API Permissions' page search result showing Azure Digital Twins":::
+
+>[!NOTE]
+> If you have an existing Azure Digital Twins instance from the previous public preview of the service (prior to July 2020) still in your subscription, you'll need to look for *Azure Smart Spaces Service* instead. This is an older name for the same set of APIs, and will not change your experience beyond this step.
 
 Next, you'll select which permissions to grant for these APIs. Expand the **Read (1)** permission and check the box that says *Read.Write* to grant this app registration reader and writer permissions.
 
@@ -174,5 +163,9 @@ Take note of the *Application (client) ID* and *Directory (tenant) ID* shown on 
 
 ## Next steps
 
-See how to connect your client application to your instance by writing the client app's authentication code:
+Test out individual REST API calls on your instance using the Azure Digital Twins CLI commands: 
+* [az dt reference](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest)
+* [*How-to: Use the Azure Digital Twins CLI*](how-to-use-cli.md)
+
+Or, see how to connect your client application to your instance by writing the client app's authentication code:
 * [*How-to: Write app authentication code*](how-to-authenticate-client.md)

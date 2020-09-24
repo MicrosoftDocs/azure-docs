@@ -4,12 +4,12 @@ description: Learn about service tiers in the DTU-based purchase model for Azure
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
-ms.custom:
+ms.custom: references_regions
 ms.devlang: 
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer:
 ms.date: 11/26/2019
 ---
 # Service tiers in the DTU-based purchase model
@@ -71,7 +71,7 @@ Compute sizes are expressed in terms of Database Transaction Units (DTUs) for si
 | **Maximum number of databases per pool** | 500  | 500 | 100 |
 
 > [!IMPORTANT]
-> More than 1 TB of storage in the Premium tier is currently available in all regions except: China East, China North, Germany Central, Germany Northeast, West Central US, US DoD regions, and US Government Central. In these regions, the storage max in the Premium tier is limited to 1 TB.  For more information, see [P11-P15 current limitations](single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb).  
+> More than 1 TB of storage in the Premium tier is currently available in all regions except: China East, China North, Germany Central, and Germany Northeast. In these regions, the storage max in the Premium tier is limited to 1 TB.  For more information, see [P11-P15 current limitations](single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb).  
 > [!IMPORTANT]
 > Under some circumstances, you may need to shrink a database to reclaim unused space. For more information, see [manage file space in Azure SQL Database](file-space-manage.md).
 

@@ -8,9 +8,8 @@
  ms.date: 03/05/2020
  ms.author: rogarana
  ms.custom: references_regions
- ms.custom: include file
 ---
 
 Private links for managed disk importing or exporting is currently only available in:
 
-- North Central US
+- East US 2
