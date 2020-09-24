@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: overview
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: carlr
+ms.reviewer: sstein
 ms.date: 03/10/2020
 ---
 # Automate management tasks using database jobs
