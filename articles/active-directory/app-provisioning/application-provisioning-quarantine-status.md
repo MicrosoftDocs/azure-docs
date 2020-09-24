@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 04/28/2020
+ms.date: 09/24/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -40,6 +40,7 @@ There are three ways to check whether an application is in quarantine:
   - Make sure you have specified a valid **Notification Email** in the provisioning configuration for the application.
   - Make sure there is no spam filtering on the notification email inbox.
   - Make sure you have not unsubscribed from emails.
+  - Check for emails from azure-noreply@microsoft.com
 
 ## Why is my application in quarantine?
 
