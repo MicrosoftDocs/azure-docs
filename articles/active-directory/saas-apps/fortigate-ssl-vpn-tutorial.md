@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure AD SSO integration with FortiGate SSL VPN'
-description: In this tutorial, you'll Learn how to configure single sign-on between Azure Active Directory and FortiGate SSL VPN.
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with FortiGate SSL VPN | Microsoft Docs'
+description: Learn the steps you need to perform to integrate FortiGate SSL VPN with Azure Active Directory (Azure AD).
 services: active-directory
 documentationCenter: na
 author: jeevansd
