@@ -8,7 +8,7 @@ ms.custom: sqldbrb=1
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: vanto, carlrab
+ms.reviewer: vanto, sstein
 ms.date: 05/07/2019
 ---
 # Configure public endpoint in Azure SQL Managed Instance
