@@ -14,7 +14,7 @@ ms.custom: how-to, devx-track-python
 #Customer intent: As a Python scikit-learn developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my machine learning models at scale.
 ---
 
-# Build scikit-learn models at scale with Azure Machine Learning
+# Train scikit-learn models at scale with Azure Machine Learning
 
 In this article, learn how to run your scikit-learn training scripts with Azure Machine Learning.
 
