@@ -136,7 +136,7 @@ az vm create \
 When you deploy a scale set, you specify the host group.
 
 ```bash
-aaz vmss create \
+az vmss create \
   --resource-group myResourceGroup \
   --name myScaleSet \
   --image UbuntuLTS \
