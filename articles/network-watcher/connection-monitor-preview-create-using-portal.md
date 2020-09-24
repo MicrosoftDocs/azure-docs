@@ -63,7 +63,7 @@ To create a Connection Monitor (Preview) using the Azure portal, follow below st
        * To choose a custom workspace, clear the check box. Then choose the subscription and region for your custom workspace. 
 1. At the bottom of the tab, select **Next: Test groups**.
 
-   ![Screenshot showing the Basics tab in Connection Monitor](./media/connection-monitor-2-preview/create-tg.png)
+   ![Screenshot showing the Create Test Group tab in Connection Monitor](./media/connection-monitor-2-preview/create-tg.png)
 
 1. Add sources, destinations and test configurations in your test groups. To set up your test groups, see [Create test groups in Connection Monitor](#create-test-groups-in-a-connection-monitor). 
 1. At the bottom of the tab, select **Next: Create Alerts**.
@@ -133,7 +133,7 @@ From the Azure portal, to create a test group in a connection monitor, you speci
     
     * To choose non Azure agents as destinations, select the Non-Azure endpoints tab. By default, agents are grouped into workspaces by region. All of these workspaces have the Network Performance Monitor solution configured. If you need to add Network Performance Monitor to your workspace, get it from Azure Marketplace. For information about how to add Network Performance Monitor, see Monitoring solutions in Azure Monitor. In the Create Connection Monitor view, on the Basics tab, the default region is selected. If you change the region, you can choose agents from workspaces in the new region. You can select one or more agents or subnets. In the subnet view, you can select specific IPs for monitoring. Adding multiple subnets will create a custom on-premises network namely "OnPremises_Network_1".  
     
-     ![Screenshot of the Add Destinations pane, showing the Subscription level](./media/connection-monitor-2-preview/add-non-azure-dest.png)
+     ![Screenshot of the Add non Azure Destinations pane](./media/connection-monitor-2-preview/add-non-azure-dest.png)
 	
     * To choose public endpoints as destinations, select the **External Addresses** tab. The list of endpoints includes Office 365 test URLs and Dynamics 365 test URLs, grouped by name. In addition to these endpoints, you can choose an endpoint that was created in other test groups in the same connection monitor. 
     
