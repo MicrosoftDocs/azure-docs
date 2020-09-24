@@ -394,18 +394,18 @@ groups:
   title: Programming languages
   prompt: Choose a programming language or CLI
   pivots:
-  - id: programmer-tool-spx
-    title: CLI
   - id: programming-language-csharp
     title: C#
   - id: programming-language-cpp
     title: C++
   - id: programming-language-java
     title: Java
-  - id: programming-language-python
-    title: Python
   - id: programming-language-javascript
     title: JavaScript
+  - id: programming-language-python
+    title: Python
+  - id: programmer-tool-spx
+    title: CLI
   - id: programming-language-more
     title: More languages...
 - id: programming-languages-set-two-with-js-go
