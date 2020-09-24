@@ -64,7 +64,7 @@ To configure Raw logs for your Azure CDN from Microsoft profile:
 
 ## Configuration - Azure PowerShell
 
-Use [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting?view=latest) to configure the diagnostic setting for raw logs.
+Use [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) to configure the diagnostic setting for raw logs.
 
 Retention data is defined by the **-RetentionInDays** option in the command.
 
