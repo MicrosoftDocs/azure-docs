@@ -237,7 +237,7 @@ await foreach (ModelData md in modelDataList)
     Console.WriteLine($"Type name: {md.DisplayName}: {md.Id}");
 }
 ```
-Before you run the program again to test this new code, recall that the last time you ran the program already. If you attempt to upload the same model again, the program should throw an exception.
+Before you run the program again to test this new code, recall that the last time you ran the program, you uploaded your model already. If you attempt to upload the same model again, the program should throw an exception.
 
 Now, run the program again with this command in your command window:
 
