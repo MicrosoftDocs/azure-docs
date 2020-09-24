@@ -10,7 +10,7 @@ ms.author: trbye
 
 This article assumes:
 
-* You have an Azure account and Speech service subscription. If you don't have and account and subscription -- [Try the Speech service for free](../../../get-started.md).
+* You have an Azure account and Speech service subscription. If you don't have and account and subscription -- [Try the Speech service for free](../../../overview.md#try-the-speech-service-for-free).
 
 ## Install and import the Speech SDK
 
