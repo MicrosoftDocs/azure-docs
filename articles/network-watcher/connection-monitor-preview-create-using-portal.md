@@ -51,6 +51,9 @@ To create a Connection Monitor (Preview) using the Azure portal, follow below st
     ![Screenshot showing connection monitors that were created in Connection Monitor (Preview)](./media/connection-monitor-2-preview/cm-resource-view.png)   
 	
 1. On the **Connection Monitor (Preview)** dashboard, in the upper-left corner, select **Create**.
+
+   ![Screenshot showing the Basics tab in Connection Monitor](./media/connection-monitor-2-preview/create-cm-basics.png)
+
 1. On the **Basics** tab, enter information for your connection monitor:
    * **Connection Monitor Name** – Add the name of your connection monitor. Use the standard naming rules for Azure resources.
    * **Subscription** – Choose a subscription for your connection monitor.
@@ -60,12 +63,17 @@ To create a Connection Monitor (Preview) using the Azure portal, follow below st
        * To choose a custom workspace, clear the check box. Then choose the subscription and region for your custom workspace. 
 1. At the bottom of the tab, select **Next: Test groups**.
 
-   ![Screenshot showing the Basics tab in Connection Monitor](./media/connection-monitor-2-preview/create-cm-basics.png)
+   ![Screenshot showing the Basics tab in Connection Monitor](./media/connection-monitor-2-preview/create-tg.png)
 
 1. Add sources, destinations and test configurations in your test groups. To set up your test groups, see [Create test groups in Connection Monitor](#create-test-groups-in-a-connection-monitor). 
-1. At the bottom of the tab, select **Next: Configure Alerts**.
+1. At the bottom of the tab, select **Next: Create Alerts**.
 
-   ![Screenshot showing the Test groups tab and the pane where you add test group details](./media/connection-monitor-2-preview/create-tg.png)
+   ![Screenshot showing the Test groups tab and the pane where you add test group details](./media/connection-monitor-2-preview/create-alert.png)
+
+1. To create alerts, see [Create Alerts in Connection Monitor](#create-alerts-in-connection-monitor)
+1. At the bottom of the tab, select **Review + create**.
+
+  ![Screenshot of Connection Monitor, showing the Review + create tab](./media/connection-monitor-2-preview/review-create-cm.png)
 
 1. On the **Review + create** tab, review the basic information and test groups before you create the connection monitor. If you need to edit the connection monitor:
    * To edit basic details, select the pencil icon.
@@ -77,8 +85,6 @@ To create a Connection Monitor (Preview) using the Azure portal, follow below st
    > Even in the Connection Monitor preview stage, Log Analytics ingestion charges apply.
 
 1. When you're ready to create the connection monitor, at the bottom of the **Review + create** tab, select **Create**.
-
-   ![Screenshot of Connection Monitor, showing the Review + create tab](./media/connection-monitor-2-preview/review-create-cm.png)
 
 Connection Monitor (Preview) creates the connection monitor resource in the background.
 
