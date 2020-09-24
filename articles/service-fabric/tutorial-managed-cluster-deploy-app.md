@@ -48,7 +48,7 @@ Connect-ServiceFabricCluster -ConnectionEndpoint $connectionEndpoint -KeepAliveI
       -X509Credential `
       -ServerCertThumbprint $serverThumbprint  `
       -FindType FindByThumbprint `
-      -FindValue $clientThumprint `
+      -FindValue $clientThumbprint `
       -StoreLocation CurrentUser `
       -StoreName My
 
@@ -56,11 +56,13 @@ Connect-ServiceFabricCluster -ConnectionEndpoint $connectionEndpoint -KeepAliveI
 
 ### Upload an application package
 
-In this tutorial, we'll be using the [Service Fabric Voting Application](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart) sample. For more details on Service Fabric application deployment through PowerShell see [Service Fabric deploy and remove applications](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications).
+In this tutorial, we will be using the [Service Fabric Voting Application](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/tree/voting-sample-no-reverse-proxy) sample. For more details on Service Fabric application deployment through PowerShell see [Service Fabric deploy and remove applications](service-fabric-deploy-remove-applications.md).
+
+You will first need to package the application for deployment following these [steps](service-fabric-package-apps.md). Once the application package has been created you can upload the application package to your cluster.
 
 ```powershell
 $path = "C:\Users\<user>\Documents\service-fabric-dotnet-quickstart\Voting\pkg\Debug"
-Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $path -ImageStoreConnectionString "fabric:ImageStore"
+Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $path -CompressPackage -SkipCopy
 Register-ServiceFabricApplicationType -ApplicationPathInImageStore Debug
 ```
 
