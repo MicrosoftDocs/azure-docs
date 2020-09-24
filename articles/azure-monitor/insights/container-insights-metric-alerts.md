@@ -2,7 +2,7 @@
 title: Metric alerts from Azure Monitor for containers
 description: This article reviews the recommended metric alerts available from Azure Monitor for containers in public preview.
 ms.topic: conceptual
-ms.date: 09/23/2020
+ms.date: 09/24/2020
 
 ---
 
@@ -12,13 +12,13 @@ To alert on system resource issues when they are experiencing peak demand and ru
 
 This article reviews the experience and provides guidance on configuring and managing these alert rules.
 
-If you're not familiar with Azure Monitor alerts, see [Overview of alerts in Microsoft Azure](../platform/alerts-overview.md) before you https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fopbuildstorageprod.blob.core.windows.net%2Freport%2F2020%255C9%255C21%255C8257e7f2-de62-9622-af05-1281f54738ea%255CPullRequest%255C202009212001389262-130623%255Cworkflow_report.html%3Fsv%3D2016-05-31%26sr%3Db%26sig%3DWglUAkJZCa%252BYTwh%252F0R3IpLcPZCPhK%252BiG0sZpDnQqEOY%253D%26st%3D2020-09-21T20%253A00%253A42Z%26se%3D2020-10-22T20%253A05%253A42Z%26sp%3Dr&data=02%7C01%7Cbwren%40microsoft.com%7C35d3712bf2ee4c99d56408d85f528f2c%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637364155474796200&sdata=kZGprr59hLPVu%2Fbtkd1tlfKPi5JSKy0L5ALyS%2FXrT3o%3D&reserved=0start. To learn more about metric alerts, see [Metric alerts in Azure Monitor](../platform/alerts-metric-overview.md).
+If you're not familiar with Azure Monitor alerts, see [Overview of alerts in Microsoft Azure](../platform/alerts-overview.md) before you start. To learn more about metric alerts, see [Metric alerts in Azure Monitor](../platform/alerts-metric-overview.md).
 
 ## Prerequisites
 
 Before you start, confirm the following:
 
-* Custom metrics are only available in a subset of Azure regions. A list of supported regions is documented [here](../platform/metrics-custom-overview.md#supported-regions).
+* Custom metrics are only available in a subset of Azure regions. A list of supported regions is documented in [Supported regions](../platform/metrics-custom-overview.md#supported-regions).
 
 * To support metric alerts and the introduction of additional metrics, the minimum agent version required is **microsoft/oms:ciprod05262020** for AKS and **microsoft/oms:ciprod09162020** for Azure Arc enabled Kubernetes cluster.
 
@@ -27,8 +27,8 @@ Before you start, confirm the following:
     * Run the command: `kubectl describe <omsagent-pod-name> --namespace=kube-system`. In the status returned, note the value under **Image** for omsagent in the *Containers* section of the output. 
     * On the **Nodes** tab, select the cluster node and on the **Properties** pane to the right, note the value under **Agent Image Tag**.
 
-    The value shown should be a version later than **ciprod05262020**. If your cluster has an older version, follow the [upgrade agent on AKS cluster](container-insights-manage-agent.md#upgrade-agent-on-aks-cluster) steps to get the latest version.
-    
+    The value shown for AKS should be a version **ciprod05262020** or later. The value shown for Azure Arc enabled Kubernetes cluster should be a version **ciprod09162020** or later. If your cluster has an older version, see [How to upgrade the Azure Monitor for containers agent](container-insights-manage-agent.md#upgrade-agent-on-aks-cluster) for steps to get the latest version.
+
     For more information related to the agent release, see [agent release history](https://github.com/microsoft/docker-provider/tree/ci_feature_prod). To verify metrics are being collected, you can use Azure Monitor metrics explorer and verify from the **Metric namespace** that **insights** is listed. If it is, you can go ahead and start setting up the alerts. If you don't see any metrics collected, the cluster Service Principal or MSI is missing the necessary permissions. To verify the SPN or MSI is a member of the **Monitoring Metrics Publisher** role, follow the steps described in the section [Upgrade per cluster using Azure CLI](container-insights-update-metrics.md#upgrade-per-cluster-using-azure-cli) to confirm and set role assignment.
 
 ## Alert rules overview
