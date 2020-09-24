@@ -162,7 +162,7 @@ In order to see your scored results together with related log details, go back t
 
 Once you have confirmed the ML results are in the custom logs table, and you're satisfied with the fidelity of the scores, you can create a detection based on the results. Go to **Analytics** from the Azure Sentinel portal and [create a new detection rule](tutorial-detect-threats-custom.md). Below is an example showing the query used to create the detection.
 
-:::image type="content" source="./media/bring-your-own-ml/create-byo-ml-analytics-rule.png" alt-text="anomalous resource access logs":::
+:::image type="content" source="./media/bring-your-own-ml/create-byo-ml-analytics-rule.png" alt-text="create custom analytics rule for B Y O M L detections":::
 
 ### View and respond to incidents
 Once you've set up the analytics rule based on the ML results, if there are results above the threshold you set in the query, an incident will be generated and surfaced on the **Incidents** page on Azure Sentinel. 
