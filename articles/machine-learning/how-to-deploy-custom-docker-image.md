@@ -17,7 +17,7 @@ ms.custom: how-to, devx-track-python
 
 Learn how to use a custom Docker base image when deploying trained models with Azure Machine Learning.
 
-Azure Machine Learning provides a default Docker base image so you don't have to worry about creating one. You can also use Azure Machine Learning __environments__ to select a specific base image, or use a custom one that you provide.
+Azure Machine Learning will use a default base Docker image if none is specified. You can find the specific Docker image used with `azureml.core.runconfig.DEFAULT_CPU_IMAGE`. You can also use Azure Machine Learning __environments__ to select a specific base image, or use a custom one that you provide.
 
 A base image is used as the starting point when an image is created for a deployment. It provides the underlying operating system and components. The deployment process then adds additional components, such as your model, conda environment, and other assets, to the image.
 
@@ -69,9 +69,11 @@ Azure Machine Learning only supports Docker images that provide the following so
 * Conda 4.5.# or greater.
 * Python 3.5+.
 
-To use Datasets, please install the libfuse-dev package. Also make sure to install any  user space packages you may need.
+To use Datasets, please install the libfuse-dev package. Also make sure to install any user space packages you may need.
 
-Currently Azure ML supports both cuda9 and cuda10 base images. The major dependencies installed in these base images are:
+Azure ML maintains a set of CPU and GPU base images published to Microsoft Container Registry that you can optionally leverage (or reference) instead of creating your own custom image. To see the Dockerfiles for those images, refer to the [Azure/AzureML-Containers](https://github.com/Azure/AzureML-Containers) GitHub repository.
+
+For GPU images, Azure ML currently offers both cuda9 and cuda10 base images. The major dependencies installed in these base images are:
 
 | Dependencies | IntelMPI CPU | OpenMPI CPU | IntelMPI GPU | OpenMPI GPU |
 | --- | --- | --- | --- | --- |
@@ -122,7 +124,7 @@ If you've already trained or deployed models using Azure Machine Learning, a con
 
 ### Build a custom base image
 
-The steps in this section walk-through creating a custom Docker image in your Azure Container Registry. To do so, create a dockerfile - a text file that contains instructions on how to build a Docker image which supports basic Docker commands. For sample dockerfiles, see the [Azure ML container repository](https://github.com/Azure/AzureML-Containers).
+The steps in this section walk-through creating a custom Docker image in your Azure Container Registry. For sample dockerfiles, see the [Azure/AzureML-Containers](https://github.com/Azure/AzureML-Containers) GitHub repo).
 
 1. Create a new text file named `Dockerfile`, and use the following text as the contents:
 
