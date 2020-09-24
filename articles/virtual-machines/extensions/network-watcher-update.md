@@ -72,8 +72,35 @@ Set-AzVMExtension `  -ResourceGroupName "myResourceGroup1" `  -Location "WestUS"
 
 **Option 2: Use Azure CLI**  
 
+Force upgrade 
+
 ```
-az vm extension set --resource-group myResourceGroup1 --vm-name myVM1 --name NetworkWatcherAgentLinux --publisher Microsoft.Azure.NetworkWatcher --version 1.4.1654.1 
+#Linux command
+az vm extension set --resource-group "myResourceGroup1" --vm-name "myVM1" --name "NetworkWatcherAgentLinux" --publisher "Microsoft.Azure.NetworkWatcher" --force-update
+
+#Windows command
+az vm extension set --resource-group "myResourceGroup1" --vm-name "myVM1" --name "NetworkWatcherAgentWindows" --publisher "Microsoft.Azure.NetworkWatcher" --force-update
+```
+
+If that doesn't work. Remove and install the extension again. 
+
+Removing the extension 
+
+```
+#Same for Linux and Windows
+az vm extension delete --resource-group "myResourceGroup1" --vm-name "myVM1" -n "AzureNetworkWatcherExtension"
+
+```
+
+Installing the extension again
+
+```
+#Linux command
+az vm extension set --resource-group "DALANDEMO" --vm-name "Linux-01" --name "NetworkWatcherAgentLinux" --publisher "Microsoft.Azure.NetworkWatcher"  
+
+#Windows command
+az vm extension set --resource-group "DALANDEMO" --vm-name "Linux-01" --name "NetworkWatcherAgentWindows" --publisher "Microsoft.Azure.NetworkWatcher" 
+
 ```
 
 **Option 3:Reboot your VMs**
