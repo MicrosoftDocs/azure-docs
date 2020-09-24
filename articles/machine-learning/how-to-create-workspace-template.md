@@ -287,6 +287,7 @@ If your associated resources are not behind a virtual network, you can set the *
 > * **Southeast Asia**
 > * **Japan East**
 > * **North Europe**
+> * **East Australia**
 > * **UK South**
 >
 > This preview is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 

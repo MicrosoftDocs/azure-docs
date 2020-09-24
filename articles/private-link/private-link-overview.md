@@ -59,7 +59,7 @@ Azure Private Link provides the following benefits:
 |Azure Relay | All public regions      |  | Preview <br/> [Learn more](https://docs.microsoft.com/azure/service-bus-relay/private-link-service)  |
 |Azure Event Grid| All public regions<br/> All Government regions       |  | GA   <br/> [Learn more](https://docs.microsoft.com/azure/event-grid/network-security) |
 |Azure Web Apps | All public regions      | Supported with PremiumV2 Windows and Linux and Elastic Premium Functions  | Preview   <br/> [Learn more](https://docs.microsoft.com/azure/app-service/networking/private-endpoint)   |
-|Azure Machine Learning | EAST US, SOUTH CENTRAL US,<br/>WEST US, WEST US 2,<br/>CENTRAL CANADA, SOUTHEAST ASIA,<br/>JAPAN EAST, NORTH EUROPE,<br/>UK SOUTH     |  | Preview   <br/> [Learn more](https://docs.microsoft.com/azure/machine-learning/how-to-configure-private-link)   |
+|Azure Machine Learning | EAST US, SOUTH CENTRAL US,<br/>WEST US, WEST US 2,<br/>CENTRAL CANADA, SOUTHEAST ASIA,<br/>JAPAN EAST, NORTH EUROPE,<br/>UK SOUTH, EAST AUSTRALIA     |  | Preview   <br/> [Learn more](https://docs.microsoft.com/azure/machine-learning/how-to-configure-private-link)   |
 | Azure Automation  | All public regions |  | Preview | |
 | Azure IoT Hub | All public regions    |  | GA   <br/> [Learn more](https://docs.microsoft.com/azure/iot-hub/virtual-network-support ) |
 | Azure SignalR | EAST US, SOUTH CENTRAL US,<br/>WEST US 2, All China regions      |  | Preview   <br/> [Learn more](https://aka.ms/asrs/privatelink)   |

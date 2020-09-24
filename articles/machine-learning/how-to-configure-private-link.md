@@ -28,6 +28,7 @@ In this document, you learn how to use Azure Private Link with your Azure Machin
 > * **Southeast Asia**
 > * **Japan East**
 > * **North Europe**
+> * **East Australia**
 > * **UK South**
 >
 > This preview is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
