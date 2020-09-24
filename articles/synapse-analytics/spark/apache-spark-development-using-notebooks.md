@@ -86,7 +86,7 @@ You cannot reference data or variables directly across different languages in a 
    ```scala
    %%scala
    val scalaDataFrame = spark.read.option("format", "DW connector predefined type")
-   scalaDataFrame.registerTempTable( "mydataframetable" )
+   scalaDataFrame.createOrReplaceTempView( "mydataframetable" )
    ```
 
 2. In Cell 2, query the data using Spark SQL.
