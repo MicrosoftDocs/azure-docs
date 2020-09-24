@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/16/2020
+ms.date: 09/22/2020
 ms.author: b-juche
 ---
 # Create an SMB volume for Azure NetApp Files
@@ -259,6 +259,11 @@ This setting is configured in the **Active Directory Connections** under **NetAp
         Specify the amount of logical storage that is allocated to the volume.  
 
         The **Available quota** field shows the amount of unused space in the chosen capacity pool that you can use towards creating a new volume. The size of the new volume must not exceed the available quota.  
+
+    * **Throughput (MiB/S)**   
+        If the volume is created in a manual QoS capacity pool, specify the throughput you want for the volume.   
+
+        If the volume is created in an auto QoS capacity pool, the value displayed in this field is (quota x service level throughput).   
 
     * **Virtual network**  
         Specify the Azure virtual network (VNet) from which you want to access the volume.  

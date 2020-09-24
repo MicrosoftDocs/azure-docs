@@ -75,8 +75,8 @@ DeviceManage deviceManager = await callClient.getDeviceManager().get();
 
 ## Place an outgoing call and join a group call
 
-To create and start a call you need to call the `CallClient.call()` method and provide the `Identifier` of the callee(s).
-To join a group call you need to call the `CallClient.join()` method and provide the groupId. Group Ids must be in GUID or UUID format.
+To create and start a call you need to call the `CallAgent.call()` method and provide the `Identifier` of the callee(s).
+To join a group call you need to call the `CallAgent.join()` method and provide the groupId. Group Ids must be in GUID or UUID format.
 
 Call creation and start is synchronous. The call instance allows you to subscribe to all events on the call.
 
@@ -101,7 +101,7 @@ PhoneNumber acsUser2 = new PhoneNumber("<PHONE_NUMBER>");
 CommunicationIdentifier participants[] = new CommunicationIdentifier[]{ acsUser1, acsUser2 };
 StartCallOptions startCallOptions = new StartCallOptions();
 Context appContext = this.getApplicationContext();
-Call groupCall = callClient.call(participants, startCallOptions);
+Call groupCall = callAgent.call(participants, startCallOptions);
 ```
 
 ### Place a 1:1 call with with video camera
@@ -263,7 +263,7 @@ When the handling of the Push notification message is successful, and the all ev
 
 ### Unregister Push Notification
 
-- Applications can unregister push notification at any time. Simply call the `unregisterPushNotification()` method on callAgent.
+- Applications can unregister push notification at any time. Call the `unregisterPushNotification()` method on callAgent to unregister.
 
 ```java
 try {
@@ -278,7 +278,7 @@ catch(Exception e) {
 You can access call properties and perform various operations during a call to manage settings related to video and audio.
 
 ### Call properties
-* Get the unique Id for this Call.
+* Get the unique ID for this Call.
 ```java
 String callId = call.getCallId();
 ```
@@ -297,12 +297,12 @@ CommunicationIdentifier callerId = call.getCallerId();
 ```java
 CallState callState = call.getState();
 ```
-It returns a string reprensting current state of a call:
+It returns a string representing the current state of a call:
 * 'None' - initial call state
 * 'Incoming' - indicates that call is incoming, it has to be either accepted or rejected
 * 'Connecting' - initial transition state once call is placed or accepted
 * 'Ringing' - for an outgoing call - indicates call is ringing for remote participants, it's 'Incoming' oh their side
-* 'EarlyMedia' - indicates a state in which an announcment is played before call is connected
+* 'EarlyMedia' - indicates a state in which an announcement is played before call is connected
 * 'Connected' - call is connected
 * 'Hold' - call is put on hold, no media is flowing between local endpoint and remote participant(s)
 * 'Disconnecting' - transition state before call goes to 'Disconnected' state
@@ -351,7 +351,7 @@ Future startVideoFuture = call.startVideo(currentVideoStream);
 startVideoFuture.get();
 ```
 
-Once you succesfully start sending video, a `LocalVideoStream` instance will be added to the `localVideoStreams` collection on the call instance.
+Once you successfully start sending video, a `LocalVideoStream` instance will be added to the `localVideoStreams` collection on the call instance.
 ```java
 currentVideoStream == call.getLocalVideoStreams().get(0);
 ```
@@ -382,7 +382,7 @@ Any given remote participant has a set of properties and collections associated 
 * Get the identifier for this remote participant.
 Identity is one is one of the 'Identifier' types
 ```java
-CommunicationIdentifier participantIdentity = remoteParticipant.getId();
+CommunicationIdentifier participantIdentity = remoteParticipant.getIdentifier();
 ```
 
 * Get state of this remote participant.
@@ -394,7 +394,7 @@ State can be one of
 * 'Connecting' - transition state while participant is connecting to the call
 * 'Connected' - participant is connected to the call
 * 'Hold' - participant is on hold
-* 'EarlyMedia' - annoucement is played before participant is connected to the call
+* 'EarlyMedia' - announcement is played before participant is connected to the call
 * 'Disconnected' - final state - participant is disconnected from the call
 
 
@@ -477,7 +477,7 @@ void onRemoteParticipantVideoStreamsUpdated(RemoteParticipant participant, Remot
 ### Remote video stream properties
 Remote video stream has couple of properties
 
-* `Id` - Id of a remote video stream
+* `Id` - ID of a remote video stream
 ```java
 int id = remoteVideoStream.getId();
 ```
