@@ -29,16 +29,16 @@ In this quickstart, you'll use Azure App Configuration to centralize storage and
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Select **Configuration Explorer** > **Create** > **Key-value** to add the following key-value pairs:
+6. Select **Operations** > **Configuration explorer** > **Create** > **Key-value** to add the following key-value pairs:
 
-    | Key                                | Value                             |
-    |------------------------------------|-----------------------------------|
-    | `TestApp:Settings:BackgroundColor` | White                             |
-    | `TestApp:Settings:FontColor`       | Black                             |
-    | `TestApp:Settings:FontSize`        | 24                                |
-    | `TestApp:Settings:Message`         | Data from Azure App Configuration |
+    | Key                                | Value                               |
+    |------------------------------------|-------------------------------------|
+    | `TestApp:Settings:BackgroundColor` | *#FFF*                              |
+    | `TestApp:Settings:FontColor`       | *#000*                              |
+    | `TestApp:Settings:FontSize`        | *24*                                |
+    | `TestApp:Settings:Message`         | *Data from Azure App Configuration* |
 
-    Leave **Label** and **Content Type** empty for now. Select **Apply**.
+    Leave **Label** and **Content type** empty for now. Select **Apply**.
 
 ## Create an ASP.NET Core web app
 
@@ -81,9 +81,6 @@ A `UserSecretsId` element containing a GUID is added to the *.csproj* file:
 
 1. Add a `UserSecretsId` element to the *.csproj* file as shown here. You can use the same GUID, or you can replace this value with your own.
 
-    > [!IMPORTANT]
-    > `CreateHostBuilder` replaces `CreateWebHostBuilder` in .NET Core 3.0. Select the correct syntax based on your environment.
-    
     ```xml
     <Project Sdk="Microsoft.NET.Sdk.Web">
     
@@ -115,16 +112,10 @@ A `UserSecretsId` element containing a GUID is added to the *.csproj* file:
     dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore
     ```
 
-1. Run the following command to restore the project's NuGet packages:
-
-    ```dotnetcli
-    dotnet restore
-    ```
-
 1. Run the following command in the same directory as the *.csproj* file. The command uses Secret Manager to store a secret named `ConnectionStrings:AppConfig`, which stores the connection string for your App Configuration store. Replace the `<your_connection_string>` placeholder with your App Configuration store's connection string. You can find the connection string under **Access Keys** in the Azure portal.
 
     ```dotnetcli
-    dotnet user-secrets set ConnectionStrings:AppConfig <your_connection_string>
+    dotnet user-secrets set ConnectionStrings:AppConfig "<your_connection_string>"
     ```
 
     > [!IMPORTANT]
@@ -143,20 +134,20 @@ A `UserSecretsId` element containing a GUID is added to the *.csproj* file:
 1. Update the `CreateWebHostBuilder` method to use App Configuration by calling the `AddAzureAppConfiguration` method.
 
     > [!IMPORTANT]
-    > `CreateHostBuilder` replaces `CreateWebHostBuilder` in .NET Core 3.0. Select the correct syntax based on your environment.
+    > `CreateHostBuilder` replaces `CreateWebHostBuilder` in .NET Core 3.x. Select the correct syntax based on your environment.
 
     #### [.NET Core 3.x](#tab/core3x)
 
     ```csharp
     public static IHostBuilder CreateHostBuilder(string[] args) =>
         Host.CreateDefaultBuilder(args)
-        .ConfigureWebHostDefaults(webBuilder =>
-        webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
-        {
-            var settings = config.Build();
-            config.AddAzureAppConfiguration(settings["ConnectionStrings:AppConfig"]);
-        })
-        .UseStartup<Startup>());
+            .ConfigureWebHostDefaults(webBuilder =>
+                webBuilder.ConfigureAppConfiguration(config =>
+                {
+                    var settings = config.Build();
+                    var connection = settings.GetConnectionString("AppConfig");
+                    config.AddAzureAppConfiguration(connection);
+                }).UseStartup<Startup>());
     ```
 
     #### [.NET Core 2.x](#tab/core2x)
@@ -164,17 +155,18 @@ A `UserSecretsId` element containing a GUID is added to the *.csproj* file:
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
         WebHost.CreateDefaultBuilder(args)
-            .ConfigureAppConfiguration((hostingContext, config) =>
+            .ConfigureAppConfiguration(config =>
             {
                 var settings = config.Build();
-                config.AddAzureAppConfiguration(settings["ConnectionStrings:AppConfig"]);
+                var connection = settings.GetConnectionString("AppConfig");
+                config.AddAzureAppConfiguration(connection);
             })
             .UseStartup<Startup>();
     ```
 
     ---
 
-1. Navigate to *<app root>/Views/Home* and open *Index.cshtml*. Replace its content with the following code:
+1. Open *<app root>/Views/Home/Index.cshtml*, and replace its content with the following code:
 
     ```cshtml
     @using Microsoft.Extensions.Configuration
@@ -193,7 +185,7 @@ A `UserSecretsId` element containing a GUID is added to the *.csproj* file:
     <h1>@Configuration["TestApp:Settings:Message"]</h1>
     ```
 
-1. Navigate to *<app root>/Views/Shared* and open *_Layout.cshtml*. Replace its content with the following code:
+1. Open *<app root>/Views/Shared/_Layout.cshtml*, and replace its content with the following code:
 
     ```cshtml
     <!DOCTYPE html>
@@ -234,9 +226,7 @@ A `UserSecretsId` element containing a GUID is added to the *.csproj* file:
     dotnet run
     ```
 
-1. If you're working on your local machine, use a browser to navigate to `http://localhost:5000`. This address is the default URL for the locally hosted web app.
-
-If you're working in the Azure Cloud Shell, select the **Web Preview** button followed by **Configure**.
+1. If you're working on your local machine, use a browser to navigate to `http://localhost:5000`. This address is the default URL for the locally hosted web app. If you're working in the Azure Cloud Shell, select the **Web Preview** button followed by **Configure**.
 
 ![Locate the Web Preview button](./media/quickstarts/cloud-shell-web-preview.png)
 
@@ -246,7 +236,7 @@ When prompted to configure the port for preview, enter *5000* and select **Open 
 
 ## Clean up resources
 
-[!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
+[!INCLUDE[Azure App Configuration cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
 ## Next steps
 
