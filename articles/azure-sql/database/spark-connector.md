@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: denzilribeiro
 ms.author: denzilr
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 09/02/2020
 ---
 # Accelerate real-time big data analytics using the Spark connector
