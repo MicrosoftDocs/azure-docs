@@ -38,7 +38,7 @@ highlightedContent:
     # Card
     - title: Azure Arc enabled SQL Server (preview)
       itemType: overview
-      url: https://docs.microsoft.com/sql/sql-server/azure-arc/overview
+      url: /sql/sql-server/azure-arc/overview
 
 # productDirectory section (optional)
 productDirectory:
@@ -84,9 +84,9 @@ productDirectory:
     - title: Azure Arc enabled SQL Server (preview)
       imageSrc: ./media/01850-icon-arc-sql-server-menu.svg
       links:
-        - url: https://docs.microsoft.com/sql/sql-server/azure-arc/assess
+        - url: /sql/sql-server/azure-arc/assess
           text: Assess your SQL instances
-        - url: https://docs.microsoft.com/sql/sql-server/azure-arc/overview
+        - url: /sql/sql-server/azure-arc/overview
           text: See more...
 
 # conceptualContent section (optional)
