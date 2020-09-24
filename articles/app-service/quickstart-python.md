@@ -120,13 +120,13 @@ The sample contains framework-specific code that Azure App Service recognizes wh
 ::: zone-end
 
 ::: zone pivot="python-framework-django"
-1. Make sure you're in the *python-docs-hello-django* folder (Django). 
+1. Make sure you're in the *python-docs-hello-django* folder. 
 
 1. Create a virtual environment and install dependencies:
 
     [!include [virtual environment setup](../../includes/app-service-quickstart-python-venv.md)]
 
-    If you encounter "[Errno 2] No such file or directory: 'requirements.txt'.", make sure you're in the *python-docs-hello-django* folder (Django).
+    If you encounter "[Errno 2] No such file or directory: 'requirements.txt'.", make sure you're in the *python-docs-hello-django* folder.
     
 1. Run the development server.
 
