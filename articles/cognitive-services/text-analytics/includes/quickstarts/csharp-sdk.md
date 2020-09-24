@@ -15,7 +15,7 @@ ms.reviewer: assafi
 
 # [Version 3.1 preview](#tab/version-3-1)
 
-[v3.1 Reference documentation](https://docs.microsoft.com/dotnet/api/azure.ai.textanalytics?view=azure-dotnet-previews) | [v3.1 Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics) | [v3.1 Package (NuGet)](https://www.nuget.org/packages/Azure.AI.TextAnalytics/5.1.0-beta.1) | [v3.1 Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples)
+[v3.1 Reference documentation](https://docs.microsoft.com/dotnet/api/azure.ai.textanalytics?view=azure-dotnet-previews&preserve-view=true) | [v3.1 Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics) | [v3.1 Package (NuGet)](https://www.nuget.org/packages/Azure.AI.TextAnalytics/5.1.0-beta.1) | [v3.1 Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples)
 
 # [Version 3.0](#tab/version-3)
 
