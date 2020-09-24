@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot Azure Arc enabled servers VM extension issues
 description: This article tells how to troubleshoot and resolve issues with Azure VM extensions that arise with Azure Arc enabled servers.
-ms.date: 09/23/2020
+ms.date: 09/24/2020
 ms.topic: conceptual
 ---
 
@@ -27,26 +27,24 @@ The following troubleshooting steps apply to all VM extensions.
 
 ### VM Insights
 
-- When enabling VM Insights for an Azure Arc enabled server, it installs the Dependency and Log Analytics agent. On a slow machine or one with a slow network connection, it is possible to see timeouts during the installation process. While we are implementing changes to the Connected Machine agent to help improve this condition, in the interim a retry of the installation may succeed.
+- When enabling VM Insights for an Azure Arc enabled server, it installs the Dependency and Log Analytics agent. On a slow machine or one with a slow network connection, it is possible to see timeouts during the installation process. Microsoft is taking steps to address this in the Connected Machine agent to help improve this condition. In the interim, a retry of the installation may succeed.
 
 ### Log Analytics Agent - Linux
 
 - The Log Analytics Agent version is not correctly marking uploaded data with the resource ID of the Azure Arc enabled server. Although logs are being sent to the service, some views of the data are incomplete.
 
-- Some distributions are not currently supported by the Log Analytics agent for Linux. The agent also requires additional dependencies to be installed, including Python 2. Check the support matrix and prerequisites [here](../../azure-monitor/platform/agents-overview.md#supported-operating-systems).
+- Some distributions are not currently supported by the Log Analytics agent for Linux. The agent requires additional dependencies to be installed, including Python 2. Review the support matrix and prerequisites [here](../../azure-monitor/platform/agents-overview.md#supported-operating-systems).
 
-- If an installation fails, review the **Troubleshoot and support** section in the overview for the extension. In most cases there will be an error code included in the status message. For the Log Analytics agent for Linux, they are explained [here](../../azure-monitor/platform/agent-linux-troubleshoot.md).
+- Error code 52 in the status message indicates a missing dependency. Check the output and logs for more information about which dependency is missing.
 
-- Error code 52 in the status message indicates a missing dependency. Further information about the status message or the logs should indicate which dependency is required.
-
-- Review general troubleshooting information for this VM extension [here](../../virtual-machines/extensions/oms-linux.md#troubleshoot-and-support).
+- If an installation fails, review the **Troubleshoot and support** section in the overview for the extension. In most cases there will be an error code included in the status message. For the Log Analytics agent for Linux, status messages are explained [here](../../virtual-machines/extensions/oms-linux.md#troubleshoot-and-support), along with general troubleshooting information for this VM extension.
 
 ## Next steps
 
 If you don't see your problem here or you can't resolve your issue, try one of the following channels for additional support:
 
-* Get answers from Azure experts through [Microsoft Q&A](/answers/topics/azure-arc.html).
+- Get answers from Azure experts through [Microsoft Q&A](/answers/topics/azure-arc.html).
 
-* Connect with [@AzureSupport](https://twitter.com/azuresupport), the official Microsoft Azure account for improving customer experience. Azure Support connects the Azure community to answers, support, and experts.
+- Connect with [@AzureSupport](https://twitter.com/azuresupport), the official Microsoft Azure account for improving customer experience. Azure Support connects the Azure community to answers, support, and experts.
 
-* File an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/), and select **Get Support**.
+- File an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/), and select **Get Support**.

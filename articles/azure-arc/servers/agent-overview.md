@@ -1,7 +1,7 @@
 ---
 title:  Overview of the Connected Machine Windows agent
 description: This article provides a detailed overview of the Azure Arc enabled servers agent available, which supports monitoring virtual machines hosted in hybrid environments.
-ms.date: 09/23/2020
+ms.date: 09/24/2020
 ms.topic: conceptual
 ---
 
@@ -125,6 +125,9 @@ You can also register the resource providers in the Azure portal by following th
 ## Installation and configuration
 
 Connecting machines in your hybrid environment directly with Azure can be accomplished using different methods depending on your requirements. The following table highlights each method to determine which works best for your organization.
+
+> [!IMPORTANT]
+> The Connected Machine agent cannot be installed on an Azure Windows virtual machine. If you attempt to, the installation detects this and rolls back.
 
 | Method | Description |
 |--------|-------------|
