@@ -247,7 +247,7 @@ static public void UploadFile(DataLakeFileSystemClient fileSystemClient)
 
     File file = new File("C:\\mytestfile.txt");
 
-    InputStream targetStream = new FileInputStream(file);
+    InputStream targetStream = new BufferedInputStream(new FileInputStream(file));
 
     long fileSize = file.length();
 

@@ -52,5 +52,6 @@ The **Knowledge Center** allows you to do three things:
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Analyze using a SQL pool](get-started-analyze-sql-pool.md)
+* [Get started with Azure Synapse Analytics](get-started.md)
+* [Create a workspace](quickstart-create-workspace.md)
+* [Use SQL on-demand](quickstart-sql-on-demand.md)

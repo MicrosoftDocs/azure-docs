@@ -33,9 +33,9 @@ Add the Azure Communication Services Calling client library and its dependencies
 
 > [!NOTE]
 > With the release of AzureCommunicationCalling SDK you will find a bash script `BuildAzurePackages.sh`. 
-The script when run `sh ./BuildAzurePackages.sh` will give you the path to the generated framework packages which needs to be imported in the sample app in the next step. Note that you will need to set up Xcode Command Line Tools if you have not done so before you run the script: Start Xcode, select "Preferences -> Locations". Pick your Xcode version for the Command Line Tools.
+The script when run `sh ./BuildAzurePackages.sh` will give you the path to the generated framework packages which needs to be imported in the sample app in the next step. Note that you will need to set up Xcode Command Line Tools if you have not done so before you run the script: Start Xcode, select "Preferences -> Locations". Pick your Xcode version for the Command Line Tools. **BuildAzurePackages.sh script works only with Xcode 11.5 and above**
 
-1. Download the Azure Communication Services Calling client library for iOS.
+1. [Download](https://github.com/Azure/Communication/releases) the Azure Communication Services Calling client library for iOS.
 2. In Xcode, click on your project file to and select the build target to open the project settings editor.
 3. Under the **General** tab, scroll to the **Frameworks, Libraries, and Embedded Content** section and click the **"+"** icon.
 4. In the bottom left of the dialog, use the drop-down chose **Add Files**, navigate to the **AzureCommunicationCalling.framework** directory of the unzipped client library package.
