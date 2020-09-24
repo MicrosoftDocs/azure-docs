@@ -169,7 +169,7 @@ dataset.to_path()
 
 Create a ScriptRunConfig object to specify the configuration details of your training job, including your training script, environment to use, and the compute target to run on.
 
-Any arguments to your training script will be passed via command line if specified in the `arguments` parameter. The DatasetConsumptionConfig for our FileDataset is passed as an argument to the training script. Azure ML will resolve this DatasetConsumptionConfig to the mount-point of the backing datastore, which can then be accessed from the training script.
+Any arguments to your training script will be passed via command line if specified in the `arguments` parameter. The DatasetConsumptionConfig for our FileDataset is passed as an argument to the training script, for the `--data-folder` argument. Azure ML will resolve this DatasetConsumptionConfig to the mount-point of the backing datastore, which can then be accessed from the training script.
 
 ```python
 from azureml.core import ScriptRunConfig
