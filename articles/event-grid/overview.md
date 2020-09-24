@@ -15,13 +15,13 @@ Azure Event Grid is deployed to maximize availability by natively spreading acro
 
 This article provides an overview of Azure Event Grid. If you want to get started with Event Grid, see [Create and route custom events with Azure Event Grid](custom-event-quickstart.md). 
 
-![Event Grid model of sources and handlers](./media/overview/functional-model.png)
+:::image type="content" source="./media/overview/functional-model.png" alt-text="Event Grid model of sources and handlers" lightbox="./media/overview/functional-model.png":::
 
 This image shows how Event Grid connects sources and handlers, and isn't a comprehensive list of supported integrations.
 
 ## Event sources
 
-Currently, the following Azure services support sending events to Event Grid:
+Currently, the following Azure services support sending events to Event Grid. For more information about a source in the list, select the link.
 
 - [Azure App Configuration](event-schema-app-configuration.md)
 - [Azure Blob Storage](event-schema-blob-storage.md)
