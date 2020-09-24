@@ -8,10 +8,10 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 09/01/2020
+ms.date: 09/15/2020
 ms.author: trbye
-ms.custom: "devx-track-python, devx-track-javascript, devx-track-csharp, cog-serv-seo-aug-2020"
-zone_pivot_groups: speech-full-stack
+ms.custom: "devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020"
+zone_pivot_groups: speech-full-stack-go
 keywords: speech to text, speech to text software
 ---
 
@@ -40,6 +40,10 @@ One of the core features of the Speech service is the ability to recognize and t
 
 ::: zone pivot="programming-language-python"
 [!INCLUDE [Python Basics include](./includes/how-to/speech-to-text-basics/speech-to-text-basics-python.md)]
+::: zone-end
+
+::: zone pivot="programming-language-go"
+[!INCLUDE [Go include](includes/how-to/speech-to-text-basics/speech-to-text-basics-go.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-spx"

@@ -1,7 +1,7 @@
 ---
 title: DoD Impact Level 5 blueprint sample
 description: Deploy steps for the DoD Impact Level 5 blueprint sample including blueprint artifact parameter details.
-ms.date: 06/30/2020
+ms.date: 09/17/2020
 ms.topic: sample
 ---
 # Deploy the DoD Impact Level 5 blueprint sample

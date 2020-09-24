@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 07/22/2020
+ms.date: 09/11/2020
 ---
 
 # Common questions about the Microsoft commercial marketplace
@@ -17,7 +17,7 @@ This article answers commonly asked questions about the commercial marketplace.
 
 ### What is the Microsoft commercial marketplace?
 
-The commercial marketplace connects business and government agencies with solutions built by our partners. Our partners create and manage offers in Partner Center, and customers can discover and buy solutions through in-product experiences, such as Microsoft AppSource, Azure Marketplace, resellers in the Cloud Solution Provider program, and our sales teams via the co-sell program.
+The commercial marketplace connects business and government agencies with solutions built by our partners. Our partners create and manage offers in Partner Center, and customers can discover and buy solutions through in-product experiences, such as Microsoft AppSource, Azure Marketplace, resellers in the Cloud Solution Provider program, and our sales teams through the co-sell program.
 
 To learn more, go to the [Microsoft commercial marketplace hub](https://partner.microsoft.com/asset/collection/commercial-marketplace#/).
 
@@ -37,7 +37,7 @@ The commercial marketplace is available in 141 regions, on a per-plan basis.
 
 We manage tax payment in many countries/regions, and we provide access to our global channel network of resellers. You can use a customer's Microsoft Customer Agreement or Enterprise Agreement to sell to organizations without having to create a new buying relationship.
 
-To learn more, view the video at [Why sell through marketplace](https://partner.microsoft.com/asset/detail/why-sell-through-marketplace).
+To learn more, see the [Microsoft commercial marketplace hub](https://aka.ms/commercialmarketplacehub).
 
 ### Is there a listing fee for the Microsoft commercial marketplace?
 
@@ -62,7 +62,7 @@ The ways that customers can use your commercial marketplace offer depend on how 
 
 After you sign up and accept the Publisher Agreement, you'll have access to the commercial marketplace page in Partner Center. This is where you create and manage offers and where you view analytics reports. For Microsoft 365 apps, you must also activate the Office Store program within Partner Center.
 
-For more information, see [Welcome to the commercial marketplace](index.yml) and [Monetize your Office 365 add-in through Microsoft Commercial Marketplace](https://docs.microsoft.com/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace).
+For more information, see [Welcome to the commercial marketplace](index.yml) and [Monetize your Microsoft 365 add-in through Microsoft Commercial Marketplace](/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace).
 
 ### How do I get support assistance for the commercial marketplace?
 
@@ -324,7 +324,7 @@ We recommend these resources:
 
 ### Where can I learn more about the Microsoft Admin Center?
 
-For information about the Microsoft Admin Center, see [Manage third-party app subscriptions for your organization](https://docs.microsoft.com/microsoft-365/commerce/manage-saas-apps?view=o365-worldwide).
+For information about the Microsoft Admin Center, see [Manage third-party app subscriptions for your organization](/microsoft-365/commerce/manage-saas-apps).
 
 ### Where can I learn more about Azure billing?
 

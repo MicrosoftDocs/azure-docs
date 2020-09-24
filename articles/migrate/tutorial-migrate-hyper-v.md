@@ -130,7 +130,7 @@ With discovery completed, you can begin replication of Hyper-V VMs to Azure.
     - You can exclude disks from replication.
     - If you exclude disks, won't be present on the Azure VM after migration. 
 
-    ![Disks](./media/tutorial-migrate-hyper-v/disks.png)
+    ![Screenshot shows the Disks tab of the Replicate dialog box.](./media/tutorial-migrate-hyper-v/disks.png)
 
 13. In **Review and start replication**, review the settings, and click **Replicate** to start the initial replication for the servers.
 

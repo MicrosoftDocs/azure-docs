@@ -1,6 +1,6 @@
 ---
 title: Azure PowerShell Linux script sample - Azure Monitor logs 
-description: Azure PowerShell Script Sample - Azure Monitor logs
+description: Azure PowerShell Linux Script Sample - Azure Monitor logs.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn

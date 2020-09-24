@@ -2,7 +2,7 @@
 title: Deploy resources to subscription
 description: Describes how to create a resource group in an Azure Resource Manager template. It also shows how to deploy resources at the Azure subscription scope.
 ms.topic: conceptual
-ms.date: 09/04/2020
+ms.date: 09/15/2020
 ---
 
 # Create resource groups and resources at the subscription level
@@ -77,7 +77,7 @@ https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json
 
 The commands for subscription-level deployments are different than the commands for resource group deployments.
 
-For Azure CLI, use [az deployment sub create](/cli/azure/deployment/sub?view=azure-cli-latest#az-deployment-sub-create). The following example deploys a template to create a resource group:
+For Azure CLI, use [az deployment sub create](/cli/azure/deployment/sub#az-deployment-sub-create). The following example deploys a template to create a resource group:
 
 ```azurecli-interactive
 az deployment sub create \
@@ -157,9 +157,7 @@ For subscription-level deployments, there are some important considerations when
 
 * The [resourceGroup()](template-functions-resource.md#resourcegroup) function is **not** supported.
 * The [reference()](template-functions-resource.md#reference) and [list()](template-functions-resource.md#list) functions are supported.
-* Don't use [resourceId()](template-functions-resource.md#resourceid) to get the resource ID for resources that are deployed at subscription level.
-
-  Instead, use the [subscriptionResourceId()](template-functions-resource.md#subscriptionresourceid) function.
+* Don't use [resourceId()](template-functions-resource.md#resourceid) to get the resource ID for resources that are deployed at subscription level. Instead, use the [subscriptionResourceId()](template-functions-resource.md#subscriptionresourceid) function.
 
   For example, to get the resource ID for a policy definition that is deployed to a subscription, use:
 

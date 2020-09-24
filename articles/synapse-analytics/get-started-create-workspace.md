@@ -11,7 +11,11 @@ ms.topic: tutorial
 ms.date: 08/27/2020 
 ---
 
-# Create a Synapse workspace
+# Prerequisites
+
+To complete this all of this tutorial's steps, you need to have access to a resource group for which you are assigned the **Owner** role. Create the Synapse workspace in this resource group.
+
+## Create a Synapse workspace
 
 In this tutorial, you'll learn how to create a Synapse workspace, a SQL pool, and an Apache Spark pool. 
 
@@ -19,17 +23,13 @@ In this tutorial, you'll learn how to create a Synapse workspace, a SQL pool, an
 
 1. Open the [Azure portal](https://portal.azure.com), and at the top search for **Synapse**.
 1. In the search results, under **Services**, select **Azure Synapse Analytics (workspaces preview)**.
-1. Select **Add** to create a workspace using these settings:
-
-    |Tab|Setting | Suggested value | Description |
-    |---|---|---|---|
-    |Basics|**Workspace name**|You can name it anything.| In this document, we'll use **myworkspace**.|
-    |Basics|**Region**|Match the region of the storage account.|
-
+1. Select **Add** to create a workspace.
+1. In **Basics**, choose a workspace name. In this tutorial, we'll use **myworkspace**.
 1. You need an ADLSGEN2 account to create a workspace. The simplest choice it to create a new one. If you want to re-use an existing one you'll need to perform some additional configuration. 
 1. OPTION 1 Creating a new ADLSGEN2 account 
-    1. Under **Select Data Lake Storage Gen 2**, click **Create New** and name it **contosolake**.
-    1. Under **Select Data Lake Storage Gen 2**, click **File System** and  name it **users**.
+    1. Navigate to **Select Data Lake Storage Gen 2**. 
+    1. Click **Create New** and name it **contosolake**.
+    1. Click **File System** and  name it **users**.
 1. OPTION 2 Using an existing ADLSGEN2 account. See the **Preparing an ADLSGEN2 Storage Account** instructions at the bottom of this document.
 1. Your Azure Synapse workspace will use this storage account as the "primary" storage account and the container to store workspace data. The workspace stores data in Apache Spark tables. It stores Spark application logs under a folder called **/synapse/workspacename**.
 1. Select **Review + create** > **Create**. Your workspace is ready in a few minutes.
@@ -88,14 +88,6 @@ Unlike the other kinds of pools, billing for SQL on-demand is based on the amoun
 
 * SQL on-demand has its own SQL on-demand databases that exist independently from any SQL on-demand pool.
 * A workspace always has exactly one SQL on-demand pool named **SQL on-demand**.
-
-## Link the NYC Taxi sample data into the SQLDB1 database
-
-1. In Synapse Studio, navgiate to the **Data** hub on the left.
-1. Click **+**, then select **Browse samples**. This will open the **Sample center** and open the **Datasets** tab.
-1. Select **NYC Taxi & Limousine Commission - yellow taxi trip records**. This dataset contains over 1.5 billion rows.
-1. Click **Add dataset**
-1. In the **Data** hub under **Linked** you will see a new data set in this location **Azure Blob Storage > Sample Datasets > nyc_tlc_yellow **   
 
 ## Preparing a ADLSGEN2 storage account
 

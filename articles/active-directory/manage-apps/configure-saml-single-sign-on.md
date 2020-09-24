@@ -22,7 +22,7 @@ In the [quickstart series](view-applications-portal.md) on application managemen
 
 Using Azure AD as your Identity Provider (IdP) and setting up single sign-on (SSO) can be simple or complex depending on the application being used. Some applications can be set up with just a few actions. Others require in-depth configuration. To ramp up quickly, walk through the [quickstart series](view-applications-portal.md) on application management. If the application you're adding is simple, then you probably don't need to read this article. If the application you're adding requires custom configuration for SAML-based SSO, then this article is for you.
 
-In the [quickstart series](view-applications-portal.md), there's an article on configuring single sign-on. In it, you learn how to access the SAML configuration page for an app. The SAML configuration page includes five sections. These sections are discussed in detail in this article.
+In the [quickstart series](add-application-portal-setup-sso.md), there's an article on configuring single sign-on. In it, you learn how to access the SAML configuration page for an app. The SAML configuration page includes five sections. These sections are discussed in detail in this article.
 
 > [!IMPORTANT] 
 > There are some scenarios where the **Single sign-on** option will not be present in the navigation for an application in **Enterprise applications**. 
@@ -37,13 +37,13 @@ In the [quickstart series](view-applications-portal.md), there's an article on c
 You should get the values from the application vendor. You can manually enter the values or upload a metadata file to extract the value of the fields.
 
 > [!TIP]
-> Many apps have already been pre-configured to work with Azure AD. These apps are listed in the gallery of apps that you can browse when you add an app to your Azure AD tenant. The [quickstart series](view-applications-portal.md) walks you through the process. For the apps in the gallery you will find detailed, step-by-step, set up instructions. To access the steps you can click the link on the SAML configuration page for the app as described in the quickstart series or you can browse a list of all app configuration tutorials at [SaaS app configuration tutorials](../saas-apps/tutorial-list.md).
+> Many apps have already been pre-configured to work with Azure AD. These apps are listed in the gallery of apps that you can browse when you add an app to your Azure AD tenant. The [quickstart series](add-application-portal-setup-sso.md) walks you through the process. For the apps in the gallery you will find detailed, step-by-step, set up instructions. To access the steps you can click the link on the SAML configuration page for the app as described in the quickstart series or you can browse a list of all app configuration tutorials at [SaaS app configuration tutorials](../saas-apps/tutorial-list.md).
 
 | Basic SAML Configuration setting | SP-Initiated | idP-Initiated | Description |
 |:--|:--|:--|:--|
 | **Identifier (Entity ID)** | Required for some apps | Required for some apps | Uniquely identifies the application. Azure AD sends the identifier to the application as the Audience parameter of the SAML token. The application is expected to validate it. This value also appears as the Entity ID in any SAML metadata provided by the application. Enter a URL that uses the following pattern: 'https://<subdomain>.contoso.com' *You can find this value as the **Issuer** element in the **AuthnRequest** (SAML request) sent by the application.* |
 | **Reply URL** | Required | Required | Specifies where the application expects to receive the SAML token. The reply URL is also referred to as the Assertion Consumer Service (ACS) URL. You can use the additional reply URL fields to specify multiple reply URLs. For example, you might need additional reply URLs for multiple subdomains. Or, for testing purposes you can specify multiple reply URLs (local host and public URLs) at one time. |
-| **Sign-on URL** | Required | Don't specify | When a user opens this URL, the service provider redirects to Azure AD to authenticate and sign on the user. Azure AD uses the URL to start the application from Office 365 or Azure AD My Apps. When blank, Azure AD does an IdP-initiated sign-on when a user launches the application from Office 365, Azure AD My Apps, or the Azure AD SSO URL.|
+| **Sign-on URL** | Required | Don't specify | When a user opens this URL, the service provider redirects to Azure AD to authenticate and sign on the user. Azure AD uses the URL to start the application from Microsoft 365 or Azure AD My Apps. When blank, Azure AD does an IdP-initiated sign-on when a user launches the application from Microsoft 365, Azure AD My Apps, or the Azure AD SSO URL.|
 | **Relay State** | Optional | Optional | Specifies to the application where to redirect the user after authentication is completed. Typically the value is a valid URL for the application. However, some applications use this field differently. For more information, ask the application vendor.
 | **Logout URL** | Optional | Optional | Used to send the SAML Logout responses back to the application.
 
@@ -52,7 +52,7 @@ You should get the values from the application vendor. You can manually enter th
 When a user authenticates to the application, Azure AD issues the application a SAML token with information (or claims) about the user that uniquely identifies them. By default, this information includes the user's username, email address, first name, and last name. You might need to customize these claims if, for example, the application requires specific claim values or a **Name** format other than username. 
 
 > [!IMPORTANT]
-> Many apps are already pre-configured and in the app gallery and you don't need to worry about setting user and group claims. The [quickstart series](view-applications-portal.md) walks you through adding and configuring apps.
+> Many apps are already pre-configured and in the app gallery and you don't need to worry about setting user and group claims. The [quickstart series](add-application-portal.md) walks you through adding and configuring apps.
 
 
 The **Unique User Identifier (Name ID)** identifier value is a required claim and is important. The default value is *user.userprincipalname*. The user identifier uniquely identifies each user within the application. For example, if the email address is both the username and the unique identifier, set the value to *user.mail*.
@@ -74,7 +74,7 @@ You can add new claims, for details see [Adding application-specific claims](../
 Azure AD uses a certificate to sign the SAML tokens it sends to the application. You need this certificate to set up the trust between Azure AD and the application. For details on the certificate format, see the application’s SAML documentation. For more information, see [Manage certificates for federated single sign-on](manage-certificates-for-federated-single-sign-on.md) and [Advanced certificate signing options in the SAML token](certificate-signing-options.md).
 
 > [!IMPORTANT]
-> Many apps are already pre-configured and in the app gallery and you don't need to dive into certificates. The [quickstart series](view-applications-portal.md) walks you through adding and configuring apps.
+> Many apps are already pre-configured and in the app gallery and you don't need to dive into certificates. The [quickstart series](add-application-portal.md) walks you through adding and configuring apps.
 
 From Azure AD, you can download the active certificate in Base64 or Raw format directly from the main **Set up Single Sign-On with SAML** page. Also, you can get the active certificate by downloading the application metadata XML file or by using the App federation metadata URL. To view, create, or download your certificates (active or inactive), follow these steps.
 
