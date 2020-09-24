@@ -477,7 +477,7 @@ ApiKey={API_KEY}
 
 This command: 
 
-* Runs a speech language-detection container from the container image.
+* Runs a speech language-detection container from the container image. Currently you will not be charged for running this image. 
 * Allocates 1 CPU cores and 1 gigabyte (GB) of memory.
 * Exposes TCP port 5003 and allocates a pseudo-TTY for the container.
 * Automatically removes the container after it exits. The container image is still available on the host computer.
