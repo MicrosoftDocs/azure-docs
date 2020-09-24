@@ -34,7 +34,7 @@ This part of the series covers how to:
 
 ## Connect to your cluster
 
-To connect to your cluster you must first take note of the cluster certificate thumbprint. You can find this value in the cluster properties output of your resource deployment or by querying the cluster properties on an existing resource.
+To connect to your cluster, you'll need the cluster certificate thumbprint. You can find this value in the cluster properties output of your resource deployment or by querying the cluster properties on an existing resource.
 
 The following command can be used to query your cluster resource for the cluster certificate thumbprint.
 
@@ -42,7 +42,7 @@ The following command can be used to query your cluster resource for the cluster
 $serverThumbprint = (Get-AzResource -ResourceId /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ServiceFabric/managedclusters/myCluster).Properties.clusterCertificateThumbprint
 ```
 
-Once you have retrieved the value for the cluster certificate thumbprint you can connect to your cluster.
+With the cluster certificate thumbprint, you're ready to connect to your cluster.
 
 ```powershell
 $connectionEndpoint = "mycluster.eastus2.cloudapp.azure.com:19000"
@@ -58,7 +58,7 @@ Connect-ServiceFabricCluster -ConnectionEndpoint $connectionEndpoint -KeepAliveI
 
 ### Upload an application package
 
-In this tutorial, we will be using the [Service Fabric Voting Application](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart) sample. For more details on Service Fabric application deployment through PowerShell see [Service Fabric deploy and remove applications](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications).
+In this tutorial, we'll be using the [Service Fabric Voting Application](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart) sample. For more details on Service Fabric application deployment through PowerShell see [Service Fabric deploy and remove applications](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications).
 
 ```powershell
 $path = "C:\Users\<user>\Documents\service-fabric-dotnet-quickstart\Voting\pkg\Debug"
@@ -74,7 +74,7 @@ You can instantiate an application from any application type version that has be
 New-ServiceFabricApplication fabric:/Voting VotingType 1.0.0
 ```
 
-Once this operation completes, you can should see your application instances running in the Service Fabric Explorer.
+Once this operation completes, you should see your application instances running in the Service Fabric Explorer.
 
 ### Remove an application
 
@@ -86,7 +86,7 @@ Remove-ServiceFabricApplication fabric:/Voting
 
 ## Next steps
 
-In this step we created and deployed our first Service Fabric managed cluster. To learn more about how to scale a cluster, see:
+In this step, we created and deployed our first Service Fabric managed cluster. To learn more about how to scale a cluster, see:
 
 > [!div class="nextstepaction"]
 > [Scale out a Service Fabric managed cluster](./tutorial-managed-cluster-scale.md)

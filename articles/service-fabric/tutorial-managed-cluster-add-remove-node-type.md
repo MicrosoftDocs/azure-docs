@@ -29,13 +29,13 @@ This part of the series covers how to:
 
 ## Add a node type to a Service Fabric managed cluster
 
-You can add a node type to a Service Fabric managed cluster through an Azure Resource Manager template, PowerShell, or CLI. In this tutorial we will be adding a node type using the Azure PowerShell.
+You can add a node type to a Service Fabric managed cluster through an Azure Resource Manager template, PowerShell, or CLI. In this tutorial, we will be adding a node type using the Azure PowerShell.
 
-To create a new node type, we will need to define three properties:
+To create a new node type, you'll need to define three properties:
 
-* **Node Type Name**: This should be a unique name from any other node types that already exist in the cluster.
-* **Instance Count**: This will be the initial number of nodes in the new node type.
-* **VM Size**: This will be the VM SKU which the nodes are running on. If this property is not specified the default value with be a Standard_D2.
+* **Node Type Name**: Name that is unique from any existing node types in the cluster.
+* **Instance Count**: Initial number of nodes of the new node type.
+* **VM Size**: VM SKU for the nodes. If not specified, the default value *Standard_D2* is used.
 
 > [!NOTE]
 > If the node type being added is the first or only node type in the cluster, the Primary property must be used.
@@ -51,7 +51,7 @@ New-AzServiceFabricManagedNodeType -ResourceGroupName $resourceGroup -ClusterNam
 
 ## Remove a node type from a Service Fabric managed cluster
 
-To remove a node type from a Service Fabric managed cluster, you must use PowerShell or CLI. In this tutorial we will be remove a node type using the Azure PowerShell. 
+To remove a node type from a Service Fabric managed cluster, you must use PowerShell or CLI. In this tutorial, we will remove a node type using Azure PowerShell.
 
 > [!NOTE]
 > It is not possible to remove a primary node type if it is the only primary node type in the cluster.  
@@ -68,7 +68,7 @@ Remove-AzServiceFabricManagedNodeType -ResourceGroupName $resourceGroup -Cluster
 
 ## Next steps
 
- In this step we added and deleted node types. To learn more about upgrading, see:
+ In this section, we added and deleted node types. To learn about upgrading your cluster, see:
 
 > [!div class="nextstepaction"]
 > [Upgrade a Service Fabric managed cluster](./tutorial-managed-cluster-upgrade.md)
