@@ -72,9 +72,7 @@ To extract face attributes, use detection model 1 and add the `returnFaceAttribu
 
 :::code language="shell" source="~/cognitive-services-quickstart-code/curl/face/detect.sh" id="detection_model_1":::
 
-## Run the command
-
-Open a command prompt and enter the new command. You should see the face information displayed as JSON data in the console window. For example:
+The returned face information now includes face attributes. For example:
 
 ```json
 [
