@@ -19,7 +19,7 @@ Learn how to use a custom Docker base image when deploying trained models with A
 
 Azure Machine Learning provides a default Docker base image so you don't have to worry about creating one. You can also use Azure Machine Learning __environments__ to select a specific base image, or use a custom one that you provide.
 
-A base image is used as the starting point when an image is created for a deployment. It provides the underlying operating system and components. The pre-deployment process then adds additional components, such as your model, conda environment, and other assets, to the image.
+A base image is used as the starting point when an image is created for a deployment. It provides the underlying operating system and components. The deployment process then adds additional components, such as your model, conda environment, and other assets, to the image.
 
 Typically, you create a custom base image when you want to use Docker to manage your dependencies, maintain tighter control over component versions or save time during deployment. You might also want to install software required by your model, where the installation process takes a long time. Installing the software when creating the base image means that you don't have to install it for each deployment.
 
