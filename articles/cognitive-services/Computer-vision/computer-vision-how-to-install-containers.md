@@ -21,7 +21,7 @@ Containers enable you to run the Computer Vision APIs in your own environment. C
 
 The *Read* container allows you to detect and extract *printed text* from images of various objects with different surfaces and backgrounds, such as receipts, posters, and business cards. Additionally, the *Read* container detects *handwritten text* in images and provides PDF, TIFF, and multi-page file support. For more information, see the [Read API documentation](concept-recognizing-text.md#read-api).
 
-Starting September 22nd, two version 3.x containers are available in preview. The Read 3.0-preview container preview provides:
+Starting September 22nd, two version 3.x containers are available in preview. The Read 3.0-preview container provides:
 * New models for enhanced accuracy.
 * Support for multiple languages within the same document
 * Support for: Dutch, English, French, German, Italian, Portuguese, and Spanish.
