@@ -2,13 +2,13 @@
 title: Metric alerts from Azure Monitor for containers | Microsoft Docs
 description: This article reviews the recommended metric alerts available from Azure Monitor for containers in public preview.
 ms.topic: conceptual
-ms.date: 08/04/2020
+ms.date: 09/23/2020
 
 ---
 
 # Recommended metric alerts (preview) from Azure Monitor for containers
 
-To alert on system resource issues when they are experiencing peak demand and running near capacity, with Azure Monitor for containers you would create a log alert based on performance data stored in Azure Monitor Logs. Azure Monitor for containers now includes pre-configured metric alert rules for your AKS cluster, which is in public preview.
+To alert on system resource issues when they are experiencing peak demand and running near capacity, with Azure Monitor for containers you would create a log alert based on performance data stored in Azure Monitor Logs. Azure Monitor for containers now includes pre-configured metric alert rules for your AKS and Azure Arc enabled Kubernetes cluster, which is in public preview.
 
 This article reviews the experience and provides guidance on configuring and managing these alert rules.
 
@@ -20,7 +20,7 @@ Before you start, confirm the following:
 
 * Custom metrics are only available in a subset of Azure regions. A list of supported regions is documented [here](../platform/metrics-custom-overview.md#supported-regions).
 
-* To support metric alerts and the introduction of additional metrics, the minimum agent version required is **microsoft/oms:ciprod05262020**.
+* To support metric alerts and the introduction of additional metrics, the minimum agent version required is **microsoft/oms:ciprod09162020**.
 
     To verify your cluster is running the newer version of the agent, you can either:
 
@@ -33,7 +33,7 @@ Before you start, confirm the following:
 
 ## Alert rules overview
 
-To alert on what matters, Azure Monitor for containers includes the following metric alerts for your AKS clusters:
+To alert on what matters, Azure Monitor for containers includes the following metric alerts for your AKS and Azure Arc enabled Kubernetes clusters:
 
 |Name| Description |Default threshold |
 |----|-------------|------------------|

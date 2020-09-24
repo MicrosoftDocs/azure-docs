@@ -2,7 +2,7 @@
 title: Configure Azure Arc enabled Kubernetes cluster with Azure Monitor for containers | Microsoft Docs
 description: This article describes how to configure monitoring with Azure Monitor for containers on Azure Arc enabled Kubernetes clusters.
 ms.topic: conceptual
-ms.date: 06/23/2020
+ms.date: 09/23/2020
 ---
 
 # Enable monitoring of Azure Arc enabled Kubernetes cluster
@@ -16,8 +16,6 @@ Azure Monitor for containers can be enabled for one or more existing deployments
 Azure Monitor for containers supports monitoring Azure Arc enabled Kubernetes (preview) as described in the [Overview](container-insights-overview.md) article, except for the following features:
 
 - Live Data (preview)
-
-- [Collect metrics](container-insights-update-metrics.md) from cluster nodes and pods and storing them in the Azure Monitor metrics database
 
 The following is officially supported with Azure Monitor for containers:
 
