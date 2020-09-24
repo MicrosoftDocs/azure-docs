@@ -3,7 +3,7 @@ title: Install and use Azure IoT explorer | Microsoft Docs
 description: Install the Azure IoT explorer tool and use it to interact with the IoT Plug and Play devices connected to IoT hub.
 author: rido-min
 ms.author: rmpablos
-ms.date: 05/06/2020
+ms.date: 09/23/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
@@ -26,15 +26,14 @@ This article shows you how to:
 To use the Azure IoT explorer tool, you need:
 
 - An Azure IoT hub. There are many ways to add an IoT hub to your Azure subscription, such as [Creating an IoT hub by using the Azure CLI](../iot-hub/iot-hub-create-using-cli.md). You need the IoT hub connection string to run the Azure IoT explorer tool. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- A device registered in your IoT hub. You can use the following Azure CLI command to register a device. Be sure to replace the `{YourIoTHubName}` and `{YourDeviceID}` placeholders with your values:
-
-    ```azurecli-interactive
-    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id {YourDeviceID}
-    ```
+- A device registered in your IoT hub. You can use IoT Explorer to create and manage device registrations in your IoT Hub.
 
 ## Install Azure IoT explorer
 
 Go to [Azure IoT explorer releases](https://github.com/Azure/azure-iot-explorer/releases) and expand the list of assets for the most recent release. Download and install the most recent version of the application.
+
+>[!Important]
+>From version 0.11.0 IoT Explorer only supports the IoT Plug and Play GA release (from September 2020). To use the features available in the previous preview-release from Aug 2019 install a 0.10.x version.
 
 ## Use Azure IoT explorer
 
@@ -59,7 +58,7 @@ To remove a source:
 
 Change the source priorities:
 
-You can drag and drop one of the model definition sources to a different ranking in the list. 
+You can drag and drop one of the model definition sources to a different ranking in the list.
 
 ### View devices
 
@@ -121,6 +120,16 @@ To send a command to a device, go to the **Commands** tab:
 #### Telemetry
 
 To view the telemetry for the selected interface, go to its **Telemetry** tab.
+
+#### Known Issues
+
+- IoT Edge support: The current version doesn't show IoT Edge devices in the device list.
+- DTDL language features: IoT Explorer 0.12.x is not fully DTDL v2 compliant, features not supported include:
+  - Interface inheritance with `extends`
+  - Map in map (nested map)
+  - Array type
+  - Custom schemas
+  - Custom semantic types
 
 ## Next steps
 
