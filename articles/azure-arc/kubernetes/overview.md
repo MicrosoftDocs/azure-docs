@@ -47,12 +47,15 @@ Azure Arc enabled Kubernetes supports these scenarios:
 
 * Apply policies by using Azure Policy for Kubernetes. 
 
+[!INCLUDE [azure-lighthouse-supported-service](../../../includes/azure-lighthouse-supported-service.md)]
+
 ## Supported regions 
 
 Azure Arc enabled Kubernetes is currently supported in these regions: 
 
 * East US 
 * West Europe
+
 
 ## Next steps
 

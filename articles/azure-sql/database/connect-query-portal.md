@@ -11,7 +11,7 @@ ms.devlang:
 ms.topic: quickstart
 author: Ninarn
 ms.author: ninarn
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 05/29/2020
 ---
 # Quickstart: Use the Azure portal's query editor to query an Azure SQL Database

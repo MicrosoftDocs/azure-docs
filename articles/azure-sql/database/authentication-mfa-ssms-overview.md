@@ -24,7 +24,7 @@ Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse Analytics supp
 
 For all the features discussed in this article, use at least July 2017, version 17.2. The most recent connection dialog box, should look similar to the following image:
 
-  ![1mfa-universal-connect](./media/authentication-mfa-ssms-overview/1mfa-universal-connect.png "Completes the User name box.")  
+  ![Screenshot of the Connect to Server dialog in SQL Server Management Studio, showing settings for Server type, Server name, and Authentication.](./media/authentication-mfa-ssms-overview/1mfa-universal-connect.png)  
 
 ## Authentication options
 
@@ -52,11 +52,11 @@ All guest users who want to be authenticated using Universal Authentication must
 1. Open a connection in SSMS. Input your server name, and select **Azure Active Directory - Universal with MFA** authentication. Add the **User name** that you want to sign in with.
 1. Select the **Options** box, and go over to the **Connection Properties** tab. In the **Connect to Database** dialog box, complete the dialog box for your database. Check the **AD domain name or tenant ID** box, and provide authenticating authority, such as the domain name (**contosotest.onmicrosoft.com**) or the GUID of the tenant ID. 
 
-   ![mfa-tenant-ssms](./media/authentication-mfa-ssms-overview/mfa-tenant-ssms.png)
+   ![Screenshot of the Connection Properties tab highlighting the settings for Connect to database and AD domain name or tenant ID.](./media/authentication-mfa-ssms-overview/mfa-tenant-ssms.png)
 
 If you are running SSMS 18.x or later, the AD domain name or tenant ID is no longer needed for guest users because 18.x or later automatically recognizes it.
 
-   ![mfa-tenant-ssms](./media/authentication-mfa-ssms-overview/mfa-no-tenant-ssms.png)
+   ![Screenshot of the Connection Properties tab in the Connect to Server dialog in S S M S. "MyDatabase" is selected in the Connect to database field.](./media/authentication-mfa-ssms-overview/mfa-no-tenant-ssms.png)
 
 ### Azure AD business to business support
 

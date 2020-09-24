@@ -1,4 +1,4 @@
-- name: Azure IoT Hub Device Provisioning Service Documentation 
+- name: Azure IoT Hub Device Provisioning Service documentation 
   href: index.yml
 - name: Overview
   items:
@@ -47,8 +47,6 @@
        href: how-to-provision-multitenant.md
      - name: Use custom allocation policies
        href: how-to-use-custom-allocation-policies.md
-  - name: 3 - Reprovisioning tutorial
-    href: how-to-reprovision.md
 - name: Samples
   items:
   - name: Simulated TPM device attestation sample

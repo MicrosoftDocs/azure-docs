@@ -8,21 +8,26 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 09/15/2020
+ms.date: 09/22/2020
+ms.custom: contperfq1
 ---
 # What is Azure Cognitive Search?
 
-Azure Cognitive Search ([formerly known as "Azure Search"](whats-new.md#new-service-name)) is a cloud search service that gives developers APIs and tools for adding a rich search experience over private, heterogeneous content in web, mobile, and enterprise applications.
+Azure Cognitive Search ([formerly known as "Azure Search"](whats-new.md#new-service-name)) is a cloud search service that gives developers APIs and tools for building a rich search experience over private, heterogeneous content in web, mobile, and enterprise applications.
 
-Cognitive Search provides an indexing and query engine, and persistent storage of search indexes. It fits in between the external data stores that contribute content, and a client app that sends query requests and handles responses. The two primary workloads of a search service include *indexing* and *querying*.
+When you create a Cognitive Search service, you get a search engine that performs indexing and query execution, persistent storage of indexes that you create and manage, and a query language for composing simple to complex queries. Optionally, a search service integrates with other Azure services in the form of *indexers* that automate data ingestion/retrieval from Azure data sources, and *skillsets* that incorporate consumable AI from Cognitive Services, such as image and text analysis, or custom AI that you create in Azure Machine Learning or wrap inside Azure Functions.
 
 ![Azure Cognitive Search architecture](media/search-what-is-azure-search/azure-search-diagram.svg "Azure Cognitive Search architecture")
 
-Indexing is when your code or a tool defines an index schema and loads data into your search service. Optionally, you can add cognitive skills during indexing to apply AI processes. Doing so can create new information and structures useful for search and knowledge mining scenarios.
+Architecturally, a search service sits in between the external data stores that contain your un-indexed data, and a client app that sends query requests to a search index and handles the response.  An index schema determines the structure of searchable content. 
 
-Once an index exists, your client app sends requests to a search service and handles responses. The search experience is defined in your client using APIs from Azure Cognitive Search, with query execution over a search index that you create, own, and store in your service.
+The two primary workloads of a search service are *indexing* and *querying*.
 
-Functionality is exposed through a simple [REST API](/rest/api/searchservice/) or [.NET SDK](search-howto-dotnet-sdk.md) that masks the inherent complexity of information retrieval. You can also use the Azure portal for service administration and content management, with tools for prototyping and querying your indexes. Because the service runs in the cloud, infrastructure and availability are managed by Microsoft.
++ Indexing brings text into to your search service and makes it searchable. Internally, inbound text is processed into tokens and stored in inverted indexes for fast scans.During indexing, you have the option of adding *cognitive skills*, either predefined ones from Microsoft or custom skills that you create. The subsequent analysis and transformations can result in new information and structures that did not previously exist, providing high utility for many search and knowledge mining scenarios.
+
++ Once an index is populated with searchable data, your client app sends query requests to a search service and handles responses. All query execution is over a search index that you create, own, and store in your service. In your client app, the search experience is defined using APIs from Azure Cognitive Search, and can include relevance tuning, autocomplete, synonym matching, fuzzy matching, pattern matching, filter, and sort.
+
+Functionality is exposed through a simple [REST API](/rest/api/searchservice/) or [.NET SDK](search-howto-dotnet-sdk.md) that masks the inherent complexity of information retrieval. You can also use the Azure portal for service administration and content management, with tools for prototyping and querying your indexes and skillsets. Because the service runs in the cloud, infrastructure and availability are managed by Microsoft.
 
 ## When to use Cognitive Search
 
@@ -32,7 +37,7 @@ Azure Cognitive Search is well suited for the following application scenarios:
 
 + Easy implementation of search-related features. Search APIs simplify query construction, faceted navigation, filters (including geo-spatial search), synonym mapping, autocomplete, and relevance tuning. Using built-in features, you can satisfy end-user expectations for a search experience similar to commercial web search engines.
 
-+ Raw content is large undifferentiated text or image files or application files stored in Azure Blob storage or Cosmos DB. You can apply [cognitive skills](cognitive-search-concept-intro.md) during indexing to extract text, create structure, or create new information such as translated text or entities.
++ Raw content is large undifferentiated text or image files or application files stored in Azure Blob storage or Cosmos DB. You can apply [cognitive skills](cognitive-search-concept-intro.md) during indexing to identify and extract text, create structure, or create new information such as translated text or entities.
 
 + Content needs linguistic or custom text analysis. If you have non-English content, Azure Cognitive Search supports both Lucene analyzers and Microsoft's natural language processors. You can also configure analyzers to achieve specialized processing of raw content, such as filtering out diacritics, or recognizing and preserving patterns in strings.
 
@@ -51,9 +56,12 @@ For paid tiers, you can scale a service in two dimensions to calibrate resourcin
 
 ### Step 2: Create an index
 
-Define an index schema to map to reflect the structure of the documents you wish to search, similar to fields in a database.. A search index is a specialized data structure that is optimized for fast query execution.
+Define an index schema to map to reflect the structure of the documents you wish to search, similar to fields in a database. A search index is a specialized data structure that is optimized for fast query execution.
 
 It's common to [create the index schema in the Azure portal](search-what-is-an-index.md), or programmatically using the [.NET SDK](search-howto-dotnet-sdk.md) or [REST API](/rest/api/searchservice/).
+
+> [!TIP]
+> Start with the [Quickstart: Import data wizard](search-get-started-portal.md) to create, load, and query an index in minutes.
 
 ### Step 3: Load data
 
