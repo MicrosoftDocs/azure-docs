@@ -35,7 +35,7 @@ You must meet the following prerequisites before using the containers:
 
 ## Request approval to run the container
 
-Fill out and submit the [request form](https://aka.ms/cognitivegate) to request approval to run the container. 
+Fill out and submit the [request form](https://aka.ms/csgate) to request approval to run the container. 
 
 [!INCLUDE [Request access to public preview](../../../includes/cognitive-services-containers-request-access.md)]
 
@@ -165,7 +165,15 @@ To find your connection string:
 
 The container provides REST-based query prediction endpoint APIs. 
 
-Use the host, `http://localhost:5000`, for container APIs. You can view the Swagger path at `http://localhost:5000/swagger/vision-v3.0-read/swagger.json`.
+# [Version 3.1-preview](#tab/version-3-1)
+
+Use the host, `http://localhost:5000`, for container APIs. You can view the Swagger path at: `http://localhost:5000/swagger/vision-v3.0-preview-read/swagger.json`.
+
+# [Version 3.0-preview](#tab/version-3)
+
+Use the host, `http://localhost:5000`, for container APIs. You can view the Swagger path at: `http://localhost:5000/swagger/vision-v3.1-preview-read/swagger.json`.
+
+---
 
 ### Asynchronous read
 
@@ -330,9 +338,9 @@ You can use the following operation to synchronously read an image.
 
 `POST /vision/v3.1/read/syncAnalyze` 
 
-# [Version 3.0](#tab/version-3)
+# [Version 3.0-preview](#tab/version-3)
 
-`POST /vision/v3.0/read/SyncAnalyze`
+`POST /vision/v3.0/read/syncAnalyze`
 
 ---
 

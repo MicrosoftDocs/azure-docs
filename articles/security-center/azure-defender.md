@@ -3,7 +3,7 @@ title: Overview of Azure Defender and the available plans
 description: Learn about Azure Defender's plans, protections, and alerts. Then proceed to enable Azure Defender on your subscriptions. 
 author: memildin
 ms.author: memildin
-ms.date: 9/12/2020
+ms.date: 9/22/2020
 ms.topic: conceptual
 ms.service: security-center
 manager: rkarlin
@@ -17,7 +17,7 @@ Azure Security Center's features cover the two broad pillars of cloud security:
 - **Cloud security posture management (CSPM)**
 - **Cloud workload protection (CWP)**
 
-The CSPM features of Security Center, such as secure score, detection of security misconfigurations in your Windows and Linux Azure machines, are all part of the free Security Center experience available to all Azure users. Use these CSPM features to strengthen your posture, ensure regulatory compliance, 
+The CSPM features of Security Center, such as secure score, detection of security misconfigurations in your Windows and Linux Azure machines, are all part of the free Security Center experience available to all Azure users. Use these CSPM features to strengthen your posture and ensure regulatory compliance.
 
 **Azure Defender** is the cloud workload protection platform (CWPP) integrated within Security Center for advanced, intelligent, protection of your Azure and hybrid workloads.
 

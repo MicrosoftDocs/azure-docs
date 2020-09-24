@@ -133,32 +133,12 @@ docker exec -it <Container ID> /bin/bash
 
 Now you can run commands as though you are running them at the terminal inside the container. When finished, type `exit`. This exits in the interactive command session, but your container continues to run.
 
-## Troubleshooting issues with data streaming
-
-By default, the Azure SQL Edge streaming engine logs are written to a file named `current` under the **/var/opt/mssql/log/services/00000001-0000-0000-0000-000000000000** directory. The file can be accessed either directly through the mapped volume or data volume container or by starting an interactive command-prompt session to the SQL Edge container. 
-
-Additionally, if you are able to connect to the SQL Edge instance using the client tools, you can use the following T-SQL command to access the current streaming engine log. 
-
-```sql
-
-select value as log, try_convert(DATETIME2, substring(value, 0, 26)) as timestamp 
-from 
-    STRING_SPLIT
-    (
-        (
-            select BulkColumn as logs
-            FROM OPENROWSET (BULK '/var/opt/mssql/log/services/00000001-0000-0000-0000-000000000000/current', SINGLE_CLOB) MyFile
-        ),
-        CHAR(10)
-    ) 
-where datalength(value) > 0
-
-```
-
 ### Enabling verbose logging
 
 If the default log level for the streaming engine does not provide enough information, debug logging for the streaming engine can be enabled in SQL Edge. To enable debug logging add the `RuntimeLogLevel=debug` environment variable to your SQL Edge deployment. After enabling debug logging, attempt to reproduce the problem and check the logs for any relevant messages or exceptions. 
 
+> [!NOTE]
+> The Verbose Logging option should only be used for troubleshooting and not for regular production workload. 
 
 
 ## Next steps

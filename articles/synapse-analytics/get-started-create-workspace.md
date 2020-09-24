@@ -11,7 +11,11 @@ ms.topic: tutorial
 ms.date: 08/27/2020 
 ---
 
-# Create a Synapse workspace
+# Prerequisites
+
+To complete this all of this tutorial's steps, you need to have access to a resource group for which you are assigned the **Owner** role. Create the Synapse workspace in this resource group.
+
+## Create a Synapse workspace
 
 In this tutorial, you'll learn how to create a Synapse workspace, a SQL pool, and an Apache Spark pool. 
 

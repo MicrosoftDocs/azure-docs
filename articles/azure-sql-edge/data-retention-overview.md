@@ -35,6 +35,7 @@ After data retention is configured for a table, a background task runs to identi
 
 - Data Retention, if enabled, is automatically disabled when the database is restored from a full backup or is reattached. 
 - Data Retention cannot be enabled for a Temporal History Table
+- Data Retention filter colomn cannot be altered. To alter the column, disable data retention on the table.  
 
 ## Next Steps
 
