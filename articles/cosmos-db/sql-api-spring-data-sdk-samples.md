@@ -96,7 +96,7 @@ mvn spring-boot:run
 ```
 
 ## Document CRUD examples
-The [samples](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/springexamples/quickstart/sync/SampleApplication.java) file shows how to perform the following tasks. To learn about the Azure Cosmos documents before running the following samples, see [Working with databases, containers, and items](databases-containers-items.md) conceptual article.
+The [samples](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/springexamples/quickstart/sync/SampleApplication.java) file shows how to perform the following tasks. To learn about Azure Cosmos documents before running the following samples, see [Working with databases, containers, and items](databases-containers-items.md) conceptual article.
 
 | Task | API reference |
 | --- | --- |
@@ -105,7 +105,7 @@ The [samples](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql
 | [Delete all documents](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/springexamples/quickstart/sync/SampleApplication.java#L39-L41) | CosmosRepository.deleteAll |
 
 ## Derived query method examples
-The [samples](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/springexamples/quickstart/sync/SampleApplication.java) file shows how to perform the following tasks. To learn about the Azure Cosmos documents before running the following samples, you may find it helpful to read [Baeldung's Derived Query Methods in Spring](https://www.baeldung.com/spring-data-derived-queries) article.
+The [samples](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/springexamples/quickstart/sync/SampleApplication.java) file shows how to perform the following tasks. To learn about Azure Cosmos DB queries before running the following samples, you may find it helpful to read [Baeldung's Derived Query Methods in Spring](https://www.baeldung.com/spring-data-derived-queries) article.
 
 | [Query for documents](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/springexamples/quickstart/sync/SampleApplication.java#L73-L77) | CosmosRepository.derivedQueryMethod |
 
