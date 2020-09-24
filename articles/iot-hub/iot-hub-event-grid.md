@@ -66,6 +66,8 @@ The following example shows the schema of a device connected event:
 }]
 ```
 
+
+
 ### Device Telemetry schema
 
 Device telemetry message must be in a valid JSON format with the contentType set to **application/json** and contentEncoding set to **UTF-8** in the message [system properties](iot-hub-devguide-routing-query-syntax.md#system-properties). Both of these properties are case insensitive. If the content encoding is not set, then IoT Hub will write the messages in base 64 encoded format.
@@ -155,6 +157,9 @@ The following example shows the schema of a device created event:
   "metadataVersion": "1"
 }]
 ```
+
+
+> **WARNING**: **Twin data** associated with device creation event is a default configuration and **shouldn't** be relied up for actual authenticationType and other device properties that newly created device currently has. For that Register Manager API can be used which are provided in Azure IoT SDKs.
 
 For a detailed description of each property, see [Azure Event Grid event schema for IoT Hub](../event-grid/event-schema-iot-hub.md).
 
