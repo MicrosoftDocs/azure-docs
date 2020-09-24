@@ -10,7 +10,7 @@ ms.devlang:
 ms.topic: conceptual
 author: dalechen
 ms.author: ninarn
-ms.reviewer: carlrab, vanto
+ms.reviewer: sstein, vanto
 ms.date: 01/14/2020
 ---
 

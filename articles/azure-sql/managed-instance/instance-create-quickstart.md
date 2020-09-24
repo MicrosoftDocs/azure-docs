@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: quickstart
 author: danimir
 ms.author: danil
-ms.reviewer: sstein, carlrab
+ms.reviewer: sstein
 ms.date: 09/26/2019
 ---
 # Quickstart: Create a managed instance of SQL Managed Instance

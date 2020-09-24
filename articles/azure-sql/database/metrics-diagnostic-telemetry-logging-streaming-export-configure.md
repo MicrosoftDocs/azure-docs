@@ -9,7 +9,7 @@ ms.devlang: sqldbrb=2
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: jrasnik, sstein
 ms.date: 04/06/2020
 ---
 
