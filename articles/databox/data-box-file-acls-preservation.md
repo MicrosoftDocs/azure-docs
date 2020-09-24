@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: conceptual
-ms.date: 09/23/2019
+ms.date: 09/24/2019
 ms.author: alkohli
 ---
 
@@ -47,7 +47,7 @@ The following metadata is transferred when data from the Data Box is uploaded to
 
   File attributes on both files and directories are transferred unless otherwise noted.
 
-  Read-only attributes on directories are not transferred.
+  Read-only attributes on directories aren't transferred.
 
   The following file attributes are transferred:
   - FILE_ATTRIBUTE_READONLY (file only)
@@ -64,15 +64,15 @@ The following metadata is transferred when data from the Data Box is uploaded to
 
 - ACLs:
 
-  All the ACLs for directories and files copied to your Data Box over SMB are copied and transferred. Transfers include both discretionary ACLs (DACLs) and system ACLs (SACLs). For Linux, only Windows NT ACLs are transferred.
+  All the ACLs for directories and files that you copy to your Data Box over SMB are copied and transferred. Transfers include both discretionary ACLs (DACLs) and system ACLs (SACLs). For Linux, only Windows NT ACLs are transferred.
 
-  ACLs are not transferred during data copies over Network File System (NTS) and when you use the data copy service to transfer your data. The data copy service reads data directly from your shares and can't read ACLs.
+  ACLs aren't transferred during data copies over Network File System (NTS) and when you use the data copy service to transfer your data. The data copy service reads data directly from your shares and can't read ACLs.
 
   The ACLs contain security descriptors with the following properties: ACLs, Owner, Group, SACL.
 
   Transfer of ACLs is enabled by default. You might want to disable this setting in the local web UI on your Data Box. For more information, see [Use the local web UI to administer your Data Box and Data Box Heavy](./data-box-local-web-ui-admin.md).
 
-  If the tool used to copy data to the Data Box does not copy ACLs, the default ACLs on the directories and files are present and<!--Is "are present" needed?--> are transferred to Azure Files. The default ACLs have permissions for Built-in Administrators, System, and the SMB Share user account that was used to mount and copy data.
+  If the tool that you use to copy data to the Data Box doesn't copy ACLs, the default ACLs on the directories and files are present and<!--Is "are present" needed?--> are transferred to Azure Files. The default ACLs have permissions for Built-in Administrators, System, and the SMB Share user account that was used to mount and copy data.
 
   > [!NOTE]
   > Files with ACLs containing conditional access control entry (ACE) strings are not copied. This is a known issue. To work around this, copy these files to the Azure Files share manually by mounting the share and then using a copy tool that supports copying ACLs.
@@ -83,9 +83,9 @@ To transfer the ACLs, timestamps, and attributes for your data, use the followin
 
 ### Windows data copy tool
 
-To copy data to your Data Box via SMB, use an SMB-compatible file copy tool such as robocopy. The following sample command copies all files and directories.
+To copy data to your Data Box via SMB, use an SMB-compatible file copy tool such as robocopy. The following sample command copies all files and directories, transferring metadata along with the data.<!--ADDED LAST CLAUSE TO CONTRAST WINDOWS WITH LINUX.-->
 
-When using the /copyall option, make sure the required Backup Operator privileges are not disabled. For more information, see [Use the local web UI to administer your Data Box and Data Box Heavy](./data-box-local-web-ui-admin.md). 
+When using the /copyall <!--or /dcopy:DAT?--> option, make sure the required Backup Operator privileges aren't disabled. For more information, see [Use the local web UI to administer your Data Box and Data Box Heavy](./data-box-local-web-ui-admin.md). 
 
 ```console
 robocopy <Source> <Target> * /copyall /e /dcopy:DAT /r:3 /w:60 /is /nfl /ndl /np /MT:32 or 64 /fft /Log+:<LogFile>
@@ -95,7 +95,7 @@ where
 
 |Option |Description |
 |------------------- | ----- |
-|/copyall |Copies all files.|
+|/copyall |Copies all attributes.|
 |/e      |Copies subdirectories, including empty directories.         |
 |/dcopy:DAT  |Copies data, attributes, and timestamps.|
 |/r:3    |Specifies 3 retries on failed copies.         |
