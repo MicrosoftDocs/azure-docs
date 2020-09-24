@@ -80,7 +80,7 @@ Create an Azure ML environment from this Conda environment specification. The en
 ```python
 from azureml.core import Environment
 
-sklearn_env = Environment.from_conda_specification(name = "sklearn-env", file_path = "conda_dependencies.yml")
+sklearn_env = Environment.from_conda_specification(name='sklearn-env', file_path='conda_dependencies.yml')
 ```
 
 For more information on creating and using environments, see [Create and use software environments in Azure Machine Learning](how-to-use-environments.md).
@@ -90,7 +90,7 @@ Optionally, Azure ML provides prebuilt, curated environments if you don't want t
 If you want to use a curated environment, you can run the following command instead:
 
 ```python
-sklearn_env = Environment.get(workspace=ws, name="AzureML-Tutorial")
+sklearn_env = Environment.get(workspace=ws, name='AzureML-Tutorial')
 ```
 
 ## Configure and submit your training run
