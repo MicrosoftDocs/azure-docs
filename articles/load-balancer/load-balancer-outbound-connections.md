@@ -115,7 +115,7 @@ Changing the size of your backend pool might affect some of your established flo
 
 - Backend pool size increases trigger transitions into the next tier. Half of the preallocated [SNAT](#snat) ports are reclaimed during the transition to the next tier. 
 
-- Flows that are associated with a reclaimed [SNAT](#snat) port will time out. These flows must be reestablished. If a new flow is attempted, the flow will succeed immediately as long as preallocated ports are available.
+- Flows associated with a reclaimed [SNAT](#snat) port timeout and close. These flows must be reestablished. If a new flow is attempted, the flow will succeed immediately as long as preallocated ports are available.
 
 - If the backend pool size lowers and transitions into a lower tier, the number of available [SNAT](#snat) ports increases. The existing given [SNAT](#snat) ports and their respective flows aren't affected.
 
@@ -161,7 +161,7 @@ Each of the IP addresses within public IP prefix provides an additional 64,000 e
 
 Outbound rules provide a configuration parameter to control the outbound flow idle timeout and match it to the needs of your application. Outbound idle timeouts default to 4 minutes. For more information, see [configure idle timeouts](load-balancer-tcp-idle-timeout.md#tcp-idle-timeout). 
 
-The default behavior of load balancer is to drop the flow silently when the outbound idle timeout has been reached. The `enableTCPReset` parameter enables a predictable application behavior and control. The parameter dictates whether to send bidirectional TCP Reset (TCP RST) at the time out of the outbound idle timeout. 
+The default behavior of load balancer is to drop the flow silently when the outbound idle timeout has been reached. The `enableTCPReset` parameter enables a predictable application behavior and control. The parameter dictates whether to send bidirectional TCP Reset (TCP RST) at the timeout of the outbound idle timeout. 
 
 Review [TCP Reset on idle timeout](https://aka.ms/lbtcpreset) for details including region availability.
 
