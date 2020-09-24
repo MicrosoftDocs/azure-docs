@@ -35,7 +35,7 @@ Cloud tiering does not depend on the NTFS feature for tracking last access time.
 <a id="tiering-minimum-file-size"></a>
 ### What is the minimum file size for a file to tier?
 
-For agent versions 9 and newer, the minimum file size for a file to tier is based on the file system cluster size. The minimum file size eligible for cloud tiering is calculated by 2x the cluster size and at a minimum 8 KB. The following table illustrates the minimum file sizes that can be tiered, based on the volume cluster size:
+For agent versions 12 and newer, the minimum file size for a file to tier is based on the file system cluster size. The minimum file size eligible for cloud tiering is calculated by 2x the cluster size and at a minimum 8 KB. The following table illustrates the minimum file sizes that can be tiered, based on the volume cluster size:
 
 |Volume cluster size (Bytes) |Files of this size or larger can be tiered  |
 |----------------------------|---------|
@@ -43,9 +43,9 @@ For agent versions 9 and newer, the minimum file size for a file to tier is base
 |8 KB (8192)                 | 16 KB   |
 |16 KB (16384)               | 32 KB   |
 |32 KB (32768)               | 64 KB   |
-|64 KB (65536)               | 128 KB  |
+|64 KB (65536) and larger    | 128 KB  |
 
-With Windows Server 2019 and Azure File Sync agent version 12 and newer, cluster sizes up to 2 MB are also supported and tiering on those larger cluster sizes works the same way. Older OS or agent versions support cluster sizes up to 64 KB.
+With Windows Server 2019 and Azure File Sync agent version 12 and newer, cluster sizes up to 2 MB are also supported and tiering on those larger cluster sizes works the same way. Older OS or agent versions support cluster sizes up to 64 KB but beyond that, cloud tiering does not work.
 
 All file systems that are used by Windows, organize your hard disk based on cluster size (also known as allocation unit size). Cluster size represents the smallest amount of disk space that can be used to hold a file. When file sizes do not come out to an even multiple of the cluster size, additional space must be used to hold the file - up to the next multiple of the cluster size.
 
@@ -90,13 +90,13 @@ Cloud Tiering uses the last access time to determine which files should be tiere
 Import-Module '<SyncAgentInstallPath>\StorageSync.Management.ServerCmdlets.dll'
 
 # VOLUME FREE SPACE: To get the order in which files will be tiered using the volume free space policy:
-Get-StorageSyncHeatStoreInformation -VolumePath <vol: then Root or ServerEndpointPath> -ReportDirectoryPath '<FolderPathToStoreResultCSV>' -IndexName LastAccessTimeWithSyncAndTieringOrder -Verbose
+Get-StorageSyncHeatStoreInformation -VolumePath '<DriveLetter>:\' -ReportDirectoryPath '<FolderPathToStoreResultCSV>' -IndexName LastAccessTimeWithSyncAndTieringOrder
 
 # DATE POLICY: To get the order in which files will be tiered using the date policy:
-Get-StorageSyncHeatStoreInformation -VolumePath <vol: then Root or ServerEndpointPath> -ReportDirectoryPath '<FolderPathToStoreResultCSV>' -IndexName LastAccessTimeWithSyncAndTieringOrderV2 -Verbose
+Get-StorageSyncHeatStoreInformation -VolumePath '<DriveLetter>:\' -ReportDirectoryPath '<FolderPathToStoreResultCSV>' -IndexName LastAccessTimeWithSyncAndTieringOrderV2
 
 # Find the heat store information for a particular file:
-Get-StorageSyncHeatStoreInformation -FilePath '<PathToSpecificFile>' -Verbose
+Get-StorageSyncHeatStoreInformation -FilePath '<PathToSpecificFile>'
 ```
 
 > [!IMPORTANT]
