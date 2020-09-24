@@ -188,6 +188,15 @@ The following service plans cannot be assigned together:
 | EXCHANGE_S_STANDARD	| 9aaf7827-d63c-4b61-89c3-182f06f82e5c |
 | EXCHANGE_S_STANDARD_MIDMARKET	| fc52cc4b-ed7d-472d-bbe7-b081c23ecc56 |
 
+### Service: *Microsoft 365*
+
+The following service plans cannot be assigned together:
+
+| Service Plan Name | GUID |
+| --- | --- |
+| RMS_S_ENTERPRISE	| bea4c11e-220a-4e6d-8eb8-8ea15d019f90 |
+| RMS_S_ENTERPRISE_GOV	| 6a76346d-5d6e-4051-9fe3-ed3f312b5597 |
+
 ### Service: *Intune*
 
 The following service plans cannot be assigned together:

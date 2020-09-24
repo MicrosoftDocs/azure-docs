@@ -55,7 +55,7 @@ There is no impact on the performance of your transactional workloads due to ana
 
 ### Auto-Sync
 
-Auto-Sync refers to the fully managed capability of Azure Cosmos DB where the inserts, updates, deletes to operational data are automatically synced from transactional store to analytical store in near real time within 5 minutes.
+Auto-Sync refers to the fully managed capability of Azure Cosmos DB where the inserts, updates, deletes to operational data are automatically synced from transactional store to analytical store in near real time. The expected latency is around 2 minutes (contained within 5 minutes).
 
 The auto-sync capability along with analytical store provides the following key benefits:
 
