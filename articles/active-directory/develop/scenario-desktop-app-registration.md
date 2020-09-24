@@ -45,7 +45,9 @@ The redirect URIs to use in a desktop application depend on the flow you want to
 - If your app uses only Integrated Windows Authentication or a username and a password, you don't need to register a redirect URI for your application. These flows do a round trip to the Microsoft identity platform v2.0 endpoint. Your application won't be called back on any specific URI.
 - To distinguish [device code flow](scenario-desktop-acquire-token.md#device-code-flow), [Integrated Windows Authentication](scenario-desktop-acquire-token.md#integrated-windows-authentication), and a [username and a password](scenario-desktop-acquire-token.md#username-and-password) from a confidential client application using a client credential flow used in [daemon applications](scenario-daemon-overview.md), as neither requires a redirect URI, you need to specifically imply that your application is a public client application. To achieve this configuration, go to the **Authentication** section for your application. In the **Advanced settings** subsection, in the **Default client type** paragraph, select **Yes** for **Treat application as a public client**.
 
-  ![Allow public client](media/scenarios/default-client-type.png)
+  :::image type="content" source="media/scenarios/default-client-type.png" alt-text="Allow public client setting in the app registration portal":::
+
+  ![Allow public client]()
 
 ## API permissions
 
