@@ -121,7 +121,7 @@ Azure Event Grid allows customers to build de-coupled message handlers, which ca
 
 1. Select the endpoint to publish the event to. In the following screenshot, __Event hub__ is the selected endpoint:
 
-    ![select-event-handler](./media/how-to-use-event-grid/select-event-handler.png)
+    ![event-handler](./media/how-to-use-event-grid/select-event-handler.png)
 
 Once you have confirmed your selection, click __Create__. After configuration, these events will be pushed to your endpoint.
 
@@ -159,15 +159,15 @@ Use [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/) to configur
 
 1. In the Azure portal, go to your Azure Machine Learning workspace and select the events tab from the left bar. From here, select __Logic apps__. 
 
-    ![select-logic-ap](./media/how-to-use-event-grid/select-logic-ap.png)
+    ![select-logic-app](./media/how-to-use-event-grid/select-logic-ap.png)
 
 1. Sign into the Logic App UI and select Machine Learning service as the topic type. 
 
-    ![select-topic-type](./media/how-to-use-event-grid/select-topic-type.png)
+    ![topic-type](./media/how-to-use-event-grid/select-topic-type.png)
 
 1. Select which event(s) to be notified for. For example, the following screenshot __RunCompleted__.
 
-    ![select-event-runcomplete](./media/how-to-use-event-grid/select-event-runcomplete.png)
+    ![select-event-run-complete](./media/how-to-use-event-grid/select-event-runcomplete.png)
 
 1. You can use the filtering method in the section above or add filters to only trigger the logic app on a subset of event types. In the following screenshot, a __prefix filter__ of __/datadriftID/runs/__ is used.
 
