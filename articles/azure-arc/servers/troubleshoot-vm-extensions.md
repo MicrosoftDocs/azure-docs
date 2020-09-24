@@ -29,9 +29,9 @@ The following troubleshooting steps apply to all VM extensions.
 
 - When enabling VM Insights for an Azure Arc enabled server, it installs the Dependency and Log Analytics agent. On a slow machine or one with a slow network connection, it is possible to see timeouts during the installation process. Microsoft is taking steps to address this in the Connected Machine agent to help improve this condition. In the interim, a retry of the installation may succeed.
 
-### Log Analytics Agent - Linux
+### Log Analytics agent for Linux
 
-- The Log Analytics Agent version is not correctly marking uploaded data with the resource ID of the Azure Arc enabled server. Although logs are being sent to the service, some views of the data are incomplete.
+- The Log Analytics agent version is not correctly marking uploaded data with the resource ID of the Azure Arc enabled server. Although logs are being sent to the service, some views of the data are incomplete.
 
 - Some distributions are not currently supported by the Log Analytics agent for Linux. The agent requires additional dependencies to be installed, including Python 2. Review the support matrix and prerequisites [here](../../azure-monitor/platform/agents-overview.md#supported-operating-systems).
 
