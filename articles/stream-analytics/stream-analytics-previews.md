@@ -49,10 +49,4 @@ Azure Stream Analytics jobs can be authored in Visual Studio Code. See our [VS C
 
 You can test your queries against live data on your local machine before submitting the job to Azure. Each testing iteration takes less than two to three seconds on average, resulting in a very efficient development process.
 
-## Other previews
 
-The following features are also available in preview on request.
-
-### Support for Azure Stack
-This feature enabled on the Azure IoT Edge runtime, leverages custom Azure Stack features, such as native support for local inputs and outputs running on Azure Stack (for example Event Hubs, IoT Hub, Blob Storage). This new integration enables you to build hybrid architectures that can analyze your data close to where it is generated, lowering latency and maximizing insights.
-This feature enables you to build hybrid architectures that can analyze your data close to where it is generated, lowering latency and maximizing insights. You must [sign up](https://aka.ms/asapreview1) for this preview.
