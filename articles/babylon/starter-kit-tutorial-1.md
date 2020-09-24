@@ -1,28 +1,28 @@
 ---
-title: 'Tutorial: Scan data into Babylon'
-description: This tutorial describes how to scan data into your Babylon instance. 
+title: 'Tutorial: Scan data into Azure Babylon'
+description: This tutorial describes how to scan data into your Azure Babylon instance. 
 author: viseshag
 ms.author: viseshag
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: tutorial
-ms.date: 09/21/2020
+ms.date: 09/23/2020
 # Customer intent: As a data steward or catalog administrator, I need to understand how to scan data into the catalog.
 ---
 
-# Tutorial: Starter Kit #1 - Scan data into Babylon
+# Tutorial: Starter Kit #1 - Scan data into Azure Babylon
 
-The starter kit gives you a quick tour of how Babylon works and what it can do. To make it easy for you to experiment and explore, the starter kit client-side code follows these steps to create a *simulated data estate*:
+The starter kit gives you a quick tour of how Azure Babylon works and what it can do. To make it easy for you to experiment and explore, the starter kit client-side code follows these steps to create a simulated *data estate*, which is the state of all the data that a company owns:
 
 * Creates an Azure Blob storage account.
 * Populates the account with test data.
 * Creates an Azure Data Lake Storage Gen2 account.
 * Creates an Azure Data Factory instance.
-* Associates the Data Factory instance to Babylon.
-* Sets up and triggers a copy activity pipeline between the Blob storage and Data Lake Storage Gen2 accounts.
-* Pushes the associated lineage from Data Factory to Babylon.
+* Associates the Azure Data Factory instance to Azure Babylon.
+* Sets up and triggers a copy activity pipeline between the Azure Blob storage and Azure Data Lake Storage Gen2 accounts.
+* Pushes the associated lineage from Azure Data Factory to Azure Babylon.
 
-After the starter kit creates this infrastructure, it walks you through setting up scans on the Azure Blob storage and Data Lake Storage Gen2 accounts. This environment is then reused throughout the rest of the tutorial.
+After the starter kit creates this infrastructure, it walks you through setting up scans on the Azure Blob storage and Azure Data Lake Storage Gen2 accounts. This environment is then reused throughout the next tutorials in the series.
 
 :::image type="content" source="./media/starter-kit-tutorial-1/image1.png" alt-text="Diagram showing the Azure resources created by the starter kit.":::
 
@@ -39,23 +39,23 @@ In this tutorial, you learn how to:
 
 * [Prepare your Windows machine by running a series of scripts](#prepare-your-windows-machine-to-run-the-starter-kit-client-software). These scripts work only on Windows. If this requirement prevents you from running the starter kit, contact BabylonDiscussion\@microsoft.com.
 
-* [Create a Babylon account](create-catalog-portal.md).
+* [Create an Azure Babylon account](create-catalog-portal.md).
 
 ## What the starter kit client software does
 
 When you run the starter kit script, it does the following steps on your behalf:
 
-1. Creates an Azure Data Factory account in your subscription named &lt;YourResourceGroupName&gt;**adcfactory**.
+1. Creates an Azure Data Factory account in your subscription named _&lt;YourResourceGroupName&gt;_**adcfactory**.
 
-1. Associates the newly created Azure Data Factory account to the Data Catalog instance whose name you passed in.
+1. Associates the newly created Azure Data Factory account to the Azure Data Catalog instance whose name you passed in.
 
-1. Creates an Azure Blob storage account in your subscription named &lt;YourResourceGroupName&gt;**adcblob**.
+1. Creates an Azure Blob storage account in your subscription named _&lt;YourResourceGroupName&gt;_**adcblob**.
 
-1. Populates the new Blob storage account with simulated .tsv, .csv, .ssv, and .json data inside a folder structure with the form *yyyy/mm/dd/foo*.csv.
+1. Populates the new Azure Blob storage account with simulated .tsv, .csv, .ssv, and .json data inside a folder structure with the form *yyyy/mm/dd/foo*.csv.
 
-1. Creates an Azure Data Lake Storage Gen2 account in your subscription named &lt;YourResourceGroupName&gt;**adcadls**.
+1. Creates an Azure Data Lake Storage Gen2 account in your subscription named _&lt;YourResourceGroupName&gt;_**adcadls**.
 
-1. Triggers a Data Factory copy activity in your Azure Data Factory account to copy data from the Blob storage account to the Data Lake Storage Gen2 account.
+1. Triggers an Azure Data Factory copy activity in your Azure Data Factory account to copy data from the Azure Blob storage account to the Azure Data Lake Storage Gen2 account.
 
 1. Pushes the lineage associated with the copy activity into the catalog.
 
@@ -67,7 +67,7 @@ Follow these steps to set up the starter kit on your Windows machine:
 
 1. On your computer, enter **PowerShell** in the search box on the Windows taskbar. In the search list, right-click **Windows PowerShell**, and then select **Run as administrator**.
 
-1. In the PowerShell window, enter the following command, replacing *&lt;PathtoStarterKit&gt;* with the folder path of the extracted file.
+1. In the PowerShell window, enter the following command, replacing *&lt;PathtoStarterKit&gt;* with the folder path of the extracted starter kit files.
 
    ```powershell
    dir -Path <PathtoStarterKit> -Recurse | Unblock-File
@@ -96,19 +96,23 @@ It might take up to a minute for PowerShell to install the required modules. Whe
 
 ## Run the starter kit script
 
-### Collect the data needed to run the scripts
+### Collect data needed to run the scripts
 
 Before you run the PowerShell scripts to bootstrap the catalog, get the values of the following arguments to use in the scripts:
 
-* TenantID: In the [Azure portal](https://portal.azure.com), select **Azure Active Directory**. In the **Manage** section in the left pane, select **Properties**, and then select the copy icon for **Tenant ID** to save the value.
+* TenantID:
+   1. In the [Azure portal](https://portal.azure.com), select **Azure Active Directory**.
+   1. In the **Manage** section in the left pane, select **Properties**, and then select the copy icon for **Tenant ID** to save the value.
 
-* SubscriptionID: In the Azure portal, search for and select the name of the Babylon instance that you created. Select the **Overview** section and save the GUID for the **Subscription ID**.
+* SubscriptionID:
+   1. In the Azure portal, search for and select the name of the Azure Babylon instance that you created. 
+   1. Select the **Overview** section and save the GUID for the **Subscription ID**.
 
    > [!NOTE]
    > Make sure you're using the same subscription as the one in which you created the catalog. This is the same subscription that was placed in the allow list.
   
 * PathtoStarterKit: The Windows file folder path where you downloaded and extracted the starter kit's .zip file.
-* CatalogName: The name of the Babylon account that you created in [Create a Babylon account](create-catalog-portal.md).
+* CatalogName: The name of the Azure Babylon account that you created in [Create an Azure Babylon account](create-catalog-portal.md).
 * NewResourceGroupName: The new resource group name to use. Resource group names must be unique with your subscription, all lowercase, and made up of only A-Z and 0-9 characters.
 
    > [!IMPORTANT]
@@ -116,11 +120,11 @@ Before you run the PowerShell scripts to bootstrap the catalog, get the values o
 
 ### Verify the user running the script has catalog permissions
 
-Follow these steps to add the Catalog admin running the script to the Babylon account that was created in [Create a Babylon account](create-catalog-portal.md). If you created the Babylon account yourself, you're automatically made an admin and an Azure contributor, and can skip this section.
+Follow these steps to add the Catalog admin running the script to the Azure Babylon account that was created in [Create a Babylon account](create-catalog-portal.md). If you created the Azure Babylon account yourself, you're automatically made an admin and an Azure contributor, and can skip this section.
 
-1. Browse to the Babylon catalog home page by using one of these methods:
-   * Go to `https://web.babylon.azure.com/resource/<Your Babylon account name>`.
-   * In the [Azure portal](https://portal.azure.com), search for and select your Babylon account, and then select **Launch babylon account**.
+1. Browse to the Azure Babylon catalog home page by using one of these methods:
+   * Go to `https://web.babylon.azure.com/resource/<Your Azure Babylon account name>`.
+   * In the [Azure portal](https://portal.azure.com), search for and select your Azure Babylon account, and then select **Launch babylon account**.
 1. Select **Management Center** in the left pane, and then select **Assign roles**.
 
 1. Select the **Add user** drop-down list from the top menu, and then select **Catalog administrator**.
@@ -129,7 +133,7 @@ Follow these steps to add the Catalog admin running the script to the Babylon ac
 
 ### Run the client-side setup scripts
 
-After the catalog configuration is complete, run the following scripts in the PowerShell window to create the assets:
+After the catalog configuration is complete, run the following scripts in the PowerShell window to create the assets,  replacing the placeholders with the [previously collected values](#collect-data-needed-to-run-the-scripts):
 
 1. **Go to the starter kit folder**.
 
@@ -149,18 +153,18 @@ After the catalog configuration is complete, run the following scripts in the Po
 
 1. **Connect to Azure**.
 
-   Enter the following command, replacing the *&lt;TenantID&gt;* and *&lt;SubsID&gt;* placeholders, and then press Enter. Be sure to connect to the same subscription as the one you created earlier for your catalog.
+   Enter the following command, replacing the *&lt;TenantID&gt;* and *&lt;SubscriptionID&gt;* placeholders, and then press Enter. Be sure to connect to the same subscription as the one you created earlier for your catalog.
 
    ```powershell
    .\\RunStarterKit.ps1 -ConnectToAzure -TenantId <TenantID>
-   -SubscriptionId <SubsID>
+   -SubscriptionId <SubscriptionID>
    ```
 
    After you enter the command, you might be requested to sign in using your Azure Active Directory credentials.
 
 1. **Ingest data**.
 
-   Enter the following command, replacing the *&lt;CatalogName&gt;*, *&lt;TenantID&gt;*, *&lt;SubsID&gt;*, and *&lt;NewResourceGroupName&gt;* placeholders with the [previously collected values](#collecting-data). This command runs the starter kit.
+   Enter the following command, replacing the *&lt;CatalogName&gt;*, *&lt;TenantID&gt;*, *&lt;SubscriptionID&gt;*, and *&lt;NewResourceGroupName&gt;* placeholders. This command runs the starter kit.
 
    ```powershell
    .\\RunStarterKit.ps1 -CatalogName <CatalogName> -TenantId
@@ -170,15 +174,15 @@ After the catalog configuration is complete, run the following scripts in the Po
 
 It can take up to 10 minutes for the environment to be set up. During this time, you might see various pop-up windows, which you can ignore. Don't close the **BlobDataCreator.exe** window; it automatically closes when it finishes.
 
-When you see the line *Executing Copy pipeline xxxxxxxxxx-487e-4fc4-9628-92dd8c2c732b*, wait for another instance of **BlobDataCreator.exe** to start and finish running.
+When you see the message *Executing Copy pipeline xxxxxxxxxx-487e-4fc4-9628-92dd8c2c732b*, wait for another instance of **BlobDataCreator.exe** to start and finish running.
 
-After the process has finished, a resource group with the name you supplied is created. The Azure Data Factory, Blob storage, and Data Lake Storage Gen2 accounts are all contained in this resource group. The resource group is contained in the subscription you specified.
+After the process has finished, a resource group with the name you supplied is created. The Azure Data Factory, Azure Blob storage, and Azure Data Lake Storage Gen2 accounts are all contained in this resource group. The resource group is contained in the subscription you specified.
 
 ## Scan data into the catalog
 
-Scanning is a process by which the catalog connects directly to a data source on a user-specified schedule. The state of all the data that a company owns is called the *data estate*. The catalog reflects the data estate through scanning, lineage, the portal, and the API. Goals include examining what's inside, extracting schema, and attempting to understand semantics. In this section, you set up a scan of the content you generated with the starter kit.
+Scanning is a process by which the catalog connects directly to a data source on a user-specified schedule. The catalog reflects a company's data estate through scanning, lineage, the portal, and the API. Goals include examining what's inside, extracting schema, and attempting to understand semantics. In this section, you set up a scan of the content you generated with the starter kit.
 
-The starter kit script that you ran created two data sources that you can scan into the catalog, Azure Blob storage and Azure Data Lake Storage Gen2.
+The starter kit script that you ran created two data sources, Azure Blob storage and Azure Data Lake Storage Gen2. You can scan these data sources into the catalog one at a time.
 
 To scan the Azure Blob storage data source:
 
@@ -192,10 +196,10 @@ To scan the Azure Blob storage data source:
 1. Select **Azure Blob Storage** > **Continue**.
 
    :::image type="content" source="./media/starter-kit-tutorial-1/image24.png" alt-text="Screenshot showing Azure Blob Storage selected for a new data source.":::
-1. On the **Register sources** page, enter a **Name**. Choose the **Storage account name** of the Azure Blob Storage account that you previously created with the starter kit: &lt;*YourResourceGroupName*&gt;**adcblob**. Select **Finish**.
+1. On the **Register sources** page, enter a **Name**. Choose the **Storage account name** of the Azure Blob storage account that you previously created with the starter kit: &lt;*YourResourceGroupName*&gt;**adcblob**. Select **Finish**.
 
-   :::image type="content" source="./media/starter-kit-tutorial-1/register-azure-blob-storage.png" alt-text="Screenshot showing the settings to register an Azure Blob Storage data source.":::
-1. Now that you've added information about the blob account to the catalog, you can set up a scan. On the **Data sources** page, select **Set up scan** in the entry for the new data source you registered.
+   :::image type="content" source="./media/starter-kit-tutorial-1/register-azure-blob-storage.png" alt-text="Screenshot showing the settings to register an Azure Blob storage data source.":::
+1. On the **Data sources** page, select **Set up scan** in the entry for the new data source you registered.
 
    :::image type="content" source="./media/starter-kit-tutorial-1/select-setup-scan.png" alt-text="Screenshot showing how to select a scan setup from a data source.":::
 1. On the **Set up a scan** page, enter a scan name, and then select **Account Key** from the **Authentication method** drop-down list.
@@ -239,7 +243,7 @@ To verify that your scans have succeeded:
 
    :::image type="content" source="./media/starter-kit-tutorial-1/data-source-scan-status.png" alt-text="Screenshot showing the scan status screen for the sample data source.":::
 
-1. When you select the completed scan, the following window appears:
+1. Select the completed scan.
 
    :::image type="content" source="./media/starter-kit-tutorial-1/scan-run-history.png" alt-text="Screenshot showing a successful scan run screen.":::
 
