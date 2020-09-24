@@ -44,7 +44,7 @@ Azure uses the public IP assigned to the IP configuration of the instance's NIC 
 
 A public IP assigned to a VM is a 1:1 relationship (rather than 1: many) and implemented as a stateless 1:1 NAT.
 
-### Scenario 2 - Virtual machine with no public IP
+### Scenario 2 - Virtual machine without public IP
 
 | Associations | Method | IP protocols |
 | ------------ | ------ | ------------ |
@@ -64,7 +64,7 @@ Ephemeral ports of the load balancer frontend public IP address are used to dist
 
 In this context, the ephemeral ports used for SNAT are called SNAT ports. SNAT ports are pre-allocated as described in the [Default SNAT ports allocation table](#snatporttable).
 
-### Scenario 3 - Virtual machine with no public IP and no standard load balancer
+### Scenario 3 - Virtual machine without public IP and without standard load balancer
 
 | Associations | Method | IP protocols |
 | ------------ | ------ | ------------ |
