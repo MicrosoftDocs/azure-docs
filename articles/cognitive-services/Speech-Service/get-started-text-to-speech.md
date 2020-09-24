@@ -8,10 +8,10 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 09/01/2020
+ms.date: 10/01/2020
 ms.author: trbye
 ms.custom: "devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020"
-zone_pivot_groups: speech-full-stack
+zone_pivot_groups: speech-full-stack-objectivec-swift
 keywords: text to speech
 ---
 
@@ -43,12 +43,16 @@ In this quickstart, you learn common design patterns for doing text-to-speech sy
 [!INCLUDE [JavaScript Basics include](includes/how-to/text-to-speech-basics/text-to-speech-basics-javascript.md)]
 ::: zone-end
 
+::: zone pivot="programming-languages-objectivec-swift"
+[!INCLUDE [Objective-C and Swift Basics include](includes/how-to/text-to-speech-basics/text-to-speech-basics-objectivec-swift.md)]
+::: zone-end
+
 ::: zone pivot="programming-language-python"
 [!INCLUDE [Python Basics include](includes/how-to/text-to-speech-basics/text-to-speech-basics-python.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-spx"
-[!INCLUDE [CLI include](includes/how-to/text-to-speech-basics/text-to-speech-basics-cli.md)]
+[!INCLUDE [CLI Basics include](includes/how-to/text-to-speech-basics/text-to-speech-basics-cli.md)]
 ::: zone-end
 
 ## Next steps
