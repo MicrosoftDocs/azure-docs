@@ -17,7 +17,7 @@ The commercial marketplace is available in more than 100 countries and regions, 
 
 ## Commercial marketplace online stores
 
-The Microsoft commercial marketplace has two online stores: [Microsoft AppSource](https://appsource.microsoft.com/) and [Azure Marketplace](https://azuremarketplace.microsoft.com/). Microsoft AppSource contains business solutions and Azure Marketplace contains IT solutions. Commercial marketplace software and services can also be found in Microsoft products such as such as Microsoft 365, Dynamics 365, Microsoft Power Platform, and Azure. Our online stores and in-product experiences draw millions of potential customers each month. Each online store offers different scenarios to make sure your solution or service is available to the right customers.
+The Microsoft commercial marketplace has two online stores: [Microsoft AppSource](https://appsource.microsoft.com/) and [Azure Marketplace](https://azuremarketplace.microsoft.com/). Microsoft AppSource contains business solutions and Azure Marketplace contains IT solutions. Commercial marketplace software and services can also be found in Microsoft products such as Microsoft 365, Dynamics 365, Microsoft Power Platform, and Azure. Our online stores and in-product experiences draw millions of potential customers each month. Each online store offers different scenarios to make sure your solution or service is available to the right customers.
 
 You create a commercial marketplace offer in Partner Center. Your offer may be listed on either or both online stores based on the offer type, categories, and other options you select when you create an offer. In the rare case that the offer is relevant to the users of both online stores, it can appear in both. To learn more, see [Select an online store](determine-your-listing-type.md#selecting-an-online-store) and [A Buyer’s Guide to Microsoft AppSource and Azure Marketplace](https://aka.ms/MarketplaceBuyerGuide).
 
@@ -58,5 +58,5 @@ To learn about these benefits in more detail, see [Your commercial marketplace b
 ## Next steps
 
 - Get an [Introduction to the Microsoft commercial marketplace](/learn/modules/intro-commercial-marketplace/) on Microsoft Learn.
-- For new Microsoft partners who are interested in publishing to the ommercial marketplace, see [Create a commercial marketplace account in Partner Center](partner-center-portal/create-account.md).
+- For new Microsoft partners who are interested in publishing to the commercial marketplace, see [Create a commercial marketplace account in Partner Center](partner-center-portal/create-account.md).
 - To learn more about recent and future releases, review our [Microsoft commercial marketplace resources](marketplace-roadmap.md) or join the conversation in the [Microsoft Partner Community](https://www.microsoftpartnercommunity.com/).
