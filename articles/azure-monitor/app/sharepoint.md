@@ -11,7 +11,7 @@ ms.date: 09/08/2020
 Azure Application Insights monitors the availability, performance and usage of your apps. Here you'll learn how to set it up for a SharePoint site.
 
 > [!NOTE]
-> Due to security concerns, you can't directly add the script that's described in this article to your webpages in the SharePoint modern UX. As an alternative, you can use [SharePoint Framework (SPFx)](/sharepoint/dev/spfx/extensions/overview-extensions) to build a custom extension that you can use to install Application Insights on your SharePoint sites. To learn more, view the [sample](https://github.com/pnp/sp-dev-fx-extensions/tree/master/samples/js-application-appinsights-advanced) that installs AppInsights via NPM or the [sample](https://github.com/pnp/sp-dev-fx-extensions/tree/master/samples/js-application-appinsights) that installs AppInsights via snippet.
+> Due to security concerns, you can't directly add the script that's described in this article to your webpages in the SharePoint modern UX. As an alternative, you can use [SharePoint Framework (SPFx)](/sharepoint/dev/spfx/extensions/overview-extensions) to build a custom extension that you can use to install Application Insights on your SharePoint sites. To learn more, view the [NPM based sample for SharePoint](https://github.com/pnp/sp-dev-fx-extensions/tree/master/samples/js-application-appinsights-advanced) that installs Application Insights via NPM or the [JavaScript snippet based sample for SharePoint](https://github.com/pnp/sp-dev-fx-extensions/tree/master/samples/js-application-appinsights) that installs the [Application Insights JavaScript snippet](./javascript.md).
 
 ## Create an Application Insights resource
 In the [Azure portal](https://portal.azure.com), create a new Application Insights resource. Choose ASP.NET as the application type.
@@ -137,4 +137,3 @@ function onRequestFail(sender, args) {
 * [Application Insights](./app-insights-overview.md) for other types of app.
 
 <!--Link references-->
-
