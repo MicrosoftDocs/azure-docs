@@ -19,7 +19,7 @@ ms.author: memildin
 
 To ensure the right people in your organization are notified about security alerts in your environment, enter their email addresses in the **Email notifications** settings page.
 
-When setting up your notifications, you can configure the emails to be sent to specific individuals or to anyone with a specific RBAC role for a subscription. 
+When setting up your notifications, you can configure the emails to be sent to specific individuals or to anyone with a specific Azure role for a subscription. 
 
 To avoid alert fatigue, Security Center limits the volume of outgoing mails. For each subscription, Security Center sends:
 
@@ -27,19 +27,23 @@ To avoid alert fatigue, Security Center limits the volume of outgoing mails. For
 - a maximum of **two** emails per day for **medium-severity** alerts
 - a maximum of **one** email per day for **low-severity** alerts
 
+
+:::image type="content" source="./media/security-center-provide-security-contacts/email-notification-settings.png" alt-text="Configuring the details of the contact who will receive emails about security alerts." :::
+
 ## Availability
 
-- Release state: **Generally Available**
-- Required roles: **Security Admin** or **Subscription Owner** 
-- Clouds: 
-  ✔ Commercial clouds
-  ✔ US Gov (partial)
-  ✘ National/Sovereign (China Gov, Other Gov)
+|Aspect|Details|
+|----|:----|
+|Release state:|Generally available (GA)|
+|Pricing:|Free|
+|Required roles and permissions:|**Security Admin**<br>**Subscription Owner** |
+|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) US Gov (partial)<br>![No](./media/icons/no-icon.png) China Gov, Other Gov|
+|||
 
 
 ## Set up email notifications for alerts <a name="email"></a>
 
-You can send email notifications to individuals or to all users with specific RBAC roles.
+You can send email notifications to individuals or to all users with specific Azure roles.
 
 1. From Security Center's **Pricing & settings** area, the relevant subscription, and select **Email notifications**.
 
@@ -56,3 +60,4 @@ To learn more about security alerts, see the following:
 
 * [Security alerts - a reference guide](alerts-reference.md) -- Learn about the security alerts you might see in Azure Security Center's Threat Protection module
 * [Manage and respond to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) -- Learn how to manage and respond to security alerts
+* [Workflow automation](workflow-automation.md) -- Automate responses to alerts with custom notification logic

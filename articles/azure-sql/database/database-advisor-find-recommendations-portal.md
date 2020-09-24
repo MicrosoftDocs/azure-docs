@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: jrasnik, sstein
 ms.date: 12/19/2018
 ---
 # Find and apply performance recommendations
@@ -19,7 +19,7 @@ You can use the Azure portal to find performance recommendations that can optimi
 
 ## Viewing recommendations
 
-To view and apply performance recommendations, you need the correct [role-based access control](../../role-based-access-control/overview.md) permissions in Azure. **Reader**, **SQL DB Contributor** permissions are required to view recommendations, and **Owner**, **SQL DB Contributor** permissions are required to execute any actions; create or drop indexes and cancel index creation.
+To view and apply performance recommendations, you need the correct [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) permissions in Azure. **Reader**, **SQL DB Contributor** permissions are required to view recommendations, and **Owner**, **SQL DB Contributor** permissions are required to execute any actions; create or drop indexes and cancel index creation.
 
 Use the following steps to find performance recommendations on the Azure portal:
 
@@ -29,7 +29,7 @@ Use the following steps to find performance recommendations on the Azure portal:
 
 Performance recommendations are shown in the table similar to the one shown on the following figure:
 
-![Recommendations](./media/database-advisor-find-recommendations-portal/recommendations.png)
+![Screenshot shows performance recommendations in a table with action and recommendation description.](./media/database-advisor-find-recommendations-portal/recommendations.png)
 
 Recommendations are sorted by their potential impact on performance into the following categories:
 
@@ -166,4 +166,4 @@ Monitor your recommendations and continue to apply them to refine performance. D
 
 * [Query Store](https://msdn.microsoft.com/library/dn817826.aspx)
 * [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
-* [Role-based access control](../../role-based-access-control/overview.md)
+* [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md)

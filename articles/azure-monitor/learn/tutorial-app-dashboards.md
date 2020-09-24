@@ -12,7 +12,9 @@ ms.custom: mvc
 
 # Create custom KPI dashboards using Azure Application Insights
 
-You can create multiple dashboards in the Azure portal that each include tiles visualizing data from multiple Azure resources across different resource groups and subscriptions.  You can pin different charts and views from Azure Application Insights to create custom dashboards that provide you with complete picture of the health and performance of your application. This tutorial walks you through the creation of a custom dashboard that includes multiple types of data and visualizations from Azure Application Insights.  You learn how to:
+You can create multiple dashboards in the Azure portal that each include tiles visualizing data from multiple Azure resources across different resource groups and subscriptions.  You can pin different charts and views from Azure Application Insights to create custom dashboards that provide you with complete picture of the health and performance of your application. This tutorial walks you through the creation of a custom dashboard that includes multiple types of data and visualizations from Azure Application Insights.
+
+ You learn how to:
 
 > [!div class="checklist"]
 > * Create a custom dashboard in Azure
@@ -21,18 +23,22 @@ You can create multiple dashboards in the Azure portal that each include tiles v
 > * Add a custom metric chart Application Insights to the dashboard
 > * Add the results of a Logs (Analytics) query to the dashboard
 
-
-
 ## Prerequisites
 
 To complete this tutorial:
 
 - Deploy a .NET application to Azure and [enable the Application Insights SDK](../app/asp-net.md).
 
+> [!NOTE]
+> Required permissions for working with dashboards are discussed in the article on [understanding access control for dashboards](../../azure-portal/azure-portal-dashboard-share-access.md#understanding-access-control-for-dashboards).
+
 ## Sign in to Azure
 Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 
 ## Create a new dashboard
+> [!WARNING]
+> If you move your application insights resource over to a different resource group or subscription, you will need to manually update the dashboard by removing the old tiles and pinning new tiles from the same application insights resource at new location. 
+
 A single dashboard can contain resources from multiple applications, resource groups, and subscriptions.  Start the tutorial by creating a new dashboard for your application.  
 
 1. On the dashboard pane, select **New dashboard**.
@@ -124,4 +130,3 @@ Now that you've learned how to create custom dashboards, have a look at the rest
 
 > [!div class="nextstepaction"]
 > [Deep diagnostics](../app/devops.md)
-

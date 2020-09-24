@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 04/06/2020
+ms.date: 08/03/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -41,6 +41,9 @@ The following options are available to include when creating a Conditional Acces
 
 > [!WARNING]
 > If users or groups are a member of over 2048 groups their access may be blocked. This limit applies to both direct and nested group membership.
+
+> [!WARNING]
+> Conditional Access policies do not support users assigned a directory role [scoped to an administrative unit](../users-groups-roles/roles-admin-units-assign-roles.md) or directory roles scoped directly to an object, like through [custom roles](../users-groups-roles/roles-create-custom.md).
 
 ## Exclude users
 

@@ -11,7 +11,8 @@ ms.devlang: NA
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 04/23/2019
-ms.author: kumud
+ms.author: kumud 
+ms.custom: devx-track-azurecli
 ---
 
 # Configure IPv6 endpoints in virtual network script sample (preview)

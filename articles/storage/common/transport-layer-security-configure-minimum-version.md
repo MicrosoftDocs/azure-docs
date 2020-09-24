@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 09/10/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
@@ -88,11 +88,13 @@ When you are confident that traffic from clients using older versions of TLS is 
 To configure the minimum TLS version for a storage account, set the **MinimumTlsVersion** version for the account. This property is available for all storage accounts that are created with the Azure Resource Manager deployment model. For more information about the Azure Resource Manager deployment model, see [Storage account overview](storage-account-overview.md).
 
 > [!NOTE]
-> The **minimumTlsVersion** property is not set by default and does not return a value until you explicitly set it. The storage account permits requests sent with TLS version 1.0 or greater if the property value is **null**.
+> The **MinimumTlsVersion** property is currently available only for storage accounts in the Azure public cloud.
 
 # [Portal](#tab/portal)
 
-To configure the minimum TLS version for a storage account with the Azure portal, follow these steps:
+When you create a storage account with the Azure portal, the minimum TLS version is set to 1.2 by default.
+
+To configure the minimum TLS version for an existing storage account with the Azure portal, follow these steps:
 
 1. Navigate to your storage account in the Azure portal.
 1. Select the **Configuration** setting.
@@ -104,6 +106,8 @@ To configure the minimum TLS version for a storage account with the Azure portal
 
 To configure the minimum TLS version for a storage account with PowerShell, install [Azure PowerShell version 4.4.0](https://www.powershellgallery.com/packages/Az/4.4.0) or later. Next, configure the **MinimumTLSVersion** property for a new or existing storage account. Valid values for **MinimumTlsVersion** are `TLS1_0`, `TLS1_1`, and `TLS1_2`.
 
+The **MinimumTlsVersion** property is not set by default when you create a storage account with PowerShell. This property does not return a value until you explicitly set it. The storage account permits requests sent with TLS version 1.0 or greater if the property value is **null**.
+
 The following example creates a storage account and sets the **MinimumTLSVersion** to TLS 1.1, then updates the account and sets the **MinimumTLSVersion** to TLS 1.2. The example also retrieves the property value in each case. Remember to replace the placeholder values in brackets with your own values:
 
 ```powershell
@@ -112,12 +116,20 @@ $accountName = "<storage-account>"
 $location = "<location>"
 
 # Create a storage account with MinimumTlsVersion set to TLS 1.1.
-New-AzStorageAccount -ResourceGroupName $rgName -AccountName $accountName -Location $location -SkuName Standard_GRS -MinimumTlsVersion TLS1_1
+New-AzStorageAccount -ResourceGroupName $rgName `
+    -AccountName $accountName `
+    -Location $location `
+    -SkuName Standard_GRS `
+    -MinimumTlsVersion TLS1_1
+
 # Read the MinimumTlsVersion property.
 (Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName).MinimumTlsVersion
 
 # Update the MinimumTlsVersion version for the storage account to TLS 1.2.
-Set-AzStorageAccount -ResourceGroupName $rgName -AccountName $accountName -MinimumTlsVersion TLS1_2
+Set-AzStorageAccount -ResourceGroupName $rgName `
+    -AccountName $accountName `
+    -MinimumTlsVersion TLS1_2
+
 # Read the MinimumTlsVersion property.
 (Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName).MinimumTlsVersion
 ```
@@ -125,6 +137,8 @@ Set-AzStorageAccount -ResourceGroupName $rgName -AccountName $accountName -Minim
 # [Azure CLI](#tab/azure-cli)
 
 To configure the minimum TLS version for a storage account with Azure CLI, install Azure CLI version 2.9.0 or later. For more information, see [Install the Azure CLI](/cli/azure/install-azure-cli). Next, configure the **minimumTlsVersion** property for a new or existing storage account. Valid values for **minimumTlsVersion** are `TLS1_0`, `TLS1_1`, and `TLS1_2`.
+
+The **minimumTlsVersion** property is not set by default when you create a storage account with Azure CLI. This property does not return a value until you explicitly set it. The storage account permits requests sent with TLS version 1.0 or greater if the property value is **null**.
 
 The following example creates a storage account and sets the **minimumTLSVersion** to TLS 1.1. It then updates the account and sets the **minimumTLSVersion** property to TLS 1.2. The example also retrieves the property value in each case. Remember to replace the placeholder values in brackets with your own values:
 
@@ -136,11 +150,10 @@ az storage account create \
     --location <location> \
     --min-tls-version TLS1_1
 
-az resource show \
+az storage account show \
     --name <storage-account> \
     --resource-group <resource-group> \
-    --resource-type Microsoft.Storage/storageAccounts \
-    --query properties.minimumTlsVersion \
+    --query minimumTlsVersion \
     --output tsv
 
 az storage account update \
@@ -148,11 +161,10 @@ az storage account update \
     --resource-group <resource-group> \
     --min-tls-version TLS1_2
 
-az resource show \
+az storage account show \
     --name <storage-account> \
     --resource-group <resource-group> \
-    --resource-type Microsoft.Storage/storageAccounts \
-    --query properties.minimumTlsVersion \
+    --query minimumTlsVersion \
     --output tsv
 ```
 
@@ -162,7 +174,7 @@ To configure the minimum TLS version for a storage account with a template, crea
 
 1. In the Azure portal, choose **Create a resource**.
 1. In **Search the Marketplace**, type **template deployment**, and then press **ENTER**.
-1. Choose **Template deployment (deploy using custom templates)**, choose **Create**, and then choose **Build your own template in the editor**.
+1. Choose **Template deployment (deploy using custom templates) (preview)**, choose **Create**, and then choose **Build your own template in the editor**.
 1. In the template editor, paste in the following JSON to create a new account and set the minimum TLS version to TLS 1.2. Remember to replace the placeholders in angle brackets with your own values.
 
     ```json
@@ -171,7 +183,7 @@ To configure the minimum TLS version for a storage account with a template, crea
         "contentVersion": "1.0.0.0",
         "parameters": {},
         "variables": {
-            "storageAccountName": "[concat(uniqueString(subscription().subscriptionId), 'storage')]"
+            "storageAccountName": "[concat(uniqueString(subscription().subscriptionId), 'tls')]"
         },
         "resources": [
             {
@@ -183,6 +195,10 @@ To configure the minimum TLS version for a storage account with a template, crea
                 "minimumTlsVersion": "TLS1_2"
             },
             "dependsOn": [],
+            "sku": {
+              "name": "Standard_GRS"
+            },
+            "kind": "StorageV2",
             "tags": {}
             }
         ]
@@ -211,8 +227,6 @@ resources
 | extend minimumTlsVersion = parse_json(properties).minimumTlsVersion
 | project subscriptionId, resourceGroup, name, minimumTlsVersion
 ```
-
----
 
 ### Test the minimum TLS version from a client
 
@@ -326,6 +340,10 @@ After you create the policy with the Deny effect and assign it to a scope, a use
 The following image shows the error that occurs if you try to create a storage account with the minimum TLS version set to TLS 1.0 (the default for a new account) when a policy with a Deny effect requires that the minimum TLS version be set to TLS 1.2.
 
 :::image type="content" source="media/transport-layer-security-configure-minimum-version/deny-policy-error.png" alt-text="Screenshot showing the error that occurs when creating a storage account in violation of policy":::
+
+## Network considerations
+
+When a client sends a request to storage account, the client establishes a connection with the public endpoint of the storage account first, before processing any requests. The minimum TLS version setting is checked after the connection is established. If the request uses an earlier version of TLS than that specified by the setting, the connection will continue to succeed, but the request will eventually fail. For more information about public endpoints for Azure Storage, see [Resource URI syntax](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#resource-uri-syntax).
 
 ## Next steps
 

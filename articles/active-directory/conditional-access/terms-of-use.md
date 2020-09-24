@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: compliance
 ms.topic: how-to
-ms.date: 05/29/2019
+ms.date: 09/14/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -47,7 +47,7 @@ Azure AD terms of use has the following capabilities:
 - List who has or hasn't accepted to your terms of use.
 - Assist in meeting privacy regulations.
 - Display a log of terms of use activity for compliance and audit.
-- Create and manage terms of use using [Microsoft Graph APIs](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/agreement) (currently in preview).
+- Create and manage terms of use using [Microsoft Graph APIs](/graph/api/resources/agreement?view=graph-rest-beta) (currently in preview).
 
 ## Prerequisites
 
@@ -261,7 +261,7 @@ Per-device terms of use has the following constraints:
 
 - A device can only be joined to one tenant.
 - A user must have permissions to join their device.
-- The Intune Enrollment app is not supported.
+- The Intune Enrollment app is not supported. Ensure that it is excluded from any Conditional Access policy requiring Terms of Use.
 - Azure AD B2B users are not supported.
 
 If the user's device is not joined, they will receive a message that they need to join their device. Their experience will be dependent on the platform and software.
@@ -360,7 +360,7 @@ A: No, if an administrator edits the details for a terms of use (name, display n
 A: Currently, you can't update an existing terms of use document. To change a terms of use document, you will have to create a new terms of use instance.
 
 **Q: If hyperlinks are in the terms of use PDF document, will end users be able to click them?**<br />
-A: Yes, end users are able to select hyperlinks to additional pages but links to sections within the document are not supported.
+A: Yes, end users are able to select hyperlinks to additional pages but links to sections within the document are not supported. Also, hyperlinks in terms of use PDFs do not work when accessed from the Azure AD MyApps/MyAccount portal.
 
 **Q: Can a terms of use support multiple languages?**<br />
 A: Yes. Currently there are 108 different languages an administrator can configure for a single terms of use. An administrator can upload multiple PDF documents and tag those documents with a corresponding language (up to 108). When end users sign in, we look at their browser language preference and display the matching document. If there is no match, we will display the default document, which is the first document that is uploaded.

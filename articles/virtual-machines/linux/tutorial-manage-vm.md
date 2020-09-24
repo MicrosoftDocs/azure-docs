@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/23/2018
 ms.author: cynthn
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 
 #Customer intent: As an IT administrator, I want to learn about common maintenance tasks so that I can create and manage Linux VMs in Azure
 ---
@@ -278,6 +278,8 @@ ode                DisplayStatus    Level
 ------------------  ---------------  -------
 PowerState/running  VM running       Info
 ```
+
+To retrieve the power state of all the VMs in your subscription, use the [Virtual Machines - List All API](https://docs.microsoft.com/rest/api/compute/virtualmachines/listall) with parameter **statusOnly** set to *true*.
 
 ## Management tasks
 

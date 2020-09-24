@@ -8,7 +8,8 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 05/04/2020
 ms.author: cynthn
-ms.reviewer: akjosh
+ms.reviewer: akjosh 
+ms.custom: devx-track-azurecli
 ---
 
 # List, update, and delete image resources 

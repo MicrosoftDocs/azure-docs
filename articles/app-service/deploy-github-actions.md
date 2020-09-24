@@ -6,7 +6,7 @@ ms.topic: article
 ms.date: 10/25/2019
 ms.author: jafreebe
 ms.reviewer: ushan
-ms.custom: tracking-python
+ms.custom: devx-track-python
 
 ---
 
@@ -20,53 +20,96 @@ ms.custom: tracking-python
 
 A workflow is defined by a YAML (.yml) file in the `/.github/workflows/` path in your repository. This definition contains the various steps and parameters that make up the workflow.
 
+## Use the Deployment Center
+
+You can quickly get started with GitHub Actions by using the App Service Deployment Center. This will automatically generate a workflow file based on your application stack and commit it to your GitHub repository in the correct directory.
+
+1. Navigate to your webapp in the Azure Portal
+1. On the left side, click **Deployment Center**
+1. Under **Continuous Deployment (CI / CD)**, select **GitHub**
+1. Next, select **GitHub Actions**
+1. Use the dropdowns to select your GitHub repository, branch, and application stack
+    - If the selected branch is protected, you can still continue to add the workflow file. Be sure to review your branch protections before continuing.
+1. On the final screen, you can review your selections and preview the workflow file that will be committed to the repository. If the selections are correct, click **Finish**
+
+This will commit the workflow file to the repository. The workflow to build and deploy your app will start immediately.
+
+## Add the workflow manually
+
 For an Azure App Service workflow, the file has three sections:
 
 |Section  |Tasks  |
 |---------|---------|
-|**Authentication** | 1. Define a service principal <br /> 2. Create a GitHub secret |
-|**Build** | 1. Set up the environment <br /> 2. Build the web app |
-|**Deploy** | 1. Deploy the web app |
+|**Authentication** | 1. Define a service principal. <br /> 2. Create a GitHub secret. |
+|**Build** | 1. Set up the environment. <br /> 2. Build the web app. |
+|**Deploy** | 1. Deploy the web app. |
 
-## Create a service principal
+## Generate deployment credentials
 
-You can create a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) by using the [az ad sp create-for-rbac](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) command in the [Azure CLI](https://docs.microsoft.com/cli/azure/). You can run this command using [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
+# [User-level credentials](#tab/userlevel)
+
+You can create a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) by using the [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) command in the [Azure CLI](/cli/azure/). You can run this command using [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
 
 ```azurecli-interactive
-az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptions/<subscription-id>/resourceGroups/<group-name>/providers/Microsoft.Web/sites/<app-name> --sdk-auth
+az ad sp create-for-rbac --name "myApp" --role contributor \
+                            --scopes /subscriptions/<subscription-id>/resourceGroups/<group-name>/providers/Microsoft.Web/sites/<app-name> \
+                            --sdk-auth
 ```
 
-In this example, replace the placeholders in the resource with your subscription ID, resource group name, and app name. The output is the role assignment credentials that provide access to your App Service app. Copy this JSON object, which you can use to authenticate from GitHub.
+In the example above, replace the placeholders with your subscription ID, resource group name, and app name. The output is a JSON object with the role assignment credentials that provide access to your App Service app similar to below. Copy this JSON object for later.
 
-> [!NOTE]
-> You do not need to create a service principal if you decide to use publish profile for authentication.
+```output 
+  {
+    "clientId": "<GUID>",
+    "clientSecret": "<GUID>",
+    "subscriptionId": "<GUID>",
+    "tenantId": "<GUID>",
+    (...)
+  }
+```
 
 > [!IMPORTANT]
-> It is always a good practice to grant minimum access. This is why the scope in the previous example is limited to the specific App Service app and not the entire resource group.
+> It is always a good practice to grant minimum access. The scope in the previous example is limited to the specific App Service app and not the entire resource group.
+
+# [App-level credentials](#tab/applevel)
+
+You can use app-level credentials by using the publish profile for your app. Go to your app's management page in the portal. In the **Overview** page, click **Get Publish profile** option.
+
+You will need the contents of the file later.
+
+---
 
 ## Configure the GitHub secret
 
-You could also use app-level credentials i.e. publish profile for deployment. Follow the steps to configure the secret:
+# [User-level credentials](#tab/userlevel)
 
-1. Download the publish profile for the App Service app from the portal using **Get Publish profile** option.
+In [GitHub](https://github.com/), browse your repository, select **Settings > Secrets > Add a new secret**.
 
-2. In [GitHub](https://github.com/), browse your repository, select **Settings > Secrets > Add a new secret**
+To use [user-level credentials](#generate-deployment-credentials), paste the entire JSON output from the Azure CLI command into the secret's value field. Give the secret the name like `AZURE_CREDENTIALS`.
 
-    ![secrets](media/app-service-github-actions/secrets.png)
+When you configure the workflow file later, you use the secret for the input `creds` of the Azure Login action. For example:
 
-3. Paste the contents for the downloaded publish profile file into the secret's value field.
+```yaml
+- uses: azure/login@v1
+  with:
+    creds: ${{ secrets.AZURE_CREDENTIALS }}
+```
 
-4. Now in the workflow file in your branch: `.github/workflows/workflow.yml` replace the secret for the input `publish-profile` of the deploy Azure Web App action.
+# [App-level credentials](#tab/applevel)
+
+In [GitHub](https://github.com/), browse your repository, select **Settings > Secrets > Add a new secret**.
+
+To use [app-level credentials](#generate-deployment-credentials), paste the contents of the downloaded publish profile file into the secret's value field. Give the secret the name like `azureWebAppPublishProfile`.
+
+When you configure the workflow file later, you use the secret for the input `publish-profile` of the deploy Azure Web App action. For example:
     
-    ```yaml
-        - uses: azure/webapps-deploy@v2
-          with:
-            publish-profile: ${{ secrets.azureWebAppPublishProfile }}
-    ```
+```yaml
+- uses: azure/webapps-deploy@v2
+  with:
+    publish-profile: ${{ secrets.azureWebAppPublishProfile }}
+```
 
-5. You see the secret as shown below once defined.
-
-    ![secrets](media/app-service-github-actions/app-service-secrets.png)
+---
 
 ## Set up the environment
 
@@ -188,43 +231,9 @@ To deploy your code to an App Service app, use the `azure/webapps-deploy@v2` act
 | **package** | (Optional) Path to package or folder. *.zip, *.war, *.jar or a folder to deploy |
 | **slot-name** | (Optional) Enter an existing Slot other than the Production slot |
 
-### Deploy using Publish Profile
+# [User-level credentials](#tab/userlevel)
 
-Below is the sample workflow to build and deploy a Node.js app to Azure using publish profile.
-
-```yaml
-# File: .github/workflows/workflow.yml
-
-on: push
-
-jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
-    steps:
-    # checkout the repo
-    - name: 'Checkout GitHub Action' 
-      uses: actions/checkout@master
-    
-    - name: Setup Node 10.x
-      uses: actions/setup-node@v1
-      with:
-        node-version: '10.x'
-    - name: 'npm install, build, and test'
-      run: |
-        npm install
-        npm run build --if-present
-        npm run test --if-present
-       
-    - name: 'Run Azure webapp deploy action using publish profile credentials'
-          uses: azure/webapps-deploy@v2
-          with: 
-            app-name: node-rn
-            publish-profile: ${{ secrets.azureWebAppPublishProfile }}
-```
-
-### Deploy using Azure service principal
-
-Below is the sample workflow to build and deploy a Node.js app to Azure using an Azure service principal.
+Below is the sample workflow to build and deploy a Node.js app to Azure using an Azure service principal. Note how the `creds` input references the `AZURE_CREDENTIALS` secret that you created earlier.
 
 ```yaml
 on: [push]
@@ -265,11 +274,47 @@ jobs:
         az logout
 ```
 
+# [App-level credentials](#tab/applevel)
+
+Below is the sample workflow to build and deploy a Node.js app to Azure using the app's publish profile. Note how the `publish-profile` input references the `azureWebAppPublishProfile` secret that you created earlier.
+
+```yaml
+# File: .github/workflows/workflow.yml
+
+on: push
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    # checkout the repo
+    - name: 'Checkout GitHub Action' 
+      uses: actions/checkout@master
+    
+    - name: Setup Node 10.x
+      uses: actions/setup-node@v1
+      with:
+        node-version: '10.x'
+    - name: 'npm install, build, and test'
+      run: |
+        npm install
+        npm run build --if-present
+        npm run test --if-present
+       
+    - name: 'Run Azure webapp deploy action using publish profile credentials'
+          uses: azure/webapps-deploy@v2
+          with: 
+            app-name: node-rn
+            publish-profile: ${{ secrets.azureWebAppPublishProfile }}
+```
+
+---
+
 ## Next steps
 
 You can find our set of Actions grouped into different repositories on GitHub, each one containing documentation and examples to help you use GitHub for CI/CD and deploy your apps to Azure.
 
-- [Actions workflow to deploy to Azure](https://github.com/Azure/actions-workflow-samples)
+- [Actions workflows to deploy to Azure](https://github.com/Azure/actions-workflow-samples)
 
 - [Azure login](https://github.com/Azure/login)
 

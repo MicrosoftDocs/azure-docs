@@ -6,7 +6,7 @@ ms.service: virtual-machines-linux
 ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
+ms.custom: subject-security-benchmark
 
 # Important: This content is machine generated; do not modify this topic directly. Contact mbaldwin for more information.
 
@@ -560,11 +560,11 @@ Microsoft uses the Transport Layer Security (TLS) protocol to protect data when 
 
 **Responsibility**: Customer
 
-### 4.6: Use Role-based access control to control access to resources
+### 4.6: Use Azure RBAC to control access to resources
 
-**Guidance**: Using role-based access control (RBAC), you can segregate duties within your team and grant only the amount of access to users on your VM that they need to perform their jobs. Instead of giving everybody unrestricted permissions on the VM, you can allow only certain actions. You can configure access control for the VM in the Azure portal, using the Azure CLI, or Azure PowerShell.
+**Guidance**: Using Azure role-based access control (Azure RBAC), you can segregate duties within your team and grant only the amount of access to users on your VM that they need to perform their jobs. Instead of giving everybody unrestricted permissions on the VM, you can allow only certain actions. You can configure access control for the VM in the Azure portal, using the Azure CLI, or Azure PowerShell.
 
-* [Role-based access control (RBAC) for Azure resources](../../role-based-access-control/overview.md)
+* [Azure RBAC](../../role-based-access-control/overview.md)
 
 * [Azure built-in roles](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
 
@@ -626,9 +626,9 @@ Microsoft uses the Transport Layer Security (TLS) protocol to protect data when 
 
 **Guidance**: Use the Azure Update Management solution to manage updates and patches for your virtual machines. Update Management relies on the locally configured update repository to patch supported systems.
 
-* [Update Management solution in Azure](../../automation/automation-update-management.md)
+* [Update Management solution in Azure](../../automation/update-management/update-mgmt-overview.md)
 
-* [Manage updates and patches for your Azure VMs](../../automation/automation-tutorial-update-management.md)
+* [Manage updates and patches for your VMs](../../automation/update-management/update-mgmt-manage-updates-for-vm.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -638,9 +638,9 @@ Microsoft uses the Transport Layer Security (TLS) protocol to protect data when 
 
 **Guidance**: You may use a third-party patch management solution. You can use the Azure Update Management solution to manage updates and patches for your virtual machines. Update Management relies on the locally configured update repository to patch supported systems.
 
-* [Update Management solution in Azure](../../automation/automation-update-management.md)
+* [Update Management solution in Azure](../../automation/update-management/update-mgmt-overview.md)
 
-* [Manage updates and patches for your Azure VMs](../../automation/automation-tutorial-update-management.md)
+* [Manage updates and patches for your VMs](../../automation/update-management/update-mgmt-manage-updates-for-vm.md)
 
 **Azure Security Center monitoring**: Not Available
 
@@ -918,11 +918,11 @@ For most scenarios, the Microsoft base VM templates combined with the Azure Auto
 
 ### 7.6: Securely store custom operating system images
 
-**Guidance**: If using custom images (e.g. Virtual Hard Disk), use Azure role-based access controls to ensure only authorized users may access the images.
+**Guidance**: If using custom images (e.g. Virtual Hard Disk), use Azure role-based access control (Azure RBAC) to ensure only authorized users may access the images.
 
-* [Understand RBAC in Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md)
+* [Understand Azure RBAC](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 
-* [How to configure RBAC in Azure](../../role-based-access-control/quickstart-assign-role-user-portal.md)
+* [How to configure Azure RBAC](../../role-based-access-control/quickstart-assign-role-user-portal.md)
 
 **Azure Security Center monitoring**: Not Available
 
@@ -978,7 +978,9 @@ For most scenarios, the Microsoft base VM templates combined with the Azure Auto
 
 * [How to create a Key Vault](../../key-vault/secrets/quick-create-portal.md)
 
-* [How to provide Key Vault authentication with a managed identity](../../key-vault/general/managed-identity.md)
+* [How to authenticate to Key Vault](../../key-vault/general/authentication.md)
+
+* [How to assign a Key Vault access policy](../../key-vault/general/assign-access-policy-portal.md)
 
 **Azure Security Center monitoring**: Yes
 

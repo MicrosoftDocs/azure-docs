@@ -75,13 +75,13 @@ Devices that don't use components require minimal code changes - just announcing
 
 ### Service SDKs
 
-The service SDK is available in [Node.js](https://github.com/Azure/azure-iot-sdk-node/blob/digitaltwins-preview/digitaltwins/service/readme.md) and [Python](https://github.com/Azure/azure-iot-sdk-python/blob/digitaltwins-preview/azure-iot-hub/README.md).
+The service SDK is available in [Node.js](https://github.com/Azure/azure-iot-sdk-node/blob/digitaltwins-preview/digitaltwins/service/readme.md) and [Python](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-hub/README.md).
 
 ## VS Code extension
 
 The [Azure IoT Device Workbench](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-iot-workbench) extension provides authoring support for DTDL v1, integration with the previous version of the model repository, and code generation.
 
-If you require DTDL v2 authoring support in VS Code, install the new [DTDL extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) in VS Code. The extension doesn't provide integration with the model repository or code generation. Managing models in the repository is now done using a [web UI](https://aka.ms/iotmodelrepo).
+If you require DTDL v2 authoring support in VS Code, install the new [DTDL extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) in VS Code. The extension doesn't provide integration with the model repository or code generation. Managing models in the repository is now done using a [web UI](https://aka.ms/iotmodelrepo) or [CLI](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp?view=azure-cli-latest).
 
 ## Digital twin service-side REST APIs
 
@@ -98,8 +98,6 @@ The existing REST APIs continue to be supported in this release.
 There's now a single model repository that contains both public published models, and private RBAC-protected company models. All models have a unique identifier and are immutable once created.
 
 Existing company model repositories from the previous release aren't supported in this release. You can continue to use the [Azure Certified for IoT](https://preview.catalog.azureiotsolutions.com/products) website to manage the old DTDL v1 models. However, you can no longer use this website to register, test, and certify devices.
-
-The Azure IoT extension for the Azure CLI doesn't support the new model repository. The `az iot pnp` commands only work the model repositories from the previous release.
 
 ## Azure IoT Central
 

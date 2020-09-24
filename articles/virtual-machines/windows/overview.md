@@ -47,12 +47,16 @@ This table shows some of the ways you can get a list of available locations.
 | REST API |Use the [List locations](/rest/api/resources/subscriptions) operation. |
 | Azure CLI |Use the [az account list-locations](/cli/azure/account?view=azure-cli-latest) operation. |
 
+### Singapore data residency
+
+In Azure, the feature to enable storing customer data in a single region is currently only available in the Southeast Asia Region (Singapore) of the Asia Pacific Geo. For all other regions, customer data is stored in Geo. For more information, see [Trust Center](https://azuredatacentermap.azurewebsites.net/).
+
 ## Availability
 Azure announced an industry leading single instance virtual machine Service Level Agreement of 99.9% provided you deploy the VM with premium storage for all disks.  In order for your deployment to qualify for the standard 99.95% VM Service Level Agreement, you still need to deploy two or more VMs running your workload inside of an availability set. An availability set ensures that your VMs are distributed across multiple fault domains in the Azure data centers as well as deployed onto hosts with different maintenance windows. The full [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) explains the guaranteed availability of Azure as a whole.
 
 
 ## VM size
-The [size](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) of the VM that you use is determined by the workload that you want to run. The size that you choose then determines factors such as processing power, memory, and storage capacity. Azure offers a wide variety of sizes to support many types of uses.
+The [size](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) of the VM that you use is determined by the workload that you want to run. The size that you choose then determines factors such as processing power, memory, and storage capacity. Azure offers a wide variety of sizes to support many types of uses.
 
 Azure charges an [hourly price](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) based on the VM’s size and operating system. For partial hours, Azure charges only for the minutes used. Storage is priced and charged separately.
 

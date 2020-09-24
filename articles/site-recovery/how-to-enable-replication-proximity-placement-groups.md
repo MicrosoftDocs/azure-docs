@@ -38,7 +38,7 @@ In a typical scenario, you may have your virtual machines running in a proximity
 ## Set up Site Recovery for Virtual Machines in Proximity Placement Group
 
 > [!NOTE]
-> Make sure that you have the unique ID of target Proximity Placement Group handy. If you're creating a new Proximity Placement Group, then check the command [here](https://docs.microsoft.com/azure/virtual-machines/windows/proximity-placement-groups#create-a-proximity-placement-group) and if you're using an existing Proximity Placement Group, then use the command [here](https://docs.microsoft.com/azure/virtual-machines/windows/proximity-placement-groups#list-proximity-placement-groups).
+> Make sure that you have the unique ID of target Proximity Placement Group handy. If you're creating a new Proximity Placement Group, then check the command [here](../virtual-machines/windows/proximity-placement-groups.md#create-a-proximity-placement-group) and if you're using an existing Proximity Placement Group, then use the command [here](../virtual-machines/windows/proximity-placement-groups.md#list-proximity-placement-groups).
 
 ### Azure to Azure
 
@@ -69,9 +69,9 @@ $OSDiskReplicationConfig = New-AzRecoveryServicesAsrAzureToAzureDiskReplicationC
 
 #Data disk
 $datadisk = Get-AzDisk -DiskName $datadiskName -ResourceGroupName $datadiskResourceGroup
-$datadiskId1 = $datadisk.Id
-$RecoveryReplicaDiskAccountType = $datadisk.Sku.Name
-$RecoveryTargetDiskAccountType = $datadisk.Sku.Name
+$datadiskId1 = $datadisk[0].Id
+$RecoveryReplicaDiskAccountType = $datadisk[0].Sku.Name
+$RecoveryTargetDiskAccountType = $datadisk[0].Sku.Name
 
 $DataDisk1ReplicationConfig  = New-AzRecoveryServicesAsrAzureToAzureDiskReplicationConfig -ManagedDisk -LogStorageAccountId $EastUSCacheStorageAccount.Id -DiskId $datadiskId1 -RecoveryResourceGroupId $RecoveryRG.ResourceId -RecoveryReplicaDiskAccountType $RecoveryReplicaDiskAccountType -RecoveryTargetDiskAccountType $RecoveryTargetDiskAccountType
 

@@ -5,15 +5,16 @@ author: genlin
 ms.reviewer: dcscontentpm
 tags: billing
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 08/20/2020
 ms.author: banders
 
 ---
 # Add or change Azure subscription administrators
 
 
-To manage access to Azure resources, you must have the appropriate administrator role. Azure has an authorization system called [role-based access control](../../role-based-access-control/overview.md) (RBAC) with several built-in roles you can choose from. You can assign these roles at different scopes, such as management group, subscription, or resource group. By default, the person who creates a new Azure subscription can assign other users administrative access to a subscription.
+To manage access to Azure resources, you must have the appropriate administrator role. Azure has an authorization system called [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) with several built-in roles you can choose from. You can assign these roles at different scopes, such as management group, subscription, or resource group. By default, the person who creates a new Azure subscription can assign other users administrative access to a subscription.
 
 This article describes how add or change the administrator role for a user using RBAC at the subscription scope.
 
@@ -28,7 +29,7 @@ For more information, see [Azure Resource Manager vs. classic deployment](../../
 
 ## Assign a subscription administrator
 
-To make a user an administrator of an Azure subscription, an existing administrator assigns them the [Owner](../../role-based-access-control/built-in-roles.md#owner) role (an RBAC role) at the subscription scope. The Owner role gives the user full access to all resources in the subscription, including the right to delegate access to others. These steps are the same as any other role assignment.
+To make a user an administrator of an Azure subscription, an existing administrator assigns them the [Owner](../../role-based-access-control/built-in-roles.md#owner) role (an Azure role) at the subscription scope. The Owner role gives the user full access to all resources in the subscription, including the right to delegate access to others. These steps are the same as any other role assignment.
 
 If you're not sure who the account administrator is for a subscription, use the following steps to find out.
 

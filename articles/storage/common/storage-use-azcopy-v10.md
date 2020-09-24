@@ -92,7 +92,7 @@ These roles can be assigned to your security principal in any of these scopes:
 To learn how to verify and assign roles, see [Grant access to Azure blob and queue data with RBAC in the Azure portal](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 > [!NOTE]
-> Keep in mind that RBAC role assignments can take up to five minutes to propagate.
+> Keep in mind that Azure role assignments can take up to five minutes to propagate.
 
 You don't need to have one of these roles assigned to your security principal if your security principal is added to the access control list (ACL) of the target container or directory. In the ACL, your security principal needs write permission on the target directory, and execute permission on container and each parent directory.
 
@@ -153,7 +153,7 @@ $env:AZCOPY_SPA_CLIENT_SECRET="$(Read-Host -prompt "Enter key")"
 Next, type the following command, and then press the ENTER key.
 
 ```azcopy
-azcopy login --service-principal --certificate-path path-to-certificate-file --application-id application-id --tenant-id=tenant-id
+azcopy login --service-principal  --application-id application-id --tenant-id=tenant-id
 ```
 
 Replace the `<application-id>` placeholder with the application ID of your service principal's app registration. Replace the `<tenant-id>` placeholder with the tenant ID of the organization to which the storage account belongs. To find the tenant ID, select **Azure Active Directory > Properties > Directory ID** in the Azure portal. 

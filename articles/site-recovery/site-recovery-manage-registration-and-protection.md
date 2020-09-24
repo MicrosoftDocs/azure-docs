@@ -1,12 +1,12 @@
 ---
 title: Remove servers and disable protection | Microsoft Docs
 description: This article describes how to unregister servers from a Site Recovery vault, and to disable protection for virtual machines and physical servers.
-author: rajani-janaki-ram
+author: Sharmistha-Rai
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 06/18/2019
-ms.author: rajanaki
+ms.author: sharrai
 
 ---
 

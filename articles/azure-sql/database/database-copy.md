@@ -9,8 +9,8 @@ ms.devlang:
 ms.topic: conceptual
 author: stevestein
 ms.author: sashan
-ms.reviewer: carlrab
-ms.date: 07/27/2020
+ms.reviewer: 
+ms.date: 07/29/2020
 ---
 # Copy a transactionally consistent copy of a database in Azure SQL Database
 
@@ -111,6 +111,9 @@ You can use the steps in the [Copy a SQL Database to a different server](#copy-t
 > [!NOTE]
 > The [Azure portal](https://portal.azure.com), PowerShell, and the Azure CLI do not support database copy to a different subscription.
 
+> [!TIP]
+> Database copy using T-SQL supports copying a database from a subscription in a different Azure tenant. This is only supported when using a SQL authentication login to log in to the target server.
+
 ## Monitor the progress of the copying operation
 
 Monitor the copying process by querying the [sys.databases](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-databases-transact-sql), [sys.dm_database_copies](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-copies-azure-sql-database), and [sys.dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) views. While the copying is in progress, the **state_desc** column of the sys.databases view for the new database is set to **COPYING**.
@@ -124,7 +127,7 @@ Monitor the copying process by querying the [sys.databases](https://docs.microso
 > [!IMPORTANT]
 > If you need to create a copy with a substantially smaller service objective than the source, the target database may not have sufficient resources to complete the seeding process and it can cause the copy operaion to fail. In this scenario use a geo-restore request to create a copy in a different server and/or a different region. See [Recover an Azure SQL Database using database backups](recovery-using-backups.md#geo-restore) for more information.
 
-## RBAC roles to manage database copy
+## Azure roles to manage database copy
 
 To create a database copy, you will need to be in the following roles
 
@@ -152,7 +155,7 @@ To manage database copy using the Azure portal, you will also need the following
    Microsoft.Resources/deployments/write
    Microsoft.Resources/deployments/operationstatuses/read
 
-If you want to see the operations under deployments in the resource group on the portal, operations across multiple resource providers including SQL operations, you will need these additional RBAC roles:
+If you want to see the operations under deployments in the resource group on the portal, operations across multiple resource providers including SQL operations, you will need these additional Azure roles:
 
    Microsoft.Resources/subscriptions/resourcegroups/deployments/operations/read
    Microsoft.Resources/subscriptions/resourcegroups/deployments/operationstatuses/read

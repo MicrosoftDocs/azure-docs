@@ -13,7 +13,7 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: tutorial
 ms.date: 09/30/2019
 ms.author: tomfitz
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 
 #Customer intent: As an IT administrator, I want to learn how to control and manage VM resources so that I can secure and audit resource access, and group resources for billing or management.
 ---
@@ -42,7 +42,7 @@ Currently, the resource group is empty.
 
 ## Role-based access control
 
-You want to make sure users in your organization have the right level of access to these resources. You don't want to grant unlimited access to users, but you also need to make sure they can do their work. [Role-based access control](../../role-based-access-control/overview.md) enables you to manage which users have permission to complete specific actions at a scope.
+You want to make sure users in your organization have the right level of access to these resources. You don't want to grant unlimited access to users, but you also need to make sure they can do their work. [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) enables you to manage which users have permission to complete specific actions at a scope.
 
 To create and remove role assignments, users must have `Microsoft.Authorization/roleAssignments/*` access. This access is granted through the Owner or User Access Administrator roles.
 

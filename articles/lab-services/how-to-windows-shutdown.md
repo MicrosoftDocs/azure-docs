@@ -56,7 +56,7 @@ Or, you can choose to follow these manual steps using the template VM:
 
 1. Go to **Computer Configuration > Administrative Templates > Windows Components > Remote Desktop Services > Remote Desktop Session Host > Session Time Limits**.  
 
-    ![Local group policy editor](./media/how-to-windows-shutdown/group-policy-idle.png)
+    ![Screenshot that shows the "Local group policy editor" with "Session Time Limits" selected.](./media/how-to-windows-shutdown/group-policy-idle.png)
    
 1. Right-click **Set time limit for active but idle Remote Desktop Services sessions**, and click **Edit**.
 

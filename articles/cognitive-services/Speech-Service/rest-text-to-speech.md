@@ -237,6 +237,6 @@ If the HTTP status is `200 OK`, the body of the response contains an audio file 
 
 ## Next steps
 
-- [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services)
+- [Create a free Azure account](https://azure.microsoft.com/free/cognitive-services/)
 - [Asynchronous synthesis for long-form audio](quickstarts/text-to-speech/async-synthesis-long-form-audio.md)
 - [Get started with Custom Voice](how-to-custom-voice.md)

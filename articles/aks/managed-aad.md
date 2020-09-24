@@ -2,9 +2,8 @@
 title: Use Azure AD in Azure Kubernetes Service
 description: Learn how to use Azure AD in Azure Kubernetes Service (AKS) 
 services: container-service
-manager: gwallace
 ms.topic: article
-ms.date: 07/20/2020
+ms.date: 08/26/2020
 ms.author: thomasge
 ---
 
@@ -16,7 +15,7 @@ AKS-managed Azure AD integration is designed to simplify the Azure AD integratio
 
 Cluster administrators can configure Kubernetes role-based access control (RBAC) based on a user's identity or directory group membership. Azure AD authentication is provided to AKS clusters with OpenID Connect. OpenID Connect is an identity layer built on top of the OAuth 2.0 protocol. For more information on OpenID Connect, see the [Open ID connect documentation][open-id-connect].
 
-Learn more about the AAD integration flow on the [Azure Active Directory integration concepts documentation](concepts-identity.md#azure-active-directory-integration).
+Learn more about the Azure AD integration flow on the [Azure Active Directory integration concepts documentation](concepts-identity.md#azure-active-directory-integration).
 
 ## Region availability
 
@@ -28,46 +27,27 @@ AKS-managed Azure Active Directory integration is available in public regions wh
 ## Limitations 
 
 * AKS-managed Azure AD integration can't be disabled
-* non-RBAC enabled clusters aren't supported for AKS-managed AAD integration
-* Changing the Azure AD tenant associated with AKS-managed AAD integration isn't supported
-
-> [!IMPORTANT]
-> AKS preview features are available on a self-service, opt-in basis. Previews are provided "as-is" and "as available," and are excluded from the Service Level Agreements and limited warranty. AKS previews are partially covered by customer support on a best-effort basis. As such, these features are not meant for production use. For more information, see the following support articles:	
-> - [AKS Support Policies](support-policies.md)	
-> - [Azure Support FAQ](faq.md)
+* non-RBAC enabled clusters aren't supported for AKS-managed Azue AD integration
+* Changing the Azure AD tenant associated with AKS-managed Azure AD integration isn't supported
 
 ## Prerequisites
 
-* The Azure CLI version 2.9.0 or later
-* Kubectl with a minimum version of [1.18](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.18.md#v1180)
+* The Azure CLI version 2.11.0 or later
+* Kubectl with a minimum version of [1.18.1](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.18.md#v1181) or [kubelogin](https://github.com/Azure/kubelogin)
+* If you are using [helm](https://github.com/helm/helm), minimum version of helm 3.3.
 
 > [!Important]
-> You must use Kubectl with a minimum version of 1.18
+> You must use Kubectl with a minimum version of 1.18.1 or kubelogin. If you don't use the correct version, you will notice authentication issues.
 
-To install kubectl, use the following commands:
+To install kubectl and kubelogin, use the following commands:
 
 ```azurecli-interactive
 sudo az aks install-cli
 kubectl version --client
+kubelogin --version
 ```
 
 Use [these instructions](https://kubernetes.io/docs/tasks/tools/install-kubectl/) for other operating systems.
-
-```azurecli-interactive	
-az feature register --name AAD-V2 --namespace Microsoft.ContainerService	
-```	
-
-It might take several minutes for the status to show as **Registered**. You can check the registration status by using the [az feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list) command:	
-
-```azurecli-interactive	
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AAD-V2')].{Name:name,State:properties.state}"	
-```	
-
-When the status shows as registered, refresh the registration of the `Microsoft.ContainerService` resource provider by using the [az provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register) command:	
-
-```azurecli-interactive	
-az provider register --namespace Microsoft.ContainerService	
-```	
 
 
 ## Before you begin
@@ -141,7 +121,7 @@ aks-nodepool1-15306047-0   Ready    agent   102m   v1.15.10
 aks-nodepool1-15306047-1   Ready    agent   102m   v1.15.10
 aks-nodepool1-15306047-2   Ready    agent   102m   v1.15.10
 ```
-Configure [Role Based Access Control (RBAC)](./azure-ad-rbac.md) to configure additional security groups for your clusters.
+Configure [Azure role-based access control (Azure RBAC)](./azure-ad-rbac.md) to configure additional security groups for your clusters.
 
 ## Troubleshooting access issues with Azure AD
 
@@ -155,6 +135,31 @@ To do these steps, you'll need to have access to the [Azure Kubernetes Service C
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myManagedCluster --admin
 ```
+
+## Enable AKS-managed Azure AD Integration on your existing cluster
+
+You can enable AKS-managed Azure AD Integration on your existing RBAC enabled cluster. Ensure to set your admin group to keep access on your cluster.
+
+```azurecli-interactive
+az aks update -g MyResourceGroup -n MyManagedCluster --enable-aad --aad-admin-group-object-ids <id-1> [--aad-tenant-id <id>]
+```
+
+A successful activation of an AKS-managed Azure AD cluster has the following section in the response body
+
+```output
+"AADProfile": {
+    "adminGroupObjectIds": [
+      "5d24****-****-****-****-****afa27aed"
+    ],
+    "clientAppId": null,
+    "managed": true,
+    "serverAppId": null,
+    "serverAppSecret": null,
+    "tenantId": "72f9****-****-****-****-****d011db47"
+  }
+```
+
+Download user credentials again to access your cluster by following the steps [here][access-cluster].
 
 ## Upgrading to AKS-managed Azure AD Integration
 

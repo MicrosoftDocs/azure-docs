@@ -7,7 +7,7 @@ ms.subservice: imaging
 ms.topic: tutorial
 ms.date: 05/01/2020
 ms.author: cynthn
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.reviewer: akjosh
 ---
 # Tutorial: Create and use a custom image for virtual machine scale sets with the Azure CLI

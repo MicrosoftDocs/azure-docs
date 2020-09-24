@@ -29,6 +29,8 @@
         href: quickstart-service-python.md
 - name: Tutorials
   items:
+  - name: Connect a multiple component device (C)
+    href: tutorial-multiple-components-c.md
   - name: Connect a multiple component device (C#)
     href: tutorial-multiple-components-csharp.md
   - name: Connect a multiple component device (Java)
@@ -37,6 +39,8 @@
     href: tutorial-multiple-components-node.md
   - name: Connect a multiple component device (Python)
     href: tutorial-multiple-components-python.md
+  - name: Use MQTT to connect a device
+    href: tutorial-use-mqtt.md
 - name: Concepts
   items:
   - name: Architecture
@@ -51,7 +55,7 @@
     href: concepts-digital-twin.md
   - name: Model repository
     href: concepts-model-repository.md
-  - name: Model discovery
+  - name: Use models in a solution
     href: concepts-model-discovery.md
   - name: Model parser
     href: concepts-model-parser.md
@@ -67,6 +71,8 @@
     href: howto-use-iot-pnp-cli.md
   - name: Manage digital twins
     href: howto-manage-digital-twin.md
+  - name: Certify a device
+    href: howto-certify-device.md
 - name: Reference
   items:
   - name: Libraries and SDKs

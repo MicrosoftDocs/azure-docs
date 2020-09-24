@@ -1,6 +1,6 @@
 ---
 title: Azure Serial Console for Linux | Microsoft Docs
-description: Bi-Directional Serial Console for Azure Virtual Machines and Virtual Machine Scale Sets.
+description: Bi-Directional Serial Console for Azure Virtual Machines and Virtual Machine Scale Sets using a Linux example.
 services: virtual-machines-linux
 documentationcenter: ''
 author: asinn826
@@ -23,11 +23,12 @@ The Serial Console in the Azure portal provides access to a text-based console f
 
 Serial Console works in the same manner for VMs and virtual machine scale set instances. In this doc, all mentions to VMs will implicitly include virtual machine scale set instances unless otherwise stated.
 
+Serial Console is generally available in global Azure regions and in public preview in Azure Government. It is not yet available in the Azure China cloud.
+
 For Serial Console documentation for Windows, see [Serial Console for Windows](./serial-console-windows.md).
 
 > [!NOTE]
-> The Serial Console is generally available in global Azure regions and in public preview in Azure Government. It is not yet available in the Azure China cloud.
-
+> Serial Console is currently incompatible with a managed boot diagnostics storage account. To use Serial Console, ensure that you are using a custom storage account.
 
 ## Prerequisites
 

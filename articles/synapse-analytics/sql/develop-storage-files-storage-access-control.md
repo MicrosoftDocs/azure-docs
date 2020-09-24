@@ -8,7 +8,7 @@ ms.topic: overview
 ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
-ms.reviewer: jrasnick, carlrab
+ms.reviewer: jrasnick 
 ---
 
 # Control storage account access for SQL on-demand (preview)
@@ -21,7 +21,7 @@ This article describes the types of credentials you can use and how credential l
 
 ## Supported storage authorization types
 
-A user that has logged into a SQL on-demand resource must be authorized to access and query the files in Azure Storage if the files are not publicly available. You can use three authorization types to access non-public storage - [User Identity](?tabs=user-identity), [Shared access signature](?tabs=shared-access-signature), and [Managed Identity](?tabs=managed-identity).
+A user that has logged into a SQL on-demand resource must be authorized to access and query the files in Azure Storage if the files aren't publicly available. You can use three authorization types to access non-public storage - [User Identity](?tabs=user-identity), [Shared access signature](?tabs=shared-access-signature), and [Managed Identity](?tabs=managed-identity).
 
 > [!NOTE]
 > **Azure AD pass-through** is the default behavior when you create a workspace.
@@ -50,7 +50,7 @@ You can get an SAS token by navigating to the **Azure portal -> Storage Account 
 >
 > SAS token: ?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-04-18T20:42:12Z&st=2019-04-18T12:42:12Z&spr=https&sig=lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78%3D
 
-You need to create database-scoped or server-scoped credential to enable access using SAS token.
+To enable access using an SAS token, you need to create a database-scoped or server-scoped credential 
 
 ### [Managed Identity](#tab/managed-identity)
 
@@ -78,15 +78,16 @@ In the table below you can find the available authorization types:
 
 You can use the following combinations of authorization and Azure Storage types:
 
-|                     | Blob Storage   | ADLS Gen1        | ADLS Gen2     |
+| Authorization type  | Blob Storage   | ADLS Gen1        | ADLS Gen2     |
 | ------------------- | ------------   | --------------   | -----------   |
-| *SAS*               | Supported      | Not  supported   | Supported     |
-| *Managed  Identity* | Supported      | Supported        | Supported     |
-| *User  Identity*    | Supported      | Supported        | Supported     |
+| [SAS](?tabs=shared-access-signature#supported-storage-authorization-types)    | Supported\*      | Not  supported   | Supported\*     |
+| [Managed Identity](?tabs=managed-identity#supported-storage-authorization-types) | Supported      | Supported        | Supported     |
+| [User Identity](?tabs=user-identity#supported-storage-authorization-types)    | Supported\*      | Supported\*        | Supported\*     |
 
+\* SAS token and Azure AD Identity can be used to access storage that is not protected with firewall.
 
 > [!IMPORTANT]
-> When accessing storage that is protected with the firewall, only Managed Identity can be used. You need to [Allow trusted Microsoft services... setting](../../storage/common/storage-network-security.md#trusted-microsoft-services) and explicitly [assign an RBAC role](../../storage/common/storage-auth-aad.md#assign-rbac-roles-for-access-rights) to the [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) for that resource instance. In this case, the scope of access for the instance corresponds to the RBAC role assigned to the managed identity.
+> When accessing storage that is protected with the firewall, only Managed Identity can be used. You need to [Allow trusted Microsoft services... setting](../../storage/common/storage-network-security.md#trusted-microsoft-services) and explicitly [assign an Azure role](../../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights) to the [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) for that resource instance. In this case, the scope of access for the instance corresponds to the Azure role assigned to the managed identity.
 >
 
 ## Credentials
@@ -115,7 +116,7 @@ To ensure a smooth Azure AD pass-through experience, all users will, by default,
 
 ## Server-scoped credential
 
-Server-scoped credentials are used when SQL login calls `OPENROWSET` function without `DATA_SOURCE` to read files on some storage account. The name of server-scoped credential **must** match the URL of Azure storage. A credential is added by running [CREATE CREDENTIAL](/sql/t-sql/statements/create-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). You'll need to provide a CREDENTIAL NAME argument. It must match either part of the path or the whole path to data in Storage (see below).
+Server-scoped credentials are used when SQL login calls `OPENROWSET` function without `DATA_SOURCE` to read files on some storage account. The name of server-scoped credential **must** match the URL of Azure storage. A credential is added by running [CREATE CREDENTIAL](/sql/t-sql/statements/create-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). You'll need to provide a CREDENTIAL NAME argument. It must match either part of the path or the whole path to data in Storage (see below).
 
 > [!NOTE]
 > The `FOR CRYPTOGRAPHIC PROVIDER` argument is not supported.
@@ -134,7 +135,7 @@ Server-scoped credentials enable access to Azure storage using the following aut
 
 Azure AD users can access any file on Azure storage if they have `Storage Blob Data Owner`, `Storage Blob Data Contributor`, or `Storage Blob Data Reader` role. Azure AD users don't need credentials to access storage. 
 
-SQL users cannot use Azure AD authentication to access storage.
+SQL users can't use Azure AD authentication to access storage.
 
 ### [Shared access signature](#tab/shared-access-signature)
 
@@ -152,7 +153,7 @@ GO
 
 ### [Managed Identity](#tab/managed-identity)
 
-The following script creates a server-level credential that can be used by `OPENROWSET` function to access any file on Azure storage using workspace managed identity.
+The following script creates a server-level credential that can be used by `OPENROWSET` function to access any file on Azure storage using workspace-managed identity.
 
 ```sql
 CREATE CREDENTIAL [https://<storage_account>.dfs.core.windows.net/<container>]
@@ -161,13 +162,13 @@ WITH IDENTITY='Managed Identity'
 
 ### [Public access](#tab/public-access)
 
-Database scoped credential is not required to allow access to publicly available files. Create [data source without database scoped credential](develop-tables-external-tables.md?tabs=sql-ondemand#example-for-create-external-data-source) to access publicly available files on Azure storage.
+Database scoped credential isn't required to allow access to publicly available files. Create [data source without database scoped credential](develop-tables-external-tables.md?tabs=sql-ondemand#example-for-create-external-data-source) to access publicly available files on Azure storage.
 
 ---
 
 ## Database-scoped credential
 
-Database-scoped credentials are used when any principal calls `OPENROWSET` function with `DATA_SOURCE` or selects data from [external table](develop-tables-external-tables.md) that don't access public files. The database scoped credential doesn't need to match the name of storage account because it will be explicitly used in DATA SOURCE that defines the location of storage.
+Database-scoped credentials are used when any principal calls `OPENROWSET` function with `DATA_SOURCE` or selects data from [external table](develop-tables-external-tables.md) that don't access public files. The database scoped credential doesn't need to match the name of storage account. It will be explicitly used in DATA SOURCE that defines the location of storage.
 
 Database-scoped credentials enable access to Azure storage using the following authentication types:
 
@@ -175,35 +176,59 @@ Database-scoped credentials enable access to Azure storage using the following a
 
 Azure AD users can access any file on Azure storage if they have at least `Storage Blob Data Owner`, `Storage Blob Data Contributor`, or `Storage Blob Data Reader` role. Azure AD users don't need credentials to access storage.
 
-SQL users cannot use Azure AD authentication to access storage.
+```sql
+CREATE EXTERNAL DATA SOURCE mysample
+WITH (    LOCATION   = 'https://<storage_account>.dfs.core.windows.net/<container>/<path>'
+)
+```
+
+SQL users can't use Azure AD authentication to access storage.
 
 ### [Shared access signature](#tab/shared-access-signature)
 
-The following script creates a credential that is used to access files on storage using SAS token specified in the credential.
+The following script creates a credential that is used to access files on storage using SAS token specified in the credential. The script will create a sample external data source that uses this SAS token to access storage.
 
 ```sql
+-- Optional: Create MASTER KEY if not exists in database:
+-- CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<Very Strong Password>'
+GO
 CREATE DATABASE SCOPED CREDENTIAL [SasToken]
 WITH IDENTITY = 'SHARED ACCESS SIGNATURE',
      SECRET = 'sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-04-18T20:42:12Z&st=2019-04-18T12:42:12Z&spr=https&sig=lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78%3D';
 GO
+CREATE EXTERNAL DATA SOURCE mysample
+WITH (    LOCATION   = 'https://<storage_account>.dfs.core.windows.net/<container>/<path>',
+          CREDENTIAL = SasToken
+)
 ```
 
 ### [Managed Identity](#tab/managed-identity)
 
-The following script creates a database-scoped credential that can be used to impersonate current Azure AD user as Managed Identity of service. 
+The following script creates a database-scoped credential that can be used to impersonate current Azure AD user as Managed Identity of service. The script will create a sample external data source that uses workspace identity to access storage.
 
 ```sql
-CREATE DATABASE SCOPED CREDENTIAL [SynapseIdentity]
+-- Optional: Create MASTER KEY if not exists in database:
+-- CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<Very Strong Password>
+CREATE DATABASE SCOPED CREDENTIAL SynapseIdentity
 WITH IDENTITY = 'Managed Identity';
 GO
+CREATE EXTERNAL DATA SOURCE mysample
+WITH (    LOCATION   = 'https://<storage_account>.dfs.core.windows.net/<container>/<path>',
+          CREDENTIAL = SynapseIdentity
+)
 ```
 
 The database scoped credential doesn't need to match the name of storage account because it will be explicitly used in DATA SOURCE that defines the location of storage.
 
 ### [Public access](#tab/public-access)
 
-Database scoped credential is not required to allow access to publicly available files. Create [data source without database scoped credential](develop-tables-external-tables.md?tabs=sql-ondemand#example-for-create-external-data-source) to access publicly available files on Azure storage.
+Database scoped credential isn't required to allow access to publicly available files. Create [data source without database scoped credential](develop-tables-external-tables.md?tabs=sql-ondemand#example-for-create-external-data-source) to access publicly available files on Azure storage.
 
+```sql
+CREATE EXTERNAL DATA SOURCE mysample
+WITH (    LOCATION   = 'https://<storage_account>.blob.core.windows.net/<container>/<path>'
+)
+```
 ---
 
 Database scoped credentials are used in external data sources to specify what authentication method will be used to access this storage:
@@ -217,7 +242,7 @@ WITH (    LOCATION   = 'https://<storage_account>.dfs.core.windows.net/<containe
 
 ## Examples
 
-**Accessing publicly available data source**
+### **Access a publicly available data source**
 
 Use the following script to create a table that accesses publicly available data source.
 
@@ -246,7 +271,7 @@ SELECT TOP 10 * FROM OPENROWSET(BULK 'parquet/user-data/*.parquet',
 GO
 ```
 
-**Accessing data source using credential**
+### **Access a data source using credentials**
 
 Modify the following script to create an external table that accesses Azure storage using SAS token, Azure AD identity of user, or managed identity of workspace.
 

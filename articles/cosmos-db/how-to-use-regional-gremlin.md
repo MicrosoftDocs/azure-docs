@@ -7,6 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 09/09/2019
+ms.custom: devx-track-csharp
 ---
 
 # Regional endpoints for Azure Cosmos DB Graph account

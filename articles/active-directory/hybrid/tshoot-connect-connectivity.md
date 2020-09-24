@@ -28,8 +28,8 @@ Azure AD Connect is using Modern Authentication (using the ADAL library) for aut
 
 In this article, we show how Fabrikam connects to Azure AD through its proxy. The proxy server is named fabrikamproxy and is using port 8080.
 
-First we need to make sure [**machine.config**](how-to-connect-install-prerequisites.md#connectivity) is correctly configured.
-![machineconfig](./media/tshoot-connect-connectivity/machineconfig.png)
+First we need to make sure [**machine.config**](how-to-connect-install-prerequisites.md#connectivity) is correctly configured and **Microsoft Azure AD Sync service** has been restarted once after the machine.config file update.
+![Screenshot shows part of the machine dot config file.](./media/tshoot-connect-connectivity/machineconfig.png)
 
 > [!NOTE]
 > In some non-Microsoft blogs, it is documented that changes should be made to miiserver.exe.config instead. However, this file is overwritten on every upgrade so even if it works during initial install, the system stops working on first upgrade. For that reason, the recommendation is to update machine.config instead.
@@ -56,7 +56,7 @@ The following issues are the most common errors you encounter in the installatio
 
 ### The installation wizard has not been correctly configured
 This error appears when the wizard itself cannot reach the proxy.
-![nomachineconfig](./media/tshoot-connect-connectivity/nomachineconfig.png)
+![Screenshot shows an error: Unable to validate credentials.](./media/tshoot-connect-connectivity/nomachineconfig.png)
 
 * If you see this error, verify the [machine.config](how-to-connect-install-prerequisites.md#connectivity) has been correctly configured.
 * If that looks correct, follow the steps in [Verify proxy connectivity](#verify-proxy-connectivity) to see if the issue is present outside the wizard as well.
@@ -224,14 +224,14 @@ Shown as Unexpected error in the installation wizard. Can happen if you try to u
 With releases starting with build number 1.1.105.0 (released February 2016), the sign-in assistant was retired. This section and the configuration should no longer be required, but is kept as reference.
 
 For the single-sign in assistant to work, winhttp must be configured. This configuration can be done with [**netsh**](how-to-connect-install-prerequisites.md#connectivity).
-![netsh](./media/tshoot-connect-connectivity/netsh.png)
+![Screenshot shows a command prompt window running the netsh tool to set a proxy.](./media/tshoot-connect-connectivity/netsh.png)
 
 ### The Sign-in assistant has not been correctly configured
 This error appears when the Sign-in assistant cannot reach the proxy or the proxy is not allowing the request.
-![nonetsh](./media/tshoot-connect-connectivity/nonetsh.png)
+![Screenshot shows an error: Unable to validate credentials, Verify network connectivity and firewall or proxy settings.](./media/tshoot-connect-connectivity/nonetsh.png)
 
 * If you see this error, look at the proxy configuration in [netsh](how-to-connect-install-prerequisites.md#connectivity) and verify it is correct.
-  ![netshshow](./media/tshoot-connect-connectivity/netshshow.png)
+  ![Screenshot shows a command prompt window running the netsh tool to show the proxy configuration.](./media/tshoot-connect-connectivity/netshshow.png)
 * If that looks correct, follow the steps in [Verify proxy connectivity](#verify-proxy-connectivity) to see if the issue is present outside the wizard as well.
 
 ## Next steps

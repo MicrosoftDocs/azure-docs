@@ -16,7 +16,7 @@ After setting up [Application Insights for your project](./app-insights-overview
 
 Here's a sample alert:
 
-[![](./media/proactive-failure-diagnostics/013.png "Sample smart detection alert showing cluster analysis around failure")](./media/proactive-failure-diagnostics/013.png#lightbox)
+:::image type="content" source="./media/proactive-failure-diagnostics/013.png" alt-text="Sample smart detection alert showing cluster analysis around failure." lightbox="./media/proactive-failure-diagnostics/013.png":::
 
 The alert details will tell you:
 
@@ -54,6 +54,7 @@ The alerts are triggered by our proprietary machine learning algorithm so we can
 * A comparison of the failure percentage of the last 20 minutes to the rate in the last 40 minutes and the past seven days, and looking for significant deviations that exceed X-times that standard deviation.
 * Using an adaptive limit for the minimum failure percentage, which varies based on the app’s volume of requests/dependencies.
 * There is logic that can automatically resolve the fired alert monitor condition, if the issue is no longer detected for 8-24 hours.
+  Note: in the current design. a notification or action will not be sent when a Smart Detection alert is resolved. You can check if a Smart Detection alert was resolved in the Azure portal.
 
 ## Configure alerts
 
@@ -68,11 +69,11 @@ This alert rule is created with an associated [Action Group](../platform/action-
 
 Open the Alerts page. Failure Anomalies alert rules are included along with any alerts that you have set manually, and you can see whether it is currently in the alert state.
 
-[![](./media/proactive-failure-diagnostics/021.png "On the Application Insights resource page, click 'Alerts' tile, then 'Manage alert rules'")](./media/proactive-failure-diagnostics/021.png#lightbox)
+:::image type="content" source="./media/proactive-failure-diagnostics/021.png" alt-text="On the Application Insights resource page, click Alerts tile, then Manage alert rules." lightbox="./media/proactive-failure-diagnostics/021.png":::
 
 Click the alert to configure it.
 
-[![](./media/proactive-failure-diagnostics/032.png "Rule configuration screen")](./media/proactive-failure-diagnostics/032.png#lightbox)
+:::image type="content" source="./media/proactive-failure-diagnostics/032.png" alt-text="Rule configuration screen." lightbox="./media/proactive-failure-diagnostics/032.png":::
 
 Notice that you can disable or delete a Failure Anomalies alert rule, but you can't create another one on the same Application Insights resource.
 
@@ -294,7 +295,7 @@ You can also open the [Azure portal](https://portal.azure.com), navigate to the 
 
 Clicking on 'Diagnose failures' will help you get more details and resolve the issue.
 
-[![](./media/proactive-failure-diagnostics/051.png "Diagnostic search")](./media/proactive-failure-diagnostics/051.png#lightbox)
+:::image type="content" source="./media/proactive-failure-diagnostics/051.png" alt-text="Diagnostic search." lightbox="./media/proactive-failure-diagnostics/051.png#lightbox":::
 
 From the percentage of requests and number of users affected, you can decide how urgent the issue is. In the example above, the failure rate of 78.5% compares with a normal rate of 2.2%, indicates that something bad is going on. On the other hand, only 46 users were affected. If it was your app, you'd be able to assess how serious that is.
 
@@ -302,13 +303,13 @@ In many cases, you will be able to diagnose the problem quickly from the request
 
 In this example, there was an exception from SQL Database due to request limit being reached.
 
-[![](./media/proactive-failure-diagnostics/052.png "Failed request details")](./media/proactive-failure-diagnostics/052.png#lightbox)
+:::image type="content" source="./media/proactive-failure-diagnostics/052.png" alt-text="Failed request details." lightbox="./media/proactive-failure-diagnostics/052.png":::
 
 ## Review recent alerts
 
 Click **Alerts** in the Application Insights resource page to get to the most recent fired alerts:
 
-[![](./media/proactive-failure-diagnostics/070.png "Alerts summary")](./media/proactive-failure-diagnostics/070.png#lightbox)
+:::image type="content" source="./media/proactive-failure-diagnostics/070.png" alt-text="Alerts summary." lightbox="./media/proactive-failure-diagnostics/070.png":::
 
 ## What's the difference ...
 Smart Detection of failure anomalies complements other similar but distinct features of Application Insights.

@@ -12,7 +12,7 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
-ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript, devx-track-javascript
+ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript, devx-track-js
 
 #Customer intent: As an app developer, I want to learn how to get access tokens by using the Microsoft identity platform endpoint so that my JavaScript app can sign in users of personal accounts, work accounts, and school accounts.
 ---
@@ -109,7 +109,7 @@ In this quickstart, you use a code sample to learn how a JavaScript single-page 
 >
 > Where:
 > - *\<Enter_the_Application_Id_Here>* is the **Application (client) ID** for the application you registered.
-> - *\<Enter_the_Cloud_Instance_Id_Here>* is the instance of the Azure cloud. For the main or global Azure cloud, simply enter *https://login.microsoftonline.com*. For **national** clouds (for example, China), see [National clouds](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud).
+> - *\<Enter_the_Cloud_Instance_Id_Here>* is the instance of the Azure cloud. For the main or global Azure cloud, simply enter *https://login.microsoftonline.com*. For **national** clouds (for example, China), see [National clouds](./authentication-national-cloud.md).
 > - *\<Enter_the_Tenant_info_here>* is set to one of the following options:
 >    - If your application supports *accounts in this organizational directory*, replace this value with the **Tenant ID** or **Tenant name** (for example, *contoso.microsoft.com*).
 >    - If your application supports *accounts in any organizational directory*, replace this value with **organizations**.
@@ -142,14 +142,14 @@ In this quickstart, you use a code sample to learn how a JavaScript single-page 
 > [!div renderon="docs"]
 >
 > Where:
-> - *\<Enter_the_Graph_Endpoint_Here>* is the endpoint that API calls will be made against. For the main or global Microsoft Graph API service, simply enter `https://graph.microsoft.com`. For more information, see [National cloud deployment](https://docs.microsoft.com/graph/deployments)
+> - *\<Enter_the_Graph_Endpoint_Here>* is the endpoint that API calls will be made against. For the main or global Microsoft Graph API service, simply enter `https://graph.microsoft.com`. For more information, see [National cloud deployment](/graph/deployments)
 >
 > #### Step 4: Run the project
 
 Run the project with a web server by using [Node.js](https://nodejs.org/en/download/):
 
 1. To start the server, run the following command from the project directory:
-    ```batch
+    ```cmd
     npm install
     npm start
     ```
@@ -177,7 +177,7 @@ The MSAL library signs in users and requests the tokens that are used to access 
 
 Alternatively, if you have Node.js installed, you can download the latest version through Node.js Package Manager (npm):
 
-```batch
+```cmd
 npm install msal
 ```
 
@@ -298,7 +298,7 @@ myMSALObj.acquireTokenPopup(requestObj)
 For a more detailed step-by-step guide on building the application for this quickstart, see:
 
 > [!div class="nextstepaction"]
-> [Tutorial to sign in and call MS Graph](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-javascriptspa)
+> [Tutorial to sign in and call MS Graph](./tutorial-v2-javascript-spa.md)
 
 To browse the MSAL repo for documentation, FAQ, issues, and more, see:
 

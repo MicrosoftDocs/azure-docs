@@ -1,10 +1,7 @@
 ---
 title: Windows Virtual Desktop (classic) diagnose issues - Azure
 description: How to use the Windows Virtual Desktop (classic) diagnostics feature to diagnose issues.
-services: virtual-desktop
 author: Heidilohr
-
-ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: helohr
@@ -20,7 +17,7 @@ Windows Virtual Desktop offers a diagnostics feature that allows the administrat
 * Feed subscription activities: the end-user triggers these activities whenever they try to connect to their feed through Microsoft Remote Desktop applications.
 * Connection activities: the end-user triggers these activities whenever they try to connect to a desktop or RemoteApp through Microsoft Remote Desktop applications.
 * Management activities: the administrator triggers these activities whenever they perform management operations on the system, such as creating host pools, assigning users to app groups, and creating role assignments.
-  
+
 Connections that don't reach Windows Virtual Desktop won't show up in diagnostics results because the diagnostics role service itself is part of Windows Virtual Desktop. Windows Virtual Desktop connection issues can happen when the end-user is experiencing network connectivity issues.
 
 To get started, [download and import the Windows Virtual Desktop PowerShell module](/powershell/windows-virtual-desktop/overview/) to use in your PowerShell session if you haven't already. After that, run the following cmdlet to sign in to your account:
@@ -34,7 +31,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 Windows Virtual Desktop Diagnostics uses just one PowerShell cmdlet but contains many optional parameters to help narrow down and isolate issues. The following sections list the cmdlets you can run to diagnose issues. Most filters can be applied together. Values listed in brackets, such as `<tenantName>`, should be replaced with the values that apply to your situation.
 
 >[!IMPORTANT]
->The diagnostics feature is for single-user troubleshooting. All queries using PowerShell must include either the *-UserName* or *-ActivityID* parameters. For monitoring capabilities, use Log Analytics. See [Use Log Analytics for the diagnostics feature](diagnostics-log-analytics-2019.md) for more information about how to send diagnostics data to your workspace. 
+>The diagnostics feature is for single-user troubleshooting. All queries using PowerShell must include either the *-UserName* or *-ActivityID* parameters. For monitoring capabilities, use Log Analytics. See [Use Log Analytics for the diagnostics feature](diagnostics-log-analytics-2019.md) for more information about how to send diagnostics data to your workspace.
 
 ### Filter diagnostic activities by user
 

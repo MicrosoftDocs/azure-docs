@@ -13,7 +13,7 @@ ms.date: 07/20/2020
 
 # Tutorial: Monitor virtual machine changes by using Azure Event Grid and Logic Apps
 
-To monitor and respond to specific events that happen in Azure resources or third-party resources, you can automate and run tasks as a workflow by creating a [logic app](../logic-apps/logic-apps-overview.md) that uses minimal code. These resources can publish events to an [Azure event grid](../event-grid/overview.md). In turn, the event grid pushes those events to subscribers that have queues, webhooks, or [event hubs](../event-hubs/event-hubs-what-is-event-hubs.md) as endpoints. As a subscriber, your logic app can wait for those events from the event grid before running automated workflows to perform tasks.
+To monitor and respond to specific events that happen in Azure resources or third-party resources, you can automate and run tasks as a workflow by creating a [logic app](../logic-apps/logic-apps-overview.md) that uses minimal code. These resources can publish events to an [Azure event grid](../event-grid/overview.md). In turn, the event grid pushes those events to subscribers that have queues, webhooks, or [event hubs](../event-hubs/event-hubs-about.md) as endpoints. As a subscriber, your logic app can wait for those events from the event grid before running automated workflows to perform tasks.
 
 For example, here are some events that publishers can send to subscribers through the Azure Event Grid service:
 
@@ -47,7 +47,7 @@ In this tutorial, you learn how to:
   > [!IMPORTANT]
   > If you want to use the Gmail connector, only G-Suite business accounts can use this connector without restriction in logic apps. 
   > If you have a Gmail consumer account, you can use this connector with only specific Google-approved services, or you can 
-  > [create a Google client app to use for authentication with your Gmail connector](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). 
+  > [create a Google client app to use for authentication with your Gmail connector](/connectors/gmail/#authentication-and-bring-your-own-application). 
   > For more information, see [Data security and privacy policies for Google connectors in Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
 
 * A [virtual machine](https://azure.microsoft.com/services/virtual-machines) that's alone in its own Azure resource group. If you haven't already done so, create a virtual machine through the [Create a VM tutorial](../virtual-machines/windows/quick-create-portal.md). To make the virtual machine publish events, you [don't need to do anything else](../event-grid/overview.md).

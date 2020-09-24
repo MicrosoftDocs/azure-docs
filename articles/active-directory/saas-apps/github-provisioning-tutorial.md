@@ -2,21 +2,14 @@
 title: 'Tutorial: User provisioning for GitHub - Azure AD'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to GitHub.
 services: active-directory
-documentationcenter: ''
 author: ArvindHarinder1
 manager: CelesteDG
-
-ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: arvinh
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Configure GitHub for automatic user provisioning
 
@@ -30,6 +23,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 * A GitHub organization created in [GitHub Enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise), which requires the [GitHub Enterprise billing plan](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations)
 * A user account in GitHub with Admin permissions to the organization
 * Ensure that OAuth access has been provided for your organization as described [here](https://help.github.com/en/github/setting-up-and-managing-organizations-and-teams/approving-oauth-apps-for-your-organization)
+* SCIM provisioning to a single organization is supported only when SSO is enabled at the organization level
 
 > [!NOTE]
 > The Azure AD provisioning integration relies on the [GitHub SCIM API](https://developer.github.com/v3/scim/), which is available to [GitHub Enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise) customers on the [GitHub Enterprise billing plan](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations).

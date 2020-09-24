@@ -20,7 +20,9 @@ There are two types of managed identities: user-assigned and system-assigned. Az
 
 ## HDInsight managed identity implementation
 
-In Azure HDInsight, managed identities are provisioned on each node of the cluster. These identity components, however, are only usable by the HDInsight service. There's currently no supported method to generate access tokens using the managed identities installed on HDInsight cluster nodes. For some Azure services, managed identities are implemented with an endpoint that you can use to acquire access tokens. Use the tokens for interacting with other Azure services on your own.
+In Azure HDInsight, managed identities are only usable by the HDInsight service for internal components. There's currently no supported method to generate access tokens using the managed identities installed on HDInsight cluster nodes for accessing external services. For some Azure services such as compute VMs, managed identities are implemented with an endpoint that you can use to acquire access tokens. This endpoint is currently not available in HDInsight nodes.
+
+If you need to bootstrap your applications to avoid putting secrets/passwords in the analytics jobs (e.g. SCALA jobs), you can distrubte your own certificates to the cluster nodes using script actions and then use that certificate to aquire an access token (for example to access Azure KeyVault).
 
 ## Create a managed identity
 

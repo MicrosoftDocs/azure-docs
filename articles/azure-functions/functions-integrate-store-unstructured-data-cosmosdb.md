@@ -4,7 +4,7 @@ description: Store unstructured data using Azure Functions and Cosmos DB
 
 ms.topic: quickstart
 ms.date: 04/14/2020
-ms.custom: mvc
+ms.custom: "devx-track-csharp, mvc"
 ---
 # Store unstructured data using Azure Functions and Azure Cosmos DB
 
@@ -138,7 +138,7 @@ This code sample reads the HTTP Request query strings and assigns them to fields
 
 1. Select **Run** and verify that a 200 status is returned.
 
-    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-test-function-output.png" alt-text="Test the function." border="true":::
+    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-test-function-output.png" alt-text="Screenshot shows the HTTP response code 200 status highlighted after selecting Run." border="true":::
 
 
 1. In the Azure portal, search for and select **Azure Cosmos DB**.

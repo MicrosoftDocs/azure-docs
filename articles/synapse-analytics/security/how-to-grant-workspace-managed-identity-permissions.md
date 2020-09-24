@@ -18,7 +18,7 @@ This article teaches you how to grant permissions to the managed identity in Azu
 >[!NOTE]
 >This workspace managed identity will be referred to as managed identity through the rest of this document.
 
-## Grant the managed identity  permissions to the SQL pool
+## Grant managed identity permissions to the SQL pool
 
 The managed identity grants permissions to the SQL pools in the workspace. With permissions granted, you can orchestrate pipelines that perform SQL pool-related activities. When you create an Azure Synapse workspace using Azure portal, you can grant the managed identity CONTROL permissions on SQL pools.
 
@@ -80,11 +80,11 @@ Select **+ Add**.
 
 ![Add new role assignment](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-9.png)
 
-#### Step 5: Select the RBAC role
+#### Step 5: Select the Azure role
 
 Select the **Storage Blob Data Contributor** role.
 
-![Select the RBAC role](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-10.png)
+![Select the Azure role](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-10.png)
 
 #### Step 6: Select the Azure AD security principal
 

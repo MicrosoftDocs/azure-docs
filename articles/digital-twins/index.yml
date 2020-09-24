@@ -21,7 +21,14 @@ landingContent:
           - text: What is Azure Digital Twins?
             url: overview.md
 
-  - title: Get started with the tutorials
+  - title: Get started with the quickstart
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Explore a sample scenario
+            url: quickstart-adt-explorer.md
+
+  - title: Go deeper with the tutorials
     linkLists:
       - linkListType: tutorial
         links:
@@ -60,7 +67,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Set up an instance and authentication
-            url: how-to-set-up-instance-scripted.md
+            url: how-to-set-up-instance-portal.md
       - linkListType: how-to-guide
         links:
           - text: Write app authentication code

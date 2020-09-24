@@ -117,7 +117,7 @@ Ensure you have created a table in your SQL Database with the appropriate output
 
 1. Select **Add > SQL Database**. In the output properties window of the SQL Database output sink, select **Managed Identity** from the Authentication mode drop-down.
 
-1. Fill out the rest of the properties. To learn more about creating an SQL Database output, see [Create a SQL Database output with Stream Analytics](stream-analytics-define-outputs.md#sql-database). When you are finished, select **Save**. 
+1. Fill out the rest of the properties. To learn more about creating an SQL Database output, see [Create a SQL Database output with Stream Analytics](sql-database-output.md). When you are finished, select **Save**. 
 
 ## Next steps
 

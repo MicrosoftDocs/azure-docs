@@ -4,7 +4,8 @@ description: Learn how to use the Azure Command-line Interface to create an Azur
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
 ms.topic: conceptual
-ms.date: 06/18/2017
+ms.date: 06/18/2017 
+ms.custom: devx-track-azurecli
 ---
 # Get started with Azure Data Lake Analytics using Azure CLI
 

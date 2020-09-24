@@ -2,12 +2,12 @@
 title: Get access token using Azure CLI - Azure API for FHIR
 description: This article explains how to obtain an access token for Azure API for FHIR using the Azure CLI.
 services: healthcare-apis
-author: hansenms
+author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.author: mihansen
+ms.author: matjazl
 ---
 
 # Get access token for Azure API for FHIR using Azure CLI

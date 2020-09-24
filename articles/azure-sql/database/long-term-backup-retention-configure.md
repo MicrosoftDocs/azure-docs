@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: mathoma, carlrab
+ms.reviewer: mathoma, sstein
 ms.date: 04/14/2020
 ---
 
@@ -75,7 +75,7 @@ View the backups that are retained for a specific database with an LTR policy, a
 
 The following sections show you how to use PowerShell to configure the long-term backup retention, view backups in Azure storage, and restore from a backup in Azure storage.
 
-### RBAC roles to manage long-term retention
+### Azure roles to manage long-term retention
 
 For **Get-AzSqlDatabaseLongTermRetentionBackup** and **Restore-AzSqlDatabase**, you will need to have one of the following roles:
 

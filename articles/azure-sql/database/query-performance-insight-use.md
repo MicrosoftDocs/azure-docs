@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: jrasnik, sstein
 ms.date: 03/10/2020
 ---
 # Query Performance Insight for Azure SQL Database
@@ -33,7 +33,7 @@ Query Performance Insight requires that [Query Store](https://msdn.microsoft.com
 
 ## Permissions
 
-You need the following [role-based access control](../../role-based-access-control/overview.md) permissions to use Query Performance Insight:
+You need the following [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) permissions to use Query Performance Insight:
 
 * **Reader**, **Owner**, **Contributor**, **SQL DB Contributor**, or **SQL Server Contributor** permissions are required to view the top resource-consuming queries and charts.
 * **Owner**, **Contributor**, **SQL DB Contributor**, or **SQL Server Contributor** permissions are required to view query text.

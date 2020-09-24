@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
+ms.reviewer: jrasnick 
 ---
 
 # Query CSV files
@@ -26,7 +26,7 @@ All of the above variations will be covered below.
 
 `OPENROWSET` function enables you to read the content of CSV file by providing the URL to your file.
 
-### Reading csv file
+### Read a csv file
 
 The easiest way to see to the content of your `CSV` file is to provide file URL to `OPENROWSET` function, specify csv `FORMAT`, and 2.0 `PARSER_VERSION`. If the file is publicly available or if your Azure AD identity can access this file, you should be able to see the content of the file using the query like the one shown in the following example:
 
@@ -41,7 +41,7 @@ from openrowset(
 
 Option `firstrow` is used to skip the first row in the CSV file that represents header in this case. Make sure that you can access this file. If your file is protected with SAS key or custom identity, your would need to setup [server level credential for sql login](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential).
 
-### Using data source
+### Data source usage
 
 Previous example uses full path to the file. As an alternative, you can create an external data source with the location that points to the root folder of the storage:
 
@@ -209,7 +209,7 @@ WHERE
 > [!NOTE]
 > This query would return the same results if you omitted the FIELDQUOTE parameter since the default value for FIELDQUOTE is a double-quote.
 
-## Escaping characters
+## Escape characters
 
 The following query shows how to read a file with a header row, with a Unix-style new line, comma-delimited columns, and an escape char used for the field delimiter (comma) within values. Note the different location of the file as compared to the other examples.
 
@@ -241,7 +241,7 @@ WHERE
 > [!NOTE]
 > This query would fail if ESCAPECHAR is not specified since the comma in "Slov,enia" would be treated as field delimiter instead of part of the country/region name. "Slov,enia" would be treated as two columns. Therefore, the particular row would have one column more than the other rows, and one column more than you defined in the WITH clause.
 
-### Escaping Quoting characters
+### Escape quoting characters
 
 The following query shows how to read a file with a header row, with a Unix-style new line, comma-delimited columns, and an escaped double quote char within values. Note the different location of the file as compared to the other examples.
 
@@ -301,7 +301,7 @@ WHERE
     AND year = 2017
 ```
 
-## Returning subset of columns
+## Return a subset of columns
 
 So far, you've specified the CSV file schema using WITH and listing all columns. You can only specify columns you actually need in your query by using an ordinal number for each column needed. You'll also omit columns of no interest.
 

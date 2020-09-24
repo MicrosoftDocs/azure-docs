@@ -9,7 +9,8 @@ ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
 ms.date: 06/12/2019
-ms.author: philmea
+ms.author: philmea 
+ms.custom: devx-track-azurecli
 ---
 # Run Azure IoT Edge on Windows Server Virtual Machines
 

@@ -319,7 +319,7 @@ Output:
 ```
 
 ## Create a virtual NIC
-Virtual network interface cards (NICs) are programmatically available because you can apply rules to their use. Depending on the [VM size](sizes.md), you can attach multiple virtual NICs to a VM. In the following [az network nic create](/cli/azure/network/nic) command, you create a NIC named *myNic* and associate it with your network security group. The public IP address *myPublicIP* is also associated with the virtual NIC.
+Virtual network interface cards (NICs) are programmatically available because you can apply rules to their use. Depending on the [VM size](../sizes.md), you can attach multiple virtual NICs to a VM. In the following [az network nic create](/cli/azure/network/nic) command, you create a NIC named *myNic* and associate it with your network security group. The public IP address *myPublicIP* is also associated with the virtual NIC.
 
 ```azurecli
 az network nic create \

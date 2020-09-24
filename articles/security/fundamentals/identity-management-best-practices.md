@@ -192,7 +192,7 @@ Organizations that don’t add extra layers of identity protection, such as two-
 
 ## Use role-based access control
 
-Access management for cloud resources is critical for any organization that uses the cloud. [Role-based access control (RBAC)](/azure/role-based-access-control/overview)helps you manage who has access to Azure resources, what they can do with those resources, and what areas they have access to.
+Access management for cloud resources is critical for any organization that uses the cloud. [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview)helps you manage who has access to Azure resources, what they can do with those resources, and what areas they have access to.
 
 Designating groups or individual roles responsible for specific functions in Azure helps avoid confusion that can lead to human and automation errors that create security risks. Restricting access based on the [need to know](https://en.wikipedia.org/wiki/Need_to_know) and [least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) security principles is imperative for organizations that want to enforce security policies for data access.
 

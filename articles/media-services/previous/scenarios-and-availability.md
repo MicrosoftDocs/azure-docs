@@ -17,6 +17,8 @@ ms.author: juliako
 ---
 # Scenarios and availability of Media Services features across datacenters
 
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 > [!NOTE]
 > No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](../latest/index.yml). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
 
@@ -44,7 +46,7 @@ The following image shows some of the most commonly used objects when developing
 
 Click the image to view it full size.  
 
-<a href="./media/media-services-overview/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-overview/media-services-overview-object-model-small.png"></a> 
+[![Diagram showing some of the most commonly used objects when developing against the Azure Media Services object data model.](./media/media-services-overview/media-services-overview-object-model-small.png)](./media/media-services-overview/media-services-overview-object-model.png#lightbox)
 
 You can view the whole model [here](https://media.windows.net/API/$metadata?api-version=2.15).  
 

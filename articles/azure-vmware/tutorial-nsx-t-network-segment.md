@@ -1,11 +1,11 @@
 ---
-title: "Tutorial: Create an NSX-T network segment in Azure VMware Solution (AVS)"
-description: In this tutorial, you created the NSX-T network segments that are used for VMs in vCenter
+title: Tutorial - Create an NSX-T network segment in Azure VMware Solution
+description: Learn how to create the NSX-T network segments that are used for VMs in vCenter
 ms.topic: tutorial
-ms.date: 07/16/2020
+ms.date: 09/21/2020
 ---
 
-# Tutorial: Create an NSX-T network segment in Azure VMware Solution (AVS)
+# Tutorial: Create an NSX-T network segment in Azure VMware Solution
 
 Network segments created in NSX-T Manager are used as networks for virtual machines (VMs) in vCenter. The VMs created in vCenter are placed onto the network segments created in NSX-T and are visible in vCenter.
 
@@ -18,17 +18,17 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-An AVS private cloud with access to the vCenter and NSX-T Manager management interfaces are required to complete this tutorial. See the [Tutorial: Configure networking for your VMware private cloud in Azure](tutorial-configure-networking.md).
+An Azure VMware Solution private cloud with access to the vCenter and NSX-T Manager management interfaces are required to complete this tutorial. For more information, see the [Configure networking for your VMware private cloud in Azure](tutorial-configure-networking.md) tutorial.
 
 ## Provision a network segment in NSX-T
 
 1. In vCenter for your private cloud, select **SDDC-Datacenter > Networks** and note that there are no networks yet.
 
-   :::image type="content" source="media/nsxt/vcenter-without-ls01.png" alt-text="Select SDDC-Datacenter > Networks":::
+   :::image type="content" source="media/nsxt/vcenter-without-ls01.png" alt-text="In vCenter for your private cloud, select SDDC-Datacenter > Networks and note that there are no networks yet.":::
 
 1. In NSX-T Manager for your private cloud, select **Networking**.
 
-   :::image type="content" source="media/nsxt/nsxt-network-overview.png" alt-text="Select Networking to navigate to NSX-T Manager Network Overview view.":::
+   :::image type="content" source="media/nsxt/nsxt-network-overview.png" alt-text="In NSX-T Manager for your private cloud, select Networking.":::
 
 1. Select **Segments**.
 
@@ -36,15 +36,15 @@ An AVS private cloud with access to the vCenter and NSX-T Manager management int
 
 1. In the NSX-T Segments overview page, select **ADD SEGMENT**. Three segments get created as part of the private cloud provisioning and can't be used for VMs.  You'll need to add a new network segment for this purpose.
 
-   :::image type="content" source="media/nsxt/nsxt-segments-overview.png" alt-text="Select Add Segment from Network Segment overview page.":::
+   :::image type="content" source="media/nsxt/nsxt-segments-overview.png" alt-text="In the NSX-T Segments overview page, select ADD SEGMENT.":::
 
 1. Name the segment, choose the pre-configured Tier1 Gateway (TNTxx-T1) as the **Connected Gateway**, leave the **Type** as Flexible, choose the pre-configured overlay **Transport Zone** (TNTxx-OVERLAY-TZ), and then select Set Subnets. All other settings in this section and the **PORTS** and **SEGMENT PROFILES** can remain in the default, as is configuration.
 
-   :::image type="content" source="media/nsxt/nsxt-create-segment-specs.png" alt-text="Set the Segment Name, Connected Gateway and Type, and Transport Zone, then select “Set Subnets”.":::
+   :::image type="content" source="media/nsxt/nsxt-create-segment-specs.png" alt-text="Set the Segment Name, Connected Gateway and Type, and Transport Zone, then select Set Subnet.":::
 
 1. Set the IP address of the gateway for the new segment and then select **ADD**. The IP address that you use needs to be on a non-overlapping RFC1918 address block, which ensures that you can connect to the VMs on the new segment.
 
-   :::image type="content" source="media/nsxt/nsxt-create-segment-gateway.png" alt-text="Specify the segment gateway IP address in CIDR notation and select ADD.":::
+   :::image type="content" source="media/nsxt/nsxt-create-segment-gateway.png" alt-text="Set the IP address of the gateway for the new segment and then select ADD.":::
 
 1. Apply the new network segment by selecting **APPLY** and then save the configuration with **SAVE**.
 
@@ -66,7 +66,12 @@ An AVS private cloud with access to the vCenter and NSX-T Manager management int
 
 ## Next steps
 
-In this tutorial, you created the NSX-T network segments that are used for VMs in vCenter. You can now use the [Tutorial: Create a content Library to deploy VMs in Azure VMware Solution (AVS)](tutorial-deploy-vm-content-library.md) to create a Content Library in vCenter and the provision a VM on the network you created in this tutorial.
+In this tutorial, you created the NSX-T network segments that are used for VMs in vCenter. You can now [create a content Library to deploy VMs in Azure VMware Solution](deploy-vm-content-library.md) and the provision a VM on the network you created in this tutorial.
+
+If not, then continue to the next tutorial to learn how to create ExpressRoute Global Reach peering to a private cloud in an Azure VMware Solution.
+
+> [!div class="nextstepaction"]
+> [Peer on-premises environments to a private cloud](tutorial-expressroute-global-reach-private-cloud.md)
 
 <!-- LINKS - external-->
 

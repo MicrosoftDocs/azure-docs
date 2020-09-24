@@ -1,6 +1,6 @@
 ---
 title: Use Role-based Access Control for StorSimple | Microsoft Docs
-description: Describes how to use Azure Role-based Access Control (RBAC) in the context of StorSimple.
+description: Describes how to use Azure role-based access control (Azure RBAC) in the context of StorSimple.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -25,7 +25,7 @@ This article applies to StorSimple 8000 series devices running Update 3.0 or lat
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## RBAC roles for StorSimple
+## Azure roles for StorSimple
 
 RBAC can be assigned based on the roles. The roles ensure certain permission levels based on the available resources in the environment. There are two types of roles that StorSimple users can choose from: built-in or custom.
 
@@ -54,7 +54,7 @@ In the following example, we start with the built-in role **Reader** that allows
     Get-AzRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\ssrbaccustom.json
     ```
 
-4. Open the JSON file in Visual Studio. You see that a typical RBAC role consists of three main sections, **Actions**, **NotActions**, and **AssignableScopes**.
+4. Open the JSON file in Visual Studio. You see that a typical Azure role consists of three main sections, **Actions**, **NotActions**, and **AssignableScopes**.
 
     In the **Action** section, all the permitted operations for this role are listed. Each action is assigned from a resource provider. For a StorSimple infrastructure admin, use the `Microsoft.StorSimple` resource provider.
 
@@ -64,9 +64,9 @@ In the following example, we start with the built-in role **Reader** that allows
 
     You can also check for all the available PowerShell cmdlets to manage the resource providers.
 
-    In the **NotActions** sections, all the restricted actions for a particular RBAC role are listed. In this example, no actions are restricted.
+    In the **NotActions** sections, all the restricted actions for a particular Azure role are listed. In this example, no actions are restricted.
     
-    Under the **AssignableScopes**, the subscription IDs are listed. Ensure that the RBAC role contains the explicit subscription ID where it is used. If the correct subscription ID is not specified, you are not allowed to import the role in your subscription.
+    Under the **AssignableScopes**, the subscription IDs are listed. Ensure that the Azure role contains the explicit subscription ID where it is used. If the correct subscription ID is not specified, you are not allowed to import the role in your subscription.
 
     Edit the file keeping in mind the preceding considerations.
 
@@ -105,7 +105,7 @@ In the following example, we start with the built-in role **Reader** that allows
 
 This role should now appear in the list of roles in the **Access control** blade.
 
-![View RBAC roles](./media/storsimple-8000-role-based-access-control/rbac-role-types.png)
+![View Azure roles](./media/storsimple-8000-role-based-access-control/rbac-role-types.png)
 
 For more information, go to [Custom roles](../role-based-access-control/custom-roles.md).
 
@@ -159,11 +159,11 @@ AssignableScopes : {/subscriptions/<subscription_ID>/}
 
 ## Add users to the custom role
 
-You grant access from within the resource, resource group, or subscription that is the scope of the role assignment. When providing access, bear in mind that the access granted at the parent node is inherited by the child. For more information, go to [role-based access control](../role-based-access-control/overview.md).
+You grant access from within the resource, resource group, or subscription that is the scope of the role assignment. When providing access, bear in mind that the access granted at the parent node is inherited by the child. For more information, go to [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md).
 
 1. Go to **Access control (IAM)**. Click **+ Add** on the Access control blade.
 
-    ![Add access to RBAC role](./media/storsimple-8000-role-based-access-control/rbac-add-role.png)
+    ![Add access to Azure role](./media/storsimple-8000-role-based-access-control/rbac-add-role.png)
 
 2. Select the role that you wish to assign, in this case it is the **StorSimple Infrastructure Admin**.
 
@@ -171,7 +171,7 @@ You grant access from within the resource, resource group, or subscription that 
 
 4. Select **Save** to create the assignment.
 
-    ![Add permissions to RBAC role](./media/storsimple-8000-role-based-access-control/rbac-create-role-infra-admin.png)
+    ![Add permissions to Azure role](./media/storsimple-8000-role-based-access-control/rbac-create-role-infra-admin.png)
 
 An **Adding user** notification tracks the progress. After the user is successfully added, the list of users in Access control is updated.
 

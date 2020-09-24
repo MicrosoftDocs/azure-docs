@@ -2,7 +2,7 @@
 title: Frequently asked questions for Azure Kubernetes Service (AKS)
 description: Find answers to some of the common questions about Azure Kubernetes Service (AKS).
 ms.topic: conceptual
-ms.date: 07/21/2020
+ms.date: 08/06/2020
 
 ---
 
@@ -171,6 +171,10 @@ Please confirm your service principal has not expired.  Please see: [AKS service
 
 Please confirm your service principal has not expired.  Please see: [AKS service principal](./kubernetes-service-principal.md)  and [AKS update credentials](./update-credentials.md).
 
+## Can I scale my AKS cluster to zero?
+You can completely [stop a running AKS cluster](start-stop-cluster.md), saving on the respective compute costs. Additionally, you may also choose to [scale or auto-scale all or specific `User` node pools](scale-cluster.md#scale-user-node-pools-to-0) to 0, maintaining only the necessary cluster configuration.
+You cannot directly scale [system node pools](use-system-pools.md) to 0.
+
 ## Can I use the virtual machine scale set APIs to scale manually?
 
 No, scale operations by using the virtual machine scale set APIs aren't supported. Use the AKS APIs (`az aks scale`).
@@ -186,6 +190,10 @@ While AKS has resilience mechanisms to withstand such a config and recover from 
 ## Can I use custom VM extensions?
 
 No AKS is a managed service, and manipulation of the IaaS resources is not supported. To install custom components, etc. please leverage the Kubernetes APIs and mechanisms. For example, leverage DaemonSets to install required components.
+
+## Does AKS store any customer data outside of the cluster's region?
+
+The feature to enable storing customer data in a single region is currently only available in the Southeast Asia Region (Singapore) of the Asia Pacific Geo. For all other regions, customer data is stored in Geo.
 
 <!-- LINKS - internal -->
 

@@ -7,7 +7,7 @@ manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 07/16/2020
+ms.date: 08/18/2020
 ---
 
 # Source transformation in mapping data flow 
@@ -44,6 +44,7 @@ Mapping Data Flow follows an extract, load, transform (ELT) approach and works w
 | [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#mapping-data-flow-properties) | | ✓/- |
 | [Azure SQL Database](connector-azure-sql-database.md#mapping-data-flow-properties) | | ✓/- |
 | [Azure Cosmos DB (SQL API)](connector-azure-cosmos-db.md#mapping-data-flow-properties) | | ✓/- |
+| [Snowflake](connector-snowflake.md) | | ✓/✓ |
 
 Settings  specific to these connectors are located in the **Source options** tab. Information and data flow script examples on these settings are located in the connector documentation. 
 

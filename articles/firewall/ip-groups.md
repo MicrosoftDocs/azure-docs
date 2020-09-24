@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 06/23/2020
+ms.date: 07/30/2020
 ms.author: victorh
 ---
 
@@ -65,43 +65,7 @@ IP Groups are available in all public cloud regions.
 
 ## IP address limits
 
-For 50 IP Groups or less, you can have a maximum of 5000 individual IP addresses each per firewall instance. For 51 to 100 IP Groups, you can have 500 individual IP address each per firewall instance.
-
-### Examples
-
-#### Example 1: supported
-
-|IP Groups  |# IP addresses  |Notation  |Rule  |
-|---------|---------|---------|---------|
-|IPGroup1 |4096     |10.0.0.0/20  |Rule1|
-|IPGroup2     |3|196.0.0.0 - 196.0.0.2|Rule1|
-|IPGroup3     |1|1.2.3.4|Rule1|
-|     |**Total 4100**|         |         |
-|     |         |         |         |
-
-#### Example 2: supported
-
-|IP Groups  |# IP addresses  |Notation  |Rule  |
-|---------|---------|---------|---------|
-|IPGroup1 |4096     |10.0.0.0/20  |Rule1|
-|IPGroup2     |4096|11.0.0.0/20|Rule1|
-|     |**Total 8192**|         |         |
-
-#### Example 3: not supported
-
-|IP Groups  |# IP addresses  |Notation  |Rule  |
-|---------|---------|---------|---------|
-|IPGroup1 |8192     |10.0.0.0/20, 11.0.0.0/20  |Rule1|
-|     |**Total 8192**|||
-
-#### Example 4: supported
-
-|IP Groups  |# IP addresses  |Notation  |Rule  |
-|---------|---------|---------|---------|
-|IPGroup1 |4096     |10.0.0.0/20  |Rule1|
-|IPGroup2     |4096|11.0.0.0/20|Rule2|
-|     |**Total 8192**|         |         |
-
+You can have a maximum of 100 IP Groups per firewall with a maximum 5000 individual IP addresses or IP prefixes per each IP Group.
 
 ## Related Azure PowerShell cmdlets
 

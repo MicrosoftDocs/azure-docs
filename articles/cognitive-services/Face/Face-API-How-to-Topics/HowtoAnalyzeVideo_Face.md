@@ -11,6 +11,7 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
+ms.custom: devx-track-csharp
 ---
 
 # Example: How to Analyze Videos in Real-time
@@ -217,5 +218,4 @@ In this guide, you learned how to run near-real-time analysis on live video stre
 Feel free to provide feedback and suggestions in the [GitHub repository](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) or, for broader API feedback, on our [UserVoice site](https://cognitive.uservoice.com/).
 
 ## Related Topics
-- [How to Identify Faces in Image](HowtoIdentifyFacesinImage.md)
 - [How to Detect Faces in Image](HowtoDetectFacesinImage.md)

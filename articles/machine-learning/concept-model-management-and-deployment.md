@@ -69,7 +69,7 @@ For more information, see the register model section of [Deploy models](how-to-d
 ### Profile models
 
 Azure Machine Learning can help you understand the CPU and memory requirements of the service that will be created when you deploy your model. Profiling tests the service that runs your model and returns information such as the CPU usage, memory usage, and response latency. It also provides a CPU and memory recommendation based on the resource usage.
-For more information, see the profiling section of [Deploy models](how-to-deploy-and-where.md#profilemodel).
+For more information, see the profiling section of [Deploy models](how-to-deploy-profile-model.md).
 
 ### Package and debug models
 
@@ -153,7 +153,7 @@ Azure ML gives you the capability to track the end-to-end audit trail of all of 
 > [!TIP]
 > While some information on models and datasets is automatically captured, you can add additional information by using __tags__. When looking for registered models and datasets in your workspace, you can use tags as a filter.
 >
-> Associating a dataset with a registered model is an optional step. For information on referencing a dataset when registering a model, see the [Model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model(class)?view=azure-ml-py) class reference.
+> Associating a dataset with a registered model is an optional step. For information on referencing a dataset when registering a model, see the [Model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py&preserve-view=true) class reference.
 
 
 ## Notify, automate, and alert on events in the ML lifecycle
@@ -179,7 +179,7 @@ There is no universal answer to "How do I know if I should retrain?" but Azure M
 - Compare the outputs of your new model to those of your old model
 - Use predefined criteria to choose whether to replace your old model 
 
-A theme of the above steps is that your retraining should be automated, not ad hoc. [Azure Machine Learning pipelines](concept-ml-pipelines.md) are a good answer for creating workflows relating to data preparation, training, validation, and deployment. Read [Retrain models with Azure Machine Learning designer (preview)](how-to-retrain-designer.md) to see how pipelines and the Azure Machine Learning designer fit into a retraining scenario. 
+A theme of the above steps is that your retraining should be automated, not ad hoc. [Azure Machine Learning pipelines](concept-ml-pipelines.md) are a good answer for creating workflows relating to data preparation, training, validation, and deployment. Read [Retrain models with Azure Machine Learning designer](how-to-retrain-designer.md) to see how pipelines and the Azure Machine Learning designer fit into a retraining scenario. 
 
 ## Automate the ML lifecycle 
 

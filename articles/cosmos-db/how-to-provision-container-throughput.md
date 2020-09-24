@@ -6,6 +6,7 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 12/13/2019
 ms.author: mjbrown
+ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
 ---
 
 # Provision standard (manual) throughput on an Azure Cosmos container

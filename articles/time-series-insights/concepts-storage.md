@@ -8,7 +8,7 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 08/31/2020
 ms.custom: seodec18
 ---
 
@@ -19,7 +19,7 @@ When you create an Azure Time Series Insights Gen2 environment, you create two A
 * An Azure Time Series Insights Gen2 environment that can be configured for warm data storage.
 * An Azure Storage account for cold data storage.
 
-Data in your warm store is available only via [Time Series Query APIs](./time-series-insights-update-tsq.md) and the [Azure Time Series Insights Gen2 Explorer](./time-series-insights-update-explorer.md). Your warm store will contain recent data within the [retention period](./time-series-insights-update-plan.md#the-preview-environment) selected when creating the Azure Time Series Insights Gen2 environment.
+Data in your warm store is available only via [Time Series Query APIs](./time-series-insights-update-tsq.md) and the [Azure Time Series Insights Explorer](./time-series-insights-update-explorer.md). Your warm store will contain recent data within the [retention period](./time-series-insights-update-plan.md#the-preview-environment) selected when creating the Azure Time Series Insights Gen2 environment.
 
 Azure Time Series Insights Gen2 saves your cold store data to Azure Blob storage in the [Parquet file format](#parquet-file-format-and-folder-structure). Azure Time Series Insights Gen2  manages this cold store data exclusively, but it's available for you to read directly as standard Parquet files.
 
@@ -53,7 +53,7 @@ To ensure query performance and data availability, don't edit or delete any blob
 
 #### Accessing cold store data
 
-In addition to accessing your data from the [Azure Time Series Insights Gen2 Explorer](./time-series-insights-update-explorer.md) and [Time Series Query APIs](./time-series-insights-update-tsq.md), you may also want to access your data directly from the Parquet files stored in the cold store. For example, you can read, transform, and cleanse data in a Jupyter notebook, then use it to train your Azure Machine Learning model in the same Spark workflow.
+In addition to accessing your data from the [Azure Time Series Insights Explorer](./time-series-insights-update-explorer.md) and [Time Series Query APIs](./time-series-insights-update-tsq.md), you may also want to access your data directly from the Parquet files stored in the cold store. For example, you can read, transform, and cleanse data in a Jupyter notebook, then use it to train your Azure Machine Learning model in the same Spark workflow.
 
 To access data directly from your Azure Storage account, you need read access to the account used to store your Azure Time Series Insights Gen2 data. You can then read selected data based on the creation time of the Parquet file located in the `PT=Time` folder described below in the [Parquet file format](#parquet-file-format-and-folder-structure) section.  For more information on enabling read access to your storage account, see [Manage access to your storage account resources](../storage/blobs/storage-manage-access-to-resources.md).
 
@@ -77,11 +77,11 @@ Azure Time Series Insights Gen2 stores copies of your data as follows:
 
   `V=1/PT=TsId/<TSI_INTERNAL_NAME>.parquet`
 
-The timestamp in the blob names in the `PT=Time` folder correspond to the arrival time of the data to Azure Time Series Insights Gen2 and not the timestamp of the events.
+The timestamp in the blob names in the `PT=Time` folder corresponds to the arrival time of the data to Azure Time Series Insights Gen2 and not the timestamp of the events.
 
-Data in the `PT=TsId` folder will be optimized for query over time and is not static. During repartitioning, some events might be present in multiple blobs. The naming of the blobs in this folder is not guaranteed to remain the same. 
+Data in the `PT=TsId` folder will be optimized for query over time and is not static. During repartitioning, some events might be present in multiple blobs. The naming of the blobs in this folder is not guaranteed to remain the same.
 
-In general, if you need to access data directly via Parquet files, use the `PT=Time` folder.  Future functionality will enable efficient access to the `PT=TsId` folder. 
+In general, if you need to access data directly via Parquet files, use the `PT=Time` folder.  Future functionality will enable efficient access to the `PT=TsId` folder.
 
 > [!NOTE]
 >

@@ -28,7 +28,7 @@ Grant "R-X" or "RWX", as needed, on folders containing input data and output dat
 1.	Find your Azure Data Lake Storage Gen1 account.
 2.	Click on **Users**.
 3. Click **Add**.
-4.	Select an Azure RBAC Role to assign this group.
+4.	Select an Azure role to assign this group.
 5.	Assign to Reader role. This role has the minimum set of permissions required to browse/manage data stored in ADLSGen1. Assign to this role if the Group is not intended for managing Azure services.
 6.	Type in the name of the Group.
 7.	Click **OK**.
@@ -49,4 +49,3 @@ The sample command to give user access to submit jobs, view new job metadata, an
 * [Overview of Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * [Get started with Data Lake Analytics by using the Azure portal](data-lake-analytics-get-started-portal.md)
 * [Manage Azure Data Lake Analytics by using Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
-

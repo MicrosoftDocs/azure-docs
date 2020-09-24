@@ -59,6 +59,10 @@ As a device builder, you can develop an IoT hardware product that supports IoT P
 > [!Important]
 > IoT Plug and Play devices must use MQTT or MQTT over WebSockets. Other protocols such as AMQP or HTTP are not valid to implement IoT Plug and Play devices.
 
+## Device certification
+
+The [IoT Plug and Play device certification program](howto-certify-device.md) verifies that a device meets the IoT Plug and Play certification requirements. You can add a certified device to the public [Certified for Azure IoT device catalog](https://aka.ms/devicecatalog).
+
 ## Regional availability
 
 This IoT Plug and Play preview refresh is available on IoT hubs created in the Central US, North Europe, and East Japan regions.

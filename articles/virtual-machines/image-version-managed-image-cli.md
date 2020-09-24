@@ -8,7 +8,8 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
-ms.reviewer: akjosh
+ms.reviewer: akjosh 
+ms.custom: devx-track-azurecli
 #Need to show how to get the gallery and definition
 ---
 

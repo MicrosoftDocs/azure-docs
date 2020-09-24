@@ -39,7 +39,7 @@ It's helpful to understand some key terms relating to Azure AD Domain Service au
 
     On-premises Active Directory Domain Services (AD DS) integration with Azure Files provides the methods for storing directory data while making it available to network users and administrators. Security is integrated with AD DS through logon authentication and access control to objects in the directory. With a single network logon, administrators can manage directory data and organization throughout their network, and authorized network users can access resources anywhere on the network. AD DS is commonly adopted by enterprises in on-premises environments and AD DS credentials are used as the identity for access control. For more information, see [Active Directory Domain Services Overview](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview).
 
--   **Azure Role Based Access Control (RBAC)**
+-   **Azure role-based access control (Azure RBAC)**
 
     Azure role-based access control (Azure RBAC) enables fine-grained access management for Azure. Using RBAC, you can manage access to resources by granting users the fewest permissions needed to perform their jobs. For more information on RBAC, see [What is Azure role-based access control (Azure RBAC) in Azure?](../../role-based-access-control/overview.md).
 
@@ -73,6 +73,7 @@ The following table summarizes the supported Azure file shares authentication sc
 - Azure AD DS and on-premises AD DS authentication do not support authentication against computer accounts. You can consider using a service logon account instead.
 - Neither Azure AD DS authentication nor on-premises AD DS authentication is supported against Azure AD-joined devices or Azure AD-registered devices.
 - Azure file shares only support identity-based authentication against one of the following domain services, either [Azure Active Directory Domain Services (Azure AD DS)](#azure-ad-ds) or [on-premises Active Directory Domain Services (AD DS)](#ad-ds).
+- Neither identity-based authentication method is supported with Network File System (NFS), which is in preview.
 
 ## Advantages of identity-based authentication
 Identity-based authentication for Azure Files offers several benefits over using Shared Key authentication:

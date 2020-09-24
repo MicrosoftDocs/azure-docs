@@ -10,7 +10,7 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 02/26/2020
-ms.custom: tracking-python
+ms.custom: devx-track-python
 
 ---
 
@@ -21,7 +21,7 @@ In this article, you learn the pros and cons of data ingestion options available
 Choose from:
 + [Azure Data Factory](#azure-data-factory) pipelines, specifically built to extract, load, and transform data
 
-+ [Azure Machine Learning Python SDK](#azure-machine-learning-python-sdk), providing a custom code solution for basic data ingestion tasks.
++ [Azure Machine Learning Python SDK](#azure-machine-learning-python-sdk), providing a custom code solution for data ingestion tasks.
 
 + a combination of both
 
@@ -66,7 +66,7 @@ Configure your own Python scripts | Does not natively support data source change
 Data preparation as part of every model training execution|Requires development skills to create a data ingestion script
 Supports data preparation scripts on various compute targets, including [Azure Machine Learning compute](concept-compute-target.md#azure-machine-learning-compute-managed) |Does not provide a user interface for creating the ingestion mechanism
 
-In the following diagram, the Azure Machine Learning pipeline consists of two steps: data ingestion and model training. The data ingestion step encompasses tasks that can be accomplished using Python libraries and the Python SDK, such as extracting data from local/web sources, and basic data transformations, like missing value imputation. The training step then uses the prepared data as input to your training script to train your machine learning model. 
+In the following diagram, the Azure Machine Learning pipeline consists of two steps: data ingestion and model training. The data ingestion step encompasses tasks that can be accomplished using Python libraries and the Python SDK, such as extracting data from local/web sources, and data transformations, like missing value imputation. The training step then uses the prepared data as input to your training script to train your machine learning model. 
 
 ![Azure pipeline + SDK data ingestion](media/concept-data-ingestion/data-ingest-option-two.png)
 

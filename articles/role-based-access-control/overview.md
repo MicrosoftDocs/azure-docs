@@ -15,6 +15,7 @@ ms.workload: identity
 ms.date: 07/23/2020
 ms.author: rolyon
 ms.reviewer: bagovind
+ms.custom: azuread-video-2020
 
 #Customer intent: As a dev, devops, or it admin, I want to learn how permissions and roles work in Azure, so that I can better understand how to grant access to resources.
 ---
@@ -134,7 +135,6 @@ The following are the high-level steps that Azure RBAC uses to determine if you 
 
 ## Next steps
 
-- [Quickstart: View the access a user has to Azure resources](check-access.md)
 - [Add or remove Azure role assignments using the Azure portal](role-assignments-portal.md)
 - [Understand the different roles](rbac-and-directory-admin-roles.md)
 - [Cloud Adoption Framework: Resource access management in Azure](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management)

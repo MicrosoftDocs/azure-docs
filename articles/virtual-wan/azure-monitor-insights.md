@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 07/22/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
 ---
 
@@ -17,7 +17,7 @@ ms.author: cherylmc
 Virtual WAN resource level metrics are collected and presented via a pre-packaged Virtual WAN metrics workbook that shows the metrics at a virtual WAN, hub, gateway, and connection levels. This article walks you through the steps to use Azure Monitor Insights for Virtual WAN to view your Virtual WAN topology and metrics all in a single place.
 
 > [!NOTE]
-> The Insights menu is in the process of rolling out for this Preview.
+> The Insights menu option in Virtual WAN Portal is in the process of rolling out. While the Insights Menu for Virtual WAN is being rolled out, Virtual WAN Topology and Metrics Workbook can directly be accessed using Azure Montor for Networks. See [Azure Monitor Insights](../azure-monitor/insights/network-insights-overview.md) for more info. 
 >
 
 ## Before you begin

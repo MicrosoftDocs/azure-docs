@@ -1,5 +1,5 @@
 ---
-title: Assign and list roles with administrative unit scope (preview) - Azure Active Directory | Microsoft Docs
+title: Assign and list roles with administrative unit scope - Azure Active Directory | Microsoft Docs
 description: Using administrative units to restrict the scope of role assignments in Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 04/16/2020
+ms.date: 09/22/2020
 ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
@@ -29,7 +29,7 @@ Role  |  Description
 Authentication Administrator  |  Has access to view, set, and reset authentication method information for any non-admin user in the assigned administrative unit only.
 Groups Administrator  |  Can manage all aspects of groups and groups settings like naming and expiration policies in the assigned administrative unit only.
 Helpdesk Administrator  |  Can reset passwords for non-administrators and Helpdesk administrators in the assigned administrative unit only.
-License Administrator  |  Can assign, remove and update license assignments within the administrative unit only.
+License Administrator  |  Can assign, remove, and update license assignments within the administrative unit only.
 Password Administrator  |  Can reset passwords for non-administrators and Password Administrators within the assigned administrative unit only.
 User Administrator  |  Can manage all aspects of users and groups, including resetting passwords for limited admins within the assigned administrative unit only.
 
@@ -41,7 +41,7 @@ Go to **Azure AD > Administrative units** in the portal. Select the administrati
 
 ![Select an administrative unit to change role scope](./media/roles-admin-units-assign-roles/select-role-to-scope.png)
 
-Select the role to be assigned and then select **Add assignments**. This will slide open a panel on the right where you can select one or more users to be assigned to the role.
+Select the role to be assigned and then select **Add assignments**. A panel opens on the right where you can select one or more users to be assigned to the role.
 
 ![Select the role to scope and then select Add assignments](./media/roles-admin-units-assign-roles/select-add-assignment.png)
 
@@ -99,4 +99,5 @@ Request body
 
 ## Next steps
 
-- [Administrative units troubleshooting and FAQ](roles-admin-units-faq-troubleshoot.md)
+- [Use cloud groups to manage role assignments](roles-groups-concept.md)
+- [Troubleshooting roles assigned to cloud groups](roles-groups-faq-troubleshooting.md)

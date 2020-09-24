@@ -3,6 +3,7 @@ title: Use web app - Personalizer
 description: Customize a C# .NET web app with a Personalizer loop to provide the correct content to a user based on actions (with features) and context features.
 ms.topic: tutorial
 ms.date: 06/10/2020
+ms.custom: devx-track-csharp
 ---
 # Tutorial: Add Personalizer to a .NET web app
 
@@ -35,7 +36,7 @@ In this tutorial, the actions are types of food:
 * coffee
 * soup
 
-To help Personalizer learn about your actions, send both __actions with features_ and _context features_ with each Rank API request.
+To help Personalizer learn about your actions, send both _actions with features_ and _context features_ with each Rank API request.
 
 A **feature** of the model is information about the action or context that can be aggregated (grouped) across members of your web app user base. A feature _isn't_ individually specific (such as a user ID) or highly specific (such as an exact time of day).
 
@@ -247,7 +248,7 @@ Build and run HttpRequestFeaturesExample with one of the following methods:
 Through a web browser, you can send a Rank request and a Reward request and see their responses, as well as the http request features extracted from your environment.
 
 > [!div class="mx-imgBorder"]
-> ![Build and run the HTTPRequestFeaturesExample project. A browser window opens to display the single page application.](./media/tutorial-web-app/web-app-single-page.png)
+> ![Screenshot shows an example of the Http Request Feature in a web browser.](./media/tutorial-web-app/web-app-single-page.png)
 
 ## Demonstrate the Personalizer loop
 
@@ -260,7 +261,7 @@ Through a web browser, you can send a Rank request and a Reward request and see 
 1. Set the reward value, then select the **Send Reward Request** button. If you don't change the reward value, the client application always sends the value of `1` to Personalizer.
 
     > [!div class="mx-imgBorder"]
-    > ![Build and run the HTTPRequestFeaturesExample project. A browser window opens to display the single page application.](./media/tutorial-web-app/reward-score-api-call.png)
+    > ![Screenshot shows the Reward Request section.](./media/tutorial-web-app/reward-score-api-call.png)
 
     For your own future application, generation of the reward score may happen after collecting information from the user's behavior on the client, along with business logic on the server.
 

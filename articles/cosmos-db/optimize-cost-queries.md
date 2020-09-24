@@ -6,6 +6,7 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/24/2020
+ms.custom: devx-track-csharp
 ---
 
 # Optimize query cost in Azure Cosmos DB

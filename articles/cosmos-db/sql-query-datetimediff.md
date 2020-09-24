@@ -15,7 +15,7 @@ Returns the count (as a signed integer value) of the specified DateTimePart boun
 ## Syntax
   
 ```sql
-DateTimeAdd (<DateTimePart> , <StartDate> , <EndDate>)
+DateTimeDiff (<DateTimePart> , <StartDate> , <EndDate>)
 ```
 
 ## Arguments

@@ -122,7 +122,7 @@ As part of the Resource Manager resource definition, the following configuration
 | domainName              | The DNS domain name for your managed domain, taking into consideration the previous points on naming prefixes and conflicts. |
 | filteredSync            | Azure AD DS lets you synchronize *all* users and groups available in Azure AD, or a *scoped* synchronization of only specific groups.<br /><br /> For more information about scoped synchronization, see [Azure AD Domain Services scoped synchronization][scoped-sync].|
 | notificationSettings    | If there are any alerts generated in the managed domain, email notifications can be sent out. <br /><br />*Global administrators* of the Azure tenant and members of the *AAD DC Administrators* group can be *Enabled* for these notifications.<br /><br /> If desired, you can add additional recipients for notifications when there are alerts that require attention.|
-| domainConfigurationType | By default, a managed domain is created as a *User* forest. This type of forest synchronizes all objects from Azure AD, including any user accounts created in an on-premises AD DS environment. You don't need to specify a *domainConfiguration* value to create a user forest.<br /><br /> A *Resource* forest only synchronizes users and groups created directly in Azure AD. Resource forests are currently in preview. Set the value to *ResourceTrusting* to create a resource forest.<br /><br />For more information on *Resource* forests, including why you may use one and how to create forest trusts with on-premises AD DS domains, see [Azure AD DS resource forests overview][resource-forests].|
+| domainConfigurationType | By default, a managed domain is created as a *User* forest. This type of forest synchronizes all objects from Azure AD, including any user accounts created in an on-premises AD DS environment. You don't need to specify a *domainConfiguration* value to create a user forest.<br /><br /> A *Resource* forest only synchronizes users and groups created directly in Azure AD. Set the value to *ResourceTrusting* to create a resource forest.<br /><br />For more information on *Resource* forests, including why you may use one and how to create forest trusts with on-premises AD DS domains, see [Azure AD DS resource forests overview][resource-forests].|
 
 The following condensed parameters definition shows how these values are declared. A user forest named *aaddscontoso.com* is created with all users from Azure AD synchronized to the managed domain:
 
@@ -354,6 +354,6 @@ To see the managed domain in action, you can [domain-join a Windows VM][windows-
 [Register-AzResourceProvider]: /powershell/module/Az.Resources/Register-AzResourceProvider
 [New-AzResourceGroup]: /powershell/module/Az.Resources/New-AzResourceGroup
 [Get-AzSubscription]: /powershell/module/Az.Accounts/Get-AzSubscription
-[cloud-shell]: /azure/cloud-shell/cloud-shell-windows-users
+[cloud-shell]: ../cloud-shell/cloud-shell-windows-users.md
 [naming-prefix]: /windows-server/identity/ad-ds/plan/selecting-the-forest-root-domain
 [New-AzResourceGroupDeployment]: /powershell/module/Az.Resources/New-AzResourceGroupDeployment

@@ -5,15 +5,15 @@ titleSuffix: Azure Media Services
 description: Learn about Streaming Endpoints (Origin), a dynamic packaging and streaming service that delivers content directly to a client player app or to a Content Delivery Network (CDN). 
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 
 ms.service: media-services
 ms.workload: 
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/13/2020
-ms.author: juliako
+ms.author: inhenkel
 ---
 
 # Streaming Endpoints (Origin) in Azure Media Services
@@ -44,6 +44,8 @@ When using the default streaming endpoint, `servicename` is omitted so the URL i
 ## Types
 
 There are two **Streaming Endpoint** types: **Standard** (preview) and **Premium**. The type is defined by the number of scale units (`scaleUnits`) you allocate for the streaming endpoint.
+
+The maximum streaming unit limit is usually 10. Contact us [here](https://azure.microsoft.com/support/create-ticket/) to raise the limit for your account.
 
 The table describes the types:
 

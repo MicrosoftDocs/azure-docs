@@ -6,7 +6,7 @@ documentationcenter: na
 author: asudbring
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: overview
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2020
@@ -81,7 +81,7 @@ Without Floating IP, Azure exposes a traditional load balancing IP address mappi
 
 ## <a name = "limitations"></a>Limitations
 
-- Floating IP is not currently supported on secondary IP configurations for Internal Load Balancing scenarios.
+- Floating IP is not currently supported on secondary IP configurations for Internal Load Balancing scenarios or Public Load Balancing scenarios.
 
 - A load balancer rule can't span two virtual networks.  Frontends and their backend instances must be located in the same virtual network.  
 

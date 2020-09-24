@@ -10,7 +10,8 @@ ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.date: 03/30/2020
-ms.author: mbaldwin
+ms.author: mbaldwin 
+ms.custom: devx-track-azurecli
 #Customer intent:As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
 ---
 # Quickstart: Set and retrieve a key from Azure Key Vault using Azure CLI

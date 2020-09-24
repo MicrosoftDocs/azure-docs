@@ -1,6 +1,6 @@
 ---
 title: Azure Key Vault logging | Microsoft Docs
-description: Use this tutorial to help you get started with Azure Key Vault logging.
+description: Learn how to monitor access to your key vaults by enabling logging for Azure Key Vault, which saves information in an Azure storage account that you provide.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -8,7 +8,7 @@ tags: azure-resource-manager
 
 ms.service: key-vault
 ms.subservice: general
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 08/12/2019
 ms.author: mbaldwin
 #Customer intent: As an Azure Key Vault administrator, I want to enable logging so I can monitor how my key vaults are accessed.
@@ -32,7 +32,7 @@ Use this tutorial to help you get started with Azure Key Vault logging. You'll c
 > This article provides Azure PowerShell instructions for updating diagnostic logging. You can also update diagnostic logging by using Azure Monitor in the **Diagnostic logs** section of the Azure portal. 
 >
 
-For overview information about Key Vault, see [What is Azure Key Vault?](overview.md)). For information about where Key Vault is available, see the [pricing page](https://azure.microsoft.com/pricing/details/key-vault/).
+For overview information about Key Vault, see [What is Azure Key Vault?](overview.md)). For information about where Key Vault is available, see the [pricing page](https://azure.microsoft.com/pricing/details/key-vault/). For information about using [Azure Monitor for Key Vault](https://docs.microsoft.com/azure/azure-monitor/insights/key-vault-insights-overview).
 
 ## Prerequisites
 

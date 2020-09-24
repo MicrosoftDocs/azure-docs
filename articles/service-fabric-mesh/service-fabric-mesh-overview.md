@@ -38,7 +38,7 @@ With Service Fabric Mesh you can:
 
 - Deploy and manage applications without having to explicitly provision and manage infrastructure.  Service Fabric Mesh provisions, upgrades, patches, and maintains the underlying infrastructure for you.
 - Set up continuous integration using the integrated tooling to easily package and deploy applications.
-- Leverage all the features of Azure Resource Manager resources. Examples of these features include audit trail and [role-based access control](../role-based-access-control/overview.md)). All resources that you deploy to the Service Fabric Mesh service in Azure are Azure Resource Manager resources. These resources include applications, services, secrets, and so on.
+- Leverage all the features of Azure Resource Manager resources. Examples of these features include audit trail and [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md)). All resources that you deploy to the Service Fabric Mesh service in Azure are Azure Resource Manager resources. These resources include applications, services, secrets, and so on.
 - Deploy and manage resources using the [Azure portal](https://portal.azure.com), Resource Manager templates, or Azure CLI/PowerShell libraries.
 - Set up operational monitoring and alerting using [Application Insights](/azure/application-insights/) (or your tool of choice) to capture operational and diagnostic traces from the platform.
 - Access application diagnostics information emitted from the application model using [Application Insights](/azure/application-insights/) or your tool of choice.
