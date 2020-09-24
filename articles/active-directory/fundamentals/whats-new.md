@@ -36,9 +36,6 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 ---
 
 ## September 2020
- 
-
-[1146367](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1146367&triage=true&fullScreen=false&_a=edit)
 
 ### New provisioning connectors in the Azure AD Application Gallery - September 2020
 
@@ -46,22 +43,18 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 **Service category:** App Provisioning  
 **Product capability:** 3rd Party Integration
  
-
 You can now automate creating, updating, and deleting user accounts for these newly integrated apps:
 
-Coda
-Cofense Recipient Sync
-InVision
-myday
-SAP Analytics Cloud
-Webroot Security Awareness
-For more information about how to better secure your organization by using automated user account provisioning, see Automate user provisioning to SaaS applications with Azure AD.
- 
+- [Coda](../saas-apps/coda-provisioning-tutorial.md)
+- [Cofense Recipient Sync](../saas-apps/cofense-provision-tutorial.md)
+- [InVision](../saas-apps/invision-provisioning-tutorial.md)
+- [myday](../saas-apps/myday-provision-tutorial.md)
+- [SAP Analytics Cloud](../saas-apps/sap-analytics-cloud-provisioning-tutorial.md)
+- [Webroot Security Awareness](../saas-apps/webroot-security-awareness-training-provisioning-tutorial.md)
 
+For more information about how to better secure your organization by using automated user account provisioning, see [Automate user provisioning to SaaS applications with Azure AD](../app-provisioning/user-provisioning.md).
+ 
 ---
- 
-
-[719681](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=719681&triage=true&fullScreen=false&_a=edit)
 
 ### Audited BitLocker Recovery in AAD - Public Preview
 
@@ -70,19 +63,11 @@ For more information about how to better secure your organization by using autom
 **Product capability:** Device Lifecycle Management
  
 
-When IT admins or end users read their BitLocker recovery key, our service generates an audit log that captures who accessed a recovery key and which device the BitLocker key was most recently backed up to. 
+When IT admins or end users read their BitLocker recovery key, our service generates an audit log that captures who accessed a recovery key and which device most recently had the BitLocker key backed up. 
 
-End users can access their recovery keys via My Account, and IT admins can access recovery keys via the BitLocker recovery key API in beta or via the AAD Portal. 
-
-To learn more, see View or copy BitLocker keys in the AAD Portal.
-
-
- 
+End users can [access their recovery keys via My Account](../user-help/my-account-portal-devices-page.md#view-a-bitlocker-key), and IT admins can access recovery keys via the [BitLocker recovery key API in beta](https://docs.microsoft.com/graph/api/resources/bitlockerrecoverykey?view=graph-rest-beta) or via the AAD Portal. To learn more, see [View or copy BitLocker keys in the AAD Portal](../devices/device-management-azure-portal.md#view-or-copy-bitlocker-keys).
 
 ---
- 
-
-[952555](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=952555&triage=true&fullScreen=false&_a=edit)
 
 ### Teams Devices Administrator built-in role
 
@@ -91,9 +76,10 @@ To learn more, see View or copy BitLocker keys in the AAD Portal.
 **Product capability:** Access Control
  
 
-Users with this role can manage Teams-certified devices from the Teams Admin Center. This role allows viewing all devices at single glance, with ability to search and filter devices. The user can check details of each device including logged-in account, make and model of the device. The user can change the settings on the device and update the software versions. This role does not grant permissions to check Teams activity and call quality of the device.
- 
+Users with the [Teams Devices Administrator](../users-groups-roles/directory-assign-admin-roles.md#teams-devices-administrator) role can manage [Teams-certified devices](https://www.microsoft.com/microsoft-365/microsoft-teams/across-devices/devices) from the Teams Admin Center. 
 
+This role allows the user to view all devices at single glance, with the ability to search and filter devices. The user can also check the details of each device including logged-in account and the make and model of the device. The user can change the settings on the device and update the software versions. This role does not grant permissions to check Teams activity and call quality of the device.
+ 
 ---
  
 
@@ -383,7 +369,7 @@ You can expand a managed domain to have more than one replica set per Azure AD t
 **Service category:** Authentications (Logins)  
 **Product capability:** End User Experiences
  
-Azure AD My Sign-Ins is a new feature that allows enterprise users to review their sign-in history to check for any unusual activity. Additionally, this feature allows end-users to report “This wasn’t me” or “This was me” on suspicious activities. To learn more about using this feature, see [View and search your recent sign-in activity from the My Sign-Ins page](../user-help/my-account-portal-sign-ins-page.md#confirm-unusual-activity).
+Azure AD My Sign-Ins is a new feature that allows enterprise users to review their sign-in history to check for any unusual activity. Additionally, this feature allows end users to report “This wasn’t me” or “This was me” on suspicious activities. To learn more about using this feature, see [View and search your recent sign-in activity from the My Sign-Ins page](../user-help/my-account-portal-sign-ins-page.md#confirm-unusual-activity).
  
 ---
 
@@ -515,7 +501,7 @@ Transport layer security (TLS) 1.2 and update servers and clients will soon comm
 **Service category:** Reporting  
 **Product capability:** Monitoring & Reporting
  
-Windows Hello for Business allows end-users to sign into Windows machines with a gesture (such as a PIN or biometric). Azure AD admins may want to differentiate Windows Hello for Business sign-ins from other Windows sign-ins as part of an organization's journey to passwordless authentication. 
+Windows Hello for Business allows end users to sign into Windows machines with a gesture (such as a PIN or biometric). Azure AD admins may want to differentiate Windows Hello for Business sign-ins from other Windows sign-ins as part of an organization's journey to passwordless authentication. 
 
 Admins can now see whether a Windows authentication used Windows Hello for Business by checking the Authentication Details tab for a Windows sign-in event in the Azure AD Sign-Ins blade in the Azure portal. Windows Hello for Business authentications will include "WindowsHelloForBusiness" in the Authentication Method field. For more information on interpreting Sign-In Logs, please see the [Sign-In Logs documentation](../reports-monitoring/concept-sign-ins.md).
  
@@ -1048,7 +1034,7 @@ We have enhanced the Workday Writeback provisioning app to now support writeback
 **Service category:** Other  
 **Product capability:** Developer Experience
  
-Publisher verification (preview) helps admins and end-users understand the authenticity of application developers integrating with the Microsoft identity platform. For details, refer to [Publisher verification (preview)](../develop/publisher-verification-overview.md).
+Publisher verification (preview) helps admins and end users understand the authenticity of application developers integrating with the Microsoft identity platform. For details, refer to [Publisher verification (preview)](../develop/publisher-verification-overview.md).
  
 ---
 
