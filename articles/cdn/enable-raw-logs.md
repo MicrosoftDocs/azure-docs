@@ -31,8 +31,6 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 ## Configuration - Azure portal
 
-### Azure portal
-
 To configure Raw logs for your Azure CDN from Microsoft profile: 
 
 1. From the Azure portal menu, select **All Resources** >> **\<your-CDN-profile>**.
