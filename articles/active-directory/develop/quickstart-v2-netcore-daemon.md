@@ -1,7 +1,7 @@
 ---
-title: Get token & call Microsoft Graph with console app identity | Azure
+title: "Quickstart: Get token & call Microsoft Graph in a console app | Azure"
 titleSuffix: Microsoft identity platform
-description: Learn how to get a token and call a protected Microsoft Graph API with it from a .NET Core app
+description: In this quickstart, you learn how a .NET Core sample app can use the client credentials flow to get a token and call Microsoft Graph.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -222,22 +222,7 @@ For more information, please see the [reference documentation for `AcquireTokenF
 
 ## Next steps
 
-To learn more about daemon applications, see the scenario landing page
+To learn more about daemon applications, see the scenario overview:
 
 > [!div class="nextstepaction"]
 > [Daemon application that calls web APIs](scenario-daemon-overview.md)
-
-For the daemon application tutorial, see:
-
-> [!div class="nextstepaction"]
-> [Daemon .NET Core console tutorial](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2)
-
-Learn more about permissions and consent:
-
-> [!div class="nextstepaction"]
-> [Permissions and Consent](v2-permissions-and-consent.md)
-
-To know more about the auth flow for this scenario, see the Oauth 2.0 client credentials flow:
-
-> [!div class="nextstepaction"]
-> [Client credentials Oauth flow](v2-oauth2-client-creds-grant-flow.md)

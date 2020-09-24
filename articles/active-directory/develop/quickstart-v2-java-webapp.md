@@ -189,15 +189,16 @@ If you would like to deploy the web sample to Tomcat, you will need to make a co
 3.   Tomcat's default HTTP port is 8080, though an HTTPS connection over port 8443 is needed. To configure this:
         - Go to tomcat/conf/server.xml
         - Search for the `<connector>` tag, and replace the existing connector with:
-        ```
+
+        ```xml
         <Connector
                    protocol="org.apache.coyote.http11.Http11NioProtocol"
                    port="8443" maxThreads="200"
                    scheme="https" secure="true" SSLEnabled="true"
                    keystoreFile="C:/Path/To/Keystore/File/keystore.p12" keystorePass="KeystorePassword"
                    clientAuth="false" sslProtocol="TLS"/>
-        ``` 
-       
+        ```
+
 4. Open a command prompt, go to the root folder of this sample (where the pom.xml file is located), and run `mvn package` to build the project
     - This will generate a `msal-web-sample-0.1.0.war` file in your /targets directory.
     - Rename this file to `msal4jsample.war`
@@ -246,11 +247,6 @@ import com.microsoft.aad.msal4j.*;
 ```
 
 ## Next Steps
-
-Learn more about permissions and consent:
-
-> [!div class="nextstepaction"]
-> [Permissions and Consent](./v2-permissions-and-consent.md)
 
 To know more about the auth flow for this scenario, see the Oauth 2.0 authorization code flow:
 

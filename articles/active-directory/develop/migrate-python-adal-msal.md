@@ -1,5 +1,6 @@
 ---
 title: Python ADAL to MSAL migration guide | Azure
+titleSuffix: Microsoft identity platform
 description: Learn how to migrate your Azure Active Directory Authentication Library (ADAL) Python app to the Microsoft Authentication Library (MSAL) for Python.
 services: active-directory
 titleSuffix: Microsoft identity platform
@@ -77,7 +78,7 @@ The following code will help you migrate your refresh tokens managed by another 
 
 The method for migrating a refresh token is to use MSAL for Python to acquire a new access token using the previous refresh token. When the new refresh token is returned, MSAL for Python will store it in the cache.
 Since MSAL Python 1.3.0, we provide an API inside MSAL for this purpose.
-Please refer to the following code snippet, quoted from 
+Please refer to the following code snippet, quoted from
 [a completed sample of migrating refresh tokens with MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/1.3.0/sample/migrate_rt.py#L28-L67)
 
 ```python

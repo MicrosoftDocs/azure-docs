@@ -23,5 +23,4 @@ Before reading this article, you should be familiar with the following concepts:
 - [Authentication basics](../articles/active-directory/develop/authentication-scenarios.md)
 - [Audiences](../articles/active-directory/develop/v2-supported-account-types.md)
 - [Application and service principals](../articles/active-directory/develop/app-objects-and-service-principals.md)
-- [Permissions and consent](../articles/active-directory/develop/v2-permissions-and-consent.md)
 - [ID tokens](../articles/active-directory/develop/id-tokens.md) and [access tokens](../articles/active-directory/develop/access-tokens.md)
