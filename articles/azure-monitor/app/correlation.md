@@ -50,7 +50,7 @@ In the results, note that all telemetry items share the root `operation_Id`. Whe
 
 When the call `GET /api/stock/value` is made to an external service, you need to know the identity of that server so you can set the `dependency.target` field appropriately. When the external service doesn't support monitoring, `target` is set to the host name of the service (for example, `stock-prices-api.com`). But if the service identifies itself by returning a predefined HTTP header, `target` contains the service identity that allows Application Insights to build a distributed trace by querying telemetry from that service.
 
-## Correlation headers using W3C
+## Correlation headers using W3C TraceContext
 
 Application Insights is transitioning to [W3C Trace-Context](https://w3c.github.io/trace-context/), which defines:
 
