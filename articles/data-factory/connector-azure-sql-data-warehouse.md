@@ -592,7 +592,7 @@ To use this feature, create an [Azure Blob Storage linked service](connector-azu
             "enableStaging": true,
             "stagingSettings": {
                 "linkedServiceName": {
-                    "referenceName": "MyStagingBlob",
+                    "referenceName": "MyStagingStorage",
                     "type": "LinkedServiceReference"
                 }
             }
