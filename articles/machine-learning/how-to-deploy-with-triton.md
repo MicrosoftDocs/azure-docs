@@ -23,6 +23,9 @@ Triton is a framework that is *optimized for inference*. It provides better util
 > [!IMPORTANT]
 > Using Triton for deployment from Azure Machine Learning is currently in __preview__. Preview functionality may not be covered by customer support. For more information, see the [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
+> [!TIP]
+> The code snippets in this document are for illustrative purposes and may not show a complete solution. For working example code, see the [end-to-end samples of Triton in Azure Machine Learning](https://aka.ms/aml-triton-sample).
+
 ## Prerequisites
 
 * An **Azure subscription**. If you do not have one, try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
@@ -81,7 +84,7 @@ models
             ...
 ```
 
-> [!TIP]
+> [!IMPORTANT]
 > This directory structure is a Triton Model Repository and is required for your model(s) to work with Triton. For more information, see [Triton Model Repositories](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/model_repository.html) in the NVIDIA documentation.
 
 ## Test with Triton and Docker
@@ -133,7 +136,7 @@ To test your model to make sure it runs with Triton, you can use Docker. The fol
     HTTP/1.1 200 OK
     ```
 
-Beyond a basic health check, you can create a client to send data to the scoring URI for inference. For more information on creating a client, see the [client examples](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/client_example.html) in the NVIDIA documentation. There are also [Python samples at the Triton GitHub](https://github.com/triton-inference-server/server/tree/master/src/clients/python/examples).
+Beyond a basic health check, you can create a client to send data to Triton for inference. For more information on creating a client, see the [client examples](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/client_example.html) in the NVIDIA documentation. There are also [Python samples at the Triton GitHub](https://github.com/triton-inference-server/server/tree/master/src/clients/python/examples).
 
 For more information on running Triton using Docker, see [Running Triton on a system with a GPU](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/run.html#running-triton-on-a-system-with-a-gpu) and [Running Triton on a system without a GPU](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/run.html#running-triton-on-a-system-without-a-gpu).
 
@@ -158,7 +161,7 @@ model = Model.register(
 
 # [Azure CLI](#tab/azure-cli)
 
-```bash
+```azurecli
 az ml model register --model-path='triton' \
 --name='bidaf_onnx' \
 --workspace-name='<my_workspace>'
@@ -166,6 +169,7 @@ az ml model register --model-path='triton' \
 ---
 
 <a id="processing"></a>
+
 ## Add pre and post-processing
 
 After verifying that the web service is working, you can add pre and post-processing code by defining an _entry script_. This file is named `score.py`. For more information on entry scripts, see [Define an entry script](how-to-deploy-and-where.md#define-an-entry-script).
@@ -174,7 +178,7 @@ The two main steps are to initialize a Triton HTTP client in your `init()` metho
 
 ### Initialize the Triton Client
 
-Include code like the following example in your `score.py` file. Triton in Azure Machine Learning expects to be addressed on localhost, port 8000. In this case, localhost is inside the Docker image for this deployment, not your local machine:
+Include code like the following example in your `score.py` file. Triton in Azure Machine Learning expects to be addressed on localhost, port 8000. In this case, localhost is inside the Docker image for this deployment, not a port on your local machine:
 
 > [!TIP]
 > The `tritonhttpclient` pip package is included in the curated `AzureML-Triton` environment, so there's no need to specify it as a pip dependency.
@@ -210,6 +214,7 @@ res = triton_client.infer(model_name,
 ```
 
 <a id="redeploy"></a>
+
 ## Redeploy with an inference configuration
 
 An inference configuration allows you use an entry script, as well as the Azure Machine Learning deployment process using the Python SDK or Azure CLI.
@@ -253,20 +258,47 @@ local_service = Model.deploy(
 
 local_service.wait_for_deployment(show_output = True)
 print(local_service.state)
+# Print the URI you can use to call the local deployment
+print(local_service.scoring_uri)
 ```
+
+After deployment completes, the service URI is displayed. For this local deployment, it will be `http://localhost:6789/score`.
 
 # [Azure CLI](#tab/azure-cli)
 
 > [!TIP]
 > For more information on creating an inference configuration, see the [inference configuration schema](./reference-azure-machine-learning-cli.md#inference-configuration-schema).
 
-```bash
-
+```azurecli
 az ml model deploy -n triton-densenet-onnx \
 -m densenet_onnx:1 \
 --ic inference-config.json \
 -e My-Triton --dc deploymentconfig.json \
 --overwrite --compute-target=aks-gpu
+```
+
+Once the deployment completes, use the following command to view the scoring URI that is used to submit inference requests:
+
+```azurecli
+az ml service show -n triton-densenet-onnx
+```
+
+---
+
+## Clean up resources
+
+If you plan on continuing to use the Azure Machine Learning workspace, but want to get rid of the deployed service, use one of the following options:
+
+# [Python](#tab/python)
+
+```python
+local_service.delete()
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
+az ml service delete -n triton-densenet-onnx
 ```
 
 ---
