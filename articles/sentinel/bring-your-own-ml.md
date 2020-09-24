@@ -78,7 +78,7 @@ The BYO ML package includes the best practices and research of Microsoft in the 
 
 | File name | Description |
 | --------- | ----------- |
-| azure_sentinel_utilities.whl | Contains utilities for reading blobs from azure and writing to Log Analytics. |
+| azure_sentinel_utilities.whl | Contains utilities for reading blobs from Azure and writing to Log Analytics. |
 | AnomalousRASampleData | Notebook demonstrates the use of Anomalous Resource Access model in Sentinel with generated training and testing sample data. |
 | AnomalousRATraining.ipynb | Notebook to train the algorithm, build and save the models. |
 | AnomalousRAScoring.ipynb | Notebook to schedule the model to run, visualize the result and write score back to Azure Sentinel. |
