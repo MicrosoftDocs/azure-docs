@@ -157,17 +157,17 @@ You can setup alerts on tests that are failing based on the thresholds set in te
 
 From the Azure portal, to create alerts in a connection monitor, you specify values for the following fields: 
 
-1. Create alert - You can select this field to create a metric alert in Azure Monitor. Selecting this will enable the other fields for editing. Additional charges for alert will be applicable based  on <https://azure.microsoft.com/pricing/details/monitor/> 
+i. Create alert - You can select this field to create a metric alert in Azure Monitor. Selecting this will enable the other fields for editing. Additional charges for alert will be applicable based  on <https://azure.microsoft.com/pricing/details/monitor/> 
 
-1. Scope -> Resource and Scope -> Hierarchy - This is prefilled based on the values specified in the Basics tab 
+i. Scope -> Resource and Scope -> Hierarchy - This is prefilled based on the values specified in the Basics tab 
 
-1.Condition -> The alert is created on the "Test Result(preview)" metric. When the test result of the connection monitor is failed, the alert rule will get fired. 
+i. Condition -> The alert is created on the "Test Result(preview)" metric. When the test result of the connection monitor is failed, the alert rule will get fired. 
 
-1. Action Group -You can choose to enter your email directly or you can choose to create alerts via action groups. If you choose to enter your email directly, an action group with the name NPM Email ActionGroup is created and the email id is added to that action group.If you choose to use action groups, you will have to select an previously created action group. You can learn how to create an action group here.Once the alert is successfully created, you can use Manage Alerts link to manage your alerts. 
+i. Action Group -You can choose to enter your email directly or you can choose to create alerts via action groups. If you choose to enter your email directly, an action group with the name NPM Email ActionGroup is created and the email id is added to that action group.If you choose to use action groups, you will have to select an previously created action group. You can learn how to create an action group here.Once the alert is successfully created, you can use Manage Alerts link to manage your alerts. 
 
-1. Alert Rule Name - Name of the Connection Monitor 
+i. Alert Rule Name - Name of the Connection Monitor 
 
-1. Enable rule upon creation - This will enable the alert rule based on the condition. Disable this if you want to create the rule but not enable it. 
+i. Enable rule upon creation - This will enable the alert rule based on the condition. Disable this if you want to create the rule but not enable it. 
 
 
 ## Scale limits
