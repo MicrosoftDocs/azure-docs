@@ -1,5 +1,5 @@
 ---
-title: Metric alerts from Azure Monitor for containers | Microsoft Docs
+title: Metric alerts from Azure Monitor for containers
 description: This article reviews the recommended metric alerts available from Azure Monitor for containers in public preview.
 ms.topic: conceptual
 ms.date: 09/23/2020
@@ -12,7 +12,7 @@ To alert on system resource issues when they are experiencing peak demand and ru
 
 This article reviews the experience and provides guidance on configuring and managing these alert rules.
 
-If you're not familiar with Azure Monitor alerts, see [Overview of alerts in Microsoft Azure](../platform/alerts-overview.md) before you start. To learn more about metric alerts, see [Metric alerts in Azure Monitor](../platform/alerts-metric-overview.md).
+If you're not familiar with Azure Monitor alerts, see [Overview of alerts in Microsoft Azure](../platform/alerts-overview.md) before you https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fopbuildstorageprod.blob.core.windows.net%2Freport%2F2020%255C9%255C21%255C8257e7f2-de62-9622-af05-1281f54738ea%255CPullRequest%255C202009212001389262-130623%255Cworkflow_report.html%3Fsv%3D2016-05-31%26sr%3Db%26sig%3DWglUAkJZCa%252BYTwh%252F0R3IpLcPZCPhK%252BiG0sZpDnQqEOY%253D%26st%3D2020-09-21T20%253A00%253A42Z%26se%3D2020-10-22T20%253A05%253A42Z%26sp%3Dr&data=02%7C01%7Cbwren%40microsoft.com%7C35d3712bf2ee4c99d56408d85f528f2c%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637364155474796200&sdata=kZGprr59hLPVu%2Fbtkd1tlfKPi5JSKy0L5ALyS%2FXrT3o%3D&reserved=0start. To learn more about metric alerts, see [Metric alerts in Azure Monitor](../platform/alerts-metric-overview.md).
 
 ## Prerequisites
 
@@ -20,7 +20,7 @@ Before you start, confirm the following:
 
 * Custom metrics are only available in a subset of Azure regions. A list of supported regions is documented [here](../platform/metrics-custom-overview.md#supported-regions).
 
-* To support metric alerts and the introduction of additional metrics, the minimum agent version required is **microsoft/oms:ciprod09162020**.
+* To support metric alerts and the introduction of additional metrics, the minimum agent version required is **microsoft/oms:ciprod05262020** for AKS and **microsoft/oms:ciprod09162020** for Azure Arc enabled Kubernetes cluster.
 
     To verify your cluster is running the newer version of the agent, you can either:
 
