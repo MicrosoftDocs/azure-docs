@@ -56,15 +56,9 @@ Updates made to the service itself will follow Microsoft Azure’s standard chan
 
 With the new Azure VMware Solution, Microsoft and VMware have a direct cloud provider partnership. The new solution is entirely designed, built, and supported by Microsoft, and endorsed by VMware. Architecturally, the solutions are consistent, with the VMware technology stack running on an Azure dedicated infrastructure.
 
-### If I'm an existing Azure VMware Solution customer, what does this preview mean for me?
+### Are Red Hat solutions supported on Azure VMware Solution?
 
-There is no change to the existing Azure VMware Solution by CloudSimple. We continue to support the solution on Azure. Azure VMware Solution is backed by our service level agreement [(SLA)](https://aka.ms/CSVMwareSLA). Customers should continue to use the service for production workloads; this is an available solution governed by [Microsoft’s service terms](https://azure.microsoft.com/support/legal/).
-
-### Can I migrate from Azure VMware Solution by CloudSimple to this new solution?
-
-Yes, Azure VMware Solution supports migration using familiar VMware tools such as HCX. For customers interested in migrating to the new solution, work with your Microsoft account team to explore options and available support.
-
-
+Microsoft and Red Hat share an integrated, co-located support team that provides a unified contact point for Red Hat ecosystems running on the Azure platform.  Like other Azure platform services that work with Red Hat Enterprise Linux, Azure VMware Solution falls under the Cloud Access and integrated support umbrella, and Red Hat Enterprise Linux is supported for running on top of Azure VMware Solution within Azure.
 
 ## Compute, network, and storage
 

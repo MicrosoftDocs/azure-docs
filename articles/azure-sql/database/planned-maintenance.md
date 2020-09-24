@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 08/25/2020
 ---
 

@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.date: 09/09/2020
 ms.author: aahi
 keywords: text mining, sentiment analysis, text analytics
-ms.custom: "devx-track-python, devx-track-javascript, devx-track-csharp, cog-serv-seo-aug-2020"
+ms.custom: "devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020"
 zone_pivot_groups: programming-languages-text-analytics
 ---
 

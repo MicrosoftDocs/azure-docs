@@ -12,7 +12,7 @@ ms.custom: security-benchmark
 
 ---
 
-# Overview of the Azure Security Benchmark
+# Overview of the Azure Security Benchmark (V2)
 
 The Azure Security Benchmark (ASB) provides prescriptive best practices and recommendations to help improve the security of workloads, data, and services on Azure.
 
@@ -21,6 +21,7 @@ This benchmark is part of a set of holistic security guidance that also includes
 - **Cloud Adoption Framework** – Guidance on security, including [strategy](/azure/cloud-adoption-framework/strategy/define-security-strategy), [roles and responsibilities](/azure/cloud-adoption-framework/organize/cloud-security), [Azure Top 10 Security Best Practices](/azure/cloud-adoption-framework/get-started/security#step-1-establish-essential-security-practices), and [reference implementation](/azure/cloud-adoption-framework/ready/enterprise-scale/).
 - **Azure Well-Architected Framework** – Guidance on [securing your workloads](https://docs.microsoft.com/assessments/?mode=pre-assessment&session=local) on Azure.
 - **Microsoft Security Best Practices** – [recommendations](/security/compass/microsoft-security-compass-introduction) with examples on Azure.
+
  The Azure Security Benchmark focuses on cloud-centric control areas. These controls are consistent with well-known security benchmarks, such as those described by the Center for Internet Security (CIS) Controls Version 7.1 and National Institute of Standards and Technology (NIST) SP800-53.
 The following controls are included in the Azure Security Benchmark:
 
@@ -49,12 +50,12 @@ Each recommendation includes the following information:
 - **NIST SP800-53 r4 ID(s)**: The NIST SP800-53 r4 (moderate) control(s) that correspond to this recommendation.
 - **Details**: The rationale for the recommendation and links to guidance on how to implement it. If the recommendation is supported by Azure Security Center, that information will also be listed.
 - **Responsibility**: Whether the customer, the service-provider, or both are responsible for implementing this recommendation. Security responsibilities are shared in the public cloud. Some security controls are only available to the cloud service provider and therefore the provider is responsible for addressing those. These are general observations – for some individual services, the responsibility will be different from what is listed in the Azure Security Benchmark. Those differences are described in the baseline recommendations for the individual service.
-- **Customer Security Stakeholders**: The security functions at the customer organization who may be accountable, responsible, or consulted for the respective control. It may be different from organization to organization depending on your company’s security organization structure, and the roles and responsibilities you set up related to Azure security.
+- **Customer Security Stakeholders**: [The security functions](/azure/cloud-adoption-framework/organize/cloud-security#security-functions) at the customer organization who may be accountable, responsible, or consulted for the respective control. It may be different from organization to organization depending on your company’s security organization structure, and the roles and responsibilities you set up related to Azure security.
 
 > [!NOTE]
 > The control mappings between ASB and industry benchmarks (such as NIST and CIS) only indicate that a specific Azure feature can be used to fully or partially address a control requirement defined in NIST or CIS. You should be aware that such implementation does not necessarily translate to the full compliance of the corresponding control in CIS or NIST.
 
-We welcome your detailed feedback and active participation in the Azure Security Benchmark effort. if you would like to provide the Azure Security Benchmark team direct input, fill out the form at https://aka.ms/AzSecBenchmark
+We welcome your detailed feedback and active participation in the Azure Security Benchmark effort. If you would like to provide the Azure Security Benchmark team direct input, fill out the form at https://aka.ms/AzSecBenchmark
 
 
 - See the first security control: [Network security](security-control-network-security.md)

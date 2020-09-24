@@ -71,7 +71,7 @@ Security Center provides a unified view of all security alerts. Security alerts 
 
    ![Alert details from incident](./media/tutorial-security-incident/tutorial-security-incident-fig3.png)
 
-   The type of alert can vary, read [Understanding security alerts in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type) for more details about the type of alert, and potential remediation steps. For alerts that can be safely dismissed, you can right click on the alert and select the option **Dismiss**:
+   The type of alert can vary, read [Understanding security alerts in Azure Security Center](security-center-alerts-type.md) for more details about the type of alert, and potential remediation steps. For alerts that can be safely dismissed, you can right click on the alert and select the option **Dismiss**:
 
    ![Alert](./media/tutorial-security-incident/tutorial-security-incident-fig4.png)
 

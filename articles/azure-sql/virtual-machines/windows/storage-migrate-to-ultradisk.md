@@ -9,7 +9,7 @@ tags: azure-service-management
 ms.assetid: 
 ms.service: virtual-machines-sql
 
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/09/2020
@@ -54,7 +54,7 @@ To enable compatibility, follow these steps:
 
 ### Attach disk
 
-Use the Azure portal to attach an ultra disk to your virtual machine. For details, see [Attach an ultra disk](../../../virtual-machines/disks-enable-ultra-ssd.md#attach-an-ultra-disk-using-the-azure-portal)
+Use the Azure portal to attach an ultra disk to your virtual machine. For details, see [Attach an ultra disk](../../../virtual-machines/disks-enable-ultra-ssd.md#attach-an-ultra-disk).
 
 Once the disk is attached, start your VM once more using the Azure portal. 
 
