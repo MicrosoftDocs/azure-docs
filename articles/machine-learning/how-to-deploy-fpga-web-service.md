@@ -13,10 +13,11 @@ ms.topic: conceptual
 ms.custom: how-to, contperfq2, devx-track-python
 ---
 
-# What are field-programmable gate arrays (FPGAs) and how to deploy
+# Deploy ML models to field-programmable gate arrays (FPGAs) with Azure Machine Learning 
 
 In this article, you learn about FPGAs and how to deploy your ML models to an Azure FPGA using the [hardware-accelerated models Python package](https://docs.microsoft.com/python/api/azureml-accel-models/azureml.accel?view=azure-ml-py&preserve-view=true) from [Azure Machine Learning](overview-what-is-azure-ml.md).
 
+## What are FPGAs?
 FPGAs contain an array of programmable logic blocks, and a hierarchy of reconfigurable interconnects. The interconnects allow these blocks to be configured in various ways after manufacturing. Compared to other chips, FPGAs provide a combination of programmability and performance. 
 
 FPGAs make it possible to achieve low latency for real-time inference (or model scoring) requests. Asynchronous requests (batching) aren't needed. Batching can cause latency, because more data needs to be processed. Implementations of neural processing units don't require batching; therefore the latency can be many times lower, compared to CPU and GPU processors.
@@ -170,9 +171,9 @@ Begin by using the [Azure Machine Learning SDK for Python](https://docs.microsof
      output_tensors = ['ssd_300_vgg/block4_box/Reshape_1:0', 'ssd_300_vgg/block7_box/Reshape_1:0', 'ssd_300_vgg/block8_box/Reshape_1:0', 'ssd_300_vgg/block9_box/Reshape_1:0', 'ssd_300_vgg/block10_box/Reshape_1:0', 'ssd_300_vgg/block11_box/Reshape_1:0', 'ssd_300_vgg/block4_box/Reshape:0', 'ssd_300_vgg/block7_box/Reshape:0', 'ssd_300_vgg/block8_box/Reshape:0', 'ssd_300_vgg/block9_box/Reshape:0', 'ssd_300_vgg/block10_box/Reshape:0', 'ssd_300_vgg/block11_box/Reshape:0']
      ```
 
-### Convert the model
+### Convert the model to the Open Neural Network Exchange format (ONNX)
 
-Before you can deploy to FPGAs, convert the model to the Open Neural Network Exchange format ([ONNX](https://onnx.ai/)).
+Before you can deploy to FPGAs, convert the model to the [ONNX](https://onnx.ai/) format.
 
 1. [Register](concept-model-management-and-deployment.md) the model by using the SDK with the ZIP file in Azure Blob storage. Adding tags and other metadata about the model helps you keep track of your trained models.
 
