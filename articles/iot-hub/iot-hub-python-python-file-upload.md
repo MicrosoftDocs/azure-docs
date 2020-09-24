@@ -8,7 +8,7 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: robinsh
-ms.custom: mqtt, tracking-python
+ms.custom: mqtt, devx-track-python
 ---
 
 # Upload files from your device to the cloud with IoT Hub (Python)
@@ -28,6 +28,8 @@ At the end of this tutorial, you run the Python console app:
 * **FileUpload.py**, which uploads a file to storage using the Python Device SDK.
 
 [!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
+
+[!INCLUDE [iot-hub-include-x509-ca-signed-file-upload-support-note](../../includes/iot-hub-include-x509-ca-signed-file-upload-support-note.md)]
 
 ## Prerequisites
 

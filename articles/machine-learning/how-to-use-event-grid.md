@@ -1,20 +1,21 @@
 ---
-title: Trigger events in ML workflows 
+title: Trigger events in ML workflows (preview)
 titleSuffix: Azure Machine Learning
 description: Set up event-driven applications, processes, or CI/CD machine learning workflows in Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
 ms.date: 05/11/2020
 ---
 
-# Trigger applications, processes, or CI/CD workflows based on Azure Machine Learning events (Preview)
+# Trigger applications, processes, or CI/CD workflows based on Azure Machine Learning events (preview)
 
-In this article, you learn how to set up event-driven applications, processes, or CI/CD workflows based on Azure Machine Learning events, such as failure notification emails or ML pipeline runs, when certain conditions are detected by [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/). 
+In this article, you learn how to set up event-driven applications, processes, or CI/CD workflows based on Azure Machine Learning events, such as failure notification emails or ML pipeline runs, when certain conditions are detected by [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/).
 
 Azure Machine Learning manages the entire lifecycle of machine learning process, including model training, model deployment, and monitoring. You can use Event Grid to react to Azure Machine Learning events, such as the completion of training runs, the registration and deployment of models, and the detection of data drift, by using modern serverless architectures. You can then subscribe and consume events such as run status changed, run completion, model registration, model deployment, and data drift detection within a workspace.
 
@@ -56,7 +57,7 @@ These events are published through Azure Event Grid. Using Azure portal, PowerSh
 
 When setting up your events, you can apply filters to only trigger on specific event data. In the example below, for run status changed events, you can filter by run types. The event only triggers when the criteria is met. Refer to the [Azure Machine Learning event grid schema](/azure/event-grid/event-schema-machine-learning) to learn about event data you can filter by. 
 
-Subscriptions for Azure Machine Learning events are protected by role-based access control (RBAC). Only [contributor or owner](how-to-assign-roles.md#default-roles) of a workspace can create, update, and delete event subscriptions.  Filters can be applied to event subscriptions either during the [creation](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest) of the event subscription or at a later time. 
+Subscriptions for Azure Machine Learning events are protected by role-based access control (RBAC). Only [contributor or owner](how-to-assign-roles.md#default-roles) of a workspace can create, update, and delete event subscriptions.  Filters can be applied to event subscriptions either during the [creation](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest&preserve-view=true) of the event subscription or at a later time. 
 
 
 1. Go to the Azure portal, select a new subscription or an existing one. 
@@ -127,7 +128,7 @@ Once you have confirmed your selection, click __Create__. After configuration, t
 
 ### Set up with the CLI
 
-You can either install the latest [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), or use the Azure Cloud Shell that is provided as part of your Azure subscription.
+You can either install the latest [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true), or use the Azure Cloud Shell that is provided as part of your Azure subscription.
 
 To install the Event Grid extension, use the following command from the CLI:
 
@@ -193,7 +194,7 @@ This example shows how to use event grid with an Azure Logic App to trigger retr
 
 Before you begin, perform the following actions:
 
-* Set up a dataset monitor to [detect data drift]( https://aka.ms/datadrift) in a workspace
+* Set up a dataset monitor to [detect data drift](how-to-monitor-datasets.md) in a workspace
 * Create a published [Azure Data Factory pipeline](https://docs.microsoft.com/azure/data-factory/).
 
 In this example, a simple Data Factory pipeline is used to copy files into a blob store and run a published Machine Learning pipeline. For more information on this scenario, see how to set up a [Machine Learning step in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/transform-data-machine-learning-service)

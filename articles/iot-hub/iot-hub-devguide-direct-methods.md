@@ -1,13 +1,13 @@
 ﻿---
 title: Understand Azure IoT Hub direct methods | Microsoft Docs
 description: Developer guide - use direct methods to invoke code on your devices from a service app.
-author: nberdy
+author: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/17/2018
-ms.author: rezas
-ms.custom: [amqp, mqtt]
+ms.author: philmea
+ms.custom: [amqp, mqtt,'Role: Cloud Development', 'Role: IoT Device']
 ---
 
 # Understand and invoke direct methods from IoT Hub
@@ -46,7 +46,7 @@ Now, invoke a direct method from a back-end app.
 
 Direct method invocations on a device are HTTPS calls that are made up of the following items:
 
-* The *request URI* specific to the device along with the [API version](/rest/api/iothub/service/devicemethod/invokedevicemethod):
+* The *request URI* specific to the device along with the [API version](https://docs.microsoft.com/rest/api/iothub/service/devices/invokemethod):
 
     ```http
     https://fully-qualified-iothubname.azure-devices.net/twins/{deviceId}/methods?api-version=2018-06-30
@@ -106,7 +106,7 @@ Execute the modified command to invoke the specified Direct Method. Successful r
 > The above example demonstrates invoking a Direct Method on a device.  If you wish to invoke a Direct Method in an IoT Edge Module, you would need to modify the url request as shown below:
 
 ```bash
-https://<iothubName>.azure-devices.net/twins/<deviceId>/modules/<moduleName>/methods?api-version=2018-06
+https://<iothubName>.azure-devices.net/twins/<deviceId>/modules/<moduleName>/methods?api-version=2018-06-30
 ```
 ### Response
 

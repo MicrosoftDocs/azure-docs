@@ -5,13 +5,13 @@ description: Learn how to build a data ingestion pipeline with Azure Data Factor
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.author: iefedore
 author: eedorenko
 manager: davete
 ms.reviewer: larryfr
 ms.date: 03/01/2020
-ms.custom: tracking-python
+ms.topic: conceptual
+ms.custom: how-to, devx-track-python
 
 # Customer intent: As an experienced data engineer, I need to create a production data ingestion pipeline for the data used to train my models.
 
@@ -33,7 +33,7 @@ There are several common techniques of using Azure Data Factory to transform dat
 
 ## ADF with Azure functions
 
-![adf-function](media/how-to-data-ingest-adf/adf-function.png)
+![Diagram shows an Azure Data Factory pipeline, with Azure Function and Run M L Pipeline, and an Azure Machine Learning pipeline, with Train Model, and how they interact with raw data and prepared data.](media/how-to-data-ingest-adf/adf-function.png)
 
 Azure Functions allows you to run small pieces of code (functions) without worrying about application infrastructure. In this option, the data is processed with custom Python code wrapped into an Azure Function. 
 
@@ -49,7 +49,7 @@ The function is invoked with the [ADF Azure Function activity](https://docs.micr
 
 ## ADF with Custom Component Activity
 
-![adf-customcomponent](media/how-to-data-ingest-adf/adf-customcomponent.png)
+![Diagram shows an Azure Data Factory pipeline, with a custom component and Run M L Pipeline, and an Azure Machine Learning pipeline, with Train Model, and how they interact with raw data and prepared data.](media/how-to-data-ingest-adf/adf-customcomponent.png)
 
 In this option, the data is processed with custom Python code wrapped into an executable. It is invoked with an [ADF Custom Component activity](https://docs.microsoft.com/azure/data-factory/transform-data-using-dotnet-custom-activity). This approach is a better fit for large data than the previous technique.
 
@@ -62,7 +62,7 @@ In this option, the data is processed with custom Python code wrapped into an ex
 
 ## ADF with Azure Databricks Python notebook
 
-![adf-databricks](media/how-to-data-ingest-adf/adf-databricks.png)
+![Diagram shows an Azure Data Factory pipeline, with Azure Databricks Python and Run M L Pipeline, and an Azure Machine Learning pipeline, with Train Model, and how they interact with raw data and prepared data.](media/how-to-data-ingest-adf/adf-databricks.png)
 
 [Azure Databricks](https://azure.microsoft.com/services/databricks/) is an Apache Spark-based analytics platform in the Microsoft cloud.
 
@@ -80,7 +80,7 @@ In this technique, the data transformation is performed by a [Python notebook](h
 
 ## Consuming data in Azure Machine Learning pipelines
 
-![aml-dataset](media/how-to-data-ingest-adf/aml-dataset.png)
+![Diagram shows an Azure Data Factory pipeline and an Azure Machine Learning pipeline and how they interact with raw data and prepared data. The Data Factory pipeline feeds data to the Prepared Data database, which feeds a data store, which feeds datasets in the Machine Learning workspace.](media/how-to-data-ingest-adf/aml-dataset.png)
 
 The transformed data from the ADF pipeline is saved to data storage (such as Azure Blob). Azure Machine Learning can access this data using [datastores](https://docs.microsoft.com/azure/machine-learning/how-to-access-data#create-and-register-datastores) and [datasets](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets).
 

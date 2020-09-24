@@ -2,7 +2,8 @@
 title: Tag resources, resource groups, and subscriptions for logical organization
 description: Shows how to apply tags to organize Azure resources for billing and managing.
 ms.topic: conceptual
-ms.date: 07/01/2020
+ms.date: 07/27/2020 
+ms.custom: devx-track-azurecli
 ---
 # Use tags to organize your Azure resources and management hierarchy
 
@@ -11,7 +12,7 @@ You apply tags to your Azure resources, resource groups, and subscriptions to lo
 For recommendations on how to implement a tagging strategy, see [Resource naming and tagging decision guide](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json).
 
 > [!IMPORTANT]
-> Tag names are case-insensitive for operations. A tag with a tag name, regardless of casing, is updated or retrieved. However, the resource provider might kept the casing you provide for the tag name. You'll see that casing in cost reports.
+> Tag names are case-insensitive for operations. A tag with a tag name, regardless of casing, is updated or retrieved. However, the resource provider might keep the casing you provide for the tag name. You'll see that casing in cost reports.
 > 
 > Tag values are case-sensitive.
 
@@ -300,7 +301,27 @@ az group list --tag Dept=IT
 
 ### Handling spaces
 
-If your tag names or values include spaces, you must take a couple of extra steps. The following example applies all tags from a resource group to its resources when the tags may contain spaces.
+If your tag names or values include spaces, you must take a couple extra steps. 
+
+The `--tags` parameters in the Azure CLI can accept a string that consists of an array of strings. The following example overwrites the tags in a resource group where the tags have spaces and hyphen: 
+
+```azurecli-interactive
+TAGS=("Cost Center=Finance-1222" "Location=West US")
+az group update --name examplegroup --tags "${TAGS[@]}"
+```
+
+You can use the same syntax when you create or update a resource group or resources by using the `--tags` parameter.
+
+To update the tags by using the `--set` parameter, you must pass the key and value as a string. The following example appends a single tag to a resource group:
+
+```azurecli-interactive
+TAG="Cost Center='Account-56'"
+az group update --name examplegroup --set tags."$TAG"
+```
+
+In the this case, the tag value is marked with single quotes because the value has a hyphen.
+
+You might also need to apply tags to many resources. The following example applies all tags from a resource group to its resources when the tags might contain spaces:
 
 ```azurecli-interactive
 jsontags=$(az group show --name examplegroup --query tags -o json)
@@ -432,7 +453,7 @@ To store many values in a single tag, apply a JSON string that represents the va
 
 ### Apply tags from resource group
 
-To apply tags from a resource group to a resource, use the [resourceGroup](../templates/template-functions-resource.md#resourcegroup) function. When getting the tag value, use the `tags[tag-name]` syntax instead of the `tags.tag-name` syntax, because some characters aren't parsed correctly in the dot notation.
+To apply tags from a resource group to a resource, use the [resourceGroup()](../templates/template-functions-resource.md#resourcegroup) function. When getting the tag value, use the `tags[tag-name]` syntax instead of the `tags.tag-name` syntax, because some characters aren't parsed correctly in the dot notation.
 
 ```json
 {
@@ -572,7 +593,7 @@ Tags applied to the resource group or subscription aren't inherited by the resou
 
 You can use tags to group your billing data. For example, if you're running multiple VMs for different organizations, use the tags to group usage by cost center. You can also use tags to categorize costs by runtime environment, such as the billing usage for VMs running in the production environment.
 
-You can retrieve information about tags through the [Azure Resource Usage and RateCard APIs](../../billing/billing-usage-rate-card-overview.md) or the usage comma-separated values (CSV) file. You download the usage file from the [Azure Account Center](https://account.azure.com/Subscriptions) or Azure portal. For more information, see [Download or view your Azure billing invoice and daily usage data](../../billing/billing-download-azure-invoice-daily-usage-date.md). When downloading the usage file from the Azure Account Center, select **Version 2**. For services that support tags with billing, the tags appear in the **Tags** column.
+You can retrieve information about tags through the [Azure Resource Usage and Rate Card APIs](../../cost-management-billing/manage/usage-rate-card-overview.md) or the usage comma-separated values (CSV) file. You download the usage file from the Azure portal. For more information, see [Download or view your Azure billing invoice and daily usage data](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md). When downloading the usage file from the Azure Account Center, select **Version 2**. For services that support tags with billing, the tags appear in the **Tags** column.
 
 For REST API operations, see [Azure Billing REST API Reference](/rest/api/billing/).
 
@@ -590,6 +611,8 @@ The following limitations apply to tags:
    > Currently, Azure DNS zones and Traffic Manager services also don't allow the use of spaces in the tag.
    >
    > Azure Front Door doesn't support the use of `#` in the tag name.
+   >
+   > Azure Automation and Azure CDN only support 15 tags on resources.
 
 ## Next steps
 

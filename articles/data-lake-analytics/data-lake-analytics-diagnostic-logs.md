@@ -3,9 +3,9 @@ title: Enable and view diagnostic logs for Azure Data Lake Analytics
 description: Understand how to set up and access diagnostic logs for Azure Data Lake Analytics
 services: data-lake-analytics
 ms.service: data-lake-analytics
-author: jasonwhowell
-ms.author: jasonh
-ms.topic: conceptual
+
+
+ms.topic: how-to
 ms.date: 02/12/2018
 ---
 # Accessing diagnostic logs for Azure Data Lake Analytics
@@ -22,7 +22,7 @@ Diagnostic logging allows you to collect data access audit trails. These logs pr
 
 2. Open your Data Lake Analytics account and select **Diagnostic logs** from the __Monitor__ section. Next, select __Turn on diagnostics__.
 
-    ![Turn on diagnostics to collect audit and request logs](./media/data-lake-analytics-diagnostic-logs/turn-on-logging.png)
+    ![Screenshot that shows the "Diagnostic logs" action selected and "Turn on diagnostics to collect the following logs" highlighted.](./media/data-lake-analytics-diagnostic-logs/turn-on-logging.png)
 
 3. From __Diagnostics settings__, enter a __Name__ for this logging configuration and then select logging options.
 

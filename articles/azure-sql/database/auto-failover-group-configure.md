@@ -3,14 +3,14 @@ title: Configure a failover group
 titleSuffix: Azure SQL Database & SQL Managed Instance 
 description: Learn how to configure an auto-failover group for an Azure SQL Database (both single and pooled) and SQL Managed Instance, using the Azure portal, the Azure CLI, and PowerShell. 
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: high-availability
 ms.custom: sqldbrb=2
 ms.devlang: 
 ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
-ms.reviewer: sstein, carlrab
+ms.reviewer: sstein
 ms.date: 08/14/2019
 ---
 # Configure a failover group for Azure SQL Database

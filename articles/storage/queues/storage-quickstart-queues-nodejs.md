@@ -8,6 +8,7 @@ ms.date: 12/13/2019
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
+ms.custom: devx-track-js
 ---
 
 # Quickstart: Azure Queue storage client library v12 for JavaScript
@@ -24,7 +25,12 @@ Use the Azure Queue storage client library v12 for JavaScript to:
 * Delete messages from a queue
 * Delete a queue
 
-[API reference documentation](https://docs.microsoft.com/javascript/api/@azure/storage-queue/) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue) | [Package (Node Package Manager)](https://www.npmjs.com/package/@azure/storage-queue) | [Samples](https://docs.microsoft.com/azure/storage/common/storage-samples-javascript?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
+Additional resources:
+
+* [API reference documentation](https://docs.microsoft.com/javascript/api/@azure/storage-queue/)
+* [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue)
+* [Package (Node Package Manager)](https://www.npmjs.com/package/@azure/storage-queue)
+* [Samples](https://docs.microsoft.com/azure/storage/common/storage-samples-javascript?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
 
 ## Prerequisites
 

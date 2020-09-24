@@ -87,12 +87,12 @@ If there's no heartbeat from the process server (error code 806), do the followi
 
  Initial and ongoing replication failures are often caused by connectivity issues between source machines and the process server, or between the process server and Azure. These steps are summarized in the following graphic, followed by procedures to help you perform the steps.
 
-![Troubleshoot connectivity and replication](./media/vmware-physical-azure-troubleshoot-process-server/troubleshoot-connectivity-replication.png)
+![Flowchart showing steps to troubleshoot connectivity and replication.](./media/vmware-physical-azure-troubleshoot-process-server/troubleshoot-connectivity-replication.png)
 
 
 ## Step 4: Verify time sync on source machine
 
-Ensure that the system date/time for the replicated machine is in sync. [Learn more](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time)
+Ensure that the system date/time for the replicated machine is in sync. [Learn more](/windows-server/networking/windows-time-service/accurate-time)
 
 ## Step 5: Check anti-virus software on source machine
 
@@ -101,7 +101,7 @@ Check that no anti-virus software on the replicated machine is blocking Site Rec
 ## Step 6: Check connectivity from source machine
 
 
-1. Install the [Telnet client](https://technet.microsoft.com/library/cc771275(v=WS.10).aspx) on the source machine if you need to. Don't use Ping.
+1. Install the [Telnet client](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771275(v=ws.10)) on the source machine if you need to. Don't use Ping.
 2. From the source machine, ping the process server on the HTTPS port with Telnet. By default 9443 is the HTTPS port for replication traffic.
 
     `telnet <process server IP address> <port>`
@@ -167,7 +167,7 @@ Check whether the process server is actively pushing data to Azure.
   2. Select the **Performance** tab > **Open Resource Monitor**.
   3. In **Resource Monitor** page, select the **Network** tab. Under **Processes with Network Activity**, check whether cbengine.exe is actively sending a large volume of data.
 
-       ![Volumes under processes with network activity](./media/vmware-physical-azure-troubleshoot-process-server/cbengine.png)
+       ![Screenshot showing a large number for volumes under processes with network activity.](./media/vmware-physical-azure-troubleshoot-process-server/cbengine.png)
 
   If cbengine.exe isn't sending a large volume of data, complete the steps in the following sections.
 
@@ -176,7 +176,7 @@ Check whether the process server is actively pushing data to Azure.
 1. In Resource Monitor, select **cbengine.exe**.
 2. Under **TCP Connections**, check to see whether there is connectivity from the process server to the Azure storage.
 
-  ![Connectivity between cbengine.exe and the Azure Blob storage URL](./media/vmware-physical-azure-troubleshoot-process-server/rmonitor.png)
+  ![Screenshot showing connectivity between cbengine.exe and the Azure Blob storage URL.](./media/vmware-physical-azure-troubleshoot-process-server/rmonitor.png)
 
 ### Check services
 
@@ -243,7 +243,7 @@ Increase the bandwidth between the process server and Azure, and then check whet
 
 ## Next steps
 
-If you need more help, post your question in the [Microsoft Q&A question page for Azure Site Recovery](https://docs.microsoft.com/answers/topics/azure-site-recovery.html). 
+If you need more help, post your question in the [Microsoft Q&A question page for Azure Site Recovery](/answers/topics/azure-site-recovery.html). 
 
 [green]: ./media/vmware-physical-azure-troubleshoot-process-server/green.png
 [yellow]: ./media/vmware-physical-azure-troubleshoot-process-server/yellow.png

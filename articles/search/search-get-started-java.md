@@ -10,14 +10,16 @@ ms.devlang: java
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 06/23/2020
+ms.custom: devx-track-java
 ---
+
 # Quickstart: Create an Azure Cognitive Search index in Java using REST APIs
 > [!div class="op_single_selector"]
 > * [JavaScript](search-get-started-nodejs.md)
 > * [C#](search-get-started-dotnet.md)
 > * [Java](search-get-started-java.md)
 > * [Portal](search-get-started-portal.md)
-> * [PowerShell](search-create-index-rest-api.md)
+> * [PowerShell](./search-get-started-powershell.md)
 > * [Python](search-get-started-python.md)
 > * [Postman](search-get-started-postman.md)
 
@@ -367,7 +369,7 @@ Begin by opening IntelliJ IDEA and setting up a new project.
 
 1. Verify that your project has the following structure.
 
-    ![Project directory structure](media/search-get-started-java/java-quickstart-basic-code-tree-plus-classes.png)
+    ![Project directory structure plus classes](media/search-get-started-java/java-quickstart-basic-code-tree-plus-classes.png)
 
 1. Open the **Maven** tool window, and execute this maven goal: `verify exec:java`
 ![Execute maven goal: verify exec:java](media/search-get-started-java/java-quickstart-execute-maven-goal.png)

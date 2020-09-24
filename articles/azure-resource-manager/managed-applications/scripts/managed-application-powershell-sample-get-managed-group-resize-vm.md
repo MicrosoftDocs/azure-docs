@@ -28,12 +28,12 @@ This script uses the following commands to deploy the managed application. Each 
 
 | Command | Notes |
 |---|---|
-| [Get-AzManagedApplication](https://docs.microsoft.com/powershell/module/az.resources/get-azmanagedapplication) | List managed applications. Provide resource group name to focus the results. |
-| [Get-AzResource](https://docs.microsoft.com/powershell/module/az.resources/get-azresource) | List resources. Provide a resource group and resource type to focus the result. |
-| [Update-AzVM](https://docs.microsoft.com/powershell/module/az.compute/update-azvm) | Update a virtual machine's size. |
+| [Get-AzManagedApplication](/powershell/module/az.resources/get-azmanagedapplication) | List managed applications. Provide resource group name to focus the results. |
+| [Get-AzResource](/powershell/module/az.resources/get-azresource) | List resources. Provide a resource group and resource type to focus the result. |
+| [Update-AzVM](/powershell/module/az.compute/update-azvm) | Update a virtual machine's size. |
 
 
 ## Next steps
 
 * For an introduction to managed applications, see [Azure Managed Application overview](../overview.md).
-* For more information on PowerShell, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+* For more information on PowerShell, see [Azure PowerShell documentation](/powershell/azure/get-started-azureps).

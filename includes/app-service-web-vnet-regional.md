@@ -35,7 +35,7 @@ If you route all of your outbound traffic into your VNet, it's subject to the NS
 There are some limitations with using VNet Integration with VNets in the same region:
 
 * You can't reach resources across global peering connections.
-* The feature is available only from newer Azure App Service scale units that support PremiumV2 App Service plans.
+* The feature is available only from newer Azure App Service scale units that support PremiumV2 App Service plans. Note that *this does not mean your app must run on a PremiumV2 pricing tier*, only that it must run on an App Service Plan where the PremiumV2 option is available (which implies that it is a newer scale unit where this VNet integration feature is then also available).
 * The integration subnet can be used by only one App Service plan.
 * The feature can't be used by Isolated plan apps that are in an App Service Environment.
 * The feature requires an unused subnet that's a /27 with 32 addresses or larger in an Azure Resource Manager VNet.
@@ -50,7 +50,7 @@ One address is used for each plan instance. If you scale your app to five instan
 
 If you want your apps in another plan to reach a VNet that's already connected to by apps in another plan, select a different subnet than the one being used by the preexisting VNet Integration.
 
-The feature is fully supported for both Windows and Linux web apps. All of the behaviors act the same between Windows apps and Linux apps.
+The feature is fully supported for both Windows and Linux apps, including [custom containers](../articles/app-service/quickstart-custom-container.md). All of the behaviors act the same between Windows apps and Linux apps.
 
 ### Service endpoints
 

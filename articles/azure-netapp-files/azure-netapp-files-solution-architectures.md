@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/22/2020
+ms.date: 09/08/2020
 ms.author: b-juche
 ---
 # Solution architectures using Azure NetApp Files
@@ -39,12 +39,14 @@ This section provides references for Windows applications and SQL Server solutio
 
 ### File sharing and Global File Caching
 
-* [Talon / Azure NetApp Files Deployment](https://youtu.be/91LKb1qsLIM)
+* [Build Your Own Azure NFS? Wrestling Linux File Shares into Cloud](https://cloud.netapp.com/blog/ma-anf-blg-build-your-own-linux-nfs-file-shares)
+* [Global File Cache / Azure NetApp Files Deployment](https://youtu.be/91LKb1qsLIM)
 
 ### SQL Server
 
 * [Deploy SQL Server Over SMB with Azure NetApp Files](https://www.youtube.com/watch?v=x7udfcYbibs)
-* [Deploy Always-On Availability Groups with Azure NetApp Files](https://www.youtube.com/watch?v=y3VQmzzeyvc)
+<!-- * [Deploy SQL Server Always-On Failover Cluster over SMB with Azure NetApp Files](https://www.youtube.com/watch?v=zuNJ5E07e8Q) --> 
+<!-- * [Deploy Always-On Availability Groups with Azure NetApp Files](https://www.youtube.com/watch?v=y3VQmzzeyvc) --> 
 
 ## SAP on Azure solutions
 
@@ -61,6 +63,7 @@ This section provides references to SAP on Azure solutions.
 ### SAP HANA 
 
 * [SAP HANA Azure virtual machine storage configurations](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)
+* [High availability of SAP HANA Scale-up with Azure NetApp Files on Red Hat Enterprise Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-netapp-files-red-hat)
 * [SAP HANA scale-out with standby node on Azure VMs with Azure NetApp Files on SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse)
 * [SAP HANA scale-out with standby node on Azure VMs with Azure NetApp Files on Red Hat Enterprise Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel)
 
@@ -78,8 +81,10 @@ This section provides references for Virtual Desktop infrastructure solutions.
 
 ### Windows Virtual Desktop
 
+* [Benefits of using Azure NetApp Files with Windows Virtual Desktop](solutions-windows-virtual-desktop.md)
 * [Storage options for FSLogix profile containers in Windows Virtual Desktop](https://docs.microsoft.com/azure/virtual-desktop/store-fslogix-profile#azure-platform-details)
 * [Create an FSLogix profile container for a host pool using Azure NetApp Files](https://docs.microsoft.com/azure/virtual-desktop/create-fslogix-profile-container)
+* [Windows Virtual Desktop at enterprise scale](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop)
 
 ## HPC solutions
 

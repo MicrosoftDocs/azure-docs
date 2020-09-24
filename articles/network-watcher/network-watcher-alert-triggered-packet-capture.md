@@ -27,7 +27,7 @@ Resources that are deployed in Azure run 24/7. You and your staff cannot activel
 
 By using Network Watcher, alerting, and functions from within the Azure ecosystem, you can proactively respond with the data and tools to solve problems in your network.
 
-![Scenario][scenario]
+![Diagram shows Network Watcher extension on a virtual machine which flows to a T C P Segments sent > 100 error, which flows to Azure Functions, which flows to Network Watcher which flows back to Network Watcher extension.][scenario]
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]

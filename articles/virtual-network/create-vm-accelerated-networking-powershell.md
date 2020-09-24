@@ -1,6 +1,6 @@
 ---
 title: Create Windows VM with accelerated networking - Azure PowerShell
-description: Learn how to create a Linux virtual machine with accelerated networking.
+description: Create a Windows virtual machine (VM) with accelerated networking to greatly improve its networking performance.
 services: virtual-network
 documentationcenter: ''
 author: gsilva5
@@ -59,7 +59,7 @@ The following distributions are supported directly from the Azure Gallery:
 
 Accelerated networking is supported on most general purpose and compute-optimized instance sizes with two or more virtual CPUs (vCPUs).  These supported series are: Dv2/DSv2 and F/Fs.
 
-On instances that support hyperthreading, accelerated networking is supported on VM instances with four or more vCPUs. Supported series are: D/Dsv3, D/Dsv4, E/Esv3, Ea/Easv4, Fsv2, Lsv2, Ms/Mms, and Ms/Mmsv2.
+On instances that support hyperthreading, accelerated networking is supported on VM instances with four or more vCPUs. Supported series are: D/Dsv3, D/Dsv4, Da/Dasv4, E/Esv3, Ea/Easv4, Fsv2, Lsv2, Ms/Mms, and Ms/Mmsv2.
 
 For more information on VM instances, see [Sizes for Windows virtual machines in Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 

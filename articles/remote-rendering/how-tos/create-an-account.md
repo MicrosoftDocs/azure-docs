@@ -23,13 +23,13 @@ The following steps are needed to create an account for the Azure Remote Renderi
     1. Set 'Resource Name' to the name of the account
     1. Update 'Subscription' if needed
     1. Set 'Resource group' to a resource group of your choice
+    1. Select a region from the 'Location' dropdown where this resource should be created in. See remarks on [account regions](create-an-account.md#account-regions) below.
 1. Once the account is created, navigate to it and:
     1. In the *Overview* tab, note the 'Account ID'
     1. In the *Settings > Access Keys* tab, note the 'Primary key' - this is the account's secret account key
 
 ### Account regions
-
-More information coming soon.
+The location that is specified during account creation time of an account determines which region the account resource is assigned to. This cannot be changed after creation. However, the account can be used to connect to a Remote Rendering session in any [supported region](./../reference/regions.md), regardless of the account's location.
 
 ### Retrieve the account information
 
@@ -78,7 +78,7 @@ Now it is assumed you have a storage account. Navigate to the storage account in
 
  Click on the **Add** button in the "Add a role assignment" tile to add the first role:
 
-![Storage account IAM](./media/azure-add-role-assignment.png)
+![Storage account IAM add role assignment](./media/azure-add-role-assignment.png)
 
 * The first role to assign is **Owner** as shown in the screenshot above.
 * Select **Remote Rendering Account** from the **Assign access to** dropdown.
@@ -95,6 +95,8 @@ Repeat adding new roles two more times for the respective selections from the **
 The other dropdowns are selected as in the first step.
 
 If you have added all three roles, your Azure Remote Rendering account has access to your storage account using system assigned Managed Service Identities.
+> [!IMPORTANT]
+> Azure role assignments are cached by Azure Storage, so there may be a delay of up to 30 minutes between when you grant access to your remote rendering account and when it can be used to access your storage account. See the [Role base access control documentation](https://docs.microsoft.com/azure/role-based-access-control/troubleshooting#role-assignment-changes-are-not-being-detected) for details.
 
 ## Next steps
 

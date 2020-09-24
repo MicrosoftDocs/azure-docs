@@ -3,9 +3,10 @@ title: Get started with the Azure Enterprise portal
 description: This article explains how Azure Enterprise Agreement (Azure EA) customers use the Azure Enterprise portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/29/2020
+ms.date: 08/20/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
+ms.subservice: enterprise
 ms.reviewer: boalcsva
 ---
 
@@ -367,7 +368,7 @@ If your Enterprise Agreement doesn't have a support subscription and you add an 
 
 ## View usage summary and download reports
 
-Enterprise administrators can view a summary of their usage data, monetary commitment consumed, and charges associated with additional usage in the Azure Enterprise portal. Charges are presented at the summary level across all accounts and subscriptions.
+Enterprise administrators can view a summary of their usage data, Azure Prepayment consumed, and charges associated with additional usage in the Azure Enterprise portal. Charges are presented at the summary level across all accounts and subscriptions.
 
 To view detailed usage for specific accounts, download the usage detail report:
 
@@ -385,7 +386,7 @@ To view the usage summary reports and graphs:
 
 1. Sign in to the Azure Enterprise portal.
 
-1. Select a commitment term.
+1. Select a Prepayment term.
 
    To change the date range for **Usage Summary**, you can toggle from **M** (Monthly) to **C** (Custom) on the top right of the page and then enter custom start and end dates.
 
@@ -450,7 +451,7 @@ The Azure Enterprise portal filters inactive enrollments out of view. You'll nee
 - **Account**: An organizational unit on the Azure Enterprise portal. It is used to administer subscriptions and for reporting.
 - **Account owner**: The person who manages subscriptions and service administrators on Azure. They can view usage data on this account and its associated subscriptions.
 - **Amendment subscription**: A one-year, or coterminous subscription under the enrollment amendment.
-- **Commitment**: Commitment of an annual monetary amount for Azure services at a discounted commitment rate for usage against this prepayment.
+- **Prepayment**: Prepayment of an annual monetary amount for Azure services at a discounted Prepayment rate for usage against this prepayment.
 - **Department administrator**: The person who manages departments, creates new accounts and account owners, views usage details for the departments they manage, and can view costs when granted permissions.
 - **Enrollment number**: A unique identifier supplied by Microsoft to identify the specific enrollment associated with an Enterprise Agreement.
 - **Enterprise administrator**: The person who manages departments, department owners, accounts, and account owners on Azure. They have the ability to manage enterprise administrators as well as view usage data, billed quantities, and unbilled charges across all accounts and subscriptions associated with the enterprise enrollment.
@@ -473,7 +474,7 @@ The Azure Enterprise portal filters inactive enrollments out of view. You'll nee
 
    Before the Azure EA enrollment reaches the Enterprise Agreement end date, the enrollment administrator should decide which of the following options to take:
 
-  - Renew the enrollment by adding additional monetary commitment.
+  - Renew the enrollment by adding additional Azure Prepayment.
   - Transfer to a new enrollment.
   - Migrate to the Microsoft Online Subscription Program (MOSP).
   - Confirm disablement of all services associated with the enrollment.

@@ -8,7 +8,7 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 06/05/2019
 ms.author: lbosq
-
+ms.custom: devx-track-js
 ---
 # Quickstart: Build a Node.js application by using Azure Cosmos DB Gremlin API account
 
@@ -155,7 +155,7 @@ This console app uses the open-source [Gremlin Node.js](https://www.npmjs.com/pa
 
     `config.primaryKey = "PRIMARYKEY";`
 
-   ![Azure portal "Keys" blade](./media/create-graph-nodejs/keys.png)
+   :::image type="content" source="./media/create-graph-nodejs/keys.png" alt-text="Azure portal keys blade":::
 
 4. Enter the database name, and graph (container) name for the value of config.database and config.collection. 
 

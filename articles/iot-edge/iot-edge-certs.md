@@ -4,7 +4,7 @@ description: Azure IoT Edge uses certificate to validate devices, modules, and l
 author: stevebus
 manager: philmea
 ms.author: stevebus
-ms.date: 10/29/2019
+ms.date: 08/12/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -15,19 +15,25 @@ ms.custom:  mqtt
 
 IoT Edge certificates are used by the modules and downstream IoT devices to verify the identity and legitimacy of the [IoT Edge hub](iot-edge-runtime.md#iot-edge-hub) runtime module. These verifications enable a TLS (transport layer security) secure connection between the runtime, the modules, and the IoT devices. Like IoT Hub itself, IoT Edge requires a secure and encrypted connection from IoT downstream (or leaf) devices and IoT Edge modules. To establish a secure TLS connection, the IoT Edge hub module presents a server certificate chain to connecting clients in order for them to verify its identity.
 
+>[!NOTE]
+>This article talks about the certificates that are used to secure connections between the different components on an IoT Edge device or between an IoT Edge device and any leaf devices. You may also use certificates to authenticate your IoT Edge device to IoT Hub. Those authentication certificates are different, and are not discussed in this article. For more information about authenticating your device with certificates, see [Create and provision an IoT Edge device using X.509 certificates](how-to-auto-provision-x509-certs.md).
+
 This article explains how IoT Edge certificates can work in production, development, and test scenarios. While the scripts are different (Powershell vs. bash), the concepts are the same between Linux and Windows.
 
 ## IoT Edge certificates
 
-Usually, manufacturers aren't the end users of an IoT Edge device. Sometimes the only relationship between the two is when the end user, or operator, purchases a generic device made by the manufacturer. Other times, the manufacturer works under contract to build a custom device for the operator. The IoT Edge certificate design attempts to take both scenarios into account.
+There are two common scenarios for setting up certificates on an IoT Edge device. Sometimes the end user, or operator, of a device purchases a generic device made by a manufacturer then manages the certificates themselves. Other times, the manufacturer works under contract to build a custom device for the operator and does some initial certificate signing before handing off the device. The IoT Edge certificate design attempts to take both scenarios into account.
 
 The following figure illustrates IoT Edge's usage of certificates. There may be zero, one, or many intermediate signing certificates between the root CA certificate and the device CA certificate, depending on the number of entities involved. Here we show one case.
 
 ![Diagram of typical certificate relationships](./media/iot-edge-certs/edgeCerts-general.png)
 
+> [!NOTE]
+> Currently, a limitation in libiothsm prevents the use of certificates that expire on or after January 1, 2038. This limitation applies to the device CA certificate, any certificates in the trust bundle, and the device ID certificates used for X.509 provisioning methods.
+
 ### Certificate authority
 
-The certificate authority, or 'CA' for short, is an entity that issues digital certificates. A certificate authority acts as a trusted third party between the owner, and the receiver of the certificate. A digital certificate certifies the ownership of a public key by the receiver of the certificate. The certificate chain of trust works by initially issuing a root certificate, which is the basis for trust in all certificates issued by the authority. Afterwards, the owner can use the root certificate to issue additional intermediate certificates ('leaf' certificates).
+The certificate authority, or 'CA' for short, is an entity that issues digital certificates. A certificate authority acts as a trusted third party between the owner and the receiver of the certificate. A digital certificate certifies the ownership of a public key by the receiver of the certificate. The certificate chain of trust works by initially issuing a root certificate, which is the basis for trust in all certificates issued by the authority. Afterwards, the owner can use the root certificate to issue additional intermediate certificates ('leaf' certificates).
 
 ### Root CA certificate
 
@@ -35,7 +41,7 @@ A root CA certificate is the root of trust of the entire process. In production 
 
 ### Intermediate certificates
 
-In a typical manufacturing process for creating secure devices, root CA certificates are rarely used directly, primarily because of the risk of leakage or exposure. The root CA certificate creates and digitally signs one or more intermediate CA certificates. There may only be one, or there may be a chain of these intermediate certificates. Scenarios that would require a chain of intermediate certificates include:
+In a typical manufacturing process for creating secure devices, root CA certificates are rarely used directly, primarily because of the risk of leakage or exposure. The root CA certificate creates and digitally signs one or more intermediate CA certificates. There may be only one, or there may be a chain of these intermediate certificates. Scenarios that would require a chain of intermediate certificates include:
 
 * A hierarchy of departments within a manufacturer.
 
@@ -51,7 +57,7 @@ The device CA certificate is generated from and signed by the final intermediate
 
 ### IoT Edge Workload CA
 
-The [IoT Edge Security Manager](iot-edge-security-manager.md) generates the workload CA certificate, the first on the "operator" side of the process, when IoT Edge first starts. This certificate is generated from and signed by the "device CA certificate". This certificate, which is just another intermediate signing certificate, is used to generate and sign any other certificates used by the IoT Edge runtime. Today, that is primarily the IoT Edge hub server certificate discussed in the following section, but in the future may include other certificates for authenticating IoT Edge components.
+The [IoT Edge Security Manager](iot-edge-security-manager.md) generates the workload CA certificate, the first on the "operator" side of the process, when IoT Edge first starts. This certificate is generated from and signed by the device CA certificate. This certificate, which is just another intermediate signing certificate, is used to generate and sign any other certificates used by the IoT Edge runtime. Today, that is primarily the IoT Edge hub server certificate discussed in the following section, but in the future may include other certificates for authenticating IoT Edge components.
 
 ### IoT Edge hub server certificate
 

@@ -27,7 +27,6 @@ In addition to the core DDoS protection in the platform, [Azure DDoS Protection 
 
 ![The role of Azure DDoS Protection in protecting customers and a virtual network from an attacker](./media/ddos-best-practices/image1.png)
 
-For security recommendations regarding this technology, see the [Azure security baseline for DDoS Protection](ddos-protection-security-baseline.md).
 
 ## Fundamental best practices
 
@@ -47,8 +46,8 @@ Ensuring that an application is resilient enough to handle a denial of service t
 Scalability is how well a system can handle increased load. Design your applications to [scale horizontally](/azure/architecture/guide/design-principles/scale-out) to meet the demand of an amplified load, specifically in the event of a DDoS attack. If your application depends on a single instance of a service, it creates a single point of failure. Provisioning multiple instances makes your system more resilient and more scalable.
 
 For [Azure App Service](/azure/app-service/app-service-value-prop-what-is), select an [App Service plan](/azure/app-service/overview-hosting-plans) that offers multiple instances. For Azure Cloud Services, configure each of your roles to use [multiple instances](/azure/cloud-services/cloud-services-choose-me). 
-For [Azure Virtual Machines](/azure/virtual-machines/virtual-machines-windows-about/?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), ensure that your virtual machine (VM) architecture includes more than one VM and that each VM is
-included in an [availability set](/azure/virtual-machines/virtual-machines-windows-manage-availability). We recommend using [virtual machine scale sets](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview)
+For [Azure Virtual Machines](../../virtual-machines/index.yml), ensure that your virtual machine (VM) architecture includes more than one VM and that each VM is
+included in an [availability set](../../virtual-machines/windows/tutorial-availability-sets.md). We recommend using [virtual machine scale sets](../../virtual-machine-scale-sets/overview.md)
 for autoscaling capabilities.
 
 ### Defense in depth
@@ -272,7 +271,6 @@ documentation.
 
 ## Next steps
 
-* [Azure security baseline for DDoS Protection](ddos-protection-security-baseline.md)
 * [Shared responsibility in the cloud](shared-responsibility.md)
 * [Azure DDoS Protection product page](https://azure.microsoft.com/services/ddos-protection/)
 * [Azure DDoS Protection documentation](/azure/virtual-network/ddos-protection-overview)

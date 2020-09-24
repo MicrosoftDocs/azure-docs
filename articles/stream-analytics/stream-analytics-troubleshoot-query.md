@@ -5,7 +5,7 @@ author: sidram
 ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.custom: seodec18
 ---
@@ -23,9 +23,9 @@ This article describes common issues with developing Azure Stream Analytics quer
     - On Azure portal, on the **Query** tab, select **Test**. Use the downloaded sample data to [test the query](stream-analytics-test-query.md). Examine any errors and attempt to correct them.   
     - You can also [test your query locally](stream-analytics-live-data-local-testing.md) using Azure Stream Analytics tools for Visual Studio or [Visual Studio Code](visual-studio-code-local-run-live-input.md). 
 
-2.  [Debug queries step by step locally using job diagram](debug-locally-using-job-diagram.md) in Azure Stream Analytics tools for Visual Studio. The job diagram shows how data flows from input sources (Event Hub, IoT Hub, etc.) through multiple query steps and finally to output sinks. Each query step is mapped to a temporary result set defined in the script using the WITH statement. You can view the data, as well as metrics, in each intermediate result set to find the source of the issue.
+2.  [Debug queries step by step locally using job diagram](debug-locally-using-job-diagram-vs-code.md) in Azure Stream Analytics tools for Visual Studio Code. The job diagram shows how data flows from input sources (Event Hub, IoT Hub, etc.) through multiple query steps and finally to output sinks. Each query step is mapped to a temporary result set defined in the script using the WITH statement. You can view the data, as well as metrics, in each intermediate result set to find the source of the issue.
 
-    ![Job diagram preview result](./media/debug-locally-using-job-diagram/preview-result.png)
+    ![Job diagram preview result](./media/debug-locally-using-job-diagram-vs-code/preview-result.png)
 
 3.  If you use [**Timestamp By**](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics), verify that the events have timestamps greater than the [job start time](stream-analytics-out-of-order-and-late-events.md).
 

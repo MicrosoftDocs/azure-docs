@@ -1,6 +1,6 @@
 ---
 title: Register for Azure NetApp Files | Microsoft Docs
-description: Describes how to register to use Azure NetApp Files. 
+description: Learn how to register for Azure NetApp Files by submitting a waitlist request and registering the Azure Resource Provider for Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -47,16 +47,22 @@ To use the service, you must register the Azure Resource Provider for Azure NetA
 
 2. If you have multiple subscriptions on your Azure account, select the one that has been whitelisted for Azure NetApp Files:
     
-        az account set --subscription <subscriptionId>
+    ```azurepowershell
+    az account set --subscription <subscriptionId>
+    ```
 
 3. In the Azure Cloud Shell console, enter the following command to verify that your subscription has been whitelisted:
     
-        az feature list | grep NetApp
+    ```azurepowershell
+    az feature list | grep NetApp
+    ```
 
    The command output appears as follows:
    
-       "id": "/subscriptions/<SubID>/providers/Microsoft.Features/providers/Microsoft.NetApp/features/ANFGA",  
-       "name": "Microsoft.NetApp/ANFGA" 
+    ```output
+    "id": "/subscriptions/<SubID>/providers/Microsoft.Features/providers/Microsoft.NetApp/features/ANFGA",  
+    "name": "Microsoft.NetApp/ANFGA" 
+    ```
        
    `<SubID>` is your subscription ID.
 
@@ -64,21 +70,27 @@ To use the service, you must register the Azure Resource Provider for Azure NetA
 
 4. In the Azure Cloud Shell console, enter the following command to register the Azure Resource Provider: 
     
-        az provider register --namespace Microsoft.NetApp --wait
+    ```azurepowershell
+    az provider register --namespace Microsoft.NetApp --wait
+    ```
 
    The `--wait` parameter instructs the console to wait for the registration to complete. The registration process can take some time to complete.
 
 5. In the Azure Cloud Shell console, enter the following command to verify that the Azure Resource Provider has been registered: 
     
-        az provider show --namespace Microsoft.NetApp
+    ```azurepowershell
+    az provider show --namespace Microsoft.NetApp
+    ```
 
    The command output appears as follows:
    
-        {
-        "id": "/subscriptions/<SubID>/providers/Microsoft.NetApp",
-        "namespace": "Microsoft.NetApp", 
-        "registrationState": "Registered", 
-        "resourceTypes": […. 
+    ```output
+    {
+     "id": "/subscriptions/<SubID>/providers/Microsoft.NetApp",
+     "namespace": "Microsoft.NetApp", 
+     "registrationState": "Registered", 
+     "resourceTypes": […. 
+    ```
 
    `<SubID>` is your subscription ID.  The `state` parameter value indicates `Registered`.
 

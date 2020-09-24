@@ -1,10 +1,7 @@
 ---
 title: Windows Virtual Desktop environment - Azure
-description: The basic elements of a Windows Virtual Desktop environment.
-services: virtual-desktop
+description: Learn about the basic elements of a Windows Virtual Desktop environment, like host pools and app groups.
 author: Heidilohr
-
-ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: helohr
@@ -13,10 +10,7 @@ manager: lizross
 # Windows Virtual Desktop environment
 
 >[!IMPORTANT]
->This content applies to the Spring 2020 update with Azure Resource Manager Windows Virtual Desktop objects. If you're using the Windows Virtual Desktop Fall 2019 release without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/environment-setup-2019.md).
->
-> The Windows Virtual Desktop Spring 2020 update is currently in public preview. This preview version is provided without a service level agreement, and we don't recommend using it for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>This content applies to Windows Virtual Desktop with Azure Resource Manager Windows Virtual Desktop objects. If you're using Windows Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/environment-setup-2019.md).
 
 Windows Virtual Desktop is a service that gives users easy and secure access to their virtualized desktops and RemoteApps. This topic will tell you a bit more about the general structure of the Windows Virtual Desktop environment.
 
@@ -47,7 +41,7 @@ To publish resources to users, you must assign them to app groups. When assignin
 
 ## Workspaces
 
-A workspace is a logical grouping of application groups in Windows Virtual Desktop. Each Windows Virtual Desktop application group must be associated with a workspace for users to see the remote apps and desktops published to them.  
+A workspace is a logical grouping of application groups in Windows Virtual Desktop. Each Windows Virtual Desktop application group must be associated with a workspace for users to see the remote apps and desktops published to them.
 
 ## End users
 
@@ -61,7 +55,7 @@ To learn how to set up your Windows Virtual Desktop host pool, see [Create a hos
 
 To learn how to connect to Windows Virtual Desktop, see one of the following articles:
 
-- [Connect with Windows 10 or Windows 7](connect-windows-7-and-10.md)
+- [Connect with Windows 10 or Windows 7](connect-windows-7-10.md)
 - [Connect with a web browser](connect-web.md)
 - [Connect with the Android client](connect-android.md)
 - [Connect with the macOS client](connect-macos.md)

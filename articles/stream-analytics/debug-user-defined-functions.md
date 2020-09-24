@@ -1,21 +1,22 @@
 ---
 title: Debug user-defined functions in Azure Stream Analytics 
 description: This article describes how to debug user-defined functions in Azure Stream Analytics.
-author: mamccrea
-ms.author: mamccrea
+author: jenssuessmeyer
+ms.author: jenss
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/24/2020
+ms.custom: devx-track-js
 ---
 
 # Debug user-defined functions in Azure Stream Analytics 
 
-When user-defined functions (UDF) don't work as you expect, you need to debug them to find the problem. You can debug UDFs for your Stream Analytics jobs when you run your jobs locally using [Visual Studio Code](visual-studio-code-local-run-live-input.md) or [Visual Studio](stream-analytics-vs-tools-local-run.md). 
+When user-defined functions (UDF) don't work as you expect, you need to debug them to find the problem. You can debug UDFs for your Stream Analytics jobs when you run your jobs locally using [Visual Studio Code](visual-studio-code-local-run-live-input.md) or [Visual Studio](stream-analytics-vs-tools-local-run.md).
 
-When you run your job against a live input stream locally, it mimics only the execution of the cloud Azure Stream Analytics engine on one node. Live data local testing can't replace the performance and scalability testing you do in the cloud, but you save time during functional testing by not having to submit your job to the cloud each time you want to test. Additionally, time policies are disabled for local run with local or sample data, but time policies are supported for live data testing. 
+When you run your job against a live input stream locally, it mimics only the execution of the cloud Azure Stream Analytics engine on one node. Live data local testing can't replace the performance and scalability testing you do in the cloud, but you save time during functional testing by not having to submit your job to the cloud each time you want to test. Additionally, time policies are disabled for local run with local or sample data, but time policies are supported for live data testing.
 
-## Pick your language 
+## Pick your language
 
 You can write UDFs for Azure Stream Analytics using .NET (C#) or JavaScript. 
 
@@ -31,17 +32,17 @@ When you [write .NET UDFs using Visual Studio](stream-analytics-edge-csharp-udf-
 
 * Debug support in Visual Studio directly. Set the Stream Analytics project as start project and set breakpoints in C# code. Then, press **F5** to debug C# code as you would for any other C# project. 
 
-### Functions in JavaScript 
+### Functions in JavaScript
 
 JavaScript is another option for creating functions in Stream Analytics. The JavaScript code is directly placed into the function area of the Stream Analytics project, which makes sharing across projects more difficult.
 
-Compilation happens when the Stream Analytics project is compiled or executed. The chance of finding a problem only at runtime is higher. There is no debugging support for JavaScript functions in Stream Analytics directly. 
+Compilation happens when the Stream Analytics project is compiled or executed. The chance of finding a problem only at runtime is higher. There is no debugging support for JavaScript functions in Stream Analytics directly.
 
-## Debug options for JavaScript 
+## Debug options for JavaScript
 
 Because there's no debugging support for JavaScript functions in Stream Analytics directly, you can debug by encapsulating the function in an HTML site and getting the output from there.
 
-The following example shows you how to debug JavaScript UDFs with some limitations in an integrated runtime environment in Visual Studio Code.
+The following example shows you how to debug JavaScript UDFs with some limitations in an integrated runtime environment in [Visual Studio Code](quick-create-visual-studio-code.md).
 
 ### Prerequisites
 

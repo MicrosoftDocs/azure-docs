@@ -216,4 +216,4 @@ Azure Container Instances provides other options to modify the behavior of appli
 
 [az-group-create]: /cli/azure/group#az-group-create
 [az-deployment-group-create]: /cli/azure/deployment/group#az-deployment-group-create
-[az-container-logs]: /clie/azure/container#az-container-logs
+[az-container-logs]: /cli/azure/container#az-container-logs

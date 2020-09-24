@@ -1,22 +1,16 @@
 ---
 title: Windows Virtual Desktop personal desktop assignment type - Azure
-description: How to configure the assignment type for a Windows Virtual Desktop personal desktop host pool.
-services: virtual-desktop
-author: HeidiLohr
-
-ms.service: virtual-desktop
+description: How to configure automatic or direct assignment for a Windows Virtual Desktop personal desktop host pool.
+author: Heidilohr
 ms.topic: how-to
-ms.date: 04/30/2020
+ms.date: 07/09/2020
 ms.author: helohr
 manager: lizross
 ---
 # Configure the personal desktop host pool assignment type
 
 >[!IMPORTANT]
->This content applies to the Spring 2020 update with Azure Resource Manager Windows Virtual Desktop objects. If you're using the Windows Virtual Desktop Fall 2019 release without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/configure-host-pool-personal-desktop-assignment-type-2019.md).
->
-> The Windows Virtual Desktop Spring 2020 update is currently in public preview. This preview version is provided without a service level agreement, and we don't recommend using it for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>This content applies to Windows Virtual Desktop with Azure Resource Manager Windows Virtual Desktop objects. If you're using Windows Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/configure-host-pool-personal-desktop-assignment-type-2019.md).
 
 You can configure the assignment type of your personal desktop host pool to adjust your Windows Virtual Desktop environment to better suit your needs. In this topic, we'll show you how to configure automatic or direct assignment for your users.
 
@@ -67,11 +61,26 @@ To assign a user to a specific session host, run the following PowerShell cmdlet
 Update-AzWvdSessionHost -HostPoolName <hostpoolname> -Name <sessionhostname> -ResourceGroupName <resourcegroupname> -AssignedUser <userupn>
 ```
 
+To directly assign a user to a session host in the Azure portal:
+
+1. Sign in to the Azure portal at <https://portal.azure.com>.
+2. Enter **Windows Virtual Desktop** into the search bar.
+3. Under **Services**, select **Windows Virtual Desktop**.
+4. At the Windows Virtual Desktop page, go the menu on the left side of the window and select **Host pools**.
+5. Select the name of the host pool you want to update.
+6. Next, go to the menu on the left side of the window and select **Application groups**.
+7. Select the name of the desktop app group you want to edit, then select **Assignments** in the menu on the left side of the window.
+8. Select **+ Add**, then select the users or user groups you want to publish this desktop app group to.
+9. Select **Assign VM** in the Information bar to assign a session host to a user.
+10. Select the session host you want to assign to the user, then select **Assign**.
+11. Select the user you want to assign the session host to from the list of available users.
+12. When you're done, select **Select**.
+
 ## Next steps
 
 Now that you've configured the personal desktop assignment type, you can sign in to a Windows Virtual Desktop client to test it as part of a user session. These next two How-tos will tell you how to connect to a session using the client of your choice:
 
-- [Connect with the Windows Desktop client](connect-windows-7-and-10.md)
+- [Connect with the Windows Desktop client](connect-windows-7-10.md)
 - [Connect with the web client](connect-web.md)
 - [Connect with the Android client](connect-android.md)
 - [Connect with the iOS client](connect-ios.md)

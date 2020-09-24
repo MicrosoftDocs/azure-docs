@@ -31,7 +31,7 @@ For Android applications using SSLSocket instances, set enabled protocols on eac
 
 The table on the [TLS Protocol Compatibility](https://support.globalsign.com/customer/portal/articles/2934392-tls-protocol-compatibility) support page helps map operating systems with compatible TLS versions.
 
-For more information, see the overview of the [support for TLS protocols on Windows](https://docs.microsoft.com/archive/blogs/kaushal/support-for-ssltls-protocols-on-windows).
+For more information, see the overview of the [support for TLS protocols on Windows](/archive/blogs/kaushal/support-for-ssltls-protocols-on-windows).
 
 ## Next steps
 

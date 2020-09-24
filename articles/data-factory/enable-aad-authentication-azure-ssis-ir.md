@@ -10,12 +10,12 @@ author: swinarko
 ms.author: sawinark
 manager: mflasko
 ms.custom: seo-lt-2019
-ms.date: 5/14/2019
+ms.date: 07/09/2020
 ---
 
 # Enable Azure Active Directory authentication for Azure-SSIS Integration Runtime
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 This article shows you how to enable Azure Active Directory (Azure AD) authentication with the managed identity for your Azure Data Factory (ADF) and use it instead of conventional authentication methods (like SQL authentication) to:
 
@@ -124,7 +124,7 @@ For this next step, you need [Microsoft SQL Server Management Studio](https://d
 
    The command should complete successfully, granting the contained user the ability to create a database (SSISDB).
 
-10. If your SSISDB was created using SQL authentication and you want to switch to use Azure AD authentication for your Azure-SSIS IR to access it, right-click on **SSISDB** database and select **New query**.
+10. If your SSISDB was created using SQL authentication and you want to switch to use Azure AD authentication for your Azure-SSIS IR to access it, first make sure that the steps to grant permission to the **master** database finished successfully. Then, right-click the **SSISDB** database and select **New query**.
 
 11. In the query window, enter the following T-SQL command, and select **Execute** on the toolbar.
 
@@ -172,7 +172,7 @@ For this next step, you need [Microsoft SQL Server Management Studio](https://d
     
     The command should complete successfully, granting the managed identity for your ADF the ability to create a database (SSISDB).
 
-6.  If your SSISDB was created using SQL authentication and you want to switch to use Azure AD authentication for your Azure-SSIS IR to access it, right-click on **SSISDB** database and select **New query**.
+6.  If your SSISDB was created using SQL authentication and you want to switch to use Azure AD authentication for your Azure-SSIS IR to access it, first make sure that the steps to grant permission to the **master** database finished successfully. Then, right-click the **SSISDB** database and select **New query**.
 
 7.  In the query window, enter the following T-SQL command, and select **Execute** on the toolbar.
 

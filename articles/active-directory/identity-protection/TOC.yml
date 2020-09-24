@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items:
-  - name: What is Azure AD Identity Protection?
+  - name: What is Identity Protection?
     href: overview-identity-protection.md
 - name: Concepts
   expanded: false
@@ -44,6 +44,14 @@
     href: troubleshooting-identity-protection-faq.md
 - name: Reference
   items:
+  - name: Graph APIs
+    items: 
+    - name: riskDetection API
+      href: /graph/api/resources/riskdetection?view=graph-rest-v1.0
+    - name: riskyUsers API
+      href: /graph/api/resources/riskyuser?view=graph-rest-v1.0
+    - name: signIn API
+      href: /graph/api/resources/signin?view=graph-rest-v1.0
   - name: Glossary
     href: reference-identity-protection-glossary.md
 - name: Resources
@@ -51,7 +59,7 @@
   - name: Azure feedback forum
     href: https://feedback.azure.com/forums/169401-azure-active-directory
   - name: Microsoft Q&A question page
-    href: https://docs.microsoft.com/answers/topics/azure-active-directory.html
+    href: /answers/topics/azure-active-directory.html
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/active-directory/
   - name: Service updates

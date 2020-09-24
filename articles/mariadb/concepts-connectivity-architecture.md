@@ -38,7 +38,7 @@ The following table lists the primary and secondary IPs of the Azure Database fo
 | China North | 139.219.15.17	 |
 | China North 2 | 40.73.50.0	 |
 | East Asia | 191.234.2.139, 52.175.33.150, 13.75.33.20, 13.75.33.21	 |
-| East US | 40.121.158.30, 191.238.6.43	 |
+| East US | 40.121.158.30, 191.238.6.43, 40.71.8.203, 40.71.83.113	 |
 | East US 2 |40.79.84.180, 191.239.224.107, 52.177.185.181, 40.70.144.38, 52.167.105.38  |
 | France Central | 40.79.137.0, 40.79.129.1	 |
 | France South | 40.79.177.0	 |
@@ -62,8 +62,8 @@ The following table lists the primary and secondary IPs of the Azure Database fo
 | UK South | 51.140.184.11	 |
 | UK West | 51.141.8.11	 |
 | West Central US | 13.78.145.25	 |
-| West Europe | 40.68.37.158, 191.237.232.75, 13.69.105.208	 |
-| West US | 104.42.238.205, 23.99.34.75	 |
+| West Europe | 40.68.37.158, 191.237.232.75, 13.69.105.208, 104.40.169.187	 |
+| West US | 104.42.238.205, 23.99.34.75, 13.86.216.212, 13.86.217.212 |
 | West US 2 | 13.66.226.202	 |
 ||||
 

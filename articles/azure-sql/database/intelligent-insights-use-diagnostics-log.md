@@ -2,14 +2,14 @@
 title: Intelligent Insights performance diagnostics log
 description: Intelligent Insights provides a diagnostics log of Azure SQL Database and Azure SQL Managed Instance performance issues
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: performance
 ms.custom: sqldbrb=2
 ms.devlang: 
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: jrasnik, sstein
 ms.date: 06/12/2020
 ---
 

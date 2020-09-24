@@ -9,7 +9,7 @@ ms.devlang: azurecli
 ms.topic: sample
 author: juliemsft
 ms.author: jrasnick
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 06/25/2019
 ---
 
@@ -52,7 +52,7 @@ az group delete --name $resource
 
 This script uses the following commands. Each command in the table links to command-specific documentation.
 
-| | |
+| Script | Description |
 |---|---|
 | [az sql server](/cli/azure/sql/server) | Server commands. |
 | [az sql db show-usage](/cli/azure/sql#az-sql-show-usage) | Shows the size usage information for a database. |

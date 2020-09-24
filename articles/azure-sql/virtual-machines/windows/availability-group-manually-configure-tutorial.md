@@ -3,18 +3,18 @@ title: "Tutorial: Configure a SQL Server Always On availability group"
 description: "This tutorial shows how to create a SQL Server Always On Availability Group on Azure Virtual Machines."
 services: virtual-machines
 documentationCenter: na
-author: MikeRayMSFT
+author: MashaMSFT
 editor: monicar
 tags: azure-service-management
 
 ms.assetid: 08a00342-fee2-4afe-8824-0db1ed4b8fca
 ms.service: virtual-machines-sql
 
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/30/2018
-ms.author: mikeray
+ms.author: mathoma
 ms.custom: "seo-lt-2019"
 
 ---
@@ -37,15 +37,15 @@ The tutorial assumes you have a basic understanding of SQL Server Always On Avai
 
 The following table lists the prerequisites that you need to complete before starting this tutorial:
 
-|  |Requirement |Description |
+| Requirement |Description |
 |----- |----- |----- |
-|![Square](./media/availability-group-manually-configure-tutorial/square.png) | Two SQL Server instances | - In an Azure availability set <br/> - In a single domain <br/> - With Failover Clustering feature installed |
-|![Square](./media/availability-group-manually-configure-tutorial/square.png)| Windows Server | File share for cluster witness |  
-|![Square](./media/availability-group-manually-configure-tutorial/square.png)|SQL Server service account | Domain account |
-|![Square](./media/availability-group-manually-configure-tutorial/square.png)|SQL Server Agent service account | Domain account |  
-|![Square](./media/availability-group-manually-configure-tutorial/square.png)|Firewall ports open | - SQL Server: **1433** for default instance <br/> - Database mirroring endpoint: **5022** or any available port <br/> - Availability group load balancer IP address health probe: **59999** or any available port <br/> - Cluster core load balancer IP address health probe: **58888** or any available port |
-|![Square](./media/availability-group-manually-configure-tutorial/square.png)|Add Failover Clustering Feature | Both SQL Server instances require this feature |
-|![Square](./media/availability-group-manually-configure-tutorial/square.png)|Installation domain account | - Local administrator on each SQL Server <br/> - Member of SQL Server sysadmin fixed server role for each instance of SQL Server  |
+|![Square](./media/availability-group-manually-configure-tutorial/square.png)   **Two SQL Server instances** | - In an Azure availability set <br/> - In a single domain <br/> - With Failover Clustering feature installed |
+|![Square](./media/availability-group-manually-configure-tutorial/square.png)   **Windows Server** | File share for cluster witness |  
+|![Square](./media/availability-group-manually-configure-tutorial/square.png)   **SQL Server service account** | Domain account |
+|![Square](./media/availability-group-manually-configure-tutorial/square.png)   **SQL Server Agent service account** | Domain account |  
+|![Square](./media/availability-group-manually-configure-tutorial/square.png)   **Firewall ports open** | - SQL Server: **1433** for default instance <br/> - Database mirroring endpoint: **5022** or any available port <br/> - Availability group load balancer IP address health probe: **59999** or any available port <br/> - Cluster core load balancer IP address health probe: **58888** or any available port |
+|![Square](./media/availability-group-manually-configure-tutorial/square.png)   **Add Failover Clustering Feature** | Both SQL Server instances require this feature |
+|![Square](./media/availability-group-manually-configure-tutorial/square.png)   **Installation domain account** | - Local administrator on each SQL Server <br/> - Member of SQL Server sysadmin fixed server role for each instance of SQL Server  |
 
 
 Before you begin the tutorial, you need to [Complete prerequisites for creating Always On Availability Groups in Azure Virtual Machines](availability-group-manually-configure-prerequisites-tutorial.md). If these prerequisites are completed already, you can jump to [Create Cluster](#CreateCluster).
@@ -85,7 +85,7 @@ After the prerequisites are completed, the first step is to create a Windows Ser
 ### Set the Windows server failover cluster IP address
 
   > [!NOTE]
-  > On Windows Server 2019, the cluster creates a **Distributed Server Name** instead of the **Cluster Network Name**. If you're using Windows Server 2019, skip any steps that refer to the cluster core name in this tutorial. You can create a cluster network name using [PowerShell](failover-cluster-instance-storage-spaces-direct-manually-configure.md#windows-server-2019). Review the blog [Failover Cluster: Cluster Network Object](https://blogs.windows.com/windowsexperience/2018/08/14/announcing-windows-server-2019-insider-preview-build-17733/#W0YAxO8BfwBRbkzG.97) for more information. 
+  > On Windows Server 2019, the cluster creates a **Distributed Server Name** instead of the **Cluster Network Name**. If you're using Windows Server 2019, skip any steps that refer to the cluster core name in this tutorial. You can create a cluster network name using [PowerShell](failover-cluster-instance-storage-spaces-direct-manually-configure.md#create-failover-cluster). Review the blog [Failover Cluster: Cluster Network Object](https://blogs.windows.com/windowsexperience/2018/08/14/announcing-windows-server-2019-insider-preview-build-17733/#W0YAxO8BfwBRbkzG.97) for more information. 
 
 1. In **Failover Cluster Manager**, scroll down to **Cluster Core Resources** and expand the cluster details. You should see both the **Name** and the **IP Address** resources in the **Failed** state. The IP address resource cannot be brought online because the cluster is assigned the same IP address as the machine itself, therefore it is a duplicate address.
 

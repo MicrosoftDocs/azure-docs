@@ -6,8 +6,9 @@ author: suhuruli
 ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: suhuruli
-ms.custom: mvc
+ms.custom: mvc, devx-track-java
 ---
+
 # Tutorial: Debug a Java application deployed on a local Service Fabric cluster
 
 This tutorial is part two of a series. You learn how to attach a remote debugger using Eclipse for the Service Fabric application. Additionally, you learn how to redirect logs from the running applications to a location convenient for the developer.

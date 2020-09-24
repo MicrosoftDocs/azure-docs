@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Connect SQL on-demand to Power BI Desktop & create report"
+title: Connect SQL on-demand to Power BI Desktop & create report
 description: In this tutorial, learn how to connect SQL on-demand in Azure Synapse Analytics to Power BI desktop and create a demo report based on a view.
 services: synapse analytics
 author: azaricstefan
@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
+ms.reviewer: jrasnick 
 ---
 
 # Tutorial: Use SQL on-demand with Power BI Desktop & create a report

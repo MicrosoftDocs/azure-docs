@@ -1,6 +1,6 @@
 ---
 title: Azure Data Lake Storage Gen1 - performance tuning
-description: Describes how to tune Azure Data Lake Storage Gen1 for performance.
+description: Learn how using all available throughput in Azure Data Lake Storage Gen1 is important to get the best performance by performing as many reads and writes in parallel as possible.
 
 author: stewu
 ms.service: data-lake-store
@@ -43,7 +43,7 @@ After you've addressed the source hardware and network connectivity bottlenecks,
 | AdlCopy    | Azure Data Lake Analytics units | [Link](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob#performance-considerations-for-using-adlcopy)         |
 | DistCp            | -m (mapper) | [Link](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-wasb-distcp#performance-considerations-while-using-distcp)                             |
 | Azure Data Factory| parallelCopies | [Link](../data-factory/copy-activity-performance.md)                          |
-| Sqoop           | fs.azure.block.size, -m (mapper) | [Link](https://blogs.msdn.microsoft.com/bigdatasupport/2015/02/17/sqoop-job-performance-tuning-in-hdinsight-hadoop/)        |
+| Sqoop           | fs.azure.block.size, -m (mapper) | [Link](https://docs.microsoft.com/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs)        |
 
 ## Structure your data set
 

@@ -1,14 +1,14 @@
 ---
 title: "Tutorial: Copy to Blob storage via REST APIs"
 titleSuffix: Azure Data Box
-description: Learn how to copy data to your Azure Data Box Blob storage via REST APIs
+description: In this tutorial, learn how to connect to Azure Data Box Blob storage by using REST APIs over http or https, then copy data from Azure Data Box.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 05/09/2019
+ms.date: 07/02/2020
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to copy data to Data Box to upload on-premises data from my server onto Azure.
 ---

@@ -9,7 +9,7 @@ ms.devlang: azurecli
 ms.topic: sample
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer:
 ms.date: 06/25/2019
 ---
 # Use the Azure CLI to move a database in SQL Database in a SQL elastic pool
@@ -40,7 +40,7 @@ az group delete --name $resource
 
 This script uses the following commands. Each command in the table links to command-specific documentation.
 
-| | |
+| Command | Description |
 |---|---|
 | [az sql server](/cli/azure/sql/server) | Server commands. |
 | [az sql elastic-pools](/cli/azure/sql/elastic-pool) | Elastic pool commands. |

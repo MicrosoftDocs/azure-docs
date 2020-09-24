@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot common errors
 description: Learn how to troubleshoot issues with creating policy definitions, the various SDK, and the add-on for Kubernetes.
-ms.date: 05/22/2020
+ms.date: 08/17/2020
 ms.topic: troubleshooting
 ---
 # Troubleshoot errors using Azure Policy
@@ -27,8 +27,8 @@ The location of error details depends on the action that causes the error.
 
 #### Issue
 
-Azure Policy uses [aliases](../concepts/definition-structure.md#aliases) to map to Resource Manager
-properties.
+Azure Policy uses [aliases](../concepts/definition-structure.md#aliases) to map to Azure Resource
+Manager properties.
 
 #### Cause
 
@@ -97,7 +97,7 @@ A resource that's expected to be acted on by Azure Policy isn't and there's no e
 
 The policy assignment has been configured for
 [enforcementMode](../concepts/assignment-structure.md#enforcement-mode) of _Disabled_. While
-enforcement mode is disabled, the policy effect isn't enforced and there is no entry in the Activity
+enforcement mode is disabled, the policy effect isn't enforced and there's no entry in the Activity
 log.
 
 #### Resolution
@@ -122,9 +122,9 @@ are prevented from being created or updated.
 
 The error message from a deny policy assignment includes the policy definition and policy assignment
 IDs. If the error information in the message is missed, it's also available in the
-[Activity log](../../../azure-monitor/platform/activity-log-view.md). Use this information to get
-more details to understand the resource restrictions and adjust the resource properties in your
-request to match allowed values.
+[Activity log](../../../azure-monitor/platform/activity-log.md#view-the-activity-log). Use this
+information to get more details to understand the resource restrictions and adjust the resource
+properties in your request to match allowed values.
 
 ## Template errors
 
@@ -132,9 +132,9 @@ request to match allowed values.
 
 #### Issue
 
-Azure Policy supports a number of Resource Manager template functions and functions that are only
-available in a policy definition. Resource Manager processes these functions as part of a deployment
-instead of as part of a policy definition.
+Azure Policy supports a number of Azure Resource Manager template (ARM template) functions and
+functions that are only available in a policy definition. Resource Manager processes these functions
+as part of a deployment instead of as part of a policy definition.
 
 #### Cause
 

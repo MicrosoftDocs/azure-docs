@@ -4,6 +4,7 @@ description: Install the runtime and SDK and create a local development cluster 
 
 ms.topic: conceptual
 ms.date: 2/23/2018
+ms.custom: devx-track-js
 ---
 # Prepare your development environment on Linux
 > [!div class="op_single_selector"]
@@ -156,8 +157,8 @@ The Service Fabric runtime that comes with the SDK installation includes the pac
 
  | | DotNetCore | Java | Python | NodeJS | 
 --- | --- | --- | --- |---
-Ubuntu | 2.0.0 | AzulJDK 1.8 | Implicit from npm | latest |
-RHEL | - | OpenJDK 1.8 | Implicit from npm | latest |
+**Ubuntu** | 2.0.0 | AzulJDK 1.8 | Implicit from npm | latest |
+**RHEL** | - | OpenJDK 1.8 | Implicit from npm | latest |
 
 ## Set up a local cluster
 Start a local cluster after the installation finishes.

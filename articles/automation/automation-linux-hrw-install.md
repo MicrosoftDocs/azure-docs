@@ -3,7 +3,7 @@ title: Deploy a Linux Hybrid Runbook Worker in Azure Automation
 description: This article tells how to install an Azure Automation Hybrid Runbook Worker to run runbooks on Linux-based machines in your local datacenter or cloud environment.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/24/2020
+ms.date: 09/15/2020
 ms.topic: conceptual
 ---
 # Deploy a Linux Hybrid Runbook Worker
@@ -22,7 +22,7 @@ The Hybrid Runbook Worker role depends on an Azure Monitor Log Analytics workspa
 
 If you don't have an Azure Monitor Log Analytics workspace, review the [Azure Monitor Log design guidance](../azure-monitor/platform/design-logs-deployment.md) before you create the workspace.
 
-If you have a workspace, but it is not linked to your Automation account, enabling an Automation feature adds functionality for Azure Automation, including support for the Hybrid Runbook Worker. When you enable one of the Azure Automation features in your Log Analytics workspace, specifically [Update Management](automation-update-management.md) or [Change Tracking and Inventory](change-tracking.md), the worker components are automatically pushed to the agent machine.
+If you have a workspace, but it is not linked to your Automation account, enabling an Automation feature adds functionality for Azure Automation, including support for the Hybrid Runbook Worker. When you enable one of the Azure Automation features in your Log Analytics workspace, specifically [Update Management](update-management/update-mgmt-overview.md) or [Change Tracking and Inventory](change-tracking.md), the worker components are automatically pushed to the agent machine.
 
 To add the Update Management feature to your workspace, run the following PowerShell cmdlet:
 
@@ -50,7 +50,7 @@ The Hybrid Runbook Worker feature supports the following distributions:
 * Red Hat Enterprise Linux Server 5, 6, and 7 (x86/x64)
 * Debian GNU/Linux 6, 7, and 8 (x86/x64)
 * Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS, and 18.04 (x86/x64)
-* SUSE Linux Enterprise Server 11 and 12 (x86/x64)
+* SUSE Linux Enterprise Server 12 (x86/x64)
 
 ### Minimum requirements
 
@@ -69,6 +69,12 @@ The minimum requirements for a Linux Hybrid Runbook Worker are:
 |PAM | Pluggable Authentication Modules|
 | **Optional package** | **Description** | **Minimum version**|
 | PowerShell Core | To run PowerShell runbooks, PowerShell Core needs to be installed. See [Installing PowerShell Core on Linux](/powershell/scripting/install/installing-powershell-core-on-linux) to learn how to install it. | 6.0.0 |
+
+## Supported Linux hardening
+
+The following are not yet supported:
+
+* CIS
 
 ## Supported runbook types
 

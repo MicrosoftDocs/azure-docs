@@ -30,7 +30,7 @@ With these steps complete, you can then run a full failover to Azure as and when
 
 ## Architecture
 
-![Architecture](./media/azure-stack-site-recovery/architecture.png)
+![Diagram shows Recovery Services vaults for two tenants in clouds associated with tenant subscriptions both on a common Azure Stack infrastructure.](./media/azure-stack-site-recovery/architecture.png)
 
 **Location** | **Component** |**Details**
 --- | --- | ---
@@ -158,13 +158,13 @@ Set up the configuration server machine, register it in the vault, and discover 
 1. Click **Prepare Infrastructure** > **Source**.
 2. In **Prepare source**, click **+Configuration server**.
 
-    ![Set up source](./media/azure-stack-site-recovery/plus-config-srv.png)
+    ![Screenshot of the +Configuration Server dialog with the message "Click on +Configuration Server in the command bar above to setup one…".](./media/azure-stack-site-recovery/plus-config-srv.png)
 
 3. In **Add Server**, check that **Configuration Server** appears in **Server type**.
 5. Download the Site Recovery Unified Setup installation file.
 6. Download the vault registration key. You need the registration key when you run Unified Setup. The key is valid for five days after you generate it.
 
-    ![Set up source](./media/azure-stack-site-recovery/set-source2.png)
+    ![Screenshot of the Add Server dialog with Server Type set to Configuration Server and the Download the vault registration key button highlighted.](./media/azure-stack-site-recovery/set-source2.png)
 
 
 ### Run Azure Site Recovery Unified Setup
@@ -256,7 +256,7 @@ Before you run a test failover, verify the machine properties, and make sure tha
 2. In the **Replicated item** pane, there's a summary of VM information, health status, and the latest available recovery points. Click **Properties** to view more details.
 3. In **Compute and Network**, modify settings as needed.
 
-    - You can modify the Azure VM name, resource group, target size, [availability set](/azure/virtual-machines/windows/tutorial-availability-sets), and managed disk settings.
+    - You can modify the Azure VM name, resource group, target size, [availability set](../virtual-machines/windows/tutorial-availability-sets.md), and managed disk settings.
     - You can also view and modify network settings. These include the network/subnet to which the Azure VM is joined after failover, and the IP address that will be assigned to the VM.
 1. In **Disks**, view information about the operating system and data disks on the VM.
 

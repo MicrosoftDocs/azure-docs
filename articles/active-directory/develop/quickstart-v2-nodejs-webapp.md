@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/28/2019
 ms.author: jmprieur
-ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
+ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, devx-track-js
 #Customer intent: As an application developer, I want to know how to set up OpenID Connect authentication in a web application built using Node.js with Express.
 ---
 
@@ -50,7 +50,7 @@ To run this sample, you will need:
 1. In the list of pages for the app, select **Authentication**.
     - In the **Redirect URIs** section, select **Web** in the combo-box and enter the following redirect URI:
     `http://localhost:3000/auth/openid/return`
-    - In the **Advanced settings** section, set **Logout URL** to `http://localhost:3000`.
+    - In the **Advanced settings** section, set **Logout URL** to `https://localhost:3000`.
     - In the **Advanced settings > Implicit grant** section, check **ID tokens** as this sample requires the [Implicit grant flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-implicit-grant-flow) to be enabled to sign-in the user.
 
 1. Select **Save**.

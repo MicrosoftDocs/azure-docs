@@ -69,7 +69,7 @@ Start small with your current systems and services, and grow incrementally at yo
 
 * Build off these products and services:
 
-  * [Microsoft BizTalk Server](https://docs.microsoft.com/biztalk/core/introducing-biztalk-server)
+  * [Microsoft BizTalk Server](/biztalk/core/introducing-biztalk-server)
   * [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)
   * [Azure Functions](../azure-functions/functions-overview.md)
   * [Azure API Management](../api-management/api-management-key-concepts.md)
@@ -80,7 +80,7 @@ Start small with your current systems and services, and grow incrementally at yo
 
 * Exchange messages with [EDIFACT](../logic-apps/logic-apps-enterprise-integration-edifact.md), [AS2](../logic-apps/logic-apps-enterprise-integration-as2.md), and [X12](../logic-apps/logic-apps-enterprise-integration-x12.md) protocols
 
-* Store and manage these B2B artifacts and more in one place with [integration accounts](../logic-apps/logic-apps-enterprise-integration-accounts.md):
+* Store and manage these B2B artifacts and more in one place with [integration accounts](./logic-apps-enterprise-integration-create-integration-account.md):
 
   * [Partners](../logic-apps/logic-apps-enterprise-integration-partners.md)
   * [Agreements](../logic-apps/logic-apps-enterprise-integration-agreements.md) 
@@ -89,7 +89,7 @@ Start small with your current systems and services, and grow incrementally at yo
 
 For example, if you're using Microsoft BizTalk Server, logic apps can communicate with your BizTalk Server by using the [BizTalk Server connector](../connectors/apis-list.md#on-premises-connectors). You can then extend or perform BizTalk-like operations in your logic apps by including [integration account connectors](../connectors/apis-list.md#integration-account-connectors), which are available with the Enterprise Integration Pack.
 
-Going in the other direction, BizTalk Server can connect to and communicate with logic apps by using the [Microsoft BizTalk Server Adapter for Logic Apps](https://www.microsoft.com/download/details.aspx?id=54287). Learn how to [set up and use the BizTalk Server Adapter](https://docs.microsoft.com/biztalk/core/logic-app-adapter) in your BizTalk Server.
+Going in the other direction, BizTalk Server can connect to and communicate with logic apps by using the [Microsoft BizTalk Server Adapter for Logic Apps](https://www.microsoft.com/download/details.aspx?id=54287). Learn how to [set up and use the BizTalk Server Adapter](/biztalk/core/logic-app-adapter) in your BizTalk Server.
 
 ### Write once, reuse often
 

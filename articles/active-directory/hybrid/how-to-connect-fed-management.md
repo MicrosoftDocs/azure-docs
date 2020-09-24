@@ -1,7 +1,7 @@
 ---
 title: Azure AD Connect - AD FS management and customization | Microsoft Docs
 description: AD FS management with Azure AD Connect and customization of user AD FS sign-in experience with Azure AD Connect and PowerShell.
-keywords: AD FS, ADFS, AD FS management, AAD Connect, Connect, sign-in, AD FS customization, repair trust, O365, federation, relying party
+keywords: AD FS, ADFS, AD FS management, AAD Connect, Connect, sign-in, AD FS customization, repair trust, M365, federation, relying party
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -26,7 +26,7 @@ This article describes how to manage and customize Active Directory Federation S
 | Topic | What it covers |
 |:--- |:--- |
 | **Manage AD FS** | |
-| [Repair the trust](#repairthetrust) |How to repair the federation trust with Office 365. |
+| [Repair the trust](#repairthetrust) |How to repair the federation trust with Microsoft 365. |
 | [Federate with Azure AD using alternate login ID](#alternateid) | Configure federation using alternate login ID  |
 | [Add an AD FS server](#addadfsserver) |How to expand an AD FS farm with an additional AD FS server. |
 | [Add an AD FS Web Application Proxy server](#addwapserver) |How to expand an AD FS farm with an additional Web Application Proxy (WAP) server. |
@@ -80,7 +80,7 @@ Configuring alternate login ID for AD FS consists of two main steps:
     To rectify the configuration in case of missing KB, install the required [KB2919355](https://go.microsoft.com/fwlink/?LinkID=396590) and then repair the trust using [Repair AAD and AD FS Trust](#repairthetrust).
 
 > [!NOTE]
-> For more information on alternateID and steps to manually configure, read [Configuring Alternate Login ID](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configuring-alternate-login-id)
+> For more information on alternateID and steps to manually configure, read [Configuring Alternate Login ID](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)
 
 ## <a name="addadfsserver"></a>Add an AD FS server 
 
@@ -169,7 +169,7 @@ It's easy to add a domain to be federated with Azure AD by using Azure AD Connec
 
    ![Azure AD domain](./media/how-to-connect-fed-management/AdditionalDomain4.PNG)
 
-    After you choose the domain, the wizard provides you with appropriate information about further actions that the wizard will take and the impact of the configuration. In some cases, if you select a domain that isn't yet verified in Azure AD, the wizard provides you with information to help you verify the domain. See [Add your custom domain name to Azure Active Directory](../active-directory-domains-add-azure-portal.md) for more details.
+    After you choose the domain, the wizard provides you with appropriate information about further actions that the wizard will take and the impact of the configuration. In some cases, if you select a domain that isn't yet verified in Azure AD, the wizard provides you with information to help you verify the domain. See [Add your custom domain name to Azure Active Directory](../fundamentals/add-custom-domain.md) for more details.
 
 5. Click **Next**. The **Ready to configure** page shows the list of actions that Azure AD Connect will perform. Click **Install** to finish the configuration.
 
@@ -202,7 +202,7 @@ Set-AdfsGlobalWebContent -SignInPageDescriptionText "<p>Sign-in to Contoso requi
 ```
 
 ## <a name="modclaims"></a>Modify AD FS claim rules 
-AD FS supports a rich claim language that you can use to create custom claim rules. For more information, see [The Role of the Claim Rule Language](https://technet.microsoft.com/library/dd807118.aspx).
+AD FS supports a rich claim language that you can use to create custom claim rules. For more information, see [The Role of the Claim Rule Language](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dd807118(v=ws.11)).
 
 The following sections describe how you can write custom rules for some scenarios that relate to Azure AD and AD FS federation.
 

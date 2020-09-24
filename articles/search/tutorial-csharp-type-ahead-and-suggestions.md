@@ -8,7 +8,8 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 04/15/2020
+ms.date: 07/15/2020
+ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
 # Tutorial: Add autocomplete and suggestions using the .NET SDK
@@ -26,7 +27,7 @@ In this tutorial, you learn how to:
 
 This tutorial is part of a series and builds on the paging project created in the [C# Tutorial: Search results pagination - Azure Cognitive Search](tutorial-csharp-paging.md).
 
-Alternatively, you can download and run the solution for this specific tutorial: [3-add-typeahead](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/3-add-typeahead).
+Alternatively, you can download and run the solution for this specific tutorial: [3-add-typeahead](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v10/3-add-typeahead).
 
 ## Add suggestions
 
@@ -140,7 +141,7 @@ Let's start with the simplest case of offering up alternatives to the user: a dr
  
     ![Typing "pa" with fuzzy set to true](./media/tutorial-csharp-create-first-app/azure-search-suggest-fuzzy.png)
 
-    If you are interested, the [Lucene query syntax in Azure Cognitive Search](https://docs.microsoft.com/azure/search/query-lucene-syntax) describes the logic used in fuzzy searches in detail.
+    If you are interested, the [Lucene query syntax in Azure Cognitive Search](./query-lucene-syntax.md) describes the logic used in fuzzy searches in detail.
 
 ## Add highlighting to the suggestions
 
@@ -239,7 +240,7 @@ Another variation, that is slightly different from suggestions, is autocompletio
 
     Notice that we are using the same *suggester* function, called "sg", in the autocomplete search as we did for suggestions (so we are only trying to autocomplete the hotel names).
 
-    There are a range of **AutocompleteMode** settings, and we are using **OneTermWithContext**. Refer to [Autocomplete API](https://docs.microsoft.com/rest/api/searchservice/autocomplete) for a description of additional options.
+    There are a range of **AutocompleteMode** settings, and we are using **OneTermWithContext**. Refer to [Autocomplete API](/rest/api/searchservice/autocomplete) for a description of additional options.
 
 4. Run the app. Notice how the range of options displayed in the drop-down list are single words. Try typing words starting with "re". Notice how the number of options reduces as more letters are typed.
 
@@ -459,5 +460,3 @@ In the next tutorial, we have a look at another way of improving the user experi
 
 > [!div class="nextstepaction"]
 > [C# Tutorial: Use facets to aid navigation - Azure Cognitive Search](tutorial-csharp-facets.md)
-
-

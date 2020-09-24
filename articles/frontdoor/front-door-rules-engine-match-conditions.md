@@ -1,17 +1,17 @@
 ---
-title: Azure Front Door 
+title: Azure Front Door Rules Engine match conditions
 description: This article provides a list of the various match conditions available with Azure Front Door Rules Engine.
 services: frontdoor
 documentationcenter: ''
-author: megan-beatty
+author: duongau
 editor: ''
 ms.service: frontdoor
 ms.devlang: na
-ms.topic: overview
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 4/30/2020
-ms.author: mebeatty
+ms.date: 09/14/2020
+ms.author: duau
 # customer intent: As an IT admin, I want to learn about Front Door and what new features are available. 
 ---
 

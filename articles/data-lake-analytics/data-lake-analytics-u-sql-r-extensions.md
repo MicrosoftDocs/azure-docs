@@ -3,10 +3,8 @@ title: Extend U-SQL scripts with R in Azure Data Lake Analytics
 description: Learn how to run R code in U-SQL scripts using Azure Data Lake Analytics. Embed R code inline or reference from files. 
 services: data-lake-analytics
 ms.service: data-lake-analytics
-author: saveenr
-ms.author: saveenr
-ms.reviewer: jasonwhowell
-ms.topic: conceptual
+ms.reviewer: jasonh
+ms.topic: how-to
 ms.date: 06/20/2017
 ---
 # Extend U-SQL scripts with R code in Azure Data Lake Analytics

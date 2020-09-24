@@ -1,6 +1,6 @@
 ---
 title: How SSO to on-premises resources works on Azure AD joined devices | Microsoft Docs
-description: Learn how to configure hybrid Azure Active Directory joined devices.
+description: Learn how to extend the SSO experience by configuring hybrid Azure Active Directory joined devices.
 
 services: active-directory
 ms.service: active-directory
@@ -33,7 +33,7 @@ Azure AD joined devices have no knowledge about your on-premises AD environment 
 
 An environment that has both, an Azure AD and an on-premises AD, is also known has hybrid environment. If you have a hybrid environment, it is likely that you already have Azure AD Connect deployed to synchronize your on-premises identity information to the cloud. As part of the synchronization process, Azure AD Connect synchronizes on-premises user information to Azure AD. When a user signs in to an Azure AD joined device in a hybrid environment:
 
-1. Azure AD sends the details of the user's on-premises domain back to the device, along with the [Primary Refresh Token] (concept-primary-refresh-token.md)
+1. Azure AD sends the details of the user's on-premises domain back to the device, along with the [Primary Refresh Token](concept-primary-refresh-token.md)
 1. The local security authority (LSA) service enables Kerberos and NTLM authentication on the device.
 
 During an access attempt to a resource requesting Kerberos or NTLM in the user's on-premises environment, the device:

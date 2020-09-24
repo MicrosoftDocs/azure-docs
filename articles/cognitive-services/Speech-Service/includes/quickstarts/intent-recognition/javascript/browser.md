@@ -4,6 +4,7 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
 ms.author: trbye
+ms.custom: devx-track-js
 ---
 
 ## Start with some boilerplate code
@@ -240,7 +241,7 @@ Insert this code below the model addition:
 In case you want to host the web page on a web server, you can optionally provide a token source for your demo application.
 That way, your subscription key will never leave your server while allowing users to use speech capabilities without entering any authorization code themselves.
 
-Create a new file named `token.php`. In this example we assume your web server supports the PHP scripting language. Enter the following code:
+Create a new file named `token.php`. In this example we assume your web server supports the PHP scripting language with curl enabled. Enter the following code:
 
 ```php
 <?php

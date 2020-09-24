@@ -2,12 +2,12 @@
 title: 'ExpressRoute: How to configure custom alerts for advertised routes'
 description: This article shows you how to use Azure Automation and Logic Apps to monitor the number of routes advertised from the ExpressRoute gateway to on-premises networks in order to prevent hitting the 200 routes limit.
 services: expressroute
-author: cherylmc
+author: duongau
 
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 05/29/2020
-ms.author: cherylmc
+ms.author: duau
 
 ---
 # Configure custom alerts to monitor advertised routes
@@ -295,7 +295,7 @@ In the Recurrence Schedule trigger, you can set the time zone and a recurrence f
 
 At the end of the workflow configuration, you can check the consistency of the recurrence frequency by running the workflow a few times, and then verifying the outcome in the **Runs history**.
 
-:::image type="content" source="./media/custom-route-alert-portal/recurrence.png" alt-text="Recurrence" lightbox="./media/custom-route-alert-portal/recurrence-expand.png":::
+:::image type="content" source="./media/custom-route-alert-portal/recurrence.png" alt-text="Screenshot shows the Recurrence Interval and Frequency values." lightbox="./media/custom-route-alert-portal/recurrence-expand.png":::
 
 ### <a name="job"></a>3. Create a job
 
@@ -316,7 +316,7 @@ A logic app accesses other apps, services, and the platform though connectors. T
 
 5. On the **Create job** page, the service principal should have the "Reader" role on the **Resource Group** hosting the automation account, and "Automation Job Operator" on the **Automation Account**. Additionally, verify that you have added the **Runbook Name** as a new parameter.
 
-   :::image type="content" source="./media/custom-route-alert-portal/roles.png" alt-text="Roles" lightbox="./media/custom-route-alert-portal/roles-expand.png":::
+   :::image type="content" source="./media/custom-route-alert-portal/roles.png" alt-text="Screenshot shows Create job values in Recurrence, where you can verify the Runbook Name." lightbox="./media/custom-route-alert-portal/roles-expand.png":::
 
 ### <a name="output"></a>4. Get the job output
 
@@ -339,7 +339,7 @@ The information contained in the output from the 'Azure Automation Create job ac
 
 3. Click inside the **Content** box. When the Dynamic content list appears, select **Content**.
 
-   :::image type="content" source="./media/custom-route-alert-portal/content.png" alt-text="Content" lightbox="./media/custom-route-alert-portal/content-expand.png":::
+   :::image type="content" source="./media/custom-route-alert-portal/content.png" alt-text="Screenshot shows the Parse JSON dialog box with Content selected." lightbox="./media/custom-route-alert-portal/content-expand.png":::
 
 4. Parsing a JSON requires a schema. The schema can be generated using the output of the Automation runbook. Open a new web browser session, run the Automation runbook and grab the output. Return to the **Logic Apps Parse JSON Data Operations** action. At the bottom of the page, select **Use sample payload to generate schema**.
 
@@ -359,7 +359,7 @@ In this step of the workflow, we create a condition to send an alarm by email. F
 
 1. Under the **Get job output action**, select **New step**. In the search box, find and select **Variables**.
 
-   :::image type="content" source="./media/custom-route-alert-portal/variables.png" alt-text="Variables":::
+   :::image type="content" source="./media/custom-route-alert-portal/variables.png" alt-text="Screenshot shows the Choose an action dialog box with variable in the search box and Variables selected.":::
 
 2. From the **Actions** list, select the **Initialize variable** action.
 
@@ -367,7 +367,7 @@ In this step of the workflow, we create a condition to send an alarm by email. F
 
 3. Specify the name of the variable. For **Type**, select **String**. The **Value** of the variable will be assigned later in the workflow.
 
-   :::image type="content" source="./media/custom-route-alert-portal/string.png" alt-text="String" lightbox="./media/custom-route-alert-portal/string-expand.png":::
+   :::image type="content" source="./media/custom-route-alert-portal/string.png" alt-text="Screenshot shows Parse JSON associated with Initialize variable, where you can enter a Name, Type, and Value." lightbox="./media/custom-route-alert-portal/string-expand.png":::
 
 ### <a name="cycles-json"></a>7. Create a "For each" action
 
@@ -375,7 +375,7 @@ Once the JSON is parsed, the **Parse JSON Data Operations** action stores the co
 
 1. Under **Initialize variable**, select **Add an action**. In the search box, type "for each" as your filter.
 
-   :::image type="content" source="./media/custom-route-alert-portal/control.png" alt-text="Control":::
+   :::image type="content" source="./media/custom-route-alert-portal/control.png" alt-text="Screenshot shows the Choose an action dialog box with for each in the search box and Control selected.":::
 
 2. From the **Actions** list, select the action **For each - Control**.
 
@@ -383,7 +383,7 @@ Once the JSON is parsed, the **Parse JSON Data Operations** action stores the co
 
 3. Click in the **Select an output from previous steps** text box. When the **Dynamic content** list appears, select the **Body**, which is output from the parsed JSON.
 
-   :::image type="content" source="./media/custom-route-alert-portal/body.png" alt-text="Body":::
+   :::image type="content" source="./media/custom-route-alert-portal/body.png" alt-text="Screenshot shows Initialized variable associated with For each, which contains the Select an output from previous steps text box.":::
 
 4. For each element of JSON body, we want to set a condition. From the action group, select **Control**.
 

@@ -7,6 +7,7 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: asrastog
+ms.custom: ['Role: Cloud Development', 'Role: IoT Device']
 ---
 
 # Understand and use module twins in IoT Hub

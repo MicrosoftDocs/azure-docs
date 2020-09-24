@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 10/28/2019
+ms.date: 07/29/2020
 ms.author: curtand
 ---
 
@@ -23,7 +23,7 @@ The **Devices** page of the **My Account** portal helps you to manage the device
 - Disable any devices you no longer own, have lost, or that have been stolen.
 
 >[!Important]
->This article is intended for users trying to update the device info connected to a work or school account. If you're an administrator looking for information about device management for your employees and other uses, see the [Device Identities Documentation](https://docs.microsoft.com/azure/active-directory/devices/index).
+>This article is intended for users trying to update the device info connected to a work or school account. If you're an administrator looking for information about device management for your employees and other uses, see the [Device Identities Documentation](../devices/index.yml).
 
 ## View your connected devices
 
@@ -64,13 +64,15 @@ If you're locked out of your device or have a fatal error, you can go to another
 
 After viewing your connected devices, you can:
 
-- Select to view or manage your [security info](user-help-security-info-overview.md).
+- Select to view or manage your [security info](./security-info-setup-signin.md).
 
 - View and manage your [organizations](my-account-portal-organizations-page.md).
 
 - View your [sign-in activity](my-account-portal-sign-ins-page.md).
 
 - View how your organization [uses your privacy-related data](my-account-portal-privacy-page.md).
+
+- Change your [My Account portal settings](my-account-portal-settings.md)
 
 ## Related Office content
 

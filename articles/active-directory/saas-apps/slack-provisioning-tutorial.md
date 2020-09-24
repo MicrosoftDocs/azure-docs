@@ -2,21 +2,14 @@
 title: 'Tutorial: User provisioning for Slack - Azure AD'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Slack.
 services: active-directory
-documentationcenter: ''
 author: ArvindHarinder1
 manager: CelesteDG
-
-ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2019
+ms.date: 05/06/2020
 ms.author: arvinh
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Configure Slack for automatic user provisioning
@@ -75,15 +68,15 @@ This section guides you through connecting your Azure AD to Slack's user account
 
 3. Select the **Provisioning** tab.
 
-	![Provisioning tab](common/provisioning.png)
+	![Screenshot of the Manage options with the Provisioning option called out.](common/provisioning.png)
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-	![Provisioning tab](common/provisioning-automatic.png)
+	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
 5. Under the **Admin Credentials** section, click **Authorize**. This opens a Slack authorization dialog in a new browser window.
 
-	![Authorization](media/slack-provisioning-tutorial/authorization.png)
+	![Screenshot shows the Authorize Admin Credentials button.](media/slack-provisioning-tutorial/authorization.png)
 
 
 6. In the new window, sign into Slack using your Team Admin account. in the resulting authorization dialog, select the Slack team that you want to enable provisioning for, and then select **Authorize**. Once completed, return to the Azure portal to complete the provisioning configuration.
@@ -163,10 +156,10 @@ This operation starts the initial synchronization cycle of all users and groups 
 Once you've configured provisioning, use the following resources to monitor your deployment:
 
 1. Use the [provisioning logs](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) to determine which users have been provisioned successfully or unsuccessfully
-2. Check the [progress bar](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) to see the status of the provisioning cycle and how close it is to completion
+2. Check the [progress bar](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) to see the status of the provisioning cycle and how close it is to completion
 3. If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
 
-## Connector limitations
+## Troubleshooting Tips
 
 * When configuring Slack's **displayName** attribute, be aware of the following behaviors:
 
@@ -176,11 +169,15 @@ Once you've configured provisioning, use the following resources to monitor your
   
   * Allowed punctuation includes periods, underscores, hyphens, apostrophes, brackets (e.g. **( [ { } ] )**), and separators (e.g. **, / ;**).
   
+  * displayName property cannot have an '@' character. If an '@' is included, you may find a skipped event in the provisioning logs with the description "AttributeValidationFailed."
+
   * Only updates if these two settings are configured in Slack's workplace/organization - **Profile syncing is enabled** and **Users cannot change their display name**.
-  
+
 * Slack's **userName** attribute has to be under 21 characters and have a unique value.
 
 * Slack only allows matching with the attributes **userName** and **email**.  
+  
+* Common erorr codes are documented in the official Slack documentation - https://api.slack.com/scim#errors
 
 ## Change log
 

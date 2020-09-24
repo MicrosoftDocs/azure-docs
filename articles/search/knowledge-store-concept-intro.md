@@ -2,7 +2,6 @@
 title: Knowledge store concepts
 titleSuffix: Azure Cognitive Search
 description: Send enriched documents to Azure Storage where you can view, reshape, and consume enriched documents in Azure Cognitive Search and in other applications.
-
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
@@ -17,7 +16,7 @@ Knowledge store is a feature of Azure Cognitive Search that persists output from
 
 If you have used cognitive skills in the past, you already know that *skillsets* move a document through a sequence of enrichments. The outcome can be a search index, or projections in a knowledge store. The two outputs, search index and knowledge store, are products of the same pipeline; derived from the same inputs, but resulting in output that is structured, stored, and used in very different ways.
 
-Physically, a knowledge store is [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-account-overview), either Azure Table storage, Azure Blob storage, or both. Any tool or process that can connect to Azure Storage can consume the contents of a knowledge store.
+Physically, a knowledge store is [Azure Storage](../storage/common/storage-account-overview.md), either Azure Table storage, Azure Blob storage, or both. Any tool or process that can connect to Azure Storage can consume the contents of a knowledge store.
 
 
 > [!VIDEO https://www.youtube.com/embed/XWzLBP8iWqg?version=3&start=235&end=426]
@@ -35,7 +34,7 @@ Enumerated, the benefits of knowledge store include the following:
 
 + Consume enriched documents in [analytics and reporting tools](#tools-and-apps) other than search. Power BI with Power Query is a compelling choice, but any tool or app that can connect to Azure Storage can pull from a knowledge store that you create.
 
-+ Refine an AI-indexing pipeline while debugging steps and skillset definitions. A knowledge store shows you the product of a skillset definition in an AI-indexing pipeline. You can use those results to design a better skillset because you can see exactly what the enrichments look like. You can use [Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) in Azure Storage to view the contents of a knowledge store.
++ Refine an AI-indexing pipeline while debugging steps and skillset definitions. A knowledge store shows you the product of a skillset definition in an AI-indexing pipeline. You can use those results to design a better skillset because you can see exactly what the enrichments look like. You can use [Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows) in Azure Storage to view the contents of a knowledge store.
 
 + Shape the data into new forms. The reshaping is codified in skillsets, but the point is that a skillset can now provide this capability. The [Shaper skill](cognitive-search-skill-shaper.md) in Azure Cognitive Search has been extended to accommodate this task. Reshaping allows you to define a projection that aligns with your intended use of the data while preserving relationships.
 
@@ -80,7 +79,7 @@ However, it is possible to create multiple sets of `table`-`object`-`file` proje
 
 ## Requirements 
 
-[Azure Storage](https://docs.microsoft.com/azure/storage/) is required. It provides physical storage. You can use Blob storage, Table storage or both. Blob storage is used for intact enriched documents, usually when the output is going to downstream processes. Table storage is for slices of enriched documents, commonly used for analysis and reporting.
+[Azure Storage](../storage/index.yml) is required. It provides physical storage. You can use Blob storage, Table storage or both. Blob storage is used for intact enriched documents, usually when the output is going to downstream processes. Table storage is for slices of enriched documents, commonly used for analysis and reporting.
 
 [Skillset](cognitive-search-working-with-skillsets.md) is required. It contains the `knowledgeStore` definition, and it determines the structure and composition of an enriched document. You cannot create a knowledge store using an empty skillset. You must have at least one skill in a skillset.
 
@@ -126,7 +125,7 @@ Once the enrichments exist in storage, any tool or technology that connects to A
 
 + [Power BI](knowledge-store-connect-power-bi.md) for reporting and analysis. 
 
-+ [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/) for further manipulation.
++ [Azure Data Factory](../data-factory/index.yml) for further manipulation.
 
 <a name="kstore-rest-api"></a>
 
@@ -134,8 +133,8 @@ Once the enrichments exist in storage, any tool or technology that connects to A
 
 REST API version `2020-06-30` provides knowledge store through additional definitions on skillsets. In addition to the reference, see  [Create a knowledge store using Postman](knowledge-store-create-rest.md) for details on how to call the APIs.
 
-+ [Create Skillset (api-version=2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/2020-06-30/create-skillset)
-+ [Update Skillset (api-version=2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/2020-06-30/update-skillset)
++ [Create Skillset (api-version=2020-06-30)](/rest/api/searchservice/create-skillset)
++ [Update Skillset (api-version=2020-06-30)](/rest/api/searchservice/update-skillset)
 
 
 ## Next steps

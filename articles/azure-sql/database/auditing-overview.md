@@ -73,6 +73,9 @@ You can configure auditing for different types of actions and action groups usin
 Azure SQL Database and Azure Synapse Audit stores 4000 characters of data for character fields in an audit record. When the **statement** or the **data_sensitivity_information** values returned from an auditable action contain more than 4000 characters, any data beyond the first 4000 characters will be **truncated and not audited**.
 The following section describes the configuration of auditing using the Azure portal.
 
+  > [!NOTE]
+  > Enabling auditing on a paused Synapse SQL pool is not possible. To enable auditing, un-pause the Synapse SQL pool. Learn more about [Synapse SQL pool](https://docs.microsoft.com/azure/synapse-analytics/sql/best-practices-sql-pool).
+
 1. Go to the [Azure portal](https://portal.azure.com).
 2. Navigate to **Auditing** under the Security heading in your **SQL database** or **SQL server** pane.
 3. If you prefer to set up a server auditing policy, you can select the **View server settings** link on the database auditing page. You can then view or modify the server auditing settings. Server auditing policies apply to all existing and newly created databases on this server.
@@ -110,11 +113,9 @@ To configure writing audit logs to a Log Analytics workspace, select **Log Analy
 
    ![LogAnalyticsworkspace](./media/auditing-overview/auditing_select_oms.png)
 
+For more details about Azure Monitor Log Analytics workspace, see [Designing your Azure Monitor Logs deployment](https://docs.microsoft.com/azure/azure-monitor/platform/design-logs-deployment)
+   
 ### <a id="audit-event-hub-destination"></a>Audit to Event Hub destination
-
-> [!WARNING]
-> Enabling auditing on a server that has a SQL Database pool on it **results in the SQL Database pool being resumed and re-paused again** which may incur billing charges.
-> Enabling auditing on a paused SQL Database pool is not possible. To enable it, un-pause the SQL Database pool.
 
 To configure writing audit logs to an event hub, select **Event Hub (Preview)** and open **Event Hub details**. Select the event hub where logs will be written and then click **OK**. Be sure that the event hub is in the same region as your database and server.
 

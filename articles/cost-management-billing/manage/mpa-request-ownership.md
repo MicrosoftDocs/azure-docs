@@ -1,14 +1,15 @@
 ---
 title: Get billing ownership of Azure subscriptions for Microsoft Partner Agreement (MPA)
-description: Learn how to request billing ownership of Azure subscriptions from other users.
+description: Learn how to request billing ownership of Azure subscriptions from other users for Microsoft Partner Agreement (MPA).
 author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
-ms.topic: conceptual
-ms.date: 06/11/2020
+ms.subservice: billing
+ms.topic: how-to
+ms.date: 08/20/2020
 ms.author: banders
-
 ---
+
 # Get billing ownership of Azure subscriptions to your MPA account
 
 To provide a single combined invoice for managed services and Azure consumption, a Cloud Solution Provider (CSP) can take over billing ownership of Azure subscriptions from their customers with Direct Enterprise Agreements (EA).
@@ -153,6 +154,12 @@ Some of the customer transition requests may require an additional review proces
 The directory of the Azure subscriptions that are transferred must match the directory of the customer that was selected while establishing the CSP relationship.
 
 If these two directories don’t match, the subscriptions couldn't be transferred. You need to either establish a new CSP reseller relationship with the customer by selecting the directory of the Azure subscriptions or change the directory of Azure subscriptions to match with the customer CSP relationship directory. For more information, see [Associate an existing subscription to your Azure AD directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-how-subscriptions-associated-directory#to-associate-an-existing-subscription-to-your-azure-ad-directory).
+
+### EA subscription in the non-orgnization directory
+
+The EA subscriptions from non-organization directories can be transferred as long as the directory has a reseller relationship with the CSP. If the directory doesn’t have a reseller relationship, you need to make sure to have the organization user in the directory as a *Global Administrator* who can accept the partner relationship. The domain name portion of the username must either be the initial default domain name "[domain name]. onmicrosoft.com" or a verified, non-federated custom domain name such as "contoso.com."  
+
+To add new user to the directory, see [Quickstart: Add new users to Azure Active Directory to add the new user to the AAD directory](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory).
 
 ## Check access to a Microsoft Partner Agreement
 

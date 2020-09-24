@@ -19,17 +19,9 @@ You can integrate your LUIS app with [Bing Spell Check API V7](https://azure.mic
 
 [!INCLUDE [Not supported in V3 API prediction endpoint](./includes/v2-support-only.md)]
 
-
-## Create first key for Bing Spell Check V7
-
-Your [first Bing Spell Check API v7 key](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api) is free.
-
-![Create free key](./media/luis-tutorial-bing-spellcheck/free-key.png)
-
-<a name="create-subscription-key"></a>
-
 ## Create Endpoint key
-If your free key expired, create an endpoint key.
+
+To create a Bing Spell Check resource in the Azure portal, follow these instructions:
 
 1. Log in to the [Azure portal](https://portal.azure.com).
 

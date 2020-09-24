@@ -3,7 +3,7 @@ title: Angular single-page app tutorial - Azure
 titleSuffix: Microsoft identity platform
 description: Learn how Angular SPA applications can call an API that requires access tokens from the Microsoft identity platform endpoint.
 services: active-directory
-author: hahamil
+author: hamiltonha
 manager: CelesteDG
 
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 03/05/2020
 ms.author: hahamil
-ms.custom: aaddev, identityplatformtop40
+ms.custom: aaddev, identityplatformtop40, devx-track-js
 ---
 
 # Tutorial: Sign in users and call the Microsoft Graph API from an Angular single-page application
@@ -27,7 +27,7 @@ This tutorial demonstrates how an Angular single-page application (SPA) can:
 
 ## How the sample app works
 
-![Diagram that shows how the sample app generated in this tutorial works](media/active-directory-develop-guidedsetup-javascriptspa-introduction/javascriptspa-intro.svg)
+![Diagram that shows how the sample app generated in this tutorial works](./media/tutorial-v2-angular/diagram-auth-flow-spa-angular.svg)
 
 ### More information
 
@@ -56,17 +56,18 @@ To run this tutorial, you need:
 
 Generate a new Angular application by using the following npm commands:
 
-```Bash
+```bash
 npm install -g @angular/cli@8                    # Install the Angular CLI
-npm install @angular/material@8 @angular/cdk@8   # Install the Angular Material component library (optional, for UI)
 ng new my-application --routing=true --style=css # Generate a new Angular app
+cd my-application                                # Change to the app directory
+npm install @angular/material@8 @angular/cdk@8   # Install the Angular Material component library (optional, for UI)
 npm install msal @azure/msal-angular             # Install MSAL and MSAL Angular in your application
 ng generate component page-name                  # To add a new page (such as a home or profile page)
 ```
 
 ## Register your application
 
-Follow the [instructions to register a single-page application](https://docs.microsoft.com/azure/active-directory/develop/scenario-spa-app-registration) in the Azure portal.
+Follow the [instructions to register a single-page application](./scenario-spa-app-registration.md) in the Azure portal.
 
 On the app **Overview** page of your registration, note the **Application (client) ID** value for later use.
 
@@ -119,7 +120,7 @@ Register your **Redirect URI** value as **http://localhost:4200/** and enable im
     |Value name|About|
     |---------|---------|
     |Enter_the_Application_Id_Here|On the **Overview** page of your application registration, this is your **Application (client) ID** value. |
-    |Enter_the_Cloud_Instance_Id_Here|This is the instance of the Azure cloud. For the main or global Azure cloud, enter **https://login.microsoftonline.com**. For national clouds (for example, China), see [National clouds](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud).|
+    |Enter_the_Cloud_Instance_Id_Here|This is the instance of the Azure cloud. For the main or global Azure cloud, enter **https://login.microsoftonline.com**. For national clouds (for example, China), see [National clouds](./authentication-national-cloud.md).|
     |Enter_the_Tenant_Info_Here| Set to one of the following options: If your application supports *accounts in this organizational directory*, replace this value with the directory (tenant) ID or tenant name (for example, **contoso.microsoft.com**). If your application supports *accounts in any organizational directory*, replace this value with **organizations**. If your application supports *accounts in any organizational directory and personal Microsoft accounts*, replace this value with **common**. To restrict support to *personal Microsoft accounts only*, replace this value with **consumers**. |
     |Enter_the_Redirect_Uri_Here|Replace with **http://localhost:4200**.|
 
@@ -134,7 +135,7 @@ Register your **Redirect URI** value as **http://localhost:4200/** and enable im
 3. Add the following import statements to the top of `src/app/app.component.ts`:
 
     ```javascript
-    import { MsalService } from '@azure/msal-angular';
+    import { MsalService, BroadcastService } from '@azure/msal-angular';
     import { Component, OnInit } from '@angular/core';
     ```
 ## Sign in a user
@@ -144,6 +145,8 @@ Add the following code to `AppComponent` to sign in a user:
 ```javascript
 export class AppComponent implements OnInit {
     constructor(private broadcastService: BroadcastService, private authService: MsalService) { }
+
+    ngOnInit() { }
 
     login() {
         const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;

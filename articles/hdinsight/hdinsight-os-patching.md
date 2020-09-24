@@ -5,7 +5,7 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/21/2020
 ---
@@ -27,11 +27,16 @@ HDInsight provides support for you to perform common tasks on your cluster such 
 
 Patch on a representative non-production environment prior to  deploying to production. Develop a plan to adequately test your system prior to your actual patching.
 
-From time-to-time, from an ssh session with your cluster, you may receive a message that an upgrade is available. The message may looks something like:
+From time-to-time, from an ssh session with your cluster, you may receive a message that security updates are available. The message may looks something like:
 
 ```
-New release '18.04.3 LTS' available.
-Run 'do-release-upgrade' to upgrade it
+89 packages can be updated.
+82 updates are security updates.
+
+*** System restart required ***
+
+Welcome to Spark on HDInsight.
+
 ```
 
 Patching is optional and at your discretion.
@@ -59,6 +64,9 @@ The `install-updates-schedule-reboots` script accepts two numeric parameters, as
 
 > [!NOTE]
 > You must mark a script as persisted after you apply it to an existing cluster. Otherwise, any new nodes created through scaling operations will use the default patching schedule. If you apply the script as part of the cluster creation process, it's persisted automatically.
+
+> [!NOTE]
+> The Scheduled Restart option does an automated rolling restart of the patched cluster nodes over a period of 12 to 24 hours and takes into account high availability, update domain, and fault domain considerations. Scheduled Restart does not terminate running workloads but may take away cluster capacity in the interim when nodes are unavailable, leading to longer processing times. 
 
 ## Next steps
 

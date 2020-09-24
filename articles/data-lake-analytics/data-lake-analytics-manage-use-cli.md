@@ -2,12 +2,9 @@
 title: Manage Azure Data Lake Analytics using Azure CLI
 description: This article describes how to use the Azure CLI to manage Data Lake Analytics jobs, data sources, & users.
 services: data-lake-analytics
-author: jasonwhowell
-ms.author: jasonh
-
 ms.assetid: 4e5a3a0a-6d7f-43ed-aeb5-c3b3979a1e0a
 ms.service: data-lake-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/29/2018
 ---
 # Manage Azure Data Lake Analytics using the Azure Command-line Interface (CLI)
@@ -141,7 +138,7 @@ To list the Blob storage account:
    az dla account blob-storage list --account "<Data Lake Analytics account name>"
    ```
 
-![Data Lake Analytics list data source](./media/data-lake-analytics-manage-use-cli/data-lake-analytics-list-data-source.png)
+![Screenshot that shows Azure C L I with the "dataLakeStoreAccounts:" information highlighted.](./media/data-lake-analytics-manage-use-cli/data-lake-analytics-list-data-source.png)
 
 ### Delete data sources:
 
@@ -185,7 +182,7 @@ You must have a Data Lake Analytics account before you can create a job.  For mo
 >    ```
 
 ### Cancel jobs
-Use the list command to find the job id, and then use cancel to cancel the job.
+Use the list command to find the job ID, and then use cancel to cancel the job.
 
    ```azurecli
    az dla job cancel --account "<Data Lake Analytics account name>" --job-identity "<Job Id>"

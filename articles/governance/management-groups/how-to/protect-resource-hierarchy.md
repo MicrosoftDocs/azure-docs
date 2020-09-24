@@ -1,15 +1,15 @@
 ---
 title: How to protect your resource hierarchy - Azure Governance
 description: Learn how to protect your resource hierarchy with hierarchy settings that include setting the default management group.
-ms.date: 05/21/2020
+ms.date: 09/02/2020
 ms.topic: conceptual
 ---
 # How to protect your resource hierarchy
 
 Your resources, resource groups, subscriptions, management groups, and tenant collectively make up
-your resource hierarchy. Settings at the root management group, such as custom RBAC roles or Azure
-Policy policy assignments, can impact each and every resource in your resource hierarchy. It's
-important to protect the resource hierarchy from changes that could negatively impact all resources.
+your resource hierarchy. Settings at the root management group, such as Azure custom roles or Azure
+Policy policy assignments, can impact every resource in your resource hierarchy. It's important to
+protect the resource hierarchy from changes that could negatively impact all resources.
 
 Management groups now have hierarchy settings that enable the tenant administrator to control these
 behaviors. This article covers each of the available hierarchy settings and how to set them.
@@ -24,7 +24,7 @@ management group:
 
 These operations only allow a user to read and update the hierarchy settings. The operations don't
 provide any other access to the management group hierarchy or resources in the hierarchy. Both of
-these operations are available in the built-in RBAC role **Hierarchy Settings Administrator**.
+these operations are available in the Azure built-in role **Hierarchy Settings Administrator**.
 
 ## Setting - Default management group
 
@@ -38,12 +38,34 @@ both use cases.
 
 By allowing the default management group for new subscriptions to be defined, organization-wide
 governance constructs can be applied at the root management group, and a separate management group
-with policy assignments or RBAC assignments more suited to a new subscription can be defined.
+with policy assignments or Azure role assignments more suited to a new subscription can be defined.
 
-To configure this setting, the [Hierarchy Settings](/rest/api/resources/hierarchysettings) REST API
-endpoint is called. To do so, use the following REST API URI and body format. Replace `{rootMgID}`
-with the ID of your root management group and `{defaultGroupID}` with the ID of the management group
-to become the default management group:
+### Set default management group in portal
+
+To configure this setting in Azure portal, follow these steps:
+
+1. Use the search bar to search for and select 'Management groups'.
+
+1. On the root management group, select **details** next to the name of the management group.
+
+1. Under **Settings**, select **Hierarchy settings**.
+
+1. Select the **Change default management group** button.
+
+   > [!NOTE]
+   > If the **Change default management group** button is disabled, either the management group
+   > being viewed isn't the root management group or your security principal doesn't have the
+   > necessary permissions to alter the hierarchy settings.
+
+1. Select a management group from your hierarchy and use the **Select** button.
+
+### Set default management group with REST API
+
+To configure this setting with REST API, the
+[Hierarchy Settings](/rest/api/resources/hierarchysettings) endpoint is called. To do so, use the
+following REST API URI and body format. Replace `{rootMgID}` with the ID of your root management
+group and `{defaultGroupID}` with the ID of the management group to become the default management
+group:
 
 - REST API URI
 
@@ -73,10 +95,30 @@ management group hierarchy. If enabled, a user requires the
 `Microsoft.Management/managementGroups/write` operation on the root management group to create new
 child management groups.
 
-To configure this setting, the [Hierarchy Settings](/rest/api/resources/hierarchysettings) REST API
-endpoint is called. To do so, use the following REST API URI and body format. This value is a
-_boolean_, so provide either **true** or **false** for the value. A value of **true** enables this
-method of protecting your management group hierarchy:
+### Set require authorization in portal
+
+To configure this setting in Azure portal, follow these steps:
+
+1. Use the search bar to search for and select 'Management groups'.
+
+1. On the root management group, select **details** next to the name of the management group.
+
+1. Under **Settings**, select **Hierarchy settings**.
+
+1. Toggle the **Require permissions for creating new management groups.** option to on.
+
+   > [!NOTE]
+   > If the **Require permissions for creating new management groups.** toggle is disabled, either
+   > the management group being viewed isn't the root management group or your security principal
+   > doesn't have the necessary permissions to alter the hierarchy settings.
+
+### Set require authorization with REST API
+
+To configure this setting with REST API, the
+[Hierarchy Settings](/rest/api/resources/hierarchysettings) endpoint is called. To do so, use the
+following REST API URI and body format. This value is a _boolean_, so provide either **true** or
+**false** for the value. A value of **true** enables this method of protecting your management group
+hierarchy:
 
 - REST API URI
 

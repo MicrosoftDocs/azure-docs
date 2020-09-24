@@ -2,7 +2,7 @@
 title: Dynamic data masking
 description: Dynamic data masking limits sensitive data exposure by masking it to non-privileged users for Azure SQL Database, Azure SQL Managed Instance and Azure Synapse Analytics
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: sqldbrb=1
 ms.devlang:
@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 04/28/2020
+ms.date: 08/04/2020
 tags: azure-synpase
 ---
 # Dynamic data masking 
@@ -70,7 +70,7 @@ You can use the REST API to programmatically manage data masking policy and rule
 
 ### Data masking policies
 
-- [Create Or Update](https://docs.microsoft.com/rest/api/sql/datamaskingpolicies/createorupdate): Creates or updates the sensitivity label of the specified column.
+- [Create Or Update](https://docs.microsoft.com/rest/api/sql/datamaskingpolicies/createorupdate): Creates or updates a database data masking policy.
 - [Get](https://docs.microsoft.com/rest/api/sql/datamaskingpolicies/get): Gets a database data masking policy. 
 
 ### Data masking rules

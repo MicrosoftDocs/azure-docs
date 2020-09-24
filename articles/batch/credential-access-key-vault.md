@@ -2,7 +2,8 @@
 title: Securely access Key Vault with Batch
 description: Learn how to programmatically access your credentials from Key Vault using Azure Batch.
 ms.topic: how-to
-ms.date: 02/13/2020
+ms.date: 02/13/2020 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Securely access Key Vault with Batch
@@ -32,7 +33,7 @@ Next, use the `makecert` tool to create self-signed certificate files called `ba
 makecert -sv batchcertificate.pvk -n "cn=batch.cert.mydomain.org" batchcertificate.cer -b 09/23/2019 -e 09/23/2019 -r -pe -a sha256 -len 2048
 ```
 
-Batch requires a `.pfx` file. Use the [pvk2pfx](https://docs.microsoft.com/windows-hardware/drivers/devtest/pvk2pfx) tool to convert the `.cer` and `.pvk` files created by `makecert` to a single `.pfx` file.
+Batch requires a `.pfx` file. Use the [pvk2pfx](/windows-hardware/drivers/devtest/pvk2pfx) tool to convert the `.cer` and `.pvk` files created by `makecert` to a single `.pfx` file.
 
 ```console
 pvk2pfx -pvk batchcertificate.pvk -spc batchcertificate.cer -pfx batchcertificate.pfx -po

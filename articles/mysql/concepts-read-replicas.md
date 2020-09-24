@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 6/24/2020
+ms.date: 7/7/2020
 ---
 
 # Read replicas in Azure Database for MySQL
@@ -37,7 +37,7 @@ You can create a read replica in a different region from your master server. Cro
 
 You can have a master server in any [Azure Database for MySQL region](https://azure.microsoft.com/global-infrastructure/services/?products=mysql).  A master server can have a replica in its paired region or the universal replica regions. The picture below shows which replica regions are available depending on your master region.
 
-[ ![Read replica regions](media/concepts-read-replica/read-replica-regions.png)](media/concepts-read-replica/read-replica-regions.png#lightbox)
+[ :::image type="content" source="media/concepts-read-replica/read-replica-regions.png" alt-text="Read replica regions":::](media/concepts-read-replica/read-replica-regions.png#lightbox)
 
 ### Universal replica regions
 You can create a read replica in any of the following regions, regardless of where your master server is located. The supported universal replica regions include:
@@ -102,6 +102,25 @@ When you choose to stop replication to a replica, it loses all links to its prev
 > Before you stop replication on a read replica, ensure the replica has all the data that you require.
 
 Learn how to [stop replication to a replica](howto-read-replicas-portal.md).
+
+## Failover
+
+There is no automated failover between master and replica servers. 
+
+Since replication is asynchronous, there is lag between the master and the replica. The amount of lag can be influenced by a number of factors like how heavy the workload running on the master server is and the latency between data centers. In most cases, replica lag ranges between a few seconds to a couple minutes. You can track your actual replication lag using the metric *Replica Lag*, which is available for each replica. This metric shows the time since the last replayed transaction. We recommend that you identify what your average lag is by observing your replica lag over a period of time. You can set an alert on replica lag, so that if it goes outside your expected range, you can take action.
+
+> [!Tip]
+> If you failover to the replica, the lag at the time you delink the replica from the master will indicate how much data is lost.
+
+Once you have decided you want to failover to a replica, 
+
+1. Stop replication to the replica<br/>
+   This step is necessary to make the replica server able to accept writes. As part of this process, the replica server will be delinked from the master. Once you initiate stop replication, the backend process typically takes about 2 minutes to complete. See the [stop replication](#stop-replication) section of this article to understand the implications of this action.
+	
+2. Point your application to the (former) replica<br/>
+   Each server has a unique connection string. Update your application to point to the (former) replica instead of the master.
+	
+Once your application is successfully processing reads and writes, you have completed the failover. The amount of downtime your application experiences will depend on when you detect an issue and complete steps 1 and 2 above.
 
 ## Considerations and limitations
 

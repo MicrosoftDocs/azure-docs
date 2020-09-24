@@ -1,6 +1,6 @@
 ---
 title: Periodic backup/restore in standalone Azure Service Fabric
-description: Use Service Fabric's periodic backup and restore feature for enabling periodic data backup of your application data.
+description: Use a standalone Service Fabric's periodic backup and restore feature for enabling periodic data backup of your application data.
 author: hrushib
 
 ms.topic: conceptual
@@ -283,7 +283,7 @@ To view backups in Service Fabric Explorer, navigate to a partition and select t
 
 ## Next steps
 - [Understanding periodic backup configuration](./service-fabric-backuprestoreservice-configure-periodic-backup.md)
-- [Backup restore REST API reference](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
+- [Backup restore REST API reference](/rest/api/servicefabric/sfclient-index-backuprestore)
 
 [0]: ./media/service-fabric-backuprestoreservice/partition-backedup-health-event.png
 [3]: ./media/service-fabric-backuprestoreservice/enable-app-backup.png

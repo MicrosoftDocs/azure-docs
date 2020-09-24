@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: cshoe
-ms.custom: tracking-python
+ms.custom: "devx-track-csharp, devx-track-python, devx-track-azurecli"
 ---
 
 # Continuous delivery by using Azure DevOps

@@ -1,6 +1,6 @@
 ---
 title: Incrementally copy data using Change Tracking using Azure portal
-description: In this tutorial, you create an Azure Data Factory pipeline that copies delta data incrementally from multiple tables in a SQL Server database to a database in Azure SQL Database.
+description: In this tutorial, you create an Azure data factory with a pipeline that loads delta data based on change tracking information in the source database in Azure SQL Database to an Azure blob storage.
 services: data-factory
 ms.author: yexu
 author: dearandyxu
@@ -161,7 +161,7 @@ Install the latest Azure PowerShell modules by following  instructions in [How t
 
    The name of the Azure data factory must be **globally unique**. If you receive the following error, change the name of the data factory (for example, yournameADFTutorialDataFactory) and try creating again. See [Data Factory - Naming Rules](naming-rules.md) article for naming rules for Data Factory artifacts.
 
-       `Data factory name “ADFTutorialDataFactory” is not available`
+   *Data factory name “ADFTutorialDataFactory” is not available*
 3. Select your Azure **subscription** in which you want to create the data factory.
 4. For the **Resource Group**, do one of the following steps:
 

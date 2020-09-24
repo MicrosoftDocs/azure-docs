@@ -5,7 +5,7 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/30/2020
 ---
 
@@ -42,7 +42,7 @@ You can optionally enable one or more of the following service endpoints which w
 ### FQDN HTTP/HTTPS dependencies
 
 > [!Important]
-> The list below only gives a few of the most important FQDNs. You can get entire list of FQDNs (mostly Azure Storage and Azure Service Bus) for configuring your NVA [in this file](https://github.com/Azure-Samples/hdinsight-fqdn-lists/blob/master/HDInsightFQDNTags.json). These dependencies are used by HDInsight control plane operations to create a cluster successfully.
+> The list below only gives a few FQDNs that may be needed for OS and security patching or certificate validations after cluster is created and during the lifetime of cluster operations. You can get the list of FQDNs dependencies (mostly Azure Storage and Azure Service Bus) for configuring your NVA [in this file](https://github.com/Azure-Samples/hdinsight-fqdn-lists/blob/master/HDInsightFQDNTags.json). These dependencies are used by HDInsight resource provider(RP) to create and monitor/manage clusters successfully. These include telemetry/diagnostic logs, provisioning metadata, cluster related configurations, scripts, ARM templates, etc. The FQDN dependency list might change  with releasing future HDIngisht updates.
 
 | **Endpoint**                                                          |
 |---|
@@ -50,6 +50,7 @@ You can optionally enable one or more of the following service endpoints which w
 | security.ubuntu.com:80                                                |
 | ocsp.msocsp.com:80                                                    |
 | ocsp.digicert.com:80                                                  |
+| microsoft.com:80                                                      |
 
 ## Next steps
 

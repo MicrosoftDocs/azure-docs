@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 06/26/2020
+ms.date: 07/27/2020
 # As a data scientist, I want to understand what a compute target is and why I need it.
 ---
 
@@ -29,7 +29,7 @@ Azure Machine Learning has varying support across different compute resources.  
 
 [!INCLUDE [aml-compute-target-train](../../includes/aml-compute-target-train.md)]
 
-Learn more about [setting up and using a compute target for model training](how-to-set-up-training-targets.md).
+Learn more about [using a compute target for model training](how-to-set-up-training-targets.md).
 
 ## <a name="deploy"></a>Deployment targets
 
@@ -42,14 +42,14 @@ Learn [where and how to deploy your model to a compute target](how-to-deploy-and
 <a name="amlcompute"></a>
 ## Azure Machine Learning compute (managed)
 
-A managed compute resource is created and managed by Azure Machine Learning. This compute is optimized for machine learning workloads. Azure Machine Learning compute clusters and [compute instances](concept-compute-instance.md) are the only managed computes. Additional managed compute resources may be added in the future.
+A managed compute resource is created and managed by Azure Machine Learning. This compute is optimized for machine learning workloads. Azure Machine Learning compute clusters and [compute instances](concept-compute-instance.md) are the only managed computes. 
 
-You can create Azure Machine Learning compute instances (preview) or compute clusters from:
-* Azure Machine Learning studio
+You can create Azure Machine Learning compute instances or compute clusters from:
+* [Azure Machine Learning studio](how-to-create-attach-compute-studio.md)
 * Azure portal
-* Python SDK [ComputeInstance](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computeinstance(class)?view=azure-ml-py) and [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute(class)?view=azure-ml-py) classes
+* Python SDK [ComputeInstance](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computeinstance%28class%29?view=azure-ml-py&preserve-view=true) and [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute%28class%29?view=azure-ml-py&preserve-view=true) classes
 * [R SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-compute-targets) (preview)
-* Resource Manager template
+* Resource Manager template. For an example template, see the [create Azure Machine Learning compute template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-amlcompute).
 * Machine learning [extension for the Azure CLI](reference-azure-machine-learning-cli.md#resource-management).  
 
 When created these compute resources are automatically part of your workspace, unlike other kinds of compute targets.
@@ -64,7 +64,7 @@ When created these compute resources are automatically part of your workspace, u
 
 
 > [!NOTE]
-> When a compute cluster is idle, it autoscales to 0 nodes, so you don't pay when it's not in use.  A compute *instance*, however, is always on and does not autoscale.  You should [stop the compute instance](tutorial-1st-experiment-sdk-train.md#stop-the-compute-instance) when you are not using it to avoid extra cost.
+> When a compute cluster is idle, it autoscales to 0 nodes, so you don't pay when it's not in use.  A compute *instance*, however, is always on and does not autoscale.  You should [stop the compute instance](concept-compute-instance.md#managing-a-compute-instance) when you are not using it to avoid extra cost. 
 
 ### Supported VM series and sizes
 
@@ -81,7 +81,9 @@ See the following table to learn more about supported series and restrictions.
 | D | None |
 | Dv2 | None |  
 | DSv2 | None |  
-| FSv2 | None |  
+| FSv2 | None | 
+| HBv2 | Requires approval |  
+| HCS | Requires approval |  
 | M | Requires approval |
 | NC | None |    
 | NCsv2 | Requires approval |
@@ -101,5 +103,5 @@ An unmanaged compute target is *not* managed by Azure Machine Learning. You crea
 ## Next steps
 
 Learn how to:
-* [Set up a compute target to train your model](how-to-set-up-training-targets.md)
+* [Use a compute target to train your model](how-to-set-up-training-targets.md)
 * [Deploy your model to a compute target](how-to-deploy-and-where.md)

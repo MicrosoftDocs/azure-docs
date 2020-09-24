@@ -1,5 +1,5 @@
 ---
-title: Container support
+title: Azure Cognitive Services Containers
 titleSuffix: Azure Cognitive Services
 description: Learn how Docker containers can get Cognitive Services closer to your data.
 services: cognitive-services
@@ -8,12 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 05/07/2020
+ms.date: 09/10/2020
 ms.author: aahi
 #As a potential customer, I want to know more about how Cognitive Services provides and supports Docker containers for each service.
 ---
 
-# Container support in Azure Cognitive Services
+# Azure Cognitive Services containers
+
+> [!WARNING]
+> On June 11, 2020, Microsoft announced that it will not sell facial recognition technology to police departments in the United States until strong regulation, grounded in human rights, has been enacted. As such, customers may not use facial recognition features or functionality included in Azure Services, such as Face or Video Indexer, if a customer is, or is allowing use of such services by or for, a police department in the United States.
 
 Container support in Azure Cognitive Services allows developers to use the same rich APIs that are available in Azure, and enables flexibility in where to deploy and host the services that come with [Docker containers](https://www.docker.com/what-container). Container support is currently available for a subset of Azure Cognitive Services, including parts of:
 
@@ -47,18 +50,21 @@ Azure Cognitive Services containers provide the following set of Docker containe
 
 | Service | Supported Pricing Tier | Container | Description |
 |--|--|--|--|
-| [Anomaly detector][ad-containers] | F0, S0 | **Anomaly-Detector** | The Anomaly Detector API enables you to monitor and detect abnormalities in your time series data with machine learning.<br>[Request access][request-access] |
+| [Anomaly detector][ad-containers] | F0, S0 | **Anomaly-Detector** ([image](https://hub.docker.com/_/azure-cognitive-services-decision-anomaly-detector))  | The Anomaly Detector API enables you to monitor and detect abnormalities in your time series data with machine learning.<br>[Request access][request-access] |
 | [Computer Vision][cv-containers] | F0, S1 | **Read** | Extracts printed text from images of various objects with different surfaces and backgrounds, such as receipts, posters, and business cards. The Read container also detects *handwritten text* in images and provides PDF/TIFF/multi-page support.<br/><br/>**Important:** The Read container currently works only with English. |
 | [Face][fa-containers] | F0, S0 | **Face** | Detects human faces in images, and identifies attributes, including face landmarks (such as noses and eyes), gender, age, and other machine-predicted facial features. In addition to detection, Face can check if two faces in the same image or different images are the same by using a confidence score, or compare faces against a database to see if a similar-looking or identical face already exists. It can also organize similar faces into groups, using shared visual traits.<br>[Request access][request-access] |
 | [Form recognizer][fr-containers] | F0, S0 | **Form Recognizer** | Form Understanding applies machine learning technology to identify and extract key-value pairs and tables from forms.<br>[Request access][request-access] |
 | [LUIS][lu-containers] | F0, S0 | **LUIS** ([image](https://go.microsoft.com/fwlink/?linkid=2043204&clcid=0x409)) | Loads a trained or published Language Understanding model, also known as a LUIS app, into a docker container and provides access to the query predictions from the container's API endpoints. You can collect query logs from the container and upload these back to the [LUIS portal](https://www.luis.ai) to improve the app's prediction accuracy. |
-| [Speech Service API][sp-containers-stt] | F0, S0 | **Speech-to-text** | Transcribes continuous real-time speech into text. |
-| [Speech Service API][sp-containers-cstt] | F0, S0 | **Custom Speech-to-text** | Transcribes continuous real-time speech into text using a custom model. |
-| [Speech Service API][sp-containers-tts] | F0, S0 | **Text-to-speech** | Converts text to natural-sounding speech. |
-| [Speech Service API][sp-containers-ctts] | F0, S0 | **Custom Text-to-speech** | Converts text to natural-sounding speech using a custom model. |
+| [Speech Service API][sp-containers-stt] | F0, S0 | **Speech-to-text** ([image](https://hub.docker.com/_/azure-cognitive-services-speechservices-speech-to-text)) | Transcribes continuous real-time speech into text. |
+| [Speech Service API][sp-containers-cstt] | F0, S0 | **Custom Speech-to-text** ([image](https://hub.docker.com/_/azure-cognitive-services-speechservices-custom-speech-to-text)) | Transcribes continuous real-time speech into text using a custom model. |
+| [Speech Service API][sp-containers-tts] | F0, S0 | **Text-to-speech** ([image](https://hub.docker.com/_/azure-cognitive-services-speechservices-text-to-speech)) | Converts text to natural-sounding speech. |
+| [Speech Service API][sp-containers-ctts] | F0, S0 | **Custom Text-to-speech** ([image](https://hub.docker.com/_/azure-cognitive-services-speechservices-custom-text-to-speech)) | Converts text to natural-sounding speech using a custom model. |
+| [Speech Service API][sp-containers-ntts] | F0, S0 | **Neural Text-to-speech** ([image](https://hub.docker.com/_/azure-cognitive-services-speechservices-neural-text-to-speech)) | Converts text to natural-sounding speech using deep neural network technology, allowing for more natural synthesized speech. |
 | [Text Analytics][ta-containers-keyphrase] | F0, S | **Key Phrase Extraction** ([image](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)) | Extracts key phrases to identify the main points. For example, for the input text "The food was delicious and there were wonderful staff", the API returns the main talking points: "food" and "wonderful staff". |
 | [Text Analytics][ta-containers-language] | F0, S | **Language Detection** ([image](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)) | For up to 120 languages, detects which language the input text is written in and report a single language code for every document submitted on the request. The language code is paired with a score indicating the strength of the score. |
 | [Text Analytics][ta-containers-sentiment] | F0, S | **Sentiment Analysis v3** ([image](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)) | Analyzes raw text for clues about positive or negative sentiment. This version of sentiment analysis returns sentiment labels (for example *positive* or *negative*) for each document and sentence within it. |
+| [Text Analytics][ta-containers-health] | F0, S | **Text Analytics for health** | Extract and label medical information from unstructured clinical text. |
+| [Spatial Analysis][spa-containers] | S0 | **Spatial analysis** | Extract and label medical information from unstructured clinical text. |
 
 <!--
 |[Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409) |F0, S0|**Personalizer** ([image](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Azure Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.|
@@ -118,12 +124,15 @@ Install and explore the functionality provided by containers in Azure Cognitive 
 [fr-containers]: form-recognizer/form-recognizer-container-howto.md
 [lu-containers]: luis/luis-container-howto.md
 [sp-containers]: speech-service/speech-container-howto.md
+[spa-containers]: https://docs.microsoft.com/azure/cognitive-services/computer-vision/spatial-analysis-container
 [sp-containers-stt]: speech-service/speech-container-howto.md?tabs=stt
 [sp-containers-cstt]: speech-service/speech-container-howto.md?tabs=cstt
 [sp-containers-tts]: speech-service/speech-container-howto.md?tabs=tts
 [sp-containers-ctts]: speech-service/speech-container-howto.md?tabs=ctts
+[sp-containers-ntts]: speech-service/speech-container-howto.md?tabs=ntts
 [ta-containers]: text-analytics/how-tos/text-analytics-how-to-install-containers.md
 [ta-containers-keyphrase]: text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=keyphrase
 [ta-containers-language]: text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=language
 [ta-containers-sentiment]: text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=sentiment
+[ta-containers-health]: text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=health
 [request-access]: https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyQZ7B8Cg2FEjpibPziwPcZUNlQ4SEVORFVLTjlBSzNLRlo0UzRRVVNPVy4u

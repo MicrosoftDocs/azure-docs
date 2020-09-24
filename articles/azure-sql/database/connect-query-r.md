@@ -10,7 +10,7 @@ ms.devlang: python
 ms.topic: quickstart
 author: garyericson
 ms.author: garye
-ms.reviewer: davidph, carlrab
+ms.reviewer: davidph, sstein
 manager: cgronlun
 ms.date: 05/29/2019
 ROBOTS: NOINDEX
@@ -80,4 +80,3 @@ Get the connection information you need to connect to the database in Azure SQL 
 - [Design your first database in Azure SQL Database](design-first-database-tutorial.md)
 - [Azure SQL Database Machine Learning Services (with R)](machine-learning-services-overview.md)
 - [Create and run simple R scripts in Azure SQL Database Machine Learning Services (preview)](r-script-create-quickstart.md)
-- [Write advanced R functions in Azure SQL Database using Machine Learning Services (preview)](machine-learning-services-functions.md)

@@ -13,17 +13,21 @@ ms.date: 05/26/2020
 ---
 # Convert to Image Directory
 
-This article describes how to use the Convert to Image Directory module to help convert image dataset to 'Image Directory' data type, which is standardized data format in image related tasks like image classification in Azure Machine Learning designer (preview).
+This article describes how to use the Convert to Image Directory module to help convert image dataset to 'Image Directory' data type, which is standardized data format in image related tasks like image classification in Azure Machine Learning designer.
 
 ## How to use Convert to Image Directory  
 
 1.  Add the **Convert to Image Directory** module to your experiment. You can find this module in the 'Computer Vision/Image Data Transformation' category in the module list. 
 
-2.  Connect an image dataset as input. Please make sure there is image in input dataset.
+2.  [Register an image dataset](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets) and connect it to the module input port. Please make sure there is image in input dataset. 
     Following dataset formats are supported:
 
     - Compressed file in these extensions: '.zip', '.tar', '.gz', '.bz2'.
     - Folder containing images. **Highly recommend compressing such folder first then use the compressed file as dataset**.
+
+    > [!WARNING]
+    > You **cannot** use **Import Data** module to import image dataset, because the output type of **Import Data** module is DataFrame Directory, which only contains file path string.
+    
 
     > [!NOTE]
     > If use image dataset in supervised learning, label is required.

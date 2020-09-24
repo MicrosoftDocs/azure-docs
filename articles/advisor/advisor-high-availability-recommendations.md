@@ -10,21 +10,6 @@ ms.date: 01/29/2019
 
 Azure Advisor helps you ensure and improve the continuity of your business-critical applications. You can get reliability recommendations from Advisor on the **Reliability** tab of the Advisor dashboard.
 
-## Ensure virtual machine fault tolerance
-
-To provide redundancy for your application, we recommend that you group two or more virtual machines in an availability set. Advisor identifies virtual machines that aren't part of an availability set and recommends moving them into one. This configuration ensures that during either planned or unplanned maintenance, at least one virtual machine is available and meets the Azure virtual machine SLA. You can choose to create an availability set for the virtual machine or to add the virtual machine to an existing availability set.
-
-> [!NOTE]
-> If you choose to create an availability set, you need to add at least one more virtual machine into it. We recommend that you group two or more virtual machines in an availability set to ensure that at least one machine is available during an outage.
-
-## Ensure availability set fault tolerance
-
-To provide redundancy for your application, we recommend that you group two or more virtual machines in an availability set. Advisor identifies availability sets that contain a single virtual machine and recommends adding one or more virtual machines to it. This configuration ensures that during either planned or unplanned maintenance, at least one virtual machine is available and meets the Azure virtual machine SLA. You can choose to create a virtual machine or to add an existing virtual machine to the availability set.  
-
-## Use managed disks to improve data reliability
-
-Virtual machines that are in an availability set with disks that share either storage accounts or storage scale units aren't resilient to failures to single storage scale units during outages. Advisor identifies these availability sets and recommends migrating to Azure managed disks. This migration will ensure that the disks of the virtual machines in the availability set are sufficiently isolated to avoid a single point of failure. 
-
 ## Check the version of your Check Point network virtual appliance image
 
 Advisor can identify whether your virtual machine is running a version of the Check Point image that has been known to lose network connectivity during platform servicing operations. The Advisor recommendation will help you upgrade to a newer version of the image that addresses this problem. This check will ensure business continuity through better network connectivity.
@@ -55,7 +40,7 @@ If a Traffic Manager profile is configured for geographic routing, traffic is ro
 
 ## Use soft delete on your Azure storage account to save and recover data after accidental overwrite or deletion
 
-Enable [soft delete](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) on your storage account so that deleted blobs transition to a soft deleted state instead of being permanently deleted. When data is overwritten, a soft deleted snapshot is generated to save the state of the overwritten data. Using soft delete allows you to recover from accidental deletions or overwrites. Advisor identifies Azure storage accounts that don't have soft delete enabled and suggests that you enable it.
+Enable [soft delete](../storage/blobs/soft-delete-overview.md) on your storage account so that deleted blobs transition to a soft deleted state instead of being permanently deleted. When data is overwritten, a soft deleted snapshot is generated to save the state of the overwritten data. Using soft delete allows you to recover from accidental deletions or overwrites. Advisor identifies Azure storage accounts that don't have soft delete enabled and suggests that you enable it.
 
 ## Configure your VPN gateway to active-active for connection resiliency
 
@@ -70,10 +55,25 @@ Azure Advisor checks for any VPN gateways that use a Basic SKU and recommends th
 - Custom Ipsec/IKE policy. 
 - Higher stability and availability.
 
+## Ensure virtual machine fault tolerance (temporarily disabled)
+
+To provide redundancy for your application, we recommend that you group two or more virtual machines in an availability set. Advisor identifies virtual machines that aren't part of an availability set and recommends moving them into one. This configuration ensures that during either planned or unplanned maintenance, at least one virtual machine is available and meets the Azure virtual machine SLA. You can choose to create an availability set for the virtual machine or to add the virtual machine to an existing availability set.
+
+> [!NOTE]
+> If you choose to create an availability set, you need to add at least one more virtual machine into it. We recommend that you group two or more virtual machines in an availability set to ensure that at least one machine is available during an outage.
+
+## Ensure availability set fault tolerance (temporarily disabled)
+
+To provide redundancy for your application, we recommend that you group two or more virtual machines in an availability set. Advisor identifies availability sets that contain a single virtual machine and recommends adding one or more virtual machines to it. This configuration ensures that during either planned or unplanned maintenance, at least one virtual machine is available and meets the Azure virtual machine SLA. You can choose to create a virtual machine or to add an existing virtual machine to the availability set.  
+
+## Use managed disks to improve data reliability (temporarily disabled)
+
+Virtual machines that are in an availability set with disks that share either storage accounts or storage scale units aren't resilient to failures to single storage scale units during outages. Advisor identifies these availability sets and recommends migrating to Azure managed disks. This migration will ensure that the disks of the virtual machines in the availability set are sufficiently isolated to avoid a single point of failure. 
+
 ## Repair invalid log alert rules
 
-Azure Advisor detects alert rules that have invalid queries specified in their condition section. 
-You can create log alert rules in Azure Monitor and use them to run analytics queries at specified intervals. The results of a query determine if an alert needs to be triggered. Analytics queries can become invalid over time because of changes in referenced resources, tables, or commands. Advisor recommends that you correct the query in the alert rule to prevent it from being automatically disabled and ensure monitoring coverage of your resources in Azure. [Learn more about troubleshooting alert rules.](https://aka.ms/aa_logalerts_queryrepair)
+Azure Advisor detects log alert rules that have invalid queries specified in their condition section. 
+Azure Monitor log alert rules run queries at specified frequency and fire alerts based on the results. Queries can become invalid over time because of changes in the referenced resources, tables, or commands. Advisor recommends corrections for alert queries to prevent the rules from being automatically disabled and to ensure monitoring coverage. For more information, see [Troubleshooting alert rules](../azure-monitor/platform/alerts-troubleshoot-log.md#query-used-in-a-log-alert-isnt-valid)
 
 ## Configure Consistent indexing mode on your Azure Cosmos DB collection
 
@@ -104,7 +104,7 @@ Starting July 1, 2020, you won't be able to create new Kafka clusters by using K
 Starting July 1, 2020, you won't be able to create new Spark clusters by using Spark 2.1 or 2.2 on HDInsight 3.6. You won't be able to create new Spark clusters by using Spark 2.3 on HDInsight 4.0. Existing clusters will run as is without support from Microsoft. 
 
 ## Enable virtual machine replication
-Virtual machines that don't have replication enabled to another region aren't resilient to regional outages. Replicating virtual machines reduces any adverse business impact during Azure region outages. Advisor detects VMs on which replication isn't enabled and recommends enabling it. When you enable replication, if there's an outage, you can quickly bring up your virtual machines in a remote Azure region. [Learn more about virtual machine replication.](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-quickstart)
+Virtual machines that don't have replication enabled to another region aren't resilient to regional outages. Replicating virtual machines reduces any adverse business impact during Azure region outages. Advisor detects VMs on which replication isn't enabled and recommends enabling it. When you enable replication, if there's an outage, you can quickly bring up your virtual machines in a remote Azure region. [Learn more about virtual machine replication.](../site-recovery/azure-to-azure-quickstart.md)
 
 ## How to access high availability recommendations in Advisor
 

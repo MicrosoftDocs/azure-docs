@@ -1,7 +1,7 @@
 ---
 title: Overview of Azure Resource Graph
 description: Understand how the Azure Resource Graph service enables complex querying of resources at scale across subscriptions and tenants.
-ms.date: 06/29/2020
+ms.date: 08/13/2020
 ms.topic: overview
 ---
 # What is Azure Resource Graph?
@@ -28,8 +28,8 @@ In this documentation, you'll go over each feature in detail.
 
 ## How does Resource Graph complement Azure Resource Manager
 
-Azure Resource Manager currently supports queries over basic resource fields, specifically -
-Resource name, ID, Type, Resource Group, Subscription, and Location. Resource Manager also provides
+Resource Manager currently supports queries over basic resource fields, specifically - Resource
+name, ID, Type, Resource Group, Subscription, and Location. Resource Manager also provides
 facilities for calling individual resource providers for detailed properties one resource at a time.
 
 With Azure Resource Graph, you can access these properties the resource providers return without
@@ -44,6 +44,11 @@ With Azure Resource Graph, you can:
   each resource provider.
 - View the last 14 days of change history made to the resource to see what properties changed and
   when. (preview)
+
+> [!NOTE]
+> As a _preview_ feature, some `type` objects have additional non-Resource Manager properties
+> available. For more information, see
+> [Extended properties (preview)](./concepts/query-language.md#extended-properties).
 
 ## How Resource Graph is kept current
 
@@ -90,6 +95,12 @@ to. This behavior is the same as when calling
 [Resource Groups - List](/rest/api/resources/resourcegroups/list) \- you get resource groups you've
 access to without any indication that the result may be partial. If there are no subscriptions in
 the subscription list that the user has appropriate rights to, the response is a _403_ (Forbidden).
+
+> [!NOTE]
+> In the **preview** REST API version `2020-04-01-preview`, the subscription list may be ommitted.
+> When both the `subscriptions` and `managementGroupId` properties aren't defined in the request,
+> the _scope_ is set to the tenant. For more information, see
+> [Scope of the query](./concepts/query-language.md#query-scope).
 
 ## Throttling
 

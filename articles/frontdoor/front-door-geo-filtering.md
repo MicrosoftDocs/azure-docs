@@ -3,7 +3,7 @@ title: Geo-filtering on a domain for Azure Front Door | Microsoft Docs
 description: In this article, you learn about geo-filtering policy for Azure Front Door
 services: frontdoor
 documentationcenter: ''
-author: KumudD
+author: duongau
 editor: ''
 ms.service: frontdoor
 ms.workload: infrastructure-services
@@ -11,11 +11,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2019
-ms.author: kumud
+ms.author: duau
 ms.reviewer: tyao
 
 ---
-# What is geo-filtering on a domain for Azure Front Door?
+# Geo-filtering on a domain for Azure Front Door
 
 By default, Azure Front Door responds to user requests regardless of the location of the user making the request. However, in some cases, you may want to restrict access to your web applications by country/region. Web application firewall (WAF) service at Front Door enables you to define a policy using custom access rules for specific path on your endpoint to allow or block access from specified countries/regions. 
 

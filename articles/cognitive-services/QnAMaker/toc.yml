@@ -24,6 +24,8 @@
   items:
   - name: Integrate with Power Virtual Agent
     href: Tutorials/integrate-with-power-virtual-assistant-fallback-topic.md
+  - name: Create FAQ Bot with Azure Bot Service
+    href: Tutorials/create-faq-bot-with-azure-bot-service.md
   - name: Test with batch file
     href: Quickstarts/batch-testing.md
 - name: Concepts
@@ -91,7 +93,7 @@
     - name: Migrate to new knowledge base
       href: Tutorials/migrate-knowledge-base.md
       displayName: metadata, pair
-    - name: Test
+    - name: Test knowledge base
       href: How-To/test-knowledge-base.md
   - name: Manage QnA pairs
     items:

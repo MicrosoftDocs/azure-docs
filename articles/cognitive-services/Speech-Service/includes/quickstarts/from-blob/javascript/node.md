@@ -4,6 +4,7 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/12/2020
 ms.author: trbye
+ms.custom: devx-track-js
 ---
 
 ## Prerequisites

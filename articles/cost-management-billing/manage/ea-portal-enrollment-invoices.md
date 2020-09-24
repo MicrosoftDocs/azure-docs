@@ -3,9 +3,10 @@ title: Azure Enterprise enrollment invoices
 description: This article explains how to manage and act on your Azure Enterprise invoice.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/01/2020
+ms.date: 09/18/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
+ms.subservice: enterprise
 ms.reviewer: boalcsva
 ---
 
@@ -41,14 +42,14 @@ The Azure Enterprise portal automatically generates a default purchase order (PO
 
 ## Azure enterprise billing frequency
 
-Microsoft bills annually at the enrollment effective date for any commitment purchases of the Microsoft Azure services. For any usage exceeding the commitment amounts, Microsoft bills in arrears.
+Microsoft bills annually at the enrollment effective date for any Prepayment purchases of the Microsoft Azure services. For any usage exceeding the Prepayment amounts, Microsoft bills in arrears.
 
-- Commitment fees are quoted based on a monthly rate and billed annually in advance.
+- Prepayment fees are quoted based on a monthly rate and billed annually in advance.
 - Overage fees are calculated each month and billed in arrears at the end of your billing period.
 
 ### Billing intervals
 
-You billing interval depends on how you choose to make your commitment purchases. Your annual commitment is coterminous with either:
+You billing interval depends on how you choose to make your Prepayment purchases. Your annual Prepayment is coterminous with either:
 
 - Your enrollment anniversary date
 - The effective date of your one-year Amendment Subscription.
@@ -57,12 +58,12 @@ The date you receive your overage invoice depends on your enrollment start date 
 
 - **Direct enrollments with a start date before May 1, 2018**:
   - If you're on a direct Enterprise Agreement (EA), you're on an annual billing cycle for Azure services, excluding Azure Marketplace services. Your billing cycle is based on the anniversary date: the date when your agreement became effective.
-  - If you surpass 150% of your EA monetary commitment (MC) threshold, you'll automatically be converted to a quarterly billing cycle that is based on your anniversary date. You'll also receive an Azure service overage invoice.
-  - If you don't surpass 150% of your MC threshold, your enrollment will remain on an annual billing cycle. The overage invoice will be received at the end of the commitment year.
+  - If you surpass 150% of your Azure EA Prepayment threshold, you'll automatically be converted to a quarterly billing cycle that is based on your anniversary date. You'll also receive an Azure service overage invoice.
+  - If you don't surpass 150% of your Azure Prepayment threshold, your enrollment will remain on an annual billing cycle. The overage invoice will be received at the end of the Prepayment year.
 
 - **Direct enrollments with a start date after May 1, 2018**:
   - Your Azure consumption and charges billed separately invoices are on a monthly billing cycle.
-  - Any charges not covered by your monetary commitment are due as an overage payment.  
+  - Any charges not covered by your Azure Prepayment are due as an overage payment.  
 
 - **Indirect enrollments with an enrollment that started before May 1, 2018**:
 
@@ -72,21 +73,21 @@ The date you receive your overage invoice depends on your enrollment start date 
 
   You're on a monthly billing cycle.  
 
-### Increase your monetary commitment
+### Increase your Azure Prepayment
 
-You can increase your commitment at any time. You'll be billed for the number of months remaining in that year's commitment period. For example, if you sign up for a one-year Amendment Subscription and then increase your commitment during month six, you'll be invoiced for the remaining six months of that term. Your commitment quantities will then be updated for the last six months of your commitment term. These new quantities will be used for determining any overage charges.
+You can increase your Prepayment at any time. You'll be billed for the number of months remaining in that year's Prepayment period. For example, if you sign up for a one-year Amendment Subscription and then increase your Prepayment during month six, you'll be invoiced for the remaining six months of that term. Your Prepayment quantities will then be updated for the last six months of your Prepayment term. These new quantities will be used for determining any overage charges.
 
 ### Overage
 
-For overage, you're billed for the usage or reservations that exceed your commitment during the billing period. To view a breakdown of how the overage quantities for individual items were calculated, refer to the usage summary report or contact your channel partner.
+For overage, you're billed for the usage or reservations that exceed your Prepayment during the billing period. To view a breakdown of how the overage quantities for individual items were calculated, refer to the usage summary report or contact your channel partner.
 
 For each item on the invoice, you'll see:
 
 - **Extended Amount**: the total charges
-- **Commitment Usage**: the amount of your commitment used to cover the charges
-- **Net Amount**: the charges that exceed your commitment
+- **Prepayment Usage**: the amount of your Prepayment used to cover the charges
+- **Net Amount**: the charges that exceed your Prepayment
 
-Applicable taxes are computed only on the net amount that exceeds your commitment.
+Applicable taxes are computed only on the net amount that exceeds your Prepayment.
 
 Overage invoicing is automated. The timing of notifications and invoices depends on your billing period end date.
 
@@ -125,18 +126,18 @@ To view credits:
 1. In [the Azure Enterprise portal](https://ea.azure.com), select the **Reports** section.
 1. Select **Usage Summary**.
 1. In the top-right corner, change the **M** to **C** view.
-1. Extend the adjustment field in the Azure service commitment table.
+1. Extend the adjustment field in the Azure service Prepayment table.
 1. You'll see credits applied to your enrollment and a short explanation. For example: Service Level Agreement Credit.
 
-## Pay your overage with your monetary commitment
+## Pay your overage with your Azure Prepayment
 
-To apply your monetary commitment to overages, you must meet the following criteria:
+To apply your Azure Prepayment to overages, you must meet the following criteria:
 
 - You've incurred overage charges that haven't been paid and are within one year of the billed service's end date.
-- Your available monetary commitment amount covers the full number of incurred charges, including all past unpaid Azure invoices.
+- Your available Azure Prepayment amount covers the full number of incurred charges, including all past unpaid Azure invoices.
 - The billing term that you want to complete must be fully closed. Billing fully closes after the fifth day of each month.
 - The billing period that you want to offset must be fully closed.
-- Your Azure Commitment Discount (ACD) is based on the actual new commitment minus any funds planned for the previous consumption. This requirement applies only to overage charges incurred. It's only valid for services that consume monetary commitment, so doesn't apply to Azure Marketplace charges. Azure Marketplace charges are billed separately.
+- Your Azure Prepayment Discount (ACD) is based on the actual new Prepayment minus any funds planned for the previous consumption. This requirement applies only to overage charges incurred. It's only valid for services that consume Azure Prepayment, so doesn't apply to Azure Marketplace charges. Azure Marketplace charges are billed separately.
 
 To complete an overage offset, you or the account team can open a support request. An emailed approval from your enterprise administrator or Bill to Contact is required.
 
@@ -157,29 +158,15 @@ Refer to [Azure services](https://azure.microsoft.com/services/) and [Azure pric
 
 The units of measure for Enterprise Agreements are often different than seen in our other programs such as the Microsoft Online Services Agreement program (MOSA). This disparity means that, for a number of services, the unit of measure is aggregated to provide the normalized pricing. The unit of measure shown in the Azure Enterprise portal's Usage Summary view is always the Enterprise measure. A full list of current units of measure and conversions for each service is provided in the [Friendly Service Names](https://azurepricing.blob.core.windows.net/supplemental/Friendly_Service_Names.xlsx) Excel file.
 
-### Rounding rules
-
-The Azure Enterprise portal follows the IEEE standard Banker Rounding or Gaussian Rounding logic. This logic rounds numbers to the nearest even digit for half digit values. The more typical Half Round Up rounding logic always rounds half digits up to the next highest digit. This Azure Enterprise portal method actually provides a more accurate total sum over the group when compared to the standard Excel logic.
-
-To illustrate: when the first dropped digit is a 5 and there are no following digits or the following digits are zeros, round off to the nearest even digit. For example: both 2.315 and 2.325 rounded to the nearest 100th become 2.32.
-
-For reference, the following table shows Excel formulas you can use to model the Azure Enterprise portal rules for rounding and conversion:
-
-| Scenario | Banker Logic Formula |
-| --- | --- |
-| Rounding Usage | =MROUND({_source_}, 0.0002) |
-| Rounding Pricing (2 decimals) | =MROUND({_source_}, 0.02) |
-| Rounding Pricing (0 decimals) | =MROUND({_source_}, 2) |
-
 ### Conversion between usage detail report and the usage summary page
 
-In the download usage data report, you can see raw resource usage up to six decimal places. However, usage data shown in the Azure Enterprise portal is rounded to four decimal places for commitment units and truncated to zero decimals for overage units. Raw usage data is first rounded to four digits prior to conversion to units used in the Azure Enterprise portal. Then, the converted Enterprise units are rounded again to four digits. You can only see the actual consumed hours before conversion in the download usage report and not within the Azure Enterprise portal.
+In the download usage data report, you can see raw resource usage up to six decimal places. However, usage data shown in the Azure Enterprise portal is rounded to four decimal places for Prepayment units and truncated to zero decimals for overage units. Raw usage data is first rounded to four digits prior to conversion to units used in the Azure Enterprise portal. Then, the converted Enterprise units are rounded again to four digits. You can only see the actual consumed hours before conversion in the download usage report and not within the Azure Enterprise portal.
 
 For example: If 694.533404 actual SQL Server hours are reported in the usage detail report. These units are converted to 6.94533404 of 100 compute hours, and then rounded to 6.9453 and displayed in the Azure Enterprise portal.
 
-- To determine the extended billing amount, the displayed units are multiplied by the Commitment Unit Price, and the result is truncated to two decimals. For Japanese Yen (JPY) and Korean Won (KRW), the extended amount is rounded to zero decimals.
+- To determine the extended billing amount, the displayed units are multiplied by the Prepayment Unit Price, and the result is truncated to two decimals. For Japanese Yen (JPY) and Korean Won (KRW), the extended amount is rounded to zero decimals.
 - For overage, the billing units are truncated to six digits and then multiplied by the Overage Unit Price to determine the extended billing amount.
-- For Managed Service Provider (MSP) billing, all usage associated to a department marked as MSP is truncated to zero decimals after conversion to the EA unit of measure. As a result, the sum of this usage could be lower than the sum total of all usage reported in the Azure Enterprise portal. It depends on if the MSP is within their monetary commitment balance or is in overage.
+- For Managed Service Provider (MSP) billing, all usage associated to a department marked as MSP is truncated to zero decimals after conversion to the EA unit of measure. As a result, the sum of this usage could be lower than the sum total of all usage reported in the Azure Enterprise portal. It depends on if the MSP is within their Azure Prepayment balance or is in overage.
 
 ### Graduated pricing
 
@@ -221,13 +208,13 @@ For those services where zone and region affect pricing, see the following table
 
 There are no charges for data egress between services housed within the same data center. For example, Microsoft 365 and Azure.
 
-### Monetary commitment and unbilled usage
+### Azure Prepayment and unbilled usage
 
-Azure monetary commitment is an amount paid up front for Azure services. The monetary commitment is consumed as services are used. First-party Azure services are billed against the monetary commitment. However, some charges are billed separately, and Azure Marketplace services don't consume monetary commitment.
+Azure Prepayment is an amount paid up front for Azure services. The Azure Prepayment is consumed as services are used. First-party Azure services are billed against the Azure Prepayment. However, some charges are billed separately, and Azure Marketplace services don't consume Azure Prepayment.
 
 ### Charges billed separately
 
-Some products and services provided from third-party sources don't consume Azure monetary commitment. Instead, these items are billed separately as part of the standard billing cycle's overage invoice.
+Some products and services provided from third-party sources don't consume Azure Azure Prepayment. Instead, these items are billed separately as part of the standard billing cycle's overage invoice.
 
 We've combined all Azure and Azure Marketplace charges into a single invoice that aligns with the enrollment's billing cycle. The combined invoice doesn't apply to customers in Australia, Japan, or Singapore.
 
@@ -260,7 +247,7 @@ The invoices will be released following the month after the billing period ends.
 
    | Title | Description | File name |
    | --- | --- | --- |
-   | [Friendly Service Names](https://azurepricing.blob.core.windows.net/supplemental/Friendly_Service_Names.xlsx) | Lists all active services and includes: <br>  <ul><li>service category</li>   <li>friendly service name</li>   <li>commitment name and part number</li> <li>consumption name and part number</li>   <li>units of measure</li>   <li>conversion factors between reported usage and displayed Enterprise portal usage</li></ul> | Friendly\_Service\_Names.xlsx |
+   | [Friendly Service Names](https://azurepricing.blob.core.windows.net/supplemental/Friendly_Service_Names.xlsx) | Lists all active services and includes: <br>  <ul><li>service category</li>   <li>friendly service name</li>   <li>Prepayment name and part number</li> <li>consumption name and part number</li>   <li>units of measure</li>   <li>conversion factors between reported usage and displayed Enterprise portal usage</li></ul> | Friendly\_Service\_Names.xlsx |
    | [Service Download Fields](https://azurepricing.blob.core.windows.net/supplemental/Service_Download_Fields.xlsx) | This spreadsheet provides a listing of all possible combinations of the service-related fields in the Usage Download Report. | Service\_Download\_Fields.xlsx |
 
 - For information about understanding your invoice and charges, see [Understand your Azure Enterprise Agreement bill](../understand/review-enterprise-agreement-bill.md).

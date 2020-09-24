@@ -4,7 +4,7 @@ description: Learn how to use Azure Application Insights with Azure Functions to
 ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.custom: fasttrack-edit
+ms.custom: "devx-track-csharp, fasttrack-edit"
 # Customer intent: As a developer, I want to monitor my functions so I can know if they're running correctly.
 ---
 
@@ -54,7 +54,7 @@ To open Application Insights from a function app in the Azure portal, select **A
 
 ![Open Application Insights from the function app Overview page](media/functions-monitoring/ai-link.png)
 
-For information about how to use Application Insights, see the [Application Insights documentation](https://docs.microsoft.com/azure/application-insights/). This section shows some examples of how to view data in Application Insights. If you're already familiar with Application Insights, you can go directly to [the sections about how to configure and customize the telemetry data](#configure-categories-and-log-levels).
+For information about how to use Application Insights, see the [Application Insights documentation](/azure/application-insights/). This section shows some examples of how to view data in Application Insights. If you're already familiar with Application Insights, you can go directly to [the sections about how to configure and customize the telemetry data](#configure-categories-and-log-levels).
 
 ![Application Insights Overview tab](media/functions-monitoring/metrics-explorer.png)
 
@@ -64,12 +64,12 @@ The following areas of Application Insights can be helpful when evaluating the b
 | ---- | ----------- |
 | **[Failures](../azure-monitor/app/asp-net-exceptions.md)** |  Create charts and alerts based on function failures and server exceptions. The **Operation Name** is the function name. Failures in dependencies aren't shown unless you implement custom telemetry for dependencies. |
 | **[Performance](../azure-monitor/app/performance-counters.md)** | Analyze performance issues by viewing resource utilization and throughput per **Cloud role instances**. This data can be useful for debugging scenarios where functions are bogging down your underlying resources. |
-| **[Metrics](../azure-monitor/app/metrics-explorer.md)** | Create charts and alerts that are based on metrics. Metrics include the number of function invocations, execution time, and success rates. |
+| **[Metrics](../azure-monitor/platform/metrics-charts.md)** | Create charts and alerts that are based on metrics. Metrics include the number of function invocations, execution time, and success rates. |
 | **[Live Metrics    ](../azure-monitor/app/live-stream.md)** | View metrics data as it's created in near real-time. |
 
 ## Query telemetry data
 
-[Application Insights Analytics](../azure-monitor/app/analytics.md) gives you access to all telemetry data in the form of tables in a database. Analytics provides a query language for extracting, manipulating, and visualizing the data. 
+[Application Insights Analytics](../azure-monitor/log-query/log-query-overview.md) gives you access to all telemetry data in the form of tables in a database. Analytics provides a query language for extracting, manipulating, and visualizing the data. 
 
 Choose **Logs** to explore or query for logged events.
 
@@ -149,7 +149,7 @@ The [host.json] file configures how much logging a function app sends to Applica
 
 ### Version 2.x and higher
 
-Version v2.x and later versions of the Functions runtime use the [.NET Core logging filter hierarchy](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering). 
+Version v2.x and later versions of the Functions runtime use the [.NET Core logging filter hierarchy](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering). 
 
 ```json
 {
@@ -242,7 +242,7 @@ As noted in the previous section, the runtime aggregates data about function exe
 
 ## Configure sampling
 
-Application Insights has a [sampling](../azure-monitor/app/sampling.md) feature that can protect you from producing too much telemetry data on completed executions at times of peak load. When the rate of incoming executions exceeds a specified threshold, Application Insights starts to randomly ignore some of the incoming executions. The default setting for maximum number of executions per second is 20 (five in version 1.x). You can configure sampling in [host.json](https://docs.microsoft.com/azure/azure-functions/functions-host-json#applicationinsights).  Here's an example:
+Application Insights has a [sampling](../azure-monitor/app/sampling.md) feature that can protect you from producing too much telemetry data on completed executions at times of peak load. When the rate of incoming executions exceeds a specified threshold, Application Insights starts to randomly ignore some of the incoming executions. The default setting for maximum number of executions per second is 20 (five in version 1.x). You can configure sampling in [host.json](./functions-host-json.md#applicationinsights).  Here's an example:
 
 ### Version 2.x and later
 
@@ -281,9 +281,9 @@ You can write logs in your function code that appear as traces in Application In
 
 ### ILogger
 
-Use an [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) parameter in your functions instead of a `TraceWriter` parameter. Logs created by using `TraceWriter` go to Application Insights, but `ILogger` lets you do [structured logging](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging).
+Use an [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger) parameter in your functions instead of a `TraceWriter` parameter. Logs created by using `TraceWriter` go to Application Insights, but `ILogger` lets you do [structured logging](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging).
 
-With an `ILogger` object, you call `Log<level>` [extension methods on ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.loggerextensions#methods) to create logs. The following code writes `Information` logs with category "Function.<YOUR_FUNCTION_NAME>.User."
+With an `ILogger` object, you call `Log<level>` [extension methods on ILogger](/dotnet/api/microsoft.extensions.logging.loggerextensions#methods) to create logs. The following code writes `Information` logs with category "Function.<YOUR_FUNCTION_NAME>.User."
 
 ```cs
 public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger logger)
@@ -533,7 +533,7 @@ Don't set `telemetryClient.Context.Operation.Id`. This global setting causes inc
 
 ## Log custom telemetry in JavaScript functions
 
-Here are sample code snippets that sends custom telemetry with the [Application Insights Node.js SDK](https://github.com/microsoft/applicationinsights-node.js):
+Here are sample code snippets that send custom telemetry with the [Application Insights Node.js SDK](https://github.com/microsoft/applicationinsights-node.js):
 
 ### Version 2.x and later
 
@@ -549,7 +549,7 @@ module.exports = function (context, req) {
     var operationIdOverride = {"ai.operation.id":context.traceContext.traceparent};
 
     client.trackEvent({name: "my custom event", tagOverrides:operationIdOverride, properties: {customProperty2: "custom property value"}});
-    client.trackException({exception: new Error("handled exceptions can be logged with this method"), tagOverrides:operationIdOverride);
+    client.trackException({exception: new Error("handled exceptions can be logged with this method"), tagOverrides:operationIdOverride});
     client.trackMetric({name: "custom metric", value: 3, tagOverrides:operationIdOverride});
     client.trackTrace({message: "trace message", tagOverrides:operationIdOverride});
     client.trackDependency({target:"http://dbname", name:"select customers proc", data:"SELECT * FROM Customers", duration:231, resultCode:0, success: true, dependencyTypeName: "ZSQL", tagOverrides:operationIdOverride});
@@ -573,7 +573,7 @@ module.exports = function (context, req) {
     var operationIdOverride = {"ai.operation.id":context.operationId};
 
     client.trackEvent({name: "my custom event", tagOverrides:operationIdOverride, properties: {customProperty2: "custom property value"}});
-    client.trackException({exception: new Error("handled exceptions can be logged with this method"), tagOverrides:operationIdOverride);
+    client.trackException({exception: new Error("handled exceptions can be logged with this method"), tagOverrides:operationIdOverride});
     client.trackMetric({name: "custom metric", value: 3, tagOverrides:operationIdOverride});
     client.trackTrace({message: "trace message", tagOverrides:operationIdOverride});
     client.trackDependency({target:"http://dbname", name:"select customers proc", data:"SELECT * FROM Customers", duration:231, resultCode:0, success: true, dependencyTypeName: "ZSQL", tagOverrides:operationIdOverride});
@@ -592,6 +592,9 @@ Functions v2 automatically collects dependencies for HTTP requests, ServiceBus, 
 You can write custom code to show the dependencies. For examples, see the sample code in the [C# custom telemetry section](#log-custom-telemetry-in-c-functions). The sample code results in an *application map* in Application Insights that looks like the following image:
 
 ![Application map](./media/functions-monitoring/app-map.png)
+
+> [!NOTE]
+> Dependencies are written at Information level. If you filter at Warning or above, you won't see any of this data. Also, automatic collection of dependencies happens at non-user scope. So make sure the level is set to at least **Information** outside the user scope in your host.json (i.e. outside the Function.<YOUR_FUNCTION_NAME>.User key) if you want those dependencies to be captured.
 
 ## Enable Application Insights integration
 
@@ -622,7 +625,7 @@ To report an issue with Application Insights integration in Functions, or to mak
 
 ## Streaming Logs
 
-While developing an application, you often want to see what's being written to the logs in near real-time when running in Azure.
+While developing an application, you often want to see what's being written to the logs in near real time when running in Azure.
 
 There are two ways to view a stream of log files being generated by your function executions.
 
@@ -675,36 +678,47 @@ az webapp log tail --resource-group <RESOURCE_GROUP_NAME> --name <FUNCTION_APP_N
 
 ### Azure PowerShell
 
-You can enable streaming logs by using [Azure PowerShell](/powershell/azure/overview). For PowerShell, use the following commands to add your Azure account, choose your subscription, and stream log files:
+You can enable streaming logs by using [Azure PowerShell](/powershell/azure/). For PowerShell, use the [Set-AzWebApp](/powershell/module/az.websites/set-azwebapp) command to enable logging on the function app, as shown in the following snippet: 
 
-```powershell
-Add-AzAccount
-Get-AzSubscription
-Get-AzSubscription -SubscriptionName "<subscription name>" | Select-AzSubscription
-Get-AzWebSiteLog -Name <FUNCTION_APP_NAME> -Tail
+:::code language="powershell" source="~/powershell_scripts/app-service/monitor-with-logs/monitor-with-logs.ps1" range="19-20":::
+
+For more information, see the [complete code example](../app-service/scripts/powershell-monitor.md#sample-script). 
+
+## Scale controller logs (preview)
+
+This feature is in preview. 
+
+The [Azure Functions scale controller](./functions-scale.md#runtime-scaling) monitors instances of the Azure Functions host on which your app runs. This controller makes decisions about when to add or remove instances based on current performance. You can have the scale controller emit logs to either Application Insights or to Blob storage to better understand the decisions the scale controller is making for your function app.
+
+To enable this feature, add a new application setting named `SCALE_CONTROLLER_LOGGING_ENABLED`. The value of this setting must be of the format `<DESTINATION>:<VERBOSITY>`, based on the following:
+
+[!INCLUDE [functions-scale-controller-logging](../../includes/functions-scale-controller-logging.md)]
+
+For example, the following Azure CLI command turns on verbose logging from the scale controller to Application Insights:
+
+```azurecli-interactive
+az functionapp config appsettings set --name <FUNCTION_APP_NAME> \
+--resource-group <RESOURCE_GROUP_NAME> \
+--settings SCALE_CONTROLLER_LOGGING_ENABLED=AppInsights:Verbose
 ```
 
-## Scale controller logs
+In this example, replace `<FUNCTION_APP_NAME>` and `<RESOURCE_GROUP_NAME>` with the name of your function app and the resource group name, respectively. 
 
-The [Azure Functions scale controller](./functions-scale.md#runtime-scaling) monitors the function host instances that run your app and makes decisions about when to add or remove function host instances. If you need to understand the decisions the scale controller is making in your application, you can configure it to emit logs to Application Insights or to Blob Storage.
+The following Azure CLI command disables logging by setting the verbosity to `None`:
 
-> [!WARNING]
-> This feature is in preview. We do not recommend you leave this feature enabled indefinitely, and you should instead enable it when you need the information it collects and then disable it.
+```azurecli-interactive
+az functionapp config appsettings set --name <FUNCTION_APP_NAME> \
+--resource-group <RESOURCE_GROUP_NAME> \
+--settings SCALE_CONTROLLER_LOGGING_ENABLED=AppInsights:None
+```
 
-To enable this feature, add a new application setting named `SCALE_CONTROLLER_LOGGING_ENABLED`. The value of this setting must be of the format `{Destination}:{Verbosity}`, where:
-* `{Destination}` specifies the destination for the logs to be sent to, and must be either `AppInsights` or `Blob`.
-* `{Verbosity}` specifies the level of logging you want, and must be one of `None`, `Warning`, or `Verbose`.
+You can also disable logging by removing the `SCALE_CONTROLLER_LOGGING_ENABLED` setting using the following Azure CLI command:
 
-For example, to log verbose information from the scale controller to Application Insights, use the value `AppInsights:Verbose`.
-
-> [!NOTE]
-> If you enable the `AppInsights` destination type, you must ensure you configure [Application Insights for your function app](#enable-application-insights-integration).
-
-If you set the destination to `Blob`, the logs will be created in a blob container named `azure-functions-scale-controller` within the storage account set in the `AzureWebJobsStorage` application setting.
-
-If you set the verbosity to `Verbose`, the scale controller will log a reason for every change in the worker count, as well as information about the triggers that participate in the scale controller's decisions. For example, the logs will include trigger warnings, and the hashes used by the triggers before and after the scale controller runs.
-
-To disable scale controller logging, set the value of the `{Verbosity}` to `None` or remove the `SCALE_CONTROLLER_LOGGING_ENABLED` application setting.
+```azurecli-interactive
+az functionapp config appsettings delete --name <FUNCTION_APP_NAME> \
+--resource-group <RESOURCE_GROUP_NAME> \
+--setting-names SCALE_CONTROLLER_LOGGING_ENABLED
+```
 
 ## Disable built-in logging
 

@@ -8,7 +8,7 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 12/26/2018
 ms.author: jopapa
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-js
 ms.reviewer: sngun
 ---
 # Create an Angular app with Azure Cosmos DB's API for MongoDB - Build the UI with Angular
@@ -35,7 +35,7 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
 
 ## Build the UI
 
-1. In Visual Studio Code, click the Stop button ![Stop button in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part3/stop-button.png) to stop the Node app.
+1. In Visual Studio Code, click the Stop button :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part3/stop-button.png"::: to stop the Node app. 
 
 2. In your Windows Command Prompt or Mac Terminal window, enter the following command to generate a heroes component. In this code g=generate, c=component, heroes=name of component, and it's using a flat file structure (--flat) so that a subfolder isn't created for it.
 
@@ -480,7 +480,7 @@ Now that we have the component, how do we get it to show up on the screen? Let's
 
     Now let's run the app.
 
-2. In Visual Studio Code, click the **Debug** button ![Debug icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/debug-button.png) on the left side, then click the **Start Debugging** button ![Debug icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part3/start-debugging-button.png).
+2. In Visual Studio Code, click the **Debug** button :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part2/debug-button.png"::: on the left side, then click the **Start Debugging** button :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part3/start-debugging-button.png":::.
 
 3. Now open an internet browser and navigate to **localhost:3000** and see the app running locally.
 

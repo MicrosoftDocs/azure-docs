@@ -26,17 +26,17 @@
     href: tutorial-custom-role-powershell.md
   - name: Create a custom role - CLI
     href: tutorial-custom-role-cli.md
-- name: Samples
-  items:
-  - name: Azure Policy built-ins
-    displayName: samples, policies, definitions
-    href: ./policy-samples.md
 - name: Concepts
   items:
   - name: Best practices
     href: best-practices.md
   - name: Conditional Access for Azure management
     href: conditional-access-azure-management.md
+  - name: Security
+    items:
+    - name: Security controls by Azure Policy
+      displayName: regulatory, compliance, standards, domains
+      href: ./security-controls-policy.md
 - name: How-to guides
   items:
   - name: List role definitions
@@ -126,6 +126,9 @@
       href: /azure/templates/microsoft.authorization/roleassignments
     - name: Role Definitions
       href: /azure/templates/microsoft.authorization/roledefinitions
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn

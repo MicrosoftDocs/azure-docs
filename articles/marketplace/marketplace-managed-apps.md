@@ -1,18 +1,17 @@
 ---
 title: Azure applications managed application offer publishing guide - Azure Marketplace
 description: This article describes the requirements for publishing a managed application in Azure Marketplace.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/22/2020
-ms.author: dsindona
-
+author: msjogarrig
+ms.author: jogarrig
+ms.date: 09/04/2020
 ---
 
 # Publishing guide for Azure managed applications
 
-An Azure *managed application* offer is one way to publish an Azure application in Azure Marketplace. Managed applications are transact offers that are deployed and billed through Azure Marketplace. The call to action that a user sees is *Get It Now*.
+An Azure *managed application* offer is one way to publish an Azure application in Azure Marketplace. Managed applications are transact offers that are deployed and billed through Azure Marketplace. The listing option that a user sees is *Get It Now*.
 
 This article explains the requirements for the managed application offer type.
 
@@ -30,7 +29,7 @@ Use the managed application offer type under the following conditions:
 |---------|---------|
 |An Azure subscription | Managed applications must be deployed to a customer's subscription, but they can be managed by a third party. |
 |Billing and metering    |  The resources are provided in a customer's Azure subscription. VMs that use the pay-as-you-go payment model are transacted with the customer via Microsoft and billed via the customer's Azure subscription. <br><br> For bring-your-own-license VMs, Microsoft bills any infrastructure costs that are incurred in the customer subscription, but you transact software licensing fees with the customer directly.        |
-|An Azure-compatible virtual hard disk (VHD)    |   VMs must be built on Windows or Linux.<br><br>For more information about creating a Linux VHD, see [Linux distributions endorsed on Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).<br><br>For more information about creating a Windows VHD, see [create an Azure application offer](./partner-center-portal/create-new-azure-apps-offer.md). |
+|An Azure-compatible virtual hard disk (VHD)    |   VMs must be built on Windows or Linux.<br><br>For more information about creating a Linux VHD, see [Linux distributions endorsed on Azure](../virtual-machines/linux/endorsed-distros.md).<br><br>For more information about creating a Windows VHD, see [create an Azure application offer](./partner-center-portal/create-new-azure-apps-offer.md). |
 
 ---
 

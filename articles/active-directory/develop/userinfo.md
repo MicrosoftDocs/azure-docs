@@ -30,7 +30,7 @@ As part of the OpenID Connect specification, the UserInfo endpoint is often auto
 
 The information available in the ID token that your app can receive is a superset of the information it can get from the UserInfo endpoint.  Because you can get an ID token at the same time you get a token to call the UserInfo endpoint, we suggest that you use that ID token to get information about the user instead of calling the UserInfo endpoint.  Using the ID token will eliminate one to two network requests from your application launch, reducing latency in your application.
 
-If you require more details about the user, you should call the [Microsoft Graph `/user` API](https://docs.microsoft.com/graph/api/user-get) to get information like office number or job title.   You can also use [optional claims](active-directory-optional-claims.md) to include additional user information in your ID and access tokens.
+If you require more details about the user, you should call the [Microsoft Graph `/user` API](/graph/api/user-get) to get information like office number or job title.   You can also use [optional claims](active-directory-optional-claims.md) to include additional user information in your ID and access tokens.
 
 ## Calling the UserInfo endpoint
 

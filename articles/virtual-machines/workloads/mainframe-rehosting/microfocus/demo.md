@@ -269,7 +269,7 @@ Congratulations! You are now running a CICS application in Azure using Micro Foc
 ## Next steps
 
 - [Run Enterprise Server in Docker containers on Azure](run-enterprise-server-container.md)
-- [Mainframe Migration - Portal](https://blogs.msdn.microsoft.com/azurecat/2018/11/16/mainframe-migration-to-azure-portal/)
-- [Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/linux/overview)
-- [Troubleshooting](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/)
+- [Mainframe Migration - Portal](/archive/blogs/azurecat/mainframe-migration-to-azure-portal)
+- [Virtual Machines](../../../linux/overview.md)
+- [Troubleshooting](../../../troubleshooting/index.yml)
 - [Demystifying mainframe to Azure migration](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/en-us/)

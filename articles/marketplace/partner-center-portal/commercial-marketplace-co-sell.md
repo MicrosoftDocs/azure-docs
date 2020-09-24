@@ -1,11 +1,11 @@
 ---
 title: Co-sell option in Partner Center | Azure Marketplace
 description: The information you provide on the Co-sell tab of your offer will be used by Microsoft sales teams to learn more about your solution when evaluating its fit for customer needs.
-author: dsindona 
-ms.author: dsindona 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: palanis-MSFT
+ms.author: palanis
 ms.date: 05/12/2020
 ---
 
@@ -57,11 +57,11 @@ You can add up to three solution areas for your offer. For each solution area, y
 
 ## Documents
 
-You can provide collateral for Microsoft to use for evaluating your customer needs.
+You have the option to provide collateral documents that Microsoft will use to learn more about your offer and evaluate its fit for your customer needs. All the documents listed in the table below are optional.
 
 | **Documents**    | **Description**  |
 | :------------------- | :-------------------|
-| *Customer one-pager* | Customer-ready description of your offering. Microsoft sales teams may share this information with customers to help determine if your offering may be a good fit, and to ensure that it is customer ready. <br> <br> Use one of the relevant templates available in Partner Center: <br> <ul> <li> Microsoft Azure one-pager template </li> <li> Microsoft Dynamics 365 one-pager template </li> <li> Office 365 one-pager template </li> <li> Windows 10 one-pager template </li> </ul> |
+| *Customer one-pager* | Customer-ready description of your offering. Microsoft sales teams may share this information with customers to help determine if your offering may be a good fit, and to ensure that it is customer ready. <br> <br> Use one of the relevant templates available in Partner Center: <br> <ul> <li> Microsoft Azure one-pager template </li> <li> Microsoft Dynamics 365 one-pager template </li> <li> Microsoft 365 one-pager template </li> <li> Windows 10 one-pager template </li> </ul> |
 | *Customer presentation* | Slide deck to pitch your solution and its value proposition. After ensuring that your offer is customer ready, Microsoft sales teams may share the presentation with customers to articulate the value that both companies bring when deploying a joint solution. The presentation should cover what your solution does, how it can help customers, what industries the solution is for, and how it compares to competing solutions. <br> <br> Use the template available in Partner Center.|
 | *Customer case study* | This information shows a potential customer how you and Microsoft have successfully deployed this solution in prior cases. <br> <br> Use the template available in Partner Center. |
 | *Verifiable customer wins (optional)* | Specific examples of customer successes after your solution has been deployed. |
@@ -74,14 +74,14 @@ You can provide collateral for Microsoft to use for evaluating your customer nee
 
 Your contact information allows Microsoft sales teams and channel resellers to request additional information from the appropriate resource in your organization. Contact information is available to all Microsoft sales teams. If you elect to make your offer available in the CSP program, this contact information is also available to channel resellers.
 
-This document provides guidance on the different roles for partners and how to choose between them. You can provide your contacts by downloading the CSV template from Partner Center, filling in each row with information about the contact, and importing this CSV file. Importing a CSV file will overwrite the existing contacts.
+You can provide your contacts by downloading the CSV template from Partner Center, filling in each row with information about the contact, and importing this CSV file. Importing a CSV file will overwrite the existing contacts.
 
 You can also export your existing list of contacts of an offer, and then make changes on that file.
 
 * *Name (required)*: The contact's name.
 * *Email address (required)*: The contact's email address.
 * *Job title (required)*: Job title.
-* *Role (required)*: Use one of the following roles in this field in the template.
+* *Role (required)*: Use any of the following roles.
 
     | **Role**    | **Description**  |
     | :------------------- | :-------------------|

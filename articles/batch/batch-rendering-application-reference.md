@@ -9,7 +9,7 @@ ms.topic: how-to
 
 # Rendering applications
 
-Rendering applications are used by creating Batch jobs and tasks. The task command line property specifies the appropriate command line and parameters.  The easiest way to create the job tasks is to use the Batch Explorer templates as specified in [this article](https://docs.microsoft.com/azure/batch/batch-rendering-using#using-batch-explorer).  The templates can be viewed and modified versions created if necessary.
+Rendering applications are used by creating Batch jobs and tasks. The task command line property specifies the appropriate command line and parameters.  The easiest way to create the job tasks is to use the Batch Explorer templates as specified in [this article](./batch-rendering-using.md#using-batch-explorer).  The templates can be viewed and modified versions created if necessary.
 
 This article provides a brief description of how to run each rendering application.
 

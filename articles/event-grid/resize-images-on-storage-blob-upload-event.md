@@ -1,18 +1,8 @@
 ---
 title: 'Tutorial: Use Azure Event Grid to automate resizing uploaded images'
 description: 'Tutorial: Azure Event Grid can trigger on blob uploads in Azure Storage. You can use this to send image files uploaded to Azure Storage to other services, such as Azure Functions, for resizing and other improvements.'
-services: event-grid, functions
-author: spelluru
-manager: jpconnoc
-editor: ''
-
-ms.service: event-grid
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/01/2020
-ms.author: spelluru
-ms.custom: mvc
+ms.date: 07/07/2020
 ---
 
 # Tutorial: Automate resizing uploaded images using Event Grid
@@ -25,11 +15,11 @@ You use the Azure CLI and the Azure portal to add the resizing functionality to 
 
 # [\.NET v12 SDK](#tab/dotnet)
 
-![Published web app in browser](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
+![Screenshot that shows a published web app in a browser for the \.NET v12 SDK.](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
 
 # [Node.js V10 SDK](#tab/nodejsv10)
 
-![Published web app in browser](./media/resize-images-on-storage-blob-upload-event/upload-app-nodejs-thumb.png)
+![Screenshot that shows a published web app in a browser for the \.NET v10 SDK.](./media/resize-images-on-storage-blob-upload-event/upload-app-nodejs-thumb.png)
 
 ---
 
@@ -306,7 +296,7 @@ Click the **Upload photos** region to select and upload a file. You can also dra
 
 Notice that after the uploaded image disappears, a copy of the uploaded image is displayed in the **Generated Thumbnails** carousel. This image was resized by the function, added to the *thumbnails* container, and downloaded by the web client.
 
-![Published web app in browser](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
+![Screenshot that shows a published web app titled "ImageResizer" in a browser for the \.NET v12 SDK.](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
 
 # [Node.js V10 SDK](#tab/nodejsv10)
 

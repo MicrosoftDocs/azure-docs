@@ -1,13 +1,13 @@
 ---
 title: Tutorial to set up Azure Data Box| Microsoft Docs
-description: Learn how to cable and connect your Azure Data Box
+description: In this tutorial, learn how to cable your Azure Data Box, connect Azure Data Box, and turn on Azure Data Box.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 09/03/2019
+ms.date: 07/10/2020
 ms.author: alkohli
 ms.localizationpriority: high
 
@@ -40,17 +40,19 @@ In this tutorial, you learn how to:
 
 Before you begin, make sure that:
 
-1. You have completed the [Tutorial: Order Azure Data Box](data-box-deploy-ordered.md).
-2. You have received your Data Box and the order status in the portal is **Delivered**. 
+1. You have placed the order for Azure Data Box.
+    - For an import order, see [Tutorial: Order Azure Data Box](data-box-deploy-ordered.md).
+    - For an export order, see [Tutorial: Order Azure Data Box](data-box-deploy-export-ordered.md)
+1. You have received your Data Box and the order status in the portal is **Delivered**. 
     - There is a shipping label in the clear pouch affixed to the device under the current label. Keep this label safe as you will use it for return shipment.
     - Some regions in Europe may receive the device packaged in a box. Ensure that you unpack the device and save the box for return shipment.
-3. You have reviewed the [Data Box safety guidelines](data-box-safety.md).
-4. You have received one grounded power cord to use with your 100-TB storage device.
-5. You have a host computer that has the data that you want to copy over to Data Box. Your host computer must
+1. You have reviewed the [Data Box safety guidelines](data-box-safety.md).
+1. You have received one grounded power cord to use with your 100-TB storage device.
+1. You have a host computer that is used to copy data (import order) to or copy data from (export order) your Data Box. Your host computer must
     - Run a [Supported operating system](data-box-system-requirements.md).
     - Be connected to high-speed network. We strongly recommend that you have at least one 10-GbE connection. If a 10-GbE connection isn't available, a 1-GbE data link can be used but the copy speeds are impacted. 
-6. You must have access to a flat surface where you can place the Data Box. If you want to place the device on a standard rack shelf, you need a 7U slot in your datacenter rack. You can place the device flat or upright in the rack.
-7. You have procured the following cables to connect your Data Box to the host computer.
+1. You must have access to a flat surface where you can place the Data Box. If you want to place the device on a standard rack shelf, you need a 7U slot in your datacenter rack. You can place the device flat or upright in the rack.
+1. You have procured the following cables to connect your Data Box to the host computer.
     - One or more 10-GbE SFP+ Twinax copper or SFP+ fiber optic cables (use with DATA 1, DATA 2 network interfaces). Data Box has the Mellanox ConnectX®-3 Pro EN Dual-Port 10GBASE-T Adapters w/ PCI Express 3.0 network interface, so cables that are compatible with this interface should work. For example, a CISCO SFP-H10GB-CU3M 10GBASE-CU TWINAX SFP +3M cable was used for in-house testing. For more information, see the [list of supported cables and switches from Mellanox](https://www.mellanox.com/pdf/firmware/ConnectX3-FW-2_42_5000-release_notes.pdf).
     - One RJ-45 CAT 6 network cable (use with MGMT network interface)
     - One RJ-45 CAT 6A OR one RJ-45 CAT 6 network cable (use with DATA 3 network interface configured as 10 Gbps or 1 Gbps respectively)
@@ -133,7 +135,7 @@ Perform the following steps to set up your device using the local web UI and the
 
 Once the data network interfaces are configured, you can also use the IP address of any of the DATA 1 - DATA 3 interfaces to access the local web UI at `https://<IP address of a data network interface>`. 
 
-After the device setup is complete, you can connect to the device shares and copy the data from your computer to the device. 
+After the device setup is complete, you can connect to the device shares and copy the data. 
 
 ::: zone-end
 
@@ -159,10 +161,15 @@ In this tutorial, you learned about Azure Data Box topics such as:
 > * Cable your Data Box
 > * Connect to your Data Box
 
-Advance to the next tutorial to learn how to copy data on your Data Box.
+Advance to the next tutorial to learn how to copy data.
 
 > [!div class="nextstepaction"]
-> [Copy your data to Azure Data Box](./data-box-deploy-copy-data.md)
+> [Copy your data to Azure Data Box for import order](./data-box-deploy-copy-data.md)
+
+Or
+
+> [!div class="nextstepaction"]
+> [Copy your data from Azure Data Box for export order](./data-box-deploy-export-copy-data.md)
 
 ::: zone-end
 

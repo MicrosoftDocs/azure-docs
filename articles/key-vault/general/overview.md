@@ -1,6 +1,6 @@
 ---
 title: Azure Key Vault Overview - Azure Key Vault | Microsoft Docs
-description: Azure Key Vault is a cloud service that works as a secure secrets store.
+description: Azure Key Vault is a secure secrets store, providing management for secrets, keys, and certificates, all backed by Hardware Security Modules.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -22,7 +22,7 @@ Azure Key Vault helps solve the following problems:
 - **Secrets Management** - Azure Key Vault can be used to Securely store and tightly control access to tokens, passwords, certificates, API keys, and other secrets
 - **Key Management** - Azure Key Vault can also be used as a Key Management solution. Azure Key Vault makes it easy to create and control the encryption keys used to encrypt your data. 
 - **Certificate Management** - Azure Key Vault is also a service that lets you easily provision, manage, and deploy public and private Transport Layer Security/Secure Sockets Layer (TLS/SSL) certificates for use with Azure and your internal connected resources. 
-- **Store secrets backed by Hardware Security Modules** - The secrets and keys can be protected either by software or FIPS 140-2 Level 2 validated HSMs
+- **Store secrets backed by Hardware Security Modules** - The secrets, keys, and certificates at store are encrypted either with software key (Standard tier) or FIPS 140-2 Level 2 validated HSMs key (Premium tier) 
 
 ## Why use Azure Key Vault?
 
