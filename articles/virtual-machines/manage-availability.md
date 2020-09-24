@@ -23,7 +23,7 @@ There are three scenarios that can lead to virtual machine in Azure being impact
 
 * **An Unexpected Downtime** is when the hardware or the physical infrastructure for the virtual machine fails unexpectedly. This can include local network failures, local disk failures, or other rack level failures. When detected, the Azure platform automatically migrates (heals) your virtual machine to a healthy physical machine in the same datacenter. During the healing procedure, virtual machines experience downtime (reboot) and in some cases loss of the temporary drive. The attached OS and data disks are always preserved.
 
-  Virtual machines can also experience downtime in the unlikely event of an outage or disaster that affects an entire datacenter, or even an entire region. For these scenarios, Azure provides protection options including  [availability zones](../availability-zones/az-overview.md) and [paired regions](best-practices-availability-paired-regions.md#what-are-paired-regions).
+  Virtual machines can also experience downtime in the unlikely event of an outage or disaster that affects an entire datacenter, or even an entire region. For these scenarios, Azure provides protection options including  [availability zones](../availability-zones/az-overview.md) and [paired regions](regions.md#region-pairs).
 
 * **Planned Maintenance events** are periodic updates made by Microsoft to the underlying Azure platform to improve overall reliability, performance, and security of the platform infrastructure that your virtual machines run on. Most of these updates are performed without any impact upon your Virtual Machines or Cloud Services (see [Maintenance that doesn't require a reboot](maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot)). While the Azure platform attempts to use VM Preserving Maintenance in all possible occasions, there are rare instances when these updates require a reboot of your virtual machine to apply the required updates to the underlying infrastructure. In this case, you can perform Azure Planned Maintenance with Maintenance-Redeploy operation by initiating the maintenance for their VMs in the suitable time window. For more information, see [Planned Maintenance for Virtual Machines](maintenance-and-updates.md).
 
@@ -40,7 +40,7 @@ To reduce the impact of downtime due to one or more of these events, we recommen
 
 ## Use availability zones to protect from datacenter level failures
 
-[Availability zones](../articles/availability-zones/az-overview.md) expand the level of control you have to maintain the availability of the applications and data on your VMs. Availability Zones are unique physical locations within an Azure region. Each zone is made up of one or more datacenters equipped with independent power, cooling, and networking. To ensure resiliency, there are a minimum of three separate zones in all enabled regions. The physical separation of Availability Zones within a region protects applications and data from datacenter failures. Zone-redundant services replicate your applications and data across Availability Zones to protect from single-points-of-failure.
+[Availability zones](../availability-zones/az-overview.md) expand the level of control you have to maintain the availability of the applications and data on your VMs. Availability Zones are unique physical locations within an Azure region. Each zone is made up of one or more datacenters equipped with independent power, cooling, and networking. To ensure resiliency, there are a minimum of three separate zones in all enabled regions. The physical separation of Availability Zones within a region protects applications and data from datacenter failures. Zone-redundant services replicate your applications and data across Availability Zones to protect from single-points-of-failure.
 
 An Availability Zone in an Azure region is a combination of a **fault domain** and an **update domain**. For example, if you create three or more VMs across three zones in an Azure region, your VMs are effectively distributed across three fault domains and three update domains. The Azure platform recognizes this distribution across update domains to make sure that VMs in different zones are not updated at the same time.
 
@@ -66,7 +66,7 @@ Fault domains define the group of virtual machines that share a common power sou
    ![Conceptual drawing of the update domain and fault domain configuration](./media/virtual-machines-common-manage-availability/ud-fd-configuration.png)
 
 ## Use managed disks for VMs in an availability set
-If you are currently using VMs with unmanaged disks, we highly recommend you covert from unmanaged to managed disks for [Linux](linux/convert-unmanaged-to-managed-disks.md) and [Windows](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md).
+If you are currently using VMs with unmanaged disks, we highly recommend you covert from unmanaged to managed disks for [Linux](./linux/convert-unmanaged-to-managed-disks.md) and [Windows](./windows/convert-unmanaged-to-managed-disks.md).
 
 [Managed disks](./managed-disks-overview.md) provide better reliability for Availability Sets by ensuring that the disks of VMs in an Availability Set are sufficiently isolated from each other to avoid single points of failure. It does this by automatically placing the disks in different storage fault domains (storage clusters) and aligning them with the VM fault domain. If a storage fault domain fails due to hardware or software failure, only the VM instance with disks on the storage fault domain fails.
 ![Managed disks FDs](./media/virtual-machines-common-manage-availability/md-fd-updated.png)
@@ -93,7 +93,7 @@ az vm list-skus --resource-type availabilitySets --query '[?name==`Aligned`].{Lo
 If you plan to use VMs with unmanaged disks, follow below best practices for Storage accounts where virtual hard disks (VHDs) of VMs are stored as [page blobs](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs).
 
 1. **Keep all disks (OS and data) associated with a VM in the same storage account**
-2. **Review the [limits](../articles/storage/blobs/scalability-targets-premium-page-blobs.md) on the number of unmanaged disks in an Azure Storage account** before adding more VHDs to a storage account
+2. **Review the [limits](../storage/blobs/scalability-targets-premium-page-blobs.md) on the number of unmanaged disks in an Azure Storage account** before adding more VHDs to a storage account
 3. **Use a separate storage account for each VM in an Availability Set.** Do not share Storage accounts with multiple VMs in the same Availability Set. It is acceptable for VMs across different Availability Sets to share storage accounts if above best practices are followed
 ![Unmanaged disks FDs](./media/virtual-machines-common-manage-availability/umd-updated.png)
 
@@ -103,12 +103,12 @@ When you subscribe to [scheduled events](./linux/scheduled-events.md), your VM i
 
 
 ## Combine a load balancer with availability zones or sets
-Combine the [Azure Load Balancer](../articles/load-balancer/load-balancer-overview.md) with an availability zone or set to get the most application resiliency. The Azure Load Balancer distributes traffic between multiple virtual machines. For our Standard tier virtual machines, the Azure Load Balancer is included. Not all virtual machine tiers include the Azure Load Balancer. For more information about load balancing your virtual machines, see **Load Balancing virtual machines** for [Linux](linux/tutorial-load-balancer.md) or [Windows](windows/tutorial-load-balancer.md).
+Combine the [Azure Load Balancer](../load-balancer/load-balancer-overview.md) with an availability zone or set to get the most application resiliency. The Azure Load Balancer distributes traffic between multiple virtual machines. For our Standard tier virtual machines, the Azure Load Balancer is included. Not all virtual machine tiers include the Azure Load Balancer. For more information about load balancing your virtual machines, see **Load Balancing virtual machines** for [Linux](linux/tutorial-load-balancer.md) or [Windows](windows/tutorial-load-balancer.md).
 
 If the load balancer is not configured to balance traffic across multiple virtual machines, then any planned maintenance event affects the only traffic-serving virtual machine, causing an outage to your application tier. Placing multiple virtual machines of the same tier under the same load balancer and availability set enables traffic to be continuously served by at least one instance.
 
-For a tutorial on how to load balance across availability zones, see [Load balance VMs across all availability zones by using the Azure CLI](../articles/load-balancer/load-balancer-standard-public-zone-redundant-cli.md).
+For a tutorial on how to load balance across availability zones, see [Tutorial: Load balance VMs across availability zones with a Standard Load Balancer using the Azure portal](../load-balancer/tutorial-load-balancer-standard-public-zone-redundant-portal.md).
 
 
 ## Next steps
-To learn more about load balancing your virtual machines, see [Load Balancing virtual machines](../../load-balancer/load-balancer-overview.md).
+To learn more about load balancing your virtual machines, see [Load Balancing virtual machines](../load-balancer/load-balancer-overview.md).
