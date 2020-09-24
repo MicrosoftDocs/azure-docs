@@ -142,27 +142,33 @@ Synapse SQL pool supports a maximum of eight nesting levels. This capability is 
 The top-level stored procedure call equates to nest level 1.
 
 ```sql
-EXEC prc_nesting
+EXEC clean_up 'mytest'
 ```
 
 If the stored procedure also makes another EXEC call, the nest level increases to two.
 
 ```sql
-CREATE PROCEDURE prc_nesting
+CREATE PROCEDURE clean_up @name SYSNAME
 AS
-EXEC prc_nesting_2  -- This call is nest level 2
+    EXEC drop_external_table_if_exists @name  -- This call is nest level 2
 GO
-EXEC prc_nesting
+EXEC clean_up 'mytest'  -- This call is nest level 1
 ```
 
 If the second procedure then executes some dynamic SQL, the nest level increases to three.
 
 ```sql
-CREATE PROCEDURE prc_nesting_2
-AS
-EXEC sp_executesql N'SELECT ''another nest level'''  -- This call is nest level 2
+CREATE PROCEDURE drop_external_table_if_exists @name SYSNAME
+AS BEGIN
+    /* See full code in the previous example */
+    EXEC sp_executesql @tsql = @drop_stmt;  -- This call is nest level 3
+END
 GO
-EXEC prc_nesting
+CREATE PROCEDURE clean_up @name SYSNAME
+AS
+    EXEC drop_external_table_if_exists @name  -- This call is nest level 2
+GO
+EXEC clean_up 'mytest'  -- This call is nest level 1
 ```
 
 > [!NOTE]
