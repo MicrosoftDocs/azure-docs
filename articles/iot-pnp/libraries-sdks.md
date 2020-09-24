@@ -44,4 +44,4 @@ The IoT Plug and Play libraries and SDKs enable developers to build IoT solution
 
 ## Next steps
 
-To try out the SDKs and libraries, see the  [Developer Guide](concepts-developer-guide.md) and the [device quickstarts](quickstart-connect-device-c.md) and [service quickstarts](quickstart-service-node.md).
+To try out the SDKs and libraries, see the  [Developer Guide](concepts-developer-guide-device-csharp.md) and the [device quickstarts](quickstart-connect-device-c.md) and [service quickstarts](quickstart-service-node.md).

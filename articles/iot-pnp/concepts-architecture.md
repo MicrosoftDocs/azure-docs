@@ -93,4 +93,4 @@ Now that you have an overview of the architecture of an IoT Plug and Play soluti
 
 - [The model repository](./concepts-model-repository.md)
 - [Digital twin model integration](./concepts-model-discovery.md)
-- [Developing for IoT Plug and Play](./concepts-developer-guide.md)
+- [Developing for IoT Plug and Play](./concepts-developer-guide-device-csharp.md)

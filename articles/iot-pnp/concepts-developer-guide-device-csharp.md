@@ -1,33 +1,19 @@
 ---
-title: Developer guide - IoT Plug and Play | Microsoft Docs
-description: Description of IoT Plug and Play for developers
+title: Device developer guide (C#) - IoT Plug and Play | Microsoft Docs
+description: Description of IoT Plug and Play for C# device developers
 author: rido-min
 ms.author: rmpablos
-ms.date: 07/16/2020
+ms.date: 09/24/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ---
 
-# IoT Plug and Play developer guide
+# IoT Plug and Play device developer guide (C#)
 
-IoT Plug and Play lets you build smart devices that advertise their capabilities to Azure IoT applications. IoT Plug and Play devices don't require manual configuration when a customer connects them to IoT Plug and Play-enabled applications.
+[!INCLUDE [iot-pnp-device-devguide-selector.md](../../includes/iot-pnp-device-devguide-selector.md)]
 
-A smart device might be implemented directly, use [modules](../iot-hub/iot-hub-devguide-module-twins.md), or use [IoT Edge modules](../iot-edge/about-iot-edge.md).
-
-This guide describes the basic steps required to create a device, module, or IoT Edge module that follows the [IoT Plug and Play conventions](concepts-convention.md), and the available REST APIs you can use to interact with the device.
-
-To build an IoT Plug and Play device, module, or IoT Edge module, follow these steps:
-
-1. Ensure your device is using either the MQTT or MQTT over WebSockets protocol to connect to Azure IoT Hub.
-1. Create a [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl) model to describe your device. To learn more, see [Understand components in IoT Plug and Play models](concepts-components.md).
-1. Update your device or module to announce the `model-id` as part of the device connection.
-1. Implement telemetry, properties, and commands using the [IoT Plug and Play conventions](concepts-convention.md)
-
-Once your device or module implementation is ready, use the [Azure IoT explorer](howto-use-iot-explorer.md) to validate that the device follows the IoT Plug and Play conventions.
-
-> [!Tip]
-> All code fragments in this article use C#, but the concepts are applicable to any of the available SDKs for C, Python, Node, and Java.
+[!INCLUDE [iot-pnp-device-devguide-intro.md](../../includes/iot-pnp-device-devguide-intro.md)]
 
 ## Model ID announcement
 
@@ -44,16 +30,6 @@ The new `ClientOptions` overload is available in all `DeviceClient` methods used
 
 > [!TIP]
 > For modules and IoT Edge, use `ModuleClient` in place of `DeviceClient`.
-
-The model ID announcement has been added to the next versions of the SDKs
-
-|SDK|Version|
-|---|-------|
-|C-SDK|1.3.9|
-|.NET|1.27.0|
-|Java|1.14.0|
-|Node|1.17.0|
-|Python|2.1.4|
 
 ## DPS payload
 
@@ -388,71 +364,4 @@ await client.SetMethodHandlerAsync("start", (MethodRequest req, object ctx) =>
 > [!Tip]
 > The request and response names aren't present in the serialized payloads transmitted over the wire.
 
-## Interact with the device
-
-IoT Plug and Play lets you use devices that have announced their model ID with your IoT hub. For example, you can access the properties and commands of a device directly.
-
-To use an IoT Plug and Play device that's connected to your IoT hub, use either one of the IoT service SDKs or the IoT Hub REST API:
-
-### Service SDKs
-
-Use the Azure IoT Service SDKs in your solution to interact with devices and modules. For example, you can use the service SDKs to read and update twin properties and invoke commands. Supported languages include C#, Java, Node.js, and Python.
-
-The service SDKs let you access device information from a solution, such as a desktop or web application. The service SDKs include two namespaces and object models that you can use to retrieve the model ID:
-
-- Iot Hub service client.
-- Digital Twins service client.
-
-| Language | IoT Hub service client | Digital Twins service client |
-| -------- | ---------------------- | ---------------------------- |
-| C#       | [Documentation](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.shared.twin.modelid?view=azure-dotnet-preview#Microsoft_Azure_Devices_Shared_Twin_ModelId&preserve-view=true) <br/> [Sample](https://github.com/Azure/azure-iot-sdk-csharp/blob/pnp-preview-refresh/iothub/service/samples/PnpServiceSamples/Thermostat/Program.cs)| Not available |
-| Java     | [Documentation](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwindevice?view=azure-java-stable&preserve-view=true) <br/> [Sample](https://github.com/Azure/azure-iot-sdk-java/blob/pnp-preview-refresh/service/iot-service-samples/pnp-service-sample/thermostat-service-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/service/Thermostat.java)| Not available |
-| Node.js  | [Documentation](https://docs.microsoft.com/javascript/api/azure-iothub/twin?view=azure-node-latest&preserve-view=true) <br/> [Sample](https://github.com/Azure/azure-iot-sdk-node/blob/master/service/samples/javascript/twin.js)| [Documentation](https://docs.microsoft.com/javascript/api/azure-iot-digitaltwins-service/?view=azure-node-latest&preserve-view=true) |
-| Python   | [Documentation](https://docs.microsoft.com/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?view=azure-python&preserve-view=true) <br/> [Sample](https://github.com/Azure/azure-iot-sdk-python/blob/pnp-preview-refresh/azure-iot-hub/samples/iothub_registry_manager_method_sample.py)| [Documentation](https://docs.microsoft.com/javascript/api/azure-iot-digitaltwins-service/?view=azure-node-latest&preserve-view=true) |
-
-### REST API
-
-The following examples use the IoT Hub REST API to interact with a connected IoT Plug and Play device. The current version of the API is `2020-09-30`. Append `?api-version=2020-05-31` to your REST PI calls.
-
-> [!NOTE]
-> Module twins are not currently supported by the `digitalTwins` API.
-
-If your thermostat device is called `t-123`, you get the all the properties on all the interfaces implemented by your device with a REST API GET call:
-
-```REST
-GET /digitalTwins/t-123
-```
-
-This call will include the Json property `$metadata.$model` with the model ID announced by the device.
-
-All properties on all interfaces are accessed with the `GET /DigitalTwin/{device-id}` REST API template where `{device-id}` is the identifier for the device:
-
-```REST
-GET /digitalTwins/{device-id}
-```
-
-You can call IoT Plug and Play device commands directly. If the `Thermostat` component in the `t-123` device has a `restart` command, you can call it with a REST API POST call:
-
-```REST
-POST /digitalTwins/t-123/components/Thermostat/commands/restart
-```
-
-More generally, commands can be called through this REST API template:
-
-- `device-id`: the identifier for the device.
-- `component-name`: the name of the interface from the implements section in the device capability model.
-- `command-name`: the name of the command.
-
-```REST
-/digitalTwins/{device-id}/components/{component-name}/commands/{command-name}
-```
-
-## Next steps
-
-Now that you've learned about device modeling, here are some additional resources:
-
-- [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl)
-- [C device SDK](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
-- [IoT REST API](https://docs.microsoft.com/rest/api/iothub/device)
-- [Model components](./concepts-components.md)
-- [Install and use the DTDL authoring tools](howto-use-dtdl-authoring-tools.md)
+[!INCLUDE [iot-pnp-device-devguide-summary.md](../../includes/iot-pnp-device-devguide-summary.md)]

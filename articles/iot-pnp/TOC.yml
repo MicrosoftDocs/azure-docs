@@ -53,8 +53,14 @@
   items:
   - name: Architecture
     href: concepts-architecture.md
-  - name: Developer guide
-    href: concepts-developer-guide.md
+  - name: Device developer guide
+    items:
+    - name: C#
+      href: concepts-developer-guide-device-csharp.md
+    - name: Node.js
+      href: concepts-developer-guide-device-node.md
+  - name: Service developer guide
+    href: concepts-developer-guide-service.md
   - name: Components
     href: concepts-components.md
   - name: IoT Plug and Play conventions
