@@ -5,6 +5,7 @@ ms.topic: troubleshooting
 ms.author: pepogors
 author: peterpogorski
 ms.date: 09/28/2020
+ms.custom: references_regions
 ---
 
 # Service Fabric managed clusters frequently asked questions

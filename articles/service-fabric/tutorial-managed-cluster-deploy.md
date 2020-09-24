@@ -3,6 +3,7 @@ title: Deploy a Service Fabric managed cluster (preview)
 description: In this tutorial, you will deploy a Service Fabric managed cluster for testing.
 ms.topic: tutorial
 ms.date: 08/27/2020
+ms.custom: references_regions
 ---
 
 # Tutorial: Deploy a Service Fabric managed cluster (preview)
