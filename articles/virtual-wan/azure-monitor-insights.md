@@ -14,7 +14,7 @@ ms.author: cherylmc
 
 [Azure Monitor Insights](../azure-monitor/insights/network-insights-overview.md) for Azure Virtual WAN gives users and operators the ability to view the state and status of a virtual WAN, presented via an autodiscovered topological map. Resource state and status overlays on the map give you a snapshot view of the overall health of the virtual WAN. You can navigate resources on the map via one-click access to the resource configuration pages of the Virtual WAN portal.
 
-Virtual WAN resource-level metrics are collected and presented via a pre-packaged Virtual WAN metrics workbook that shows the metrics at virtual WAN, hub, gateway, and connection levels. This article walks you through the steps to use Azure Monitor Insights for Virtual WAN to view your Virtual WAN topology and metrics all in a single place.
+Virtual WAN resource-level metrics are collected and presented via a pre-packaged Virtual WAN metrics workbook. The workbook shows the metrics at virtual WAN, hub, gateway, and connection levels. This article walks you through the steps to use Azure Monitor Insights for Virtual WAN to view your Virtual WAN topology and metrics all in a single place.
 
 > [!NOTE]
 > The **Insights** menu option in the Virtual WAN portal is currently being rolled out. While this menu is being rolled out, you can access the Virtual WAN Topology and Metrics Workbook by using Azure Monitor for Networks. For more information, see [Azure Monitor for Networks](../azure-monitor/insights/network-insights-overview.md). 
@@ -35,7 +35,7 @@ Go to **Azure portal** > **Virtual WAN**. In the **Monitor** menu in the left pa
 
 :::image type="content" source="./media/azure-monitor-insights/monitor-menu.png" alt-text="Screenshot that shows the Insights menu option." lightbox="./media/azure-monitor-insights/monitor-menu.png":::
 
-In the **Insights** view, you can view the autodiscovered Virtual WAN resources. These resources include hubs, gateways, firewalls, connections and spoke virtual networks, third-party NVAs, and branches in an end-to-end Virtual WAN, as shown in **Figure 2**.
+In the **Insights** view, you can view the autodiscovered Virtual WAN resources. These resources include hubs, gateways, firewalls, connections and spoke virtual networks, third-party NVAs, and branches in an end-to-end Virtual WAN. For an example, see **Figure 2**.
 
 The resource state and status are color-coded and overlaid on the resource icons in the map. High-level Virtual WAN metrics, like hub capacities and gateway utilization, appear on the right side of the window in a mini workbook.
 
@@ -61,27 +61,27 @@ The **Dependency** view map displays the following resources as a connected grap
 
 The dependency map also displays indirectly connected virtual networks (virtual networks that are peered with Virtual WAN spoke virtual networks).
 
-The dependency map enables easy navigation to the configuration settings of each resource. For example, you can hover over the hub resource to view the basic resource configuration such as hub region, and hub prefix. Right-click to access the Azure portal page of the hub resource.
+The dependency map enables easy navigation to the configuration settings of each resource. For example, you can hover over the hub resource to view the basic resource configuration, like hub region and hub prefix. Right-click to access the Azure portal page of the hub resource.
 
 **Figure 4: Navigate to resource-specific information**
 
-:::image type="content" source="./media/azure-monitor-insights/resource-information.png" alt-text="resource information":::
+:::image type="content" source="./media/azure-monitor-insights/resource-information.png" alt-text="Screenshot that shows how to navigate to resource-specific information.":::
 
-The search and filter bar on the Dependency view provide an effortless way to search through the graph. Different filters provide help to narrow your search down to a specific path and state.
+The search and filter bar in the **Dependency** view provides an easy way to search through the graph. Various filters provide help to narrow your search down to a specific path and state.
 
 **Figure 5: Search and filtering**
 
-:::image type="content" source="./media/azure-monitor-insights/search-filter.png" alt-text="search and filter bar" lightbox="./media/azure-monitor-insights/search-filter.png":::
+:::image type="content" source="./media/azure-monitor-insights/search-filter.png" alt-text="Screenshot that shows the search and filter bar." lightbox="./media/azure-monitor-insights/search-filter.png":::
 
 ## <a name="detailed"></a>Detailed metrics
 
-You can select **View detailed metrics** to access the detailed **Metrics** page. The Metrics page is a dashboard that is preconfigured with separate tabs providing useful insights into your virtual WAN resource capacity, performance, and utilization at the virtual WAN level, hub level, and individual connections.
+You can select **View detailed metrics** to access the detailed **Metrics** page. The **Metrics** page is a dashboard that's preconfigured with separate tabs. These tabs provide insights into your virtual WAN resource capacity, performance, and utilization at the virtual-WAN level and hub level, and at the level of individual connections.
 
 **Figure 6: Detailed Metrics dashboard**
 
-:::image type="content" source="./media/azure-monitor-insights/detailed-metrics.png" alt-text="detailed metrics" lightbox="./media/azure-monitor-insights/detailed-metrics.png":::
+:::image type="content" source="./media/azure-monitor-insights/detailed-metrics.png" alt-text="Screenshot that shows the detailed metrics dashboard." lightbox="./media/azure-monitor-insights/detailed-metrics.png":::
 
 ## Next steps
 
-* To learn more about metrics in Azure Monitor, see [Metrics in Azure Monitor](../azure-monitor/platform/data-platform-metrics.md).
+* To learn more, see [Metrics in Azure Monitor](../azure-monitor/platform/data-platform-metrics.md).
 * For a full description of all the Virtual WAN metrics, see [Virtual WAN logs and metrics](logs-metrics.md).
