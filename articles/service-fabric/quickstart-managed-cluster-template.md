@@ -38,7 +38,7 @@ Take note of the certificate thumbprint as this will be required to deploy the t
 
 1. Select the following image to sign in to Azure and open a template.
 
-    [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure-samples%2Fservice-fabric-cluster-templates%2F3-vm-windows-1-nodetype-managed-basic%2Fazuredeploy.json)
+      [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure-samples%2Fservice-fabric-cluster-templates%2F3-vm-windows-1-nodetype-managed-basic%2Fazuredeploy.json)
 
 2. Select or enter the following values
 
@@ -47,12 +47,12 @@ Take note of the certificate thumbprint as this will be required to deploy the t
     * **Subscription**: Select an Azure subscription.
     * **Resource Group**: Select **Create new**. Enter a unique name for the resource group, such as *myResourceGroup*, then choose **OK**.
     * **Location**: Select a location, such as **eastus2**.
-      > [!NOTE]
-      > Supported regions for Service Fabric managed clusters preview include `centraluseuap`, `eastus2euap`, `eastasia`, `northeurope`, `westcentralus`, and `eastus2`.
+> [!NOTE]
+> Supported regions for Service Fabric managed clusters preview include `centraluseuap`, `eastus2euap`, `eastasia`, `northeurope`, `westcentralus`, and `eastus2`.
     * **Cluster Name**: Enter a unique name for your cluster, such as *mysfcluster*.
     * **Admin Username**: Enter a name for the admin to be used for RDP on the underlying VMs in the cluster.
     * **Admin Password**: Enter a password for the admin to be used for RDP on the underlying VMs in the cluster.
-    * **Client Certificate Thumbprint**: Provide the thumbprint of the client certificate that you would like to use to access your cluster. If you do not have a certificate, follow [set and retrieve a certificate](../key-vault/certificates/quick-create-portal.md) to create a self-signed certificate. 
+    * **Client Certificate Thumbprint**: Provide the thumbprint of the client certificate that you would like to use to access your cluster. If you do not have a certificate, follow [set and retrieve a certificate](../key-vault/certificates/quick-create-portal.md) to create a self-signed certificate.
     * **Node Type Name**: Enter a unique name for your node type, such as *nt1*.
     * **I agree to the terms and conditions stated above**: Check this box to agree. 
 
@@ -73,10 +73,10 @@ Once the deployment completes, find the Service Fabric Explorer value in the out
 
 When no longer needed, delete the resource group, which deletes the resources in the resource group.
 
-    ```powershell
-    $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-    Remove-AzResourceGroup -Name $resourceGroupName
-    ```
+```powershell
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+Remove-AzResourceGroup -Name $resourceGroupName
+```
 
 ## Next steps
 

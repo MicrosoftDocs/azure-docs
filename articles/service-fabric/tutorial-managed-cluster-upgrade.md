@@ -2,7 +2,7 @@
 title: Upgrade a Service Fabric managed cluster (preview)
 description: In this tutorial, learn how to upgrade a Service Fabric managed cluster.
 ms.topic: tutorial
-ms.date: 09/38/2020
+ms.date: 09/28/2020
 ---
 
 # Tutorial: Upgrade a Service Fabric managed cluster (preview)
@@ -24,7 +24,7 @@ This part of the series covers how to:
 ## Prerequisites
 
 * A Service Fabric managed cluster (see [*Deploy a managed cluster*](tutorial-managed-cluster-deploy.md)).
-* [Azure PowerShell 4.7.0](https://docs.microsoft.com/en-us/powershell/azure/release-notes-azureps?view=azps-4.7.0#azservicefabric) or later (see [*Install Azure PowerShell*](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-4.7.0)).
+* [Azure PowerShell 4.7.0](https://docs.microsoft.com/powershell/azure/release-notes-azureps?view=azps-4.7.0#azservicefabric) or later (see [*Install Azure PowerShell*](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-4.7.0&preserve-view=true)).
 
 ## Upgrade a Service Fabric managed cluster
 

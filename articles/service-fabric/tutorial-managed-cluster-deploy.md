@@ -32,7 +32,7 @@ Before you begin this tutorial:
 
 * Install the [Service Fabric SDK and PowerShell module](service-fabric-get-started.md).
 
-* Install [Azure PowerShell 4.7.0](https://docs.microsoft.com/powershell/azure/release-notes-azureps?view=azps-4.7.0#azservicefabric) (or later).
+* Install [Azure PowerShell 4.7.0](https://docs.microsoft.com/powershell/azure/release-notes-azureps?view=azps-4.7.0#azservicefabric&preserve-view=true) (or later).
 
 ## Connect to your Azure account
 

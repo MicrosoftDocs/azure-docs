@@ -56,4 +56,4 @@ Service Fabric managed clusters are available in both Basic and Standard SKUs.
 To get started with Service Fabric managed clusters, try out the quickstart:
 
 > [!div class="nextstepaction"]
-> [Create a Service Fabric managed cluster (preview)](quickstart-managed-cluster.md)
+> [Create a Service Fabric managed cluster (preview)](quickstart-managed-cluster-template.md)

@@ -24,7 +24,7 @@ This part of the series covers how to:
 ## Prerequisites
 
 * A Service Fabric managed cluster (see [*Deploy a managed cluster*](tutorial-managed-cluster-deploy.md)).
-* [Azure PowerShell 4.7.0](https://docs.microsoft.com/en-us/powershell/azure/release-notes-azureps?view=azps-4.7.0#azservicefabric) or later (see [*Install Azure PowerShell*](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-4.7.0)).
+* [Azure PowerShell 4.7.0](https://docs.microsoft.com/powershell/azure/release-notes-azureps?view=azps-4.7.0#azservicefabric) or later (see [*Install Azure PowerShell*](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-4.7.0&preserve-view=true)).
 
 ## Scale a Service Fabric managed cluster
 Change the instance count to increase or decrease the number of nodes on the node type that you would like to scale. You can find node type names in the Azure Resource Manager template (ARM template) from your cluster deployment, or in the Service Fabric Explorer.  
@@ -33,9 +33,9 @@ Change the instance count to increase or decrease the number of nodes on the nod
 > If the node type is primary you will not be able to go below 3 nodes for a Basic SKU cluster, and 5 nodes for a Standard SKU cluster.
 
 ```powershell
-$resourceGroup = "myResourceGroup" 
+$resourceGroup = "myResourceGroup"
 $clusterName = "myCluster"
-$nodeTypeName = "FE" 
+$nodeTypeName = "FE"
 $instanceCount = "7"
 
 Set-AzServiceFabricManagedNodeType -ResourceGroupName $resourceGroup -ClusterName $clusterName -name $nodeTypeName -InstanceCount $instanceCount -Verbose
