@@ -38,7 +38,7 @@ In part 1 of this tutorial series, you will:
 
 - An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try [Azure Machine Learning](https://aka.ms/AMLFree).
 - Familiarity with Python and [Machine Learning concepts](concept-azure-machine-learning-architecture.md). Examples include environments, training, and scoring.
-- A local development environment: a laptop with Python installed and your favorite IDE (for example: Visual Studio Code, PyCharm, or Jupyter).
+- A local development environment: a laptop with Python installed and your favorite IDE (for example, Visual Studio Code, PyCharm, or Jupyter).
 
 ## Install the Azure Machine Learning SDK
 
@@ -50,7 +50,7 @@ You can use the tools most familiar to you (for example, Conda and pip) to set u
 pip install azureml-sdk
 ```
 
-## Create directory structure for code
+## Create a directory structure for code
 We recommend that you set up the following simple directory structure for this tutorial:
 
 ```markdown
@@ -116,7 +116,7 @@ workspace. Namely, it contains your subscription ID, resource group, and workspa
 
 ## Create an Azure Machine Learning compute cluster
 
-Create a python script in the `tutorial` top-level directory called `02-create-compute.py`. Populate it with the following code to create an Azure Machine Learning compute cluster that will autoscale between zero and four nodes:
+Create a Python script in the `tutorial` top-level directory called `02-create-compute.py`. Populate it with the following code to create an Azure Machine Learning compute cluster that will autoscale between zero and four nodes:
 
 ```python
 # tutorial/02-create-compute.py

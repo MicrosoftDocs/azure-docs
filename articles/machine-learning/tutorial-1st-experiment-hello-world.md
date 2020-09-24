@@ -17,7 +17,7 @@ ms.custom: devx-track-python
 
 In this tutorial, you learn how to use the Azure Machine Learning SDK for Python to submit and run a Python "Hello world!" script.
 
-This tutorial is *part 2 of a four-part tutorial series* in which you learn the fundamentals of Azure Machine Learning and complete jobs-based machine learning tasks in Azure. This tutorial builds on the work you completed in [Tutorial part 1: Set up your local machine for Azure Machine Learning](tutorial-1st-experiment-sdk-setup-local.md).
+This tutorial is *part 2 of a four-part tutorial series* in which you learn the fundamentals of Azure Machine Learning and complete jobs-based machine learning tasks in Azure. This tutorial builds on the work you completed in [Part 1: Set up your local machine for Azure Machine Learning](tutorial-1st-experiment-sdk-setup-local.md).
 
 In this tutorial, you will:
 
@@ -30,7 +30,7 @@ In this tutorial, you will:
 
 ## Prerequisites
 
-- Completion of [part 1 of the tutorial on local machine setup](tutorial-1st-experiment-sdk-setup-local.md) if you don't already have an Azure Machine Learning workspace.
+- Completion of [part 1](tutorial-1st-experiment-sdk-setup-local.md) if you don't already have an Azure Machine Learning workspace.
 - Introductory knowledge of the Python language and machine learning workflows.
 - Local development environment, such as Visual Studio Code, Jupyter, or PyCharm.
 - Python (version 3.5 to 3.7).

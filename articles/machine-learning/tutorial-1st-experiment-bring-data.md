@@ -289,9 +289,9 @@ python 06-run-pytorch-data.py
 
 This code will print a URL to the experiment in Azure Machine Learning Studio. If you go to that link, you'll be able to see your code running.
 
-### Inspect the 70_driver_log file
+### Inspect the log file
 
-In Azure Machine Learning Studio, go to the experiment run (by selecting the previous URL output) followed by **Outputs + logs**. Select the **70_driver_log.txt** file. You should see the following output:
+In Azure Machine Learning Studio, go to the experiment run (by selecting the previous URL output) followed by **Outputs + logs**. Select the `70_driver_log.txt` file. You should see the following output:
 
 ```txt
 Processing 'input'.
