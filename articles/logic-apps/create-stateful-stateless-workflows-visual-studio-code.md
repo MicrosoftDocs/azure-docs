@@ -16,11 +16,11 @@ ms.date: 09/23/2020
 > have constrained capabilities. For more information, see 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-To create logic app workflows that integrate across apps, data, cloud services, and systems, you can use Visual Studio Code and the Azure Logic Apps (Preview) extension to build and run [*stateful* and *stateless* logic app workflows](#stateful-stateless).
+To create logic app workflows that integrate across apps, data, cloud services, and systems, you can use Visual Studio Code and the Azure Logic Apps (Preview) extension to build and locally run [*stateful* and *stateless* logic app workflows](#stateful-stateless) in your development environment.
 
 ![Screenshot that shows Visual Studio Code and logic app workflow.](./media/create-stateful-stateless-workflows-visual-studio-code/visual-studio-code-logic-apps-overview.png)
 
-The logic apps that you create with the public preview extension use the new **Logic App (Preview)** resource type and are powered by the [Azure Functions](../azure-functions/functions-overview.md) runtime. This new resource type can include multiple workflows and is similar in some ways to the **Function App** resource type, which can include multiple functions.
+The logic apps that you create with the public preview extension use the new **Logic App (Preview)** resource type and are powered by the [Azure Functions](../azure-functions/functions-overview.md) runtime on your local computer. This new resource type can include multiple workflows and is similar in some ways to the **Function App** resource type, which can include multiple functions.
 
 Meanwhile, the original **Logic Apps** resource type still exists for you to create and use in Visual Studio Code and in the Azure portal. However, the experiences for the original resource type are separate from the new resource type. At this time, both **Logic Apps** and **Logic App (Preview)** resource types can exist at the same time in Visual Studio Code and in the Azure portal. You can view and access all the deployed logic apps in your Azure subscription, but they appear and are kept separately in their own categories and sections.
 
@@ -31,6 +31,8 @@ This article provides a high-level [overview about this public preview](#whats-n
 * How to meet the [setup requirements](#prerequisites) and [set up Visual Studio Code](#set-up) for the public preview extension.
 
 * How to build new **Logic App (Preview)** workflows by [creating a project and selecting a workflow template](#create-project).
+
+* How to locally run and debug your new logic apps in Visual Studio Code.
 
 * How to publish these new logic apps directly from Visual Studio Code [to Azure](#publish-azure) or [to a Docker container](#deploy-docker) that you can run anywhere. For more information about Docker, see [What is Docker](/dotnet/architecture/microservices/container-docker-introduction/docker-defined)?
 
@@ -239,7 +241,7 @@ Currently, creating the new **Logic App (Preview)** resource is not available on
 
 ## Create a local project
 
-Before you can create your logic app, create a local project so that you can manage and deploy your logic app from Visual Studio Code. The underlying project is very similar to an Azure Functions project, also known as a function app project.
+Before you can create your logic app, create a local project so that you can manage and deploy your logic app from Visual Studio Code. The underlying project is similar to an Azure Functions project, also known as a function app project. However, these project types are separate from each other, so logic app workflows and functions can't exist in the same project.
 
 1. On your computer, create an *empty* local folder to use for the project that you'll later create in Visual Studio Code.
 
