@@ -14,7 +14,7 @@ The service manifest allows resources that are used by the service to be declare
 ## Endpoints
 When an endpoint resource is defined in the service manifest, Service Fabric assigns ports from the reserved application port range when a port isn't specified explicitly. For example, look at the endpoint *ServiceEndpoint1* specified in the manifest snippet provided after this paragraph. Additionally, services can also request a specific port in a resource. Service replicas running on different cluster nodes can be assigned different port numbers, while replicas of a service running on the same node share the port. The service replicas can then use these ports as needed for replication and listening for client requests.
 
-Upon activating a service which specifies an https endpoint, Service Fabric will set the access control entry for the port, bind the specified server certificate to the port, and also grant the identity that the service is running as permissions to the certificate's private key. The activation flow is invoked every time Service Fabric starts, or when the certificate declaration of the application is changed via an upgrade. The endpoint certificate will also be monitored for changes/renewals, and permissions will be periodically re-applied as necessary.
+Upon activating a service that specifies an https endpoint, Service Fabric will set the access control entry for the port, bind the specified server certificate to the port, and also grant the identity that the service is running as permissions to the certificate's private key. The activation flow is invoked every time Service Fabric starts, or when the certificate declaration of the application is changed via an upgrade. The endpoint certificate will also be monitored for changes/renewals, and permissions will be periodically reapplied as necessary.
 
 Upon the termination of the service, Service Fabric will clean up the endpoint access control entry, and remove the certificate binding. However, any permissions applied to the certificate's private key will not be cleaned up.
 
@@ -156,13 +156,13 @@ For Linux clusters, the **MY** store defaults to the folder **/var/lib/sfcerts**
 For an example of a full application that makes use of an HTTPS endpoint, see [add an HTTPS endpoint to an ASP.NET Core Web API front-end service using Kestrel](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-dotnet-app-enable-https-endpoint#define-an-https-endpoint-in-the-service-manifest).
 
 ## Port ACLing for HTTP Endpoints
-Service Fabric will automatically ACL HTTP(S) endpoints specified by default. It will **not** perform automatic acling if an endpoint does not have a [SecurityAccessPolicy](service-fabric-assign-policy-to-endpoint.md) associated with it and Service Fabric is configured to run using an account with Administrator privileges.
+Service Fabric will automatically ACL HTTP(S) endpoints specified by default. It will **not** perform automatic ACLing if an endpoint does not have a [SecurityAccessPolicy](service-fabric-assign-policy-to-endpoint.md) associated with it and Service Fabric is configured to run using an account with Administrator privileges.
 
 ## Overriding Endpoints in ServiceManifest.xml
 
-In the ApplicationManifest add a ResourceOverrides section, which will be a sibling to ConfigOverrides section. In this section, you can specify the override for the Endpoints section in the resources section specified in the Service manifest. Overriding endpoints is supported in runtime 5.7.217/SDK 2.7.217 and higher.
+In the ApplicationManifest, add a ResourceOverrides section, which will be a sibling to ConfigOverrides section. In this section, you can specify the override for the Endpoints section in the resources section specified in the Service manifest. Overriding endpoints is supported in runtime 5.7.217/SDK 2.7.217 and higher.
 
-In order to override EndPoint in ServiceManifest using ApplicationParameters change the ApplicationManifest as following:
+In order to override EndPoint in ServiceManifest using ApplicationParameters, change the ApplicationManifest as such:
 
 In the ServiceManifestImport section, add a new section "ResourceOverrides".
 
@@ -194,7 +194,7 @@ In the Parameters add below:
   </Parameters>
 ```
 
-While deploying the application you can pass in these values as ApplicationParameters.  For example:
+While deploying the application, you can pass in these values as ApplicationParameters.  For example:
 
 ```powershell
 PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -ApplicationTypeName "AppType" -ApplicationTypeVersion "1.0.0" -ApplicationParameter @{Port='1001'; Protocol='https'; Type='Input'; Port1='2001'; Protocol='http'}
@@ -216,7 +216,7 @@ If in the ServiceManifest you specified
 
 Assume the Port1 and Protocol1 value for Application parameters is null or empty. The port will be decided by ServiceFabric and the Protocol will be tcp.
 
-Suppose you specify a wrong value. Say for Port you specified a string value "Foo" instead of an int.  New-ServiceFabricApplication command will fail with an error :
+Suppose you specify a wrong value. Say for Port you specified a string value "Foo" instead of an int.  New-ServiceFabricApplication command will fail with an error:
 `The override parameter with name 'ServiceEndpoint1' attribute 'Port1' in section 'ResourceOverrides' is invalid. The value specified is 'Foo' and required is 'int'.`
 
 ## Next Steps
