@@ -13,7 +13,7 @@ ms.author: alkohli
 
 # Preserving file ACLs, attributes, and timestamps with Azure Data Box
 
-Azure Data Box lets you preserve ACLs, timestamps, and file attributes when sending data to Azure. This article describes the metadata that you can transfer when copying data to Data Box via Server Message Block (SMB) to upload it to Azure Files. Specific steps are provided to copy metadata with Windows tools Linux data copy tools.
+Azure Data Box lets you preserve ACLs, timestamps, and file attributes when sending data to Azure. This article describes the metadata that you can transfer when copying data to Data Box via Server Message Block (SMB) to upload it to Azure Files. Specific steps are provided to copy metadata with Windows and Linux data copy tools.
 
 In this article, the ACLs, timestamps, and file attributes that are transferred are referred to collectively as *metadata*.
 
@@ -29,9 +29,6 @@ Regardless of the data source, for all data transferred over SMB, the following 
 - Read-only attributes on directories.
 - ACLs on data transferred over Network File System (NFS).
 - When using the data copy service to transfer your data. The data copy service reads data directly from your shares and can't read ACLs.
-
-<!-->> [!NOTE]
-> No ACLs are transferred when using the data copy service to transfer your data. The data copy service reads data directly from your shares and can't read ACLs.-->
 
 ## Transferred metadata
 
@@ -81,7 +78,7 @@ The following metadata is transferred when data from the Data Box is uploaded to
 
 To transfer the ACLs, timestamps, and attributes for your data, use the following procedures to copy data into the Data Box. 
 
-### Window-based source data
+### Window data copy tool
 
 To copy data to your Data Box via SMB, use an SMB-compatible file copy tool such as robocopy. The following sample command copies all files and directories.
 
@@ -110,7 +107,7 @@ where
 
 For more information on these robocopy parameters, see [Tutorial: Copy data to Azure Data Box via SMB](./data-box-deploy-copy-data.md)
 
-### Linux-based source data
+### Linux data copy tool
 
 Copy Linux-based source data using a tool such as rsync, which does not preserve metadata. After you copy the data, you can transfer the metadata using a tool such as SMBCACL or CIFSACL. 
 
