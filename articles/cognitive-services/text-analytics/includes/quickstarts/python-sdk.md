@@ -10,7 +10,7 @@ ms.author: aahi
 
 # [Version 3.1 preview](#tab/version-3-1)
 
-[v3.1 Reference documentation](https://aka.ms/azsdk-python-textanalytics-ref-docs) | [v3.1 Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics) | [v3.1 Package (PiPy)](https://pypi.org/project/azure-ai-textanalytics/) | [v3.1 Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples)
+[v3.1 Reference documentation](https://docs.microsoft.com/python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python-preview&preserve-view=true) | [v3.1 Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics) | [v3.1 Package (PiPy)](https://pypi.org/project/azure-ai-textanalytics/) | [v3.1 Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples)
 
 # [Version 3.0](#tab/version-3)
 

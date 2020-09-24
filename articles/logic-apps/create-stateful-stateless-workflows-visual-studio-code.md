@@ -16,11 +16,11 @@ ms.date: 09/23/2020
 > have constrained capabilities. For more information, see 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-To create logic app workflows that integrate across apps, data, cloud services, and systems, you can use Visual Studio Code and the Azure Logic Apps (Preview) extension to build and run [*stateful* and *stateless* logic app workflows](#stateful-stateless).
+To create logic app workflows that integrate across apps, data, cloud services, and systems, you can use Visual Studio Code and the Azure Logic Apps (Preview) extension to build and locally run [*stateful* and *stateless* logic app workflows](#stateful-stateless) in your development environment.
 
 ![Screenshot that shows Visual Studio Code and logic app workflow.](./media/create-stateful-stateless-workflows-visual-studio-code/visual-studio-code-logic-apps-overview.png)
 
-The logic apps that you create with the public preview extension use the new **Logic App (Preview)** resource type and are powered by the [Azure Functions](../azure-functions/functions-overview.md) runtime. This new resource type can include multiple workflows and is similar in some ways to the **Function App** resource type, which can include multiple functions.
+The logic apps that you create with the public preview extension use the new **Logic App (Preview)** resource type and are powered by the [Azure Functions](../azure-functions/functions-overview.md) runtime in your local environment. This new resource type can include multiple workflows and is similar in some ways to the **Function App** resource type, which can include multiple functions.
 
 Meanwhile, the original **Logic Apps** resource type still exists for you to create and use in Visual Studio Code and in the Azure portal. However, the experiences for the original resource type are separate from the new resource type. At this time, both **Logic Apps** and **Logic App (Preview)** resource types can exist at the same time in Visual Studio Code and in the Azure portal. You can view and access all the deployed logic apps in your Azure subscription, but they appear and are kept separately in their own categories and sections.
 
@@ -32,6 +32,8 @@ This article provides a high-level [overview about this public preview](#whats-n
 
 * How to build new **Logic App (Preview)** workflows by [creating a project and selecting a workflow template](#create-project).
 
+* How to locally run and debug your new logic apps in Visual Studio Code.
+
 * How to publish these new logic apps directly from Visual Studio Code [to Azure](#publish-azure) or [to a Docker container](#deploy-docker) that you can run anywhere. For more information about Docker, see [What is Docker](/dotnet/architecture/microservices/container-docker-introduction/docker-defined)?
 
 <a name="whats-new"></a>
@@ -40,7 +42,7 @@ This article provides a high-level [overview about this public preview](#whats-n
 
 The Azure Logic Apps (Preview) extension brings many current and additional Logic Apps capabilities to your local development experience in Visual Studio Code, for example:
 
-* Build logic apps for integration and automation workflows from [300+ connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) for Software-as-a-Service (SaaS) and Platform-as-a-Service (PaaS) apps and services plus connectors for on-premises systems.
+* Build logic apps for integration and automation workflows from [390+ connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) for Software-as-a-Service (SaaS) and Platform-as-a-Service (PaaS) apps and services plus connectors for on-premises systems.
 
   * Some managed connectors such as Azure Service Bus, Azure Event Hubs, and SQL Server run similarly to built-in native triggers and actions such as the HTTP action.
 
@@ -48,7 +50,7 @@ The Azure Logic Apps (Preview) extension brings many current and additional Logi
 
     > [!NOTE]
     > By default, a **Logic App (Preview)** resource has its 
-    > [system-assigned identity](../logic-apps/create-managed-service-identity.md) 
+    > [system-assigned managed identity](../logic-apps/create-managed-service-identity.md) 
     > automatically enabled to authenticate connections at runtime. 
     > This identity differs from the authentication credentials or connection string that you use 
     > when you create a connection. If you disable this identity, connections won't work at runtime.
@@ -239,7 +241,7 @@ Currently, creating the new **Logic App (Preview)** resource is not available on
 
 ## Create a local project
 
-Before you can create your logic app, create a local project so that you can manage and deploy your logic app from Visual Studio Code. The underlying project is very similar to an Azure Functions project, also known as a function app project.
+Before you can create your logic app, create a local project so that you can manage and deploy your logic app from Visual Studio Code. The underlying project is similar to an Azure Functions project, also known as a function app project. However, these project types are separate from each other, so logic app workflows and functions can't exist in the same project.
 
 1. On your computer, create an *empty* local folder to use for the project that you'll later create in Visual Studio Code.
 
@@ -340,8 +342,8 @@ Before you can create your logic app, create a local project so that you can man
 1. From the locations list, find and select a [supported Azure region](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md#available-regions) to use for creating your resource group and resources. This example uses **West Central US**.
 
    > [!IMPORTANT]
-   > Not all regions are currently supported, but updates to add more regions are underway. 
-   > For the currently supported regions, review the preview extension's 
+   > Not all regions are currently supported, but updates to add more regions are underway. Selecting an unsupported region might result in problems, 
+   > such as creating connections. For the currently supported regions, review the preview extension's 
    > [Known Issues GitHub page](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md#available-regions).
 
    ![Screenshot that shows Explorer pane with locations list and "West Central US" selected.](./media/create-stateful-stateless-workflows-visual-studio-code/select-azure-region.png)
@@ -411,6 +413,11 @@ The logic app workflow in this example uses this trigger and these actions:
 
    ![Screenshot that shows Logic App Designer and **Send an email (V2)** pane with "Sign in" selected.](./media/create-stateful-stateless-workflows-visual-studio-code/send-email-action-sign-in.png)
 
+   > [!NOTE]
+   > If you get the error, `Failed to create connection...`, you might have chosen a currently unsupported region for your logic app. 
+   > Updates to add more regions are underway. Meanwhile, for the currently supported regions, review the preview extension's 
+   > [Known Issues GitHub page](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md#available-regions).
+
 1. When Visual Studio Code prompts you for consent to access your email account, select **Open**.
 
    ![Screenshot that shows the Visual Studio Code prompt to permit access.](./media/create-stateful-stateless-workflows-visual-studio-code/visual-studio-code-open-external-website.png)
@@ -431,6 +438,8 @@ The logic app workflow in this example uses this trigger and these actions:
 
    > [!TIP]
    > To prevent future prompts, select **Don't ask again for this extension**.
+
+   After Visual Studio Code creates your connection, some connectors show the message that `The connection will be valid for {n} days only.` This time limit applies only to the duration while you author your logic app in Visual Studio Code. After deployment, this limit no longer applies because your logic app can authenticate at runtime by using its automatically enabled [system-assigned managed identity](../logic-apps/create-managed-service-identity.md). This managed identity differs from the authentication credentials or connection string that you use when you create a connection. If you disable this system-assigned managed identity, connections won't work at runtime.
 
 1. On the designer, if the **Send an email** action doesn't appear selected, select that action.
 
@@ -988,15 +997,11 @@ For this public preview, these capabilities are not available or not supported:
 
 * Creating the new **Logic App (Preview)** resource is currently unavailable on macOS.
 
-* Custom connectors, webhook-based triggers, and the Sliding Window trigger aren't supported in this preview.
+* Custom connectors, webhook-based triggers, and the Sliding Window trigger aren't supported in this preview. For stateless logic app workflows, you can only add actions for [managed connectors](../connectors/apis-list.md#managed-api-connectors), not triggers. To start your workflow, use the [built-in Request, Event Hubs, or Service Bus trigger](../connectors/apis-list.md#built-ins).
 
-* For stateless logic app workflows, you can only add actions for [managed connectors](../connectors/apis-list.md#managed-api-connectors), not triggers. To start your workflow, use the [built-in Request, Event Hubs, or Service Bus trigger](../connectors/apis-list.md#built-ins).
+* You can deploy the new **Logic App (Preview)** resource type only to a [Premium or App Service hosting plan in Azure](#publish-azure) or to a [Docker container](#deploy-docker), and not [integration service environments (ISEs)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). **Consumption** hosting plans aren't supported nor available for deploying this resource type.
 
-* In Azure portal, you can't create new logic apps with the new **Logic App (Preview)** resource type. You can only create these logic apps in Visual Studio Code. However, after you deploy logic apps with this resource type from Visual Studio Code to Azure, you can [add new workflows to those logic apps](#add-workflows).
-
-* You can deploy the new **Logic App (Preview)** resource type only to a [Premium or App Service hosting plan in Azure](#publish-azure) or to a [Docker container](#deploy-docker), and not [integration service environments (ISEs)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
-
-* **Consumption** hosting plans aren't supported for logic app deployment.
+* In the Azure portal, you can't create new logic apps with the new **Logic App (Preview)** resource type. You can only create these logic apps in Visual Studio Code. However, after you deploy logic apps with this resource type from Visual Studio Code to Azure, you can [add new workflows to those logic apps](#add-workflows).
 
 ## Next steps
 
