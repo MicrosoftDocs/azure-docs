@@ -14,11 +14,6 @@ To get richer debugging information about your logic apps during runtime, you ca
 
 To set up logging for your logic app, you can [enable Log Analytics when you create your logic app](#logging-for-new-logic-apps), or you can [install the Logic Apps Management solution](#install-management-solution) in your Log Analytics workspace for existing logic apps. This solution provides aggregated information for your logic app runs and includes specific details such as status, execution time, resubmission status, and correlation IDs. Then, to enable logging and creating queries for this information, [set up Azure Monitor logs](#set-up-resource-logs).
 
-> [!NOTE]
-> After you enable Log Analytics on a new or existing logic app, diagnostics data might not flow to the specified log destination 
-> for up to 30 minutes. This delay means that diagnostics data from this time period might not exist for you to review. Also, 
-> completed events and [tracked properties](#extend-data) might not appear in your Log Analytics workspace for 10-15 minutes.
-
 This article shows how to enable Log Analytics on new logic apps and existing logic apps, how to install and set up the Logic Apps Management solution, and how to set up and create queries for Azure Monitor logs.
 
 ## Prerequisites
@@ -88,6 +83,11 @@ If you turned on Log Analytics when you created your logic app, skip this step. 
 ## Set up Azure Monitor logs
 
 When you store information about runtime events and data in [Azure Monitor logs](../azure-monitor/platform/data-platform-logs.md), you can create [log queries](../azure-monitor/log-query/log-query-overview.md) that help you find and review this information.
+
+> [!NOTE]
+> After you enable diagnostics settings, diagnostics data might not flow to the logs at the specified destination, such as your Log Analytics 
+> workspace or Azure event hub, for up to 30 minutes. This delay means that diagnostics data from this time period might not exist for you 
+> to review. Also, completed events and [tracked properties](#extend-data) might not appear in your Log Analytics workspace for 10-15 minutes.
 
 1. In the [Azure portal](https://portal.azure.com), find and select your logic app.
 
