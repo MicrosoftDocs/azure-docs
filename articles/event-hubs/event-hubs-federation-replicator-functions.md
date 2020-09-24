@@ -102,20 +102,73 @@ Custom replication tasks implement extra functionality not provided by standard 
 
 For custom tasks, you should take advantage of Azure Functions' ability to build and deploy functions in multiple languages and host them in the same App Service Plan. Build a simple Java function to use one of hundreds of [Apache Camel](https://camel.apache.org/) connectors, use JavaScript to reshape JSON data, or use your favorite Python libraries to enrich the event payload with reference data or annotations.
 
-For Event Hubs, boilerplate code for a custom replication task is as simple as this: 
+For sending data between Event Hubs, the boilerplate code for a custom replication task that performs some action on the forwarded event on the hot path is quite simple. 
 
 # [C#](#tab/csharp)
 
+The function binds to an [EventHub trigger](../azure-functions/functions-bindings-event-hubs-trigger.md), specifying a configuration key *"EventHubSource"* for the connection string in the [EventHubTriggerAttribute](https://github.com/Azure/azure-functions-eventhubs-extension/blob/master/src/Microsoft.Azure.WebJobs.Extensions.EventHubs/EventHubTriggerAttribute.cs). The name of the source Event Hub instance can be set in the attribute or be overridden in the connection string.
+
+The target Event Hub is bound with an [output binding](../azure-functions/functions-bindings-event-hubs-output?tabs=csharp), specifying a configuration key *"EventHubTarget"* for the connection string in the [EventHubAttribute](https://github.com/Azure/azure-functions-eventhubs-extension/blob/master/src/Microsoft.Azure.WebJobs.Extensions.EventHubs/EventHubAttribute.cs) on the return value. The name of the target Event Hub instance can be set in the attribute or be overridden in the connection string.
+ 
+The body of the function can modify the `EventData` object or create a new one with a transformed payload.
 
 ``` C#
     [FunctionName("EventHubToEventHubBridge")]
-    [return: EventHub("EventHubTarget", Connection = "EventHubTarget")]            
+    [return: EventHub("target", Connection = "EventHubTarget")]            
     public static async Task<EventData> Run(
-        [EventHubTrigger("EventHubSource", Connection = "EventHubSource")] EventData event,
+        [EventHubTrigger("source", Connection = "EventHubSource")] EventData event,
         ILogger log)
     {
         // some action here
         return event; 
+    }
+```
+
+# [Java](#tab/java)
+
+The following example shows an Event Hub trigger binding which logs the message body of the Event Hub trigger.
+
+```java
+@FunctionName("ehprocessor")
+@EventHubOutput(name = "event", eventHubName = "samples-workitems", connection = "AzureEventHubConnection")
+public EventData eventHubProcessor(
+  @EventHubTrigger(name = "msg",
+                  eventHubName = "myeventhubname",
+                  connection = "myconnvarname") String message,
+       final ExecutionContext context )  {
+          context.getLogger().info(message);
+}
+```
+
+# [JavaScript](#tab/javascript)
+
+(TBD)
+
+# [Python](#tab/python)
+
+(TBD)
+
+---
+
+A forwarding replication task that uses batched transfers, which are preferred for fast replication between pairs of Event Hubs, looks like this: 
+
+# [C#](#tab/csharp)
+
+The trigger and output binding attributes are identical to the previous example, but the arguments differ. With the `EventData[]` parameter type, the function requests delivery of events in batches, and the `IAsyncCollector<EventData>` parameter is evaluated by the output binding to forward all output events likewise as a batch. 
+
+The body of the function inside the `foreach` loop can modify the `EventData` object or create a new one with a transformed payload and forward that to the output.
+
+``` C#
+    [FunctionName("EventHubToEventHubBridge")]
+    public static Task Run([EventHubTrigger("EventHubSource", Connection = "EventHubSource")] EventData[] events,
+        [EventHub("EventHubTarget", Connection = "EventHubTarget")] IAsyncCollector<EventData> outputEvents, 
+        ILogger log)
+    {
+        foreach (EventData eventData in events)
+        {
+            // some action here
+            await outputEvents.AddAsync(eventData);
+        }
     }
 ```
 
@@ -131,24 +184,41 @@ For Event Hubs, boilerplate code for a custom replication task is as simple as t
 
 (TBD)
 
+## Custom replication application samples
+
+The following repositories contain complete replication application samples that you can clone and customize to your needs. The samples don't aim to be useful as-is, but rather illustrate the concepts.
+
+# [C#](#tab/csharp)
+
+* [Forwarder]() - a batch-oriented forwarder as shown above.
+* [Transcoder]() - shows how to transcode CBOR encoded payloads into JSON.
+* [Transformer]() - shows how to change the shape of a JSON payload.
+
+# [Java](#tab/java)
+
+* [Forwarder]() - a batch-oriented forwarder as shown above.
+* [Transcoder]() - shows how to transcode CBOR encoded payloads into JSON.
+* [Transformer]() - shows how to change the shape of a JSON payload.
+
+
+# [JavaScript](#tab/javascript)
+
+* [Forwarder]() - a batch-oriented forwarder as shown above.
+* [Transcoder]() - shows how to transcode CBOR encoded payloads into JSON.
+* [Transformer]() - shows how to change the shape of a JSON payload.
+
+
+# [Python](#tab/python)
+
+* [Forwarder]() - a batch-oriented forwarder as shown above.
+* [Transcoder]() - shows how to transcode CBOR encoded payloads into JSON.
+* [Transformer]() - shows how to change the shape of a JSON payload.
+
 ---
 
-A replication task that uses batched transfers, which are preferred for fast replication between pairs of Event Hubs, looks like this: 
+## Next steps
 
-> TODO: Other languages
-
-``` C#
-    [FunctionName("EventHubToEventHubBridge")]
-    public static Task Run([EventHubTrigger("EventHubSource", Connection = "EventHubSource")] EventData[] events,
-        [EventHub("EventHubTarget", Connection = "EventHubTarget")] IAsyncCollector<EventData> outputEvents, 
-        ILogger log)
-    {
-        foreach (EventData eventData in events)
-        {
-            // some action here
-            await outputEvents.AddAsync(eventData);
-        }
-    }
-´´´
-
-
+* [Azure Functions Deployments](../azure-functions/functions-deployment-technologies.md)
+* [Azure Functions Diagnostics](../azure-functions/functions-diagnostics.md)
+* [Azure Functions Networking Options](../azure-functions/functions-networking-options.md)
+* [Azure Application Insights](../azure-monitor/app/app-insights-overview.md)
