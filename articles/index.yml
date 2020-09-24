@@ -12,7 +12,7 @@ metadata:
   ms.topic: hub-page
   author: rolyon
   ms.author: rolyon
-  ms.date: 09/23/2020
+  ms.date: 09/24/2020
   featureFlags:
   - clicktale
 
@@ -1287,14 +1287,14 @@ productDirectory:
     # Card
     - title: Azure Defender
       summary: Protect hybrid cloud workloads
-      imageSrc: https://static.docs.com/ui/media/product/azure/azure.svg
+      imageSrc: ./media/index/defender.svg
       azureCategories:
         - security
       url: security-center/azure-defender.md
     # Card
     - title: Azure Defender for IoT (Preview)
       summary: Continuous asset management and threat detection for both unmanaged and managed IoT/OT devices
-      imageSrc: https://static.docs.com/ui/media/product/azure/azure.svg
+      imageSrc: ./media/index/defender-iot.svg
       azureCategories:
         - security
         - iot
