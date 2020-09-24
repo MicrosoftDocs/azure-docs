@@ -35,7 +35,7 @@ The following versions of Azure Storage service APIs are supported with Data Box
 
 ### Azure Data Box 3.0 onwards
 
-[!INCLUDE [data-box-rest-supported-api-versions](~/includes/data-box-rest-supported-api-versions.md)]
+[!INCLUDE [data-box-rest-supported-api-versions](../../includes/data-box-rest-supported-api-versions.md)]
 
 <!--- [2017-11-09](/rest/api/storageservices/version-2017-11-09)
 - [2017-07-29](/rest/api/storageservices/version-2017-07-29)
@@ -53,7 +53,7 @@ For Data Box Blob storage, there are specific client libraries and specific endp
 
 The following Azure client library versions are supported for Data Box Blob storage.
 
-[!INCLUDE [data-box-rest-supported-azure-client-libraries](~/includes/data-box-rest-supported-azure-client-libraries.md)]
+[!INCLUDE [data-box-rest-supported-azure-client-libraries](../../includes/data-box-rest-supported-azure-client-libraries.md)]
 
 <!--| Client library     |Data Box Blob storage supported version     | Link   |     Endpoint specification      |
 |--------------------|--------------------------------------------|--------|---------------------------------|
