@@ -153,7 +153,7 @@ Here is an example ApplicationManifest demonstrating the configuration required 
 
 For Linux clusters, the **MY** store defaults to the folder **/var/lib/sfcerts**.
 
-For an example of a full application that makes use of an HTTPS endpoint, see the tutorial [Add an HTTPS endpoint to an ASP.NET Core Web API front-end service using Kestrel](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-dotnet-app-enable-https-endpoint#define-an-https-endpoint-in-the-service-manifest).
+For an example of a full application that makes use of an HTTPS endpoint, see [add an HTTPS endpoint to an ASP.NET Core Web API front-end service using Kestrel](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-dotnet-app-enable-https-endpoint#define-an-https-endpoint-in-the-service-manifest).
 
 ## Port ACLing for HTTP Endpoints
 Service Fabric will automatically ACL HTTP(S) endpoints specified by default. It will **not** perform automatic acling if an endpoint does not have a [SecurityAccessPolicy](service-fabric-assign-policy-to-endpoint.md) associated with it and Service Fabric is configured to run using an account with Administrator privileges.
@@ -200,7 +200,7 @@ While deploying the application you can pass in these values as ApplicationParam
 PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -ApplicationTypeName "AppType" -ApplicationTypeVersion "1.0.0" -ApplicationParameter @{Port='1001'; Protocol='https'; Type='Input'; Port1='2001'; Protocol='http'}
 ```
 
-Note: If the values provide for the ApplicationParameters is empty, we go back to the default value provided in the ServiceManifest for the corresponding EndPointName.
+Note: If the value provided for a given ApplicationParameter is empty, we go back to the default value provided in the ServiceManifest for the corresponding EndPointName.
 
 For example:
 
@@ -214,14 +214,19 @@ If in the ServiceManifest you specified
   </Resources>
 ```
 
-And the Port1 and Protocol1 value for Application parameters is null or empty. The port is still decided by ServiceFabric. And the Protocol will tcp.
+Assume the Port1 and Protocol1 value for Application parameters is null or empty. The port will be decided by ServiceFabric and the Protocol will be tcp.
 
-Suppose you specify a wrong value. Like for Port you specified a string value "Foo" instead of an int.  New-ServiceFabricApplication command will fail with an error :
-The override parameter with name 'ServiceEndpoint1' attribute 'Port1' in section 'ResourceOverrides' is invalid. The value specified is 'Foo' and required is 'int'.
+Suppose you specify a wrong value. Say for Port you specified a string value "Foo" instead of an int.  New-ServiceFabricApplication command will fail with an error :
+`The override parameter with name 'ServiceEndpoint1' attribute 'Port1' in section 'ResourceOverrides' is invalid. The value specified is 'Foo' and required is 'int'.`
 
 ## Next Steps
 
-This article explained how to define endpoints in Service Fabric's service manifest. For more detailed examples, see
+This article explained how to define endpoints in Service Fabric's service manifest. For more detailed examples, see:
 
 > [!div class="nextstepaction"]
 > [Application and service manifest examples](https://docs.microsoft.com/azure/service-fabric/service-fabric-manifest-examples.md)
+
+For a walk through of packaging and deploying an existing application on a Service Fabric cluster, see:
+
+> [!div class="nextstepaction"]
+> [Package and deploy an existing executable to Service Fabric](https://github.com/MicrosoftDocs/azure-docs-pr/blob/master/articles/service-fabric/service-fabric-deploy-existing-app.md)
