@@ -5,10 +5,11 @@ ms.reviewer: jasonh
 author: hrasheed-msft
 
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: "hdinsightactive, devx-track-csharp"
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
+
 
 ---
 # Manage Apache Hadoop clusters in HDInsight by using .NET SDK
@@ -104,9 +105,6 @@ namespace HDInsightManagement
 
 You shall see a prompt when you run this program.  If you don't want to see the prompt, see [Create non-interactive authentication .NET HDInsight applications](hdinsight-create-non-interactive-authentication-dotnet-applications.md).
 
-## Create clusters
-
-See [Create Linux-based clusters in HDInsight using the .NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)
 
 ## List clusters
 
@@ -174,7 +172,7 @@ The impact of changing the number of data nodes for each type of cluster support
     Here is an example how to use the CLI command to rebalance the Storm topology:
     
 
-    ```cli
+    ```console
     ## Reconfigure the topology "mytopology" to use 5 worker processes,
     ## the spout "blue-spout" to use 3 executors, and
     ## the bolt "yellow-bolt" to use 10 executors

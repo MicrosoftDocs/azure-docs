@@ -1,21 +1,8 @@
 ---
 title: Azure Service Bus Resource Manager exceptions | Microsoft Docs
 description: List of Service Bus exceptions surfaced by Azure Resource Manager and suggested actions.
-services: service-bus-messaging
-documentationcenter: na
-author: axisc
-manager: darosa
-editor: spelluru
-
-ms.assetid: 3d8526fe-6e47-4119-9f3e-c56d916a98f9
-ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/26/2019
-ms.author: aschhab
-
+ms.date: 06/23/2020
 ---
 
 # Service Bus Resource Manager exceptions
@@ -51,12 +38,12 @@ Just like in HTTP, "Error code 429" indicates "too many requests". It implies th
 
 | Error code | Error SubCode | Error message | Description | Recommendation |
 | ---------- | ------------- | ------------- | ----------- | -------------- |
-| 429 | 50004 | SubCode=50004. The request was terminated because the namespace *your namespace* is being throttled. | This error condition is hit when the number of incoming requests exceed the limitation of the resource. | Wait for a few seconds and try again. <br/> <br/> Learn more about the [quotas](service-bus-quotas.md) and [Azure Resource Manager request limits](../azure-resource-manager/resource-manager-request-limits.md)|
+| 429 | 50004 | SubCode=50004. The request was terminated because the namespace *your namespace* is being throttled. | This error condition is hit when the number of incoming requests exceed the limitation of the resource. | Wait for a few seconds and try again. <br/> <br/> Learn more about the [quotas](service-bus-quotas.md) and [Azure Resource Manager request limits](../azure-resource-manager/management/request-limits-and-throttling.md)|
 | 429 | 40901 | SubCode=40901. Another conflicting operation is in progress. | Another conflicting operation is in progress on the same resource/entity | Wait for the current in-progress operation to complete before trying again. |
 | 429 | 40900 | SubCode=40900. Conflict. You're requesting an operation that isn't allowed in the resource's current state. | This condition may be hit when multiple requests are made to perform the operations on the same entity (queue, topic, subscription, or rule) at the same time. | Wait for a few seconds and try again |
+| 429 | 40901 | Request on entity *'entity name'* conflicted with another request | Another conflicting operation is in progress on the same resource/entity | Wait for the previous operation to complete before trying again |
+| 429 | 40901 | Another update request is in progress for the entity *'entity name'*. | Another conflicting operation is in progress on the same resource/entity | Wait for the previous operation to complete before trying again |
 | 429 | none | Resource Conflict Occurred. Another conflicting operation may be in progress. If this is a retry for failed operation, background cleanup is still pending. Try again later. | This condition may be hit when there is a pending operation against the same entity. | Wait for the previous operation to complete before trying again. |
-| 429 | none | Request on entity *'entity name'* conflicted with another request | Another conflicting operation is in progress on the same resource/entity | Wait for the previous operation to complete before trying again |
-| 429 | none | Another update request is in progress for the entity *'entity name'*. | Another conflicting operation is in progress on the same resource/entity | Wait for the previous operation to complete before trying again |
 
 
 ## Error code: Not Found
@@ -68,4 +55,21 @@ This class of errors indicates that the resource was not found.
 | Not found | none | Entity *'entity name'* was not found. | The entity against which the operation was not found. | Check if the entity exists and try the operation again. |
 | Not found | none | Not Found. The Operation doesn't exist. | The operation you are trying to perform does not exist. | Check the operation and try again. |
 | Not found | none | The incoming request is not recognized as a namespace policy put request. | The incoming request body is null and hence cannot be executed as a put request. | Please check the request body to ensure that it is not null. | 
-| Not found | none | The messaging entity *'entity name'* could not be found. | The entity that you are trying to execute the operation against could not be found. | PLease check whether the entity exists and try the operation again. |
+| Not found | none | The messaging entity *'entity name'* could not be found. | The entity that you are trying to execute the operation against could not be found. | Please check whether the entity exists and try the operation again. |
+
+## Error code: Internal Server Error
+
+This class of errors indicates that there was a internal server error
+
+| Error code | Error SubCode | Error message | Description | Recommendation |
+| ---------- | ------------- | ------------- | ----------- | -------------- |
+| Internal Server Error | 50000 | SubCode=50000. Internal Server Error| Can happen for various reasons. Some of the symptoms are - <ul> <li> Client request/body is corrupt and leads to an error. </li> <li> The client request timed out due to processing issues on the service. </li> </ul> | To resolve this <ul> <li> Ensure that the requests parameters are not null or malformed. </li> <li> Retry the request. </li> </ul> |
+
+## Error code: Unauthorized
+
+This class of errors indicates the absence of authorization to run the command.
+
+| Error code | Error SubCode | Error message | Description | Recommendation |
+| ---------- | ------------- | ------------- | ----------- | -------------- |
+| Unauthorized | none | Invalid operation on the Secondary namespace. Secondary namespace is read-only. | The operation was performed against the secondary namespace, which is setup as a readonly namespace. | Retry the command against the primary namespace. Learn more about [secondary namespace](service-bus-geo-dr.md) |
+| Unauthorized | none | MissingToken: The authorization header was not found. | This error occurs when the authorization has null or incorrect values. | Ensure that the token value mentioned in the authorization header is correct and not null. |

@@ -3,8 +3,8 @@ title: Desired State Configuration for Azure overview
 description: Learn how to use the Microsoft Azure extension handler for PowerShell Desired State Configuration (DSC). The article includes prerequisites, architecture, and cmdlets.
 services: virtual-machines-windows
 documentationcenter: ''
-author: bobbytreed
-manager: carmonm
+author: mgoedtel
+manager: evansma
 editor: ''
 tags: azure-resource-manager
 keywords: 'dsc'
@@ -13,8 +13,9 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
-ms.date: 05/02/2018
-ms.author: robreed
+ms.date: 07/13/2020
+ms.author: magoedte 
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 # Introduction to the Azure Desired State Configuration extension handler
 
@@ -22,7 +23,7 @@ The Azure VM Agent and associated extensions are part of Microsoft Azure infrast
 
 The primary use case for the Azure Desired State Configuration (DSC) extension is to bootstrap a VM to the
 [Azure Automation State Configuration (DSC) service](../../automation/automation-dsc-overview.md).
-The service provides [benefits](/powershell/dsc/metaconfig#pull-service)
+The service provides [benefits](/powershell/scripting/dsc/managing-nodes/metaConfig#pull-service)
 that include ongoing management of the VM configuration and integration with other operational tools, such as Azure Monitoring.
 Using the extension to register VM's to the service provides a flexible solution that even works across Azure subscriptions.
 
@@ -35,7 +36,7 @@ This article provides information about both scenarios: using the DSC extension 
 ## Prerequisites
 
 - **Local machine**: To interact with the Azure VM extension, you must use either the Azure portal or the Azure PowerShell SDK.
-- **Guest Agent**: The Azure VM that's configured by the DSC configuration must be an OS that supports Windows Management Framework (WMF) 4.0 or later. For the full list of supported OS versions, see the [DSC extension version history](/powershell/dsc/azuredscexthistory).
+- **Guest Agent**: The Azure VM that's configured by the DSC configuration must be an OS that supports Windows Management Framework (WMF) 4.0 or later. For the full list of supported OS versions, see the [DSC extension version history](../../automation/automation-dsc-extension-history.md).
 
 ## Terms and concepts
 
@@ -47,7 +48,7 @@ This guide assumes familiarity with the following concepts:
 
 ## Architecture
 
-The Azure DSC extension uses the Azure VM Agent framework to deliver, enact, and report on DSC configurations running on Azure VMs. The DSC extension accepts a configuration document and a set of parameters. If no file is provided, a [default configuration script](#default-configuration-script) is embedded with the extension. The default configuration script is used only to set metadata in [Local Configuration Manager](/powershell/dsc/metaconfig).
+The Azure DSC extension uses the Azure VM Agent framework to deliver, enact, and report on DSC configurations running on Azure VMs. The DSC extension accepts a configuration document and a set of parameters. If no file is provided, a [default configuration script](#default-configuration-script) is embedded with the extension. The default configuration script is used only to set metadata in [Local Configuration Manager](/powershell/scripting/dsc/managing-nodes/metaConfig).
 
 When the extension is called for the first time, it installs a version of WMF by using the following logic:
 
@@ -55,11 +56,11 @@ When the extension is called for the first time, it installs a version of WMF by
 - If the **wmfVersion** property is specified, that version of WMF is installed, unless that version is incompatible with the VM's OS.
 - If no **wmfVersion** property is specified, the latest applicable version of WMF is installed.
 
-Installing WMF requires a restart. After restarting, the extension downloads the .zip file that's specified in the **modulesUrl** property, if provided. If this location is in Azure Blob storage, you can specify an SAS token in the **sasToken** property to access the file. After the .zip is downloaded and unpacked, the configuration function defined in **configurationFunction** runs to generate an .mof file. The extension then runs `Start-DscConfiguration -Force` by using the generated .mof file. The extension captures output and writes it to the Azure status channel.
+Installing WMF requires a restart. After restarting, the extension downloads the .zip file that's specified in the **modulesUrl** property, if provided. If this location is in Azure Blob storage, you can specify an SAS token in the **sasToken** property to access the file. After the .zip is downloaded and unpacked, the configuration function defined in **configurationFunction** runs to generate an .mof([Managed Object Format](/windows/win32/wmisdk/managed-object-format--mof-)) file. The extension then runs `Start-DscConfiguration -Force` by using the generated .mof file. The extension captures output and writes it to the Azure status channel.
 
 ### Default configuration script
 
-The Azure DSC extension includes a default configuration script that's intended to be used when you onboard a VM to the Azure Automation DSC service. The script parameters are aligned with the configurable properties of [Local Configuration Manager](/powershell/dsc/metaconfig). For script parameters, see [Default configuration script](dsc-template.md#default-configuration-script) in [Desired State Configuration extension with Azure Resource Manager templates](dsc-template.md). For the full script, see the [Azure quickstart template in GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/dsc-extension-azure-automation-pullserver/UpdateLCMforAAPull.zip?raw=true).
+The Azure DSC extension includes a default configuration script that's intended to be used when you onboard a VM to the Azure Automation DSC service. The script parameters are aligned with the configurable properties of [Local Configuration Manager](/powershell/scripting/dsc/managing-nodes/metaConfig). For script parameters, see [Default configuration script](dsc-template.md#default-configuration-script) in [Desired State Configuration extension with Azure Resource Manager templates](dsc-template.md). For the full script, see the [Azure quickstart template in GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/dsc-extension-azure-automation-pullserver/UpdateLCMforAAPull.zip?raw=true).
 
 ## Information for registering with Azure Automation State Configuration (DSC) service
 
@@ -70,8 +71,7 @@ three values will need to be provided.
 - RegistrationKey - a shared secret used to register nodes with the service
 - NodeConfigurationName - the name of the Node Configuration (MOF) to pull from the service to configure the server role
 
-This information can be seen in the
-[Azure portal](../../automation/automation-dsc-onboarding.md#azure-portal) or you can use PowerShell.
+This information can be seen in the Azure portal or you can use PowerShell.
 
 ```powershell
 (Get-AzAutomationRegistrationInfo -ResourceGroupName <resourcegroupname> -AutomationAccountName <accountname>).Endpoint
@@ -80,7 +80,7 @@ This information can be seen in the
 
 For the Node Configuration name, make sure the node configuration exists in Azure State Configuration.  If it does not, the extension deployment will return a failure.  Also make sure you are using the name of the *Node Configuration* and not the Configuration.
 A Configuration is defined in a script that is used
-[to compile the Node Configuration (MOF file)](https://docs.microsoft.com/azure/automation/automation-dsc-compile).
+[to compile the Node Configuration (MOF file)](../../automation/automation-dsc-compile.md).
 The name will always be the Configuration followed by a period `.` and either `localhost` or a specific computer name.
 
 ## DSC extension in Resource Manager templates
@@ -101,7 +101,7 @@ The **Get-AzVMDscExtension** cmdlet retrieves the DSC extension status of a spec
 
 The **Get-AzVMDscExtensionStatus** cmdlet retrieves the status of the DSC configuration that's enacted by the DSC extension handler. This action can be performed on a single VM or on a group of VMs.
 
-The **Remove-AzVMDscExtension** cmdlet removes the extension handler from a specific VM. This cmdlet does *not* remove the configuration, uninstall WMF, or change the applied settings on the VM. It only removes the extension handler. 
+The **Remove-AzVMDscExtension** cmdlet removes the extension handler from a specific VM. This cmdlet does *not* remove the configuration, uninstall WMF, or change the applied settings on the VM. It only removes the extension handler.
 
 Important information about Resource Manager DSC extension cmdlets:
 
@@ -114,7 +114,7 @@ Important information about Resource Manager DSC extension cmdlets:
 
 The Azure DSC extension can use DSC configuration documents to directly configure Azure VMs during deployment. This step doesn't register the node to Automation. The node is *not* centrally managed.
 
-The following example shows a simple example of a configuration. Save the configuration locally as IisInstall.ps1.
+The following example shows a simple example of a configuration. Save the configuration locally as iisInstall.ps1.
 
 ```powershell
 configuration IISInstall
@@ -130,7 +130,7 @@ configuration IISInstall
 }
 ```
 
-The following commands place the IisInstall.ps1 script on the specified VM. The commands also execute the configuration, and then report back on status.
+The following commands place the iisInstall.ps1 script on the specified VM. The commands also execute the configuration, and then report back on status.
 
 ```powershell
 $resourceGroup = 'dscVmDemo'
@@ -187,13 +187,13 @@ The portal collects the following input:
 
 - **Configuration Arguments**: If the configuration function takes arguments, enter them here in the format **argumentName1=value1,argumentName2=value2**. This format is a different format in which configuration arguments are accepted in PowerShell cmdlets or Resource Manager templates.
 
-- **Configuration Data PSD1 File**: This field is optional. If your configuration requires a configuration data file in .psd1, use this field to select the data field and upload it to your user blob storage. The configuration data file is secured by an SAS token in blob storage.
+- **Configuration Data PSD1 File**: If your configuration requires a configuration data file in `.psd1`, use this field to select the data file and upload it to your user blob storage. The configuration data file is secured by an SAS token in blob storage.
 
 - **WMF Version**: Specifies the version of Windows Management Framework (WMF) that should be installed on your VM. Setting this property to latest installs the most recent version of WMF. Currently, the only possible values for this property are 4.0, 5.0, 5.1, and latest. These possible values are subject to updates. The default value is **latest**.
 
-- **Data Collection**: Determines if the extension will collect telemetry. For more information, see [Azure DSC extension data collection](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/).
+- **Data Collection**: Determines if the extension will collect telemetry. For more information, see [Azure DSC extension data collection](https://devblogs.microsoft.com/powershell/azure-dsc-extension-data-collection-2/).
 
-- **Version**: Specifies the version of the DSC extension to install. For information about versions, see [DSC extension version history](/powershell/dsc/azuredscexthistory).
+- **Version**: Specifies the version of the DSC extension to install. For information about versions, see [DSC extension version history](/powershell/scripting/dsc/getting-started/azuredscexthistory).
 
 - **Auto Upgrade Minor Version**: This field maps to the **AutoUpdate** switch in the cmdlets and enables the extension to automatically update to the latest version during installation. **Yes** will instruct the extension handler to use the latest available version and **No** will force the **Version** specified to be installed. Selecting neither **Yes** nor **No** is the same as selecting **No**.
 
@@ -203,7 +203,7 @@ Logs for the extension are stored in the following location: `C:\WindowsAzure\Lo
 
 ## Next steps
 
-- For more information about PowerShell DSC, go to the [PowerShell documentation center](/powershell/dsc/overview).
+- For more information about PowerShell DSC, go to the [PowerShell documentation center](/powershell/scripting/dsc/overview/overview).
 - Examine the [Resource Manager template for the DSC extension](dsc-template.md).
 - For more functionality that you can manage by using PowerShell DSC, and for more DSC resources, browse the [PowerShell gallery](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0).
 - For details about passing sensitive parameters into configurations, see [Manage credentials securely with the DSC extension handler](dsc-credentials.md).

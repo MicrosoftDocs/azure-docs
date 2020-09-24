@@ -1,10 +1,10 @@
 ---
-title: Azure Files scalability and performance targets | Microsoft Docs
+title: Azure Files scalability and performance targets
 description: Learn about the scalability and performance targets for Azure Files, including the capacity, request rate, and inbound and outbound bandwidth limits.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 5/5/2019
+ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
 ---
@@ -19,7 +19,7 @@ The scalability and performance targets listed here are high-end targets, but ma
 
 The parent resource for an Azure file share is an Azure storage account. A storage account represents a pool of storage in Azure that can be used by multiple storage services, including Azure Files, to store data. Other services that store data in storage accounts are Azure Blob storage, Azure Queue storage, and Azure Table storage. The following targets apply all storage services storing data in a storage account:
 
-[!INCLUDE [azure-storage-limits](../../../includes/azure-storage-limits.md)]
+[!INCLUDE [azure-storage-account-limits-standard](../../../includes/azure-storage-account-limits-standard.md)]
 
 [!INCLUDE [azure-storage-limits-azure-resource-manager](../../../includes/azure-storage-limits-azure-resource-manager.md)]
 
@@ -46,8 +46,8 @@ See the [Azure storage account scale targets](#azure-storage-account-scale-targe
 ### File share and file scale targets
 
 > [!NOTE]
-> Standard file shares larger than 5 TiB are in preview and have certain limitations.
-> For a list of limitations and to onboard to the preview of these larger file share sizes, see the [Standard file shares](storage-files-planning.md#standard-file-shares) section of the planning guide.
+> Standard file shares larger than 5 TiB have certain limitations. 
+> For a list of limitations and instructions to enable larger file share sizes, see the [enable larger file shares on standard file shares](storage-files-planning.md#enable-standard-file-shares-to-span-up-to-100-tib) section of the planning guide.
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 
@@ -70,7 +70,7 @@ For Azure File Sync, performance is critical in two stages:
 
 To help you plan your deployment for each of the stages, below are the results observed during the internal testing on a system with a config
 
-| System configuration |  |
+| System configuration | Details |
 |-|-|
 | CPU | 64 Virtual Cores with 64 MiB L3 cache |
 | Memory | 128 GiB |
@@ -78,22 +78,22 @@ To help you plan your deployment for each of the stages, below are the results o
 | Network | 1 Gbps Network |
 | Workload | General Purpose File Server|
 
-| Initial one-time provisioning  |  |
+| Initial one-time provisioning  | Details |
 |-|-|
 | Number of objects | 25 million objects |
 | Dataset Size| ~4.7 TiB |
 | Average File Size | ~200 KiB (Largest File: 100 GiB) |
-| Upload Throughput | 20 objects per second |
+| Upload Throughput | 20 objects per second per sync group |
 | Namespace Download Throughput* | 400 objects per second |
 
 *When a new server endpoint is created, the Azure File Sync agent does not download any of the file content. It first syncs the full namespace and then triggers background recall to download the files, either in their entirety or, if cloud tiering is enabled, to the cloud tiering policy set on the server endpoint.
 
-| Ongoing sync  |   |
+| Ongoing sync  | Details  |
 |-|--|
 | Number of objects synced| 125,000 objects (~1% churn) |
 | Dataset Size| 50 GiB |
 | Average File Size | ~500 KiB |
-| Upload Throughput | 30 objects per second |
+| Upload Throughput | 20 objects per second per sync group |
 | Full Download Throughput* | 60 objects per second |
 
 *If cloud tiering is enabled, you are likely to observe better performance as only some of the file data is downloaded. Azure File Sync only downloads the data of cached files when they are changed on any of the endpoints. For any tiered or newly created files, the agent does not download the file data, and instead only syncs the namespace to all the server endpoints. The agent also supports partial downloads of tiered files as they are accessed by the user. 
@@ -110,4 +110,3 @@ As a general guide for your deployment, you should keep a few things in mind:
 
 - [Planning for an Azure Files deployment](storage-files-planning.md)
 - [Planning for an Azure File Sync deployment](storage-sync-files-planning.md)
-- [Scalability and performance targets for other storage services](../common/storage-scalability-targets.md)

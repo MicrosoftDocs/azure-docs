@@ -1,24 +1,16 @@
 ---
-title: Smart Detection - Potential Memory Leak detected by Azure Application Insights | Microsoft Docs
+title: Detect memory leak - Azure Application Insights Smart Detection
 description: Monitor applications with Azure Application Insights for potential memory leaks.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/12/2017
-ms.author: mbullwin
+
 ---
 
 # Memory leak detection (preview)
 
 Application Insights automatically analyzes the memory consumption of each process in your application, and can warn you about potential memory leaks or increased memory consumption.
 
-This feature requires no special setup, other than [configuring performance counters](https://docs.microsoft.com/azure/application-insights/app-insights-performance-counters) for your app. It's active when your app generates enough memory performance counters telemetry (for example, Private Bytes).
+This feature requires no special setup, other than [configuring performance counters](./performance-counters.md) for your app. It's active when your app generates enough memory performance counters telemetry (for example, Private Bytes).
 
 ## When would I get this type of smart detection notification?
 A typical notification will follow a consistent increase in memory consumption over a long period of time, in one or more processes and/or one or more machines, which are part of your application. Machine learning algorithms are used for detecting increased memory consumption that matches the pattern of a memory leak.

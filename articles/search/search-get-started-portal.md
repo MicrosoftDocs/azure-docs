@@ -1,40 +1,30 @@
 ---
-title: 'Quickstart: Create a search index using Azure portal - Azure Search'
-description: Use the Import Data wizard in Azure portal to create, load, and query your first index in Azure Search. 
-author: lobrien
+title: Create a search index in the Azure portal
+titleSuffix: Azure Cognitive Search
+description: In this Azure portal quickstart, use the Import Data wizard to create, load, and query your first search index in Azure Cognitive Search. 
+
+author: tchristiani
 manager: nitinme
-tags: azure-portal
-services: search
-ms.service: search
+ms.author: terrychr
+ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 09/10/2019
-ms.author: laobri
+ms.date: 09/16/2020
+
 #Customer intent: As a developer, I want a low-impact introduction to index design.
 ---
-# Quickstart: Create an Azure Search index using the Azure portal
-> [!div class="op_single_selector"]
-> * [Portal](search-get-started-portal.md)
-> * [PowerShell](search-get-started-powershell.md)
-> * [Postman](search-get-started-postman.md)
-> * [Python](search-get-started-python.md)
-> * [C#](search-get-started-dotnet.md)
+# Quickstart: Create an Azure Cognitive Search index in the Azure portal
 
-For a fast ramp up on Azure Search concepts, try the built-in tools in the Azure portal. Wizards and editors do not offer full parity with the .NET and REST APIs, but you can get started quickly with a code-free introduction, writing interesting queries against an index within minutes.
+**Import data** wizard is an Azure portal tool that guides you through the creation of a search index so that you can write interesting queries within minutes. 
 
-> [!div class="checklist"]
-> * Start with a free public sample data set hosted on Azure
-> * Run the **Import data** wizard in Azure Search to load data and generate an index
-> * Monitor indexing progress in the portal
-> * View an existing index and options for modifying it
-> * Explore full text search, filters, facets, fuzzy search, and geosearch with **Search explorer**
-
-If the tools are too limiting, you can consider a [code-based introduction to programming Azure Search in .NET](search-howto-dotnet-sdk.md) or use [Postman for making REST API calls](search-get-started-postman.md). You could also watch a 6-minute demonstration of the steps in this tutorial, starting at about three minutes into this [Azure Search Overview video](https://channel9.msdn.com/Events/Connect/2016/138).
-
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
+The wizard also has pages for AI enrichment so that you can extract text and structure from image files and unstructured text. Content processing with AI includes Optical Character Recognition (OCR), key phrase and entity extraction, and image analysis.
 
 ## Prerequisites
 
-[Create an Azure Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
+Before you begin, you must have the following:
+
++ An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
+
++ An Azure Cognitive Search service. [Create a service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
 
 ### Check for space
 
@@ -52,21 +42,21 @@ For this tutorial, we use a built-in sample dataset that can be crawled using an
 
 ### Step 1 - Start the Import data wizard and create a data source
 
-1. On the Azure Search service dashboard, click **Import data** on the command bar to create and populate a search index.
+1. Sign in to the [Azure portal](https://portal.azure.com/) with your Azure account.
+
+1. [Find your search service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) and on the Overview page, click **Import data** on the command bar to create and populate a search index.
 
    ![Import data command](media/search-get-started-portal/import-data-cmd.png)
 
-2. In the wizard, click **Connect to your data** > **Samples** > **hotels-sample**. This data source is built-in. If you were creating your own data source, you would need to specify a name, type, and connection information. Once created, it becomes an "existing data source" that can be reused in other import operations.
+1. In the wizard, click **Connect to your data** > **Samples** > **hotels-sample**. This data source is built-in. If you were creating your own data source, you would need to specify a name, type, and connection information. Once created, it becomes an "existing data source" that can be reused in other import operations.
 
    ![Select sample dataset](media/search-get-started-portal/import-datasource-sample.png)
 
-3. Continue to the next page.
+1. Continue to the next page.
 
-   ![Next page button for cognitive search](media/search-get-started-portal/next-button-add-cog-search.png)
+### Step 2 - Skip the "Enrich content" page
 
-### Step 2 - Skip Cognitive skills
-
-The wizard supports the creation of a [cognitive skills pipeline](cognitive-search-concept-intro.md) for incorporating the Cognitive Services AI algorithms into indexing. 
+The wizard supports the creation of an [AI enrichment pipeline](cognitive-search-concept-intro.md) for incorporating the Cognitive Services AI algorithms into indexing. 
 
 We'll skip this step for now, and move directly on to **Customize target index**.
 
@@ -98,7 +88,6 @@ By default, the wizard scans the data source for unique identifiers as the basis
 
 2. Continue to the next page.
 
-   ![Next page create indexer](media/search-get-started-portal/next-button-create-indexer.png)
 
 ### Step 4 - Configure indexer
 
@@ -121,13 +110,15 @@ It can take a few minutes for the portal to update the page, but you should see 
 
 ## View the index
 
-The main service page provides links to the resources created in your Azure Search service.  To view the index you just created, click **Indexes** from the list of links. 
+The main service page provides links to the resources created in your Azure Cognitive Search service.  To view the index you just created, click **Indexes** from the list of links. 
+
+Wait for the portal page to refresh. After a few minutes, you should see the index with a document count and storage size.
 
    ![Indexes list on the service dashboard](media/search-get-started-portal/indexes-list.png)
 
 From this list, you can click on the *hotels-sample* index that you just created, view the index schema. and optionally add new fields. 
 
-The **Fields** tab shows the index schema. Scroll to the bottom of the list to enter a new field. In most cases, you cannot change existing fields. Existing fields have a physical representation in Azure Search and are thus non-modifiable, not even in code. To fundamentally change an existing field, create a new index, dropping the original.
+The **Fields** tab shows the index schema. Scroll to the bottom of the list to enter a new field. In most cases, you cannot change existing fields. Existing fields have a physical representation in Azure Cognitive Search and are thus non-modifiable, not even in code. To fundamentally change an existing field, create a new index, dropping the original.
 
    ![sample index definition](media/search-get-started-portal/sample-index-def.png)
 
@@ -139,17 +130,17 @@ To clearly understand what you can and cannot edit during index design, take a m
 
 Moving forward, you should now have a search index that's ready to query using the built-in [**Search explorer**](search-explorer.md) query page. It provides a search box so that you can test arbitrary query strings.
 
-**Search explorer** is only equipped to handle [REST API requests](https://docs.microsoft.com/rest/api/searchservice/search-documents), but it accepts syntax for both [simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) and [full Lucene query parser](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), plus all the search parameters available in [Search Document REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples) operations.
+**Search explorer** is only equipped to handle [REST API requests](/rest/api/searchservice/search-documents), but it accepts syntax for both [simple query syntax](/rest/api/searchservice/simple-query-syntax-in-azure-search) and [full Lucene query parser](/rest/api/searchservice/lucene-query-syntax-in-azure-search), plus all the search parameters available in [Search Document REST API](/rest/api/searchservice/search-documents#bkmk_examples) operations.
 
 > [!TIP]
-> The following steps are demonstrated at 6m08s into the [Azure Search Overview video](https://channel9.msdn.com/Events/Connect/2016/138).
+> The following steps are demonstrated at 6m08s into the [Azure Cognitive Search Overview video](https://channel9.msdn.com/Events/Connect/2016/138).
 >
 
 1. Click **Search explorer** on the command bar.
 
    ![Search explorer command](media/search-get-started-portal/search-explorer-cmd.png)
 
-2. From the **Index** dropdown, choose  *hotels-sample*. Click the **API Version** dropdown, to see which REST APIs are available. For the queries below, use the generally available version (2019-05-06).
+2. From the **Index** dropdown, choose  *hotels-sample-index*. Click the **API Version** dropdown, to see which REST APIs are available. For the queries below, use the generally available version (2020-06-30).
 
    ![Index and API commands](media/search-get-started-portal/search-explorer-changeindex.png)
 
@@ -177,7 +168,7 @@ You can enter terms and phrases, similar to what you might do in a Bing or Googl
 
 * The **$count=true** parameter returns the total count of all documents returned. This value appears near the top of the search results. You can verify filter queries by monitoring changes reported by **$count=true**. Smaller counts indicate your filter is working.
 
-* The **$top=10** returns the highest ranked 10 documents out of the total. By default, Azure Search returns the first 50 best matches. You can increase or decrease the amount via **$top**.
+* The **$top=10** returns the highest ranked 10 documents out of the total. By default, Azure Cognitive Search returns the first 50 best matches. You can increase or decrease the amount via **$top**.
 
 ### <a name="filter-query"></a> Filter the query
 
@@ -187,7 +178,7 @@ Filters are included in search requests when you append the **$filter** paramete
 
 * The **$filter** parameter returns results matching the criteria you provided. In this case, ratings greater than 4.
 
-* Filter syntax is an OData construction. For more information, see [Filter OData syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
+* Filter syntax is an OData construction. For more information, see [Filter OData syntax](/rest/api/searchservice/odata-expression-syntax-for-azure-search).
 
 ### <a name="facet-query"></a> Facet the query
 
@@ -196,7 +187,7 @@ Facet filters are included in search requests. You can use the facet parameter t
 #### Example (faceted with scope reduction): `search=*&facet=Category&$top=2`
 
 * **search=*** is an empty search. Empty searches search over everything. One reason for submitting an empty query is to  filter or facet over the complete set of documents. For example, you want a faceting navigation structure to consist of all hotels in the index.
-* **facet** returns a navigation structure that you can pass to a UI control. It returns categories and a count. In this case, categories are based on a field conveniently called *Category*. There is no aggregation in Azure Search, but you can approximate aggregation via `facet`, which gives a count of documents in each category.
+* **facet** returns a navigation structure that you can pass to a UI control. It returns categories and a count. In this case, categories are based on a field conveniently called *Category*. There is no aggregation in Azure Cognitive Search, but you can approximate aggregation via `facet`, which gives a count of documents in each category.
 
 * **$top=2** brings back two documents, illustrating that you can use `top` to both reduce or increase results.
 
@@ -206,7 +197,7 @@ Facet filters are included in search requests. You can use the facet parameter t
 
 * Only filterable fields can be faceted. Only retrievable fields can be returned in the results.
 
-* The *Rating* field is double-precision floating point and the grouping will be by precise value. For more information on grouping by interval (for instance, "3 star ratings," "4 star ratings," etc.), see [How to implement faceted navigation in Azure Search](https://docs.microsoft.com/azure/search/search-faceted-navigation#filter-based-on-a-range).
+* The *Rating* field is double-precision floating point and the grouping will be by precise value. For more information on grouping by interval (for instance, "3 star ratings," "4 star ratings," etc.), see [How to implement faceted navigation in Azure Cognitive Search](./search-faceted-navigation.md#filter-based-on-a-range).
 
 
 ### <a name="highlight-query"></a> Highlight search results
@@ -221,7 +212,7 @@ Hit highlighting refers to formatting on text matching the keyword, given matche
 
 * Full text search recognizes basic variations in word forms. In this case, search results contain highlighted text for "beach", for hotels that have that word in their searchable fields, in response to a keyword search on "beaches". Different forms of the same word can appear in results because of linguistic analysis. 
 
-* Azure Search supports 56 analyzers from both Lucene and Microsoft. The default used by Azure Search is the standard Lucene analyzer.
+* Azure Cognitive Search supports 56 analyzers from both Lucene and Microsoft. The default used by Azure Cognitive Search is the standard Lucene analyzer.
 
 ### <a name="fuzzy-search"></a> Try fuzzy search
 
@@ -237,13 +228,13 @@ This example now returns documents that include matches on "Seattle".
 
 When **queryType** is unspecified, the default simple query parser is used. The simple query parser is faster, but if you require fuzzy search, regular expressions, proximity search, or other advanced query types, you will need the full syntax.
 
-Fuzzy search and wildcard search have implications on search output. Linguistic analysis is not performed on these query formats. Before using fuzzy and wildcard search, review [How full text search works in Azure Search](search-lucene-query-architecture.md#stage-2-lexical-analysis) and look for the section about exceptions to lexical analysis.
+Fuzzy search and wildcard search have implications on search output. Linguistic analysis is not performed on these query formats. Before using fuzzy and wildcard search, review [How full text search works in Azure Cognitive Search](search-lucene-query-architecture.md#stage-2-lexical-analysis) and look for the section about exceptions to lexical analysis.
 
-For more information about query scenarios enabled by the full query parser, see [Lucene query syntax in Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search).
+For more information about query scenarios enabled by the full query parser, see [Lucene query syntax in Azure Cognitive Search](/rest/api/searchservice/lucene-query-syntax-in-azure-search).
 
 ### <a name="geo-search"></a> Try geospatial search
 
-Geospatial search is supported through the [edm.GeographyPoint data type](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) on a field containing coordinates. Geosearch is a type of filter, specified in [Filter OData syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
+Geospatial search is supported through the [edm.GeographyPoint data type](/rest/api/searchservice/supported-data-types) on a field containing coordinates. Geosearch is a type of filter, specified in [Filter OData syntax](/rest/api/searchservice/odata-expression-syntax-for-azure-search).
 
 #### Example (geo-coordinate filters): `search=*&$count=true&$filter=geo.distance(Location,geography'POINT(-122.12 47.67)') le 5`
 
@@ -253,15 +244,15 @@ Geospatial search is useful if your search application has a "find near me" feat
 
 ## Takeaways
 
-This tutorial provided a quick introduction to Azure Search using the Azure portal.
+This tutorial provided a quick introduction to Azure Cognitive Search using the Azure portal.
 
-You learned how to create a search index using the **Import data** wizard. You learned about [indexers](search-indexer-overview.md), as well as the basic workflow for index design, including [supported modifications to a published index](https://docs.microsoft.com/rest/api/searchservice/update-index).
+You learned how to create a search index using the **Import data** wizard. You learned about [indexers](search-indexer-overview.md), as well as the basic workflow for index design, including [supported modifications to a published index](/rest/api/searchservice/update-index).
 
 Using the **Search explorer** in the Azure portal, you learned some basic query syntax through hands-on examples that demonstrated key capabilities such as filters, hit highlighting, fuzzy search, and geo-search.
 
 You also learned how to find indexes, indexers, and data sources in the portal. Given any new data source in the future, you can use the portal to quickly check its definitions or field collections with minimal effort.
 
-## Clean up
+## Clean up resources
 
 When you're working in your own subscription, it's a good idea at the end of a project to identify whether you still need the resources you created. Resources left running can cost you money. You can delete resources individually or delete the resource group to delete the entire set of resources.
 
@@ -271,8 +262,7 @@ If you are using a free service, remember that you are limited to three indexes,
 
 ## Next steps
 
-You can explore more of Azure Search using the programmatic tools:
+Use a portal wizard to generate a ready-to-use web app that runs in a browser. You can try this wizard out on the small index you just created, or use one of the built-in sample data sets for a richer search experience.
 
-* [Create an index using .NET SDK](https://docs.microsoft.com/azure/search/search-create-index-dotnet)
-* [Create an index using REST APIs](https://docs.microsoft.com/azure/search/search-create-index-rest-api)
-* [Create an index using Postman or Fiddler and the Azure Search REST APIs](search-get-started-postman.md)
+> [!div class="nextstepaction"]
+> [Create a demo app in the portal](search-create-app-portal.md)

@@ -1,7 +1,7 @@
 ---
 title: "Face recognition concepts"
 titleSuffix: Azure Cognitive Services
-description: Learn concepts about face recognition.
+description: This article explains the concepts of the Verify, Find Similar, Group, and Identify face recognition operations and the underlying data structures.
 services: cognitive-services
 author: PatrickFarley
 manager: nitime
@@ -65,6 +65,6 @@ Use the following tips to ensure that your input images give the most accurate r
 
 ## Next steps
 
-Now that you're familiar with face recognition concepts, learn how to write a script that identifies faces against a trained PersonGroup.
+Now that you're familiar with face recognition concepts, Write a script that identifies faces against a trained PersonGroup.
 
-* [Identify faces in images](../Face-API-How-to-Topics/HowtoIdentifyFacesinImage.md)
+* [Face client library quickstart](../Quickstarts/client-libraries.md)

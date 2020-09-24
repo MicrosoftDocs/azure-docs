@@ -4,16 +4,12 @@ description: Explains how to use the StorSimple Device Manager service Backup Ca
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
-editor: ''
 
 ms.assetid: 
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
-ms.date: 05/23/2017
+ms.topic: how-to
+ms.date: 07/15/2020
 ms.author: alkohli
 
 ---
@@ -22,8 +18,6 @@ ms.author: alkohli
 ## Overview
 
 This tutorial describes the restore operation performed on a StorSimple 8000 series device using an existing backup set. Use the **Backup catalog** blade to restore a volume from a local or cloud backup. The **Backup catalog** blade displays all the backup sets that are created when manual or automated backups are taken. The restore operation from a backup set brings the volume online immediately while data is downloaded in the background.
-
-An alternate method to start restore is to go to **Devices > [Your device] > Volumes**. In the **Volumes** blade, select a volume, right-click to invoke the context menu, and then select **Restore**.
 
 ## Before you restore
 

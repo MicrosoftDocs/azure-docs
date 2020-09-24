@@ -1,18 +1,21 @@
 ---
 title: Troubleshoot Azure Files problems in Linux | Microsoft Docs
-description: Troubleshooting Azure Files problems in Linux
+description: Troubleshooting Azure Files problems in Linux. See common issues related to Azure Files when you connect from Linux clients, and see possible resolutions.
 author: jeffpatt24
 ms.service: storage
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
 ---
-# Troubleshoot Azure Files problems in Linux
+# Troubleshoot Azure Files problems in Linux (SMB)
 
 This article lists common problems that are related to Azure Files when you connect from Linux clients. It also provides possible causes and resolutions for these problems. 
 
-In addition to the troubleshooting steps in this article, you can use [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089) to ensure that the Linux client has correct prerequisites. AzFileDiagnostics automates the detection of most of the symptoms mentioned in this article. It helps set up your environment to get optimal performance. You can also find this information in the [Azure Files shares troubleshooter](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares). The troubleshooter provides steps to help you with problems connecting, mapping, and mounting Azure Files shares.
+In addition to the troubleshooting steps in this article, you can use [AzFileDiagnostics](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Linux) to ensure that the Linux client has correct prerequisites. AzFileDiagnostics automates the detection of most of the symptoms mentioned in this article. It helps set up your environment to get optimal performance. You can also find this information in the [Azure Files shares troubleshooter](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares). The troubleshooter provides steps to help you with problems connecting, mapping, and mounting Azure Files shares.
+
+> [!IMPORTANT]
+> The content of this article only applies to SMB shares. For details on NFS shares, see [Troubleshoot Azure NFS file shares](storage-troubleshooting-files-nfs.md).
 
 ## Cannot connect to or mount an Azure file share
 
@@ -24,14 +27,14 @@ Common causes for this problem are:
 
 |   | SMB 2.1 <br>(Mounts on VMs within the same Azure region) | SMB 3.0 <br>(Mounts from on-premises and cross-region) |
 | --- | :---: | :---: |
-| Ubuntu Server | 14.04+ | 16.04+ |
-| RHEL | 7+ | 7.5+ |
-| CentOS | 7+ |  7.5+ |
-| Debian | 8+ |   |
-| openSUSE | 13.2+ | 42.3+ |
-| SUSE Linux Enterprise Server | 12 | 12 SP3+ |
+| **Ubuntu Server** | 14.04+ | 16.04+ |
+| **RHEL** | 7+ | 7.5+ |
+| **CentOS** | 7+ |  7.5+ |
+| **Debian** | 8+ |   |
+| **openSUSE** | 13.2+ | 42.3+ |
+| **SUSE Linux Enterprise Server** | 12 | 12 SP3+ |
 
-- CIFS utilities (cfs-utils) are not installed on the client.
+- CIFS utilities (cifs-utils) are not installed on the client.
 - The minimum SMB/CIFS version, 2.1, is not installed on the client.
 - SMB 3.0 encryption is not supported on the client. The preceding table provides a list of Linux distributions that support mounting from on-premises and cross-region using encryption. Other distributions require kernel 4.11 and later versions.
 - You're trying to connect to a storage account over TCP port 445, which is not supported.
@@ -40,7 +43,7 @@ Common causes for this problem are:
 
 ### Solution
 
-To resolve the problem, use the [troubleshooting tool for Azure Files mounting errors on Linux](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089). This tool:
+To resolve the problem, use the [troubleshooting tool for Azure Files mounting errors on Linux](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Linux). This tool:
 
 * Helps you to validate the client running environment.
 * Detects the incompatible client configuration that would cause access failure for Azure Files.
@@ -54,7 +57,7 @@ To resolve the problem, use the [troubleshooting tool for Azure Files mounting e
 
 For security reasons, connections to Azure file shares are blocked if the communication channel isn't encrypted and if the connection attempt isn't made from the same datacenter where the Azure file shares reside. Unencrypted connections within the same datacenter can also be blocked if the [Secure transfer required](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) setting is enabled on the storage account. An encrypted communication channel is provided only if the user's client OS supports SMB encryption.
 
-To learn more, see [Prerequisites for mounting an Azure file share with Linux and the cifs-utils package](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-linux#prerequisites-for-mounting-an-azure-file-share-with-linux-and-the-cifs-utils-package). 
+To learn more, see [Prerequisites for mounting an Azure file share with Linux and the cifs-utils package](storage-how-to-use-files-linux.md#prerequisites). 
 
 ### Solution for cause 1
 
@@ -78,9 +81,9 @@ In Linux, you receive an error message that resembles the following:
 
 ### Cause
 
-You have reached the upper limit of concurrent open handles that are allowed for a file.
+You have reached the upper limit of concurrent open handles that are allowed for a file or directory.
 
-There is a quota of 2,000 open handles on a single file. When you have 2,000 open handles, an error message is displayed that says the quota is reached.
+There is a quota of 2,000 open handles on a single file or directory. When you have 2,000 open handles, an error message is displayed that says the quota is reached.
 
 ### Solution
 
@@ -120,29 +123,28 @@ Some Linux distributions don't yet support encryption features in SMB 3.0. Users
 
 ### Solution
 
-The encryption feature for SMB 3.0 for Linux was introduced in the 4.11 kernel. This feature enables mounting of an Azure file share from on-premises or from a different Azure region. This functionality is included in the Linux distributions listed in [Minimum recommended versions with corresponding mount capabilities (SMB version 2.1 vs SMB version 3.0)](storage-how-to-use-files-linux.md#minimum-recommended-versions-with-corresponding-mount-capabilities-smb-version-21-vs-smb-version-30). Other distributions require kernel 4.11 and later versions.
+The encryption feature for SMB 3.0 for Linux was introduced in the 4.11 kernel. This feature enables mounting of an Azure file share from on-premises or from a different Azure region. Some Linux distributions may have backported changes from the 4.11 kernel to older versions of the Linux kernel which they maintain. To assist in determining if your version of Linux supports SMB 3.0 with encryption, consult with [Use Azure Files with Linux](storage-how-to-use-files-linux.md). 
 
 If your Linux SMB client doesn't support encryption, mount Azure Files by using SMB 2.1 from an Azure Linux VM that's in the same datacenter as the file share. Verify that the [Secure transfer required]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) setting is disabled on the storage account. 
 
-<a id="authorizationfailureportal"></a>
-## Error “Authorization failure” when browsing to an Azure file share in the portal
+<a id="noaaccessfailureportal"></a>
+## Error "No access" when you try to access or delete an Azure File Share  
+When you try to access or delete an Azure file share in the portal, you may receive the following error:
 
-When you browse to an Azure file share in the portal, you may receive the following error:
+No access  
+Error code: 403 
 
-Authorization failure  
-You do not have access
-
-### Cause 1: Your user account does not have access to the storage account
+### Cause 1: Virtual network or firewall rules are enabled on the storage account
 
 ### Solution for cause 1
 
-Browse to the storage account where the Azure file share is located, click **Access control (IAM)** and verify your user account has access to the storage account. To learn more, see [How to secure your storage account with Role-Based Access Control (RBAC)](https://docs.microsoft.com/azure/storage/common/storage-security-guide#how-to-secure-your-storage-account-with-role-based-access-control-rbac).
+Verify virtual network and firewall rules are configured properly on the storage account. To test if virtual network or firewall rules is causing the issue, temporarily change the setting on the storage account to **Allow access from all networks**. To learn more, see [Configure Azure Storage firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security).
 
-### Cause 2: Virtual network or firewall rules are enabled on the storage account
+### Cause 2: Your user account does not have access to the storage account
 
 ### Solution for cause 2
 
-Verify virtual network and firewall rules are configured properly on the storage account. To test if virtual network or firewall rules is causing the issue, temporarily change the setting on the storage account to **Allow access from all networks**. To learn more, see [Configure Azure Storage firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+Browse to the storage account where the Azure file share is located, click **Access control (IAM)** and verify your user account has access to the storage account. To learn more, see [How to secure your storage account with Role-Based Access Control (RBAC)](https://docs.microsoft.com/azure/storage/blobs/security-recommendations#data-protection).
 
 <a id="open-handles"></a>
 ## Unable to delete a file or directory in an Azure file share
@@ -275,13 +277,21 @@ This reconnection problem in the Linux kernel is now fixed as part of the follow
 - [CIFS: Fix a possible memory corruption during reconnect](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=53e0e11efe9289535b060a51d4cf37c25e0d0f2b)
 - [CIFS: Fix a possible double locking of mutex during reconnect (for kernel v4.9 and later)](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=96a988ffeb90dba33a71c3826086fe67c897a183)
 
-However, these changes might not be ported yet to all the Linux distributions. This fix and other reconnection fixes can be found in the [Minimum recommended versions with corresponding mount capabilities (SMB version 2.1 vs SMB version 3.0)](storage-how-to-use-files-linux.md#minimum-recommended-versions-with-corresponding-mount-capabilities-smb-version-21-vs-smb-version-30) section of the [Use Azure Files with Linux](storage-how-to-use-files-linux.md) article. You can get this fix by upgrading to one of these recommended kernel versions.
+However, these changes might not be ported yet to all the Linux distributions. If you're using a popular Linux distribution, you can check on the [Use Azure Files with Linux](storage-how-to-use-files-linux.md) to see which version of your distribution has the necessary kernel changes.
 
 ### Workaround
 
 You can work around this problem by specifying a hard mount. A hard mount forces the client to wait until a connection is established or until it's explicitly interrupted. You can use it to prevent errors because of network time-outs. However, this workaround might cause indefinite waits. Be prepared to stop connections as necessary.
 
 If you can't upgrade to the latest kernel versions, you can work around this problem by keeping a file in the Azure file share that you write to every 30 seconds or less. This must be a write operation, such as rewriting the created or modified date on the file. Otherwise, you might get cached results, and your operation might not trigger the reconnection.
+
+## "CIFS VFS: error -22 on ioctl to get interface list" when you mount an Azure file share by using SMB 3.0
+
+### Cause
+This error is logged because Azure Files [does not currently support SMB multichannel](https://docs.microsoft.com/rest/api/storageservices/features-not-supported-by-the-azure-file-service).
+
+### Solution
+This error can be ignored.
 
 ## Need help? Contact support.
 

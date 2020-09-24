@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Ascentis | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Ascentis.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: df45dce8-6718-4711-a90c-86a07f66bc7b
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 07/11/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Integrate Ascentis with Azure Active Directory
@@ -86,10 +79,10 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     In the **Sign-on URL** text box, type a URL using any one of the following pattern:
 
-	| |
-	|--|
-	| `https://selfservice.ascentis.com/<clientname>/STS/signin.aspx?SAMLResponse=true` |
-	| `https://selfservice2.ascentis.com/<clientname>/STS/signin.aspx?SAMLResponse=true` |
+   ```https
+    https://selfservice.ascentis.com/<clientname>/STS/signin.aspx?SAMLResponse=true
+    https://selfservice2.ascentis.com/<clientname>/STS/signin.aspx?SAMLResponse=true
+    ```
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Reply URL and Sign-On URL. Contact [Ascentis Client support team](mailto:support@ascentis.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.

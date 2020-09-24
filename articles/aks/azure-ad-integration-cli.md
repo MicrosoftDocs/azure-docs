@@ -1,34 +1,39 @@
 ---
-title: Integrate Azure Active Directory with Azure Kubernetes Service
-description: Learn how to use the Azure CLI to create and Azure Active Directory-enabled Azure Kubernetes Service (AKS) cluster
+title: Integrate Azure Active Directory with Azure Kubernetes Service (legacy)
+description: Learn how to use the Azure CLI to create and Azure Active Directory-enabled Azure Kubernetes Service (AKS) cluster (legacy)
 services: container-service
-author: mlearned
-
-ms.service: container-service
+author: TomGeske
 ms.topic: article
-ms.date: 04/16/2019
-ms.author: mlearned
+ms.date: 07/20/2020
+ms.author: thomasge
+
 ---
 
-# Integrate Azure Active Directory with Azure Kubernetes Service using the Azure CLI
+# Integrate Azure Active Directory with Azure Kubernetes Service using the Azure CLI (legacy)
 
 Azure Kubernetes Service (AKS) can be configured to use Azure Active Directory (AD) for user authentication. In this configuration, you can log into an AKS cluster using an Azure AD authentication token. Cluster operators can also configure Kubernetes role-based access control (RBAC) based on a user's identity or directory group membership.
 
-This article shows you how to create the required Azure AD components, then deploy an Azure AD-enabled cluster and create a basic RBAC role in the AKS cluster. You can also [complete these steps using the Azure portal][azure-ad-portal].
+This article shows you how to create the required Azure AD components, then deploy an Azure AD-enabled cluster and create a basic RBAC role in the AKS cluster.
 
 For the complete sample script used in this article, see [Azure CLI samples - AKS integration with Azure AD][complete-script].
 
-The following limitations apply:
+> [!Important]
+> AKS has a new improved [AKS-managed Azure AD][managed-aad] experience  that doesn't require you to manage server or client application. If you want to migrate follow the instructions [here][managed-aad-migrate].
 
-- Azure AD can only be enabled when you create a new, RBAC-enabled cluster. You can't enable Azure AD on an existing AKS cluster.
+## The following limitations apply:
+
+- Azure AD can only be enabled on RBAC-enabled cluster.
+- Azure AD legacy integration can only be enabled during cluster creation.
 
 ## Before you begin
 
 You need the Azure CLI version 2.0.61 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
+Go to [https://shell.azure.com](https://shell.azure.com) to open Cloud Shell in your browser.
+
 For consistency and to help run the commands in this article, create a variable for your desired AKS cluster name. The following example uses the name *myakscluster*:
 
-```azurecli-interactive
+```console
 aksname="myakscluster"
 ```
 
@@ -54,7 +59,7 @@ serverApplicationId=$(az ad app create \
     --identifier-uris "https://${aksname}Server" \
     --query appId -o tsv)
 
-# Update the application group memebership claims
+# Update the application group membership claims
 az ad app update --id $serverApplicationId --set groupMembershipClaims=All
 ```
 
@@ -71,7 +76,7 @@ serverApplicationSecret=$(az ad sp credential reset \
     --query password -o tsv)
 ```
 
-The Azure AD needs permissions to perform the following actions:
+The Azure AD service principal needs permissions to perform the following actions:
 
 * Read directory data
 * Sign in and read user profile
@@ -119,7 +124,7 @@ oAuthPermissionId=$(az ad app show --id $serverApplicationId --query "oauth2Perm
 Add the permissions for the client application and server application components to use the oAuth2 communication flow using the [az ad app permission add][az-ad-app-permission-add] command. Then, grant permissions for the client application to communication with the server application using the [az ad app permission grant][az-ad-app-permission-grant] command:
 
 ```azurecli-interactive
-az ad app permission add --id $clientApplicationId --api $serverApplicationId --api-permissions $oAuthPermissionId=Scope
+az ad app permission add --id $clientApplicationId --api $serverApplicationId --api-permissions ${oAuthPermissionId}=Scope
 az ad app permission grant --id $clientApplicationId --api $serverApplicationId
 ```
 
@@ -208,8 +213,10 @@ kubectl get pods --all-namespaces
 You receive a sign in prompt to authenticate using Azure AD credentials using a web browser. After you've successfully authenticated, the `kubectl` command displays the pods in the AKS cluster, as shown in the following example output:
 
 ```console
-$ kubectl get pods --all-namespaces
+kubectl get pods --all-namespaces
+```
 
+```output
 To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code BYMK7UXVD to authenticate.
 
 NAMESPACE     NAME                                    READY   STATUS    RESTARTS   AGE
@@ -228,7 +235,7 @@ The authentication token received for `kubectl` is cached. You are only reprompt
 
 If you see an authorization error message after you've successfully signed in using a web browser as in the following example output, check the following possible issues:
 
-```console
+```output
 error: You must be logged in to the server (Unauthorized)
 ```
 
@@ -256,7 +263,7 @@ For best practices on identity and resource control, see [Best practices for aut
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
 [az-group-create]: /cli/azure/group#az-group-create
-[open-id-connect]:../active-directory/develop/v1-protocols-openid-connect-code.md
+[open-id-connect]: ../active-directory/develop/v2-protocols-oidc.md
 [az-ad-user-show]: /cli/azure/ad/user#az-ad-user-show
 [az-ad-app-create]: /cli/azure/ad/app#az-ad-app-create
 [az-ad-app-update]: /cli/azure/ad/app#az-ad-app-update
@@ -268,9 +275,10 @@ For best practices on identity and resource control, see [Best practices for aut
 [az-group-create]: /cli/azure/group#az-group-create
 [az-account-show]: /cli/azure/account#az-account-show
 [az-ad-signed-in-user-show]: /cli/azure/ad/signed-in-user#az-ad-signed-in-user-show
-[azure-ad-portal]: azure-ad-integration.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#az-ad-sp-credential-reset
-[rbac-authorization]: concepts-identity.md#role-based-access-controls-rbac
+[rbac-authorization]: concepts-identity.md#kubernetes-role-based-access-control-rbac
 [operator-best-practices-identity]: operator-best-practices-identity.md
 [azure-ad-rbac]: azure-ad-rbac.md
+[managed-aad]: managed-aad.md
+[managed-aad-migrate]: managed-aad.md#upgrading-to-aks-managed-azure-ad-integration

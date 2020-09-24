@@ -1,14 +1,14 @@
 ---
-title: "Visualize anomalies using batch detection and Power BI"
+title: "Tutorial: Visualize anomalies using batch detection and Power BI"
 titleSuffix: Azure Cognitive Services
-description: Use the Anomaly Detector API and Power BI to visualize anomalies throughout your time series data.
+description: Learn how to use the Anomaly Detector API and Power BI to visualize anomalies throughout your time series data.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: tutorial
-ms.date: 10/01/2019
+ms.date: 09/10/2020
 ms.author: aahi
 ---
 
@@ -24,13 +24,13 @@ In this tutorial, you'll learn how to:
 > * Visualize anomalies found within your data, including expected and seen values, and anomaly detection boundaries.
 
 ## Prerequisites
-
+* An [Azure subscription](https://azure.microsoft.com/free/cognitive-services)
 * [Microsoft Power BI Desktop](https://powerbi.microsoft.com/get-started/), available for free.
 * An excel file (.xlsx) containing time series data points. The example data for this quickstart can be found on [GitHub](https://go.microsoft.com/fwlink/?linkid=2090962)
+* Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title="Create an Anomaly Detector resource"  target="_blank">create an Anomaly Detector resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint.
+    * You will need the key and endpoint from the resource you create to connect your application to the Anomaly Detector API. You'll do this later in the quickstart.
 
 [!INCLUDE [cognitive-services-anomaly-detector-data-requirements](../../../../includes/cognitive-services-anomaly-detector-data-requirements.md)]
-
-[!INCLUDE [cognitive-services-anomaly-detector-signup-requirements](../../../../includes/cognitive-services-anomaly-detector-signup-requirements.md)]
 
 ## Load and format the time series data
 
@@ -47,19 +47,19 @@ After the dialog appears, navigate to the folder where you downloaded the exampl
 
 ![An image of the data source "Navigator" screen in Power BI](../media/tutorials/navigator-dialog-box.png)
 
-Power BI will convert the timestamps in the first column to a `Date/Time` data type. These timestamps must be converted to text in order to be sent to the Anomaly Detector API. If the Power Query editor doesn't automatically open, click **Edit Queries** on the home tab. 
+Power BI will convert the timestamps in the first column to a `Date/Time` data type. These timestamps must be converted to text in order to be sent to the Anomaly Detector API. If the Power Query editor doesn't automatically open, click **Edit Queries** on the home tab.
 
 Click the **Transform** ribbon in the Power Query Editor. In the **Any Column** group, open the **Data Type:** drop-down menu, and select **Text**.
 
 ![An image of the data source "Navigator" screen in Power BI](../media/tutorials/data-type-drop-down.png)
 
-When you get a notice about changing the column type, click **Replace Current**. Afterwards, click **Close & Apply** or **Apply** in the **Home** ribbon. 
+When you get a notice about changing the column type, click **Replace Current**. Afterwards, click **Close & Apply** or **Apply** in the **Home** ribbon.
 
 ## Create a function to send the data and format the response
 
 To format and send the data file to the Anomaly Detector API, you can invoke a query on the table created above. In the Power Query Editor, from the **Home** ribbon, open the **New Source** drop-down menu and click **Blank Query**.
 
-Make sure your new query is selected, then click **Advanced Editor**. 
+Make sure your new query is selected, then click **Advanced Editor**.
 
 ![An image of the "Advanced Editor" button in Power BI](../media/tutorials/advanced-editor-screen.png)
 
@@ -75,11 +75,11 @@ Within the Advanced Editor, use the following Power Query M snippet to extract t
     jsonbody    = "{ ""Granularity"": ""daily"", ""Sensitivity"": 95, ""Series"": "& jsontext &" }",
     bytesbody   = Text.ToBinary(jsonbody),
     headers     = [#"Content-Type" = "application/json", #"Ocp-Apim-Subscription-Key" = apikey],
-    bytesresp   = Web.Contents(endpoint, [Headers=headers, Content=bytesbody]),
+    bytesresp   = bytesresp  = Web.Contents(endpoint, [Headers=headers, Content=bytesbody, ManualStatusHandling={400}]),
     jsonresp    = Json.Document(bytesresp),
 
     respTable = Table.FromColumns({
-                    
+
                      Table.Column(inputTable, "Timestamp")
                      ,Table.Column(inputTable, "Value")
                      , Record.Field(jsonresp, "IsAnomaly") as list
@@ -91,7 +91,7 @@ Within the Advanced Editor, use the following Power Query M snippet to extract t
 
                   }, {"Timestamp", "Value", "IsAnomaly", "ExpectedValues", "UpperMargin", "LowerMargin", "IsPositiveAnomaly", "IsNegativeAnomaly"}
                ),
-    
+
     respTable1 = Table.AddColumn(respTable , "UpperMargins", (row) => row[ExpectedValues] + row[UpperMargin]),
     respTable2 = Table.AddColumn(respTable1 , "LowerMargins", (row) => row[ExpectedValues] -  row[LowerMargin]),
     respTable3 = Table.RemoveColumns(respTable2, "UpperMargin"),
@@ -107,7 +107,7 @@ Within the Advanced Editor, use the following Power Query M snippet to extract t
  in results
 ```
 
-Invoke the query on your data sheet by selecting `Sheet1` below **Enter Parameter**, and click **Invoke**. 
+Invoke the query on your data sheet by selecting `Sheet1` below **Enter Parameter**, and click **Invoke**.
 
 ![An image of the "Advanced Editor" button](../media/tutorials/invoke-function-screenshot.png)
 
@@ -116,32 +116,32 @@ Invoke the query on your data sheet by selecting `Sheet1` below **Enter Paramete
 > [!NOTE]
 > Be aware of your organization's policies for data privacy and access. See [Power BI Desktop privacy levels](https://docs.microsoft.com/power-bi/desktop-privacy-levels) for more information.
 
-You may get a warning message when you attempt to run the query since it utilizes an external data source. 
+You may get a warning message when you attempt to run the query since it utilizes an external data source.
 
 ![An image showing a warning created by Power BI](../media/tutorials/blocked-function.png)
 
-To fix this, click **File**, and **Options and settings**. Then click **Options**. Below **Current File**, select **Privacy**, and **Ignore the Privacy Levels and potentially improve performance**. 
+To fix this, click **File**, and **Options and settings**. Then click **Options**. Below **Current File**, select **Privacy**, and **Ignore the Privacy Levels and potentially improve performance**.
 
 Additionally, you may get a message asking you to specify how you want to connect to the API.
 
 ![An image showing a request to specify access credentials](../media/tutorials/edit-credentials-message.png)
 
-To fix this, Click **Edit Credentials** in the message. After the dialogue box appears, select **Anonymous** to connect to the API anonymously. Then click **Connect**. 
+To fix this, Click **Edit Credentials** in the message. After the dialogue box appears, select **Anonymous** to connect to the API anonymously. Then click **Connect**.
 
 Afterwards, click **Close & Apply** in the **Home** ribbon to apply the changes.
 
 ## Visualize the Anomaly Detector API response
 
-In the main Power BI screen, begin using the queries created above to visualize the data. First select **Line Chart** in **Visualizations**. Then add the timestamp from the invoked function to the line chart's **Axis**. Right-click on it, and select **Timestamp**. 
+In the main Power BI screen, begin using the queries created above to visualize the data. First select **Line Chart** in **Visualizations**. Then add the timestamp from the invoked function to the line chart's **Axis**. Right-click on it, and select **Timestamp**.
 
 ![Right-clicking the Timestamp value](../media/tutorials/timestamp-right-click.png)
 
 Add the following fields from the **Invoked Function** to the chart's **Values** field. Use the below screenshot to help build your chart.
 
-    * Value
-    * UpperMargins
-    * LowerMargins
-    * ExpectedValues
+* Value
+* UpperMargins
+* LowerMargins
+* ExpectedValues
 
 ![An image of the new quick measure screen](../media/tutorials/chart-settings.png)
 

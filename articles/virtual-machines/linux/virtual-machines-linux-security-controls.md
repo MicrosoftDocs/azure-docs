@@ -25,13 +25,13 @@ This article documents the security controls built into Linux Virtual Machines.
 | Service endpoint support| Yes | |
 | VNet injection support| Yes | |
 | Network Isolation and Firewalling support| Yes |  |
-| Forced tunneling support| Yes | See [Configure forced tunneling using the Azure Resource Manager deployment model](/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm). |
+| Forced tunneling support| Yes | See [Configure forced tunneling using the Azure Resource Manager deployment model](../../vpn-gateway/vpn-gateway-forced-tunneling-rm.md). |
 
 ## Monitoring & logging
 
 | Security control | Yes/No | Notes|
 |---|---|--|
-| Azure monitoring support (Log analytics, App insights, etc.)| Yes | See [Monitor and update a Linux virtual machine in Azure](/azure/virtual-machines/linux/tutorial-monitoring). |
+| Azure monitoring support (Log analytics, App insights, etc.)| Yes | See [Monitor and update a Linux virtual machine in Azure](./tutorial-monitor.md). |
 | Control and management plane logging and audit| Yes |  |
 | Data plane logging and audit | No |  |
 
@@ -47,10 +47,10 @@ This article documents the security controls built into Linux Virtual Machines.
 | Security control | Yes/No | Notes |
 |---|---|--|
 | Server-side encryption at rest: Microsoft-managed keys | Yes | See [Azure Disk Encryption for Linux VMs](disk-encryption-overview.md). |
-| Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption )| Yes | Azure Virtual Machines supports [ExpressRoute](/azure/expressroute) and VNet encryption. See [In-transit encryption in VMs](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms). |
-| Server-side encryption at rest: customer-managed keys (BYOK) | Yes | Customer-managed keys is a supported Azure encryption scenario; see [Azure encryption overview](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms).|
+| Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption )| Yes | Azure Virtual Machines supports [ExpressRoute](../../expressroute/index.yml) and VNet encryption. See [In-transit encryption in VMs](../../security/fundamentals/encryption-overview.md#in-transit-encryption-in-vms). |
+| Server-side encryption at rest: customer-managed keys (BYOK) | Yes | Customer-managed keys is a supported Azure encryption scenario; see [Azure encryption overview](../../security/fundamentals/encryption-overview.md#in-transit-encryption-in-vms).|
 | Column level encryption (Azure Data Services)| N/A | |
-| API calls encrypted| Yes | Via HTTPS and SSL. |
+| API calls encrypted| Yes | Via HTTPS and TLS. |
 
 ## Configuration management
 

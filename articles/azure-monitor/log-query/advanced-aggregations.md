@@ -1,18 +1,12 @@
 ---
 title: Advanced aggregations in Azure Monitor log queries| Microsoft Docs
 description: Describes some of the more advanced aggregation options available to Azure Monitor log queries.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: 
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/16/2018
+author: bwren
 ms.author: bwren
+ms.date: 08/16/2018
+
 ---
 
 # Advanced aggregations in Azure Monitor log queries
@@ -186,7 +180,8 @@ See other lessons for using the [Kusto query language](/azure/kusto/query/) with
 - [String operations](string-operations.md)
 - [Date and time operations](datetime-operations.md)
 - [Aggregation functions](aggregations.md)
-- [Advanced aggregations](advanced-aggregations.md)
+- [Advanced aggregations]()
 - [JSON and data structures](json-data-structures.md)
 - [Joins](joins.md)
 - [Charts](charts.md)
+

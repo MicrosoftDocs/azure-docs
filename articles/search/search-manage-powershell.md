@@ -1,48 +1,44 @@
 ---
-title: PowerShell scripts using Az.Search module - Azure Search
-description: Create and configure an Azure Search service with PowerShell. You can scale a service up or down, manage admin and query api-keys, and query system information.
-author: HeidiSteen
-manager: nitinme
+title: PowerShell scripts using Az.Search module
+titleSuffix: Azure Cognitive Search
+description: Create and configure an Azure Cognitive Search service with PowerShell. You can scale a service up or down, manage admin and query api-keys, and query for system information.
 
-services: search
-ms.service: search
+manager: nitinme
+author: HeidiSteen
+ms.author: heidist
+ms.service: cognitive-search
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 03/28/2019
-ms.author: heidist
-
+ms.date: 02/11/2020
 ---
-# Manage your Azure Search service with PowerShell
+
+# Manage your Azure Cognitive Search service with PowerShell
 > [!div class="op_single_selector"]
 > * [Portal](search-manage.md)
 > * [PowerShell](search-manage-powershell.md)
-> * [REST API](https://docs.microsoft.com/rest/api/searchmanagement/)
-> * [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
+> * [REST API](/rest/api/searchmanagement/)
+> * [.NET SDK](/dotnet/api/microsoft.azure.management.search)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
 
-You can run PowerShell cmdlets and scripts on Windows, Linux, or in [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) to create and configure Azure Search. The **Az.Search** module extends Azure PowerShell] with full parity to the [Azure Search Management REST APIs](https://docs.microsoft.com/rest/api/searchmanagement). With Azure PowerShell and **Az.Search**, you can perform the following tasks:
+You can run PowerShell cmdlets and scripts on Windows, Linux, or in [Azure Cloud Shell](../cloud-shell/overview.md) to create and configure Azure Cognitive Search. The **Az.Search** module extends [Azure PowerShell](/powershell/) with full parity to the [Search Management REST APIs](/rest/api/searchmanagement) and the ability to perform the following tasks:
 
 > [!div class="checklist"]
-> * [List all of the search services in your subscription](#list-search-services)
-> * [Get information about a specific search service](#get-search-service-information)
+> * [List search services in a subscription](#list-search-services)
+> * [Return service information](#get-search-service-information)
 > * [Create or delete a service](#create-or-delete-a-service)
 > * [Regenerate admin API-keys](#regenerate-admin-keys)
 > * [Create or delete query api-keys](#create-or-delete-query-keys)
-> * [Scale a service by increasing or decreasing replicas and partitions](#scale-replicas-and-partitions)
+> * [Scale up or down with replicas and partitions](#scale-replicas-and-partitions)
 
-PowerShell cannot be used to change the name, region, or tier of your service. Dedicated resources are allocated when a service is created. Changing the underlying hardware (location or node type) requires a new service. There are no tools or APIs for transferring content from one service to another. All content management is through [REST](https://docs.microsoft.com/rest/api/searchservice/) or [.NET](https://docs.microsoft.com/dotnet/api/?term=microsoft.azure.search) APIs, and if you want to move indexes, you will need to recreate and reload them on a new service. 
+Occasionally, questions are asked about tasks *not* on the above list. Currently, you cannot use either the **Az.Search** module or the management REST API to change a server name, region, or tier. Dedicated resources are allocated when a service is created. As such, changing the underlying hardware (location or node type) requires a new service. Similarly, there are no tools or APIs for transferring content, such as an index, from one service to another.
 
-While there are no dedicated PowerShell commands for content management, you can write PowerShell script that calls REST or .NET to create and load indexes. The **Az.Search** module by itself does not provide these operations.
-
-Other tasks not supported through PowerShell or any other API (portal-only) include:
-+ [Attach a cognitive services resource](cognitive-search-attach-cognitive-services.md) for [AI-enriched indexing](cognitive-search-concept-intro.md). A cognitive service is attached to a skillset, not a subscription or service.
-+ [Add-on monitoring solutions](search-monitor-usage.md#add-on-monitoring-solutions) or [search traffic analytics](search-traffic-analytics.md) used for monitoring Azure Search.
+Within a service, content creation and management is through [Search Service REST API](/rest/api/searchservice/) or [.NET SDK](/dotnet/api/?term=microsoft.azure.search). While there are no dedicated PowerShell commands for content, you can write PowerShell script that calls REST or .NET APIs to create and load indexes.
 
 <a name="check-versions-and-load"></a>
 
 ## Check versions and load modules
 
-The examples in this article are interactive and require elevated permissions. Azure PowerShell (the **Az** module) must be installed. For more information, see [Install Azure PowerShell](/powershell/azure/overview).
+The examples in this article are interactive and require elevated permissions. Azure PowerShell (the **Az** module) must be installed. For more information, see [Install Azure PowerShell](/powershell/azure/).
 
 ### PowerShell version check (5.1 or later)
 
@@ -88,9 +84,9 @@ Select-AzSubscription -SubscriptionName ContosoSubscription
 
 <a name="list-search-services"></a>
 
-## List all Azure Search services in your subscription
+## List services in a subscription
 
-The following commands are from [**Az.Resources**](https://docs.microsoft.com/powershell/module/az.resources/?view=azps-1.4.0#resources), returning information about existing resources and services already provisioned in your subscription. If you don't know how many search services are already created, these commands return that information, saving you a trip to the portal.
+The following commands are from [**Az.Resources**](/powershell/module/az.resources/?view=azps-1.4.0#resources), returning information about existing resources and services already provisioned in your subscription. If you don't know how many search services are already created, these commands return that information, saving you a trip to the portal.
 
 The first command returns all search services.
 
@@ -116,7 +112,7 @@ ResourceId        : /subscriptions/<alpha-numeric-subscription-ID>/resourceGroup
 
 ## Import Az.Search
 
-Commands from [**Az.Search**](https://docs.microsoft.com/powershell/module/az.search/?view=azps-1.4.0#search) are not available until you load the module.
+Commands from [**Az.Search**](/powershell/module/az.search/?view=azps-1.4.0#search) are not available until you load the module.
 
 ```azurepowershell-interactive
 Install-Module -Name Az.Search
@@ -148,7 +144,7 @@ Cmdlet          Set-AzSearchService                 0.7.1      Az.Search
 
 ## Get search service information
 
-After **Az.Search** is imported and you know the resource group containing your search service, run [Get-AzSearchService](https://docs.microsoft.com/powershell/module/az.search/get-azsearchservice?view=azps-1.4.0) to return the service definition, including name, region, tier, and replica and partition counts.
+After **Az.Search** is imported and you know the resource group containing your search service, run [Get-AzSearchService](/powershell/module/az.search/get-azsearchservice?view=azps-1.4.0) to return the service definition, including name, region, tier, and replica and partition counts.
 
 ```azurepowershell-interactive
 Get-AzSearchService -ResourceGroupName <resource-group-name>
@@ -170,7 +166,7 @@ ResourceId        : /subscriptions/<alphanumeric-subscription-ID>/resourceGroups
 
 ## Create or delete a service
 
-[**New-AzSearchService**](https://docs.microsoft.com/powershell/module/az.search/new-azsearchadminkey?view=azps-1.4.0) is used to [create a new search service](search-create-service-portal.md).
+[**New-AzSearchService**](/powershell/module/az.search/new-azsearchadminkey?view=azps-1.4.0) is used to [create a new search service](search-create-service-portal.md).
 
 ```azurepowershell-interactive
 New-AzSearchService -ResourceGroupName "demo-westus" -Name "my-demo-searchapp" -Sku "Standard" -Location "West US" -PartitionCount 3 -ReplicaCount 3
@@ -191,13 +187,13 @@ Tags
 
 ## Regenerate admin keys
 
-[**New-AzSearchAdminKey**](https://docs.microsoft.com/powershell/module/az.search/new-azsearchadminkey?view=azps-1.4.0) is used to roll over admin [API keys](search-security-api-keys.md). Two admin keys are created with each service for authenticated access. Keys are required on every request. Both admin keys are functionally equivalent, granting full write access to a search service with the ability to retrieve any information, or create and delete any object. Two keys exist so that you can use one while replacing the other. 
+[**New-AzSearchAdminKey**](/powershell/module/az.search/new-azsearchadminkey?view=azps-1.4.0) is used to roll over admin [API keys](search-security-api-keys.md). Two admin keys are created with each service for authenticated access. Keys are required on every request. Both admin keys are functionally equivalent, granting full write access to a search service with the ability to retrieve any information, or create and delete any object. Two keys exist so that you can use one while replacing the other. 
 
 You can only regenerate one at a time, specified as either the `primary` or `secondary` key. For uninterrupted service, remember to update all client code to use a secondary key while rolling over the primary key. Avoid changing the keys while operations are in flight.
 
 As you might expect, if you regenerate keys without updating client code, requests using the old key will fail. Regenerating all new keys does not permanently lock you out of your service, and you can still access the service through the portal. After you regenerate primary and secondary keys, you can update client code to use the new keys and operations will resume accordingly.
 
-Values for the API keys are generated by the service. You cannot provide a custom key for Azure Search to use. Similarly, there is no user-defined name for admin API-keys. References to the key are fixed strings, either `primary` or `secondary`. 
+Values for the API keys are generated by the service. You cannot provide a custom key for Azure Cognitive Search to use. Similarly, there is no user-defined name for admin API-keys. References to the key are fixed strings, either `primary` or `secondary`. 
 
 ```azurepowershell-interactive
 New-AzSearchAdminKey -ResourceGroupName <resource-group-name> -ServiceName <search-service-name> -KeyKind Primary
@@ -213,9 +209,9 @@ Primary                    Secondary
 
 ## Create or delete query keys
 
-[**New-AzSearchQueryKey**](https://docs.microsoft.com/powershell/module/az.search/new-azsearchquerykey?view=azps-1.4.0) is used to create query [API keys](search-security-api-keys.md) for read-only access from client apps to an Azure Search index. Query keys are used to authenticate to a specific index for the purpose of retrieving search results. Query keys do not grant read-only access to other items on the service, such as an index, data source, or indexer.
+[**New-AzSearchQueryKey**](/powershell/module/az.search/new-azsearchquerykey?view=azps-1.4.0) is used to create query [API keys](search-security-api-keys.md) for read-only access from client apps to an Azure Cognitive Search index. Query keys are used to authenticate to a specific index for the purpose of retrieving search results. Query keys do not grant read-only access to other items on the service, such as an index, data source, or indexer.
 
-You cannot provide a key for Azure Search to use. API keys are generated by the service.
+You cannot provide a key for Azure Cognitive Search to use. API keys are generated by the service.
 
 ```azurepowershell-interactive
 New-AzSearchQueryKey -ResourceGroupName <resource-group-name> -ServiceName <search-service-name> -Name <query-key-name> 
@@ -223,7 +219,7 @@ New-AzSearchQueryKey -ResourceGroupName <resource-group-name> -ServiceName <sear
 
 ## Scale replicas and partitions
 
-[**Set-AzSearchService**](https://docs.microsoft.com/powershell/module/az.search/set-azsearchservice?view=azps-1.4.0) is used to [increase or decrease replicas and partitions](search-capacity-planning.md) to readjust billable resources within your service. Increasing replicas or partitions adds to your bill, which has both fixed and variable charges. If you have a temporary need for additional processing power, you can increase replicas and partitions to handle the workload. The monitoring area in the Overview portal page has tiles on query latency, queries per second, and throttling, indicating whether current capacity is adequate.
+[**Set-AzSearchService**](/powershell/module/az.search/set-azsearchservice?view=azps-1.4.0) is used to [increase or decrease replicas and partitions](search-capacity-planning.md) to readjust billable resources within your service. Increasing replicas or partitions adds to your bill, which has both fixed and variable charges. If you have a temporary need for additional processing power, you can increase replicas and partitions to handle the workload. The monitoring area in the Overview portal page has tiles on query latency, queries per second, and throttling, indicating whether current capacity is adequate.
 
 It can take a while to add or remove resourcing. Adjustments to capacity occur in the background, allowing existing workloads to continue. Additional capacity is used for incoming requests as soon as it's ready, with no additional configuration required. 
 
@@ -248,12 +244,11 @@ HostingMode       : Default
 Id                : /subscriptions/65a1016d-0f67-45d2-b838-b8f373d6d52e/resourceGroups/demo-westus/providers/Microsoft.Search/searchServices/my-demo-searchapp
 ```
 
-
 ## Next steps
 
 Build an [index](search-what-is-an-index.md), [query an index](search-query-overview.md) using the portal, REST APIs, or the .NET SDK.
 
-* [Create an Azure Search index in the Azure portal](search-create-index-portal.md)
+* [Create an Azure Cognitive Search index in the Azure portal](search-get-started-portal.md)
 * [Set up an indexer to load data from other services](search-indexer-overview.md)
-* [Query an Azure Search index using Search explorer in the Azure portal](search-explorer.md)
-* [How to use Azure Search in .NET](search-howto-dotnet-sdk.md)
+* [Query an Azure Cognitive Search index using Search explorer in the Azure portal](search-explorer.md)
+* [How to use Azure Cognitive Search in .NET](search-howto-dotnet-sdk.md)

@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with EBSCO | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and EBSCO.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 144f7f65-69e9-4016-a151-fe1104fd6ba8
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/24/2019
+ms.date: 10/11/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with EBSCO
@@ -45,7 +38,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 * EBSCO supports **Just In Time** user provisioning
 
 > [!NOTE]
-> Because the identifier of this application is a fixed string value, only one instance can be configured in one tenant.
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
 
 ## Adding EBSCO from the gallery
 
@@ -65,10 +58,10 @@ Configure and test Azure AD SSO with EBSCO using a test user called **B.Simon**.
 To configure and test Azure AD SSO with EBSCO, complete the following building blocks:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+    * **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+    * **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
 1. **[Configure EBSCO SSO](#configure-ebsco-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create EBSCO test user](#create-ebsco-test-user)** - to have a counterpart of B.Simon in EBSCO that is linked to the Azure AD representation of user.
+    * **[Create EBSCO test user](#create-ebsco-test-user)** - to have a counterpart of B.Simon in EBSCO that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
@@ -99,6 +92,21 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	o	**Custid** = Enter unique EBSCO customer ID 
 
 	o	**Profile** = Clients can tailor the link to direct users to a specific profile (depending on what they purchase from EBSCO). They can enter a specific profile ID. The main IDs are eds (EBSCO Discovery Service) and ehost (EBSOCOhost databases). Instructions for the same are given [here](https://help.ebsco.com/interfaces/EBSCOhost/EBSCOhost_FAQs/How_do_I_set_up_direct_links_to_EBSCOhost_profiles_and_or_databases#profile).
+
+1. EBSCO application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
+
+	![image](common/default-attributes.png)
+
+    > [!Note]
+    > The **name** attribute is mandatory and it is mapped with **Name Identifier value** in EBSCO application. This is added by default so you don't need to add this manually.
+
+1. In addition to above, EBSCO application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
+
+    | Name | Source Attribute|
+	| ---------------| --------------- |
+	| FirstName   | user.givenname |
+	| LastName   | user.surname |
+	| Email   | user.mail |
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
@@ -150,8 +158,8 @@ In the case of EBSCO, user provisioning is automatic.
 
 Azure AD passes the required data to EBSCO application. EBSCO’s user provisioning can be automatic OR require a one-time form. It depends on whether the client has a lot of pre-existing EBSCOhost accounts with personal settings saved. The same can be discussed with the [EBSCO support team](mailto:support@ebsco.com) during the implementation. Either way, the client doesn’t have to create any EBSCOhost accounts prior to testing.
 
-   >[!Note]
-   >You can automate EBSCOhost user provisioning/personalization. Contact [EBSCO support team](mailto:support@ebsco.com) about Just-In-Time user provisioning.
+   > [!Note]
+   > You can automate EBSCOhost user provisioning/personalization. Contact [EBSCO support team](mailto:support@ebsco.com) about Just-In-Time user provisioning.
 
 ## Test SSO
 
@@ -179,4 +187,3 @@ For more information about the Access Panel, see [Introduction to the Access Pan
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Try EBSCO with Azure AD](https://aad.portal.azure.com/)
-

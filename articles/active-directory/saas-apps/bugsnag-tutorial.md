@@ -2,20 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Bugsnag | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Bugsnag.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: f08b8a14-ef69-42a7-ac9d-da95f2e36287
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Bugsnag
 

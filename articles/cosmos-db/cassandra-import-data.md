@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Migrate your data to a Cassandra API account in Azure Cosmos DB'
-description: In this tutorial, learn how to use the CQL Copy command & Spark to copy data from Apache Cassandra to a Cassandra API account in Azure Cosmos DB.
+title: 'Migrate your data to a Cassandra API account in Azure Cosmos DB- Tutorial'
+description: In this tutorial, learn how to use the CQL Copy command & Spark to copy data from Apache Cassandra to a Cassandra API account in Azure Cosmos DB
 author: kanshiG
 ms.author: govindk
 ms.reviewer: sngun
@@ -9,7 +9,7 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: tutorial
 ms.date: 12/03/2018
 ms.custom: seodec18
-Customer intent: As a developer, I want to migrate my existing Cassandra workloads to Azure Cosmos DB so that the overhead to manage resources, clusters, and garbage collection is automatically handled by Azure Cosmos DB.
+#Customer intent: As a developer, I want to migrate my existing Cassandra workloads to Azure Cosmos DB so that the overhead to manage resources, clusters, and garbage collection is automatically handled by Azure Cosmos DB.
 ---
 
 # Tutorial: Migrate your data to Cassandra API account in Azure Cosmos DB
@@ -62,7 +62,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 * **Increase throughput:** The duration of your data migration depends on the amount of throughput you provisioned for the tables in Azure Cosmos DB. Increase the throughput for the duration of migration. With the higher throughput, you can avoid rate limiting and migrate in less time. After you've completed the migration, decrease the throughput to save costs. It’s also recommended to have the Azure Cosmos account in the same region as your source database. 
 
-* **Enable SSL:** Azure Cosmos DB has strict security requirements and standards. Be sure to enable SSL when you interact with your account. When you use CQL with SSH, you have an option to provide SSL information.
+* **Enable TLS:** Azure Cosmos DB has strict security requirements and standards. Be sure to enable TLS when you interact with your account. When you use CQL with SSH, you have an option to provide TLS information.
 
 ## Options to migrate data
 

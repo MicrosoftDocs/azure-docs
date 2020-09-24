@@ -2,12 +2,9 @@
 title: Manage Azure Data Lake Analytics using Azure CLI
 description: This article describes how to use the Azure CLI to manage Data Lake Analytics jobs, data sources, & users.
 services: data-lake-analytics
-author: jasonwhowell
-ms.author: jasonh
-
 ms.assetid: 4e5a3a0a-6d7f-43ed-aeb5-c3b3979a1e0a
 ms.service: data-lake-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/29/2018
 ---
 # Manage Azure Data Lake Analytics using the Azure Command-line Interface (CLI)
@@ -17,7 +14,7 @@ ms.date: 01/29/2018
 Learn how to manage Azure Data Lake Analytics accounts, data sources, users, and jobs using the Azure CLI. To see management topics using other tools, click the tab select above.
 
 
-**Prerequisites**
+## Prerequisites
 
 Before you begin this tutorial, you must have the following resources:
 
@@ -25,7 +22,7 @@ Before you begin this tutorial, you must have the following resources:
 
 * Azure CLI. See [Install and configure Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-   * Download and install the **pre-release** [Azure CLI tools](https://github.com/MicrosoftBigData/AzureDataLake/releases) in order to complete this demo.
+  * Download and install the **pre-release** [Azure CLI tools](https://github.com/MicrosoftBigData/AzureDataLake/releases) in order to complete this demo.
 
 * Authenticate by using the `az login` command and select the subscription that you want to use. For more information on authenticating using a work or school account, see [Connect to an Azure subscription from the Azure CLI](/cli/azure/authenticate-azure-cli).
 
@@ -109,7 +106,7 @@ You can view the default Data Lake Store account used by running the `az dla acc
 
 > [!NOTE]
 > Only Blob storage short names are supported. Don't use FQDN, for example "myblob.blob.core.windows.net".
-> 
+>
 
 ### Add additional Data Lake Store accounts
 
@@ -141,9 +138,10 @@ To list the Blob storage account:
    az dla account blob-storage list --account "<Data Lake Analytics account name>"
    ```
 
-![Data Lake Analytics list data source](./media/data-lake-analytics-manage-use-cli/data-lake-analytics-list-data-source.png)
+![Screenshot that shows Azure C L I with the "dataLakeStoreAccounts:" information highlighted.](./media/data-lake-analytics-manage-use-cli/data-lake-analytics-list-data-source.png)
 
 ### Delete data sources:
+
 To delete a Data Lake Store account:
 
    ```azurecli
@@ -157,6 +155,7 @@ To delete a Blob storage account:
    ```
 
 ## Manage jobs
+
 You must have a Data Lake Analytics account before you can create a job.  For more information, see [Manage Data Lake Analytics accounts](#manage-accounts).
 
 ### List jobs
@@ -177,13 +176,13 @@ You must have a Data Lake Analytics account before you can create a job.  For mo
 
 > [!NOTE]
 > The default priority of a job is 1000, and the default degree of parallelism for a job is 1.
-> 
+>
 >    ```azurecli
 >    az dla job submit --account "<Data Lake Analytics account name>" --job-name "<Name of your job>" --script "<Script to submit>"
 >    ```
 
 ### Cancel jobs
-Use the list command to find the job id, and then use cancel to cancel the job.
+Use the list command to find the job ID, and then use cancel to cancel the job.
 
    ```azurecli
    az dla job cancel --account "<Data Lake Analytics account name>" --job-identity "<Job Id>"
@@ -191,11 +190,11 @@ Use the list command to find the job id, and then use cancel to cancel the job.
 
 ## Pipelines and recurrences
 
-**Get information about pipelines and recurrences**
+### Get information about pipelines and recurrences
 
 Use the `az dla job pipeline` commands to see the pipeline information previously submitted jobs.
 
-```
+```azurecli
 az dla job pipeline list --account "<Data Lake Analytics Account Name>"
 
 az dla job pipeline show --account "<Data Lake Analytics Account Name>" --pipeline-identity "<Pipeline ID>"
@@ -203,15 +202,14 @@ az dla job pipeline show --account "<Data Lake Analytics Account Name>" --pipeli
 
 Use the `az dla job recurrence` commands to see the recurrence information for previously submitted jobs.
 
-```
+```azurecli
 az dla job recurrence list --account "<Data Lake Analytics Account Name>"
 
 az dla job recurrence show --account "<Data Lake Analytics Account Name>" --recurrence-identity "<Recurrence ID>"
 ```
 
-## See also
+## Next steps
 * [Overview of Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * [Get started with Data Lake Analytics using Azure portal](data-lake-analytics-get-started-portal.md)
 * [Manage Azure Data Lake Analytics using Azure portal](data-lake-analytics-manage-use-portal.md)
 * [Monitor and troubleshoot Azure Data Lake Analytics jobs using Azure portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
-

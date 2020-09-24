@@ -1,13 +1,9 @@
 ---
-title: Build schedule-based automated workflows - Azure Logic Apps
+title: Build schedule-based automated workflows
 description: Tutorial - Create a schedule-based, recurring, automated workflow by using Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.manager: carmonm
-ms.reviewer: klam, LADocs
+ms.reviewer: logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/12/2019
@@ -35,15 +31,19 @@ When you're done, your logic app looks like this workflow at a high level:
 
 * An Azure subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/) before you begin.
 
-* An email account from an email provider that's supported by Logic Apps, such as Office 365 Outlook, Outlook.com, or Gmail. For other providers, [review the connectors list here](https://docs.microsoft.com/connectors/). This quickstart uses an Office 365 Outlook account. If you use a different email account, the general steps stay the same, but your UI might slightly differ.
+* An email account from an email provider that's supported by Logic Apps, such as Office 365 Outlook, Outlook.com, or Gmail. For other providers, [review the connectors list here](/connectors/). This quickstart uses a work or school account. If you use a different email account, the general steps stay the same, but your UI might slightly differ.
 
-* To get the travel time for a route, you need an access key for the Bing Maps API. To get this key, follow the steps for [how to get a Bing Maps key](https://docs.microsoft.com/bingmaps/getting-started/bing-maps-dev-center-help/getting-a-bing-maps-key).
+  > [!IMPORTANT]
+  > If you want to use the Gmail connector, only G-Suite business accounts can use this connector without restriction in logic apps. 
+  > If you have a Gmail consumer account, you can use this connector with only specific Google-approved services, or you can 
+  > [create a Google client app to use for authentication with your Gmail connector](/connectors/gmail/#authentication-and-bring-your-own-application). 
+  > For more information, see [Data security and privacy policies for Google connectors in Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
 
-## Sign in to the Azure portal
-
-Sign in to the [Azure portal](https://portal.azure.com) with your Azure account credentials.
+* To get the travel time for a route, you need an access key for the Bing Maps API. To get this key, follow the steps for [how to get a Bing Maps key](/bingmaps/getting-started/bing-maps-dev-center-help/getting-a-bing-maps-key).
 
 ## Create your logic app
+
+1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure account credentials.
 
 1. From the main Azure menu, select **Create a resource** > **Integration** > **Logic App**.
 
@@ -57,7 +57,7 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account 
    |----------|-------|-------------|
    | **Name** | LA-TravelTime | Your logic app's name, which can contain only letters, numbers, hyphens (`-`), underscores (`_`), parentheses (`(`, `)`), and periods (`.`). This example uses "LA-TravelTime". |
    | **Subscription** | <*your-Azure-subscription-name*> | Your Azure subscription name |
-   | **Resource group** | LA-TravelTime-RG | The name for the [Azure resource group](../azure-resource-manager/resource-group-overview.md), which is used to organize related resources. This example uses "LA-TravelTime-RG". |
+   | **Resource group** | LA-TravelTime-RG | The name for the [Azure resource group](../azure-resource-manager/management/overview.md), which is used to organize related resources. This example uses "LA-TravelTime-RG". |
    | **Location** | West US | TThe region where to store your logic app information. This example uses "West US". |
    | **Log Analytics** | Off | Keep the **Off** setting for diagnostic logging. |
    ||||
@@ -140,7 +140,7 @@ Now that you have a trigger, add an [action](../logic-apps/logic-apps-overview.m
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
    | **Connection Name** | Yes | BingMapsConnection | Provide a name for your connection. This example uses "BingMapsConnection". |
-   | **API Key** | Yes | <*your-Bing-Maps-key*> | Enter the Bing Maps key that you previously received. If you don't have a Bing Maps key, learn [how to get a key](https://msdn.microsoft.com/library/ff428642.aspx). |
+   | **API Key** | Yes | <*your-Bing-Maps-key*> | Enter the Bing Maps key that you previously received. If you don't have a Bing Maps key, learn [how to get a key](/bingmaps/getting-started/bing-maps-dev-center-help/getting-a-bing-maps-key). |
    |||||
 
 1. Rename the action with this description: `Get route and travel time with traffic`
@@ -166,7 +166,7 @@ Now that you have a trigger, add an [action](../logic-apps/logic-apps-overview.m
    | **Travel mode** | No | Driving | The travel mode for your route. Select "Driving" mode. |
    ||||
 
-   For more information about these parameters, see [Calculate a route](https://docs.microsoft.com/bingmaps/rest-services/routes/calculate-a-route).
+   For more information about these parameters, see [Calculate a route](/bingmaps/rest-services/routes/calculate-a-route).
 
 1. Save your logic app.
 

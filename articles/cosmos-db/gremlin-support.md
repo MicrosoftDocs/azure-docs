@@ -5,7 +5,7 @@ author: LuisBosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: overview
-ms.date: 06/24/2019
+ms.date: 04/23/2020
 ms.author: lbosq
 ---
 
@@ -20,9 +20,9 @@ The following table shows popular Gremlin drivers that you can use against Azure
 
 | Download | Source | Getting Started | Supported connector version |
 | --- | --- | --- | --- |
-| [.NET](https://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-DotNet) | [Gremlin.NET on GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-dotnet) | [Create Graph using .NET](create-graph-dotnet.md) | 3.4.0-RC2 |
+| [.NET](https://tinkerpop.apache.org/docs/3.4.6/reference/#gremlin-DotNet) | [Gremlin.NET on GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-dotnet) | [Create Graph using .NET](create-graph-dotnet.md) | 3.4.6 |
 | [Java](https://mvnrepository.com/artifact/com.tinkerpop.gremlin/gremlin-java) | [Gremlin JavaDoc](https://tinkerpop.apache.org/javadocs/current/full/) | [Create Graph using Java](create-graph-java.md) | 3.2.0+ |
-| [Node.js](https://www.npmjs.com/package/gremlin) | [Gremlin-JavaScript on GitHub](https://github.com/jbmusso/gremlin-javascript) | [Create Graph using Node.js](create-graph-nodejs.md) | 3.3.4+ |
+| [Node.js](https://www.npmjs.com/package/gremlin) | [Gremlin-JavaScript on GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-javascript) | [Create Graph using Node.js](create-graph-nodejs.md) | 3.3.4+ |
 | [Python](https://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-python) | [Gremlin-Python on GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-python) | [Create Graph using Python](create-graph-python.md) | 3.2.7 |
 | [PHP](https://packagist.org/packages/brightzone/gremlin-php) | [Gremlin-PHP on GitHub](https://github.com/PommeVerte/gremlin-php) | [Create Graph using PHP](create-graph-php.md) | 3.1.0 |
 | [Gremlin console](https://tinkerpop.apache.org/downloads.html) | [TinkerPop docs](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) |  [Create Graph using Gremlin Console](create-graph-gremlin-console.md) | 3.2.0 + |
@@ -41,11 +41,9 @@ The following table lists the TinkerPop features that are implemented by Azure C
 | Edge features | AddEdges, RemoveEdges, StringIds, UserSuppliedIds, AddProperty, RemoveProperty | Supports creating, modifying, and deleting edges |
 | Edge property features | Properties, BooleanValues, ByteValues, DoubleValues, FloatValues, IntegerValues, LongValues, StringValues | Supports creating, modifying, and deleting edge properties |
 
-## Gremlin wire format: GraphSON
+## Gremlin wire format
 
-Azure Cosmos DB uses the [GraphSON format](http://tinkerpop.apache.org/docs/current/reference/#graphson) when returning results from Gremlin operations. Azure Cosmos DB currently supports "GraphSONv2" version. GraphSON is the Gremlin standard format for representing vertices, edges, and properties (single and multi-valued properties) using JSON.
-
-For example, the following snippet shows a GraphSON representation of a vertex *returned to the client* from Azure Cosmos DB. 
+Azure Cosmos DB uses the JSON format when returning results from Gremlin operations. Azure Cosmos DB currently supports the JSON format. For example, the following snippet shows a JSON representation of a vertex *returned to the client* from Azure Cosmos DB:
 
 ```json
   {
@@ -84,7 +82,7 @@ For example, the following snippet shows a GraphSON representation of a vertex *
   }
 ```
 
-The properties used by GraphSON for vertices are described below:
+The properties used by the JSON format for vertices are described below:
 
 | Property | Description | 
 | --- | --- | --- |

@@ -1,12 +1,8 @@
 ---
-title: Sample - PCI-DSS v3.2.1 blueprint - Control mapping
+title: PCI-DSS v3.2.1 blueprint sample controls
 description: Control mapping of the Payment Card Industry Data Security Standard v3.2.1 blueprint sample to Azure Policy and RBAC.
-services: blueprints
-author: DCtheGeek
-ms.author: dacoulte
-ms.date: 06/24/2019
-ms.topic: conceptual
-ms.service: blueprints
+ms.date: 08/19/2020
+ms.topic: sample
 ---
 # Control mapping of the PCI-DSS v3.2.1 blueprint sample
 
@@ -193,7 +189,7 @@ articles to learn about the overview and how to deploy this sample:
 > [PCI-DSS v3.2.1 blueprint - Overview](./index.md)
 > [PCI-DSS v3.2.1 blueprint - Deploy steps](./deploy.md)
 
-## Addition articles about blueprints and how to use them:
+Additional articles about blueprints and how to use them:
 
 - Learn about the [blueprint lifecycle](../../concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](../../concepts/parameters.md).

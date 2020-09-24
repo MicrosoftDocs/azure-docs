@@ -5,11 +5,14 @@
  author: cynthn
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 07/26/2019
+ ms.date: 03/10/2020
  ms.author: cynthn
  ms.custom: include file
 ---
 
+## Limitations
+
+- Virtual machine scale sets are not currently supported on dedicated hosts.
 
 ## Benefits 
 
@@ -18,7 +21,6 @@ Reserving the entire host provides the following benefits:
 -   Hardware isolation at the physical server level. No other VMs will be placed on your hosts. Dedicated hosts are deployed in the same data centers and share the same network and underlying storage infrastructure as other, non-isolated hosts.
 -   Control over maintenance events initiated by the Azure platform. While the majority of maintenance events have little to no impact on your virtual machines, there are some sensitive workloads where each second of pause can have an impact. With dedicated hosts, you can opt-in to a maintenance window to reduce the impact to your service.
 -   With the Azure hybrid benefit, you can bring your own licenses for Windows and SQL to Azure. Using the hybrid benefits provides you with additional benefits. For more information, see [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).
-
 
 
 ## Groups, hosts, and VMs  
@@ -46,7 +48,7 @@ If you assign a host group to an availability zone, all VMs created on that host
 
 A host can be created in a specific fault domain. Just like VM in a scale set or availability set, hosts in different fault domains will be placed on different physical racks in the data center. When you create a host group, you are required to specify the fault domain count. When creating hosts within the host group, you assign fault domain for each host. The VMs do not require any fault domain assignment.
 
-Fault domains are not the same as collocation. Having the same fault domain for two hosts does not mean they are in proximity with each other.
+Fault domains are not the same as colocation. Having the same fault domain for two hosts does not mean they are in proximity with each other.
 
 Fault domains are scoped to the host group. You should not make any assumption on anti-affinity between two host groups (unless they are in different availability zones).
 
@@ -64,9 +66,7 @@ The infrastructure supporting your virtual machines may occasionally be updated 
 
 **Maintenance Control** provides customers with an option to skip regular platform updates scheduled on their dedicated hosts, then apply it at the time of their choice within a 35-day rolling window.
 
-> [!NOTE]
->  Maintenance control is currently in a limited preview stage and requires an onboarding process. 
-> Apply for this preview by submitting a [nomination survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR6lJf7DwiQxNmz51ksQvxV9UNUM3UllWUjBMTFZQUFhHUDI0VTBPQlJFNS4u).
+For more information, see [Managing platform updates with Maintenance Control](https://docs.microsoft.com/azure/virtual-machines/maintenance-control).
 
 ## Capacity considerations
 
@@ -74,11 +74,21 @@ Once a dedicated host is provisioned, Azure assigns it to physical server. This 
 
 ## Quotas
 
-There is a default quota limit of 3000 vCPUs for dedicated hosts, per region. But, the number of hosts you can deploy is also limited by the quota for the VM size family used for the host. For example, a **Pay-as-you-go** subscription may only have a quota of 10 vCPUs available for the Dsv3 size series, in the East US region. In this case, you need to request a quota increase to at least 64 vCPUs before you can deploy a dedicated host. Select the **Request increase** button in the upper right corner to file a request if needed.
+There are two types of quota that are consumed when you deploy a dedicated host.
+
+1. Dedicated host vCPU quota. The default quota limit is 3000 vCPUs, per region.
+1. VM size family quota. For example, a **Pay-as-you-go** subscription may only have a quota of 10 vCPUs available for the Dsv3 size series, in the East US region. To deploy a Dsv3 dedicated host, you would need to request a quota increase to at least 64 vCPUs before you can deploy the dedicated host. 
+
+To request a quota increase, create a support request in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+
+Provisioning a dedicated host will consume both dedicated host vCPU and the VM family vCPU quota, but it will not consume the regional vCPU.
+
 
 ![Screenshot of the usage and quotas page in the portal](./media/virtual-machines-common-dedicated-hosts/quotas.png)
 
 For more information, see [Virtual machine vCPU quotas](/azure/virtual-machines/windows/quotas).
+
+Free trial and MSDN subscriptions do not have quota for Azure Dedicated Hosts.
 
 ## Pricing
 
@@ -89,18 +99,18 @@ The host price is set based on VM family, type (hardware size), and region. A ho
 Software licensing, storage and network usage are billed separately from the host and VMs. There is no change to those billable items.
 
 For more information, see [Azure Dedicated Host pricing](https://aka.ms/ADHPricing).
+
+You can also save on costs with a [Reserved Instance of Azure Dedicated Hosts](../articles/virtual-machines/prepay-dedicated-hosts-reserved-instances.md).
  
-## VM families and Hardware generations
+## Sizes and hardware generations
 
-A SKU is defined for a host and it represents the VM size series and type. You can mix multiple VMs of different sizes within a single host as long as they are of the same size series. The type is the hardware generation currently available in the region.
+A SKU is defined for a host and it represents the VM size series and type. You can mix multiple VMs of different sizes within a single host as long as they are of the same size series. 
 
-Different `types` for the same VM series will be from different CPU vendors and have different CPU generations and number of cores.
+The *type* is the hardware generation. Different hardware types for the same VM series will be from different CPU vendors and have different CPU generations and number of cores. 
 
-Refer to the host [pricing page](https://aka.ms/ADHPricing) to learn more.
+The sizes and hardware types vary by region. Refer to the host [pricing page](https://aka.ms/ADHPricing) to learn more.
 
-During the preview, we will support the following host SKU\types:  DSv3_Type1 and ESv3_Type1
 
- 
 ## Host life cycle
 
 

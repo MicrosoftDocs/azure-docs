@@ -2,20 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Mixpanel | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Mixpanel.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: a2df26ef-d441-44ac-a9f3-b37bf9709bcb
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/28/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Mixpanel
 

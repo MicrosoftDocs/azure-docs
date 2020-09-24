@@ -1,7 +1,7 @@
 ---
 title: Throttling requests - Bing Web Search API
 titleSuffix: Azure Cognitive Services
-description: Learn more about request throttling and when using the Bing Web Search API.
+description: The service and your subscription type determine the number of queries per second (QPS) that you can make.
 services: cognitive-services
 author: aahill
 manager: nitinme

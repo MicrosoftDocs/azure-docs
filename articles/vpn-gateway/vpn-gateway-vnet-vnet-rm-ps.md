@@ -1,12 +1,12 @@
 ---
-title: 'Connect an Azure virtual network to another VNet using a VNet-to-VNet connection: PowerShell | Microsoft Docs'
+title: 'Connect a VNet to another VNet using an Azure VPN Gateway VNet-to-VNet connection: PowerShell'
 description: Connect virtual networks together using a VNet-to-VNet connection and PowerShell.
 services: vpn-gateway
 author: cherylmc
 
 ms.service: vpn-gateway
-ms.topic: conceptual
-ms.date: 02/15/2019
+ms.topic: how-to
+ms.date: 09/02/2020
 ms.author: cherylmc
 
 ---
@@ -77,7 +77,7 @@ For this exercise, you can combine configurations, or just choose the one that y
 
 * Because it takes up to 45 minutes to create a gateway, Azure Cloud Shell will timeout periodically during this exercise. You can restart Cloud Shell by clicking in the upper left of the terminal. Be sure to redeclare any variables when you restart the terminal.
 
-* If you would rather install latest version of the Azure PowerShell module locally, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
+* If you would rather install latest version of the Azure PowerShell module locally, see [How to install and configure Azure PowerShell](/powershell/azure/).
 
 ### <a name="Step1"></a>Step 1 - Plan your IP address ranges
 

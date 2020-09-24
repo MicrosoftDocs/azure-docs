@@ -9,9 +9,10 @@ ms.assetid: d4bc5583-6537-4cd9-bc4b-7712fdd9272a
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 09/05/2019
-ms.author: iainfou
+ms.topic: sample
+ms.date: 07/09/2020
+ms.author: iainfou 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Enable Azure Active Directory Domain Services using PowerShell
@@ -47,7 +48,7 @@ Create an Azure AD service principal using the [New-AzureADServicePrincipal][New
 New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
 ```
 
-Now create an Azure AD group named *AAD DC Administrators*. Users added to this group are then granted permissions to perform administration tasks on the Azure AD DS managed domain.
+Now create an Azure AD group named *AAD DC Administrators*. Users added to this group are then granted permissions to perform administration tasks on the managed domain.
 
 Create the *AAD DC Administrators* group using the [New-AzureADGroup][New-AzureADGroup] cmdlet:
 
@@ -122,13 +123,19 @@ $Vnet= New-AzVirtualNetwork `
   -Subnet $AaddsSubnet,$WorkloadSubnet
 ```
 
-## Create an Azure AD DS managed domain
+## Create a managed domain
 
-Now let's create an Azure AD DS managed domain. Set your Azure subscription ID, and then provide a name for the managed domain, such as *contoso.com*. You can get your subscription ID using the [Get-AzSubscription][Get-AzSubscription] cmdlet.
+Now let's create a managed domain. Set your Azure subscription ID, and then provide a name for the managed domain, such as *aaddscontoso.com*. You can get your subscription ID using the [Get-AzSubscription][Get-AzSubscription] cmdlet.
+
+If you choose a region that supports Availability Zones, the Azure AD DS resources are distributed across zones for additional redundancy.
+
+Availability Zones are unique physical locations within an Azure region. Each zone is made up of one or more datacenters equipped with independent power, cooling, and networking. To ensure resiliency, there's a minimum of three separate zones in all enabled regions.
+
+There's nothing for you to configure for Azure AD DS to be distributed across zones. The Azure platform automatically handles the zone distribution of resources. For more information and to see region availability, see [What are Availability Zones in Azure?][availability-zones].
 
 ```powershell
 $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
-$ManagedDomainName = "contoso.com"
+$ManagedDomainName = "aaddscontoso.com"
 
 # Enable Azure AD Domain Services for the directory.
 New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.AAD/DomainServices/$ManagedDomainName" `
@@ -138,13 +145,15 @@ New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$
   -Force -Verbose
 ```
 
-It takes a few minutes to create the resource and return control to the PowerShell prompt. The Azure AD DS managed domain continues to be provisioned in the background, and can take up to an hour to complete the deployment. In the Azure portal, the **Overview** page for your Azure AD DS managed domain shows the current status throughout this deployment stage.
+It takes a few minutes to create the resource and return control to the PowerShell prompt. The managed domain continues to be provisioned in the background, and can take up to an hour to complete the deployment. In the Azure portal, the **Overview** page for your managed domain shows the current status throughout this deployment stage.
 
-When the Azure portal shows that the Azure AD DS managed domain has finished provisioning, the following tasks need to be completed:
+When the Azure portal shows that the managed domain has finished provisioning, the following tasks need to be completed:
 
 * Update DNS settings for the virtual network so virtual machines can find the managed domain for domain join or authentication.
-    * To configure DNS, select your Azure AD DS managed domain in the portal. On the **Overview** window, you are prompted to automatically configure these DNS settings.
-* [Enable password synchronization to Azure AD Domain Services](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) so end users can sign in to the managed domain using their corporate credentials.
+    * To configure DNS, select your managed domain in the portal. On the **Overview** window, you are prompted to automatically configure these DNS settings.
+* Create a network security group to restrict traffic in the virtual network for the  managed domain. An Azure standard load balancer is created that requires these rules to be place. This network security group secures Azure AD DS and is required for the managed domain to work correctly.
+    * To create the network security group and required rules, first install the `New-AzureAddsNetworkSecurityGroup` script using the `Install-Script -Name New-AaddsNetworkSecurityGroup` command, then run `New-AaddsNetworkSecurityGroup`. The required rules for the managed domain are created for you.
+* [Enable password synchronization to Azure AD DS](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) so end users can sign in to the managed domain using their corporate credentials.
 
 ## Complete PowerShell script
 
@@ -160,7 +169,7 @@ $ResourceGroupName = "myResourceGroup"
 $VnetName = "myVnet"
 $AzureLocation = "westus"
 $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
-$ManagedDomainName = "contoso.com"
+$ManagedDomainName = "aaddscontoso.com"
 
 # Connect to your Azure AD directory.
 Connect-AzureAD
@@ -223,17 +232,19 @@ New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$
   -Force -Verbose
 ```
 
-It takes a few minutes to create the resource and return control to the PowerShell prompt. The Azure AD DS managed domain continues to be provisioned in the background, and can take up to an hour to complete the deployment. In the Azure portal, the **Overview** page for your Azure AD DS managed domain shows the current status throughout this deployment stage.
+It takes a few minutes to create the resource and return control to the PowerShell prompt. The managed domain continues to be provisioned in the background, and can take up to an hour to complete the deployment. In the Azure portal, the **Overview** page for your managed domain shows the current status throughout this deployment stage.
 
-When the Azure portal shows that the Azure AD DS managed domain has finished provisioning, the following tasks need to be completed:
+When the Azure portal shows that the managed domain has finished provisioning, the following tasks need to be completed:
 
 * Update DNS settings for the virtual network so virtual machines can find the managed domain for domain join or authentication.
-    * To configure DNS, select your Azure AD DS managed domain in the portal. On the **Overview** window, you are prompted to automatically configure these DNS settings.
-* [Enable password synchronization to Azure AD Domain Services](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) so end users can sign in to the managed domain using their corporate credentials.
+    * To configure DNS, select your managed domain in the portal. On the **Overview** window, you are prompted to automatically configure these DNS settings.
+* Create a network security group to restrict traffic in the virtual network for the managed domain. An Azure standard load balancer is created that requires these rules to be place. This network security group secures Azure AD DS and is required for the managed domain to work correctly.
+    * To create the network security group and required rules, first install the `New-AzureAddsNetworkSecurityGroup` script using the `Install-Script -Name New-AaddsNetworkSecurityGroup` command, then run `New-AaddsNetworkSecurityGroup`. The required rules for the managed domain are created for you.
+* [Enable password synchronization to Azure AD DS](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) so end users can sign in to the managed domain using their corporate credentials.
 
 ## Next steps
 
-To see the Azure AD DS managed domain in action, you can [domain-join a Windows VM][windows-join], [configure secure LDAP][tutorial-ldaps], and [configure password hash sync][tutorial-phs].
+To see the managed domain in action, you can [domain-join a Windows VM][windows-join], [configure secure LDAP][tutorial-ldaps], and [configure password hash sync][tutorial-phs].
 
 <!-- INTERNAL LINKS -->
 [windows-join]: join-windows-vm.md
@@ -253,4 +264,5 @@ To see the Azure AD DS managed domain in action, you can [domain-join a Windows 
 [New-AzVirtualNetworkSubnetConfig]: /powershell/module/Az.Network/New-AzVirtualNetworkSubnetConfig
 [New-AzVirtualNetwork]: /powershell/module/Az.Network/New-AzVirtualNetwork
 [Get-AzSubscription]: /powershell/module/Az.Accounts/Get-AzSubscription
-[cloud-shell]: /azure/cloud-shell/cloud-shell-windows-users
+[cloud-shell]: ../cloud-shell/cloud-shell-windows-users.md
+[availability-zones]: ../availability-zones/az-overview.md

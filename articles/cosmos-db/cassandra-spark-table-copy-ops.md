@@ -1,12 +1,12 @@
 ---
-title: Table copy operations on Azure Cosmos DB Cassandra API from Spark.
+title: Table copy operations on Azure Cosmos DB Cassandra API from Spark
 description: This article details how to copy data between tables in Azure Cosmos DB Cassandra API
 author: kanshiG
 ms.author: govindk
 ms.reviewer: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/24/2018
 
 ---

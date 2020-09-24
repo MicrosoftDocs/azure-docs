@@ -1,15 +1,13 @@
 ---
-title: Security controls for Azure ExpressRoute
-description: A checklist of security controls for evaluating Azure ExpressRoute
+title: 'Azure ExpressRoute: Security controls'
+description: Learn about security controls in Azure ExpressRoute, which are qualities or features that help prevent, detect, and respond to security vulnerabilities.
 services: expressroute
 ms.service: expressroute
-documentationcenter: ''
-author: msmbaldwin
-manager: barbkess
+author: duongau
 
 ms.topic: conceptual
 ms.date: 06/05/2019
-ms.author: mbaldwin
+ms.author: duau
 
 ---
 # Security controls for Azure ExpressRoute

@@ -1,11 +1,11 @@
 ---
 title: Open a support ticket for Microsoft Azure FXT Edge Filer  
-description: Procedure to open a ticket for help with your Azure FXT Edge Filer system
+description: Open a support ticket with Microsoft Customer Service and Support for help with your Azure FXT Edge Filer system.
 author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.author: v-erkell
+ms.author: rohogue
 ---
 
 # Open a support ticket for the Azure FXT Edge Filer

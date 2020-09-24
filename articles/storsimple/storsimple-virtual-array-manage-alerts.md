@@ -1,5 +1,5 @@
 ---
-title: View and manage Microsoft Azure StorSimple Virtual Array alerts | Microsoft Docs
+title: View and manage alerts for StorSimple Virtual Array
 description: Describes StorSimple Virtual Array alert conditions and severity, and how to use the StorSimple Manager service to manage alerts.
 services: storsimple
 documentationcenter: NA
@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: 97ee25a1-0ec3-4883-9a0a-54b722598462
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/12/2018

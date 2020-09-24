@@ -6,7 +6,7 @@ author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 02/21/2019
+ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
 #Customer intent: As a Custom Translator, I want to understand how to use parallel documents to build a custom translation model.
@@ -23,9 +23,7 @@ system in either direction.
 
 ## Requirements
 
-You will need a minimum of 10,000 unique parallel sentences to train a system. As a
-best practice, you can continuously add more parallel content and retrain, to
-improve the quality of your translation system.
+You will need a minimum of 10,000 unique aligned parallel sentences to train a system. This limitation is a safety net to ensure your parallel sentences contain enough unique vocabulary to successfully train a translation model. As a best practice, continuously add more parallel content and retrain to improve the quality of your translation system. Please refer to [Sentence Alignment](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/sentence-alignment).
 
 Microsoft requires that documents uploaded to the Custom Translator do not
 violate a third party’s copyright or intellectual properties. For more

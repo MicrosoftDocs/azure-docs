@@ -1,12 +1,13 @@
 ---
 title: Azure SignalR Service serverless quickstart - Python
-description: A quickstart for using Azure SignalR Service and Azure Functions to create a chat room.
+description: A quickstart for using Azure SignalR Service and Azure Functions to create a chat room using Python.
 author: anthonychu
 ms.service: signalr
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 08/08/2019
+ms.date: 12/14/2019
 ms.author: antchu
+ms.custom: devx-track-python
 ---
 # Quickstart: Create a chat room with Azure Functions and SignalR Service using Python
 
@@ -18,21 +19,27 @@ This quickstart can be run on macOS, Windows, or Linux.
 
 Make sure you have a code editor such as [Visual Studio Code](https://code.visualstudio.com/) installed.
 
-Install the [Azure Functions Core Tools (v2)](https://github.com/Azure/azure-functions-core-tools#installing) (version 2.7.1505 or higher) to run Python Azure Function apps locally.
+Install the [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) (version 2.7.1505 or higher) to run Python Azure Function apps locally.
 
-Azure Functions requires [Python 3.6](https://www.python.org/downloads/).
-
-In order to install extensions, Azure Functions Core Tools currently require the [.NET Core SDK](https://www.microsoft.com/net/download) installed. However, no knowledge of .NET is required to build Python Azure Function apps.
+Azure Functions requires [Python 3.6 or 3.7](https://www.python.org/downloads/).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+[Having issues? Let us know.](https://aka.ms/asrs/qspython)
 
 ## Log in to Azure
 
 Sign in to the Azure portal at <https://portal.azure.com/> with your Azure account.
 
+[Having issues? Let us know.](https://aka.ms/asrs/qspython)
+
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
 
+[Having issues? Let us know.](https://aka.ms/asrs/qspython)
+
 [!INCLUDE [Clone application](includes/signalr-quickstart-clone-application.md)]
+
+[Having issues? Let us know.](https://aka.ms/asrs/qspython)
 
 ## Configure and run the Azure Function app
 
@@ -48,19 +55,19 @@ Sign in to the Azure portal at <https://portal.azure.com/> with your Azure accou
 
 1. In your code editor, open the *src/chat/python* folder in the cloned repository.
 
-1. To locally develop and test Python functions, you must work in a Python 3.6 environment. Run the following commands to create and activate a virtual environment named `.venv`.
+1. To locally develop and test Python functions, you must work in a Python 3.6 or 3.7 environment. Run the following commands to create and activate a virtual environment named `.venv`.
 
     **Linux or macOS:**
 
     ```bash
-    python3.6 -m venv .venv
+    python3.7 -m venv .venv
     source .venv/bin/activate
     ```
 
     **Windows:**
 
     ```powershell
-    py -3.6 -m venv .venv
+    py -3.7 -m venv .venv
     .venv\scripts\activate
     ```
 
@@ -73,10 +80,10 @@ Sign in to the Azure portal at <https://portal.azure.com/> with your Azure accou
     - **negotiate** - Uses the *SignalRConnectionInfo* input binding to generate and return valid connection information.
     - **messages** - Receives a chat message in the request body and uses the *SignalR* output binding to broadcast the message to all connected client applications.
 
-1. In the terminal, ensure that you are in the *src/chat/python* folder. Use the Azure Functions Core Tools to install extensions required to run the app.
+1. In the terminal with the virtual environment activated, ensure that you are in the *src/chat/python* folder. Install the necessary Python packages using PIP.
 
     ```bash
-    func extensions install
+    python -m pip install -r requirements.txt
     ```
 
 1. Run the function app.
@@ -86,14 +93,22 @@ Sign in to the Azure portal at <https://portal.azure.com/> with your Azure accou
     ```
 
     ![Run function app](media/signalr-quickstart-azure-functions-python/signalr-quickstart-run-application.png)
+    
+[Having issues? Let us know.](https://aka.ms/asrs/qspython)
 
 [!INCLUDE [Run web application](includes/signalr-quickstart-run-web-application.md)]
 
+[Having issues? Let us know.](https://aka.ms/asrs/qspython)
+
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
+
+[Having issues? Let us know.](https://aka.ms/asrs/qspython)
 
 ## Next steps
 
 In this quickstart, you built and ran a real-time serverless application in VS Code. Next, learn more about how to deploy Azure Functions from VS Code.
 
 > [!div class="nextstepaction"]
-> [Deploy Azure Functions with VS Code](/azure/javascript/tutorial-vscode-serverless-node-01)
+> [Deploy Azure Functions with VS Code](/azure/developer/javascript/tutorial-vscode-serverless-node-01)
+
+[Having issues? Let us know.](https://aka.ms/asrs/qspython)

@@ -1,20 +1,19 @@
 ---
-title: Configure ExpressRoute Direct - Azure | Microsoft Docs
-description: This page helps you configure ExpressRoute Direct.
+title: 'Azure ExpressRoute: Configure ExpressRoute Direct'
+description: Learn how use Azure PowerShell to configure Azure ExpressRoute Direct to connect directly to the Microsoft global network at peering locations across the world.
 services: expressroute
-author: jaredr80
+author: duongau
 
 ms.service: expressroute
-ms.topic: conceptual
-ms.date: 05/20/2019
-ms.author: jaredro
-ms.custom: seodec18
+ms.topic: how-to
+ms.date: 01/22/2020
+ms.author: duau
 
 ---
 
 # How to configure ExpressRoute Direct
 
-ExpressRoute Direct gives you the ability to connect directly into Microsoft’s global network at peering locations strategically distributed across the world. For more information, see [About ExpressRoute Direct Connect](expressroute-erdirect-about.md).
+ExpressRoute Direct gives you the ability to connect directly into Microsoft’s global network at peering locations strategically distributed across the world. For more information, see [About ExpressRoute Direct](expressroute-erdirect-about.md).
 
 ## <a name="resources"></a>Create the resource
 
@@ -23,9 +22,15 @@ ExpressRoute Direct gives you the ability to connect directly into Microsoft’s
    ```powershell
    Connect-AzAccount 
 
-   Select-AzSubscription -Subscription “<SubscriptionID or SubscriptionName>”
+   Select-AzSubscription -Subscription "<SubscriptionID or SubscriptionName>"
    ```
-2. List all locations where ExpressRoute Direct is supported.
+   
+2. Re-register your subscription to Microsoft.Network to access the expressrouteportslocation and expressrouteport APIs.
+
+   ```powershell
+   Register-AzResourceProvider -ProviderNameSpace "Microsoft.Network"
+   ```   
+3. List all locations where ExpressRoute Direct is supported.
   
    ```powershell
    Get-AzExpressRoutePortsLocation
@@ -58,7 +63,7 @@ ExpressRoute Direct gives you the ability to connect directly into Microsoft’s
    Contact             : support@equinix.com
    AvailableBandwidths : []
    ```
-3. Determine if a location listed above has available bandwidth
+4. Determine if a location listed above has available bandwidth
 
    ```powershell
    Get-AzExpressRoutePortsLocation -LocationName "Equinix-San-Jose-SV1"
@@ -80,7 +85,7 @@ ExpressRoute Direct gives you the ability to connect directly into Microsoft’s
                           }
                         ]
    ```
-4. Create an ExpressRoute Direct resource based on the location chosen above
+5. Create an ExpressRoute Direct resource based on the location chosen above
 
    ExpressRoute Direct supports both QinQ and Dot1Q encapsulation. If QinQ is selected, each ExpressRoute circuit will be dynamically assigned an S-Tag and will be unique throughout the ExpressRoute Direct resource. Each C-Tag on the circuit must be unique on the circuit, but not across the ExpressRoute Direct.  
 
@@ -160,10 +165,10 @@ ExpressRoute Direct gives you the ability to connect directly into Microsoft’s
    Links[0] is the primary port and Links[1] is the secondary port.
 
    ```powershell
-   $ERDirect.Links[0].AdminState = “Enabled”
+   $ERDirect.Links[0].AdminState = "Enabled"
    Set-AzExpressRoutePort -ExpressRoutePort $ERDirect
    $ERDirect = Get-AzExpressRoutePort -Name $Name -ResourceGroupName $ResourceGroupName
-   $ERDirect.Links[1].AdminState = “Enabled”
+   $ERDirect.Links[1].AdminState = "Enabled"
    Set-AzExpressRoutePort -ExpressRoutePort $ERDirect
    ```
    **Example output:**
@@ -215,7 +220,7 @@ ExpressRoute Direct gives you the ability to connect directly into Microsoft’s
    Circuits                   : []
    ```
 
-   Use the same procedure with `AdminState = “Disabled”` to turn down the ports.
+   Use the same procedure with `AdminState = "Disabled"` to turn down the ports.
 
 ## <a name="circuit"></a>Create a circuit
 

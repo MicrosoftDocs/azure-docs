@@ -1,58 +1,100 @@
 ---
-title: Analyze logs and metrics in Azure Spring Cloud| Microsoft Docs
-description: Learn how to analyze diagnostic data in Azure Spring Cloud
-services: spring-cloud
-author: jpconnock
-manager: gwallace
-editor: ''
-
+title: Analyze logs and metrics in Azure Spring Cloud | Microsoft Docs
+description: Learn how to analyze diagnostics data in Azure Spring Cloud
+author: bmitchell287
 ms.service: spring-cloud
 ms.topic: conceptual
-ms.date: 10/06/2019
-ms.author: jeconnoc
-
+ms.date: 01/06/2020
+ms.author: brendm
+ms.custom: devx-track-java
 ---
-# Analyze logs and metrics with Diagnostic settings
 
-The Diagnostic functionality of Azure Spring Cloud allows you to analyze logs and metrics using one of the following services:
+# Analyze logs and metrics with diagnostics settings
 
-* Analyze them with Azure Log Analytics, where the data is written immediately to Azure Log Analytics with no need to first write the data to storage.
-* Save them to a Storage Account for auditing or manual inspection. You can specify the retention time (in days).
-* Stream them to Event Hubs for ingestion by a third-party service or custom analytics solution.
+**This article applies to:** ✔️ Java ✔️ C#
 
-To get started, you'll need to enable one of these services to receive the data.  To learn about configuring Log Analytics, review [this tutorial](../azure-monitor/log-query/get-started-portal.md).  
+Using the diagnostics functionality of Azure Spring Cloud, you can analyze logs and metrics with any of the following services:
 
-## Configure Diagnostic settings
+* Use Azure Log Analytics, where the data is written to Azure Storage. There is a delay when exporting logs to Log Analytics.
+* Save logs to a storage account  for auditing or manual inspection. You can specify the retention time (in days).
+* Stream logs to your event hub for ingestion by a third-party service or custom analytics solution.
 
-1. Go to your Azure Spring Cloud instance in the Azure portal.
-1. Select the **Diagnostic settings** menu option.
-1. Select the **Add diagnostic setting** button.
-1. Enter a name for the setting and choose where you want to send the logs. You can select any combination of the following three options:
-    * Archive to a storage account
-    * Stream to an event hub
-    * Send to Log Analytics
+Choose the log category and metric category you want to monitor.
 
-1. Choose which log category and metric category you want to monitor, and specify the retention time (in days). The retention time only applies to storage account.
-1. Select **Save** to apply the setting.
+> [!TIP]
+> Just want to stream your logs? Check out this [Azure CLI command](https://docs.microsoft.com/cli/azure/ext/spring-cloud/spring-cloud/app?view=azure-cli-latest&preserve-view=true#ext-spring-cloud-az-spring-cloud-app-logs)!
+
+## Logs
+
+|Log | Description |
+|----|----|
+| **ApplicationConsole** | Console log of all customer applications. |
+| **SystemLogs** | Currently, only [Spring Cloud Config Server](https://cloud.spring.io/spring-cloud-config/reference/html/#_spring_cloud_config_server) logs in this category. |
+
+## Metrics
+
+For a complete list of metrics, see [Spring Cloud Metrics](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-concept-metrics#user-metrics-options).
+
+To get started, enable one of these services to receive the data. To learn about configuring Log Analytics, see [Get started with Log Analytics in Azure Monitor](../azure-monitor/log-query/get-started-portal.md).
+
+## Configure diagnostics settings
+
+1. In the Azure portal, go to your Azure Spring Cloud instance.
+1. Select **diagnostics settings** option, and then select **Add diagnostics setting**.
+1. Enter a name for the setting, and then choose where you want to send the logs. You can select any combination of the following three options:
+    * **Archive to a storage account**
+    * **Stream to an event hub**
+    * **Send to Log Analytics**
+
+1. Choose which log category and metric category you want to monitor, and then specify the retention time (in days). The retention time applies only to the storage account.
+1. Select **Save**.
 
 > [!NOTE]
-> There may be up to 15 minutes between when logs or metrics are emitted and when they appear in Storage Account/Event Hub/Log Analytics.
+> 1. There might be a gap of up to 15 minutes between when logs or metrics are emitted and when they appear in your storage account, your event hub, or Log Analytics.
+> 1. If the Azure Spring Cloud instance is deleted or moved, the operation will not cascade to the **diagnostics settings** resources. The **diagnostics settings** resources have to be deleted manually before the operation against its parent, i.e. the Azure Spring Cloud instance. Otherwise, if a new Azure Spring Cloud instance is provisioned with the same resource ID as the deleted one, or if the Azure Spring Cloud instance is moved back, the previous **diagnostics settings** resources continue extending it.
 
-## Viewing logs
+## View the logs and metrics
+There are various methods to view logs and metrics as described under the following headings.
 
-### Using Log Analytics
+### Use the Logs blade
 
-1. From the Azure portal, select Log Analytics from the left-hand navigation menu.
-1. Select the Log Analytics workspace you chose when adding Diagnostic settings.
-1. Select `Logs` to open the Log Search blade.
-1. Enter a simple query into the Log search box.  For example:
+1. In the Azure portal, go to your Azure Spring Cloud instance.
+1. To open the **Log Search** pane, select **Logs**.
+1. In the **Tables** search box
+   * To view logs, enter a simple query such as:
 
     ```sql
     AppPlatformLogsforSpring
     | limit 50
     ```
+   * To view metrics, enter a simple query such as:
 
-1. Select `Run` to see the search result.
+    ```sql
+    AzureMetrics
+    | limit 50
+    ```
+1. To view the search result, select **Run**.
+
+### Use Log Analytics
+
+1. In the Azure portal, in the left pane, select **Log Analytics**.
+1. Select the Log Analytics workspace that you chose when you added your diagnostics settings.
+1. To open the **Log Search** pane, select **Logs**.
+1. In the **Tables** search box,
+   * to view logs, enter a simple query such as:
+
+    ```sql
+    AppPlatformLogsforSpring
+    | limit 50
+    ```
+    * to view metrics, enter a simple query such as:
+
+    ```sql
+    AzureMetrics
+    | limit 50
+    ```
+
+1. To view the search result, select **Run**.
 1. You can search the logs of the specific application or instance by setting a filter condition:
 
     ```sql
@@ -60,38 +102,41 @@ To get started, you'll need to enable one of these services to receive the data.
     | where ServiceName == "YourServiceName" and AppName == "YourAppName" and InstanceName == "YourInstanceName"
     | limit 50
     ```
+> [!NOTE]
+> `==` is case sensitive, but `=~` is not.
 
-Learn more about the Query Language used in Log Analytics [in this article](../azure-monitor/log-query/query-language.md)
+To learn more about the query language that's used in Log Analytics, see [Azure Monitor log queries](../azure-monitor/log-query/query-language.md).
 
-### Using logs and metrics in Storage Account
+### Use your storage account
 
-1. From the Azure portal, select Storage accounts from the left-hand navigation menu.
-1. Select the Storage account you chose when adding Diagnostic settings.
-1. Select `Blobs` entry to open the Blob Container blade.
-1. Find a container called `insights-logs-applicationconsole` to review application logs.
-1. Find a container called `insights-metrics-pt1m` to review application metrics.
+1. In the Azure portal, find **Storage accounts** in left navigation panel or search box.
+1. Select the storage account that you chose when you added your diagnostics settings.
+1. To open the **Blob Container** pane, select **Blobs**.
+1. To review application logs, search for a container called **insights-logs-applicationconsole**.
+1. To review application metrics, search for a container called **insights-metrics-pt1m**.
 
-[Learn more about sending diagnostic information to a storage account.](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-to-storage)
+To learn more about sending diagnostics information to a storage account, see [Store and view diagnostics data in Azure Storage](../storage/common/storage-introduction.md).
 
-### Using Event Hubs
+### Use your event hub
 
-1. From the Azure portal, select Event Hubs from the left-hand navigation menu.
-1. Locate and select the Event Hubs you chose when adding Diagnostic settings.
-1. Select `Event Hubs` to open the Event Hub List blade.
-1. Find an event hub called `insights-logs-applicationconsole` to review application logs.
-1. Find an event hub called `insights-metrics-pt1m` to review application metrics.
+1. In the Azure portal, find **Event Hubs** in left navigation panel or search box.
 
-[Learn more about sending diagnostic information to an event hub.](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-stream-event-hubs).
+1. Search for and select the event hub that you chose when you added your diagnostics settings.
+1. To open the **Event Hub List** pane, select **Event Hubs**.
+1. To review application logs, search for an event hub called **insights-logs-applicationconsole**.
+1. To review application metrics, search for an event hub called **insights-metrics-pt1m**.
 
-## Analyzing logs
+To learn more about sending diagnostics information to an event hub, see [Streaming Azure Diagnostics data in the hot path by using Event Hubs](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-stream-event-hubs).
 
-Azure Log Analytics provides Kusto so you can query your logs for analysis.  Review the [Log Analytics tutorial](../azure-monitor/log-query/get-started-portal.md) for a quick introduction to querying logs using Kusto.
+## Analyze the logs
 
-Application logs provide critical information about your application's health, performance, and more.  Below are some simple queries to help you understand your application's current and past states.
+Azure Log Analytics is running with a Kusto engine so you can query your logs for analysis. For a quick introduction to querying logs by using Kusto, review the [Log Analytics tutorial](../azure-monitor/log-query/get-started-portal.md).
+
+Application logs provide critical information and verbose logs about your application's health, performance, and more. In the next sections are some simple queries to help you understand your application's current and past states.
 
 ### Show application logs from Azure Spring Cloud
 
-To review a list of application logs from Azure Spring Cloud, sorted by time with the latest logs shown first:
+To review a list of application logs from Azure Spring Cloud, sorted by time with the most recent logs shown first, run the following query:
 
 ```sql
 AppPlatformLogsforSpring
@@ -101,7 +146,7 @@ AppPlatformLogsforSpring
 
 ### Show logs entries containing errors or exceptions
 
-This query allows you to review log entries that mention an error or exception.  The results are not sorted.
+To review unsorted log entries that mention an error or exception, run the following query:
 
 ```sql
 AppPlatformLogsforSpring
@@ -109,11 +154,11 @@ AppPlatformLogsforSpring
 | where Log contains "error" or Log contains "exception"
 ```
 
-Use this query to find errors, or modify the query terms to find specific error codes or exceptions.  
+Use this query to find errors, or modify the query terms to find specific error codes or exceptions.
 
 ### Show the number of errors and exceptions reported by your application over the last hour
 
-This query creates a pie chart displaying the number of errors and exceptions logged by your application in the last hour:
+To create a pie chart that displays the number of errors and exceptions logged by your application in the last hour, run the following query:
 
 ```sql
 AppPlatformLogsforSpring
@@ -126,4 +171,36 @@ AppPlatformLogsforSpring
 
 ### Learn more about querying application logs
 
-Azure Monitor provides extensive support for querying application logs using Log Analytics.  To learn more about this service, review the tutorial on [log queries](../azure-monitor/log-query/get-started-queries.md) using Azure Monitor. The [Overview of Log Queries in Azure Monitor](../azure-monitor/log-query/log-query-overview.md) provides more information about building queries to analyze your application logs.
+Azure Monitor provides extensive support for querying application logs by using Log Analytics. To learn more about this service, see [Get started with log queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md). For more information about building queries to analyze your application logs, see [Overview of log queries in Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
+
+## Frequently asked questions (FAQ)
+
+### How to convert multi-line Java stack traces into a single line?
+
+There is a workaround to convert your multi-line stack traces into a single line. You can modify the Java log output to reformat stack trace messages, replacing newline characters with a token. If you use Java Logback library, you can reformat stack trace messages by adding `%replace(%ex){'[\r\n]+', '\\n'}%nopex` as follows:
+
+```xml
+<configuration>
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>
+                level: %level, message: "%logger{36}: %msg", exceptions: "%replace(%ex){'[\r\n]+', '\\n'}%nopex"%n
+            </pattern>
+        </encoder>
+    </appender>
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+</configuration>
+```
+And then you can replace the token with newline characters again in Log Analytics as below:
+
+```sql
+AppPlatformLogsforSpring
+| extend Log = array_strcat(split(Log, '\\n'), '\n')
+```
+You may be able to use the same strategy for other Java log libraries.
+
+## Next steps
+
+* [Quickstart: Deploy your first Azure Spring Cloud application](spring-cloud-quickstart.md)

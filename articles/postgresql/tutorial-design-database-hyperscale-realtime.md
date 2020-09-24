@@ -1,6 +1,6 @@
 ---
-title: 'Design a real-time dashboard with Azure Database for PostgreSQL – Hyperscale (Citus) (preview) tutorial'
-description: This tutorial shows how to create, populate, and query distributed tables on Azure Database for PostgreSQL Hyperscale (Citus) (preview).
+title: 'Tutorial: Design a real-time dashboard - Hyperscale (Citus) - Azure Database for PostgreSQL'
+description: This tutorial shows how to parallelize real-time dashboard queries with Azure Database for PostgreSQL Hyperscale (Citus).
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
@@ -8,12 +8,12 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 05/14/2019
-#Customer intent: As a developer, I want to parallelize queries so that I can make a realtime dashboard application.
+#Customer intent: As a developer, I want to parallelize queries so that I can make a real-time dashboard application.
 ---
 
-# Tutorial: Design a real-time analytics dashboard by using Azure Database for PostgreSQL – Hyperscale (Citus) (preview)
+# Tutorial: Design a real-time analytics dashboard by using Azure Database for PostgreSQL – Hyperscale (Citus)
 
-In this tutorial, you use Azure Database for PostgreSQL - Hyperscale (Citus) (preview) to learn how to:
+In this tutorial, you use Azure Database for PostgreSQL - Hyperscale (Citus) to learn how to:
 
 > [!div class="checklist"]
 > * Create a Hyperscale (Citus) server group
@@ -30,7 +30,7 @@ In this tutorial, you use Azure Database for PostgreSQL - Hyperscale (Citus) (pr
 
 ## Use psql utility to create a schema
 
-Once connected to the Azure Database for PostgreSQL - Hyperscale (Citus) (preview) using psql, you can complete some basic tasks. This tutorial walks you through ingesting traffic data from web analytics, then rolling up the data to provide real-time dashboards based on that data.
+Once connected to the Azure Database for PostgreSQL - Hyperscale (Citus) using psql, you can complete some basic tasks. This tutorial walks you through ingesting traffic data from web analytics, then rolling up the data to provide real-time dashboards based on that data.
 
 Let's create a table that will consume all of our raw web traffic data. Run the following commands in the psql terminal:
 
@@ -89,6 +89,8 @@ key. In psql, run these functions:
 SELECT create_distributed_table('http_request',      'site_id');
 SELECT create_distributed_table('http_request_1min', 'site_id');
 ```
+
+[!INCLUDE [azure-postgresql-hyperscale-dist-alert](../../includes/azure-postgresql-hyperscale-dist-alert.md)]
 
 ## Generate sample data
 
@@ -226,8 +228,8 @@ In the preceding steps, you created Azure resources in a server group. If you do
 
 ## Next steps
 
-In this tutorial, you learned how to provision a Hyperscale (Citus) server group. You connected to it with psql, created a schema, and distributed data. You learned to query data both in the raw form, regularly aggregate that data, query the aggregated tables, and expire old data.
+In this tutorial, you learned how to provision a Hyperscale (Citus) server group. You connected to it with psql, created a schema, and distributed data. You learned to query data in the raw form, regularly aggregate that data, query the aggregated tables, and expire old data.
 
-Next, learn about the concepts of hyperscale.
-> [!div class="nextstepaction"]
-> [Hyperscale node types](https://aka.ms/hyperscale-concepts)
+- Learn about server group [node types](https://aka.ms/hyperscale-concepts)
+- Determine the best [initial
+  size](howto-hyperscale-scaling.md#picking-initial-size) for your server group

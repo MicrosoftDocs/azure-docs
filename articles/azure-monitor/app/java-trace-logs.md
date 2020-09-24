@@ -1,19 +1,10 @@
 ---
-title: Explore Java trace logs in Azure Application Insights | Microsoft Docs
+title: Explore Java trace logs in Azure Application Insights
 description: Search Log4J or Logback traces in Application Insights
-services: application-insights
-documentationcenter: java
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: fc0a9e2f-3beb-4f47-a9fe-3f86cd29d97a
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/18/2019
-ms.author: mbullwin
+ms.custom: devx-track-java
 ---
-
 
 # Explore Java trace logs in Application Insights
 If you're using Logback or Log4J (v1.2 or v2.0) for tracing, you can have your trace logs sent automatically to Application Insights where you can explore and search on them.
@@ -23,28 +14,41 @@ If you're using Logback or Log4J (v1.2 or v2.0) for tracing, you can have your t
 
 ## Using the Application Insights Java agent
 
-You can configure the Application Insights Java agent to automatically capture your logs,
-by enabling the feature in the `AI-Agent.xml` file:
+By default, the Application Insights Java agent automatically captures logging performed at `WARN` level and above.
+
+You can change the threshold of logging that is captured using the `AI-Agent.xml` file:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ApplicationInsightsAgent>
    <Instrumentation>
-      <BuiltIn enabled="true">
-         <Logging enabled="true" />
+      <BuiltIn>
+         <Logging threshold="info"/>
       </BuiltIn>
    </Instrumentation>
-   <AgentLogger />
 </ApplicationInsightsAgent>
 ```
 
-Alternatively, you can follow the instructions below.
+You can disable the Java agent's logging capture using the `AI-Agent.xml` file:
 
-## Install the Java SDK
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationInsightsAgent>
+   <Instrumentation>
+      <BuiltIn>
+         <Logging enabled="false"/>
+      </BuiltIn>
+   </Instrumentation>
+</ApplicationInsightsAgent>
+```
+
+## Alternatively (as opposed to using the Java agent), you can follow the instructions below
+
+### Install the Java SDK
 
 Follow the instructions to install [Application Insights SDK for Java][java], if you haven't already done that.
 
-## Add logging libraries to your project
+### Add logging libraries to your project
 *Choose the appropriate way for your project.*
 
 #### If you're using Maven...
@@ -125,7 +129,7 @@ Follow the guidelines to manually install Application Insights Java SDK, downloa
 | Log4j v1.2 |[Log4J v1.2 appender Jar](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j1_2%22) |applicationinsights-logging-log4j1_2 |
 
 
-## Add the appender to your logging framework
+### Add the appender to your logging framework
 To start getting traces, merge the relevant snippet of code to the Log4J or Logback configuration file: 
 
 *Logback*
@@ -185,7 +189,6 @@ Exceptions submitted via loggers will be displayed on the portal as Exception Te
 
 <!--Link references-->
 
-[diagnostic]: ../../azure-monitor/app/diagnostic-search.md
+[diagnostic]: ./diagnostic-search.md
 [java]: java-get-started.md
-
 

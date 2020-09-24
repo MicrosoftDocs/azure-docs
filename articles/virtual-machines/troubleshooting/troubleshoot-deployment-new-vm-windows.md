@@ -3,7 +3,7 @@ title: Troubleshoot Windows VM deployment in Azure | Microsoft Docs
 description: Troubleshoot Resource Manager deployment issues when you create a new Windows virtual machine in Azure
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: ''
-author: JiangChen79
+author: DavidCBerry13
 manager: gwallace
 editor: ''
 tags: top-support-issue, azure-resource-manager
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 
 ms.topic: troubleshooting
 ms.date: 06/15/2018
-ms.author: cjiang
+ms.author: daberry
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -32,9 +32,9 @@ For other VM deployment issues and questions, see [Troubleshoot deploying Window
 ## Collect activity logs
 To start troubleshooting, collect the activity logs to identify the error associated with the issue. The following links contain detailed information on the process to follow.
 
-[View deployment operations](../../azure-resource-manager/resource-manager-deployment-operations.md)
+[View deployment operations](../../azure-resource-manager/templates/deployment-history.md)
 
-[View activity logs to manage Azure resources](../../resource-group-audit.md)
+[View activity logs to manage Azure resources](../../azure-resource-manager/management/view-activity-logs.md)
 
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-issue1](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-issue1-include.md)]
 
@@ -50,7 +50,7 @@ To start troubleshooting, collect the activity logs to identify the error associ
 
 **Resolution**
 
-To resolve both these errors, use [Add-AzVhd to upload the original VHD](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd), available on-premises, with the same setting as that for the OS (generalized/specialized). To upload as generalized, remember to run sysprep first.
+To resolve both these errors, use [Add-AzVhd to upload the original VHD](/powershell/module/az.compute/add-azvhd), available on-premises, with the same setting as that for the OS (generalized/specialized). To upload as generalized, remember to run sysprep first.
 
 **Capture Errors:**
 
@@ -87,5 +87,3 @@ This error arises in situations when the new VM request is pinned to a cluster t
 
 ## Next steps
 If you encounter issues when you start a stopped Windows VM or resize an existing Windows VM in Azure, see [Troubleshoot Resource Manager deployment issues with restarting or resizing an existing Windows Virtual Machine in Azure](restart-resize-error-troubleshooting.md).
-
-

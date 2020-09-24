@@ -2,11 +2,11 @@
 title: Host load-balanced Azure web apps at the zone apex 
 description: Use an Azure DNS alias record to host load-balanced web apps at the zone apex 
 services: dns
-author: vhorne
+author: rohinkoul
 ms.service: dns
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/10/2019
-ms.author: victorh
+ms.author: rohink
 ---
 
 # Host load-balanced Azure web apps at the zone apex

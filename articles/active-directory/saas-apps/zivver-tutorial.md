@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with ZIVVER | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and ZIVVER.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 64cb7ea0-df6c-4963-84d8-6f435980e2de
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/22/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with ZIVVER
 
@@ -115,7 +109,7 @@ To configure Azure AD single sign-on with ZIVVER, perform the following steps:
 	| ZivverAccountKey | https:\//zivver.com/SAML/Attributes | user.objectid |
 
 	>[!NOTE]
-	>If you are using a hybrid setup with Active Directory on-premise and Azure AD Connect Tool, VALUE should be set to `user.objectGUID`
+	>If you are using a hybrid setup with Active Directory on-premises and Azure AD Connect Tool, VALUE should be set to `user.objectGUID`
 
 	a. Click **Add new claim** to open the **Manage user claims** dialog.
 

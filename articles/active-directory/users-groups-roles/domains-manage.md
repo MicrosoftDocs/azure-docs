@@ -9,7 +9,7 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
@@ -38,7 +38,7 @@ When your directory is created, the initial domain name, such as ‘contoso.onmi
 
 You can change the primary domain name for your directory to be any verified custom domain that isn't federated. Changing the primary domain for your directory won't change the user name for any existing users.
 
-## Add custom domain names to your Azure AD tenant
+## Add custom domain names to your Azure AD organization
 
 You can add up to 900 managed domain names. If you're configuring all your domains for federation with on-premises Active Directory, you can add up to 450 domain names in each directory.
 
@@ -46,9 +46,13 @@ You can add up to 900 managed domain names. If you're configuring all your domai
 
 If you want to add a third-level domain name such as ‘europe.contoso.com’ to your directory, you should first add and verify the second-level domain, such as contoso.com. The subdomain is automatically verified by Azure AD. To see that the subdomain you added is verified, refresh the domain list in the browser.
 
+Note
+
+If you have already added a contoso.com domain to an Azure AD tenant, you can also add the subdomain europe.contoso.com to a second Azure AD tenant. When adding the subdomain, you will be prompted to add a TXT record in the DNS hosting provider.
+
 ## What to do if you change the DNS registrar for your custom domain name
 
-If you change the DNS registrars, there are no additional configuration tasks in Azure AD. You can continue using the domain name with Azure AD without interruption. If you use your custom domain name with Office 365, Intune, or other services that rely on custom domain names in Azure AD, see the documentation for those services.
+If you change the DNS registrars, there are no additional configuration tasks in Azure AD. You can continue using the domain name with Azure AD without interruption. If you use your custom domain name with Microsoft 365, Intune, or other services that rely on custom domain names in Azure AD, see the documentation for those services.
 
 ## Delete a custom domain name
 
@@ -64,12 +68,12 @@ You must change or delete any such resource in your Azure AD directory before yo
 
 ### ForceDelete option
 
-You can **ForceDelete** a domain name in the [Azure AD Admin Center](https://aad.portal.azure.com) or using [Microsoft Graph API](https://docs.microsoft.com/graph/api/domain-forcedelete?view=graph-rest-beta). These options use an asynchronous operation and update all references from the custom domain name like “user@contoso.com” to the initial default domain name such as “user@contoso.onmicrosoft.com.” 
+You can **ForceDelete** a domain name in the [Azure AD Admin Center](https://aad.portal.azure.com) or using [Microsoft Graph API](/graph/api/domain-forcedelete?view=graph-rest-beta). These options use an asynchronous operation and update all references from the custom domain name like “user@contoso.com” to the initial default domain name such as “user@contoso.onmicrosoft.com.” 
 
-To call **ForceDelete** in the Azure portal, you must ensure that there are fewer than 1000 references to the domain name, and any references where Exchange is the provisioning service must be updated or removed in the [Exchange Admin Center](https://outlook.office365.com/ecp/). This includes Exchange Mail-Enabled Security Groups and distributed lists; for more information, see [Removing mail-enabled security groups](https://technet.microsoft.com/library/bb123521(v=exchg.160).aspx#Remove%20mail-enabled%20security%20groups). Also, the **ForceDelete** operation won't succeed if either of the following is true:
+To call **ForceDelete** in the Azure portal, you must ensure that there are fewer than 1000 references to the domain name, and any references where Exchange is the provisioning service must be updated or removed in the [Exchange Admin Center](https://outlook.office365.com/ecp/). This includes Exchange Mail-Enabled Security Groups and distributed lists; for more information, see [Removing mail-enabled security groups](/Exchange/recipients/mail-enabled-security-groups?view=exchserver-2019#Remove%20mail-enabled%20security%20groups). Also, the **ForceDelete** operation won't succeed if either of the following is true:
 
-* You purchased a domain via Office 365 domain subscription services
-* You are a partner administering on behalf of another customer tenant
+* You purchased a domain via Microsoft 365 domain subscription services
+* You are a partner administering on behalf of another customer organization
 
 The following actions are performed as part of the **ForceDelete** operation:
 
@@ -99,15 +103,15 @@ An error is returned when:
 
 If you find that any of the conditions haven’t been met, manually clean up the references and try to delete the domain again.
 
-## Use PowerShell or Graph API to manage domain names
+## Use PowerShell or the Microsoft Graph API to manage domain names
 
-Most management tasks for domain names in Azure Active Directory can also be completed using Microsoft PowerShell, or programmatically using Azure AD Graph API.
+Most management tasks for domain names in Azure Active Directory can also be completed using Microsoft PowerShell, or programmatically using the Microsoft Graph API.
 
-* [Using PowerShell to manage domain names in Azure AD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#domains)
-* [Using Graph API to manage domain names in Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations)
+* [Using PowerShell to manage domain names in Azure AD](/powershell/module/azuread/?view=azureadps-2.0#domains)
+* [Domain resource type](/graph/api/resources/domain?view=graph-rest-1.0)
 
 ## Next steps
 
-* [Add custom domain names](/azure/active-directory/fundamentals/add-custom-domain?context=azure/active-directory/users-groups-roles/context/ugr-context)
-* [Remove Exchange mail-enabled security groups in Exchange Admin Center on a custom domain name in Azure AD](https://technet.microsoft.com/library/bb123521(v=exchg.160).aspx#Remove%20mail-enabled%20security%20groups)
-* [ForceDelete a custom domain name with Microsoft Graph API](https://docs.microsoft.com/graph/api/domain-forcedelete?view=graph-rest-beta)
+* [Add custom domain names](../fundamentals/add-custom-domain.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)
+* [Remove Exchange mail-enabled security groups in Exchange Admin Center on a custom domain name in Azure AD](/Exchange/recipients/mail-enabled-security-groups?view=exchserver-2019#Remove%20mail-enabled%20security%20groups)
+* [ForceDelete a custom domain name with Microsoft Graph API](/graph/api/domain-forcedelete?view=graph-rest-beta)

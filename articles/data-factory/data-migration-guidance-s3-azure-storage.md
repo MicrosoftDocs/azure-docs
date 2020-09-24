@@ -1,19 +1,21 @@
 ---
-title: Use Azure Data Factory to migrate data from Amazon S3 to Azure Storage | Microsoft Docs
+title: Migrate data from Amazon S3 to Azure Storage
 description: Use Azure Data Factory to migrate data from Amazon S3 to Azure Storage.
 services: data-factory
-documentationcenter: ''
-author: dearandyxu
 ms.author: yexu
-ms.reviewer: 
-manager: 
+author: dearandyxu
+ms.reviewer: ""
+manager: shwang
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 8/04/2019
 ---
+
 # Use Azure Data Factory to migrate data from Amazon S3 to Azure Storage 
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Azure Data Factory provides a performant, robust, and cost-effective mechanism to migrate data at scale from Amazon S3 to Azure Blob Storage or Azure Data Lake Storage Gen2.  This article provides the following information for data engineers and developers: 
 
@@ -30,7 +32,7 @@ ADF offers a serverless architecture that allows parallelism at different levels
 
 Customers have successfully migrated petabytes of data consisting of hundreds of millions of files from Amazon S3 to Azure Blob Storage, with a sustained throughput of 2 GBps and higher. 
 
-![performance](media/data-migration-guidance-s3-to-azure-storage/performance.png)
+![Diagram shows several file partitions in an A W S S3 store with associated copy actions to Azure Blob Storage A D L S Gen2.](media/data-migration-guidance-s3-to-azure-storage/performance.png)
 
 The picture above illustrates how you can achieve great data movement speeds through different levels of parallelism:
  
@@ -42,7 +44,7 @@ The picture above illustrates how you can achieve great data movement speeds thr
 
 Within a single copy activity run, ADF has built-in retry mechanism so it can handle a certain level of transient failures in the data stores or in the underlying network. 
 
-When doing binary copying from S3 to Blob and from S3 to ADLS Gen2, ADF automatically performs checkpointing.  If a copy activity run has failed or timed out, on a subsequent retry (make sure to retry count > 1), the copy resumes from the last failure point instead of starting from the beginning. 
+When doing binary copying from S3 to Blob and from S3 to ADLS Gen2, ADF automatically performs checkpointing.  If a copy activity run has failed or timed out, on a subsequent retry, the copy resumes from the last failure point instead of starting from the beginning. 
 
 ## Network security 
 
@@ -54,7 +56,7 @@ Alternatively, if you do not want data to be transferred over public Internet, y
 
 Migrate data over public Internet:
 
-![solution-architecture-public-network](media/data-migration-guidance-s3-to-azure-storage/solution-architecture-public-network.png)
+![Diagram shows migration over the Internet by H T T P from an A W S S3 store through Azure Integration Runtime in A D F Azure to Azure Storage. The runtime has a control channel with Data Factory.](media/data-migration-guidance-s3-to-azure-storage/solution-architecture-public-network.png)
 
 - In this architecture, data is transferred securely using HTTPS over public Internet. 
 - Both the source Amazon S3 as well as the destination Azure Blob Storage or Azure Data Lake Storage Gen2 are configured to allow traffic from all network IP addresses.  Refer to the second architecture below on how you can restrict network access to specific IP range. 
@@ -63,7 +65,7 @@ Migrate data over public Internet:
 
 Migrate data over private link: 
 
-![solution-architecture-private-network](media/data-migration-guidance-s3-to-azure-storage/solution-architecture-private-network.png)
+![Diagram shows migration over a private peering connection from an A W S S3 store through self-hosted integration runtime on Azure virtual machines to V Net service endpoints to Azure Storage. The runtime has a control channel with Data Factory.](media/data-migration-guidance-s3-to-azure-storage/solution-architecture-private-network.png)
 
 - In this architecture, data migration is done over a private peering link between AWS Direct Connect and Azure Express Route such that data never traverses over public Internet.  It requires use of AWS VPC and Azure Virtual network. 
 - You need to install ADF self-hosted integration runtime on a Windows VM within your Azure virtual network to achieve this architecture.  You can manually scale up your self-hosted IR VMs or scale out to multiple VMs (up to 4 nodes) to fully utilize your network and storage IOPS/bandwidth. 
@@ -81,7 +83,7 @@ Migrate data over private link:
 
 ### Initial snapshot data migration 
 
-Data partition is recommended especially when migrating more than 10 TB of data.  To partition the data, leverage the ‘prefix’ setting to filter the folders and files in Amazon S3 by name, and then each ADF copy job can copy one partition at a time.  You can run multiple ADF copy jobs concurrently for better throughput. 
+Data partition is recommended especially when migrating more than 100 TB of data.  To partition the data, leverage the ‘prefix’ setting to filter the folders and files in Amazon S3 by name, and then each ADF copy job can copy one partition at a time.  You can run multiple ADF copy jobs concurrently for better throughput. 
 
 If any of the copy jobs fail due to network or data store transient issue, you can rerun the failed copy job to reload that specific partition again from AWS S3.  All other copy jobs loading other partitions will not be impacted. 
 
@@ -115,7 +117,7 @@ When you encounter throttling errors reported by ADF copy activity, either reduc
 
 Consider the following pipeline constructed for migrating data from S3 to Azure Blob Storage: 
 
-![pricing-pipeline](media/data-migration-guidance-s3-to-azure-storage/pricing-pipeline.png)
+![Diagram shows a pipeline for migrating data, with manual trigger flowing to Lookup, flowing to ForEach, flowing to a  sub-pipeline for each partition which contains Copy flowing to Stored Procedure. Outside the pipeline, Stored Procedure flows to Azure SQL D B, which flows to Lookup and A W S S3 flows to Copy, which flows to Blob storage.](media/data-migration-guidance-s3-to-azure-storage/pricing-pipeline.png)
 
 Let us assume the following: 
 
@@ -128,8 +130,7 @@ Let us assume the following:
 
 Here is the estimated price based on the above assumptions: 
 
-![pricing-table](media/data-migration-guidance-s3-to-azure-storage/pricing-table.png)
-
+![Screenshot of a table shows an estimated price.](media/data-migration-guidance-s3-to-azure-storage/pricing-table.png)
 
 ### Additional references 
 - [Amazon Simple Storage Service connector](https://docs.microsoft.com/azure/data-factory/connector-amazon-simple-storage-service)
@@ -143,6 +144,10 @@ Here is the estimated price based on the above assumptions:
 - [Copy file incrementally based on time partitioned file name](https://docs.microsoft.com/azure/data-factory/tutorial-incremental-copy-partitioned-file-name-copy-data-tool)
 - [Copy new and changed files based on LastModifiedDate](https://docs.microsoft.com/azure/data-factory/tutorial-incremental-copy-lastmodified-copy-data-tool)
 - [ADF pricing page](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/)
+
+## Template
+
+Here is the [template](solution-template-migration-s3-azure.md) to start with to migrate petabytes of data consisting of hundreds of millions of files from Amazon S3 to Azure Data Lake Storage Gen2.
 
 ## Next steps
 

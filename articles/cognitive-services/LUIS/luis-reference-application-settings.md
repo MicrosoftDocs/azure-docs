@@ -1,36 +1,25 @@
 ---
 title: Application settings - LUIS
-titleSuffix: Azure Cognitive Services
-description: Understand applications settings for Language understanding apps.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
-ms.topic: conceptual
-ms.date: 07/16/2019
-ms.author: diberry
+description: Applications settings for Azure Cognitive Services language understanding apps are stored in the app and portal.
+ms.topic: reference
+ms.date: 05/04/2020
 ---
 
-# Application settings
+# App and version settings
 
-These application settings are stored in the [exported](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) app and [updated](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) with the REST APIs. Changing your app version settings resets your app training status to untrained.
+These settings are stored in the [exported](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) app and updated with the REST APIs or LUIS portal.
 
-|Setting|Default value|Notes|
-|--|--|--|
-|NormalizePunctuation|True|Removes punctuation.|
-|NormalizeDiacritics|True|Removes diacritics.|
+Changing your app version settings resets your app training status to untrained.
 
-## Diacritics normalization 
+[!INCLUDE [App and version settings](includes/app-version-settings.md)]
 
-Turn on utterance normalization for diacritics to your LUIS JSON app file in the `settings` parameter.
 
-```JSON
-"settings": [
-    {"name": "NormalizeDiacritics", "value": "true"}
-] 
-```
+Text reference and examples include:
+
+* [Punctuation](#punctuation-normalization)
+* [Diacritics](#diacritics-normalization)
+
+## Diacritics normalization
 
 The following utterances show how diacritics normalization impacts utterances:
 
@@ -56,7 +45,7 @@ The following utterances show how diacritics normalization impacts utterances:
 |`ó`|`o`|
 |`ô`|`o`|
 |`õ`|`o`|
-|`ú`|`u`| 
+|`ú`|`u`|
 |||
 
 #### Dutch `nl-nl` diacritics
@@ -72,7 +61,7 @@ The following utterances show how diacritics normalization impacts utterances:
 |`í`|`i`|
 |`ó`|`o`|
 |`ö`|`o`|
-|`ú`|`u`| 
+|`ú`|`u`|
 |`ü`|`u`|
 |||
 
@@ -86,24 +75,24 @@ This includes both french and canadian subcultures.
 |`à`|`a`|
 |`è`|`e`|
 |`ù`|`u`|
-|`â`|`a`| 
-|`ê`|`e`| 
-|`î`|`i`| 
-|`ô`|`o`| 
-|`û`|`u`| 
-|`ç`|`c`| 
-|`ë`|`e`| 
-|`ï`|`i`| 
-|`ü`|`u`| 
-|`ÿ`|`y`| 
+|`â`|`a`|
+|`ê`|`e`|
+|`î`|`i`|
+|`ô`|`o`|
+|`û`|`u`|
+|`ç`|`c`|
+|`ë`|`e`|
+|`ï`|`i`|
+|`ü`|`u`|
+|`ÿ`|`y`|
 
 #### German `de-de` diacritics
 
 |Diacritics set to false|Diacritics set to true|
 |--|--|
 |`ä`|`a`|
-|`ö`|`o`| 
-|`ü`|`u`| 
+|`ö`|`o`|
+|`ü`|`u`|
 
 #### Italian `it-it` diacritics
 
@@ -112,11 +101,11 @@ This includes both french and canadian subcultures.
 |`à`|`a`|
 |`è`|`e`|
 |`é`|`e`|
-|`ì`|`i`| 
-|`í`|`i`| 
-|`î`|`i`| 
-|`ò`|`o`| 
-|`ó`|`o`| 
+|`ì`|`i`|
+|`í`|`i`|
+|`î`|`i`|
+|`ò`|`o`|
+|`ó`|`o`|
 |`ù`|`u`|
 |`ú`|`u`|
 
@@ -128,26 +117,17 @@ This includes both spanish and canadian mexican.
 |-|-|
 |`á`|`a`|
 |`é`|`e`|
-|`í`|`i`| 
-|`ó`|`o`| 
+|`í`|`i`|
+|`ó`|`o`|
 |`ú`|`u`|
 |`ü`|`u`|
 |`ñ`|`u`|
 
-
 ## Punctuation normalization
 
-Turn on utterance normalization for punctuation to your LUIS JSON app file in the `settings` parameter.
+The following utterances show how punctuation impacts utterances:
 
-```JSON
-"settings": [
-    {"name": "NormalizePunctuation", "value": "true"}
-] 
-```
-
-The following utterances show how diacritics impacts utterances:
-
-|With diacritics set to False|With diacritics set to True|
+|With punctuation set to False|With punctuation set to True|
 |--|--|
 |`Hmm..... I will take the cappuccino`|`Hmm I will take the cappuccino`|
 |||
@@ -158,8 +138,8 @@ The following punctuation is removed with `NormalizePunctuation` is set to true.
 
 |Punctuation|
 |--|
-|`-`| 
-|`.`| 
+|`-`|
+|`.`|
 |`'`|
 |`"`|
 |`\`|
@@ -178,3 +158,7 @@ The following punctuation is removed with `NormalizePunctuation` is set to true.
 |`}`|
 |`+`|
 |`¡`|
+
+## Next steps
+
+* Learn [concepts](luis-concept-utterance.md#utterance-normalization-for-diacritics-and-punctuation) of diacritics and punctuation.

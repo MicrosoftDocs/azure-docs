@@ -1,26 +1,26 @@
 ---
-title: Collect data from a hybrid Windows computer with Azure Monitor | Microsoft Docs
+title: Collect data from hybrid Windows computer with Azure Monitor
 description: In this quickstart, you'll learn how to deploy the Log Analytics agent for Windows computers running outside of Azure and enable data collection with Azure Monitor Logs.
 services: azure-monitor
 documentationcenter: azure-monitor
-author: mgoedtel
+author: bwren
 manager: carmonm
 editor: ''
 ms.assetid: 
-ms.service: azure-monitor
+
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 08/22/2019
-ms.author: magoedte
-ms.custom: mvc
+ms.author: bwren
+ms.custom: mvc, seo-javascript-october2019
 ---
 
 # Collect data from a Windows computer in a hybrid environment with Azure Monitor
 
-[Azure Monitor](../overview.md) can collect data directly from your your physical or virtual Windows computers in your environment into a Log Analytics workspace for detailed analysis and correlation. Installing the [Log Analytics agent](../platform/log-analytics-agent.md) allows Azure Monitor to collect data from a datacenter or other cloud environment. This quickstart shows you how to configure and collect data from your Windows computer with a few easy steps. For information about Azure Windows VMs, see [Collect data about Azure virtual machines](../../azure-monitor/learn/quick-collect-azurevm.md).  
+[Azure Monitor](../overview.md) can collect data directly from your your physical or virtual Windows computers in your environment into a Log Analytics workspace for detailed analysis and correlation. Installing the [Log Analytics agent](../platform/log-analytics-agent.md) allows Azure Monitor to collect data from a datacenter or other cloud environment. This quickstart shows you how to configure and collect data from your Windows computer with a few easy steps. For information about Azure Windows VMs, see [Collect data about Azure virtual machines](./quick-collect-azurevm.md).  
 
-To understand the supported configuration, see [Supported Windows operating systems](../../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems) and [Network firewall configuration](../../azure-monitor/platform/log-analytics-agent.md#network-firewall-requirements).
+To understand the supported configuration, see [Supported operating systems](../platform/agents-overview.md#supported-operating-systems) and [Network firewall configuration](../platform/log-analytics-agent.md#network-requirements).
  
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -32,7 +32,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 1. In the Azure portal, select **All services**. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics workspaces**.
 
-    ![Azure portal](media/quick-collect-azurevm/azure-portal-01.png)<br>  
+    ![Azure portal](media/quick-collect-azurevm/azure-portal-log-analytics-workspaces.png)<br>  
 
 2. Select **Create**, and then select choices for the following items:
 
@@ -42,7 +42,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
    * Select the **Location** your VMs are deployed to.  For additional information, see which [regions Log Analytics is available in](https://azure.microsoft.com/regions/services/).
    * If you are creating a workspace in a new subscription created after April 2, 2018, it will automatically use the *Per GB* pricing plan and the option to select a pricing tier will not be available.  If you are creating a workspace for an existing subscription created before April 2, or to subscription that was tied to an existing EA enrollment, select your preferred pricing tier.  For additional information about the particular tiers, see [Log Analytics Pricing Details](https://azure.microsoft.com/pricing/details/log-analytics/).
   
-        ![Create Log Analytics resource blade](media/quick-collect-azurevm/create-loganalytics-workspace-02.png) 
+        ![Create Log Analytics resource blade](media/quick-collect-azurevm/create-log-analytics-workspace-azure-portal.png) 
 
 3. After providing the required information on the **Log Analytics workspace** pane, select **OK**.  
 
@@ -59,7 +59,7 @@ Before you install the Log Analytics agent for Windows (also referred to as the 
 
 3. Select **Advanced settings**:
 
-    ![Log Analytics advanced settings](media/quick-collect-azurevm/log-analytics-advanced-settings-01.png)
+    ![Log Analytics advanced settings](media/quick-collect-azurevm/log-analytics-advanced-settings-azure-portal.png)
   
 4. Select **Connected Sources**, and then select **Windows Servers**.
 
@@ -104,7 +104,7 @@ Azure Monitor can collect events that you specify from the Windows event log and
 
 2. Select **Advanced settings**:
 
-    ![Log Analytics advanced settings](media/quick-collect-azurevm/log-analytics-advanced-settings-01.png)
+    ![Log Analytics advanced settings](media/quick-collect-azurevm/log-analytics-advanced-settings-azure-portal.png)
  
 3. Select **Data**, and then select **Windows Event Logs**.  
 
@@ -161,4 +161,5 @@ Now that you're collecting operational and performance data from your Windows co
 To learn how to view and analyze the data, continue to the tutorial:
 
 > [!div class="nextstepaction"]
-> [View or analyze data in Log Analytics](tutorial-viewdata.md)
+> [View or analyze data in Log Analytics](../log-query/get-started-portal.md)
+

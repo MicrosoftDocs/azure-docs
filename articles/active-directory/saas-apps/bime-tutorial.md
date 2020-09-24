@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Bime | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Bime.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: bdcf0729-c880-4c95-b739-0f6345b17dd8
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Bime
 
@@ -228,7 +222,7 @@ In order to enable Azure AD users to log in to Bime, they must be provisioned in
     d. Click **Save**.
 
 > [!NOTE]
-> You can use any other Bime user account creation tools or APIs provided by Bime to provision AAD user accounts.
+> You can use any other Bime user account creation tools or APIs provided by Bime to provision Azure AD user accounts.
 
 ### Test single sign-on
 

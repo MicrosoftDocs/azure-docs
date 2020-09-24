@@ -1,14 +1,14 @@
 ---
 title: Microsoft Azure FXT Edge Filer - Additional documentation 
-description: Additional reference documents for Azure FXT Edge Filer installation 
+description: Additional reference documents help you understand and work with your Microsoft Azure FXT Edge Filer hybrid cache. 
 author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: conceptual
 ms.date: 06/20/2019
-ms.author: v-erkell
+ms.author: rohogue
 ---
 
-# Additional documentation 
+# Additional documentation for Azure FXT Edge Filer
 
 Some resources outside of this docs.microsoft.com website might help you understand and work with your Microsoft Azure FXT Edge Filer hybrid cache.
 

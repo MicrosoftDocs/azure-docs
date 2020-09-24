@@ -1,14 +1,14 @@
 ---
-title: "Create a Custom Voice - Speech Service"
+title: "Create a Custom Voice - Speech service"
 titleSuffix: Azure Cognitive Services
-description: "When you're ready to upload your data, go to the Custom Voice portal. Create or select a Custom Voice project. The project must share the right language/locale and the gender properties as the data you intent to use for your voice training."
+description: "When you're ready to upload your data, go to the Custom Voice portal. Create or select a Custom Voice project. The project must share the right language/locale and the gender properties as the data you intend to use for your voice training."
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 11/04/2019
 ms.author: erhopf
 ---
 
@@ -23,7 +23,7 @@ Check the languages supported for custom voice: [language for customization](lan
 
 ## Upload your datasets
 
-When you're ready to upload your data, go to the [Custom Voice portal](https://aka.ms/custom-voice-portal). Create or select a Custom Voice project. The project must share the right language/locale and the gender properties as the data you intent to use for your voice training. For example, select `en-GB` if the audio recordings you have is done in English with a UK accent.
+When you're ready to upload your data, go to the [Custom Voice portal](https://aka.ms/custom-voice-portal). Create or select a Custom Voice project. The project must share the right language/locale and the gender properties as the data you intend to use for your voice training. For example, select `en-GB` if the audio recordings you have is done in English with a UK accent.
 
 Go to the **Data** tab and click **Upload data**. In the wizard, select the correct data type that matches what you have prepared.
 
@@ -57,7 +57,7 @@ Consider re-recording any utterances with low pronunciation scores or poor signa
 
 After your dataset has been validated, you can use it to build your custom voice model.
 
-1.	Navigate to **Text-to-Speech > Custom Voice > Training**.
+1.	Navigate to **Text-to-Speech > Custom Voice > [name of project] > Training**.
 
 2.	Click **Train model**.
 
@@ -73,7 +73,7 @@ After your dataset has been validated, you can use it to build your custom voice
     > Duplicate audio names will be removed from the training. Make sure the datasets you select do not contain the same audio names across multiple .zip files.
 
     > [!TIP]
-    > Using the datasets from the same speaker is required for quality results. When the datasets you have submitted for training contain a total number of less than 6,000 distinct utterances, you will train your voice model through the Statistical Parametric Synthesis technique. In the case where your training data exceeds a total number of 6,000 distinct utterances, you will kick off a training process with the Concatenation Synthesis technique. Normally the concatenation technology can result in more natural, and higher-fidelity voice results. [Contact the Custom Voice team](mailto:speechsupport@microsoft.com) if you want to train a model with the latest Neural TTS technology that can produce a digital voice equivalent to the publically available [neural voices](language-support.md#neural-voices).
+    > Using the datasets from the same speaker is required for quality results. When the datasets you have submitted for training contain a total number of less than 6,000 distinct utterances, you will train your voice model through the Statistical Parametric Synthesis technique. In the case where your training data exceeds a total number of 6,000 distinct utterances, you will kick off a training process with the Concatenation Synthesis technique. Normally the concatenation technology can result in more natural, and higher-fidelity voice results. [Contact the Custom Voice team](https://go.microsoft.com/fwlink/?linkid=2108737) if you want to train a model with the latest Neural TTS technology that can produce a digital voice equivalent to the publicly available [neural voices](language-support.md#neural-voices).
 
 5.	Click **Train** to begin creating your voice model.
 
@@ -95,11 +95,13 @@ Training time varies depending on the volume of audio data processed. Typical ti
 > [!NOTE]
 > The maximum number of voice models allowed to be trained per subscription is 10 models for free subscription (F0) users and 100 for standard subscription (S0) users.
 
+If you are using the neural voice training capability, you can select to train a model optimized for real-time streaming scenarios, or a HD neural model optimized for asynchronous [long-audio synthesis](long-audio-api.md).  
+
 ## Test your voice model
 
 After your voice font is successfully built, you can test it before deploying it for use.
 
-1.	Navigate to **Text-to-Speech > Custom Voice > Testing**.
+1.	Navigate to **Text-to-Speech > Custom Voice > [name of project] > Testing**.
 
 2.	Click **Add test**.
 
@@ -140,3 +142,4 @@ The custom endpoint is functionally identical to the standard endpoint that's us
 
 * [Guide: Record your voice samples](record-custom-voice-samples.md)
 * [Text-to-Speech API reference](rest-text-to-speech.md)
+* [Long Audio API](long-audio-api.md)

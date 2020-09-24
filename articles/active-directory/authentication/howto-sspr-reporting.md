@@ -5,13 +5,13 @@ description: Reporting on Azure AD self-service password reset events
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/01/2019
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
-ms.reviewer: sahenry
+ms.reviewer: rhicock
 
 ms.collection: M365-identity-device-management
 ---
@@ -36,10 +36,6 @@ The following questions can be answered by the reports that exist in the [Azure 
 * What admins are resetting their own passwords frequently?
 * Is there any suspicious activity going on with password reset?
 
-## Power BI content pack
-
-If you're a Power BI user, there is a content pack for Azure AD that includes easy-to-use reporting for SSPR. For more information on how to use and deploy the content pack, see [How to use the Azure Active Directory Power BI content pack](../reports-monitoring/howto-power-bi-content-pack.md). With the content pack, you can create your own dashboards and share them with others in your organization.
-
 ## How to view password management reports in the Azure portal
 
 In the Azure portal experience, we have improved the way that you can view password reset and password reset registration activity. Use the following the steps to find the password reset and password reset registration events:
@@ -52,9 +48,9 @@ In the Azure portal experience, we have improved the way that you can view passw
 6. From the **Filter** menu at the top of the pane, select the **Service** drop-down list, and change it to the **Self-service Password Management** service type.
 7. Optionally, further filter the list by choosing the specific **Activity** you're interested in.
 
-### Converged registration (preview)
+### Combined registration
 
-If you are participating in the public preview of converged registration, information regarding user activity in the audit logs will be found under the service **Authentication Methods**.
+If you have enabled [combined registration](./concept-registration-mfa-sspr-combined.md), information regarding user activity in the audit logs will be found under **Security** > **Authentication Methods**.
 
 ## Description of the report columns in the Azure portal
 
@@ -181,7 +177,7 @@ The following list explains this activity in detail:
 * [What data is used by SSPR and what data should you populate for your users?](howto-sspr-authenticationdata.md)
 * [What authentication methods are available to users?](concept-sspr-howitworks.md#authentication-methods)
 * [What are the policy options with SSPR?](concept-sspr-policy.md)
-* [What is password writeback and why do I care about it?](howto-sspr-writeback.md)
+* [What is password writeback and why do I care about it?](./tutorial-enable-sspr-writeback.md)
 * [What are all of the options in SSPR and what do they mean?](concept-sspr-howitworks.md)
 * [I think something is broken. How do I troubleshoot SSPR?](active-directory-passwords-troubleshoot.md)
 * [I have a question that was not covered somewhere else](active-directory-passwords-faq.md)

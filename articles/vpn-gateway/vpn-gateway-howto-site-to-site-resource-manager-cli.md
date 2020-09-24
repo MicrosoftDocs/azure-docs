@@ -1,12 +1,13 @@
 ---
-title: 'Connect your on-premises network to an Azure virtual network: Site-to-Site VPN: CLI | Microsoft Docs'
-description: Steps to create an IPsec connection from your on-premises network to an Azure virtual network over the public Internet. These steps will help you create a cross-premises Site-to-Site VPN Gateway connection using CLI.
+title: 'Connect on-premises networks to a virtual network: Site-to-Site VPN: CLI'
+description: Create an IPsec site-to-site VPN Gateway connection from your on-premises network to an Azure virtual network over the public internet using the CLI.
+titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: cherylmc
 
 ms.service: vpn-gateway
-ms.topic: conceptual
-ms.date: 10/18/2018
+ms.topic: how-to
+ms.date: 09/02/2020
 ms.author: cherylmc
 
 ---

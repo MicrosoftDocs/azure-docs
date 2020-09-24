@@ -1,20 +1,21 @@
 ---
-title: Transform data with Databricks Notebook - Azure | Microsoft Docs
+title: Transform data with Databricks Notebook 
 description: Learn how to process or transform data by running a Databricks notebook.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 author: nabhishek
 ms.author: abnarain
-manager: jroth
+manager: shwang
 ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 03/15/2018
 ---
 
 # Transform data by running a Databricks notebook
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 The Azure Databricks Notebook Activity in a [Data Factory pipeline](concepts-pipelines-activities.md) runs a Databricks notebook in your Azure Databricks workspace. This article builds on the [data transformation activities](transform-data.md) article, which presents a general overview of data transformation and the supported transformation activities. Azure Databricks is a managed platform for running Apache Spark.
 

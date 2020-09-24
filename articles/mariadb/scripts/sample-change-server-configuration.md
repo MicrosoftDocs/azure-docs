@@ -1,13 +1,13 @@
 ---
-title: Azure CLI script - Change server configurations
-description: This sample CLI script lists all available server configurations and updates the value of innodb_lock_wait_timeout.
+title: CLI script - Change server parameters - Azure Database for MariaDB
+description: This sample CLI script lists all available server configurations and updates of an Azure Database for MariaDB.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: sample
-ms.custom: mvc
-ms.date: 11/28/2018
+ms.custom: mvc, devx-track-azurecli
+ms.date: 12/02/2019
 ---
 
 # List and update configurations of an Azure Database for MariaDB server using Azure CLI

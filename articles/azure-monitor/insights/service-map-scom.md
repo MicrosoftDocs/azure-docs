@@ -1,23 +1,17 @@
 ---
-title: Azure Monitor for VMs integration with System Center Operations Manager | Microsoft Docs
+title: Integrate Azure Monitor for VMs Map with Operations Manager | Microsoft Docs
 description: Azure Monitor for VMs automatically discovers application components on Windows and Linux systems and maps the communication between services. This article discusses using the Map feature to automatically create distributed application diagrams in Operations Manager.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: e8614a5a-9cf8-4c81-8931-896d358ad2cb
-ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+ms.subservice: 
+ms.topic: conceptual
+author: bwren
+ms.author: bwren
 ms.date: 07/12/2019
-ms.author: magoedte
+
 ---
 
-# System Center Operations Manager integration with Azure Monitor for VMs Map feature
+# Integrate System Center Operations Manager with Azure Monitor for VMs Map feature
 
-In Azure Monitor for VMs, you can view discovered application components on Windows and Linux virtual machines (VMs) that run in Azure or your environment. With this integration between the Map feature and System Center Operations Manager, you can automatically create distributed application diagrams in Operations Manager that are based on the dynamic dependency maps in Azure Monitor for VMs. 
+In Azure Monitor for VMs, you can view discovered application components on Windows and Linux virtual machines (VMs) that run in Azure or your environment. With this integration between the Map feature and System Center Operations Manager, you can automatically create distributed application diagrams in Operations Manager that are based on the dynamic dependency maps in Azure Monitor for VMs. This article describes how to configure your System Center Operations Manager management group to support this feature.
 
 >[!NOTE]
 >If you have already deployed Service Map, you can view your maps in Azure Monitor for VMs, which includes additional features to monitor VM health and performance. The Map feature of Azure Monitor for VMs is intended to replace the standalone Service Map solution. To learn more, see [Azure Monitor for VMs overview](vminsights-overview.md).
@@ -110,8 +104,10 @@ The Service Map folder has four nodes:
 
 You can edit or delete the configured workspace through the **Service Map Overview** pane (**Administration** pane > **Operations Management Suite** > **Service Map**).
 
->[!NOTE]
->[Operations Management Suite was a collection of services](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/azure-monitor-rebrand.md#retirement-of-operations-management-suite-brand) that included Log Analytics, which is now part of [Azure Monitor](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/overview.md).
+> [!NOTE]
+> [Operations Management Suite was a collection of services](../terminology.md#april-2018---retirement-of-operations-management-suite-brand)
+> that included Log Analytics, which is now part of
+> [Azure Monitor](../overview.md).
 
 You can configure only one Log Analytics workspace in this current release.
 
@@ -140,9 +136,11 @@ The current design presents the following issues and limitations:
 
 For official Azure documentation about creating a service principal, see:
 
-* [Create a service principal by using PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal)
-* [Create a service principal by using Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli)
-* [Create a service principal by using the Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal)
+* [Create a service principal by using PowerShell](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)
+* [Create a service principal by using Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)
+* [Create a service principal by using the Azure portal](../../active-directory/develop/howto-create-service-principal-portal.md)
 
-### Feedback
+### Suggestions
+
 Do you have any feedback for us about integration with Azure Monitor for VMs Map feature or this documentation? Visit our [User Voice page](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map), where you can suggest features or vote on existing suggestions.
+

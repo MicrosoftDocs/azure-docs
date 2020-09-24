@@ -1,14 +1,13 @@
 ---
 title: Use the HBase .NET SDK - Azure HDInsight 
 description: Use the HBase .NET SDK to create and delete tables, and to read and write data.
-author: ashishthaps
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
-
 ms.service: hdinsight
-ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 12/13/2017
-ms.author: ashishth
+ms.topic: how-to
+ms.custom: "hdinsightactive, devx-track-csharp"
+ms.date: 12/02/2019
 ---
 
 # Use the .NET SDK for Apache HBase
@@ -21,7 +20,9 @@ For C# and .NET applications, the [Microsoft HBase REST Client Library for .NET]
 
 The HBase .NET SDK is provided as a NuGet package, which can be installed from the Visual Studio **NuGet Package Manager Console** with the following command:
 
-    Install-Package Microsoft.HBase.Client
+```console
+Install-Package Microsoft.HBase.Client
+```
 
 ## Instantiate a new HBaseClient object
 
@@ -54,7 +55,7 @@ if (!client.ListTablesAsync().Result.name.Contains("RestSDKTable"))
 }
 ```
 
-This new table has two column families, t1 and t2. Since column families are stored separately in different HFiles, it makes sense to have a separate column family for frequently queried data. In the following [Insert data](#insert-data) example, columns are added to the t1 column family.
+This new table has two-column families, t1 and t2. Since column families are stored separately in different HFiles, it makes sense to have a separate column family for frequently queried data. In the following [Insert data](#insert-data) example, columns are added to the t1 column family.
 
 ## Delete a table
 
@@ -108,7 +109,7 @@ set.rows.Add(row);
 await client.StoreCellsAsync("RestSDKTable", set);
 ```
 
-HBase implements [Cloud BigTable](https://cloud.google.com/bigtable/), so the data format looks like the following:
+HBase implements [Cloud BigTable](https://cloud.google.com/bigtable/), so the data format looks like the following image:
 
 ![Apache HBase sample data output](./media/apache-hbase-rest-sdk/hdinsight-table-roles.png)
 

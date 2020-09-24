@@ -1,11 +1,11 @@
 ---
-title: Use PostgreSQL extensions in Azure Database for PostgreSQL - Single Server
-description: Describes the ability to extend the functionality of your database using extensions in Azure Database for PostgreSQL - Single Server.
+title: Extensions - Azure Database for PostgreSQL - Single Server
+description: Learn about the available Postgres extensions in Azure Database for PostgreSQL - Single Server
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/26/2019
+ms.date: 09/14/2020
 ---
 # PostgreSQL extensions in Azure Database for PostgreSQL - Single Server
 PostgreSQL provides the ability to extend the functionality of your database using extensions. Extensions bundle multiple related SQL objects together in a single package that can be loaded or removed from your database with a single command. After being loaded in the database, extensions function like built-in features.
@@ -38,7 +38,7 @@ The following extensions are available in Azure Database for PostgreSQL servers 
 > |[isn](https://www.postgresql.org/docs/11/isn.html)                          | 1.2             | data types for international product numbering standards|
 > |[ltree](https://www.postgresql.org/docs/11/ltree.html)                        | 1.1             | data type for hierarchical tree-like structures|
 > |[orafce](https://github.com/orafce/orafce)                       | 3.7             | Functions and operators that emulate a subset of functions and packages from commercial RDBMS|
-> |[pgaudit](https://www.pgaudit.org/)                     | 1.3             | provides auditing functionality|
+> |[pgaudit](https://www.pgaudit.org/)                     | 1.3.1             | provides auditing functionality|
 > |[pgcrypto](https://www.postgresql.org/docs/11/pgcrypto.html)                     | 1.3             | cryptographic functions|
 > |[pgrouting](https://pgrouting.org/)                    | 2.6.2           | pgRouting Extension|
 > |[pgrowlocks](https://www.postgresql.org/docs/11/pgrowlocks.html)                   | 1.2             | show row-level locking information|
@@ -84,7 +84,7 @@ The following extensions are available in Azure Database for PostgreSQL servers 
 > |[isn](https://www.postgresql.org/docs/10/isn.html)                          | 1.1             | data types for international product numbering standards|
 > |[ltree](https://www.postgresql.org/docs/10/ltree.html)                        | 1.1             | data type for hierarchical tree-like structures|
 > |[orafce](https://github.com/orafce/orafce)                       | 3.7             | Functions and operators that emulate a subset of functions and packages from commercial RDBMS|
-> |[pgaudit](https://www.pgaudit.org/)                     | 1.3             | provides auditing functionality|
+> |[pgaudit](https://www.pgaudit.org/)                     | 1.2             | provides auditing functionality|
 > |[pgcrypto](https://www.postgresql.org/docs/10/pgcrypto.html)                     | 1.3             | cryptographic functions|
 > |[pgrouting](https://pgrouting.org/)                    | 2.5.2           | pgRouting Extension|
 > |[pgrowlocks](https://www.postgresql.org/docs/10/pgrowlocks.html)                   | 1.2             | show row-level locking information|
@@ -130,7 +130,7 @@ The following extensions are available in Azure Database for PostgreSQL servers 
 > |[isn](https://www.postgresql.org/docs/9.6/isn.html)                          | 1.1             | data types for international product numbering standards|
 > |[ltree](https://www.postgresql.org/docs/9.6/ltree.html)                        | 1.1             | data type for hierarchical tree-like structures|
 > |[orafce](https://github.com/orafce/orafce)                       | 3.7             | Functions and operators that emulate a subset of functions and packages from commercial RDBMS|
-> |[pgaudit](https://www.pgaudit.org/)                     | 1.3             | provides auditing functionality|
+> |[pgaudit](https://www.pgaudit.org/)                     | 1.1.2             | provides auditing functionality|
 > |[pgcrypto](https://www.postgresql.org/docs/9.6/pgcrypto.html)                     | 1.3             | cryptographic functions|
 > |[pgrouting](https://pgrouting.org/)                    | 2.3.2           | pgRouting Extension|
 > |[pgrowlocks](https://www.postgresql.org/docs/9.6/pgrowlocks.html)                   | 1.2             | show row-level locking information|
@@ -176,7 +176,7 @@ The following extensions are available in Azure Database for PostgreSQL servers 
 > |[isn](https://www.postgresql.org/docs/9.5/isn.html)                          | 1.0             | data types for international product numbering standards|
 > |[ltree](https://www.postgresql.org/docs/9.5/ltree.html)                        | 1.0             | data type for hierarchical tree-like structures|
 > |[orafce](https://github.com/orafce/orafce)                       | 3.7             | Functions and operators that emulate a subset of functions and packages from commercial RDBMS|
-> |[pgaudit](https://www.pgaudit.org/)                     | 1.3             | provides auditing functionality|
+> |[pgaudit](https://www.pgaudit.org/)                     | 1.0.7             | provides auditing functionality|
 > |[pgcrypto](https://www.postgresql.org/docs/9.5/pgcrypto.html)                     | 1.2             | cryptographic functions|
 > |[pgrouting](https://pgrouting.org/)                    | 2.3.0           | pgRouting Extension|
 > |[pgrowlocks](https://www.postgresql.org/docs/9.5/pgrowlocks.html)                   | 1.1             | show row-level locking information|
@@ -198,27 +198,31 @@ The following extensions are available in Azure Database for PostgreSQL servers 
 
 
 ## pg_stat_statements
-The pg_stat_statements extension is preloaded on every Azure Database for PostgreSQL server to provide you a means of tracking execution statistics of SQL statements.
+The [pg_stat_statements extension](https://www.postgresql.org/docs/current/pgstatstatements.html) is preloaded on every Azure Database for PostgreSQL server to provide you a means of tracking execution statistics of SQL statements.
 The setting `pg_stat_statements.track`, which controls what statements are counted by the extension, defaults to `top`, meaning all statements issued directly by clients are tracked. The two other tracking levels are `none` and `all`. This setting is configurable as a server parameter through the [Azure portal](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-portal) or the [Azure CLI](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-cli).
 
 There is a tradeoff between the query execution information pg_stat_statements provides and the impact on server performance as it logs each SQL statement. If you are not actively using the pg_stat_statements extension, we recommend that you set `pg_stat_statements.track` to `none`. Note that some third party monitoring services may rely on pg_stat_statements to deliver query performance insights, so confirm whether this is the case for you or not.
 
 ## dblink and postgres_fdw
-dblink and postgres_fdw allow you to connect from one PostgreSQL server to another, or to another database in the same server. The receiving server needs to allow connections from the sending server through its firewall. When using these extensions to connect between Azure Database for PostgreSQL servers, this can be done by setting "Allow access to Azure services" to ON. This is also needed if you want to use the extensions to loop back to the same server. The "Allow access to Azure services" setting can be found in the Azure portal page for the Postgres server, under Connection Security. Turning "Allow access to Azure services" ON puts all Azure IPs on the allow list.
+[dblink](https://www.postgresql.org/docs/current/contrib-dblink-function.html) and [postgres_fdw](https://www.postgresql.org/docs/current/postgres-fdw.html) allow you to connect from one PostgreSQL server to another, or to another database in the same server. The receiving server needs to allow connections from the sending server through its firewall. When using these extensions to connect between Azure Database for PostgreSQL servers, this can be done by setting "Allow access to Azure services" to ON. This is also needed if you want to use the extensions to loop back to the same server. The "Allow access to Azure services" setting can be found in the Azure portal page for the Postgres server, under Connection Security. Turning "Allow access to Azure services" ON puts all Azure IPs on the allow list.
 
-Currently, outbound connections from Azure Database for PostgreSQL are not supported, except for connections to other Azure Database for PostgreSQL servers.
+Currently, outbound connections from Azure Database for PostgreSQL are not supported, except for connections to other Azure Database for PostgreSQL servers in the same region.
 
 ## uuid
-If you are planning to use `uuid_generate_v4()` from the uuid-ossp extension, consider comparing with `gen_random_uuid()` from the pgcrypto extension for performance benefits.
-
+If you are planning to use `uuid_generate_v4()` from the [uuid-ossp extension](https://www.postgresql.org/docs/current/uuid-ossp.html), consider comparing with `gen_random_uuid()` from the [pgcrypto extension](https://www.postgresql.org/docs/current/pgcrypto.html) for performance benefits.
 
 ## pgAudit
-The pgAudit extension provides session and object audit logging. To learn how to use this extension in Azure Database for PostgreSQL, visit the [auditing concepts article](concepts-audit.md). 
+The [pgAudit extension](https://github.com/pgaudit/pgaudit/blob/master/README.md) provides session and object audit logging. To learn how to use this extension in Azure Database for PostgreSQL, visit the [auditing concepts article](concepts-audit.md). 
+
+## pg_prewarm
+The pg_prewarm extension loads relational data into cache. Prewarming your caches means that your queries have better response times on their first run after a restart. In Postgres 10 and below, prewarming is done manually using the [prewarm function](https://www.postgresql.org/docs/10/pgprewarm.html).
+
+In Postgres 11 and above, you can configure prewarming to happen [automatically](https://www.postgresql.org/docs/current/pgprewarm.html). You need to include pg_prewarm in your `shared_preload_libraries` parameter's list and restart the server to apply the change. Parameters can be set from the [Azure portal](howto-configure-server-parameters-using-portal.md), [CLI](howto-configure-server-parameters-using-cli.md), REST API, or ARM template. 
 
 ## TimescaleDB
 TimescaleDB is a time-series database that is packaged as an extension for PostgreSQL. TimescaleDB provides time-oriented analytical functions, optimizations, and scales Postgres for time-series workloads.
 
-[Learn more about TimescaleDB](https://docs.timescale.com/latest), a registered trademark of [Timescale, Inc.](https://www.timescale.com/)
+[Learn more about TimescaleDB](https://docs.timescale.com/latest), a registered trademark of [Timescale, Inc.](https://www.timescale.com/). Azure Database for PostgreSQL provides the TimescaleDB [Apache-2 edition](https://www.timescale.com/legal/licenses).
 
 ### Installing TimescaleDB
 To install TimescaleDB, you need to include it in the server's shared preload libraries. A change to Postgres's `shared_preload_libraries` parameter requires a **server restart** to take effect. You can change parameters using the [Azure portal](howto-configure-server-parameters-using-portal.md) or the [Azure CLI](howto-configure-server-parameters-using-cli.md).
@@ -246,6 +250,26 @@ CREATE EXTENSION IF NOT EXISTS timescaledb CASCADE;
 > If you see an error, confirm that you [restarted your server](howto-restart-server-portal.md) after saving shared_preload_libraries. 
 
 You can now create a TimescaleDB hypertable [from scratch](https://docs.timescale.com/getting-started/creating-hypertables) or migrate [existing time-series data in PostgreSQL](https://docs.timescale.com/getting-started/migrating-data).
+
+### Restoring a Timescale database
+To restore a Timescale database using pg_dump and pg_restore, you need to run two helper procedures in the destination database: `timescaledb_pre_restore()` and `timescaledb_post restore()`.
+
+First prepare the destination database:
+
+```SQL
+--create the new database where you'll perform the restore
+CREATE DATABASE tutorial;
+\c tutorial --connect to the database 
+CREATE EXTENSION timescaledb;
+
+SELECT timescaledb_pre_restore();
+```
+
+Now you can run pg_dump on the original database and then do pg_restore. After the restore, be sure to run the following command in the restored database:
+
+```SQL
+SELECT timescaledb_post_restore();
+```
 
 
 ## Next steps

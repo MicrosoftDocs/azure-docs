@@ -1,20 +1,20 @@
 ---
 title:  "Two-Class Neural Network: Module Reference"
-titleSuffix: Azure Machine Learning service
-description: Learn how to use the Two-Class Neural Network module in Azure Machine Learning service to create a neural network model that can be used to predict a target that has only two values.
+titleSuffix: Azure Machine Learning
+description: Learn how to use the Two-Class Neural Network module in Azure Machine Learning to create a neural network model that can be used to predict a target that has only two values.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 05/02/2019
+author: likebupt
+ms.author: keli19
+ms.date: 04/22/2020
 ---
 
 # Two-Class Neural Network module
 
-This article describes a module of the visual interface (preview) for Azure Machine Learning service.
+This article describes a module in Azure Machine Learning designer.
 
 Use this module to create a neural network model that can be used to predict a target that has only two values.
 
@@ -34,11 +34,13 @@ To compute the output of the network for a particular input, a value is calculat
   
 ## How to configure
 
-1.  Add the **Two-Class Neural Network** module to your experiment. You can find this module under **Machine Learning**, **Initialize**, in the **Classification** category.  
+1.  Add the **Two-Class Neural Network** module to your pipeline. You can find this module under **Machine Learning**, **Initialize**, in the **Classification** category.  
   
 2.  Specify how you want the model to be trained, by setting the **Create trainer mode** option.  
   
-    -   **Single Parameter**: Choose this option if you already know how you want to configure the model.  
+    -   **Single Parameter**: Choose this option if you already know how you want to configure the model.
+
+    -   **Parameter Range**: If you are not sure of the best parameters, you can find the optimal parameters by using the [Tune Model Hyperparameters](tune-model-hyperparameters.md) module. You provide some range of values, and the trainer iterates over multiple combinations of the settings to determine the combination of values that produces the best result.  
 
 3.  For **Hidden layer specification**, select the type of network architecture to create.  
   
@@ -62,27 +64,37 @@ To compute the output of the network for a particular input, a value is calculat
 
 8.  For **The momentum**, specify a weight to apply during learning to nodes from previous iterations  
 
-10. Select the **Shuffle examples** option to shuffle cases between iterations. If you deselect this option, cases are processed in exactly the same order each time you run the experiment.
+10. Select the **Shuffle examples** option to shuffle cases between iterations. If you deselect this option, cases are processed in exactly the same order each time you run the pipeline.
   
 11. For **Random number seed**, type a value to use as the seed.
   
-     Specifying a seed value is useful when you want to ensure repeatability across runs of the same experiment.  Otherwise, a system clock value is used as the seed, which can cause slightly  different results each time you run the experiment.
+     Specifying a seed value is useful when you want to ensure repeatability across runs of the same pipeline.  Otherwise, a system clock value is used as the seed, which can cause slightly  different results each time you run the pipeline.
   
-13. Add a tagged dataset to the experiment, and connect one of the [training modules](module-reference.md).  
+13. Add a labeled dataset to the pipeline, and train the model:
+
+    + If you set **Create trainer mode** to **Single Parameter**, connect a tagged dataset and the [Train Model](train-model.md) module.  
   
-    -   If you set **Create trainer mode** to **Single Parameter**, use the [Train Model](train-model.md) module.  
+    + If you set **Create trainer mode** to **Parameter Range**, connect a tagged dataset and train the model by using [Tune Model Hyperparameters](tune-model-hyperparameters.md).  
   
-14. Run the experiment.
+    > [!NOTE]
+    > 
+    > If you pass a parameter range to [Train Model](train-model.md), it uses only the default value in the single parameter list.  
+    > 
+    > If you pass a single set of parameter values to the [Tune Model Hyperparameters](tune-model-hyperparameters.md) module, when it expects a range of settings for each parameter, it ignores the values, and uses the default values for the learner.  
+    > 
+    > If you select the **Parameter Range** option and enter a single value for any parameter, that single value you specified is used throughout the sweep, even if other parameters change across a range of values.  
+  
+14. Submit the pipeline.
 
 ## Results
 
 After training is complete:
 
-+ To see a summary of the model's parameters, together with the feature weights learned from training, and other parameters of the neural network, right-click the output of [Train Model](./train-model.md), and select **Visualize**.  
++ To save a snapshot of the trained model, select the **Outputs** tab in the right panel of the **Train model** module. Select the **Register dataset** icon to save the model as a reusable module.
 
-+ To save a snapshot of the trained model, right-click the **Trained model** output and select **Save As Trained Model**. This model is not updated on successive runs of the same experiment.
++ To use the model for scoring, add the **Score Model** module to a pipeline.
 
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning service. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning. 

@@ -1,18 +1,18 @@
 ---
-title: Copy data from Sybase using Azure Data Factory | Microsoft Docs
+title: Copy data from Sybase using Azure Data Factory 
 description: Learn how to copy data from Sybase to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 06/10/2020
 ms.author: jingwang
 
 ---
@@ -20,6 +20,7 @@ ms.author: jingwang
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-onprem-sybase-connector.md)
 > * [Current version](connector-sybase.md)
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from a Sybase database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
@@ -34,8 +35,10 @@ You can copy data from Sybase database to any supported sink data store. For a l
 
 Specifically, this Sybase connector supports:
 
-- SAP Sybase SQL Anywhere (ASA) **version 16 and above**; IQ and ASE are not supported.
+- SAP Sybase SQL Anywhere (ASA) **version 16 and above**.
 - Copying data using **Basic** or **Windows** authentication.
+
+Sybase IQ and ASE are not supported. You can use generic ODBC connector with Sybase driver instead.
 
 ## Prerequisites
 

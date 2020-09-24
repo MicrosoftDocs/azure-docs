@@ -1,19 +1,10 @@
 ---
-title: Restore from backup - Azure App Service
-description: Learn how to restore your app from a snapshot.
-services: app-service
-documentationcenter: ''
-author: ahmedelnably
-manager: cfowler
-editor: ''
+title: Restore app from a snapshot
+description: Learn how to restore your app from a snapshot. Recover from unexpected data loss in Premium tier with the automatic shadow copies.
 
 ms.assetid: 4164f9b5-f735-41c6-a2bb-71f15cdda417
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: multiple
 ms.topic: article
 ms.date: 04/04/2018
-ms.author: aelnably
 ms.reviewer: nicking
 ms.custom: seodec18
 
@@ -43,15 +34,15 @@ up your app, see [Scale up an app in Azure](manage-scale-up.md).
 
 1. On the **Settings** page of your app in the [Azure portal](https://portal.azure.com), click **Backups** to display the **Backups** page. Then click **Restore** under the **Snapshot(Preview)** section.
    
-    ![](./media/app-service-web-restore-snapshots/1.png)
+    ![Screenshot that shows how to restore an app from a snapshot backup.](./media/app-service-web-restore-snapshots/1.png)
 
 2. In the **Restore** page, select the snapshot to restore.
    
-    ![](./media/app-service-web-restore-snapshots/2.png)
+    ![Screenshot that shows how to select the snapshot to restore. ](./media/app-service-web-restore-snapshots/2.png)
    
 3. Specify the destination for the app restore in **Restore destination**.
    
-    ![](./media/app-service-web-restore-snapshots/3.png)
+    ![Screenshot that shows how to specify the restoration destination.](./media/app-service-web-restore-snapshots/3.png)
    
    > [!WARNING]
    > If you choose **Overwrite**, all existing data in your app's current file system is erased and overwritten. Before you click **OK**,
@@ -68,6 +59,6 @@ up your app, see [Scale up an app in Azure](manage-scale-up.md).
 
 4. You can choose to restore your site configuration.
    
-    ![](./media/app-service-web-restore-snapshots/4.png)
+    ![Screenshot that shows how to restore site configuration.](./media/app-service-web-restore-snapshots/4.png)
 
 5. Click **OK**.

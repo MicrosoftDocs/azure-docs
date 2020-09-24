@@ -1,11 +1,11 @@
 ---
-author: julianparismorgan
+author: craigktreasure
 manager: vriveras
 services: azure-spatial-anchors
 
-ms.date: 05/14/2019
+ms.date: 06/22/2020
 ms.topic: include
-ms.author: pmorgan
+ms.author: crtreasu
 ms.service: azure-spatial-anchors
 ---
 ## Putting everything together
@@ -39,6 +39,11 @@ public class AzureSpatialAnchorsScript : MonoBehaviour
     /// Set this string to the Spatial Anchors account key provided in the Spatial Anchors resource.
     /// </summary>
     protected string SpatialAnchorsAccountKey = "Set me";
+
+    /// <summary>
+    /// Set this string to the Spatial Anchors account domain provided in the Spatial Anchors resource.
+    /// </summary>
+    protected string SpatialAnchorsAccountDomain = "Set me";
 
     /// <summary>
     /// Our queue of actions that will be executed on the main thread.
@@ -194,6 +199,7 @@ public class AzureSpatialAnchorsScript : MonoBehaviour
 
         cloudSpatialAnchorSession.Configuration.AccountId = SpatialAnchorsAccountId.Trim();
         cloudSpatialAnchorSession.Configuration.AccountKey = SpatialAnchorsAccountKey.Trim();
+        cloudSpatialAnchorSession.Configuration.AccountDomain = SpatialAnchorsAccountDomain.Trim();
 
         cloudSpatialAnchorSession.LogLevel = SessionLogLevel.All;
 
@@ -274,13 +280,13 @@ public class AzureSpatialAnchorsScript : MonoBehaviour
         {
             return;
         }
+        
         tapExecuted = true;
 
         // We have saved an anchor, so we will now look for it.
         if (!String.IsNullOrEmpty(cloudSpatialAnchorId))
         {
             Debug.Log("ASA Info: We will look for a placed anchor.");
-            tapExecuted = true;
 
             ResetSession(() =>
             {

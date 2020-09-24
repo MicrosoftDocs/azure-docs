@@ -1,26 +1,20 @@
 ---
-
-let application: MSALPublicClientApplication!
-title: Migrate apps to MSAL.ObjectiveC | Microsoft identity platform
-description: Learn about the differences between Microsoft Authentication Library for ObjectiveC (MSAL for iOS and macOS) and Azure AD Authentication Library for ObjectiveC (ADAL.ObjC) and how to migrate to MSAL for iOS and macOS.
+title: ADAL to MSAL migration guide (MSAL iOS/macOS) | Azure
+titleSuffix: Microsoft identity platform
+description: Learn the differences between MSAL for iOS/macOS and the Azure AD Authentication Library for ObjectiveC (ADAL.ObjC) and how to migrate to MSAL for iOS/macOS.
 services: active-directory
-documentationcenter: dev-center-name
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/28/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn about the differences between the Objective-C ADAL and MSAL for iOS and macOS libraries so I can migrate my applications to MSAL for iOS and macOS.
-ms.collection: M365-identity-device-management
 ---
 
 # Migrate applications to MSAL for iOS and macOS
@@ -48,7 +42,7 @@ The Microsoft identity platform has a few key differences with Azure Active Dire
 * The Azure Active Directory v1.0 endpoint requires that all permissions be declared in advance during application registration. This means those permissions are static.
 * The Microsoft identity platform allows you to request permissions dynamically. Apps can ask for permissions only as needed and request more as the app needs them.
 
-For more about differences between Azure Active Directory v1.0 and the Microsoft identity platform, see [Why update to Microsoft identity platform (v2.0)?](https://docs.microsoft.com/azure/active-directory/develop/azure-ad-endpoint-comparison).
+For more about differences between Azure Active Directory v1.0 and the Microsoft identity platform, see [Why update to Microsoft identity platform (v2.0)?](../azuread-dev/azure-ad-endpoint-comparison.md).
 
 ## ADAL and MSAL library differences
 
@@ -70,7 +64,7 @@ There are two ways to provide scopes in MSAL:
 
 * Provide a list of all the permissions your apps needs. For example: 
 
-    `@[@"https://graph.microsot.com/directory.read", @"https://graph.microsoft.com/directory.write"]`
+    `@[@"https://graph.microsoft.com/directory.read", @"https://graph.microsoft.com/directory.write"]`
 
     In this case, the app requests the `directory.read` and `directory.write` permissions. The user will be asked to consent for those permissions if they haven't consented to them before for this app. The application might also receive additional permissions that the user has already consented to for the application. The user will only be prompted to consent for new permissions, or permissions that haven't been granted.
 
@@ -80,7 +74,7 @@ This is the built-in scope for every application. It refers to the static list o
 
 To use the `/.default` scope, append `/.default` to the resource identifier. For example: `https://graph.microsoft.com/.default`. If your resource ends with a slash (`/`), you should still append `/.default`, including the leading forward slash, resulting in a scope that has a double forward slash (`//`) in it.
 
-You can read more information about using the "/.default" scope [here](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#the-default-scope)
+You can read more information about using the "/.default" scope [here](./v2-permissions-and-consent.md#the-default-scope)
 
 ### Supporting different WebView types & browsers
 
@@ -134,7 +128,7 @@ MSAL introduces some token acquisition call changes:
 
 MSAL provides more clarity between errors that can be handled by your app and those that require intervention by the user. There are a limited number of errors developer must handle:
 
-* `MSALErrorInteractionRequired`: The user must do an interactive request. This can be caused for various reasons such as an expired authentication session, conditional access policy has changed, a refresh token expired or was revoked, there are no valid tokens in the cache, and so on.
+* `MSALErrorInteractionRequired`: The user must do an interactive request. This can be caused for various reasons such as an expired authentication session, Conditional Access policy has changed, a refresh token expired or was revoked, there are no valid tokens in the cache, and so on.
 * `MSALErrorServerDeclinedScopes`: The request wasn't fully completed and some scopes weren't granted access. This can be caused by a user declining consent to one or more scopes.
 
 Handling all other errors in the [`MSALError` list](https://github.com/AzureAD/microsoft-authentication-library-for-objc/blob/master/MSAL/src/public/MSALError.h#L128) is optional. You could use the information in those errors to improve the user experience.
@@ -143,7 +137,7 @@ See [Handling exceptions and errors using MSAL](msal-handling-exceptions.md) for
 
 ### Broker support
 
-MSAL, starting with version 0.3.0, provides support for brokered authentication using the Microsoft Authenticator app. Microsoft Authenticator also enables support for conditional access scenarios. Examples of conditional access scenarios include device compliance policies that require the user to enroll the device through Intune or register with AAD to get a token. And Mobile Application Management (MAM) conditional access policies, which require proof of compliance before your app can get a token.
+MSAL, starting with version 0.3.0, provides support for brokered authentication using the Microsoft Authenticator app. Microsoft Authenticator also enables support for Conditional Access scenarios. Examples of Conditional Access scenarios include device compliance policies that require the user to enroll the device through Intune or register with AAD to get a token. And Mobile Application Management (MAM) Conditional Access policies, which require proof of compliance before your app can get a token.
 
 To enable broker for your application:
 
@@ -207,11 +201,11 @@ On macOS, MSAL can achieve SSO with other MSAL for iOS and macOS based applicati
 MSAL on iOS also supports two other types of SSO:
 
 * SSO through the web browser. MSAL for iOS supports `ASWebAuthenticationSession`, which provides SSO through cookies shared between other apps on the device and specifically the Safari browser.
-* SSO through an Authentication broker. On an iOS device, Microsoft Authenticator acts as the Authentication broker. It can follow conditional access policies such as requiring a compliant device, and provides SSO for registered devices. MSAL SDKs starting with version 0.3.0 support a broker by default.
+* SSO through an Authentication broker. On an iOS device, Microsoft Authenticator acts as the Authentication broker. It can follow Conditional Access policies such as requiring a compliant device, and provides SSO for registered devices. MSAL SDKs starting with version 0.3.0 support a broker by default.
 
 ## Intune MAM SDK
 
-The [Intune MAM SDK](https://docs.microsoft.com/intune/app-sdk-get-started) supports MSAL for iOS starting with version [11.1.2](https://github.com/msintuneappsdk/ms-intune-app-sdk-ios/releases/tag/11.1.2)
+The [Intune MAM SDK](/intune/app-sdk-get-started) supports MSAL for iOS starting with version [11.1.2](https://github.com/msintuneappsdk/ms-intune-app-sdk-ios/releases/tag/11.1.2)
 
 ## MSAL and ADAL in the same app
 

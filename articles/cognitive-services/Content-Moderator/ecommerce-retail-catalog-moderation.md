@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Moderate e-commerce product images - Content Moderator"
 titleSuffix: Azure Cognitive Services
-description: Set up an application to analyze and classify product images with specified labels (using Azure Computer Vision and Custom Vision). Tag objectionable images to be further reviewed (using Azure Content Moderator).
+description: This tutorial shows how to set up an application to analyze and classify product images with specified labels (using Azure Computer Vision and Custom Vision). Tag objectionable images to be further reviewed (using Azure Content Moderator).
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -9,8 +9,9 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 07/03/2019
+ms.date: 06/29/2020
 ms.author: pafarley
+ms.custom: devx-track-csharp
 
 #As a developer at an e-commerce company, I want to use machine learning to both categorize product images and tag objectionable images for further review by my team.
 ---
@@ -30,7 +31,7 @@ This tutorial shows you how to:
 
 The complete sample code is available in the [Samples eCommerce Catalog Moderation](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration) repository on GitHub.
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
 ## Prerequisites
 
@@ -63,7 +64,9 @@ This tutorial uses three cognitive services; therefore, it requires three corres
 
 [!code-csharp[define API keys and endpoint URIs](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=21-29)]
 
-You'll need to update the `___Key` fields with the values of your subscription keys (you'll get the `CustomVisionKey` later on), and you may need to change the `___Uri` fields so they contain the correct region identifiers. Fill in the `YOURTEAMID` part of the `ReviewUri` field with the ID of the review team you created earlier. You'll fill in the final part of the `CustomVisionUri` field later on.
+You'll need to update the `___Key` fields with the values of your subscription keys, and you need to change the `___Uri` fields to the correct endpoint URLs (you'll get the Custom Vision key and endpoint later on). You can find these values in the **Quick start** tabs of each Azure resource. Fill in the `YOURTEAMID` part of the `ReviewUri` field with the ID of the review team you created earlier. You'll fill in the final part of the `CustomVisionUri` field later on.
+
+[!INCLUDE [subdomains note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ## Primary method calls
 

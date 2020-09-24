@@ -3,27 +3,27 @@ title: Container support
 titleSuffix: Azure Cognitive Services
 description: Learn how to create an Azure container instance resource from the Azure CLI.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: include 
-ms.date: 7/5/2019
-ms.author: dapine
+ms.topic: include
+ms.date: 04/01/2020
+ms.author: aahi
 ---
 
 ## Create an Azure Container Instance resource from the Azure CLI
 
-The YAML below defines the Azure Container Instance resource. Copy and paste the contents into a new file, named `my-aci.yaml` and replace the commented values with your own. Refer to the [template format][template-format] for valid YAML. Refer to the [container repositories and images][repositories-and-images] for the available image names and their corresponding repository.
+The YAML below defines the Azure Container Instance resource. Copy and paste the contents into a new file, named `my-aci.yaml` and replace the commented values with your own. Refer to the [template format][template-format] for valid YAML. Refer to the [container repositories and images][repositories-and-images] for the available image names and their corresponding repository. For more information of the YAML reference for Container instances, see [YAML reference: Azure Container Instances][aci-yaml-ref].
 
 ```YAML
 apiVersion: 2018-10-01
 location: # < Valid location >
 name: # < Container Group name >
-imageRegistryCredentials:
+properties:
+  imageRegistryCredentials: # This is only required if you are pulling a non-public image that requires authentication to access.
   - server: containerpreview.azurecr.io
     username: # < The username for the preview container registry >
     password: # < The password for the preview container registry >
-properties:
   containers:
   - name: # < Container name >
     properties:
@@ -42,6 +42,12 @@ properties:
       ports:
         - port: 5000
   osType: Linux
+  volumes: # This node, is only required for container instances that pull their model in at runtime, such as LUIS.
+  - name: aci-file-share
+    azureFile:
+      shareName: # < File share name >
+      storageAccountName: # < Storage account name>
+      storageAccountKey: # < Storage account key >
   restartPolicy: OnFailure
   ipAddress:
     type: Public
@@ -68,7 +74,7 @@ The output of the command is `Running...` if valid, after sometime the output ch
 
 [azure-container-create]: https://docs.microsoft.com/cli/azure/container?view=azure-cli-latest#az-container-create
 [template-format]: https://docs.microsoft.com/azure/templates/Microsoft.ContainerInstance/2018-10-01/containerGroups#template-format
-
+[aci-yaml-ref]: ../../../container-instances/container-instances-reference-yaml.md
 [repositories-and-images]: ../../cognitive-services-container-support.md#container-repositories-and-images
 [location-to-resource]: ../../../container-instances/container-instances-region-availability.md#availability---general
 [secure-values]: ../../../container-instances/container-instances-environment-variables.md#secure-values

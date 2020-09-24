@@ -11,7 +11,7 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 08/01/2019
+ms.date: 04/22/2020
 ms.author: apimpm
 ---
 
@@ -36,7 +36,7 @@ In this article, you learn how to:
 
 ## <a name="create-api"> </a>Import and publish a back-end API
 
-1. Select **APIs** from under **API MANAGEMENT**.
+1. Navigate to your API Management service in the Azure portal and select **APIs** from the menu.
 2. Select **Logic App** from the **Add a new API** list.
 
     ![Logic app](./media/import-logic-app-as-api/logic-app-api.png)
@@ -53,9 +53,10 @@ In this article, you learn how to:
     - **Starter**
     - **Unlimited**
 
-7. Select **Create**.
+7. Enter other API settings. You can set the values during creation or configure them later by going to the **Settings** tab. The settings are explained in the [Import and publish your first API](import-and-publish.md#-import-and-publish-a-backend-api) tutorial.
+8. Select **Create**.
 
-## Test the imported API in the Azure portal
+## Test the API in the Azure portal
 
 Operations can be called directly from the Azure portal, which provides a convenient way to view and test the operations of an API.
 
@@ -68,22 +69,6 @@ Operations can be called directly from the Azure portal, which provides a conven
 4. Press **Send**.
 
     Backend responds with **200 OK** and some data.
-
-## <a name="call-operation"> </a>Call an operation from the developer portal
-
-Operations can also be called **Developer portal** to test APIs.
-
-1. Select the API you created in the "Import and publish a back-end API" step.
-2. Press **Developer portal**.
-
-    The "Developer portal" site opens up.
-
-3. Select the **API** that you created.
-4. Click the operation you want to test.
-5. Press **Try it**.
-6. Press **Send**.
-
-    After an operation is invoked, the developer portal displays the **Response status**, the **Response headers**, and any **Response content**.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-append-apis.md)]
 

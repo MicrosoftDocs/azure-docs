@@ -1,17 +1,8 @@
 ---
-title: "Azure Batch pool resize start event | Microsoft Docs"
-description: Reference for Batch pool resize start event.
-services: batch
-author: laurenhughes
-manager: gwallace
-
-ms.assetid: 
-ms.service: batch
-ms.topic: article
-ms.tgt_pltfrm: 
-ms.workload: big-compute
+title: Azure Batch pool resize start event
+description: Reference for Batch pool resize start event. Example shows the body of a pool resize start event for a pool resizing from 0 to 2 nodes with a manual resize.
+ms.topic: reference
 ms.date: 04/20/2017
-ms.author: lahugh
 ---
 
 # Pool resize start event

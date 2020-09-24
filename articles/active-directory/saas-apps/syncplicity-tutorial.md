@@ -2,17 +2,12 @@
 title: 'Tutorial: Azure Active Directory integration with Syncplicity | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Syncplicity.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 896a3211-f368-46d7-95b8-e4768c23be08
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/10/2019
 ms.author: jeedes
@@ -150,7 +145,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Create Syncplicity test user
 
-For AAD users to be able to sign in, they must be provisioned to Syncplicity application. This section describes how to create AAD user accounts in Syncplicity.
+For Azure AD users to be able to sign in, they must be provisioned to Syncplicity application. This section describes how to create Azure AD user accounts in Syncplicity.
 
 **To provision a user account to Syncplicity, perform the following steps:**
 
@@ -165,7 +160,7 @@ For AAD users to be able to sign in, they must be provisioned to Syncplicity app
     ![Account Information](./media/syncplicity-tutorial/ic769765.png "Account Information")
 
     > [!NOTE]
-    > The AAD account holder  gets an email including a link to confirm and activate the account.
+    > The Azure AD account holder  gets an email including a link to confirm and activate the account.
 
 1. Select a group in your company that your new user should become a member of, and then click **NEXT**.
 
@@ -179,7 +174,7 @@ For AAD users to be able to sign in, they must be provisioned to Syncplicity app
     ![Syncplicity Folders](./media/syncplicity-tutorial/ic769773.png "Syncplicity Folders")
 
 > [!NOTE]
-> You can use any other Syncplicity user account creation tools or APIs provided by Syncplicity to provision AAD user accounts.
+> You can use any other Syncplicity user account creation tools or APIs provided by Syncplicity to provision Azure AD user accounts.
 
 ### Test SSO
 

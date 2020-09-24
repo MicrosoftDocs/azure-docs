@@ -1,19 +1,12 @@
 ---
-title: Azure Service Fabric hosting model | Microsoft Docs
+title: Azure Service Fabric hosting model 
 description: Describes the relationship between replicas (or instances) of a deployed Service Fabric service and the service-host process.
-services: service-fabric
-documentationcenter: .net
 author: harahma
-manager: chackdan
 
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 04/15/2017
 ms.author: harahma
-
+ms.custom: devx-track-csharp
 ---
 # Azure Service Fabric hosting model
 This article provides an overview of application hosting models provided by Azure Service Fabric, and describes the differences between the **Shared Process** and **Exclusive Process** models. It describes how a deployed application looks on a Service Fabric node, and the relationship between replicas (or instances) of the service and the service-host process.
@@ -172,6 +165,10 @@ In the activation of 'MultiTypeServicePackage' for the replica of partition **P1
 
 In the preceding example, you might think that if 'MyCodePackageA' registers both 'MyServiceTypeA' and 'MyServiceTypeB', and there is no 'MyCodePackageB', then there is no redundant *CodePackage* running. Although this is correct, this application model does not align with the Exclusive Process hosting model. If the goal is to put each replica in its own dedicated process, you do not need to register both *ServiceTypes* from same *CodePackage*. Instead, you simply put each *ServiceType* in its own *ServicePackage*.
 
+### Reliable Services and Actor forking subprocesses
+
+Service Fabric doesn't support reliable services and subsequently reliable actors forking subprocesses. An example of why its not supported is [CodePackageActivationContext](/dotnet/api/system.fabric.codepackageactivationcontext?view=azure-dotnet) can not be used to register an unsupported subprocess, and cancellation tokens are only sent to registered processes; resulting in all sorts of issues, such as upgrade failures, when subprocesses don't close after the parent process has received a cancellation token.
+
 ## Next steps
 [Package an application][a4] and get it ready to deploy.
 
@@ -192,16 +189,16 @@ In the preceding example, you might think that if 'MyCodePackageA' registers bot
 [a4]: service-fabric-package-apps.md
 [a5]: service-fabric-deploy-remove-applications.md
 
-[r1]: https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-createservice
+[r1]: /rest/api/servicefabric/sfclient-api-createservice
 
-[c1]: https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync
-[c2]: https://docs.microsoft.com/dotnet/api/system.fabric.description.statelessservicedescription.instancecount
+[c1]: /dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync
+[c2]: /dotnet/api/system.fabric.description.statelessservicedescription.instancecount
 
-[p1]: https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricservice
-[p2]: https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricservicedescription
-[p3]: https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricdeployedservicePackage
-[p4]: https://docs.microsoft.com/powershell/module/servicefabric/send-servicefabricdeployedservicepackagehealthreport
-[p5]: https://docs.microsoft.com/powershell/module/servicefabric/restart-servicefabricdeployedcodepackage
-[p6]: https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricdeployedservicetype
-[p7]: https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricdeployedreplica
-[p8]: https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricdeployedcodepackage
+[p1]: /powershell/module/servicefabric/new-servicefabricservice
+[p2]: /powershell/module/servicefabric/get-servicefabricservicedescription
+[p3]: /powershell/module/servicefabric/get-servicefabricdeployedservicepackage
+[p4]: /powershell/module/servicefabric/send-servicefabricdeployedservicepackagehealthreport
+[p5]: /powershell/module/servicefabric/restart-servicefabricdeployedcodepackage
+[p6]: /powershell/module/servicefabric/get-servicefabricdeployedservicetype
+[p7]: /powershell/module/servicefabric/get-servicefabricdeployedreplica
+[p8]: /powershell/module/servicefabric/get-servicefabricdeployedcodepackage

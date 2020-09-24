@@ -28,7 +28,7 @@ ROUND(<numeric_expr>)
   
 ## Remarks
   
-  The rounding operation performed follows midpoint rounding away from zero. If the input is a numeric expression which falls exactly between two integers then the result will be the closest integer value away from zero.  
+  The rounding operation performed follows midpoint rounding away from zero. If the input is a numeric expression which falls exactly between two integers then the result will be the closest integer value away from zero. This system function will benefit from a [range index](index-policy.md#includeexclude-strategy).
   
   |<numeric_expr>|Rounded|
   |-|-|

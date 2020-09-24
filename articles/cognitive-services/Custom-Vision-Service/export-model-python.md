@@ -1,16 +1,17 @@
 ---
 title: "Tutorial: Run TensorFlow model in Python - Custom Vision Service"
 titleSuffix: Azure Cognitive Services
-description: Run a TensorFlow model in Python.
+description: Run a TensorFlow model in Python. This article only applies to models exported from image classification projects in the Custom Vision service.
 services: cognitive-services
-author: areddish
+author: PatrickFarley
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 07/03/2019
-ms.author: areddish
+ms.date: 08/05/2020
+ms.author: pafarley
+ms.custom: devx-track-python
 ---
 
 # Tutorial: Run TensorFlow model in Python
@@ -27,7 +28,7 @@ To use the tutorial, you need to do the following:
 - Install either Python 2.7+ or Python 3.5+.
 - Install pip.
 
-Next, you will need to install the following packages:
+Next, you'll need to install the following packages:
 
 ```
 pip install tensorflow
@@ -44,7 +45,7 @@ The downloaded zip file contains a model.pb and a labels.txt. These files repres
 import tensorflow as tf
 import os
 
-graph_def = tf.GraphDef()
+graph_def = tf.compat.v1.GraphDef()
 labels = []
 
 # These are set to the default names from exported models, update as needed.
@@ -52,7 +53,7 @@ filename = "model.pb"
 labels_filename = "labels.txt"
 
 # Import the TF graph
-with tf.gfile.GFile(filename, 'rb') as f:
+with tf.io.gfile.GFile(filename, 'rb') as f:
     graph_def.ParseFromString(f.read())
     tf.import_graph_def(graph_def, name='')
 
@@ -64,7 +65,7 @@ with open(labels_filename, 'rt') as lf:
 
 ## Prepare an image for prediction
 
-There are a few steps for preparing the image so that it's the right shape for prediction. These steps mimic the image manipulation performed during training:
+There are a few steps you need to take to prepare the image for prediction. These steps mimic the image manipulation performed during training:
 
 ### Open the file and create an image in the BGR color space
 
@@ -112,7 +113,7 @@ augmented_image = resize_to_256_square(max_square_image)
 
 ```Python
 # Get the input size of the model
-with tf.Session() as sess:
+with tf.compat.v1.Session() as sess:
     input_tensor_shape = sess.graph.get_tensor_by_name('Placeholder:0').shape.as_list()
 network_input_size = input_tensor_shape[1]
 
@@ -166,7 +167,7 @@ def update_orientation(image):
     return image
 ```
 
-## Predict an image
+## Classify an image
 
 Once the image is prepared as a tensor, we can send it through the model for a prediction:
 
@@ -176,10 +177,10 @@ Once the image is prepared as a tensor, we can send it through the model for a p
 output_layer = 'loss:0'
 input_node = 'Placeholder:0'
 
-with tf.Session() as sess:
+with tf.compat.v1.Session() as sess:
     try:
         prob_tensor = sess.graph.get_tensor_by_name(output_layer)
-        predictions, = sess.run(prob_tensor, {input_node: [augmented_image] })
+        predictions = sess.run(prob_tensor, {input_node: [augmented_image] })
     except KeyError:
         print ("Couldn't find classification output layer: " + output_layer + ".")
         print ("Verify this a model exported from an Object Detection project.")

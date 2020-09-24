@@ -1,54 +1,54 @@
 ---
 title: Custom orchestration status in Durable Functions - Azure
 description: Learn how to configure and use custom orchestration status for Durable Functions.
-services: functions
-author: ggailey777
-manager: jeconnoc
-keywords:
-ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 07/10/2020
 ms.author: azfuncdf
 ---
 
 # Custom orchestration status in Durable Functions (Azure Functions)
 
-Custom orchestration status lets you set a custom status value for your orchestrator function. This status is provided via the HTTP GetStatus API or the `DurableOrchestrationClient.GetStatusAsync` API.
+Custom orchestration status lets you set a custom status value for your orchestrator function. This status is provided via the [HTTP GetStatus API](durable-functions-http-api.md#get-instance-status) or the [`GetStatusAsync` API](durable-functions-instance-management.md#query-instances) on the orchestration client.
 
 ## Sample use cases
+
+> [!NOTE]
+> The following samples show how to use custom status feature in C#, JavaScript, and Python. The C# examples are written for Durable Functions 2.x and are not compatible with Durable Functions 1.x. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
 
 ### Visualize progress
 
 Clients can poll the status end point and display a progress UI that visualizes the current execution stage. The following sample demonstrates progress sharing:
 
-#### C#
+# [C#](#tab/csharp)
 
 ```csharp
 [FunctionName("E1_HelloSequence")]
 public static async Task<List<string>> Run(
-  [OrchestrationTrigger] DurableOrchestrationContextBase context)
+    [OrchestrationTrigger] IDurableOrchestrationContext context)
 {
-  var outputs = new List<string>();
+    var outputs = new List<string>();
 
-  outputs.Add(await context.CallActivityAsync<string>("E1_SayHello", "Tokyo"));
-  context.SetCustomStatus("Tokyo");
-  outputs.Add(await context.CallActivityAsync<string>("E1_SayHello", "Seattle"));
-  context.SetCustomStatus("Seattle");
-  outputs.Add(await context.CallActivityAsync<string>("E1_SayHello", "London"));
-  context.SetCustomStatus("London");
+    outputs.Add(await context.CallActivityAsync<string>("E1_SayHello", "Tokyo"));
+    context.SetCustomStatus("Tokyo");
+    outputs.Add(await context.CallActivityAsync<string>("E1_SayHello", "Seattle"));
+    context.SetCustomStatus("Seattle");
+    outputs.Add(await context.CallActivityAsync<string>("E1_SayHello", "London"));
+    context.SetCustomStatus("London");
 
-  // returns ["Hello Tokyo!", "Hello Seattle!", "Hello London!"]
-  return outputs;
+    // returns ["Hello Tokyo!", "Hello Seattle!", "Hello London!"]
+    return outputs;
 }
 
 [FunctionName("E1_SayHello")]
 public static string SayHello([ActivityTrigger] string name)
 {
-  return $"Hello {name}!";
+    return $"Hello {name}!";
 }
 ```
 
-#### JavaScript (Functions 2.x only)
+# [JavaScript](#tab/javascript)
+
+`E1_HelloSequence` orchestrator function:
 
 ```javascript
 const df = require("durable-functions");
@@ -68,23 +68,55 @@ module.exports = df.orchestrator(function*(context){
 });
 ```
 
+`E1_SayHello` activity function:
+
 ```javascript
 module.exports = async function(context, name) {
     return `Hello ${name}!`;
 };
 ```
+# [Python](#tab/python)
+
+### `E1_HelloSequence` Orchestrator function
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    
+    output1 = yield context.call_activity('E1_SayHello', 'Tokyo')
+    context.set_custom_status('Tokyo')
+    output2 = yield context.call_activity('E1_SayHello', 'Seattle')
+    context.set_custom_status('Seattle')
+    output3 = yield context.call_activity('E1_SayHello', 'London')
+    context.set_custom_status('London')
+    
+    return [output1, output2, output3]
+
+main = df.Orchestrator.create(orchestrator_function)
+```
+
+### `E1_SayHello` Activity function
+```python
+def main(name: str) -> str:
+    return f"Hello {name}!"
+
+```
+
+---
 
 And then the client will receive the output of the orchestration only when `CustomStatus` field is set to "London":
 
-#### C#
+# [C#](#tab/csharp)
 
 ```csharp
 [FunctionName("HttpStart")]
 public static async Task<HttpResponseMessage> Run(
-  [HttpTrigger(AuthorizationLevel.Function, methods: "post", Route = "orchestrators/{functionName}")] HttpRequestMessage req,
-  [OrchestrationClient] DurableOrchestrationClientBase starter,
-  string functionName,
-  ILogger log)
+    [HttpTrigger(AuthorizationLevel.Function, methods: "post", Route = "orchestrators/{functionName}")] HttpRequestMessage req,
+    [DurableClient] IDurableOrchestrationClient starter,
+    string functionName,
+    ILogger log)
 {
     // Function input comes from the request content.
     dynamic eventData = await req.Content.ReadAsAsync<object>();
@@ -95,13 +127,13 @@ public static async Task<HttpResponseMessage> Run(
     DurableOrchestrationStatus durableOrchestrationStatus = await starter.GetStatusAsync(instanceId);
     while (durableOrchestrationStatus.CustomStatus.ToString() != "London")
     {
-      await Task.Delay(200);
-      durableOrchestrationStatus = await starter.GetStatusAsync(instanceId);
+        await Task.Delay(200);
+        durableOrchestrationStatus = await starter.GetStatusAsync(instanceId);
     }
 
     HttpResponseMessage httpResponseMessage = new HttpResponseMessage(HttpStatusCode.OK)
     {
-      Content = new StringContent(JsonConvert.SerializeObject(durableOrchestrationStatus))
+        Content = new StringContent(JsonConvert.SerializeObject(durableOrchestrationStatus))
     };
 
     return httpResponseMessage;
@@ -109,7 +141,7 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
-#### JavaScript (Functions 2.x only)
+# [JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -124,7 +156,7 @@ module.exports = async function(context, req) {
     context.log(`Started orchestration with ID = '${instanceId}'.`);
 
     let durableOrchestrationStatus = await client.getStatus(instanceId);
-    while (status.customStatus.toString() !== "London") {
+    while (durableOrchestrationStatus.customStatus.toString() !== "London") {
         await new Promise((resolve) => setTimeout(resolve, 200));
         durableOrchestrationStatus = await client.getStatus(instanceId);
     }
@@ -141,19 +173,43 @@ module.exports = async function(context, req) {
 > [!NOTE]
 > In JavaScript, the `customStatus` field will be set when the next `yield` or `return` action is scheduled.
 
-> [!WARNING]
-> When developing locally in JavaScript, you will need to set the environment variable `WEBSITE_HOSTNAME` to `localhost:<port>`, ex. `localhost:7071` to use methods on `DurableOrchestrationClient`. For more information about this requirement, see the [GitHub issue](https://github.com/Azure/azure-functions-durable-js/issues/28).
+# [Python](#tab/python)
+```python
+import json
+import logging
+import azure.functions as func
+import azure.durable_functions as df
+from time import sleep
+
+async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
+    client = df.DurableOrchestrationClient(starter)    
+    instance_id = await client.start_new(req.params.functionName, None, None)
+
+    logging.info(f"Started orchestration with ID = '{instance_id}'.")
+
+    durable_orchestration_status = await client.get_status(instance_id)
+    while durable_orchestration_status.custom_status != 'London':
+        sleep(0.2)
+        durable_orchestration_status = await client.get_status(instance_id)
+
+    return func.HttpResponse(body='Success', status_code=200, mimetype='application/json')
+```
+
+> [!NOTE]
+> In Python, the `custom_status` field will be set when the next `yield` or `return` action is scheduled.
+
+---
 
 ### Output customization
 
 Another interesting scenario is segmenting users by returning customized output based on unique characteristics or interactions. With the help of custom orchestration status, the client-side code will stay generic. All main modifications will happen on the server side as shown in the following sample:
 
-#### C#
+# [C#](#tab/csharp)
 
 ```csharp
 [FunctionName("CityRecommender")]
 public static void Run(
-  [OrchestrationTrigger] DurableOrchestrationContextBase context)
+  [OrchestrationTrigger] IDurableOrchestrationContext context)
 {
   int userChoice = context.GetInput<int>();
 
@@ -186,7 +242,9 @@ public static void Run(
 }
 ```
 
-#### JavaScript (Functions 2.x only)
+# [JavaScript](#tab/javascript)
+
+#### `CityRecommender` orchestrator
 
 ```javascript
 const df = require("durable-functions");
@@ -219,16 +277,51 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+# [Python](#tab/python)
+
+#### `CityRecommender` orchestrator
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    userChoice = int(context.get_input())
+
+    if userChoice == 1:
+        context.set_custom_status({
+            'recommendedCities' : ['Tokyo', 'Seattle'], 
+            'recommendedSeasons' : ['Spring', 'Summer']
+        }))
+    if userChoice == 2:
+        context.set_custom_status({
+            'recommendedCities' : ['Seattle', 'London']
+            'recommendedSeasons' : ['Summer']
+        }))
+    if userChoice == 3:
+        context.set_custom_status({
+            'recommendedCities' : ['Tokyo', 'London'], 
+            'recommendedSeasons' : ['Spring', 'Summer']
+        }))
+
+
+
+    # Wait for user selection and refine the recommendation
+
+main = df.Orchestrator.create(orchestrator_function)
+```
+---
+
 ### Instruction specification
 
 The orchestrator can provide unique instructions to the clients via the custom state. The custom status instructions will be mapped to the steps in the orchestration code:
 
-#### C#
+# [C#](#tab/csharp)
 
 ```csharp
 [FunctionName("ReserveTicket")]
 public static async Task<bool> Run(
-  [OrchestrationTrigger] DurableOrchestrationContextBase context)
+  [OrchestrationTrigger] IDurableOrchestrationContext context)
 {
   string userId = context.GetInput<string>();
 
@@ -251,7 +344,7 @@ public static async Task<bool> Run(
 }
 ```
 
-#### JavaScript (Functions 2.x only)
+# [JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -277,15 +370,41 @@ module.exports = df.orchestrator(function*(context) {
     return isBookingConfirmed;
 });
 ```
+# [Python](#tab/python)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    userId = int(context.get_input())
+
+    discount = yield context.call_activity('CalculateDiscount', userId)
+
+    status = { 'discount' : discount,
+        'discountTimeout' : 60,
+        'bookingUrl' : "https://www.myawesomebookingweb.com",
+    }
+    context.set_custom_status(status)
+
+    is_booking_confirmed = yield context.wait_for_external_event('BookingConfirmed')
+    context.set_custom_status({'message': 'Thank you for confirming your booking.'} if is_booking_confirmed 
+        else {'message': 'The booking was not confirmed on time. Please try again.'})
+    return is_booking_confirmed
+
+main = df.Orchestrator.create(orchestrator_function)
+```
+
+---
 
 ## Sample
 
 In the following sample, the custom status is set first;
 
-### C#
+# [C#](#tab/csharp)
 
 ```csharp
-public static async Task SetStatusTest([OrchestrationTrigger] DurableOrchestrationContext context)
+public static async Task SetStatusTest([OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     // ...do work...
 
@@ -297,7 +416,7 @@ public static async Task SetStatusTest([OrchestrationTrigger] DurableOrchestrati
 }
 ```
 
-### JavaScript (Functions 2.x only)
+# [JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -313,28 +432,45 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+# [Python](#tab/python)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    # ...do work...
+
+    custom_status = {'nextActions': ['A','B','C'], 'foo':2}
+    context.set_custom_status(custom_status)
+
+    # ...do more work...
+
+main = df.Orchestrator.create(orchestrator_function)
+```
+---
+
 While the orchestration is running, external clients can fetch this custom status:
 
 ```http
-GET /admin/extensions/DurableTaskExtension/instances/instance123
-
+GET /runtime/webhooks/durabletask/instances/instance123
 ```
 
 Clients will get the following response:
 
-```http
+```json
 {
   "runtimeStatus": "Running",
   "input": null,
   "customStatus": { "nextActions": ["A", "B", "C"], "foo": 2 },
   "output": null,
-  "createdTime": "2017-10-06T18:30:24Z",
-  "lastUpdatedTime": "2017-10-06T19:40:30Z"
+  "createdTime": "2019-10-06T18:30:24Z",
+  "lastUpdatedTime": "2019-10-06T19:40:30Z"
 }
 ```
 
 > [!WARNING]
-> The custom status payload is limited to 16 KB of UTF-16 JSON text because it needs to be able to fit in an Azure Table Storage column. Developers can use external storage if they need larger payload.
+> The custom status payload is limited to 16 KB of UTF-16 JSON text because it needs to be able to fit in an Azure Table Storage column. We recommend you use external storage if you need a larger payload.
 
 ## Next steps
 

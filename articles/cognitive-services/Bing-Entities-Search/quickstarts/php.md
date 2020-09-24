@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Send a search request to the Bing Entity Search REST API using PHP"
+title: "Quickstart: Send a search request to the REST API using PHP - Bing Entity Search"
 titleSuffix: Azure Cognitive Services
 description: Use this quickstart to send a request to the Bing Entity Search REST API using PHP, and receive a JSON response.
 services: cognitive-services
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 07/24/2019
+ms.date: 05/08/2020
 ms.author: aahi
 ---
 
@@ -17,7 +17,7 @@ ms.author: aahi
 
 Use this quickstart to make your first call to the Bing Entity Search API and view the JSON response. This simple PHP application sends a news search query to the API, and displays the response. 
 
-While this application is written in PHP, the API is a RESTful Web service compatible with most programming languages.
+Although this application is written in PHP, the API is a RESTful Web service compatible with most programming languages.
 
 ## Prerequisites
 
@@ -27,12 +27,13 @@ While this application is written in PHP, the API is a RESTful Web service compa
 
 ## Search entities
 
-To run this application, follow these steps.
+To run this application, follow these steps:
 
 1. Create a new PHP project in your favorite IDE.
 2. Add the code provided below.
 3. Replace the `key` value with an access key valid for your subscription.
-4. Run the program.
+4. You can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+5. Run the program.
 
 ```php
 <?php
@@ -78,7 +79,7 @@ echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
 ?>
 ```
 
-**Response**
+## Example JSON response
 
 A successful response is returned in JSON, as shown in the following example: 
 
@@ -149,4 +150,4 @@ A successful response is returned in JSON, as shown in the following example:
 > [Build a single-page web app](../tutorial-bing-entities-search-single-page-app.md)
 
 * [What is the Bing Entity Search API?](../overview.md )
-* [Bing Entity Search API Reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference)
+* [Bing Entity Search API reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference).

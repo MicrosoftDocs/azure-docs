@@ -1,11 +1,12 @@
 ---
-title: Connect applications to Azure Database for MySQL
+title: Connection strings - Azure Database for MySQL
 description: This document lists the currently supported connection strings for applications to connect with Azure Database for MySQL, including ADO.NET (C#), JDBC, Node.js, ODBC, PHP, Python, and Ruby.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.topic: conceptual
-ms.date: 02/28/2018
+ms.topic: how-to
+ms.date: 3/18/2020
+ms.custom: devx-track-python, devx-track-js
 ---
 
 # How to connect applications to Azure Database for MySQL
@@ -58,7 +59,7 @@ client = Mysql2::Client.new(username: {username@servername}, password: {your_pas
 
 ## Get the connection string details from the Azure portal
 In the [Azure portal](https://portal.azure.com), go to your Azure Database for MySQL server, and then click **Connection strings** to get the string list for your instance:
-![The Connection strings pane in the Azure portal](./media/howto-connection-strings/connection-strings-on-portal.png)
+:::image type="content" source="./media/howto-connection-strings/connection-strings-on-portal.png" alt-text="The Connection strings pane in the Azure portal":::
 
 The string provides details such as the driver, server, and other database connection parameters. Modify these examples to use your own parameters, such as database name, password, and so on. You can then use this string to connect to the server from your code and applications.
 

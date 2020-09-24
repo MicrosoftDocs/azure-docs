@@ -1,14 +1,12 @@
 ---
-title: Add and run code snippets - Azure Logic Apps
-description: Add and run code snippets with inline code in Azure Logic Apps
+title: Add and run code snippets by using inline code
+description: Learn how to create and run code snippets by using inline code actions for automated tasks and workflows that you create with Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: derek1ee, LADocs
+ms.reviewer: deli, logicappspm
 ms.topic: article
 ms.date: 05/14/2019
+ms.custom: devx-track-js
 ---
 
 # Add and run code snippets by using inline code in Azure Logic Apps
@@ -36,7 +34,7 @@ where you want to create a function for your code, try
 in your logic app.
 
 In this article, the example logic app triggers when 
-a new email arrives in an Office 365 Outlook account. 
+a new email arrives in a work or school account. 
 The code snippet extracts and returns any email addresses 
 that appear in the email body.
 

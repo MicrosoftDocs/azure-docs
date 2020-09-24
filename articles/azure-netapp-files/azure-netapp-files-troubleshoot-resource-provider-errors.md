@@ -13,8 +13,8 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 07/10/2019
+ms.topic: troubleshooting
+ms.date: 10/18/2019
 ms.author: b-juche
 ---
 # Troubleshoot Azure NetApp Files Resource Provider errors 
@@ -359,7 +359,7 @@ Leave the name property empty or allow it to use the same value as the name prop
 
 ***Protocol type {value} not known***
 
-This error occurs when you are creating a volume with an unknown protocol type.  Valid values are “NFSv3” and “CIFS”.
+This error occurs when you are creating a volume with an unknown protocol type.  Valid values are “NFSv3”, “NFSv4”, and “CIFS”.
 
 * Cause:   
 You are trying to set an invalid value in the volume `protocolType` property.

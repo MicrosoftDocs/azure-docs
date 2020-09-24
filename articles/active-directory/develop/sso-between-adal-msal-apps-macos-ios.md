@@ -1,23 +1,18 @@
 ---
-title: SSO between ADAL and MSAL apps on iOS and macOS - Microsoft identity platform
+title: SSO between ADAL & MSAL apps (iOS/macOS) - Microsoft identity platform | Azure
 description: 
 services: active-directory
-documentationcenter: dev-center-name
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/28/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: 
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
 # How to: SSO between ADAL and MSAL apps on macOS and iOS
@@ -107,7 +102,7 @@ You can save this identifier to use in MSAL for account lookups with the `accoun
 
 If `homeAccountId` is not available, or you only have the displayable identifier, you can use ADAL's `userId` to lookup the account in  MSAL.
 
-In MSAL, first look up an account by `username` or `identifier`. Always use `identifier` for querying if you have it and only use `username` as a fallback. If account is found, use the account in the acquireTokenSilent calls.
+In MSAL, first look up an account by `username` or `identifier`. Always use `identifier` for querying if you have it, and only use `username` as a fallback. If the account is found, use the account in the `acquireTokenSilent` calls.
 
 Objective-C:
 
@@ -169,7 +164,7 @@ MSAL supported account lookup APIs:
 /*!
  Returns account for the given account identifier (received from an account object returned in a previous acquireToken call)
  
- @param  error      The error that occured trying to get the accounts, if any, if you're
+ @param  error      The error that occurred trying to get the accounts, if any, if you're
                     not interested in the specific error pass in nil.
  */
 - (nullable MSALAccount *)accountForIdentifier:(nonnull NSString *)identifier
@@ -179,7 +174,7 @@ MSAL supported account lookup APIs:
 Returns account for for the given username (received from an account object returned in a previous acquireToken call or ADAL)
     
 @param  username    The displayable value in UserPrincipleName(UPN) format
-@param  error       The error that occured trying to get the accounts, if any, if you're
+@param  error       The error that occurred trying to get the accounts, if any, if you're
                     not interested in the specific error pass in nil.
 */
 - (MSALAccount *)accountForUsername:(NSString *)username

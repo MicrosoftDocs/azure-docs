@@ -1,6 +1,6 @@
 ---
 title: Diagnostics Tool to troubleshoot StorSimple 8000 device | Microsoft Docs
-description: Describes the StorSimple device modes and explains how to use Windows PowerShell for StorSimple to change the device mode.
+description: This article provides an overview of the diagnostics tool and describes how the tool can be used with a StorSimple device.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: 
 ms.service: storsimple
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2018
@@ -319,7 +319,7 @@ hcs_startup                                   Stopped hcs_startup
 
 ### Network test
 
-This test validates the status of the network interfaces, ports, DNS and NTP server connectivity, SSL certificate, storage account credentials, connectivity to the Update servers, and web proxy connectivity on your StorSimple device.
+This test validates the status of the network interfaces, ports, DNS and NTP server connectivity, TLS/SSL certificate, storage account credentials, connectivity to the Update servers, and web proxy connectivity on your StorSimple device.
 
 #### Sample output of network test when only DATA0 is enabled
 
@@ -329,7 +329,7 @@ Here is a sample output of the 8100 device. You can see in the output that:
 * The DNS server configuration is valid and the device can connect via the DNS server.
 * The NTP server connectivity is also fine.
 * Ports 80 and 443 are open. However, port 9354 is blocked. Based on the [system network requirements](storsimple-system-requirements.md), you need to open this port for the service bus communication.
-* The SSL certification is valid.
+* The TLS/SSL certification is valid.
 * The device can connect to the storage account: _myss8000storageacct_.
 * The connectivity to Update servers is valid.
 * The web proxy is not configured on this device.

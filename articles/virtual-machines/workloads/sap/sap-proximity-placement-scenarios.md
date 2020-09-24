@@ -1,5 +1,5 @@
 ---
-title: Azure proximity placement groups for optimal network latency with SAP applications | Microsoft Docs
+title: Azure proximity placement groups for SAP applications | Microsoft Docs
 description: Describes SAP deployment scenarios with Azure proximity placement groups
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/01/2019
+ms.date: 01/17/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -27,7 +27,7 @@ The time spent on the network to send such a query from the application tier to 
 
 In many Azure regions, the number of datacenters has grown. This growth has also been triggered by the introduction of Availability Zones. At the same time, customers, especially for high-end SAP systems, are using more special VM SKUs in the M-Series family, or HANA Large Instances. These Azure virtual machine types aren't available in all the datacenters in a specific Azure region. Because of these two tendencies, customers have experienced network latency that isn't in the optimal range. In some cases, this latency results in suboptimal performance of their SAP systems.
 
-To prevent these problems, Azure offers [proximity placement groups](https://docs.microsoft.com/azure/virtual-machines/linux/co-location). This new functionality has already been used to deploy various SAP systems. For restrictions on proximity placement groups, see the article referred to at the start of this paragraph. This article covers the SAP scenarios in which Azure proximity placement groups can or should be used.
+To prevent these problems, Azure offers [proximity placement groups](../../linux/co-location.md). This new functionality has already been used to deploy various SAP systems. For restrictions on proximity placement groups, see the article referred to at the start of this paragraph. This article covers the SAP scenarios in which Azure proximity placement groups can or should be used.
 
 ## What are proximity placement groups? 
 An Azure proximity placement group is a logical construct. When one is defined, it's bound to an Azure region and an Azure resource group. When VMs are deployed, a proximity placement group is referenced by:
@@ -38,7 +38,7 @@ An Azure proximity placement group is a logical construct. When one is defined, 
 > [!NOTE]
 > If there is no host hardware deployed that could run a specific VM type in the datacenter where the first VM was placed, the deployment of the requested VM type won’t succeed. You’ll get a failure message.
 
-A single [Azure resource group](https://docs.microsoft.com/azure/azure-resource-manager/manage-resources-portal) can have multiple proximity placement groups assigned to it. But a proximity placement group can be assigned to only one Azure resource group.
+A single [Azure resource group](../../../azure-resource-manager/management/manage-resources-portal.md) can have multiple proximity placement groups assigned to it. But a proximity placement group can be assigned to only one Azure resource group.
 
 When you use proximity placement groups, keep these considerations in mind:
 
@@ -47,9 +47,9 @@ When you use proximity placement groups, keep these considerations in mind:
 - Because of decommissioning of hardware, Microsoft might build up capacities for a VM type you used in a different datacenter, rather than the one that you initially used. In that scenario, you might need to move the all the proximity placement group's VMs into another datacenter.
 
 ## Proximity placement groups with SAP systems that use only Azure VMs
-Most SAP NetWeaver and S/4HANA system deployments on Azure don't use [HANA Large Instances](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture). For deployments that don't use HANA Large Instances, it's important to provide optimal performance between the SAP application layer and the DBMS tier. To do so, define an Azure proximity placement group just for the system.
+Most SAP NetWeaver and S/4HANA system deployments on Azure don't use [HANA Large Instances](./hana-overview-architecture.md). For deployments that don't use HANA Large Instances, it's important to provide optimal performance between the SAP application layer and the DBMS tier. To do so, define an Azure proximity placement group just for the system.
 
-In most customer deployments, customers build a single [Azure resource group](https://docs.microsoft.com/azure/azure-resource-manager/manage-resources-portal) for SAP systems. In that case, there's a one-to-one relationship between, for example, the production ERP system resource group and its proximity placement group. In other cases, customers organize their resource groups horizontally and collect all production systems in a single resource group. In this case, you'd have a one-to-many relationship between your resource group for production SAP systems and several proximity placement groups for your production SAP ERP, SAP BW, and so on.
+In most customer deployments, customers build a single [Azure resource group](../../../azure-resource-manager/management/manage-resources-portal.md) for SAP systems. In that case, there's a one-to-one relationship between, for example, the production ERP system resource group and its proximity placement group. In other cases, customers organize their resource groups horizontally and collect all production systems in a single resource group. In this case, you'd have a one-to-many relationship between your resource group for production SAP systems and several proximity placement groups for your production SAP ERP, SAP BW, and so on.
 
 Avoid bundling several SAP production or non-production systems in a single proximity placement group. When a small number of SAP systems or an SAP system and some surrounding applications need to have low latency network communication, you might consider moving these systems into one proximity placement group. You should avoid bundles of systems because the more systems you group in a proximity placement group, the higher the chances:
 
@@ -63,11 +63,11 @@ Here's what the ideal configuration, as described, looks like:
 In this case, single SAP systems are grouped in one resource group each, with one proximity placement group each. There's no dependency on whether you use HANA scale-out or DBMS scale-up configurations.
 
 ## Proximity placement groups and HANA Large Instances
-If some of your SAP systems rely on [HANA Large Instances](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) for the application layer, you can experience significant improvements in network latency between the HANA Large Instances unit and Azure VMs when you're using HANA Large Instances units that are deployed in [Revision 4 rows or stamps](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture#networking-architecture-for-hana-large-instance). One improvement is that HANA Large Instances units, as they're deployed, deploy with a proximity placement group. You can use that proximity placement group to deploy your application layer VMs. As a result, those VMs will be deployed in the same datacenter that hosts your HANA Large Instances unit.
+If some of your SAP systems rely on [HANA Large Instances](./hana-overview-architecture.md) for the application layer, you can experience significant improvements in network latency between the HANA Large Instances unit and Azure VMs when you're using HANA Large Instances units that are deployed in [Revision 4 rows or stamps](./hana-network-architecture.md#networking-architecture-for-hana-large-instance). One improvement is that HANA Large Instances units, as they're deployed, deploy with a proximity placement group. You can use that proximity placement group to deploy your application layer VMs. As a result, those VMs will be deployed in the same datacenter that hosts your HANA Large Instances unit.
 
-To determine whether your HANA Large Instances unit is deployed in a Revision 4 stamp or row, check the article [Azure HANA Large Instances control through Azure portal](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-li-portal#look-at-attributes-of-single-hli-unit). In the attributes overview of your HANA Large Instances unit, you can also determine the name of the proximity placement group because it was created when your HANA Large Instances unit was deployed. The name that appears in the attributes overview is the name of the proximity placement group that you should deploy your application layer VMs into.
+To determine whether your HANA Large Instances unit is deployed in a Revision 4 stamp or row, check the article [Azure HANA Large Instances control through Azure portal](./hana-li-portal.md#look-at-attributes-of-single-hli-unit). In the attributes overview of your HANA Large Instances unit, you can also determine the name of the proximity placement group because it was created when your HANA Large Instances unit was deployed. The name that appears in the attributes overview is the name of the proximity placement group that you should deploy your application layer VMs into.
 
-As compared to SAP systems that use only Azure virtual machines, when you use HANA Large Instances, you have less flexibility in deciding how many [Azure resource groups](https://docs.microsoft.com/azure/azure-resource-manager/manage-resources-portal) to use. All the HANA Large Instances units of a [HANA Large Instances tenant](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-know-terms) are grouped in a single resource group, as described [this article](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-li-portal#display-of-hana-large-instance-units-in-the-azure-portal). Unless you deploy into different tenants to separate, for example, production and non-production systems or other systems, all your HANA Large Instances units will be deployed in one HANA Large Instances tenant. This tenant has a one-to-one relationship with a resource group. But a separate proximity placement group will be defined for each of the single units.
+As compared to SAP systems that use only Azure virtual machines, when you use HANA Large Instances, you have less flexibility in deciding how many [Azure resource groups](../../../azure-resource-manager/management/manage-resources-portal.md) to use. All the HANA Large Instances units of a [HANA Large Instances tenant](./hana-know-terms.md) are grouped in a single resource group, as described [this article](./hana-li-portal.md#display-of-hana-large-instance-units-in-the-azure-portal). Unless you deploy into different tenants to separate, for example, production and non-production systems or other systems, all your HANA Large Instances units will be deployed in one HANA Large Instances tenant. This tenant has a one-to-one relationship with a resource group. But a separate proximity placement group will be defined for each of the single units.
 
 As a result, the relationships among Azure resource groups and proximity placement groups for a single tenant will be as shown here:
 
@@ -154,14 +154,13 @@ The result of this deployment is:
 > Because you deploy one DBMS VM into one zone and the second DBMS VM into another zone to create a high availability configuration, you'll need a different proximity placement group for each of the zones. The same is true for any availability set that you use.
 
 ## Move an existing system into proximity placement groups
-If you already have SAP systems deployed, you might want to optimize the network latency of some of your critical systems and locate the application layer and the DBMS layer in the same datacenter. During the public preview of proximity placement groups, you need to delete the VMs and create new ones to move the system into proximity placement groups. You can’t currently just shut down the VMs and assign them to proximity placement groups.
+If you already have SAP systems deployed, you might want to optimize the network latency of some of your critical systems and locate the application layer and the DBMS layer in the same datacenter. To move the VMs of a complete Azure availability set to an existing proximity placement group that is scoped already, you need to shutdown all VMs of the availability set and assign the availability set to the existing proximity placement group through Azure portal, PowerShell or CLI. If you want to move a VM that is not part of an availability set into an existing proximity placement group, you just need to shutdown the VM and assign it to an existing proximity placement group. 
 
 
 ## Next steps
 Check out the documentation:
 
-- [SAP workloads on Azure: planning and deployment checklist](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-deployment-checklist)
-- [Preview: Deploy VMs to proximity placement groups using Azure CLI](https://docs.microsoft.com/azure/virtual-machines/linux/proximity-placement-groups)
-- [Preview: Deploy VMs to proximity placement groups using PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/proximity-placement-groups)
-- [Considerations for Azure Virtual Machines DBMS deployment for SAP workloads](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general)
-
+- [SAP workloads on Azure: planning and deployment checklist](./sap-deployment-checklist.md)
+- [Preview: Deploy VMs to proximity placement groups using Azure CLI](../../linux/proximity-placement-groups.md)
+- [Preview: Deploy VMs to proximity placement groups using PowerShell](../../windows/proximity-placement-groups.md)
+- [Considerations for Azure Virtual Machines DBMS deployment for SAP workloads](./dbms_guide_general.md)

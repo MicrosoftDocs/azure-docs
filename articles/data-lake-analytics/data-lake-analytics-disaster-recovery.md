@@ -2,11 +2,9 @@
 title: Disaster recovery guidance for Azure Data Lake Analytics
 description: Learn how to plan disaster recovery for your Azure Data Lake Analytics accounts.
 services: data-lake-analytics
-author: MikeRys
-ms.author: mrys
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.service: data-lake-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/03/2019
 ---
 # Disaster recovery guidance for Azure Data Lake Analytics
@@ -17,7 +15,7 @@ Azure Data Lake Analytics is an on-demand analytics job service that simplifies 
 
 When using Azure Data Lake Analytics, it's critical for you to prepare your own disaster recovery plan. This article helps guide you to build a disaster recovery plan. There are additional resources that can help you create your own plan:
 - [Failure and disaster recovery for Azure applications](/azure/architecture/reliability/disaster-recovery)
-- [Azure resiliency technical guidance](/azure/architecture/reliability)
+- [Azure resiliency technical guidance](/azure/architecture/checklist/resiliency-per-service)
 
 ## Best practices and scenario guidance
 

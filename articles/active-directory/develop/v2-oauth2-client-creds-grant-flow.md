@@ -1,38 +1,29 @@
 ---
-title: Use Microsoft identity platform to access secure resources without user interaction | Azure
+title: OAuth 2.0 client credentials flow on the Microsoft identity platform | Azure
 description: Build web applications by using the Microsoft identity platform implementation of the OAuth 2.0 authentication protocol.
 services: active-directory
-documentationcenter: ''
-author: rwike77
+author: hpsin
 manager: CelesteDG
-editor: ''
 
-ms.assetid: 9b7cfbd7-f89f-4e33-aff2-414edd584b07
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/30/2019
-ms.author: ryanwi
+ms.date: 7/27/2020
+ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.collection: M365-identity-device-management
 ---
 
 # Microsoft identity platform and the OAuth 2.0 client credentials flow
 
-[!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
-
 You can use the [OAuth 2.0 client credentials grant](https://tools.ietf.org/html/rfc6749#section-4.4) specified in RFC 6749, sometimes called *two-legged OAuth*, to access web-hosted resources by using the identity of an application. This type of grant is commonly used for server-to-server interactions that must run in the background, without immediate interaction with a user. These types of applications are often referred to as *daemons* or *service accounts*.
+
+This article describes how to program directly against the protocol in your application. When possible, we recommend you use the supported Microsoft Authentication Libraries (MSAL) instead to [acquire tokens and call secured web APIs](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Also take a look at the [sample apps that use MSAL](sample-v2-code.md).
 
 The OAuth 2.0 client credentials grant flow permits a web service (confidential client) to use its own credentials, instead of impersonating a user, to authenticate when calling another web service. In this scenario, the client is typically a middle-tier web service, a daemon service, or a web site. For a higher level of assurance, the Microsoft identity platform also allows the calling service to use a certificate (instead of a shared secret) as a credential.
 
-> [!NOTE]
-> The Microsoft identity platform endpoint doesn't support all Azure AD scenarios and features. To determine whether you should use the Microsoft identity platform endpoint, read about [Microsoft identity platform limitations](active-directory-v2-limitations.md).
-
-In the more typical *three-legged OAuth*, a client application is granted permission to access a resource on behalf of a specific user. The permission is delegated from the user to the application, usually during the [consent](v2-permissions-and-consent.md) process. However, in the client credentials (*two-legged OAuth*) flow, permissions are granted directly to the application itself. When the app presents a token to a resource, the resource enforces that the app itself has authorization to perform an action and not the user.
+In the client credentials flow, permissions are granted directly to the application itself by an administrator. When the app presents a token to a resource, the resource enforces that the app itself has authorization to perform an action since there is no user involved in the authentication.  This article covers both the steps needed to [authorize an application to call an API](#application-permissions), as well as [how to get the tokens needed to call that API](#get-a-token).
 
 ## Protocol diagram
 
@@ -57,25 +48,23 @@ A common use case is to use an ACL to run tests for a web application or for a w
 
 This type of authorization is common for daemons and service accounts that need to access data owned by consumer users who have personal Microsoft accounts. For data owned by organizations, we recommend that you get the necessary authorization through application permissions.
 
+> [!NOTE]
+> In order to enable this ACL-based authorization pattern, Azure AD does not require that applications be authorized to get tokens for another application - so app-only tokens can be issued without a `roles` claim. Applications that expose APIs must implement permission checks in order to accept tokens.
+
 ### Application permissions
 
-Instead of using ACLs, you can use APIs to expose a set of application permissions. An application permission is granted to an application by an organization's administrator, and can be used only to access data owned by that organization and its employees. For example, Microsoft Graph exposes several application permissions to do the following:
+Instead of using ACLs, you can use APIs to expose a set of **application permissions**. An application permission is granted to an application by an organization's administrator, and can be used only to access data owned by that organization and its employees. For example, Microsoft Graph exposes several application permissions to do the following:
 
 * Read mail in all mailboxes
 * Read and write mail in all mailboxes
 * Send mail as any user
 * Read directory data
 
-For more information about application permissions, go to [Microsoft Graph](https://developer.microsoft.com/graph).
+To use application permissions with your own API (as opposed to Microsoft Graph), you must first [expose the API](quickstart-configure-app-expose-web-apis.md) by defining scopes in the API's app registration in the Azure portal. Then, [configure access to the API](quickstart-configure-app-access-web-apis.md) by selecting those permissions in your client application's app registration. If you haven't exposed any scopes in your API's app registration, you won't be able to specify application permissions to that API in your client application's app registration in the Azure portal.
 
-To use application permissions in your app, follow the steps discussed in the next sections.
+When authenticating as an application (as opposed to with a user), you can't use *delegated permissions* - scopes that are granted by a user. You must use application permissions, also known as roles, that are granted by an admin for the application or via pre-authorization by the web API.
 
-#### Request the permissions in the app registration portal
-
-1. Register and create an app through the new [App registrations (Preview) experience](quickstart-register-app.md).
-2. Go to your application in the App registrations (Preview) experience. Navigate to the **Certificates & secrets** section, and add a **new client secret**, because you'll need at least one client secret to request a token.
-3. Locate the **API permissions** section, and then add the **application permissions** that your app requires.
-4. **Save** the app registration.
+For more information about application permissions, see [Permissions and consent](v2-permissions-and-consent.md#permission-types).
 
 #### Recommended: Sign the user into your app
 
@@ -91,7 +80,7 @@ When you're ready to request permissions from the organization's admin, you can 
 > Try executing this request in Postman! (Use your own app ID for best results - the tutorial application won't request useful permissions.)
 > [![Try running this request in Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
-```
+```HTTP
 // Line breaks are for legibility only.
 
 GET https://login.microsoftonline.com/{tenant}/adminconsent?
@@ -100,9 +89,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &redirect_uri=http://localhost/myapp/permissions
 ```
 
-```
-// Pro tip: Try pasting the following request in a browser.
-```
+Pro tip: Try pasting the following request in a browser.
 
 ```
 https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&state=12345&redirect_uri=http://localhost/myapp/permissions
@@ -121,7 +108,7 @@ At this point, Azure AD enforces that only a tenant administrator can sign into 
 
 If the admin approves the permissions for your application, the successful response looks like this:
 
-```
+```HTTP
 GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b95&state=state=12345&admin_consent=True
 ```
 
@@ -135,7 +122,7 @@ GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b
 
 If the admin does not approve the permissions for your application, the failed response looks like this:
 
-```
+```HTTP
 GET http://localhost/myapp/permissions?error=permission_denied&error_description=The+admin+canceled+the+request
 ```
 
@@ -156,7 +143,7 @@ After you've acquired the necessary authorization for your application, proceed 
 
 ### First case: Access token request with a shared secret
 
-```
+```HTTP
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1           //Line breaks for clarity
 Host: login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
@@ -167,8 +154,8 @@ client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
 &grant_type=client_credentials
 ```
 
-```
-// Replace {tenant} with your tenant! 
+```Bash
+# Replace {tenant} with your tenant!
 curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=535fb089-9ff3-47b6-9bfb-4f1264799865&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_secret=qWgdYAmab0YSkuL1qKv5bPX&grant_type=client_credentials' 'https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token'
 ```
 
@@ -182,7 +169,7 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=
 
 ### Second case: Access token request with a certificate
 
-```
+```HTTP
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1               // Line breaks for clarity
 Host: login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
@@ -209,7 +196,7 @@ Notice that the parameters are almost the same as in the case of the request by 
 
 A successful response looks like this:
 
-```
+```json
 {
   "token_type": "Bearer",
   "expires_in": 3599,
@@ -219,7 +206,7 @@ A successful response looks like this:
 
 | Parameter | Description |
 | --- | --- |
-| `access_token` | The requested access token. The app can use this token to authenticate to the secured resource, such as to a Web API. |
+| `access_token` | The requested access token. The app can use this token to authenticate to the secured resource, such as to a web API. |
 | `token_type` | Indicates the token type value. The only type that Microsoft identity platform supports is `bearer`. |
 | `expires_in` | The amount of time that an access token is valid (in seconds). |
 
@@ -227,7 +214,7 @@ A successful response looks like this:
 
 An error response looks like this:
 
-```
+```json
 {
   "error": "invalid_scope",
   "error_description": "AADSTS70011: The provided value for the input parameter 'scope' is not valid. The scope https://foo.microsoft.com/.default is not valid.\r\nTrace ID: 255d1aef-8c98-452f-ac51-23d051240864\r\nCorrelation ID: fb3d2015-bc17-4bb9-bb85-30c5cf1aaaa7\r\nTimestamp: 2016-01-09 02:02:12Z",
@@ -253,17 +240,15 @@ An error response looks like this:
 
 Now that you've acquired a token, use the token to make requests to the resource. When the token expires, repeat the request to the `/token` endpoint to acquire a fresh access token.
 
-```
+```HTTP
 GET /v1.0/me/messages
 Host: https://graph.microsoft.com
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 ```
 
-```
-// Pro tip: Try the following command! (Replace the token with your own.)
-```
+```bash
+# Pro tip: Try the following command! (Replace the token with your own.)
 
-```
 curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbG...." 'https://graph.microsoft.com/v1.0/me/messages'
 ```
 

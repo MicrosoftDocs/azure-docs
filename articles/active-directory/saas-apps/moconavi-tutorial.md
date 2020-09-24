@@ -2,20 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with moconavi | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and moconavi.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: e1916224-e1c2-426f-b233-0a2518fa41db
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with moconavi
 

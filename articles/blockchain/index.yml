@@ -13,7 +13,7 @@ metadata:
 
   author: PatAltimore
   ms.author: patricka
-  ms.date: 09/25/2019 
+  ms.date: 10/23/2019
 
 productDirectory:
   items:
@@ -62,25 +62,36 @@ conceptualContent:
         - url: https://channel9.msdn.com/Shows/Blocktalk/Building-your-first-Azure-Blockchain-Workbench-application
           itemType: video
           text: Watch how to build your first application
+    - title: Publish blockchain data using Blockchain Data Manager
+      links:
+        - url: ./service/data-manager.md
+          itemType: concept
+          text: What is Blockchain Data Manager for Azure Blockchain Service?
+        - url: ./service/data-manager-portal.md
+          itemType: how-to-guide
+          text: Create a Blockchain Data Manager instance using the Azure portal
+        - url: https://aka.ms/BTDataManager
+          itemType: video
+          text: Watch an introduction to Blockchain Data Manager
     - title: Build with the ledger that suits your use case
       links:
         - url: ./templates/ethereum-poa-deployment.md
           itemType: how-to-guide
           text: Deploy a multi-member consortium Proof-of-authority Ethereum network on Azure
-        - url: ./templates/hyperledger-fabric-consortium-blockchain.md
+        - url: ./templates/hyperledger-fabric-consortium-azure-kubernetes-service.md
           itemType: how-to-guide
-          text: Deploy a Hyperledger Fabric consortium network on Azure
+          text: Deploy a Hyperledger Fabric consortium network on Azure Kubernetes Service
 additionalContent:
   sections:
     - title: Development tools and samples
       summary: Blockchain app development tools and code samples.
       items:
         - title: Azure Blockchain Development Kit for Ethereum
-          summary: Develop, deploy debug and manage your Azure Blockchain Service solution.
+          summary: Develop, deploy, debug, and manage your Azure Blockchain Service solution.
           url: https://marketplace.visualstudio.com/items?itemName=azblockchain.azure-blockchain
         - title: Ethereum Blockchain connector
           summary: Use Azure Logic Apps, Microsoft Flow, and Microsoft PowerApps to perform smart contract actions such as submitting transactions, reading contract state, and triggering flows on contract updates.
-          url: https://docs.microsoft.com/connectors/blockchainethereum/
+          url: /connectors/blockchainethereum/
         - title: Code samples
           summary: GitHub repository with code samples to get you started.
           url: https://github.com/Azure-Samples/blockchain

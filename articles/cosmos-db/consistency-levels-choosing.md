@@ -1,18 +1,18 @@
 ---
-title: Choosing the right consistency level for your application that uses Azure Cosmos DB
+title: Choose the right consistency level for your Azure Cosmos DB app
 description: Choosing the right consistency level for your application in Azure Cosmos DB.
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 04/23/2020
 ms.reviewer: sngun
 
 ---
 
 # Choose the right consistency level 
 
-Distributed databases relying on replication for high availability, low latency or both, make the fundamental tradeoff between the read consistency vs. availability, latency, and throughput. Most commercially available distributed databases ask developers to choose between the two extreme consistency models: *strong* consistency and *eventual* consistency. Azure Cosmos DB allows developers to choose among the five well-defined consistency models: *strong*, *bounded staleness*, *session*, *consistent prefix* and *eventual*. Each of these consistency models is well-defined, intuitive and can be used for specific real-world scenarios. Each of the five consistency models provide precise [availability and performance tradeoffs](consistency-levels-tradeoffs.md) and are backed by comprehensive SLAs. The following simple considerations will help you make the right choice in many common scenarios.
+Distributed databases relying on replication for high availability, low latency or both, make the fundamental tradeoff between the read consistency vs. availability, latency, and throughput. Most commercially available distributed databases ask developers to choose between the two extreme consistency models: *strong* consistency and *eventual* consistency. Azure Cosmos DB allows developers to choose among the five well-defined consistency models: *strong*, *bounded staleness*, *session*, *consistent prefix* and *eventual*. Each of these consistency models is well-defined, intuitive and can be used for specific real-world scenarios. Each of the five consistency models provide precise [availability and performance tradeoffs](consistency-levels-tradeoffs.md) and are backed by comprehensive SLAs. You can configure a default consistency at the account level and [override it at the request level](how-to-manage-consistency.md#override-the-default-consistency-level). The following simple considerations will help you make the right choice in many common scenarios.
 
 ## SQL API and Table API
 

@@ -2,12 +2,9 @@
 title: Kubernetes on Azure tutorial - Create a container registry
 description: In this Azure Kubernetes Service (AKS) tutorial, you create an Azure Container Registry instance and upload a sample application container image.
 services: container-service
-author: mlearned
-
-ms.service: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
-ms.author: mlearned
+
 ms.custom: mvc
 
 #Customer intent: As a developer, I want to learn how to create and use a container registry so that I can deploy my own applications to Azure Kubernetes Service.
@@ -61,9 +58,12 @@ The command returns a *Login Succeeded* message once completed.
 
 To see a list of your current local images, use the [docker images][docker-images] command:
 
-```
+```azurecli
 $ docker images
+```
+The above command output shows list of your current local images:
 
+```
 REPOSITORY                   TAG                 IMAGE ID            CREATED             SIZE
 azure-vote-front             latest              4675398c9172        13 minutes ago      694MB
 redis                        latest              a1b99da73d05        7 days ago          106MB
@@ -78,17 +78,21 @@ To get the login server address, use the [az acr list][az-acr-list] command and 
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-Now, tag your local *azure-vote-front* image with the *acrloginServer* address of the container registry. To indicate the image version, add *:v1* to the end of the image name:
+Now, tag your local *azure-vote-front* image with the *acrLoginServer* address of the container registry. To indicate the image version, add *:v1* to the end of the image name:
 
 ```console
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v1
 ```
 
-To verify the tags are applied, run [docker images][docker-images] again. An image is tagged with the ACR instance address and a version number.
+To verify the tags are applied, run [docker images][docker-images] again. 
+
+```azurecli
+$ docker images
+```
+
+An image is tagged with the ACR instance address and a version number.
 
 ```
-$ docker images
-
 REPOSITORY                                           TAG           IMAGE ID            CREATED             SIZE
 azure-vote-front                                     latest        eaf2b9c57e5e        8 minutes ago       716 MB
 mycontainerregistry.azurecr.io/azure-vote-front      v1            eaf2b9c57e5e        8 minutes ago       716 MB
@@ -160,8 +164,8 @@ Advance to the next tutorial to learn how to deploy a Kubernetes cluster in Azur
 <!-- LINKS - internal -->
 [az-acr-create]: /cli/azure/acr
 [az-acr-list]: /cli/azure/acr
-[az-acr-login]: https://docs.microsoft.com/cli/azure/acr#az-acr-login
-[az-acr-list]: https://docs.microsoft.com/cli/azure/acr#az-acr-list
+[az-acr-login]: /cli/azure/acr#az-acr-login
+[az-acr-list]: /cli/azure/acr#az-acr-list
 [az-acr-repository-list]: /cli/azure/acr/repository
 [az-acr-repository-show-tags]: /cli/azure/acr/repository
 [az-group-create]: /cli/azure/group#az-group-create

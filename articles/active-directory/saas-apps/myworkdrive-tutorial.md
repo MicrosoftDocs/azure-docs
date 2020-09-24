@@ -2,20 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with MyWorkDrive | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and MyWorkDrive.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: CelesteDG
 ms.reviewer: celested
-
-ms.assetid: 4d049778-3c7b-46c0-92a4-f2633a32334b
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/20/2019
+ms.date: 06/27/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Integrate MyWorkDrive with Azure Active Directory
 
@@ -89,7 +84,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     > 
     > Sign-on URL:`https://yourserver.yourdomain.com/Account/Login-saml`
     > 
-    > Contact [MyWorkDrive support team](mailto:support@myworkdrive.com) if you are unsure how to setup your own host name and SSL certificate for these values.
+    > Contact [MyWorkDrive support team](mailto:support@myworkdrive.com) if you are unsure how to setup your own host name and TLS/SSL certificate for these values.
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** to your clipboard.
 
@@ -97,9 +92,17 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Configure MyWorkDrive SSO
 
-1. In a different web browser window, sign in to MyWorkDrive as a Security Administrator.
+1. To automate the configuration within MyWorkDrive, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
-2. On the MyWorkDrive Server in the admin panel, click on **ENTERPRISE** and perform the following steps:
+	![My apps extension](common/install-myappssecure-extension.png)
+
+1. After adding extension to the browser, click on **Setup MyWorkDrive** will direct you to the MyWorkDrive application. From there, provide the admin credentials to sign into MyWorkDrive. The browser extension will automatically configure the application for you and automate steps 3-4.
+
+	![Setup configuration](common/setup-sso.png)
+
+1. If you want to setup MyWorkDrive manually,  In a different web browser window, sign in to MyWorkDrive as a Security Administrator.
+
+1. On the MyWorkDrive Server in the admin panel, click on **ENTERPRISE** and perform the following steps:
 
 	![The Admin](./media/myworkdrive-tutorial/tutorial_myworkdrive_admin.png)
 

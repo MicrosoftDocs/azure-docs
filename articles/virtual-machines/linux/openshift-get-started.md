@@ -1,18 +1,11 @@
 ---
-title: OpenShift in Azure overview | Microsoft Docs
+title: OpenShift in Azure overview 
 description: An overview of OpenShift in Azure.
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: haroldwongms
 manager: mdotson
-editor: 
-tags: azure-resource-manager
-
-ms.assetid: 
 ms.service: virtual-machines-linux
-
-ms.topic: article
-ms.tgt_pltfrm: vm-linux
+ms.subservice: workloads
+ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 05/7/2019
 ms.author: haroldw
@@ -32,7 +25,7 @@ There are multiple versions of OpenShift available.  Of these versions, only two
 
 ## Azure Red Hat OpenShift
 
-Microsoft Azure Red Hat OpenShift is a fully managed offering of OpenShift running in Azure. This service is jointly managed and supported by Microsoft and Red Hat. For more details, see the [Azure Red Hat OpenShift Service](https://docs.microsoft.com/azure/openshift/) documentation.
+Microsoft Azure Red Hat OpenShift is a fully managed offering of OpenShift running in Azure. This service is jointly managed and supported by Microsoft and Red Hat. For more details, see the [Azure Red Hat OpenShift Service](../../openshift/index.yml) documentation.
 
 ## OpenShift Container Platform
 
@@ -46,9 +39,9 @@ OKD is an [open-source](https://www.okd.io/) upstream project of OpenShift that'
 
 ## Next steps
 
-- [Configure common prerequisites for OpenShift in Azure](./openshift-prerequisites.md)
-- [Deploy OpenShift Container Platform in Azure](./openshift-container-platform.md)
-- [Deploy OpenShift Container Platform Self-Managed Marketplace Offer](./openshift-marketplace-self-managed.md)
+- [Configure common prerequisites for OpenShift in Azure](./openshift-container-platform-3x-prerequisites.md)
+- [Deploy OpenShift Container Platform in Azure](./openshift-container-platform-3x.md)
+- [Deploy OpenShift Container Platform Self-Managed Marketplace Offer](./openshift-container-platform-3x-marketplace-self-managed.md)
 - [Deploy OpenShift in Azure Stack](./openshift-azure-stack.md)
-- [Post-deployment tasks](./openshift-post-deployment.md)
-- [Troubleshoot OpenShift deployment](./openshift-troubleshooting.md)
+- [Post-deployment tasks](./openshift-container-platform-3x-post-deployment.md)
+- [Troubleshoot OpenShift deployment](./openshift-container-platform-3x-troubleshooting.md)

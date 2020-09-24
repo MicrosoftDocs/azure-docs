@@ -1,23 +1,23 @@
 ---
-title: Create an access review of Azure resource roles in PIM - Azure Active Directory | Microsoft Docs
+title: Create an access review of Azure resource roles in PIM - Azure AD | Microsoft Docs
 description: Learn how to create an access review of Azure resource roles in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: pim
-ms.date: 04/29/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
 
-# Create an access review of Azure resource roles in PIM
+# Create an access review of Azure resource roles in Privileged Identity Management
 
 Access to privileged Azure resource roles for employees changes over time. To reduce the risk associated with stale role assignments, you should regularly review access. You can use Azure Active Directory (Azure AD) Privileged Identity Management (PIM) to create access reviews for privileged Azure resource roles. You can also configure recurring access reviews that occur automatically.
 
@@ -25,7 +25,7 @@ This article describes how to create one or more access reviews for privileged A
 
 ## Prerequisites
 
-- [Privileged Role Administrator](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator)
+[Privileged Role Administrator](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator)
 
 ## Open access reviews
 
@@ -33,17 +33,15 @@ This article describes how to create one or more access reviews for privileged A
 
 1. Open **Azure AD Privileged Identity Management**.
 
-1. In the left menu, click **Azure resources**.
+1. In the left menu, select **Azure resources**.
 
-1. Click the resource you want to manage, such as a subscription or management group.
+1. Select the resource you want to manage, such as a subscription or management group.
 
-1. Under Manage, click **Access reviews**.
+1. Under Manage, select **Access reviews**.
 
     ![Azure resources - Access reviews list showing the status of all reviews](./media/pim-resource-roles-start-access-review/access-reviews.png)
 
-
 [!INCLUDE [Privileged Identity Management access reviews](../../../includes/active-directory-privileged-identity-management-access-reviews.md)]
-
 
 ## Start the access review
 

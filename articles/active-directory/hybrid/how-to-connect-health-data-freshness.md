@@ -7,10 +7,11 @@ author: zhiweiwangmsft
 manager: SamuelD
 editor: ''
 ms.service: active-directory
+ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/26/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -47,7 +48,7 @@ The following table maps service types to corresponding required data types:
 
 ## Troubleshooting steps 
 
-The steps required to diagnose the issue is given below. The first is a set of basic checks that are common to all Service Types. The table below that lists out specific steps for each Service Type and Data Type. 
+The steps required to diagnose the issue is given below. The first is a set of basic checks that are common to all Service Types. 
 
 > [!IMPORTANT] 
 > This alert follows Connect Health [data retention policy](reference-connect-health-user-privacy.md#data-retention-policy)

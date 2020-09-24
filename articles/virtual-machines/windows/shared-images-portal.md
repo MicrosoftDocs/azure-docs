@@ -1,27 +1,18 @@
 ---
-title: Create shared Azure Virtual Machine images for Windows using portal | Microsoft Docs
+title: Create an Azure Shared Image Gallery using the portal 
 description: Learn how to use Azure portal to create and share virtual machine images.
-services: virtual-machines-windows
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-editor: tysonn
-tags: azure-resource-manager
-
-ms.assetid: 
 ms.service: virtual-machines-windows
-
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.subservice: imaging
+ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 05/06/2019
+ms.date: 11/06/2019
 ms.author: cynthn
-ms.custom: 
 
 #Customer intent: As an IT administrator, I want to learn about how to create shared VM images to minimize the number of post-deployment configuration tasks.
 ---
 
-# Create a shared image gallery using the Azure portal
+# Create an Azure Shared Image Gallery using the portal
 
 A [Shared Image Gallery](shared-image-galleries.md) simplifies custom image sharing across your organization. Custom images are like marketplace images, but you create them yourself. Custom images can be used to bootstrap deployment tasks like preloading applications, application configurations, and other OS configurations. 
 
@@ -31,44 +22,33 @@ The gallery is a top-level resource that provides full role-based access control
 
 The Shared Image Gallery feature has multiple resource types. We will be using or building these in this article:
 
-| Resource | Description|
-|----------|------------|
-| **Managed image** | This is a basic image that can be used alone or used to create an **image version** in an image gallery. Managed images are created from generalized VMs. A managed image is a special type of VHD that can be used to make multiple VMs and can now be used to create shared image versions. |
-| **Image gallery** | Like the Azure Marketplace, an **image gallery** is a repository for managing and sharing images, but you control who has access. |
-| **Image definition** | Images are defined within a gallery and carry information about the image and requirements for using it internally. This includes whether the image is Windows or Linux, release notes, and minimum and maximum memory requirements. It is a definition of a type of image. |
-| **Image version** | An **image version** is what you use to create a VM when using a gallery. You can have multiple versions of an image as needed for your environment. Like a managed image, when you use an **image version** to create a VM, the image version is used to create new disks for the VM. Image versions can be used multiple times. |
 
+[!INCLUDE [virtual-machines-shared-image-gallery-resources](../../../includes/virtual-machines-shared-image-gallery-resources.md)]
 
-## Before you begin
+<br>
 
-To complete the example in this article, you must have an existing managed image. You can follow [Tutorial: Create a custom image of an Azure VM with Azure PowerShell](tutorial-custom-images.md) to create one if needed. If the managed image contains a data disk, the data disk size cannot be more than 1 TB.
 
 When working through this article, replace the resource group and VM names where needed.
 
 
 [!INCLUDE [virtual-machines-common-shared-images-portal](../../../includes/virtual-machines-common-shared-images-portal.md)]
  
-## Create VMs from an image
+## Create VMs
 
-Once the image version is complete, you can create one or more new VMs. 
+Now you can create one or more new VMs. This example creates a VM named *myVM*, in the *myResourceGroup*, in the *East US* datacenter.
 
-> [!IMPORTANT]
-> You cannot use the portal to deploy a VM from an image in another azure tenant. To create a VM from an image shared between tenants, you must use the [Azure CLI](../linux/shared-images.md#create-a-vm) or [Powershell](shared-images.md#create-vms-from-an-image).
-
-This example creates a VM named *myVMfromImage*, in the *myResourceGroup* in the *East US* datacenter.
-
-1. On the page for your image version, select **Create VM** from the menu at the top of the page.
+1. Go to your image definition. You can use the resource filter to show all image definitions available.
+1. On the page for your image definition, select **Create VM** from the menu at the top of the page.
 1. For **Resource group**, select **Create new** and type *myResourceGroup* for the name.
 1. In **Virtual machine name**, type *myVM*.
 1. For **Region**, select *East US*.
 1. For **Availability options**, leave the default of *No infrastructure redundancy required*.
-1. The value for **Image** should be automatically filled in if you started from the page for the image version.
-1. For **Size**, choose a VM size from the list of available sizes and then click "Select".
-1. Under **Administrator account**,  provide a username, such as *azureuser* and a password. The password must be at least 12 characters long and meet the [defined complexity requirements](faq.md#what-are-the-password-requirements-when-creating-a-vm).
+1. The value for **Image** is automatically filled with the `latest` image version if you started from the page for the image definition.
+1. For **Size**, choose a VM size from the list of available sizes and then choose **Select**.
+1. Under **Administrator account**, if the image was generalized, you need to provide a username, such as *azureuser* and a password. The password must be at least 12 characters long and meet the [defined complexity requirements](faq.md#what-are-the-password-requirements-when-creating-a-vm). If your image was specialized, the username and password fields will greyed out because the username and password for the source VM are used.
 1. If you want to allow remote access to the VM, under **Public inbound ports**, choose **Allow selected ports** and then select **RDP (3389)** from the drop-down. If you don't want to allow remote access to the VM, leave **None** selected for **Public inbound ports**.
 1. When you are finished, select the **Review + create** button at the bottom of the page.
 1. After the VM passes validation, select **Create** at the bottom of the page to start the deployment.
-
 
 
 ## Clean up resources

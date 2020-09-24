@@ -1,17 +1,24 @@
 ---
-title: Migrate Azure compute resources from Azure Germany to global Azure
+title: Migrate Azure compute resource from Azure Germany to global Azure
 description: This article provides information about migrating your Azure compute resources from Azure Germany to global Azure.
 author: gitralf
 services: germany
 cloud: Azure Germany
 ms.author: ralfwi 
 ms.service: germany
-ms.date: 8/15/2018
+ms.date: 12/12/2019
 ms.topic: article
 ms.custom: bfmigrate
 ---
 
 # Migrate compute resources to global Azure
+
+> [!IMPORTANT]
+> Since [August 2018](https://news.microsoft.com/europe/2018/08/31/microsoft-to-deliver-cloud-services-from-new-datacentres-in-germany-in-2019-to-meet-evolving-customer-needs/), we have not been accepting new customers or deploying any new features and services into the original Microsoft Cloud Germany locations.
+>
+> Based on the evolution in customers' needs, we recently [launched](https://azure.microsoft.com/blog/microsoft-azure-available-from-new-cloud-regions-in-germany/) two new datacenter regions in Germany, offering customer data residency, full connectivity to Microsoft's global cloud network, as well as market competitive pricing. 
+>
+> Take advantage of the breadth of functionality, enterprise-grade security, and comprehensive features available in our new German datacenter regions by [migrating](germany-migration-main.md) today.
 
 This article has information that can help you migrate Azure compute resources from Azure Germany to global Azure.
 
@@ -68,11 +75,11 @@ A .zip file that has several files in it downloads. The PowerShell, Azure CLI, R
 
 For more information:
 
-- Refresh your knowledge by completing the [Site Recovery tutorials](https://docs.microsoft.com/azure/site-recovery/#step-by-step-tutorials).
-- Get information about how to [export Resource Manager templates](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates) or read an overview of [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+- Refresh your knowledge by completing the [Site Recovery tutorials](/azure/site-recovery/).
+- Get information about how to [export Resource Manager templates](../azure-resource-manager/templates/export-template-portal.md) or read an overview of [Azure Resource Manager](../azure-resource-manager/management/overview.md).
 - Learn more about [physical-to-Azure disaster recovery by using Site Recovery](../site-recovery/physical-azure-disaster-recovery.md).
 - Read the [overview of Azure locations](https://azure.microsoft.com/global-infrastructure/locations/).
-- Learn more about how to [redeploy a template](../azure-resource-manager/resource-group-template-deploy.md).
+- Learn more about how to [redeploy a template](../azure-resource-manager/templates/deploy-powershell.md).
 
 ## Cloud Services
 
@@ -90,20 +97,20 @@ To redeploy cloud services in the Azure portal:
 
 To redeploy cloud services by using PowerShell:
 
-1. [Create a new cloud service](/powershell/module/servicemanagement/azure/new-azureservice) by using your `.cspkg` and `.cscfg` definitions.
+1. [Create a new cloud service](/powershell/module/servicemanagement/azure.service/new-azureservice) by using your `.cspkg` and `.cscfg` definitions.
 
     ```powershell
     New-AzureService -ServiceName <yourServiceName> -Label <MyTestService> -Location <westeurope>
     ```
 
-1. [Create a new deployment](/powershell/module/servicemanagement/azure/new-azuredeployment) by using your `.cspkg` and `.cscfg` definitions.
+1. [Create a new deployment](/powershell/module/servicemanagement/azure.service/new-azuredeployment) by using your `.cspkg` and `.cscfg` definitions.
 
     ```powershell
     New-AzureDeployment -ServiceName <yourServiceName> -Slot <Production> -Package <YourCspkgFile.cspkg> -Configuration <YourConfigFile.cscfg>
     ```
 
 1. Update the [CNAME or A record](../cloud-services/cloud-services-custom-domain-name-portal.md) to point traffic to the new cloud service.
-1. When traffic points to the new cloud service, [delete the old cloud service](/powershell/module/servicemanagement/azure/remove-azureservice) in Azure Germany.
+1. When traffic points to the new cloud service, [delete the old cloud service](/powershell/module/servicemanagement/azure.service/remove-azureservice) in Azure Germany.
 
     ```powershell
     Remove-AzureService -ServiceName <yourOldServiceName>
@@ -143,7 +150,7 @@ You can get information about your current Service Fabric environment by using P
 
 For more information:
 
-- Refresh your knowledge by completing the [Service Fabric tutorials](https://docs.microsoft.com/azure/service-fabric/#step-by-step-tutorials).
+- Refresh your knowledge by completing the [Service Fabric tutorials](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-create-dotnet-app).
 - Learn how to [create a new cluster](../service-fabric/service-fabric-cluster-creation-via-portal.md).
 - Review the [Service Fabric overview](../service-fabric/service-fabric-overview.md).
 
@@ -161,7 +168,7 @@ Redeploy your deployment scripts, templates, or code in the new region. Redeploy
 
 For more information:
 
-- Refresh your knowledge by completing the [Batch tutorials](https://docs.microsoft.com/azure/batch/#step-by-step-tutorials).
+- Refresh your knowledge by completing the [Batch tutorials](https://docs.microsoft.com/azure/batch/tutorial-parallel-dotnet).
 - Review the [Azure Batch overview](../batch/batch-technical-overview.md).
 
 ## Functions
@@ -174,10 +181,10 @@ Migrating Azure Functions resources from Azure Germany to global Azure isn't sup
 For more information:
 
 - Refresh your knowledge by completing the [Functions tutorials](https://docs.microsoft.com/azure/azure-functions).
-- Learn how to [export Resource Manager templates](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates) or read an overview of [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+- Learn how to [export Resource Manager templates](../azure-resource-manager/templates/export-template-portal.md) or read an overview of [Azure Resource Manager](../azure-resource-manager/management/overview.md).
 - Review the [Azure Functions overview](../azure-functions/functions-overview.md).
 - Get an [overview of Azure locations](https://azure.microsoft.com/global-infrastructure/locations/).
-- Learn how to [redeploy a template](../azure-resource-manager/resource-group-template-deploy.md).
+- Learn how to [redeploy a template](../azure-resource-manager/templates/deploy-powershell.md).
 
 ## Virtual machine scale sets
 
@@ -188,12 +195,12 @@ To migrate virtual machine scale sets to global Azure, export the Resource Manag
 
 For more information:
 
-- Refresh your knowledge by completing the [virtual machine scale set tutorials](https://docs.microsoft.com/azure/virtual-machine-scale-sets/#step-by-step-tutorials).
-- Learn how to [export Azure Resource Manager templates](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates).
-- Review the [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md).
+- Refresh your knowledge by completing the [virtual machine scale set tutorials](https://docs.microsoft.com/azure/virtual-machine-scale-sets/tutorial-create-and-manage-cli).
+- Learn how to [export Azure Resource Manager templates](../azure-resource-manager/templates/export-template-portal.md).
+- Review the [Azure Resource Manager overview](../azure-resource-manager/management/overview.md).
 - Get an overview of [virtual machine scale sets](../virtual-machine-scale-sets/overview.md).
 - Read an [overview of Azure locations](https://azure.microsoft.com/global-infrastructure/locations/).
-- Learn how to [redeploy a template](../azure-resource-manager/resource-group-template-deploy.md).
+- Learn how to [redeploy a template](../azure-resource-manager/templates/deploy-powershell.md).
 
 ## Web Apps
 
@@ -204,11 +211,11 @@ Currently, apps that you created by using the Web Apps feature of Azure App Serv
 
 For more information:
 
-- Refresh your knowledge by completing the [App Service tutorials](https://docs.microsoft.com/azure/app-service/#step-by-step-tutorials).
-- Learn how to [export Resource Manager templates](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates) or read an overview of [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+- Refresh your knowledge by completing the [App Service tutorials](https://docs.microsoft.com/azure/app-service/tutorial-dotnetcore-sqldb-app).
+- Learn how to [export Resource Manager templates](../azure-resource-manager/templates/export-template-portal.md) or read an overview of [Azure Resource Manager](../azure-resource-manager/management/overview.md).
 - Review the [App Service overview](../app-service/overview.md).
 - Read the [overview of Azure locations](https://azure.microsoft.com/global-infrastructure/locations/).
-- Learn how to [redeploy a template](../azure-resource-manager/resource-group-template-deploy.md).
+- Learn how to [redeploy a template](../azure-resource-manager/templates/deploy-powershell.md).
 
 ## Next steps
 

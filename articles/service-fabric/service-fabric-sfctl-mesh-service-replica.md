@@ -1,20 +1,11 @@
 ---
-title: Azure Service Fabric CLI- sfctl mesh service-replica | Microsoft Docs
-description: Describes the Service Fabric CLI sfctl mesh service-replica commands.
-services: service-fabric
-documentationcenter: na
-author: Christina-Kang
-manager: chackdan
-editor: ''
+title: Azure Service Fabric CLI- sfctl mesh service-replica 
+description: Learn about sfctl, the Azure Service Fabric command line interface. Includes a list of commands for getting replica details for an application resources.
+author: jeffj6123
 
-ms.assetid: 
-ms.service: service-fabric
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
-
+ms.date: 1/16/2020
+ms.author: jejarry
 ---
 
 # sfctl mesh service-replica
@@ -75,4 +66,4 @@ Gets the information about the service replica with the given name. The informat
 
 ## Next steps
 - [Set up](service-fabric-cli.md) the Service Fabric CLI.
-- Learn how to use the Service Fabric CLI using the [sample scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Learn how to use the Service Fabric CLI using the [sample scripts](./scripts/sfctl-upgrade-application.md).

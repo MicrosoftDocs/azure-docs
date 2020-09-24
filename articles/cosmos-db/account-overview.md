@@ -1,12 +1,12 @@
 ---
 title: Working with Azure Cosmos DB accounts 
-description: This article describes how create and use Azure Cosmos DB accounts
-author: rimman
+description: This article describes how create and use Azure Cosmos accounts. It also shows the hierarchy of elements in an Azure Cosmos account 
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 07/23/2019
-ms.author: rimman
+ms.date: 06/09/2020
 ms.reviewer: sngun
 
 ---
@@ -25,7 +25,7 @@ Azure Cosmos container is the fundamental unit of scalability. You can virtually
 
 Currently, you can create a maximum of 100 Azure Cosmos accounts under an Azure subscription. A single Azure Cosmos account can virtually manage unlimited amount of data and provisioned throughput. To manage your data and provisioned throughput, you can create one or more Azure Cosmos databases under your account and within that database, you can create one or more containers. The following image shows the hierarchy of elements in an Azure Cosmos account:
 
-![Hierarchy of an Azure Cosmos account](./media/account-overview/hierarchy.png)
+:::image type="content" source="./media/account-overview/hierarchy.png" alt-text="Hierarchy of an Azure Cosmos account" border="false":::
 
 ## Next steps
 

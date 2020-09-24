@@ -1,26 +1,22 @@
 ---
-title: Configure an application's publisher domain | Azure
+title: Configure an app's publisher domain | Azure
+titleSuffix: Microsoft identity platform
 description: Learn how to configure an application's publisher domain to let users know where their information is being sent.
 services: active-directory
-documentationcenter: dev-center-name
 author: rwike77
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
-ms.topic: conceptual
-ms.tgt_pltfrm: na
+ms.topic: how-to
 ms.workload: identity
-ms.date: 04/05/2019
+ms.date: 07/23/2020
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
-# How to: Configure an application's publisher domain (Preview)
+# How to: Configure an application's publisher domain
 
 An application’s publisher domain is displayed to users on the [application’s consent prompt](application-consent-experience.md) to let users know where their information is being sent. Multi-tenant applications that are registered after May 21, 2019 that don't have a publisher domain show up as **unverified**. Multi-tenant applications are applications that support accounts outside of a single organizational directory; for example, support all Azure AD accounts, or support all Azure AD accounts and personal Microsoft accounts.
 
@@ -76,9 +72,12 @@ If your app isn't registered in a tenant, you'll only see the option to verify a
    ```json
    {
       "associatedApplications": [
-        {
-           "applicationId": "{YOUR-APP-ID-HERE}"
-        }
+         {
+            "applicationId": "{YOUR-APP-ID-HERE}"
+         },
+         {
+            "applicationId": "{YOUR-OTHER-APP-ID-HERE}"
+         }
       ]
     }
    ```

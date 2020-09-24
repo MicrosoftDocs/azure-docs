@@ -1,15 +1,15 @@
 ---
-title: Troubleshoot failback to on-premises during VMware VM disaster recovery to Azure with Azure Site Recovery | Microsoft Docs
-description: This article describes ways to troubleshoot failback and reprotection issues during VMware VM disaster recovery to Azure with Azure Site Recovery.
-author: rayne-wiselman
-manager: carmonm
+title: Troubleshoot VMware vCenter discovery failures in Azure Site Recovery 
+description: This article describes how to troubleshooting VMware vCenter discovery failures in Azure Site Recovery. 
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 02/19/2019
-ms.author: raynew
+ms.date: 10/29/2019
+ms.author: mayg
 
 ---
-# Troubleshoot vCenter discovery failures
+# Troubleshoot vCenter Server discovery failures
 
 This article helps you to troubleshoot issues that occur because of VMware vCenter discovery failures.
 
@@ -19,12 +19,14 @@ On versions prior to 9.20, vCenter disconnects when it retrieves a non-numeric v
 
 This issue is identified by error ID 95126.
 
-    ERROR :: Hit an exception while fetching the required informationfrom vCenter/vSphere.Exception details:
-	System.FormatException: Input string was not in a correct format.
-	   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
-	   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
-	   at VMware.VSphere.Management.InfraContracts.VirtualMachineInfo.get_MaxSnapshots()
-	
+```output
+ERROR :: Hit an exception while fetching the required informationfrom vCenter/vSphere.Exception details:
+System.FormatException: Input string was not in a correct format.
+    at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+    at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+    at VMware.VSphere.Management.InfraContracts.VirtualMachineInfo.get_MaxSnapshots()
+```
+
 To resolve the issue:
 
 - Identify the VM and set the value to a numeric value (VM Edit settings in vCenter).
@@ -74,4 +76,4 @@ For DRA proxy configuration:
 
 ## Next steps
 
-[Manage the configuration server for VMware VM disaster recovery](https://docs.microsoft.com/azure/site-recovery/vmware-azure-manage-configuration-server#refresh-configuration-server) 
+[Manage the configuration server for VMware VM disaster recovery](./vmware-azure-manage-configuration-server.md#refresh-configuration-server) 

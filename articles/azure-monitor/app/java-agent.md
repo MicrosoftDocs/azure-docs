@@ -1,18 +1,11 @@
 ---
-title: Performance monitoring for Java web apps in Azure Application Insights | Microsoft Docs
+title: Java web apps performance monitoring - Azure Application Insights
 description: Extended performance and usage monitoring of your Java website with Application Insights.
-services: application-insights
-documentationcenter: java
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 84017a48-1cb3-40c8-aab1-ff68d65e2128
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/10/2019
-ms.author: mbullwin
+ms.custom: devx-track-java
 ---
+
 # Monitor dependencies, caught exceptions, and method execution times in Java web apps
 
 
@@ -124,19 +117,20 @@ In the Application Insights resource, aggregated remote dependency and method ex
 
 To search for individual instances of dependency, exception, and method reports, open [Search][diagnostic].
 
-[Diagnosing dependency issues - learn more](../../azure-monitor/app/asp-net-dependencies.md#diagnosis).
+[Diagnosing dependency issues - learn more](./asp-net-dependencies.md#diagnosis).
 
 ## Questions? Problems?
-* No data? [Set firewall exceptions](../../azure-monitor/app/ip-addresses.md)
+* No data? [Set firewall exceptions](./ip-addresses.md)
 * [Troubleshooting Java](java-troubleshoot.md)
 
 <!--Link references-->
 
-[api]: ../../azure-monitor/app/api-custom-events-metrics.md
-[apiexceptions]: ../../azure-monitor/app/api-custom-events-metrics.md#track-exception
-[availability]: ../../azure-monitor/app/monitor-web-app-availability.md
-[diagnostic]: ../../azure-monitor/app/diagnostic-search.md
+[api]: ./api-custom-events-metrics.md
+[apiexceptions]: ./api-custom-events-metrics.md#track-exception
+[availability]: ./monitor-web-app-availability.md
+[diagnostic]: ./diagnostic-search.md
 [eclipse]: app-insights-java-eclipse.md
 [java]: java-get-started.md
 [javalogs]: java-trace-logs.md
-[metrics]: ../../azure-monitor/app/metrics-explorer.md
+[metrics]: ../platform/metrics-charts.md
+

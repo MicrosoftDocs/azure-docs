@@ -17,8 +17,6 @@
     href: quickstart-download-audit-report.md
   - name: Configure named locations
     href: quickstart-configure-named-locations.md
-  - name: Install Power BI content pack
-    href: quickstart-install-power-bi-content-pack.md
   - name: Route logs to storage account
     href: quickstart-azure-monitor-route-logs-to-storage-account.md
 
@@ -28,7 +26,8 @@
     href: tutorial-access-api-with-certificates.md
   - name: Stream logs to event hub
     href: tutorial-azure-monitor-stream-logs-to-event-hub.md
-
+  - name: Log analytics wizard
+    href: tutorial-log-analytics-wizard.md
 
 - name: Concepts
   items:
@@ -36,16 +35,18 @@
     href: plan-monitoring-and-reporting.md
   - name: Audit logs
     href: concept-audit-logs.md
+  - name: New sign-in logs - preview
+    href: concept-all-sign-ins.md
   - name: Sign-in logs
     href: concept-sign-ins.md
   - name: Usage and Insights report
     href: concept-usage-insights-report.md
   - name: Risky sign-ins
-    href: concept-risky-sign-ins.md
+    href: ../identity-protection/overview-identity-protection.md
   - name: Risk detections
-    href: concept-risk-events.md
+    href: ../identity-protection/overview-identity-protection.md
   - name: Users at risk
-    href: concept-user-at-risk.md
+    href: ../identity-protection/overview-identity-protection.md
   - name: Provisioning logs
     href: concept-provisioning-logs.md
   - name: Reporting APIs
@@ -58,14 +59,14 @@
   items:
   - name: Reports
     items:
+    - name: Manage inactive user accounts in Azure AD
+      href: howto-manage-inactive-user-accounts.md
     - name: Find activity reports
       href: howto-find-activity-reports.md
     - name: Troubleshoot sign-in errors for a user
       href: howto-troubleshoot-sign-in-errors.md
     - name: Remediate users flagged for risk
       href: howto-remediate-users-flagged-for-risk.md
-    - name: Use Power BI Content Pack for Azure AD reports
-      href: howto-power-bi-content-pack.md
     - name: Configure prerequisites for Reporting API
       href: howto-configure-prerequisites-for-reporting-api.md
     - name: How to use Azure AD workbooks
@@ -94,8 +95,8 @@
       href: troubleshoot-missing-data-download.md
     - name: Cannot access Graph APIs for reporting
       href: troubleshoot-graph-api.md
-    - name: Errors in Power BI Content pack
-      href: troubleshoot-content-pack.md
+    - name: Audit data on verified domain change
+      href: troubleshoot-audit-data-verified-domain.md
 
 - name: Reference
   expanded: true
@@ -103,9 +104,9 @@
   - name: Azure AD PowerShell cmdlets for reporting
     href: reference-powershell-reporting.md
   - name: Audit logs API reference
-    href: https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit
+    href: /graph/api/resources/directoryaudit?view=graph-rest-beta
   - name: Sign-in logs API reference
-    href: https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin
+    href: /graph/api/resources/signin?view=graph-rest-beta
   - name: Audit activities
     href: reference-audit-activities.md
   - name: Data retention policies
@@ -120,4 +121,3 @@
     href: reference-azure-monitor-audit-log-schema.md
   - name: Sign-in log schema
     href: reference-azure-monitor-sign-ins-log-schema.md
-

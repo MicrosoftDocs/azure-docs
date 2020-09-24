@@ -1,6 +1,6 @@
 ---
-title: Rules for naming Azure Data Factory entities | Microsoft Docs
-description: Describes naming rules for Data Factory entities.
+title: Rules for naming Azure Data Factory entities - version 1
+description: Describes naming rules for Data Factory v1 entities.
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -10,12 +10,12 @@ ms.reviewer: maghan
 ms.assetid: bc5e801d-0b3b-48ec-9501-bb4146ea17f1
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 ms.topic: conceptual
 ms.date: 01/10/2018
 ---
 
-# Azure Data Factory - naming rules
+# Rules for naming Azure Data Factory entities
 > [!NOTE]
 > This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [naming rules in Data Factory](../naming-rules.md).
 

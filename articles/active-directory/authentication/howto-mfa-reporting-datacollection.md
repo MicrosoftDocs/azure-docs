@@ -1,15 +1,15 @@
 ---
-title: Azure Multi-Factor Authentication user data collection - Azure Active Directory
+title: Azure MFA user data collection - Azure Active Directory
 description: What information is used to help authenticate users by Azure Multi-Factor Authentication?
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
-ms.date: 07/11/2018
+ms.topic: how-to
+ms.date: 11/21/2019
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 
@@ -113,7 +113,7 @@ Bypasses (used for reporting):
 - Completion Reason
 - Bypass Used
 
-Changes (used to sync user changes to MFA Server or AAD):
+Changes (used to sync user changes to MFA Server or Azure AD):
 
 - Change Timestamp
 - Username
@@ -135,9 +135,9 @@ For MFA Server version 8.0 or higher the following process allows administrators
 - Log in to your MFA Server, navigate to the **Users** tab, select the user in question, and click the **Edit** button. Take screenshots (Alt-PrtScn) of each tab to provide the user their current MFA settings.
 - From the command line of the MFA Server, run the following command changing the path according to your installation `C:\Program Files\Multi-Factor Authentication Server\MultiFactorAuthGdpr.exe export <username>` to produce a JSON formatted file.
 - Administrators can also use the Web Service SDK GetUserGdpr operation as an option to export all MFA cloud service information collected for a given user or  incorporate into a larger reporting solution.
-- Search `C:\Program Files\Multi-Factor Authentication Server\Logs\MultiFactorAuthSvc.log` and any backups for “\<username>” (include the quotes in the search) to find all instances of the user record being added or changed.
-   - These records can be limited (but not eliminated) by unchecking **“Log user changes”** in the MFA Server UX, Logging section, Log Files tab.
-   - If syslog is configured, and **“Log user changes”** is checked in the MFA Server UX, Logging section, Syslog tab, then the log entries can be gathered from syslog instead.
+- Search `C:\Program Files\Multi-Factor Authentication Server\Logs\MultiFactorAuthSvc.log` and any backups for "\<username>" (include the quotes in the search) to find all instances of the user record being added or changed.
+   - These records can be limited (but not eliminated) by unchecking **"Log user changes"** in the MFA Server UX, Logging section, Log Files tab.
+   - If syslog is configured, and **"Log user changes"** is checked in the MFA Server UX, Logging section, Syslog tab, then the log entries can be gathered from syslog instead.
 - Other occurrences of the username in MultiFactorAuthSvc.log and other MFA Server log files pertaining to authentication attempts are considered operational and duplicative to the information provided using MultiFactorAuthGdpr.exe export or Web Service SDK GetUserGdpr.
 
 ## Delete data from MFA Server

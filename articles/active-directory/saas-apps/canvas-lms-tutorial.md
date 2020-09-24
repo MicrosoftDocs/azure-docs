@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Canvas | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Canvas.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-
-ms.assetid: bfed291c-a33e-410d-b919-5b965a631d45
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/02/2018
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Canvas
 
@@ -246,7 +240,7 @@ To enable Azure AD users to log in to Canvas, they must be provisioned into Canv
    e. Click **Add User**.
 
 > [!NOTE]
-> You can use any other Canvas user account creation tools or APIs provided by Canvas to provision AAD user accounts.
+> You can use any other Canvas user account creation tools or APIs provided by Canvas to provision Azure AD user accounts.
 
 ### Test single sign-on
 

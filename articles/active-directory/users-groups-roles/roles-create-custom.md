@@ -1,19 +1,17 @@
 ﻿---
-title: Create and assign a custom role in Azure AD role-based access control - Azure Active Directory | Microsoft Docs
+title: Create custom roles in Azure AD role-based access control | Microsoft Docs
 description: Create and assign custom Azure AD roles with resource scope on Azure Active Directory resources.
 services: active-directory
 author: curtand
-manager: mtillman
-
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
-ms.date: 09/04/2019
+ms.topic: how-to
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-
 ms.collection: M365-identity-device-management
 ---
 # Create and assign a custom role in Azure Active Directory
@@ -137,6 +135,9 @@ $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -Rol
    }
     ```
 
+  > [!Note]
+  > The "templateId": "GUID" is an optional parameter being sent in the body depending on requirement. If you have a requirement for creating multiple different custom role with common parameters , it is best to create a template and define a templateId . You can generate a templateId beforehand using the powershell cmdlet (New-Guid).Guid . 
+
 1. Create the role assignment.
 
     HTTP request to create a custom role definition.
@@ -156,6 +157,7 @@ $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -Rol
        "resourceScope":"/<GUID OF APPLICATION REGISTRATION>"
    }
     ```
+
 
 ## Assign a custom role scoped to a resource
 

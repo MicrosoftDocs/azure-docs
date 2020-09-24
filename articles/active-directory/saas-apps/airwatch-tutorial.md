@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with AirWatch | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and AirWatch.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 96a3bb1c-96c6-40dc-8ea0-060b0c2a62e5
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 07/11/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Integrate AirWatch with Azure Active Directory
@@ -238,7 +231,7 @@ To enable Azure AD users to sign in to AirWatch, they must be provisioned in to 
    b. Click **Save**.
 
 > [!NOTE]
-> You can use any other AirWatch user account creation tools or APIs provided by AirWatch to provision AAD user accounts.
+> You can use any other AirWatch user account creation tools or APIs provided by AirWatch to provision Azure AD user accounts.
 
 ### Test SSO
 

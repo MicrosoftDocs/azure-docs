@@ -1,23 +1,10 @@
 ---
 title: Overview of dedicated event hubs - Azure Event Hubs | Microsoft Docs
 description: This article provides an overview of dedicated Azure Event Hubs, which offers single-tenant deployments of event hubs.  
-services: event-hubs
-documentationcenter: na
-author: ShubhaVijayasarathy
-manager: timlt
-editor: ''
-
-ms.assetid:
-ms.service: event-hubs
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.custom: seodec18
-ms.date: 12/06/2018
-ms.author: shvija
-
+ms.date: 06/23/2020
 ---
+
 # Overview of Event Hubs Dedicated
 
 *Event Hubs clusters* offer single-tenant deployments for customers with the most demanding streaming needs. This single-tenant offering has a guaranteed 99.99% SLA and is available only on our Dedicated pricing tier. An Event Hubs cluster can ingress millions of events per second with guaranteed capacity and sub-second latency. Namespaces and event hubs created within the Dedicated cluster include all features of the Standard offering and more, but without any ingress limits. It also includes the popular [Event Hubs Capture](event-hubs-capture-overview.md) feature at no additional cost, allowing you to automatically batch and log data streams to Azure Storage or Azure Data Lake. 
@@ -53,7 +40,7 @@ The Event Hubs Dedicated offering is billed at a fixed monthly price, with a min
 | Event Hubs |  10 per namespace | 1000 per namespace |
 | Ingress events | Pay per million events | Included |
 | Message Size | 1 Million Bytes | 1 Million Bytes |
-| Partitions | 40 per namespace | 2000 per CU |
+| Partitions | 32 per Event Hub | 1024 per Event Hub |
 | Consumer groups | 20 per Event Hub | No limit per CU, 1000 per event hub |
 | Brokered connections | 1,000 included, 5,000 max | 100 K included and max |
 | Message Retention | 7 days, 84 GB included per TU | 90 days, 10 TB included per CU |

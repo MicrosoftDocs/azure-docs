@@ -1,5 +1,5 @@
 ---
-title: Connect IoT DevKit to Remote Monitoring solution accelerator - Azure | Microsoft Docs
+title: Connect IoT DevKit to Remote Monitoring solution - Azure | Microsoft Docs
 description: In this how-to guide, you learn how to send telemetry from the sensors on IoT DevKit AZ3166 device the to Remote Monitoring solution accelerator for monitoring and visualization.
 author: isabelcabezasm
 manager: 
@@ -124,4 +124,3 @@ Now that you've learned how to connect a DevKit device to your Remote Monitoring
 
 * [Azure IoT solution accelerators overview](https://docs.microsoft.com/azure/iot-accelerators/)
 * [Customize the UI](iot-accelerators-remote-monitoring-customize.md)
-* [Connect IoT DevKit to your Azure IoT Central application](../iot-central/howto-connect-devkit.md)

@@ -1,19 +1,15 @@
 ---
-title: 'Create and modify an ExpressRoute circuit - portal: Azure | Microsoft Docs'
-description: Create, provision, verify, update, delete, and deprovision an ExpressRoute circuit.
+title: 'Tutorial - Create and modify a circuit with ExpressRoute'
+description: In this tutorial, you learn how to create, provision, verify, update, delete, and deprovision an ExpressRoute circuit.
 services: expressroute
-author: cherylmc
-
+author: duongau
 ms.service: expressroute
-ms.topic: article
-ms.date: 10/20/2018
-ms.author: cherylmc
-ms.reviewer: ganesr
-ms.custom: seodec18
-
+ms.topic: tutorial
+ms.date: 09/01/2020
+ms.author: duau
 ---
 
-# Create and modify an ExpressRoute circuit
+# Tutorial: Create and modify an ExpressRoute circuit
 
 > [!div class="op_single_selector"]
 > * [Azure portal](expressroute-howto-circuit-portal-resource-manager.md)
@@ -24,7 +20,15 @@ ms.custom: seodec18
 > * [PowerShell (classic)](expressroute-howto-circuit-classic.md)
 >
 
-This article helps you create an ExpressRoute circuit using the Azure portal and the Azure Resource Manager deployment model. You can also check the status, update, delete, or deprovision a circuit.
+This tutorial shows you how to create an ExpressRoute circuit using the Azure portal and the Azure Resource Manager deployment model. You can also check the status, update, delete, or deprovision a circuit.
+
+In this tutorial you learn how to:
+
+> [!div class="checklist"]
+> * Create an ExpressRoute circuit
+> * Get current status of a circuit
+> * Modify a circuit
+> * Deprovision and delete a circuit
 
 ## Before you begin
 
@@ -44,37 +48,56 @@ From a browser, navigate to the [Azure portal](https://portal.azure.com) and sig
 > [!IMPORTANT]
 > Your ExpressRoute circuit is billed from the moment a service key is issued. Ensure that you perform this operation when the connectivity provider is ready to provision the circuit.
 
-1. You can create an ExpressRoute circuit by selecting the option to create a new resource. Click **Create a resource** > **Networking** > **ExpressRoute**, as shown in the following image:
+You can create an ExpressRoute circuit by selecting the option to create a new resource. 
 
-   ![Create an ExpressRoute circuit](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit1.png)
-2. After you click **ExpressRoute**, you'll see the **Create ExpressRoute circuit** page. When you're filling in the values on this page, make sure that you specify the correct SKU tier (Standard, or Premium) and data metering billing model (Unlimited or Metered).
+1. On the Azure portal menu, select **Create a resource**. Select **Networking** > **ExpressRoute**, as shown in the following image:
 
-   ![Configure the SKU tier and data metering](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit.png)
+    :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/create-expressroute-circuit-menu.png" alt-text="Create an ExpressRoute circuit":::
 
-   * **Tier** determines whether an ExpressRoute standard or an ExpressRoute premium add-on is enabled. You can specify **Standard** to get the standard SKU or **Premium** for the premium add-on.
-   * **Data metering** determines the billing type. You can specify **Metered** for a metered data plan and **Unlimited** for an unlimited data plan. Note that you can change the billing type from **Metered** to **Unlimited**.
+2. After you click **ExpressRoute**, you'll see the **Create ExpressRoute** page. Provide the **Resource Group**, **Region**, and  **Name** for the circuit. Then click **Next: Configuration >**.
 
-     > [!IMPORTANT]
-     > You can't change the type from **Unlimited** to **Metered**.
+    :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-create-basic.png" alt-text="Configure the resource group and region":::
 
-   * **Peering Location** is the physical location where you are peering with Microsoft.
+3. When you're filling in the values on this page, make sure that you specify the correct SKU tier (Local, Standard, or Premium) and data metering billing model (Unlimited or Metered).
 
-     > [!IMPORTANT]
-     > The Peering Location indicates the [physical location](expressroute-locations.md) where you are peering with Microsoft. This is **not** linked to "Location" property, which refers to the geography where the Azure Network Resource Provider is located. While they are not related, it is a good practice to choose a Network Resource Provider geographically close to the Peering Location of the circuit.
+    :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-create-configuration.png" alt-text="Configure the circuit":::
+    
+    * **Port type** determines if you are connecting to a service provider or directly into Microsoft's global network at a peering location.
+    * **Create new or import from classic** determines if a new circuit is being created or if you are migrating a classic circuit to ARM.
+    * **Provider** is the internet service provide whom you will be requesting your service from.
+    * **Peering Location** is the physical location where you are peering with Microsoft.
+
+    > [!IMPORTANT]
+    > The Peering Location indicates the [physical location](expressroute-locations.md) where you are peering with Microsoft. This is **not** linked to "Location" property, which refers to the geography where the Azure Network Resource Provider is located. While they are not related, it is a good practice to choose a Network Resource Provider geographically close to the Peering Location of the circuit.
+
+    * **SKU** determines whether an ExpressRoute local, ExpressRoute standard, or an ExpressRoute premium add-on is enabled. You can specify **Local** to get the local SKU, **Standard** to get the standard SKU or **Premium** for the premium add-on. Note that you can change the SKU to enable the premium add-on.
+    > [!IMPORTANT]
+    > You cannot change the SKU from **Standard/Premium** to **Local**.
+    
+    * **Billing model** determines the billing type. You can specify **Metered** for a metered data plan and **Unlimited** for an unlimited data plan. Note that you can change the billing type from **Metered** to **Unlimited**.
+
+    > [!IMPORTANT]
+    > You can not change the type from **Unlimited** to **Metered**.
+
+    * **Allow classic operation** will allow classic virtual networks to be link to the circuit.
 
 ### 3. View the circuits and properties
 
 **View all the circuits**
 
-You can view all the circuits that you created by selecting **All resources** on the left-side menu.
+You can view all the circuits that you created by selecting **All services > Networking > ExpressRoute circuits** on the left-side menu.
 
-![View circuits](./media/expressroute-howto-circuit-portal-resource-manager/listresource.png)
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-menu.png" alt-text="Expressroute circuit menu":::
+
+All Expressroute circuits created in the subscription will show up here.
+
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-list.png" alt-text="Expressroute circuit list":::
 
 **View the properties**
 
-You can view the properties of the circuit by selecting it. On the **Overview** page for your circuit, the service key appears in the service key field. You must copy the service key for your circuit and pass it down to the service provider to complete the provisioning process. The circuit service key is specific to your circuit.
+You can view the properties of the circuit by selecting it. On the **Overview** page for your circuit, the service key appears in the service key field. Refer to the service key for your circuit and provide it to the service provider to complete the provisioning process. The service key is specific to your circuit.
 
-![View properties](./media/expressroute-howto-circuit-portal-resource-manager/servicekey1.png)
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-overview.png" alt-text="View properties":::
 
 ### 4. Send the service key to your connectivity provider for provisioning
 
@@ -82,26 +105,26 @@ On this page, **Provider status** provides information on the current state of p
 
 When you create a new ExpressRoute circuit, the circuit is in the following state:
 
-Provider status: Not provisioned<BR>
-Circuit status: Enabled
+Provider status: **Not provisioned**<BR>
+Circuit status: **Enabled**
 
-![Initiate provisioning process](./media/expressroute-howto-circuit-portal-resource-manager/status.png)
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-overview-provisioning-state.png" alt-text="Initiate provisioning process":::
 
 The circuit changes to the following state when the connectivity provider is in the process of enabling it for you:
 
-Provider status: Provisioning<BR>
-Circuit status: Enabled
+Provider status: **Provisioning**<BR>
+Circuit status: **Enabled**
 
 For you to be able to use an ExpressRoute circuit, it must be in the following state:
 
-Provider status: Provisioned<BR>
-Circuit status: Enabled
+Provider status: **Provisioned**<BR>
+Circuit status: **Enabled**
 
 ### 5. Periodically check the status and the state of the circuit key
 
 You can view the properties of the circuit that you're interested in by selecting it. Check the **Provider status** and ensure that it has moved to **Provisioned** before you continue.
 
-![Circuit and provider status](./media/expressroute-howto-circuit-portal-resource-manager/provisioned.png)
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/provisioned.png" alt-text="Circuit and provider status":::
 
 ### 6. Create your routing configuration
 
@@ -125,6 +148,10 @@ You can modify certain properties of an ExpressRoute circuit without impacting c
 You can perform the following tasks with no downtime:
 
 * Enable or disable an ExpressRoute Premium add-on for your ExpressRoute circuit.
+
+> [!IMPORTANT]
+  > Changing the SKU from **Standard/Premium** to **Local** is not supported.
+
 * Increase the bandwidth of your ExpressRoute circuit, provided there is capacity available on the port.
 
   > [!IMPORTANT]
@@ -133,7 +160,7 @@ You can perform the following tasks with no downtime:
 * Change the metering plan from *Metered Data* to *Unlimited Data*.
 
   > [!IMPORTANT]
-  > Changing the metering plan from Unlimited Data to Metered Data is not supported.
+  > Changing the metering plan from **Unlimited Data** to **Metered Data** is not supported.
 
 * You can enable and disable *Allow Classic Operations*.
   > [!IMPORTANT]
@@ -145,15 +172,19 @@ You can perform the following tasks with no downtime:
 
 To modify an ExpressRoute circuit, click **Configuration**.
 
-![Modify circuit](./media/expressroute-howto-circuit-portal-resource-manager/modifycircuit.png)
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-configuration.png" alt-text="Modify circuit":::
 
 ## <a name="delete"></a>Deprovisioning and deleting an ExpressRoute circuit
 
-You can delete your ExpressRoute circuit by selecting the **delete** icon. Note the following information:
+If the ExpressRoute circuit service provider provisioning state is **Provisioning** or **Provisioned** you must work with your service provider to deprovision the circuit on their side. We continue to reserve resources and bill you until the service provider completes deprovisioning the circuit and notifies us.
 
-* You must unlink all virtual networks from the ExpressRoute circuit. If this operation fails, check whether any virtual networks are linked to the circuit.
-* If the ExpressRoute circuit service provider provisioning state is **Provisioning** or **Provisioned** you must work with your service provider to deprovision the circuit on their side. We continue to reserve resources and bill you until the service provider completes deprovisioning the circuit and notifies us.
-* If the service provider has deprovisioned the circuit (the service provider provisioning state is set to **Not provisioned**), you can delete the circuit. This stops billing for the circuit.
+> [!NOTE]
+>* You must unlink *all virtual networks* from the ExpressRoute circuit before deprovisioning. If this operation fails, check whether any virtual networks are linked to the circuit.
+>* If the service provider has deprovisioned the circuit (the service provider provisioning state is set to **Not provisioned**), you can delete the circuit. This stops billing for the circuit.
+
+You can delete your ExpressRoute circuit by selecting the **Delete** icon. 
+
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-delete.png" alt-text="Delete circuit":::
 
 ## Next steps
 

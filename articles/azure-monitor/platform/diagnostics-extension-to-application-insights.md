@@ -1,14 +1,14 @@
 ---
-title: Configure Azure Diagnostics to send data to Application Insights
+title: Send Azure Diagnostics data to Application Insights
 description: Update the Azure Diagnostics public configuration to send data to Application Insights.
-services: azure-monitor
-author: rboucher
-ms.service: azure-monitor
-ms.topic: conceptual
-ms.date: 03/19/2016
-ms.author: robb
 ms.subservice: diagnostic-extension
+ms.topic: conceptual
+author: bwren
+ms.author: bwren
+ms.date: 03/19/2016
+
 ---
+
 # Send Cloud Service, Virtual Machine, or Service Fabric diagnostic data to Application Insights
 Cloud services, Virtual Machines, Virtual Machine Scale Sets and Service Fabric all use the Azure Diagnostics extension to collect data.  Azure diagnostics sends data to Azure Storage tables.  However, you can also pipe all or a subset of the data to other locations using Azure Diagnostics extension 1.5 or later.
 
@@ -55,8 +55,8 @@ Example configuration of a sink for Application Insights:
 - The **Sink** *name* attribute is a string value that uniquely identifies the sink.
 
 - The **ApplicationInsights** element specifies instrumentation key of the Application insights resource where the Azure diagnostics data is sent.
-    - If you don't have an existing Application Insights resource, see [Create a new Application Insights resource](../../azure-monitor/app/create-new-resource.md ) for more information on creating a resource and getting the instrumentation key.
-    - If you are developing a Cloud Service with Azure SDK 2.8 and later, this instrumentation key is automatically populated. The value is based on the **APPINSIGHTS_INSTRUMENTATIONKEY** service configuration setting when packaging the Cloud Service project. See [Use Application Insights with Cloud Services](../../azure-monitor/app/cloudservices.md).
+    - If you don't have an existing Application Insights resource, see [Create a new Application Insights resource](../app/create-new-resource.md) for more information on creating a resource and getting the instrumentation key.
+    - If you are developing a Cloud Service with Azure SDK 2.8 and later, this instrumentation key is automatically populated. The value is based on the **APPINSIGHTS_INSTRUMENTATIONKEY** service configuration setting when packaging the Cloud Service project. See [Use Application Insights with Cloud Services](../app/cloudservices.md).
 
 - The **Channels** element contains one or more **Channel** elements.
     - The *name* attribute uniquely refers to that channel.
@@ -209,7 +209,7 @@ In the previous configuration, the following lines have the following meanings:
 - **You cannot send blob data collected by Azure diagnostics extension to Application Insights.** For example, anything specified under the *Directories* node. For Crash Dumps the actual crash dump is sent to blob storage and only a notification that the crash dump was generated is sent to Application Insights.
 
 ## Next Steps
-* Learn how to [view your Azure diagnostics information](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices) in Application Insights.
+* Learn how to [view your Azure diagnostics information](../app/cloudservices.md) in Application Insights.
 * Use [PowerShell](../../cloud-services/cloud-services-diagnostics-powershell.md) to enable the Azure diagnostics extension for your application.
 * Use [Visual Studio](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines) to enable the Azure diagnostics extension for your application
 

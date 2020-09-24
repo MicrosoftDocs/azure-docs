@@ -1,6 +1,6 @@
 ---
 title: Azure Operational Security | Microsoft Docs
-description: Learn about Microsoft Azure Monitor logs, its services, and how it works.
+description: Introduce yourself to Microsoft Azure Monitor logs, its services, and how it works by reading this overview.
 services: security
 documentationcenter: na
 author: UnifyCloud
@@ -100,18 +100,18 @@ Protected data in Azure Backup is stored in a backup vault located in a particul
 [Azure Monitor](../../security-center/security-center-intro.md) is Microsoft's cloud-based IT management solution that helps you manage and protect your on-premises and cloud infrastructure.
 
 
-[Management Solutions](../../monitoring/monitoring-solutions.md) are prepackaged sets of logics that implement a particular management scenario using one or more Azure Monitor services. Different solutions are available from Microsoft and from partners that you can easily add to your Azure subscription to increase the value of your investment in Azure Monitor. As a partner, you can create your own solutions to support your applications and services and provide them to users through the Azure Marketplace or Quick Start Templates.
+[Management Solutions](../../monitoring/monitoring-solutions.md) are prepackaged sets of logics that implement a particular management scenario using one or more Azure Monitor services. Different solutions are available from Microsoft and from partners that you can easily add to your Azure subscription to increase the value of your investment in Azure Monitor. As a partner, you can create your own solutions to support your applications and services and provide them to users through the Azure Marketplace or quickstart templates.
 
 
 ![Management Solutions](./media/operational-security/azure-operational-security-fig4.png)
 
-A good example of a solution that uses multiple services to provide additional functionality is the [Update Management solution](../../automation/automation-update-management.md). This solution uses the [Azure Monitor logs](../../log-analytics/log-analytics-queries.md) agent for Windows and Linux to collect information about required updates on each agent. It writes this data to the Azure Monitor logs repository where you can analyze it with an included dashboard.
+A good example of a solution that uses multiple services to provide additional functionality is the [Update Management solution](../../automation/update-management/update-mgmt-overview.md). This solution uses the [Azure Monitor logs](../../log-analytics/log-analytics-queries.md) agent for Windows and Linux to collect information about required updates on each agent. It writes this data to the Azure Monitor logs repository where you can analyze it with an included dashboard.
 
 When you create a deployment, runbooks in [Azure Automation](../../automation/automation-intro.md) are used to install required updates. You manage this entire process in the portal and don’t need to worry about the underlying details.
 
 ## Azure Security Center
 
-Azure Security Center helps protect your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions. Within the service,you are able to define polices not only against your Azure subscriptions, but also against [Resource Groups](../../azure-resource-manager/resource-group-overview.md#resource-groups), so you can be more granular.
+Azure Security Center helps protect your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions. Within the service,you are able to define polices not only against your Azure subscriptions, but also against [Resource Groups](../../azure-resource-manager/management/overview.md#resource-groups), so you can be more granular.
 
 ### Security policies and recommendations
 
@@ -192,7 +192,7 @@ These logs are emitted by a resource and provide rich, frequent data about the o
 
 For example, Windows event system logs are one category of Diagnostic Log for VMs and blob, table, and queue logs are categories of Diagnostic Logs for storage accounts.
 
-Diagnostics Logs differ from the [Activity Log (formerly known as Audit Log or Operational Log)](../../azure-monitor/platform/activity-logs-overview.md). The Activity log provides insight into the operations that were performed on resources in your subscription. Diagnostics logs provide insight into operations that your resource performed itself.
+Diagnostics Logs differ from the [Activity Log (formerly known as Audit Log or Operational Log)](../../azure-monitor/platform/platform-logs-overview.md). The Activity log provides insight into the operations that were performed on resources in your subscription. Diagnostics logs provide insight into operations that your resource performed itself.
 
 ### Metrics
 
@@ -257,7 +257,7 @@ The following actions performed by Storage Analytics are billable:
 > For optimal performance, you want to limit the number of highly utilized disks attached to the virtual machine to avoid possible throttling. If all disks are not being highly utilized at the same time, the storage account can support a larger number disk.
 
 > [!Note]
-> For more information on storage account limits, see [Azure Storage Scalability and Performance Targets](../../storage/common/storage-scalability-targets.md).
+> For more information on storage account limits, see [Scalability targets for standard storage accounts](../../storage/common/scalability-targets-standard-account.md).
 
 
 The following types of authenticated and anonymous requests are logged.

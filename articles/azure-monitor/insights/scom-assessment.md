@@ -1,18 +1,12 @@
 ---
-title: Optimize your System Center Operations Manager environment with Azure Log Analytics | Microsoft Docs
+title: Assess System Center Operations Manager with Azure Monitor
 description: You can use the System Center Operations Manager Health Check solution to assess the risk and health of your environments on a regular interval.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: 49aad8b1-3e05-4588-956c-6fdd7715cda1
-ms.service: log-analytics
+ms.subservice: logs
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+author: bwren
+ms.author: bwren
 ms.date: 06/25/2018
-ms.author: magoedte
+
 ---
 
 # Optimize your environment with the System Center Operations Manager Health Check (Preview) solution
@@ -35,7 +29,7 @@ After you've added the solution and an assessment is performed, summary informat
 
 ## Installing and configuring the solution
 
-The solution works with Microsoft System Center 2012 Operations Manager Service Pack 1, Microsoft System Center 2012 R2 Operations Manager, Microsoft System Center 2016 Operations Manager, Microsoft System Center 2016 Operations Manager and Microsoft System Center Operations Manager 1807
+The solution works with Microsoft System Center 2012 Operations Manager Service Pack 1, Microsoft System Center 2012 R2 Operations Manager, Microsoft System Center 2016 Operations Manager, Microsoft System Center 2016 Operations Manager and Microsoft System Center Operations Manager 1807. A supported version of .NET Framework 4.6.2 must be installed on each management server.
 
 Use the following information to install and configure the solution.
 
@@ -66,7 +60,7 @@ Data is collected on the management server and forwarded to Log Analytics every 
 
 ## Operations Manager run-as accounts for Log Analytics
 
-Log Analytics builds on management packs for workloads to provide value-add services. Each workload requires workload-specific privileges to run management packs in a different security context, such as a domain user account. Configure an Operations Manager Run As account with privileged credentials. For additional information, see [How to create a Run As account](https://technet.microsoft.com/library/hh321655(v=sc.12).aspx) in the Operations Manager documentation.
+Log Analytics builds on management packs for workloads to provide value-add services. Each workload requires workload-specific privileges to run management packs in a different security context, such as a domain user account. Configure an Operations Manager Run As account with privileged credentials. For additional information, see [How to create a Run As account](/previous-versions/system-center/system-center-2012-R2/hh321655(v=sc.12)) in the Operations Manager documentation.
 
 Use the following information to set the Operations Manager Run As account for System Center Operations Manager Health Check.
 
@@ -205,7 +199,7 @@ Every recommendation includes guidance about why it is important. Use this guida
 
 ## Use health check focus area recommendations
 
-Before you can use a health check solution in Log Analytics, you must have the solution installed. To read more about installing solutions, see [Install a management solution](../../azure-monitor/insights/solutions.md). After it is installed, you can view the summary of recommendations by using the System Center Operations Manager Health Check tile on the **Overview** page for your workspace in the Azure portal.
+Before you can use a health check solution in Log Analytics, you must have the solution installed. To read more about installing solutions, see [Install a management solution](./solutions.md). After it is installed, you can view the summary of recommendations by using the System Center Operations Manager Health Check tile on the **Overview** page for your workspace in the Azure portal.
 
 View the summarized compliance assessments for your infrastructure and then drill-into recommendations.
 
@@ -231,7 +225,7 @@ If you have recommendations that you want to ignore, you can create a text file 
     ```
 
     >[!NOTE]
-    > If your workspace has been upgraded to the [new Log Analytics query language](../../azure-monitor/log-query/log-query-overview.md), then the above query would change to the following.
+    > If your workspace has been upgraded to the [new Log Analytics query language](../log-query/log-query-overview.md), then the above query would change to the following.
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -256,7 +250,7 @@ If you have recommendations that you want to ignore, you can create a text file 
     ```
 
     >[!NOTE]
-    > If your workspace has been upgraded to the [new Log Analytics query language](../../azure-monitor/log-query/log-query-overview.md), then the above query would change to the following.
+    > If your workspace has been upgraded to the [new Log Analytics query language](../log-query/log-query-overview.md), then the above query would change to the following.
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Ignore" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -297,4 +291,5 @@ If you have recommendations that you want to ignore, you can create a text file 
 
 ## Next steps
 
-- [Search logs](../../azure-monitor/log-query/log-query-overview.md) to learn how to analyze detailed System Center Operations Manager Health Check data and recommendations.
+- [Search logs](../log-query/log-query-overview.md) to learn how to analyze detailed System Center Operations Manager Health Check data and recommendations.
+

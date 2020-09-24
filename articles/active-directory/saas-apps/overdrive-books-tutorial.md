@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Overdrive | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Overdrive.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: e68cede7-1130-4813-bd55-22a9a6fc6bf5
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Overdrive
 
@@ -183,7 +177,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 In this section, a user called Britta Simon is created in Overdrive. Overdrive supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Overdrive, a new one is created after authentication.
 
 >[!NOTE]
->You can use any other OverDrive user account creation tools or APIs provided by OverDrive to provision AAD user accounts.
+>You can use any other OverDrive user account creation tools or APIs provided by OverDrive to provision Azure AD user accounts.
 >
 
 ### Test single sign-on 

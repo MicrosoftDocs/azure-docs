@@ -1,23 +1,15 @@
 ---
-title: Azure CLI Script Sample - Create ASP.NET Core app from Docker Hub | Microsoft Docs
-description: Azure CLI Script Sample - Create an ASP.NET Core app in App Service from Docker Hub
-services: appservice
-documentationcenter: appservice
-author: msangapu
-manager: jeconnoc
-editor: 
+title: 'CLI: Create ASP.NET Core app from Docker'
+description: Learn how to use the Azure CLI to automate deployment and management of your App Service app. This sample shows how to create an ASP.NET Core app from Docker Hub.
+author: msangapu-msft
 tags: azure-service-management
 
 ms.assetid: 3a2d1983-ff7b-476a-ac44-49ec2aabb31a
-ms.service: app-service
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: web
 ms.date: 12/11/2017
 ms.author: msangapu
-ms.custom: mvc
-ms.custom: seodec18
+ms.custom: "devx-track-dotnet, mvc, seodec18, devx-track-azurecli"
 ---
 
 # Create an ASP.NET Core app in a Docker container from Docker Hub using Azure CLI
@@ -49,6 +41,6 @@ This script uses the following commands to create a resource group, App Service 
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure).
+For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).
 
 Additional App Service CLI script samples can be found in the [Azure App Service documentation](../samples-cli.md).

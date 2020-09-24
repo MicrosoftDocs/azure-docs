@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: 
 ms.service: storsimple
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/15/2018
@@ -45,11 +45,11 @@ Perform the following steps to view the hardware status of a device component:
 
 1. Navigate to **Devices**, select a specific StorSimple device. Go to **Monitor > Hardware health**.
 
-    ![](./media/storsimple-8000-monitor-hardware-status/hw-health1.png)
+    ![Screenshot showing the Settings blade of the Device Manager service. Under Monitor, Hardware health is selected.](./media/storsimple-8000-monitor-hardware-status/hw-health1.png)
 
 2. Locate the **Hardware components** section and choose from the available components. Simply click the component label to expand the list and view the status of the various device components. See the [detailed component list for the primary enclosure](#component-list-for-primary-enclosure-of-storsimple-device) and the [detailed component list for the EBOD enclosure](#component-list-for-ebod-enclosure-of-storsimple-device).
 
-    ![](./media/storsimple-8000-monitor-hardware-status/hw-health2.png)
+    ![Screenshot showing one component selected in the hardware components section. An adjacent blade shows the name and status of that component's parts.](./media/storsimple-8000-monitor-hardware-status/hw-health2.png)
 
 3. Use the following color coding scheme to interpret the  component status:
    
@@ -60,15 +60,15 @@ Perform the following steps to view the hardware status of a device component:
    
    The following screenshot shows a device that has components in **OK**, **Warning**, and **Failure** state.
        
-   ![](./media/storsimple-8000-monitor-hardware-status/hw-health3.png)
+   ![Screenshot showing three components in the hardware components section: one in an okay state, one in a failed state, and one in a warning state.](./media/storsimple-8000-monitor-hardware-status/hw-health3.png)
 
    Expanding the **Shared components list**, we can see that the NVRAM and the cluster are degraded.
 
-   ![](./media/storsimple-8000-monitor-hardware-status/hw-health5.png)
+   ![Screenshot showing the Shared Components item selected. In the adjacent blade, the N V R A M and the cluster are in a warning state.](./media/storsimple-8000-monitor-hardware-status/hw-health5.png)
 
    Expanding the **Controller 1 components** list, we can see that the cluster node has failed.  
 
-   ![](./media/storsimple-8000-monitor-hardware-status/hw-health4.png)  
+   ![Screenshot showing the Controller 1 Components item selected. In the adjacent blade, the cluster node is in a failed state.](./media/storsimple-8000-monitor-hardware-status/hw-health4.png)  
 
 4. If you encounter a component that is not in a **Healthy** state, contact Microsoft Support. If alerts are enabled on your device, you will receive an email alert. If you need to replace a failed hardware component, see [StorSimple hardware component replacement](storsimple-hardware-component-replacement.md).
 

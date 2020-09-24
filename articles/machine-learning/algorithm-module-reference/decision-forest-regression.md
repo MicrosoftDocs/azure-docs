@@ -1,24 +1,24 @@
 ---
 title:  "Decision Forest Regression: Module Reference"
-titleSuffix: Azure Machine Learning service
-description: Learn how to use the Decision Forest Regression module in Azure Machine Learning service to create a regression model based on an ensemble of decision trees.
+titleSuffix: Azure Machine Learning
+description: Learn how to use the Decision Forest Regression module in Azure Machine Learning to create a regression model based on an ensemble of decision trees.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 05/02/2019
+author: likebupt
+ms.author: keli19
+ms.date: 04/22/2020
 ---
 
 # Decision Forest Regression module
 
-This article describes a module of the visual interface (preview) for Azure Machine Learning service.
+This article describes a module in Azure Machine Learning designer.
 
 Use this module to create a regression model based on an ensemble of decision trees.
 
-After you have configured the model, you must train the model using a labeled dataset and the [Train Model](./train-model.md) module.  The trained model can then be used to make predictions. 
+After you have configured the model, you must train the model using a labeled dataset and the [Train Model](./train-model.md) module. The trained model can then be used to make predictions. 
 
 ## How it works
 
@@ -38,11 +38,11 @@ For more information about the theoretical framework for this algorithm and its 
 
 ## How to configure Decision Forest Regression Model
 
-1. Add the **Decision Forest Regression** module to the experiment. You can find the module in the interface under **Machine Learning**, **Initialize Model**, and **Regression**.
+1. Add the **Decision Forest Regression** module to the pipeline. You can find the module in the designer under **Machine Learning**, **Initialize Model**, and **Regression**.
 
 2. Open the module properties, and for **Resampling method**, choose the method used to create the individual trees.  You can choose from **Bagging** or **Replicate**.
 
-    - **Bagging**: Bagging is also called *bootstrap aggregating*. Each tree in a regression decision forest outputs a Gaussian distribution by way of prediction. The aggregation is to find a Gaussian whose first two moments match the moments of the mixture of Gaussians given by combining all Gaussians returned by individual trees.
+    - **Bagging**: Bagging is also called *bootstrap aggregating*. Each tree in a regression decision forest outputs a Gaussian distribution by way of prediction. The aggregation is to find a Gaussian whose first two moments match the moments of the mixture of Gaussian distributions given by combining all distributions returned by individual trees.
 
          For more information, see the Wikipedia entry for [Bootstrap aggregating](https://wikipedia.org/wiki/Bootstrap_aggregating).
 
@@ -55,6 +55,8 @@ For more information about the theoretical framework for this algorithm and its 
     - **Single Parameter**
 
       If you know how you want to configure the model, you can provide a specific set of values as arguments. You might have learned these values by experimentation or received them as guidance.
+
+    - **Parameter Range**: Select this option if you are not sure of the best parameters, and want to run a parameter sweep. Select a range of values to iterate over, and the [Tune Model Hyperparameters](tune-model-hyperparameters.md) iterates over all possible combinations of the settings you provided to determine the hyperparameters that produce the optimal results. 
 
 
 
@@ -72,24 +74,30 @@ For more information about the theoretical framework for this algorithm and its 
      By increasing this value, you increase the threshold for creating new rules. For example, with the default value of 1, even a single case can cause a new rule to be created. If you increase the value to 5, the training data would have to contain at least five cases that meet the same conditions.
 
 
-9. Connect a labeled dataset, select a single label column containing no more than two outcomes, and connect to [Train Model](./train-model.md).
+9. Train the model:
 
-    - If you set **Create trainer mode** option to **Single Parameter**, train the model by using the [Train Model](./train-model.md) module.
+    + If you set **Create trainer mode** to **Single Parameter**, connect a tagged dataset and the [Train Model](train-model.md) module.  
+  
+    + If you set **Create trainer mode** to **Parameter Range**, connect a tagged dataset and train the model by using [Tune Model Hyperparameters](tune-model-hyperparameters.md).  
+  
+    > [!NOTE]
+    > 
+    > If you pass a parameter range to [Train Model](train-model.md), it uses only the default value in the single parameter list.  
+    > 
+    > If you pass a single set of parameter values to the [Tune Model Hyperparameters](tune-model-hyperparameters.md) module, when it expects a range of settings for each parameter, it ignores the values, and uses the default values for the learner.  
+    > 
+    > If you select the **Parameter Range** option and enter a single value for any parameter, that single value you specified is used throughout the sweep, even if other parameters change across a range of values.
 
    
 
-10. Run the experiment.
+10. Submit the pipeline.
 
 ### Results
 
 After training is complete:
 
-+ To see the tree that was created on each iteration, right-click the output of the training module, and select **Visualize**.
-
-+ To see the rules for each node, click each tree and drill down into the splits.
-
-+ To save a snapshot of the trained model, right-click the output of the training module, and select **Save As Trained Model**. This copy of the model is not updated on successive runs of the experiment. 
++ To save a snapshot of the trained model, select the training module, then switch to **Outputs** tab in the right panel. Click on the icon **Register model**.  You can find the saved model as a module in the module tree. 
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning service. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning. 

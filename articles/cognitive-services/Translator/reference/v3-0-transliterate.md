@@ -1,7 +1,7 @@
 ---
-title: Translator Text API Transliterate Method
+title: Translator Transliterate Method
 titleSuffix: Azure Cognitive Services
-description: Use the Translator Text API Transliterate method.
+description: Convert text in one language from one script to another script with the Translator Transliterate method.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -13,7 +13,7 @@ ms.date: 02/01/2019
 ms.author: swmachan
 ---
 
-# Translator Text API 3.0: Transliterate
+# Translator 3.0: Transliterate
 
 Converts text in one language from one script to another script.
 
@@ -155,7 +155,7 @@ The following are the possible HTTP status codes that a request returns.
   </tr>
 </table> 
 
-If an error occurs, the request will also return a JSON error response. The error code is a 6-digit number combining the 3-digit HTTP status code followed by a 3-digit number to further categorize the error. Common error codes can be found on the [v3 Translator Text API reference page](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
+If an error occurs, the request also returns a JSON error response. The error code is a 6-digit number combining the 3-digit HTTP status code followed by a 3-digit number to further categorize the error. Common error codes can be found on the [v3 Translator reference page](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
 
 ## Examples
 

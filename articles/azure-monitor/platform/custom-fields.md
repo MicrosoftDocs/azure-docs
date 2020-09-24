@@ -1,28 +1,25 @@
 ---
-title: Custom fields in Azure Monitor | Microsoft Docs
+title: Custom fields in Azure Monitor (Preview) | Microsoft Docs
 description: The Custom Fields feature of Azure Monitor allows you to create your own searchable fields from records in a Log Analytics workspace that add to the properties of a collected record.  This article describes the process to create a custom field and provides a detailed walkthrough with a sample event.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: jwhit
-editor: tysonn
-ms.assetid: 31572b51-6b57-4945-8208-ecfc3b5304fc
-ms.service: log-analytics
+ms.subservice: logs
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 08/23/2019
+author: bwren
 ms.author: bwren
+ms.date: 08/23/2019
+
 ---
 
-# Create custom fields in a Log Analytics workspace in Azure Monitor
+# Create custom fields in a Log Analytics workspace in Azure Monitor (Preview)
 
 > [!NOTE]
 > This article describes how to parse text data in a Log Analytics workspace as it's collected. We recommend parsing text data in a query filter after it's collected following the guidance described in [Parse text data in Azure Monitor](../log-query/parse-text.md). It provides several advantages over using custom fields.
 
+> [!IMPORTANT]
+> Custom fields increases the amount of data collected in the Log Analytics workspace which can increase your cost. See [Manage usage and costs with Azure Monitor Logs](manage-cost-storage.md#pricing-model) for details.
+
 The **Custom Fields** feature of Azure Monitor allows you to extend existing records in your Log Analytics workspace by adding your own searchable fields.  Custom fields are automatically populated from data extracted from other properties in the same record.
 
-![Overview](media/custom-fields/overview.png)
+![Diagram shows an original record associated with a modified record in a Log Analytics workspace with property value pairs added to the original property in the modified record.](media/custom-fields/overview.png)
 
 For example, the sample record below has useful data buried in the event description. Extracting this data into a separate property makes it available for such actions as sorting and filtering.
 
@@ -80,7 +77,7 @@ The following section walks through a complete example of creating a custom fiel
 
 We enter the following query to return all events from Service Control Manager that have an Event ID of 7036 which is the event that indicates a service starting or stopping.
 
-![Query](media/custom-fields/query.png)
+![Screenshot shows a query for an event source and ID.](media/custom-fields/query.png)
 
 We then select and expand any record with event ID 7036.
 
