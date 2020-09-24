@@ -13,10 +13,8 @@ ms.date: 1/8/2019
 
 > [!NOTE]
 > The term "users" refers to users within a Hyperscale (Citus)
-> server group. To learn instead about Azure subscription users and their
-> privileges, visit the [Azure role-based access control (Azure RBAC)
-> article](../role-based-access-control/built-in-roles.md) or review [how to
-> customize roles](../role-based-access-control/custom-roles.md).
+> server group. Hyperscale Citus doesn't support role based access control , to know more see [RBAC in Hyperscale Postgresql](https://docs.microsoft.com/en-us/azure/postgresql/postgresql-hyperscale-security-baseline#31-maintain-an-inventory-of-administrative-accounts)
+
 
 ## The server admin account
 
