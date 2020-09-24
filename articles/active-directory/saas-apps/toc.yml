@@ -1026,6 +1026,8 @@
         href: lr-tutorial.md
       - name: Logz.io - Azure AD Integration
         href: logzio-cloud-observability-for-engineers-tutorial.md
+      - name: Loop Flow CRM
+        href: loop-flow-crm-tutorial.md
       - name: Lucidchart
         href: lucidchart-tutorial.md
       - name: Lynda.com
