@@ -92,8 +92,11 @@ $resourceGroupRegion = Read-Host -Prompt "Enter an Azure region (for example, ce
 
 Write-Verbose "New-AzResourceGroup -Name $resourceGroupName -Location $resourceGroupRegion" -Verbose
 New-AzResourceGroup -Name $resourceGroupName -Location $resourceGroupRegion
-Write-Verbose "New-AzHealthcareApisService -Name $serviceName -ResourceGroupName $resourceGroupName -Location $serviceLocation" -Verbose
-New-AzHealthcareApisService -Name $serviceName -ResourceGroupName $resourceGroupName -Location $serviceLocation
+Write-Verbose "Run New-AzResourceGroupDeployment to create an Azure API for FHIR service using an ARM template" -Verbose
+New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
+    -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-azure-api-for-fhir/azuredeploy.json `
+    -serviceName $serviceName `
+    -location $serviceLocation
 Read-Host "Press [ENTER] to continue ..."
 ```
 
@@ -112,10 +115,11 @@ read -p "Enter a name for the new Azure API for FHIR service:" serviceName &&
 read -p "Enter an Azure region (for example, westus2) for the service:" serviceLocation &&
 read -p "Enter a name for the new resource group to contain the service:" resourceGroupName &&
 read -p "Enter an Azure region (for example, centralus) for the resource group:" resourceGroupRegion &&
+params='serviceName='$serviceName' location='$serviceLocation &&
 echo "CREATE RESOURCE GROUP:  az group create --name $resourceGroupName --location $resourceGroupRegion" &&
 az group create --name $resourceGroupName --location $resourceGroupRegion &&
-echo "CREATE FHIR SERVICE:  az healthcareapis service create --resource-name $serviceName --resource-group $resourceGroupName --location $serviceLocation --kind fhir-R4" &&
-az healthcareapis service create --resource-name $serviceName --resource-group $resourceGroupName --location $serviceLocation --kind fhir-R4 &&
+echo "RUN az deployment group create, which creates an Azure API for FHIR service using an ARM template" &&
+az deployment group create --resource-group $resourceGroupName --parameters $params --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-azure-api-for-fhir/azuredeploy.json &&
 read -p "Press [ENTER] to continue ..."
 ```
 
