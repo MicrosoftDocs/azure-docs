@@ -161,7 +161,7 @@ In this section, you create a .NET console app that sends cloud-to-device messag
 
 1. Press **F5**. Both applications should start. Select the **SendCloudToDevice** window, and press **Enter**. You should see the message being received by the device app.
 
-   ![App receiving message](./media/iot-hub-csharp-csharp-c2d/sendc2d1.png)
+   ![Device app receiving message](./media/iot-hub-csharp-csharp-c2d/sendc2d1.png)
 
 ## Receive delivery feedback
 
@@ -208,7 +208,7 @@ In this section, you modify the **SendCloudToDevice** app to request feedback, a
 
 1. Run the apps by pressing **F5**. You should see both applications start. Select the **SendCloudToDevice** window, and press **Enter**. You should see the message being received by the device app, and after a few seconds, the feedback message being received by your **SendCloudToDevice** application.
 
-   ![App receiving message](./media/iot-hub-csharp-csharp-c2d/sendc2d2.png)
+   ![Device app receiving message and service app receiving feedback](./media/iot-hub-csharp-csharp-c2d/sendc2d2.png)
 
 > [!NOTE]
 > For simplicity, this tutorial does not implement any retry policy. In production code, you should implement retry policies, such as exponential backoff, as suggested in [Transient fault handling](/azure/architecture/best-practices/transient-faults).
