@@ -47,7 +47,7 @@ In this quickstart, you use a sample thermostat device that's written in Java as
 
 1. Open a terminal window and navigate to the local folder that contains the Microsoft Azure IoT SDK for Java repository you cloned from GitHub.
 
-1. This terminal window is used as your **device** terminal. Go to the folder of your cloned repository, and navigate to the *device\iot-device-samples\pnp-device-sample\thermostat-device-sample* folder. Install all the dependencies by running the following command:
+1. This terminal window is used as your **device** terminal. Go to the root folder of your cloned repository. Install all the dependencies by running the following command:
 
 1. Run the following command to build the sample device application:
 
@@ -55,7 +55,7 @@ In this quickstart, you use a sample thermostat device that's written in Java as
     mvn install -T 2C -DskipTests
     ```
 
-1. To run the sample device application, run the following command:
+1. To run the sample device application, navigate to the *device\iot-device-samples\pnp-device-sample\thermostat-device-sample* folder and run the following command:
 
     ```cmd
     mvn exec:java -Dexec.mainClass="samples.com.microsoft.azure.sdk.iot.device.Thermostat"
@@ -77,11 +77,7 @@ In this quickstart, you use a sample IoT solution written in Java to interact wi
 
 1. Open another terminal window to use as your **service** terminal.
 
-1. In the cloned Java SDK repository, navigate to the *service\iot-service-samples\pnp-service-sample\thermostat-service-sample* folder. Run the following command to build the sample service application:
-
-    ```cmd
-    mvn install -T 2C -DskipTests
-    ```
+1. In the cloned Java SDK repository, navigate to the *service\iot-service-samples\pnp-service-sample\thermostat-service-sample* folder.
 
 1. To run the sample service application, run the following command:
 
