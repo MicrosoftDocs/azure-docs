@@ -68,10 +68,11 @@ Azure Machine Learning only supports Docker images that provide the following so
 * Ubuntu 16.04 or greater.
 * Conda 4.5.# or greater.
 * Python 3.5.#, 3.6.# or 3.7.#.
+* azureml-defaults with version >= 1.0.45 as a pip dependency
 
-You must add azureml-defaults with version >= 1.0.45 as a pip dependency. To use Datasets, please install libfuse-dev. 
+To use Datasets, please install the libfuse-dev package. Also make sure to install any  user space packages you may need.
 
-Currently Azure ML supports both cuda9 and cuda10 base images. The major dependencies installed in the base images are:
+Currently Azure ML supports both cuda9 and cuda10 base images. The major dependencies installed in these base images are:
 
 | Dependencies | IntelMPI CPU | OpenMPI CPU | IntelMPI GPU | OpenMPI GPU |
 | --- | --- | --- | --- | --- |
