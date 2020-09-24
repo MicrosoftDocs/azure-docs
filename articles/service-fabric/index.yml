@@ -14,35 +14,29 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card
-  - title: Try Service Fabric Managed clusters (preview)
+  - title: Try Service Fabric managed clusters (preview)
     linkLists:
       - linkListType: get-started
         links:
-          - text: What are Service Fabric Managed clusters (preview)
+          - text: What are Service Fabric managed clusters (preview)
             url: overview-managed-cluster.md
-          - text: Deploy a Service Fabric Managed cluster (preview)
-            url: service-fabric-get-started.md
+          - text: Deploy a Service Fabric managed cluster
+            url: quickstart-managed-cluster-template.md
 
       - linkListType: tutorial
         links:
-          - text: Create a Managed Service Fabric cluster (preview)
+          - text: Create a Service Fabric managed cluster (preview)
             url: tutorial-managed-cluster-deploy.md
           - text: Scale out a managed cluster node type (preview)
             url: tutorial-managed-cluster-scale.md
           - text: Add and remove managed cluster node types (preview)
             url: tutorial-managed-cluster-add-remove-node-type.md
-          - text: Upgrade a managed cluster (preview)
-            url: tutorial-managed-cluster-upgrade.md
-          - text: Add a managed cluster client certificate (preview)
-            url: tutorial-managed-cluster-certificate.md
-      - linkListType: sample
+          - text: Deploy an app to a Service Fabric managed cluster (preview)
+            url: tutorial-managed-cluster-deploy-app.md
+      - linkListType: whats-new
         links:
-          - text: Managed cluster template - Basic SKU (preview)
-            url: https://github.com/microsoft/service-fabric-scripts-and-templates/
-          - text: Managed cluster template - Standard SKU, 1 Node Type (preview)
-            url: https://github.com/microsoft/service-fabric-scripts-and-templates/
-          - text: Managed cluster template - Standard SKU, 3 Node Type (preview)
-            url: https://github.com/microsoft/service-fabric-scripts-and-templates/
+          - text: Service Fabric managed clusters FAQ
+            url: faq-managed-cluster.md
 
   # Card
   - title: About Service Fabric
@@ -178,7 +172,7 @@ landingContent:
             url: samples-cli.md
       - linkListType: whats-new
         links:
-          - text: Commonly asked Service Fabric questions
+          - text: Service Fabric FAQ
             url: service-fabric-common-questions.md
 
   # Card
