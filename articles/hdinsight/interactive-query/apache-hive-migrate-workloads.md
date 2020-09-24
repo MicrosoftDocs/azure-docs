@@ -206,7 +206,7 @@ Once you've confirmed that the release is complete and fully operational, you ca
 
 There are two ways to execute and debug Hive/LLAP queries within an HDInsight 3.6 cluster. HiveCLI provides a command-line experience and the [Tez view/Hive view](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-use-hive-ambari-view) provides a GUI-based workflow.
 
-In HDInsight 4.0, HiveCLI has been replaced with Beeline and the Tez view/Hive view provides a GUI-based workflow . HiveCLI is a thrift client for Hiveserver 1, and Beeline is a JDBC client that provides access to Hiveserver 2. Beeline can also be used to connect to any other JDBC-compatible database endpoint. Beeline is available out-of-box on HDInsight 4.0 without any installation needed.
+In HDInsight 4.0, HiveCLI has been replaced with Beeline. The Tez view/Hive view provides a GUI-based workflow. HiveCLI is a thrift client for Hiveserver 1, and Beeline is a JDBC client that provides access to Hiveserver 2. Beeline also can be used to connect to any other JDBC-compatible database endpoint. Beeline is available out-of-box on HDInsight 4.0 without any installation needed.
 
 ## Next steps
 
