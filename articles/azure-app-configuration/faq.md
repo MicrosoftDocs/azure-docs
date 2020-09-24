@@ -39,6 +39,10 @@ You can create App Configuration values that reference secrets stored in Key Vau
 
 Yes. App Configuration encrypts all key values it holds, and it encrypts network communication. Key names and labels are used as indexes for retrieving configuration data and aren't encrypted.
 
+## Where does data stored in App Configuration reside? 
+
+Customer data stored in App Configuration resides in the region where the customer's App Configuration store was created. App Configuration may replicate data to other regions for data resiliency, but it won't replicate or move customer data outside their Geo as defined by [Data residency in Azure](https://azure.microsoft.com/en-us/global-infrastructure/data-residency/). Customers and end users may move, copy, or access their customer data from any location globally.
+
 ## How is App Configuration different from Azure App Service settings?
 
 Azure App Service allows you to define app settings for each App Service instance. These settings are passed as environment variables to the application code. You can associate a setting with a specific deployment slot, if you want. For more information, see [Configure app settings](/azure/app-service/configure-common#configure-app-settings).
