@@ -27,6 +27,9 @@ Terms used in these scenarios. For more information, see [Terminology](#terms):
 * [Port Masquerading (PAT)](#pat)
 * Transmission Control Protocol (TCP)
 * User Datagram Protocol (UDP)
+* Network Address Translation
+* Internet Control Message Protocol
+* Encapsulating Security Protocol
 
 
 ### Scenario 1 - Virtual machine with public IP
@@ -239,11 +242,17 @@ Revert to the [default port allocation](load-balancer-outbound-connections.md#pr
 
 You can use a public standard load balancer to provide outbound NAT for a group of VMs. In this scenario, use an outbound rule by itself, without the need for any additional rules.
 
+> [!NOTE]
+> **Azure Virtual Network NAT** can provide outbound connectivity for virtual machines without the need for a load balancer.  See [What is Azure Virtual Network NAT?](../virtual-network/nat-overview.md) for more information.
+
 ### Scenario 4
 
 | Scenario |
 | -------- |
 | Outbound NAT for VMs only (no inbound) |
+
+> [!NOTE]
+> **Azure Virtual Network NAT** can provide outbound connectivity for virtual machines without the need for a load balancer.  See [What is Azure Virtual Network NAT?](../virtual-network/nat-overview.md) for more information.
 
 #### Details
 
@@ -264,6 +273,9 @@ Use a prefix or public IP to scale [SNAT](#snat) ports. Add the source of outbou
 | -------- |
 | Outbound NAT for internal standard load balancer |
 
+> [!NOTE]
+> **Azure Virtual Network NAT** can provide outbound connectivity for virtual machines utilizing an internal standard load balancer.  See [What is Azure Virtual Network NAT?](../virtual-network/nat-overview.md) for more information.
+
 #### Details
 
 Outbound connectivity isn't available for an internal standard load balancer until it has been explicitly declared. 
@@ -279,7 +291,7 @@ For more information, see [Outbound-only load balancer configuration](https://do
 
 #### Details
 
-When using a public standard load Balancer, the automatic outbound NAT provided matches the transport protocol of the load-balancing rule. 
+When using a public standard load balancer, the automatic outbound NAT provided matches the transport protocol of the load-balancing rule. 
 
 1. Disable outbound [SNAT](#snat) on the load-balancing rule. 
 2. Configure an outbound rule on the same load balancer.
