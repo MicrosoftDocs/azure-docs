@@ -259,7 +259,7 @@ Select **New alert rule** for metrics listed in Metrics section:
 Alert will be charged based on Azure Monitor. For more information about alerts, see [Azure Monitor alerts](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
 
 ### Additional Metrics
-You can enable additional metrics using Azure Log Analytics and Raw Log for an additional a cost.
+You can enable additional metrics using Azure Log Analytics and raw logs for an additional cost.
 
 1. Follow steps above in enabling diagnostics to send raw log to log analytics.
 
