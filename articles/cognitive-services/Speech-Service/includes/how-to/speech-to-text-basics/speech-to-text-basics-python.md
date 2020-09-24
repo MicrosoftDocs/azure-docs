@@ -6,6 +6,12 @@ ms.date: 03/11/2020
 ms.author: trbye
 ---
 
+One of the core features of the Speech service is the ability to recognize and transcribe human speech (often referred to as speech-to-text). In this quickstart, you learn how to use the Speech SDK in your apps and products to perform high-quality speech-to-text conversion.
+
+## Skip to samples on GitHub
+
+If you want to skip straight to sample code, see the [Python quickstart samples](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/python) on GitHub.
+
 ## Prerequisites
 
 This article assumes:

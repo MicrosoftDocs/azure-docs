@@ -33,8 +33,7 @@ Open a ticket with Microsoft [marketplace publisher support](https://aka.ms/mark
 ## Marketing resources  
 
 | Support channel | Description | Availability |  
-|:--- |:--- |:--- |  
-| Email: [cosell@microsoft.com](mailto:cosell@microsoft.com) | Support for onboarding processes and questions related to the Co-Sell program. | Based in the Pacific time zone. |  
+|:--- |:--- |:--- |
 | Email: [gtm@microsoft.com](mailto:gtm@microsoft.com) | Support for GTM benefits and program questions. | Business hours are in the Pacific time zone. |  
 | Email: [cebrand@microsoft.com](mailto:cebrand@microsoft.com) | Answers to questions about usage for Azure logos and branding. |  |  
 

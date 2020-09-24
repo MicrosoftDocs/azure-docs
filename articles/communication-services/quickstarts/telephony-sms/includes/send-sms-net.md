@@ -61,6 +61,7 @@ Add a `using` directive to the top of **Program.cs** to include the `Azure.Commu
 
 ```csharp
 
+using Azure.Communication;
 using Azure.Communication.Sms;
 
 ```

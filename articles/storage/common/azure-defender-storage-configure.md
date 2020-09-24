@@ -19,11 +19,11 @@ Azure Defender for Storage provides an additional layer of security intelligence
 
 Security alerts are triggered when anomalies in activity occur. These security alerts are integrated with [Azure Security Center](https://azure.microsoft.com/services/security-center/), and are also sent via email to subscription administrators, with details of suspicious activity and recommendations on how to investigate and remediate threats.
 
-The service ingests resource logs of read, write, and delete requests to Blob storage and to Azure Files (preview) for threat detection. To investigate alerts from Azure Defender, you can view related storage activity using Storage Analytics Logging. For more information, see **Configure logging** in [Monitor a storage account in the Azure portal](storage-monitor-storage-account.md#configure-logging).
+The service ingests resource logs of read, write, and delete requests to Blob storage and to Azure Files for threat detection. To investigate alerts from Azure Defender, you can view related storage activity using Storage Analytics Logging. For more information, see **Configure logging** in [Monitor a storage account in the Azure portal](storage-monitor-storage-account.md#configure-logging).
 
 ## Availability
 
-Azure Defender for Storage is currently available for Blob storage, Azure Files (preview), and Azure Data Lake Storage Gen2 (preview). Account types that support Azure Defender include general-purpose v2, block blob, and Blob storage accounts. Azure Defender for Storage is available in all public clouds and US government clouds, but not in other sovereign or Azure Government cloud regions.
+Azure Defender for Storage is currently available for Blob storage, Azure Files, and Azure Data Lake Storage Gen2. Account types that support Azure Defender include general-purpose v2, block blob, and Blob storage accounts. Azure Defender for Storage is available in all public clouds and US government clouds, but not in other sovereign or Azure Government cloud regions.
 
 Accounts with hierarchical namespaces enabled for Data Lake Storage support transactions using both the Azure Blob storage APIs and the Data Lake Storage APIs. Azure file shares support transactions over SMB.
 
@@ -33,8 +33,8 @@ The following list summarizes the availability of Azure Defender for Storage:
 
 - Release state:
   - [Blob Storage](https://azure.microsoft.com/services/storage/blobs/) (general availability)
-  - [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) (preview supports SMB and REST transactions)
-  - Azure Data Lake Storage Gen2 (preview)
+  - [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) (general availability)
+  - Azure Data Lake Storage Gen2 (general availability)
 - Clouds:<br>
     ✔ Commercial clouds<br>
     ✔ US Gov<br>
