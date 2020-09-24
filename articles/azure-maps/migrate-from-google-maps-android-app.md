@@ -3,11 +3,7 @@ title: 'Migrate an Android app |Microsoft Azure Maps'
 description: 'How to migrate an Android app from Google Maps to Microsoft Azure Maps'
 author: rbrundritt
 ms.author: richbrun
-<<<<<<< HEAD
-ms.date: 12/17/2019
-=======
 ms.date: 08/19/2020
->>>>>>> dbd61c09a87f1a8e4ab6ee68e683cce796e7c4d4
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
