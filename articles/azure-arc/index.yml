@@ -59,7 +59,7 @@ productDirectory:
         - url: ./servers/index.yml
           text: See more...
     # Card
-    - title: Azure Arc enabled Kubernetes
+    - title: Azure Arc enabled Kubernetes (preview)
       imageSrc: ./media/01088-icon-arc-kubernetes-menu.svg
       links:
         - url: ./kubernetes/connect-cluster.md
