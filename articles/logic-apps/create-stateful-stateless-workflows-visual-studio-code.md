@@ -988,15 +988,11 @@ For this public preview, these capabilities are not available or not supported:
 
 * Creating the new **Logic App (Preview)** resource is currently unavailable on macOS.
 
-* Custom connectors, webhook-based triggers, and the Sliding Window trigger aren't supported in this preview.
+* Custom connectors, webhook-based triggers, and the Sliding Window trigger aren't supported in this preview. For stateless logic app workflows, you can only add actions for [managed connectors](../connectors/apis-list.md#managed-api-connectors), not triggers. To start your workflow, use the [built-in Request, Event Hubs, or Service Bus trigger](../connectors/apis-list.md#built-ins).
 
-* For stateless logic app workflows, you can only add actions for [managed connectors](../connectors/apis-list.md#managed-api-connectors), not triggers. To start your workflow, use the [built-in Request, Event Hubs, or Service Bus trigger](../connectors/apis-list.md#built-ins).
+* You can deploy the new **Logic App (Preview)** resource type only to a [Premium or App Service hosting plan in Azure](#publish-azure) or to a [Docker container](#deploy-docker), and not [integration service environments (ISEs)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). **Consumption** hosting plans aren't supported nor available for deploying this resource type.
 
-* In Azure portal, you can't create new logic apps with the new **Logic App (Preview)** resource type. You can only create these logic apps in Visual Studio Code. However, after you deploy logic apps with this resource type from Visual Studio Code to Azure, you can [add new workflows to those logic apps](#add-workflows).
-
-* You can deploy the new **Logic App (Preview)** resource type only to a [Premium or App Service hosting plan in Azure](#publish-azure) or to a [Docker container](#deploy-docker), and not [integration service environments (ISEs)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
-
-* **Consumption** hosting plans aren't supported for logic app deployment.
+* In the Azure portal, you can't create new logic apps with the new **Logic App (Preview)** resource type. You can only create these logic apps in Visual Studio Code. However, after you deploy logic apps with this resource type from Visual Studio Code to Azure, you can [add new workflows to those logic apps](#add-workflows).
 
 ## Next steps
 
