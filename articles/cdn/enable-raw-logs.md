@@ -267,21 +267,21 @@ You can enable additional metrics using Azure Log Analytics and Raw Log for an a
 
 2. Select the Log Analytics workspace you created:
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-09.png" alt-text="Configure log analytics workspace" border="true":::   
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-09.png" alt-text="Select log analytics workspace" border="true":::   
 
 3. Select **Logs** under **General** in the log analytics workspace.  Then select **Get Started**:
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-10.png" alt-text="Configure log analytics workspace" border="true":::   
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-10.png" alt-text="Log analytics resource workspace." border="true":::   
  
 4. Select **CDN Profiles**.  Select an example query to RUN or close the example screen to enter a custom query:
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-11.png" alt-text="Example query screen" border="true":::   
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-11.png" alt-text="Example query screen." border="true":::   
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-12.png" alt-text="Query execution" border="true":::   
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-12.png" alt-text="Query execution." border="true":::   
 
 4. To view data by chart, select **Chart**.  Select **Pin to dashboard** to pin the chart to the Azure dashboard:
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-13.png" alt-text="Pin chart to dashboard" border="true"::: 
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-13.png" alt-text="Pin chart to dashboard." border="true"::: 
 
 ## Next Steps
 In this article, you enabled HTTP raw logs for the Microsoft CDN service.
