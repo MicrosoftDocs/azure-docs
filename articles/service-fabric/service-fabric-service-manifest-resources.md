@@ -3,7 +3,7 @@ title: Specifying Service Fabric service endpoints
 description: How to describe endpoint resources in a service manifest, including how to set up HTTPS endpoints
 
 ms.topic: conceptual
-ms.date: 09/16/20
+ms.date: 09/16/2020
 ---
 # Specify resources in a service manifest
 ## Overview
