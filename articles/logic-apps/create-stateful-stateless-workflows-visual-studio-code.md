@@ -962,7 +962,7 @@ This table specifies the child workflow's behavior based on whether the parent a
 
 | Parent workflow | Child workflow | Child behavior |
 |-----------------|----------------|----------------|
-| Stateful | Stateful | Asynchronous or synchronous with `operationOptions=DisableAsyncPattern` setting |
+| Stateful | Stateful | Asynchronous or synchronous with `"operationOptions": "DisableAsyncPattern"` setting |
 | Stateful | Stateless | Trigger and wait |
 | Stateless | Stateful | Synchronous |
 | Stateless | Stateless | Trigger and wait |
