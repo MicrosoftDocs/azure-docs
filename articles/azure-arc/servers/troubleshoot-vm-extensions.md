@@ -7,7 +7,7 @@ ms.topic: conceptual
 
 # Troubleshoot Arc enabled servers VM extension issues
 
-This article provides information on troubleshooting and resolving issues that may occur while attempting to deploy or remove Azure VM extensions with non-Azure Windows and Linux VMs. For general information, see [Manage and use Azure VM extensions](./manage-vm-extensions.md).
+This article provides information on troubleshooting and resolving issues that may occur while attempting to deploy or remove Azure VM extensions on Arc enabled servers. For general information, see [Manage and use Azure VM extensions](./manage-vm-extensions.md).
 
 ## General troubleshooting
 
@@ -19,7 +19,7 @@ The following troubleshooting steps apply to all VM extensions.
 
 2. Check the extension logs for the specific extension for more details in `%SystemDrive%\ProgramData\GuestConfig\extension_logs\<Extension>` for Windows. Extension output is logged to a file for each extension installed on Linux under `/var/lib/GuestConfig/extension_logs`.
 
-3. Check extension specific documentation troubleshooting sections for error codes, known issues etc. Additional troubleshooting information for each extension can be found in the **Troubleshoot and support** section in the overview for the extension. This includes the description of error codes written to the log. The extension articles are linked in the [extensions table](manage-vm-extensions.md#extensions).
+3. Check extension-specific documentation troubleshooting sections for error codes, known issues etc. Additional troubleshooting information for each extension can be found in the **Troubleshoot and support** section in the overview for the extension. This includes the description of error codes written to the log. The extension articles are linked in the [extensions table](manage-vm-extensions.md#extensions).
 
 4. Look at the system logs. Check for other operations that may have interfered with the extension, such as a long running installation of another application that required exclusive package manager access.
 
@@ -37,7 +37,7 @@ The following troubleshooting steps apply to all VM extensions.
 
 - Error code 52 in the status message indicates a missing dependency. Check the output and logs for more information about which dependency is missing.
 
-- If an installation fails, review the **Troubleshoot and support** section in the overview for the extension. In most cases there will be an error code included in the status message. For the Log Analytics agent for Linux, status messages are explained [here](../../virtual-machines/extensions/oms-linux.md#troubleshoot-and-support), along with general troubleshooting information for this VM extension.
+- If an installation fails, review the **Troubleshoot and support** section in the overview for the extension. In most cases, there is an error code included in the status message. For the Log Analytics agent for Linux, status messages are explained [here](../../virtual-machines/extensions/oms-linux.md#troubleshoot-and-support), along with general troubleshooting information for this VM extension.
 
 ## Next steps
 
