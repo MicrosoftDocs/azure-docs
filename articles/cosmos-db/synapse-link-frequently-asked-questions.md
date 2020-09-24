@@ -78,7 +78,7 @@ Analytical store is a read-only store in an Azure Cosmos container. So, you cann
 
 ### Is the autosync replication from transactional store to the analytical store asynchronous or synchronous and what are the latencies?
 
-The replication is asynchronous, and currently the expected latency is around 2 min.
+The replication is asynchronous, and currently the expected latency is around 2 minutes (contained within 5 minutes).
 
 ### Are there any scenarios where the items from the transactional store are not automatically propagated to the analytical store?
 
