@@ -66,7 +66,12 @@ To complete this tutorial, you need to:
     * binlog_format = row
     * binlog_checksum = NONE
 3. Save the new parameter group.
-4. Associate the new parameter group with the RDS MySQL instance. A reboot might be required.
+4. Associate the new parameter group with the RDS MySQL instance. A reboot will be required.
+5. Once parameter group is in place, connect to the MySQL instance and [set binlog retention](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/mysql_rds_set_configuration.html#mysql_rds_set_configuration-usage-notes.binlog-retention-hours) to 5 days.
+```
+call mysql.rds_set_configuration('binlog retention hours', 120);
+
+```
 
 ## Migrate the schema
 

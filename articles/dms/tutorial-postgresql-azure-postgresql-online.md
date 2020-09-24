@@ -368,87 +368,6 @@ To complete all the database objects like table schemas, indexes and stored proc
     az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask --expand output --query 'properties.output[].migrationState | [0]' "READY_TO_COMPLETE"
     ```
 
-## Understanding migration task status
-
-In the output file, there are several parameters that indicate progress of migration. For example, see the output file below:
-
-  ```output
-    "output": [									Database Level
-          {
-            "appliedChanges": 0,		//Total incremental sync applied after full load
-            "cdcDeleteCounter": 0		// Total delete operation  applied after full load
-            "cdcInsertCounter": 0,		// Total insert operation applied after full load
-            "cdcUpdateCounter": 0,		// Total update operation applied after full load
-            "databaseName": "inventory",
-            "endedOn": null,
-            "fullLoadCompletedTables": 2,	//Number of tables completed full load
-            "fullLoadErroredTables": 0,	//Number of tables that contain migration error
-            "fullLoadLoadingTables": 0,	//Number of tables that are in loading status
-            "fullLoadQueuedTables": 0,	//Number of tables that are in queued status
-            "id": "db|inventory",
-            "incomingChanges": 0,		//Number of changes after full load
-            "initializationCompleted": true,
-            "latency": 0,
-            "migrationState": "READY_TO_COMPLETE",	//Status of migration task. READY_TO_COMPLETE means the database is ready for cutover
-            "resultType": "DatabaseLevelOutput",
-            "startedOn": "2018-07-05T23:36:02.27839+00:00"
-          },
-          {
-            "databaseCount": 1,
-            "endedOn": null,
-            "id": "dd27aa3a-ed71-4bff-ab34-77db4261101c",
-            "resultType": "MigrationLevelOutput",
-            "sourceServer": "138.91.123.10",
-            "sourceVersion": "PostgreSQL",
-            "startedOn": "2018-07-05T23:36:02.27839+00:00",
-            "state": "PENDING",
-            "targetServer": "builddemotarget.postgres.database.azure.com",
-            "targetVersion": "Azure Database for PostgreSQL"
-          },
-          {										Table 1
-            "cdcDeleteCounter": 0,
-            "cdcInsertCounter": 0,
-            "cdcUpdateCounter": 0,
-            "dataErrorsCount": 0,
-            "databaseName": "inventory",
-            "fullLoadEndedOn": "2018-07-05T23:36:20.740701+00:00",	//Full load completed time
-            "fullLoadEstFinishTime": "1970-01-01T00:00:00+00:00",
-            "fullLoadStartedOn": "2018-07-05T23:36:15.864552+00:00",	//Full load started time
-            "fullLoadTotalRows": 10,					//Number of rows loaded in full load
-            "fullLoadTotalVolumeBytes": 7056,				//Volume in Bytes in full load
-            "id": "or|inventory|public|actor",			
-            "lastModifiedTime": "2018-07-05T23:36:16.880174+00:00",
-            "resultType": "TableLevelOutput",
-            "state": "COMPLETED",					//State of migration for this table
-            "tableName": "public.catalog",				//Table name
-            "totalChangesApplied": 0				//Total sync changes that applied after full load
-          },
-          {										Table 2
-            "cdcDeleteCounter": 0,
-            "cdcInsertCounter": 50,
-            "cdcUpdateCounter": 0,
-            "dataErrorsCount": 0,
-            "databaseName": "inventory",
-            "fullLoadEndedOn": "2018-07-05T23:36:23.963138+00:00",
-            "fullLoadEstFinishTime": "1970-01-01T00:00:00+00:00",
-            "fullLoadStartedOn": "2018-07-05T23:36:19.302013+00:00",
-            "fullLoadTotalRows": 112,
-            "fullLoadTotalVolumeBytes": 46592,
-            "id": "or|inventory|public|address",
-            "lastModifiedTime": "2018-07-05T23:36:20.308646+00:00",
-            "resultType": "TableLevelOutput",
-            "state": "COMPLETED",
-            "tableName": "public.orders",
-            "totalChangesApplied": 0
-          }
-        ],							DMS migration task state
-        "state": "Running",	//Migration task state – Running means it is still listening to any changes that might come in					
-        "taskType": null
-      },
-      "resourceGroup": "PostgresDemo",
-      "type": "Microsoft.DataMigration/services/projects/tasks"
-  ```
-
 ## Cutover migration task
 
 The database is ready for cutover when full load is complete. Depending on how busy the source server is with new transactions is coming in, the DMS task might be still applying changes after the full load is complete.
@@ -482,6 +401,9 @@ To ensure all data is caught up, validate row counts between the source and targ
     ```azurecli
     az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask
     ```
+
+3. When the database migration status shows **Completed**, [recreate sequences](https://wiki.postgresql.org/wiki/Fixing_Sequences) (if applicable), and connect your applications to the new target instance of Azure Database for PostgreSQL.
+
 
 ## Service, project, task cleanup
 
