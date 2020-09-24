@@ -25,7 +25,7 @@ This document walks you through installing and configuring the Azure AD Connect 
 ## Requirements
 
 
->![IMPORTANT]
+> [!IMPORTANT]
 > Installing the Azure AD Connect Health agent on Windows Server Core is not supported.
 
 The following table is a list of requirements for using Azure AD Connect Health.
