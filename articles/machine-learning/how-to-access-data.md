@@ -110,7 +110,7 @@ You can find account key, SAS token, and service principal information on your [
 
 ### Permissions
 
-For Azure blob container and Azure Data Lake Gen 2 storage, make sure your authentication credentials  has **Storage Blob Data Reader** access. Learn more about [Storage Blob Data Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader). 
+For Azure blob container and Azure Data Lake Gen 2 storage, make sure your authentication credentials  has **Storage Blob Data Reader** access. Learn more about [Storage Blob Data Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader). An account SAS token defaults to None. For data read access, we require a minimum of List & Read permissions for Containers & Objects. For data write access we additionally require Write & Add permissions.
 
 <a name="python"></a>
 
