@@ -41,7 +41,7 @@ Yes. App Configuration encrypts all key values it holds, and it encrypts network
 
 ## Where does data stored in App Configuration reside? 
 
-Customer data stored in App Configuration resides in the region where the customer's App Configuration store was created. App Configuration may replicate data to other regions for data resiliency, but it won't replicate or move customer data outside their Geo as defined by [Data residency in Azure](https://azure.microsoft.com/global-infrastructure/data-residency/). Customers and end users may move, copy, or access their customer data from any location globally.
+Customer data stored in App Configuration resides in the region where the customer's App Configuration store was created. App Configuration may replicate data to [Azure paired regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) for data resiliency, but it won't replicate or move customer data outside their Geo as defined by [Data residency in Azure](https://azure.microsoft.com/global-infrastructure/data-residency/). Customers and end users may move, copy, or access their customer data from any location globally.
 
 ## How is App Configuration different from Azure App Service settings?
 
