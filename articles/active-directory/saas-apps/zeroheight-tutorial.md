@@ -72,16 +72,16 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
 	a. In the **Sign on URL** text box, type a URL using the following pattern:
-    `https://<SUBDOMAIN>.zeroheight.com/sso`
+    `https://zeroheight.com/sso`
 
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
     `zeroheight:<CUSTOM_ID>`
 
     c. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://<SUBDOMAIN>.zeroheight.com/sso/acs/<CUSTOM_ID>`
+    `https://zeroheight.com/sso/acs/<CUSTOM_ID>`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL, Reply URL and Identifier. Contact [zeroheight Client support team](mailto:support@zeroheight.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [zeroheight Client support team](mailto:support@zeroheight.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. zeroheight application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
