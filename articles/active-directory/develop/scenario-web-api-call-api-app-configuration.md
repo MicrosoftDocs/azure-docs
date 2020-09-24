@@ -26,7 +26,7 @@ The code that you use to configure your web API so that it calls downstream web 
 
 ## Microsoft.Identity.Web
 
-When developing an ASP.NET Core protected calling downstream web APIs, Microsoft recommends that you use the [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web) NuGet package. See [Protected web API: Code configuration | Microsoft.Identity.Web](scenario-protected-web-api-app-configuration.md#microsoftidentityweb) for a quick presentation of that library in the context of a Web API.
+Microsoft recommends that you use the [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web) NuGet package when developing an ASP.NET Core protected API calling downstream web APIs. See [Protected web API: Code configuration | Microsoft.Identity.Web](scenario-protected-web-api-app-configuration.md#microsoftidentityweb) for a quick presentation of that library in the context of a web API.
 
 ## Client secrets or client certificates
 
