@@ -43,7 +43,7 @@ ms.custom: H1Hack27Feb2017
   | SLES 12 SP4             | Available           | S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm, S960m        |
   | SLES 12 SP5             | Available           | S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm, S896m, S960m |
   | SLES 15 SP1             | Available           | S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm, S896m, S960m |
-  | RHEL 7.6                | Available           | S896m, S960m                                                             |
+  | RHEL 7.6                | Available           | S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm, S896m, S960m |
 
 ## Related Documents
 
