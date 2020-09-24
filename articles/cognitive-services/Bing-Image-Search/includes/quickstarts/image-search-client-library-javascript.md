@@ -17,10 +17,11 @@ The source code for this sample is available on [GitHub](https://github.com/Azur
 
 ## Prerequisites
 
-* The [Cognitive Services Image Search SDK for Node.js](https://www.npmjs.com/package/@azure/cognitiveservices-imagesearch)
-    * Install using `npm install @azure/cognitiveservices-imagesearch`
-* The [Node.js Azure Rest](https://www.npmjs.com/package/@azure/ms-rest-azure-js) module
-    * Install using `npm install @azure/ms-rest-azure-js`
+* The latest version of [Node.js](https://nodejs.org/en/download/).
+* The [Bing Image Search SDK for JavaScript](https://www.npmjs.com/package/@azure/cognitiveservices-imagesearch)
+     *  To install, run `npm install @azure/cognitiveservices-imagesearch`
+* The `CognitiveServicesCredentials` class from the Azure runtime for auto generated JavaScript packages to authenticate the client against the Bing Image Search service.
+     * To install, run `npm install @azure/ms-rest-azure-js`
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](~/includes/cognitive-services-bing-image-search-signup-requirements.md)]
 

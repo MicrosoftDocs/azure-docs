@@ -15,11 +15,11 @@ Use this quickstart to begin searching for news with the Bing Video Search clien
 
 ## Prerequisites
 
-- [Node.js](https://www.nodejs.org/)
-
-To set up a console application using the Bing Video Search client library:
-* Run `npm install @azure/ms-rest-azure-js` in your development environment.
-* Run `npm install @azure/cognitiveservices-videosearch` in your development environment.
+* The latest version of [Node.js](https://nodejs.org/en/download/).
+* The [Bing Video Search SDK for JavaScript](https://www.npmjs.com/package/@azure/cognitiveservices-videosearch)
+     *  To install, run `npm install @azure/cognitiveservices-videosearch`
+* The `CognitiveServicesCredentials` class from the Azure runtime for auto generated JavaScript packages to authenticate the client against the Bing Video Search service.
+     * To install, run `npm install @azure/ms-rest-azure-js`
 
 [!INCLUDE [cognitive-services-bing-video-search-signup-requirements](~/includes/cognitive-services-bing-video-search-signup-requirements.md)]
 
