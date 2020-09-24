@@ -15,19 +15,6 @@ In this overview, you will learn about Azure Functions' built-in capabilities fo
 
 A replication task receives events from a source and forwards them to a target. Most replication tasks will forward events unchanged and at most perform mapping between metadata structures if the source and target protocols differ. 
 
-In more advanced cases, task mights perform one or a combination of actions on events  before forwarding, for instance:
-
-- *Transcoding* - If the event content (also referred to as "body" or "payload") arrives from the source encoded using the Apache Avro format or some proprietary serialization format, but the expectation of the system owning the target is for the content to be JSON encoded, a transcoding replication task will first deserialize the payload from Apache Avro into an in-memory object graph and then serialize that graph into the JSON format for the event that is being forwarded. Transcoding also includes content compression and decompression tasks.   
-- *Transformation* - Events that contain structured data may require reshaping of that data for easier consumption by downstream consumers. This may involve work like flattening nested structures, pruning extraneous data elements, or reshaping the payload to exactly fit a given schema.
-- *Batching* - Events may be received in batches (multiple events in a single transfer) from a source, but have to be forwarded singly to a target, or vice versa. A task may therefore forward multiple events based on a single input event transfer or aggregate a set of events that are then transferred together. 
-- *Validation* - Event data from external sources often need to be checked for whether they are in compliance with a set of rules before they may be forwarded. The rules may be expressed using schemas or code. Events that are found not to be in compliance may be dropped, with the issue noted in logs, or may be forwarded to a special target destination to handle them further.   
-- *Enrichment* - Event data coming from some sources may require enrichment with further context for it to be usable in target systems. This may involve looking up reference data and embedding that data with the event, or adding information about the source that is known to the replication task, but not contained in the events. 
-- *Filtering* - Some events arriving from a source might have to be withheld from the target based on some rule. A filter tests the event against a rule and drops the event if the event does not match the rule. Filtering out duplicate events by observing certain criteria and dropping subsequent events with the same values is a form of filtering.
-- *Routing and Partitioning* - Some replication tasks may allow for two or more alternative targets, and define rules for which replication target is chosen for any particular event based on the metadata or content of the event. A special form of routing is partitioning, where the task explicitly assigns partitions in one replication target based on rules.
-- *Cryptography* - A replication task may have to decrypt content arriving from the source and/or encrypt content forwarded onwards to a target, and/or it may have to verify the integrity of content and metadata relative to a signature carried in the event, or attach such a signature. 
-- *Attestation* - A replication task may attach metadata, potentially protected by a digital signature, to an event that attests that the event has been received through a specific channel or at a specific time.     
-- *Chaining* - A replication task may apply signatures to sequences of events such that the integrity of the sequence is protected and missing events can be detected.
-
 Replication tasks are generally stateless, meaning that they do not share state or other side-effects across sequential or parallel executions of a task. That is also true for batching and chaining, which can both be implemented on top of the existing state of a stream. 
 
 This makes replication tasks different from aggregation tasks, which are generally stateful, and are the domain of analytics frameworks and services like [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md).
@@ -77,7 +64,7 @@ Standard replication tasks lean on pre-built components that are part of the Azu
 
 A replication application with standard tasks is configured using a simple configuration file that defines pairs of event sources and event destinations (and related parameters) along with the kind of task you want to execute, for instance:
 
-``` JSON
+``` JSON  
 {
     "configurationSource" : "config",
     "bindings" : [
@@ -100,7 +87,9 @@ A replication application with standard tasks is configured using a simple confi
 }
 ```
 
-Standard replication tasks are available to move data between pairs of Event Hubs, between Service Bus and Event Hubs, between Event Grid and Event Hubs, and between Apache Kafka and Event Hubs. Details for how to configure and deploy those standard tasks are documented in dedicated articles:
+The shown configuration declares an *input* with an Event Hubs trigger that references a connection string from the application configuration for the connection information and designates the source event hub. It also declares an *output* with an Event Hubs target, using a different connection string configuration element and the target Event Hub. The replication task, referred to by "entryPoint" is the `EventHubToEventHubCopy` standard task, which copies the complete contents of the source Event Hub into the target Event Hub.
+
+Standard replication tasks are available to move data between pairs of Event Hubs, between Service Bus and Event Hubs, between Event Grid and Event Hubs, and between Apache Kafka and Event Hubs. Further details for how to configure and deploy those standard tasks, including the one above, are documented in dedicated articles:
 
 * [Replicating event data between different Event Hubs](event-hubs-federation-event-hubs.md)
 * [Replicating event data between Event Hubs and Service Bus](event-hubs-federation-service-bus.md)
@@ -108,9 +97,15 @@ Standard replication tasks are available to move data between pairs of Event Hub
 * [Replicating event data between Event Hubs and Apache Kafka](event-hubs-federation-kafka.md)
 
 #### Custom replication tasks
+
+Custom replication tasks implement extra functionality not provided by standard tasks, often implementing one or more common [replication task pattern](event-hubs-federation-overview.md#replication-task-patterns), or integrating special routing targets.
+
+For custom tasks, you should take advantage of Azure Functions' ability to build and deploy functions in multiple languages and host them in the same App Service Plan. Build a simple Java function to use one of hundreds of [Apache Camel](https://camel.apache.org/) connectors, use JavaScript to reshape JSON data, or use your favorite Python libraries to enrich the event payload with reference data or annotations.
+
 For Event Hubs, boilerplate code for a custom replication task is as simple as this: 
 
-> TODO: Other languages
+# [C#](#tab/csharp)
+
 
 ``` C#
     [FunctionName("EventHubToEventHubBridge")]
@@ -123,6 +118,20 @@ For Event Hubs, boilerplate code for a custom replication task is as simple as t
         return event; 
     }
 ```
+
+# [Java](#tab/java)
+
+(TBD)
+
+# [JavaScript](#tab/javascript)
+
+(TBD)
+
+# [Python](#tab/python)
+
+(TBD)
+
+---
 
 A replication task that uses batched transfers, which are preferred for fast replication between pairs of Event Hubs, looks like this: 
 
@@ -141,13 +150,5 @@ A replication task that uses batched transfers, which are preferred for fast rep
         }
     }
 ´´´
-
-
-
-
-
-
-### Ready-to-use replication tasks 
-
 
 
