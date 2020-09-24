@@ -1,6 +1,6 @@
 ---
 title: Azure Migrate appliance 
-description: Provides an overview of the Azure Migrate appliance used in server assessment and migration.
+description: Provides a summary of support for the Azure Migrate appliance.
 ms.topic: conceptual
 ms.date: 05/04/2020
 ---
@@ -67,7 +67,7 @@ The following table summarizes the Azure Migrate appliance requirements for VMwa
 **PowerShell script** | Refer to this [article](./deploy-appliance-script.md#set-up-the-appliance-for-hyper-v).<br/><br/> 
 **Software/hardware***   |  The appliance should run on machine with Windows Server 2016, 16-GB RAM, 8 vCPUs, around 80 GB of disk storage, and an external virtual switch.<br/> The appliance needs a static or dynamic IP address, and requires internet access, either directly or through a proxy.<br/><br/> If you run the appliance as a Hyper-V VM, you need enough resources on the Hyper-V host to allocate 16-GB RAM, 8 vCPUs, around 80 GB of storage space, and an external switch for the appliance VM.<br/><br/> If you run the appliance on a physical machine, make sure that it's running Windows Server 2016, and meets hardware requirements. 
 **Hyper-V requirements** | If you deploy the appliance with the VHD template, the appliance VM provided by Azure Migrate is Hyper-V VM version 5.0.<br/><br/> The Hyper-V host must be running Windows Server 2012 R2 or later. 
-**Hash value-VHD** | [Verify](tutorial-assess-hyper-v.md#verify-security) the VHD template hash values.
+**Hash value-VHD** | VHD template hash values.
 **Hash value-PowerShell script** | [Verify](deploy-appliance-script.md#verify-file-security) the PowerShell script hash values.
 
 
@@ -80,7 +80,7 @@ The following table summarizes the Azure Migrate appliance requirements for VMwa
 **Supported deployment** | Deploy as a dedicated physical machine, or a VM, using a PowerShell installation script. The script is available for download from the portal.
 **Project support** |  An appliance can be associated with a single project. <br/> Any number of appliances can be associated with a single project.<br/> 
 **Discovery limits** | An appliance can discover up to 1000 physical servers.
-**PowerShell script** | Download the script (AzureMigrateInstaller.ps1) in a zipped folder from the portal or from [here](https://go.microsoft.com/fwlink/?linkid=2140334). [Learn more](tutorial-assess-physical.md#set-up-the-azure-migrate-appliance).<br/><br/> Download size is 85 MB.
+**PowerShell script** | Download the script (AzureMigrateInstaller.ps1) in a zipped folder from the portal or from [here](https://go.microsoft.com/fwlink/?linkid=2140334). [Learn more](tutorial-discover-physical.md).<br/><br/> Download size is 85 MB.
 **Software/hardware** |  The appliance should run on machine with Windows Server 2016, 16-GB RAM, 8 vCPUs, around 80 GB of disk storage, and an external virtual switch.<br/> The appliance needs a static or dynamic IP address, and requires internet access, either directly or through a proxy.<br/><br/> If you run the appliance on a physical machine, make sure that it's running Windows Server 2016, and meets hardware requirements.<br/> Running the appliance on a machine with Windows Server 2019 isn't supported.
 **Hash value** | [Verify](deploy-appliance-script.md#verify-file-security) the PowerShell script hash values.
 
@@ -97,7 +97,7 @@ The Azure Migrate appliance needs connectivity to the internet.
 **URL** | **Details**  
 --- | --- |
 *.portal.azure.com  | Navigate to the Azure portal.
-*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com | Sign in to your Azure subscription.
+*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com <br/> *.office.com | Sign in to your Azure subscription.
 *.microsoftonline.com <br/> *.microsoftonline-p.com | Create Azure Active Directory (AD) apps for the appliance to communicate with Azure Migrate.
 management.azure.com | Create Azure AD apps for the appliance to communicate with the Azure Migrate service.
 *.services.visualstudio.com | Upload app logs used for internal monitoring.
@@ -117,7 +117,7 @@ download.microsoft.com/download | Allow downloads from Microsoft download.
 graph.windows.net | Sign in to your Azure subscription.
 login.microsoftonline.us  | Create Azure Active Directory (AD) apps for the appliance to communicate with Azure Migrate.
 management.usgovcloudapi.net | Create Azure AD apps for the appliance to communicate with the Azure Migrate service.
-dc.services.visualstudio.com | Upload app logs used for internal monitoring.
+*.services.visualstudio.com | Upload app logs used for internal monitoring.
 *.vault.usgovcloudapi.net | Manage secrets in the Azure Key Vault.
 aka.ms/* | Allow access to aka links. Used for Azure Migrate appliance updates.
 download.microsoft.com/download | Allow downloads from Microsoft download.

@@ -83,7 +83,7 @@ If you first accessed the portal after the general availability announcement in 
 
 ### Does the portal have all the features of the legacy portal?
 
-The developer portal no longer supports *Applications* and *Issues*.
+The developer portal no longer supports *Applications*, *Issues*, and direct integration with Facebook, Microsoft, Twitter, and Google as identity providers (you can use Azure AD B2C instead).
 
 ### Has the legacy portal been deprecated?
 

@@ -38,12 +38,17 @@ Set up an assessment as follows:
 1. Follow the [tutorial](./tutorial-prepare-physical.md) to set up Azure and prepare your AWS VMs for an assessment. Note that:
 
     - Azure Migrate uses password authentication when discovering AWS instances. AWS instances don't support password authentication by default. Before you can discover instance, you need to enable password authentication.
-        - For Windows machines, allow WinRM port 5986 (HTTPS), and 5985 (HTTP). This allows remote WMI calls. If you set up the 
+        - For Windows machines, allow WinRM port 5985 (HTTP). This allows remote WMI calls.
         - For Linux machines:
             1. Sign into each Linux  machine.
             2. Open the sshd_config file : vi /etc/ssh/sshd_config
             3. In the file, locate the **PasswordAuthentication** line, and change the value to **yes**.
             4. Save the file and close it. Restart the ssh service.
+    - If you are using a root user to discover your Linux VMs, ensure root login is allowed on the VMs.
+        1. Sign into each Linux machine
+        2. Open the sshd_config file : vi /etc/ssh/sshd_config
+        3. In the file, locate the **PermitRootLogin** line, and change the value to **yes**.
+        4. Save the file and close it. Restart the ssh service.
 
 2. Then, follow this [tutorial](./tutorial-assess-physical.md) to set up an Azure Migrate project and appliance to discover and assess your AWS VMs.
 

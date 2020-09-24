@@ -35,7 +35,7 @@ Most features are available on every tier, including Free, but resource-intensiv
 
 Tiers are differentiated by:
 
-+ Quantity of indexes and indexers you can create
++ Quantity of indexes and indexers (maximum limits)
 + Size and speed of partitions (physical storage)
 
 The tier you select determines the billable rate. The following screenshot from Azure portal shows the available tiers, minus pricing (which you can find in the portal and on the [pricing page](https://azure.microsoft.com/pricing/details/search/). **Free**, **Basic**, and **Standard** are the most common tiers.

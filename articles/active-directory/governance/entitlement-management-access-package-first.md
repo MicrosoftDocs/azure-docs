@@ -27,7 +27,7 @@ Managing access to all the resources employees need, such as groups, application
 
 In this tutorial, you work for Woodgrove Bank as an IT administrator. You've been asked to create a package of resources for a marketing campaign that internal users can self-service request. Requests do not require approval and user's access expires after 30 days. For this tutorial, the marketing campaign resources are just membership in a single group, but it could be a collection of groups, applications, or SharePoint Online sites.
 
-![Scenario overview](./media/entitlement-management-access-package-first/elm-scenario-overview.png)
+![Diagram that shows the scenario overview.](./media/entitlement-management-access-package-first/elm-scenario-overview.png)
 
 In this tutorial, you learn how to:
 
@@ -39,6 +39,8 @@ In this tutorial, you learn how to:
 For a step-by-step demonstration of the process of deploying Azure Active Directory entitlement management, including creating your first access package, view the following video:
 
 >[!VIDEO https://www.youtube.com/embed/zaaKvaaYwI4]
+
+You can also create an access package programmatically using Microsoft Graph. For a tutorial that shows how to create an access package programmatically, see [entitlement management API](https://docs.microsoft.com/graph/tutorial-access-package-api?view=graph-rest-beta).
 
 ## Prerequisites
 
@@ -104,9 +106,9 @@ An *access package* is a bundle of resources that a team or project needs and is
 
 9. In the Select groups pane, find and select the **Marketing resources** group you created earlier.
 
-    By default, you see groups inside and outside the **General** catalog. When you select a group outside of the **General** catalog, it will be added to the **General** catalog.
+     By default, you see groups inside the General catalog. When you select a group outside of the General catalog, which you can see if you check the **See all** check box, it will be added to the General catalog.
 
-    ![New access package - Resource roles tab](./media/entitlement-management-access-package-first/resource-roles-select-groups.png)
+    ![Screenshot that shows the "New access package - Resource roles" tab and the "Select groups" window.](./media/entitlement-management-access-package-first/resource-roles-select-groups.png)
 
 10. Click **Select** to add the group to the list.
 

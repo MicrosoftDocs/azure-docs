@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 08/25/2020
+ms.date: 09/10/2020
 ---
 
 # Connect to Azure virtual networks from Azure Logic Apps by using an integration service environment (ISE)
@@ -42,7 +42,14 @@ You can also create an ISE by using the [sample Azure Resource Manager quickstar
   > [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#fixed-pricing). 
   > For pricing rates, see [Logic Apps pricing](../logic-apps/logic-apps-pricing.md).
 
-* An [Azure virtual network](../virtual-network/virtual-networks-overview.md). Your virtual network needs to have four *empty* subnets, which are required for creating and deploying resources in your ISE and are used by internal Logic Apps components, such as connectors and caching for performance. You can create the subnets in advance, or you can wait until you create your ISE so that you can create subnets at the same time. However, before you create your subnets, review the [subnet requirements](#create-subnet).
+* An [Azure virtual network](../virtual-network/virtual-networks-overview.md). Your virtual network needs to have four *empty* subnets, which are required for creating and deploying resources in your ISE and are used by these internal and hidden components:
+
+  * Logic Apps Compute
+  * Internal App Service Environment (connectors)
+  * Internal API Management (connectors)
+  * Internal Redis for caching and performance
+  
+  You can create the subnets in advance, or you can wait until you create your ISE so that you can create subnets at the same time. However, before you create your subnets, review the [subnet requirements](#create-subnet).
 
   > [!IMPORTANT]
   >

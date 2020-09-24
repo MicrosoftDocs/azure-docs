@@ -118,7 +118,7 @@ If setting multiple approvers, approval completes as soon as one of them approve
 
 # [Previous version](#tab/previous)
 
-## Open role settings
+## Open role settings (previous version)
 
 Follow these steps to open the settings for an Azure AD role.
 
@@ -163,7 +163,7 @@ Use the **Incident/Request ticket** switch to require eligible administrators to
 Use the **Multi-Factor Authentication** switch to specify whether to require users to verify their identity with MFA before they can activate their roles. They only have to verify their identity once per session, not every time they activate a role. There are two tips to keep in mind when you enable MFA:
 
 - Users who have Microsoft accounts for their email addresses (typically @outlook.com, but not always) cannot register for Azure Multi-Factor Authentication. If you want to assign roles to users with Microsoft accounts, you should either make them permanent admins or disable multi-factor authentication for that role.
-- You cannot disable Azure Multi-Factor Authentication for highly privileged roles for Azure AD and Office 365. This safety feature helps protect the following roles:  
+- You cannot disable Azure Multi-Factor Authentication for highly privileged roles for Azure AD and Microsoft 365. This safety feature helps protect the following roles:  
   
   - Azure Information Protection administrator
   - Billing administrator

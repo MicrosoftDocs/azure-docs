@@ -114,7 +114,7 @@ In order to authenticate, you need three pieces of information:
 >[!TIP]
 > If you don't know your *Directory (tenant) ID*, you can get it by running this command in [Azure Cloud Shell](https://shell.azure.com):
 > 
-> ```azurecli-interactive
+> ```azurecli
 > az account show --query tenantId
 > ```
 
@@ -325,12 +325,13 @@ Notice that no error is thrown when the twins are created the second time, even 
 
 Next, you can create **relationships** between the twins you've created, to connect them into a **twin graph**. [Twin graphs](concepts-twins-graph.md) are used to represent your entire environment.
 
-To be able to create relationships, add a `using` statement for the relationship base type in the SDK:skip this if already added.
+To be able to create relationships, you'll need the `Azure.DigitalTwins.Core.Serialization` namespace. You added this to the project earlier with this `using` statement:
+
 ```csharp
 using Azure.DigitalTwins.Core.Serialization;
 ```
 
-Next, add a new static method to the `Program` class, underneath the `Main` method:
+Add a new static method to the `Program` class, underneath the `Main` method:
 ```csharp
 public async static Task CreateRelationship(DigitalTwinsClient client, string srcId, string targetId)
 {

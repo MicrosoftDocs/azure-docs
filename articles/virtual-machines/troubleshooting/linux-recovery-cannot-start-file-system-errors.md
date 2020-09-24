@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot Linux VM starting issues due to file system errors | Microsoft Docs
-description: Explains why Linux VM cannot start and how to solve the problem.
+description: Learn how to troubleshoot Linux VM starting issues due to file system errors
 services: virtual-machines-linux
 documentationcenter: ''
 author: v-miegge

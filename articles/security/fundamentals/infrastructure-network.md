@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/04/2020
+ms.date: 09/08/2020
 ms.author: terrylan
 
 ---
@@ -47,7 +47,7 @@ A brief description of the network components.
 - Regional gateway
 
    - Point of aggregation for all of the datacenters in an Azure region
-   - Provides massive connectivity between datacenters within an Azure region (for example, currently 102.Tbps per datacenter)
+   - Provides massive connectivity between datacenters within an Azure region (for example, multi hundred terabits per datacenter)
 
 - Datacenter network
 

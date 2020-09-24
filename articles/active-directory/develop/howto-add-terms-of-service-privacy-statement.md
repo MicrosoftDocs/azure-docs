@@ -54,7 +54,7 @@ When the terms of service and privacy statement are ready, you can add links to 
 ### <a name="azure-portal"></a>Using the Azure portal
 Follow these steps in the Azure portal.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/), select the correct AzureAD tenant(not B2C).
 2. Navigate to the **App Registrations** section and select your app.
 3. Open the **Branding** pane.
 4. Fill out the **Terms of Service URL** and **Privacy Statement URL** fields.

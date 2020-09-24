@@ -28,7 +28,7 @@ After you setup inbound provisioning integration using either [Workday to on-pre
 
 This Workday Writeback user provisioning solution is ideally suited for:
 
-* Organizations using Office 365 that desire to writeback authoritative attributes managed by IT (such as email address, username and phone number) back to Workday
+* Organizations using Microsoft 365 that desire to writeback authoritative attributes managed by IT (such as email address, username and phone number) back to Workday
 
 ## Configure integration system user in Workday
 

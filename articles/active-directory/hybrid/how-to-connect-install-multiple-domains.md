@@ -1,6 +1,6 @@
 ---
 title: Azure AD Connect Multiple Domains
-description: This document describes setting up and configuring multiple top level domains with O365 and Azure AD.
+description: This document describes setting up and configuring multiple top level domains with Microsoft 365 and Azure AD.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -20,7 +20,7 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 # Multiple Domain Support for Federating with Azure AD
-The following documentation provides guidance on how to use multiple top-level domains and subdomains when federating with Office 365 or Azure AD domains.
+The following documentation provides guidance on how to use multiple top-level domains and subdomains when federating with Microsoft 365 or Azure AD domains.
 
 ## Multiple top-level domain support
 Federating multiple, top-level domains with Azure AD requires some additional configuration that is not required when federating with one top-level domain.
@@ -38,7 +38,7 @@ You can view the IssuerUri by using the PowerShell command `Get-MsolDomainFedera
 
 A problem arises when you add more than one top-level domain.  For example, let's say you have set up federation between Azure AD and your on-premises environment.  For this document, the domain, bmcontoso.com is being used.  Now a second, top-level domain, bmfabrikam.com has been added.
 
-![Domains](./media/how-to-connect-install-multiple-domains/domains.png)
+![An screenshot showing multiple top-level domains](./media/how-to-connect-install-multiple-domains/domains.png)
 
 When you attempt to convert the bmfabrikam.com domain to be federated, an error occurs.  The reason is, Azure AD has a constraint that does not allow the IssuerUri property to have the same value for more than one domain.  
 
@@ -63,7 +63,7 @@ Looking at the settings for the bmfabrikam.com domain you can see the following:
 
 Another thing that `-SupportMultipleDomain` does is that it ensures that the AD FS system includes the proper Issuer value in tokens issued for Azure AD. This value is set by taking the domain portion of the users UPN and setting it as the domain in the IssuerUri, i.e. https://{upn suffix}/adfs/services/trust.
 
-Thus during authentication to Azure AD or Office 365, the IssuerUri element in the user’s token is used to locate the domain in Azure AD.  If, a match cannot be found, the authentication will fail.
+Thus during authentication to Azure AD or Microsoft 365, the IssuerUri element in the user’s token is used to locate the domain in Azure AD. If, a match cannot be found, the authentication will fail.
 
 For example, if a user’s UPN is bsimon@bmcontoso.com, the IssuerUri element in the token, AD FS issues, will be set to `http://bmcontoso.com/adfs/services/trust`. This element will match the Azure AD configuration, and authentication will succeed.
 

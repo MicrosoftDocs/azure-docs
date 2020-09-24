@@ -17,7 +17,7 @@ This quickstart introduces the basic general concepts behind how to build your f
 
 ![Conceptual art showing high-level example logic app workflow.](./media/quickstart-create-first-logic-app-workflow/quickstart-workflow-overview.png)
 
-For this scenario, you need an Azure subscription or [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), an email account from a service that's supported by Azure Logic Apps, such as Office 365 Outlook, Outlook.com, or Gmail. For other supported email services, [review the connectors list here](/connectors/). In this example, the logic app uses an Office 365 Outlook account. If you use a different email service, the overall general steps are the same, but your user interface might differ slightly.
+For this scenario, you need an Azure subscription or [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), an email account from a service that's supported by Azure Logic Apps, such as Office 365 Outlook, Outlook.com, or Gmail. For other supported email services, [review the connectors list here](/connectors/). In this example, the logic app uses a work or school account. If you use a different email service, the overall general steps are the same, but your user interface might differ slightly.
 
 > [!IMPORTANT]
 > If you want to use the Gmail connector, only G-Suite business accounts can use this connector without restriction in logic apps. 

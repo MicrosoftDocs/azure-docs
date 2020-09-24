@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/21/2020
+ms.date: 08/20/2020
 ms.author: jeedes
 ---
 
@@ -36,6 +36,9 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Mapbox supports **IDP** initiated SSO
 * Once you configure Mapbox you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+
+> [!NOTE]
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
 
 ## Adding Mapbox from the gallery
 
@@ -131,15 +134,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on the **Settings** tab.
 
-	![Mapbox Configuration](./media/mapbox-tutorial/configure1.png)
+	![Mapbox Settings tab](./media/mapbox-tutorial/configure1.png)
 
 1. Click on the **Security** tab from the left navigation pane.
 
-	![Mapbox Configuration](./media/mapbox-tutorial/configure2.png)
+	![Mapbox Security tab](./media/mapbox-tutorial/configure2.png)
 
 1. Click **Edit single sign-on**.
 
-	![Mapbox Configuration](./media/mapbox-tutorial/configure3.png)
+	![Mapbox Edit single sign-on](./media/mapbox-tutorial/configure3.png)
 
 1. Scroll down to **Step 3: Setup SAML single sign-on for Mapbox** and perform the following steps:
 
