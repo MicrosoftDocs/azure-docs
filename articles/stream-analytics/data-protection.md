@@ -12,6 +12,25 @@ ms.date: 03/05/2020
 
 Azure Stream Analytics is a fully managed platform-as-a-service that allows you to build real-time analytics pipelines. All of the heavy lifting, such as cluster provisioning, scaling nodes to accommodate your usage, and managing internal checkpoints, is managed behind the scenes.
 
+## Private data assets that are stored
+
+Azure Stream Analytics persists the following metadata and data in order to run: 
+
+* Query definition and their related configuration  
+
+* User-defined functions or aggregates  
+
+* Checkpoints needed by the Stream Analytics runtime (stored in single region by default)
+
+* Snapshots of reference data (stored in single region by default)
+
+* Connection details of the resources used by your Stream Analytics job (stored in single region by default)
+
+To help you meet your compliance obligations in any regulated industry or environment, you can read more about [Microsoft's compliance offerings](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942). 
+
+## In-Region Data Residency
+Azure Stream Analytics stores customer data. This data is automatically stored by Azure Stream Analytics in a single region, so this service automatically satisfies in region data residency requirements including those specified in the [Trust Center](https://azuredatacentermap.azurewebsites.net/).
+
 ## Encrypt your data
 
 Stream Analytics automatically employs best-in-class encryption standards across its infrastructure to encrypt and secure your data. You can simply trust Stream Analytics to securely store all your data so that you don't have to worry about managing the infrastructure.
@@ -23,7 +42,14 @@ This setting must be configured at the time of Stream Analytics job creation, an
 Updating or rotating keys to your storage account is not possible using the Stream Analytics portal. You can update the keys using the REST APIs.
 
 
-## Configure storage account for private data 
+### Configure storage account for private data 
+
+
+Encrypt your storage account to secure all of your data. 
+
+To help you meet your compliance obligations in any regulated industry or environment, you can read more about [Microsoft's compliance offerings](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942). 
+
+
 
 Use the following steps to configure your storage account for private data assets. This configuration is made from your Stream Analytics job, not from your storage account.
 
@@ -41,23 +67,9 @@ Use the following steps to configure your storage account for private data asset
 
    ![Private data storage account settings](./media/data-protection/storage-account-create.png)
 
-## Private data assets that are stored
 
-Any private data that is required to be persisted by Stream Analytics is stored in your storage account. Examples of private data assets include: 
 
-* Queries that you have authored and their related configurations  
-
-* User-defined functions 
-
-* Checkpoints needed by the Stream Analytics runtime
-
-* Snapshots of reference data 
-
-Connection details of your resources, which are used by your Stream Analytics job, are also stored. Encrypt your storage account to secure all of your data. 
-
-To help you meet your compliance obligations in any regulated industry or environment, you can read more about [Microsoft's compliance offerings](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942). 
-
-## Known issues
+### Known issues
 There is a known issue where a job using customer managed key runs into failures when using managed identity to authenticate to any inputs or outputs. A fix for this issue is being worked on and will become available in the near future. 
 
 ## Next steps
