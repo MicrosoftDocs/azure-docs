@@ -1,6 +1,6 @@
 ---
-title: Deploy an application to a Service Fabric managed cluster (preview)
-description: In this tutorial, you will connect to a Service Fabric managed cluster and deploy an application.
+title: Deploy an application to a Service Fabric managed cluster via PowerShell (preview)
+description: In this tutorial, you will connect to a Service Fabric managed cluster and deploy an application via PowerShell.
 ms.topic: tutorial
 ms.date: 09/28/2020
 ---
@@ -58,11 +58,14 @@ Connect-ServiceFabricCluster -ConnectionEndpoint $connectionEndpoint -KeepAliveI
 
 In this tutorial, we will be using the [Service Fabric Voting Application](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/tree/voting-sample-no-reverse-proxy) sample. For more details on Service Fabric application deployment through PowerShell see [Service Fabric deploy and remove applications](service-fabric-deploy-remove-applications.md).
 
-You will first need to package the application for deployment following these [steps](service-fabric-package-apps.md). Once the application package has been created you can upload the application package to your cluster.
+You will first need to package the application for deployment following these [steps](service-fabric-package-apps.md). For this tutorial, please follow the steps for packaging an application from within Visual Studio. It is important to take note of the path where the application has been packaged as it will be used for the path below. Once the application package has been created you can upload the application package to your cluster.
+
+> [!NOTE]
+> This path is an example, please update the value to represent the path where your application package exists. 
 
 ```powershell
 $path = "C:\Users\<user>\Documents\service-fabric-dotnet-quickstart\Voting\pkg\Debug"
-Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $path -CompressPackage -SkipCopy
+Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $path -CompressPackage 
 Register-ServiceFabricApplicationType -ApplicationPathInImageStore Debug
 ```
 
