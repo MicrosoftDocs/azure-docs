@@ -175,15 +175,15 @@ Use [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/) to configur
 
 1. Next, add a step to consume this event and search for email. There are several different mail accounts you can use to receive events. You can also configure conditions on when to send an email alert.
 
-    ![select-email-action](./media/how-to-use-event-grid/select-email-action.png)
+    ![email-action](./media/how-to-use-event-grid/select-email-action.png)
 
 1. Select __Send an email__ and fill in the parameters. In the subject, you can include the __Event Type__ and __Topic__ to help filter events. You can also include a link to the workspace page for runs in the message body. 
 
-    ![configure-email-body](./media/how-to-use-event-grid/configure-email-body.png)
+    ![configure-email](./media/how-to-use-event-grid/configure-email-body.png)
 
 1. To save this action, select **Save As** on the left corner of the page. From the right bar  that appears, confirm creation of this action.
 
-    ![confirm-logic-app-create](./media/how-to-use-event-grid/confirm-logic-app-create.png)
+    ![confirm-logic-app-creation](./media/how-to-use-event-grid/confirm-logic-app-create.png)
 
 
 ### Example: Data drift triggers retraining
@@ -199,7 +199,7 @@ Before you begin, perform the following actions:
 
 In this example, a simple Data Factory pipeline is used to copy files into a blob store and run a published Machine Learning pipeline. For more information on this scenario, see how to set up a [Machine Learning step in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/transform-data-machine-learning-service)
 
-![adf-mlpipeline-stage](./media/how-to-use-event-grid/adf-mlpipeline-stage.png)
+![adf-mlpipeline](./media/how-to-use-event-grid/adf-mlpipeline-stage.png)
 
 1. Start with creating the logic app. Go to the [Azure portal](https://portal.azure.com), search for Logic Apps, and select create.
 
@@ -207,31 +207,31 @@ In this example, a simple Data Factory pipeline is used to copy files into a blo
 
 1. Fill in the requested information. To simplify the experience, use the same subscription and resource group as your Azure Data Factory Pipeline and Azure Machine Learning workspace.
 
-    ![set-up-logic-app-for-adf](./media/how-to-use-event-grid/set-up-logic-app-for-adf.png)
+    ![set-up-logic-app-adf](./media/how-to-use-event-grid/set-up-logic-app-for-adf.png)
 
 1. Once you have created the logic app, select __When an Event Grid resource event occurs__. 
 
-    ![select-event-grid-trigger](./media/how-to-use-event-grid/select-event-grid-trigger.png)
+    ![select-eventgrid-trigger](./media/how-to-use-event-grid/select-event-grid-trigger.png)
 
 1. Login and fill in the details for the event. Set the __Resource Name__ to the workspace name. Set the __Event Type__ to __DatasetDriftDetected__.
 
-    ![login-and-add-event](./media/how-to-use-event-grid/login-and-add-event.png)
+    ![login-add-event](./media/how-to-use-event-grid/login-and-add-event.png)
 
 1. Add a new step, and search for __Azure Data Factory__. Select __Create a pipeline run__. 
 
-    ![create-adfpipeline-run](./media/how-to-use-event-grid/create-adfpipeline-run.png)
+    ![create-adf-pipeline-run](./media/how-to-use-event-grid/create-adfpipeline-run.png)
 
 1. Login and specify the published Azure Data Factory pipeline to run.
 
-    ![specify-adf-pipeline](./media/how-to-use-event-grid/specify-adf-pipeline.png)
+    ![specify-adfpipeline](./media/how-to-use-event-grid/specify-adf-pipeline.png)
 
 1. Save and create the logic app using the **save** button on the top left of the page. To view your app, go to your workspace in the [Azure portal](https://portal.azure.com) and click on **Events**.
 
-    ![show-logic-app-webhook](./media/how-to-use-event-grid/show-logic-app-webhook.png)
+    ![show-logicapp-webhook](./media/how-to-use-event-grid/show-logic-app-webhook.png)
 
 Now the data factory pipeline is triggered when drift occurs. View details on your data drift run and machine learning pipeline on the [new workspace portal](https://ml.azure.com). 
 
-![view-in-workspace](./media/how-to-use-event-grid/view-in-workspace.png)
+![view-workspace](./media/how-to-use-event-grid/view-in-workspace.png)
 
 ### Example: Deploy a model based on tags
 

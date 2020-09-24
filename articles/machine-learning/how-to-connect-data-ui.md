@@ -21,9 +21,9 @@ In this article, learn how to access your data with the [Azure Machine Learning 
 
 The following table defines and summarizes the benefits of datastores and datasets. 
 
-||Description| Benefits|   
+|Object|Description| Benefits|   
 |---|---|---|
-|Datastores| Securely connect to your storage service on Azure, by storing your connection information, like your subscription ID and token authorization in your [Key Vault](https://azure.microsoft.com/services/key-vault/) associated with the workspace | Because your information is securely stored, you <br><br> <li> Don't&nbsp;put&nbsp;authentication&nbsp;credentials or original data sources at risk. <li> No longer need to hard code them in your scripts.
+|Datastores| Securely connect to your storage service on Azure, by storing your connection information, like your subscription ID and token authorization in your [Key Vault](https://azure.microsoft.com/services/key-vault/) associated with the workspace | Because your information is securely stored, you <br><br> <li> Don't&nbsp;put&nbsp;authentication&nbsp;credentials&nbsp;or&nbsp;original&nbsp;data sources at risk. <li> No longer need to hard code them in your scripts.
 |Datasets| By creating a dataset, you create a reference to the data source location, along with a copy of its metadata. With datasets you can, <br><br><li> Access data during model training.<li> Share data and collaborate with other users.<li> Leverage open-source libraries, like pandas, for data exploration. | Because datasets are lazily evaluated, and the data remains in its existing location, you <br><br><li>Keep a single copy of data in your storage.<li> Incur no extra storage cost <li> Don't risk unintentionally changing your original data sources.<li>Improve ML workflow performance speeds. 
 
 To understand where datastores and datasets fit in Azure Machine Learning's overall data access workflow, see  the [Securely access data](concept-data.md#data-workflow) article.
@@ -110,22 +110,22 @@ Specifically, Azure Machine Learning dataset's data profile includes:
 >[!NOTE]
 > Blank entries appear for features with irrelevant types.
 
-Statistic|Description
-------|------
-Feature| Name of the column that is being summarized.
-Profile| In-line visualization based on the type inferred. For example, strings, booleans, and dates will have value counts, while decimals (numerics) have approximated histograms. This allows you to gain a quick understanding of the distribution of the data.
-Type distribution| In-line value count of types within a column. Nulls are their own type, so this visualization is useful for detecting odd or missing values.
-Type|Inferred type of the column. Possible values include: strings, booleans, dates, and decimals.
-Min| Minimum value of the column. Blank entries appear for features whose type does not have an inherent ordering (like, booleans).
-Max| Maximum value of the column. 
-Count| Total number of missing and non-missing entries in the column.
-Not missing count| Number of entries in the column that are not missing. Empty strings and errors are treated as values, so they will not contribute to the "not missing count."
-Quantiles| Approximated values at each quantile to provide a sense of the distribution of the data.
-Mean| Arithmetic mean or average of the column.
-Standard deviation| Measure of the amount of dispersion or variation of this column's data.
-Variance| Measure of how far spread out this column's data is from its average value. 
-Skewness| Measure of how different this column's data is from a normal distribution.
-Kurtosis| Measure of how heavily tailed this column's data is compared to a normal distribution.
+|Statistic|Description
+|------|------
+|Feature| Name of the column that is being summarized.
+|Profile| In-line visualization based on the type inferred. For example, strings, booleans, and dates will have value counts, while decimals (numerics) have approximated histograms. This allows you to gain a quick understanding of the distribution of the data.
+|Type distribution| In-line value count of types within a column. Nulls are their own type, so this visualization is useful for detecting odd or missing values.
+|Type|Inferred type of the column. Possible values include: strings, booleans, dates, and decimals.
+|Min| Minimum value of the column. Blank entries appear for features whose type does not have an inherent ordering (like, booleans).
+|Max| Maximum value of the column. 
+|Count| Total number of missing and non-missing entries in the column.
+|Not missing count| Number of entries in the column that are not missing. Empty strings and errors are treated as values, so they will not contribute to the "not missing count."
+|Quantiles| Approximated values at each quantile to provide a sense of the distribution of the data.
+|Mean| Arithmetic mean or average of the column.
+|Standard deviation| Measure of the amount of dispersion or variation of this column's data.
+|Variance| Measure of how far spread out this column's data is from its average value. 
+|Skewness| Measure of how different this column's data is from a normal distribution.
+|Kurtosis| Measure of how heavily tailed this column's data is compared to a normal distribution.
 
 ## Storage access and permissions
 
