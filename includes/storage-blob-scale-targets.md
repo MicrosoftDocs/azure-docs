@@ -22,7 +22,7 @@ ms.author: tamram
 
 <sup>1</sup> Throughput for a single blob depends on several factors, including, but not limited to: concurrency, request size, performance tier, speed of source for uploads, and destination for downloads. To take advantage of the performance enhancements of [high-throughput block blobs](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/), upload larger blobs or blocks. Specifically, call the [Put Blob](/rest/api/storageservices/put-blob) or [Put Block](/rest/api/storageservices/put-block) operation with a blob or block size that is greater than 4 MiB for standard storage accounts. For premium block blob or for Data Lake Storage Gen2 storage accounts, use a block or blob size that is greater than 256 KiB.
 
-<sup>2</sup> Page blobs are not yet supported in accounts that that have the **Hierarchical namespace** setting on them.
+<sup>2</sup> Page blobs are not yet supported in accounts that have the **Hierarchical namespace** setting on them.
 
 The following table describes the maximum block and blob sizes permitted by service version.
 

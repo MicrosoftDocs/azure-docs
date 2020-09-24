@@ -35,7 +35,7 @@ The following table describes default limits for Azure general-purpose v1, v2, B
 
 All storage accounts run on a flat network topology regardless of when they were created. For more information on the Azure Storage flat network architecture and on scalability, see [Microsoft Azure Storage: A Highly Available Cloud Storage Service with Strong Consistency](https://docs.microsoft.com/archive/blogs/hanuk/windows-azures-flat-network-storage-to-enable-higher-scalability-targets). 
 
-## Obtaining higher limits
+#### Obtaining higher limits
 
 If you enable the **Hierarchical namespace** setting on your account, you can obtain higher capacity limits and higher limits for ingress by request. To request an increase in account limits, contact [Azure Support](https://azure.microsoft.com/support/faq/).
 
