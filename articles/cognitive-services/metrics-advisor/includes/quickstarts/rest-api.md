@@ -40,7 +40,7 @@ To start monitoring your time series data, you need add a data feed. To add a da
         "dataFeedName": "test_data_feed_00000001",
         "dataFeedDescription": "",
         "dataSourceParameter": {
-            "connectionString": "Server=ad-sample.database.windows.net,1433;Initial Catalog=ad-sample;Persist Security Info=False;User ID=<id>;Password=<password>;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;",
+            "connectionString": "Server=ad-sample.database.windows.net,1433;Initial Catalog=ad-sample;Persist Security Info=False;User ID=adreadonly;Password=Readonly@2020;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;",
             "query": "select * from adsample3 where Timestamp = @StartTime"
         },
         "granularityName": "Daily",
