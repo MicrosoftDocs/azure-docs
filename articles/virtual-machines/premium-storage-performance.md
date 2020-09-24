@@ -308,19 +308,6 @@ For all premium SSDs or ultra disks with cache set to **ReadOnly** or **None**, 
 * For premium storage disks with cache set to **ReadWrite**, enable barriers for write durability.
 * For volume labels to persist after you restart the VM, you must update /etc/fstab with the universally unique identifier (UUID) references to the disks. For more information, see [Add a managed disk to a Linux VM](./linux/add-disk.md).
 
-### LIS drivers for OpenLogic CentOS
-
-If you're running OpenLogic CentOS VMs, run the following command to install the latest drivers:
-
-```
-sudo yum remove hypervkvpd  ## (Might return an error if not installed. That's OK.)
-sudo yum install microsoft-hyper-v
-sudo reboot
-```
-
-In some cases the command above will upgrade the kernel as well. If a kernel update is required then you may need to run the above commands again after rebooting to fully install the microsoft-hyper-v package.
-
-
 ## Disk striping
 
 When a high scale VM is attached with several premium storage persistent disks, the disks can be striped together to aggregate their IOPs, bandwidth, and storage capacity.
