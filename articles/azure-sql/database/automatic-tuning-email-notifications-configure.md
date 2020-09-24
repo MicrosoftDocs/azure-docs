@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: jrasnik, sstein
 ms.date: 06/03/2019
 ---
 # Email notifications for automatic tuning

@@ -10,12 +10,10 @@ ms.author: jordane
 author: jpe316
 ms.date: 09/03/2020
 ms.topic: conceptual
-ms.custom: how-to, contperfq4, devx-track-python
+ms.custom: how-to, contperfq2, devx-track-python
 ---
 
-# What are field-programmable gate arrays (FPGA) and how to deploy
-
-
+# What are field-programmable gate arrays (FPGAs) and how to deploy
 
 In this article, you learn about field-programmable gate arrays (FPGA) and how to deploy your machine learning models to an Azure FPGA using the [hardware-accelerated models Python package](https://docs.microsoft.com/python/api/azureml-accel-models/azureml.accel?view=azure-ml-py&preserve-view=true) from [Azure Machine Learning](overview-what-is-azure-ml.md).
 
@@ -71,7 +69,7 @@ To optimize latency and throughput, your client sending data to the FPGA model s
 The **PBS Family of Azure VMs** contains Intel Arria 10 FPGAs. It will show as "Standard PBS Family vCPUs" when you check your Azure quota allocation. The PB6 VM has six vCPUs and one FPGA, and it will automatically be provisioned by Azure ML as part of deploying a model to an FPGA. It is only used with Azure ML, and it cannot run arbitrary bitstreams. For example, you will not be able to flash the FPGA with bitstreams to do encryption, encoding, etc.
 
 
-## Deploy ML models on FPGAs
+## Deploy models on FPGAs
 
 You can deploy a model as a web service on FPGAs with [Azure Machine Learning Hardware Accelerated Models](https://docs.microsoft.com/python/api/azureml-accel-models/azureml.accel?view=azure-ml-py&preserve-view=true). Using FPGAs provides ultra-low latency inference, even with a single batch size. Inference, or model scoring, is the phase where the deployed model is used for prediction, most commonly on production data.
 
@@ -384,7 +382,7 @@ for top in sorted_results[:5]:
     print(classes_entries[top[0]], 'confidence:', top[1])
 ```
 
-## Clean up resources
+### Clean up resources
 
 Delete your web service, image, and model (must be done in this order since there are dependencies).
 
