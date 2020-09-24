@@ -49,13 +49,15 @@ You can create custom analytics rules to help you search for the types of threat
 
       Here's a sample query that would alert you when an anomalous number of resources is created in Azure Activity.
 
-      `AzureActivity
-     \| where OperationName == "Create or Update Virtual Machine" or OperationName =="Create Deployment"
-     \| where ActivityStatus == "Succeeded"
-     \| make-series dcount(ResourceId)  default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller`
+      ```kusto
+      AzureActivity
+      | where OperationName == "Create or Update Virtual Machine" or OperationName =="Create Deployment"
+      | where ActivityStatus == "Succeeded"
+      | make-series dcount(ResourceId)  default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller
+      ```
 
-      > [!NOTE]
-      > The query length should be between 1 and 10,000 characters and cannot contain “search \*” or “union \*”.
+        > [!NOTE]
+        > The query length should be between 1 and 10,000 characters and cannot contain “search \*” or “union \*”.
 
     1. Use the **Map entities** section to link parameters from your query results to Azure Sentinel-recognized entities. These entities form the basis for further analysis, including the grouping of alerts into incidents in the **Incident settings** tab.
   
@@ -65,8 +67,12 @@ You can create custom analytics rules to help you search for the types of threat
 
        1. Set **Lookup data from the last** to determine the time period of the data covered by the query - for example, it can query the past 10 minutes of data, or the past 6 hours of data.
 
-       > [!NOTE]
-       > These two settings are independent of each other, up to a point. You can run a query at a short interval covering a time period longer than the interval (in effect having overlapping queries), but you cannot run a query at an interval that exceeds the coverage period, otherwise you will have gaps in the overall query coverage.
+          > [!NOTE]
+          > **Query intervals and lookback period**
+          > - These two settings are independent of each other, up to a point. You can run a query at a short interval covering a time period longer than the interval (in effect having overlapping queries), but you cannot run a query at an interval that exceeds the coverage period, otherwise you will have gaps in the overall query coverage.
+          >
+          > **Ingestion delay**
+          > - To account for **latency** that may occur between an event's generation at the source and its ingestion into Azure Sentinel, and to ensure complete coverage without data duplication, Azure Sentinel runs scheduled analytics rules on a **five-minute delay** from their scheduled time. ***For a full explanation of how this works and why it's necessary, see [Ron's blog post](link).***
 
     1. Use the **Alert threshold** section to define a baseline. For example, set **Generate alert when number of query results** to **Is greater than** and enter the number 1000 if you want the rule to generate an alert only if the query returns more than 1000 results each time it runs. This is a required field, so if you don’t want to set a baseline – that is, if you want your alert to register every event – enter 0 in the number field.
     
