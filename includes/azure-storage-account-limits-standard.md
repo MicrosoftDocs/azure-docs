@@ -37,6 +37,6 @@ All storage accounts run on a flat network topology regardless of when they were
 
 #### Obtaining higher limits
 
-If you enable the **Hierarchical namespace** setting on your account, you can obtain higher capacity limits and higher limits for ingress by request. To request an increase in account limits, contact [Azure Support](https://azure.microsoft.com/support/faq/).
+If you enable the **Hierarchical namespace** setting on your account, you can request higher capacity and ingress limits. To request an increase, contact [Azure Support](https://azure.microsoft.com/support/faq/).
 
 If you don't enable that setting, and the needs of your application exceed the scalability targets of a single storage account, you can build your application to use multiple storage accounts. You can then partition your data objects across those storage accounts. For information on volume pricing, see [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/).
