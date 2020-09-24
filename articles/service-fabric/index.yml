@@ -20,19 +20,21 @@ landingContent:
         links:
           - text: What are Service Fabric managed clusters (preview)
             url: overview-managed-cluster.md
-          - text: Deploy a Service Fabric managed cluster
+          - text: Deploy a managed cluster
             url: quickstart-managed-cluster-template.md
 
       - linkListType: tutorial
         links:
-          - text: Create a Service Fabric managed cluster (preview)
+          - text: Create a managed cluster (preview)
             url: tutorial-managed-cluster-deploy.md
           - text: Scale out a managed cluster node type (preview)
             url: tutorial-managed-cluster-scale.md
           - text: Add and remove managed cluster node types (preview)
             url: tutorial-managed-cluster-add-remove-node-type.md
-          - text: Deploy an app to a Service Fabric managed cluster (preview)
+          - text: Deploy an app to a managed cluster (preview)
             url: tutorial-managed-cluster-deploy-app.md
+          - text: Add a VM scale set extension to a managed cluster node type (preview)
+            url: how-to-managed-cluster-vmss-extension.md
       - linkListType: whats-new
         links:
           - text: Service Fabric managed clusters FAQ

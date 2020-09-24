@@ -690,6 +690,8 @@
           href: service-fabric-how-to-remove-node-type.md
       - name: Upgrade
         items:
+        - name: Add a VM scale set extension to a managed cluster node type
+          href: how-to-managed-cluster-vmss-extension.md
         - name: Upgrade the Service Fabric version 
           href: service-fabric-cluster-upgrade-version-azure.md    
         - name: Upgrade cluster configuration
