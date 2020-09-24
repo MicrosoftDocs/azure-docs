@@ -129,6 +129,7 @@ What's logged:
   * Creating, modifying, or deleting these keys or secrets.
   * Signing, verifying, encrypting, decrypting, wrapping and unwrapping keys, getting secrets, and listing keys and secrets (and their versions).
 * Unauthenticated requests that result in a 401 response. Examples are requests that don't have a bearer token, that are malformed or expired, or that have an invalid token.  
+* Event Grid notification events for near expiry, expired and vault access policy changed (new version event is not logged). Events are logged regardless if there is event subscription created on key vault. For more information see, [Event Grid event schema for Key Vault](https://docs.microsoft.com/azure/event-grid/event-schema-key-vault)
 
 ## Enable logging using Azure CLI
 
@@ -285,6 +286,8 @@ The **operationName** field values are in *ObjectVerb* format. For example:
 
 The following table lists the **operationName** values and corresponding REST API commands:
 
+### Operation names table
+
 | operationName | REST API command |
 | --- | --- |
 | **Authentication** |Authenticate via Azure Active Directory endpoint |
@@ -314,6 +317,13 @@ The following table lists the **operationName** values and corresponding REST AP
 | **SecretDelete** |[Delete a secret](https://msdn.microsoft.com/library/azure/dn903613.aspx) |
 | **SecretList** |[List secrets in a vault](https://msdn.microsoft.com/library/azure/dn903614.aspx) |
 | **SecretListVersions** |[List versions of a secret](https://msdn.microsoft.com/library/azure/dn986824.aspx) |
+| **VaultAccessPolicyChangedEventGridNotification** | Access policy changed event published |
+| **SecretNearExpiryEventGridNotification** |Secret near expiry event published |
+| **SecretExpiredEventGridNotification** |Secret expired event published |
+| **KeyNearExpiryEventGridNotification** |Key near expiry event published |
+| **KeyExpiredEventGridNotification** |Key expired event published |
+| **CertificateNearExpiryEventGridNotification** |Certificate near expiry event published |
+| **CertificateExpiredEventGridNotification** |Certificate expired event published |
 
 ## <a id="loganalytics"></a>Use Azure Monitor logs
 
