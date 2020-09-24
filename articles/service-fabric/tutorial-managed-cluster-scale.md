@@ -13,8 +13,7 @@ In this tutorial series we will discuss:
 > * [How to deploy a Service Fabric managed cluster.](tutorial-managed-cluster-deploy.md)
 > * How to scale out a Service Fabric managed cluster
 > * [How to add and remove node types in a Service Fabric managed cluster](tutorial-managed-cluster-add-remove-node-type.md)
-> * [How to add a certificate to a Service Fabric managed cluster](tutorial-managed-cluster-certificate.md)
-> * [How to upgrade your Service Fabric managed cluster resources](tutorial-managed-cluster-upgrade.md)
+> * [How to deploy an application to a Service Fabric managed cluster](tutorial-managed-cluster-deploy-app.md)
 
 This part of the series covers how to:
 
