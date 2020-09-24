@@ -37,7 +37,7 @@ Run this code on either of these environments:
 
 ## Set up the experiment
 
-This section sets up the training experiment by loading the required Python packages, initializing a workspace, defining the training environment, and configuring the training run.
+This section sets up the training experiment by loading the required Python packages, initializing a workspace, defining the training environment, and preparing the training script.
 
 ### Initialize a workspace
 
@@ -93,8 +93,9 @@ If you want to use a curated environment, you can run the following command inst
 sklearn_env = Environment.get(workspace=ws, name="AzureML-Tutorial")
 ```
 
-### Configure your training run
+## Configure and submit your training run
 
+### Create a ScriptRunConfig
 Create a ScriptRunConfig object to specify the configuration details of your training job, including your training script, environment to use, and the compute target to run on.
 Any arguments to your training script will be passed via command line if specified in the `arguments` parameter.
 
@@ -133,7 +134,7 @@ run.wait_for_completion(show_output=True)
 > [!WARNING]
 > Azure Machine Learning runs training scripts by copying the entire source directory. If you have sensitive data that you don't want to upload, use a [.ignore file](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) or don't include it in the source directory . Instead, access your data using an Azure ML [dataset](how-to-train-with-datasets.md).
 
-## What happens during run execution
+### What happens during run execution
 As the run is executed, it goes through the following stages:
 
 - **Preparing**: A docker image is created according to the environment defined. The image is uploaded to the workspace's container registry and cached for later runs. Logs are also streamed to the run history and can be viewed to monitor progress. If a curated environment is specified instead, the cached image backing that curated environment will be used.
