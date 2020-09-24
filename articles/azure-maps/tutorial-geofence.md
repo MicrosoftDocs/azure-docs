@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Create a geofence and track devices on Azure Maps'
-description: Learn how to set up a geofence. See how to track devices relative to the geofence by using the Azure Maps spatial service.
+title: 'Tutorial: Create a geofence and track devices on a Microsoft Azure Map'
+description: Tutorial on how to set up a geofence. See how to track devices relative to the geofence by using the Azure Maps Spatial service
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 8/20/2020
@@ -424,14 +424,14 @@ In the preceding GeoJSON response, the equipment has remained in the main site g
 
 In the preceding GeoJSON response, the equipment has remained in the main site geofence, but has exited the subsite geofence. Notice, however, that the `userTime` value is after the `expiredTime` as defined in the geofence data. As a result, the `isEventPublished` parameter is set to `false`, and the operations manager doesn't receive an email notification.
 
-### Location 5(47.637988,-122.1338344)
+### Location 5 (47.63799, -122.134505)
 
 1. Near the top of the Postman app, select **New**. In the **Create New** window, select **Request**. Enter a **Request name** for the request. Make it *Location 5*. Select the collection you created in the [Upload Geofencing GeoJSON data section](#upload-geofencing-geojson-data), and then select **Save**.
 
 2. Select the **GET** HTTP method in the builder tab, and enter the following URL. Make sure to replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key, and `{udid}` with the `udid` you saved in the [Upload Geofencing GeoJSON data section](#upload-geofencing-geojson-data).
 
     ```HTTP
-    https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.637988&lon=-122.1338344&searchBuffer=5&isAsync=True&mode=EnterAndExit
+    https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.63799&lon=-122.134505&searchBuffer=5&isAsync=True&mode=EnterAndExit
     ```
 
 3. Select **Send**. The following GeoJSON appears in the response window:
@@ -465,7 +465,9 @@ In the preceding GeoJSON response, the equipment has remained in the main site g
 In the preceding GeoJSON response, the equipment has exited the main site geofence. As a result, the `isEventPublished` parameter is set to `true`, and the operations manager receives an email notification indicating that the equipment has exited a geofence.
 
 
+You can also [Send email notifications using Event Grid and Logic Apps](https://docs.microsoft.com/azure/event-grid/publish-iot-hub-events-to-logic-apps) and check [Supported Events Handlers in Event Grid](https://docs.microsoft.com/azure/event-grid/event-handlers) using Azure Maps.
+
 ## Next steps
 
-To learn how implement IoT spatial analytics using a geofence, see [Tutorial: Implement IoT spatial analytics](tutorial-iot-hub-maps.md)
-
+> [!div class="nextstepaction"]
+> [Handle content types in Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-content-type)

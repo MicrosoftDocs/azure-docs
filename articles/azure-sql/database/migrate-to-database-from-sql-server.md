@@ -10,7 +10,7 @@ ms.devlang:
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer:
 ms.date: 02/11/2019
 ---
 # SQL Server database migration to Azure SQL Database

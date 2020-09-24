@@ -84,7 +84,7 @@ landingContent:
           - text: ASP.NET
             url: quickstart-v2-dotnet-native-aspnet.md
           - text: ASP.NET Core
-            url: /samples/azure-samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore/calling-a-web-api-in-an-aspnet-core-web-application-using-azure-ad/
+            url: quickstart-v2-aspnet-core-web-api.md
   - title: Microsoft Graph
     linkLists:
       - linkListType: get-started
@@ -122,6 +122,10 @@ landingContent:
     linkLists:
       - linkListType: whats-new
         links:
+          - text: "Quickstart: Protect an ASP.NET Core web API"
+            url: quickstart-v2-aspnet-core-web-api.md
+          - text: MSAL Python API reference
+            url: /python/api/msal/
           - text: "Quickstart: Register an app (rewrite)"
             url: quickstart-register-app.md
           - text: "Quickstart: Expose a web API (rewrite)"
