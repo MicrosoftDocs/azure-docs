@@ -19,7 +19,6 @@ Use the Face client library for .NET to:
 * [Find similar faces](#find-similar-faces)
 * [Create and train a person group](#create-and-train-a-person-group)
 * [Identify a face](#identify-a-face)
-* [Take a snapshot for data migration](#take-a-snapshot-for-data-migration)
 
 [Reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.Face) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.6.0-preview.1) | [Samples](https://docs.microsoft.com/samples/browse/?products=azure&term=face)
 
@@ -101,8 +100,6 @@ The code snippets below show you how to do the following tasks with the Face cli
 * [Find similar faces](#find-similar-faces)
 * [Create and train a person group](#create-and-train-a-person-group)
 * [Identify a face](#identify-a-face)
-* [Take a snapshot for data migration](#take-a-snapshot-for-data-migration)
-
 
 ## Authenticate the client
 
@@ -211,56 +208,6 @@ The next code snippet calls the **IdentifyAsync** operation and prints the resul
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_identify)]
 
-## Take a snapshot for data migration
-
-The Snapshots feature lets you move your saved Face data, such as a trained **PersonGroup**, to a different Azure Cognitive Services Face subscription. You may want to use this feature if, for example, you've created a **PersonGroup** object using a free subscription and want to migrate it to a paid subscription. See [Migrate your face data](../../Face-API-How-to-Topics/how-to-migrate-face-data.md) for an overview of the Snapshots feature.
-
-In this example, you will migrate the **PersonGroup** you created in [Create and train a person group](#create-and-train-a-person-group). You can either complete that section first, or create your own Face data construct(s) to migrate.
-
-### Set up target subscription
-
-First, you must have a second Azure subscription with a Face resource; you can do this by following the steps in the [Setting up](#setting-up) section. 
-
-Then, define the following variables in the `Main` method of your program. You'll need to create new environment variables for the subscription ID of your Azure account, as well as the key, endpoint, and subscription ID of your new (target) account. 
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_snapshot_vars)]
-
-For this example, declare a variable for the ID of the target **PersonGroup**&mdash;the object that belongs to the new subscription, which you will copy your data to.
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_snapshot_vars)]
-
-### Authenticate target client
-
-Next, add the code to authenticate your secondary Face subscription.
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_snapshot_client)]
-
-### Use a snapshot
-
-The rest of the snapshot operations must take place within an asynchronous method. 
-
-1. The first step is to **take** the snapshot, which saves your original subscription's face data to a temporary cloud location. This method returns an ID that you use to query the status of the operation.
-
-    [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_snapshot_take)]
-
-1. Next, query the ID until the operation has completed.
-
-    [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_snapshot_take_wait)]
-
-1. Then use the **apply** operation to write your face data to your target subscription. This method also returns an ID value.
-
-    [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_snapshot_apply)]
-
-1. Again, query the new ID until the operation has completed.
-
-    [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_snapshot_apply)]
-
-1. Finally, complete the try/catch block and finish the method.
-
-    [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_snapshot_trycatch)]
-
-At this point, your new **PersonGroup** object should have the same data as the original one and should be accessible from your new (target) Azure Face subscription.
-
 ## Run the application
 
 Run your face recognition app from the application directory with the `dotnet run` command.
@@ -283,10 +230,6 @@ If you created a **PersonGroup** in this quickstart and you want to delete it, r
 Define the deletion method with the following code:
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_deletepersongroup)]
-
-Additionally, if you migrated data using the Snapshot feature in this quickstart, you'll also need to delete the **PersonGroup** saved to the target subscription.
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_target_persongroup_delete)]
 
 ## Next steps
 
