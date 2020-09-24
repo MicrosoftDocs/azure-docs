@@ -19,20 +19,16 @@ ms.custom: aaddev, identityplatformtop40
 
 Learn all you need to build a single-page application (SPA).
 
-## Prerequisites
-
-[!INCLUDE [Prerequisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
-
 ## Getting started
 
-You can create your first application by following the JavaScript SPA quickstart:
+If you haven't already,  JavaScript SPA quickstart:
 
 > [!div class="nextstepaction"]
 > [Quickstart: Single-page application](./quickstart-v2-javascript.md)
 
 ## Overview
 
-Many modern web applications are built as client-side single-page applications. Developers write them by using JavaScript or a SPA framework such as Angular, Vue, and React. These applications run on a web browser and have different authentication characteristics than traditional server-side web applications. 
+Many modern web applications are built as client-side single-page applications. Developers write them by using JavaScript or a SPA framework such as Angular, Vue, and React. These applications run on a web browser and have different authentication characteristics than traditional server-side web applications.
 
 The Microsoft identity platform provides **two** options to enable single-page applications to sign in users and get tokens to access back-end services or web APIs:
 
