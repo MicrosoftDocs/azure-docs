@@ -1,203 +1,336 @@
 ---
-title: Azure Communication Services as Event Grid source
-description: Describes the properties that are provided for Container Registry events with Azure Event Grid
+title: Azure Communication Services as an Event Grid source
+description: This article describes how to use Azure Communication Services as an Event Grid event source.
 ms.topic: conceptual
 ms.date: 07/07/2020
+ms.author: mikben
 ---
 
-# Azure Container Registry as an Event Grid source
-
-This article provides the properties and schema for Container Registry events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md).
+# Azure Communication Services as an Event Grid source
+This article provides the properties and schema for Azure Communication Services events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md).
 
 ## Event Grid event schema
 
 ### Available event types
 
-Azure Container Registry emits the following event types:
+Event grid uses [event subscriptions](https://docs.microsoft.com/azure/event-grid/concepts#event-subscriptions) to route event messages to subscribers. 
 
-| Event type | Description |
-| ---------- | ----------- |
-| Microsoft.ContainerRegistry.ImagePushed | Raised when an image is pushed. |
-| Microsoft.ContainerRegistry.ImageDeleted | Raised when an image is deleted. |
-| Microsoft.ContainerRegistry.ChartPushed | Raised when a Helm chart is pushed. |
-| Microsoft.ContainerRegistry.ChartDeleted | Raised when a Helm chart is deleted. |
+Azure Communication Services emits the following event types:
 
-### Example event
+| Event type                                                  | Description                                                                                    |
+| ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| Microsoft.Communication.SMSReceived                         | Published when an SMS is received by a phone number associated with the Communication Service. |
+| Microsoft.Communication.SMSDeliveryReportReceived           | Published when a delivery report is received for an SMS sent by the Communication Service.     |
+| Microsoft.Communication.ChatMessageReceived*                | Published when a message is received for a user in a chat thread that she is member of.        |
+| Microsoft.Communication.ChatMessageEdited*                   | Published when a message is edited in a chat thread that the user is member of.                |
+| Microsoft.Communication.ChatMessageDeleted*                  | Published when a message is deleted in a chat thread that the user is member of.               |
+| Microsoft.Communication.ChatThreadCreatedWithUser           | Published when the user is added as member at the time of creation of a chat thread.           |
+| Microsoft.Communication.ChatThreadWithUserDeleted           | Published when a chat thread is deleted which the user is member of.                           |
+| Microsoft.Communication.ChatThreadPropertiesUpdatedPerUser  | Published when a chat thread's properties are updated that the user is member of.              |
+| Microsoft.Communication.ChatMemberAddedToThreadWithUser     | Published when the user is added as member to a chat thread.                                   |
+| Microsoft.Communication.ChatMemberRemovedFromThreadWithUser | Published when the user is removed from a chat thread.                                         |
 
-The following example shows the schema of an image pushed event: 
+You can use the Azure portal or Azure CLI to subscribe to events emitted by your Communication Services resource. Get started with handling events by looking at [How to handle SMS Events in Communication Services](../quickstarts/telephony-sms/handle-sms-events.md)
+
+*Please make sure you provide "sender name" in your "send message" API calls for these events to get triggered.
+
+## Event subjects
+
+The `subject` field of all Communication Services events identifies the user, phone number or entity that is targeted by the event. Common prefixes are used to allow simple [Event Grid Filtering](https://docs.microsoft.com/azure/event-grid/event-filtering).
+
+| Subject Prefix                              | Communication Service Entity |
+| ------------------------------------------- | ---------------------------- |
+| `phonenumber/`                              | PSTN phone number            |
+| `user/`                                     | Communication Services User  |
+| `thread/`                                   | Chat thread.                 |
+
+The following example shows a filter for all SMS messages and delivery reports sent to all 555 area code phone numbers owned by a Communication Services resource:
+
+```json
+"filter": {
+  "includedEventTypes": [
+    "Microsoft.Communication.SMSReceived",
+    "Microsoft.Communication.SMSDeliveryReportReceived"
+  ],
+  "subjectBeginsWith": "phonenumber/1555",
+}
+```
+
+## Sample event responses
+
+When an event is triggered, the Event Grid service sends data about that event to subscribing endpoints.
+
+This section contains an example of what that data would look like for each event.
+
+### Microsoft.Communication.SMSDeliveryReportReceived event
 
 ```json
 [{
-  "id": "831e1650-001e-001b-66ab-eeb76e069631",
-  "topic": "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.ContainerRegistry/registries/<name>",
-  "subject": "aci-helloworld:v1",
-  "eventType": "ImagePushed",
-  "eventTime": "2018-04-25T21:39:47.6549614Z",
+  "id": "Outgoing_202009180022138813a09b-0cbf-4304-9b03-1546683bb910",
+  "topic": "/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/microsoft.communication/communicationservices/{communication-services-resource-name}",
+  "subject": "/phonenumber/15555555555",
   "data": {
-    "id": "31c51664-e5bd-416a-a5df-e5206bc47ed0",
-    "timestamp": "2018-04-25T21:39:47.276585742Z",
-    "action": "push",
-    "target": {
-      "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
-      "size": 3023,
-      "digest": "sha256:213bbc182920ab41e18edc2001e06abcca6735d87782d9cef68abd83941cf0e5",
-      "length": 3023,
-      "repository": "aci-helloworld",
-      "tag": "v1"
+    "MessageId": "Outgoing_202009180022138813a09b-0cbf-4304-9b03-1546683bb910",
+    "From": "15555555555",
+    "To": "+15555555555",
+    "DeliveryStatus": "Delivered",
+    "DeliveryStatusDetails": "No error.",
+    "ReceivedTimestamp": "2020-09-18T00:22:20.2855749Z",
+    "DeliveryAttempts": [
+      {
+        "Timestamp": "2020-09-18T00:22:14.9315918Z",
+        "SegmentsSucceeded": 1,
+        "SegmentsFailed": 0
+      }
+    ]
+  },
+  "eventType": "Microsoft.Communication.SMSDeliveryReportReceived",
+  "dataVersion": "1.0",
+  "metadataVersion": "1",
+  "eventTime": "2020-09-18T00:22:20Z"
+}]
+```
+### Microsoft.Communication.SMSReceived event
+
+```json
+[{
+  "id": "Incoming_20200918002745d29ebbea-3341-4466-9690-0a03af35228e",
+  "topic": "/subscriptions/50ad1522-5c2c-4d9a-a6c8-67c11ecb75b8/resourcegroups/acse2e/providers/microsoft.communication/communicationservices/{communication-services-resource-name}",
+  "subject": "/phonenumber/15555555555",
+  "data": {
+    "MessageId": "Incoming_20200918002745d29ebbea-3341-4466-9690-0a03af35228e",
+    "From": "15555555555",
+    "To": "15555555555",
+    "Message": "Great to connect with ACS events ",
+    "ReceivedTimestamp": "2020-09-18T00:27:45.32Z"
+  },
+  "eventType": "Microsoft.Communication.SMSReceived",
+  "dataVersion": "1.0",
+  "metadataVersion": "1",
+  "eventTime": "2020-09-18T00:27:47Z"
+}]
+```
+
+### Microsoft.Communication.ChatMessageReceived event
+
+```json
+[{
+  "id": "c13afb5f-d975-4296-a8ef-348c8fc496ee",
+  "topic": "/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{communication-services-resource-name}",
+  "subject": "thread/{thread-id}/sender/{id-of-message-sender}/recipient/{id-of-message-recipient}",
+  "data": {
+    "messageBody": "Welcome to Azure Communication Services",
+    "messageId": "1600389507167",
+    "senderId": "8:acs:fac4607d-d2d0-40e5-84df-6f32ebd1251a_00000005-3e0d-e5aa-0e04-343a0d00037c",
+    "senderDisplayName": "John",
+    "composeTime": "2020-09-18T00:38:27.167Z",
+    "type": "Text",
+    "version": 1600389507167,
+    "recipientId": "8:acs:fac4607d-d2d0-40e5-84df-6f32ebd1251a_00000005-3e1a-3090-6a0b-343a0d000409",
+    "transactionId": "WGW1YmwRzkupk0UI0QA9ZA.1.1.1.1.1797783722.1.9",
+    "threadId": "19:46df844a4c064bfaa2b3b30e385d1018@thread.v2"
+  },
+  "eventType": "Microsoft.Communication.ChatMessageReceived",
+  "dataVersion": "1.0",
+  "metadataVersion": "1",
+  "eventTime": "2020-09-18T00:38:28.0946757Z"
+}
+]
+```
+
+### Microsoft.Communication.ChatMessageEdited event
+
+```json
+[{
+  "id": "18247662-e94a-40cc-8d2f-f7357365309e",
+  "topic": "/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{communication-services-resource-name}",
+  "subject": "thread/19:6d20c2f921cd402ead7d1b31b0d030cd@thread.v2/sender/8:acs:5354158b-17b7-489c-9380-95d8821ff76b_00000005-3e5f-1bc6-f40f-343a0d0003fe/recipient/8:acs:5354158b-17b7-489c-9380-95d8821ff76b_00000005-3e5f-1bc6-f40f-343a0d0003f0",
+  "data": {
+    "editTime": "2020-09-18T00:48:47.361Z",
+    "messageBody": "Let's Chat about new communication services.",
+    "messageId": "1600390097873",
+    "senderId": "8:acs:5354158b-17b7-489c-9380-95d8821ff76b_00000005-3e5f-1bc6-f40f-343a0d0003fe",
+    "senderDisplayName": "Bob(Admin)",
+    "composeTime": "2020-09-18T00:48:17.873Z",
+    "type": "Text",
+    "version": 1600390127361,
+    "recipientId": "8:acs:5354158b-17b7-489c-9380-95d8821ff76b_00000005-3e5f-1bc6-f40f-343a0d0003f0",
+    "transactionId": "bbopOa1JZEW5NDDFLgH1ZQ.2.1.2.1.1822032097.1.5",
+    "threadId": "19:6d20c2f921cd402ead7d1b31b0d030cd@thread.v2"
+  },
+  "eventType": "Microsoft.Communication.ChatMessageEdited",
+  "dataVersion": "1.0",
+  "metadataVersion": "1",
+  "eventTime": "2020-09-18T00:48:48.037823Z"
+}]
+```
+
+### Microsoft.Communication.ChatMessageDeleted event
+```json
+[{
+  "id": "08034616-cf11-4fc2-b402-88963b93d083",
+  "topic": "/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{communication-services-resource-name}",
+  "subject": "thread/19:6d20c2f921cd402ead7d1b31b0d030cd@thread.v2/sender/8:acs:5354158b-17b7-489c-9380-95d8821ff76b_00000005-3e5f-1bc6-f40f-343a0d0003fe/recipient/8:acs:5354158b-17b7-489c-9380-95d8821ff76b_00000005-3e5f-1bc6-f40f-343a0d0003f0",
+  "data": {
+    "deleteTime": "2020-09-18T00:48:47.361Z",
+    "messageId": "1600390099195",
+    "senderId": "8:acs:5354158b-17b7-489c-9380-95d8821ff76b_00000005-3e5f-1bc6-f40f-343a0d0003fe",
+    "senderDisplayName": "Bob(Admin)",
+    "composeTime": "2020-09-18T00:48:19.195Z",
+    "type": "Text",
+    "version": 1600390152154,
+    "recipientId": "8:acs:5354158b-17b7-489c-9380-95d8821ff76b_00000005-3e5f-1bc6-f40f-343a0d0003f0",
+    "transactionId": "mAxUjeTsG06NpObXkFcjVQ.1.1.2.1.1823015063.1.5",
+    "threadId": "19:6d20c2f921cd402ead7d1b31b0d030cd@thread.v2"
+  },
+  "eventType": "Microsoft.Communication.ChatMessageDeleted",
+  "dataVersion": "1.0",
+  "metadataVersion": "1",
+  "eventTime": "2020-09-18T00:49:12.6698791Z"
+}]
+```
+
+### Microsoft.Communication.ChatThreadCreatedWithUser event 
+
+```json
+[{
+  "id": "06c7c381-bb0a-4fff-aedd-919df1d52137",
+  "topic": "/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{communication-services-resource-name}",
+  "subject": "thread/19:7bdf5504a23f41a79d1bd472dd40044a@thread.v2/createdBy/8:acs:73551687-f8c8-48a7-bf06-d8263f15b02a_00000005-3e5f-1bc6-f40f-343a0d0003fe/recipient/8:acs:73551687-f8c8-48a7-bf06-d8263f15b02a_00000005-3e5f-1bc6-f40f-343a0d0003f0",
+  "data": {
+    "createdBy": "8:acs:73551687-f8c8-48a7-bf06-d8263f15b02a_06014f-6001fc107f",
+    "properties": {
+      "topic": "Chat about new commuication services",
     },
-    "request": {
-      "id": "7c66f28b-de19-40a4-821c-6f5f6c0003a4",
-      "host": "demo.azurecr.io",
-      "method": "PUT",
-      "useragent": "docker/18.03.0-ce go/go1.9.4 git-commit/0520e24 os/windows arch/amd64 UpstreamClient(Docker-Client/18.03.0-ce \\\\(windows\\\\))"
-    }
+    "members": [
+      {
+        "displayName": "Bob",
+        "memberId": "8:acs:73551687-f8c8-48a7-bf06-d8263f15b02a_00000005-3e5f-1bc6-f40f-343a0d0003f0"
+      },
+      {
+        "displayName": "John",
+        "memberId": "8:acs:73551687-f8c8-48a7-bf06-d8263f15b02a_00000005-3e5f-1bc6-f40f-343a0d0003f1"
+      }
+    ],
+    "createTime": "2020-09-17T22:06:09.988Z",
+    "version": 1600380369988,
+    "recipientId": "8:acs:73551687-f8c8-48a7-bf06-d8263f15b02a_00000005-3e5f-1bc6-f40f-343a0d0003f0",
+    "transactionId": "9ZxrGXVXCkOTygd5iwsvAQ.1.1.1.1.1440874720.1.1",
+    "threadId": "19:7bdf5504a23f41a79d1bd472dd40044a@thread.v2"
   },
+  "eventType": "Microsoft.Communication.ChatThreadCreatedWithUser",
   "dataVersion": "1.0",
-  "metadataVersion": "1"
+  "metadataVersion": "1",
+  "eventTime": "2020-09-17T22:06:10.3235137Z"
 }]
 ```
 
-The schema for an image deleted event is similar:
+### Microsoft.Communication.ChatThreadWithUserDeleted event
 
 ```json
 [{
-  "id": "f06e3921-301f-42ec-b368-212f7d5354bd",
-  "topic": "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.ContainerRegistry/registries/<name>",
-  "subject": "aci-helloworld",
-  "eventType": "ImageDeleted",
-  "eventTime": "2018-04-26T17:56:01.8211268Z",
+  "id": "7f4fa31b-e95e-428b-a6e8-53e2553620ad",
+  "topic":"/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{communication-services-resource-name}",
+  "subject": "thread/19:6d20c2f921cd402ead7d1b31b0d030cd@thread.v2/deletedBy/8:acs:5354158b-17b7-489c-9380-95d8821ff76b_00000005-3e5f-1bc6-f40f-343a0d0003fe/recipient/8:acs:5354158b-17b7-489c-9380-95d8821ff76b_00000005-3e5f-1bc6-f40f-343a0d0003f0",
   "data": {
-    "id": "f06e3921-301f-42ec-b368-212f7d5354bd",
-    "timestamp": "2018-04-26T17:56:00.996603117Z",
-    "action": "delete",
-    "target": {
-      "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
-      "digest": "sha256:213bbc182920ab41e18edc2001e06abcca6735d87782d9cef68abd83941cf0e5",
-      "repository": "aci-helloworld"
+    "deletedBy": "8:acs:5354158b-17b7-489c-9380-95d8821ff76b_00000005-3e5f-1bc6-f40f-343a0d0003fe",
+    "deleteTime": "2020-09-18T00:49:26.3694459Z",
+    "createTime": "2020-09-18T00:46:41.559Z",
+    "version": 1600390071625,
+    "recipientId": "8:acs:5354158b-17b7-489c-9380-95d8821ff76b_00000005-3e5f-1bc6-f40f-343a0d0003f0",
+    "transactionId": "MoZlSM2j7kSD2b5X8bjH7Q.1.1.2.1.1823539230.1.1",
+    "threadId": "19:6d20c2f921cd402ead7d1b31b0d030cd@thread.v2"
+  },
+  "eventType": "Microsoft.Communication.ChatThreadWithUserDeleted",
+  "dataVersion": "1.0",
+  "metadataVersion": "1",
+  "eventTime": "2020-09-18T00:49:26.4269056Z"
+}]
+```
+
+### Microsoft.Communication.ChatThreadPropertiesUpdatedPerUser event 
+
+```json
+[{
+  "id": "47a66834-57d7-4f77-9c7d-676d45524982",
+  "topic": "/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{communication-services-resource-name}",
+  "subject": "thread/19:a33a128babf04431b7fe8cbca82f4238@thread.v2/editedBy/8:acs:fac4607d-d2d0-40e5-84df-6f32ebd1251a_00000005-3e88-2b7f-ac00-343a0d0005a8/recipient/8:acs:fac4607d-d2d0-40e5-84df-6f32ebd1251a_00000005-3e88-15fa-ac00-343a0d0005a7",
+  "data": {
+    "editedBy": "8:acs:fac4607d-d2d0-40e5-84df-6f32ebd1251a_00000005-3e88-2b7f-ac00-343a0d0005a8",
+    "editTime": "2020-09-18T00:40:38.4914428Z",
+    "properties": {
+      "topic": "Communication in Azure"
     },
-    "request": {
-      "id": "aeda5b99-4197-409f-b8a8-ff539edb7de2",
-      "host": "demo.azurecr.io",
-      "method": "DELETE",
-      "useragent": "python-requests/2.18.4"
-    }
+    "createTime": "2020-09-18T00:39:02.541Z",
+    "version": 1600389638481,
+    "recipientId": "8:acs:fac4607d-d2d0-40e5-84df-6f32ebd1251a_00000005-3e88-15fa-ac00-343a0d0005a7",
+    "transactionId": "+ah9tVwqNkCT6nUGCKIvAg.1.1.1.1.1802895561.1.1",
+    "threadId": "19:a33a128babf04431b7fe8cbca82f4238@thread.v2"
   },
+  "eventType": "Microsoft.Communication.ChatThreadPropertiesUpdatedPerUser",
   "dataVersion": "1.0",
-  "metadataVersion": "1"
+  "metadataVersion": "1",
+  "eventTime": "2020-09-18T00:40:38.5804349Z"
 }]
 ```
 
-The schema for a chart pushed event is similar to the schema for an imaged pushed event, but it doesn't include a request object:
+### Microsoft.Communication.ChatMemberAddedToThreadWithUser event
 
 ```json
 [{
-  "id": "ea3a9c28-5b17-40f6-a500-3f02b6829277",
-  "topic": "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.ContainerRegistry/registries/<name>",
-  "subject": "mychart:1.0.0",
-  "eventType": "Microsoft.ContainerRegistry.ChartPushed",
-  "eventTime": "2019-03-12T22:16:31.5164086Z",
+  "id": "4abd2b49-d1a9-4fcc-9cd7-170fa5d96443",
+  "topic": "/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{communication-services-resource-name}",
+  "subject": "thread/19:6d20c2f921cd402ead7d1b31b0d030cd@thread.v2/memberAdded/8:acs:5354158b-17b7-489c-9380-95d8821ff76b_00000005-3e5f-1bc6-f40f-343a0d0003fe/recipient/8:acs:5354158b-17b7-489c-9380-95d8821ff76b_00000005-3e5f-1bc6-f40f-343a0d0003f0",
   "data": {
-    "id":"ea3a9c28-5b17-40f6-a500-3f02b682927",
-    "timestamp":"2019-03-12T22:16:31.0087496+00:00",
-    "action":"chart_push",
-    "target":{
-      "mediaType":"application/vnd.acr.helm.chart",
-      "size":25265,
-      "digest":"sha256:7f060075264b5ba7c14c23672698152ae6a3ebac1c47916e4efe19cd624d5fab",
-      "repository":"repo",
-      "tag":"mychart-1.0.0.tgz",
-      "name":"mychart",
-      "version":"1.0.0"
-    }
+    "time": "2020-09-18T00:47:13.1867087Z",
+    "addedBy": "8:acs:5354158b-17b7-489c-9380-95d8821ff76b_00000005-3e5f-1bc6-f40f-343a0d0003f1",
+    "memberAdded": {
+      "displayName": "John Smith",
+      "memberId": "8:acs:5354158b-17b7-489c-9380-95d8821ff76b_00000005-3e5f-1bc6-f40f-343a0d0003fe"
+    },
+    "createTime": "2020-09-18T00:46:41.559Z",
+    "version": 1600390033176,
+    "recipientId": "8:acs:5354158b-17b7-489c-9380-95d8821ff76b_00000005-3e5f-1bc6-f40f-343a0d0003f0",
+    "transactionId": "pVIjw/pHEEKUOUJ2DAAl5A.1.1.1.1.1818361951.1.1",
+    "threadId": "19:6d20c2f921cd402ead7d1b31b0d030cd@thread.v2"
   },
+  "eventType": "Microsoft.Communication.ChatMemberAddedToThreadWithUser",
   "dataVersion": "1.0",
-  "metadataVersion": "1"
+  "metadataVersion": "1",
+  "eventTime": "2020-09-18T00:47:13.2342692Z"
 }]
 ```
 
-The schema for a chart deleted event is similar to the schema for an imaged deleted event, but it doesn't include a request object:
+### Microsoft.Communication.ChatMemberRemovedFromThreadWithUser event
 
 ```json
 [{
-  "id": "39136b3a-1a7e-416f-a09e-5c85d5402fca",
-  "topic": "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.ContainerRegistry/registries/<name>",
-  "subject": "mychart:1.0.0",
-  "eventType": "Microsoft.ContainerRegistry.ChartDeleted",
-  "eventTime": "019-03-12T22:42:08.7034064Z",
+  "id": "b3701976-1ea2-4d66-be68-4ec4fc1b4b96",
+  "topic": "/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{communication-services-resource-name}",
+  "subject": "thread/19:6d20c2f921cd402ead7d1b31b0d030cd@thread.v2/memberRemoved/8:acs:5354158b-17b7-489c-9380-95d8821ff76b_00000005-3e5f-1bc6-f40f-343a0d0003fe/recipient/8:acs:5354158b-17b7-489c-9380-95d8821ff76b_00000005-3e5f-1bc6-f40f-343a0d0003f0",
   "data": {
-    "id":"ea3a9c28-5b17-40f6-a500-3f02b682927",
-    "timestamp":"2019-03-12T22:42:08.3783775+00:00",
-    "action":"chart_delete",
-    "target":{
-      "mediaType":"application/vnd.acr.helm.chart",
-      "size":25265,
-      "digest":"sha256:7f060075264b5ba7c14c23672698152ae6a3ebac1c47916e4efe19cd624d5fab",
-      "repository":"repo",
-      "tag":"mychart-1.0.0.tgz",
-      "name":"mychart",
-      "version":"1.0.0"
-    }
+    "time": "2020-09-18T00:47:51.1461742Z",
+    "removedBy": "8:acs:5354158b-17b7-489c-9380-95d8821ff76b_00000005-3e5f-1bc6-f40f-343a0d0003f1",
+    "memberRemoved": {
+      "displayName": "John",
+      "memberId": "8:acs:5354158b-17b7-489c-9380-95d8821ff76b_00000005-3e5f-1bc6-f40f-343a0d0003fe"
+    },
+    "createTime": "2020-09-18T00:46:41.559Z",
+    "version": 1600390071131,
+    "recipientId": "8:acs:5354158b-17b7-489c-9380-95d8821ff76b_00000005-3e5f-1bc6-f40f-343a0d0003f0",
+    "transactionId": "G9Y+UbjVmEuxAG3O4bEyvw.1.1.1.1.1819803816.1.1",
+    "threadId": "19:6d20c2f921cd402ead7d1b31b0d030cd@thread.v2"
   },
+  "eventType": "Microsoft.Communication.ChatMemberRemovedFromThreadWithUser",
   "dataVersion": "1.0",
-  "metadataVersion": "1"
+  "metadataVersion": "1",
+  "eventTime": "2020-09-18T00:47:51.2244511Z"
 }]
 ```
-
-### Event properties
-
-An event has the following top-level data:
-
-| Property | Type | Description |
-| -------- | ---- | ----------- |
-| topic | string | Full resource path to the event source. This field is not writeable. Event Grid provides this value. |
-| subject | string | Publisher-defined path to the event subject. |
-| eventType | string | One of the registered event types for this event source. |
-| eventTime | string | The time the event is generated based on the provider's UTC time. |
-| id | string | Unique identifier for the event. |
-| data | object | Blob storage event data. |
-| dataVersion | string | The schema version of the data object. The publisher defines the schema version. |
-| metadataVersion | string | The schema version of the event metadata. Event Grid defines the schema of the top-level properties. Event Grid provides this value. |
-
-The data object has the following properties:
-
-| Property | Type | Description |
-| -------- | ---- | ----------- |
-| id | string | The event ID. |
-| timestamp | string | The time at which the event occurred. |
-| action | string | The action that encompasses the provided event. |
-| target | object | The target of the event. |
-| request | object | The request that generated the event. |
-
-The target object has the following properties:
-
-| Property | Type | Description |
-| -------- | ---- | ----------- |
-| mediaType | string | The MIME type of the referenced object. |
-| size | integer | The number of bytes of the content. Same as Length field. |
-| digest | string | The digest of the content, as defined by the Registry V2 HTTP API Specification. |
-| length | integer | The number of bytes of the content. Same as Size field. |
-| repository | string | The repository name. |
-| tag | string | The tag name. |
-| name | string | The chart name. |
-| version | string | The chart version. |
-
-The request object has the following properties:
-
-| Property | Type | Description |
-| -------- | ---- | ----------- |
-| id | string | The ID of the request that initiated the event. |
-| addr | string | The IP or hostname and possibly port of the client connection that initiated the event. This value is the RemoteAddr from the standard http request. |
-| host | string | The externally accessible hostname of the registry instance, as specified by the http host header on incoming requests. |
-| method | string | The request method that generated the event. |
-| useragent | string | The user agent header of the request. |
-
-## Tutorials and how-tos
-|Title |Description  |
-|---------|---------|
-| [Quickstart: send container registry events](../container-registry/container-registry-event-grid-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Shows how to use Azure CLI to send Container Registry events. |
 
 
 ## Next steps
 
-* For an introduction to Azure Event Grid, see [What is Event Grid?](overview.md)
-* For more information about creating an Azure Event Grid subscription, see [Event Grid subscription schema](subscription-creation-schema.md).
+* For an introduction to Azure Event Grid, see [What is Event Grid?](https://docs.microsoft.com/azure/event-grid/overview)
+* For an introduction to Azure Event Grid Concepts, see [Concepts in Event Grid?](https://docs.microsoft.com/azure/event-grid/concepts)
+* For an introduction to Azure Event Grid SystemTopics, see [System topics in Azure Event Grid?](https://docs.microsoft.com/azure/event-grid/system-topics)
