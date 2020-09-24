@@ -204,6 +204,7 @@ This article provides a detailed list of in-scope cloud services across Azure Pu
 | [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
 | [Azure Cognitive Search](https://azure.microsoft.com/services/search/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
 | [Azure Stack Edge (Data Box Edge)](https://azure.microsoft.com/services/databox/edge/)| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |
+| [Azure Data Box](https://azure.microsoft.com/services/databox/)  | :heavy_check_mark: |  |  |  || :heavy_check_mark: |
 | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
 | [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
 | [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |  :heavy_check_mark: |
@@ -258,7 +259,7 @@ This article provides a detailed list of in-scope cloud services across Azure Pu
 | [Content Delivery Network](https://azure.microsoft.com/services/cdn/)| :heavy_check_mark: |  |  |  | :heavy_check_mark: | 
 | [Customer Lockbox](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |
 | [D365 Integrator App](https://docs.microsoft.com/power-platform/admin/data-integrator) | :heavy_check_mark: | :heavy_check_mark: |  |  | :heavy_check_mark: | 
-| [Dynamics 365 Service Omni-Channel Engagement Hub](https://docs.microsoft.com/dynamics365/omnichannel/introduction-omnichannel) | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
+| [Dynamics 365 Service Omni-Channel Engagement Hub](https://docs.microsoft.com/dynamics365/omnichannel/introduction-omnichannel) | :heavy_check_mark: | :heavy_check_mark: |  |  | :heavy_check_mark: | 
 | [Dynamics 365 Forms Pro](https://docs.microsoft.com/forms-pro/get-started) | :heavy_check_mark: | :heavy_check_mark: |  |  | :heavy_check_mark: | 
 | [Dynamics 365 Customer Insights](https://docs.microsoft.com/dynamics365/ai/customer-insights/overview)| :heavy_check_mark: |  |  |  | :heavy_check_mark: |
 | [Dynamics 365 Customer Engagement (Common Data Service)](https://docs.microsoft.com/dynamics365/customerengagement/on-premises/overview)  | :heavy_check_mark: | :heavy_check_mark: |  |  | :heavy_check_mark: |
@@ -314,6 +315,7 @@ This article provides a detailed list of in-scope cloud services across Azure Pu
 | [Web Apps (App Service)](https://azure.microsoft.com/services/app-service/web/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 
 
-**&ast;** DoD CC SRG IL5 (Azure Gov) status implies DISA IL5 certification achieved by services in Azure Government by meeting isolation requirements. For details, please refer to [Azure Government Isolation Guidelines for Impact Level 5](https://docs.microsoft.com/azure/azure-government/documentation-government-impact-level-5)
-**&ast;&ast;** DoD CC SRG IL5 (Azure DoD) status in the above table implies DISA IL5 certification achieved by services in Azure Government DoD regions. 
+**&ast;** DoD CC SRG IL5 (Azure Gov) column shows DoD CC SRG IL5 certification status of services in Azure Government. For details, please refer to [Azure Government Isolation Guidelines for Impact Level 5](https://docs.microsoft.com/azure/azure-government/documentation-government-impact-level-5)
+
+**&ast;&ast;** DoD CC SRG IL5 (Azure DoD) column shows DoD CC SRG IL5 certification status for services in Azure Government DoD regions. 
 
