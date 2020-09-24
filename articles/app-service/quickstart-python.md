@@ -2,7 +2,7 @@
 title: 'Quickstart: Create a Python app'
 description: Get started with Azure App Service by deploying your first Python app to a Linux container in App Service.
 ms.topic: quickstart
-ms.date: 09/08/2020
+ms.date: 09/22/2020
 ms.custom: seo-python-october2019, cli-validate, devx-track-python
 
 ---
@@ -64,77 +64,69 @@ Once signed in, you can run Azure commands with the Azure CLI to work with resou
 
 ## Clone the sample
 
-Clone the sample repository with the following command, then navigate into the folder. ([Install git](https://git-scm.com/downloads) if you don't have git already.)
+Clone the sample repository with the following command. ([Install git](https://git-scm.com/downloads) if you don't have git already.)
 
 ```terminal
 git clone https://github.com/Azure-Samples/python-docs-hello-world
+```
+
+Then navigate into that folder:
+
+```terminal
 cd python-docs-hello-world
 ```
 
-The sample code contains an *application.py* file, which tells App Service that the code contains a Flask app. For more information, see [Container startup process](configure-language-python.md#container-startup-process).
+The sample code contains an *app.py* file, which tells App Service that the code contains a Flask app. For more information, see [Container startup process](configure-language-python.md#container-startup-process).
 
 [Having issues? Let us know.](https://aka.ms/FlaskCLIQuickstartHelp)
 
 ## Run the sample
 
-# [Bash](#tab/bash)
+1. Make sure you're in the *python-docs-hello-world* folder. 
 
-First create a virtual environment and install dependencies:
+1. Create a virtual environment and install dependencies:
 
-```bash
-python3 -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-```
+    # [Bash](#tab/bash)
 
-Then set the `FLASK_APP` environment variable to the app's entry module and run the Flask development server:
+    ```bash
+    python3 -m venv venv
+    source venv/bin/activate
+    pip install -r requirements.txt
+    ```
 
-```
-export FLASK_APP=application.py
-flask run
-```
+    # [PowerShell](#tab/powershell)
 
-# [PowerShell](#tab/powershell)
+    ```powershell
+    py -3 -m venv env
+    env\scripts\activate
+    pip install -r requirements.txt
+    ```
 
-First create a virtual environment and install dependencies:
+    # [Cmd](#tab/cmd)
 
-```powershell
-py -3 -m venv env
-env\scripts\activate
-pip install -r requirements.txt
-```
+    ```cmd
+    py -3 -m venv env
+    env\scripts\activate
+    pip install -r requirements.txt
+    ```
 
-Then set the `FLASK_APP` environment variable to the app's entry module and run the Flask development server:
+    ---    
 
-```powershell
-Set-Item Env:FLASK_APP ".\application.py"
-flask run
-```
+    If you encounter "[Errno 2] No such file or directory: 'requirements.txt'.", make sure you're in the *python-docs-hello-world* folder.
+    
+1. Run the development server.
 
-# [Cmd](#tab/cmd)
+    ```terminal  
+    flask run
+    ```
+    
+    By default, the server assumes that the app's entry module is in *app.py*, as used in the sample. If you're using a different module name, set the `FLASK_APP` environment variable to that module.
 
-First create a virtual environment and install dependencies:
+1. Open a web browser and go to the sample app at `http://localhost:5000/`. The app displays the message **Hello, World!**.
 
-```cmd
-py -3 -m venv env
-env\scripts\activate
-pip install -r requirements.txt
-```
-
-Then set the `FLASK_APP` environment variable to the app's entry module and run the Flask development server:
-
-```cmd
-SET FLASK_APP=application.py
-flask run
-```
-
----
-
-Open a web browser, and go to the sample app at `http://localhost:5000/`. The app displays the message **Hello World!**.
-
-![Run a sample Python app locally](./media/quickstart-python/run-hello-world-sample-python-app-in-browser-localhost.png)
-
-In your terminal window, press **Ctrl**+**C** to exit the Flask development server.
+    ![Run a sample Python app locally](./media/quickstart-python/run-hello-world-sample-python-app-in-browser-localhost.png)
+    
+1. In your terminal window, press **Ctrl**+**C** to exit the Flask development server.
 
 [Having issues? Let us know.](https://aka.ms/FlaskCLIQuickstartHelp)
 
@@ -175,7 +167,7 @@ The Python sample code is running a Linux container in App Service using a built
 
 ## Redeploy updates
 
-In your favorite code editor, open *application.py* and update the `hello` function as follows. This change adds a `print` statement to generate logging output that you work with in the next section. 
+In your favorite code editor, open *app.py* and update the `hello` function to match the following code. This code changes the displayed message and adds a `print` statement to generate logging output that you work with in the next section. 
 
 ```python
 def hello():
@@ -247,12 +239,12 @@ In the preceding steps, you created Azure resources in a resource group. The res
 If you don't expect to need these resources in the future, delete the resource group by running the following command:
 
 ```azurecli
-az group delete
+az group delete --no-wait
 ```
 
 The command uses the resource group name cached in the *.azure/config* file.
 
-The command may take a minute to complete.
+The `--no-wait` argument allows the command to return before the operation is complete.
 
 [Having issues? Let us know.](https://aka.ms/FlaskCLIQuickstartHelp)
 

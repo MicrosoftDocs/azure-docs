@@ -1,6 +1,6 @@
 ---
 title: 'Azure ExpressRoute: Configure ExpressRoute Global Reach: CLI'
-description: This article helps you link ExpressRoute circuits together to make a private network between your on-premises networks and enable Global Reach.
+description: Learn how to link ExpressRoute circuits together to make a private network between your on-premises networks and enable Global Reach by using the Azure CLI.
 services: expressroute
 author: duongau
 
