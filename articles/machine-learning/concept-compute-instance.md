@@ -89,6 +89,30 @@ Or you can access a terminal window in any of these ways:
 * Jupyter:  Select **New>Terminal** on top right in the Files tab.
 * SSH to the machine.  Then install Python packages into the **Python 3.6 - AzureML** environment.  Install R packages into the **R** environment.
 
+### Add new kernels
+
+To add a new Jupyter kernel to the compute instance:
+
+1. Create new terminal from Jupyter, JupyterLab or from notebooks pane or SSH into the compute instance
+2. Use the terminal window to create a new environment.  For example, the code below creates `newenv`:
+    ```shell
+    conda create --name newenv
+    ```
+3. Activate the environment.  For example, after creating `newenv`:
+
+    ```shell
+    conda activate newenv
+    ```
+4. Install pip and ipykernel package to the new environment and create a kernel for that conda env
+
+    ```shell
+    conda install pip
+    conda install ipykernel
+    python -m ipykernel install --user --name newenv --display-name "Python (newenv)"
+    ```
+
+Any of the [available Jupyter Kernels](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels) can be installed.
+
 ## Accessing files
 
 Notebooks and R scripts are stored in the default storage account of your workspace in Azure file share.  These files are located under your “User files” directory. This storage makes it easy to share notebooks between compute instances. The storage account also keeps your notebooks safely preserved when you stop or delete a compute instance.
@@ -150,7 +174,7 @@ The dedicated cores per region per VM family quota and total regional quota, whi
 ### Create on behalf of (preview)
 
 As an administrator, you can create a compute instance on behalf of a data scientist and assign the instance to them with:
-* [Azure Resource Manager template](https://docs.microsoft.com/azure/templates/microsoft.machinelearningservices/2020-06-01/workspaces/computes).  For details on how to find the TenantID and ObjectID needed in this template, see [Find identity object IDs for authentication configuration](../healthcare-apis/find-identity-object-ids.md).  You can also find these values in the Azure Active Directory portal.
+* [Azure Resource Manager template](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/preview/2020-09-01-preview/examples/createComputeInstance.json).  For details on how to find the TenantID and ObjectID needed in this template, see [Find identity object IDs for authentication configuration](../healthcare-apis/find-identity-object-ids.md).  You can also find these values in the Azure Active Directory portal.
 * REST API
 
 The data scientist you create the compute instance for needs the following RBAC permissions: 
