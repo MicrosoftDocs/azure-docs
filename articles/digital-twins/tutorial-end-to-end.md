@@ -87,6 +87,16 @@ You can verify the twins that were created by running the following command, whi
 Query
 ```
 
+>[!TIP]
+> This simplified method is provided as part of the _**AdtE2ESample**_ project. Outside the context of this sample code, you can query for all the twins in your instance at any time, using the [Query APIs](how-to-use-apis-sdks.md) or the [CLI commands](how-to-use-cli.md).
+>
+> Here is the full query body to get all digital twins in your instance:
+> 
+> ```sql
+> SELECT *
+> FROM DIGITALTWINS
+> ``` 
+
 After this, you can stop running the project. Keep the solution open in Visual Studio, though, as you'll continue using it throughout the tutorial.
 
 ## Set up the sample function app
