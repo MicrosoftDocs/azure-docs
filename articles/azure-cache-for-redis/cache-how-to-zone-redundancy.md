@@ -50,7 +50,7 @@ To create a cache, follow these steps:
     :::image type="content" source="media/cache-how-to-premium-clustering/redis-clustering-disabled.png" alt-text="Configure Redis cluster.":::
 
     > [!NOTE]
-    > Zone redundancy support only works with non-clustered and non-geo-replicated caches currently.
+    > Zone redundancy support only works with non-clustered and non-geo-replicated caches currently. In addition, it doesn't support private link, scaling, data persistence, or import/export.
     >
 
 1. Click **Create**. 
