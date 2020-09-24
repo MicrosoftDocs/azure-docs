@@ -220,8 +220,8 @@ You can also verify the relationships with any of the following commands, which 
     ```
 * To query for these relationships individually, 
     ```cmd/sh
-    GetRelationships floor0 contains relationship0
-    GetRelationships floor1 contains relationship1
+    GetRelationship floor0 relationship0
+    GetRelationship floor1 relationship1
     ```
 
 The twins and relationships you have set up in this tutorial form the following conceptual graph:

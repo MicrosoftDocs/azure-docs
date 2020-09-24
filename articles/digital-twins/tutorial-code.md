@@ -237,8 +237,7 @@ await foreach (ModelData md in modelDataList)
     Console.WriteLine($"Type name: {md.DisplayName}: {md.Id}");
 }
 ```
-
-Before you run the program again to test this new code, recall that the last time you ran the program, you uploaded your model already. Azure Digital Twins will not let you upload the same model twice, so expect to see an exception when you re-run the program.
+Before you run the program again to test this new code, recall that the last time you ran the program already. If you attempt to upload the same model again, the program should throw an exception.
 
 Now, run the program again with this command in your command window:
 
@@ -246,7 +245,7 @@ Now, run the program again with this command in your command window:
 dotnet run
 ```
 
-The program should throw an exception, when you attempt to upload a model that has been uploaded already. The service returns a "bad request" error via the REST API. As a result, the Azure Digital Twins client SDK will in turn throw an exception, for every service return code other than success.
+The program should throw an exception. When you attempt to upload a model that has been uploaded already, the service returns a "bad request" error via the REST API. As a result, the Azure Digital Twins client SDK will in turn throw an exception, for every service return code other than success. 
 
 The next section talks about exceptions like this and how to handle them in your code.
 
@@ -261,7 +260,6 @@ try {
     Console.WriteLine($"Load model: {rex.Status}:{rex.Message}");
 }
 ```
-
 If you run the program with `dotnet run` in your command window now, you will see that you get an error code back. The output looks something like this:
 
 ```cmd/sh
