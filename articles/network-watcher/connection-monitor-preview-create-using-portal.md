@@ -31,8 +31,8 @@ Connection Monitor (Preview) includes the following entities:
 	* Azure VNETs
 	* Azure subnets
 	* On-premises agents
-	* Onpremises subnets
-	* Onpremises custom network comprising of multiple subnets
+	* On-premises subnets
+	* On-premises custom network comprising of multiple subnets
 	* URLs, and IPs 
 * **Test configuration** – A protocol-specific configuration for a test. Based on the protocol you chose, you can define the port, thresholds, test frequency, and other parameters.
 * **Test group** – The group that contains source endpoints, destination endpoints, and test configurations. A connection monitor can contain more than one test group.
@@ -124,8 +124,8 @@ From the Azure portal, to create a test group in a connection monitor, you speci
 
 * **Destinations** – You can monitor connectivity to Azure VMs, on-premises machine or any endpoint (a public IP, URL, or FQDN) by specifying them as destinations. In a single test group, you can add Azure VMs, on-premises machine, Office 365 URLs, Dynamics 365 URLs, and custom endpoints.
 
-    * To choose Azure VMs as destinations, select the **Azure endpoints** tab. By default, the Azure VMs are grouped into a subscription hierarchy that's in the same region that you selected in the **Create Connection Monitor** view, on the **Basics** tab. You can change the region and choose Azure VMs from the newly selected region. Then you can drill down from Subscription level to other levels in the hierarchy, just like the source azure endpoints.
-     You can select VNETs, subnets or single VMs,  similar to source azure endpoints.Selecting a VNET ,subnet or a single VM sets the corresponding resource ID as the endpoint. By default, all VMs in the selected VNET or subnet with Network Watcher extension participate in monitoring. To reduce the scope, either select specific subnets/agents or change the value of the scope property. 
+    * To choose Azure VMs as destinations, select the **Azure endpoints** tab. By default, the Azure VMs are grouped into a subscription hierarchy that's in the same region that you selected in the **Create Connection Monitor** view, on the **Basics** tab. You can change the region and choose Azure VMs from the newly selected region. Then you can drill down from Subscription level to other levels in the hierarchy, just like the source Azure endpoints.
+     You can select VNETs, subnets or single VMs,  similar to source Azure endpoints.Selecting a VNET ,subnet or a single VM sets the corresponding resource ID as the endpoint. By default, all VMs in the selected VNET or subnet with Network Watcher extension participate in monitoring. To reduce the scope, either select specific subnets/agents or change the value of the scope property. 
 
        ![Screenshot of the Add Destinations pane, showing the Azure VMs tab](./media/connection-monitor-2-preview/add-azure-dests1.png)
 
@@ -144,7 +144,7 @@ From the Azure portal, to create a test group in a connection monitor, you speci
     * To choose recently used endpoints, go to the **Recent Endpoints** tab.
     * When you finish choosing destinations, select **Done**. You can still edit basic properties like endpoint name by clicking the endpoint in the Create Test Group view. 
 
-* **Test configurations** – You can associate one or more test configurations in a test group. Create a new test configuration using the "New configuration" tab or use a test configuration used in other test groups in the same Connection Monitor through  "Choose exisitng" tab.
+* **Test configurations** – You can associate one or more test configurations in a test group. Create a new test configuration using the "New configuration" tab or use a test configuration used in other test groups in the same Connection Monitor through  "Choose Existing" tab.
 
     * **Name** – Name the test configuration.
     * **Protocol** – Choose TCP, ICMP, or HTTP. To change HTTP to HTTPS, select **HTTP** as the protocol, and select **443** as the port.
@@ -170,7 +170,7 @@ From the Azure portal, to create alerts in a connection monitor, you specify val
 
 - Condition -> The alert is created on the "Test Result(preview)" metric. When the test result of the connection monitor is failed, the alert rule will get fired. 
 
-- Action Group -You can choose to enter your email directly or you can choose to create alerts via action groups. If you choose to enter your email directly, an action group with the name NPM Email ActionGroup is created and the email id is added to that action group.If you choose to use action groups, you will have to select an previously created action group. You can learn how to create an action group here.Once the alert is successfully created, you can use Manage Alerts link to manage your alerts. 
+- Action Group -You can choose to enter your email directly or you can choose to create alerts via action groups. If you choose to enter your email directly, an action group with the name NPM Email ActionGroup is created and the email ID is added to that action group.If you choose to use action groups, you will have to select an previously created action group. You can learn how to create an action group here.Once the alert is successfully created, you can use Manage Alerts link to manage your alerts. 
 
 - Alert Rule Name - Name of the Connection Monitor 
 
