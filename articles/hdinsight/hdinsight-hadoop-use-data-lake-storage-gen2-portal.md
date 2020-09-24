@@ -51,7 +51,7 @@ Create an storage account to use with Azure Data Lake Storage Gen2.
     1. Click **Review + create**.
     1. Click **Create**
 
-For more information on other options during storage account creation, see [Quickstart: Create a storage account for Azure Data Lake Storage Gen2](../storage/blobs/create-data-lake-storage-account).
+For more information on other options during storage account creation, see [Quickstart: Create a storage account for Azure Data Lake Storage Gen2](../storage/blobs/create-data-lake-storage-account.md).
 
 ![Screenshot showing storage account creation in the Azure portal](./media/hdinsight-hadoop-use-data-lake-storage-gen2/azure-data-lake-storage-account-create-advanced.png)
 
