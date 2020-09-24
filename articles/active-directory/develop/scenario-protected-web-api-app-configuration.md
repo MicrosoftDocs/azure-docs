@@ -110,9 +110,9 @@ When an app is called on a controller action that holds an **[Authorize]** attri
 
 #### Microsoft.Identity.Web
 
-When developing a web API with ASP.NET Core, Microsoft recommends you use the [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web) NuGet package. Microsoft.Identity.Web provides the glue between ASP.NET Core, the authentication middleware, and [Microsoft Authentication Library (MSAL)](msal-overview.md) for [.NET](https://github.com/azuread/microsoft-authentication-library-for-dotnet). It allows for a clearer, more robust developer experience and leverages the power of the Microsoft identity platform (formerly Azure AD v2.0 endpoint) and Azure AD B2C.
+Microsoft recommends you use the [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web) NuGet package when developing a web API with ASP.NET Core.
 
-For details, see [Microsoft.Identity.Web](https://aka.ms/ms-identity-web)
+_Microsoft.Identity.Web_ provides the glue between ASP.NET Core, the authentication middleware, and the [Microsoft Authentication Library (MSAL)](msal-overview.md) for .NET. It allows for a clearer, more robust developer experience and leverages the power of the Microsoft identity platform and Azure AD B2C.
 
 #### Using Microsoft.Identity.Web templates
 
