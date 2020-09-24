@@ -226,7 +226,7 @@ This article explained how to define endpoints in Service Fabric's service manif
 > [!div class="nextstepaction"]
 > [Application and service manifest examples](https://docs.microsoft.com/azure/service-fabric/service-fabric-manifest-examples.md)
 
-For a walk through of packaging and deploying an existing application on a Service Fabric cluster, see:
+For a walk-through of packaging and deploying an existing application on a Service Fabric cluster, see:
 
 > [!div class="nextstepaction"]
-> [Package and deploy an existing executable to Service Fabric](https://github.com/MicrosoftDocs/azure-docs-pr/blob/master/articles/service-fabric/service-fabric-deploy-existing-app.md)
+> [Package and deploy an existing executable to Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-existing-app.md)
