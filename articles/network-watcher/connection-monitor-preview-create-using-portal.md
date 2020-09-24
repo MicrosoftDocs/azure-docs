@@ -176,6 +176,7 @@ From the Azure portal, to create alerts in a connection monitor, you specify val
 
 - Enable rule upon creation - This will enable the alert rule based on the condition. Disable this if you want to create the rule but not enable it. 
 
+  	![Screenshot showing creating alert in Connection Monitor pane](./media/connection-monitor-2-preview/create-alert-filled.png)
 
 ## Scale limits
 
