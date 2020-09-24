@@ -439,7 +439,7 @@ The logic app workflow in this example uses this trigger and these actions:
    > [!TIP]
    > To prevent future prompts, select **Don't ask again for this extension**.
 
-   After Visual Studio Code creates your connection, some connectors show the message that `The connection will be valid for *n* days only.` This time limit applies only to the duration while you author your logic app in Visual Studio Code. After deployment, this limit no longer applies because your logic app can authenticate at runtime by using its automatically enabled [system-assigned managed identity](../logic-apps/create-managed-service-identity.md). This managed identity differs from the authentication credentials or connection string that you use when you create a connection. If you disable this system-assigned managed identity, connections won't work at runtime.
+   After Visual Studio Code creates your connection, some connectors show the message that `The connection will be valid for {n} days only.` This time limit applies only to the duration while you author your logic app in Visual Studio Code. After deployment, this limit no longer applies because your logic app can authenticate at runtime by using its automatically enabled [system-assigned managed identity](../logic-apps/create-managed-service-identity.md). This managed identity differs from the authentication credentials or connection string that you use when you create a connection. If you disable this system-assigned managed identity, connections won't work at runtime.
 
 1. On the designer, if the **Send an email** action doesn't appear selected, select that action.
 
