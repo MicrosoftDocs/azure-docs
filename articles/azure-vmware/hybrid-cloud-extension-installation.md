@@ -35,7 +35,7 @@ After completing the setup, you can follow the recommended next steps provided a
 
 Sizing workloads against compute and storage resources is an essential planning step when you're preparing to use the Azure VMware Solution Private Cloud HCX solution. Address the sizing step as part of the initial private cloud environment planning. 
 
-You also can size workloads by completing an Azure VMware Solution Assessment in the Azure Migrate portal (https://docs.microsoft.com/azure/migrate/how-to-create-azure-vmware-solution-assessment).
+You also can size workloads by completing an [Azure VMware Solution Assessment](https://docs.microsoft.com/azure/migrate/how-to-create-azure-vmware-solution-assessment) in the Azure Migrate portal.
 
 ## Software version requirements
 
@@ -62,7 +62,7 @@ Infrastructure components must be running the required minimum version.
 
 ## Deploy the VMware HCX OVA on-premises
 
-1. Sign into the **Azure VMware Solution HCX Manager** on `https://x.x.x.9` port 443 with **cloudadmin** user credentials and the go to **Support**.
+1. Sign in to Azure VMware Solution HCX Manager on `https://x.x.x.9` port 443 with the **cloudadmin** user credentials, and then go to **Support**.
 
 1. Select the download link for the VMware HCX OVA file. 
 
