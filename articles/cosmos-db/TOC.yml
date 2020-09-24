@@ -73,6 +73,8 @@
       href: sql-api-dotnet-v3sdk-samples.md
     - name: Java SDK v4 samples
       href: sql-api-java-sdk-samples.md
+    - name: Spring Data v3 samples
+      href: sql-api-spring-data-sdk-samples.md      
     - name: Node.js samples
       href: sql-api-nodejs-samples.md
     - name: Python samples
