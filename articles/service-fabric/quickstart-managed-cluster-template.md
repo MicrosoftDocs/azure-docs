@@ -38,11 +38,11 @@ Take note of the certificate thumbprint as this will be required to deploy the t
 
 1. Select the following image to sign in to Azure and open a template.
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure-samples%2Fservice-fabric-cluster-templates%2F3-vm-windows-1-nodetype-managed-basic%2Fazuredeploy.json)
+    [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure-samples%2Fservice-fabric-cluster-templates%2F3-vm-windows-1-nodetype-managed-basic%2Fazuredeploy.json)
 
 2. Select or enter the following values
 
-For this quickstart, provide your own values for the following template parameters:
+    For this quickstart, provide your own values for the following template parameters:
 
     * **Subscription**: Select an Azure subscription.
     * **Resource Group**: Select **Create new**. Enter a unique name for the resource group, such as *myResourceGroup*, then choose **OK**.

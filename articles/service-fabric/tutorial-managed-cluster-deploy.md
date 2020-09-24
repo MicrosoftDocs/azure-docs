@@ -53,21 +53,23 @@ Next, create the resource group for the Managed Service Fabric cluster, replacin
 
 ```powershell
 $resourceGroup = "myResourceGroup"
-$location = "EastUS2" 
+$location = "EastUS2"
 
 New-AzResourceGroup -Name $resourceGroup -Location $location
 ```
+
 ## Deploy a Service Fabric managed cluster
 
-### Create a Service Fabric managed cluster 
+### Create a Service Fabric managed cluster
 
-In this step, you will create a Service Fabric managed cluster using the New-AzServiceFabricManagedCluster PowerShell command. The following example creates a cluster named myCluster in the resource group named myResourceGroup. This resource group was created in the previous step in the eastus2 region. 
+In this step, you will create a Service Fabric managed cluster using the New-AzServiceFabricManagedCluster PowerShell command. The following example creates a cluster named myCluster in the resource group named myResourceGroup. This resource group was created in the previous step in the eastus2 region.
 
-For this step, provide your own values for the following  parameters: 
+For this step, provide your own values for the following  parameters:
+
 * **Cluster Name**: Enter a unique name for your cluster, such as *myCluster*.
 * **Admin Password**: Enter a password for the admin to be used for RDP on the underlying VMs in the cluster.
-* **Client Certificate Thumbprint**: Provide the thumbprint of the client certificate that you would like to use to access your cluster. If you do not have a certificate, follow [set and retrieve a certificate](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-portal) to create a self-signed certificate. 
-* **Cluster SKU**: This is the type of Service Fabric cluster being deployed, basic SKU clusters are meant for test deployments only. 
+* **Client Certificate Thumbprint**: Provide the thumbprint of the client certificate that you would like to use to access your cluster. If you do not have a certificate, follow [set and retrieve a certificate](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-portal) to create a self-signed certificate.
+* **Cluster SKU**: This is the type of Service Fabric cluster being deployed, basic SKU clusters are meant for test deployments only.
 
 ```powershell
 $clusterName = "myCluster" 
@@ -82,14 +84,15 @@ New-AzServiceFabricManagedCluster -ResourceGroupName $resourceGroup -Location $l
 
 In this step, you will add a primary node type to the cluster that you have just created. Every Service Fabric cluster must have at least one primary node type.
 
-For this step, provide your own values for the following  parameters: 
+For this step, provide your own values for the following  parameters:
+
 * **Node Type Name**: Enter a unique name for the node type to be added to your cluster, such as "NT1".
 
 > [!NOTE]
 > If the node type being added is the first or only node type in the cluster, the Primary property must be used.
 
 ```powershell
-$nodeType1Name = "NT1" 
+$nodeType1Name = "NT1"
 
 New-AzServiceFabricManagedNodeType -ResourceGroupName $resourceGroup -ClusterName $clusterName -Name $nodeType1Name -Primary -InstanceCount 5
 ```

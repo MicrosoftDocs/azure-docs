@@ -32,7 +32,8 @@ This part of the series covers how to:
 You can add a node type to a Service Fabric managed cluster through an Azure Resource Manager template, PowerShell, or CLI. In this tutorial we will be adding a node type using the Azure PowerShell.
 
 To create a new node type, we will need to define three properties:
-* **Node Type Name**: This should be a unique name from any other node types that already exist in the cluster. 
+
+* **Node Type Name**: This should be a unique name from any other node types that already exist in the cluster.
 * **Instance Count**: This will be the initial number of nodes in the new node type.
 * **VM Size**: This will be the VM SKU which the nodes are running on. If this property is not specified the default value with be a Standard_D2.
 
