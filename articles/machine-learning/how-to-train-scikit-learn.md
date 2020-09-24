@@ -59,7 +59,7 @@ Notes:
 - The provided training script shows how to log some metrics to your Azure ML run using the `Run` object within the script.
 - The provided training script uses example data from the  `iris = datasets.load_iris()` function.  For your own data, you may need to use steps such as [Upload dataset and scripts](how-to-train-keras.md#data-upload) to make data available during training.
 
-### Define your Environment
+### Define your environment
 
 To define the Azure ML [Environment](concept-environments.md) that encapsulates your training script's dependencies, you can either define a custom environment or use and Azure ML curated environment.
 
