@@ -1,6 +1,6 @@
 ---
 title: 'Azure VPN Gateway: Create & install VPN client config files - P2S RADIUS connections'
-description: Create Windows, Mac OS X, and Linux VPN client configuration files for connections that use RADIUS authentication.
+description: Create Windows, OS X, and Linux VPN client configuration files for connections that use RADIUS authentication.
 services: vpn-gateway
 author: cherylmc
 
@@ -12,7 +12,7 @@ ms.author: cherylmc
 ---
 # Create and install VPN client configuration files for P2S RADIUS authentication
 
-To connect to a virtual network over point-to-site (P2S), you need to configure the client device that you'll connect from. You can create P2S VPN connections from Windows, Mac OS X, and Linux client devices. 
+To connect to a virtual network over point-to-site (P2S), you need to configure the client device that you'll connect from. You can create P2S VPN connections from Windows, OS X, and Linux client devices. 
 
 When you're using RADIUS authentication, there are multiple authentication options: username/password authentication, certificate authentication, and other authentication types. The VPN client configuration is different for each type of authentication. To configure the VPN client, you use client configuration files that contain the required settings. This article helps you create and install the VPN client configuration for the RADIUS authentication type that you want to use.
 
@@ -32,7 +32,7 @@ The configuration workflow for P2S RADIUS authentication is as follows:
 >
 >
 
-To use the sections in this article, first decide which type of authentication you want to use: username/password, certificate, or other types of authentication. Each section has steps for Windows, Mac OS X, and Linux (limited steps available at this time).
+To use the sections in this article, first decide which type of authentication you want to use: username/password, certificate, or other types of authentication. Each section has steps for Windows, OS X, and Linux (limited steps available at this time).
 
 
 ## <a name="adeap"></a>Username/password authentication

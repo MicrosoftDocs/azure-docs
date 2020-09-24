@@ -51,7 +51,7 @@ The Service Principal you create must have server administrator permissions on t
 
     ![Screenshot that shows the "Credentials" page with the "Add a credential" action selected.](./media/analysis-services-refresh-azure-automation/6.png)
 
-2. Enter the details for the credential. In **User name**, enter the service principal Application Id (appid), and then in **Password**, enter the service principal Secret.
+2. Enter the details for the credential. In **User name**, enter the service principal Application ID (appid), and then in **Password**, enter the service principal Secret.
 
     ![Create credential](./media/analysis-services-refresh-azure-automation/7.png)
 
