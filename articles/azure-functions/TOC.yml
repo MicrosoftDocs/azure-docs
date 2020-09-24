@@ -286,8 +286,12 @@
         - name: Configure monitoring
           href: configure-monitoring.md
           displayName: App Insights, Application Insights, logs, logging
-        - name: Analyze logs
+        - name: Analyze telemetry data
+          href: analyze-telemetry-data.md  
+          displayName: App Insights, Application Insights, Kusto
+        - name: Diagnostic logs
           href: functions-monitor-log-analytics.md
+          displayName: Azure Monitor, Kusto, Log Analytics, metrics
     - name: Secure
       items:
         - name: Add SSL cert
