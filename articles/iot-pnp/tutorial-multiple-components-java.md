@@ -42,9 +42,7 @@ Expect this operation to take several minutes to complete.
 
 ## Build the code
 
-On Windows, navigate to the root folder of the cloned Java SDK repository. Then navigate to the *\device\iot-device-samples\pnp-device-sample\temperature-controller-device-sample* folder.
-
-Run the following command to build the sample application:
+On Windows, navigate to the root folder of the cloned Java SDK repository. Run the following command to build the dependencies:
 
 ```cmd/sh
 mvn install -T 2C -DskipTests
@@ -54,7 +52,7 @@ mvn install -T 2C -DskipTests
 
 [!INCLUDE [iot-pnp-environment](../../includes/iot-pnp-environment.md)]
 
-To run the sample application, run the following command:
+To run the sample application, navigate to the *\device\iot-device-samples\pnp-device-sample\temperature-controller-device-sample* folder and run the following command:
 
 ```cmd/sh
 mvn exec:java -Dexec.mainClass="samples.com.microsoft.azure.sdk.iot.device.TemperatureController"
