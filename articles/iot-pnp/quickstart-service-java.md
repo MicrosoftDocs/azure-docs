@@ -52,7 +52,7 @@ In this quickstart, you use a sample thermostat device that's written in Java as
 1. Run the following command to build the sample device application:
 
     ```cmd
-    mvn clean package
+    mvn install -T 2C -DskipTests
     ```
 
 1. To run the sample device application, run the following command:
@@ -77,10 +77,10 @@ In this quickstart, you use a sample IoT solution written in Java to interact wi
 
 1. Open another terminal window to use as your **service** terminal.
 
-1. In the cloned Java SDK repository, navigate to the *service\iot-service-samples\pnp-service-sample* folder. Run the following command to build the sample service application:
+1. In the cloned Java SDK repository, navigate to the *service\iot-service-samples\pnp-service-sample\thermostat-service-sample* folder. Run the following command to build the sample service application:
 
     ```cmd
-    mvn clean package
+    mvn install -T 2C -DskipTests
     ```
 
 1. To run the sample service application, run the following command:

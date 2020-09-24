@@ -70,18 +70,19 @@ az iot dps enrollment create --attestation-type symmetrickey --dps-name my-pnp-d
 
 ## Create environment variables
 
-Create four environment variables to configure the samples in the quickstarts and tutorials to use the Device Provisioning Service (DPS) to connect to your IoT hub:
+Create five environment variables to configure the samples in the quickstarts and tutorials to use the Device Provisioning Service (DPS) to connect to your IoT hub:
 
-* **IOTHUB_DEVICE_SECURITY_TYPE**: the value `"DPS"`.
+* **IOTHUB_DEVICE_SECURITY_TYPE**: the value `DPS`.
 * **IOTHUB_DEVICE_DPS_ID_SCOPE**: the DPS ID scope you made a note of previously.
-* **IOTHUB_DEVICE_DPS_DEVICE_ID**: the value `"my-pnp-device"`.
+* **IOTHUB_DEVICE_DPS_DEVICE_ID**: the value `my-pnp-device`.
 * **IOTHUB_DEVICE_DPS_DEVICE_KEY**: the enrollment primary key you made a note of previously.
+* **IOTHUB_DEVICE_DPS_ENDPOINT**: the value `global.azure-devices-provisioning.net`
 
 The service samples need the following environment variables to identify the hub and device to connect to:
 
 * **IOTHUB_CONNECTION_STRING**: the IoT hub connection string you made a note of previously.
-* **IOTHUB_DEVICE_ID**: `"my-pnp-device"`.
-* **DEVICE_ID**: `"my-pnp-device"`.
+* **IOTHUB_DEVICE_ID**: `my-pnp-device`.
+* **DEVICE_ID**: `my-pnp-device`.
 
 For example, in a Linux bash shell:
 
@@ -90,6 +91,7 @@ export IOTHUB_DEVICE_SECURITY_TYPE="DPS"
 export IOTHUB_DEVICE_DPS_ID_SCOPE="<Your ID scope>"
 export IOTHUB_DEVICE_DPS_DEVICE_ID="my-pnp-device"
 export IOTHUB_DEVICE_DPS_DEVICE_KEY="<Your enrolment primary key>"
+export IOTHUB_DEVICE_DPS_ENDPOINT="global.azure-devices-provisioning.net"
 export IOTHUB_CONNECTION_STRING="<Your IoT hub connection string>"
 export IOTHUB_DEVICE_ID="my-pnp-device"
 export DEVICE_ID="my-pnp-device"
@@ -102,6 +104,7 @@ set IOTHUB_DEVICE_SECURITY_TYPE=DPS
 set IOTHUB_DEVICE_DPS_ID_SCOPE=<Your ID scope>
 set IOTHUB_DEVICE_DPS_DEVICE_ID=my-pnp-device
 set IOTHUB_DEVICE_DPS_DEVICE_KEY=<Your enrolment primary key>
+set IOTHUB_DEVICE_DPS_ENDPOINT=global.azure-devices-provisioning.net
 set IOTHUB_CONNECTION_STRING=<Your IoT hub connection string>
 set IOTHUB_DEVICE_ID=my-pnp-device
 set DEVICE_ID=my-pnp-device

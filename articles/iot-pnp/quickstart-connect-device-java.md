@@ -43,7 +43,7 @@ On Windows, navigate to the root folder of the cloned Java SDK repository. Then 
 Run the following command to build the sample application:
 
 ```cmd
-mvn clean package
+mvn install -T 2C -DskipTests
 ```
 
 ## Run the device sample
