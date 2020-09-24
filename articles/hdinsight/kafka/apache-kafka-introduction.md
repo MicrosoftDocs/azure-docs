@@ -31,6 +31,8 @@ The following are specific characteristics of Kafka on HDInsight:
 
 * HDInsight allows you to change the number of worker nodes (which host the Kafka-broker) after cluster creation. Scaling can be performed from the Azure portal, Azure PowerShell, and other Azure management interfaces. For Kafka, you should rebalance partition replicas after scaling operations. Rebalancing partitions allows Kafka to take advantage of the new number of worker nodes.
 
+   HDInsight Kafka does not support downward scaling or decreasing the number of brokers within a cluster. If an attempt is made to decrease the number of nodes, an `InvalidKafkaScaleDownRequestErrorCode` error is returned.
+
     For more information, see [High availability with Apache Kafka on HDInsight](apache-kafka-high-availability.md).
 
 * Azure Monitor logs can be used to monitor Kafka on HDInsight. Azure Monitor logs surfaces virtual machine level information, such as disk and NIC metrics, and JMX metrics from Kafka.
