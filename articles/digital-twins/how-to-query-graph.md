@@ -27,6 +27,15 @@ The rest of this article provides examples of how to use these operations.
 
 This section contains sample queries that illustrate the query language structure and perform possible query operations on [digital twins](concepts-twins-graph.md).
 
+### Show all existing digital twins
+
+Here is the basic query that will return a list of all digital twins in the instance:
+
+```sql
+SELECT *
+FROM DIGITALTWINS
+```
+
 ### Select top items
 
 You can select the several "top" items in a query using the `Select TOP` clause.
