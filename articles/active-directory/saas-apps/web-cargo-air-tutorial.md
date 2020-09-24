@@ -85,6 +85,14 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Web Cargo Air Client support team](mailto:support@webcargonet.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
+1. . On the **Set-up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
+
+	![The Certificate download link](common/certificatebase64.png)
+
+1. On the **Set-up Web Cargo Air** section, copy the appropriate URL(s) based on your requirement.
+
+	![Copy configuration URLs](common/copy-configuration-urls.png)
+
 ### Create an Azure AD test user
 
 In this section, you'll create a test user in the Azure portal called B.Simon.
@@ -108,6 +116,10 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
 1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
 1. In the **Add Assignment** dialog, click the **Assign** button.
+
+## Configure Web Cargo Air SSO
+
+To configure single sign-on on **Web Cargo Air** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Web Cargo Air support team](mailto:support@webcargonet.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create Web Cargo Air test user
 
