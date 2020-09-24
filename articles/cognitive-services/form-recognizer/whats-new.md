@@ -35,7 +35,8 @@ The Form Recognizer service is updated on an ongoing basis. Use this article to 
 
 
 **v2.0** includes the following update:
--    The [client libraries](quickstarts/client-library.md) for NET, Python, Java, and JavaScript have entered General Availability. 
+
+- The [client libraries](quickstarts/client-library.md) for NET, Python, Java, and JavaScript have entered General Availability. 
 
 
 **New samples** are available on GitHub. 
