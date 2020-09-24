@@ -53,7 +53,7 @@ Or, you can use the Azure CLI to grant Azure Spring Cloud access to key vault.
 
 Get the object id via the following command.
 ```
-az ad sp show --id 03b39d0f-4213-4864-a245-b1476ec03169 --query objectId
+az ad sp show --id <service principal id> --query objectId
 ```
 
 Grant Azure Spring Cloud read access to key vault, replace the object id in the following command.
@@ -78,7 +78,7 @@ az spring-cloud certificate add --name <cert name> --vault-uri <key vault uri> -
 > Ensure you grant Azure Spring Cloud access to your key vault before you execute the previous import certificate command. If you haven't, you can execute the following command to grant the access rights.
 
 ```
-az keyvault set-policy -g <key vault resource group> -n <key vault name>  --object-id 938df8e2-2b9d-40b1-940c-c75c33494239 --certificate-permissions get list
+az keyvault set-policy -g <key vault resource group> -n <key vault name>  --object-id <object id> --certificate-permissions get list
 ``` 
 
 When you have successfully imported your certificate, you'll see it in the list of **Private Key Certificates**.
@@ -88,7 +88,7 @@ When you have successfully imported your certificate, you'll see it in the list 
 Or, you can use the Azure CLI to show a list of certificates:
 
 ```
-az spring-cloud certificate list
+az spring-cloud certificate list --resource-group <resource group name> --service <service name>
 ```
 
 > [!IMPORTANT] 
@@ -124,7 +124,7 @@ Go to application page.
 
 Or, you can use the Azure CLI to add a custom domain:
 ```
-az spring-cloud app custom-domain bind --domain-name <domain name> --app <app name> 
+az spring-cloud app custom-domain bind --domain-name <domain name> --app <app name> --resource-group <resource group name> --service <service name>
 ```
 
 One app can have multiple domains, but one domain can only map to one app. When you've successfully mapped your custom domain to the app, you'll see it on the custom domain table.
@@ -133,7 +133,7 @@ One app can have multiple domains, but one domain can only map to one app. When 
 
 Or, you can use the Azure CLI to show a list of custom domains:
 ```
-az spring-cloud app custom-domain list --app <app name> 
+az spring-cloud app custom-domain list --app <app name> --resource-group <resource group name> --service <service name>
 ```
 
 > [!NOTE]
@@ -148,7 +148,7 @@ In the custom domain table, select **Add ssl binding** as shown in the previous 
 
 Or, you can use the Azure CLI to **Add ssl binding**:
 ```
-az spring-cloud app custom-domain update --domain-name <domain name> --certificate <cert name> --app <app name> 
+az spring-cloud app custom-domain update --domain-name <domain name> --certificate <cert name> --app <app name> --resource-group <resource group name> --service <service name>
 ```
 
 After you successfully add SSL binding, the domain state will be secure: **Healthy**. 
