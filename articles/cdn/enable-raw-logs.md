@@ -16,9 +16,9 @@ ms.author: allensu
 With Azure CDN from Microsoft, you can monitor resources in the following ways to help you troubleshoot, track, and debug issues. 
 
 * Raw logs provide rich information about every request that CDN receives. Raw logs differ from activity logs. Activity logs provide visibility into the operations done on Azure resources.
-* Metrics, which displays 4 key metrics on CDN, including Byte Hit Ratio, Request Count, Response Size and Total Latency. It also provides different dimensions to break down metrics.
-* Alert, which allows customer to setup alert for key metrics
-* Additional metrics, which allows customers to leverage Azure Log Analytics to enable additional metrics of value. We also provide query samples for a few other metrics under Azure Log Analytics.
+* Metrics, which display four key metrics on CDN, including Byte Hit Ratio, Request Count, Response Size and Total Latency. It also provides different dimensions to break down metrics.
+* Alert, which allows customer to set up alert for key metrics
+* Additional metrics, which allow customers to use Azure Log Analytics to enable additional metrics of value. We also provide query samples for a few other metrics under Azure Log Analytics.
 
 > [!IMPORTANT]
 > The HTTP raw logs feature is available for Azure CDN from Microsoft.
@@ -202,18 +202,22 @@ AzureDiagnostics
 
 
 ## Metrics
-Azure CDN from Microsoft is integrated with Azure Monitor and publishes 4 CDN metrics to help track, troubleshoot and debug issues. The Metrics are displayed in charts and also accessible via PowerShell, CLI and API. The CDN metrics are free of charge.
+Azure CDN from Microsoft is integrated with Azure Monitor and publishes four CDN metrics to help track, troubleshoot, and debug issues. 
 
-If there are requests flowing through Azure CDN from Microsoft, it measures and sends its metrics in 60-second intervals and takes up to 3 mins to appear in the portal. For more information, see Azure Monitor metrics.
+The Metrics are displayed in charts and accessible via PowerShell, CLI, and API. The CDN metrics are free of charge.
+
+Azure CDN from Microsoft measures and sends its metrics in 60-second intervals. The metrics can take up to 3 mins to appear in the portal. 
+
+For more information, see [Azure Monitor metrics](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics).
 
 **Metrics supported by Azure CDN from Microsoft**
 
 | Metrics         | Description                                                                                                      | Dimension                                                                                   |
 |-----------------|------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|
 | Bytes Hit ratio* | The percentage of egress from CDN cache, computed against the total egress.                                      | Endpoint                                                                                    |
-| RequestCount    | The number of client requests served by CDN.                                                                     | Endpoint </br> Client country </br> Client region </br> HTTP status </br> HTTP status group |
-| ResponseSize    | The number of bytes sent as responses from CDN edge to clients.                                                  |Endpoint </br> Client country </br> Client region </br> HTTP status </br> HTTP status group                                                                                          |
-| TotalLatency    | The total time from the client request received by CDN **until the last response byte send from CDN to client**. |Endpoint </br> Client country </br> Client region </br> HTTP status </br> HTTP status group                                                                                             |
+| RequestCount    | The number of client requests served by CDN.                                                                     | Endpoint </br> Client country. </br> Client region. </br> HTTP status. </br> HTTP status group. |
+| ResponseSize    | The number of bytes sent as responses from CDN edge to clients.                                                  |Endpoint </br> Client country. </br> Client region. </br> HTTP status. </br> HTTP status group.                                                                                          |
+| TotalLatency    | The total time from the client request received by CDN **until the last response byte send from CDN to client**. |Endpoint </br> Client country. </br> Client region. </br> HTTP status. </br> HTTP status group.                                                                                             |
 
 ***Bytes Hit Ration = (egress from edge - egress from origin)/egress from edge**
 
@@ -225,27 +229,59 @@ Scenarios excluded in bytes hit ratio calculation:
 ### Metrics configuration
 
 1. From the Azure portal menu, select **All Resources** >> **\<your-CDN-profile>**.
-2. Under **Monitoring**, select **Metrics**.
+
+2. Under **Monitoring**, select **Metrics**:
+
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-03.png" alt-text="Metrics for CDN profile." border="true":::
+
 3. Select **Add metric**, select the metric to add:
+
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-04.png" alt-text="Add and select metric for CDN profile." border="true":::
+
 4. Select **Add filter** to add a filter:
+    
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-05.png" alt-text="Apply filter to metric." border="true":::
+
 5. Select **Apply** splitting to see trend by different dimensions:
+
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-06.png" alt-text="Apply splitting to the metric." border="true":::
+
 6. Select **New chart** to add a new chart:
 
-### Alerting
-You can also setup alerts on Microsoft CDN by clicking on **Alert** and **+ New alert rule** for metrics listed in Metrics section. Alert will be charged based on Azure Monitor. For more details about alerts, please refer to Azure Monitor Alert.
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-07.png" alt-text="Add new chart to the metric view." border="true":::
+
+### Alerts
+
+You can setup alerts on Microsoft CDN by selecting **Monitoring** >> **Alerts**.
+
+Select **New alert rule** for metrics listed in Metrics section:
+
+:::image type="content" source="./media/cdn-raw-logs/raw-logs-08.png" alt-text="Configure alerts for CDN endpoint." border="true":::
+
+Alert will be charged based on Azure Monitor. For more information about alerts, see [Azure Monitor alerts](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
 
 ### Additional Metrics
-In addition to default metrics, you can enable additional metrics using Azure Log Analytics and Raw Log for additional cost. For more information about cost, please refer to Azure Monitor.
+You can enable additional metrics using Azure Log Analytics and Raw Log for an additional a cost.
 
-1. Follow steps above in raw log to send raw log to log analytics.
-2. Click on the Log Analytics workspace you created:
-3. Go to Logs under the Log Analytics Workspace, use Kusto query to retrieve different Metrics.  You can refer to the Microsoft CDN Kusto query samples in Logs under selected Analytics Workspace and do further analysis on additional metrics. You can refer to Help on the upper right to learn more about Kusto query language.
-4. You can also view data by Chart and click Pin to dashboard.
-5. Setup alerts for Metrics of interest. For example, you want to monitor 4XX error code and receive alerts based on your needs.
-6. Add New alert rule per your needs, you can also choose to send notification via email, SMS and secure webhook, webhook, Function, etc. For more details, please refer to Azure Monitor Alert action groups.  
+1. Follow steps above in enabling diagnostics to send raw log to log analytics.
 
+2. Select the Log Analytics workspace you created:
 
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-09.png" alt-text="Configure log analytics workspace" border="true":::   
+
+3. Select **Logs** under **General** in the log analytics workspace.  Then select **Get Started**:
+
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-10.png" alt-text="Configure log analytics workspace" border="true":::   
  
+4. Select **CDN Profiles**.  Select an example query to RUN or close the example screen to enter a custom query:
+
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-11.png" alt-text="Example query screen" border="true":::   
+
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-12.png" alt-text="Query execution" border="true":::   
+
+4. To view data by chart, select **Chart**.  Select **Pin to dashboard** to pin the chart to the Azure dashboard:
+
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-13.png" alt-text="Pin chart to dashboard" border="true"::: 
 
 ## Next Steps
 In this article, you enabled HTTP raw logs for the Microsoft CDN service.
