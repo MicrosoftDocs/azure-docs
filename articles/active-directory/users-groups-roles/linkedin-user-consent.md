@@ -68,7 +68,7 @@ When you connect your Microsoft and LinkedIn accounts, you allow Microsoft to pr
 * Profile data - includes information like your first name, last name, profile photo, email address, manager, and people that you manage.
 * Calendar data - includes meetings in your calendars, their times, locations, and attendees' contact information. Information about the meeting, like agenda, content, or meeting title is not included in the calendar data.
 * Interests data - includes the interests associated with your account, based on your use of Microsoft services, such as Cortana and Bing for Business.
-* Subscriptions data - includes subscriptions provided by your organization to Microsoft apps and services, such as Office 365.
+* Subscriptions data - includes subscriptions provided by your organization to Microsoft apps and services, such as Microsoft 365.
 * Contacts data - includes contact lists in Outlook, Skype, and other Microsoft account services, including the contact information for people you frequently communicate or collaborate with. Contacts will be periodically imported, stored, and used by LinkedIn, for example to suggest connections, help organize contacts, and show updates about contacts.
 
 Data that is accessed from Microsoft is not stored permanently with LinkedIn, except for Contacts. Microsoft Contacts are stored on LinkedIn until users remove them. Learn more about [deleting imported contacts from LinkedIn](https://www.linkedin.com/help/linkedin/answer/43377).

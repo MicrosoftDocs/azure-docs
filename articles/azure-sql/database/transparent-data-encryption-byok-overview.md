@@ -88,6 +88,11 @@ Auditors can use Azure Monitor to review key vault AuditEvent logs, if logging i
 
 - If you are importing existing key into the key vault, make sure to provide it in the supported file formats (.pfx, .byok, or .backup).
 
+> [!NOTE]
+> Azure SQL now supports using a RSA key stored in a Managed HSM as TDE Protector. This feature is in **public preview**. 
+Azure Key Vault Managed HSM is a fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguard cryptographic keys for your cloud applications, using FIPS 140-2 Level 3 validated HSMs. Learn more about [Managed HSMs](https://aka.ms/mhsm).
+
+
 ## Recommendations when configuring customer-managed TDE
 
 ### Recommendations when configuring AKV
@@ -126,6 +131,11 @@ After access to the key is restored, taking database back online requires additi
 - If key access is restored within 8 hours, the database will auto-heal within next hour.
 
 - If key access is restored after more than 8 hours, auto-heal is not possible and bringing the database back requires additional steps on the portal and can take a significant amount of time depending on the size of the database. Once the database is back online, previously configured server-level settings such as [failover group](auto-failover-group-overview.md) configuration, point-in-time-restore history, and tags **will be lost**. Therefore, it's recommended implementing a notification system that allows you to identify and address the underlying key access issues within 8 hours.
+
+Below is a view of the additional steps required on the portal to bring an inaccessible database back online.
+
+![TDE BYOK Inaccessible Database](./media/transparent-data-encryption-byok-overview/customer-managed-tde-inaccessible-database.jpg)
+
 
 ### Accidental TDE protector access revocation
 

@@ -4,7 +4,7 @@ description: Learn how to code and test Azure functions from the command prompt 
 ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.custom: 80e4ff38-5174-43
+ms.custom: "devx-track-csharp, 80e4ff38-5174-43"
 ---
 
 # Work with Azure Functions Core Tools
@@ -32,7 +32,7 @@ There are three versions of Azure Functions Core Tools. The version you use depe
 
 + **Version 1.x**: Supports version 1.x of the Azure Functions runtime. This version of the tools is only supported on Windows computers and is installed from an [npm package](https://www.npmjs.com/package/azure-functions-core-tools).
 
-Unless otherwise noted, the examples in this article are for version 3.x.
+You can only install one version of Core Tools on a given computer. Unless otherwise noted, the examples in this article are for version 3.x.
 
 ## Prerequisites
 
@@ -161,6 +161,9 @@ In the terminal window or from a command prompt, run the following command to cr
 func init MyFunctionProj
 ```
 
+>[!IMPORTANT]
+> Java uses a Maven archetype to create the local Functions project, along with your first HTTP triggered function. Use the following command to create your Java project: `mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype`. For an example using the Maven archetype, see the [Command line quickstart](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java).  
+
 When you provide a project name, a new folder with that name is created and initialized. Otherwise, the current folder is initialized.  
 In version 3.x/2.x, when you run the command you must choose a runtime for your project. 
 
@@ -250,20 +253,21 @@ Even when using the Microsoft Azure Storage Emulator for development, you may wa
 
   ![Copy connection string from Storage Explorer](./media/functions-run-local/storage-explorer.png)
 
-+ Use Core Tools to download the connection string from Azure with one of the following commands:
++ Use Core Tools from the project root to download the connection string from Azure with one of the following commands:
 
   + Download all settings from an existing function app:
 
     ```
     func azure functionapp fetch-app-settings <FunctionAppName>
     ```
+
   + Get the Connection string for a specific storage account:
 
     ```
     func azure storage fetch-connection-string <StorageAccountName>
     ```
 
-    When you aren't already signed in to Azure, you're prompted to do so.
+    When you aren't already signed in to Azure, you're prompted to do so. These commands overwrite any existing settings in the local.settings.json file. 
 
 ## <a name="create-func"></a>Create a function
 
@@ -330,6 +334,14 @@ To run a Functions project, run the Functions host. The host enables triggers fo
 ```
 func start --build
 ```
+
+# [Java](#tab/java)
+
+```
+mvn clean package 
+mvn azure-functions:run
+```
+
 # [JavaScript](#tab/node)
 
 ```
@@ -500,6 +512,9 @@ To publish your local code to a function app in Azure, use the `publish` command
 ```
 func azure functionapp publish <FunctionAppName>
 ```
+
+>[!IMPORTANT]
+> Java uses Maven to publish your local project to Azure. Use the following command to publish to Azure: `mvn azure-functions:deploy`. Azure resources are created during initial deployment.
 
 This command publishes to an existing function app in Azure. You'll get an error if you try to publish to a `<FunctionAppName>` that doesn't exist in your subscription. To learn how to create a function app from the command prompt or terminal window using the Azure CLI, see [Create a Function App for serverless execution](./scripts/functions-cli-create-serverless.md). By default, this command uses [remote build](functions-deployment-technologies.md#remote-build) and deploys your app to [run from the deployment package](run-functions-from-deployment-package.md). To disable this recommended deployment mode, use the `--nozip` option.
 

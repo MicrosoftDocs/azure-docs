@@ -9,11 +9,11 @@ ms.date: 04/25/2019
 
 # Deployment technologies in Azure Functions
 
-You can use a few different technologies to deploy your Azure Functions project code to Azure. This article provides an overview of the deployment methods available to you and recommendations for the best method to use in various scenarios. It also provides an exhaustive list of and key details about the underlyng deployment technologies. 
+You can use a few different technologies to deploy your Azure Functions project code to Azure. This article provides an overview of the deployment methods available to you and recommendations for the best method to use in various scenarios. It also provides an exhaustive list of and key details about the underlying deployment technologies. 
 
 ## Deployment methods
 
-The deployment technology you use to publish code to Azure is generally determined by the way in which you publish your app. The appropriate deployment method is determined by specific needs and the point in the development cycle. For example, during development and testing you may deploy directly from your development tool, such as Visual Studio Code. When your app is in production, you are more likely to publish continously from source control or by using an automated publishing pipeline, which includes additional validation and testing.  
+The deployment technology you use to publish code to Azure is generally determined by the way in which you publish your app. The appropriate deployment method is determined by specific needs and the point in the development cycle. For example, during development and testing you may deploy directly from your development tool, such as Visual Studio Code. When your app is in production, you are more likely to publish continuously from source control or by using an automated publishing pipeline, which includes additional validation and testing.  
 
 The following table describes the available deployment methods for your Function project.
 
@@ -199,6 +199,12 @@ The following table shows the operating systems and languages that support porta
 | TypeScript (Node.js) | | | | | | |
 
 <sup>*</sup> Portal editing is enabled only for HTTP and Timer triggers for Functions on Linux using Premium and Dedicated plans.
+
+## Deployment behaviors
+
+When you do a deployment, all existing executions are allowed to complete or time out, after which the new code is loaded to begin processing requests.
+
+If you need more control over this transition, you should use deployment slots.
 
 ## Deployment slots
 

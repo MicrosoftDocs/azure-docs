@@ -44,6 +44,8 @@
     href: relay-hybrid-connections-protocol.md
 - name: How To
   items:
+  - name: Move across regions
+    href: move-across-regions.md
   - name: Migrate from Azure Service Manager (classic) APIs to Resource Manager APIs
     href: ../service-bus-messaging/deprecate-service-bus-management.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json    
   - name: Plan and design

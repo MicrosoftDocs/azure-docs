@@ -185,7 +185,7 @@ When Microsoft provides help or troubleshooting with data flows, please provide 
 
 ### How do I access data by using the other 90 dataset types in Data Factory?
 
-The mapping data flow feature currently allows Azure SQL Database, Azure SQL Data Warehouse, delimited text files from Azure Blob storage or Azure Data Lake Storage Gen2, and Parquet files from Blob storage or Data Lake Storage Gen2 natively for source and sink. 
+The mapping data flow feature currently allows Azure SQL Database, Azure Synapse Analytics (formerly SQL Data Warehouse), delimited text files from Azure Blob storage or Azure Data Lake Storage Gen2, and Parquet files from Blob storage or Data Lake Storage Gen2 natively for source and sink. 
 
 Use the Copy activity to stage data from any of the other connectors, and then execute a Data Flow activity to transform data after it's been staged. For example, your pipeline will first copy into Blob storage, and then a Data Flow activity will use a dataset in source to transform that data.
 

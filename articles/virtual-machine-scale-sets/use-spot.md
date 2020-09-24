@@ -8,7 +8,7 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: spot
 ms.date: 03/25/2020
 ms.reviewer: jagaveer
-ms.custom: jagaveer, devx-track-azurecli
+ms.custom: jagaveer, devx-track-azurecli, devx-track-azurepowershell
 
 ---
 

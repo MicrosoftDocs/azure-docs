@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Tidemark | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Tidemark.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 5cf80d4e-6e8b-48ec-81c8-27872af5e5d5
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Tidemark
 

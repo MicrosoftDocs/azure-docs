@@ -1,14 +1,15 @@
 ---
 title: Get billing ownership of Azure subscriptions for Microsoft Partner Agreement (MPA)
-description: Learn how to request billing ownership of Azure subscriptions from other users.
+description: Learn how to request billing ownership of Azure subscriptions from other users for Microsoft Partner Agreement (MPA).
 author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 08/20/2020
 ms.author: banders
-
 ---
+
 # Get billing ownership of Azure subscriptions to your MPA account
 
 To provide a single combined invoice for managed services and Azure consumption, a Cloud Solution Provider (CSP) can take over billing ownership of Azure subscriptions from their customers with Direct Enterprise Agreements (EA).

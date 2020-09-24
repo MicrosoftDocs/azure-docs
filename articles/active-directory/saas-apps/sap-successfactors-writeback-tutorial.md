@@ -1,16 +1,12 @@
 ---
 title: 'Tutorial: Configure SAP SuccessFactors writeback in Azure Active Directory | Microsoft Docs'
-description: Learn how to configure attribute write-back to SAP SuccessFactors from Azure AD 
+description: Learn how to configure attribute write-back to SAP SuccessFactors from Azure AD
 services: active-directory
 author: cmmdesai
-documentationcenter: na
-manager: jodadzie
-ms.assetid: ad255bd4-9e50-43a1-a92b-359215868b6b
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/05/2020
 ms.author: chmutali
@@ -38,7 +34,7 @@ You can configure the SAP SuccessFactors Writeback app to write specific attribu
 
 This SuccessFactors Writeback user provisioning solution is ideally suited for:
 
-* Organizations using Office 365 that desire to write-back authoritative attributes managed by IT (such as email address, phone, username) back to SuccessFactors Employee Central.
+* Organizations using Microsoft 365 that desire to write-back authoritative attributes managed by IT (such as email address, phone, username) back to SuccessFactors Employee Central.
 
 ## Configuring SuccessFactors for the integration
 
@@ -179,7 +175,7 @@ The SuccessFactors Writeback provisioning app uses certain *code* values for set
 
 1. The "Authorization" tab will inherit the auth configured for the collection. 
 1. Click on "Send" to invoke the API call. 
-1. In the Response body, view the JSON result set and look for the *id* corresponding to the `externalCode = B` and `externalCode = C`. 
+1. In the Response body, view the JSON result set and look for the *ID* corresponding to the `externalCode = B` and `externalCode = C`. 
 
    > [!div class="mx-imgBorder"]
    > ![Postman-Phone](./media/sap-successfactors-inbound-provisioning/postman-phone-type-response.png)

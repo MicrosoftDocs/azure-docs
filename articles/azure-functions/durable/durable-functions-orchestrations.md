@@ -47,7 +47,7 @@ When an orchestration function is given more work to do (for example, a response
 > In order for the replay pattern to work correctly and reliably, orchestrator function code must be *deterministic*. For more information about code restrictions for orchestrator functions, see the [orchestrator function code constraints](durable-functions-code-constraints.md) topic.
 
 > [!NOTE]
-> If an orchestrator function emits log messages, the replay behavior may cause duplicate log messages to be emitted. See the [Logging](durable-functions-diagnostics.md#logging) topic to learn more about why this behavior occures and how to work around it.
+> If an orchestrator function emits log messages, the replay behavior may cause duplicate log messages to be emitted. See the [Logging](durable-functions-diagnostics.md#app-logging) topic to learn more about why this behavior occurs and how to work around it.
 
 ## Orchestration history
 

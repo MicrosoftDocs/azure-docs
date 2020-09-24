@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting roles assigned to cloud group FAQ - Azure Active Directory | Microsoft Docs
-description: Assign an Azure AD role to a role-assignable group in the Azure portal, PowerShell, or Graph API.
+description: Learn some common questions and troubleshooting tips for assigning roles to groups in Azure Active Directory.
 services: active-directory
 author: curtand
 manager: daveba
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 07/27/2020
+ms.date: 08/13/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -36,8 +36,8 @@ Here are some common questions and troubleshooting tips for assigning roles to g
 
 **A:** The user could be an owner of a role-assignable group. We protect owners of role-assignable groups to avoid elevation of privilege. An example might be if a group Contoso_Security_Admins is assigned to Security administrator role, where Bob is the group owner and Alice is Password administrator in the organization. If this protection weren't present, Alice could reset Bob's credentials and take over his identity. After that, Alice could add herself or anyone to the group Contoso_Security_Admins group to become a Security administrator in the organization. To find out if a user is a group owner, get the list of owned objects of that user and see if any of the groups have isAssignableToRole set to true. If yes, then that user is protected and the behavior is by design. Refer to these documentations for getting owned objects:
 
-- [Get-AzureADUserOwnedObject](https://docs.microsoft.com/powershell/module/azuread/get-azureaduserownedobject?view=azureadps-2.0)  
-- [List ownedObjects](https://docs.microsoft.com/graph/api/user-list-ownedobjects?view=graph-rest-1.0&tabs=http)
+- [Get-AzureADUserOwnedObject](/powershell/module/azuread/get-azureaduserownedobject?view=azureadps-2.0)  
+- [List ownedObjects](/graph/api/user-list-ownedobjects?tabs=http&view=graph-rest-1.0)
 
 **Q:** Can I create an access review on groups that can be assigned to Azure AD roles (specifically, groups with isAssignableToRole property set to true)?  
 
@@ -47,7 +47,7 @@ Here are some common questions and troubleshooting tips for assigning roles to g
 
 **A:** Yes, you can. Global Administrator and User Administrator have the power to put any group in an access package. Nothing changes for Global Administrator, but there's a slight change in User administrator role permissions. To put a role-assignable group into an access package, you must be a User Administrator and also owner of the role-assignable group. Here's the full table showing who can create access package in Enterprise License Management:
 
-Azure AD directory role | Entitlement management role | Can add security group\* | Can add Office 365 Group\* | Can add app | Can add SharePoint Online site
+Azure AD directory role | Entitlement management role | Can add security group\* | Can add Microsoft 365 group\* | Can add app | Can add SharePoint Online site
 ----------------------- | --------------------------- | ----------------------- | ------------------------- | ----------- |  -----------------------------
 Global administrator | n/a | ✔️ | ✔️ | ✔️  | ✔️
 User administrator  | n/a  | ✔️  | ✔️  | ✔️

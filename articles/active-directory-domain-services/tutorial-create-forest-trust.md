@@ -126,7 +126,7 @@ The following common scenarios let you validate that forest trust correctly auth
 
 You should have Windows Server virtual machine joined to the managed domain. Use this virtual machine to test your on-premises user can authenticate on a virtual machine. If needed, [create a Windows VM and join it to the managed domain][join-windows-vm].
 
-1. Connect to the Windows Server VM joined to the Azure AD DS resource forest using [Azure Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview) and your Azure AD DS administrator credentials.
+1. Connect to the Windows Server VM joined to the Azure AD DS resource forest using [Azure Bastion](../bastion/bastion-overview.md) and your Azure AD DS administrator credentials.
 1. Open a command prompt and use the `whoami` command to show the distinguished name of the currently authenticated user:
 
     ```console
@@ -148,7 +148,7 @@ Using the Windows Server VM joined to the Azure AD DS resource forest, you can t
 
 #### Enable file and printer sharing
 
-1. Connect to the Windows Server VM joined to the Azure AD DS resource forest using [Azure Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview) and your Azure AD DS administrator credentials.
+1. Connect to the Windows Server VM joined to the Azure AD DS resource forest using [Azure Bastion](../bastion/bastion-overview.md) and your Azure AD DS administrator credentials.
 
 1. Open **Windows Settings**, then search for and select **Network and Sharing Center**.
 1. Choose the option for **Change advanced sharing** settings.

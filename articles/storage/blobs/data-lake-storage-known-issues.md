@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/21/2020
+ms.date: 08/26/2020
 ms.author: normesta
 ms.reviewer: jamesbak
 ---
@@ -54,9 +54,9 @@ Unmanaged VM disks are not supported in accounts that have a hierarchical namesp
 
 <a id="api-scope-data-lake-client-library"></a>
 
-## File system support in SDKs, PowerShell, and Azure CLI
+## Support for setting access control lists (ACLs) recursively
 
-- Get and set ACL operations are not currently recursive.
+The ability to apply ACL changes recursively from parent directory to child items is in [public preview](recursive-access-control-lists.md). In the current release of this capability, you can apply ACL changes by using PowerShell, the .NET SDK, and Python SDK. Support is not yet available for the Java SDK, Azure CLI, the Azure portal, or Azure Storage Explorer.
 
 <a id="known-issues-tools"></a>
 

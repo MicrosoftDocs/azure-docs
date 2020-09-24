@@ -69,7 +69,7 @@ Text Analytics for health only supports English language documents.
 
 ## Request access to the container registry
 
-Fill out and submit the [Cognitive Services containers request form](https://aka.ms/cognitivegate) to request access to the container. Currently you will not be billed for Text Analytics for health usage. 
+Fill out and submit the [Cognitive Services containers request form](https://aka.ms/csgate) to request access to the container. Currently you will not be billed for Text Analytics for health usage. 
 
 [!INCLUDE [Request access to the container registry](../../../../includes/cognitive-services-containers-request-access-only.md)]
 
@@ -269,7 +269,7 @@ The following JSON is an example of the Text Analytics for health API response b
                     "length": 11,
                     "text": "itchy sores",
                     "category": "SymptomOrSign",
-                    "ConfidenceScore": 1.0,
+                    "confidenceScore": 1.0,
                     "isNegated": false
                 }
             ]
@@ -283,7 +283,7 @@ The following JSON is an example of the Text Analytics for health API response b
                     "length": 4,
                     "text": "50mg",
                     "category": "Dosage",
-                    "ConfidenceScore": 1.0,
+                    "confidenceScore": 1.0,
                     "isNegated": false
                 },
                 {
@@ -292,7 +292,7 @@ The following JSON is an example of the Text Analytics for health API response b
                     "length": 8,
                     "text": "benadryl",
                     "category": "MedicationName",
-                    "ConfidenceScore": 1.0,
+                    "confidenceScore": 1.0,
                     "isNegated": false,
                     "links": [
                         {
@@ -339,7 +339,7 @@ The following JSON is an example of the Text Analytics for health API response b
                     "length": 11,
                     "text": "twice daily",
                     "category": "Frequency",
-                    "ConfidenceScore": 1.0,
+                    "confidenceScore": 1.0,
                     "isNegated": false
                 }
             ],
@@ -395,22 +395,19 @@ Relation extraction output contains URI references to the *source* of the relati
 
 ```json
 "relations": [
-  {
-      "relationType": "DosageOfMedication",
-      "score": 1.0,
-      "bidirectional": false,
-      "source": "#/documents/2/entities/0",
-      "target": "#/documents/2/entities/1",
-      "entities": [
-          {
-              "id": "0",
-              "role": "ATTRIBUTE"
-          },
-          {
-              "id": "1",
-              "role": "ENTITY"
-          }
-      ]
+                {
+                    "relationType": "DosageOfMedication",
+                    "bidirectional": false,
+                    "source": "#/documents/1/entities/0",
+                    "target": "#/documents/1/entities/1"
+                },
+                {
+                    "relationType": "FrequencyOfMedication",
+                    "bidirectional": false,
+                    "source": "#/documents/1/entities/2",
+                    "target": "#/documents/1/entities/1"
+                }
+            ]
   },
 ...
 ]

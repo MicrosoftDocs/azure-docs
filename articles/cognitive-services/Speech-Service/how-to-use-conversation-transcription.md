@@ -10,6 +10,7 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: weixu
+ms.custom: devx-track-csharp
 ---
 
 # Real time Conversation Transcription (Preview)

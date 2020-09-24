@@ -34,6 +34,7 @@ The following table describes the features of Recovery Services vaults:
 **Move vaults** | You can [move vaults](./backup-azure-move-recovery-services-vault.md) across subscriptions or between resource groups in the same subscription. However, moving vaults across regions isn't supported.
 **Move data between vaults** | Moving backed-up data between vaults isn't supported.
 **Modify vault storage type** | You can modify the storage replication type (either geo-redundant storage or locally redundant storage) for a vault before backups are stored. After backups begin in the vault, the replication type can't be modified.
+**Zone-redundant storage (ZRS)** | Available in the UK South (UKS) and South East Asia (SEA) regions.
 
 ## On-premises backup support
 
@@ -74,8 +75,8 @@ Here's what's supported if you want to back up Linux machines:
 --- | ---
 **Direct backup of on-premises machine that's running Linux** | Not supported. The MARS agent can be installed only on Windows machines.
 **Using agent extension to back up Azure VM that's running Linux** | App-consistent backup by using [custom scripts](backup-azure-linux-app-consistent.md).<br/><br/> File-level recovery.<br/><br/> Restore by creating a VM from a recovery point or disk.
-**Using DPM to back up on-premises machines running Linux** | File-consistent backup of Linux Guest VMs on Hyper-V and VMWare.<br/><br/> VM restoration of Hyper-V and VMWare Linux Guest VMs.
-**Using MABS to back up on-premises machines running Linux** | File-consistent backup of Linux Guest VMs on Hyper-V and VMWare.<br/><br/> VM restoration of Hyper-V and VMWare Linux guest VMs.
+**Using DPM to back up on-premises machines running Linux** | File-consistent backup of Linux Guest VMs on Hyper-V and VMware.<br/><br/> VM restoration of Hyper-V and VMware Linux Guest VMs.
+**Using MABS to back up on-premises machines running Linux** | File-consistent backup of Linux Guest VMs on Hyper-V and VMware.<br/><br/> VM restoration of Hyper-V and VMware Linux guest VMs.
 **Using MABS or DPM to back up Linux Azure VMs** | Not supported.
 
 ## Daylight saving time support
@@ -130,8 +131,8 @@ Backup supports the compression of backup traffic, as summarized in the followin
 
 **Setting** | **Limits**
 --- | ---
-**Max recovery points per protected instance (machine or workload)** | 9,999
-**Max expiry time for a recovery point** | No limit
+**Maximum recovery points per protected instance (machine or workload)** | 9,999
+**Maximum expiry time for a recovery point** | No limit
 **Maximum backup frequency to DPM/MABS** | Every 15 minutes for SQL Server<br/><br/> Once an hour for other workloads
 **Maximum backup frequency to vault** | **On-premises Windows machines or Azure VMs running MARS:** Three per day<br/><br/> **DPM/MABS:** Two per day<br/><br/> **Azure VM backup:** One per day
 **Recovery point retention** | Daily, weekly, monthly, yearly
@@ -140,14 +141,14 @@ Backup supports the compression of backup traffic, as summarized in the followin
 
 ## Cross Region Restore
 
-Azure Backup has added the Cross Region Restore feature to strengthen data availability and resiliency capability, giving customers full control to restore data to a secondary region. To configure this feature, visit [the Set Cross Region Restore article.](backup-create-rs-vault.md#set-cross-region-restore). This feature is supported for the following management types:
+Azure Backup has added the Cross Region Restore feature to strengthen data availability and resiliency capability, giving you full control to restore data to a secondary region. To configure this feature, visit [the Set Cross Region Restore article.](backup-create-rs-vault.md#set-cross-region-restore). This feature is supported for the following management types:
 
 | Backup Management type | Supported                                                    | Supported Regions |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
-| Azure VM               | Yes.   Supported for encrypted VMs and VMs with lesser than 4-TB  disks | All Azure public regions.  |
-| MARS Agent/On premises | No                                                           | N/A               |
-| SQL /SAP HANA          | No                                                           | N/A               |
-| AFS                    | No                                                           | N/A               |
+| Azure VM               | Yes.   Supported for encrypted VMs and VMs with lesser than 4-TB  disks | All Azure public regions and sovereign clouds.  |
+| SQL /SAP HANA | Yes                                                          | West US 2 (WUS2), West Central US (WCUS), Canada Central (CNC), Canada East (CNE), East US (EUS), West US (WUS), Japan East (JPE), Japan East (JPE) |
+| MARS Agent/On premises  | No                                                           | N/A               |
+| AFS (Azure file shares)                 | No                                                           | N/A               |
 
 ## Next steps
 

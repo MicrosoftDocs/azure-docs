@@ -6,6 +6,7 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
+ms.custom: devx-track-csharp
 ---
 
 # Describe a Service Fabric cluster by using Cluster Resource Manager

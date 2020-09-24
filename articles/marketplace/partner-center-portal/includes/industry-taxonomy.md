@@ -11,6 +11,6 @@ author: mingshen-ms
 ms.author: mingshen
 ---
 
-Optionally, select up to two industries and two verticals under each industry. These categories are used for displaying your offer when industry and verticals are used in search filters and applied in the Storefront. If your offer is targeting a specific industry and/or vertical, explain how your offer supports the selected industries or verticals in the offer description. Otherwise, if your offer is not industry-specific, do not make a selection and leave this section blank.
+Optionally, select up to two industries and two verticals under each industry. These categories are used for displaying your offer when industry and verticals are used in search filters and applied in the online store. If your offer is targeting a specific industry and/or vertical, explain how your offer supports the selected industries or verticals in the offer description. Otherwise, if your offer is not industry-specific, do not make a selection and leave this section blank.
 
-See the full list of industries and verticals in [Offer Listing Best Practices](../../gtm-offer-listing-best-practices.md).
+See the full list of industries and verticals in [Offer listing best practices](../../gtm-offer-listing-best-practices.md).

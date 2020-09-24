@@ -3,7 +3,7 @@ title: Monitor Azure app services performance | Microsoft Docs
 description: Application performance monitoring for Azure app services. Chart load and response time, dependency information, and set alerts on performance.
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.custom: devx-track-javascript
+ms.custom: "devx-track-js, devx-track-dotnet"
 ---
 
 # Monitor Azure App Service performance
@@ -50,7 +50,7 @@ There are two ways to enable application monitoring for Azure App Services hoste
 
 2. After specifying which resource to use, you can choose how you want application insights to collect data per platform for your application. ASP.NET app monitoring is on-by-default with two different levels of collection.
 
-    ![Choose options per platform](./media/azure-web-apps/choose-options-new.png)
+    ![Screenshot shows the Application Insights site extensions page with Create new resource selected.](./media/azure-web-apps/choose-options-new.png)
  
  Below is a summary of data collected for each route:
         
@@ -109,16 +109,14 @@ Python App Service based web applications do not currently support automatic age
 
 Client-side monitoring is opt-in for ASP.NET. To enable client-side monitoring:
 
-* Select **Settings** >** **Application settings****
-   * Under Application settings, add a new **app setting name** and **value**:
+* **Settings** **>** **Configuration**
+   * Under Application settings, create a **new application setting**:
 
      Name: `APPINSIGHTS_JAVASCRIPT_ENABLED`
 
      Value: `true`
 
    * **Save** the settings and **Restart** your app.
-
-![Screenshot of application settings UI](./media/azure-web-apps/appinsights-javascript-enabled.png)
 
 To disable client-side monitoring either remove the associated key value pair from the Application settings, or set the value to false.
 
@@ -128,16 +126,14 @@ Client-side monitoring is **enabled by default** for .NET Core apps with **Recom
 
 If for some reason you would like to disable client-side monitoring:
 
-* Select **Settings** > **Application settings**
-   * Under Application settings, add a new **app setting name** and **value**:
+* **Settings** **>** **Configuration**
+   * Under Application settings, create a **new application setting**:
 
      name: `APPINSIGHTS_JAVASCRIPT_ENABLED`
 
      Value: `false`
 
    * **Save** the settings and **Restart** your app.
-
-![Screenshot of application settings UI](./media/azure-web-apps/appinsights-javascript-disabled.png)
 
 # [Node.js](#tab/nodejs)
 
@@ -339,7 +335,7 @@ Starting with version 2.8.9 the pre-installed site extension is used. If you are
 
 * [Upgrade through PowerShell](#enabling-through-powershell):
 
-    1. Set the application settings to enable the pre-installed site extension ApplicationInsightsAgent. See [Enabling through powershell](#enabling-through-powershell).
+    1. Set the application settings to enable the pre-installed site extension ApplicationInsightsAgent. See [Enabling through PowerShell](#enabling-through-powershell).
     2. Manually remove the private site extension named Application Insights extension for Azure App Service.
 
 If the upgrade is done from a version prior to 2.5.1, check that the ApplicationInsigths dlls are removed from the application bin folder [see troubleshooting steps](#troubleshooting).

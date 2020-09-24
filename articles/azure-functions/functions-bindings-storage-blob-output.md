@@ -1,11 +1,11 @@
 ---
 title: Azure Blob storage output binding for Azure Functions
-description: Learn how to provide Azure Blob storage data to an Azure Function.
+description: Learn how to provide Azure Blob storage output binding data to an Azure Function.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
-ms.custom: devx-track-python
+ms.custom: "devx-track-csharp, devx-track-python"
 ---
 
 # Azure Blob storage output binding for Azure Functions

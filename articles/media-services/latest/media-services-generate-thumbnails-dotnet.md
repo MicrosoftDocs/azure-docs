@@ -12,11 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/10/2020
+ms.date: 08/31/2020
 ms.author: inhenkel
+ms.custom: devx-track-csharp
 
 ---
 # How to generate thumbnails using Encoder Standard with .NET
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 You can use Media Encoder Standard to generate one or more thumbnails from your input video in [JPEG](https://en.wikipedia.org/wiki/JPEG), [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics), or [BMP](https://en.wikipedia.org/wiki/BMP_file_format) image file formats.
 

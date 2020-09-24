@@ -5,7 +5,7 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 8/26/2019
+ms.date: 09/01/2020
 ms.author: abnarain
 ms.reviewer: craigg
 ---
@@ -816,7 +816,7 @@ The following table applies to Azure Batch.
 
 - **Message**: `User name and password cannot be null or empty to connect to the HDInsight cluster.`
 
-- **Cause**: Either the user name or password are empty.
+- **Cause**: Either the user name or the password is empty.
 
 - **Recommendation**: Provide the correct credentials to connect to HDI and try again.
 
@@ -1050,6 +1050,11 @@ To use **Fiddler** to create an HTTP session of the monitored web application:
 1. Go to: **File** > **Save** > **All Sessions**.
 
 For more information, see [Getting started with Fiddler](https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/ConfigureFiddler).
+
+## General
+
+### Activity stuck issue
+When you observe that the activity is running much longer than your normal runs with barely no progress, it may happen to be stuck. You can try canceling it and retry to see if it helps. If it’s a copy activity, you can learn about the performance monitoring and troubleshooting from [Troubleshoot copy activity performance](copy-activity-performance-troubleshooting.md); if it’s a data flow, learn from [Mapping data flows performance](concepts-data-flow-performance.md) and tuning guide.
 
 ## Next steps
 

@@ -46,7 +46,7 @@ By default, apps and desktops running in multi-session configurations are render
 1. Connect to the desktop of the VM using an account with local administrator privileges.
 2. Open the Start menu and type "gpedit.msc" to open the Group Policy Editor.
 3. Navigate the tree to **Computer Configuration** > **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Remote Session Environment**.
-4. Select policy **Use the hardware default graphics adapter for all Remote Desktop Services sessions** and set this policy to **Enabled** to enable GPU rendering in the remote session.
+4. Select policy **Use hardware graphics adapters for all Remote Desktop Services sessions** and set this policy to **Enabled** to enable GPU rendering in the remote session.
 
 ## Configure GPU-accelerated frame encoding
 
@@ -62,7 +62,7 @@ Remote Desktop encodes all graphics rendered by apps and desktops (whether rende
 
 2. Now that the group policies have been edited, force a group policy update. Open the Command Prompt and type:
 
-    ```batch
+    ```cmd
     gpupdate.exe /force
     ```
 
@@ -75,7 +75,7 @@ If you often use applications that produce a high-frame rate content, such as 3D
 1. Select policy **Prioritize H.264/AVC 444 Graphics mode for Remote Desktop connections** and set this policy to **Enabled** to force H.264/AVC 444 codec in the remote session.
 2. Now that the group policies have been edited, force a group policy update. Open the Command Prompt and type:
 
-    ```batch
+    ```cmd
     gpupdate.exe /force
     ```
 

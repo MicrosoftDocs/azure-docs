@@ -8,7 +8,7 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: jlian
-ms.custom: [amqp, mqtt]
+ms.custom: [amqp, mqtt, fasttrack-edit, iot]
 ---
 
 # Trace Azure IoT device-to-cloud messages with distributed tracing (preview)
@@ -300,10 +300,10 @@ Once enabled, distributed tracing support for IoT Hub will follow this flow:
 
 1. A message is generated on the IoT device.
 1. The IoT device decides (with help from cloud) that this message should be assigned with a trace context.
-1. The SDK adds a `tracestate` to the message application property, containing the message creation timestamp.
+1. The SDK adds a `tracestate` to the message property, containing the message creation timestamp.
 1. The IoT device sends the message to IoT Hub.
 1. The message arrives at IoT hub gateway.
-1. IoT Hub looks for the `tracestate` in the message application properties, and checks to see if it's in the correct format.
+1. IoT Hub looks for the `tracestate` in the message properties, and checks to see if it's in the correct format.
 1. If so, IoT Hub generates a globally unique `trace-id` for the message, a `span-id` for the "hop", and logs them to Azure Monitor diagnostic logs under the operation `DiagnosticIoTHubD2C`.
 1. Once the message processing is finished, IoT Hub generates another `span-id` and logs it along with the existing `trace-id` under the operation `DiagnosticIoTHubIngress`.
 1. If routing is enabled for the message, IoT Hub writes it to the custom endpoint, and logs another `span-id` with the same `trace-id` under the category `DiagnosticIoTHubEgress`.

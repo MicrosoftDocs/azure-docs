@@ -2,7 +2,7 @@
 title: Frequently asked questions - Azure Event Hubs | Microsoft Docs
 description: This article provides a list of frequently asked questions (FAQ) for Azure Event Hubs and their answers. 
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 09/16/2020
 ---
 
 # Event Hubs frequently asked questions
@@ -50,6 +50,9 @@ You can configure the retention period for the captured data on your storage acc
 ### How do I monitor my Event Hubs?
 Event Hubs emits exhaustive metrics that provide the state of your resources to [Azure Monitor](../azure-monitor/overview.md). They also let you assess the overall health of the Event Hubs service not only at the namespace level but also at the entity level. Learn about what monitoring is offered for [Azure Event Hubs](event-hubs-metrics-azure-monitor.md).
 
+### <a name="in-region-data-residency"></a>Where does Azure Event Hubs store customer data?
+Azure Event Hubs stores customer data. This data is automatically stored by Event Hubs in a single region, so this service automatically satisfies in region data residency requirements including those specified in the [Trust Center](https://azuredatacentermap.azurewebsites.net/).
+
 ### What ports do I need to open on the firewall? 
 You can use the following protocols with Azure Service Bus to send and receive messages:
 
@@ -65,17 +68,17 @@ See the following table for the outbound ports you need to open to use these pro
 | HTTP, HTTPS | 80, 443 |  |
 | Kafka | 9093 | See [Use Event Hubs from Kafka applications](event-hubs-for-kafka-ecosystem-overview.md)
 
-### What IP addresses do I need to whitelist?
-To find the right IP addresses to white list for your connections, follow these steps:
+### What IP addresses do I need to allow?
+To find the right IP addresses to add to the allowed list for your connections, follow these steps:
 
 1. Run the following command from a command prompt: 
 
     ```
     nslookup <YourNamespaceName>.servicebus.windows.net
     ```
-2. Note down the IP address returned in `Non-authoritative answer`. The only time it would change is if you restore the namespace on to a different cluster.
+2. Note down the IP address returned in `Non-authoritative answer`. 
 
-If you use the zone redundancy for your namespace, you need to do a few additional steps: 
+If you use the **zone redundancy** for your namespace, you need to do a few additional steps: 
 
 1. First, you run nslookup on the namespace.
 
@@ -91,7 +94,10 @@ If you use the zone redundancy for your namespace, you need to do a few addition
     ```
 3. Run nslookup for each one with suffixes s1, s2, and s3 to get the IP addresses of all three instances running in three availability zones, 
 
-### Where can I find client IP sending or receiving msgs to my namespace?
+    > [!NOTE]
+    > The IP address returned by the `nslookup` command isn't a static IP address. However, it remains constant until the underlying deployment is deleted or moved to a different cluster.
+
+### Where can I find client IP sending or receiving messages to my namespace?
 First, enable [IP filtering](event-hubs-ip-filtering.md) on the namespace. 
 
 Then, Enable diagnostic logs for [Event Hubs virtual network connection events](event-hubs-diagnostic-logs.md#event-hubs-virtual-network-connection-event-schema) by following instructions in the [Enable diagnostic logs](event-hubs-diagnostic-logs.md#enable-diagnostic-logs). You will see the IP address for which connection is denied.

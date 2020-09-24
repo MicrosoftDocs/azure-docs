@@ -7,7 +7,7 @@ ms.author: dpalled
 manager: diviso
 ms.service: time-series-insights
 ms.topic: article
-ms.date: 06/30/2020
+ms.date: 08/12/2020
 ms.custom: seodec18
 
 # Customer intent: As a developer, I want to learn about best practices for shaping JSON so that I can create efficient Azure Time Series Insights queries when I use APIs.
@@ -21,7 +21,7 @@ This article provides guidance on how to shape JSON to maximize the efficiency o
 
 ### Learn best practices for shaping JSON to meet your storage needs.</br>
 
-> [!VIDEO https://www.youtube.com/embed/b2BD5hwbg5I]
+> [!VIDEO <https://www.youtube.com/embed/b2BD5hwbg5I>]
 
 ## Best practices
 
@@ -57,7 +57,6 @@ In the following example, there's a single Azure IoT Hub message where the outer
 
 Consider the following JSON payload sent to your Azure Time Series Insights GA environment using an [IoT Device Message object](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.message?view=azure-dotnet) that is serialized into JSON when sent to Azure cloud:
 
-
 ```JSON
 [
     {
@@ -87,14 +86,14 @@ Consider the following JSON payload sent to your Azure Time Series Insights GA e
 ]
 ```
 
-* Reference data table that has the key property **deviceId**:
+- Reference data table that has the key property **deviceId**:
 
    | deviceId | messageId | deviceLocation |
    | --- | --- | --- |
    | FXXX | LINE\_DATA | EU |
    | FYYY | LINE\_DATA | US |
 
-* Azure Time Series Insights event table, after flattening:
+- Azure Time Series Insights event table, after flattening:
 
    | deviceId | messageId | deviceLocation | timestamp | series.Flow Rate ft3/s | series.Engine Oil Pressure psi |
    | --- | --- | --- | --- | --- | --- |
@@ -103,6 +102,7 @@ Consider the following JSON payload sent to your Azure Time Series Insights GA e
    | FYYY | LINE\_DATA | US | 2018-01-17T01:18:00Z | 0.58015072345733643 | 22.2 |
 
 > [!NOTE]
+
 > - The **deviceId** column serves as the column header for the various devices in a fleet. Making the **deviceId** value its own property name limits the total devices to 595 (for S1 environments) or 795 (for S2 environments) with the other five columns.
 > - Unnecessary properties are avoided (for example, the make and model information). Because the properties won't be queried in the future, eliminating them enables better network and storage efficiency.
 > - Reference data is used to reduce the number of bytes transferred over the network. The two attributes **messageId** and **deviceLocation** are joined by using the key property **deviceId**. This data is joined with the telemetry data at ingress time and is then stored in Azure Time Series Insights for querying.
@@ -157,7 +157,7 @@ Example JSON payload:
 ]
 ```
 
-* Reference data table that has the key properties **deviceId** and **series.tagId**:
+- Reference data table that has the key properties **deviceId** and **series.tagId**:
 
    | deviceId | series.tagId | messageId | deviceLocation | type | unit |
    | --- | --- | --- | --- | --- | --- |
@@ -166,18 +166,19 @@ Example JSON payload:
    | FYYY | pumpRate | LINE\_DATA | US | Flow Rate | ft3/s |
    | FYYY | oilPressure | LINE\_DATA | US | Engine Oil Pressure | psi |
 
-* Azure Time Series Insights event table, after flattening:
+- Azure Time Series Insights event table, after flattening:
 
    | deviceId | series.tagId | messageId | deviceLocation | type | unit | timestamp | series.value |
    | --- | --- | --- | --- | --- | --- | --- | --- |
-   | FXXX | pumpRate | LINE\_DATA | EU | Flow Rate | ft3/s | 2018-01-17T01:17:00Z | 1.0172575712203979 | 
+   | FXXX | pumpRate | LINE\_DATA | EU | Flow Rate | ft3/s | 2018-01-17T01:17:00Z | 1.0172575712203979 |
    | FXXX | oilPressure | LINE\_DATA | EU | Engine Oil Pressure | psi | 2018-01-17T01:17:00Z | 34.7 |
-   | FXXX | pumpRate | LINE\_DATA | EU | Flow Rate | ft3/s | 2018-01-17T01:17:00Z | 2.445906400680542 | 
+   | FXXX | pumpRate | LINE\_DATA | EU | Flow Rate | ft3/s | 2018-01-17T01:17:00Z | 2.445906400680542 |
    | FXXX | oilPressure | LINE\_DATA | EU | Engine Oil Pressure | psi | 2018-01-17T01:17:00Z | 49.2 |
    | FYYY | pumpRate | LINE\_DATA | US | Flow Rate | ft3/s | 2018-01-17T01:18:00Z | 0.58015072345733643 |
    | FYYY | oilPressure | LINE\_DATA | US | Engine Oil Pressure | psi | 2018-01-17T01:18:00Z | 22.2 |
 
 > [!NOTE]
+
 > - The columns **deviceId** and **series.tagId** serve as the column headers for the various devices and tags in a fleet. Using each as its own attribute limits the query to 594 (for S1 environments) or 794 (for S2 environments) total devices with the other six columns.
 > - Unnecessary properties were avoided, for the reason cited in the first example.
 > - Reference data is used to reduce the number of bytes transferred over the network by introducing **deviceId**, which is used for the unique pair of **messageId** and **deviceLocation**. The composite key **series.tagId** is used for the unique pair of **type** and **unit**. The composite key allows the  **deviceId** and **series.tagId** pair to be used to refer to four values: **messageId, deviceLocation, type,** and **unit**. This data is joined with the telemetry data at ingress time. It's then stored in Azure Time Series Insights for querying.
@@ -187,13 +188,13 @@ Example JSON payload:
 
 For a property with a large number of possible values, it's best to send as distinct values within a single column instead of creating a new column for each value. From the previous two examples:
 
-  - In the first example, a few properties have several values, so it's appropriate to make each a separate property.
-  - In the second example, the measures aren't specified as individual properties. Instead, they're an array of values or measures under a common series property. The new key **tagId** is sent, which creates the new column **series.tagId** in the flattened table. The new properties **type** and **unit** are created by using reference data so that the property limit isn't reached.
+- In the first example, a few properties have several values, so it's appropriate to make each a separate property.
+- In the second example, the measures aren't specified as individual properties. Instead, they're an array of values or measures under a common series property. The new key **tagId** is sent, which creates the new column **series.tagId** in the flattened table. The new properties **type** and **unit** are created by using reference data so that the property limit isn't reached.
 
 ## Next steps
 
 - Read more about sending [IoT Hub device messages to the cloud](../iot-hub/iot-hub-devguide-messages-construct.md).
 
-- Read [Azure Time Series Insights query syntax](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-syntax) to learn more about the query syntax for the Azure Time Series Insights data access REST API.
+- Read [Azure Time Series Insights query syntax](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query-syntax) to learn more about the query syntax for the Azure Time Series Insights data access REST API.
 
 - Learn [how to shape events](./time-series-insights-send-events.md).

@@ -3,6 +3,7 @@ title: Understand how the reservation discount is applied to Azure Storage | Mic
 description: Learn about how the Azure Storage reserved capacity discount is applied to block blob and Azure Data Lake Storage Gen2 resources.
 author: tamram
 ms.service: cost-management-billing
+ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: tamram

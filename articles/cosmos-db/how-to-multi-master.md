@@ -4,9 +4,9 @@ description: Learn how to configure multi-master for your applications by using 
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 12/02/2019
+ms.date: 09/10/2020
 ms.author: mjbrown
-ms.custom: devx-track-python, devx-track-javascript
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp
 ---
 
 # Configure multi-master in your applications that use Azure Cosmos DB

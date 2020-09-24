@@ -1,7 +1,7 @@
 ---
 title: Overview of Azure Blueprints
 description: Understand how the Azure Blueprints service enables you to create, define, and deploy artifacts in your Azure environment.
-ms.date: 05/06/2020
+ms.date: 08/27/2020
 ms.topic: overview
 ---
 # What is Azure Blueprints?
@@ -120,8 +120,10 @@ then the parameters are defined during the assignment process.
 ## Permissions in Azure Blueprints
 
 To use blueprints, you must be granted permissions through [Role-based access
-control](../../role-based-access-control/overview.md) (RBAC). To create blueprints, your account
-needs the following permissions:
+control](../../role-based-access-control/overview.md) (RBAC). To read or view a blueprint in Azure
+portal, your account must have read access to the scope where the blueprint definition is located.
+
+To create blueprints, your account needs the following permissions:
 
 - `Microsoft.Blueprint/blueprints/write` - Create a blueprint definition
 - `Microsoft.Blueprint/blueprints/artifacts/write` - Create artifacts on a blueprint definition

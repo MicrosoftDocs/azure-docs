@@ -10,6 +10,7 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: trbye
+ms.custom: devx-track-csharp
 ---
 
 # Tutorial: Voice-enable your bot using the Speech SDK
