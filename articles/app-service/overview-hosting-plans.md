@@ -17,7 +17,7 @@ When you create an App Service plan in a certain region (for example, West Europ
 - Region (West US, East US, etc.)
 - Number of VM instances
 - Size of VM instances (Small, Medium, Large)
-- Pricing tier (Free, Shared, Basic, Standard, Premium, PremiumV2, Isolated)
+- Pricing tier (Free, Shared, Basic, Standard, Premium, PremiumV2, PremiumV3, Isolated)
 
 The _pricing tier_ of an App Service plan determines what App Service features you get and how much you pay for the plan. There are a few categories of pricing tiers:
 
