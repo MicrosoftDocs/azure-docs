@@ -68,7 +68,7 @@ Remove-AzServiceFabricManagedNodeType -ResourceGroupName $resourceGroup -Cluster
 
 ## Next steps
 
- In this section, we added and deleted node types. To learn about upgrading your cluster, see:
+ In this section, we added and deleted node types. To learn how to deploy an application to a Service Fabric managed cluster, see:
 
 > [!div class="nextstepaction"]
-> [Upgrade a Service Fabric managed cluster](./tutorial-managed-cluster-upgrade.md)
+> [Deploy an app to a Service Fabric managed cluster (./tutorial-managed-cluster-deploy-app.md)

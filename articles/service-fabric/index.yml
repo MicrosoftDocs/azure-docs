@@ -31,10 +31,6 @@ landingContent:
             url: tutorial-managed-cluster-scale.md
           - text: Add and remove managed cluster node types (preview)
             url: tutorial-managed-cluster-add-remove-node-type.md
-          - text: Upgrade a managed cluster (preview)
-            url: tutorial-managed-cluster-upgrade.md
-          - text: Add a managed cluster client certificate (preview)
-            url: tutorial-managed-cluster-certificate.md
           - text: Deploy an app to a Service Fabric managed cluster (preview)
             url: tutorial-managed-cluster-deploy-app.md
       - linkListType: whats-new

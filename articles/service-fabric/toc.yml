@@ -76,11 +76,7 @@
       href: tutorial-managed-cluster-scale.md
     - name: 3- Add and remove managed cluster node types
       href: tutorial-managed-cluster-add-remove-node-type.md
-    - name: 4- Upgrade a managed cluster
-      href: tutorial-managed-cluster-upgrade.md
-    - name: 5- Add a managed cluster client certificate
-      href: tutorial-managed-cluster-certificate.md
-    - name: 6- Connect to a managed cluster and depoy an application
+    - name: 4- Connect to a managed cluster and deploy an application
       href: tutorial-managed-cluster-deploy-app.md
   - name: Create and manage a cluster
     items:

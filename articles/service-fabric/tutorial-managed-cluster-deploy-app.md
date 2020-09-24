@@ -86,7 +86,7 @@ Remove-ServiceFabricApplication fabric:/Voting
 
 ## Next steps
 
-In this step, we created and deployed our first Service Fabric managed cluster. To learn more about how to scale a cluster, see:
+In this step, we deployed an app to a Service Fabric managed cluster. To learn more about Service Fabric managed clusters, see:
 
 > [!div class="nextstepaction"]
-> [Scale out a Service Fabric managed cluster](./tutorial-managed-cluster-scale.md)
+> [Service Fabric managed clusters frequently asked questions](./faq-managed-cluster.md)
