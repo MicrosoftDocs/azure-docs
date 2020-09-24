@@ -97,7 +97,7 @@ where
 |------------------- | ----- |
 |/copyall |Copies all attributes.|
 |/e      |Copies subdirectories, including empty directories.         |
-|/dcopy:DAT  |Copies data, attributes, and timestamps.|
+|/dcopy:DAT  |Copies data, attributes, and timestamps. Note: The /dcopy:DAT option must be used to transfer CreationTime on directories. |
 |/r:3    |Specifies 3 retries on failed copies.         |
 |/w:60   |Specifies a wait time of 60 seconds between retries.         |
 |/is     |Includes the same files.         |
