@@ -92,11 +92,11 @@ To make a user an administrator of an Azure subscription, assign them the [Owner
 
    If you don't have permissions to assign roles, the Add role assignment option will be disabled.
 
-   ![Add role assignment menu](./media/shared/add-role-assignment-menu.png)
+   ![Add role assignment menu for a subscription](./media/shared/add-role-assignment-menu.png)
 
     The Add role assignment pane opens.
 
-   ![Add role assignment pane](./media/role-assignments-portal/add-role-assignment.png)
+   ![Add role assignment pane for a subscription](./media/role-assignments-portal/add-role-assignment.png)
 
 1. In the **Role** drop-down list, select the **Owner** role.
 
@@ -141,7 +141,7 @@ Follow these steps to assign a role to a system-assigned managed identity by sta
 
 1. In the **Role** drop-down list, select a role such as **Virtual Machine Contributor**.
 
-   ![Add role assignment pane](./media/role-assignments-portal/add-role-assignment-with-scope.png)
+   ![Add role assignment pane for system-assigned managed identity](./media/role-assignments-portal/add-role-assignment-with-scope.png)
 
 1. Click **Save** to assign the role.
 
@@ -169,7 +169,7 @@ Follow these steps to assign a role to a user-assigned managed identity by start
 
 1. In the **Role** drop-down list, select a role such as **Virtual Machine Contributor**.
 
-   ![Add role assignment pane](./media/role-assignments-portal/add-role-assignment-with-scope.png)
+   ![Add role assignment pane for a user-assigned managed identity](./media/role-assignments-portal/add-role-assignment-with-scope.png)
 
 1. Click **Save** to assign the role.
 
@@ -185,7 +185,7 @@ In Azure RBAC, to remove access from an Azure resource, you remove a role assign
 
 1. In the list of role assignments, add a checkmark next to the security principal with the role assignment you want to remove.
 
-   ![Remove role assignment message](./media/role-assignments-portal/remove-role-assignment-select.png)
+   ![Role assignment selected to be removed](./media/role-assignments-portal/remove-role-assignment-select.png)
 
 1. Click **Remove**.
 
@@ -195,7 +195,7 @@ In Azure RBAC, to remove access from an Azure resource, you remove a role assign
 
     If you see a message that inherited role assignments cannot be removed, you are trying to remove a role assignment at a child scope. You should open Access control (IAM) at the scope where the role was assigned and try again. A quick way to open Access control (IAM) at the correct scope is to look at the **Scope** column and click the link next to **(Inherited)**.
 
-   ![Remove role assignment message](./media/role-assignments-portal/remove-role-assignment-inherited.png)
+   ![Remove role assignment message for inherited role assignments](./media/role-assignments-portal/remove-role-assignment-inherited.png)
 
 ## Next steps
 

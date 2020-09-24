@@ -37,7 +37,7 @@ To add or remove role assignments, you must have:
 
 1. Perform the steps in one of the following sections to assign a role.
 
-## Add role assignment at resource group scope
+## Resource group scope
 
 ### Add role assignment for a user
 
@@ -92,7 +92,7 @@ az role assignment create --assignee $AZURE_CLIENT_ID \
 
 ### Add role assignment for an application
 
-To add a role assignment for an application, use [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create). For information about how to get the object ID of the application, see [Get object IDs](#get-object-ids).
+To add a role assignment for an application, use [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create). For information about how to get the object ID of the application, see [How to get IDs](#how-to-get-ids).
 
 ```azurecli
 az role assignment create --role {roleNameOrId} --assignee-object-id {assigneeObjectId} --resource-group {resourceGroup}
@@ -120,7 +120,7 @@ The following example assigns the *Virtual Machine Contributor* role to the *msi
 az role assignment create --role "Virtual Machine Contributor" --assignee-object-id 33333333-3333-3333-3333-333333333333 --assignee-principal-type ServicePrincipal --resource-group pharma-sales
 ```
 
-## Add role assignment at resource scope
+## Resource scope
 
 ### Add role assignment for a specific blob container
 
@@ -140,7 +140,7 @@ az role assignment create --assignee $AZURE_CLIENT_ID \
 
 ### Add role assignment for a group
 
-To add a role assignment for a group, use [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create). For information about how to get the object ID of the group, see [Get object IDs](#get-object-ids).
+To add a role assignment for a group, use [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create). For information about how to get the object ID of the group, see [How to get IDs](#how-to-get-ids).
 
 The following example assigns the *Virtual Machine Contributor* role to the *Ann Mack Team* group with ID 22222222-2222-2222-2222-222222222222 at a resource scope for a virtual network named *pharma-sales-project-network*.
 
@@ -148,7 +148,7 @@ The following example assigns the *Virtual Machine Contributor* role to the *Ann
 az role assignment create --role "Virtual Machine Contributor" --assignee-object-id 22222222-2222-2222-2222-222222222222 --scope /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/pharma-sales/providers/Microsoft.Network/virtualNetworks/pharma-sales-project-network
 ```
 
-## Add role assignment at subscription scope
+## Subscription scope
 
 ### Add role assignment for a user
 
@@ -166,7 +166,7 @@ az role assignment create --role "Reader" --assignee annm@example.com --subscrip
 
 ### Add role assignment for a group
 
-To add a role assignment for a group, use [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create). For information about how to get the object ID of the group, see [Get object IDs](#get-object-ids).
+To add a role assignment for a group, use [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create). For information about how to get the object ID of the group, see [How to get IDs](#how-to-get-ids).
 
 ```azurecli
 az role assignment create --role {roleNameOrId} --assignee-object-id {assigneeObjectId} --resource-group {resourceGroup} --scope /subscriptions/{subscriptionId}
@@ -186,7 +186,7 @@ az role assignment create --assignee $AZURE_CLIENT_ID \
     --scope "/subscriptions/$AZURE_SUBSCRIPTION_ID"
 ```
 
-## Add role assignment at management group scope
+## Management group scope
 
 ### Add role assignment for a user
 
@@ -244,7 +244,7 @@ The following example removes the *Virtual Machine Contributor* role assignment 
 az role assignment delete --assignee patlong@contoso.com --role "Virtual Machine Contributor" --resource-group pharma-sales
 ```
 
-The following example removes the *Reader* role from the *Ann Mack Team* group with ID 22222222-2222-2222-2222-222222222222 at a subscription scope. For information about how to get the object ID of the group, see [Get object IDs](#get-object-ids).
+The following example removes the *Reader* role from the *Ann Mack Team* group with ID 22222222-2222-2222-2222-222222222222 at a subscription scope. For information about how to get the object ID of the group, see [How to get IDs](#how-to-get-ids).
 
 ```azurecli
 az role assignment delete --assignee 22222222-2222-2222-2222-222222222222 --role "Reader" --subscription 00000000-0000-0000-0000-000000000000
