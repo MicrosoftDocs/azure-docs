@@ -29,7 +29,7 @@ VM extension functionality is available only in the list of [supported regions](
 
 ## Extensions
 
-In this preview, we are supporting the following VM extensions on Windows and Linux machines.
+In this release, we support the following VM extensions on Windows and Linux machines.
 
 |Extension |OS |Publisher |Additional information |
 |----------|---|----------|-----------------------|
@@ -61,10 +61,7 @@ The Log Analytics agent VM extension for Linux requires Python 2.x is installed 
 
 Verify your machine matches the [supported versions](agent-overview.md#supported-operating-systems) of Windows and Linux operating system for the Azure Connected Machine agent.
 
-The minimum version of the Connected Machine agent that is supported with this feature is:
-
-* Windows - 0.7.x
-* Linux - 0.8.x
+The minimum version of the Connected Machine agent that is supported with this feature on Windows and Linux is the 1.0 release.
 
 To upgrade your machine to the version of the agent required, see [Upgrade agent](manage-agent.md#upgrading-agent).
 
@@ -72,7 +69,7 @@ To upgrade your machine to the version of the agent required, see [Upgrade agent
 
 VM extensions can be applied your Arc for server managed machine through the Azure portal.
 
-1. From your browser, go to the [Azure portal](https://aka.ms/arcserver-preview).
+1. From your browser, go to the [Azure portal](https://portal.azure.com).
 
 2. In the portal, browse to **Servers - Azure Arc** and select your hybrid machine from the list.
 
