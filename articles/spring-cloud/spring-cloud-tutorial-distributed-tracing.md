@@ -49,7 +49,7 @@ For Steeltoe 3.0.0, add the following NuGet package:
    ```csharp
    public void ConfigureServices(IServiceCollection services)
    {
-       services.AddDistributedTracing(Configuration);
+       services.AddDistributedTracing(Configuration, builder => builder.UseZipkinWithTraceOptions(services));
    }
    ```
 

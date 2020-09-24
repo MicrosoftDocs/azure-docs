@@ -45,7 +45,7 @@ For Steeltoe 3.0, add the latest [Microsoft.Azure.SpringCloud.Client 2.x.x](http
 
 ```xml
 <ItemGroup>
-  <PackageReference Include="Microsoft.Azure.SpringCloud.Client" Version="3.0.0" />
+  <PackageReference Include="Microsoft.Azure.SpringCloud.Client" Version="2.0.0-preview.1" />
   <PackageReference Include="Steeltoe.Discovery.ClientCore" Version="3.0.0" />
   <PackageReference Include="Steeltoe.Extensions.Configuration.ConfigServerCore" Version="3.0.0" />
   <PackageReference Include="Steeltoe.Management.TracingCore" Version="3.0.0" />
@@ -74,7 +74,7 @@ For Steeltoe 3.0.0, call `UseAzureSpringCloudService` before `ConfigureWebHostDe
 ```csharp
 public static IHostBuilder CreateHostBuilder(string[] args) =>
     Host.CreateDefaultBuilder(args)
-        .UseAzureSpringCloudService();
+        .UseAzureSpringCloudService()
         .ConfigureWebHostDefaults(webBuilder =>
         {
             webBuilder.UseStartup<Startup>();
