@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 05/13/2020
+ms.date: 09/24/2020
 ms.author: aahi
 ---
 
@@ -139,7 +139,7 @@ Output is returned immediately. You can stream the results to an application tha
 
 Version 3 provides separate endpoints for NER and entity linking. The responses for both operations are below. 
 
-#### [Example NER Version 3.0 response](#tab/version-3)
+#### [Version 3.0](#tab/version-3)
 
 ```json
 {
@@ -192,7 +192,7 @@ Version 3 provides separate endpoints for NER and entity linking. The responses 
   "modelVersion": "2020-04-01"
 }
 ```
-#### [Example Entity Linking Version 3.1-preview response](#tab/version-3-preview)
+#### [Version 3.1-preview](#tab/version-3-preview)
 
 ```json
 {
@@ -240,6 +240,8 @@ Version 3 provides separate endpoints for NER and entity linking. The responses 
   "modelVersion": "2020-02-01"
 }
 ```
+
+---
 
 
 ## Summary
