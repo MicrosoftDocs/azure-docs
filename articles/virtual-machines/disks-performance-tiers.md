@@ -42,7 +42,7 @@ For billing information, see [Managed disk pricing](https://azure.microsoft.com/
 - Currently only supported for premium SSDs.
 - Disks must be detached from a running VM before changing tiers.
 - Use of the P60, P70, and P80 performance tiers is restricted to disks of 4096 GiB or greater.
-- If you change your performance tier, you cannot change it again until 24 hours have passed.
+- A disks performance tier can only be changed once every 24 hours.
 
 ## Regional availability
 
