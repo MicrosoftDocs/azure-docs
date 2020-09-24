@@ -48,10 +48,10 @@ Yes you can still specify VM extensions on a node type. For more information, se
 It isn't currently possible to have an internal only load balancer. We recommended locking down the Network Security Group rules to block any undesired inbound/outbound traffic.
 
 ### Can I autoscale my cluster? 
-Autoscaling isn't yet available in the preview.
+Autoscaling is not currently available in the preview.
 
 ### Can I deploy my cluster across availability zones? 
-Cross availability zone clusters aren't yet available in the preview.
+Cross availability zone clusters are not currently available in the preview.
 
 ### Can I select between automatic and manual upgrades for my cluster runtime? 
 In the preview, all runtime upgrades will be completed automatically.

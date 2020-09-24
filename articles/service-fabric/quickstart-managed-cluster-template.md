@@ -49,11 +49,11 @@ For this quickstart, provide your own values for the following template paramete
     * **Location**: Select a location, such as **eastus2**.
       > [!NOTE]
       > Supported regions for Service Fabric managed clusters preview include `centraluseuap`, `eastus2euap`, `eastasia`, `northeurope`, `westcentralus`, and `eastus2`.
-    * **Cluster Name**: Enter a unique name for your cluster, such as *mySFCluster*.
+    * **Cluster Name**: Enter a unique name for your cluster, such as *mysfcluster*.
     * **Admin Username**: Enter a name for the admin to be used for RDP on the underlying VMs in the cluster.
     * **Admin Password**: Enter a password for the admin to be used for RDP on the underlying VMs in the cluster.
     * **Client Certificate Thumbprint**: Provide the thumbprint of the client certificate that you would like to use to access your cluster. If you do not have a certificate, follow [set and retrieve a certificate](../key-vault/certificates/quick-create-portal.md) to create a self-signed certificate. 
-    * **Node Type Name**: Enter a unique name for your node type, such as *myNodeType*.
+    * **Node Type Name**: Enter a unique name for your node type, such as *nt1*.
     * **I agree to the terms and conditions stated above**: Check this box to agree. 
 
 3. Select **Purchase**.

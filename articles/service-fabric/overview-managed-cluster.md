@@ -29,7 +29,7 @@ Service Fabric managed clusters provide a number of advantages over traditional 
 - Certificate management and autorotation
 - Simplified scaling operations
 
-**Prevent operational errors errors**
+**Prevent operational errors**
 - Prevent configuration mismatches with underlying resources
 - Block unsafe operations (such as deleting a seed node)
 

@@ -69,7 +69,7 @@ New-AzResourceGroupDeployment -Name <your-resource-name> -ResourceGroupName <you
 
 ## Add a client certificate to an existing Service Fabric managed cluster
 
-To add a client certificate, first obtain the resource ID of the Service Fabric managed cluster. Create a custom Powershell object with the properties of the new certificate, and append it to the array of clients in the cluster's properties. To trigger changes, set the resource.
+To add a client certificate, first obtain the resource ID of the Service Fabric managed cluster. Create a custom PowerShell object with the properties of the new certificate, and append it to the array of clients in the cluster's properties. To trigger changes, set the resource.
 
 ```powershell
 $cluster = Get-AzResource -ResourceId <your-cluster-resource-id>
