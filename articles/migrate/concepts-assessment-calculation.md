@@ -75,7 +75,7 @@ If you use the appliance for discovery, it collects performance data for compute
     - **Hyper-V VMs**: A sample point is collected every 30 seconds.
     - **Physical servers**: A sample point is collected every five minutes.
 
-1. The appliance combines the sample points to create a single data point every 10 minutes. To create the data point, the appliance selects the peak values from all samples. It then sends the data point to Azure.
+1. The appliance combines the sample points to create a single data point every 10 minutes for VMware and Hyper-V servers, and every 5 minutes for physical servers. To create the data point, the appliance selects the peak values from all samples. It then sends the data point to Azure.
 1. Server Assessment stores all the 10-minute data points for the last month.
 1. When you create an assessment, Server Assessment identifies the appropriate data point to use for rightsizing. Identification is based on the percentile values for *performance history* and *percentile utilization*.
 
