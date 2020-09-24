@@ -65,7 +65,7 @@ Continue configuring the product after saving it. In your API Management instanc
 |Settings     |    Product metadata and state     |
 |APIs     |  APIs associated with the product       |
 |Policies     |  Policies applied to product APIs      |
-|Access control     |  Product visibility for developers or guies       |
+|Access control     |  Product visibility for developers or guests       |
 |Subscriptions    |    Product subscribers     |
 
 ## Add APIs to a product
