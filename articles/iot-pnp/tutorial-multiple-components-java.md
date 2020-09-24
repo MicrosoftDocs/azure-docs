@@ -46,17 +46,17 @@ On Windows, navigate to the root folder of the cloned Java SDK repository. Then 
 
 Run the following command to build the sample application:
 
-```java
-mvn clean package
+```cmd/sh
+mvn install -T 2C -DskipTests
 ```
 
 ## Run the device sample
 
-Create an environment variable called **IOTHUB_DEVICE_CONNECTION_STRING** to store the device connection string you made a note of previously.
+[!INCLUDE [iot-pnp-environment](../../includes/iot-pnp-environment.md)]
 
 To run the sample application, run the following command:
 
-```java
+```cmd/sh
 mvn exec:java -Dexec.mainClass="samples.com.microsoft.azure.sdk.iot.device.TemperatureController"
 ```
 
