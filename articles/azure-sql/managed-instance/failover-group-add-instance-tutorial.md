@@ -50,6 +50,8 @@ To complete the tutorial, make sure you have the following items:
 
 In this step, you will create the resource group and the primary managed instance for your failover group using the Azure portal or PowerShell. 
 
+Deploy both managed instances to [paired regions](../../best-practices-availability-paired-regions.md) for performance reasons. Managed instances residing in geo-paired regions have much better performance compared to unpaired regions. 
+
 
 # [Portal](#tab/azure-portal) 
 
