@@ -65,7 +65,7 @@ Once signed in, you can run Azure commands with the Azure CLI to work with resou
 
 Clone the sample repository using the following command and navigate into the sample folder. ([Install git](https://git-scm.com/downloads) if you don't have git already.)
 
-::: zone pivot="python-framework-flask
+::: zone pivot="python-framework-flask"
 ```terminal
 git clone https://github.com/Azure-Samples/python-docs-hello-world
 ```
@@ -77,7 +77,7 @@ cd python-docs-hello-world
 ```
 ::: zone-end
 
-::: zone pivot="python-framework-django
+::: zone pivot="python-framework-django"
 ```terminal
 git clone https://github.com/Azure-Samples/python-docs-hello-django
 ```
@@ -95,7 +95,7 @@ The sample contains framework-specific code that Azure App Service recognizes wh
 
 ## Run the sample
 
-::: zone pivot="python-framework-flask
+::: zone pivot="python-framework-flask"
 1. Make sure you're in the *python-docs-hello-world* folder. 
 
 1. Create a virtual environment and install dependencies:
@@ -119,7 +119,7 @@ The sample contains framework-specific code that Azure App Service recognizes wh
 1. In your terminal window, press **Ctrl**+**C** to exit the development server.
 ::: zone-end
 
-::: zone pivot="python-framework-django
+::: zone pivot="python-framework-django"
 1. Make sure you're in the *python-docs-hello-django* folder (Django). 
 
 1. Create a virtual environment and install dependencies:
@@ -198,7 +198,7 @@ The Python sample code is running a Linux container in App Service using a built
 
 In this section, you make a small code change and then redeploy the code to Azure. The code change includes a `print` statement to generate logging output that you work with in the next section.
 
-::: zone pivot="python-framework-flask
+::: zone pivot="python-framework-flask"
 Open *app.py* in an editor and update the `hello` function to match the following code. 
 
 ```python
@@ -207,7 +207,7 @@ def hello():
     return "Hello, Azure!"
 ```
 ::: zone-end
-::: zone pivot="python-framework-django
+::: zone pivot="python-framework-django"
 Open *hello/views.py* in an editor and update the `hello` function to match the following code.
 
 ```python
@@ -238,7 +238,7 @@ Once deployment is complete, switch back to the browser window open to `http://<
 
 You can access the console logs generated from inside the app and the container in which it runs. Logs include any output generated using `print` statements.
 
-To stream logs, run the [az webapp log tail](/cli/azure/webapp/log?view=azure-cli-latest#az_webapp_log_tail) command:
+To stream logs, run the [az webapp log tail](/cli/azure/webapp/log?view=azure-cli-latest&preserve-view=true#az_webapp_log_tail) command:
 
 ```azurecli
 az webapp log tail
