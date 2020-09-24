@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
-ms.date: 01/30/2020
+ms.date: 09/24/2020
 ---
 
 # Set up Azure Monitor logs and collect diagnostics data for Azure Logic Apps
@@ -14,7 +14,12 @@ To get richer debugging information about your logic apps during runtime, you ca
 
 To set up logging for your logic app, you can [enable Log Analytics when you create your logic app](#logging-for-new-logic-apps), or you can [install the Logic Apps Management solution](#install-management-solution) in your Log Analytics workspace for existing logic apps. This solution provides aggregated information for your logic app runs and includes specific details such as status, execution time, resubmission status, and correlation IDs. Then, to enable logging and creating queries for this information, [set up Azure Monitor logs](#set-up-resource-logs).
 
-This article shows how to enable Log Analytics when you create logic apps, how to install and set up the Logic Apps Management solution, and how to set up and create queries for Azure Monitor logs.
+> [!NOTE]
+> After you enable Log Analytics on a new or existing logic app, diagnostics data might not flow to the specified log destination 
+> for up to 30 minutes. This delay means that diagnostics data from this time period might not exist for you to review. Also, 
+> completed events and [tracked properties](#extend-data) might not appear in your Log Analytics workspace for 10-15 minutes.
+
+This article shows how to enable Log Analytics on new logic apps and existing logic apps, how to install and set up the Logic Apps Management solution, and how to set up and create queries for Azure Monitor logs.
 
 ## Prerequisites
 
@@ -136,14 +141,12 @@ After your logic app runs, you can view the data about those runs in your Log An
 
    ![View logic app runs and status](./media/monitor-logic-apps-log-analytics/logic-app-run-details.png)
 
+   > [!NOTE]
+   > The **Resubmit** capability on this page is currently unavailable.
+
    For actions where you [set up tracked properties](#extend-data), you can also view those properties by selecting **View** in the **Tracked Properties** column. To search the tracked properties, use the column filter.
 
    ![View tracked properties for a logic app](./media/monitor-logic-apps-log-analytics/logic-app-tracked-properties.png)
-
-   > [!NOTE]
-   > Tracked properties or completed events might experience 10-15 minute 
-   > delays before appearing in your Log Analytics workspace.
-   > Also, the **Resubmit** capability on this page is currently unavailable.
 
 1. To filter your results, you can perform both client-side and server-side filtering.
 
