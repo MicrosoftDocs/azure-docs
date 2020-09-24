@@ -317,7 +317,7 @@ The following table lists the **operationName** values and corresponding REST AP
 | **SecretDelete** |[Delete a secret](https://msdn.microsoft.com/library/azure/dn903613.aspx) |
 | **SecretList** |[List secrets in a vault](https://msdn.microsoft.com/library/azure/dn903614.aspx) |
 | **SecretListVersions** |[List versions of a secret](https://msdn.microsoft.com/library/azure/dn986824.aspx) |
-| **VaultAccessPolicyChangedEventGridNotification** | Access policy changed event published |
+| **VaultAccessPolicyChangedEventGridNotification** | Vault access policy changed event published |
 | **SecretNearExpiryEventGridNotification** |Secret near expiry event published |
 | **SecretExpiredEventGridNotification** |Secret expired event published |
 | **KeyNearExpiryEventGridNotification** |Key near expiry event published |
