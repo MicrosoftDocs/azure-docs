@@ -12,7 +12,7 @@ ms.service: azure-app-configuration
 ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 08/12/2020
+ms.date: 09/17/2020
 ms.author: lcozzens
 ms.custom: "devx-track-csharp, mvc"
 
@@ -228,6 +228,12 @@ public IActionResult Index()
 When an MVC controller or action is blocked because the controlling feature flag is *off*, a registered `IDisabledFeaturesHandler` interface is called. The default `IDisabledFeaturesHandler` interface returns a 404 status code to the client with no response body.
 
 ## MVC views
+
+Open *_ViewImports.cshtml* in the *Views* directory, and add the feature manager tag helper:
+
+```html
+@addTagHelper *, Microsoft.FeatureManagement.AspNetCore
+```
 
 In MVC views, you can use a `<feature>` tag to render content based on whether a feature flag is enabled:
 

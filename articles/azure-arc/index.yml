@@ -36,9 +36,9 @@ highlightedContent:
       itemType: overview
       url: ./data/overview.md
     # Card
-    - title: Azure arc enabled SQL Server (preview)
+    - title: Azure Arc enabled SQL Server (preview)
       itemType: overview
-      url: https://docs.microsoft.com/en-us/sql/sql-server/
+      url: https://docs.microsoft.com/sql/sql-server/azure-arc/overview
 
 # productDirectory section (optional)
 productDirectory:
