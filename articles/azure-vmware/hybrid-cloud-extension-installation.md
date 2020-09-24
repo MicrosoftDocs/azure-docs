@@ -62,7 +62,7 @@ Infrastructure components must be running the required minimum version.
 
 ## Deploy the VMware HCX OVA on-premises
 
-1. Sign into the **AVS HCX Manager** on `https://x.x.x.9` port 443 with **cloudadmin** user credentials and the go to **Support**.
+1. Sign into the **Azure VMware Solution HCX Manager** on `https://x.x.x.9` port 443 with **cloudadmin** user credentials and the go to **Support**.
 
 1. Select the download link for the VMware HCX OVA file. 
 
