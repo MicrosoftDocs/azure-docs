@@ -1,6 +1,6 @@
 ﻿---
 title: Create custom analytics rules to detect threats with Azure Sentinel| Microsoft Docs
-description: Use this tutorial to learn how to create custom analytics rules to detect security threats with Azure Sentinel.
+description: Use this tutorial to learn how to create custom analytics rules to detect security threats with Azure Sentinel. Take advantage of event grouping and alert grouping, and understand AUTO DISABLED.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -130,6 +130,39 @@ You can create custom analytics rules to help you search for the types of threat
 
 > [!NOTE]
 > Alerts generated in Azure Sentinel are available through [Microsoft Graph Security](https://aka.ms/securitygraphdocs). For more information, see the [Microsoft Graph Security alerts documentation](https://aka.ms/graphsecurityreferencebetadocs).
+
+## Troubleshooting
+
+### A scheduled rule failed to execute, or appears with AUTO DISABLED added to the name
+
+An analytics rule can fail to run for any number of reasons. In general, rule execution failures fall into two categories, each of which Azure Sentinel handles differently:
+
+#### Transient failure
+
+A transient failure is usually due to a circumstance which is temporary and will soon return to normal, at which point the rule execution will succeed. Azure Sentinel continues trying to execute the rule again after predetermined and ever-increasing intervals. Some examples of circumstances that could result in transient failures are:
+
+- Throttling from Log Analytics.
+- Gateway timeout - query is taking too long to run
+- Connectivity issue from data source.
+- Every unknown exception is considered transient, in order to avoid the rule being automatically disabled.
+
+#### Permanent failure - rule auto-disabled
+
+A permanent failure is a sequence of twelve or more failures within four days. Azure Sentinel will no longer try to execute the rule, and in addition it will:
+- disable the rule.
+- add the words **"AUTO DISABLED"** to the beginning of the rule's name.
+
+This way, you can easily determine the presence of any auto-disabled rules, by sorting the rule list by name. The auto-disabled rules will be at or near the top of the list.
+
+The following are some situations that could result in a permanent failure:
+
+- The target workspace (on which the rule query operated) had been deleted.
+- Azure Sentinel had been removed from the target workspace.
+- A change was made to a function used by the rule query, and the new function is corrupted.
+- Permissions to one of the data sources of the rule query were lost.
+- One of the data sources of the rule query was itself lost. (This is signified by the "persistent storage not found" exception.)
+
+SOC managers should be sure to check the rule list regularly for the presence of auto-disabled rules.
 
 ## Next steps
 
