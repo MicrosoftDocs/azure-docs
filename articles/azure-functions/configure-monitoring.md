@@ -171,6 +171,42 @@ Application Insights has a [sampling](../azure-monitor/app/sampling.md) feature 
 
 In version 2.x, you can exclude certain types of telemetry from sampling. In the previous v2.x+ example, data of type `Request` is excluded from sampling. This makes sure that *all* function executions (requests) are logged while other types of telemetry remain subject to sampling.
 
+## Configure scale controller logs
+
+_This feature is in preview._ 
+
+You can have the [Azure Functions scale controller](./functions-scale.md#runtime-scaling) emit logs to either Application Insights or to Blob storage to better understand the decisions the scale controller is making for your function app.
+
+To enable this feature, you add an application setting named `SCALE_CONTROLLER_LOGGING_ENABLED` to your function app settings. The value of this setting must be of the format `<DESTINATION>:<VERBOSITY>`, based on the following:
+
+[!INCLUDE [functions-scale-controller-logging](../../includes/functions-scale-controller-logging.md)]
+
+For example, the following Azure CLI command turns on verbose logging from the scale controller to Application Insights:
+
+```azurecli-interactive
+az functionapp config appsettings set --name <FUNCTION_APP_NAME> \
+--resource-group <RESOURCE_GROUP_NAME> \
+--settings SCALE_CONTROLLER_LOGGING_ENABLED=AppInsights:Verbose
+```
+
+In this example, replace `<FUNCTION_APP_NAME>` and `<RESOURCE_GROUP_NAME>` with the name of your function app and the resource group name, respectively. 
+
+The following Azure CLI command disables logging by setting the verbosity to `None`:
+
+```azurecli-interactive
+az functionapp config appsettings set --name <FUNCTION_APP_NAME> \
+--resource-group <RESOURCE_GROUP_NAME> \
+--settings SCALE_CONTROLLER_LOGGING_ENABLED=AppInsights:None
+```
+
+You can also disable logging by removing the `SCALE_CONTROLLER_LOGGING_ENABLED` setting using the following Azure CLI command:
+
+```azurecli-interactive
+az functionapp config appsettings delete --name <FUNCTION_APP_NAME> \
+--resource-group <RESOURCE_GROUP_NAME> \
+--setting-names SCALE_CONTROLLER_LOGGING_ENABLED
+```
+
 ## Enable Application Insights integration
 
 For a function app to send data to Application Insights, it needs to know the instrumentation key of an Application Insights resource. The key must be in an app setting named **APPINSIGHTS_INSTRUMENTATIONKEY**.

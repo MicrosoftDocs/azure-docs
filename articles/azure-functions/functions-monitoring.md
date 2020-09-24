@@ -5,16 +5,16 @@ ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.custom: "devx-track-csharp, fasttrack-edit"
-# Customer intent: As a developer, I want to monitor my functions so I can know if they're running correctly.
+# Customer intent: As a developer, I want to understand what facilities are provided to help me monitor my functions so I can know if they're running correctly.
 ---
 
 # Monitor Azure Functions
 
-[Azure Functions](functions-overview.md) offers built-in integration with [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) to monitor functions. This article shows you how to configure Azure Functions to send system-generated log files to Application Insights.
+[Azure Functions](functions-overview.md) offers built-in integration with [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) to monitor functions. This article provides an overview of the monitoring capabilities provided by Azure for monitoring Azure Functions.
 
 We recommend using Application Insights because it collects log, performance, and error data. It automatically detects performance anomalies and includes powerful analytics tools to help you diagnose issues and to understand how your functions are used. It's designed to help you continuously improve performance and usability. You can even use Application Insights during local function app project development. For more information, see [What is Application Insights?](../azure-monitor/app/app-insights-overview.md).
 
-As the required Application Insights instrumentation is built into Azure Functions, all you need is a valid instrumentation key to connect your function app to an Application Insights resource. The instrumentation key should be added to your application settings when your function app resource is created in Azure. If your function app doesn't already have this key, you can [set it manually](configure-monitoring.md#enable-application-insights-integration).  
+Because Application Insights instrumentation is built into Azure Functions, you just need a valid instrumentation key to connect your function app to an Application Insights resource. The instrumentation key should be added to your application settings when your function app resource is created in Azure. If your function app doesn't already have this key, you can [set it manually](configure-monitoring.md#enable-application-insights-integration).  
 
 ## Application Insights pricing and limits
 
@@ -44,7 +44,7 @@ When you write traces from your application code, you should assign a log level 
 
 To learn more about log levels, see [Configure log levels](configure-monitoring.md#configure-log-levels).
 
-A logged item is also assigned to a category, which gives you more control over telemetry generated from specific sources in your function app. By using categories, it's also easier to run analytics over collected data. These categories range from status messages logged by the runtime host to data in the aggregate. Traces written from your function code are assigned to individual categories based on the function name. To learn more about categories, see [Configure categories](configure-monitoring.md#configure-categories).
+By assigning logged items to a category, you have more control over telemetry generated from specific sources in your function app. By using categories, it's also easier to run analytics over collected data. These categories range from status messages logged by the runtime host to data in the aggregate. Traces written from your function code are assigned to individual categories based on the function name. To learn more about categories, see [Configure categories](configure-monitoring.md#configure-categories).
 
 ### Custom telemetry data
 
@@ -52,7 +52,7 @@ For some languages, you can also use an Application Insights SDK to write custom
 
 ### Dependencies
 
-Starting with version 2.x of Functions, the runtime automatically collects data for certain dependencies. Because Functions bindings use instrumented client SDKs for the following services, dependencies for these services are also captured:
+Starting with version 2.x of Functions, the runtime automatically collects data for certain dependencies. Because Functions bindings use instrumented client SDKs for the following services, dependencies for these services are captured:
 
 + Azure Cosmos DB 
 + Azure Event Hubs
@@ -61,13 +61,13 @@ Starting with version 2.x of Functions, the runtime automatically collects data 
 
 HTTP requests and database calls using `SqlClient` are also captured. For the complete list of dependencies supported by Application Insights, see [automatically tracked dependencies](../azure-monitor/app/asp-net-dependencies.md#automatically-tracked-dependencies).
 
-The following is an example of an _application map_ in Application Insights of an HTTP trigger function with a Queue storage output binding.  
+Application Insights generates an _application map_ of collected dependency data. The following is an example of an application map of an HTTP trigger function with a Queue storage output binding.  
 
 ![Application map with dependency](./media/functions-monitoring/app-map.png)
 
 Dependencies are written at the `Information` level. If you filter at `Warning` or above, you won't see the dependency data. Also, automatic collection of dependencies happens at a non-user scope. To capture dependency data, make sure the level is set to at least `Information` outside the user scope (`Function.<YOUR_FUNCTION_NAME>.User`) in your host.
 
-In addition to automatic dependency data collection, you can also use one of the language specific Application Insights SDKs to write custom dependency information to the logs. For an example how to write custom dependencies, see one of the following language-specific examples:
+In addition to automatic dependency data collection, you can also use one of the language-specific Application Insights SDKs to write custom dependency information to the logs. For an example how to write custom dependencies, see one of the following language-specific examples:
 
 + [Log custom telemetry in C# functions](functions-dotnet-class-library.md#log-custom-telemetry-in-c-functions)
 + [Log custom telemetry in JavaScript functions](functions-reference-node.md#log-custom-telemetry) 
@@ -89,13 +89,13 @@ While developing an application, you often want to see what's being written to t
 
 There are two ways to view a stream of the log data being generated by your function executions.
 
-* **Built-in log streaming**: the App Service platform lets you view a stream of your application log files. This is equivalent to the output seen when you debug your functions during [local development](functions-develop-local.md) and when you use the **Test** tab in the portal. All log-based information is displayed. For more information, see [Stream logs](../app-service/troubleshoot-diagnostic-logs.md#stream-logs). This streaming method supports only a single instance, and can't be used with an app running on Linux in a Consumption plan.
+* **Built-in log streaming**: the App Service platform lets you view a stream of your application log files. This stream is equivalent to the output seen when you debug your functions during [local development](functions-develop-local.md) and when you use the **Test** tab in the portal. All log-based information is displayed. For more information, see [Stream logs](../app-service/troubleshoot-diagnostic-logs.md#stream-logs). This streaming method supports only a single instance, and can't be used with an app running on Linux in a Consumption plan.
 
-* **Live Metrics Stream**: when your function app is [connected to Application Insights](configure-monitoring.md#enable-application-insights-integration), you can view log data and other metrics in near real-time in the Azure portal using [Live Metrics Stream](../azure-monitor/app/live-stream.md). Use this method when monitoring functions running on multiple-instances or on Linux in a Consumption plan. This method uses [sampled data](configure-monitoring.md#configure-sampling).
+* **Live Metrics Stream**: when your function app is [connected to Application Insights](configure-monitoring.md#enable-application-insights-integration), you can view log data and other metrics in near real time in the Azure portal using [Live Metrics Stream](../azure-monitor/app/live-stream.md). Use this method when monitoring functions running on multiple-instances or on Linux in a Consumption plan. This method uses [sampled data](configure-monitoring.md#configure-sampling).
 
 Log streams can be viewed both in the portal and in most local development environments. To learn how to enable log streams, see [Enable streaming execution logs in Azure Functions](streaming-logs.md).
 
-## Diagnostic logs (preview)
+## Diagnostic logs
 
 _This feature is in preview._ 
 
@@ -103,41 +103,13 @@ Application Insights lets you export telemetry data to long-term storage or othe
 
 Because Functions also integrates with Azure Monitor, you can also use diagnostic settings to send telemetry data to various destinations, including Azure Monitor logs. To learn more, see [Monitoring Azure Functions with Azure Monitor Logs](functions-monitor-log-analytics.md).
 
-## Scale controller logs (preview)
+## Scale controller logs
 
 _This feature is in preview._ 
 
-The [Azure Functions scale controller](./functions-scale.md#runtime-scaling) monitors instances of the Azure Functions host on which your app runs. This controller makes decisions about when to add or remove instances based on current performance. You can have the scale controller emit logs to either Application Insights or to Blob storage to better understand the decisions the scale controller is making for your function app.
+The [Azure Functions scale controller](./functions-scale.md#runtime-scaling) monitors instances of the Azure Functions host on which your app runs. This controller makes decisions about when to add or remove instances based on current performance. You can have the scale controller emit logs to Application Insights to better understand the decisions the scale controller is making for your function app. You can also store the generated logs in Blob storage for analysis by another service. 
 
-To enable this feature, add a new application setting named `SCALE_CONTROLLER_LOGGING_ENABLED`. The value of this setting must be of the format `<DESTINATION>:<VERBOSITY>`, based on the following:
-
-[!INCLUDE [functions-scale-controller-logging](../../includes/functions-scale-controller-logging.md)]
-
-For example, the following Azure CLI command turns on verbose logging from the scale controller to Application Insights:
-
-```azurecli-interactive
-az functionapp config appsettings set --name <FUNCTION_APP_NAME> \
---resource-group <RESOURCE_GROUP_NAME> \
---settings SCALE_CONTROLLER_LOGGING_ENABLED=AppInsights:Verbose
-```
-
-In this example, replace `<FUNCTION_APP_NAME>` and `<RESOURCE_GROUP_NAME>` with the name of your function app and the resource group name, respectively. 
-
-The following Azure CLI command disables logging by setting the verbosity to `None`:
-
-```azurecli-interactive
-az functionapp config appsettings set --name <FUNCTION_APP_NAME> \
---resource-group <RESOURCE_GROUP_NAME> \
---settings SCALE_CONTROLLER_LOGGING_ENABLED=AppInsights:None
-```
-
-You can also disable logging by removing the `SCALE_CONTROLLER_LOGGING_ENABLED` setting using the following Azure CLI command:
-
-```azurecli-interactive
-az functionapp config appsettings delete --name <FUNCTION_APP_NAME> \
---resource-group <RESOURCE_GROUP_NAME> \
---setting-names SCALE_CONTROLLER_LOGGING_ENABLED
-```
+To enable this feature, you add an application setting named `SCALE_CONTROLLER_LOGGING_ENABLED` to your function app settings. To learn how, see [Configure scale controller logs](configure-monitoring.md#configure-scale-controller-logs).
 
 ## Report issues
 
