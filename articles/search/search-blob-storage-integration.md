@@ -15,21 +15,21 @@ ms.date: 09/23/2020
 
 Searching across the variety of content types stored in Azure Blob storage can be a difficult problem to solve. In this article, review the basic workflow for extracting content and metadata from blobs and sending it to a search index in Azure Cognitive Search. The resulting index can be queried using full text search.
 
-If you are already familiar with the workflow and how the components fit together, you can skip ahead to [How to configure a Blob indexer](search-howto-indexing-azure-blob-storage.md).
+Already familiar with the workflow and composition? Skip ahead to [How to configure a Blob indexer](search-howto-indexing-azure-blob-storage.md) to create an indexer.
 
 ## What it means to add full text search to blob data
 
-Azure Cognitive Search is a cloud search service that provides indexing and query engines that operate over user-defined indexes hosted on your search service. Co-locating your searchable content with the query engine in the cloud is necessary for performance, returning results at a speed users have come to expect from search queries.
+Azure Cognitive Search is a search service that supports indexing and query workloads over user-defined indexes that contains your remote searchable content hosted in the cloud. Co-locating your searchable content with the query engine is necessary for performance, returning results at a speed users have come to expect from search queries.
 
-Cognitive Search integrates with Azure Blob storage at the indexing layer, importing your blob content as search documents that are indexed into *inverted indexes* and other query structures that support free form text queries and filter expressions. Because your blob content is indexed into a search index, access to blob content can leverage the full range of query features in Azure Cognitive Search.
+Cognitive Search integrates with Azure Blob storage at the indexing layer, importing your blob content as search documents that are indexed into *inverted indexes* and other query structures that support free form text queries and filter expressions. Because your blob content is indexed into a search index, you can use the full range of query features in Azure Cognitive Search to find information in your blob content.
 
-Once the index is created and populated, it exists independently of your blob container, but you can re-rerun indexing operations to refresh your index with changes to the underlying container. Timestamp information on individual blobs is used for change detection. You can opt for either scheduled execution or on-demand indexing as the refresh mechanism.
-
-Inputs are your blobs, in a single container, in Azure Blob storage. Blobs can be almost any kind of text data. If your blobs contain images, you can add [AI enrichment to blob indexing ](search-blob-ai-integration.md) to create and extract text from images.
+Inputs are your blobs, in a single container, in Azure Blob storage. Blobs can be almost any kind of text data. If your blobs contain images, you can add [AI enrichment to blob indexing](search-blob-ai-integration.md) to create and extract text from images.
 
 Output is always an Azure Cognitive Search index, used for fast text search, retrieval, and exploration in client applications. In between is the indexing pipeline architecture itself. The pipeline is based on the *indexer* feature, discussed further on in this article.
 
-## Required services
+Once the index is created and populated, it exists independently of your blob container, but you can re-rerun indexing operations to refresh your index based on changed documents. Timestamp information on individual blobs is used for change detection. You can opt for either scheduled execution or on-demand indexing as the refresh mechanism.
+
+## Required resources
 
 You need both Azure Cognitive Search and Azure Blob storage. Within Blob storage, you need a container that provides source content.
 

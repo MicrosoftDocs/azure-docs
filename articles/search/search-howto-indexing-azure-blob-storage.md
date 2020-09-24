@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.date: 09/23/2020
 ---
 
-# How to configure a Blob indexer in Azure Cognitive Search
+# How to configure a blob indexer in Azure Cognitive Search
 
 This article shows you how to use Azure Cognitive Search to index text-based documents (such as PDFs, Microsoft Office documents, and several other common formats) stored in Azure Blob storage. First, it explains the basics of setting up and configuring a blob indexer. Then, it offers a deeper exploration of behaviors and scenarios you are likely to encounter.
 
