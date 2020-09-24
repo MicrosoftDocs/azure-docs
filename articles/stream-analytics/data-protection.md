@@ -5,7 +5,7 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 03/05/2020
+ms.date: 09/23/2020
 ---
 
 # Data protection in Azure Stream Analytics 
