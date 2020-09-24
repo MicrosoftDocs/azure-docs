@@ -39,14 +39,14 @@ The following table is a list of requirements for using Azure AD Connect Health.
 | Ensure PowerShell v4.0 or newer is installed | <li>Windows Server 2008 R2 ships with PowerShell v2.0, which is insufficient for the agent. Update PowerShell as explained below under [Agent installation on Windows Server 2008 R2 Servers](#agent-installation-on-windows-server-2008-r2-servers).</li><li>Windows Server 2012 ships with PowerShell v3.0, which is insufficient for the agent.</li><li>Windows Server 2012 R2 and later ship with a sufficiently recent version of PowerShell.</li>|
 |Disable FIPS|FIPS is not supported by Azure AD Connect Health agents.|
 
-<<<<<<< HEAD
+
 > [!IMPORTANT]
 > Installing the Azure AD Connect Health agent on Windows Server Core is not supported.
 =======
 
 >![IMPORTANT]
 >Installing the Azure AD Connect Health agent on Windows Server Core is not supported.
->>>>>>> c9326a42ed199307f237e08d87f9c89bc005d59c
+
 
 
 > [!NOTE]
