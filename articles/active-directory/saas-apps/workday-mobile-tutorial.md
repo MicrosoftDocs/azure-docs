@@ -61,6 +61,8 @@ Activate pending security policy changes by running **Activate Pending Security 
 
 To apply Conditional Access to Workday’s mobile app, it is required for the app to open in an external browser. This can be done by checking the box **Enable Mobile Browser SSO for Native Apps** in **Edit Tenant Setup - Security.** This will require an Intune approved browser to be installed on the device for iOS and in the Work Profile for Android
 
+![Mobile Browser login](./media/workday-tutorial/mobile-browser.png)
+
 ## Setup Conditional Access Policy:
 
 This policy will only affect logging in on an iOS or Android device. If you would like to extend it to all platforms, simply select **Any Device.** This policy will require the device to be compliant with the policy and will verify this via Microsoft Intune. Due to Android having Work Profiles, this should block any users from logging into Workday (Web or App) unless they are logging in via their Work Profile and have installed the app via the Intune Company Portal. There is one additional step for iOS to make sure that the same situation will apply. Here are some screenshots of the Conditional Access setup.

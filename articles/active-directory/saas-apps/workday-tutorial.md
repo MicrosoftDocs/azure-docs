@@ -81,6 +81,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	b. In the **Reply URL** text box, type a URL using the following pattern:
     `https://impl.workday.com/<tenant>/login-saml.htmld`
 
+    c. In the **Logout URL** text box, type a URL using the following pattern:
+    `https://impl.workday.com/<tenant>/login-saml.htmld`
+
 	> [!NOTE]
 	> These values are not the real. Update these values with the actual Sign-on URL and Reply URL. Your reply URL must have a subdomain for example: www, wd2, wd3, wd3-impl, wd5, wd5-impl).
     > Using something like `http://www.myworkday.com` works but `http://myworkday.com` does not. Contact [Workday Client support team](https://www.workday.com/en-us/partners-services/services/support.html) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
@@ -188,14 +191,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	* In **Used for Environments** textbox, select the appropriate environment names from the dropdown.
 
-        > [!NOTE]
-        > If you want to know more information on Environment values, please contact [Workday Client support team](https://www.workday.com/en-us/partners-services/services/support.html).
-
 1. Perform the following steps in the below image.
 
     ![Workday](./media/workday-tutorial/service-provider.png "SAML Identity Providers")
 
-    a.  In the **Service Provider ID (Will be Deprecated)** textbox, type **http://www.workday.com**.
+    a. In the **Service Provider ID (Will be Deprecated)** textbox, type **http://www.workday.com**.
 
     b. In the **IDP SSO Service URL (Will be Deprecated)** textbox, type **Login URL** value.
 
