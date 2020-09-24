@@ -174,13 +174,21 @@ This article provides answers to some of the most common questions about running
    
    Yes, if the named instance is the only instance on the SQL Server, and if the original default instance was [uninstalled properly](sql-server-iaas-agent-extension-automate-management.md#install-on-a-vm-with-a-single-named-sql-server-instance). If there is no default instance and there are multiple named instances on a single SQL Server VM, the SQL Server IaaS agent extension will fail to install. 
 
-1. **Can I remove SQL Server completely from a SQL Server VM?**
+1. **Can I remove SQL Server and the associated SQL instance billing from a SQL Server VM?**
 
-   Yes, but you will continue to be charged for your SQL Server VM as described in [Pricing guidance for SQL Server Azure VMs](pricing-guidance.md). If you no longer need SQL Server, you can deploy a new virtual machine and migrate the data and applications to the new virtual machine. Then you can remove the SQL Server virtual machine.
+   Yes, but you'll need to take additional steps to avoid being charged for your SQL Server as described in [Pricing guidance for SQL Server Azure VMs](https://docs.microsoft.coms/azure/azure-sql/virtual-machines/windows/pricing-guidance). If you want to completely remove the SQL instance, you can migrate to another Azure VM without SQL Server pre-installed on the VM and delete the current SQL VM. If you want to remove the associated SQL instance billing only for the paid edition of the SQL instance from the current VM, complete these steps:  
+   1. If needed, back up all your data.
+   1. Uninstall SQL Server completely, including the SQL IaaS extension (if present).
+   1. Install the free [SQL Express edition](https://www.microsoft.com/sql-server/sql-server-downloads).
+   1. Install the SQL VM RP in [lightweight mode](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/sql-vm-resource-provider-register?tabs=azure-cli%2Cbash).
+   1. [Change the licensing type](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/change-sql-server-edition#change-edition-in-portal) to Express.
+   1. (optional) Disable the Express Edition SQL Server service.
 
 1. **Can I use the Azure portal to manage multiple instances on the same VM?**
+
    No. Portal management is provided by the SQL VM resource provider, which relies on the SQL Server IaaS Agent extension. As such, the same limitations apply to the resource provider as the extension. The portal can either only manage one default instance, or one named instance as long as its configured correctly. For more information, see [SQL Server IaaS Agent extension](sql-server-iaas-agent-extension-automate-management.md) 
-   
+
+
 ## Updating and patching
 
 1. **How do I change to a different version/edition of SQL Server in an Azure VM?**
