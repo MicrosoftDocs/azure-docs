@@ -41,7 +41,7 @@ Run the recovery plan failover as follows:
 1. In the Site Recovery vault, select **Recovery Plans** > *recoveryplan_name*.
 2. Click **Failover**.
 
-    ![Screenshot shows the ADRP pane with Failover selected from the More menu.](./media/site-recovery-failover/Failover.png)
+    ![Screenshot from Azure Site Recovery showing the ADRP pane with Failover selected from the More menu.](./media/site-recovery-failover/Failover.png)
 
 3. In **Failover** > **Failover direction**, leave the default if you're replicating to Azure.
 4. In **Failover**, select a **Recovery Point** to which to fail over.
@@ -76,7 +76,7 @@ You can run a planned failover for Hyper-V VMs.
 
 There are a number of jobs associated with failover.
 
-![Failover](./media/site-recovery-failover/FailoverJob.png)
+![Screenshot of the Jobs page showing a list of Jobs with Group 1: Start(1) expanded in the Name column. The line for the SQLServer job is highlighted.](./media/site-recovery-failover/FailoverJob.png)
 
 - **Prerequisites check**: Ensures that all conditions required for failover are met.
 - **Failover**: Processes the data so that an Azure VM can be created from it. If you have chosen **Latest** recovery point, a recovery point is created from the data that's been sent to the service.

@@ -22,7 +22,7 @@ Create a scheduled event for the lab so that VMs in the lab are automatically st
 
 1. Switch to the **Schedules** page, and select **Add scheduled event** on the toolbar. 
 
-    ![Add schedule button on the Schedules page](./media/how-to-create-schedules/add-schedule-button.png)
+    ![Screenshot that shows the Azure Lab Services "Schedule" page, with  the Add schedule button selected.](./media/how-to-create-schedules/add-schedule-button.png)
 2. Confirm that **Standard** is selected the **Event type**. You select **Start only** to specify only the start time for the VMs. You select **Stop only** to specify only the stop time for the VMs. 
 7. In the **Repeat** section, select the current schedule. 
 
