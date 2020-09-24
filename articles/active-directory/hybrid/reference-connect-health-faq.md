@@ -124,6 +124,7 @@ You might reimage a server or create a new server with the same details (such as
 In this case, manually delete the entry that belongs to the older server. The data for this server should be out of date.
 
 **Q: Can I install the Azure AD Connect health agent on Windows Server Core?**
+
 No.  Installation on Server Core is not supported.
 
 ## Health Agent registration and data freshness
