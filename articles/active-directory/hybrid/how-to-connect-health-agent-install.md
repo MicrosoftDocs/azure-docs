@@ -24,6 +24,10 @@ This document walks you through installing and configuring the Azure AD Connect 
 
 ## Requirements
 
+
+>![IMPORTANT]
+> Installing the Azure AD Connect Health agent on Windows Server Core is not supported.
+
 The following table is a list of requirements for using Azure AD Connect Health.
 
 | Requirement | Description |
@@ -40,23 +44,9 @@ The following table is a list of requirements for using Azure AD Connect Health.
 |Disable FIPS|FIPS is not supported by Azure AD Connect Health agents.|
 
 
-> [!IMPORTANT]
-> Installing the Azure AD Connect Health agent on Windows Server Core is not supported.
-=======
-
->![IMPORTANT]
->Installing the Azure AD Connect Health agent on Windows Server Core is not supported.
-
-
-
 > [!NOTE]
 > If you have a highly locked-down and extremely restricted environment, you would require to add the URLs mentioned in the Service endpoint lists below in addition to the ones listed in the Allowed IE enhanced Security configuration above. 
-<<<<<<< HEAD
->
->>>>>>> 1747d98b2e4b62af3d65b5d96a7547be63077fcd
-=======
 
->>>>>>> c9326a42ed199307f237e08d87f9c89bc005d59c
 
 ### Outbound connectivity to the Azure service endpoints
 
