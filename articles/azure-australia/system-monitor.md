@@ -1,11 +1,11 @@
 ---
 title: System monitoring for security in Azure Australia
 description: Guidance on configuring System Monitoring within the Australian regions to meet the specific requirements of Australian Government policy, regulations, and legislation.
-author: galey801
+author: emilyre
 ms.service: azure-australia
 ms.topic: conceptual
 ms.date: 07/22/2019
-ms.author: grgale
+ms.author: yvettep
 ---
 
 # System monitoring for security in Azure Australia
@@ -111,7 +111,7 @@ Microsoft provides detailed information about Azure resource-specific logs and t
 
 Azure Storage Accounts used to store Azure Log events can be made geo-redundant and can be backed up using Azure Backup. Once captured by Azure Backup, any deletion of backups containing logs requires administrative approval and backups marked for deletion are still held for 14 days allowing for recovery. Azure Backup allows for 9999 copies of a protected instance, providing over 27 years of daily backups.
 
-Role-Based Access Control should be used to control access to resources used for Azure logging. Azure Monitor, Azure Storage accounts, and Azure Backups should be configured with role-based access controls to ensure the security of the data contained within the logs.
+Azure role-based access control (Azure RBAC) should be used to control access to resources used for Azure logging. Azure Monitor, Azure Storage accounts, and Azure Backups should be configured with Azure RBAC to ensure the security of the data contained within the logs.
 
 ### Log auditing
 

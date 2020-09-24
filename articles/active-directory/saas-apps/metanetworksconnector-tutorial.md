@@ -2,20 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Meta Networks Connector | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Meta Networks Connector.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 4ae5f30d-113b-4261-b474-47ffbac08bf7
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Meta Networks Connector
 

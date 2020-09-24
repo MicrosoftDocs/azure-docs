@@ -1,17 +1,14 @@
 ---
-title: Sample - Canada Federal PBMM blueprint - Overview
-description: Overview of the Canada Federal PBMM blueprint sample.
-author: DCtheGeek
-ms.author: dacoulte
-ms.date: 09/04/2019
+title: Canada Federal PBMM blueprint sample overview
+description: Overview of the Canada Federal PBMM blueprint sample. This blueprint sample helps customers assess specific Canada Federal PBMM controls.
+ms.date: 07/31/2020
 ms.topic: sample
-ms.service: blueprints
 ---
 # Overview of the Canada Federal PBMM blueprint sample
 
 Canada Federal Protected B, Medium Integrity, Medium Availability (PBMM) blueprint sample provides a
 set of governance guard-rails using [Azure Policy](../../../policy/overview.md) that help towards
-[Canada Federal PBMM](https://www.canada.ca/en/government/system/digital-government/modern-emerging-technologies/cloud-services/government-canada-security-control-profile-cloud-based-it-services.html#toc4)
+[Canada Federal PBMM](https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/cloud-services/government-canada-security-control-profile-cloud-based-it-services.html)
 attestation. 
 
 ## Blueprint sample
@@ -32,7 +29,7 @@ articles to learn about the control mapping and how to deploy this sample:
 > [Canada Federal PBMM blueprint - Control mapping](./control-mapping.md)
 > [Canada Federal PBMM blueprint - Deploy steps](./deploy.md)
 
-Addition articles about blueprints and how to use them:
+Additional articles about blueprints and how to use them:
 
 - Learn about the [blueprint lifecycle](../../concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](../../concepts/parameters.md).

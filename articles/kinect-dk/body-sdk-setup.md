@@ -1,6 +1,6 @@
 ---
 title: Quickstart - Set up Azure Kinect body tracking
-description: This quickstart provides steps to set up body tracking SDK for Azure Kinect
+description: In this quickstart, you will set up the body tracking SDK for Azure Kinect.
 author: qm13
 ms.author: quentinm
 ms.prod: kinect-dk
@@ -45,9 +45,16 @@ Launch the [Azure Kinect Viewer](azure-kinect-viewer.md) to check that your Azur
 
 Launch the **Azure Kinect Body Tracking Viewer** to check that the Body Tracking SDK is set up correctly. The viewer is installed with the SDK msi installer. You can find it at your start menu or at `<SDK Installation Path>\tools\k4abt_simple_3d_viewer.exe`.
 
+If you don't have a powerful enough GPU and still want to test the result, you can launch the the **Azure Kinect Body Tracking Viewer** in the command line by the following command: `<SDK Installation Path>\tools\k4abt_simple_3d_viewer.exe CPU`
+
 If everything is set up correctly, a window with a 3D point cloud and tracked bodies should appear.
 
+
 ![Body Tracking 3D Viewer](./media/quickstarts/samples-simple3dviewer.png)
+
+## Examples
+
+You can find the examples about how to use the body tracking SDK [here](https://github.com/microsoft/Azure-Kinect-Samples/tree/master/body-tracking-samples).
 
 ## Next steps
 

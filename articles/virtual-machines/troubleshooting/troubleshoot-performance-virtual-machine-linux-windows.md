@@ -1,5 +1,5 @@
 ---
-title: Generic performance troubleshooting for Azure virtual machine running Linux or Windows
+title: Troubleshoot Azure virtual machine performance on Linux or Windows
 description: This article describes virtual machine (VM) generic performance troubleshooting through monitoring and observing bottlenecks and provides possible remediation for issues that may occur.
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: ''
@@ -17,46 +17,71 @@ ms.date: 09/18/2019
 ms.author: v-miegge
 ---
 
-# Generic performance troubleshooting for Azure Virtual Machine running Linux or Windows
+# Troubleshoot Azure virtual machine performance on Linux or Windows
 
-This article describes virtual machine (VM) generic performance troubleshooting through monitoring and observing bottlenecks and provides possible remediation for issues that may occur.
+This article describes virtual machine (VM) generic performance troubleshooting through monitoring and observing bottlenecks and provides possible remediation for issues that may occur. Besides monitoring, you can also use Perfinsights which can provide a report with best practices recommendations and key bottlenecks around IO/CPU/Memory. Perfinsights is available for both [Windows](./how-to-use-perfinsights.md) and [Linux](./how-to-use-perfinsights-linux.md) VM’s in Azure.
+
+This article will walk through using monitoring to diagnose Performance bottlenecks.
 
 ## Enabling monitoring
 
 ### Azure IAAS virtual machine monitoring
 
-To monitor the Guest VM, use the Azure VM Monitoring, which will alert you to certain high-level resource conditions. To check whether you have the VM diagnostics enabled, see [Azure Resource logs overview](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-overview#change-settings-for-an-existing-resource). If you see the following, then you most likely don't have the diagnostics enabled:
+To monitor the Guest VM, use the Azure VM Monitoring, which will alert you to certain high-level resource conditions. To check whether you have the VM diagnostics enabled, see [Azure Resource logs overview](../../azure-monitor/learn/tutorial-resource-logs.md). If you see the following, then you most likely don't have the diagnostics enabled:
 
 ![Monitoring isn't enabled](media/troubleshoot-performance-virtual-machine-linux-windows/1-virtual-machines-monitoring-not-enabled.png)
  
 ### Enable VM diagnostics through microsoft Azure portal
 
-To enable VM diagnostics, go to the VM, click **Settings**, and then click **Diagnostics**.
+To enable VM diagnostics:
 
-![Click Settings, then Diagnostics](media/troubleshoot-performance-virtual-machine-linux-windows/2-virtual-machines-diagnostics.png)
- 
+1. Go to the VM
+2. Click **Diagnostics Settings**
+3. Select the storage account and click **Enable guest-level monitoring**.
+
+   ![Click Settings, then Diagnostics](media/troubleshoot-performance-virtual-machine-linux-windows/2-virtual-machines-diagnostics.png)
+
+You can check the storage account used for Diagnostics setup from **Agent** tab under **Diagnostics Settings**.
+
+![Check storage account](media/troubleshoot-performance-virtual-machine-linux-windows/3-check-storage-account.png)
+
 ### Enable storage account diagnostics through Azure portal
 
-First, identify which storage account (or accounts) your VM is using by selecting the VM. Click **Settings**, and then click **Disks**:
+Storage is a very important tier when we intend to analyze IO performance for a Virtual Machine in Azure. For storage related metrics we need to enable diagnostics as an additional step. This could also be enabled, if we only want to analyze the storage related counters.
 
-![Click Settings, then Disks](media/troubleshoot-performance-virtual-machine-linux-windows/3-storage-disks-disks-selection.png)
+1. Identify which storage account (or accounts) your VM is using by selecting the VM. Click **Settings**, and then click **Disks**:
 
-In the portal, go to the storage account (or accounts) for the VM and work through the following steps:
+   ![Click Settings, then Disks](media/troubleshoot-performance-virtual-machine-linux-windows/4-storage-disks-disks-selection.png)
 
-![Select Blob Metrics](media/troubleshoot-performance-virtual-machine-linux-windows/4-select-blob-metrics.png)
- 
-1. Select **All Settings**.
-2. Turn Diagnostics On.
-3. Select **Blob* Metrics** and set retention to **30** days.
-4. Save the changes.
+2. In the portal, go to the storage account (or accounts) for the VM and work through the following steps:
+
+   1. Click overview for the Storage account you found with step above.
+   2. Default metrics would be shown. 
+
+    ![Default metrics](media/troubleshoot-performance-virtual-machine-linux-windows/5-default-metrics.png)
+
+3. Click on any of the metrics, which will show another blade with more options to configure and add metrics.
+
+   ![Add metrics](media/troubleshoot-performance-virtual-machine-linux-windows/6-add-metrics.png)
+
+To configure these options:
+
+1.	Select **Metrics**.
+2.	Select the **Resource** (storage account).
+3.	Select the **Namespace**
+4.	Select **Metric**.
+5.	Select the type of **Aggregation**
+6.	You can pin this view on dashboard.
 
 ## Observing bottlenecks
+
+Once we are through the initial setup process for needed metrics, and post enabling the diagnostics for VM and related Storage account, we can shift to analysis phase.
 
 ### Accessing the monitoring
 
 Select the Azure VM you want to investigate and select **Monitoring**.
 
-![Select Monitoring](media/troubleshoot-performance-virtual-machine-linux-windows/5-observe-monitoring.png)
+![Select Monitoring](media/troubleshoot-performance-virtual-machine-linux-windows/7-select-monitoring.png)
  
 ### Timelines of observation
 
@@ -64,7 +89,7 @@ To identify if you have any resource bottlenecks, review your data. If your find
 
 ### Check for CPU bottleneck
 
-![Check for CPU Bottleneck](media/troubleshoot-performance-virtual-machine-linux-windows/6-cpu-bottleneck-time-range.png)
+![Check for CPU Bottleneck](media/troubleshoot-performance-virtual-machine-linux-windows/8-cpu-bottleneck-time-range.png)
 
 1. Edit the Graph.
 2. Set the time Range.
@@ -73,7 +98,7 @@ To identify if you have any resource bottlenecks, review your data. If your find
 
 ### CPU observe trends
 
-When looking at performance issues, be aware of the trends and understand if they affect you. In the next sections, we'll use the Monitoring graphs from the portal to show trends. They can also be useful for cross referencing difference resource behaviors in the same time period. To customize the graphs, click [Azure Monitor data platform](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform).
+When looking at performance issues, be aware of the trends and understand if they affect you. In the next sections, we'll use the Monitoring graphs from the portal to show trends. They can also be useful for cross referencing difference resource behaviors in the same time period. To customize the graphs, click [Azure Monitor data platform](../../azure-monitor/platform/data-platform.md).
 
 Spiking – Spiking could be related to a scheduled task/known event. If you can identify the task, determine whether the task runs at the required performance level. If performance is acceptable, you may not need to increase resources.
 
@@ -91,6 +116,8 @@ If your application or process isn't running at the correct performance level, a
 * Understand the issue – locate application/process and troubleshoot accordingly.
 
 If you have increased the VM, and the CPU is still running 95%, determine whether this setting is offering better performance or higher application throughput to an acceptable level. If not, troubleshoot that individual application\process.
+
+You can use Perfinsights for [Windows](./how-to-use-perfinsights.md) or [Linux](./how-to-use-perfinsights-linux.md) to analyze which process is driving the CPU consumption. 
 
 ## Check for memory bottleneck
 
@@ -121,9 +148,13 @@ To resolve high memory utilization, perform any of the following tasks:
 
 If after upgrading to a larger VM, you discover that you still have a constant steady increase until 100%, identify the application/process and troubleshoot.
 
+You can use Perfinsights for [Windows](./how-to-use-perfinsights.md) or [Linux](./how-to-use-perfinsights-linux.md) to analyze which process is driving the Memory consumption. 
+
 ## Check for disk bottleneck
 
 To check the storage subsystem for the VM, check the diagnostics at the Azure VM level by using the counters in VM Diagnostics and also the Storage Account Diagnostics.
+
+For within VM specific troubleshooting, you can use Perfinsights for [Windows](./how-to-use-perfinsights.md) or [Linux](./how-to-use-perfinsights-linux.md), which could help to analyze which process is driving the IO’s. 
 
 Note that we don't have counters for Zone Redundant and Premium Storage Accounts. For issues related to these counters, raise a support case.
 
@@ -131,7 +162,7 @@ Note that we don't have counters for Zone Redundant and Premium Storage Accounts
 
 To work on the below items, go into the storage account for the VM in the portal:
 
-![Viewing Storage Account Diagnostics in Monitoring](media/troubleshoot-performance-virtual-machine-linux-windows/7-virtual-machine-storage-account.png)
+![Viewing Storage Account Diagnostics in Monitoring](media/troubleshoot-performance-virtual-machine-linux-windows/9-virtual-machine-storage-account.png)
 
 1. Edit the Monitoring Graph.
 2. Set the time range.
@@ -144,11 +175,11 @@ To identify issues with storage, look at the performance metrics from the Storag
 
 For each check below, look for key trends when the issues occur within the time range of the issue.
 
-#### Check azure storage availability – Add the storage account metric: availability
+#### Check Azure storage availability – Add the storage account metric: availability
 
 If you see a drop in availability, there could be an issue with the platform, check the [Azure Status](https://azure.microsoft.com/status/). If no issue is shown there, raise a new support request.
 
-#### Check for azure storage timeout - Add the storage account metrics:
+#### Check for Azure storage timeout - Add the storage account metrics:
 
 * ClientTimeOutError
 * ServerTimeOutError
@@ -172,31 +203,37 @@ With this metric, you can't tell which blob is causing the throttling and which 
 
 To identify if you're hitting the IOPS limit, go into the Storage Account diagnostics and check the TotalRequests, looking to see if you're approaching 20 thousand TotalRequests. Identify either a change in the pattern, whether you're seeing the limit for the first time, or whether this limit happens at a certain time.
 
+With new disk offerings under Standard storage, the IOPS and Throughput limits could differ, but the cumulative limit of Standard Storage account is 20000 IOPS(Premium storage has different limits at account or Disk level). Read more about different standard storage disk offerings and per disk limits:
+
+* [Scalability and performance targets for VM disks on Windows](../windows/disk-scalability-targets.md).
+
 #### References
 
-* [Scalability targets for virtual machine disks](https://azure.microsoft.com/documentation/articles/storage-scalability-targets/#scalability-targets-for-virtual-machine-disks)
+* [Scalability and performance targets for premium page blob storage accounts](../../storage/blobs/scalability-targets-premium-page-blobs.md)
 
 The bandwidth of the storage account is measured by the Storage Account Metrics: TotalIngress and TotalEgress. You have different thresholds for bandwidth depending on type of redundancy and regions.
 
-* [Scalability targets for blobs, queues, tables, and files](https://azure.microsoft.com/documentation/articles/storage-scalability-targets/#scalability-targets-for-blobs-queues-tables-and-files)
+* [Scalability and performance targets for standard storage accounts](../../storage/common/scalability-targets-standard-account.md)
 
 Check the TotalIngress and TotalEgress against the Ingress and Egress limits for the storage account redundancy type and region.
 
 Check Throughput Limits of the VHDs attached to the VM. Add the VM Metrics Disk Read and Write.
 
-Each VHD can support up to 60 MB/s (IOPS are not exposed per VHD). Look at the data to see if you're the hitting the limits of combined throughput MB of the VHD(s) at VM level using Disk Read and Write, then optimize your VM storage configuration to scale past single VHD limits.
+New disk offerings under Standard storage have different IOPS and throughput limits (IOPS are not exposed per VHD). Look at the data to see if you're the hitting the limits of combined throughput MB of the VHD(s) at VM level using Disk Read and Write, then optimize your VM storage configuration to scale past single VHD limits. Read more about different standard storage disk offerings and per disk limits:
+
+* [Scalability and performance targets for VM disks on Windows](../windows/disk-scalability-targets.md).
 
 ### High disk utilization/latency remediation
 
 Reduce Client Latency and Optimize VM IO to scale past VHD Limits
 
-* [Optimizing IO for Windows in Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-sql-server-performance-best-practices/)
+* [Optimizing IO for Windows in Azure](../../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md?toc=/azure/virtual-machines/windows/toc.json)
 
-* [Optimizing IO for Linux in Azure](https://blogs.msdn.microsoft.com/igorpag/2014/10/23/azure-storage-secrets-and-linux-io-optimizations/)
+* [Optimizing IO for Linux in Azure](/archive/blogs/igorpag/azure-storage-secrets-and-linux-io-optimizations)
 
 #### Reduce throttling
 
-If hitting upper limits of storage accounts, re-balance the VHDs between storage accounts. Refer to [Azure Storage Scalability and Performance Targets](https://azure.microsoft.com/documentation/articles/storage-scalability-targets/).
+If hitting upper limits of storage accounts, re-balance the VHDs between storage accounts. Refer to [Azure Storage Scalability and Performance Targets](../../storage/common/scalability-targets-standard-account.md).
 
 ### Increase throughput and reduce latency
 
@@ -204,9 +241,9 @@ If you have a latency sensitive application and require high throughput, migrate
 
 These articles discuss the specific scenarios:
 
-* [Migrating to Azure Premium Storage](https://azure.microsoft.com/documentation/articles/storage-migration-to-premium-storage/)
+* [Migrating to Azure Premium Storage](../windows/migrate-to-managed-disks.md)
 
-* [Use Azure Premium Storage with SQL Server](https://azure.microsoft.com/documentation/articles/virtual-machines-sql-server-use-premium-storage/)
+* [Use Azure Premium Storage with SQL Server](/previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-server-premium-storage)
 
 ## Next steps
 

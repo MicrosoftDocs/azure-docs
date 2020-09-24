@@ -1,16 +1,16 @@
 ---
-title: Move data to and from SQL Server | Microsoft Docs
+title: Move data to and from SQL Server 
 description: Learn about how to move data to/from SQL Server database that is on-premises or in an Azure VM using Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 
 
 ms.assetid: 864ece28-93b5-4309-9873-b095bbe6fedd
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 
 ms.topic: conceptual
 ms.date: 01/10/2018
@@ -18,7 +18,8 @@ ms.author: jingwang
 
 robots: noindex
 ---
-# Move data to and from SQL Server on-premises or on IaaS (Azure VM) using Azure Data Factory
+# Move data to and from SQL Server using Azure Data Factory
+
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](data-factory-sqlserver-connector.md)
 > * [Version 2 (current version)](../connector-sql-server.md)
@@ -26,7 +27,7 @@ robots: noindex
 > [!NOTE]
 > This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [SQL Server connector in V2](../connector-sql-server.md).
 
-This article explains how to use the Copy Activity in Azure Data Factory to move data to/from an on-premises SQL Server database. It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity.
+This article explains how to use the Copy Activity in Azure Data Factory to move data to/from a SQL Server database. It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -50,7 +51,7 @@ See [moving data between on-premises locations and cloud](data-factory-move-data
 While you can install gateway on the same on-premises machine or cloud VM instance as the SQL Server for better performance, we recommended that you install them on separate machines. Having the gateway and SQL Server on separate machines reduces resource contention.
 
 ## Getting started
-You can create a pipeline with a copy activity that moves data to/from an on-premises SQL Server database by using different tools/APIs.
+You can create a pipeline with a copy activity that moves data to/from a SQL Server database by using different tools/APIs.
 
 The easiest way to create a pipeline is to use the **Copy Wizard**. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard.
 
@@ -63,20 +64,20 @@ Whether you use the tools or APIs, you perform the following steps to create a p
 3. Create **datasets** to represent input and output data for the copy operation. In the example mentioned in the last step, you create a dataset to specify the SQL table in your SQL Server database that contains the input data. And, you create another dataset to specify the blob container and the folder that holds the data copied from the SQL Server database. For dataset properties that are specific to SQL Server database, see [dataset properties](#dataset-properties) section.
 4. Create a **pipeline** with a copy activity that takes a dataset as an input and a dataset as an output. In the example mentioned earlier, you use SqlSource as a source and BlobSink as a sink for the copy activity. Similarly, if you are copying from Azure Blob Storage to SQL Server Database, you use BlobSource and SqlSink in the copy activity. For copy activity properties that are specific to SQL Server Database, see [copy activity properties](#copy-activity-properties) section. For details on how to use a data store as a source or a sink, click the link in the previous section for your data store.
 
-When you use the wizard, JSON definitions for these Data Factory entities (linked services, datasets, and the pipeline) are automatically created for you. When you use tools/APIs (except .NET API), you define these Data Factory entities by using the JSON format. For samples with JSON definitions for Data Factory entities that are used to copy data to/from an on-premises SQL Server database, see [JSON examples](#json-examples-for-copying-data-from-and-to-sql-server) section of this article.
+When you use the wizard, JSON definitions for these Data Factory entities (linked services, datasets, and the pipeline) are automatically created for you. When you use tools/APIs (except .NET API), you define these Data Factory entities by using the JSON format. For samples with JSON definitions for Data Factory entities that are used to copy data to/from a SQL Server database, see [JSON examples](#json-examples-for-copying-data-from-and-to-sql-server) section of this article.
 
 The following sections provide details about JSON properties that are used to define Data Factory entities specific to SQL Server:
 
 ## Linked service properties
-You create a linked service of type **OnPremisesSqlServer** to link an on-premises SQL Server database to a data factory. The following table provides description for JSON elements specific to on-premises SQL Server linked service.
+You create a linked service of type **OnPremisesSqlServer** to link a SQL Server database to a data factory. The following table provides description for JSON elements specific to SQL Server linked service.
 
 The following table provides description for JSON elements specific to SQL Server linked service.
 
 | Property | Description | Required |
 | --- | --- | --- |
 | type |The type property should be set to: **OnPremisesSqlServer**. |Yes |
-| connectionString |Specify connectionString information needed to connect to the on-premises SQL Server database using either SQL authentication or Windows authentication. |Yes |
-| gatewayName |Name of the gateway that the Data Factory service should use to connect to the on-premises SQL Server database. |Yes |
+| connectionString |Specify connectionString information needed to connect to the SQL Server database using either SQL authentication or Windows authentication. |Yes |
+| gatewayName |Name of the gateway that the Data Factory service should use to connect to the SQL Server database. |Yes |
 | username |Specify user name if you are using Windows Authentication. Example: **domainname\\username**. |No |
 | password |Specify password for the user account you specified for the username. |No |
 
@@ -104,7 +105,7 @@ You can encrypt credentials using the **New-AzDataFactoryEncryptValue** cmdlet a
 ```
 **JSON for using Windows Authentication**
 
-Data Management Gateway will impersonate the specified user account to connect to the on-premises SQL Server database.
+Data Management Gateway will impersonate the specified user account to connect to the SQL Server database.
 
 ```json
 {

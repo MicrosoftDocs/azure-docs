@@ -2,13 +2,13 @@
 title: Security controls for Azure Load Balancer
 description: A checklist of security controls for evaluating Load Balancer
 services: load-balancer
-author: msmbaldwin
-manager: barbkess
+author: asudbring
+manager: KumudD
 ms.service: load-balancer
 
 ms.topic: conceptual
 ms.date: 09/04/2019
-ms.author: mbaldwin
+ms.author: allensu
 
 ---
 # Security controls for Azure Load Balancer

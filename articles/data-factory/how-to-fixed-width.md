@@ -1,6 +1,6 @@
 ---
-title: Process fixed-length text files with Mapping Data Flows in Azure Data Factory
-description: Learn how to process fixed-length text files in Azure Data Factory using Mapping Data Flows.
+title: Process fixed-length text files with mapping data flows in Azure Data Factory
+description: Learn how to process fixed-length text files in Azure Data Factory using mapping data flows.
 services: data-factory
 author: balakreshnan
 
@@ -12,9 +12,11 @@ ms.date: 8/18/2019
 ms.author: makromer
 ---
 
-# Process fixed-length text files by using Data Factory Mapping Data Flows
+# Process fixed-length text files by using Data Factory mapping data flows
 
-By using Mapping Data Flows in Microsoft Azure Data Factory, you can transform data from fixed-width text files. In the following task, we'll define a dataset for a text file without a delimiter and then set up substring splits based on ordinal position.
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+By using mapping data flows in Microsoft Azure Data Factory, you can transform data from fixed-width text files. In the following task, we'll define a dataset for a text file without a delimiter and then set up substring splits based on ordinal position.
 
 ## Create a pipeline
 
@@ -24,7 +26,7 @@ By using Mapping Data Flows in Microsoft Azure Data Factory, you can transform d
 
     ![Fixed Width Pipeline](media/data-flow/fwpipe.png)
 
-3. In the data flow activity, select **New Mapping Data Flow**.
+3. In the data flow activity, select **New mapping data flow**.
 
 4. Add a Source, Derived Column, Select, and Sink transformation:
 
@@ -86,4 +88,4 @@ By using Mapping Data Flows in Microsoft Azure Data Factory, you can transform d
 
 ## Next steps
 
-* Build the rest of your data flow logic by using Mapping Data Flows [transformations](concepts-data-flow-overview.md).
+* Build the rest of your data flow logic by using mapping data flows [transformations](concepts-data-flow-overview.md).

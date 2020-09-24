@@ -1,20 +1,19 @@
 ---
-title: Custom cognitive search skill - Azure Search
-description: Extend capabilities of cognitive search skillsets by calling out to Web APIs
-services: search
+title: Custom Web API skill in skillsets
+titleSuffix: Azure Cognitive Search
+description: Extend capabilities of Azure Cognitive Search skillsets by calling out to Web APIs. Use the Custom Web API skill to integrate your custom code.
+
 manager: nitinme
 author: luiscabrer
-
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 06/17/2020
 ---
 
-# Custom Web API skill
+# Custom Web API skill in an Azure Cognitive Search enrichment pipeline
 
-The **Custom Web API** skill allows you to extend cognitive search by calling out to a Web API endpoint providing custom operations. Similar to built-in skills, a **Custom Web API** skill has inputs and outputs. Depending on the inputs, your Web API receives a JSON payload when the indexer runs, and outputs a JSON payload as a response, along with a success status code. The response is expected to have the outputs specified by your custom skill. Any other response is considered an error and no enrichments are performed.
+The **Custom Web API** skill allows you to extend AI enrichment by calling out to a Web API endpoint providing custom operations. Similar to built-in skills, a **Custom Web API** skill has inputs and outputs. Depending on the inputs, your Web API receives a JSON payload when the indexer runs, and outputs a JSON payload as a response, along with a success status code. The response is expected to have the outputs specified by your custom skill. Any other response is considered an error and no enrichments are performed.
 
 The structure of the JSON payloads are described further down in this document.
 
@@ -33,11 +32,12 @@ Parameters are case-sensitive.
 
 | Parameter name	 | Description |
 |--------------------|-------------|
-| uri | The URI of the Web API to which the _JSON_ payload will be sent. Only **https** URI scheme is allowed |
-| httpMethod | The method to use while sending the payload. Allowed methods are `PUT` or `POST` |
-| httpHeaders | A collection of key-value pairs where the keys represent header names and values represent header values that will be sent to your Web API along with the payload. The following headers are prohibited from being in this collection:  `Accept`, `Accept-Charset`, `Accept-Encoding`, `Content-Length`, `Content-Type`, `Cookie`, `Host`, `TE`, `Upgrade`, `Via` |
-| timeout | (Optional) When specified, indicates the timeout for the http client making the API call. It must be formatted as an XSD "dayTimeDuration" value (a restricted subset of an [ISO 8601 duration](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) value). For example, `PT60S` for 60 seconds. If not set, a default value of 30 seconds is chosen. The timeout can be set to a maximum of 230 seconds and a minimum of 1 second. |
-| batchSize | (Optional) Indicates how many "data records" (see _JSON_ payload structure below) will be sent per API call. If not set, a default of 1000 is chosen. We recommend that you make use of this parameter to achieve a suitable tradeoff between indexing throughput and load on your API |
+| `uri` | The URI of the Web API to which the _JSON_ payload will be sent. Only **https** URI scheme is allowed |
+| `httpMethod` | The method to use while sending the payload. Allowed methods are `PUT` or `POST` |
+| `httpHeaders` | A collection of key-value pairs where the keys represent header names and values represent header values that will be sent to your Web API along with the payload. The following headers are prohibited from being in this collection:  `Accept`, `Accept-Charset`, `Accept-Encoding`, `Content-Length`, `Content-Type`, `Cookie`, `Host`, `TE`, `Upgrade`, `Via` |
+| `timeout` | (Optional) When specified, indicates the timeout for the http client making the API call. It must be formatted as an XSD "dayTimeDuration" value (a restricted subset of an [ISO 8601 duration](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) value). For example, `PT60S` for 60 seconds. If not set, a default value of 30 seconds is chosen. The timeout can be set to a maximum of 230 seconds and a minimum of 1 second. |
+| `batchSize` | (Optional) Indicates how many "data records" (see _JSON_ payload structure below) will be sent per API call. If not set, a default of 1000 is chosen. We recommend that you make use of this parameter to achieve a suitable tradeoff between indexing throughput and load on your API |
+| `degreeOfParallelism` | (Optional) When specified, indicates the number of calls the indexer will make in parallel to the endpoint you have provided. You can decrease this value if your endpoint is failing under too high of a request load, or raise it if your endpoint is able to accept more requests and you would like an increase in the performance of the indexer.  If not set, a default value of 5 is used. The `degreeOfParallelism` can be set to a maximum of 10 and a minimum of 1. |
 
 ## Skill inputs
 
@@ -53,7 +53,7 @@ There are no "predefined" outputs for this skill. Depending on the response your
 ```json
   {
         "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
-        "description": "A custom skill that can count the number of words or characters or lines in text",
+        "description": "A custom skill that can identify positions of different phrases in the source text",
         "uri": "https://contoso.count-things.com",
         "batchSize": 4,
         "context": "/document",
@@ -67,14 +67,13 @@ There are no "predefined" outputs for this skill. Depending on the response your
             "source": "/document/languageCode"
           },
           {
-            "name": "countOf",
-            "source": "/document/propertyToCount"
+            "name": "phraseList",
+            "source": "/document/keyphrases"
           }
         ],
         "outputs": [
           {
-            "name": "count",
-            "targetName": "countOfThings"
+            "name": "hitPositions"
           }
         ]
       }
@@ -98,7 +97,7 @@ It will always follow these constraints:
            {
              "text": "Este es un contrato en Inglés",
              "language": "es",
-             "countOf": "words"
+             "phraseList": ["Este", "Inglés"]
            }
       },
       {
@@ -107,16 +106,16 @@ It will always follow these constraints:
            {
              "text": "Hello world",
              "language": "en",
-             "countOf": "characters"
+             "phraseList": ["Hi"]
            }
       },
       {
         "recordId": "2",
         "data":
            {
-             "text": "Hello world \r\n Hi World",
+             "text": "Hello world, Hi world",
              "language": "en",
-             "countOf": "lines"
+             "phraseList": ["world"]
            }
       },
       {
@@ -125,7 +124,7 @@ It will always follow these constraints:
            {
              "text": "Test",
              "language": "es",
-             "countOf": null
+             "phraseList": []
            }
       }
     ]
@@ -154,7 +153,7 @@ The "output" corresponds to the response returned from your Web API. The Web API
             },
             "errors": [
               {
-                "message" : "Cannot understand what needs to be counted"
+                "message" : "'phraseList' should not be null or empty"
               }
             ],
             "warnings": null
@@ -162,7 +161,7 @@ The "output" corresponds to the response returned from your Web API. The Web API
         {
             "recordId": "2",
             "data": {
-                "count": 2
+                "hitPositions": [6, 16]
             },
             "errors": null,
             "warnings": null
@@ -170,7 +169,7 @@ The "output" corresponds to the response returned from your Web API. The Web API
         {
             "recordId": "0",
             "data": {
-                "count": 6
+                "hitPositions": [0, 23]
             },
             "errors": null,
             "warnings": null
@@ -178,10 +177,12 @@ The "output" corresponds to the response returned from your Web API. The Web API
         {
             "recordId": "1",
             "data": {
-                "count": 11
+                "hitPositions": []
             },
             "errors": null,
-            "warnings": null
+            "warnings": {
+                "message": "No occurrences of 'Hi' were found in the input text"
+            }
         },
     ]
 }
@@ -199,5 +200,5 @@ For cases when the Web API is unavailable or returns a HTTP error, a friendly er
 ## See also
 
 + [How to define a skillset](cognitive-search-defining-skillset.md)
-+ [Add custom skill to cognitive search](cognitive-search-custom-skill-interface.md)
-+ [Example: Creating a custom skill for cognitive search](cognitive-search-create-custom-skill-example.md)
++ [Add custom skill to an AI enrichment pipeline](cognitive-search-custom-skill-interface.md)
++ [Example: Creating a custom skill for AI enrichment](cognitive-search-create-custom-skill-example.md)

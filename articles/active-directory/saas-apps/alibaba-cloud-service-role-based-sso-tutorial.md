@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Alibaba Cloud Service (Role-based SSO) | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Alibaba Cloud Service (Role-based SSO).
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 3667841e-acfc-4490-acf5-80d9ca3e71e8
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/13/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Alibaba Cloud Service (Role-based SSO)
@@ -164,7 +157,7 @@ the **Note** field, click **Upload** to upload the federation metadata file you 
 7. Associate the Alibaba Cloud RAM role (AADrole) with the Azure AD user (u2):
 To associate the RAM role with the Azure AD user, you must create a role in Azure AD by following these steps:
 
-	a. Sign on to the [Azure AD Graph Explorer](https://developer.microsoft.com/graph/graph-explorer?spm=a2c63.p38356.879954.9.7d904e167h6Yg9).
+	a. Sign on to the [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
 
 	b. Click **modify permissions** to obtain required permissions for creating a role.
 

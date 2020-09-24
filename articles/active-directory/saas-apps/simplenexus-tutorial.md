@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with SimpleNexus | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and SimpleNexus.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 89821a05-88e2-4579-b144-0123b2b9cb95
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with SimpleNexus
 
@@ -184,7 +178,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 In order to enable Azure AD users to log in to SimpleNexus, they must be provisioned into SimpleNexus. In the case of SimpleNexus, provisioning is a manual task performed by the tenant administrator.
 
 > [!NOTE]
-> You can use any other SimpleNexus user account creation tools or APIs provided by SimpleNexus to provision AAD user accounts.
+> You can use any other SimpleNexus user account creation tools or APIs provided by SimpleNexus to provision Azure AD user accounts.
 
 ### Test single sign-on
 

@@ -1,17 +1,12 @@
 ---
 title: Azure Monitor service limits | Microsoft Docs
 description: Lists limits in different areas of Azure Monitor.
-author: bwren
-manager: carmonm
-editor: tysonn
-services: azure-monitor
-documentationcenter: azure-monitor
-ms.service: azure-monitor
+ms.subservice: 
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 06/10/2019
+author: bwren
 ms.author: bwren
+ms.date: 06/10/2019
+
 ---
 
 # Azure Monitor service limits

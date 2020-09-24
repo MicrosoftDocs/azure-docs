@@ -1,11 +1,8 @@
 ---
-title: Configure your environment for a Blueprint Operator
-description: Learn how to configure your Azure environment for use with the Blueprint Operator built-in role-based access control (RBAC) role.
-author: DCtheGeek
-ms.author: dacoulte
-ms.date: 08/26/2019
-ms.topic: conceptual
-ms.service: blueprints
+title: Set up your environment for Blueprint Operator
+description: Learn how to configure your Azure environment for use with the Blueprint Operator Azure built-in role.
+ms.date: 08/27/2020
+ms.topic: how-to
 ---
 # Configure your environment for a Blueprint Operator
 
@@ -27,7 +24,8 @@ level in the management group hierarchy that encompasses all of the management g
 subscriptions the operations team should have blueprint assignment access to. It's recommended to
 follow the principle of least privilege when granting these permissions.
 
-1. (Recommended) [Create a security group and add members](../../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)
+1. (Recommended)
+   [Create a security group and add members](../../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)
 
 1. [Add a role assignment](../../../role-based-access-control/role-assignments-portal.md#add-a-role-assignment)
    of **Blueprint Operator** to the account or security group
@@ -48,8 +46,9 @@ of permissions.
    of **Managed Identity Operator** to the account or security group. Scope the role assignment to
    the new user-assigned managed identity.
 
-1. As the **Blueprint Operator**, [assign a blueprint](../create-blueprint-portal.md#assign-a-blueprint)
-   that uses the new user-assigned managed identity.
+1. As the **Blueprint Operator**,
+   [assign a blueprint](../create-blueprint-portal.md#assign-a-blueprint) that uses the new
+   user-assigned managed identity.
 
 ## Next steps
 
@@ -57,4 +56,5 @@ of permissions.
 - Understand how to use [static and dynamic parameters](../concepts/parameters.md).
 - Learn to customize the [blueprint sequencing order](../concepts/sequencing-order.md).
 - Find out how to make use of [blueprint resource locking](../concepts/resource-locking.md).
-- Resolve issues during the assignment of a blueprint with [general troubleshooting](../troubleshoot/general.md).
+- Resolve issues during the assignment of a blueprint with
+  [general troubleshooting](../troubleshoot/general.md).

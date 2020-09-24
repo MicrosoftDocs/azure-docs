@@ -2,21 +2,14 @@
 title: 'Tutorial: Configure Netsuite OneWorld for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Netsuite OneWorld.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-
-ms.assetid: 8a6d3994-ee33-4a6f-b0a2-9d0389467f16
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Configuring Netsuite for automatic user provisioning
 
@@ -63,7 +56,7 @@ The objective of this section is to outline how to enable user provisioning of A
 
 1. Set the **Provisioning Mode** to **Automatic**. 
 
-    ![provisioning](./media/netsuite-provisioning-tutorial/provisioning.png)
+    ![Screenshot shows the Netsuite Provisioning page, with Provisioning Mode set to Automatic and other values you can set.](./media/netsuite-provisioning-tutorial/provisioning.png)
 
 1. Under the **Admin Credentials** section, provide the following configuration settings:
    
@@ -87,7 +80,7 @@ The objective of this section is to outline how to enable user provisioning of A
 
 It starts the initial synchronization of any users and/or groups assigned to Netsuite in the Users and Groups section. Note that the initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity logs, which describe all actions performed by the provisioning service on your Netsuite app.
 
-For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md).
+For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## Additional resources
 

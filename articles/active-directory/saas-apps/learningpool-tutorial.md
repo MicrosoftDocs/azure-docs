@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Learningpool Act | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Learningpool Act.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 51e8695f-31e1-4d09-8eb3-13241999d99f
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Learningpool Act
 
@@ -106,11 +100,10 @@ To configure Azure AD single sign-on with Learningpool Act, perform the followin
 
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
 	
-	| |
-	|--|
-	| `https://<subdomain>.Learningpool.com/shibboleth` |
-	| `https://<subdomain>.preview.Learningpool.com/shibboleth` |
-	| | |
+    ```http
+    https://<subdomain>.Learningpool.com/shibboleth
+    https://<subdomain>.preview.Learningpool.com/shibboleth
+    ```
 
 	> [!NOTE]
 	> The Identifier value is not real. Update this value with the actual Identifier. Contact [Learningpool Act Client support team](https://www.learningpool.com/support) to get this value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
@@ -224,7 +217,7 @@ There is no action item for you to configure user provisioning to Learningpool A
 Users need to be created by your [Learningpool Act support team](https://www.Learningpool.com/support).
 
 > [!NOTE]
-> You can use any other Learningpool Act user account creation tools or APIs provided by Learningpool Act to provision AAD user accounts.
+> You can use any other Learningpool Act user account creation tools or APIs provided by Learningpool Act to provision Azure AD user accounts.
 
 ### Test single sign-on
 

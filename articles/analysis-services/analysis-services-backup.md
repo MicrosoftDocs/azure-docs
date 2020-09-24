@@ -1,17 +1,17 @@
 ---
 title: Azure Analysis Services database backup and restore | Microsoft Docs
-description: Describes how to backup and restore an Azure Analysis Services database.
+description: This article describes how to backup and restore model metadata and data from an Azure Analysis Services database.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 07/13/2020
 ms.author: owend
 ms.reviewer: minewiskan
+ms.custom: references_regions 
 
 ---
 
-# Backup and restore
+# Analysis Services database backup and restore
 
 Backing up tabular model databases in Azure Analysis Services is much the same as for on-premises Analysis Services. The primary difference is where you store your backup files. Backup files must be saved to a container in an [Azure storage account](../storage/common/storage-create-storage-account.md). You can use a storage account and container you already have, or they can be created when configuring storage settings for your server.
 
@@ -19,6 +19,9 @@ Backing up tabular model databases in Azure Analysis Services is much the same a
 > Creating a storage account can result in a new billable service. To learn more, see [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
 > 
 > 
+
+> [!NOTE]
+> If the storage account is in a different region, configure storage account firewall settings to allow access from **Selected networks**. In Firewall **Address range**, specify the IP address range for the region the Analysis Services server is in. Configuring storage account firewall settings to allow access from All networks is supported, however choosing Selected networks and specifying an IP address range is preferred. To learn more, see [Network connectivity FAQ](analysis-services-network-faq.md#backup-and-restore).
 
 Backups are saved with an .abf extension. For in-memory tabular models, both model data and metadata are stored. For DirectQuery tabular models, only model metadata is stored. Backups can be compressed and encrypted, depending on the options you choose.
 
@@ -101,5 +104,5 @@ Use [Restore-ASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/
 ## Related information
 
 [Azure storage accounts](../storage/common/storage-create-storage-account.md)  
-[High availability](analysis-services-bcdr.md)     
-[Manage Azure Analysis Services](analysis-services-manage.md)
+[High availability](analysis-services-bcdr.md)      
+[Analysis Services network connectivity FAQ](analysis-services-network-faq.md)

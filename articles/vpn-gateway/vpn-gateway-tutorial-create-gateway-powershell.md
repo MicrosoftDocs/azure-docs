@@ -1,14 +1,13 @@
 ---
-title: Create and Manage Azure VPN gateway using PowerShell | Microsoft Docs
-description: Tutorial - Create and Manage VPN gateway with the Azure PowerShell module
+title: 'Tutorial - Create and manage a gateway using Azure VPN Gateway'
+description: Follow this tutorial to learn how to create, deploy, and manage an Azure VPN Gateway by using PowerShell.
 services: vpn-gateway
 author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: tutorial
-ms.date: 07/23/2019
+ms.date: 09/02/2020
 ms.author: cherylmc
-ms.custom: mvc
 #Customer intent: I want to create a VPN gateway for my virtual network so that I can connect to my VNet and communicate with resources remotely.
 ---
 
@@ -26,9 +25,7 @@ The following diagram shows the virtual network and the VPN gateway created as p
 
 ![VNet and VPN gateway](./media/vpn-gateway-tutorial-create-gateway-powershell/vnet1-gateway.png)
 
-### Azure Cloud Shell and Azure PowerShell
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+### Working with Azure Cloud Shell and Azure PowerShell
 
 [!INCLUDE [working with cloud shell](../../includes/vpn-gateway-cloud-shell-powershell.md)]
 
@@ -125,7 +122,7 @@ New-AzVirtualNetworkGateway -Name $Gw1 -ResourceGroupName $RG1 `
 Key parameter values:
 * GatewayType: Use **Vpn** for site-to-site and VNet-to-VNet connections
 * VpnType: Use **RouteBased** to interact with wider range of VPN devices and more routing features
-* GatewaySku: **VpnGw1** is the default; change it to VpnGw2 or VpnGw3 if you need higher throughputs or more connections. For more information, see [Gateway SKUs](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
+* GatewaySku: **VpnGw1** is the default; change it to another VpnGw SKU if you need higher throughputs or more connections. For more information, see [Gateway SKUs](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
 If you are using the TryIt, your session may time out. That's OK. The gateway will still create.
 

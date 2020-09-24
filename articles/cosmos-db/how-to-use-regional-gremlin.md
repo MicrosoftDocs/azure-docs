@@ -1,12 +1,13 @@
 ---
 title: Regional endpoints for Azure Cosmos DB Graph database
 description: Learn how to connect to nearest Graph database endpoint for your application
-author: olignat
+author: luisbosquez
+ms.author: lbosq
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
-ms.topic: overview
+ms.topic: how-to
 ms.date: 09/09/2019
-ms.author: olignat
+ms.custom: devx-track-csharp
 ---
 
 # Regional endpoints for Azure Cosmos DB Graph account
@@ -38,7 +39,7 @@ Global database account CNAME always points to a valid write region. During serv
 
 The easiest way to get the list of regions for Azure Cosmos DB Graph account is overview blade in Azure portal. It will work for applications that do not change regions often, or have a way to update the list via application configuration.
 
-![Retrieve regions of Cosmos DB Graph account from the portal](./media/how-to-use-regional-gremlin/get-end-point-portal.png )
+:::image type="content" source="./media/how-to-use-regional-gremlin/get-end-point-portal.png " alt-text="Retrieve regions of Cosmos DB Graph account from the portal":::
 
 Example below demonstrates general principles of accessing regional Gremlin endpoint. Application should consider number of regions to send the traffic to and number of corresponding Gremlin clients to instantiate.
 

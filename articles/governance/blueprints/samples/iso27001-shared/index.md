@@ -1,11 +1,8 @@
 ---
-title: Samples - ISO 27001 Shared Services blueprint - Overview
-description: Overview and architecture of the ISO 27001 Shared Services blueprint sample.
-author: DCtheGeek
-ms.author: dacoulte
-ms.date: 03/14/2019
+title: ISO 27001 Shared Services blueprint sample overview
+description: Overview and architecture of the ISO 27001 Shared Services blueprint sample. This blueprint sample helps customers assess specific ISO 27001 controls.
+ms.date: 07/13/2020
 ms.topic: sample
-ms.service: blueprints
 ---
 # Overview of the ISO 27001 Shared Services blueprint sample
 
@@ -25,13 +22,13 @@ VDC is a proven set of reference architectures, automation tooling, and engageme
 Microsoft with its largest enterprise customers. The Shared Services blueprint sample is based on a
 fully native Azure VDC environment shown below.
 
-![ISO 27001 Shared Services blueprint sample design](../../media/sample-iso27001-shared/iso27001-shared-services-blueprint-sample-design.png)
+:::image type="content" source="../../media/sample-iso27001-shared/iso27001-shared-services-blueprint-sample-design.png" alt-text="ISO 27001 Shared Services blueprint sample design" border="false":::
 
 This environment is composed of several Azure services used to provide a secure, fully monitored,
 enterprise-ready shared services infrastructure based on ISO 27001 standards. This environment is
 composed of:
 
-- [Role-based access control](../../../../role-based-access-control/overview.md) (RBAC) roles used
+- [Azure roles](../../../../role-based-access-control/overview.md) used
   for segregation of duties from a control plane perspective. Three roles are defined before
   deployment of any infrastructure:
   - NetOps role has the rights to manage the network environment, including firewall settings, NSG
@@ -54,7 +51,7 @@ composed of:
     connection (not deployed by the blueprint)
   - Use of [Azure Net Watcher](../../../../network-watcher/network-watcher-monitoring-overview.md)
     and standard DDoS protection
-- An [Azure Key Vault](../../../../key-vault/key-vault-overview.md) instance used to host secrets used
+- An [Azure Key Vault](../../../../key-vault/general/overview.md) instance used to host secrets used
   for the VMs deployed in the shared services environment
 
 All these elements abide to the proven practices published in the [Azure Architecture Center - Reference Architectures](/azure/architecture/reference-architectures/).
@@ -75,7 +72,7 @@ sample:
 > [ISO 27001 Shared Services blueprint - Control mapping](./control-mapping.md)
 > [ISO 27001 Shared Services blueprint - Deploy steps](./deploy.md)
 
-Addition articles about blueprints and how to use them:
+Additional articles about blueprints and how to use them:
 
 - Learn about the [blueprint lifecycle](../../concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](../../concepts/parameters.md).

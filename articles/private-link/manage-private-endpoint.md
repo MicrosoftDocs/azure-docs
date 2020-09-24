@@ -2,11 +2,11 @@
 title: Manage a Private Endpoint connection in Azure
 description: Learn how to manage private endpoint connections in Azure
 services: private-link
-author: KumudD
+author: malopMSFT
 ms.service: private-link
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/16/2019
-ms.author: kumud
+ms.author: allensu
 
 ---
 # Manage a Private Endpoint connection

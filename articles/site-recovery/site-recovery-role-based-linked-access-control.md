@@ -1,5 +1,5 @@
 ---
-title: Manage Azure Site Recovery access with role-based access control (RBAC) | Microsoft Docs
+title: Manage Azure role-based access control in Azure Site Recovery
 description: This article describes how to apply role-based access control (RBAC) to manage Azure Site Recovery access.
 ms.service: site-recovery
 ms.date: 04/08/2019
@@ -10,9 +10,9 @@ ms.author: mayg
 ---
 # Manage Site Recovery access with role-based access control (RBAC)
 
-Azure Role-Based Access Control (RBAC) enables fine-grained access management for Azure. Using RBAC, you can segregate responsibilities within your team and grant only specific access permissions to users as needed to perform specific jobs.
+Azure role-based access control (Azure RBAC) enables fine-grained access management for Azure. Using RBAC, you can segregate responsibilities within your team and grant only specific access permissions to users as needed to perform specific jobs.
 
-Azure Site Recovery provides 3 built-in roles to control Site Recovery management operations. Learn more on [Azure RBAC built-in roles](../role-based-access-control/built-in-roles.md)
+Azure Site Recovery provides 3 built-in roles to control Site Recovery management operations. Learn more on [Azure built-in roles](../role-based-access-control/built-in-roles.md)
 
 * [Site Recovery Contributor](../role-based-access-control/built-in-roles.md#site-recovery-contributor) - This role has all permissions required to manage Azure Site Recovery operations in a Recovery Services vault. A user with this role, however, can't create or delete a Recovery Services vault or assign access rights to other users. This role is best suited for disaster recovery administrators who can enable and manage disaster recovery for applications or entire organizations, as the case may be.
 * [Site Recovery Operator](../role-based-access-control/built-in-roles.md#site-recovery-operator) - This role has permissions to execute and manage Failover and Failback operations. A user with this role can't enable or disable replication, create or delete vaults, register new infrastructure or assign access rights to other users. This role is best suited for a disaster recovery operator who can failover virtual machines or applications when instructed by application owners and IT administrators in an actual or simulated disaster situation such as a DR drill. Post resolution of the disaster, the DR operator can re-protect and failback the virtual machines.
@@ -32,6 +32,9 @@ A user needs the following permissions to complete replication of a new virtual 
 
 > [!IMPORTANT]
 >Ensure that relevant permissions are added per the deployment model (Resource Manager/ Classic) used for resource deployment.
+
+> [!NOTE]
+> If you are enabling replication for an Azure VM and want to allow Site Recovery to manage updates, then while enabling replication you may also want to create a new Automation account in which case you would need permission to create an automation account in the same subscription as the vault as well.
 
 | **Resource Type** | **Deployment Model** | **Permission** |
 | --- | --- | --- |
@@ -64,7 +67,7 @@ A user needs the following permissions to complete replication of a new virtual 
 Consider using the 'Virtual Machine Contributor' and 'Classic Virtual Machine Contributor' [built-in roles](../role-based-access-control/built-in-roles.md) for Resource Manager and Classic deployment models respectively.
 
 ## Next steps
-* [Role-Based Access Control](../role-based-access-control/role-assignments-portal.md): Get started with RBAC in the Azure portal.
+* [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.md): Get started with RBAC in the Azure portal.
 * Learn how to manage access with:
   * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
   * [Azure CLI](../role-based-access-control/role-assignments-cli.md)

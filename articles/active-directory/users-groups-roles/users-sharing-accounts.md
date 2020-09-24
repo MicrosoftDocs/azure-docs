@@ -4,16 +4,16 @@ description: Describes how Azure Active Directory enables organizations to secur
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
-ms.date: 08/01/2019
+ms.topic: how-to
+ms.date: 09/02/2020
 ms.author: curtand
-ms.reviewer: jeffsta
+ms.reviewer: krbain
 ms.custom: it-pro
 
 ms.collection: M365-identity-device-management
@@ -25,7 +25,7 @@ ms.collection: M365-identity-device-management
 Sometimes organizations need to use a single username and password for multiple people, which typically happens in two cases:
 
 * When accessing applications that require a unique sign in and password for each user, whether on-premises apps or consumer cloud services (for example, corporate social media accounts).
-* When creating multi-user environments. You might have a single, local account that has elevated privileges and is used to do core setup, administration, and recovery activities. For example, the local "global administrator" account for Office 365 or the root account in Salesforce.
+* When creating multi-user environments. You might have a single, local account that has elevated privileges and is used to do core setup, administration, and recovery activities. For example, the local "global administrator" account for Microsoft 365 or the root account in Salesforce.
 
 Traditionally, these accounts are shared by distributing the credentials (username and password) to the right individuals or storing them in a shared location where multiple trusted agents can access them.
 
@@ -47,31 +47,31 @@ Users sign in once with their organizational account. This account is the same o
 
 Shared accounts not only increase oversight and improve usability, they also enhance your security. Users with permissions to use the credentials don't see the shared password, but rather get permissions to use the password as part of an orchestrated authentication flow. Further, some password SSO applications give you the option of using Azure AD to periodically rollover (update) passwords. The system uses large, complex passwords, which increases account security. The administrator can easily grant or revoke access to an application, knows who has access to the account, and who has accessed it in the past.
 
-Azure AD supports shared accounts for any Enterprise Mobility Suite (EMS) or Azure AD Premium license plan, across all types of password single sign-on applications. You can share accounts for any of thousands of pre-integrated applications in the application gallery and can add your own password-authenticating application with [custom SSO apps](../manage-apps/configure-single-sign-on-portal.md).
+Azure AD supports shared accounts for any Enterprise Mobility Suite (EMS) or Azure AD Premium license plan, across all types of password single sign-on applications. You can share accounts for any of thousands of pre-integrated applications in the application gallery and can add your own password-authenticating application with [custom SSO apps](../manage-apps/what-is-single-sign-on.md).
 
 Azure AD features that enable account sharing include:
 
-* [Password single sign-on](../manage-apps/what-is-single-sign-on.md#password-based-sso)
+* [Password single sign-on](../manage-apps/sso-options.md#password-based-sso)
 * Password single sign-on agent
 * [Group assignment](groups-self-service-management.md)
 * Custom Password apps
-* [App usage dashboard/reports](../active-directory-passwords-get-insights.md)
+* [App usage dashboard/reports](../authentication/howto-sspr-reporting.md)
 * End-user access portals
 * [App proxy](../manage-apps/application-proxy.md)
-* [Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/all/)
+* [Active Directory Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActiveDirectory)
 
 ## Sharing an account
 
 To use Azure AD to share an account, you need to:
 
-* Add an application [app gallery](https://azure.microsoft.com/marketplace/active-directory/) or [custom application](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-now-in-preview/)
+* Add an application [app gallery](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActiveDirectory) or [custom application](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-now-in-preview/)
 * Configure the application for password Single Sign-On (SSO)
 * Use [group-based assignment](groups-saasapps.md) and select the option to enter a shared credential
 
-You can also make your shared account more secure with Multi-Factor Authentication (MFA) (learn more about [securing applications with Azure AD](../authentication/concept-mfa-whichversion.md)) and you can delegate the ability to manage who has access to the application using [Azure AD self-service](groups-self-service-management.md) group management.
+You can also make your shared account more secure with Multi-Factor Authentication (MFA) (learn more about [securing applications with Azure AD](../authentication/concept-mfa-howitworks.md)) and you can delegate the ability to manage who has access to the application using [Azure AD self-service](groups-self-service-management.md) group management.
 
 ## Next steps
 
 * [Application Management in Azure Active Directory](../manage-apps/what-is-application-management.md)
-* [Protecting apps with Conditional Access](../active-directory-conditional-access-azure-portal.md)
+* [Protecting apps with Conditional Access](../conditional-access/overview.md)
 * [Self-service group management/SSAA](groups-self-service-management.md)

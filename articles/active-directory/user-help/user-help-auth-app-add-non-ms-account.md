@@ -1,21 +1,20 @@
 ---
-title: Add your non-Microsoft accounts to the Microsoft Authenticator app - Azure Active Directory | Microsoft Docs
-description: How to add your non-Microsoft accounts, such as for Google, Facebook, or GitHub to the Microsoft Authenticator app for two-factor verification.
+title: Add non-Microsoft accounts to the Microsoft Authenticator app - Azure AD
+description: Add non-Microsoft accounts, such as for Google or Facebook to the Microsoft Authenticator app to verify your identity while using two-factor verification.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 01/24/2019
-ms.author: lizross
+ms.author: curtand
 ms.reviewer: olhaun
-ms.collection: M365-identity-device-management
 ---
 
-# Add your non-Microsoft accounts
+# Add non-Microsoft accounts to the Microsoft Authenticator app
 
 Add your non-Microsoft accounts, such as for Google, Facebook, or GitHub to the Microsoft Authenticator app for two-factor verification. The Microsoft Authenticator app works with any app that uses two-factor verification and any account that supports the time-based one-time password (TOTP) standards.
 
@@ -47,7 +46,7 @@ Add your Google account by turning on two-factor verification and then adding th
 
 ### Add your Google account to the app
 
-1. On the Google page on your computer, go to the **Set up alternative second step** section, choose **Set up** from the **Authenticator app** section.
+1. On the Google account security page on your computer (https://myaccount.google.com/security), go to the **Add more second steps to verify it's you** section, choose **Set up** from the **Authenticator app** section.
 
 2. On the **Get codes from the Authenticator app** page, select either **Android** or **iPhone** based on your phone type, and then select **Next**.
 

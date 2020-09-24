@@ -1,22 +1,14 @@
 ---
-title: Azure CLI Samples - Create a virtual machine scale set | Microsoft Docs
-description: Azure CLI Samples
-services: virtual-machine-scale-sets
-documentationcenter: ''
-author: cynthn
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid:
-ms.service: virtual-machine-scale-sets
-ms.devlang: azurecli
+title: Azure CLI Samples - Create a virtual machine scale set
+description: This script creates an Azure virtual machine scale set with an Ubuntu operating system and related networking resources including a load balancer.
+author: mimckitt
+ms.author: mimckitt
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 03/27/2018
-ms.author: cynthn
-ms.custom: mvc
+ms.service: virtual-machine-scale-sets
+ms.subservice: cli
+ms.date: 06/25/2020
+ms.reviewer: jushiman
+ms.custom: mimckitt, devx-track-azurecli
 
 ---
 
@@ -47,6 +39,4 @@ This script uses the following commands to create a resource group, virtual mach
 | [az group delete](/cli/azure/ad/group) | Deletes a resource group including all nested resources. |
 
 ## Next steps
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
-
-Additional virtual machine scale set Azure CLI script samples can be found in the [Azure virtual machine scale set documentation](../cli-samples.md).
+For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure/overview).

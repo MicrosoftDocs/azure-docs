@@ -1,10 +1,10 @@
 ---
-title: Introduction to Azure Security | Microsoft Docs
-description: Learn about Azure Security, its services, and how it works.
+title: Introduction to Azure security | Microsoft Docs
+description: Introduce yourself to Azure Security, its various services, and how it works by reading this overview.
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: barbkess
+manager: rkarlin
 editor: TomSh
 
 ms.assetid:
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 10/18/2019
 ms.author: TomSh
 
 ---
 
-# Introduction to Azure Security
+# Introduction to Azure security
 ## Overview
 We know that security is job one in the cloud and how important it is that you find accurate and timely information about Azure security. One of the best reasons to use Azure for your applications and services is to take advantage of its wide array of security tools and capabilities. These tools and capabilities help make it possible to create secure solutions on the secure Azure platform. Microsoft Azure provides confidentiality, integrity, and availability of customer data, while also enabling transparent accountability.
 
-To help you better understand the collection of security controls implemented within Microsoft Azure from both the customer's and Microsoft operations' perspectives, this white paper, "Introduction to Azure Security", is written to provide a comprehensive look at the security available with Microsoft Azure.
+This article provides a comprehensive look at the security available with Azure.
 
-### Azure Platform
+### Azure platform
 Azure is a public cloud service platform that supports a broad selection of operating systems, programming languages, frameworks, tools, databases, and devices. It can run Linux containers with Docker integration; build apps with JavaScript, Python, .NET, PHP, Java, and Node.js; build back-ends for iOS, Android, and Windows devices.
 
 Azure public cloud services support the same technologies millions of developers and IT professionals already rely on and trust. When you build on, or migrate IT assets to, a public cloud service provider you are relying on that organization’s abilities to protect your applications and data with the services and the controls they provide to manage the security of your cloud-based assets.
@@ -37,37 +37,25 @@ In addition, Azure provides you with a wide array of configurable security optio
 > [!Note]
 > The primary focus of this document is on customer-facing controls that you can use to customize and increase security for your applications and services.
 >
-> We do provide some overview information, but for detailed information on how Microsoft secures the Azure platform itself, see information provided in the [Microsoft Trust Center](https://www.microsoft.com/TrustCenter/default.aspx).
+> For information on how Microsoft secures the Azure platform itself, see [Azure infrastructure security](infrastructure.md).
 
-### Abstract
-Initially, public cloud migrations were driven by cost savings and agility to innovate. Security was considered a major concern for some time, and even a show stopper, for public cloud migration. However, public cloud security has transitioned from a major concern to one of the drivers for cloud migration. The rationale behind this is the superior ability of large public cloud service providers to protect applications and the data of cloud-based assets.
+## Summary of Azure security capabilities
 
-Azure’s infrastructure is designed from the facility to applications for hosting millions of customers simultaneously, and it provides a trustworthy foundation upon which businesses can meet their security needs. In addition, Azure provides you with a wide array of configurable security options and the ability to control them so that you can customize security to meet the unique requirements of your deployments to meet your IT control policies and adhere to external regulations.
+### Features to secure the Azure platform
+The following features are capabilities you can review to provide the assurance that the Azure Platform is managed in a secure manner. Links have been provided for further drill-down on how Microsoft addresses customer trust questions in four areas: secure platform, privacy & controls, compliance, and transparency.
 
-This paper outlines Microsoft’s approach to security within the Microsoft Azure cloud platform:
-* Security features implemented by Microsoft to secure the Azure infrastructure, customer data, and applications.
-* Azure services and security features available to you to manage the Security of the Services and your data within your Azure subscriptions.
-
-## Summary Azure Security Capabilities
-The table following provide a brief description of the security features implemented by Microsoft to secure the Azure infrastructure, customer data, and secure applications.
-### Security Features Implemented to Secure the Azure Platform:
-The features listed following are capabilities you can review to provide the assurance that the Azure Platform is managed in a secure manner. Links have been provided for further drill-down on how Microsoft addresses customer trust questions in four areas: Secure Platform, Privacy & Controls, Compliance, and Transparency.
-
-
-| [Secure Platform](https://www.microsoft.com/en-us/trustcenter/Security/default.aspx)  | [Privacy & Controls](https://www.microsoft.com/en-us/trustcenter/Privacy/default.aspx)  |[Compliance](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx)   | [Transparency](https://www.microsoft.com/en-us/trustcenter/Transparency/default.aspx) |
+| [Secure Platform](https://www.microsoft.com/trustcenter/Security/default.aspx)  | [Privacy & Controls](https://www.microsoft.com/trustcenter/Privacy/default.aspx)  |[Compliance](https://www.microsoft.com/trustcenter/Compliance/default.aspx)   | [Transparency](https://www.microsoft.com/trustcenter/Transparency/default.aspx) |
 | :-- | :-- | :-- | :-- |
-| [Security Development Cycle](https://www.microsoft.com/en-us/sdl/), Internal audits | [Manage your data all the time](https://www.microsoft.com/en-us/trustcenter/Privacy/You-own-your-data) | [Trust Center](https://www.microsoft.com/en-us/trustcenter/default.aspx) |[How Microsoft secures customer data in Azure services](https://www.microsoft.com/en-us/trustcenter/Transparency/default.aspx) |
-| [Mandatory Security training, background checks](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx) |  [Control on data location](https://www.microsoft.com/en-us/trustcenter/Privacy/Where-your-data-is-located) |  [Common Controls Hub](https://www.microsoft.com/en-us/trustcenter/Common-Controls-Hub) |[How Microsoft manage data location in Azure services](https://azuredatacentermap.azurewebsites.net/)|
-| [Penetration testing](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx), [intrusion detection, DDoS](https://www.microsoft.com/en-us/trustcenter/Security/ThreatManagement), [Audits & logging](https://www.microsoft.com/en-us/trustcenter/Security/AuditingAndLogging) | [Provide data access on your terms](https://www.microsoft.com/en-us/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms) |  [The Cloud Services Due Diligence Checklist](https://www.microsoft.com/en-us/trustcenter/Compliance/Due-Diligence-Checklist) |[Who in Microsoft can access your data on what terms](https://www.microsoft.com/en-us/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms)|
-| [State of the art data center](https://www.microsoft.com/en-us/cloud-platform/global-datacenters), physical security, [Secure Network](network-overview.md) | [Responding to law enforcement](https://www.microsoft.com/en-us/trustcenter/Privacy/Responding-to-govt-agency-requests-for-customer-data) |  [Compliance by service, location & Industry](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx) |[How Microsoft secures customer data in Azure services](https://www.microsoft.com/en-us/trustcenter/Transparency/default.aspx)|
-|  [Security Incident response](https://aka.ms/SecurityResponsepaper), [Shared Responsibility](https://aka.ms/sharedresponsibility) |[Stringent privacy standards](https://www.microsoft.com/en-us/TrustCenter/Privacy/We-set-and-adhere-to-stringent-standards) |  | [Review certification for Azure services, Transparency hub](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx)|
+| [Security Development Cycle](https://www.microsoft.com/sdl/), Internal audits | [Manage your data all the time](https://www.microsoft.com/trustcenter/Privacy/You-own-your-data) | [Trust Center](https://www.microsoft.com/trustcenter/default.aspx) |[How Microsoft secures customer data in Azure services](https://www.microsoft.com/trustcenter/Transparency/default.aspx) |
+| [Mandatory Security training, background checks](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx) |  [Control on data location](https://www.microsoft.com/trustcenter/Privacy/Where-your-data-is-located) |  [Common Controls Hub](https://www.microsoft.com/trustcenter/Common-Controls-Hub) |[How Microsoft manage data location in Azure services](https://azuredatacentermap.azurewebsites.net/)|
+| [Penetration testing](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx), [intrusion detection, DDoS](https://www.microsoft.com/trustcenter/Security/ThreatManagement), [Audits & logging](https://www.microsoft.com/trustcenter/Security/AuditingAndLogging) | [Provide data access on your terms](https://www.microsoft.com/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms) |  [The Cloud Services Due Diligence Checklist](https://www.microsoft.com/trustcenter/Compliance/Due-Diligence-Checklist) |[Who in Microsoft can access your data on what terms](https://www.microsoft.com/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms)|
+| [State of the art data center](https://www.microsoft.com/cloud-platform/global-datacenters), physical security, [Secure Network](network-overview.md) | [Responding to law enforcement](https://www.microsoft.com/trustcenter/Privacy/Responding-to-govt-agency-requests-for-customer-data) |  [Compliance by service, location & Industry](https://www.microsoft.com/trustcenter/Compliance/default.aspx) |[How Microsoft secures customer data in Azure services](https://www.microsoft.com/trustcenter/Transparency/default.aspx)|
+|  [Security Incident response](https://aka.ms/SecurityResponsepaper), [Shared Responsibility](https://aka.ms/sharedresponsibility) |[Stringent privacy standards](https://www.microsoft.com/TrustCenter/Privacy/We-set-and-adhere-to-stringent-standards) |  | [Review certification for Azure services, Transparency hub](https://www.microsoft.com/trustcenter/Compliance/default.aspx)|
 
-
-
-### Security Features Offered by Azure to Secure Data and Application
+### Features to secure data and application
 Depending on the cloud service model, there is variable responsibility for who is responsible for managing the security of the application or service. There are capabilities available in the Azure Platform to assist you in meeting these responsibilities through built-in features, and through partner solutions that can be deployed into an Azure subscription.
 
-The built-in capabilities are organized in six (6) functional areas: Operations, Applications, Storage, Networking, Compute, and Identity. Additional detail on the features and capabilities available in the Azure Platform in these six (6) areas are provided through summary information.
+The built-in capabilities are organized in six functional areas: Operations, Applications, Storage, Networking, Compute, and Identity. Additional detail on the features and capabilities available in the Azure Platform in these six areas are provided through summary information.
 
 ## Operations
 This section provides additional information regarding key features in security operations and summary information about these capabilities.
@@ -78,7 +66,7 @@ The [Security and Audit solution](../../security-center/security-center-intro.md
 In addition, you can configure Security & Compliance to [automatically carry out specific actions](https://blogs.technet.microsoft.com/robdavies/2016/04/20/simple-look-at-oms-alert-remediation-with-runbooks-part-1/) when a specific event is detected.
 
 ### Azure Resource Manager
-[Azure Resource Manager](../../azure-resource-manager/resource-manager-deployment-model.md) enables you to work with the resources in your solution as a group. You can deploy, update, or delete all the resources for your solution in a single, coordinated operation. You use an [Azure Resource Manager template](https://blogs.technet.microsoft.com/canitpro/2015/06/29/devops-basics-infrastructure-as-code-arm-templates/) for deployment and that template can work for different environments such as testing, staging, and production. Resource Manager provides security, auditing, and tagging features to help you manage your resources after deployment.
+[Azure Resource Manager](../../azure-resource-manager/management/deployment-models.md) enables you to work with the resources in your solution as a group. You can deploy, update, or delete all the resources for your solution in a single, coordinated operation. You use an [Azure Resource Manager template](https://blogs.technet.microsoft.com/canitpro/2015/06/29/devops-basics-infrastructure-as-code-arm-templates/) for deployment and that template can work for different environments such as testing, staging, and production. Resource Manager provides security, auditing, and tagging features to help you manage your resources after deployment.
 
 Azure Resource Manager template-based deployments help improve the security of solutions deployed in Azure because standard security control settings and can be integrated into standardized template-based deployments. This reduces the risk of security configuration errors that might take place during manual deployments.
 
@@ -90,7 +78,7 @@ Application Insights creates charts and tables that show you, for example, what 
 If there are crashes, failures or performance issues, you can search through the telemetry data in detail to diagnose the cause. And the service sends you emails if there are any changes in the availability and performance of your app. Application Insight thus becomes a valuable security tool because it helps with the availability in the confidentiality, integrity, and availability security triad.
 
 ### Azure Monitor
-[Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) offers visualization, query, routing, alerting, auto scale, and automation on data both from the Azure infrastructure ([Activity Log](../../azure-monitor/platform/activity-logs-overview.md)) and each individual Azure resource ([Diagnostic Logs](../../azure-monitor/platform/resource-logs-overview.md)). You can use Azure Monitor to alert you on security-related events that are generated in Azure logs.
+[Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) offers visualization, query, routing, alerting, auto scale, and automation on data both from the Azure infrastructure ([Activity Log](../../azure-monitor/platform/platform-logs-overview.md)) and each individual Azure resource ([Diagnostic Logs](../../azure-monitor/platform/platform-logs-overview.md)). You can use Azure Monitor to alert you on security-related events that are generated in Azure logs.
 
 ### Azure Monitor logs
 [Azure Monitor logs](https://azure.microsoft.com/documentation/services/log-analytics/) – Provides an IT management solution for both on-premises and third-party cloud-based infrastructure (such as AWS) in addition to Azure resources. Data from Azure Monitor can be routed directly to Azure Monitor logs so you can see metrics and logs for your entire environment in one place.
@@ -101,9 +89,9 @@ Azure Monitor logs can be a useful tool in forensic and other security analysis,
 [Azure Advisor](../../advisor/index.yml) is a personalized cloud consultant that helps you to optimize your Azure deployments. It analyzes your resource configuration and usage telemetry. It then recommends solutions to help improve the [performance](../../advisor/advisor-performance-recommendations.md), [security](../../advisor/advisor-security-recommendations.md), and [high availability](../../advisor/advisor-high-availability-recommendations.md) of your resources while looking for opportunities to [reduce your overall Azure spend](../../advisor/advisor-cost-recommendations.md). Azure Advisor provides security recommendations, which can significantly improve your overall security posture for solutions you deploy in Azure. These recommendations are drawn from security analysis performed by [Azure Security Center.](../../security-center/security-center-intro.md)
 
 ### Azure Security Center
-[Azure Security Center](../../security-center/security-center-intro.md) helps you prevent, detect, and respond to threats with increased visibility into and control over the security of your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
+[Security Center](../../security-center/security-center-intro.md) helps you prevent, detect, and respond to threats with increased visibility into and control over the security of your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
 
-In addition, Azure Security Center helps with security operations by providing you a single dashboard that surfaces alerts and recommendations that can be acted upon immediately. Often, you can remediate issues with a single click within the Azure Security Center console.
+In addition, Security Center helps with security operations by providing you a single dashboard that surfaces alerts and recommendations that can be acted upon immediately. Often, you can remediate issues with a single click within the Security Center console.
 ## Applications
 The section provides additional information regarding key features in application security and summary information about these capabilities.
 
@@ -151,16 +139,16 @@ In Application Diagnostics, you can view events grouped in these ways:
 The section provides additional information regarding key features in Azure storage security and summary information about these capabilities.
 
 ### Role-Based Access Control (RBAC)
-You can secure your storage account with Role-Based Access Control (RBAC). Restricting access based on the [need to know](https://en.wikipedia.org/wiki/Need_to_know) and [least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) security principles is imperative for organizations that want to enforce Security policies for data access. These access rights are granted by assigning the appropriate RBAC role to groups and applications at a certain scope. You can use [built-in RBAC roles](../../role-based-access-control/built-in-roles.md), such as Storage Account Contributor, to assign privileges to users. Access to the storage keys for a storage account using the [Azure Resource Manager](../../storage/common/storage-security-guide.md) model can be controlled through Role-Based Access Control (RBAC).
+You can secure your storage account with Role-Based Access Control (RBAC). Restricting access based on the [need to know](https://en.wikipedia.org/wiki/Need_to_know) and [least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) security principles is imperative for organizations that want to enforce Security policies for data access. These access rights are granted by assigning the appropriate Azure role to groups and applications at a certain scope. You can use [Azure built-in roles](../../role-based-access-control/built-in-roles.md), such as Storage Account Contributor, to assign privileges to users. Access to the storage keys for a storage account using the [Azure Resource Manager](../../storage/blobs/security-recommendations.md) model can be controlled through Role-Based Access Control (RBAC).
 
 ### Shared Access Signature
 A [shared access signature (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md) provides delegated access to resources in your storage account. The SAS means that you can grant a client limited permissions to objects in your storage account for a specified period and with a specified set of permissions. You can grant these limited permissions without having to share your account access keys.
 
 ### Encryption in Transit
 Encryption in transit is a mechanism of protecting data when it is transmitted across networks. With Azure Storage, you can secure data using:
--	[Transport-level encryption](../../storage/common/storage-security-guide.md), such as HTTPS when you transfer data into or out of Azure Storage.
+-	[Transport-level encryption](../../storage/blobs/security-recommendations.md), such as HTTPS when you transfer data into or out of Azure Storage.
 
--	[Wire encryption](../../storage/common/storage-security-guide.md), such as [SMB 3.0 encryption](../../storage/common/storage-security-guide.md) for [Azure File shares](../../storage/files/storage-dotnet-how-to-use-files.md).
+-	[Wire encryption](../../storage/blobs/security-recommendations.md), such as [SMB 3.0 encryption](../../storage/blobs/security-recommendations.md) for [Azure File shares](../../storage/files/storage-dotnet-how-to-use-files.md).
 
 -	Client-side encryption, to encrypt the data before it is transferred into storage and to decrypt the data after it is transferred out of storage.
 
@@ -187,6 +175,7 @@ For many organizations, data encryption at rest is a mandatory step towards data
 [Cross-Origin Resource Sharing (CORS)](https://docs.microsoft.com/rest/api/storageservices/fileservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) is a mechanism that allows domains to give each other permission for accessing each other’s resources. The User Agent sends extra headers to ensure that the JavaScript code loaded from a certain domain is allowed to access resources located at another domain. The latter domain then replies with extra headers allowing or denying the original domain access to its resources.
 
 Azure storage services now support CORS so that once you set the CORS rules for the service, a properly authenticated request made against the service from a different domain is evaluated to determine whether it is allowed according to the rules you have specified.
+
 ## Networking
 The section provides additional information regarding key features in Azure network security and summary information about these capabilities.
 
@@ -209,7 +198,6 @@ Forced tunneling is commonly used to force outbound traffic to the Internet to g
 While Network Security Groups, User-Defined Routes, and forced tunneling provide you a level of security at the network and transport layers of the [OSI model](https://en.wikipedia.org/wiki/OSI_model), there may be times when you want to enable security at higher levels of the stack. You can access these enhanced network security features by using an Azure partner network security appliance solution. You can find the most current Azure partner network security solutions by visiting the [Azure Marketplace](https://azure.microsoft.com/marketplace/) and searching for “security” and “network security.”
 
 ### Azure Virtual Network
-
 An Azure virtual network (VNet) is a representation of your own network in the cloud. It is a logical isolation of the Azure network fabric dedicated to your subscription. You can fully control the IP address blocks, DNS settings, security policies, and route tables within this network. You can segment your VNet into subnets and place Azure IaaS virtual machines (VMs) and/or [Cloud services (PaaS role instances)](../../cloud-services/cloud-services-choose-me.md) on Azure Virtual Networks.
 
 Additionally, you can connect the virtual network to your on-premises network using one of the [connectivity options](../../vpn-gateway/index.yml) available in Azure. In essence, you can expand your network to Azure, with complete control on IP address blocks with the benefit of enterprise scale Azure provides.
@@ -232,7 +220,7 @@ Microsoft Azure [ExpressRoute](../../expressroute/expressroute-introduction.md) 
 
 ![Express Route](./media/overview/azure-security-fig1.png)
 
-With ExpressRoute, you can establish connections to Microsoft cloud services, such as Microsoft Azure, Office 365, and CRM Online. Connectivity can be from an any-to-any (IP VPN) network, a point-to-point Ethernet network, or a virtual cross-connection through a connectivity provider at a co-location facility.
+With ExpressRoute, you can establish connections to Microsoft cloud services, such as Microsoft Azure, Microsoft 365, and CRM Online. Connectivity can be from an any-to-any (IP VPN) network, a point-to-point Ethernet network, or a virtual cross-connection through a connectivity provider at a co-location facility.
 
 ExpressRoute connections do not go over the public Internet and thus can be considered more secure than VPN-based solutions. This allows ExpressRoute connections to offer more reliability, faster speeds, lower latencies, and higher security than typical connections over the Internet.
 
@@ -242,11 +230,11 @@ Microsoft [Azure Application Gateway](../../application-gateway/overview.md) pro
 
 ![Application Gateway](./media/overview/azure-security-fig2.png)
 
-It allows you to optimize web farm productivity by offloading CPU intensive SSL termination to the Application Gateway (also known as “SSL offload” or “SSL bridging”). It also provides other Layer 7 routing capabilities including round-robin distribution of incoming traffic, cookie-based session affinity, URL path-based routing, and the ability to host multiple websites behind a single Application Gateway. Azure Application Gateway is a layer-7 load balancer.
+It allows you to optimize web farm productivity by offloading CPU intensive TLS termination to the Application Gateway (also known as “TLS offload” or “TLS bridging”). It also provides other Layer 7 routing capabilities including round-robin distribution of incoming traffic, cookie-based session affinity, URL path-based routing, and the ability to host multiple websites behind a single Application Gateway. Azure Application Gateway is a layer-7 load balancer.
 
 It provides failover, performance-routing HTTP requests between different servers, whether they are on the cloud or on-premises.
 
-Application provides many Application Delivery Controller (ADC) features including HTTP load balancing, cookie-based session affinity, [Secure Sockets Layer (SSL)](../../application-gateway/tutorial-restrict-web-traffic-powershell.md) offload, custom health probes, support for multi-site, and many others.
+Application provides many Application Delivery Controller (ADC) features including HTTP load balancing, cookie-based session affinity, [TLS offload](../../application-gateway/tutorial-restrict-web-traffic-powershell.md), custom health probes, support for multi-site, and many others.
 
 ### Web Application Firewall
 Web Application Firewall is a feature of [Azure Application Gateway](../../application-gateway/overview.md) that provides protection to web applications that use application gateway for standard Application Delivery Control (ADC) functions. Web application firewall does this by protecting them against most of the OWASP top 10 common web vulnerabilities.
@@ -265,19 +253,19 @@ Web Application Firewall is a feature of [Azure Application Gateway](../../appli
 
 -	Detection of common application misconfigurations (that is, Apache, IIS, etc.)
 
-
 A centralized web application firewall to protect against web attacks makes security management much simpler and gives better assurance to the application against the threats of intrusions. A WAF solution can also react to a security threat faster by patching a known vulnerability at a central location versus securing each of individual web applications. Existing application gateways can be converted to an application gateway with web application firewall easily.
 
 ### Traffic Manager
 Microsoft [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md) allows you to control the distribution of user traffic for service endpoints in different data centers. Service endpoints supported by Traffic Manager include Azure VMs, Web Apps, and Cloud services. You can also use Traffic Manager with external, non-Azure endpoints. Traffic Manager uses the Domain Name System (DNS) to direct client requests to the most appropriate endpoint based on a [traffic-routing method](../../traffic-manager/traffic-manager-routing-methods.md) and the health of the endpoints.
 
 Traffic Manager provides a range of traffic-routing methods to suit different application needs, endpoint health [monitoring](../../traffic-manager/traffic-manager-monitoring.md), and automatic failover. Traffic Manager is resilient to failure, including the failure of an entire Azure region.
+
 ### Azure Load Balancer
 [Azure Load Balancer](../../load-balancer/load-balancer-overview.md) delivers high availability and network performance to your applications. It is a Layer 4 (TCP, UDP) load balancer that distributes incoming traffic among healthy instances of services defined in a load-balanced set. Azure Load Balancer can be configured to:
 
--	Load balance incoming Internet traffic to virtual machines. This configuration is known as [Internet-facing load balancing](../../load-balancer/load-balancer-overview.md#publicloadbalancer).
+-	Load balance incoming Internet traffic to virtual machines. This configuration is known as [public load balancing](../../load-balancer/components.md#frontend-ip-configurations).
 
--	Load balance traffic between virtual machines in a virtual network, between virtual machines in cloud services, or between on-premises computers and virtual machines in a cross-premises virtual network. This configuration is known as [internal load balancing](../../load-balancer/load-balancer-overview.md#internalloadbalancer). 
+-	Load balance traffic between virtual machines in a virtual network, between virtual machines in cloud services, or between on-premises computers and virtual machines in a cross-premises virtual network. This configuration is known as [internal load balancing](../../load-balancer/components.md#frontend-ip-configurations).
 
 - Forward external traffic to a specific virtual machine
 
@@ -286,25 +274,25 @@ You can manage the list of DNS servers used in a VNet in the Management Portal, 
 
 ### Azure DNS
 The [Domain Name System](https://technet.microsoft.com/library/bb629410.aspx), or DNS, is responsible for translating (or resolving) a website or service name to its IP address. [Azure DNS](../../dns/dns-overview.md) is a hosting service for DNS domains, providing name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services. DNS supports the availability aspect of the “CIA” security triad.
+
 ### Azure Monitor logs NSGs
 You can enable the following diagnostic log categories for NSGs:
+
 -	Event: Contains entries for which NSG rules are applied to VMs and instance roles based on MAC address. The status for these rules is collected every 60 seconds.
 
 -	Rules counter: Contains entries for how many times each NSG rule is applied to deny or allow traffic.
 
-### Azure Security Center
-
+### Security Center
 [Azure Security Center](../../security-center/security-center-intro.md) continuously analyzes the security state of your Azure resources for network security best practices. When Security Center identifies potential security vulnerabilities, it creates [recommendations](../../security-center/security-center-recommendations.md) that guide you through the process of configuring the needed controls to harden and protect your resources.
 
 ## Compute
-
 The section provides additional information regarding key features in this area and summary information about these capabilities.
 
 ### Antimalware & Antivirus
 With Azure IaaS, you can use antimalware software from security vendors such as Microsoft, Symantec, Trend Micro, McAfee, and Kaspersky to protect your virtual machines from malicious files, adware, and other threats. [Microsoft Antimalware](antimalware.md) for Azure Cloud Services and Virtual Machines is a protection capability that helps identify and remove viruses, spyware, and other malicious software. Microsoft Antimalware provides configurable alerts when known malicious or unwanted software attempts to install itself or run on your Azure systems. Microsoft Antimalware can also be deployed using Azure Security Center
 
 ### Hardware Security Module
-Encryption and authentication do not improve security unless the keys themselves are protected. You can simplify the management and security of your critical secrets and keys by storing them in [Azure Key Vault](../../key-vault/key-vault-overview.md). Key Vault provides the option to store your keys in hardware Security modules (HSMs) certified to FIPS 140-2 Level 2 standards. Your SQL Server encryption keys for backup or [transparent data encryption](https://msdn.microsoft.com/library/bb934049.aspx) can all be stored in Key Vault with any keys or secrets from your applications. Permissions and access to these protected items are managed through [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/).
+Encryption and authentication do not improve security unless the keys themselves are protected. You can simplify the management and security of your critical secrets and keys by storing them in [Azure Key Vault](../../key-vault/general/overview.md). Key Vault provides the option to store your keys in hardware Security modules (HSMs) certified to FIPS 140-2 Level 2 standards. Your SQL Server encryption keys for backup or [transparent data encryption](https://msdn.microsoft.com/library/bb934049.aspx) can all be stored in Key Vault with any keys or secrets from your applications. Permissions and access to these protected items are managed through [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/).
 
 ### Virtual machine backup
 [Azure Backup](../../backup/backup-overview.md) is a solution that protects your application data with zero capital investment and minimal operating costs. Application errors can corrupt your data, and human errors can introduce bugs into your applications that can lead to security issues. With Azure Backup, your virtual machines running Windows and Linux are protected.
@@ -317,7 +305,7 @@ An important part of your organization's [business continuity/disaster recovery 
 
 The Azure Key Vault (AKV) service is designed to improve the security and management of these keys in a secure and highly available location. The SQL Server Connector enables SQL Server to use these keys from Azure Key Vault.
 
-If you are running SQL Server with on-premises machines, there are steps you can follow to access Azure Key Vault from your on-premises SQL Server machine. But for SQL Server in Azure VMs, you can save time by using the Azure Key Vault Integration feature. With a few Azure PowerShell cmdlets to enable this feature, you can automate the configuration necessary for a SQL VM to access your key vault.
+If you are running SQL Server with on-premises machines, there are steps you can follow to access Azure Key Vault from your on-premises SQL Server instance. But for SQL Server in Azure VMs, you can save time by using the Azure Key Vault Integration feature. With a few Azure PowerShell cmdlets to enable this feature, you can automate the configuration necessary for a SQL VM to access your key vault.
 
 ### VM Disk Encryption
 [Azure Disk Encryption](../azure-security-disk-encryption-overview.md) is a new capability that helps you encrypt your Windows and Linux IaaS virtual machine disks. It applies the industry standard BitLocker feature of Windows and the DM-Crypt feature of Linux to provide volume encryption for the OS and the data disks. The solution is integrated with Azure Key Vault to help you control and manage the disk-encryption keys and secrets in your Key Vault subscription. The solution also ensures that all data on the virtual machine disks are encrypted at rest in your Azure storage.
@@ -329,17 +317,14 @@ Virtual machines need network connectivity. To support that requirement, Azure r
 Patch Updates provide the basis for finding and fixing potential problems and simplify the software update management process, both by reducing the number of software updates you must deploy in your enterprise and by increasing your ability to monitor compliance.
 
 ### Security policy management and reporting
-[Azure Security Center](../../security-center/security-center-intro.md) helps you prevent, detect, and respond to threats, and provides you increased visibility into, and control over, the security of your Azure resources. It provides integrated Security monitoring and policy management across your Azure subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
-
-### Azure Security Center
-Security Center helps you prevent, detect, and respond to threats with increased visibility into and control over the security of your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
+[Security Center](../../security-center/security-center-intro.md) helps you prevent, detect, and respond to threats, and provides you increased visibility into, and control over, the security of your Azure resources. It provides integrated Security monitoring and policy management across your Azure subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
 
 ## Identity and access management
-
 Securing systems, applications, and data begins with identity-based access controls. The identity and access management features that are built into Microsoft business products and services help protect your organizational and personal information from unauthorized access while making it available to legitimate users whenever and wherever they need it.
 
 ### Secure Identity
 Microsoft uses multiple security practices and technologies across its products and services to manage identity and access.
+
 -	[Multi-Factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/) requires users to use multiple methods for access, on-premises and in the cloud. It provides strong authentication with a range of easy verification options, while accommodating users with a simple sign-in process.
 
 -	[Microsoft Authenticator](https://aka.ms/authenticator) provides a user-friendly Multi-Factor Authentication experience that works with both Microsoft Azure Active Directory and Microsoft accounts, and includes support for wearables and fingerprint-based approvals.
@@ -348,7 +333,7 @@ Microsoft uses multiple security practices and technologies across its products 
 
 -	[Token-based authentication](https://azure.microsoft.com/documentation/articles/active-directory-authentication-scenarios/) enables authentication via Azure Active Directory.
 
--	[Role-based access control (RBAC)](https://azure.microsoft.com/documentation/articles/role-based-access-built-in-roles/) enables you to grant access based on the user’s assigned role, making it easy to give users only the amount of access they need to perform their job duties. You can customize RBAC per your organization’s business model and risk tolerance.
+-	[Azure role-based access control (Azure RBAC)](https://azure.microsoft.com/documentation/articles/role-based-access-built-in-roles/) enables you to grant access based on the user’s assigned role, making it easy to give users only the amount of access they need to perform their job duties. You can customize RBAC per your organization’s business model and risk tolerance.
 
 -	[Integrated identity management (hybrid identity)](https://azure.microsoft.com/documentation/articles/active-directory-hybrid-identity-design-considerations-overview/) enables you to maintain control of users’ access across internal datacenters and cloud platforms, creating a single user identity for authentication and authorization to all resources.
 
@@ -375,14 +360,7 @@ Microsoft uses multiple security practices and technologies across its products 
 - [Azure Active Directory Application Proxy](https://azure.microsoft.com/documentation/articles/active-directory-application-proxy-get-started/) provides SSO and secure remote access for web applications hosted on-premises.
 
 ## Next Steps
-- [Getting started with Microsoft Azure Security](https://docs.microsoft.com/azure/security)
 
-Azure services and features you can use to help secure your services and data within Azure
+- Understand your [shared responsibility in the cloud](shared-responsibility.md).
 
-- [Azure Security Center](https://azure.microsoft.com/services/security-center/)
-
-Prevent, detect, and respond to threats with increased visibility and control over the security of your Azure resources
-
-- [Security health monitoring in Azure Security Center](../../security-center/security-center-monitoring.md)
-
-The monitoring capabilities in Azure Security Center to monitor compliance with policies.
+- Learn how [Azure Security Center](https://azure.microsoft.com/services/security-center/) can help you prevent, detect, and respond to threats with increased visibility and control over the security of your Azure resources.

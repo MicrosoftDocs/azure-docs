@@ -7,8 +7,9 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
-ms.date: 04/03/2019
+ms.date: 07/07/2020
 ms.author: robinsh
+ms.custom:  [amqp, mqtt, 'Role: Cloud Development', 'Role: IoT Device', devx-track-csharp]
 ---
 
 # Send messages from the cloud to your device with IoT Hub (.NET)
@@ -45,11 +46,13 @@ At the end of this tutorial, you run two .NET console apps.
 
 * An active Azure account. If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.
 
+* Make sure that port 8883 is open in your firewall. The device sample in this article uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+
 ## Receive messages in the device app
 
 In this section, modify the device app you created in [Send telemetry from a device to an IoT hub](quickstart-send-telemetry-dotnet.md) to receive cloud-to-device messages from the IoT hub.
 
-1. In Visual Studio, in the **SimulatedDevice** project, add the following method to the **Program** class.
+1. In Visual Studio, in the **SimulatedDevice** project, add the following method to the **SimulatedDevice** class.
 
    ```csharp
     private static async void ReceiveC2dAsync()
@@ -94,7 +97,7 @@ In this article, you create a back-end service to send cloud-to-device messages 
 
 ## Send a cloud-to-device message
 
-Now you write a .NET console app that sends cloud-to-device messages to the device app.
+In this section, you create a .NET console app that sends cloud-to-device messages to the simulated device app.
 
 1. In the current Visual Studio solution, select **File** > **New** > **Project**. In **Create a new project**, select **Console App (.NET Framework)**, and then select **Next**.
 
@@ -102,7 +105,7 @@ Now you write a .NET console app that sends cloud-to-device messages to the devi
 
    ![Configure a new project in Visual Studio](./media/iot-hub-csharp-csharp-c2d/sendcloudtodevice-project-configure.png)
 
-1. In Solution Explorer, right-click the new solution, and then select **Manage NuGet Packages**.
+1. In Solution Explorer, right-click the new project, and then select **Manage NuGet Packages**.
 
 1. In **Manage NuGet Packages**, select **Browse**, and then search for and select **Microsoft.Azure.Devices**. Select  **Install**.
 
@@ -114,25 +117,24 @@ Now you write a .NET console app that sends cloud-to-device messages to the devi
    using Microsoft.Azure.Devices;
    ```
 
-1. Add the following fields to the **Program** class. Replace the placeholder value with the IoT hub connection string you copied previously in [Get the IoT hub connection string](#get-the-iot-hub-connection-string).
+1. Add the following fields to the **Program** class. Replace the `{iot hub connection string}` placeholder value with the IoT hub connection string you noted previously in [Get the IoT hub connection string](#get-the-iot-hub-connection-string). Replace the `{device id}` placeholder value with the device ID of the device you added in the [Send telemetry from a device to an IoT hub](quickstart-send-telemetry-dotnet.md) quickstart.
 
    ``` csharp
    static ServiceClient serviceClient;
    static string connectionString = "{iot hub connection string}";
+   static string targetDevice = "{device id}";
    ```
 
-1. Add the following method to the **Program** class. Set the device name to what you used when defining the device in [Send telemetry from a device to an IoT hub](quickstart-send-telemetry-dotnet.md).
+1. Add the following method to the **Program** class to send a message to your device.
 
    ``` csharp
    private async static Task SendCloudToDeviceMessageAsync()
    {
         var commandMessage = new
          Message(Encoding.ASCII.GetBytes("Cloud to device message."));
-        await serviceClient.SendAsync("myFirstDevice", commandMessage);
+        await serviceClient.SendAsync(targetDevice, commandMessage);
    }
    ```
-
-   This method sends a new cloud-to-device message to the device with the ID, `myFirstDevice`. Change this parameter only if you modified it from the one used in [Send telemetry from a device to an IoT hub](quickstart-send-telemetry-dotnet.md).
 
 1. Finally, add the following lines to the **Main** method.
 
@@ -148,9 +150,9 @@ Now you write a .NET console app that sends cloud-to-device messages to the devi
 
 1. In Solutions Explorer, right-click your solution, and select **Set StartUp Projects**.
 
-1. In **Common Properties** > **Startup Project**, select **Multiple startup projects**, then select the **Start** action for **ReadDeviceToCloudMessages**, **SimulatedDevice**, and **SendCloudToDevice**. Select **OK** to save your changes.
+1. In **Common Properties** > **Startup Project**, select **Multiple startup projects**, then select the **Start** action for **SimulatedDevice** and **SendCloudToDevice**. Select **OK** to save your changes.
 
-1. Press **F5**. All three applications should start. Select the **SendCloudToDevice** windows, and press **Enter**. You should see the message being received by the device app.
+1. Press **F5**. Both applications should start. Select the **SendCloudToDevice** window, and press **Enter**. You should see the message being received by the device app.
 
    ![App receiving message](./media/iot-hub-csharp-csharp-c2d/sendc2d1.png)
 
@@ -197,7 +199,7 @@ In this section, you modify the **SendCloudToDevice** app to request feedback, a
    commandMessage.Ack = DeliveryAcknowledgement.Full;
    ```
 
-1. Run the apps by pressing **F5**. You should see all three applications start. Select the **SendCloudToDevice** windows, and press **Enter**. You should see the message being received by the device app, and after a few seconds, the feedback message being received by your **SendCloudToDevice** application.
+1. Run the apps by pressing **F5**. You should see both applications start. Select the **SendCloudToDevice** window, and press **Enter**. You should see the message being received by the device app, and after a few seconds, the feedback message being received by your **SendCloudToDevice** application.
 
    ![App receiving message](./media/iot-hub-csharp-csharp-c2d/sendc2d2.png)
 

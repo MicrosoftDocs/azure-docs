@@ -5,8 +5,8 @@ ms.reviewer: jasonh
 author: hrasheed-msft
 
 ms.service: hdinsight
-ms.custom: hdinsightactive
-ms.topic: conceptual
+ms.custom: hdinsightactive, devx-track-azurecli
+ms.topic: how-to
 ms.date: 02/21/2018
 ms.author: hrasheed
 
@@ -89,7 +89,9 @@ Before you can use the HDInsight cmdlets, you must connect to your Azure account
 ### Renamed cmdlets
 To list the HDInsight ASM cmdlets in Windows PowerShell console:
 
-    help *azurehdinsight*
+```powershell
+help *azurehdinsight*
+```
 
 The following table lists the ASM cmdlets and their names in Resource Manager mode:
 
@@ -145,66 +147,80 @@ For additional usage information, see [Customize Linux-based HDInsight clusters 
 
 Old command (ASM): 
 
-    New-AzureHDInsightCluster `
-        -Name $clusterName `
-        -Location $location `
-        -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" `
-        -DefaultStorageAccountKey $storageAccountKey `
-        -DefaultStorageContainerName $containerName `
-        -ClusterSizeInNodes 2 `
-        -ClusterType Hadoop `
-        -OSType Linux `
-        -Version "3.2" `
-        -Credential $httpCredential `
-        -SshCredential $sshCredential
+```azurepowershell
+New-AzureHDInsightCluster `
+    -Name $clusterName `
+    -Location $location `
+    -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" `
+    -DefaultStorageAccountKey $storageAccountKey `
+    -DefaultStorageContainerName $containerName `
+    -ClusterSizeInNodes 2 `
+    -ClusterType Hadoop `
+    -OSType Linux `
+    -Version "3.2" `
+    -Credential $httpCredential `
+    -SshCredential $sshCredential
+```
 
 New command:
 
-    New-AzHDInsightCluster `
-        -ClusterName $clusterName `
-        -ResourceGroupName $resourceGroupName `
-        -Location $location `
-        -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" `
-        -DefaultStorageAccountKey $storageAccountKey `
-        -DefaultStorageContainer $containerName  `
-        -ClusterSizeInNodes 2 `
-        -ClusterType Hadoop `
-        -OSType Linux `
-        -Version "3.2" `
-        -HttpCredential $httpcredentials `
-        -SshCredential $sshCredentials
-
+```azurepowershell
+New-AzHDInsightCluster `
+    -ClusterName $clusterName `
+    -ResourceGroupName $resourceGroupName `
+    -Location $location `
+    -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" `
+    -DefaultStorageAccountKey $storageAccountKey `
+    -DefaultStorageContainer $containerName  `
+    -ClusterSizeInNodes 2 `
+    -ClusterType Hadoop `
+    -OSType Linux `
+    -Version "3.2" `
+    -HttpCredential $httpcredentials `
+    -SshCredential $sshCredentials
+```
 
 **Delete cluster**
 
 Old command (ASM):
 
-    Remove-AzureHDInsightCluster -name $clusterName 
+```azurepowershell
+Remove-AzureHDInsightCluster -name $clusterName 
+```
 
 New command:
 
-    Remove-AzHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $clusterName 
+```azurepowershell
+Remove-AzHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $clusterName
+```
 
 **List cluster**
 
 Old command (ASM):
 
-    Get-AzureHDInsightCluster
+```azurepowershell
+Get-AzureHDInsightCluster
+```
 
 New command:
 
-    Get-AzHDInsightCluster 
+```azurepowershell
+Get-AzHDInsightCluster
+```
 
 **Show cluster**
 
 Old command (ASM):
 
-    Get-AzureHDInsightCluster -Name $clusterName
+```azurepowershell
+Get-AzureHDInsightCluster -Name $clusterName
+```
 
 New command:
 
-    Get-AzHDInsightCluster -ResourceGroupName $resourceGroupName -clusterName $clusterName
-
+```azurepowershell
+Get-AzHDInsightCluster -ResourceGroupName $resourceGroupName -clusterName $clusterName
+```
 
 #### Other samples
 * [Create HDInsight clusters](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
@@ -221,8 +237,7 @@ This section provides pointers to more information on how to perform certain tas
 
 | How to... using the Resource Manager-based HDInsight SDK | Links |
 | --- | --- |
-| Create HDInsight clusters using .NET SDK |See [Create HDInsight clusters using .NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md) |
-| Customize a cluster using Script Action with .NET SDK |See [Customize HDInsight Linux clusters using Script Action](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md#use-script-action) |
+| Azure HDInsight SDK for .NET|See [Azure HDInsight SDK for .NET](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet) |
 | Authenticate applications interactively using Azure Active Directory with .NET SDK |See [Run Apache Hive queries using .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md). The code snippet in this article uses the interactive authentication approach. |
 | Authenticate applications non-interactively using Azure Active Directory with .NET SDK |See [Create non-interactive applications for HDInsight](hdinsight-create-non-interactive-authentication-dotnet-applications.md) |
 | Submit an Apache Hive job using .NET SDK |See [Submit Apache Hive jobs](hadoop/apache-hadoop-use-hive-dotnet-sdk.md) |
@@ -240,112 +255,133 @@ Following are some examples on how an operation is performed using the ASM-based
 **Creating a cluster CRUD client**
 
 * Old command (ASM)
+
+  ```azurecli
+  //Certificate auth
+  //This logs the application in using a subscription administration certificate, which is not offered in Azure Resource Manager
   
-        //Certificate auth
-        //This logs the application in using a subscription administration certificate, which is not offered in Azure Resource Manager
-  
-        const string subid = "454467d4-60ca-4dfd-a556-216eeeeeeee1";
-        var cred = new HDInsightCertificateCredential(new Guid(subid), new X509Certificate2(@"path\to\certificate.cer"));
-        var client = HDInsightClient.Connect(cred);
+  const string subid = "454467d4-60ca-4dfd-a556-216eeeeeeee1";
+  var cred = new HDInsightCertificateCredential(new Guid(subid), new X509Certificate2(@"path\to\certificate.cer"));
+  var client = HDInsightClient.Connect(cred);
+  ```
 * New command (Service principal authorization)
+
+  ```azurecli
+  //Service principal auth
+  //This will log the application in as itself, rather than on behalf of a specific user.
+  //For details, including how to set up the application, see:
+  //   https://azure.microsoft.com/documentation/articles/hdinsight-create-non-interactive-authentication-dotnet-applications/
   
-        //Service principal auth
-        //This will log the application in as itself, rather than on behalf of a specific user.
-        //For details, including how to set up the application, see:
-        //   https://azure.microsoft.com/documentation/articles/hdinsight-create-non-interactive-authentication-dotnet-applications/
+  var authFactory = new AuthenticationFactory();
   
-        var authFactory = new AuthenticationFactory();
+  var account = new AzureAccount { Type = AzureAccount.AccountType.ServicePrincipal, Id = clientId };
   
-        var account = new AzureAccount { Type = AzureAccount.AccountType.ServicePrincipal, Id = clientId };
+  var env = AzureEnvironment.PublicEnvironments[EnvironmentName.AzureCloud];
   
-        var env = AzureEnvironment.PublicEnvironments[EnvironmentName.AzureCloud];
+  var accessToken = authFactory.Authenticate(account, env, tenantId, secretKey, ShowDialog.Never).AccessToken;
   
-        var accessToken = authFactory.Authenticate(account, env, tenantId, secretKey, ShowDialog.Never).AccessToken;
+  var creds = new TokenCloudCredentials(subId.ToString(), accessToken);
   
-        var creds = new TokenCloudCredentials(subId.ToString(), accessToken);
-  
-        _hdiManagementClient = new HDInsightManagementClient(creds);
+  _hdiManagementClient = new HDInsightManagementClient(creds);
+  ```
+
 * New command (User authorization)
+
+  ```azurecli
+  //User auth
+  //This will log the application in on behalf of the user.
+  //The end-user will see a login popup.
   
-        //User auth
-        //This will log the application in on behalf of the user.
-        //The end-user will see a login popup.
+  var authFactory = new AuthenticationFactory();
   
-        var authFactory = new AuthenticationFactory();
+  var account = new AzureAccount { Type = AzureAccount.AccountType.User, Id = username };
   
-        var account = new AzureAccount { Type = AzureAccount.AccountType.User, Id = username };
+  var env = AzureEnvironment.PublicEnvironments[EnvironmentName.AzureCloud];
   
-        var env = AzureEnvironment.PublicEnvironments[EnvironmentName.AzureCloud];
+  var accessToken = authFactory.Authenticate(account, env, AuthenticationFactory.CommonAdTenant, password, ShowDialog.Auto).AccessToken;
   
-        var accessToken = authFactory.Authenticate(account, env, AuthenticationFactory.CommonAdTenant, password, ShowDialog.Auto).AccessToken;
+  var creds = new TokenCloudCredentials(subId.ToString(), accessToken);
   
-        var creds = new TokenCloudCredentials(subId.ToString(), accessToken);
-  
-        _hdiManagementClient = new HDInsightManagementClient(creds);
+  _hdiManagementClient = new HDInsightManagementClient(creds);
+  ```
 
 **Creating a cluster**
 
 * Old command (ASM)
-  
-        var clusterInfo = new ClusterCreateParameters
-                    {
-                        Name = dnsName,
-                        DefaultStorageAccountKey = key,
-                        DefaultStorageContainer = defaultStorageContainer,
-                        DefaultStorageAccountName = storageAccountDnsName,
-                        ClusterSizeInNodes = 1,
-                        ClusterType = type,
-                        Location = "West US",
-                        UserName = "admin",
-                        Password = "*******",
-                        Version = version,
-                        HeadNodeSize = NodeVMSize.Large,
-                    };
-        clusterInfo.CoreConfiguration.Add(new KeyValuePair<string, string>("config1", "value1"));
-        client.CreateCluster(clusterInfo);
+
+  ```azurecli
+  var clusterInfo = new ClusterCreateParameters
+              {
+                  Name = dnsName,
+                  DefaultStorageAccountKey = key,
+                  DefaultStorageContainer = defaultStorageContainer,
+                  DefaultStorageAccountName = storageAccountDnsName,
+                  ClusterSizeInNodes = 1,
+                  ClusterType = type,
+                  Location = "West US",
+                  UserName = "admin",
+                  Password = "*******",
+                  Version = version,
+                  HeadNodeSize = NodeVMSize.Large,
+              };
+  clusterInfo.CoreConfiguration.Add(new KeyValuePair<string, string>("config1", "value1"));
+  client.CreateCluster(clusterInfo);
+  ```
+
 * New command
-  
-        var clusterCreateParameters = new ClusterCreateParameters
-            {
-                Location = "West US",
-                ClusterType = "Hadoop",
-                Version = "3.1",
-                OSType = OSType.Linux,
-                DefaultStorageAccountName = "mystorage.blob.core.windows.net",
-                DefaultStorageAccountKey =
-                    "O9EQvp3A3AjXq/W27rst1GQfLllhp0gUeiUUn2D8zX2lU3taiXSSfqkZlcPv+nQcYUxYw==",
-                UserName = "hadoopuser",
-                Password = "*******",
-                HeadNodeSize = "ExtraLarge",
-                RdpUsername = "hdirp",
-                RdpPassword = ""*******",
-                RdpAccessExpiry = new DateTime(2025, 3, 1),
-                ClusterSizeInNodes = 5
-            };
-        var coreConfigs = new Dictionary<string, string> {{"config1", "value1"}};
-        clusterCreateParameters.Configurations.Add(ConfigurationKey.CoreSite, coreConfigs);
+
+  ```azurecli
+  var clusterCreateParameters = new ClusterCreateParameters
+      {
+          Location = "West US",
+          ClusterType = "Hadoop",
+          Version = "3.1",
+          OSType = OSType.Linux,
+          DefaultStorageAccountName = "mystorage.blob.core.windows.net",
+          DefaultStorageAccountKey =
+              "O9EQvp3A3AjXq/W27rst1GQfLllhp0gUeiUUn2D8zX2lU3taiXSSfqkZlcPv+nQcYUxYw==",
+          UserName = "hadoopuser",
+          Password = "*******",
+          HeadNodeSize = "ExtraLarge",
+          RdpUsername = "hdirp",
+          RdpPassword = ""*******",
+          RdpAccessExpiry = new DateTime(2025, 3, 1),
+          ClusterSizeInNodes = 5
+      };
+  var coreConfigs = new Dictionary<string, string> {{"config1", "value1"}};
+  clusterCreateParameters.Configurations.Add(ConfigurationKey.CoreSite, coreConfigs);
+  ```
 
 **Enabling HTTP access**
 
 * Old command (ASM)
-  
-        client.EnableHttp(dnsName, "West US", "admin", "*******");
+
+  ```azurecli
+  client.EnableHttp(dnsName, "West US", "admin", "*******");
+  ```
+
 * New command
   
-        var httpParams = new HttpSettingsParameters
-        {
-               HttpUserEnabled = true,
-               HttpUsername = "admin",
-               HttpPassword = "*******",
-        };
-        client.Clusters.ConfigureHttpSettings(resourceGroup, dnsname, httpParams);
+  ```azurecli
+  var httpParams = new HttpSettingsParameters
+  {
+         HttpUserEnabled = true,
+         HttpUsername = "admin",
+         HttpPassword = "*******",
+  };
+  client.Clusters.ConfigureHttpSettings(resourceGroup, dnsname, httpParams);
+  ```
 
 **Deleting a cluster**
 
 * Old command (ASM)
-  
-        client.DeleteCluster(dnsName);
-* New command
-  
-        client.Clusters.Delete(resourceGroup, dnsname);
 
+  ```azurecli
+  client.DeleteCluster(dnsName);
+  ```
+
+* New command
+
+  ```azurecli
+  client.Clusters.Delete(resourceGroup, dnsname);
+  ```

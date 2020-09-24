@@ -1,17 +1,16 @@
 ---
-title: Provision a device using Azure IoT Hub Device Provisioning Service | Microsoft Docs
-description: Provision your device to a single IoT hub using the Azure IoT Hub Device Provisioning Service
+title: Tutorial - Provision device using Azure IoT Hub Device Provisioning Service
+description: This tutorial shows how you can provision your device to a single IoT hub using the Azure IoT Hub Device Provisioning Service (DPS)
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/12/2018
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
 ms.custom: mvc
 ---
 
-# Provision the device to an IoT hub using the Azure IoT Hub Device Provisioning Service
+# Tutorial: Provision the device to an IoT hub using the Azure IoT Hub Device Provisioning Service
 
 In the previous tutorial, you learned how to set up a device to connect to your Device Provisioning service. In this tutorial, you learn how to use this service to provision your device to a single IoT hub, using auto-provisioning and **_enrollment lists_**. This tutorial shows you how to:
 
@@ -24,12 +23,12 @@ In the previous tutorial, you learned how to set up a device to connect to your 
 
 Before you proceed, make sure to configure your device as discussed in the tutorial [Setup a device to provision using Azure IoT Hub Device Provisioning Service](./tutorial-set-up-device.md).
 
-If you're unfamiliar with the process of auto-provisioning, be sure to review [Auto-provisioning concepts](concepts-auto-provisioning.md) before continuing.
+If you're unfamiliar with the process of auto-provisioning, review the [provisioning](about-iot-dps.md#provisioning-process) overview before continuing.
 
 <a id="enrolldevice"></a>
 ## Enroll the device
 
-This step involves adding the device's unique security artifacts to the Device Provisioning Service. These security artifacts are based on the device's [Attestation mechanism](concepts-device.md#attestation-mechanism) as follows:
+This step involves adding the device's unique security artifacts to the Device Provisioning Service. These security artifacts are based on the device's [Attestation mechanism](concepts-service.md#attestation-mechanism) as follows:
 
 - For TPM-based devices you need:
     - The *Endorsement Key* that is unique to each TPM chip or simulation, which is obtained from the TPM chip manufacturer.  Read the [Understand TPM Endorsement Key](https://technet.microsoft.com/library/cc770443.aspx) for more information.
@@ -45,7 +44,7 @@ This step involves adding the device's unique security artifacts to the Device P
 There are two ways to enroll the device to the Device Provisioning Service:
 
 - **Enrollment Groups**
-    This represents a group of devices that share a specific attestation mechanism. We recommend using an enrollment group for a large number of devices, which share a desired initial configuration, or for devices all going to the same tenant. For more information on Identity attestation for enrollment groups, see [Security](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
+    This represents a group of devices that share a specific attestation mechanism. We recommend using an enrollment group for a large number of devices, which share a desired initial configuration, or for devices all going to the same tenant. For more information on Identity attestation for enrollment groups, see [Security](concepts-x509-attestation.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
 
     [![Add group enrollment for X.509 attestation in the portal](./media/tutorial-provision-device-to-hub/group-enrollment.png)](./media/tutorial-provision-device-to-hub/group-enrollment.png#lightbox)
 

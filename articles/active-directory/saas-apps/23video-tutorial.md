@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with 23 Video | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and 23 Video.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 5e73dd1d-3995-4a73-b9cf-1b2318d49cb3
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/07/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Integrate 23 Video with Azure Active Directory

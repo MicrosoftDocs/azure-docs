@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Zoho | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Zoho.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-
-ms.assetid: 9874e1f3-ade5-42e7-a700-e08b3731236a
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/26/2018
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Zoho
 
@@ -205,7 +199,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 In order to enable Azure AD users to log into Zoho Mail, they must be provisioned into Zoho Mail. In the case of Zoho Mail, provisioning is a manual task.
 
 > [!NOTE]
-> You can use any other Zoho Mail user account creation tools or APIs provided by Zoho Mail to provision AAD user accounts.
+> You can use any other Zoho Mail user account creation tools or APIs provided by Zoho Mail to provision Azure AD user accounts.
 
 ### To provision a user account, perform the following steps:
 

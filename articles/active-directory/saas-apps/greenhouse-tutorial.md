@@ -2,20 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Greenhouse | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Greenhouse.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 78ec1766-4f79-4f16-9a66-d5584c4b6151
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Greenhouse
 
@@ -183,7 +178,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 In order to enable Azure AD users to log into Greenhouse, they must be provisioned into Greenhouse. In the case of Greenhouse, provisioning is a manual task.
 
 >[!NOTE]
->You can use any other Greenhouse user account creation tools or APIs provided by Greenhouse to provision AAD user accounts. 
+>You can use any other Greenhouse user account creation tools or APIs provided by Greenhouse to provision Azure AD user accounts. 
 
 **To provision a user accounts, perform the following steps:**
 

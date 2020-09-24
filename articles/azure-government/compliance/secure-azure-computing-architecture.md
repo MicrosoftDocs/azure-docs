@@ -3,7 +3,7 @@
 
 # Mandatory fields.
 title: Secure Azure Computing Architecture
-description: This reference architecture for an enterprise-level DMZ architecture uses network virtual appliances and other tools. This architecture was designed to meet the Department of Defense's Secure Cloud Computing Architecture Functional Requirements. It also can be used for any organization. This reference includes two automated options that use Citrix or F5 appliances.
+description: Learn about the Secure Azure Computing Architecture (SACA). Using SACA allows U.S. DoD and civilian customers to comply with the SCCA FRD.
 author: jahender
 ms.author: jahender 
 ms.date: 4/9/2019
@@ -91,7 +91,7 @@ When you plan your SCCA compliancy strategy and technical architecture, consider
         - DISA has two operational BCAPs at the Pentagon and at Camp Roberts, CA. A third is planned to come online soon. 
         - DISA’s BCAPs all have Azure ExpressRoute circuits to Azure, which can be used by DoD customers for connectivity. 
         - DISA has an enterprise-level Microsoft peering session for DoD customers who want to subscribe to Microsoft software as a service (SaaS) tools, such as Office 365. By using the DISA BCAP, you can enable connectivity and peering to your SACA instance. 
-    - Build your own BCAP:
+   - Build your own BCAP:
         - This option requires you to lease space in a co-located data center and set up an ExpressRoute circuit to Azure. 
         - This option requires additional approval. 
         - Because of the additional approval and a physical build-out, this option takes the most time. 
@@ -152,7 +152,7 @@ We recommend this architecture because it meets SCCA requirements. It’s highly
 
 ## Automated SACA deployment options
 
- As previously mentioned, Microsoft has partnered with two vendors to create an automated SACA infrastructure template. Both templates deploy the following Azure components: 
+ As previously mentioned, Microsoft has partnered with two vendors to create an automated SACA infrastructure template. Both templates deploy the following Azure components:
 
 - SACA virtual network
     - Management subnet

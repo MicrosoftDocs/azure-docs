@@ -7,6 +7,7 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: robinsh
+ms.custom: ['Role: Cloud Development']
 ---
 
 # Create an IoT hub using the Azure portal
@@ -54,6 +55,10 @@ Click **Add** to open the **Add a shared access policy** blade.  You can enter t
 Click **Create** to add this newly created policy to the existing list.
 
 For more detailed information about the access granted by specific permissions, see [IoT Hub permissions](./iot-hub-devguide-security.md#iot-hub-permissions).
+
+## Register a new device in the IoT hub
+
+[!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
 ## Message Routing for an IoT hub
 

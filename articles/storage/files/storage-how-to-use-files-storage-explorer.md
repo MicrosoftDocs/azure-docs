@@ -1,5 +1,5 @@
 ---
-title: Quickstart for managing Azure file shares using Azure Storage Explorer 
+title: Managing Azure file shares using Azure Storage Explorer
 description: Use this quickstart to learn how to use Azure Storage Explorer to manage Azure Files.
 author: roygara
 ms.service: storage

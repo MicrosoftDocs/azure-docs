@@ -1,26 +1,16 @@
 ---
-title: Add custom analyzers - Azure Search
-description: Modify text tokenizers and character filters used in Azure Search full text search queries.
-ms.date: 08/08/2019
-services: search
-ms.service: search
-ms.topic: conceptual
-author: "Yahnoosh"
-ms.author: "jlembicz"
+title: Add custom analyzers to string fields
+titleSuffix: Azure Cognitive Search
+description: Configure text tokenizers and character filters used in Azure Cognitive Search full text search queries.
+
+author: HeidiSteen
 manager: nitinme
-translation.priority.mt:
-  - "de-de"
-  - "es-es"
-  - "fr-fr"
-  - "it-it"
-  - "ja-jp"
-  - "ko-kr"
-  - "pt-br"
-  - "ru-ru"
-  - "zh-cn"
-  - "zh-tw"
+ms.author: heidist
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 06/05/2020
 ---
-# Add custom analyzers to an Azure Search index
+# Add custom analyzers to string fields in an Azure Cognitive Search index
 
 A *custom analyzer* is a specific type of [text analyzer](search-analyzers.md) that consists of a user-defined combination of existing tokenizer and optional filters. By combining tokenizers and filters in new ways, you can customize text processing in the search engine to achieve specific outcomes. For example, you could create a custom analyzer with a *char filter* to remove HTML markup before text inputs are tokenized.
 
@@ -30,7 +20,7 @@ A *custom analyzer* is a specific type of [text analyzer](search-analyzers.md) t
 
  The role of a [full-text search engine](search-lucene-query-architecture.md), in simple terms, is to process and store documents in a way that enables efficient querying and retrieval. At a high level, it all comes down to extracting important words from documents, putting them in an index, and then using the index to find documents that match words of a given query. The process of extracting words from documents and search queries is called *lexical analysis*. Components that perform lexical analysis are called *analyzers*.
 
- In Azure Search, you can choose from a set of predefined language-agnostic analyzers in the [Analyzers](#AnalyzerTable) table or language-specific analyzers listed in [Language analyzers &#40;Azure Search Service REST API&#41;](index-add-language-analyzers.md). You also have an option to define your own custom analyzers.  
+ In Azure Cognitive Search, you can choose from a set of predefined language-agnostic analyzers in the [Analyzers](#AnalyzerTable) table or language-specific analyzers listed in [Language analyzers &#40;Azure Cognitive Search service REST API&#41;](index-add-language-analyzers.md). You also have an option to define your own custom analyzers.  
 
  A custom analyzer allows you to take control over the process of converting text into indexable and searchable tokens. It’s a user-defined configuration consisting of a single predefined tokenizer, one or more token filters, and one or more char filters. The tokenizer is responsible for breaking text into tokens, and the token filters for modifying tokens emitted by the tokenizer. Char filters are applied for to prepare input text before it is processed by the tokenizer. For instance, char filter can replace certain characters or symbols.
 
@@ -46,19 +36,19 @@ A *custom analyzer* is a specific type of [text analyzer](search-analyzers.md) t
 
 - ASCII folding. Add the Standard ASCII folding filter to normalize diacritics like ö or ê in search terms.  
 
-  This page provides a list of supported analyzers, tokenizers, token filters, and char filters. You can also find a description of changes to the index definition with a usage example. For more background about the underlying technology leveraged in the Azure Search implementation, see [Analysis package summary (Lucene)](https://lucene.apache.org/core/6_0_0/core/org/apache/lucene/codecs/lucene60/package-summary.html). For examples of analyzer configurations, see [Add analyzers in Azure Search](search-analyzers.md#examples).
+  This page provides a list of supported analyzers, tokenizers, token filters, and char filters. You can also find a description of changes to the index definition with a usage example. For more background about the underlying technology leveraged in the Azure Cognitive Search implementation, see [Analysis package summary (Lucene)](https://lucene.apache.org/core/6_0_0/core/org/apache/lucene/codecs/lucene60/package-summary.html). For examples of analyzer configurations, see [Add analyzers in Azure Cognitive Search](search-analyzers.md#examples).
 
 ## Validation rules  
  Names of analyzers, tokenizers, token filters, and char filters have to be unique and cannot be the same as any of the predefined analyzers, tokenizers, token filters, or char filters. See the [Property Reference](#PropertyReference) for names already in use.
 
 ## Create custom analyzers
- You can define custom analyzers at index creation time. The syntax for specifying a custom analyzer is described in this section. You can also familiarize yourself with the syntax by reviewing sample definitions in [Add analyzers in Azure Search](search-analyzers.md#examples).  
+ You can define custom analyzers at index creation time. The syntax for specifying a custom analyzer is described in this section. You can also familiarize yourself with the syntax by reviewing sample definitions in [Add analyzers in Azure Cognitive Search](search-analyzers.md#examples).  
 
  An analyzer definition includes a name, a type, one or more char filters, a maximum of one tokenizer, and one or more token filters for post-tokenization processing. Char filers are applied before tokenization. Token filters and char filters are applied from left to right.
 
  The `tokenizer_name` is the name of a tokenizer, `token_filter_name_1`  and `token_filter_name_2` are the names of token filters, and `char_filter_name_1` and `char_filter_name_2` are the names of char filters (see the [Tokenizers](#Tokenizers), [Token filters](#TokenFilters) and Char filters tables for valid values).
 
-The analyzer definition is a part of the larger index. See [Create Index API](https://docs.microsoft.com/rest/api/searchservice/create-index) for information about the rest of the index.
+The analyzer definition is a part of the larger index. See [Create Index API](/rest/api/searchservice/create-index) for information about the rest of the index.
 
 ```
 "analyzers":(optional)[
@@ -138,7 +128,7 @@ Definitions for char filters, tokenizers, and token filters are added to the ind
 
 ## Test custom analyzers
 
-You can use the **Test Analyzer operation** in the [REST API](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) to see how an analyzer breaks given text into tokens.
+You can use the **Test Analyzer operation** in the [REST API](/rest/api/searchservice/test-analyzer) to see how an analyzer breaks given text into tokens.
 
 **Request**
 ```
@@ -205,16 +195,16 @@ For analyzers, index attributes vary depending on the whether you're using prede
 
 #### Predefined Analyzers
 
-|||  
-|-|-|  
+| Type | Description |
+| ---- | ----------- |  
 |Name|It must only contain letters, digits, spaces, dashes or underscores, can only start and end with alphanumeric characters, and is limited to 128 characters.|  
 |Type|Analyzer type from the list of supported analyzers. See the **analyzer_type** column in the [Analyzers](#AnalyzerTable) table below.|  
 |Options|Must be valid options of a predefined analyzer listed in the [Analyzers](#AnalyzerTable) table below.|  
 
 #### Custom Analyzers
 
-|||  
-|-|-|  
+| Type | Description |
+| ---- | ----------- |  
 |Name|It must only contain letters, digits, spaces, dashes or underscores, can only start and end with alphanumeric characters, and is limited to 128 characters.|  
 |Type|Must be "#Microsoft.Azure.Search.CustomAnalyzer".|  
 |CharFilters|Set to either one of predefined char filters listed in the [Char Filters](#char-filters-reference) table or a custom char filter specified in the index definition.|  
@@ -230,8 +220,8 @@ For analyzers, index attributes vary depending on the whether you're using prede
 
  A char filter is used to prepare input text before it is processed by the tokenizer. For instance, they can replace certain characters or symbols. You can have multiple char filters in a custom analyzer. Char filters run in the order in which they are listed.  
 
-|||  
-|-|-|  
+| Type | Description |
+| ---- | ----------- | 
 |Name|It must only contain letters, digits, spaces, dashes or underscores, can only start and end with alphanumeric characters, and is limited to 128 characters.|  
 |Type|Char filter type from the list of supported char filters. See **char_filter_type** column in the [Char Filters](#char-filters-reference) table below.|  
 |Options|Must be valid options of a given [Char Filters](#char-filters-reference) type.|  
@@ -243,8 +233,8 @@ For analyzers, index attributes vary depending on the whether you're using prede
  You can specify exactly one tokenizer per custom analyzer. If you need more than one tokenizer, you can create multiple custom analyzers and assign them on a field-by-field basis in your index schema.  
 A custom analyzer can use a predefined tokenizer with either default or customized options.  
 
-|||  
-|-|-|  
+| Type | Description |
+| ---- | ----------- | 
 |Name|It must only contain letters, digits, spaces, dashes or underscores, can only start and end with alphanumeric characters, and is limited to 128 characters.|  
 |Type|Tokenizer name from the list of supported tokenizers. See **tokenizer_type** column in the [Tokenizers](#Tokenizers) table below.|  
 |Options|Must be valid options of a  given tokenizer type listed in the [Tokenizers](#Tokenizers) table below.|  
@@ -254,8 +244,8 @@ A custom analyzer can use a predefined tokenizer with either default or customiz
  A token filter is used to filter out or modify the tokens generated by a tokenizer. For example, you can specify a lowercase filter that converts all characters to lowercase.   
 You can have multiple token filters in a custom analyzer. Token filters run in the order in which they are listed.  
 
-|||  
-|-|-|  
+| Type | Description |
+| ---- | ----------- |  
 |Name|It must only contain letters, digits, spaces, dashes or underscores, can only start and end with alphanumeric characters, and is limited to 128 characters.|  
 |Type|Token filter name from the list of supported token filters. See **token_filter_type** column in the [Token filters](#TokenFilters) table below.|  
 |Options|Must be [Token filters](#TokenFilters) of a given token filter type.|  
@@ -273,7 +263,7 @@ This section provides the valid values for attributes specified in the definitio
 |**analyzer_name**|**analyzer_type**  <sup>1</sup>|**Description and Options**|  
 |-|-|-|  
 |[keyword](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html)| (type applies only when options are available) |Treats the entire content of a field as a single token. This is useful for data like zip codes, IDs, and some product names.|  
-|[pattern](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/miscellaneous/PatternAnalyzer.html)|PatternAnalyzer|Flexibly separates text into terms via a regular expression pattern.<br /><br /> **Options**<br /><br /> lowercase (type: bool) - Determines whether terms are lowercased. The default is true.<br /><br /> [pattern](https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html?is-external=true) (type: string) - A regular expression pattern to match token separators. The default is \w+.<br /><br /> [flags](https://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html#field_summary) (type: string) - Regular expression flags. The default is an empty string. Allowed values: CANON_EQ, CASE_INSENSITIVE, COMMENTS, DOTALL, LITERAL, MULTILINE, UNICODE_CASE, UNIX_LINES<br /><br /> stopwords (type: string array) - A list of stopwords. The default is an empty list.|  
+|[pattern](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/miscellaneous/PatternAnalyzer.html)|PatternAnalyzer|Flexibly separates text into terms via a regular expression pattern.<br /><br /> **Options**<br /><br /> lowercase (type: bool) - Determines whether terms are lowercased. The default is true.<br /><br /> [pattern](https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html?is-external=true) (type: string) - A regular expression pattern to match token separators. The default is `\W+`, which matches non-word characters.<br /><br /> [flags](https://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html#field_summary) (type: string) - Regular expression flags. The default is an empty string. Allowed values: CANON_EQ, CASE_INSENSITIVE, COMMENTS, DOTALL, LITERAL, MULTILINE, UNICODE_CASE, UNIX_LINES<br /><br /> stopwords (type: string array) - A list of stopwords. The default is an empty list.|  
 |[simple](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/SimpleAnalyzer.html)|(type applies only when options are available) |Divides text at non-letters and converts them to lower case. |  
 |[standard](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) <br />(Also referred to as standard.lucene)|StandardAnalyzer|Standard Lucene analyzer, composed of the standard tokenizer, lowercase filter, and stop filter.<br /><br /> **Options**<br /><br /> maxTokenLength (type: int) - The maximum token length. The default is 255. Tokens longer than the maximum length are split. Maximum token length that can be used is 300 characters.<br /><br /> stopwords (type: string array) - A list of stopwords. The default is an empty list.|  
 |standardasciifolding.lucene|(type applies only when options are available) |Standard analyzer with Ascii folding filter. |  
@@ -316,7 +306,7 @@ In the table below, the tokenizers that are implemented using Apache Lucene are 
 | microsoft_language_stemming_tokenizer | MicrosoftLanguageStemmingTokenizer| Divides text using language-specific rules and reduces words to their base forms<br /><br /> **Options**<br /><br />maxTokenLength (type: int) - The maximum token length, default: 255, maximum: 300. Tokens longer than the maximum length are split. Tokens longer than 300 characters are first split into tokens of length 300 and then each of those tokens is split based on the maxTokenLength set.<br /><br /> isSearchTokenizer (type: bool) - Set to true if used as the search tokenizer, set to false if used as the indexing tokenizer.<br /><br /> language (type: string) - Language to use, default "english". Allowed values include:<br />"arabic", "bangla", "bulgarian", "catalan", "croatian", "czech", "danish", "dutch", "english", "estonian", "finnish", "french", "german", "greek", "gujarati", "hebrew", "hindi", "hungarian", "icelandic", "indonesian", "italian", "kannada", "latvian", "lithuanian", "malay", "malayalam", "marathi", "norwegianBokmaal", "polish", "portuguese", "portugueseBrazilian", "punjabi", "romanian", "russian", "serbianCyrillic", "serbianLatin", "slovak", "slovenian", "spanish", "swedish", "tamil", "telugu", "turkish", "ukrainian", "urdu" |
 |[nGram](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/ngram/NGramTokenizer.html)|NGramTokenizer|Tokenizes the input into n-grams of the given size(s).<br /><br /> **Options**<br /><br /> minGram (type: int) - Default: 1, maximum: 300.<br /><br /> maxGram (type: int) - Default: 2, maximum: 300. Must be greater than minGram. <br /><br /> tokenChars (type: string array) - Character classes to keep in the tokens. Allowed values: "letter", "digit", "whitespace", "punctuation", "symbol". Defaults to an empty array - keeps all characters. |  
 |[path_hierarchy_v2](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/path/PathHierarchyTokenizer.html)|PathHierarchyTokenizerV2|Tokenizer for path-like hierarchies.<br /><br /> **Options**<br /><br /> delimiter (type: string) - Default: '/.<br /><br /> replacement (type: string) - If set, replaces the delimiter character. Default same as the value of delimiter.<br /><br /> maxTokenLength (type: int) -  The maximum token length. Default: 300, maximum: 300. Paths longer than maxTokenLength are ignored.<br /><br /> reverse (type: bool) - If true, generates token in reverse order. Default: false.<br /><br /> skip (type: bool) - Initial tokens to skip. The default is 0.|  
-|[pattern](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/pattern/PatternTokenizer.html)|PatternTokenizer|This tokenizer uses regex pattern matching to construct distinct tokens.<br /><br /> **Options**<br /><br /> [pattern](https://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html) (type: string) - Regular expression pattern. The default is \W+. <br /><br /> [flags](https://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html#field_summary) (type: string) - Regular expression flags. The default is an empty string. Allowed values: CANON_EQ, CASE_INSENSITIVE, COMMENTS, DOTALL, LITERAL, MULTILINE, UNICODE_CASE, UNIX_LINES<br /><br /> group (type: int) - Which group to extract into tokens. The default is -1 (split).|
+|[pattern](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/pattern/PatternTokenizer.html)|PatternTokenizer|This tokenizer uses regex pattern matching to construct distinct tokens.<br /><br /> **Options**<br /><br /> [pattern](https://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html) (type: string) - Regular expression pattern to match token separators. The default is `\W+`, which matches non-word characters. <br /><br /> [flags](https://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html#field_summary) (type: string) - Regular expression flags. The default is an empty string. Allowed values: CANON_EQ, CASE_INSENSITIVE, COMMENTS, DOTALL, LITERAL, MULTILINE, UNICODE_CASE, UNIX_LINES<br /><br /> group (type: int) - Which group to extract into tokens. The default is -1 (split).|
 |[standard_v2](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardTokenizer.html)|StandardTokenizerV2|Breaks text following the [Unicode Text Segmentation rules](https://unicode.org/reports/tr29/).<br /><br /> **Options**<br /><br /> maxTokenLength (type: int) - The maximum token length. Default: 255, maximum: 300. Tokens longer than the maximum length are split.|  
 |[uax_url_email](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/standard/UAX29URLEmailTokenizer.html)|UaxUrlEmailTokenizer|Tokenizes urls and emails as one token.<br /><br /> **Options**<br /><br /> maxTokenLength (type: int) - The maximum token length. Default: 255, maximum: 300. Tokens longer than the maximum length are split.|  
 |[whitespace](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/WhitespaceTokenizer.html)|(type applies only when options are available) |Divides text at whitespace. Tokens that are longer than 255 characters are split.|  
@@ -377,6 +367,6 @@ In the table below, the token filters that are implemented using Apache Lucene a
 
 
 ## See also  
- [Azure Search Service REST](https://docs.microsoft.com/rest/api/searchservice/)   
- [Analyzers in Azure Search > Examples](search-analyzers.md#examples)    
- [Create Index &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)  
+ [Azure Cognitive Search REST APIs](/rest/api/searchservice/)   
+ [Analyzers in Azure Cognitive Search > Examples](search-analyzers.md#examples)    
+ [Create Index &#40;Azure Cognitive Search REST API&#41;](/rest/api/searchservice/create-index)

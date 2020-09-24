@@ -11,7 +11,7 @@ ms.subservice: computer-vision
 ms.topic: sample
 ms.date: 09/09/2019
 ms.author: kefre
-ms.custom: seodec18
+ms.custom: "seodec18, devx-track-csharp"
 ---
 
 # Call the Computer Vision API
@@ -21,14 +21,6 @@ This article demonstrates how to call the Computer Vision API by using the REST 
 - Getting tags, a description, and categories
 - Getting domain-specific information, or "celebrities"
 
-## Prerequisites
-
-- An image URL or a path to a locally stored image
-- Supported input methods: a raw image binary in the form of an application/octet-stream, or an image URL
-- Supported image file formats: JPEG, PNG, GIF, and BMP
-- Image file size: 4 MB or less
-- Image dimensions: 50 &times; 50 pixels or greater
-  
 The examples in this article demonstrate the following features:
 
 * Analyzing an image to return an array of tags and a description
@@ -38,21 +30,29 @@ The features offer the following options:
 
 - **Option 1**: Scoped Analysis - Analyze only a specified model
 - **Option 2**: Enhanced Analysis - Analyze to provide additional details by using [86-categories taxonomy](../Category-Taxonomy.md)
+
+## Prerequisites
+
+* An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Computer Vision resource"  target="_blank">create a Computer Vision resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
+    * You will need the key and endpoint from the resource you create to connect your application to the Computer Vision service. You'll paste your key and endpoint into the code below later in the quickstart.
+    * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+* An image URL or a path to a locally stored image
+* Supported input methods: a raw image binary in the form of an application/octet-stream, or an image URL
+* Supported image file formats: JPEG, PNG, GIF, and BMP
+* Image file size: 4 MB or less
+* Image dimensions: 50 &times; 50 pixels or greater
   
 ## Authorize the API call
 
 Every call to the Computer Vision API requires a subscription key. This key must be either passed through a query string parameter or specified in the request header.
-
-To get a free trial key, do either of the following:
-* Go to the [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision) page. 
-* Go to the [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) page to subscribe to Computer Vision.
 
 You can pass the subscription key by doing any of the following:
 
 * Pass it through a query string, as in this Computer Vision API example:
 
   ```
-  https://westus.api.cognitive.microsoft.com/vision/v2.0/analyze?visualFeatures=Description,Tags&subscription-key=<Your subscription key>
+  https://westus.api.cognitive.microsoft.com/vision/v2.1/analyze?visualFeatures=Description,Tags&subscription-key=<Your subscription key>
   ```
 
 * Specify it in the HTTP request header:
@@ -79,7 +79,7 @@ For a specified image, get tags and a description by using either of the followi
 ### Option 1: Get a list of tags and a description
 
 ```
-POST https://westus.api.cognitive.microsoft.com/vision/v2.0/analyze?visualFeatures=Description,Tags&subscription-key=<Your subscription key>
+POST https://westus.api.cognitive.microsoft.com/vision/v2.1/analyze?visualFeatures=Description,Tags&subscription-key=<Your subscription key>
 ```
 
 ```csharp
@@ -101,14 +101,14 @@ using (var fs = new FileStream(@"C:\Vision\Sample.jpg", FileMode.Open))
 For tags only, run:
 
 ```
-POST https://westus.api.cognitive.microsoft.com/vision/v2.0/tag?subscription-key=<Your subscription key>
+POST https://westus.api.cognitive.microsoft.com/vision/v2.1/tag?subscription-key=<Your subscription key>
 var tagResults = await visionClient.TagImageAsync("http://contoso.com/example.jpg");
 ```
 
 For a description only, run:
 
 ```
-POST https://westus.api.cognitive.microsoft.com/vision/v2.0/describe?subscription-key=<Your subscription key>
+POST https://westus.api.cognitive.microsoft.com/vision/v2.1/describe?subscription-key=<Your subscription key>
 using (var fs = new FileStream(@"C:\Vision\Sample.jpg", FileMode.Open))
 {
   imageDescription = await visionClient.DescribeImageInStreamAsync(fs);
@@ -119,14 +119,14 @@ using (var fs = new FileStream(@"C:\Vision\Sample.jpg", FileMode.Open))
 
 ### Option 1: Scoped analysis - Analyze only a specified model
 ```
-POST https://westus.api.cognitive.microsoft.com/vision/v2.0/models/celebrities/analyze
+POST https://westus.api.cognitive.microsoft.com/vision/v2.1/models/celebrities/analyze
 var celebritiesResult = await visionClient.AnalyzeImageInDomainAsync(url, "celebrities");
 ```
 
 For this option, all other query parameters {visualFeatures, details} are not valid. If you want to see all supported models, use:
 
 ```
-GET https://westus.api.cognitive.microsoft.com/vision/v2.0/models 
+GET https://westus.api.cognitive.microsoft.com/vision/v2.1/models 
 var models = await visionClient.ListModelsAsync();
 ```
 
@@ -135,7 +135,7 @@ var models = await visionClient.ListModelsAsync();
 For applications where you want to get a generic image analysis in addition to details from one or more domain-specific models, extend the v1 API by using the models query parameter.
 
 ```
-POST https://westus.api.cognitive.microsoft.com/vision/v2.0/analyze?details=celebrities
+POST https://westus.api.cognitive.microsoft.com/vision/v2.1/analyze?details=celebrities
 ```
 
 When you invoke this method, you first call the [86-category](../Category-Taxonomy.md) classifier. If any of the categories matches that of a known or matching model, a second pass of classifier invocations occurs. For example, if "details=all" or "details" includes "celebrities," you call the celebrities model after you call the 86-category classifier. The result includes the category person. In contrast with Option 1, this method increases latency for users who are interested in celebrities.
@@ -176,12 +176,12 @@ Here's an example:
 Field | Type | Content
 ------|------|------|
 Tags  | `object` | The top-level object for an array of tags.
-tags[].Name | `string`	| The keyword from the tags classifier.
-tags[].Score	| `number`	| The confidence score, between 0 and 1.
-description	 | `object`	| The top-level object for a description.
-description.tags[] |	`string`	| The list of tags.  If there is insufficient confidence in the ability to produce a caption, the tags might be the only information available to the caller.
-description.captions[].text	| `string`	| A phrase describing the image.
-description.captions[].confidence	| `number`	| The confidence score for the phrase.
+tags[].Name | `string`    | The keyword from the tags classifier.
+tags[].Score    | `number`    | The confidence score, between 0 and 1.
+description     | `object`    | The top-level object for a description.
+description.tags[] |    `string`    | The list of tags.  If there is insufficient confidence in the ability to produce a caption, the tags might be the only information available to the caller.
+description.captions[].text    | `string`    | A phrase describing the image.
+description.captions[].confidence    | `number`    | The confidence score for the phrase.
 
 ## Retrieve and understand the JSON output of domain-specific models
 
@@ -235,12 +235,12 @@ For domain-specific models using Option 2 (enhanced analysis), the categories re
 
 The categories field is a list of one or more of the [86 categories](../Category-Taxonomy.md) in the original taxonomy. Categories that end in an underscore match that category and its children (for example, "people_" or "people_group," for the celebrities model).
 
-Field	| Type	| Content
+Field    | Type    | Content
 ------|------|------|
-categories | `object`	| The top-level object.
-categories[].name	 | `string`	| The name from the 86-category taxonomy list.
-categories[].score	| `number`	| The confidence score, between 0 and 1.
-categories[].detail	 | `object?`      | (Optional) The detail object.
+categories | `object`    | The top-level object.
+categories[].name     | `string`    | The name from the 86-category taxonomy list.
+categories[].score    | `number`    | The confidence score, between 0 and 1.
+categories[].detail     | `object?`      | (Optional) The detail object.
 
 If multiple categories match (for example, the 86-category classifier returns a score for both "people_" and "people_young," when model=celebrities), the details are attached to the most general level match ("people_," in that example).
 
@@ -250,4 +250,4 @@ These errors are identical to those in vision.analyze, with the additional NotSu
 
 ## Next steps
 
-To use the REST API, go to [Computer Vision API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44).
+To use the REST API, go to [Computer Vision API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/56f91f2e778daf14a499f21b).

@@ -25,9 +25,9 @@ The following tutorial will walk you through creating a hybrid identity environm
 
 ## Prerequisites
 The following are prerequisites required for completing this tutorial
-- A computer with [Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/hyper-v-technology-overview) installed.  It is suggested to do this on either a [Windows 10](https://docs.microsoft.com/virtualization/hyper-v-on-windows/about/supported-guest-os) or a [Windows Server 2016](https://docs.microsoft.com/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows) computer.
+- A computer with [Hyper-V](/windows-server/virtualization/hyper-v/hyper-v-technology-overview) installed.  It is suggested to do this on either a [Windows 10](/virtualization/hyper-v-on-windows/about/supported-guest-os) or a [Windows Server 2016](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows) computer.
 - An [Azure subscription](https://azure.microsoft.com/free)
-- - An [external network adapter](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/connect-to-network) to allow the virtual machine to communicate with the internet.
+- - An [external network adapter](/virtualization/hyper-v-on-windows/quick-start/connect-to-network) to allow the virtual machine to communicate with the internet.
 - A copy of Windows Server 2016
 - A [custom domain](../../active-directory/fundamentals/add-custom-domain.md) that can be verified
 
@@ -136,12 +136,12 @@ Now that we have the VM created and it has been renamed and has a static IP addr
 $DatabasePath = "c:\windows\NTDS"
 $DomainMode = "WinThreshold"
 $DomainName = "contoso.com"
-$DomaninNetBIOSName = "CONTOSO"
+$DomainNetBIOSName = "CONTOSO"
 $ForestMode = "WinThreshold"
 $LogPath = "c:\windows\NTDS"
 $SysVolPath = "c:\windows\SYSVOL"
 $featureLogPath = "c:\poshlog\featurelog.txt" 
-$Password = "Pass1w0rd"
+$Password = ConvertTo-SecureString "Passw0rd" -AsPlainText -Force
 
 #Install AD DS, DNS and GPMC 
 start-job -Name addFeature -ScriptBlock { 
@@ -180,7 +180,7 @@ Set-ADUser -Identity $Identity -PasswordNeverExpires $true -ChangePasswordAtLogo
 ```
 
 ## Create a certificate for AD FS
-Now we will create an SSL certificate that will be used by AD FS.  This is will be a self-signed certificate and is only for testing purposes.  Microsoft does not recommend using a self-signed certificate in a production environment. Do the following:
+Now we will create a TLS/SSL certificate that will be used by AD FS.  This is will be a self-signed certificate and is only for testing purposes.  Microsoft does not recommend using a self-signed certificate in a production environment. Do the following:
 
 1. Open up the PowerShell ISE as Administrator.
 2. Run the following script.
@@ -289,4 +289,3 @@ You have now successfully setup a hybrid identity environment that you can use t
 - [Hardware and prerequisites](how-to-connect-install-prerequisites.md) 
 - [Customized settings](how-to-connect-install-custom.md)
 - [Azure AD Connect and federation](how-to-connect-fed-whatis.md)
-

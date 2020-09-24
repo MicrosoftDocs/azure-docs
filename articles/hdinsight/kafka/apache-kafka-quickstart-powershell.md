@@ -1,5 +1,5 @@
 ---
-title: Set up Apache Kafka on HDInsight using Azure PowerShell - Quickstart
+title: 'Quickstart: Create Apache Kafka with Azure PowerShell - HDInsight'
 description: In this quickstart, you learn how to create an Apache Kafka cluster on Azure HDInsight using Azure PowerShell. You also learn about Kafka topics, subscribers, and consumers.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -25,7 +25,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-* The PowerShell [Az Module](https://docs.microsoft.com/powershell/azure/overview) installed.
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+* The PowerShell [Az Module](https://docs.microsoft.com/powershell/azure/) installed.
 
 * An SSH client. For more information, see [Connect to HDInsight (Apache Hadoop) using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -127,7 +129,7 @@ New-AzHDInsightCluster `
 
 It can take up to 20 minutes to create the HDInsight cluster.
 
-The `-DisksPerWorkerNode` parameter configures the scalability of Kafka on HDInsight. Kafka on HDInsight uses the local disk of the virtual machines in the cluster to store data. Kafka is I/O heavy, so [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md) are used to provide high throughput and more storage per node.
+The `-DisksPerWorkerNode` parameter configures the scalability of Kafka on HDInsight. Kafka on HDInsight uses the local disk of the virtual machines in the cluster to store data. Kafka is I/O heavy, so [Azure Managed Disks](../../virtual-machines/managed-disks-overview.md) are used to provide high throughput and more storage per node.
 
 The type of managed disk can be either __Standard__ (HDD) or __Premium__ (SSD). The type of disk depends on the VM size used by the worker nodes (Kafka brokers). Premium disks are used automatically with DS and GS series VMs. All other VM types use standard. You can set the VM type by using the `-WorkerNodeSize` parameter. For more information on parameters, see the [New-AzHDInsightCluster](/powershell/module/az.HDInsight/New-azHDInsightCluster) documentation.
 

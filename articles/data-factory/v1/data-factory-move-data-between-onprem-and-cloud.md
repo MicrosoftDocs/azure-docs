@@ -1,16 +1,16 @@
 ---
-title: Move data - Data Management Gateway | Microsoft Docs
+title: Move data - Data Management Gateway
 description: Set up a data gateway to move data between on-premises and the cloud. Use Data Management Gateway in Azure Data Factory to move your data.
 services: data-factory
 documentationcenter: ''
 author: nabhishek
-manager: craigg
+manager: anandsub
 
 
 ms.assetid: 7bf6d8fd-04b5-499d-bd19-eff217aa4a9c
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 
 ms.topic: conceptual
 ms.date: 01/10/2018
@@ -28,15 +28,15 @@ This article provides an overview of data integration between on-premises data s
 You must install Data Management Gateway on your on-premises machine to enable moving data to/from an on-premises data store. The gateway can be installed on the same machine as the data store or on a different machine as long as the gateway can connect to the data store.
 
 > [!IMPORTANT]
-> See [Data Management Gateway](data-factory-data-management-gateway.md) article for details about Data Management Gateway. 
+> See [Data Management Gateway](data-factory-data-management-gateway.md) article for details about Data Management Gateway.
 
 The following walkthrough shows you how to create a data factory with a pipeline that moves data from an on-premises **SQL Server** database to an Azure blob storage. As part of the walkthrough, you install and configure the Data Management Gateway on your machine.
 
 ## Walkthrough: copy on-premises data to cloud
-In this walkthrough you do the following steps: 
+In this walkthrough you do the following steps:
 
 1. Create a data factory.
-2. Create a data management gateway. 
+2. Create a data management gateway.
 3. Create linked services for source and sink data stores.
 4. Create datasets to represent input and output data.
 5. Create a pipeline with a copy activity to move the data.
@@ -45,8 +45,8 @@ In this walkthrough you do the following steps:
 Before you begin this walkthrough, you must have the following prerequisites:
 
 * **Azure subscription**.  If you don't have a subscription, you can create a free trial account in just a couple of minutes. See the [Free Trial](https://azure.microsoft.com/pricing/free-trial/) article for details.
-* **Azure Storage Account**. You use the blob storage as a **destination/sink** data store in this tutorial. if you don't have an Azure storage account, see the [Create a storage account](../../storage/common/storage-quickstart-create-account.md) article for steps to create one.
-* **SQL Server**. You use an on-premises SQL Server database as a **source** data store in this tutorial. 
+* **Azure Storage Account**. You use the blob storage as a **destination/sink** data store in this tutorial. if you don't have an Azure storage account, see the [Create a storage account](../../storage/common/storage-account-create.md) article for steps to create one.
+* **SQL Server**. You use a SQL Server database as a **source** data store in this tutorial.
 
 ## Create data factory
 In this step, you use the Azure portal to create an Azure Data Factory instance named **ADFTutorialOnPremDF**.
@@ -151,9 +151,9 @@ In this step, you use the Azure portal to create an Azure Data Factory instance 
 12. You should see **adftutorialgateway** under **Data Gateways** in the tree view on the left.  If you click it, you should see the associated JSON.
 
 ## Create linked services
-In this step, you create two linked services: **AzureStorageLinkedService** and **SqlServerLinkedService**. The **SqlServerLinkedService** links an on-premises SQL Server database and the **AzureStorageLinkedService** linked service links an Azure blob store to the data factory. You create a pipeline later in this walkthrough that copies data from the on-premises SQL Server database to the Azure blob store.
+In this step, you create two linked services: **AzureStorageLinkedService** and **SqlServerLinkedService**. The **SqlServerLinkedService** links a SQL Server database and the **AzureStorageLinkedService** linked service links an Azure blob store to the data factory. You create a pipeline later in this walkthrough that copies data from the SQL Server database to the Azure blob store.
 
-#### Add a linked service to an on-premises SQL Server database
+#### Add a linked service to a SQL Server database
 1. In the **Data Factory Editor**, click **New data store** on the toolbar and select **SQL Server**.
 
    ![New SQL Server linked service](./media/data-factory-move-data-between-onprem-and-cloud/NewSQLServer.png)
@@ -188,7 +188,7 @@ In this step, you create input and output datasets that represent input and outp
 * Create a blob container named **adftutorial** in the Azure blob storage account you added as a linked service to the data factory.
 
 ### Prepare On-premises SQL Server for the tutorial
-1. In the database you specified for the on-premises SQL Server linked service (**SqlServerLinkedService**), use the following SQL script to create the **emp** table in the database.
+1. In the database you specified for the SQL Server linked service (**SqlServerLinkedService**), use the following SQL script to create the **emp** table in the database.
 
 	```SQL   
     CREATE TABLE dbo.emp

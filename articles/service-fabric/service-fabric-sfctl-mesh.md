@@ -1,22 +1,12 @@
 ---
-title: Azure Service Fabric CLI- sfctl mesh | Microsoft Docs
-description: Describes the Service Fabric CLI sfctl mesh commands.
-services: service-fabric
-documentationcenter: na
-author: Christina-Kang
-manager: chackdan
-editor: ''
+title: Azure Service Fabric CLI- sfctl mesh
+description: Learn about sfctl, the Azure Service Fabric command line interface. Includes a list of commands for managing Service Fabric Mesh applications.
+author: jeffj6123
 
-ms.assetid: 
-ms.service: service-fabric
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
-
+ms.date: 1/16/2020
+ms.author: jejarry
 ---
-
 # sfctl mesh
 Delete and manage Service Fabric Mesh applications.
 
@@ -37,4 +27,4 @@ Delete and manage Service Fabric Mesh applications.
 
 ## Next steps
 - [Set up](service-fabric-cli.md) the Service Fabric CLI.
-- Learn how to use the Service Fabric CLI using the [sample scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Learn how to use the Service Fabric CLI using the [sample scripts](./scripts/sfctl-upgrade-application.md).

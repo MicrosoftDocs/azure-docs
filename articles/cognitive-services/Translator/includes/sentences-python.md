@@ -22,11 +22,11 @@ import os, requests, uuid, json
 > [!NOTE]
 > If you haven't used these modules you'll need to install them before running your program. To install these packages, run: `pip install requests uuid`.
 
-The first comment tells your Python interpreter to use UTF-8 encoding. Then required modules are imported to read your subscription key from an environment variable, construct the http request, create a unique identifier, and handle the JSON response returned by the Translator Text API.
+The first comment tells your Python interpreter to use UTF-8 encoding. Then required modules are imported to read your subscription key from an environment variable, construct the http request, create a unique identifier, and handle the JSON response returned by the Translator.
 
 ## Set the subscription key, endpoint, and path
 
-This sample will try to read your Translator Text subscription key and endpoint from the environment variables: `TRANSLATOR_TEXT_KEY` and `TRANSLATOR_TEXT_ENDPOINT`. If you're not familiar with environment variables, you can set `subscription_key` and `endpoint` as a strings and comment out the conditional statements.
+This sample will try to read your Translator subscription key and endpoint from the environment variables: `TRANSLATOR_TEXT_KEY` and `TRANSLATOR_TEXT_ENDPOINT`. If you're not familiar with environment variables, you can set `subscription_key` and `endpoint` as a strings and comment out the conditional statements.
 
 Copy this code into your project:
 
@@ -42,12 +42,12 @@ if not endpoint_var_name in os.environ:
 endpoint = os.environ[endpoint_var_name]
 ```
 
-The Translator Text global endpoint is set as the `endpoint`. `path` sets the `breaksentence` route and identifies that we want to hit version 3 of the API.
+The Translator global endpoint is set as the `endpoint`. `path` sets the `breaksentence` route and identifies that we want to hit version 3 of the API.
 
 The `params` in this sample are used to set the language of the provided text. `params` aren't required for the `breaksentence` route. If left out of the request, the API will try to detect the language of the provided text, and provide this information along with a confidence score in the response.
 
 >[!NOTE]
-> For more information about endpoints, routes, and request parameters, see [Translator Text API 3.0: Languages](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence).
+> For more information about endpoints, routes, and request parameters, see [Translator 3.0: Languages](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence).
 
 ```python
 path = '/breaksentence?api-version=3.0'
@@ -101,7 +101,7 @@ print(json.dumps(response, sort_keys=True, indent=4,
 
 ## Put it all together
 
-That's it, you've put together a simple program that will call the Translator Text API and return a JSON response. Now it's time to run your program:
+That's it, you've put together a simple program that will call the Translator and return a JSON response. Now it's time to run your program:
 
 ```console
 python sentence-length.py
@@ -129,7 +129,7 @@ If you've hardcoded your subscription key into your program, make sure to remove
 
 ## Next steps
 
-Take a look at the API reference to understand everything you can do with the Translator Text API.
+Take a look at the API reference to understand everything you can do with the Translator.
 
 > [!div class="nextstepaction"]
 > [API reference](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

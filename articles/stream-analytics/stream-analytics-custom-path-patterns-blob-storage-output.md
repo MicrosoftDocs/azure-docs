@@ -1,7 +1,6 @@
 ---
 title: Azure Stream Analytics custom blob output partitioning
 description: This article describes the custom DateTime path patterns and the custom field or attributes features for blob storage output from Azure Stream Analytics jobs.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
@@ -21,7 +20,7 @@ Custom field or input attributes improve downstream data-processing and reportin
 
 ### Partition key options
 
-The partition key, or column name, used to partition input data may contain alphanumeric characters with hyphens, underscores, and spaces. It is not possible to use nested fields as a partition key unless used in conjunction with aliases. The partition key must be NVARCHAR(MAX).
+The partition key, or column name, used to partition input data may contain alphanumeric characters with hyphens, underscores, and spaces. It is not possible to use nested fields as a partition key unless used in conjunction with aliases. The partition key must be NVARCHAR(MAX), BIGINT, FLOAT, or BIT (1.2 compatibility level or higher). For more information, see [Azure Stream Analytics Data types](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics).
 
 ### Example
 
@@ -40,7 +39,7 @@ Once the job starts running, the *clients* container may look like the following
 
 ![Clients container](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-clients-container.png)
 
-Each folder may contain multiple blobs where each blob contains one or more records. In the above example, there is a single blob in a folder labelled "06000000" with the following contents:
+Each folder may contain multiple blobs where each blob contains one or more records. In the above example, there is a single blob in a folder labeled "06000000" with the following contents:
 
 ![Blob contents](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-blob-contents.png)
 
@@ -73,10 +72,10 @@ The following format specifier tokens can be used alone or in combination to ach
 |{datetime:MM}|Month from 01 to 12|01|
 |{datetime:M}|Month from 1 to 12|1|
 |{datetime:dd}|Day from 01 to 31|02|
-|{datetime:d}|Day from 1 to 12|2|
+|{datetime:d}|Day from 1 to 31|2|
 |{datetime:HH}|Hour using the 24-hour format, from 00 to 23|10|
-|{datetime:mm}|Minutes from 00 to 24|06|
-|{datetime:m}|Minutes from 0 to 24|6|
+|{datetime:mm}|Minutes from 00 to 60|06|
+|{datetime:m}|Minutes from 0 to 60|6|
 |{datetime:ss}|Seconds from 00 to 60|08|
 
 If you do not wish to use custom DateTime patterns, you can add the {date} and/or {time} token to the Path Prefix to generate a dropdown with built-in DateTime formats.
@@ -109,7 +108,7 @@ MSCK REPAIR TABLE while hive.exec.dynamic.partition true
 
 ### Example
 
-Create a storage account, a resource group, a Stream Analytics job, and an input source according to the [Azure Stream Analytics Azure Portal](stream-analytics-quick-create-portal.md) quickstart guide. Use the same sample data used in the quickstart guide, also available on [GitHub](https://raw.githubusercontent.com/Azure/azure-stream-analytics/master/Samples/GettingStarted/HelloWorldASA-InputStream.json).
+Create a storage account, a resource group, a Stream Analytics job, and an input source according to the [Azure Stream Analytics Azure portal](stream-analytics-quick-create-portal.md) quickstart guide. Use the same sample data used in the quickstart guide, also available on [GitHub](https://raw.githubusercontent.com/Azure/azure-stream-analytics/master/Samples/GettingStarted/HelloWorldASA-InputStream.json).
 
 Create a blob output sink with the following configuration:
 

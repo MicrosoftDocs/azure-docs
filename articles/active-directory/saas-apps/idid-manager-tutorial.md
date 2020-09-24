@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with iDiD Manager | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and iDiD Manager.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-
-ms.assetid: 5d2a0c25-168e-4842-b83b-74f8f50a8624
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 1/25/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with iDiD Manager
 

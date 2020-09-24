@@ -3,15 +3,15 @@ title: Learn about the latest Azure Guest OS Releases | Microsoft Docs
 description: The latest release news and SDK compatibility for Azure Cloud Services Guest OS.
 services: cloud-services
 documentationcenter: na
-author: raiye
+author: yohaddad
 editor: ''
 ms.assetid: 6306cafe-1153-44c7-8554-623b03d59a34
 ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/7/2019
-ms.author: raiye
+ms.date: 8/17/2020
+ms.author: yohaddad
 ---
 # Azure Guest OS releases and SDK compatibility matrix
 Provides you with up-to-date information about the latest Azure Guest OS releases for Cloud Services. This information helps you plan your upgrade path before a Guest OS is disabled. If you configure your roles to use *automatic* Guest OS updates as described in [Azure Guest OS Update Settings][Azure Guest OS Update Settings], it is not vital that you read this page.
@@ -35,6 +35,39 @@ Provides you with up-to-date information about the latest Azure Guest OS release
 Unsure about how to update your Guest OS? Check [this][cloud updates] out.
 
 ## News updates
+
+###### **September 5, 2020**
+The August Guest OS has released. 
+
+###### **August 17, 2020**
+The July Guest OS has released. 
+
+###### **August 10, 2020**
+The June Guest OS has released. 
+
+###### **June 2, 2020**
+The May Guest OS has released. 
+
+###### **May 4, 2020**
+The April Guest OS has released. 
+
+###### **April 2, 2020**
+The March Guest OS has released. 
+
+###### **March 5, 2020**
+The February Guest OS has released. 
+
+###### **January 24, 2020**
+The January Guest OS has released. 
+
+###### **January 8, 2020**
+The December Guest OS has released.
+
+###### **December 5, 2019**
+The November Guest OS has released.
+
+###### **November 1, 2019**
+The October Guest OS has released.
 
 ###### **October 7, 2019**
 The September Guest OS has released.
@@ -96,12 +129,24 @@ The September Guest OS has released.
 >5. Change the OS Family to 6 and build a package
 >6. Deploy the package to Azure using the Azure portal or Visual Studio
 >
+>Guest OS Family 6 release enforces TLS 1.2 by explicitly disabling TLS 1.0 and 1.1 and defining a specific set of cipher suites. Learn [more].
 
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
-| WA-GUEST-OS-6.11_201909-01 | October 7, 2019 |  Post 6.13  |  
-| WA-GUEST-OS-6.10_201908-01 | August 4, 2019 |  Post 6.12  |  
+|  WA-GUEST-OS-6.22_202008-02  |  September 5, 2020  |  Post 6.24  |  
+|  WA-GUEST-OS-6.21_202007-01  |  August 17, 2020  |  Post 6.23  |  
+|~~WA-GUEST-OS-6.20_202006-02~~|  August 10, 2020  |  September 5, 2020  |  
+|~~WA-GUEST-OS-6.19_202005-02~~|  June 2, 2020  |  August 17, 2020  |  
+|~~WA-GUEST-OS-6.18_202004-01~~|  May 4, 2020  |  August 10, 2020  |  
+|~~WA-GUEST-OS-6.17_202003-01~~|  April 2, 2020  |  June 2, 2020  |  
+|~~WA-GUEST-OS-6.16_202002-01~~|  March 5, 2020  |  May 4, 2020  |  
+|~~WA-GUEST-OS-6.15_202001-01~~|  January 24, 2020  |  April 2, 2020  |  
+|~~WA-GUEST-OS-6.14_201912-01~~| January 8, 2020 | March 5, 2020 |  
+|~~WA-GUEST-OS-6.13_201911-01~~| December 5, 2019 | January 24, 2020 |  
+|~~WA-GUEST-OS-6.12_201910-01~~| November 1, 2019 | January 8, 2020 |  
+|~~WA-GUEST-OS-6.11_201909-01~~| October 7, 2019 | December 5, 2019 |  
+|~~WA-GUEST-OS-6.10_201908-01~~| August 4, 2019 | November 1, 2019  |  
 |~~WA-GUEST-OS-6.9_201907-0~~|July 26, 2019 | October 7, 2019 |
 |~~WA-GUEST-OS-6.8_201906-01~~|July 8, 2019 |August 4, 2019 |
 |~~WA-GUEST-OS-6.7_201905-01~~ |June 6, 2019 |July 26, 2019 |
@@ -115,7 +160,7 @@ The September Guest OS has released.
 ## Family 5 releases
 **Windows Server 2016**
 
-.NET Framework installed: 3.5, 4.6
+.NET Framework installed: 3.5, 4.6.2
 
 > [!NOTE]
 > The RDP password for OS family 5 must be a minimum of 10 characters.
@@ -124,8 +169,19 @@ The September Guest OS has released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
-| WA-GUEST-OS-5.35_201909-01 | October 7, 2019 | Post 5.37 |  
-| WA-GUEST-OS-5.34_201908-01  |  August 4, 2019  |  Post 5.36 |  
+|  WA-GUEST-OS-5.46_202008-02  |  September 5, 2020  |  Post 5.48  |  
+|  WA-GUEST-OS-5.45_202007-01  |  August 17, 2020  |  Post 5.47  |  
+|~~WA-GUEST-OS-5.44_202006-02~~|  August 10, 2020  |  September 5, 2020  |  
+|~~WA-GUEST-OS-5.43_202005-02~~|  June 2, 2020  |  August 17, 2020  |  
+|~~WA-GUEST-OS-5.42_202004-01~~|  May 4, 2020  |  August 10, 2020  |  
+|~~WA-GUEST-OS-5.41_202003-01~~|  April 2, 2020  |  June 2, 2020  |  
+|~~WA-GUEST-OS-5.40_202002-01~~|  March 5, 2020  |  May 4, 2020  |  
+|~~WA-GUEST-OS-5.39_202001-01~~|  January 24, 2020  |  April 2, 2020  |  
+|~~WA-GUEST-OS-5.38_201912-01~~| January 8, 2020 | March 5, 2020 |  
+|~~WA-GUEST-OS-5.37_201911-01~~| December 5, 2019 | January 24, 2020 |  
+|~~WA-GUEST-OS-5.36_201910-01~~| November 1, 2019 | January 8, 2020 |  
+|~~WA-GUEST-OS-5.35_201909-01~~| October 7, 2019 | December 5, 2019 |  
+|~~WA-GUEST-OS-5.34_201908-01~~|  August 4, 2019  | November 1, 2019 |  
 |~~WA-GUEST-OS-5.33_201907-01~~| July 26, 2019 | October 7, 2019 |  
 |~~WA-GUEST-OS-5.32_201906-01~~|July 8, 2019 |August 4, 2019 |
 |~~WA-GUEST-OS-5.31_201905-01~~ |June 6, 2019 |July 26, 2019 |
@@ -145,8 +201,19 @@ The September Guest OS has released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
-| WA-GUEST-OS-4.70_201909-01 | October 7, 2019 | Post 4.72 |  
-| WA-GUEST-OS-4.69_201908-01 | August 4, 2019 | Post 4.71 |  
+|  WA-GUEST-OS-4.81_202008-02  |  September 5, 2020  |  Post 4.83  | 
+|  WA-GUEST-OS-4.80_202007-01  |  August 17, 2020  |  Post 4.82  | 
+|~~WA-GUEST-OS-4.79_202006-02~~|  August 10, 2020  |  September 5, 2020  | 
+|~~WA-GUEST-OS-4.78_202005-02~~|  June 2, 2020  |  August 17, 2020  |  
+|~~WA-GUEST-OS-4.77_202004-01~~|  May 4, 2020  |  August 10, 2020  |  
+|~~WA-GUEST-OS-4.76_202003-01~~|  April 2, 2020  |  June 2, 2020  |  
+|~~WA-GUEST-OS-4.75_202002-01~~|  March 5, 2020  |  May 4, 2020  |  
+|~~WA-GUEST-OS-4.74_202001-01~~|  January 24, 2020  |  April 2, 2020  |  
+|~~WA-GUEST-OS-4.73_201912-01~~| January 8, 2020 | March 5, 2020 |  
+|~~WA-GUEST-OS-4.72_201911-01~~| December 5, 2019 | January 24, 2020 |  
+|~~WA-GUEST-OS-4.71_201910-01~~| November 1, 2019 | January 8, 2020 |  
+|~~WA-GUEST-OS-4.70_201909-01~~| October 7, 2019 | December 5, 2019 |  
+|~~WA-GUEST-OS-4.69_201908-01~~| August 4, 2019 | November 1, 2019 |  
 |~~WA-GUEST-OS-4.68_201907-01~~| July 26, 2019  | October 7, 2019 |
 |~~WA-GUEST-OS-4.67_201906-01~~| July 8, 2019 |August 4, 2019 |
 |~~WA-GUEST-OS-4.66_201905-01~~ |June 6, 2019 |July 26, 2019 |
@@ -166,8 +233,19 @@ The September Guest OS has released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
-| WA-GUEST-OS-3.77_201909-01 | October 7, 2019 | Post 3.79 |  
-| WA-GUEST-OS-3.76_201908-01 |  August 4, 2019  |  Post 3.78  |  
+|  WA-GUEST-OS-3.88_202008-02  |  September 5, 2020  |  Post 3.90  |  
+|  WA-GUEST-OS-3.87_202007-01  |  August 17, 2020  |  Post 3.89  |  
+|~~WA-GUEST-OS-3.86_202006-02~~|  August 10, 2020  |  September 5, 2020  |  
+|~~WA-GUEST-OS-3.85_202005-02~~|  June 2, 2020  |  August 17, 2020  |  
+|~~WA-GUEST-OS-3.84_202004-01~~|  May 4, 2020  |  August 10, 2020  |  
+|~~WA-GUEST-OS-3.83_202003-01~~|  April 2, 2020  |  June 2, 2020  |  
+|~~WA-GUEST-OS-3.82_202002-01~~|  March 5, 2020  |  May 4, 2020  |  
+|~~WA-GUEST-OS-3.81_202001-01~~|  January 24, 2020  |  April 2, 2020  |  
+|~~WA-GUEST-OS-3.80_201912-01~~| January 8, 2020 | March 5, 2020 |  
+|~~WA-GUEST-OS-3.79_201911-01~~| December 5, 2019 | January 24, 2020 |  
+|~~WA-GUEST-OS-3.78_201910-01~~| November 1, 2019 | January 8, 2020 |  
+|~~WA-GUEST-OS-3.77_201909-01~~| October 7, 2019 | December 5, 2019 |  
+|~~WA-GUEST-OS-3.76_201908-01~~|  August 4, 2019  |  November 1, 2019  |  
 |~~WA-GUEST-OS-3.75_201907-01~~| July 26, 2019 | October 7, 2019 |
 |~~WA-GUEST-OS-3.74_201906-01~~| July 8, 2019 |August 4, 2019 |
 |~~WA-GUEST-OS-3.73_201905-01~~ |June 6, 2019 |July 26, 2019 |
@@ -187,8 +265,19 @@ The September Guest OS has released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
-| WA-GUEST-OS-2.90_201909-01 | October 7, 2019 | Post 2.92 |  
-| WA-GUEST-OS-2.89_201908-01 | August 4, 2019 | Post 2.91 |  
+|  WA-GUEST-OS-2.101_202008-02  |  September 5, 2020  |  Post 2.103  |  
+|  WA-GUEST-OS-2.100_202007-01  |  August 17, 2020  |  Post 2.102  |  
+|~~WA-GUEST-OS-2.99_202006-02~~|  August 10, 2020  | September 5, 2020  |  
+|~~WA-GUEST-OS-2.98_202005-02~~|  June 2, 2020  |  August 17, 2020  |  
+|~~WA-GUEST-OS-2.97_202004-01~~|  May 4, 2020  |  August 10, 2020  |  
+|~~WA-GUEST-OS-2.96_202003-01~~|  April 2, 2020  |  June 2, 2020  |  
+|~~WA-GUEST-OS-2.95_202002-01~~|  March 5, 2020  |  May 4, 2020  |  
+|~~WA-GUEST-OS-2.94_202001-01~~|  January 24, 2020  |  April 2, 2020  |  
+|~~WA-GUEST-OS-2.93_201912-01~~| January 8, 2020 | March 5, 2020 |  
+|~~WA-GUEST-OS-2.92_201911-01~~| December 5, 2019 | January 24, 2020 |  
+|~~WA-GUEST-OS-2.91_201910-01~~| November 1, 2019 | January 8, 2020 |  
+|~~WA-GUEST-OS-2.90_201909-01~~| October 7, 2019 | December 5, 2019 |  
+|~~WA-GUEST-OS-2.89_201908-01~~| August 4, 2019 | November 1, 2019 |  
 |~~WA-GUEST-OS-2.88_201907-01~~| July 26, 2019 | October 7, 2019 |
 |~~WA-GUEST-OS-2.87_201906-01~~|July 8, 2019 | August 4, 2019 |
 |~~WA-GUEST-OS-2.86_201905-01~~ |June 6, 2019 |July 26, 2019 |
@@ -273,9 +362,10 @@ The Guest OS supportability and retirement policy is explained [here][retirepoli
 [msrc]: https://technet.microsoft.com/security/dn440717.aspx
 [update guest os portal]: https://msdn.microsoft.com/library/gg433101.aspx
 [update guest os svc]: https://msdn.microsoft.com/library/gg456324.aspx
-[restarts]: https://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx
+[restarts]: https://docs.microsoft.com/archive/blogs/kwill/role-instance-restarts-due-to-os-upgrades
 [patches]: cloud-services-guestos-msrc-releases.md
 [retirepolicy]: cloud-services-guestos-retirement-policy.md
 [fam1retire]: cloud-services-guestos-family1-retirement.md
 [fix]: https://technet.microsoft.com/library/security/ms17-010.aspx
 [Windows Azure SDK]: https://www.microsoft.com/en-us/download/details.aspx?id=54917
+[more]: https://docs.microsoft.com/azure/cloud-services/applications-dont-support-tls-1-2  

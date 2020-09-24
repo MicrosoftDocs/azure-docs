@@ -6,13 +6,13 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: sngun
+ms.custom: devx-track-csharp
 
 ---
 # Retiring the S1, S2, and S3 performance levels
 
 > [!IMPORTANT] 
 > The S1, S2, and S3 performance levels discussed in this article are being retired and are no longer available for new Azure Cosmos DB accounts.
->
 
 This article provides an overview of S1, S2, and S3 performance levels, and discusses how the collections that use these performance levels can be migrated to single partitioned collections. After reading this article, you'll be able to answer the following questions:
 
@@ -21,7 +21,7 @@ This article provides an overview of S1, S2, and S3 performance levels, and disc
 - [What do I need to do to ensure uninterrupted access to my data?](#uninterrupted-access)
 - [How will my collection change after the migration?](#collection-change)
 - [How will my billing change after I’m migrated to single partition collections?](#billing-change)
-- [What if I need more than 10 GB of storage?](#more-storage-needed)
+- [What if I need more than 20 GB of storage?](#more-storage-needed)
 - [Can I change between the S1, S2, and S3 performance levels before the planned migration?](#change-before)
 - [How do I migrate from the S1, S2, S3 performance levels to single partition collections on my own?](#migrate-diy)
 - [How am I impacted if I'm an EA customer?](#ea-customer)
@@ -38,11 +38,11 @@ The S1, S2, and S3 performance levels do not offer the flexibility that the stan
 
 The following table compares the throughput and storage options available in single partition collections, partitioned collections, and S1, S2, S3 performance levels. Here is an example for US East 2 region:
 
-|   |Partitioned collection|Single partition collection|S1|S2|S3|
+| Quota name  |Partitioned collection|Single partition collection|S1|S2|S3|
 |---|---|---|---|---|---|
 |Maximum throughput|Unlimited|10K RU/s|250 RU/s|1 K RU/s|2.5 K RU/s|
 |Minimum throughput|2.5 K RU/s|400 RU/s|250 RU/s|1 K RU/s|2.5 K RU/s|
-|Maximum storage|Unlimited|10 GB|10 GB|10 GB|10 GB|
+|Maximum storage|Unlimited|20 GB|20 GB|20 GB|20 GB|
 |Price (monthly)|Throughput: $6 / 100 RU/s<br><br>Storage: $0.25/GB|Throughput: $6 / 100 RU/s<br><br>Storage: $0.25/GB|$25 USD|$50 USD|$100 USD|
 
 Are you an EA customer? If so, see [How am I impacted if I'm an EA customer?](#ea-customer)
@@ -71,13 +71,13 @@ In each of these cases, after you migrate the collection, you will be able to cu
 
 Assuming you have 10 S1 collections, 1 GB of storage for each, in the US East region, and you migrate these 10 S1 collections to 10 single partition collections at 400 RU/sec (the minimum level). Your bill will look as follows if you keep the 10 single partition collections for a full month:
 
-![How S1 pricing for 10 collections compares to 10 collections using pricing for a single partition collection](./media/performance-levels/s1-vs-standard-pricing.png)
+:::image type="content" source="./media/performance-levels/s1-vs-standard-pricing.png" alt-text="How S1 pricing for 10 collections compares to 10 collections using pricing for a single partition collection" border="false":::
 
 <a name="more-storage-needed"></a>
 
-## What if I need more than 10 GB of storage?
+## What if I need more than 20 GB of storage?
 
-Whether you have a collection with S1, S2, or S3 performance level, or have a single partition collection, all of which have 10 GB of storage available, you can use the Azure Cosmos DB Data Migration tool to migrate your data to a partitioned collection with virtually unlimited storage. For information about the benefits of a partitioned collection, see [Partitioning and scaling in Azure Cosmos DB](sql-api-partition-data.md). 
+Whether you have a collection with S1, S2, or S3 performance level, or have a single partition collection, all of which have 20 GB of storage available, you can use the Azure Cosmos DB Data Migration tool to migrate your data to a partitioned collection with virtually unlimited storage. For information about the benefits of a partitioned collection, see [Partitioning and scaling in Azure Cosmos DB](sql-api-partition-data.md). 
 
 <a name="change-before"></a>
 

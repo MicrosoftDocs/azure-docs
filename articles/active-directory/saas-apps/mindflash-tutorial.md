@@ -2,20 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Mindflash | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Mindflash.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: bdf91993-aaaa-4598-89b7-77ef8ca065d5
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Mindflash
 
@@ -205,7 +200,7 @@ In order to enable Azure AD users to log into Mindflash, they must be provisione
     b. Click **Add**.
 
 >[!NOTE]
->You can use any other Mindflash user account creation tools or APIs provided by Mindflash to provision AAD user accounts. 
+>You can use any other Mindflash user account creation tools or APIs provided by Mindflash to provision Azure AD user accounts. 
 > 
 
 ### Test single sign-on 

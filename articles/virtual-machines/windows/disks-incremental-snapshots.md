@@ -1,12 +1,13 @@
 ---
-title: Incremental snapshots (preview) for managed disks | Microsoft Docs
-description: Learn about incremental snapshots (preview) for managed disks, including how to create them using PowerShell and Azure Resource Manager.
+title: Incremental snapshots for managed disks 
+description: Learn about incremental snapshots for managed disks, including how to create them using PowerShell and Azure Resource Manager.
 author: roygara
-ms.service: virtual-machines-windows
-ms.topic: conceptual
-ms.date: 09/23/2019
+ms.service: virtual-machines
+ms.topic: how-to
+ms.date: 03/13/2020
 ms.author: rogarana
 ms.subservice: disks
 ---
 
-[!INCLUDE [virtual-machines-disks-incremental-snapshot](../../../includes/virtual-machines-disks-incremental-snapshot.md)]
+# Create an incremental snapshot for managed disks - PowerShell
+[!INCLUDE [virtual-machines-disks-incremental-snapshot-powershell](../../../includes/virtual-machines-disks-incremental-snapshot-powershell.md)]

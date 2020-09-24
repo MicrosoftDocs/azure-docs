@@ -1,15 +1,15 @@
 ---
-title: Authentication methods usage & insights reporting (preview) - Azure Active Directory
+title: Authentication methods usage & insights - Azure Active Directory
 description: Reporting on Azure AD self-service password reset and Multi-Factor Authentication authentication method usage
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
-ms.date: 06/06/2019
+ms.topic: how-to
+ms.date: 11/21/2019
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 
@@ -56,8 +56,6 @@ Clicking on either of the charts will bring you to a pre-filtered list of regist
 
 Using the control in the upper, right-hand corner, you can change the date range for the audit data shown in the Registrations and Resets charts to 24 hours, 7 days, or 30 days.
 
-Registration data from the 
-
 ### Registration details
 
 Clicking on the **Users registered**, **Users enabled**, or **Users capable** tiles or insights will bring you to the registration details.
@@ -89,12 +87,14 @@ Using the controls at the top of the list, you can search for a user and filter 
 
 ## Limitations
 
-The data shown in these reports will be delayed by up to 60 minutes. A “Last refreshed" field exists in the Azure portal to identify how recent your data is.
+The data shown in these reports will be delayed by up to 60 minutes. A "Last refreshed" field exists in the Azure portal to identify how recent your data is.
 
 Usage and insights data is not a replacement for the Azure Multi-Factor Authentication activity reports or information contained in the Azure AD sign-ins report.
 
+Report can't currently be filtered to exclude external users.
+
 ## Next steps
 
-- [Working with the authentication methods usage report API](https://docs.microsoft.com/graph/api/resources/authenticationmethods-usage-insights-overview?view=graph-rest-beta)
+- [Working with the authentication methods usage report API](/graph/api/resources/authenticationmethods-usage-insights-overview?view=graph-rest-beta)
 - [Choosing authentication methods for your organization](concept-authentication-methods.md)
 - [Combined registration experience](concept-registration-mfa-sspr-combined.md)

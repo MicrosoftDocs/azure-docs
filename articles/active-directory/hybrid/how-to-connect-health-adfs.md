@@ -9,10 +9,11 @@ manager: daveba
 editor: curtand
 ms.assetid: dc0e53d8-403e-462a-9543-164eaa7dd8b3
 ms.service: active-directory
+ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/26/2019
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
@@ -113,7 +114,6 @@ The report provides the following information:
 > This report is automatically updated after every 12 hours with the new information collected within that time. As a result, login attempts within the last 12 hours may not be included in the report.
 
 ## Related links
-* [Azure AD Connect Health](whatis-hybrid-identity-health.md)
+* [Azure AD Connect Health](./whatis-azure-ad-connect.md)
 * [Azure AD Connect Health Agent Installation](how-to-connect-health-agent-install.md)
 * [Risky IP report](how-to-connect-health-adfs-risky-ip.md)
-

@@ -1,30 +1,27 @@
 ﻿---
-title: Run Background tasks with WebJobs - Azure App Service
-description: Learn how to use WebJobs to run background tasks in Azure App Service web apps, API apps, or mobile apps.
-services: app-service
+title: Run background tasks with WebJobs
+description: Learn how to use WebJobs to run background tasks in Azure App Service. Choose from a variety of script formats and run them with CRON expressions.
 author: ggailey777
-manager: jeconnoc
-editor: jimbe
+
 ms.assetid: af01771e-54eb-4aea-af5f-f883ff39572b
-ms.service: app-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: glenga
-ms.reviewer: msangapu;david.ebbo;suwatch;pbatum;naren.soni
+ms.reviewer: msangapu;suwatch;pbatum;naren.soni
 ms.custom: seodec18
-#Customer intent: As a web developer, I want leverage background tasks to keep my application running smoothly.
+#Customer intent: As a web developer, I want to leverage background tasks to keep my application running smoothly.
 
 ---
 
-# Run Background tasks with WebJobs in Azure App Service
+# Run background tasks with WebJobs in Azure App Service
+
+This article shows how to deploy WebJobs by using the [Azure portal](https://portal.azure.com) to upload an executable or script. For information about how to develop and deploy WebJobs by using Visual Studio, see [Deploy WebJobs using Visual Studio](webjobs-dotnet-deploy-vs.md).
 
 ## Overview
-WebJobs is a feature of [Azure App Service](https://docs.microsoft.com/azure/app-service/) that enables you to run a program or script in the same context as a web app, API app, or mobile app. There is no additional cost to use WebJobs.
+WebJobs is a feature of [Azure App Service](index.yml) that enables you to run a program or script in the same instance as a web app, API app, or mobile app. There is no additional cost to use WebJobs.
 
 > [!IMPORTANT]
 > WebJobs is not yet supported for App Service on Linux.
-
-This article shows how to deploy WebJobs by using the [Azure portal](https://portal.azure.com) to upload an executable or script. For information about how to develop and deploy WebJobs by using Visual Studio, see [Deploy WebJobs using Visual Studio](webjobs-dotnet-deploy-vs.md).
 
 The Azure WebJobs SDK can be used with WebJobs to simplify many programming tasks. For more information, see [What is the WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki).
 
@@ -168,7 +165,7 @@ when making changes in one don't forget the other two.
 
 ## NCRONTAB expressions
 
-You can enter a [NCRONRAB expression](../azure-functions/functions-bindings-timer.md#ncrontab-expressions) in the portal or include a `settings.job` file at the root of your WebJob *.zip* file, as in the following example:
+You can enter a [NCRONTAB expression](../azure-functions/functions-bindings-timer.md#ncrontab-expressions) in the portal or include a `settings.job` file at the root of your WebJob *.zip* file, as in the following example:
 
 ```json
 {
@@ -177,6 +174,8 @@ You can enter a [NCRONRAB expression](../azure-functions/functions-bindings-time
 ```
 
 To learn more, see [Scheduling a triggered WebJob](webjobs-dotnet-deploy-vs.md#scheduling-a-triggered-webjob).
+
+[!INCLUDE [webjobs-cron-timezone-note](../../includes/webjobs-cron-timezone-note.md)]
 
 ## <a name="ViewJobHistory"></a> View the job history
 

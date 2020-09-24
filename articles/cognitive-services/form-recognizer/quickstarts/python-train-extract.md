@@ -8,8 +8,9 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 07/03/2019
+ms.date: 05/27/2020
 ms.author: pafarley
+ms.custom: devx-track-python
 #Customer intent: As a developer or data scientist familiar with Python, I want to learn how to use Form Recognizer to extract my form data.
 ---
 
@@ -17,13 +18,17 @@ ms.author: pafarley
 
 In this quickstart, you'll use the Azure Form Recognizer REST API with Python to train and score forms to extract key-value pairs and tables.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
 ## Prerequisites
+
 To complete this quickstart, you must have:
-- Access to the Form Recognizer limited-access preview. To get access to the preview, fill out and submit the [Form Recognizer access request](https://aka.ms/FormRecognizerRequestAccess) form.
 - [Python](https://www.python.org/downloads/) installed (if you want to run the sample locally).
-- A set of at least five forms of the same type. You will use this data to train the model. You can use a [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) for this quickstart. Upload the data to the root of a blob storage container in an Azure Storage account.
+- A set of at least five forms of the same type. You will use this data to train the model. Your forms can be of different file types but must be the same type of document. You can use a [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) for this quickstart. Upload the training files to the root of a blob storage container in an standard-performance-tier Azure Storage account.
+
+> [!NOTE]
+> This quickstart uses remote documents accessed by URL. To use local files instead, see the [reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync).
+
 
 ## Create a Form Recognizer resource
 
@@ -33,447 +38,499 @@ To complete this quickstart, you must have:
 
 First, you'll need a set of training data in an Azure Storage blob container. You should have a minimum of five filled-in forms (PDF documents and/or images) of the same type/structure as your main input data. Or, you can use a single empty form with two filled-in forms. The empty form's file name needs to include the word "empty." See [Build a training data set for a custom model](../build-training-data-set.md) for tips and options for putting together your training data.
 
-To train a Form Recognizer model with the documents in your Azure blob container, call the **Train** API by running the following python code. Before you run the code, make these changes:
+> [!NOTE]
+> You can use the labeled data feature to manually label some or all of your training data beforehand. This is a more complex process but results in a better trained model. See the [Train with labels](../overview.md#train-with-labels) section of the overview to learn more.
 
-1. Replace `<Endpoint>` with the endpoint URL for your Form Recognizer resource.
-1. Replace `<Subscription key>` with the subscription key you copied from the previous step.
+To train a Form Recognizer model with the documents in your Azure blob container, call the **[Train Custom Model](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync)** API by running the following python code. Before you run the code, make these changes:
+
 1. Replace `<SAS URL>` with the Azure Blob storage container's shared access signature (SAS) URL. To retrieve the SAS URL, open the Microsoft Azure Storage Explorer, right-click your container, and select **Get shared access signature**. Make sure the **Read** and **List** permissions are checked, and click **Create**. Then copy the value in the **URL** section. It should have the form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+1. Replace `<subscription key>` with the subscription key you copied from the previous step.
+1. Replace `<endpoint>` with the endpoint URL for your Form Recognizer resource.
+1. Replace `<Blob folder name>` with the path to the folder in blob storage where your forms are located. If your forms are at the root of your container, leave this string empty.
 
+    # [v2.0](#tab/v2-0)
     ```python
-    ########### Python Form Recognizer Train #############
-    from requests import post as http_post
-
+    ########### Python Form Recognizer Labeled Async Train #############
+    import json
+    import time
+    from requests import get, post
+    
     # Endpoint URL
-    base_url = r"<Endpoint>" + "/formrecognizer/v1.0-preview/custom"
+    endpoint = r"<endpoint>"
+    post_url = endpoint + r"/formrecognizer/v2.0/custom/models"
     source = r"<SAS URL>"
+    prefix = "<Blob folder name>"
+    includeSubFolders = False
+    useLabelFile = False
+    
     headers = {
         # Request headers
         'Content-Type': 'application/json',
-        'Ocp-Apim-Subscription-Key': '<Subscription Key>',
+        'Ocp-Apim-Subscription-Key': '<subsription key>',
     }
-    url = base_url + "/train" 
-    body = {"source": source}
+    
+    body =     {
+        "source": source,
+        "sourceFilter": {
+            "prefix": prefix,
+            "includeSubFolders": includeSubFolders
+        },
+        "useLabelFile": useLabelFile
+    }
+    
     try:
-        resp = http_post(url = url, json = body, headers = headers)
-        print("Response status code: %d" % resp.status_code)
-        print("Response body: %s" % resp.json())
+        resp = post(url = post_url, json = body, headers = headers)
+        if resp.status_code != 201:
+            print("POST model failed (%s):\n%s" % (resp.status_code, json.dumps(resp.json())))
+            quit()
+        print("POST model succeeded:\n%s" % resp.headers)
+        get_url = resp.headers["location"]
     except Exception as e:
-        print(str(e))
-    ```
-1. Save the code in a file with a .py extension. For example, *form-recognize-train.py*.
-1. Open a command prompt window.
-1. At the prompt, use the `python` command to run the sample. For example, `python form-recognize-train.py`.
-
-You'll receive a `200 (Success)` response with this JSON output:
-
-```json
-{
-  "modelId": "59e2185e-ab80-4640-aebc-f3653442617b",
-  "trainingDocuments": [
-    {
-      "documentName": "Invoice_1.pdf",
-      "pages": 1,
-      "errors": [],
-      "status": "success"
-    },
-    {
-      "documentName": "Invoice_2.pdf",
-      "pages": 1,
-      "errors": [],
-      "status": "success"
-    },
-    {
-      "documentName": "Invoice_3.pdf",
-      "pages": 1,
-      "errors": [],
-      "status": "success"
-    },
-    {
-      "documentName": "Invoice_4.pdf",
-      "pages": 1,
-      "errors": [],
-      "status": "success"
-    },
-    {
-      "documentName": "Invoice_5.pdf",
-      "pages": 1,
-      "errors": [],
-      "status": "success"
-    }
-  ],
-  "errors": []
-}
-```
-
-Note the `"modelId"` value. You'll need it for the following steps.
-  
-## Extract key-value pairs and tables from forms
-
-Next, you'll analyze a document and extract key-value pairs and tables from it. Call the **Model - Analyze** API by running the Python script that follows. Before you run the command, make these changes:
-
-1. Replace `<Endpoint>` with the endpoint that you obtained with your Form Recognizer subscription key. You can find it on your Form Recognizer resource **Overview** tab.
-1. Replace `<path to your form>` with the file path of your form (for example, C:\temp\file.pdf).
-1. Replace `<modelID>` with the model ID you received in the previous section.
-1. Replace `<file type>` with the file type. Supported types: `application/pdf`, `image/jpeg`, `image/png`.
-1. Replace `<subscription key>` with your subscription key.
-
+        print("POST model failed:\n%s" % str(e))
+        quit() 
+    ```    
+    # [v2.1 preview](#tab/v2-1)
     ```python
-    ########### Python Form Recognizer Analyze #############
-    from requests import post as http_post
+    ########### Python Form Recognizer Labeled Async Train #############
+    import json
+    import time
+    from requests import get, post
     
     # Endpoint URL
-    base_url = r"<Endpoint>" + "/formrecognizer/v1.0-preview/custom"
-    file_path = r"<path to your form>"
-    model_id = "<modelID>"
+    endpoint = r"<endpoint>"
+    post_url = endpoint + r"/formrecognizer/v2.1-preview.1/custom/models"
+    source = r"<SAS URL>"
+    prefix = "<Blob folder name>"
+    includeSubFolders = False
+    useLabelFile = False
+    
     headers = {
         # Request headers
-        'Content-Type': '<file type>',
-        'Ocp-Apim-Subscription-Key': '<subscription key>',
+        'Content-Type': 'application/json',
+        'Ocp-Apim-Subscription-Key': '<subsription key>',
     }
-
-    try:
-        url = base_url + "/models/" + model_id + "/analyze" 
-        with open(file_path, "rb") as f:
-            data_bytes = f.read()  
-        resp = http_post(url = url, data = data_bytes, headers = headers)
-        print("Response status code: %d" % resp.status_code)    
-        print("Response body:\n%s" % resp.json())   
-    except Exception as e:
-        print(str(e))
-    ```
-
-1. Save the code in a file with a .py extension. For example, *form-recognize-analyze.py*.
-1. Open a command prompt window.
-1. At the prompt, use the `python` command to run the sample. For example, `python form-recognize-analyze.py`.
-
-### Examine the response
-
-A success response is returned in JSON. It represents the key-value pairs and tables extracted from the form:
-
-```bash
-{
-  "status": "success",
-  "pages": [
-    {
-      "number": 1,
-      "height": 792,
-      "width": 612,
-      "clusterId": 0,
-      "keyValuePairs": [
-        {
-          "key": [
-            {
-              "text": "Address:",
-              "boundingBox": [
-                57.4,
-                683.1,
-                100.5,
-                683.1,
-                100.5,
-                673.7,
-                57.4,
-                673.7
-              ]
-            }
-          ],
-          "value": [
-            {
-              "text": "1 Redmond way Suite",
-              "boundingBox": [
-                57.4,
-                671.3,
-                154.8,
-                671.3,
-                154.8,
-                659.2,
-                57.4,
-                659.2
-              ],
-              "confidence": 0.86
-            },
-            {
-              "text": "6000 Redmond, WA",
-              "boundingBox": [
-                57.4,
-                657.1,
-                146.9,
-                657.1,
-                146.9,
-                645.5,
-                57.4,
-                645.5
-              ],
-              "confidence": 0.86
-            },
-            {
-              "text": "99243",
-              "boundingBox": [
-                57.4,
-                643.4,
-                85,
-                643.4,
-                85,
-                632.3,
-                57.4,
-                632.3
-              ],
-              "confidence": 0.86
-            }
-          ]
+    
+    body =     {
+        "source": source,
+        "sourceFilter": {
+            "prefix": prefix,
+            "includeSubFolders": includeSubFolders
         },
-        {
-          "key": [
-            {
-              "text": "Invoice For:",
-              "boundingBox": [
-                316.1,
-                683.1,
-                368.2,
-                683.1,
-                368.2,
-                673.7,
-                316.1,
-                673.7
-              ]
-            }
-          ],
-          "value": [
-            {
-              "text": "Microsoft",
-              "boundingBox": [
-                374,
-                687.9,
-                418.8,
-                687.9,
-                418.8,
-                673.7,
-                374,
-                673.7
-              ],
-              "confidence": 1
-            },
-            {
-              "text": "1020 Enterprise Way",
-              "boundingBox": [
-                373.9,
-                673.5,
-                471.3,
-                673.5,
-                471.3,
-                659.2,
-                373.9,
-                659.2
-              ],
-              "confidence": 1
-            },
-            {
-              "text": "Sunnayvale, CA 87659",
-              "boundingBox": [
-                373.8,
-                659,
-                479.4,
-                659,
-                479.4,
-                645.5,
-                373.8,
-                645.5
-              ],
-              "confidence": 1
-            }
-          ]
-        }
-      ],
-      "tables": [
-        {
-          "id": "table_0",
-          "columns": [
-            {
-              "header": [
-                {
-                  "text": "Invoice Number",
-                  "boundingBox": [
-                    38.5,
-                    585.2,
-                    113.4,
-                    585.2,
-                    113.4,
-                    575.8,
-                    38.5,
-                    575.8
-                  ]
-                }
-              ],
-              "entries": [
-                [
-                  {
-                    "text": "34278587",
-                    "boundingBox": [
-                      38.5,
-                      547.3,
-                      82.8,
-                      547.3,
-                      82.8,
-                      537,
-                      38.5,
-                      537
-                    ],
-                    "confidence": 1
-                  }
-                ]
-              ]
-            },
-            {
-              "header": [
-                {
-                  "text": "Invoice Date",
-                  "boundingBox": [
-                    139.7,
-                    585.2,
-                    198.5,
-                    585.2,
-                    198.5,
-                    575.8,
-                    139.7,
-                    575.8
-                  ]
-                }
-              ],
-              "entries": [
-                [
-                  {
-                    "text": "6/18/2017",
-                    "boundingBox": [
-                      139.7,
-                      546.8,
-                      184,
-                      546.8,
-                      184,
-                      537,
-                      139.7,
-                      537
-                    ],
-                    "confidence": 1
-                  }
-                ]
-              ]
-            },
-            {
-              "header": [
-                {
-                  "text": "Invoice Due Date",
-                  "boundingBox": [
-                    240.5,
-                    585.2,
-                    321,
-                    585.2,
-                    321,
-                    575.8,
-                    240.5,
-                    575.8
-                  ]
-                }
-              ],
-              "entries": [
-                [
-                  {
-                    "text": "6/24/2017",
-                    "boundingBox": [
-                      240.5,
-                      546.8,
-                      284.8,
-                      546.8,
-                      284.8,
-                      537,
-                      240.5,
-                      537
-                    ],
-                    "confidence": 1
-                  }
-                ]
-              ]
-            },
-            {
-              "header": [
-                {
-                  "text": "Charges",
-                  "boundingBox": [
-                    341.3,
-                    585.2,
-                    381.2,
-                    585.2,
-                    381.2,
-                    575.8,
-                    341.3,
-                    575.8
-                  ]
-                }
-              ],
-              "entries": [
-                [
-                  {
-                    "text": "$56,651.49",
-                    "boundingBox": [
-                      387.6,
-                      546.4,
-                      437.5,
-                      546.4,
-                      437.5,
-                      537,
-                      387.6,
-                      537
-                    ],
-                    "confidence": 1
-                  }
-                ]
-              ]
-            },
-            {
-              "header": [
-                {
-                  "text": "VAT ID",
-                  "boundingBox": [
-                    442.1,
-                    590,
-                    474.8,
-                    590,
-                    474.8,
-                    575.8,
-                    442.1,
-                    575.8
-                  ]
-                }
-              ],
-              "entries": [
-                [
-                  {
-                    "text": "PT",
-                    "boundingBox": [
-                      447.7,
-                      550.6,
-                      460.4,
-                      550.6,
-                      460.4,
-                      537,
-                      447.7,
-                      537
-                    ],
-                    "confidence": 1
-                  }
-                ]
-              ]
-            }
-          ]
-        }
-      ]
+        "useLabelFile": useLabelFile
     }
-  ],
-  "errors": []
+    
+    try:
+        resp = post(url = post_url, json = body, headers = headers)
+        if resp.status_code != 201:
+            print("POST model failed (%s):\n%s" % (resp.status_code, json.dumps(resp.json())))
+            quit()
+        print("POST model succeeded:\n%s" % resp.headers)
+        get_url = resp.headers["location"]
+    except Exception as e:
+        print("POST model failed:\n%s" % str(e))
+        quit() 
+    ```    
+
+
+    ---
+
+
+1. Save the code in a file with a .py extension. For example, *form-recognizer-train.py*.
+1. Open a command prompt window.
+1. At the prompt, use the `python` command to run the sample. For example, `python form-recognizer-train.py`.
+
+## Get training results
+
+After you've started the train operation, you use the returned ID to get the status of the operation. Add the following code to the bottom of your Python script. This uses the ID value from the training call in a new API call. The training operation is asynchronous, so this script calls the API at regular intervals until the training status is completed. We recommend an interval of one second or more.
+
+```python 
+n_tries = 15
+n_try = 0
+wait_sec = 5
+max_wait_sec = 60
+while n_try < n_tries:
+    try:
+        resp = get(url = get_url, headers = headers)
+        resp_json = resp.json()
+        if resp.status_code != 200:
+            print("GET model failed (%s):\n%s" % (resp.status_code, json.dumps(resp_json)))
+            quit()
+        model_status = resp_json["modelInfo"]["status"]
+        if model_status == "ready":
+            print("Training succeeded:\n%s" % json.dumps(resp_json))
+            quit()
+        if model_status == "invalid":
+            print("Training failed. Model is invalid:\n%s" % json.dumps(resp_json))
+            quit()
+        # Training still running. Wait and retry.
+        time.sleep(wait_sec)
+        n_try += 1
+        wait_sec = min(2*wait_sec, max_wait_sec)     
+    except Exception as e:
+        msg = "GET model failed:\n%s" % str(e)
+        print(msg)
+        quit()
+print("Train operation did not complete within the allocated time.")
+```
+
+When the training process is completed, you'll receive a `201 (Success)` response with JSON content like the following:
+
+```json
+{ 
+  "modelInfo":{ 
+    "status":"ready",
+    "createdDateTime":"2019-10-08T10:20:31.957784",
+    "lastUpdatedDateTime":"2019-10-08T14:20:41+00:00",
+    "modelId":"1cfb372bab404ba3aa59481ab2c63da5"
+  },
+  "trainResult":{ 
+    "trainingDocuments":[ 
+      { 
+        "documentName":"invoices\\Invoice_1.pdf",
+        "pages":1,
+        "errors":[ 
+
+        ],
+        "status":"succeeded"
+      },
+      { 
+        "documentName":"invoices\\Invoice_2.pdf",
+        "pages":1,
+        "errors":[ 
+
+        ],
+        "status":"succeeded"
+      },
+      { 
+        "documentName":"invoices\\Invoice_3.pdf",
+        "pages":1,
+        "errors":[ 
+
+        ],
+        "status":"succeeded"
+      },
+      { 
+        "documentName":"invoices\\Invoice_4.pdf",
+        "pages":1,
+        "errors":[ 
+
+        ],
+        "status":"succeeded"
+      },
+      { 
+        "documentName":"invoices\\Invoice_5.pdf",
+        "pages":1,
+        "errors":[ 
+
+        ],
+        "status":"succeeded"
+      }
+    ],
+    "errors":[ 
+
+    ]
+  },
+  "keys":{ 
+    "0":[ 
+      "Address:",
+      "Invoice For:",
+      "Microsoft",
+      "Page"
+    ]
+  }
 }
 ```
+
+Copy the `"modelId"` value for use in the following steps.
+
+[!INCLUDE [analyze forms](../includes/python-custom-analyze.md)]
+
+When the process is completed, you'll receive a `200 (Success)` response with JSON content in the following format. The response has been shortened for simplicity. The main key/value pair associations and tables are in the `"pageResults"` node. If you also specified plain text extraction through the *includeTextDetails* URL parameter, then the `"readResults"` node will show the content and positions of all the text in the document.
+
+
+This sample JSON output has been shortened for simplicity.
+
+# [v2.0](#tab/v2-0)
+```JSON
+{
+  "status": "succeeded",
+  "createdDateTime": "2020-08-21T00:46:25Z",
+  "lastUpdatedDateTime": "2020-08-21T00:46:32Z",
+  "analyzeResult": {
+    "version": "2.0.0",
+    "readResults": [
+      {
+        "page": 1,
+        "angle": 0,
+        "width": 8.5,
+        "height": 11,
+        "unit": "inch",
+        "lines": [
+          {
+            "text": "Project Statement",
+            "boundingBox": [
+              5.0153,
+              0.275,
+              8.0944,
+              0.275,
+              8.0944,
+              0.7125,
+              5.0153,
+              0.7125
+            ],
+            "words": [
+              {
+                "text": "Project",
+                "boundingBox": [
+                  5.0153,
+                  0.275,
+                  6.2278,
+                  0.275,
+                  6.2278,
+                  0.7125,
+                  5.0153,
+                  0.7125
+                ]
+              },
+              {
+                "text": "Statement",
+                "boundingBox": [
+                  6.3292,
+                  0.275,
+                  8.0944,
+                  0.275,
+                  8.0944,
+                  0.7125,
+                  6.3292,
+                  0.7125
+                ]
+              }
+            ]
+          }, 
+		...
+        ]
+      }
+    ],
+    "pageResults": [
+      {
+        "page": 1,
+        "keyValuePairs": [
+          {
+            "key": {
+              "text": "Date:",
+              "boundingBox": [
+                6.9722,
+                1.0264,
+                7.3417,
+                1.0264,
+                7.3417,
+                1.1931,
+                6.9722,
+                1.1931
+              ],
+              "elements": [
+                "#/readResults/0/lines/2/words/0"
+              ]
+            },
+            "confidence": 1
+          },
+		 ...
+        ],
+        "tables": [
+          {
+            "rows": 4,
+            "columns": 5,
+            "cells": [
+              {
+                "text": "Training Date",
+                "rowIndex": 0,
+                "columnIndex": 0,
+                "boundingBox": [
+                  0.6931,
+                  4.2444,
+                  1.5681,
+                  4.2444,
+                  1.5681,
+                  4.4125,
+                  0.6931,
+                  4.4125
+                ],
+                "confidence": 1,
+                "rowSpan": 1,
+                "columnSpan": 1,
+                "elements": [
+                  "#/readResults/0/lines/15/words/0",
+                  "#/readResults/0/lines/15/words/1"
+                ],
+                "isHeader": true,
+                "isFooter": false
+              },
+			  ...
+            ]
+          }
+        ], 
+        "clusterId": 0
+      }
+    ],
+    "documentResults": [],
+    "errors": []
+  }
+}
+```    
+# [v2.1 preview](#tab/v2-1)    
+```JSON
+{
+  "status": "succeeded",
+  "createdDateTime": "2020-08-21T01:13:28Z",
+  "lastUpdatedDateTime": "2020-08-21T01:13:42Z",
+  "analyzeResult": {
+    "version": "2.1.0",
+    "readResults": [
+      {
+        "page": 1,
+        "angle": 0,
+        "width": 8.5,
+        "height": 11,
+        "unit": "inch",
+        "lines": [
+          {
+            "text": "Project Statement",
+            "boundingBox": [
+              5.0444,
+              0.3613,
+              8.0917,
+              0.3613,
+              8.0917,
+              0.6718,
+              5.0444,
+              0.6718
+            ],
+            "words": [
+              {
+                "text": "Project",
+                "boundingBox": [
+                  5.0444,
+                  0.3587,
+                  6.2264,
+                  0.3587,
+                  6.2264,
+                  0.708,
+                  5.0444,
+                  0.708
+                ]
+              },
+              {
+                "text": "Statement",
+                "boundingBox": [
+                  6.3361,
+                  0.3635,
+                  8.0917,
+                  0.3635,
+                  8.0917,
+                  0.6396,
+                  6.3361,
+                  0.6396
+                ]
+              }
+            ]
+          }, 
+		  ...
+        ] 
+      }
+    ],
+    "pageResults": [
+      {
+        "page": 1,
+        "keyValuePairs": [
+          {
+            "key": {
+              "text": "Date:",
+              "boundingBox": [
+                6.9833,
+                1.0615,
+                7.3333,
+                1.0615,
+                7.3333,
+                1.1649,
+                6.9833,
+                1.1649
+              ],
+              "elements": [
+                "#/readResults/0/lines/2/words/0"
+              ]
+            },
+            "value": {
+              "text": "9/10/2020",
+              "boundingBox": [
+                7.3833,
+                1.0802,
+                7.925,
+                1.0802,
+                7.925,
+                1.174,
+                7.3833,
+                1.174
+              ],
+              "elements": [
+                "#/readResults/0/lines/3/words/0"
+              ]
+            },
+            "confidence": 1
+          },
+		  ...
+        ], 
+        "tables": [
+          {
+            "rows": 5,
+            "columns": 5,
+            "cells": [
+              {
+                "text": "Training Date",
+                "rowIndex": 0,
+                "columnIndex": 0,
+                "boundingBox": [
+                  0.6944,
+                  4.2779,
+                  1.5625,
+                  4.2779,
+                  1.5625,
+                  4.4005,
+                  0.6944,
+                  4.4005
+                ],
+                "confidence": 1,
+                "rowSpan": 1,
+                "columnSpan": 1,
+                "elements": [
+                  "#/readResults/0/lines/15/words/0",
+                  "#/readResults/0/lines/15/words/1"
+                ],
+                "isHeader": true,
+                "isFooter": false
+              },
+			  ...
+            ]
+          }
+        ], 
+        "clusterId": 0
+      }
+    ], 
+    "documentResults": [],
+    "errors": []
+  }
+}
+``` 
+
+---
+
+
+## Improve results
+
+[!INCLUDE [improve results](../includes/improve-results-unlabeled.md)]
 
 ## Next steps
 
 In this quickstart, you used the Form Recognizer REST API with Python to train a model and run it in a sample scenario. Next, see the reference documentation to explore the Form Recognizer API in more depth.
 
 > [!div class="nextstepaction"]
-> [REST API reference documentation](https://aka.ms/form-recognizer/api)
+> [REST API reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm)

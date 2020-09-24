@@ -1,28 +1,25 @@
 ---
-title: Send custom events with Event Grid and Azure CLI
-description: Use Azure Event Grid and Azure CLI to publish a custom topic, and subscribe to events for that topic. The events are handled by a web application. 
-services: event-grid 
-keywords: 
-author: spelluru
-ms.author: spelluru
-ms.date: 12/07/2018
-ms.topic: quickstart
-ms.service: event-grid
-ms.custom: seodec18, seo-javascript-september2019
+title: 'Quickstart: Send custom events with Event Grid and Azure CLI'
+description: 'Quickstart Use Azure Event Grid and Azure CLI to publish a custom topic, and subscribe to events for that topic. The events are handled by a web application.'
+ms.date: 07/07/2020
+ms.topic: quickstart 
+ms.custom: devx-track-azurecli
 ---
 # Quickstart: Route custom events to web endpoint with Azure CLI and Event Grid
 
-Azure Event Grid is an eventing service for the cloud. In this article, you use the Azure CLI to create a custom topic, subscribe to the custom topic, and trigger the event to view the result. Typically, you send events to an endpoint that processes the event data and takes actions. However, to simplify this article, you send the events to a web app that collects and displays the messages.
+Azure Event Grid is an eventing service for the cloud. In this article, you use the Azure CLI to create a custom topic, subscribe to the custom topic, and trigger the event to view the result.
+
+Typically, you send events to an endpoint that processes the event data and takes actions. However, to simplify this article, you send the events to a web app that collects and displays the messages.
 
 When you're finished, you see that the event data has been sent to the web app.
 
-![View results](./media/custom-event-quickstart/view-result.png)
+![View results in the Azure Event Grid Viewer](./media/custom-event-quickstart/azure-event-grid-viewer-record-inserted-event.png)
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this article requires that you are running the latest version of Azure CLI (2.0.24 or later). To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this article requires that you are running the latest version of Azure CLI (2.0.70 or later). To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 If you aren't using Cloud Shell, you must first sign in using `az login`.
 
@@ -80,15 +77,16 @@ The endpoint for your web app must include the suffix `/api/updates/`.
 endpoint=https://$sitename.azurewebsites.net/api/updates
 
 az eventgrid event-subscription create \
-  --source-resource-id "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventGrid/topics/$topicname" 
-  --name demoViewerSub 
+  --source-resource-id "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventGrid/topics/$topicname" \
+  --name demoViewerSub \
   --endpoint $endpoint
   
 ```
 
 View your web app again, and notice that a subscription validation event has been sent to it. Select the eye icon to expand the event data. Event Grid sends the validation event so the endpoint can verify that it wants to receive event data. The web app includes code to validate the subscription.
 
-![View subscription event](./media/custom-event-quickstart/view-subscription-event.png)
+![View the subscription event in Azure Event Grid Viewer](./media/custom-event-quickstart/azure-event-grid-viewer-subscription-validation-event.png)
+
 
 ## Send an event to your custom topic
 

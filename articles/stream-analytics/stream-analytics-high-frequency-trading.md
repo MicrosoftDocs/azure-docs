@@ -1,14 +1,13 @@
 ---
-title: High-frequency trading simulation using Azure Stream Analytics
+title: High-frequency trading using Azure Stream Analytics
 description: How to perform linear regression model training and scoring in an Azure Stream Analytics job.
-services: stream-analytics
-author: zhongc
-ms.author: zhongc
-ms.reviewer: jasonh
+author: mamccrea
+ms.author: mamccrea
+ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/07/2018
-ms.custom: seodec18
+ms.custom: "seodec18, devx-track-csharp"
 ---
 
 # High-frequency trading simulation with Stream Analytics

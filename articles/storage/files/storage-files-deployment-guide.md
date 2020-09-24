@@ -1,9 +1,9 @@
 ---
 title: How to deploy Azure Files | Microsoft Docs
-description: Learn how to deploy Azure Files from start to finish.
+description: Learn how to deploy Azure Files from start to finish. Transfer data into Azure Files. Automatically mount on needed computers or servers.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/22/2018
 ms.author: rogarana
 ms.subservice: files
@@ -21,7 +21,7 @@ This article assumes that you have already completed the following steps:
 - Created an Azure file share with your desired quota in your Storage Account. See [Create a file share](storage-how-to-create-file-share.md) for step-by-step directions on how to create a file share.
 
 ## Transfer data into Azure Files
-You may wish to migrate existing file shares, such as those stored on-premises, to your new Azure file share. This section will show you how to move data into an Azure file share via several popular methods detailed from the [planning guide](storage-files-planning.md#data-transfer-method)
+You may wish to migrate existing file shares, such as those stored on-premises, to your new Azure file share. This section will show you how to move data into an Azure file share via several popular methods detailed from the [planning guide](storage-files-planning.md#migration)
 
 ### Azure File Sync
 Azure File Sync allows you to centralize your organization's file shares in Azure Files without giving up the flexibility, performance, and compatibility of an on-premises file server. It does this by transforming your Windows Servers into a quick cache of your Azure file share. You can use any protocol available on Windows Server to access your data locally (including SMB, NFS, and FTPS) and you can have as many caches as you need across the world.
@@ -58,7 +58,7 @@ The following steps will import data from an on-premises location to your Azure 
     "F:\shares\scratch\","MyAzureFileShare/",file,rename,"None",None
     ```
 
-    Multiple shares with a Storage Account may be specified. See [Prepare the dataset CSV file](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#prepare-the-dataset-csv-file) for more information.
+    Multiple shares with a Storage Account may be specified. See [Prepare the dataset CSV file](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) for more information.
 
 5. Create the driveset CSV file. The driveset CSV file lists the disks available to the on-premises export agent. For example, the following driveset CSV file lists `X:`, `Y:`, and `Z:` drives to be used in the on-premises export job:
 
@@ -69,7 +69,7 @@ The following steps will import data from an on-premises location to your Azure 
     Z,Format,SilentMode,Encrypt,
     ```
     
-    See [Prepare the driveset CSV file](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#prepare-initialdriveset-or-additionaldriveset-csv-file) for more information.
+    See [Prepare the driveset CSV file](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) for more information.
 
 6. Use the [WAImportExport Tool](https://www.microsoft.com/download/details.aspx?id=55280) to copy your data to one or more hard drives.
 

@@ -1,5 +1,5 @@
 ---
-title: Node.js examples for Azure Cosmos DB
+title: Node.js examples to manage data in Azure Cosmos database
 description: Find Node.js examples on GitHub for common tasks in Azure Cosmos DB, including CRUD operations.
 author: deborahc
 ms.service: cosmos-db
@@ -7,13 +7,14 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 08/23/2019
 ms.author: dech
-
+ms.custom: devx-track-js
 ---
-# Azure Cosmos DB Node.js examples
+# Node.js examples to manage data in Azure Cosmos DB
+
 > [!div class="op_single_selector"]
-> * [.NET Examples](sql-api-dotnet-samples.md)
-> * [Java Examples](sql-api-java-samples.md)
-> * [Async Java Examples](sql-api-async-java-samples.md)
+> * [.NET V2 SDK Examples](sql-api-dotnet-samples.md)
+> * [.NET V3 SDK Examples](sql-api-dotnet-v3sdk-samples.md)
+> * [Java V4 SDK Examples](sql-api-java-sdk-samples.md)
 > * [Node.js Examples](sql-api-nodejs-samples.md)
 > * [Python Examples](sql-api-python-samples.md)
 > * [Azure Code Sample Gallery](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)
@@ -64,7 +65,7 @@ The [ContainerManagement](https://github.com/Azure/azure-cosmos-js/blob/master/s
 
 ## Item examples
 
-The [ItemManagement](https://github.com/Azure/azure-cosmos-js/tree/master/samples/ItemManagement) file shows how to perform the CRUD operations on the item. To learn about the Azure Cosmos documents before running the following samples, see [Working with databases, containers, and items](databases-containers-items.md) conceptual article. 
+The [ItemManagement](https://github.com/Azure/azure-cosmos-js/blob/master/samples/ItemManagement.ts) file shows how to perform the CRUD operations on the item. To learn about the Azure Cosmos documents before running the following samples, see [Working with databases, containers, and items](databases-containers-items.md) conceptual article. 
 
 | Task | API reference |
 | --- | --- |
@@ -91,7 +92,7 @@ The [IndexManagement](https://github.com/Azure/azure-cosmos-js/blob/master/sampl
 
 ## Server-side programming examples
 
-The [app.js](https://github.com/Azure/azure-cosmos-js/blob/master/samples/ServerSideScripts/app.js) file of the [ServerSideScripts](https://github.com/Azure/azure-cosmos-js/tree/master/samples/ServerSideScripts) project shows how to perform the following tasks. To learn about Server-side programming  in Azure Cosmos DB before running the following samples, see [Stored procedures, triggers, and user-defined functions](stored-procedures-triggers-udfs.md) conceptual article. 
+The [index.ts](https://github.com/Azure/azure-cosmos-js/blob/master/samples/ServerSideScripts/index.ts) file of the [ServerSideScripts](https://github.com/Azure/azure-cosmos-js/tree/master/samples/ServerSideScripts) project shows how to perform the following tasks. To learn about Server-side programming  in Azure Cosmos DB before running the following samples, see [Stored procedures, triggers, and user-defined functions](stored-procedures-triggers-udfs.md) conceptual article. 
 
 | Task | API reference |
 | --- | --- |

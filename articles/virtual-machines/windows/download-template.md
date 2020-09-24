@@ -1,19 +1,11 @@
 ---
-title: Download the template for an Azure VM | Microsoft Docs
-description: Download the templatefor a VM to help with automating deployments in the Resource Manager deployment model
-services: virtual-machines-windows
-documentationcenter: ''
+title: Download the template for an Azure VM 
+description: Download the template for a VM using the portal or PowerShell.
 author: cynthn
 manager: gwallace
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 51ef4f51-0942-4249-afea-4a3f87ce1ff8
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/17/2017
 ms.author: cynthn
 
@@ -29,22 +21,17 @@ When you create a VM in Azure using the portal or PowerShell, a Resource Manager
 5. Select **Download** from the menu at the top and save the .zip file to your local computer.
 6. Open the .zip file and extract the files to a folder. The .zip file contains:
    
-   * deploy.ps1
-   * deploy.sh 
-   * deployer.rb
-   * DeploymentHelper.cs
    * parameters.json
    * template.json
 
 The template.json file is the template.
 
 ## Download the template using PowerShell
-You can also download the .json template file using the [Export-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/export-azresourcegroup) cmdlet. You can use the `-path` parameter to provide the filename and path for the .json file. This example shows how to download the template for the resource group named **myResourceGroup** to the **C:\users\public\downloads** folder on your local computer.
+You can also download the .json template file using the [Export-AzResourceGroup](/powershell/module/az.resources/export-azresourcegroup) cmdlet. You can use the `-path` parameter to provide the filename and path for the .json file. This example shows how to download the template for the resource group named **myResourceGroup** to the **C:\users\public\downloads** folder on your local computer.
 
 ```powershell
     Export-AzResourceGroup -ResourceGroupName "myResourceGroup" -Path "C:\users\public\downloads"
 ```
 
 ## Next steps
-To learn more about deploying resources using templates, see [Resource Manager template walkthrough](../../azure-resource-manager/resource-manager-template-walkthrough.md).
-
+To learn more about deploying resources using templates, see [Resource Manager template walkthrough](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).

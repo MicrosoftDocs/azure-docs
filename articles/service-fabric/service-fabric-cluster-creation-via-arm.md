@@ -1,20 +1,9 @@
 ---
-title: Create an Azure Service Fabric cluster | Microsoft Docs
+title: Create an Azure Service Fabric cluster 
 description: Learn how to set up a secure Service Fabric cluster in Azure using Azure Resource Manager.  You can create a cluster using a default template or using your own cluster template.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: chackdan
-ms.assetid: 15d0ab67-fc66-4108-8038-3584eeebabaa
-ms.service: service-fabric
-ms.devlang: dotnet
-ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 08/16/2018
-ms.author: atsenthi
 
+ms.topic: conceptual
+ms.date: 08/16/2018
 ---
 # Create a Service Fabric cluster using Azure Resource Manager 
 > [!div class="op_single_selector"]
@@ -25,7 +14,7 @@ ms.author: atsenthi
 
 An [Azure Service Fabric cluster](service-fabric-deploy-anywhere.md) is a network-connected set of virtual machines into which your microservices are deployed and managed.  A Service Fabric cluster running in Azure is an Azure resource and is deployed using the Azure Resource Manager. This article describes how to deploy a secure Service Fabric cluster in Azure using the Resource Manager. You can use a default cluster template or a custom template.  If you don't already have a custom template, you can [learn how to create one](service-fabric-cluster-creation-create-template.md).
 
-Cluster security is configured when the cluster is first setup and cannot be changed later. Before setting up a cluster, read [Service Fabric cluster security scenarios][service-fabric-cluster-security]. In Azure, Service Fabric uses x509 certificate to secure your cluster and its endpoints, authenticate clients, and encrypt data. Azure Active Directory is also recommended to secure access to management endpoints. Azure AD tenants and users must be created before creating the cluster.  For more information, read [Set up Azure AD to authenticate clients](service-fabric-cluster-creation-setup-aad.md).
+The type of security chosen to secure the cluster (i.e.: Windows identity, X509 etc.) must be specified for the initial creation of the cluster, and cannot be changed thereafter. Before setting up a cluster, read [Service Fabric cluster security scenarios][service-fabric-cluster-security]. In Azure, Service Fabric uses x509 certificate to secure your cluster and its endpoints, authenticate clients, and encrypt data. Azure Active Directory is also recommended to secure access to management endpoints. For more information, read [Set up Azure AD to authenticate clients](service-fabric-cluster-creation-setup-aad.md).
 
 If you are creating a production cluster to run production workloads, we recommend you first read through the [production readiness checklist](service-fabric-production-readiness-checklist.md).
 
@@ -39,8 +28,8 @@ In this article, use the Service Fabric RM powershell or Azure CLI modules to de
 * [Azure CLI version 2.0 and above][azure-CLI]
 
 You can find the reference documentation for the Service Fabric modules here:
-* [Az.ServiceFabric](https://docs.microsoft.com/powershell/module/az.servicefabric)
-* [az SF CLI module](https://docs.microsoft.com/cli/azure/sf?view=azure-cli-latest)
+* [Az.ServiceFabric](/powershell/module/az.servicefabric)
+* [az SF CLI module](/cli/azure/sf?view=azure-cli-latest)
 
 ### Sign in to Azure
 
@@ -259,7 +248,7 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 
 ### Use a pointer to a secret uploaded into a key vault
 
-To use an existing key vault, the key vault must be [enabled for deployment](../key-vault/key-vault-manage-with-cli2.md#bkmk_KVperCLI) to allow the compute resource provider to get certificates from it and install it on cluster nodes.
+To use an existing key vault, the key vault must be [enabled for deployment](../key-vault/general/manage-with-cli2.md#bkmk_KVperCLI) to allow the compute resource provider to get certificates from it and install it on cluster nodes.
 
 Deploy the cluster using PowerShell:
 
@@ -270,7 +259,7 @@ $parameterFilePath="c:\mytemplates\mytemplate.json"
 $templateFilePath="c:\mytemplates\mytemplateparm.json"
 $secretID="https://test1.vault.azure.net:443/secrets/testcertificate4/55ec7c4dc61a462bbc645ffc9b4b225f"
 
-New-AzServiceFabricCluster -ResourceGroupName $resourceGroupName -SecretIdentifier $secretId -TemplateFile $templateFilePath -ParameterFile $parameterFilePath 
+New-AzServiceFabricCluster -ResourceGroupName $resourceGroupName -SecretIdentifier $secretID -TemplateFile $templateFilePath -ParameterFile $parameterFilePath 
 ```
 
 Deploy the cluster using Azure CLI:
@@ -279,11 +268,11 @@ Deploy the cluster using Azure CLI:
 declare $resourceGroupName = "testRG"
 declare $parameterFilePath="c:\mytemplates\mytemplate.json"
 declare $templateFilePath="c:\mytemplates\mytemplateparm.json"
-declare $secertId="https://test1.vault.azure.net:443/secrets/testcertificate4/55ec7c4dc61a462bbc645ffc9b4b225f"
+declare $secretID="https://test1.vault.azure.net:443/secrets/testcertificate4/55ec7c4dc61a462bbc645ffc9b4b225f"
 
 az sf cluster create --resource-group $resourceGroupName --location $resourceGroupLocation  \
-	--secret-identifier az $secretID  \
-	--template-file $templateFilePath --parameter-file $parametersFilePath 
+	--secret-identifier $secretID  \
+	--template-file $templateFilePath --parameter-file $parameterFilePath 
 ```
 
 ## Next steps

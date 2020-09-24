@@ -1,12 +1,13 @@
 ---
-title: Order device connection events from Azure IoT Hub using Azure Cosmos DB | Microsoft Docs
+title: Order device connection events fr Azure IoT Hub w/Azure Cosmos DB
 description: This article describes how to order and record device connection events from Azure IoT Hub using Azure Cosmos DB to maintain the latest connection state
 services: iot-hub
 ms.service: iot-hub
 author: ash2017
 ms.topic: conceptual
 ms.date: 04/11/2019
-ms.author: asrastog
+ms.author: asrastog 
+ms.custom: devx-track-azurecli
 ---
 
 # Order device connection events from Azure IoT Hub using Azure Cosmos DB
@@ -329,7 +330,7 @@ You can see results of the executed stored procedure in your Cosmos DB document.
 
 ## Use the Azure CLI
 
-Instead of using the [Azure portal](https://portal.azure.com), you can accomplish the IoT Hub steps using the Azure CLI. For details, see the Azure CLI pages for [creating an event subscription](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription) and [creating an IoT device](/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity#ext-azure-cli-iot-ext-az-iot-hub-device-identity-create).
+Instead of using the [Azure portal](https://portal.azure.com), you can accomplish the IoT Hub steps using the Azure CLI. For details, see the Azure CLI pages for [creating an event subscription](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription) and [creating an IoT device](/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-create).
 
 ## Clean up resources
 

@@ -1,19 +1,21 @@
 ---
-title: How to use Micrometer with Azure Application Insights Java SDK | Microsoft Docs
-description: 'A step by step guide on using Micrometer with your Application Insights Spring Boot and non-Spring Boot applications. '
-services: application-insights
-documentationcenter: java
-author: lgayhardt
-manager: carmonm
-ms.assetid: 051d4285-f38a-45d8-ad8a-45c3be828d91
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+title: How to use Micrometer with Azure Application Insights Java SDK
+description: A step by step guide on using Micrometer with your Application Insights Spring Boot and non-Spring Boot applications.
 ms.topic: conceptual
-ms.date: 11/01/2018
+author: lgayhardt
+ms.custom: devx-track-java
 ms.author: lagayhar
+ms.date: 11/01/2018
+
 ---
+
 # How to use Micrometer with Azure Application Insights Java SDK
+
+> [!NOTE]
+> Application Insights Java SDK does not support Spring Webflux. 
+>
+> Both Webflux and Micrometer are supported in [Application Insights Java 3.0 agent](https://docs.microsoft.com/azure/azure-monitor/app/java-on-premises) that requires no instrumentation. 
+
 Micrometer application monitoring measures metrics for JVM-based application code and lets you export the data to your favorite monitoring systems. This article will teach you how to use Micrometer with Application Insights for both Spring Boot and non-Spring Boot applications.
 
 ## Using Spring Boot 1.5x
@@ -22,7 +24,7 @@ Add the following dependencies to your pom.xml or build.gradle file:
   2.5.0 or later
 * Micrometer Azure Registry 1.1.0 or above
 * [Micrometer Spring Legacy](https://micrometer.io/docs/ref/spring/1.5) 1.1.0 or above (this backports the autoconfig code in the Spring framework).
-* [ApplicationInsights Resource](../../azure-monitor/app/create-new-resource.md )
+* [ApplicationInsights Resource](./create-new-resource.md)
 
 Steps
 
@@ -60,7 +62,7 @@ Add the following dependencies to your pom.xml or build.gradle file:
 
 * Application Insights Spring-boot-starter 2.1.2 or above
 * Azure-spring-boot-metrics-starters 2.0.7 or later
-* [Application Insights Resource](../../azure-monitor/app/create-new-resource.md )
+* [Application Insights Resource](./create-new-resource.md)
 
 Steps:
 
@@ -119,7 +121,7 @@ Add the following dependencies to your pom.xml or build.gradle file:
 
 * Application Insights Web Auto 2.5.0 or later
 * Micrometer Azure Registry 1.1.0 or above
-* [Application Insights Resource](../../azure-monitor/app/create-new-resource.md )
+* [Application Insights Resource](./create-new-resource.md)
 
 Steps:
 
@@ -273,4 +275,5 @@ Add the following binding code to the configuration  file:
 ## Next steps
 
 * To learn more about Micrometer, see the official [Micrometer documentation](https://micrometer.io/docs).
-* To learn about Spring on Azure, see the official [Spring on Azure documentation](https://docs.microsoft.com/java/azure/spring-framework/?view=azure-java-stable).
+* To learn about Spring on Azure, see the official [Spring on Azure documentation](/java/azure/spring-framework/?view=azure-java-stable).
+

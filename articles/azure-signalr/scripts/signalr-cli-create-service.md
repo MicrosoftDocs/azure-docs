@@ -1,13 +1,13 @@
 ---
 title: Azure CLI Script Sample - Create a SignalR Service
-description: Azure CLI Script Sample - Create SignalR Service
+description: Learn by following the sample script to create a new Azure SignalR Service in a new resource group, with a random name.
 author: sffamily
 ms.service: signalr
 ms.devlang: azurecli
 ms.topic: sample
-ms.date: 04/20/2018
+ms.date: 11/13/2018
 ms.author: zhshang
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ---
 
 # Create a SignalR Service 
@@ -22,15 +22,37 @@ If you choose to install and use the CLI locally, this article requires that you
 
 ## Sample script
 
-This script uses the *signalr* extension for the Azure CLI. Execute the following command to install the *signalr* extension for the Azure CLI before using this sample script:
-
-```azurecli-interactive
-az extension add -n signalr
-```
-
 This script creates a new SignalR Service resource and a new resource group. 
 
-[!code-azurecli-interactive[main](../../../cli_scripts/azure-signalr/create-signalr-service-and-group/create-signalr-service-and-group.sh "Creates a new Azure SignalR Service resource and resource group")]
+```azurecli-interactive
+#!/bin/bash
+
+# Generate a unique suffix for the service name
+let randomNum=$RANDOM*$RANDOM
+
+# Generate a unique service and group name with the suffix
+SignalRName=SignalRTestSvc$randomNum
+#resource name must be lowercase
+mySignalRSvcName=${SignalRName,,}
+myResourceGroupName=$SignalRName"Group"
+
+# Create resource group 
+az group create --name $myResourceGroupName --location eastus
+
+# Create the Azure SignalR Service resource
+az signalr create \
+  --name $mySignalRSvcName \
+  --resource-group $myResourceGroupName \
+  --sku Standard_S1 \
+  --unit-count 1 \
+  --service-mode Default
+
+# Get the SignalR primary connection string 
+primaryConnectionString=$(az signalr key list --name $mySignalRSvcName \
+  --resource-group $myResourceGroupName --query primaryConnectionString -o tsv)
+
+echo "$primaryConnectionString"
+```
 
 Make a note of the actual name generated for the new resource group. You will use that resource group name when you want to delete all group resources.
 

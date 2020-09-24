@@ -3,14 +3,15 @@ title: "Analyze video content for objectionable material in C# - Content Moderat
 titleSuffix: Azure Cognitive Services
 description: How to analyze video content for various objectionable material using the Content Moderator SDK for .NET
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: conceptual
-ms.date: 01/10/2019
-ms.author: sajagtap
+ms.topic: how-to
+ms.date: 05/18/2020
+ms.author: pafarley
+ms.custom: devx-track-csharp
 
 #As a C# developer of content management software, I want to analyze video content for offensive or inappropriate material so that I can categorize and handle it accordingly.
 ---
@@ -19,7 +20,7 @@ ms.author: sajagtap
 
 This article provides information and code samples to help you get started using the [Content Moderator SDK for .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) to scan video content for adult or racy content.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin. 
 
 ## Prerequisites
 - Any edition of [Visual Studio 2015 or 2017](https://www.visualstudio.com/downloads/)

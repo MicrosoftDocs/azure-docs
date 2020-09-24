@@ -1,13 +1,11 @@
 ---
-title: Operator best practices - Cluster security in Azure Kubernetes Services (AKS)
+title: Best practices for cluster security
+titleSuffix: Azure Kubernetes Service
 description: Learn the cluster operator best practices for how to manage cluster security and upgrades in Azure Kubernetes Service (AKS)
 services: container-service
-author: mlearned
-
-ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.author: mlearned
+
 ---
 
 # Best practices for cluster security and upgrades in Azure Kubernetes Service (AKS)
@@ -17,12 +15,14 @@ As you manage clusters in Azure Kubernetes Service (AKS), the security of your w
 This article focuses on how to secure your AKS cluster. You learn how to:
 
 > [!div class="checklist"]
-> * Use Azure Active Directory and role-based access controls to secure API server access
+> * Use Azure Active Directory and role-based access control (RBAC) to secure API server access
 > * Secure container access to node resources
 > * Upgrade an AKS cluster to the latest Kubernetes version
-> * Keep nodes update to date and automatically apply security patches
+> * Keep nodes up to date and automatically apply security patches
 
 You can also read the best practices for [container image management][best-practices-container-image-management] and for [pod security][best-practices-pod-security].
+
+You can also use [Azure Kubernetes Services integration with Security Center][security-center-aks] to help detect threats and view recommendations for securing your AKS clusters.
 
 ## Secure access to the API server and cluster nodes
 
@@ -49,7 +49,7 @@ In the same way that you should grant users or groups the least number of privil
 For more granular control of container actions, you can also use built-in Linux security features such as *AppArmor* and *seccomp*. These features are defined at the node level, and then implemented through a pod manifest. Built-in Linux security features are only available on Linux nodes and pods.
 
 > [!NOTE]
-> Kubernetes environments, in AKS or elsewhere, aren't completely safe for hostile multi-tenant usage. Additional security features such as *AppArmor*, *seccomp*, *Pod Security Policies*, or more fine-grained role-based access controls (RBAC) for nodes make exploits more difficult. However, for true security when running hostile multi-tenant workloads, a hypervisor is the only level of security that you should trust. The security domain for Kubernetes becomes the entire cluster, not an individual node. For these types of hostile multi-tenant workloads, you should use physically isolated clusters.
+> Kubernetes environments, in AKS or elsewhere, aren't completely safe for hostile multi-tenant usage. Additional security features such as *AppArmor*, *seccomp*, *Pod Security Policies*, or more fine-grained role-based access control (RBAC) for nodes make exploits more difficult. However, for true security when running hostile multi-tenant workloads, a hypervisor is the only level of security that you should trust. The security domain for Kubernetes becomes the entire cluster, not an individual node. For these types of hostile multi-tenant workloads, you should use physically isolated clusters.
 
 ### App Armor
 
@@ -169,7 +169,7 @@ For more information about available filters, see [Seccomp security profiles for
 
 ## Regularly update to the latest version of Kubernetes
 
-**Best practice guidance** - To stay current on new features and bug fixes, regularly upgrade to the Kubernetes version in your AKS cluster.
+**Best practice guidance** - To stay current on new features and bug fixes, regularly upgrade the Kubernetes version in your AKS cluster.
 
 Kubernetes releases new features at a quicker pace than more traditional infrastructure platforms. Kubernetes updates include new features, and bug or security fixes. New features typically move through an *alpha* and then *beta* status before they become *stable* and are generally available and recommended for production use. This release cycle should allow you to update Kubernetes without regularly encountering breaking changes or adjusting your deployments and templates.
 
@@ -191,7 +191,7 @@ For more information about upgrades in AKS, see [Supported Kubernetes versions i
 
 ## Process Linux node updates and reboots using kured
 
-**Best practice guidance** - AKS automatically downloads and installs security fixes on each Linux nodes, but does not automatically reboot if necessary. Use `kured` to watch for pending reboots, then safely cordon and drain the node to allow the node to reboot, apply the updates and be as secure as possible with respect to the OS. For Windows Server nodes (currently in preview in AKS), regularly perform an AKS upgrade operation to safely cordon and drain pods and deploy updated nodes.
+**Best practice guidance** - AKS automatically downloads and installs security fixes on each Linux nodes, but does not automatically reboot if necessary. Use `kured` to watch for pending reboots, then safely cordon and drain the node to allow the node to reboot, apply the updates and be as secure as possible with respect to the OS. For Windows Server nodes, regularly perform an AKS upgrade operation to safely cordon and drain pods and deploy updated nodes.
 
 Each evening, Linux nodes in AKS get security patches available through their distro update channel. This behavior is configured automatically as the nodes are deployed in an AKS cluster. To minimize disruption and potential impact to running workloads, nodes are not automatically rebooted if a security patch or kernel update requires it.
 
@@ -226,8 +226,9 @@ This article focused on how to secure your AKS cluster. To implement some of the
 [aks-upgrade]: upgrade-cluster.md
 [aks-best-practices-identity]: concepts-identity.md
 [aks-kured]: node-updates-kured.md
-[aks-aad]: azure-ad-integration.md
+[aks-aad]: ./azure-ad-integration-cli.md
 [best-practices-container-image-management]: operator-best-practices-container-image-management.md
 [best-practices-pod-security]: developer-best-practices-pod-security.md
 [pod-security-contexts]: developer-best-practices-pod-security.md#secure-pod-access-to-resources
 [aks-ssh]: ssh.md
+[security-center-aks]: ../security-center/azure-kubernetes-service-integration.md

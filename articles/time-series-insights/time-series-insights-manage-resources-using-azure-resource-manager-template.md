@@ -1,48 +1,48 @@
 ﻿---
-title: 'How to manage your Azure Time Series Insights environment using Azure Resource Manager templates| Microsoft Docs'
-description: This article describes how to manage your Azure Time Series Insights environment programmatically using Azure Resource Manager.
+title: 'Manage your environment using Azure Resource Manager templates - Azure Time Series Insights | Microsoft Docs'
+description: Learn how to manage your Azure Time Series Insights environment programmatically using Azure Resource Manager.
 ms.service: time-series-insights
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
-manager: cshankar
+manager: diviso
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 06/30/2020
 ms.custom: seodec18
 ---
 
-# Create Time Series Insights resources using Azure Resource Manager templates
+# Create Azure Time Series Insights Gen 1 resources using Azure Resource Manager templates
 
-This article describes how to create and deploy Time Series Insights resources using Azure Resource Manager templates, PowerShell, and the Time Series Insights resource provider.
+This article describes how to create and deploy Azure Time Series Insights resources using [Azure Resource Manager templates](https://docs.microsoft.com/azure/azure-resource-manager/), PowerShell, and the Azure Time Series Insights resource provider.
 
-Time Series Insights supports the following resources:
+Azure Time Series Insights supports the following resources:
 
    | Resource | Description |
    | --- | --- |
-   | Environment | A Time Series Insights environment is a logical grouping of events that are read from event brokers, stored, and made available for query. For more information, see [Plan your Azure Time Series Insights environment](time-series-insights-environment-planning.md) |
-   | Event Source | An event source is a connection to an event broker from which Time Series Insights reads and ingests events into the environment. Currently supported event sources are IoT Hub and Event Hub. |
+   | Environment | A Azure Time Series Insights environment is a logical grouping of events that are read from event brokers, stored, and made available for query. For more information, read [Plan your Azure Time Series Insights environment](time-series-insights-environment-planning.md) |
+   | Event Source | An event source is a connection to an event broker from which Azure Time Series Insights reads and ingests events into the environment. Currently supported event sources are IoT Hub and Event Hub. |
    | Reference Data Set | Reference data sets provide metadata about the events in the environment. Metadata in the reference data sets will be joined with events during ingress. Reference data sets are defined as resources by their event key properties. The actual metadata that makes up the reference data set is uploaded or modified through data plane APIs. |
-   | Access Policy | Access policies grant permissions to issue data queries, manipulate reference data in the environment, and share saved queries and perspectives associated with the environment. For more information, read [Grant data access to a Time Series Insights environment using Azure portal](time-series-insights-data-access.md) |
+   | Access Policy | Access policies grant permissions to issue data queries, manipulate reference data in the environment, and share saved queries and perspectives associated with the environment. For more information, read [Grant data access to a Azure Time Series Insights environment using Azure portal](time-series-insights-data-access.md) |
 
 A Resource Manager template is a JSON file that defines the infrastructure and configuration of resources in a resource group. The following documents describe template files in greater detail:
 
-- [Azure Resource Manager template deployment](../azure-resource-manager/template-deployment-overview.md)
-- [Deploy resources with Resource Manager templates and Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
+- [Azure Resource Manager template deployment](../azure-resource-manager/templates/overview.md)
+- [Deploy resources with Resource Manager templates and Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
 - [Microsoft.TimeSeriesInsights resource types](/azure/templates/microsoft.timeseriesinsights/allversions)
 
-The [201-timeseriesinsights-environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-timeseriesinsights-environment-with-eventhub) quickstart template is published on GitHub. This template creates a Time Series Insights environment, a child event source configured to consume events from an Event Hub, and access policies that grant access to the environment's data. If an existing Event Hub isn't specified, one will be created with the deployment.
+The [201-timeseriesinsights-environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-timeseriesinsights-environment-with-eventhub) quickstart template is published on GitHub. This template creates a Azure Time Series Insights environment, a child event source configured to consume events from an Event Hub, and access policies that grant access to the environment's data. If an existing Event Hub isn't specified, one will be created with the deployment.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Specify deployment template and parameters
 
-The following procedure describes how to use PowerShell to deploy an Azure Resource Manager template that creates a Time Series Insights environment, a child event source configured to consume events from an Event Hub, and access policies that grant access to the environment's data. If an existing Event Hub isn't specified, one will be created with the deployment.
+The following procedure describes how to use PowerShell to deploy an Azure Resource Manager template that creates a Azure Time Series Insights environment, a child event source configured to consume events from an Event Hub, and access policies that grant access to the environment's data. If an existing Event Hub isn't specified, one will be created with the deployment.
 
 1. Install Azure PowerShell by following the instructions in [Getting started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
-1. Clone or copy the [201-timeseriesinsights-environment-with-eventhub](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-timeseriesinsights-environment-with-eventhub/azuredeploy.json) template from GitHub.
+1. Clone or copy the [201-timeseriesinsights-environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/blob/master/201-timeseriesinsights-environment-with-eventhub/azuredeploy.json) template from GitHub.
 
    * Create a parameters file
 
@@ -58,7 +58,7 @@ The following procedure describes how to use PowerShell to deploy an Azure Resou
      | --- | --- |
      | eventHubNamespaceName | The namespace of the source event hub. |
      | eventHubName | The name of the source event hub. |
-     | consumerGroupName | The name of the consumer group that the Time Series Insights service will use to read the data from the event hub. **NOTE:** To avoid resource contention, this consumer group must be dedicated to the Time Series Insights service and not shared with other readers. |
+     | consumerGroupName | The name of the consumer group that the Azure Time Series Insights service will use to read the data from the event hub. **NOTE:** To avoid resource contention, this consumer group must be dedicated to the Azure Time Series Insights service and not shared with other readers. |
      | environmentName | The name of the environment. The name cannot include:   `<`, `>`, `%`, `&`, `:`, `\\`, `?`, `/`, and any control characters. All other characters are allowed.|
      | eventSourceName | The name of the event source child resource. The name cannot include:   `<`, `>`, `%`, `&`, `:`, `\\`, `?`, `/`, and any control characters. All other characters are allowed. |
 
@@ -68,20 +68,20 @@ The following procedure describes how to use PowerShell to deploy an Azure Resou
 
      | Parameter | Description |
      | --- | --- |
-     | existingEventHubResourceId | An optional resource ID of an existing Event Hub that will be connected to the Time Series Insights environment through the event source. **NOTE:** The user deploying the template must have privileges to perform the listkeys operation on the Event Hub. If no value is passed, a new event hub will be created by the template. |
+     | existingEventHubResourceId | An optional resource ID of an existing Event Hub that will be connected to the Azure Time Series Insights environment through the event source. **NOTE:** The user deploying the template must have privileges to perform the listkeys operation on the Event Hub. If no value is passed, a new event hub will be created by the template. |
      | environmentDisplayName | An optional friendly name to show in tooling or user interfaces instead of the environment name. |
-     | environmentSkuName | The name of the sku. For more information, see the [Time Series Insights Pricing page](https://azure.microsoft.com/pricing/details/time-series-insights/).  |
-     | environmentSkuCapacity | The unit capacity of the Sku. For more information, see the [Time Series Insights Pricing page](https://azure.microsoft.com/pricing/details/time-series-insights/).|
+     | environmentSkuName | The name of the sku. For more information, read the [Azure Time Series Insights Pricing page](https://azure.microsoft.com/pricing/details/time-series-insights/).  |
+     | environmentSkuCapacity | The unit capacity of the Sku. For more information, read the [Azure Time Series Insights Pricing page](https://azure.microsoft.com/pricing/details/time-series-insights/).|
      | environmentDataRetentionTime | The minimum timespan the environment’s events will be available for query. The value must be specified in the ISO 8601 format, for example `P30D` for a retention policy of 30 days. |
      | eventSourceDisplayName | An optional friendly name to show in tooling or user interfaces instead of the event source name. |
      | eventSourceTimestampPropertyName | The event property that will be used as the event source's timestamp. If a value isn't specified for timestampPropertyName, or if null or empty-string is specified, the event creation time will be used. |
-     | eventSourceKeyName | The name of the shared access key that the Time Series Insights service will use to connect to the event hub. |
+     | eventSourceKeyName | The name of the shared access key that the Azure Time Series Insights service will use to connect to the event hub. |
      | accessPolicyReaderObjectIds | A list of object IDs of the users or applications in Azure AD that should have Reader access to the environment. The service principal objectId can be obtained by calling the **Get-AzADUser** or the **Get-AzADServicePrincipal** cmdlets. Creating an access policy for Azure AD groups is not yet supported. |
      | accessPolicyContributorObjectIds | A list of object IDs of the users or applications in Azure AD that should have Contributor access to the environment. The service principal objectId can be obtained by calling the **Get-AzADUser** or the **Get-AzADServicePrincipal** cmdlets. Creating an access policy for Azure AD groups is not yet supported. |
 
    * As an example, the following parameters file would be used to create an environment and an event source that reads events from an existing event hub. It also creates two access policies that grant Contributor access to the environment.
 
-     ```json
+     ```JSON
      {
          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
          "contentVersion": "1.0.0.0",
@@ -113,13 +113,13 @@ The following procedure describes how to use PowerShell to deploy an Azure Resou
          }
      }
      ```
-  
-    * For more information, see the [Parameters](../azure-resource-manager/resource-group-template-deploy.md#parameter-files) article.
+
+    * For more information, read the [Parameters](../azure-resource-manager/templates/parameter-files.md) article.
 
 ## Deploy the quickstart template locally using PowerShell
 
 > [!IMPORTANT]
-> The command-line operations displayed below describe the [Az PowerShell module](https://docs.microsoft.com/powershell/azure/overview).
+> The command-line operations displayed below describe the [Az PowerShell module](https://docs.microsoft.com/powershell/azure/).
 
 1. In PowerShell, log in to your Azure account.
 
@@ -169,12 +169,12 @@ The following procedure describes how to use PowerShell to deploy an Azure Resou
 
 1. Create the deployment
 
-    * To create the new deployment, run the `New-AzResourceGroupDeployment` cmdlet, and provide the necessary parameters when prompted. The parameters include a name for your deployment, the name of your resource group, and the path or URL to the template file. If the **Mode** parameter is not specified, the default value of **Incremental** is used. For more information, see [Incremental and complete deployments](../azure-resource-manager/deployment-modes.md).
+    * To create the new deployment, run the `New-AzResourceGroupDeployment` cmdlet, and provide the necessary parameters when prompted. The parameters include a name for your deployment, the name of your resource group, and the path or URL to the template file. If the **Mode** parameter is not specified, the default value of **Incremental** is used. For more information, read [Incremental and complete deployments](../azure-resource-manager/templates/deployment-modes.md).
 
     * The following command prompts you for the five required parameters in the PowerShell window:
 
       ```powershell
-      New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json 
+      New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
       ```
 
     * To specify a parameters file instead, use the following command:
@@ -189,7 +189,7 @@ The following procedure describes how to use PowerShell to deploy an Azure Resou
       New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -parameterName "parameterValue"
       ```
 
-    * To run a [complete](../azure-resource-manager/deployment-modes.md) deployment, set the **Mode** parameter to **Complete**:
+    * To run a [complete](../azure-resource-manager/templates/deployment-modes.md) deployment, set the **Mode** parameter to **Complete**:
 
       ```powershell
       New-AzResourceGroupDeployment -Name MyDemoDeployment -Mode Complete -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
@@ -203,7 +203,7 @@ The following procedure describes how to use PowerShell to deploy an Azure Resou
        DeploymentName          : MyDemoDeployment
        ResourceGroupName       : MyDemoRG
        ProvisioningState       : Succeeded
-       Timestamp               : 5/8/2019 10:28:34 PM
+       Timestamp               : 10/11/2019 3:20:37 AM
        Mode                    : Incremental
        TemplateLink            :
        Parameters              :
@@ -242,9 +242,9 @@ The following procedure describes how to use PowerShell to deploy an Azure Resou
     </br>
     </br>
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-timeseriesinsights-environment-with-eventhub%2Fazuredeploy.json" target="_blank">
-       <img src="https://azuredeploy.net/deploybutton.png"/>
+       <img src="https://azuredeploy.net/deploybutton.png" alt="The Deploy to Azure button."/>
     </a>
 
 ## Next steps
 
-- For information on programmatically managing Time Series Insights resources using REST APIs, see [Time Series Insights Management](https://docs.microsoft.com/rest/api/time-series-insights-management/).
+- For information on programmatically managing Azure Time Series Insights resources using REST APIs, read [Azure Time Series Insights Management](https://docs.microsoft.com/rest/api/time-series-insights-management/).

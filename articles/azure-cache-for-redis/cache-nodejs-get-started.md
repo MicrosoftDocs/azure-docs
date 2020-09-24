@@ -1,21 +1,14 @@
 ---
 title: 'Quickstart: Use Azure Cache for Redis with Node.js'
 description: In this quickstart you will learn how to use Azure Cache for Redis with Node.js and node_redis.
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
-editor: v-lincan
 
-ms.assetid: 06fddc95-8029-4a8d-83f5-ebd5016891d9
 ms.service: cache
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.tgt_pltfrm: cache
-ms.workload: tbd
 ms.date: 05/21/2018
 ms.author: yegu
-ms.custom: mvc, seo-javascript-september2019
+ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js
 #Customer intent: As a Node.js developer, new to Azure Cache for Redis, I want to create a new Node.js app that uses Azure Cache for Redis.
 ---
 # Quickstart: Use Azure Cache for Redis with Node.js
@@ -44,7 +37,7 @@ set REDISCACHEKEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 ## Connect to the cache
 
-The latest builds of [node_redis](https://github.com/mranney/node_redis) provide support for connecting to Azure Cache for Redis using SSL. The following example shows how to connect to Azure Cache for Redis using the SSL endpoint of 6380. 
+The latest builds of [node_redis](https://github.com/mranney/node_redis) provide support for connecting to Azure Cache for Redis using TLS. The following example shows how to connect to Azure Cache for Redis using the TLS endpoint of 6380. 
 
 ```js
 var redis = require("redis");
@@ -58,7 +51,7 @@ Don't create a new connections for each operation in your code. Instead, reuse c
 
 ## Create a new Node.js app
 
-Create a new script file named *redistest.js*.
+Create a new script file named *redistest.js*. Use the command `npm install redis bluebird` to install required packages.
 
 Add the following example JavaScript to the file. This code shows you how to connect to an Azure Cache for Redis instance using the cache host name and key environment variables. The code also stores and retrieves a string value in the cache. The `PING` and `CLIENT LIST` commands are also executed. For more examples of using Redis with the [node_redis](https://github.com/mranney/node_redis) client, see [https://redis.js.org/](https://redis.js.org/).
 
@@ -66,12 +59,13 @@ Add the following example JavaScript to the file. This code shows you how to con
 var redis = require("redis");
 var bluebird = require("bluebird");
 
+// Convert Redis client API to use promises, to make it usable with async/await syntax
 bluebird.promisifyAll(redis.RedisClient.prototype);
 bluebird.promisifyAll(redis.Multi.prototype);
 
 async function testCache() {
 
-    // Connect to the Azure Cache for Redis over the SSL port using the key.
+    // Connect to the Azure Cache for Redis over the TLS port using the key.
     var cacheConnection = redis.createClient(6380, process.env.REDISCACHEHOSTNAME, 
         {auth_pass: process.env.REDISCACHEKEY, tls: {servername: process.env.REDISCACHEHOSTNAME}});
         
@@ -109,7 +103,7 @@ node redistest.js
 
 In the example below, you can see the `Message` key previously had a cached value, which was set using the Redis Console in the Azure portal. The app updated that cached value. The app also executed the `PING` and `CLIENT LIST` commands.
 
-![Cache app completed](./media/cache-nodejs-get-started/cache-app-complete.png)
+![Redis Cache app completed](./media/cache-nodejs-get-started/redis-cache-app-complete.png)
 
 ## Clean up resources
 
@@ -125,7 +119,7 @@ Sign in to the [Azure portal](https://portal.azure.com) and select **Resource gr
 
 In the **Filter by name** text box, enter the name of your resource group. The instructions for this article used a resource group named *TestResources*. On your resource group in the result list, select **...** then **Delete resource group**.
 
-![Delete](./media/cache-nodejs-get-started/cache-delete-resource-group.png)
+![Delete Azure Resource group](./media/cache-nodejs-get-started/redis-cache-delete-resource-group.png)
 
 You will be asked to confirm the deletion of the resource group. Enter the name of your resource group to confirm, and select **Delete**.
 

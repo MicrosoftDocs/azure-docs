@@ -1,20 +1,9 @@
 ---
-title: Tutorial creating the infrastructure for a Service Fabric cluster on Azure VMs - Azure Service Fabric | Microsoft Docs
+title: Create infrastructure for a cluster on Azure VMs
 description: In this tutorial, you learn how to set up the Azure VM infrastructure to run a Service Fabric cluster.
-services: service-fabric
-documentationcenter: .net
-author: v-vasuke
-manager: jpconnock
-editor: ''
 
-ms.assetid: 
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
-ms.author: v-vasuke
 ms.custom: mvc
 ---
 # Tutorial: Create Azure VM infrastructure to host a Service Fabric cluster
@@ -55,7 +44,7 @@ To complete this tutorial, you need an Azure subscription.  If you don't already
 
 8. Next, set the **NIC network security group** to **Advanced**. Create a new security group, noting its name, and create the following rules to allow TCP traffic from any source:
 
-   ![sf-inbound][sf-inbound]
+   ![Screenshot shows creation of rules to allow inbound TCP traffic.][sf-inbound]
 
    * Port `3389`, for RDP and ICMP (basic connectivity).
    * Ports `19000-19003`, for Service Fabric.
@@ -67,7 +56,7 @@ To complete this tutorial, you need an Azure subscription.  If you don't already
 
 9. Add another rule. Set the source to be **Service Tag** and set the source service tag to **VirtualNetwork**. Service Fabric requires the following ports to be open for communication within the cluster: 135,137-139,445,20001-20031,20606-20861.
 
-   ![vnet-inbound][vnet-inbound]
+   ![Screenshot shows creation of rules to allow TCP traffic for a cluster.][vnet-inbound]
 
 10. The rest of the options are acceptable in their default state. Review them if you like, and then launch your virtual machine.
 

@@ -1,15 +1,13 @@
 ---
 title: Diagnose run-time exceptions using Azure Application Insights | Microsoft Docs
 description: Tutorial to find and diagnose run-time exceptions in your application using Azure Application Insights.
-services: application-insights
-keywords:
+ms.subservice: application-insights
+ms.topic: tutorial
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/19/2017
-ms.service: application-insights
+
 ms.custom: mvc
-ms.topic: tutorial
-manager: carmonm
 ---
 
 # Find and diagnose run-time exceptions with Azure Application Insights
@@ -33,8 +31,8 @@ To complete this tutorial:
 	- ASP.NET and web development
 	- Azure development
 - Download and install the [Visual Studio Snapshot Debugger](https://aka.ms/snapshotdebugger).
-- Enable [Visual Studio Snapshot Debugger](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger)
-- Deploy a .NET application to Azure and [enable the Application Insights SDK](../../azure-monitor/app/asp-net.md). 
+- Enable [Visual Studio Snapshot Debugger](../app/snapshot-debugger.md)
+- Deploy a .NET application to Azure and [enable the Application Insights SDK](../app/asp-net.md). 
 - The tutorial tracks the identification of an exception in your application, so modify your code in your development or test environment to generate an exception. 
 
 ## Log in to Azure
@@ -61,7 +59,7 @@ Application Insights collects any failures in your application and lets you view
 
 	![Failed request samples](media/tutorial-runtime-exceptions/failed-requests-search.png)
 
-6. The details of the failed request shows the Gantt chart which shows that there were two dependency failures in this transaction, which also attributed to over 50% of the total duration of the transaction. This experience presents all telemetry, across components of a distributed application that are related to this operation ID. [Learn more about the new experience](../../azure-monitor/app/transaction-diagnostics.md). You can select any of the items to see its details on the right side. 
+6. The details of the failed request shows the Gantt chart which shows that there were two dependency failures in this transaction, which also attributed to over 50% of the total duration of the transaction. This experience presents all telemetry, across components of a distributed application that are related to this operation ID. [Learn more about the new experience](../app/transaction-diagnostics.md). You can select any of the items to see its details on the right side. 
 
 	![Failed request details](media/tutorial-runtime-exceptions/failed-request-details.png)
 
@@ -110,4 +108,5 @@ If you connect Application Insights to a tracking system such as Azure DevOps or
 Now that you've learned how to identify run-time exceptions, advance to the next tutorial to learn how to identify and diagnose performance issues.
 
 > [!div class="nextstepaction"]
-> [Identify performance issues](../../azure-monitor/learn/tutorial-performance.md)
+> [Identify performance issues](./tutorial-performance.md)
+

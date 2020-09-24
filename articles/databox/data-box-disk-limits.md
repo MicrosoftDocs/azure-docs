@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 04/01/2019
+ms.date: 11/05/2019
 ms.author: alkohli
 ---
 # Azure Data Box Disk limits
@@ -45,19 +45,21 @@ For the latest information on Azure storage service limits and best practices fo
 - Every file written into *BlockBlob* and *PageBlob* shares is uploaded as a block blob and page blob respectively.
 - Any empty directory hierarchy (without any files) created under *BlockBlob* and *PageBlob* folders is not uploaded.
 - If there are any errors when uploading data to Azure, an error log is created in the target storage account. The path to this error log is available in the portal when the upload is complete and you can review the log to take corrective action. Do not delete data from the source without verifying the uploaded data.
+- File metadata and NTFS permissions are not preserved when the data is uploaded to Azure Files. For example, the *Last modified* attribute of the files will not be kept when the data is copied.
 - If you specified managed disks in the order, review the following additional considerations:
 
     - You can only have one managed disk with a given name in a resource group across all the precreated folders and across all the Data Box Disk. This implies that the VHDs uploaded to the precreated folders should have unique names. Make sure that the given name does not match an already existing managed disk in a resource group. If VHDs have same names, then only one VHD is converted to managed disk with that name. The other VHDs are uploaded as page blobs into the staging storage account.
     - Always copy the VHDs to one of the precreated folders. If you copy the VHDs outside of these folders or in a folder that you created, the VHDs are uploaded to Azure Storage account as page blobs and not managed disks.
     - Only the fixed VHDs can be uploaded to create managed disks. Dynamic VHDs, differencing VHDs or VHDX files are not supported.
+    - Non VHD files copied to the precreated managed disk folders will not be converted to a managed disk.
 
 ## Azure storage account size limits
 
-Here are the limits on the size of the data that is copied into storage account. Make sure that the data you upload conforms to these limits. For the most up-to-date information on these limits, go to [Azure blob storage scale targets](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets#azure-blob-storage-scale-targets) and [Azure Files scale targets](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets#azure-files-scale-targets).
+Here are the limits on the size of data that can be copied into a storage account. Make sure that the data you upload conforms to these limits. 
 
-| Size of data copied into Azure storage account                      | Default limit          |
-|---------------------------------------------------------------------|------------------------|
-| Block Blob and page blob                                            | 500 TB per storage account. <br> This includes data from all the sources including Data Box Disk.|
+| Type of data             | Default limit          |
+|--------------------------|------------------------|
+| block blob, page blob    | For current information about these limits, see [Azure Blob storage scale targets](https://docs.microsoft.com/azure/storage/blobs/scalability-targets#scale-targets-for-blob-storage), [Azure standard storage scale targets](https://docs.microsoft.com/azure/storage/common/scalability-targets-standard-account#scale-targets-for-standard-storage-accounts), and [Azure Files scale target](https://docs.microsoft.com/azure/storage/files/storage-files-scale-targets#file-share-and-file-scale-targets). <br /><br /> The limits include data from all the sources, including Data Box Disk.|
 
 
 ## Azure object size limits

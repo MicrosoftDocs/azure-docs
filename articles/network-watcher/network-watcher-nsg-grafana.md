@@ -1,29 +1,26 @@
 ---
-title: Manage Network Security Group Flow Logs using Network Watcher and Grafana | Microsoft Docs
+title: Manage NSG Flow Logs using Grafana
+titleSuffix: Azure Network Watcher
 description: Manage and analyze Network Security Group Flow Logs in Azure using Network Watcher and Grafana.
 services: network-watcher
 documentationcenter: na
-author: mattreatMSFT
-manager: vitinnan
-editor: ''
+author: damendo
+
 tags: azure-resource-manager
 
 ms.assetid: 
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
-ms.author: mareat
+ms.author: damendo
 
 ---
 # Manage and analyze Network Security Group flow logs using Network Watcher and Grafana
 
 [Network Security Group (NSG) flow logs](network-watcher-nsg-flow-logging-overview.md) provide information that can be used to understand ingress and egress IP traffic on network interfaces. These flow logs show outbound and inbound flows on a per NSG rule basis, the NIC the flow applies to, 5-tuple information about the flow (Source/Destination IP, Source/Destination Port, Protocol), and if the traffic was allowed or denied.
-
-> [!Warning]  
-> The following steps work with flow logs version 1. For details, see [Introduction to flow logging for network security groups](network-watcher-nsg-flow-logging-overview.md). The following instructions will not work with version 2 of the log files, without modification.
 
 You can have many NSGs in your network with flow logging enabled. This amount of logging data makes it cumbersome to parse and gain insights from your logs. This article provides a solution to centrally manage these NSG flow logs using Grafana, an open source graphing tool, ElasticSearch, a distributed search and analytics engine, and Logstash, which is an open source server-side data processing pipeline.  
 
@@ -104,6 +101,11 @@ You use Logstash to flatten the JSON formatted flow logs to a flow tuple level.
           "protocol" => "%{[records][properties][flows][flows][flowTuples][5]}"
           "trafficflow" => "%{[records][properties][flows][flows][flowTuples][6]}"
           "traffic" => "%{[records][properties][flows][flows][flowTuples][7]}"
+	  "flowstate" => "%{[records][properties][flows][flows][flowTuples][8]}"
+	  "packetsSourceToDest" => "%{[records][properties][flows][flows][flowTuples][9]}"
+	  "bytesSentSourceToDest" => "%{[records][properties][flows][flows][flowTuples][10]}"
+	  "packetsDestToSource" => "%{[records][properties][flows][flows][flowTuples][11]}"
+	  "bytesSentDestToSource" => "%{[records][properties][flows][flows][flowTuples][12]}"
         }
         add_field => {
           "time" => "%{[records][time]}"

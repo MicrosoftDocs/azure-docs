@@ -1,23 +1,19 @@
 ---
-title: Create identity for Azure app with PowerShell | Microsoft Docs
+title: Create an Azure app identity (PowerShell) | Azure
+titleSuffix: Microsoft identity platform
 description: Describes how to use Azure PowerShell to create an Azure Active Directory application and service principal, and grant it access to resources through role-based access control. It shows how to authenticate application with a certificate.
 services: active-directory
-documentationcenter: na
 author: rwike77
 manager: CelesteDG
 
-ms.assetid: d2caf121-9fbe-4f00-bf9d-8f3d1f00a6ff
 ms.service: active-directory
 ms.subservice: develop
-ms.custom: aaddev 
-ms.devlang: na
-ms.topic: conceptual
+ms.custom: aaddev , devx-track-azurepowershell
+ms.topic: how-to
 ms.tgt_pltfrm: multiple
-ms.workload: na
-ms.date: 08/19/2019
+ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
-ms.collection: M365-identity-device-management
 ---
 
 # How to: Use Azure PowerShell to create a service principal with a certificate
@@ -40,11 +36,16 @@ You must have the [latest version](/powershell/azure/install-az-ps) of PowerShel
 
 To complete this article, you must have sufficient permissions in both your Azure AD and Azure subscription. Specifically, you must be able to create an app in the Azure AD, and assign the service principal to a role.
 
-The easiest way to check whether your account has adequate permissions is through the portal. See [Check required permission](howto-create-service-principal-portal.md#required-permissions).
+The easiest way to check whether your account has adequate permissions is through the portal. See [Check required permission](howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
+
+## Assign the application to a role
+To access resources in your subscription, you must assign the application to a role. Decide which role offers the right permissions for the application. To learn about the available roles, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
+
+You can set the scope at the level of the subscription, resource group, or resource. Permissions are inherited to lower levels of scope. For example, adding an application to the *Reader* role for a resource group means it can read the resource group and any resources it contains. To allow the application to execute actions like reboot, start and stop instances, select the *Contributor* role.
 
 ## Create service principal with self-signed certificate
 
-The following example covers a simple scenario. It uses [New-​AzAD​Service​Principal](/powershell/module/az.resources/new-azadserviceprincipal) to create a service principal with a self-signed certificate, and uses [New-​Azure​Rm​Role​Assignment](/powershell/module/az.resources/new-azroleassignment) to assign the [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role to the service principal. The role assignment is scoped to your currently selected Azure subscription. To select a different subscription, use [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext).
+The following example covers a simple scenario. It uses [New-​AzAD​Service​Principal](/powershell/module/az.resources/new-azadserviceprincipal) to create a service principal with a self-signed certificate, and uses [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) to assign the [Reader](../../role-based-access-control/built-in-roles.md#reader) role to the service principal. The role assignment is scoped to your currently selected Azure subscription. To select a different subscription, use [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext).
 
 > [!NOTE]
 > The New-SelfSignedCertificate cmdlet and the PKI module are currently not supported in PowerShell Core. 
@@ -60,7 +61,7 @@ $sp = New-AzADServicePrincipal -DisplayName exampleapp `
   -EndDate $cert.NotAfter `
   -StartDate $cert.NotBefore
 Sleep 20
-New-AzRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
+New-AzRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $sp.ApplicationId
 ```
 
 The example sleeps for 20 seconds to allow some time for the new service principal to propagate throughout Azure AD. If your script doesn't wait long enough, you'll see an error stating: "Principal {ID} does not exist in the directory {DIR-ID}." To resolve this error, wait a moment then run the **New-AzRoleAssignment** command again.
@@ -101,7 +102,7 @@ $ApplicationId = (Get-AzADApplication -DisplayNameStartWith exampleapp).Applicat
 
 ## Create service principal with certificate from Certificate Authority
 
-The following example uses a certificate issued from a Certificate Authority to create service principal. The assignment is scoped to the specified Azure subscription. It adds the service principal to the [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role. If an error occurs during the role assignment, it retries the assignment.
+The following example uses a certificate issued from a Certificate Authority to create service principal. The assignment is scoped to the specified Azure subscription. It adds the service principal to the [Reader](../../role-based-access-control/built-in-roles.md#reader) role. If an error occurs during the role assignment, it retries the assignment.
 
 ```powershell
 Param (
@@ -137,7 +138,7 @@ Param (
  {
     # Sleep here for a few seconds to allow the service principal application to become active (should only take a couple of seconds normally)
     Sleep 15
-    New-AzRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $ServicePrincipal.ApplicationId | Write-Verbose -ErrorAction SilentlyContinue
+    New-AzRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $ServicePrincipal.ApplicationId | Write-Verbose -ErrorAction SilentlyContinue
     $NewRole = Get-AzRoleAssignment -ObjectId $ServicePrincipal.Id -ErrorAction SilentlyContinue
     $Retries++;
  }
@@ -218,6 +219,6 @@ You may get the following errors when creating a service principal:
 ## Next steps
 
 * To set up a service principal with password, see [Create an Azure service principal with Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps).
-* For detailed steps on integrating an application into Azure for managing resources, see [Developer's guide to authorization with the Azure Resource Manager API](../../azure-resource-manager/resource-manager-api-authentication.md).
 * For a more detailed explanation of applications and service principals, see [Application Objects and Service Principal Objects](app-objects-and-service-principals.md).
-* For more information about Azure AD authentication, see [Authentication Scenarios for Azure AD](authentication-scenarios.md).
+* For more information about Azure AD authentication, see [Authentication Scenarios for Azure AD](./authentication-vs-authorization.md).
+* For information about working with app registrations by using **Microsoft Graph**, see the [Applications](/graph/api/resources/application) API reference.

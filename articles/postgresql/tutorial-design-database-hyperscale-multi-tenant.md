@@ -1,6 +1,6 @@
 ---
-title: 'Design a multi-tenant database with Azure Database for PostgreSQL – Hyperscale (Citus) (preview) tutorial'
-description: This tutorial shows how to create, populate, and query distributed tables on Azure Database for PostgreSQL Hyperscale (Citus) (preview).
+title: 'Tutorial: Design a multi-tenant database - Hyperscale (Citus) - Azure Database for PostgreSQL'
+description: This tutorial shows how to power a scalable multi-tenant application with Azure Database for PostgreSQL Hyperscale (Citus).
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
@@ -12,9 +12,9 @@ ms.date: 05/14/2019
 #Customer intent: As an developer, I want to design a hyperscale database so that my multi-tenant application runs efficiently for all tenants.
 ---
 
-# Tutorial: design a multi-tenant database by using Azure Database for PostgreSQL – Hyperscale (Citus) (preview)
+# Tutorial: design a multi-tenant database by using Azure Database for PostgreSQL – Hyperscale (Citus)
 
-In this tutorial, you use Azure Database for PostgreSQL - Hyperscale (Citus) (preview) to learn how to:
+In this tutorial, you use Azure Database for PostgreSQL - Hyperscale (Citus) to learn how to:
 
 > [!div class="checklist"]
 > * Create a Hyperscale (Citus) server group
@@ -31,7 +31,7 @@ In this tutorial, you use Azure Database for PostgreSQL - Hyperscale (Citus) (pr
 
 ## Use psql utility to create a schema
 
-Once connected to the Azure Database for PostgreSQL - Hyperscale (Citus) (preview) using psql, you can complete some basic tasks. This tutorial walks you through creating a web app that allows advertisers to track their campaigns.
+Once connected to the Azure Database for PostgreSQL - Hyperscale (Citus) using psql, you can complete some basic tasks. This tutorial walks you through creating a web app that allows advertisers to track their campaigns.
 
 Multiple companies can use the app, so let's create a table to hold companies and another for their campaigns. In the psql console, run these commands:
 
@@ -137,6 +137,8 @@ SELECT create_distributed_table('ads',         'company_id');
 SELECT create_distributed_table('clicks',      'company_id');
 SELECT create_distributed_table('impressions', 'company_id');
 ```
+
+[!INCLUDE [azure-postgresql-hyperscale-dist-alert](../../includes/azure-postgresql-hyperscale-dist-alert.md)]
 
 ## Ingest sample data
 
@@ -289,6 +291,6 @@ In the preceding steps, you created Azure resources in a server group. If you do
 
 In this tutorial, you learned how to provision a Hyperscale (Citus) server group. You connected to it with psql, created a schema, and distributed data. You learned to query data both within and between tenants, and to customize the schema per tenant.
 
-Next, learn about the concepts of hyperscale.
-> [!div class="nextstepaction"]
-> [Hyperscale node types](https://aka.ms/hyperscale-concepts)
+- Learn about server group [node types](https://aka.ms/hyperscale-concepts)
+- Determine the best [initial
+  size](howto-hyperscale-scaling.md#picking-initial-size) for your server group

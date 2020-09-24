@@ -1,23 +1,14 @@
 ---
 title: Set up web app analytics for ASP.NET with Azure Application Insights | Microsoft Docs
 description: Configure performance, availability, and user behavior analytics tools for your ASP.NET website, hosted on-premises or in Azure.
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-
-ms.assetid: d0eee3c0-b328-448f-8123-f478052751db
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/08/2019
-ms.author: mbullwin
 
 ---
+
 # Set up Application Insights for your ASP.NET website
 
-This procedure configures your ASP.NET web app to send telemetry to the [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) service. It works for ASP.NET apps that are hosted either in your own IIS server on-premises or in the Cloud. You get charts and a powerful query language that help you understand the performance of your app and how people are using it, plus automatic alerts on failures or performance issues. Many developers find these features great as they are, but you can also extend and customize the telemetry if you need to.
+This procedure configures your ASP.NET web app to send telemetry to the [Azure Application Insights](./app-insights-overview.md) service. It works for ASP.NET apps that are hosted either in your own IIS server on-premises or in the Cloud. You get charts and a powerful query language that help you understand the performance of your app and how people are using it, plus automatic alerts on failures or performance issues. Many developers find these features great as they are, but you can also extend and customize the telemetry if you need to.
 
 Setup takes just a few clicks in Visual Studio. You have the option to avoid charges by limiting the volume of telemetry. This functionality allows you to experiment and debug, or to monitor a site with not many users. When you decide you want to go ahead and monitor your production site, it's easy to raise the limit later.
 
@@ -47,7 +38,7 @@ Application Insights Configuration screen:
 
 Select **Get Started**.
 
-![Screenshot of Register your app with Application Insights page](./media/asp-net/00004-start-free.png)
+![Screenshot shows the Application Insights page and Get Started button.](./media/asp-net/00004-start-free.png)
 
 If you want to set the resource group or the location where your data is stored, click **Configure settings**. Resource groups are used to control access to data. For example, if you have several apps that form part of the same system, you might put their Application Insights data in the same resource group.
 
@@ -59,7 +50,7 @@ If you want to set the resource group or the location where your data is stored,
 
  Telemetry will be sent to the [Azure portal](https://portal.azure.com), both during debugging and after you have published your app.
 > [!NOTE]
-> If you don't want to send telemetry to the portal while you're debugging, just add the Application Insights SDK to your app but don't configure a resource in the portal. You are able to see telemetry in Visual Studio while you are debugging. Later, you can return to this configuration page, or you could wait until after you have deployed your app and [switch on telemetry at run time](../../azure-monitor/app/monitor-performance-live-website-now.md).
+> If you don't want to send telemetry to the portal while you're debugging, just add the Application Insights SDK to your app but don't configure a resource in the portal. You are able to see telemetry in Visual Studio while you are debugging. Later, you can return to this configuration page, or you could wait until after you have deployed your app and [switch on telemetry at run time](./status-monitor-v2-overview.md).
 
 ## <a name="run"></a> Step 2: Run your app
 Run your app with F5. Open different pages to generate some telemetry.
@@ -82,7 +73,7 @@ In the Visual Studio Application Insights Search window, you will see the data f
 > [!Tip]
 > If you don't see any data, make sure the time range is correct, and click the Search icon.
 
-[Learn more about Application Insights tools in Visual Studio](../../azure-monitor/app/visual-studio.md).
+[Learn more about Application Insights tools in Visual Studio](./visual-studio.md).
 
 <a name="monitor"></a>
 ### See telemetry in web portal
@@ -98,14 +89,14 @@ The portal opens on a view of the telemetry from your app.
 In the portal, click any tile or chart to see more detail.
 
 ## Step 4: Publish your app
-Publish your app to your IIS server or to Azure. Watch [Live Metrics Stream](../../azure-monitor/app/metrics-explorer.md#live-metrics-stream) to make sure everything is running smoothly.
+Publish your app to your IIS server or to Azure. Watch [Live Metrics Stream](./live-stream.md) to make sure everything is running smoothly.
 
 Your telemetry builds up in the Application Insights portal, where you can monitor metrics, search your telemetry. You can also use the powerful [Kusto query language](/azure/kusto/query/) to analyze usage and performance, or to find specific events.
 
-You can also continue to analyze your telemetry in [Visual Studio](../../azure-monitor/app/visual-studio.md), with tools such as diagnostic search and [trends](../../azure-monitor/app/visual-studio-trends.md).
+You can also continue to analyze your telemetry in [Visual Studio](./visual-studio.md), with tools such as diagnostic search and [trends](./visual-studio-trends.md).
 
 > [!NOTE]
-> If your app sends enough telemetry to approach the [throttling limits](../../azure-monitor/app/pricing.md#limits-summary), automatic [sampling](../../azure-monitor/app/sampling.md) switches on. Sampling reduces the quantity of telemetry sent from your app, while preserving correlated data for diagnostic purposes.
+> If your app sends enough telemetry to approach the [throttling limits](./pricing.md#limits-summary), automatic [sampling](./sampling.md) switches on. Sampling reduces the quantity of telemetry sent from your app, while preserving correlated data for diagnostic purposes.
 >
 >
 
@@ -117,39 +108,39 @@ The Azure resource that receives your app's telemetry is identified by an *instr
 
 
 ## Upgrade to future SDK versions
-To upgrade to a [new release of the SDK](https://github.com/Microsoft/ApplicationInsights-dotnet-server/releases), open the **NuGet package manager**, and filter on installed packages. Select **Microsoft.ApplicationInsights.Web**, and choose **Upgrade**.
+
+* [Release Notes](./release-notes.md)
+
+To upgrade to a new release of the SDK, open the **NuGet package manager**, and filter on installed packages. Select **Microsoft.ApplicationInsights.Web**, and choose **Upgrade**.
 
 If you made any customizations to ApplicationInsights.config, save a copy of it before you upgrade. Then, merge your changes into the new version.
-
-## Video
-
-* External step-by-step video about [configuring Application Insights with a .NET application from scratch](https://www.youtube.com/watch?v=blnGAVgMAfA).
 
 ## Next steps
 
 There are alternative topics to look at if you are interested in:
 
-* [Instrumenting a web app at runtime](../../azure-monitor/app/monitor-performance-live-website-now.md)
-* [Azure Cloud Services](../../azure-monitor/app/cloudservices.md)
+* [Instrumenting a web app at runtime](./monitor-performance-live-website-now.md)
+* [Azure Cloud Services](./cloudservices.md)
 
 ### More telemetry
 
-* **[Browser and page load data](../../azure-monitor/app/javascript.md)** - Insert a code snippet in your web pages.
-* **[Get more detailed dependency and exception monitoring](../../azure-monitor/app/monitor-performance-live-website-now.md)** - Install Status Monitor on your server.
-* **[Code custom events](../../azure-monitor/app/api-custom-events-metrics.md)** to count, time, or measure user actions.
-* **[Get log data](../../azure-monitor/app/asp-net-trace-logs.md)** - Correlate log data with your telemetry.
+* **[Browser and page load data](./javascript.md)** - Insert a code snippet in your web pages.
+* **[Get more detailed dependency and exception monitoring](./monitor-performance-live-website-now.md)** - Install Status Monitor on your server.
+* **[Code custom events](./api-custom-events-metrics.md)** to count, time, or measure user actions.
+* **[Get log data](./asp-net-trace-logs.md)** - Correlate log data with your telemetry.
 
 ### Analysis
 
-* **[Working with Application Insights in Visual Studio](../../azure-monitor/app/visual-studio.md)**<br/>Includes information about debugging with telemetry, diagnostic search, and drill through to code.
-* **[Analytics](../../azure-monitor/log-query/get-started-portal.md)** - The powerful query language.
+* **[Working with Application Insights in Visual Studio](./visual-studio.md)**<br/>Includes information about debugging with telemetry, diagnostic search, and drill through to code.
+* **[Analytics](../log-query/get-started-portal.md)** - The powerful query language.
 
 ### Alerts
 
-* [Availability tests](../../azure-monitor/app/monitor-web-app-availability.md): Create tests to make sure your site is visible on the web.
-* [Smart diagnostics](../../azure-monitor/app/proactive-diagnostics.md): These tests run automatically, so you don't have to do anything to set them up. They tell you if your app has an unusual rate of failed requests.
-* [Metric alerts](../../azure-monitor/app/alerts.md): Set alerts to warn you if a metric crosses a threshold. You can set them on custom metrics that you code into your app.
+* [Availability tests](./monitor-web-app-availability.md): Create tests to make sure your site is visible on the web.
+* [Smart diagnostics](./proactive-diagnostics.md): These tests run automatically, so you don't have to do anything to set them up. They tell you if your app has an unusual rate of failed requests.
+* [Metric alerts](../platform/alerts-log.md): Set alerts to warn you if a metric crosses a threshold. You can set them on custom metrics that you code into your app.
 
 ### Automation
 
-* [Automate creating an Application Insights resource](../../azure-monitor/app/powershell.md)
+* [Automate creating an Application Insights resource](./powershell.md)
+

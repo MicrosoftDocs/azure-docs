@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Adaptive Insights | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Adaptive Insights.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 13af9d00-116a-41b8-8ca0-4870b31e224c
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 07/19/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Integrate Adaptive Insights with Azure Active Directory
@@ -194,7 +187,7 @@ To enable Azure AD users to sign in to Adaptive Insights, they must be provision
    c. Click **Submit**.
 
 > [!NOTE]
-> You can use any other Adaptive Insights user account creation tools or APIs provided by Adaptive Insights to provision AAD user accounts.
+> You can use any other Adaptive Insights user account creation tools or APIs provided by Adaptive Insights to provision Azure AD user accounts.
 
 ### Test SSO 
 

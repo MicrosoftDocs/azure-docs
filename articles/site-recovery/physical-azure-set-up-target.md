@@ -1,5 +1,5 @@
 ---
-title: Set up the target environment for disaster recovery of on-premises physical servers to Azure | Microsoft Docs'
+title: Set up the target environment for physical servers in Azure Site Recovery
 description: This article describes how to set up the target Azure environment for disaster recovery of physical servers using Azure Site Recovery.
 author: Rajeswari-Mamilla
 manager: rochakm

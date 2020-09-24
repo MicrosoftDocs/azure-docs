@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: 
 ms.service: storsimple
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/19/2017
@@ -43,7 +43,7 @@ Restarting a device is not disruptive to connected initiators, assuming the pass
 
 > [!IMPORTANT]
 > * **A running controller should never be physically removed as this would result in a loss of redundancy and an increased risk of downtime.**
-> * The following procedure applies only to the StorSimple physical device. For information about how to start, stop, and restart the StorSimple Cloud Appliance, see [Work with the cloud appliance](storsimple-8000-cloud-appliance-u2.md##work-with-the-storsimple-cloud-appliance).
+> * The following procedure applies only to the StorSimple physical device. For information about how to start, stop, and restart the StorSimple Cloud Appliance, see [Work with the cloud appliance](storsimple-8000-cloud-appliance-u2.md#work-with-the-storsimple-cloud-appliance).
 
 You can restart or shut down a single device controller via the Azure portal of the  StorSimple Device Manager service or Windows PowerShell for StorSimple.
 

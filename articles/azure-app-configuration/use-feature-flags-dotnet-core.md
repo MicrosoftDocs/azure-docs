@@ -3,7 +3,7 @@ title: Tutorial for using feature flags in a .NET Core app | Microsoft Docs
 description: In this tutorial, you learn how to implement feature flags in .NET Core apps.
 services: azure-app-configuration
 documentationcenter: ''
-author: yegu-ms
+author: lisaguthrie
 manager: maiye
 editor: ''
 
@@ -12,9 +12,9 @@ ms.service: azure-app-configuration
 ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 04/19/2019
-ms.author: yegu
-ms.custom: mvc
+ms.date: 09/17/2020
+ms.author: lcozzens
+ms.custom: "devx-track-csharp, mvc"
 
 #Customer intent: I want to control feature availability in my app by using the .NET Core Feature Manager library.
 ---
@@ -35,6 +35,8 @@ In this tutorial, you will learn how to:
 
 ## Set up feature management
 
+Add a reference to the `Microsoft.FeatureManagement.AspNetCore` and `Microsoft.FeatureManagement` NuGet packages to utilize the .NET Core feature manager.
+    
 The .NET Core feature manager `IFeatureManager` gets feature flags from the framework's native configuration system. As a result, you can define your application's feature flags by using any configuration source that .NET Core supports, including the local *appsettings.json* file or environment variables. `IFeatureManager` relies on .NET Core dependency injection. You can register the feature management services by using standard conventions:
 
 ```csharp
@@ -175,7 +177,7 @@ The basic pattern of feature management is to first check if a feature flag is s
 ```csharp
 IFeatureManager featureManager;
 ...
-if (featureManager.IsEnabled(nameof(MyFeatureFlags.FeatureA)))
+if (await featureManager.IsEnabledAsync(nameof(MyFeatureFlags.FeatureA)))
 {
     // Run the following code
 }
@@ -202,6 +204,8 @@ public class HomeController : Controller
 In MVC controllers, you use the `FeatureGate` attribute to control whether a whole controller class or a specific action is enabled. The following `HomeController` controller requires `FeatureA` to be *on* before any action the controller class contains can be executed:
 
 ```csharp
+using Microsoft.FeatureManagement.Mvc;
+
 [FeatureGate(MyFeatureFlags.FeatureA)]
 public class HomeController : Controller
 {
@@ -212,6 +216,8 @@ public class HomeController : Controller
 The following `Index` action requires `FeatureA` to be *on* before it can run:
 
 ```csharp
+using Microsoft.FeatureManagement.Mvc;
+
 [FeatureGate(MyFeatureFlags.FeatureA)]
 public IActionResult Index()
 {
@@ -222,6 +228,12 @@ public IActionResult Index()
 When an MVC controller or action is blocked because the controlling feature flag is *off*, a registered `IDisabledFeaturesHandler` interface is called. The default `IDisabledFeaturesHandler` interface returns a 404 status code to the client with no response body.
 
 ## MVC views
+
+Open *_ViewImports.cshtml* in the *Views* directory, and add the feature manager tag helper:
+
+```html
+@addTagHelper *, Microsoft.FeatureManagement.AspNetCore
+```
 
 In MVC views, you can use a `<feature>` tag to render content based on whether a feature flag is enabled:
 
@@ -252,7 +264,7 @@ The feature `<feature>` tag can also be used to show content if any or all featu
 
 ## MVC filters
 
-You can set up MVC filters so that they're activated based on the state of a feature flag. The following code adds an MVC filter named `SomeMvcFilter`. This filter is triggered within the MVC pipeline only if `FeatureA` is enabled.
+You can set up MVC filters so that they're activated based on the state of a feature flag. The following code adds an MVC filter named `SomeMvcFilter`. This filter is triggered within the MVC pipeline only if `FeatureA` is enabled. This capability is limited to `IAsyncActionFilter`. 
 
 ```csharp
 using Microsoft.FeatureManagement.FeatureFilters;
@@ -265,16 +277,6 @@ public void ConfigureServices(IServiceCollection services)
         options.Filters.AddForFeature<SomeMvcFilter>(nameof(MyFeatureFlags.FeatureA));
     });
 }
-```
-
-## Routes
-
-You can use feature flags to dynamically expose routes. The following code adds a route, which sets `Beta` as the default controller only when `FeatureA` is enabled:
-
-```csharp
-app.UseMvc(routes => {
-    routes.MapRouteForFeature(nameof(MyFeatureFlags.FeatureA), "betaDefault", "{controller=Beta}/{action=Index}/{id?}");
-});
 ```
 
 ## Middleware

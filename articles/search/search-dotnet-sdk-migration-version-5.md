@@ -1,19 +1,19 @@
 ---
-title: Upgrade to the Azure Search .NET SDK version 5 - Azure Search
+title: Upgrade to Azure Search .NET SDK version 5
+titleSuffix: Azure Cognitive Search
 description: Migrate code to the Azure Search .NET SDK version 5 from older versions. Learn what is new and which code changes are required.
-author: brjohnstmsft
+
 manager: nitinme
-services: search
-ms.service: search
+author: brjohnstmsft
+ms.author: brjohnst
+ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/02/2019
-ms.author: brjohnst
-ms.custom: seodec2018
+ms.date: 11/04/2019
 ---
-# Upgrading to the Azure Search .NET SDK version 5
+# Upgrade to Azure Search .NET SDK version 5
 
-If you're using version 4.0-preview or older of the [Azure Search .NET SDK](https://aka.ms/search-sdk), this article will help you upgrade your application to use version 5.
+If you're using version 4.0-preview or older of the [.NET SDK](/dotnet/api/overview/azure/search), this article will help you upgrade your application to use version 5.
 
 For a more general walkthrough of the SDK including examples, see [How to use Azure Search from a .NET Application](search-howto-dotnet-sdk.md).
 
@@ -30,7 +30,7 @@ Version 5 of the Azure Search .NET SDK contains some changes from earlier versio
 Version 5 of the Azure Search .NET SDK targets the latest generally available version of the Azure Search REST API, specifically 2017-11-11. This makes it possible to use new features of Azure Search from a .NET application, including the following:
 
 * [Synonyms](search-synonyms.md).
-* You can now programmatically access warnings in indexer execution history (see the `Warning` property of `IndexerExecutionResult` in the [.NET reference](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexerexecutionresult?view=azure-dotnet) for more details).
+* You can now programmatically access warnings in indexer execution history (see the `Warning` property of `IndexerExecutionResult` in the [.NET reference](/dotnet/api/microsoft.azure.search.models.indexerexecutionresult?view=azure-dotnet) for more details).
 * Support for .NET Core 2.
 * New package structure supports using only the parts of the SDK that you need (see [Breaking changes in version 5](#ListOfChanges) for details).
 
@@ -43,7 +43,9 @@ Once NuGet has downloaded the new packages and their dependencies, rebuild your 
 
 If your build fails, you should see a build error like the following:
 
-    The name 'SuggesterSearchMode' does not exist in the current context
+```output
+The name 'SuggesterSearchMode' does not exist in the current context
+```
 
 The next step is to fix this build error. See [Breaking changes in version 5](#ListOfChanges) for details on what causes the error and how to fix it.
 

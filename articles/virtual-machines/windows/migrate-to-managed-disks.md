@@ -1,9 +1,9 @@
 ---
-title: Migrate Azure VMs to Managed Disks | Microsoft Docs
+title: Migrate Azure VMs to Managed Disks 
 description: Migrate Azure virtual machines created using unmanaged disks in storage accounts to use Managed Disks.
 author: roygara
 ms.service: virtual-machines-windows
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/30/2019
 ms.author: rogarana
 ms.subservice: disks
@@ -24,6 +24,8 @@ You can migrate to Managed Disks in following scenarios:
 |Convert a single VM from classic to Resource Manager on managed disks     |[Create a VM from a classic VHD](create-vm-specialized-portal.md)         |
 |Convert all the VMs in a vNet from classic to Resource Manager on managed disks     |[Migrate IaaS resources from classic to Resource Manager](migration-classic-resource-manager-ps.md) and then [Convert a VM from unmanaged disks to managed disks](convert-unmanaged-to-managed-disks.md)         |
 |Upgrade VMs with standard unmanaged disks to VMs with managed premium disks     | First, [Convert a Windows virtual machine from unmanaged disks to managed disks](convert-unmanaged-to-managed-disks.md). Then [Update the storage type of a managed disk](convert-disk-storage.md).         |
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
 
 ## Next steps
 

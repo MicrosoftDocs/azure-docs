@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Snowflake | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Snowflake.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-
-ms.assetid: 3488ac27-0417-4ad9-b9a3-08325fe8ea0d
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Snowflake
 
@@ -42,6 +36,7 @@ To configure Azure AD integration with Snowflake, you need the following items:
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
 * Snowflake supports **SP and IDP** initiated SSO
+* Snowflake supports [Automated user provisioning and deprovisioning](snowflake-provisioning-tutorial.md) (recommended)
 
 ## Adding Snowflake from the gallery
 
@@ -113,6 +108,9 @@ To configure Azure AD single sign-on with Snowflake, perform the following steps
 
 	In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<SNOWFLAKE-URL>.snowflakecomputing.com`
+    
+	In the **Logout URL** text box, type a URL using the following pattern:
+    `https://<SNOWFLAKE-URL>.snowflakecomputing.com/fed/logout`
 
     > [!NOTE]
 	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Snowflake Client support team](https://support.snowflake.net/s/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.

@@ -1,19 +1,12 @@
 ---
-title: Co-locate Windows Azure VMs | Microsoft Docs
+title: Co-locate VMs for improved latency
 description: Learn about how co-locating Azure VM resources can improve latency.
-services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
-
-ms.service: virtual-machines-windows
-
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.service: virtual-machines
+ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 06/28/2019
-ms.author: cynthn
+ms.date: 10/30/2019
+ms.author: zivr
 ---
 
 # Co-locate resource for improved latency
@@ -21,7 +14,7 @@ ms.author: cynthn
 When deploying your application in Azure, spreading instances across regions or availability zones creates network latency, which may impact the overall performance of your application. 
 
 
-## Preview: Proximity placement groups 
+## Proximity placement groups 
 
 [!INCLUDE [virtual-machines-common-ppg-overview](../../../includes/virtual-machines-common-ppg-overview.md)]
 
@@ -29,3 +22,8 @@ When deploying your application in Azure, spreading instances across regions or 
 
 Deploy a VM to a [proximity placement group](proximity-placement-groups.md) using Azure PowerShell.
 
+Learn how to [test network latency](https://aka.ms/TestNetworkLatency?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+
+Learn how to [optimize network throughput](../../virtual-network/virtual-network-optimize-network-bandwidth.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).  
+
+Learn how to [use proximity placement groups with SAP applications](../workloads/sap/sap-proximity-placement-scenarios.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

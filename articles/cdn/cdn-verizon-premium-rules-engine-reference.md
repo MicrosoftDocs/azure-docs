@@ -2,12 +2,12 @@
 title: Azure CDN rules engine reference | Microsoft Docs
 description: Reference documentation for Azure CDN rules engine match conditions and features.
 services: cdn
-author: mdgattuso
+author: asudbring
 
 ms.service: azure-cdn
 ms.topic: article
-ms.date: 05/31/2019
-ms.author: magattus
+ms.date: 05/26/2020
+ms.author: allensu
 
 ---
 # Azure CDN from Verizon Premium rules engine reference
@@ -22,20 +22,62 @@ The rules engine is designed to be the final authority on how specific types of 
 - Secure or deny requests for sensitive content.
 - Redirect requests.
 - Store custom log data.
+## Key concepts
+Key concepts for setting up Rules Engine are described below.
+### Draft
+A draft of a policy consists of one or more rules meant to identify requests and the set of actions that will be applied to them. A draft is a work in progress that allows frequent configuration updates without impacting site traffic. Once a draft is ready to be finalized, it should be converted into a read-only policy.
 
-## Terminology
+### Rule
+A rule identifies one or more types of requests and the set of actions that will be applied to them.
 
-A rule is defined through the use of [**conditional expressions**](cdn-verizon-premium-rules-engine-reference-conditional-expressions.md), [**match conditions**](cdn-verizon-premium-rules-engine-reference-match-conditions.md), and [**features**](cdn-verizon-premium-rules-engine-reference-features.md). These elements are highlighted in the following illustration:
+It consists of: 
 
- ![CDN match condition](./media/cdn-rules-engine-reference/cdn-rules-engine-terminology.png)
+- A set of conditional expressions that define the logic through which requests are identified.
+- A set of match conditions that define the criteria used to identify requests.
+- A set of features that define how the CDN will handle the above requests.
+These elements are identified in the following illustration.
 
+![Policy deployment workflow](./media/cdn-verizon-premium-rules-engine-reference/verizon-rules-engine-reference.png)
+
+### Policy
+A policy, which consists of a set of read-only rules, provides the means to:
+
+- Create, store, and manage multiple variants of your rules.
+- Roll back to a previously deployed version.
+- Prepare event-specific rules in advance (e.g., a rule that redirects traffic as a result of a customer origin maintenance.)
+
+> [!NOTE]
+> Although only a single policy per environment is allowed, policies may be deployed as needed.
+
+### Deploy request
+A deploy request provides a simple and streamlined procedure through which a policy may be quickly applied to the Staging or Production environment. A history of deploy requests is provided to facilitate the tracking of changes applied to those environments.
+
+> [!NOTE]
+> Only requests that do not pass our automated validation and error detection system will require manual review and approval.
+
+### Rule precedence
+The rules contained in a Policy are typically processed in the order in which they are listed (i.e., top to bottom). If the request matches conflicting rules, then the last rule to be processed will take precedence.
+
+### Policy deployment workflow
+The workflow through which a policy may be applied to either the Production or Staging environment is illustrated below.
+
+![Policy deployment workflow](./media/cdn-verizon-premium-rules-engine-reference/policy-deployment-workflow.png)
+
+|Step |Description |
+|---------|---------|
+|[Create Draft](https://docs.vdms.com/cdn/index.html#HRE/AdministeringDraftsandRules.htm#Create)    |    A draft consists of a set of rules that define how requests for your content should be handled by the CDN.     |
+|Lock Draft   |     Once a draft has been finalized, it should be locked and converted into a read-only policy.    |
+|[Submit Deploy Request](https://docs.vdms.com/cdn/index.html#HRE/DeployRequest.htm)   |   <br> A deploy request allows a policy to be applied to either test or production traffic.</br> <br>Submit a deploy request to either the Staging or Production environment.</br>     |
+|Deploy Request Review   |    <br>A deploy request undergoes automated validation and error detection.</br><br>Although the majority of deploy requests are automatically approved, manual review is required for more complex policies.</br>   |
+|Policy Deployment ([Staging](https://docs.vdms.com/cdn/index.html#HRE/Environment.htm#Staging))   |  <br> Upon approval of a deploy request to the Staging environment, a policy will be applied to the Staging environment. This environment allows a policy to be tested against mock site traffic.</br><br>Once the policy is ready to be applied to live site traffic, a new deploy request for the Production environment should be submitted.</br>      |
+|Policy Deployment ([Production](https://docs.vdms.com/cdn/index.html#HRE/Environment.htm#Producti))   |  Upon approval of a deploy request to the Production environment, a policy will be applied to the Production environment. This environment allows a policy to act as the final authority for determining how the CDN should handle live traffic.     |
 ## Syntax
 
 The manner in which special characters are treated varies according to how a match condition or feature handles text values. A match condition or feature may interpret text in one of the following ways:
 
-1. [**Literal values**](#literal-values)
-2. [**Wildcard values**](#wildcard-values)
-3. [**Regular expressions**](#regular-expressions)
+- [**Literal values**](#literal-values)
+- [**Wildcard values**](#wildcard-values)
+- [**Regular expressions**](#regular-expressions)
 
 ### Literal values
 
@@ -68,6 +110,8 @@ Space | A space character is typically treated as a literal character.
 'value' | Single quotes are treated as literal characters. A set of single quotes does not have special meaning.
 
 Match conditions and features that support regular expressions accept patterns defined by Perl Compatible Regular Expressions (PCRE).
+
+
 
 ## Next steps
 

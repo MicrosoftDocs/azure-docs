@@ -1,16 +1,12 @@
 ---
-title: Sample - ISO 27001 blueprint - Deploy steps
-description: Deploy steps of the ISO 27001 blueprint sample.
-author: DCtheGeek
-ms.author: dacoulte
-ms.date: 07/22/2019
+title: Deploy ISO 27001 blueprint sample
+description: Deploy steps for the standalone ISO 27001 blueprint sample including blueprint artifact parameter details.
+ms.date: 07/13/2020
 ms.topic: sample
-ms.service: blueprints
 ---
 # Deploy the ISO 27001 blueprint sample
 
-To deploy the Azure Blueprints ISO 27001 blueprint sample, the following steps must
-be taken:
+To deploy the Azure Blueprints ISO 27001 blueprint sample, the following steps must be taken:
 
 > [!div class="checklist"]
 > - Create a new blueprint from the sample
@@ -140,7 +136,7 @@ The following table provides a list of the blueprint artifact parameters:
 |\[Preview\]: Deploy Log Analytics Agent for Windows VMs|Policy assignment|Optional: List of VM images that have supported Windows OS to add to scope|An empty array may be used to indicate no optional parameters: \[\]|
 |Allowed storage account SKUs|Policy assignment|List of allowed storage SKUs|The list of SKUs that can be specified for storage accounts.|
 |Allowed virtual machine SKUs|Policy assignment|List of allowed virtual machine SKUs|The list of SKUs that can be specified for virtual machines.|
-|Blueprint initiative for ISO 27001|Policy assignment|List of resource types that should have diagnostic logs enabled|List of resource types to audit if diagnostic log setting is not enabled. Acceptable values can be found at [Azure Monitor diagnostic logs schemas](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type).|
+|Blueprint initiative for ISO 27001|Policy assignment|List of resource types that should have diagnostic logs enabled|List of resource types to audit if diagnostic log setting is not enabled. Acceptable values can be found at [Azure Monitor diagnostic logs schemas](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas).|
 
 ## Next steps
 
@@ -151,7 +147,7 @@ the following articles to learn about the architecture and control mapping:
 > [ISO 27001 blueprint - Overview](./index.md)
 > [ISO 27001 blueprint - Control mapping](./control-mapping.md)
 
-Addition articles about blueprints and how to use them:
+Additional articles about blueprints and how to use them:
 
 - Learn about the [blueprint lifecycle](../../concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](../../concepts/parameters.md).

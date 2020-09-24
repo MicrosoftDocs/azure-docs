@@ -1,5 +1,5 @@
 ---
-title: Use Remote Desktop to a Linux VM in Azure | Microsoft Docs
+title: Use Remote Desktop to a Linux VM in Azure 
 description: Learn how to install and configure Remote Desktop (xrdp) to connect to a Linux VM in Azure using graphical tools
 services: virtual-machines-linux
 documentationcenter: ''
@@ -12,13 +12,13 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/12/2019
 ms.author: cynthn
 
 ---
 # Install and configure Remote Desktop to connect to a Linux VM in Azure
-Linux virtual machines (VMs) in Azure are usually managed from the command line using a secure shell (SSH) connection. When new to Linux, or for quick troubleshooting scenarios, the use of remote desktop may be easier. This article details how to install and configure a desktop environment ([xfce](https://www.xfce.org)) and remote desktop ([xrdp](https://www.xrdp.org)) for your Linux VM using the Resource Manager deployment model.
+Linux virtual machines (VMs) in Azure are usually managed from the command line using a secure shell (SSH) connection. When new to Linux, or for quick troubleshooting scenarios, the use of remote desktop may be easier. This article details how to install and configure a desktop environment ([xfce](https://www.xfce.org)) and remote desktop ([xrdp](http://xrdp.org)) for your Linux VM using the Resource Manager deployment model.
 
 
 ## Prerequisites
@@ -45,7 +45,7 @@ Next, install xfce using `apt` as follows:
 
 ```bash
 sudo apt-get update
-sudo apt-get install xfce4
+sudo apt-get -y install xfce4
 ```
 
 ## Install and configure a remote desktop server
@@ -130,11 +130,10 @@ tail -f /var/log/syslog
 
 Other Linux distributions such as Red Hat Enterprise Linux and SUSE may have different ways to restart services and alternate log file locations to review.
 
-If you do not receive any response in your remote desktop client and do not see any events in the system log, this behavior indicates that remote desktop traffic cannot reach the VM. Review your network security group rules to ensure that you have a rule to permit TCP on port 3389. For more information, see [Troubleshoot application connectivity issues](../windows/troubleshoot-app-connection.md).
+If you do not receive any response in your remote desktop client and do not see any events in the system log, this behavior indicates that remote desktop traffic cannot reach the VM. Review your network security group rules to ensure that you have a rule to permit TCP on port 3389. For more information, see [Troubleshoot application connectivity issues](../troubleshooting/troubleshoot-app-connection.md).
 
 
 ## Next steps
 For more information about creating and using SSH keys with Linux VMs, see [Create SSH keys for Linux VMs in Azure](mac-create-ssh-keys.md).
 
 For information on using SSH from Windows, see [How to use SSH keys with Windows](ssh-from-windows.md).
-

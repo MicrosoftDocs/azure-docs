@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Thoughtworks Mingle | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Thoughtworks Mingle.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 69d859d9-b7f7-4c42-bc8c-8036138be586
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Thoughtworks Mingle
 
@@ -218,7 +212,7 @@ For Azure AD users to be able to sign in, they must be provisioned to the Though
     c. Click **Create This Profile**.
 
 >[!NOTE]
->You can use any other Thoughtworks Mingle user account creation tools or APIs provided by Thoughtworks Mingle to provision AAD user accounts.
+>You can use any other Thoughtworks Mingle user account creation tools or APIs provided by Thoughtworks Mingle to provision Azure AD user accounts.
 > 
 
 ### Test single sign-on 

@@ -4,10 +4,11 @@ description: Learn how to develop .NET applications and services that use Azure 
 author: roygara
 ms.service: storage
 ms.devlang: dotnet
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/7/2019
 ms.author: rogarana
 ms.subservice: files
+ms.custom: devx-track-csharp
 ---
 
 # Develop for Azure Files with .NET
@@ -18,7 +19,7 @@ This tutorial demonstrates the basics of using .NET to develop applications that
 
 * Get the contents of a file.
 * Set the maximum size or *quota* for the file share.
-* Create a shared access signature (SAS key) for a file that uses a shared access policy defined on the share.
+* Create a shared access signature (SAS key) for a file that uses a stored access policy defined on the share.
 * Copy a file to another file in the same storage account.
 * Copy a file to a blob in the same storage account.
 * Use Azure Storage Metrics for troubleshooting.
@@ -34,7 +35,7 @@ Azure Files provides two broad approaches to client applications: Server Message
 API | When to use | Notes
 ----|-------------|------
 [System.IO](https://docs.microsoft.com/dotnet/api/system.io) | Your application: <ul><li>Needs to read/write files by using SMB</li><li>Is running on a device that has access over port 445 to your Azure Files account</li><li>Doesn't need to manage any of the administrative settings of the file share</li></ul> | File I/O implemented with Azure Files over SMB is generally the same as I/O with any network file share or local storage device. For an introduction to a number of features in .NET, including file I/O, see the [Console Application](https://docs.microsoft.com/dotnet/csharp/tutorials/console-teleprompter) tutorial.
-[Microsoft.Azure.Storage.File](https://docs.microsoft.com/dotnet/api/overview/azure/storage#client-library) | Your application: <ul><li>Can't access Azure Files by using SMB on port 445 because of firewall or ISP constraints</li><li>Requires administrative functionality, such as the ability to set a file share's quota or create a shared access signature</li></ul> | This article demonstrates the use of `Microsoft.Azure.Storage.File` for file I/O using REST instead of SMB and management of the file share.
+[Microsoft.Azure.Storage.File](/dotnet/api/overview/azure/storage?view=azure-dotnet#version-11x) | Your application: <ul><li>Can't access Azure Files by using SMB on port 445 because of firewall or ISP constraints</li><li>Requires administrative functionality, such as the ability to set a file share's quota or create a shared access signature</li></ul> | This article demonstrates the use of `Microsoft.Azure.Storage.File` for file I/O using REST instead of SMB and management of the file share.
 
 ## Create the console application and obtain the assembly
 
@@ -94,7 +95,7 @@ Next, save your credentials in your project's `App.config` file. In **Solution E
 ```
 
 > [!NOTE]
-> The latest version of the Azure storage emulator does not support Azure Files. Your connection string must target an Azure Storage Account in the cloud to work with Azure Files.
+> The latest versions of the Azure Storage Emulator and the Azurite open-source emulator do not support Azure Files. Your connection string must target an Azure Storage Account in the cloud to work with Azure Files.
 
 ## Add using directives
 
@@ -187,9 +188,9 @@ if (share.Exists())
 
 ### Generate a shared access signature for a file or file share
 
-Beginning with version 5.x of the Azure Storage Client Library, you can generate a shared access signature (SAS) for a file share or for an individual file. You can also create a shared access policy on a file share to manage shared access signatures. We recommend creating a shared access policy because it lets you revoke the SAS if it becomes compromised.
+Beginning with version 5.x of the Azure Storage Client Library, you can generate a shared access signature (SAS) for a file share or for an individual file. You can also create a stored access policy on a file share to manage shared access signatures. We recommend creating a stored access policy because it lets you revoke the SAS if it becomes compromised.
 
-The following example creates a shared access policy on a share. The example uses that policy to provide the constraints for a SAS on a file in the share.
+The following example creates a stored access policy on a share. The example uses that policy to provide the constraints for a SAS on a file in the share.
 
 ```csharp
 // Parse the connection string for the storage account.
@@ -207,7 +208,7 @@ if (share.Exists())
 {
     string policyName = "sampleSharePolicy" + DateTime.UtcNow.Ticks;
 
-    // Create a new shared access policy and define its constraints.
+    // Create a new stored access policy and define its constraints.
     SharedAccessFilePolicy sharedPolicy = new SharedAccessFilePolicy()
         {
             SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24),
@@ -217,7 +218,7 @@ if (share.Exists())
     // Get existing permissions for the share.
     FileSharePermissions permissions = share.GetPermissions();
 
-    // Add the shared access policy to the share's policies. Note that each policy must have a unique name.
+    // Add the stored access policy to the share's policies. Note that each policy must have a unique name.
     permissions.SharedAccessPolicies.Add(policyName, sharedPolicy);
     share.SetPermissions(permissions);
 
@@ -487,7 +488,6 @@ For more information about Azure Files, see the following resources:
 ### Tooling support for File storage
 
 * [Get started with AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
-* [Using the Azure CLI with Azure Storage](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#create-and-manage-file-shares)
 * [Troubleshoot Azure Files problems in Windows](https://docs.microsoft.com/azure/storage/storage-troubleshoot-file-connection-problems)
 
 ### Reference
@@ -499,5 +499,5 @@ For more information about Azure Files, see the following resources:
 
 * [Azure File Storage, now generally available](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
 * [Inside Azure File Storage](https://azure.microsoft.com/blog/inside-azure-file-storage/)
-* [Introducing Microsoft Azure Files Service](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
-* [Persisting connections to Microsoft Azure Files](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
+* [Introducing Microsoft Azure Files Service](https://docs.microsoft.com/archive/blogs/windowsazurestorage/introducing-microsoft-azure-file-service)
+* [Persisting connections to Microsoft Azure Files](https://docs.microsoft.com/archive/blogs/windowsazurestorage/persisting-connections-to-microsoft-azure-files)

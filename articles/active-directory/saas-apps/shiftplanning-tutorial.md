@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Humanity | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Humanity.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 6aa771e9-31c6-48d1-8dde-024bebc06943
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Humanity
 
@@ -226,12 +220,12 @@ In order to enable Azure AD users to log in to Humanity, they must be provisione
 
     ![Save Employees](./media/shiftplanning-tutorial/iC786625.png "Save Employees")
 
-    a. Type the **First Name**, **Last Name**, and **Email** of a valid AAD account you want to provision into the related textboxes.
+    a. Type the **First Name**, **Last Name**, and **Email** of a valid Azure AD account you want to provision into the related textboxes.
 
     b. Click **Save Employees**.
 
 > [!NOTE]
-> You can use any other Humanity user account creation tools or APIs provided by Humanity to provision AAD user accounts.
+> You can use any other Humanity user account creation tools or APIs provided by Humanity to provision Azure AD user accounts.
 
 ### Test single sign-on
 

@@ -1,5 +1,6 @@
 ---
-title: Azure VMware Solution by CloudSimple Quickstart - consume VMware VMs on Azure 
+title: "Quickstart: Consume VMware VMs on Azure"
+titleSuffix: Azure VMware Solution by CloudSimple 
 description: Learn how to configure and consume VMware VMs from Azure portal using Azure VMware Solution by CloudSimple 
 author: sharaths-cs 
 ms.author: dikamath 

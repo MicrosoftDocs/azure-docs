@@ -1,19 +1,19 @@
 ---
 title: Expire data in Azure Cosmos DB with Time to Live 
 description: With TTL, Microsoft Azure Cosmos DB provides the ability to have documents automatically purged from the system after a period of time.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/26/2019
-ms.author: rimman
+ms.date: 09/02/2020
 ms.reviewer: sngun
 
 ---
-# Time to Live (TTL) in Azure Cosmos DB 
+# Time to Live (TTL) in Azure Cosmos DB
 
-With **Time to Live** or TTL, Azure Cosmos DB provides the ability to delete items automatically from a container after a certain time period. By default, you can set time to live at the container level and override the value on a per-item basis. After you set the TTL at a container or at an item level, Azure Cosmos DB will automatically remove these items after the time period, since the time they were last modified. Time to live value is configured in seconds. When you configure TTL, the system will automatically delete the expired items based on the TTL value, without needing a delete operation that is explicitly issued by the client application.
+With **Time to Live** or TTL, Azure Cosmos DB provides the ability to delete items automatically from a container after a certain time period. By default, you can set time to live at the container level and override the value on a per-item basis. After you set the TTL at a container or at an item level, Azure Cosmos DB will automatically remove these items after the time period, since the time they were last modified. Time to live value is configured in seconds. When you configure TTL, the system will automatically delete the expired items based on the TTL value, without needing a delete operation that is explicitly issued by the client application. The maximum value for TTL is 2147483647.
 
-Deletion of expired items is a background task that consumes left-over [Request Units](request-units.md), that is Request Units that haven't been consumed by user requests. Expirations may be delayed if the container is under heavy load and no Request Unit is left for maintenance tasks.
+Deletion of expired items is a background task that consumes left-over [Request Units](request-units.md), that is Request Units that haven't been consumed by user requests. Even after the TTL has expired, if the container is overloaded with requests and if there aren't enough RU's available, the data deletion is delayed. Data is deleted once there are enough RUs available to perform the delete operation. Though the data deletion is delayed, data is not returned by any queries (by any API) after the TTL has expired.
 
 ## Time to live for containers and items
 
@@ -39,9 +39,7 @@ The time to live value is set in seconds, and it is interpreted as a delta from 
 
 * If TTL is not set on a container, then the time to live on an item in this container has no effect. 
 
-* If TTL on a container is set to -1, an item in this container that has the time to live set to n, will expire after n seconds, and remaining items will not expire. 
-
-Deleting items based on TTL is free. There is no additional cost (that is, no additional RUs are consumed) when item is deleted as a result of TTL expiration.
+* If TTL on a container is set to -1, an item in this container that has the time to live set to n, will expire after n seconds, and remaining items will not expire.
 
 ## Examples
 

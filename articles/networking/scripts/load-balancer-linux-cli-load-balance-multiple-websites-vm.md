@@ -3,19 +3,15 @@ title: Azure CLI Script Sample - Load balance multiple websites with the Azure C
 description: Azure CLI Script Sample - Load balance multiple websites to the same virtual machine
 services: load-balancer
 documentationcenter: load-balancer
-author: KumudD
-manager: timlt
-editor: tysonn
-tags:
-
-ms.assetid:
+author: asudbring
+manager: KumudD
 ms.service: load-balancer
 ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 07/07/2017
-ms.author: kumud
+ms.author: allensu
 ---
 
 # Load balance multiple websites

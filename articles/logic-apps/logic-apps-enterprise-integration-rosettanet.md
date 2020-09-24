@@ -1,17 +1,16 @@
 ---
-title: RosettaNet messages for B2B enterprise integration - Azure Logic Apps
+title: RosettaNet messages for B2B integration
 description: Exchange RosettaNet messages in Azure Logic Apps with Enterprise Integration Pack
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/22/2019
 ---
 
-# Exchange RosettaNet messages for B2B enterprise integration in Azure Logic Apps 
+# Exchange RosettaNet messages for B2B enterprise integration in Azure Logic Apps
 
 [RosettaNet](https://resources.gs1us.org) is a non-profit consortium that has established standard processes for sharing business information. These standards are commonly used for supply chain processes and are widespread in the semiconductor, electronics, and logistics industries. The RosettaNet consortium creates and maintains Partner Interface Processes (PIPs), which provide common business process definitions for all RosettaNet message exchanges. RosettaNet is based on XML and defines message guidelines, interfaces for business processes, and implementation frameworks for communication between companies.
 
@@ -78,7 +77,7 @@ To add a PIP process configuration to your integration account, follow these ste
    | Property | Required | Description |
    |----------|----------|-------------|
    | **Name** | Yes | Your PIP name |
-   | **PIP Code** | Yes | The PIP three-digit code. For more information, see [RosettaNet PIPs](https://docs.microsoft.com/biztalk/adapters-and-accelerators/accelerator-rosettanet/rosettanet-pips). |
+   | **PIP Code** | Yes | The PIP three-digit code. For more information, see [RosettaNet PIPs](/biztalk/adapters-and-accelerators/accelerator-rosettanet/rosettanet-pips). |
    | **PIP Version** | Yes | The PIP version number, which is available based on your selected PIP code |
    ||||
 

@@ -1,20 +1,11 @@
-﻿---
-title: Create a Windows VM from a specialized VHD in Azure | Microsoft Docs
+---
+title: Create a Windows VM from a specialized VHD in Azure 
 description: Create a new Windows VM by attaching a specialized managed disk as the OS disk by using the Resource Manager deployment model.
-services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 3b7d3cd5-e3d7-4041-a2a7-0290447458ea
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-
-ms.topic: article
-ms.date: 10/10/2018
+ms.topic: how-to
+ms.date: 10/10/2019
 ms.author: cynthn
 
 ---
@@ -33,11 +24,11 @@ You can also use the Azure portal to [create a new VM from a specialized VHD](cr
 
 This article shows you how to use managed disks. If you have a legacy deployment that requires using a storage account, see [Create a VM from a specialized VHD in a storage account](sa-create-vm-specialized.md).
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+We recommend that you limit the number of concurrent deployments to 20 VMs from a single VHD or snapshot. 
 
 ## Option 1: Use an existing disk
 
-If you had a VM that you deleted and you want to reuse the OS disk to create a new VM, use [Get-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/get-azdisk).
+If you had a VM that you deleted and you want to reuse the OS disk to create a new VM, use [Get-AzDisk](/powershell/module/az.compute/get-azdisk).
 
 ```powershell
 $resourceGroupName = 'myResourceGroup'
@@ -60,104 +51,19 @@ Use the VHD as-is to create a new VM.
   * Make sure the VM is configured to get the IP address and DNS settings from DHCP. This ensures that the server obtains an IP address within the virtual network when it starts up. 
 
 
-### Get the storage account
-You'll need a storage account in Azure to store the uploaded VHD. You can either use an existing storage account or create a new one. 
+### Upload the VHD
 
-Show the available storage accounts.
-
-```powershell
-Get-AzStorageAccount
-```
-
-To use an existing storage account, proceed to the [Upload the VHD](#upload-the-vhd-to-your-storage-account) section.
-
-Create a storage account.
-
-1. You'll need the name of the resource group where the storage account will be created. Use Get-AzResourceGroup see all the resource groups that are in your subscription.
-   
-    ```powershell
-    Get-AzResourceGroup
-    ```
-
-    Create a resource group named *myResourceGroup* in the *West US* region.
-
-    ```powershell
-    New-AzResourceGroup `
-	   -Name myResourceGroup `
-	   -Location "West US"
-    ```
-
-2. Create a storage account named *mystorageaccount* in the new resource group by using the [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount) cmdlet.
-   
-    ```powershell
-    New-AzStorageAccount `
-	   -ResourceGroupName myResourceGroup `
-	   -Name mystorageaccount `
-	   -Location "West US" `
-       -SkuName "Standard_LRS" `
-	   -Kind "Storage"
-    ```
-
-### Upload the VHD to your storage account 
-Use the [Add-AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd) cmdlet to upload the VHD to a container in your storage account. This example uploads the file *myVHD.vhd* from "C:\Users\Public\Documents\Virtual hard disks\" to a storage account named *mystorageaccount* in the *myResourceGroup* resource group. The file is stored in the container named *mycontainer* and the new file name will be *myUploadedVHD.vhd*.
-
-```powershell
-$resourceGroupName = "myResourceGroup"
-$urlOfUploadedVhd = "https://mystorageaccount.blob.core.windows.net/mycontainer/myUploadedVHD.vhd"
-Add-AzVhd -ResourceGroupName $resourceGroupName `
-   -Destination $urlOfUploadedVhd `
-   -LocalFilePath "C:\Users\Public\Documents\Virtual hard disks\myVHD.vhd"
-```
-
-
-If the commands are successful, you'll get a response that looks similar to this:
-
-```powershell
-MD5 hash is being calculated for the file C:\Users\Public\Documents\Virtual hard disks\myVHD.vhd.
-MD5 hash calculation is completed.
-Elapsed time for the operation: 00:03:35
-Creating new page blob of size 53687091712...
-Elapsed time for upload: 01:12:49
-
-LocalFilePath           DestinationUri
--------------           --------------
-C:\Users\Public\Doc...  https://mystorageaccount.blob.core.windows.net/mycontainer/myUploadedVHD.vhd
-```
-
-This command may take a while to complete, depending on your network connection and the size of your VHD file.
-
-### Create a managed disk from the VHD
-
-Create a managed disk from the specialized VHD in your storage account by using [New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-azdisk). This example uses *myOSDisk1* for the disk name, puts the disk in *Standard_LRS* storage, and uses *https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd* as the URI for the source VHD.
-
-Create a new resource group for the new VM.
-
-```powershell
-$destinationResourceGroup = 'myDestinationResourceGroup'
-New-AzResourceGroup -Location $location `
-   -Name $destinationResourceGroup
-```
-
-Create the new OS disk from the uploaded VHD. 
-
-```powershell
-$sourceUri = 'https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd'
-$osDiskName = 'myOsDisk'
-$osDisk = New-AzDisk -DiskName $osDiskName -Disk `
-    (New-AzDiskConfig -AccountType Standard_LRS  `
-	-Location $location -CreateOption Import `
-    -SourceUri $sourceUri) `
-    -ResourceGroupName $destinationResourceGroup
-```
+You can now upload a VHD straight into a managed disk. For instructions, see [Upload a VHD to Azure using Azure PowerShell](disks-upload-vhd-to-managed-disk-powershell.md).
 
 ## Option 3: Copy an existing Azure VM
 
 You can create a copy of a VM that uses managed disks by taking a snapshot of the VM, and then by using that snapshot to create a new managed disk and a new VM.
 
+If you want to copy an existing VM to another region, you might want to use azcopy to [create a copy of a disk in another region](disks-upload-vhd-to-managed-disk-powershell.md#copy-a-managed-disk). 
 
 ### Take a snapshot of the OS disk
 
-You can take a snapshot of an entire VM (including all disks) or of just a single disk. The following steps show you how to take a snapshot of just the OS disk of your VM with the [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot) cmdlet. 
+You can take a snapshot of an entire VM (including all disks) or of just a single disk. The following steps show you how to take a snapshot of just the OS disk of your VM with the [New-AzSnapshot](/powershell/module/az.compute/new-azsnapshot) cmdlet. 
 
 First, set some parameters. 
 
@@ -205,7 +111,7 @@ To use this snapshot to create a VM that needs to be high-performing, add the pa
 
 ### Create a new disk from the snapshot
 
-Create a managed disk from the snapshot by using [New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-azdisk). This example uses *myOSDisk* for the disk name.
+Create a managed disk from the snapshot by using [New-AzDisk](/powershell/module/az.compute/new-azdisk). This example uses *myOSDisk* for the disk name.
 
 Create a new resource group for the new VM.
 
@@ -282,7 +188,7 @@ $nsg = New-AzNetworkSecurityGroup `
 For more information about endpoints and NSG rules, see [Opening ports to a VM in Azure by using PowerShell](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### Create a public IP address and NIC
-To enable communication with the virtual machine in the virtual network, you'll need a [public IP address](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) and a network interface.
+To enable communication with the virtual machine in the virtual network, you'll need a [public IP address](../../virtual-network/public-ip-addresses.md) and a network interface.
 
 1. Create the public IP. In this example, the public IP address name is set to *myIP*.
    
@@ -325,7 +231,7 @@ $vm = Add-AzVMNetworkInterface -VM $vmConfig -Id $nic.Id
 
 ### Add the OS disk 
 
-Add the OS disk to the configuration by using [Set-AzVMOSDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmosdisk). This example sets the size of the disk to *128 GB* and attaches the managed disk as a *Windows* OS disk.
+Add the OS disk to the configuration by using [Set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk). This example sets the size of the disk to *128 GB* and attaches the managed disk as a *Windows* OS disk.
  
 ```powershell
 $vm = Set-AzVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -StorageAccountType Standard_LRS `
@@ -334,7 +240,7 @@ $vm = Set-AzVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -StorageAccountType Stand
 
 ### Complete the VM 
 
-Create the VM by using [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) with the configurations that we just created.
+Create the VM by using [New-AzVM](/powershell/module/az.compute/new-azvm) with the configurations that we just created.
 
 ```powershell
 New-AzVM -ResourceGroupName $destinationResourceGroup -Location $location -VM $vm
@@ -359,4 +265,3 @@ $vmList.Name
 
 ## Next steps
 Sign in to your new virtual machine. For more information, see [How to connect and log on to an Azure virtual machine running Windows](connect-logon.md).
-

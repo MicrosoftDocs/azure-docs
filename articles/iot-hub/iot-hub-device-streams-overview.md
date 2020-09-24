@@ -1,12 +1,13 @@
 ---
-title: Azure IoT Hub device streams (preview) | Microsoft Docs
-description: Overview of IoT Hub device streams
+title: Azure IoT Hub device streams | Microsoft Docs
+description: Overview of Azure IoT Hub device streams, which facilitate secure bi-directional TCP tunnels for a variety of cloud-to-device communication scenarios.
 author: robinsh
 services: iot-hub
 ms.service: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: robinsh
+ms.custom: ['Role: Cloud Development','Role: IoT Device','Role: Technical Support']
 ---
 
 # IoT Hub Device Streams (preview)
@@ -136,7 +137,7 @@ Follow the steps below to configure Azure Monitor logs for your IoT Hub's device
 
 ## Regional Availability
 
-During public preview, IoT Hub device streams are available in the Central US and Central US EUAP regions. Please make sure you create your hub in one of these regions.
+During public preview, IoT Hub device streams are available in the Central US, Central US EUAP, North Europe, and Southeast Asia regions. Please make sure you create your hub in one of these regions.
 
 ## SDK Availability
 

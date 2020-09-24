@@ -60,6 +60,16 @@ Update-AzGalleryImageVersion `
    -PublishingProfileExcludeFromLatest
 ```
 
+This example shows how to use [Update-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/update-azgalleryimageversion) to include this image version in being considered for *latest* image.
+
+```azurepowershell-interactive
+Update-AzGalleryImageVersion `
+   -GalleryImageDefinitionName $galleryImage.Name `
+   -GalleryName $gallery.Name `
+   -Name $galleryVersion.Name `
+   -ResourceGroupName $resourceGroup.Name `
+   -PublishingProfileExcludeFromLatest:$false
+```
 
 ## Clean up resources
 

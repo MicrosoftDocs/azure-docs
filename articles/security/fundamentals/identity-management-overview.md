@@ -1,6 +1,6 @@
 ---
 title: Azure security features that help with identity management | Microsoft Docs
-description: " This article provides an overview of the core Azure security features that help with identity management. Microsoft identity and access management solutions help IT protect access to applications and resources across the corporate datacenter and into the cloud, enabling additional levels of validation, such as Multi-Factor Authentication and Conditional Access policies. "
+description: Learn about the core Azure security features that help with identity management. See information about topics like single sign-on and reverse proxy.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -37,7 +37,7 @@ The article focuses on the following core Azure Identity management capabilities
 * Single sign-on
 * Reverse proxy
 * Multi-Factor Authentication
-* Role based access control (RBAC)
+* Azure role-based access control (Azure RBAC)
 * Security monitoring, alerts, and machine learning-based reports
 * Consumer identity and access management
 * Device registration
@@ -60,7 +60,7 @@ Learn more:
 
 * [Overview of single sign-on](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/)
 * [What is application access and single sign-on with Azure Active Directory?](../../active-directory/manage-apps/what-is-single-sign-on.md)
-* [Integrate Azure Active Directory single sign-on with SaaS apps](../../active-directory/manage-apps/configure-single-sign-on-portal.md)
+* [Quickstart Series on App Management](../../active-directory/manage-apps/view-applications-portal.md)
 
 ## Reverse proxy
 
@@ -83,14 +83,19 @@ Learn more:
 * [What is Azure Multi-Factor Authentication?](/azure/active-directory/authentication/multi-factor-authentication)
 * [How Azure Multi-Factor Authentication works](../../active-directory/authentication/concept-mfa-howitworks.md)
 
-## RBAC
+## Azure RBAC
 
-RBAC is an authorization system built on Azure Resource Manager that provides fine-grained access management of resources in Azure. RBAC allows you to granularly control the level of access that users have. For example, you can limit a user to only manage virtual networks and another user to manage all resources in a resource group. Azure includes several built-in roles that you can use. The following lists four fundamental built-in roles. The first three apply to all resource types.
+Azure RBAC is an authorization system built on Azure Resource Manager that provides fine-grained access management of resources in Azure. Azure RBAC allows you to granularly control the level of access that users have. For example, you can limit a user to only manage virtual networks and another user to manage all resources in a resource group. Azure includes several built-in roles that you can use. The following lists four fundamental built-in roles. The first three apply to all resource types.
+
+- [Owner](/azure/role-based-access-control/built-in-roles#owner) - Has full access to all resources including the right to delegate access to others. 
+- [Contributor](/azure/role-based-access-control/built-in-roles#contributor) - Can create and manage all types of Azure resources but can't grant access to others.
+- [Reader](/azure/role-based-access-control/built-in-roles#reader) - Can view existing Azure resources.
+- [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) - Lets you manage user access to Azure resources.
 
 Learn more:
 
-* [What is role-based access control (RBAC)?](/azure/role-based-access-control/overview)
-* [Built-in roles for Azure resources](/azure/role-based-access-control/built-in-roles)
+* [What is Azure role-based access control (Azure RBAC)?](/azure/role-based-access-control/overview)
+* [Azure built-in roles](/azure/role-based-access-control/built-in-roles)
 
 ## Security monitoring, alerts, and machine learning-based reports
 
@@ -121,8 +126,8 @@ When you use Azure AD B2C, your consumers can sign up for your applications by u
 Learn more:
 
 * [What is Azure Active Directory B2C?](https://azure.microsoft.com/services/active-directory-b2c/)
-* [Azure Active Directory B2C preview: Sign up and sign in consumers in your applications](../../active-directory-b2c/active-directory-b2c-overview.md)
-* [Azure Active Directory B2C Preview: Types of applications](../../active-directory-b2c/active-directory-b2c-apps.md)
+* [Azure Active Directory B2C preview: Sign up and sign in consumers in your applications](../../active-directory-b2c/overview.md)
+* [Azure Active Directory B2C Preview: Types of applications](../../active-directory-b2c/application-types.md)
 
 ## Device registration
 

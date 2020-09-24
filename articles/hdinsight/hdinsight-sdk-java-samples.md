@@ -2,11 +2,12 @@
 title: 'Azure HDInsight: Java samples'
 description: Find Java examples on GitHub for common tasks using the HDInsight SDK for Java.
 author: hrasheed-msft
+ms.custom: devx-track-java
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: sample
-ms.date: 04/15/2019
+ms.date: 11/29/2019
 ---
 
 # Azure HDInsight: Java samples
@@ -22,11 +23,11 @@ This article provides:
 * Links to samples for cluster creation tasks.
 * Links to reference content for other management tasks.
 
-## Prerequisites
-
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-- [Azure HDInsight SDK for Java](https://docs.microsoft.com/java/api/overview/azure/hdinsight#sdk-installation)
+## Prerequisites
+
+[Azure HDInsight SDK for Java](https://docs.microsoft.com/java/api/overview/azure/hdinsight#sdk-installation)
 
 ## Cluster management - creation
 

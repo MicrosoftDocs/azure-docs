@@ -1,21 +1,21 @@
 ---
 title: Use unique keys in Azure Cosmos DB
-description: Learn how to use unique keys in your Azure Cosmos database
-author: rimman
-ms.author: rimman
+description: Learn how to define and use unique keys for an Azure Cosmos database. This article also describes how unique keys add a layer of data integrity.
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 07/23/2020
 ms.reviewer: sngun
 ---
 
 # Unique key constraints in Azure Cosmos DB
 
-Unique keys add a layer of data integrity to an Azure Cosmos container. You create a unique key policy when you create an Azure Cosmos container. With unique keys, you make sure that one or more values within a logical partition is unique. You also can guarantee uniqueness per [partition key](partition-data.md). 
+Unique keys add a layer of data integrity to an Azure Cosmos container. You create a unique key policy when you create an Azure Cosmos container. With unique keys, you make sure that one or more values within a logical partition is unique. You also can guarantee uniqueness per [partition key](partition-data.md).
 
 After you create a container with a unique key policy, the creation of a new or an update of an existing item resulting in a duplicate within a logical partition is prevented, as specified by the unique key constraint. The partition key combined with the unique key guarantees the uniqueness of an item within the scope of the container.
 
-For example, consider an Azure Cosmos container with email address as the unique key constraint and `CompanyID` as the partition key. When you configure the user's email address with a unique key, each item has a unique email address within a given `CompanyID`. Two items can't be created with duplicate email addresses and with the same partition key value. 
+For example, consider an Azure Cosmos container with email address as the unique key constraint and `CompanyID` as the partition key. When you configure the user's email address with a unique key, each item has a unique email address within a given `CompanyID`. Two items can't be created with duplicate email addresses and with the same partition key value. In Azure Cosmos DB's SQL (Core) API, items are stored as JSON values. These JSON values are case sensitive. When you choose a property as a unique key, you can insert case sensitive values for that property. For example, If you have a unique key defined on the name property, "Gaby" is different from "gaby" and you can insert both into the container.
 
 To create items with the same email address, but not the same first name, last name, and email address, add more paths to the unique key policy. Instead of creating a unique key based on the email address only, you also can create a unique key with a combination of the first name, last name, and email address. This key is known as a composite unique key. In this case, each unique combination of the three values within a given `CompanyID` is allowed. 
 

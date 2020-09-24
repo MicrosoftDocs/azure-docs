@@ -1,22 +1,12 @@
 ---
-title: Deploy a Service Fabric app to a cluster in Azure | Microsoft Docs
-description: Learn how to deploy an application to a cluster from Visual Studio.
-services: service-fabric
-documentationcenter: .net
+title: Deploy a Service Fabric app to a cluster in Azure 
+description: Learn how to deploy an existing application to a newly created Azure Service Fabric cluster from Visual Studio.
 author: athinanthny 
-manager: msfussell 
-editor: ''
 
-ms.assetid:
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
 ms.author: mikhegn
 ms.custom: mvc
-
 ---
 # Tutorial: Deploy a Service Fabric application to a cluster in Azure
 
@@ -43,6 +33,9 @@ Before you begin this tutorial:
 * [Install Visual Studio 2019](https://www.visualstudio.com/), and install the **Azure development** and **ASP.NET and web development** workloads.
 * [Install the Service Fabric SDK](service-fabric-get-started.md).
 
+> [!NOTE]
+> A free account may not meet the requirements to create a virtual machine. This will prevent the completion of the tutorial. In addition, a non-work or non-school account may encounter permission issues while creating the certificate on the keyvault associated with the cluster. If you experience an error related to certificate creation use the Portal to create the cluster instead. 
+
 ## Download the voting sample application
 
 If you didn't build the voting sample application in [part one of this tutorial series](service-fabric-tutorial-create-dotnet-app.md), you can download it. In a command window, run the following code to clone the sample application repository to your local machine.
@@ -55,7 +48,7 @@ Open the application in Visual Studio, running as administrator, and build the a
 
 ## Create a cluster
 
-Now that the application is ready, you create a Service Fabric cluster and then deploy the application to the cluster. A [Service Fabric cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-anywhere) is a network-connected set of virtual or physical machines into which your microservices are deployed and managed.
+Now that the application is ready, you create a Service Fabric cluster and then deploy the application to the cluster. A [Service Fabric cluster](./service-fabric-deploy-anywhere.md) is a network-connected set of virtual or physical machines into which your microservices are deployed and managed.
 
 In this tutorial, you create a new three node test cluster in the Visual Studio IDE and then publish the application to that cluster. See the [Create and manage a cluster tutorial](service-fabric-tutorial-create-vnet-and-windows-cluster.md) for information on creating a production cluster. You can also deploy the application to an existing cluster that you previously created through the [Azure portal](https://portal.azure.com), by using [PowerShell](./scripts/service-fabric-powershell-create-secure-cluster-cert.md) or [Azure CLI](./scripts/cli-create-cluster.md) scripts, or from an [Azure Resource Manager template](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 

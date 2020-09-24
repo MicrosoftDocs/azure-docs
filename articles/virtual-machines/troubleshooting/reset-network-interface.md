@@ -17,8 +17,6 @@ ms.author: genli
 ---
 # How to reset network interface for Azure Windows VM 
 
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
-
 This article shows how to reset the network interface for Azure Windows VM to resolve issues when you cannot connect to Microsoft Azure Windows Virtual Machine (VM) after:
 
 * You disable the default Network Interface (NIC). 
@@ -45,7 +43,7 @@ This article shows how to reset the network interface for Azure Windows VM to re
 
 #### Use Azure PowerShell
 
-1. Make sure that you have [the latest Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) installed
+1. Make sure that you have [the latest Azure PowerShell](/powershell/azure/) installed
 2. Open an elevated Azure PowerShell session (Run as administrator). Run the following commands:
 
     ```powershell
@@ -64,11 +62,13 @@ This article shows how to reset the network interface for Azure Windows VM to re
     Test-AzureStaticVNetIP –VNetName $VNET –IPAddress  $IP
 
     #Add/Change static IP. This process will not change MAC address
-    Get-AzVM -ServiceName $ResourceGroup -Name $VM | Set-AzureStaticVNetIP -IPAddress $IP | Update-AzVM
+    Get-AzVM -ResourceGroupName $ResourceGroup -Name $VM | Set-AzureStaticVNetIP -IPAddress $IP | Update-AzVM
     ```
 3. Try to RDP to your machine.	If successful, you can change the Private IP address back to the original if you would like. Otherwise, you can keep it.
 
 ### For Classic VMs
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
 
 To reset network interface, follow these steps:
 
@@ -86,7 +86,7 @@ To reset network interface, follow these steps:
 
 #### Use Azure PowerShell
 
-1. Make sure that you have [the latest Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) installed.
+1. Make sure that you have [the latest Azure PowerShell](/powershell/azure/) installed.
 2. Open an elevated Azure PowerShell session (Run as administrator). Run the following commands:
 
     ```powershell
@@ -105,7 +105,7 @@ To reset network interface, follow these steps:
     Test-AzureStaticVNetIP –VNetName $VNET –IPAddress  $IP
     
     #Add/Change static IP. This process will not change MAC address
-    Get-AzureVM -ServiceName $CloudService -Name $VM | Set-AzureStaticVNetIP -IPAddress $IP |Update-AzureVM
+    Get-AzureVM -ResourceGroupName $CloudService -Name $VM | Set-AzureStaticVNetIP -IPAddress $IP |Update-AzureVM
     ```
 3. Try to RDP to your machine. If successful, you can change the Private IP address back to the original if you would like. Otherwise, you can keep it. 
 

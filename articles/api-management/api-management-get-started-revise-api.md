@@ -1,5 +1,6 @@
 ---
-title: Use revisions to make non-breaking changes safely in Azure API Management | Microsoft Docs
+title: Use revisions to make non-breaking changes safely in API Management
+titleSuffix: Azure API Management
 description: Follow the steps of this tutorial to learn how to make non-breaking changes using revisions in API Management.
 services: api-management
 documentationcenter: ''
@@ -12,13 +13,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 06/15/2018
+ms.date: 11/04/2019
 ms.author: apimpm
 
 ---
 
 # Use revisions to make non-breaking changes safely
-When your API is ready to go and starts to be used by developers, you eventually need to make changes to that API and at the same time not disrupt callers of your API. It's also useful to let developers know about the changes you made. We can do this in Azure API Management using **revisions**. For more information, see [Versions & revisions](https://blogs.msdn.microsoft.com/apimanagement/2017/09/14/versions-revisions/) and [API Versioning with Azure API Management](https://blogs.msdn.microsoft.com/apimanagement/2017/09/13/api-versioning-with-azure-api-management/).
+When your API is ready to go and starts to be used by developers, you eventually need to make changes to that API and at the same time not disrupt callers of your API. It's also useful to let developers know about the changes you made. We can do this in Azure API Management using **revisions**. For more information, see [Versions & revisions](https://azure.microsoft.com/blog/versions-revisions/) and [API Versioning with Azure API Management](https://azure.microsoft.com/blog/api-versioning-with-azure-api-management/).
 
 In this tutorial, you learn how to:
 
@@ -89,10 +90,8 @@ In this tutorial, you learn how to:
 2. Select **Developer Portal** from the top menu.
 3. Select **APIs**, and then select **Demo Conference API**.
 4. Notice your new **test** operation is now available.
-5. Select **API Change History** from below the API name.
+5. Click on **Changelog** near the API name.
 6. Notice that your change log entry appears in this list.
-
-    ![Developer portal](media/api-management-getstarted-revise-api/developer_portal.PNG)
 
 ## Next steps
 

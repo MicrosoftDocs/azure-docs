@@ -1,23 +1,17 @@
 ---
 title: Application Insights telemetry in Visual Studio CodeLens | Microsoft Docs
 description: Quickly access your Application Insights request and exception telemetry with CodeLens in Visual Studio.
-services: application-insights
-documentationcenter: .net
-author: NumberByColors
-manager: carmonm
-ms.assetid: 93559e44-23cb-4b9d-8425-60f7f0d0a82c
-ms.service: application-insights
-ms.custom: vs-azure
-ms.workload: azure-vs
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 03/17/2017
-ms.reviewer: mbullwin
-ms.pm_owner: daviste;NumberByColors
+author: NumberByColors
 ms.author: daviste
+ms.date: 03/17/2017
+
+ms.reviewer: mbullwin
+ms.custom: vs-azure
 ---
+
 # Application Insights telemetry in Visual Studio CodeLens
-Methods in the code of your web app can be annotated with telemetry about run-time exceptions and request response times. If you install [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) in your application, the telemetry appears in Visual Studio [CodeLens](https://msdn.microsoft.com/library/dn269218.aspx) - the notes at the top of each function where you're used to seeing useful information such as the number of places the function is referenced or the last person who edited it.
+Methods in the code of your web app can be annotated with telemetry about run-time exceptions and request response times. If you install [Azure Application Insights](./app-insights-overview.md) in your application, the telemetry appears in Visual Studio [CodeLens](/visualstudio/ide/find-code-changes-and-other-history-with-codelens?view=vs-2015) - the notes at the top of each function where you're used to seeing useful information such as the number of places the function is referenced or the last person who edited it.
 
 ![CodeLens](./media/visual-studio-codelens/codelens-overview.png)
 
@@ -73,7 +67,7 @@ To see more details, click the requests CodeLens indicator:
 ## <a name="next"></a>Next steps
 |  |  |
 | --- | --- |
-| **[Working with Application Insights in Visual Studio](../../azure-monitor/app/visual-studio.md)**<br/>Search telemetry, see data in CodeLens, and configure Application Insights. All within Visual Studio. |![Right-click the project and choose Application Insights, Search](./media/visual-studio-codelens/34.png) |
-| **[Add more data](../../azure-monitor/app/asp-net-more.md)**<br/>Monitor usage, availability, dependencies, exceptions. Integrate traces from logging frameworks. Write custom telemetry. |![Visual studio](./media/visual-studio-codelens/64.png) |
-| **[Working with the Application Insights portal](../../azure-monitor/app/overview-dashboard.md)**<br/>Dashboards, powerful diagnostic and analytic tools, alerts, a live dependency map of your application, and telemetry export. |![Visual studio](./media/visual-studio-codelens/62.png) |
+| **[Working with Application Insights in Visual Studio](./visual-studio.md)**<br/>Search telemetry, see data in CodeLens, and configure Application Insights. All within Visual Studio. |![Right-click the project and choose Application Insights, Search](./media/visual-studio-codelens/34.png) |
+| **[Add more data](./asp-net-more.md)**<br/>Monitor usage, availability, dependencies, exceptions. Integrate traces from logging frameworks. Write custom telemetry. |![Visual studio](./media/visual-studio-codelens/64.png) |
+| **[Working with the Application Insights portal](./overview-dashboard.md)**<br/>Dashboards, powerful diagnostic and analytic tools, alerts, a live dependency map of your application, and telemetry export. |![Visual studio](./media/visual-studio-codelens/62.png) |
 

@@ -1,14 +1,8 @@
 ---
 title: Query Azure Event Grid subscriptions
-description: Describes how to list Azure Event Grid subscriptions.
-services: event-grid
-author: spelluru
-manager: timlt
-
-ms.service: event-grid
+description: This article describes how to list Event Grid subscriptions in your Azure subscription. You provide different parameters based on the type of subscription.
 ms.topic: conceptual
-ms.date: 01/04/2019
-ms.author: spelluru
+ms.date: 07/07/2020
 ---
 
 # Query Event Grid subscriptions 

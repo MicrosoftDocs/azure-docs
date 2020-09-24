@@ -1,15 +1,15 @@
 ---
-title: Mapping dataset columns in Azure Data Factory | Microsoft Docs
+title: Mapping dataset columns in Azure Data Factory 
 description: 'Learn how to map source columns to destination columns.'
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 
 
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 
 ms.topic: conceptual
 ms.date: 01/10/2018
@@ -39,7 +39,7 @@ The following are error conditions that result in an exception:
 > The following samples are for Azure SQL and Azure Blob but are applicable to any data store that supports rectangular datasets. Adjust dataset and linked service definitions in examples to point to data in the relevant data source.
 
 ## Sample 1 – column mapping from Azure SQL to Azure blob
-In this sample, the input table has a structure and it points to a SQL table in an Azure SQL database.
+In this sample, the input table has a structure and it points to a SQL table in Azure SQL Database.
 
 ```json
 {

@@ -1,20 +1,13 @@
 ---
-title: User profile and ID for use with Azure Notebooks
-description: How to create and manage your user profile and user ID with Azure Notebooks.
-services: app-service
-documentationcenter: ''
-author: kraigb
-manager: barbkess
-ms.assetid: 7d069d86-660f-4c94-b6e3-0c0f38c52d0e
-ms.service: azure-notebooks
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.topic: article
+title: User profile and ID for use with Azure Notebooks Preview
+description: How to create and manage your user profile and user ID with Azure Notebooks, which becomes part of the URL of shared notebooks.
+ms.topic: conceptual
 ms.date: 02/25/2019
-ms.author: kraigb
 ---
 
-# Your profile and user ID for Azure Notebooks
+# Your profile and user ID for Azure Notebooks Preview
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 Within the powerful, collaborative space of Azure Notebooks, your user profile presents your public image to others:
 
@@ -63,4 +56,4 @@ To edit your profile, use the **Edit Profile Information** command on your profi
 ## Next steps  
 
 > [!div class="nextstepaction"]
-> [Tutorial: create an run a Jupyter notebook to do linear regression](tutorial-create-run-jupyter-notebook.md)
+> [Tutorial: create and run a Jupyter notebook to do linear regression](tutorial-create-run-jupyter-notebook.md)

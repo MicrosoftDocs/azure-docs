@@ -1,8 +1,8 @@
 ---
-author: larryfr
+author: Blackmist
 ms.service: machine-learning
 ms.topic: include
-ms.date: 07/26/2019
+ms.date: 03/16/2020
 ms.author: larryfr
 ---
 
@@ -32,7 +32,7 @@ The entries in the `deploymentconfig.json` document map to the parameters for [A
 | `keys` | NA | Contains configuration elements for keys. |
 | &emsp;&emsp;`primaryKey` | `primary_key` | A primary auth key to use for this Webservice |
 | &emsp;&emsp;`secondaryKey` | `secondary_key` | A secondary auth key to use for this Webservice |
-| `gpuCores` | `gpu_cores` | The number of GPU cores to allocate for this Webservice. Default is 1. Only supports whole number values. |
+| `gpuCores` | `gpu_cores` | The number of GPU cores (per-container replica) to allocate for this Webservice. Default is 1. Only supports whole number values. |
 | `livenessProbeRequirements` | NA | Contains configuration elements for liveness probe requirements. |
 | &emsp;&emsp;`periodSeconds` | `period_seconds` | How often (in seconds) to perform the liveness probe. Default to 10 seconds. Minimum value is 1. |
 | &emsp;&emsp;`initialDelaySeconds` | `initial_delay_seconds` | Number of seconds after the container has started before liveness probes are initiated. Defaults to 310 |

@@ -1,6 +1,6 @@
 ---
 title: The Azure Blob Filesystem driver for Azure Data Lake Storage Gen2
-description: The ABFS Hadoop Filesystem driver
+description: Learn about the Azure Blob Filesystem driver (ABFS), a dedicated Azure Storage driver for Hadoop. Access data in Azure Data Lake Storage Gen2 using this driver.
 author: normesta
 ms.topic: conceptual
 ms.author: normesta
@@ -16,7 +16,7 @@ One of the primary access methods for data in Azure Data Lake Storage Gen2 is vi
 
 ## Prior capability: The Windows Azure Storage Blob driver
 
-The Windows Azure Storage Blob driver or [WASB driver](https://hadoop.apache.org/docs/current/hadoop-azure/index.html) provided the original support for Azure Blob Storage. This driver performed the complex task of mapping file system semantics (as required by the Hadoop FileSystem interface) to that of the object store style interface exposed by Azure Blob Storage. This driver continues to support this model, providing high performance access to data stored in Blobs, but contains a significant amount of code performing this mapping, making it difficult to maintain. Additionally, some operations such as [FileSystem.rename()](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_renamePath_src_Path_d) and [FileSystem.delete()](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_deletePath_p_boolean_recursive) when applied to directories require the driver to perform a vast number of operations (due to object stores lack of support for directories) which often leads to degraded performance. The ABFS driver was designed to overcome the inherent deficiencies of WASB.
+The Windows Azure Storage Blob driver or [WASB driver](https://hadoop.apache.org/docs/current/hadoop-azure/index.html) provided the original support for Azure Blob Storage. This driver performed the complex task of mapping file system semantics (as required by the Hadoop FileSystem interface) to that of the object store style interface exposed by Azure Blob Storage. This driver continues to support this model, providing high performance access to data stored in blobs, but contains a significant amount of code performing this mapping, making it difficult to maintain. Additionally, some operations such as [FileSystem.rename()](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_renamePath_src_Path_d) and [FileSystem.delete()](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_deletePath_p_boolean_recursive) when applied to directories require the driver to perform a vast number of operations (due to object stores lack of support for directories) which often leads to degraded performance. The ABFS driver was designed to overcome the inherent deficiencies of WASB.
 
 ## The Azure Blob File System driver
 
@@ -31,29 +31,32 @@ Consistent with other FileSystem implementations within Hadoop, the ABFS driver 
 Using the above URI format, standard Hadoop tools and frameworks can be used to reference these resources:
 
 ```bash
-hdfs dfs -mkdir -p abfs://fileanalysis@myanalytics.dfs.core.windows.net/tutorials/flightdelays/data 
-hdfs dfs -put flight_delays.csv abfs://fileanalysis@myanalytics.dfs.core.windows.net/tutorials/flightdelays/data/ 
+hdfs dfs -mkdir -p abfs://fileanalysis@myanalytics.dfs.core.windows.net/tutorials/flightdelays/data
+hdfs dfs -put flight_delays.csv abfs://fileanalysis@myanalytics.dfs.core.windows.net/tutorials/flightdelays/data/
 ```
 
 Internally, the ABFS driver translates the resource(s) specified in the URI to files and directories and makes calls to the Azure Data Lake Storage REST API with those references.
 
 ### Authentication
 
-The ABFS driver supports two forms of authentication so that the Hadoop application may securely access resources contained within a Data Lake Storage Gen2 capable account. Full details of the available authentication schemes are provided in the [Azure Storage security guide](../common/storage-security-guide.md). They are:
+The ABFS driver supports two forms of authentication so that the Hadoop application may securely access resources contained within a Data Lake Storage Gen2 capable account. Full details of the available authentication schemes are provided in the [Azure Storage security guide](security-recommendations.md). They are:
 
 - **Shared Key:** This permits users access to ALL resources in the account. The key is encrypted and stored in Hadoop configuration.
 
 - **Azure Active Directory OAuth Bearer Token:** Azure AD bearer tokens are acquired and refreshed by the driver using either the identity of the end user or a configured Service Principal. Using this authentication model, all access is authorized on a per-call basis using the identity associated with the supplied token and evaluated against the assigned POSIX Access Control List (ACL).
 
+   > [!NOTE]
+   > Azure Data Lake Storage Gen2 supports only Azure AD v1.0 endpoints.
+
 ### Configuration
 
 All configuration for the ABFS driver is stored in the <code>core-site.xml</code> configuration file. On Hadoop distributions featuring [Ambari](https://ambari.apache.org/), the configuration may also be managed using the web portal or Ambari REST API.
 
-Details of all supported configuration entries are specified in the [Official Hadoop documentation](https://hadoop.apache.org/docs/r3.2.0/hadoop-azure/abfs.html).
+Details of all supported configuration entries are specified in the [Official Hadoop documentation](https://hadoop.apache.org/docs/stable/hadoop-azure/abfs.html).
 
 ### Hadoop documentation
 
-The ABFS driver is fully documented in the [Official Hadoop documentation](https://hadoop.apache.org/docs/r3.2.0/hadoop-azure/abfs.html)
+The ABFS driver is fully documented in the [Official Hadoop documentation](https://hadoop.apache.org/docs/stable/hadoop-azure/abfs.html)
 
 ## Next steps
 

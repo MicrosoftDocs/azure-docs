@@ -1,6 +1,6 @@
 ---
 title: How to deploy an OPC Twin module to an existing Azure project | Microsoft Docs
-description: How to deploy OPC Twin to an existing project.
+description: This article describes how to deploy OPC Twin to an existing project. You can also learn how to troubleshoot deployment failures.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
@@ -11,6 +11,9 @@ manager: philmea
 ---
 
 # Deploy OPC Twin to an existing project
+
+> [!IMPORTANT]
+> While we update this article, see [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/) for the most up to date content.
 
 The OPC Twin module runs on IoT Edge and provides several edge services to the OPC Twin and Registry services.
 

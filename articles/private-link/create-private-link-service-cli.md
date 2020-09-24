@@ -2,12 +2,12 @@
 title: 'Create an Azure Private Link service using Azure CLI'
 description: Learn how to create an Azure Private Link service using Azure CLI
 services: private-link
-author: KumudD
+author: malopMSFT
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to create an Azure private link service using Azure CLI
 ms.service: private-link
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/16/2019
-ms.author: kumud
+ms.author: allensu
 
 ---
 # Create a Private Link service using Azure CLI
@@ -100,7 +100,7 @@ az network private-link-service create \
 ```
 Once created, take note of the Private Link Service ID. You will need that later for requesting connection to this service.  
  
-At this stage, your Private Link service is successfully created and is ready to receive the traffic. Note that above example is only to demonstrate creating Private Link service using Azure CLI.  We haven't configured the load balancer backend pools or any application on the backend pools to listen to the traffic. If you want to see end-to-end traffic flows, you can strongly advised to configure your application behind your Standard Load Balancer.  
+At this stage, your Private Link service is successfully created and is ready to receive the traffic. Note that above example is only to demonstrate creating Private Link service using Azure CLI.  We haven't configured the load balancer backend pools or any application on the backend pools to listen to the traffic. If you want to see end-to-end traffic flows, you are strongly advised to configure your application behind your Standard Load Balancer.  
  
 Next, we will demonstrate how to map this service to a private endpoint in different virtual network using Azure CLI. Again, the example is limited to creating the private endpoint and connecting to Private Link service created above using Azure CLI. Additionally, you can create virtual machines in the virtual network to send/receive traffic to the private endpoint.        
  

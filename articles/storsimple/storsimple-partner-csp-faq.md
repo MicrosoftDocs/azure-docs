@@ -1,5 +1,5 @@
 ---
-title: Frequently asked questions on Microsoft Azure StorSimple and Cloud Solutions Provider Program for partners | Microsoft Docs
+title: 'FAQ for partners: StorSimple for Cloud Solutions Provider Program'
 description: Find answers to some common questions regarding StorSimple and CSP for partners.
 services: storsimple
 documentationcenter: NA
@@ -59,7 +59,7 @@ There are multiple solutions:
 - They can also discover new business models by delivering managed services.
 
 ### What are the incentives available for StorSimple CSP partners? Do I qualify for any CSP program incentives?
-For information on incentives, go to [CSP program incentives](https://partner.microsoft.com/en-US/cloud-solution-provider/program-details).
+For information on incentives, go to [CSP program incentives](https://partner.microsoft.com/cloud-solution-provider/program-details).
 
 
 ## Deploy and manage StorSimple as a partner

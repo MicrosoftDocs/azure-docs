@@ -1,17 +1,24 @@
 ---
-title: Migrating legacy Azure DNS Private Zones to New Resource Model
+title: Migrating legacy Azure DNS Private Zones to new resource model
+titleSuffix: Azure DNS
 description: This guide provides step by step instruction on how to migrate legacy private DNS zones to latest resource model
 services: dns
 author: rohinkoul
 ms.service: dns
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 06/18/2019
 ms.author: rohink
 ---
 
 # Migrating legacy Azure DNS private zones to new resource model
 
-The current Azure DNS private zones release provides new functionality and removes several limitations and restrictions of the initial public preview. However, these benefits aren't available on the private DNS zones that were created using the preview API. To get the benefits of the new release, you must migrate your legacy private DNS zone resources to the new resource model. The migration process is  simple, and we've provided a PowerShell script to automate this process. This guide provides step by step instruction to migrate your Azure DNS private zones to the new resource model.
+During public preview, private DNS zones were created using “dnszones” resource with “zoneType” property set to “Private”. Such zones will not be supported after December 31, 2019 and must be migrated to GA resource model which makes use of “privateDnsZones” resource type instead of “dnszones”. The migration process is  simple, and we've provided a PowerShell script to automate this process. This guide provides step by step instruction to migrate your Azure DNS private zones to the new resource model.
+
+To find out the dnszones resources that require migration; execute the below command in Azure CLI.
+```azurecli
+az account set --subscription <SubscriptionId>
+az network dns zone list --query "[?zoneType=='Private']"
+```
 
 ## Prerequisites
 
@@ -20,7 +27,7 @@ Make sure you have installed latest version of Azure PowerShell. For more inform
 Make sure that you've Az.PrivateDns module for the Azure PowerShell installed. To install this module, open an elevated PowerShell window (Administrative mode) and enter following command
 
 ```powershell
-Install-Module -Name Az.PrivateDns -AllowPrerelease
+Install-Module -Name Az.PrivateDns
 ```
 
 >[!IMPORTANT]
@@ -39,6 +46,9 @@ Enter “A” when prompted to install the script
 ![Installing the script](./media/private-dns-migration-guide/install-migration-script.png)
 
 You can also manually obtain the latest version of PowerShell script at https://www.powershellgallery.com/packages/PrivateDnsMigrationScript
+
+>[!IMPORTANT]
+>The migration script must not be run in Azure cloud shell and must be executed in a VM or local machine connected to internet.
 
 ## Running the script
 

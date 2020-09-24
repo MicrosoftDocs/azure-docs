@@ -2,7 +2,7 @@
 author: erhopf
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 08/19/2019
+ms.date: 02/10/2020
 ms.author: erhopf
 ---
 
@@ -38,7 +38,7 @@ Next, create your project:
 
 1. Find and select **Blank App (Universal Windows)**. Make sure that you select the C# version of this project type (as opposed to Visual Basic).
 
-1. Select **Next** to display the **Configure your new project** screen. 
+1. Select **Next** to display the **Configure your new project** screen.
 
    ![Configure your new project - Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-configure-your-new-project.png)
 
@@ -61,11 +61,12 @@ Next, create your project:
 Now select your target platform architecture. In the Visual Studio toolbar, find the **Solution Platforms** drop-down box. (If you don't see it, choose **View** > **Toolbars** > **Standard** to display the toolbar containing **Solution Platforms**.) If you're running 64-bit Windows, choose **x64** in the drop-down box. 64-bit Windows can also run 32-bit applications, so you can choose **x86** if you prefer.
 
 > [!NOTE]
-> The Speech SDK only supports Intel-compatible processors. ARM processors are currently not supported.
+> The Speech SDK supports all Intel-compatible processors, but **only x64** 
+> versions of ARM processors.
 
 ### Set up audio capture
 
-Then allow the project to capture audio input:
+Allow the project to capture audio input:
 
 1. In **Solution Explorer**, double-click **Package.appxmanifest** to open the package application manifest.
 
@@ -99,4 +100,4 @@ Finally, install the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget), 
 
 1. In the **Preview Changes** dialog box, select **OK**.
 
-1. In the **License Acceptance** dialog box, view the license, and then select **I Accept**. The package installation begins, and when installation is complete, the **Output** pane displays a message similar to the following text: `Successfully installed 'Microsoft.CognitiveServices.Speech 1.6.0' to helloworld`.
+1. In the **License Acceptance** dialog box, view the license, and then select **I Accept**. The package installation begins, and when installation is complete, the **Output** pane displays a message similar to the following text: `Successfully installed 'Microsoft.CognitiveServices.Speech 1.13.0' to helloworld`.

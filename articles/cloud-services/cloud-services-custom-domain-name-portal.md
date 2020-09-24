@@ -3,11 +3,11 @@ title: Configure a custom domain name in Cloud Services | Microsoft Docs
 description: Learn how to expose your Azure application or data to the internet on a custom domain by configuring DNS settings.  These examples use the Azure portal.
 services: cloud-services
 documentationcenter: .net
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 07/05/2017
-ms.author: gwallace
+ms.author: tagore
 
 ---
 # Configuring a custom domain name for an Azure cloud service
@@ -25,7 +25,7 @@ Do you already understand what CNAME and A records are? [Jump past the explanati
 <p/>
 
 > [!TIP]
-> Get going faster--use the NEW Azure [guided walkthrough](https://support.microsoft.com/kb/2990804)!  It makes associating a custom domain name AND securing communication (SSL) with Azure Cloud Services or Azure Websites a snap.
+> Get going faster--use the NEW Azure [guided walkthrough](https://support.microsoft.com/kb/2990804)!  It makes associating a custom domain name AND securing communication (TLS) with Azure Cloud Services or Azure Websites a snap.
 > 
 > 
 
@@ -58,7 +58,7 @@ To create a CNAME record, you must add a new entry in the DNS table for your cus
        ![quick glance section showing the site URL][csurl]
 
        **OR**
-   * Install and configure [Azure Powershell](/powershell/azure/overview), and then use the following command:
+   * Install and configure [Azure Powershell](/powershell/azure/), and then use the following command:
 
        ```powershell
        Get-AzureDeployment -ServiceName yourservicename | Select Url
@@ -93,7 +93,7 @@ To create an A record, you must first find the virtual IP address of your cloud 
        ![quick glance section showing the VIP][vip]
 
        **OR**
-   * Install and configure [Azure Powershell](/powershell/azure/overview), and then use the following command:
+   * Install and configure [Azure Powershell](/powershell/azure/), and then use the following command:
 
        ```powershell
        get-azurevm -servicename yourservicename | get-azureendpoint -VM {$_.VM} | select Vip
@@ -125,7 +125,7 @@ This example demonstrates creating an A record for the root domain. If you wish 
 * [How to Map CDN Content to a Custom Domain](../cdn/cdn-map-content-to-custom-domain.md)
 * [General configuration of your cloud service](cloud-services-how-to-configure-portal.md).
 * Learn how to [deploy a cloud service](cloud-services-how-to-create-deploy-portal.md).
-* Configure [ssl certificates](cloud-services-configure-ssl-certificate-portal.md).
+* Configure [TLS/SSL certificates](cloud-services-configure-ssl-certificate-portal.md).
 
 [Expose Your Application on a Custom Domain]: #access-app
 [Add a CNAME Record for Your Custom Domain]: #add-cname
@@ -135,3 +135,6 @@ This example demonstrates creating an A record for the root domain. If you wish 
 [Azure portal]: https://portal.azure.com
 [vip]: ./media/cloud-services-custom-domain-name-portal/csvip.png
 [csurl]: ./media/cloud-services-custom-domain-name-portal/csurl.png
+
+
+
