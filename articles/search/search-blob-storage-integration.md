@@ -16,7 +16,7 @@ ms.date: 09/23/2020
 Searching across the variety of content types stored in Azure Blob storage can be a difficult problem to solve. In this article, review the basic workflow for extracting content and metadata from blobs and sending it to a search index in Azure Cognitive Search. The resulting index can be queried using full text search.
 
 > [!NOTE]
-> Already familiar with the workflow and composition? [How to configure a Blob indexer](search-howto-indexing-azure-blob-storage.md) explains indexer setup step by step.
+> Already familiar with the workflow and composition? [How to configure a blob indexer](search-howto-indexing-azure-blob-storage.md) is your next step.
 
 ## What it means to add full text search to blob data
 
