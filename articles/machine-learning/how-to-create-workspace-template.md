@@ -280,12 +280,10 @@ If your associated resources are not behind a virtual network, you can set the *
 > Using Azure Private Link to create a private endpoint for Azure Machine Learning workspace is currently in public preview. This functionality is only available in the following regions:
 >
 > * **East US**
-> * **North Central US**
 > * **South Central US**
 > * **West US**
 > * **West US 2**
 > * **Central Canada**
-> * **East Asia**
 > * **Southeast Asia**
 > * **Japan East**
 > * **North Europe**

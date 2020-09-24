@@ -140,12 +140,10 @@ The output of this command is similar to the following JSON:
 > Using Azure Private Link with Azure Machine Learning workspace is currently in public preview. This functionality is only available in the following regions:
 >
 > * **East US**
-> * **North Central US**
 > * **South Central US**
 > * **West US**
 > * **West US 2**
 > * **Central Canada**
-> * **East Asia**
 > * **Southeast Asia**
 > * **Japan East**
 > * **North Europe**
