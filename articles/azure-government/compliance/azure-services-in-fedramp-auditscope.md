@@ -204,7 +204,7 @@ This article provides a detailed list of in-scope cloud services across Azure Pu
 | [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
 | [Azure Cognitive Search](https://azure.microsoft.com/services/search/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
 | [Azure Stack Edge (Data Box Edge)](https://azure.microsoft.com/services/databox/edge/)| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |
-| [Azure Data Box](https://azure.microsoft.com/services/databox/)  | :heavy_check_mark: |  |  |  || :heavy_check_mark: |
+| [Azure Data Box](https://azure.microsoft.com/services/databox/)  | :heavy_check_mark: |  |  |  | :heavy_check_mark: |
 | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
 | [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
 | [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |  :heavy_check_mark: |
