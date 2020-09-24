@@ -64,8 +64,9 @@ Azure Private Link provides the following benefits:
 | Azure IoT Hub | All public regions    |  | GA   <br/> [Learn more](https://docs.microsoft.com/azure/iot-hub/virtual-network-support ) |
 | Azure SignalR | EAST US, SOUTH CENTRAL US,<br/>WEST US 2, All China regions      |  | Preview   <br/> [Learn more](https://aka.ms/asrs/privatelink)   |
 | Azure Monitor <br/>(Log Analytics & Application Insights) | All public regions      |  | GA   <br/> [Learn more](https://docs.microsoft.com/azure/azure-monitor/platform/private-link-security)   | 
-| Azure Batch | EAST US, WEST US 2, SOUTH CENTRAL US,<br/> WEST CENTRAL US, FRANCE CENTRAL, EAST ASIA, UK SOUTH, US GOV VIRGINIA, US GOV ARIZONA  | | GA <br/> [Learn more](https://docs.microsoft.com/azure/batch/private-connectivity) | 
+| Azure Batch | CENTRAL US, NORTH CENTRAL US, SOUTH CENTRAL US, WEST CENTRAL US, EAST US, EAST US 2, WEST US, WEST US 2, EAST ASIA, FRANCE CENTRAL, UK SOUTH, NORTH EUROPE, WEST EUROPE, JAPAN EAST, JAPAN WEST, AUSTRALIA EAST <br/> All Government regions  | | GA <br/> [Learn more](https://docs.microsoft.com/azure/batch/private-connectivity) |
 |Azure Data Factory | All public regions<br/> All Government regions<br/>All China regions    | Credentials need to be stored in an Azure key vault| GA   <br/> [Learn more](https://docs.microsoft.com/azure/data-factory/data-factory-private-link)   |
+
 
 
 For the most up-to-date notifications, check the [Azure Private Link updates page](https://azure.microsoft.com/updates/?product=private-link).
