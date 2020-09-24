@@ -68,16 +68,18 @@ It may take a few minutes for the diagnostics logs to be enabled and appear. In 
 On the left-hand side, choose **Logs**. To view the *kube-audit* logs, enter the following query in the text box:
 
 ```
-KubePodInventory
-| where TimeGenerated > ago(1d)
+AzureDiagnostics
+| where Category == "kube-audit"
+| project log_s
 ```
 
 Many logs are likely returned. To scope down the query to view the logs about the NGINX pod created in the previous step, add an additional *where* statement to search for *nginx* as shown in the following example query:
 
 ```
-KubePodInventory
-| where TimeGenerated > ago(1d)
-| where Name contains "nginx"
+AzureDiagnostics
+| where Category == "kube-audit"
+| where log_s contains "nginx"
+| project log_s
 ```
 
 For more information on how to query and filter your log data, see [View or analyze data collected with log analytics log search][analyze-log-analytics].
@@ -87,6 +89,7 @@ For more information on how to query and filter your log data, see [View or anal
 AKS logs the following events:
 
 * [AzureActivity][log-schema-azureactivity]
+* [AzureDiagnostics][log-schema-azurediagnostics]
 * [AzureMetrics][log-schema-azuremetrics]
 * [ContainerImageInventory][log-schema-containerimageinventory]
 * [ContainerInventory][log-schema-containerinventory]
@@ -129,6 +132,7 @@ In this article, you learned how to enable and review the logs for the Kubernete
 [az-feature-list]: /cli/azure/feature#az-feature-list
 [az-provider-register]: /cli/azure/provider#az-provider-register
 [log-schema-azureactivity]: /azure/azure-monitor/reference/tables/azureactivity
+[log-schema-azurediagnostics]: /azure/azure-monitor/reference/tables/azurediagnostics
 [log-schema-azuremetrics]: /azure/azure-monitor/reference/tables/azuremetrics
 [log-schema-containerimageinventory]: /azure/azure-monitor/reference/tables/containerimageinventory
 [log-schema-containerinventory]: /azure/azure-monitor/reference/tables/containerinventory
