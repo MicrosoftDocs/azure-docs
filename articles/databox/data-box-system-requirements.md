@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 07/20/2020
+ms.date: 09/25/2020
 ms.author: alkohli
 ---
 # Azure Data Box system requirements
@@ -37,10 +37,13 @@ The software requirements include the information on the supported operating sys
 > [!IMPORTANT] 
 > Connection to Data Box shares is not supported via REST for export orders. 
 
+### Supported SMB versions
+
+[!INCLUDE [data-box-supported-smb-versions](../../includes/data-box-supported-smb-versions.md)]
+
 ### Supported storage accounts
 
 [!INCLUDE [data-box-supported-storage-accounts](../../includes/data-box-supported-storage-accounts.md)]
-
 
 ### Supported storage types
 
