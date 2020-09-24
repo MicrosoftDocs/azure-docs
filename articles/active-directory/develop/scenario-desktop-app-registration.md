@@ -47,8 +47,6 @@ The redirect URIs to use in a desktop application depend on the flow you want to
 
   :::image type="content" source="media/scenarios/default-client-type.png" alt-text="Allow public client setting in the app registration portal":::
 
-  ![Allow public client]()
-
 ## API permissions
 
 Desktop applications call APIs for the signed-in user. They need to request delegated permissions. They can't request application permissions, which are handled only in [daemon applications](scenario-daemon-overview.md).
