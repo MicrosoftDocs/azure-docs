@@ -26,4 +26,4 @@ To create a general-purpose v2 storage account in the Azure portal, follow these
 1. Select **Review + Create** to review your storage account settings and create the account.
 1. Select **Create**.
 
-For more information about types of storage accounts and other storage account settings, see [Azure storage account overview](../articles/storage/common/storage-account-overview). For more information on resource groups, see [Azure Resource Manager overview](../articles/azure-resource-manager/resource-group-overview).
+For more information about types of storage accounts and other storage account settings, see [Azure storage account overview](../articles/storage/common/storage-account-overview.md). For more information on resource groups, see [Azure Resource Manager overview](../articles/azure-resource-manager/resource-group-overview.md).
