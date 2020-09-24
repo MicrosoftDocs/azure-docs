@@ -33,7 +33,7 @@ In the **Azure portal ->Virtual WAN**, from the **Monitor** menu on the left, se
 
 **Figure 1: Monitor - Insights menu**
 
-:::image type="content" source="./media/azure-monitor-insights/monitor-menu.png" alt-text="figure" lightbox="./media/azure-monitor-insights/monitor-menu.png":::
+:::image type="content" source="./media/azure-monitor-insights/monitor-menu.png" alt-text="Screenshot that shows the Insights view." lightbox="./media/azure-monitor-insights/monitor-menu.png":::
 
 In the **Insights** view, you can view the autodiscovered Virtual WAN resources such as hubs, gateways, firewalls, connections and spoke VNets, 3rd party NVAs, and branches in an end-to-end Virtual WAN, as shown in **Figure 2**.
 

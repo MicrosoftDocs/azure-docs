@@ -24,7 +24,7 @@ A P2S VPN connection is started from Windows and Mac devices. Connecting clients
 
 This article helps you configure a P2S configuration with authentication using RADIUS server. If you want to authenticate using generated certificates and VPN gateway native certificate authentication instead, see [Configure a Point-to-Site connection to a VNet using VPN gateway native certificate authentication](vpn-gateway-howto-point-to-site-rm-ps.md) or [Create an Azure Active Directory tenant for P2S OpenVPN protocol connections](openvpn-azure-ad-tenant.md) for Azure Active Directory authentication.
 
-![Connection diagram - RADIUS](./media/point-to-site-how-to-radius-ps/p2sradius.png)
+![Diagram that shows the P2S configuration with authentication using a RADIUS server.](./media/point-to-site-how-to-radius-ps/p2sradius.png)
 
 Point-to-Site connections do not require a VPN device or a public-facing IP address. P2S creates the VPN connection over either SSTP (Secure Socket Tunneling Protocol), OpenVPN or IKEv2.
 

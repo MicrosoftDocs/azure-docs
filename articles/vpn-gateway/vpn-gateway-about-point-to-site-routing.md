@@ -191,7 +191,7 @@ In this example, the Point-to-Site VPN gateway connection is for VNet1. VNet1 is
 
 All clients can access VNet1 only.
 
-![multi-VNet S2S and branch office](./media/vpn-gateway-about-point-to-site-routing/7.jpg "multi-VNet S2S and branch office")
+![Diagram that shows a multi-VNet S2S and a branch office.](./media/vpn-gateway-about-point-to-site-routing/7.jpg "multi-VNet S2S and branch office")
 
 ### Address space
 
