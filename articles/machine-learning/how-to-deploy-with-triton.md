@@ -262,8 +262,6 @@ print(local_service.state)
 print(local_service.scoring_uri)
 ```
 
-After deployment completes, the service URI is displayed. For this local deployment, it will be `http://localhost:6789/score`.
-
 # [Azure CLI](#tab/azure-cli)
 
 > [!TIP]
@@ -277,13 +275,11 @@ az ml model deploy -n triton-densenet-onnx \
 --overwrite --compute-target=aks-gpu
 ```
 
-Once the deployment completes, use the following command to view the scoring URI that is used to submit inference requests:
-
-```azurecli
-az ml service show -n triton-densenet-onnx
-```
-
 ---
+
+After deployment completes, the scoring URI is displayed. For this local deployment, it will be `http://localhost:6789/score`. If you deploy to the cloud, you can use the [az ml service show](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/service?view=azure-cli-latest#ext_azure_cli_ml_az_ml_service_show) CLI command to get the scoring URI.
+
+For information on how to create a client that sends inference requests to the scoring URI, see [consume a model deployed as a web service](how-to-consume-web-service.md).
 
 ## Clean up resources
 
