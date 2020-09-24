@@ -17,7 +17,7 @@ ms.custom: fasttrack-edit, references_regions
 > [!Note]
 > With the preview refresh, we released the data exfiltration protection feature.
 >
-> The preview is available in all public regions for PremiumV2 Windows and Linux Web Apps and Elastic Premium Functions. 
+> The preview is available in all public regions for PremiumV2 and PremiumV3 Windows and Linux apps and Elastic Premium Functions. 
 
 You can use Private Endpoint for your Azure Web App to allow clients located in your private network to securely access the app over Private Link. The Private Endpoint uses an IP address from your Azure VNet address space. Network traffic between a client on your private network and the Web App traverses over the VNet and a Private Link on the Microsoft backbone network, eliminating exposure from the public Internet.
 
