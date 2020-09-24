@@ -242,4 +242,6 @@ After installing the Connected Machine agent for Linux, the following additional
 
 ## Next steps
 
-To begin evaluating Azure Arc enabled servers, follow the article [Connect hybrid machines to Azure from the Azure portal](onboard-portal.md).
+* To begin evaluating Azure Arc enabled servers, follow the article [Connect hybrid machines to Azure from the Azure portal](onboard-portal.md).
+
+* Troubleshooting information can be found in the [Troubleshoot Connected Machine agent guide](troubleshoot-agent-onboard.md).

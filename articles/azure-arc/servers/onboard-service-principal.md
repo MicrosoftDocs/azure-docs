@@ -1,7 +1,7 @@
 ---
 title: Connect hybrid machines to Azure at scale
 description: In this article, you learn how to connect machines to Azure using Azure Arc enabled servers using a service principal.
-ms.date: 09/02/2020
+ms.date: 09/24/2020
 ms.topic: conceptual
 ---
 
@@ -133,6 +133,8 @@ After you install the agent and configure it to connect to Azure Arc enabled ser
 ![A successful server connection](./media/onboard-portal/arc-for-servers-successful-onboard.png)
 
 ## Next steps
+
+* Troubleshooting information can be found in the [Troubleshoot Connected Machine agent guide](troubleshoot-agent-onboard.md).
 
 - Learn how to manage your machine using [Azure Policy](../../governance/policy/overview.md), for such things as VM [guest configuration](../../governance/policy/concepts/guest-configuration.md), verifying the machine is reporting to the expected Log Analytics workspace, enable monitoring with [Azure Monitor with VMs](../../azure-monitor/insights/vminsights-enable-policy.md), and much more.
 
