@@ -559,8 +559,8 @@
           href: image-builder-permissions-powershell.md
       - name: DevOps task
         href: image-builder-devops-task.md
-      - name: ARM template reference
-        displayName: ARM,Resource Manager
+      - name: Image Builder template reference
+        displayName: json
         href: image-builder-json.md
       - name: Build for image galleries
         href: image-builder-gallery.md
@@ -854,7 +854,7 @@
     - name: Autoscale
       href: ../../virtual-machine-scale-sets/overview.md?bc=/azure/virtual-machines/linux/breadcrumb/toc.json&toc=/azure/virtual-machines/linux/toc.json
     - name: High availability
-      href: manage-availability.md
+      href: ../manage-availability.md
     - name: Change availability set
       href: ../windows/change-availability-set.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Create a proximity placement group
