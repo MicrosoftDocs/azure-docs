@@ -143,6 +143,9 @@ Outbound rules allow you to control:
 Outbound rules follow the same familiar syntax as load balancing and inbound NAT rules: **frontend** + **parameters** + **backend pool**. 
 An outbound rule configures outbound NAT for _all virtual machines identified by the backend pool_ to be translated to the _frontend_.  The _parameters_ provide additional fine grained control over the outbound NAT algorithm.
 
+> [!NOTE]
+> **Azure Virtual Network NAT** can provide outbound connectivity for virtual machines in a virtual network.  See [What is Azure Virtual Network NAT?](../virtual-network/nat-overview.md) for more information.
+
 ### <a name="scale"></a> Scale outbound NAT with multiple IP addresses
 
 Each additional IP address provided by a frontend provides additional 64,000 ephemeral ports for load balancer to use as SNAT ports. 
