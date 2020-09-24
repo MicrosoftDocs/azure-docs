@@ -135,11 +135,11 @@ All POST requests return a JSON formatted response with the IDs and detected ent
 
 Output is returned immediately. You can stream the results to an application that accepts JSON or save the output to a file on the local system, and then import it into an application that allows you to sort, search, and manipulate the data. Due to multilingual and emoji support, the response may contain text offsets. See [how to process text offsets](../concepts/text-offsets.md) for more information.
 
-### Example v3 responses
+### Example responses
 
 Version 3 provides separate endpoints for NER and entity linking. The responses for both operations are below. 
 
-#### Example NER response
+#### [Example NER Version 3.0 response](#tab/version-3)
 
 ```json
 {
@@ -192,9 +192,7 @@ Version 3 provides separate endpoints for NER and entity linking. The responses 
   "modelVersion": "2020-04-01"
 }
 ```
-
-
-#### Example entity linking response
+#### [Example Entity Linking Version 3.1-preview response](#tab/version-3-preview)
 
 ```json
 {
@@ -203,6 +201,7 @@ Version 3 provides separate endpoints for NER and entity linking. The responses 
       "id": "1",
       "entities": [
         {
+          "bingId": "f8dd5b08-206d-2554-6e4a-893f51f4de7e", 
           "name": "Space Needle",
           "matches": [
             {
@@ -218,6 +217,7 @@ Version 3 provides separate endpoints for NER and entity linking. The responses 
           "dataSource": "Wikipedia"
         },
         {
+          "bingId": "5fbba6b8-85e1-4d41-9444-d9055436e473",
           "name": "Seattle",
           "matches": [
             {
