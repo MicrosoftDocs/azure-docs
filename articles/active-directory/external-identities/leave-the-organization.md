@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 06/13/2019
+ms.date: 09/24/2020
 
 ms.author: mimart
 author: msmimart
@@ -24,7 +24,7 @@ An Azure Active Directory (Azure AD) B2B guest user can decide to leave an organ
 > [!NOTE]
 > A guest user can't leave an organization if their account is disabled in either the home tenant or the resource tenant. If their account is disabled, the guest user will need to contact the tenant admin, who can either delete the guest account or enable the guest account so the user can leave the organization.
 
-## Leave an organization
+## Leave an organization (unsubscribe)
 
 To leave an organization, follow these steps.
 
@@ -42,7 +42,7 @@ To leave an organization, follow these steps.
 
    ![Screenshot showing Leave organization option in the user interface](media/leave-the-organization/LeaveOrg.png)
 
-4. When asked to confirm, select **Leave**. 
+4. When asked to confirm, select **Leave**.
 
 ## Account removal
 
@@ -58,6 +58,14 @@ If desired, a tenant administrator can permanently delete the account at any tim
 If you permanently delete a user, this action is irrevocable.
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-dsr-and-stp-note.md)]
+
+## View or export unsubscribed organizations
+
+A guest user can follow these steps to view or export the organizations they have left:
+
+1. Go to [https://invitations.microsoft.com/unsubscribe/manage](https://invitations.microsoft.com/unsubscribe/manage).
+2. Enter your email and follow the sign-in steps for email one-time passcode authentication.
+3. View the organizations you have unsubscribed from. You can also restart application access by selecting an organization and selecting Next.
 
 ## Next steps
 
