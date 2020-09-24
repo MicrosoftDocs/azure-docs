@@ -85,9 +85,9 @@ If you turned on Log Analytics when you created your logic app, skip this step. 
 When you store information about runtime events and data in [Azure Monitor logs](../azure-monitor/platform/data-platform-logs.md), you can create [log queries](../azure-monitor/log-query/log-query-overview.md) that help you find and review this information.
 
 > [!NOTE]
-> After you enable diagnostics settings, diagnostics data might not flow to the logs at the specified destination, such as your Log Analytics 
-> workspace or Azure event hub, for up to 30 minutes. This delay means that diagnostics data from this time period might not exist for you 
-> to review. Also, completed events and [tracked properties](#extend-data) might not appear in your Log Analytics workspace for 10-15 minutes.
+> After you enable diagnostics settings, diagnostics data might not flow for up to 30 minutes to the logs at the specified destination, 
+> such as Log Analytics, event hub, or storage account. This delay means that diagnostics data from this time period might not exist for you 
+> to review. Completed events and [tracked properties](#extend-data) might not appear in your Log Analytics workspace for 10-15 minutes.
 
 1. In the [Azure portal](https://portal.azure.com), find and select your logic app.
 
