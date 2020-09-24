@@ -15,7 +15,7 @@ ms.author: rolyon
 
 *Scope* is the set of resources that access applies to. When you assign a role, it's important to understand scope so that you can grant a security principal just the access that it really needs. By limiting the scope you limit what resources are at risk if the security principal is ever compromised.
 
-## Overview
+## Scope levels
 
 Azure provides four levels of scope for resource management. The following image shows an example of these levels.
 
@@ -32,7 +32,7 @@ You can assign roles at any of these levels of scope. The level you select deter
 
 ## Scope format
 
-If you create role assignments using the command line, you'll need to specify the scope. For command-line tools, scope is a potentially long string that identifies the exact scope of the role assignment.
+If you add role assignments using the command line, you'll need to specify the scope. For command-line tools, scope is a potentially long string that identifies the exact scope of the role assignment.
 
 The scope consists of a series of identifiers separated by the slash (/) character. You can think of this string as expressing the following hierarchy, where text without placeholders (`<>`) are fixed identifiers:
 
