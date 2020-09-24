@@ -89,7 +89,7 @@ To target a management group within the tenant, add a nested deployment and spec
 
 The commands for tenant deployments are different than the commands for resource group deployments.
 
-For Azure CLI, use [az deployment tenant create](/cli/azure/deployment/tenant?view=azure-cli-latest#az-deployment-tenant-create):
+For Azure CLI, use [az deployment tenant create](/cli/azure/deployment/tenant#az-deployment-tenant-create):
 
 ```azurecli-interactive
 az deployment tenant create \
