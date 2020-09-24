@@ -1,7 +1,7 @@
 ---
 title: Deploy ML models to FPGAs  
 titleSuffix: Azure Machine Learning
-description: Learn about FPGA's & how to deploy a web service with a model running on an FPGA with Azure Machine Learning for ultra-low latency inference. 
+description: Learn about field-programmable gate arrays & how to deploy a web service with a model running on an FPGA with Azure Machine Learning for ultra-low latency inference. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -172,7 +172,7 @@ Begin by using the [Azure Machine Learning SDK for Python](https://docs.microsof
 
 ### Convert the model
 
-Before you can deploy to FPGAs, convert the model to the ONNX format.
+Before you can deploy to FPGAs, convert the model to the Open Neural Network Exchange format ([ONNX](https://onnx.ai/)).
 
 1. [Register](concept-model-management-and-deployment.md) the model by using the SDK with the ZIP file in Azure Blob storage. Adding tags and other metadata about the model helps you keep track of your trained models.
 
@@ -198,7 +198,7 @@ Before you can deploy to FPGAs, convert the model to the ONNX format.
          registered_model.version, sep='\t')
    ```
 
-1. Convert the TensorFlow graph to the Open Neural Network Exchange format ([ONNX](https://onnx.ai/)).  You will need to provide the names of the input and output tensors, and these names will be used by your client when you consume the web service.
+1. Convert the TensorFlow graph to the ONNX format.  You will need to provide the names of the input and output tensors, and these names will be used by your client when you consume the web service.
 
    ```python
    from azureml.accel import AccelOnnxConverter
@@ -217,7 +217,7 @@ Before you can deploy to FPGAs, convert the model to the ONNX format.
 
 ### Containerize and deploy the model
 
-Next, create a Docker image from the converted model and all dependencies.  This Docker image can then be deployed and instantiated.  Supported deployment targets include AKS in the cloud or an  edge device such as [Azure Data Box Edge](https://docs.microsoft.com/azure/databox-online/data-box-edge-overview).  You can also add tags and descriptions for your registered Docker image.
+Next, create a Docker image from the converted model and all dependencies.  This Docker image can then be deployed and instantiated.  Supported deployment targets include Azure Kubernetes Service (AKS) in the cloud or an  edge device such as [Azure Data Box Edge](https://docs.microsoft.com/azure/databox-online/data-box-edge-overview).  You can also add tags and descriptions for your registered Docker image.
 
    ```python
    from azureml.core.image import Image
@@ -242,9 +242,9 @@ Next, create a Docker image from the converted model and all dependencies.  This
            i.name, i.version, i.creation_state, i.image_location, i.image_build_log_uri))
    ```
 
-#### Deploy to AKS Cluster
+#### Deploy to an Azure Kubernetes Service Cluster
 
-1. To deploy your model as a high-scale production web service, use Azure Kubernetes Service (AKS). You can create a new one using the Azure Machine Learning SDK, CLI, or [Azure Machine Learning studio](https://ml.azure.com).
+1. To deploy your model as a high-scale production web service, use AKS. You can create a new one using the Azure Machine Learning SDK, CLI, or [Azure Machine Learning studio](https://ml.azure.com).
 
     ```python
     from azureml.core.compute import AksCompute, ComputeTarget
