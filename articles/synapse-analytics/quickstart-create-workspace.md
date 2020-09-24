@@ -25,7 +25,7 @@ This quickstart describes the steps to create an Azure Synapse workspace by usin
     |Basics|**Workspace name**|You can name it anything.| In this document, we'll use **myworkspace**.|
     |Basics|**Region**|Match the region of the storage account.|
 
-1. You need an ADLSGEN2 account to create a workspace. The simplest choice it to create a new one. If you want to re-use an existing one you'll need to perform some additional configuration. 
+1. You need an ADLSGEN2 account to create a workspace. The simplest choice is to create a new one. If you want to re-use an existing one you'll need to perform some additional configuration. 
 1. OPTION 1 Creating a new ADLSGEN2 account 
     1. Under **Select Data Lake Storage Gen 2**, click **Create New** and name it **contosolake**.
     1. Under **Select Data Lake Storage Gen 2**, click **File System** and  name it **users**.
