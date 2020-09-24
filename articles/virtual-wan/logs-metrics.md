@@ -94,7 +94,7 @@ The following steps help you locate and view diagnostics:
 
 2. In the Monitoring section, navigate to the resource group. Select **Diagnostic settings**, then input the resource information. This is the resource information that you copied in Step 2 from the [View gateway metrics](#metrics-steps) section, earlier in this article.
 
-   :::image type="content" source="./media/logs-metrics/4.png" alt-text="Screenshot that shows the 'Overview' section with an arrow pointing to the 'Copy' button.":::
+   :::image type="content" source="./media/logs-metrics/4.png" alt-text="Screenshot that shows the 'Monitoring' section with an arrow pointing to the 'Resource' drop-down.":::
 
 3. On the results page, select **+Add diagnostic setting**, then select an option. You can choose to send to Log Analytics, stream to an event hub, or to simply archive to a storage account.
 

@@ -51,7 +51,7 @@ At a high level, the following steps are needed to enable users to connect to Az
 
 In this scenario, the remote users need to access to resources that are in Azure and in the on premises data center(s).
 
-![Diagram that shows a point-to-site scenario for users that need access to resources in Azure only.](./media/working-remotely-support/scenario2.png "Scenario 2")
+![Diagram that shows a point-to-site scenario for users that need access to resources in Azure.](./media/working-remotely-support/scenario2.png "Scenario 2")
 
 At a high level, the following steps are needed to enable users to connect to Azure resources securely:
 
