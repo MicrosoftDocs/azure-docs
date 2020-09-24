@@ -1,6 +1,6 @@
 ---
 title: Azure SignalR Service serverless quickstart - Python
-description: A quickstart for using Azure SignalR Service and Azure Functions to create a chat room.
+description: A quickstart for using Azure SignalR Service and Azure Functions to create a chat room using Python.
 author: anthonychu
 ms.service: signalr
 ms.devlang: python

@@ -1118,6 +1118,8 @@
         href: ../synapse-analytics/synapse-link/how-to-connect-synapse-link-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
       - name: Query with Azure Synapse Spark
         href: ../synapse-analytics/synapse-link/how-to-query-analytical-store-spark.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+      - name: Query with Synapse SQL serverless
+        href: ../synapse-analytics/sql/query-cosmos-db-analytical-store.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
       - name: Use Power BI with Synapse Link
         href: synapse-link-power-bi.md       
     - name: Built-in analytics with Apache Spark

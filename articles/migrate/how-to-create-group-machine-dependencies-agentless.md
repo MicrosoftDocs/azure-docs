@@ -21,7 +21,7 @@ This article describes how to set up agentless dependency analysis in Azure Migr
 
 - In the dependency analysis view, you can't currently add or remove a server from a group.
 - A dependency map for a group of servers isn't currently available.
-- Dependency data collection can be set up concurrently for 1000 servers. You can analyse a higher number of servers by sequencing in batches of 1000.
+- Dependency data collection can be set up concurrently for 1000 servers. You can analyze a higher number of servers by sequencing in batches of 1000.
 
 ## Before you start
 
@@ -133,9 +133,9 @@ Choose the machines on which you want to stop dependency discovery.
 If you want to stop dependency on several machines, you may use [PowerShell](#start-or-stop-dependency-discovery-using-powershell) to do so.
 
 
-### Start or stop dependency discovery using Powershell
+### Start or stop dependency discovery using PowerShell
 
-Download the powershell module from [Azure PowerShell Samples](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/dependencies-at-scale) repo on GitHub.
+Download the PowerShell module from [Azure PowerShell Samples](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/dependencies-at-scale) repo on GitHub.
 
 
 #### Log in to Azure
@@ -156,7 +156,7 @@ Download the powershell module from [Azure PowerShell Samples](https://github.co
     select-azsubscription -subscription "Fabrikam Demo Subscription"
     ```
 
-3. Import the downloaded AzMig_Dependencies powershell module
+3. Import the downloaded AzMig_Dependencies PowerShell module
 
     ```PowerShell
     Import-Module .\AzMig_Dependencies.psm1
@@ -186,11 +186,11 @@ Download the powershell module from [Azure PowerShell Samples](https://github.co
     Set-AzMigDependencyMappingAgentless -InputCsvFile .\FabrikamDemo_VMs_Disable.csv -Disable
     ```
 
-## Visualize network connections in PowerBI
+## Visualize network connections in Power BI
 
-Azure Migrate offers a PowerBI template that you can use to visualize network connections of many servers at once, and filter by process and server. To visualize, load the PowerBI with dependency data as per the below instructions.
+Azure Migrate offers a Power BI template that you can use to visualize network connections of many servers at once, and filter by process and server. To visualize, load the Power BI with dependency data as per the below instructions.
 
-1. Download the powershell module and the PowerBI template from [Azure PowerShell Samples](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/dependencies-at-scale) repo on GitHub.
+1. Download the PowerShell module and the Power BI template from [Azure PowerShell Samples](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/dependencies-at-scale) repo on GitHub.
 
 2. Log in to Azure using the below instructions: 
 - Log into your Azure subscription using the Connect-AzAccount cmdlet.
@@ -211,22 +211,22 @@ Azure Migrate offers a PowerBI template that you can use to visualize network co
     select-azsubscription -subscription "Fabrikam Demo Subscription"
     ```
 
-3. Import the downloaded AzMig_Dependencies powershell module
+3. Import the downloaded AzMig_Dependencies PowerShell module
 
     ```PowerShell
     Import-Module .\AzMig_Dependencies.psm1
     ```
 
-4. Run the following command. This command downloads the dependencies data in a CSV and processes it to generate a list of unique dependencies that can be used for visualization in PowerBI. In the example below the project name is FabrikamDemoProject, and the resource group it belongs to is FabrikamDemoRG. The dependencies will be downloaded for machines discovered by FabrikamAppliance. The unique dependencies will be saved in FabrikamDemo_Dependencies.csv
+4. Run the following command. This command downloads the dependencies data in a CSV and processes it to generate a list of unique dependencies that can be used for visualization in Power BI. In the example below the project name is FabrikamDemoProject, and the resource group it belongs to is FabrikamDemoRG. The dependencies will be downloaded for machines discovered by FabrikamAppliance. The unique dependencies will be saved in FabrikamDemo_Dependencies.csv
 
     ```PowerShell
     Get-AzMigDependenciesAgentless -ResourceGroup FabrikamDemoRG -Appliance FabrikamAppliance -ProjectName FabrikamDemoProject -OutputCsvFile "FabrikamDemo_Dependencies.csv"
     ```
 
-5. Open the downloaded PowerBI template
+5. Open the downloaded Power BI template
 
-6. Load the downloaded dependency data in PowerBI.
-    - Open the template in PowerBI.
+6. Load the downloaded dependency data in Power BI.
+    - Open the template in Power BI.
     - Click on **Get Data** on the tool bar. 
     - Choose **Text/CSV** from Common data sources.
     - Choose the dependencies file downloaded.

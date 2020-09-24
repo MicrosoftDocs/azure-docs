@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 09/24/2020
 ms.author: aahi
 ---
 
@@ -32,12 +32,12 @@ Speech containers enable customers to build a speech application architecture th
 >
 > To use the speech containers you must submit an online request, and have it approved. See the **Request approval to the run the container** section below for more information.
 
-| Function | Features | Latest |
+| Container | Features | Latest |
 |--|--|--|
-| Speech-to-text | Analyzes sentiment and transcribes continuous real-time speech or batch audio recordings with intermediate results.  | 2.3.1 |
-| Custom Speech-to-text | Using a custom model from the [Custom Speech portal](https://speech.microsoft.com/customspeech), transcribes continuous real-time speech or batch audio recordings into text with intermediate results. | 2.3.1 |
-| Text-to-speech | Converts text to natural-sounding speech with plain text input or Speech Synthesis Markup Language (SSML). | 1.5.0 |
-| Custom Text-to-speech | Using a custom model from the [Custom Voice portal](https://aka.ms/custom-voice-portal), converts text to natural-sounding speech with plain text input or Speech Synthesis Markup Language (SSML). | 1.5.0 |
+| Speech-to-text | Analyzes sentiment and transcribes continuous real-time speech or batch audio recordings with intermediate results.  | 2.5.0 |
+| Custom Speech-to-text | Using a custom model from the [Custom Speech portal](https://speech.microsoft.com/customspeech), transcribes continuous real-time speech or batch audio recordings into text with intermediate results. | 2.5.0 |
+| Text-to-speech | Converts text to natural-sounding speech with plain text input or Speech Synthesis Markup Language (SSML). | 1.7.0 |
+| Custom Text-to-speech | Using a custom model from the [Custom Voice portal](https://aka.ms/custom-voice-portal), converts text to natural-sounding speech with plain text input or Speech Synthesis Markup Language (SSML). | 1.7.0 |
 | Speech Language Detection | Detect the language spoken in audio files. | 1.0 |
 | Neural Text-to-speech | Converts text to natural-sounding speech using deep neural network technology, allowing for more natural synthesized speech. | 1.1.0 |
 
@@ -91,7 +91,7 @@ Core and memory correspond to the `--cpus` and `--memory` settings, which are us
 
 ## Request approval to the run the container
 
-Fill out and submit the [request form](https://aka.ms/cognitivegate) to request access to the container. 
+Fill out and submit the [request form](https://aka.ms/csgate) to request access to the container. 
 
 [!INCLUDE [Request access to public preview](../../../includes/cognitive-services-containers-request-access.md)]
 
