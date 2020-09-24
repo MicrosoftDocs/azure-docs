@@ -5,7 +5,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 11/13/2019
+ms.date: 09/24/2020
 ms.author: victorh
 ---
 
@@ -126,8 +126,4 @@ You should see *bing.com* appear in your browser.
 
 ## Next steps
 
-In this tutorial, you learned how to:
-
-> * Set up the network
-> * Create a listener and redirection rule
-> * Create an application gateway
+- [Create an application gateway with internal redirection using the Azure CLI](redirect-internal-site-cli.md)
