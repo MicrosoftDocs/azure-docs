@@ -137,7 +137,20 @@ The output of this command is similar to the following JSON:
 ### Virtual network and private endpoint
 
 > [!IMPORTANT]
-> Using Azure Private Link with Azure Machine Learning workspace is currently in public preview. This functionality is only available in the **US East** and **US West 2** regions. 
+> Using Azure Private Link with Azure Machine Learning workspace is currently in public preview. This functionality is only available in the following regions:
+>
+> * **East US**
+> * **North Central US**
+> * **South Central US**
+> * **West US**
+> * **West US 2**
+> * **Central Canada**
+> * **East Asia**
+> * **Southeast Asia**
+> * **Japan East**
+> * **North Europe**
+> * **UK South**
+>
 > This preview is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
