@@ -85,7 +85,7 @@ You cannot reference data or variables directly across different languages in a 
 
    ```scala
    %%scala
-   val scalaDataFrame = spark.read.option("format", "DW connector predefined type")
+   val scalaDataFrame = spark.read.sqlanalytics("mySQLPoolDatabase.dbo.mySQLPoolTable")
    scalaDataFrame.registerTempTable( "mydataframetable" )
    ```
 
