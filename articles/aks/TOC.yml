@@ -40,7 +40,7 @@
     href: tutorial-kubernetes-app-update.md
   - name: 7 - Upgrade cluster
     href: tutorial-kubernetes-upgrade-cluster.md
-- name: Solution architecture guidance
+- name: Solution architectures
   href: /azure/architecture/reference-architectures/containers/aks-start-here?bc=%2fazure%2faks%2fbreadcrumb%2ftoc.json&toc=%2fazure%2faks%2ftoc.json
 - name: Concepts
   items:
