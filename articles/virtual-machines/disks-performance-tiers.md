@@ -4,7 +4,7 @@ description: Learn about performance tiers for managed disks, as well as how to 
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 09/23/2020
+ms.date: 09/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
@@ -16,7 +16,9 @@ Azure Disk Storage currently offers built-in bursting capabilities to achieve hi
 
 ## How it works
 
-When you first deploy or provision a disk, the baseline performance tier for that disk is set based on the provisioned disk size. A higher performance tier can be selected to meet higher demand and, when that performance is no longer required, you can return to the initial baseline performance tier. Your billing will change as your tier changes. For example, if you provision a P10 disk (128 GiB), your baseline performance tier is set as P10 (500 IOPS and 100 MB/s) and you will be billed at the P10 rate. You can update the tier to match the performance of P50 (7500 IOPS and 250 MB/s) without increasing the disk size, during which time you will be billed at the P50 rate. When the higher performance is no longer necessary, you can return to the P10 tier and the disk will once again be billed at the P10 rate.
+When you first deploy or provision a disk, the baseline performance tier for that disk is set based on the provisioned disk size. A higher performance tier can be selected to meet higher demand and, when that performance is no longer required, you can return to the initial baseline performance tier.
+
+Your billing changes as your tier changes. For example, if you provision a P10 disk (128 GiB), your baseline performance tier is set as P10 (500 IOPS and 100 MB/s) and you will be billed at the P10 rate. You can update the tier to match the performance of P50 (7500 IOPS and 250 MB/s) without increasing the disk size, during which time you will be billed at the P50 rate. When the higher performance is no longer necessary, you can return to the P10 tier and the disk will once again be billed at the P10 rate.
 
 | Disk size | Baseline performance tier | Can be upgraded to |
 |----------------|-----|-------------------------------------|
