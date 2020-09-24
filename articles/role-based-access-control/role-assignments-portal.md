@@ -157,7 +157,7 @@ Follow these steps to assign a role to a user-assigned managed identity by start
 
     If roles are already assigned to the selected user-assigned managed identity, you see the list of role assignments. This list includes all role assignments you have permission to read.
 
-    ![Role assignments for a system-assigned managed identity](./media/shared/role-assignments-user-assigned.png)
+    ![Role assignments for a user-assigned managed identity](./media/shared/role-assignments-user-assigned.png)
 
 1. To change the subscription, click the **Subscription** list.
 
