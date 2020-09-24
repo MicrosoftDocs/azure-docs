@@ -31,7 +31,7 @@ The following troubleshooting steps apply to all VM extensions.
 
 ### Log Analytics agent for Linux
 
-- The Log Analytics agent version is not correctly marking uploaded data with the resource ID of the Azure Arc enabled server. Although logs are being sent to the service, some views of the data are incomplete.
+- The Log Analytics agent version 1.13.9 (corresponding extension version is 1.13.15) is not correctly marking uploaded data with the resource ID of the Azure Arc enabled server. Although logs are being sent to the service, when you try to view the data from the selected enabled server after selecting **Logs** or **Insights**, no data is returned. When you try to query the data directly from Azure Monitor Logs or view in Azure Monitor for VMs, data is returned for the resource.
 
 - Some distributions are not currently supported by the Log Analytics agent for Linux. The agent requires additional dependencies to be installed, including Python 2. Review the support matrix and prerequisites [here](../../azure-monitor/platform/agents-overview.md#supported-operating-systems).
 
