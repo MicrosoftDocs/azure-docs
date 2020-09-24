@@ -8,7 +8,7 @@ ms.author: trbye
 
 ## Prerequisites
 
-This article assumes that you have an Azure account and Speech service subscription. If you don't have an account and subscription, [try the Speech service for free](overview.md#try-the-speech-service-for-free).
+This article assumes that you have an Azure account and Speech service subscription. If you don't have an account and subscription, [try the Speech service for free](.../.../.../overview.md#try-the-speech-service-for-free).
 
 ## Install the Speech SDK
 
