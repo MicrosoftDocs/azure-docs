@@ -35,6 +35,244 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 ---
 
+## September 2020
+ 
+
+[1146367](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1146367&triage=true&fullScreen=false&_a=edit)
+
+### New provisioning connectors in the Azure AD Application Gallery - September 2020
+
+**Type:** New feature  
+**Service category:** App Provisioning  
+**Product capability:** 3rd Party Integration
+ 
+
+You can now automate creating, updating, and deleting user accounts for these newly integrated apps:
+
+Coda
+Cofense Recipient Sync
+InVision
+myday
+SAP Analytics Cloud
+Webroot Security Awareness
+For more information about how to better secure your organization by using automated user account provisioning, see Automate user provisioning to SaaS applications with Azure AD.
+ 
+
+---
+ 
+
+[719681](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=719681&triage=true&fullScreen=false&_a=edit)
+
+### Audited BitLocker Recovery in AAD - Public Preview
+
+**Type:** New feature  
+**Service category:** Device Access Management  
+**Product capability:** Device Lifecycle Management
+ 
+
+When IT admins or end users read their BitLocker recovery key, our service generates an audit log that captures who accessed a recovery key and which device the BitLocker key was most recently backed up to. 
+
+End users can access their recovery keys via My Account, and IT admins can access recovery keys via the BitLocker recovery key API in beta or via the AAD Portal. 
+
+To learn more, see View or copy BitLocker keys in the AAD Portal.
+
+
+ 
+
+---
+ 
+
+[952555](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=952555&triage=true&fullScreen=false&_a=edit)
+
+### Teams Devices Administrator built-in role
+
+**Type:** New feature  
+**Service category:** RBAC  
+**Product capability:** Access Control
+ 
+
+Users with this role can manage Teams-certified devices from the Teams Admin Center. This role allows viewing all devices at single glance, with ability to search and filter devices. The user can check details of each device including logged-in account, make and model of the device. The user can change the settings on the device and update the software versions. This role does not grant permissions to check Teams activity and call quality of the device.
+ 
+
+---
+ 
+
+[1056284](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1056284&triage=true&fullScreen=false&_a=edit)
+
+### Advanced Query Capabilities for Directory Objects
+
+**Type:** New feature  
+**Service category:** MS Graph  
+**Product capability:** Developer Experience
+ 
+
+ 
+
+---
+ 
+
+[1143652](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1143652&triage=true&fullScreen=false&_a=edit)
+
+### Continuous access evaluation for tenants who configured Conditional Access polices
+
+**Type:** New feature  
+**Service category:** Authentications (Logins)  
+**Product capability:** Identity Security & Protection
+ 
+
+
+It’s been five months since we introduced continuous access evaluation (CAE) for tenants with no Conditional Access policies. With continuous access evaluation, critical security events and policies, including account disable, password reset, or location change, are evaluated in real-time.
+
+ 
+
+Today marks an important milestone in bringing this capability to everyone – now CAE is available in public preview for Azure AD tenants with Conditional Access policies as well.
+
+Blog: TBD
+Docs: https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/concept-continuous-access-evaluation
+ 
+
+---
+ 
+
+[1070594](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1070594&triage=true&fullScreen=false&_a=edit)
+
+### Ask users requesting an access package additional questions to improve approval decisions
+
+**Type:** New feature  
+**Service category:** User Access Management  
+**Product capability:** Entitlement Management
+ 
+
+We've added the ability for administrators to require that users requesting an access package answer additional questions beyond just business justification. Their answers will then be shown to the approvers to help them make a more accurate access approval decision. 
+ 
+
+---
+ 
+
+[727611](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=727611&triage=true&fullScreen=false&_a=edit)
+
+### Enhanced user management
+
+**Type:** New feature  
+**Service category:** User Management  
+**Product capability:** User Management
+ 
+
+We're making it easier to search, sort and filter the All users and Deleted users lists in the Azure AD portal. Changes in the preview include: 
+More visible user properties including object ID, directory sync status, creation type, and identity issuer
+Search now allows combined search of names, emails, and object IDs
+Enhanced filtering by user type (member and guest), directory sync status, creation type, company name and domain name
+New sorting capabilities on properties like name, user principal name and deletion date
+A new total users count that updates with any searches or filters
+For more information, please see User management enhancements (preview) in Azure Active Directory.
+ 
+
+---
+ 
+
+[671574](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=671574&triage=true&fullScreen=false&_a=edit)
+
+### Resource Forests: Enable auth without password hash synchronization to use AAD-DS including smart-card auth
+
+**Type:** New feature  
+**Service category:** Azure AD Domain Services  
+**Product capability:** Azure AD Domain Services
+ 
+
+The capability of resource forests in Azure AD DS is now generally available.
+ 
+
+---
+ 
+
+[917938](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=917938&triage=true&fullScreen=false&_a=edit)
+
+### Regional replica support for Azure AD DS managed domains to provide high availability and disaster recovery
+
+**Type:** New feature  
+**Service category:** Azure AD Domain Services  
+**Product capability:** Azure AD Domain Services
+ 
+
+You can expand a managed domain to have more than one replica set per Azure AD tenant. Replica sets can be added to any peered virtual network in any Azure region that supports Azure AD DS. Additional replica sets in different Azure regions provide geographical disaster recovery for legacy applications if an Azure region goes offline.
+
+
+ 
+
+---
+ 
+
+[1150263](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1150263&triage=true&fullScreen=false&_a=edit)
+
+### New Federated Apps available in Azure AD Application gallery - September 2020
+
+**Type:** New feature  
+**Service category:** Enterprise Apps  
+**Product capability:** 3rd Party Integration
+ 
+
+
+In September 2020 we have added following 34 new applications in our App gallery with Federation support:
+
+
+
+VMware Horizon - Unified Access Gateway, Pulse Secure PCS, Inventory360, Frontitude, BookWidgets,ZVD_Server, HashData for Business, SecureLogin, CyberSolutions MAILBASEΣ/CMSS, CyberSolutions CYBERMAILΣ, LimbleCMMS, Glint Inc, zeroheight, Gender Fitness, Coeo Portal, Grammarly, Fivetran, Kumolus, RSA Archer Suite, TeamzSkill, raum]für[raum, Saviynt, BizMerlinHR, Mobile Locker, Zengine, CloudCADI, Simfoni Analytics, Priva Identity & Access Management, Nitro Pro, Eventfinity, Fexa, Secured Signing Enterprise Portal, Secured Signing Enterprise Portal AAD Setup, Wistec Online, Oracle PeopleSoft - Protected by F5 BIG-IP APM,
+
+
+
+You can also find the documentation of all the applications from here https://aka.ms/AppsTutorial
+
+For listing your application in the Azure AD app gallery, please read the details here https://aka.ms/AzureADAppRequest
+
+
+ 
+
+---
+ 
+
+[1061364](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1061364&triage=true&fullScreen=false&_a=edit)
+
+### New delegation role in Azure AD Entitlement Management: Access package assignment manager
+
+**Type:** New feature  
+**Service category:** Other  
+**Product capability:** Entitlement Management
+ 
+
+Do you find the delegation capabilities of Entitlement Management (EM) useful but you see that the delegation roles currently offered do not provide granular permissions to manage assignments? With the new access package assignment manager, you can delegate assignments management of an access package to a business owner, without the latter being able to alter the access package policies or other properties that are set by the administrators. Using this new role, you benefit from the least privileges needed to delegate management of assignments while maintaining administrative control on all other access package configurations.
+ 
+
+---
+
+ [876065](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=876065&triage=true&fullScreen=false&_a=edit)
+
+### Changes to Privileged Identity Management's onboarding flow
+
+**Type:** Changed feature  
+**Service category:** Privileged Identity Management  
+**Product capability:** Privileged Identity Management
+ 
+
+Previously, onboarding to Privileged Identity Management required user consent and an onboarding flow in PIM's blade which includes enrolling in Azure MFA. With the recent integration of PIM experience into the Azure AD roles and administrators blade, we are removing this experience and auto onboarding any tenant with valid P2 license on to PIM.
+
+Onboarding to PIM does not have any direct affect on your tenant that you need to worry about. It will give you additional assignment options such as active vs eligible with start and end time when you make an assignment in either PIM or Azure AD roles and administrators blade. It will also bring in scoping mechanism like Administrative Units and custom roles directly into the assignment experience . If you are a global administrator or privileged role administrator, You may start getting a few additional emails like the PIM weekly digest. You might also see ms-pim service principal in the audit log related to role assignment. This is expected change that should have no affect on your regular workflow
+
+ 
+---
+
+[995424](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=995424&triage=true&fullScreen=false&_a=edit)
+
+### Azure AD Entitlement Management: The Select pane of access package resources now shows by default the resources currently in the selected catalog
+
+**Type:** Changed feature  
+**Service category:** Other  
+**Product capability:** Entitlement Management
+ 
+
+In the access package creation flow, under the Resource roles tab, the Select pane behavior is changing. Currently, the default behavior is to show all resources that are owned by the user as well as resources added to the selected catalog. We are changing this based on your feedback in order to display by default only resources currently added in the catalog so that users are able to pick easily resources from the catalog. This would help in terms of discoverability of the resources to add to access packages, as well as reduce risk of inadvertently adding resources owned by the user that are not part of the catalog.
+ 
+---
+
 ## August 2020 
  
 ### Updates to Azure Multi-Factor Authentication Server firewall requirements
@@ -1208,158 +1446,5 @@ Added improvement actions:
 - Require MFA for administrative roles
 
 These new improvement actions require registering your users or admins for multi-factor authentication (MFA) across your directory and establishing the right set of policies that fit your organizational needs. The main goal is to have flexibility while ensuring all your users and admins can authenticate with multiple factors or risk-based identity verification prompts. That can take the form of having multiple policies that apply scoped decisions, or setting security defaults (as of March 16th) that let Microsoft decide when to challenge users for MFA. [Read more about what's new in Microsoft Secure Score](/microsoft-365/security/mtp/microsoft-secure-score?view=o365-worldwide#whats-new).
-
----
-
-## March 2020
-
-### Unmanaged Azure Active Directory accounts in B2B update for March, 2021
-
-**Type:** Plan for change  
-**Service category:** B2B  
-**Product capability:** B2B/B2C
- 
-**Beginning on March 31, 2021**, Microsoft will no longer support the redemption of invitations by creating unmanaged Azure Active Directory (Azure AD) accounts and tenants for B2B collaboration scenarios. In preparation for this, we encourage you to opt in to [email one-time passcode authentication](../external-identities/one-time-passcode.md).
-
----
-
-### Users with the default access role will be in scope for provisioning
-
-**Type:** Plan for change  
-**Service category:** App Provisioning  
-**Product capability:** Identity Lifecycle Management
- 
-Historically, users with the default access role have been out of scope for provisioning. We've heard feedback that customers want users with this role to be in scope for provisioning. We're working on deploying a change so that all new provisioning configurations will allow users with the default access role to be provisioned. Gradually, we'll change the behavior for existing provisioning configurations to support provisioning users with this role. No customer action is required. We'll post an update to our [documentation](../app-provisioning/application-provisioning-config-problem-no-users-provisioned.md) once this change is in place.
-
----
-
-### Azure AD B2B collaboration will be available in Microsoft Azure operated by 21Vianet (Azure China 21Vianet) tenants
-
-**Type:** Plan for change  
-**Service category:** B2B  
-**Product capability:** B2B/B2C
- 
-The Azure AD B2B collaboration capabilities will be made available in Microsoft Azure operated by 21Vianet (Azure China 21Vianet) tenants, enabling users in an Azure China 21Vianet tenant to collaborate seamlessly with users in other Azure China 21Vianet tenants. [Learn more about Azure AD B2B collaboration](/azure/active-directory/b2b/).
-
----
- 
-### Azure AD B2B Collaboration invitation email redesign
-
-**Type:** Plan for change  
-**Service category:** B2B  
-**Product capability:** B2B/B2C
- 
-The [emails](../external-identities/invitation-email-elements.md) that are sent by the Azure AD B2B collaboration invitation service to invite users to the directory will be redesigned to make the invitation information and the user's next steps clearer.
-
----
-
-### HomeRealmDiscovery policy changes will appear in the audit logs
-
-**Type:** Fixed  
-**Service category:** Audit  
-**Product capability:** Monitoring & Reporting
- 
-We fixed a bug where changes to the [HomeRealmDiscovery policy](../manage-apps/configure-authentication-for-federated-users-portal.md) were not included in the audit logs. You will now be able to see when and how the policy was changed, and by whom. 
-
----
-
-### New Federated Apps available in Azure AD App gallery - March 2020
-
-**Type:** New feature  
-**Service category:** Enterprise Apps  
-**Product capability:** 3rd Party Integration
- 
-In March 2020, we've added these 51 new apps with Federation support to the app gallery: 
-
-[Cisco AnyConnect](../saas-apps/cisco-anyconnect.md), [Zoho One China](../saas-apps/zoho-one-china-tutorial.md), [PlusPlus](https://test.plusplus.app/auth/login/azuread-outlook/), [Profit.co SAML App](../saas-apps/profitco-saml-app-tutorial.md), [iPoint Service Provider](../saas-apps/ipoint-service-provider-tutorial.md), [contexxt.ai SPHERE](https://contexxt-sphere.com/login), [Wisdom By Invictus](../saas-apps/wisdom-by-invictus-tutorial.md), [Flare Digital Signage](https://spark-dev.pixelnebula.com/login), [Logz.io - Cloud Observability for Engineers](../saas-apps/logzio-cloud-observability-for-engineers-tutorial.md), [SpectrumU](../saas-apps/spectrumu-tutorial.md), [BizzContact](https://bizzcontact.app/), [Elqano SSO](../saas-apps/elqano-sso-tutorial.md), [MarketSignShare](http://www.signshare.com/), [CrossKnowledge Learning Suite](../saas-apps/crossknowledge-learning-suite-tutorial.md), [Netvision Compas](../saas-apps/netvision-compas-tutorial.md), [FCM HUB](../saas-apps/fcm-hub-tutorial.md), [RIB A/S Byggeweb Mobile](https://apps.apple.com/us/app/docia/id529058757), [GoLinks](../saas-apps/golinks-tutorial.md), [Datadog](../saas-apps/datadog-tutorial.md), [Zscaler B2B User Portal](../saas-apps/zscaler-b2b-user-portal-tutorial.md), [LIFT](../saas-apps/lift-tutorial.md), [Planview Enterprise One](../saas-apps/planview-enterprise-one-tutorial.md), [WatchTeams](https://www.devfinition.com/), [Aster](https://demo.asterapp.io/login), [Skills Workflow](../saas-apps/skills-workflow-tutorial.md), [Node Insight](https://admin.nodeinsight.com/AADLogin.aspx), [IP Platform](../saas-apps/ip-platform-tutorial.md), [InVision](../saas-apps/invision-tutorial.md), [Pipedrive](../saas-apps/pipedrive-tutorial.md), [Showcase Workshop](https://app.showcaseworkshop.com/), [Greenlight Integration Platform](../saas-apps/greenlight-integration-platform-tutorial.md), [Greenlight Compliant Access Management](../saas-apps/greenlight-compliant-access-management-tutorial.md), [Grok Learning](../saas-apps/grok-learning-tutorial.md), [Miradore Online](https://login.online.miradore.com/), [Khoros Care](../saas-apps/khoros-care-tutorial.md), [AskYourTeam](../saas-apps/askyourteam-tutorial.md), [TruNarrative](../saas-apps/trunarrative-tutorial.md), [Smartwaiver](https://www.smartwaiver.com/m/user/sw_login.php?wms_login), [Bizagi Studio for Digital Process Automation](../saas-apps/bizagi-studio-for-digital-process-automation-tutorial.md), [insuiteX](https://www.insuite.jp/), [sybo](https://www.systexsoftware.com.tw/), [Britive](../saas-apps/britive-tutorial.md), [WhosOffice](../saas-apps/whosoffice-tutorial.md), [E-days](../saas-apps/e-days-tutorial.md), [Kollective SDN](https://portal.kollective.app/login), [Witivio](https://app.witivio.com/), [Playvox](https://my.playvox.com/login), [Korn Ferry 360](../saas-apps/korn-ferry-360-tutorial.md), [Campus Café](../saas-apps/campus-cafe-tutorial.md), [Catchpoint](../saas-apps/catchpoint-tutorial.md), [Code42](../saas-apps/code42-tutorial.md)
-
-For more information about the apps, see [SaaS application integration with Azure Active Directory](https://aka.ms/appstutorial). For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](https://aka.ms/azureadapprequest).
-
----
-
-### Azure AD B2B Collaboration available in Azure Government tenants
-
-**Type:** New feature  
-**Service category:** B2B  
-**Product capability:** B2B/B2C
- 
-The Azure AD B2B collaboration features are now available between some Azure Government tenants.  To find out if your tenant is able to use these capabilities, follow the instructions at [How can I tell if B2B collaboration is available in my Azure US Government tenant?](../external-identities/current-limitations.md#how-can-i-tell-if-b2b-collaboration-is-available-in-my-azure-us-government-tenant).
-
----
-
-### Azure Monitor integration for Azure Logs is now available in Azure Government
-
-**Type:** New feature  
-**Service category:** Reporting  
-**Product capability:** Monitoring & Reporting
- 
-Azure Monitor integration with Azure AD logs is now available in Azure Government. You can route Azure AD Logs (Audit and Sign-in Logs) to a storage account, Event Hub and Log Analytics. Please check out the [detailed documentation](https://aka.ms/aadlogsinamd) as well as [deployment plans for reporting and monitoring](../reports-monitoring/plan-monitoring-and-reporting.md) for Azure AD scenarios.
-
----
-
-### Identity Protection Refresh in Azure Government
-
-**Type:** New feature  
-**Service category:** Identity Protection  
-**Product capability:** Identity Security & Protection
-
-We’re excited to share that we have now rolled out the refreshed [Azure AD Identity Protection](https://aka.ms/IdentityProtectionDocs) experience in the [Microsoft Azure Government portal](https://portal.azure.us/). For more information, see our [announcement blog post](https://techcommunity.microsoft.com/t5/public-sector-blog/identity-protection-refresh-in-microsoft-azure-government/ba-p/1223667).
-
----
-
-### Disaster recovery: Download and store your provisioning configuration
-
-**Type:** New feature  
-**Service category:** App Provisioning  
-**Product capability:** Identity Lifecycle Management
- 
-The Azure AD provisioning service provides a rich set of configuration capabilities. Customers need to be able to save their configuration so that they can refer to it later or roll back to a known good version. We've added the ability to download your provisioning configuration as a JSON file and upload it when you need it. [Learn more](../app-provisioning/export-import-provisioning-configuration.md).
-
----
- 
-### SSPR (self-service password reset) now requires two gates for admins in Microsoft Azure operated by 21Vianet (Azure China 21Vianet) 
-
-**Type:** Changed feature  
-**Service category:** Self-Service Password Reset  
-**Product capability:** Identity Security & Protection
- 
-Previously in Microsoft Azure operated by 21Vianet (Azure China 21Vianet), admins using self-service password reset (SSPR) to reset their own passwords needed only one "gate" (challenge) to prove their identity. In public and other national clouds, admins generally must use two gates to prove their identity when using SSPR. But because we didn't support SMS or phone calls in Azure China 21Vianet, we allowed one-gate password reset by admins.
-
-We're creating SSPR feature parity between Azure China 21Vianet and the public cloud. Going forward, admins must use two gates when using SSPR. SMS, phone calls, and Authenticator app notifications and codes will be supported. [Learn more](../authentication/concept-sspr-policy.md#administrator-reset-policy-differences).
-
----
-
-### Password length is limited to 256 characters
-
-**Type:** Changed feature  
-**Service category:** Authentications (Logins)  
-**Product capability:** User Authentication
- 
-To ensure the reliability of the Azure AD service, user passwords are now limited in length to 256 characters. Users with passwords longer than this will be asked to change their password on subsequent login, either by contacting their admin or by using the self-service password reset feature.
-
-This change was enabled on March 13th, 2020, at 10AM PST (18:00 UTC), and the error is AADSTS 50052, InvalidPasswordExceedsMaxLength. See the [breaking change notice](../develop/reference-breaking-changes.md#user-passwords-will-be-restricted-to-256-characters) for more details.
-
----
-
-### Azure AD sign-in logs are now available for all free tenants through the Azure portal
-
-**Type:** Changed feature  
-**Service category:** Reporting  
-**Product capability:** Monitoring & Reporting
- 
-Starting now, customers who have free tenants can access the [Azure AD sign-in logs from the Azure portal](../reports-monitoring/concept-sign-ins.md) for up to 7 days. Previously, sign-in logs were available only for customers with Azure Active Directory Premium licenses. With this change, all tenants can access these logs through the portal.
-
-> [!NOTE]
-> Customers still need a premium license (Azure Active Directory Premium P1 or P2) to access the sign-in logs through Microsoft Graph API and Azure Monitor.
-
----
-
-### Deprecation of Directory-wide groups option from Groups General Settings on Azure portal
-
-**Type:** Deprecated  
-**Service category:** Group Management  
-**Product capability:** Collaboration
-
-To provide a more flexible way for customers to create directory-wide groups that best meet their needs, we've replaced the **Directory-wide Groups** option from the **Groups** > **General** settings in the Azure portal with a link to [dynamic group documentation](../users-groups-roles/groups-dynamic-membership.md). We've improved our documentation to include more instructions so administrators can create all-user groups that include or exclude guest users.
 
 ---
