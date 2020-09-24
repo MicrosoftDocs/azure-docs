@@ -40,7 +40,7 @@ This article provides a high-level [overview about this public preview](#whats-n
 
 The Azure Logic Apps (Preview) extension brings many current and additional Logic Apps capabilities to your local development experience in Visual Studio Code, for example:
 
-* Build logic apps for integration and automation workflows from [300+ connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) for Software-as-a-Service (SaaS) and Platform-as-a-Service (PaaS) apps and services plus connectors for on-premises systems.
+* Build logic apps for integration and automation workflows from [390+ connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) for Software-as-a-Service (SaaS) and Platform-as-a-Service (PaaS) apps and services plus connectors for on-premises systems.
 
   * Some managed connectors such as Azure Service Bus, Azure Event Hubs, and SQL Server run similarly to built-in native triggers and actions such as the HTTP action.
 
@@ -48,7 +48,7 @@ The Azure Logic Apps (Preview) extension brings many current and additional Logi
 
     > [!NOTE]
     > By default, a **Logic App (Preview)** resource has its 
-    > [system-assigned identity](../logic-apps/create-managed-service-identity.md) 
+    > [system-assigned managed identity](../logic-apps/create-managed-service-identity.md) 
     > automatically enabled to authenticate connections at runtime. 
     > This identity differs from the authentication credentials or connection string that you use 
     > when you create a connection. If you disable this identity, connections won't work at runtime.
@@ -340,8 +340,8 @@ Before you can create your logic app, create a local project so that you can man
 1. From the locations list, find and select a [supported Azure region](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md#available-regions) to use for creating your resource group and resources. This example uses **West Central US**.
 
    > [!IMPORTANT]
-   > Not all regions are currently supported, but updates to add more regions are underway. 
-   > For the currently supported regions, review the preview extension's 
+   > Not all regions are currently supported, but updates to add more regions are underway. Selecting an unsupported region might result in problems, 
+   > such as creating connections. For the currently supported regions, review the preview extension's 
    > [Known Issues GitHub page](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md#available-regions).
 
    ![Screenshot that shows Explorer pane with locations list and "West Central US" selected.](./media/create-stateful-stateless-workflows-visual-studio-code/select-azure-region.png)
@@ -411,6 +411,11 @@ The logic app workflow in this example uses this trigger and these actions:
 
    ![Screenshot that shows Logic App Designer and **Send an email (V2)** pane with "Sign in" selected.](./media/create-stateful-stateless-workflows-visual-studio-code/send-email-action-sign-in.png)
 
+   > [!NOTE]
+   > If you get the error, `Failed to create connection...`, you might have chosen a currently unsupported region for your logic app. 
+   > Updates to add more regions are underway. Meanwhile, for the currently supported regions, review the preview extension's 
+   > [Known Issues GitHub page](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md#available-regions).
+
 1. When Visual Studio Code prompts you for consent to access your email account, select **Open**.
 
    ![Screenshot that shows the Visual Studio Code prompt to permit access.](./media/create-stateful-stateless-workflows-visual-studio-code/visual-studio-code-open-external-website.png)
@@ -431,6 +436,8 @@ The logic app workflow in this example uses this trigger and these actions:
 
    > [!TIP]
    > To prevent future prompts, select **Don't ask again for this extension**.
+
+   After Visual Studio Code creates your connection, some connectors show the message that `The connection will be valid for *n* days only.` This time limit applies only to the duration while you author your logic app in Visual Studio Code. After deployment, this limit no longer applies because your logic app can authenticate at runtime by using its automatically enabled [system-assigned managed identity](../logic-apps/create-managed-service-identity.md). This managed identity differs from the authentication credentials or connection string that you use when you create a connection. If you disable this system-assigned managed identity, connections won't work at runtime.
 
 1. On the designer, if the **Send an email** action doesn't appear selected, select that action.
 
