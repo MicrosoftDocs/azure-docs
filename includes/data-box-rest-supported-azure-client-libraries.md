@@ -3,15 +3,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod   
 ms.topic: include
-ms.date: 09/23/2020
+ms.date: 09/24/2020
 ms.author: alkohli
 ---
 
-<!--Current text. Not yet updated-->
-| Client library     |Data Box Blob storage supported version     | Link   |     Endpoint specification      |
+Client library     |Supported version     | Link   |     Endpoint specification      |
 |--------------------|--------------------------------------------|--------|---------------------------------|
-|    .NET                |    9.2.0                                           |    Nuget package:   https://www.nuget.org/packages/WindowsAzure.Storage/9.2.0    <br>GitHub release:   https://github.com/Azure/azure-storage-net/releases/tag/v9.2.0                                                                                                                                                                                               |    app.config file                 |
-|    Java                |    7.0.0                                           |    Maven package:   https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/6.1.0   <br>GitHub release:   https://github.com/Azure/azure-storage-java/releases/tag/v7.0.0                                                                                                                                                                              |    Connection string setup         |
+|    .NET                |    11.0.0                                           |    Nuget package:  <br>Common: <br>https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/11.0.0    <br>Blob: <br>https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/11.0.0 <br>Queue: <br>https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/11.0.0 <br>GitHub release: <br>https://github.com/Azure/azure-storage-net/releases/tag/v11.0.00                          |    app.config file                 |
+|    Java                |    12.0.0-preview.3                                           |Maven package: <br>https://mvnrepository.com/artifact/com.azure/azure-storage-file/12.0.0-preview.3   <br>GitHub release:   <br>https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage                                                                                                                                                                              |    Connection string setup         |
 |    Node.js             |    2.8.3                                           |    NPM link:   https://www.npmjs.com/package/azure-storage   (Run: `npm install azure-storage@2.7.0`)   <br>GitHub release:   https://github.com/Azure/azure-storage-node/releases/tag/v2.8.3                                                                                                                                                                        |    Service instance declaration    |
 |    C++                 |    5.2.0                                           |    Nuget package:   https://www.nuget.org/packages/wastorage.v140/5.2.0   <br>GitHub release:   https://github.com/Azure/azure-storage-cpp/releases/tag/v5.2.0                                                                                                                                                                                                     |    Connection string setup         |
 |    PHP                 |    1.2.0                                           |    GitHub release:<br>Common: https://github.com/Azure/azure-storage-php/releases/tag/v1.2.0-common   <br>Blob: https://github.com/Azure/azure-storage-php/releases/tag/v1.2.0-blob      <br>Install via Composer (To learn more, See   the details below.)                                                                                                             |    Connection string setup         |
