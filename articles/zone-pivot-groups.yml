@@ -20,6 +20,15 @@ groups:
     title: cURL
   - id: url-test-tool-postman
     title: Postman
+#Owner: kraigb
+- id: python-frameworks-01
+  title: Web framework 
+  prompt: Choose a framework
+  pivots:
+  - id: python-framework-flask
+    title: Flask
+  - id: python-framework-django
+    title: Django
 # Programming language groups
 - id: programming-languages-set-one
   title: Programming languages

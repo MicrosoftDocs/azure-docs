@@ -4,6 +4,7 @@ description: Get started with Azure App Service by deploying your first Python a
 ms.topic: quickstart
 ms.date: 09/22/2020
 ms.custom: seo-python-october2019, cli-validate, devx-track-python
+zone_pivot_groups: python-frameworks-01
 
 ---
 
@@ -62,107 +63,99 @@ Once signed in, you can run Azure commands with the Azure CLI to work with resou
 
 ## Clone the sample
 
-Clone the sample repository for Flask or Django using the following commands. ([Install git](https://git-scm.com/downloads) if you don't have git already.)
+Clone the sample repository using the following command and navigate into the sample folder. ([Install git](https://git-scm.com/downloads) if you don't have git already.)
 
-- **Flask**:
+::: zone pivot="python-framework-flask
+```terminal
+git clone https://github.com/Azure-Samples/python-docs-hello-world
+```
 
-    ```terminal
-    git clone https://github.com/Azure-Samples/python-docs-hello-world
-    ```
-    
-    Then navigate into that folder:
-    
-    ```terminal
-    cd python-docs-hello-world
-    ```
+Then navigate into that folder:
 
-- **Django**:
+```terminal
+cd python-docs-hello-world
+```
+::: zone-end
 
-    ```terminal
-    git clone https://github.com/Azure-Samples/python-docs-hello-django
-    ```
+::: zone pivot="python-framework-django
+```terminal
+git clone https://github.com/Azure-Samples/python-docs-hello-django
+```
 
-    Then navigate into that folder:
-    
-    ```terminal
-    cd python-docs-hello-django
-    ```
+Then navigate into that folder:
 
-Both samples contain framework-specific code that Azure App Service recognizes when starting the app. For more information, see [Container startup process](configure-language-python.md#container-startup-process).
+```terminal
+cd python-docs-hello-django
+```
+::: zone-end
+
+The sample contains framework-specific code that Azure App Service recognizes when starting the app. For more information, see [Container startup process](configure-language-python.md#container-startup-process).
 
 [Having issues? Let us know.](https://aka.ms/FlaskCLIQuickstartHelp)
 
 ## Run the sample
 
-1. Make sure you're in the *python-docs-hello-world* folder (Flask) or the *python-docs-hello-django* folder (Django). 
+::: zone pivot="python-framework-flask
+1. Make sure you're in the *python-docs-hello-world* folder. 
 
 1. Create a virtual environment and install dependencies:
+
+    [!include [virtual environment setup](../../includes/app-service-quickstart-python-venv.md)]
+
+    If you encounter "[Errno 2] No such file or directory: 'requirements.txt'.", make sure you're in the *python-docs-hello-world* folder.
+
+1. Run the development server.
+
+    ```terminal  
+    flask run
+    ```
+    
+    By default, the server assumes that the app's entry module is in *app.py*, as used in the sample. (If you use a different module name, set the `FLASK_APP` environment variable to that name.)
+
+1. Open a web browser and go to the sample app at `http://localhost:5000/`. The app displays the message **Hello, World!**.
+
+    ![Run a sample Python app locally](./media/quickstart-python/run-hello-world-sample-python-app-in-browser-localhost.png)
+    
+1. In your terminal window, press **Ctrl**+**C** to exit the development server.
+::: zone-end
+
+::: zone pivot="python-framework-django
+1. Make sure you're in the *python-docs-hello-django* folder (Django). 
+
+1. Create a virtual environment and install dependencies:
+
+    [!include [virtual environment setup](../../includes/app-service-quickstart-python-venv.md)]
+
+    If you encounter "[Errno 2] No such file or directory: 'requirements.txt'.", make sure you're in the *python-docs-hello-django* folder (Django).
+    
+1. Run the development server.
 
     # [Bash](#tab/bash)
 
     ```bash
-    python3 -m venv venv
-    source venv/bin/activate
-    pip install -r requirements.txt
+    python3 manage.py runserver
     ```
 
     # [PowerShell](#tab/powershell)
 
     ```powershell
-    py -3 -m venv env
-    env\scripts\activate
-    pip install -r requirements.txt
+    py -3 manage.py runserver
     ```
 
     # [Cmd](#tab/cmd)
 
     ```cmd
-    py -3 -m venv env
-    env\scripts\activate
-    pip install -r requirements.txt
+    py -3 manage.py runserver
     ```
 
     ---    
 
-    If you encounter "[Errno 2] No such file or directory: 'requirements.txt'.", make sure you're in the *python-docs-hello-world* folder (Flask) or the *python-docs-hello-django* folder (Django).
-    
-1. Run the development server.
-
-    - **Flask**:
-
-        ```terminal  
-        flask run
-        ```
-        
-        By default, the server assumes that the app's entry module is in *app.py*, as used in the sample. (If you use a different module name, set the `FLASK_APP` environment variable to that name.)
-
-    - **Django**:
-
-        # [Bash](#tab/bash)
-
-        ```bash
-        python3 manage.py runserver
-        ```
-    
-        # [PowerShell](#tab/powershell)
-    
-        ```powershell
-        py -3 manage.py runserver
-        ```
-    
-        # [Cmd](#tab/cmd)
-    
-        ```cmd
-        py -3 manage.py runserver
-        ```
-    
-        ---    
-
-1. Open a web browser and go to the sample app at `http://localhost:5000/` (for Flask) or `http://localhost:8000/` (for Django). The app displays the message **Hello, World!**.
+1. Open a web browser and go to the sample app at `http://localhost:8000/`. The app displays the message **Hello, World!**.
 
     ![Run a sample Python app locally](./media/quickstart-python/run-hello-world-sample-python-app-in-browser-localhost.png)
     
 1. In your terminal window, press **Ctrl**+**C** to exit the development server.
+::: zone-end
 
 [Having issues? Let us know.](https://aka.ms/FlaskCLIQuickstartHelp)
 
@@ -178,7 +171,7 @@ az webapp up --sku F1 --name <app-name>
 - If the `webapp` command isn't recognized, because that your Azure CLI version is 2.0.80 or higher. If not, [install the latest version](/cli/azure/install-azure-cli).
 - Replace `<app_name>` with a name that's unique across all of Azure (*valid characters are `a-z`, `0-9`, and `-`*). A good pattern is to use a combination of your company name and an app identifier.
 - The `--sku F1` argument creates the web app on the Free pricing tier. Omit this argument to use a faster premium tier, which incurs an hourly cost.
-- You can optionally include the argument `-l <location-name>` where `<location_name>` is an Azure region such as **centralus**, **eastasia**, **westeurope**, **koreasouth**, **brazilsouth**, **centralindia**, and so on. You can retrieve a list of allowable regions for your Azure account by running the [`az account list-locations`](/cli/azure/appservice#az-appservice-list-locations) command.
+- You can optionally include the argument `--location <location-name>` where `<location_name>` is an available Azure region. You can retrieve a list of allowable regions for your Azure account by running the [`az account list-locations`](/cli/azure/appservice#az-appservice-list-locations) command.
 - If you see the error, "Could not auto-detect the runtime stack of your app," make sure you're running the command in the *python-docs-hello-world* folder (Flask) or the *python-docs-hello-django* folder (Django) that contains the *requirements.txt* file. (See [Troubleshooting auto-detect issues with az webapp up](https://github.com/Azure/app-service-linux-docs/blob/master/AzWebAppUP/runtime_detection.md) (GitHub).)
 
 The command may take a few minutes to complete. While running, it provides messages about creating the resource group, the App Service plan and hosting app, configuring logging, then performing ZIP deployment. It then gives the message, "You can launch the app at http://&lt;app-name&gt;.azurewebsites.net", which is the app's URL on Azure.
@@ -187,7 +180,7 @@ The command may take a few minutes to complete. While running, it provides messa
 
 [Having issues? Let us know.](https://aka.ms/FlaskCLIQuickstartHelp)
 
-[!INCLUDE [AZ Webapp Up Note](../../includes/app-service-web-az-webapp-up-note.md)]
+[!include [az webapp up command note](../../includes/app-service-web-az-webapp-up-note.md)]
 
 ## Browse to the app
 
@@ -203,27 +196,28 @@ The Python sample code is running a Linux container in App Service using a built
 
 ## Redeploy updates
 
-In this section, you make a small code change using your favorite editor and then redeploy the code to Azure. The code change includes a `print` statement to generate logging output that you work with in the next section.
+In this section, you make a small code change and then redeploy the code to Azure. The code change includes a `print` statement to generate logging output that you work with in the next section.
 
-- **Flask**: open *app.py* and update the `hello` function to match the following code. 
+::: zone pivot="python-framework-flask
+Open *app.py* in an editor and update the `hello` function to match the following code. 
 
-    ```python
-    def hello():
-        print("Handling request to home page.")
-        return "Hello, Azure!"
-    ```
+```python
+def hello():
+    print("Handling request to home page.")
+    return "Hello, Azure!"
+```
+::: zone-end
+::: zone pivot="python-framework-django
+Open *hello/views.py* in an editor and update the `hello` function to match the following code.
 
-- **Django**: open *hello/views.py* and update the `hello` function to match the following code.
-
-    ```python
-    def hello(request):
-        print("Handling request to home page.")
-        return HttpResponse("Hello, Azure!")
-    ```
+```python
+def hello(request):
+    print("Handling request to home page.")
+    return HttpResponse("Hello, Azure!")
+```
+::: zone-end
     
-Save your changes and exit the editor. 
-
-Redeploy the app using the `az webapp up` command again:
+Save your changes, then redeploy the app using the `az webapp up` command again:
 
 ```azurecli
 az webapp up
