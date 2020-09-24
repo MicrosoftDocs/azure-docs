@@ -41,7 +41,7 @@ The latest version of the Network Watcher extension is currently `1.4.1654.1`.
 
 **Using Azure CLI**
 Run the below command from an Azure CLI prompt.   
-```
+```azurecli
 az vm extension list --resource-group  <ResourceGroupName> --vm-name <VMName>
 ```
 Locate the AzureNetworkWatcher extension in the output and identify the version number from the “TypeHandlerVersion” field in the output.  
@@ -74,7 +74,7 @@ Set-AzVMExtension `  -ResourceGroupName "myResourceGroup1" `  -Location "WestUS"
 
 Force upgrade 
 
-```
+```azurecli
 #Linux command
 az vm extension set --resource-group "myResourceGroup1" --vm-name "myVM1" --name "NetworkWatcherAgentLinux" --publisher "Microsoft.Azure.NetworkWatcher" --force-update
 
@@ -86,7 +86,7 @@ If that doesn't work. Remove and install the extension again.
 
 Removing the extension 
 
-```
+```azurecli
 #Same for Linux and Windows
 az vm extension delete --resource-group "myResourceGroup1" --vm-name "myVM1" -n "AzureNetworkWatcherExtension"
 
@@ -94,7 +94,7 @@ az vm extension delete --resource-group "myResourceGroup1" --vm-name "myVM1" -n 
 
 Installing the extension again
 
-```
+```azurecli
 #Linux command
 az vm extension set --resource-group "DALANDEMO" --vm-name "Linux-01" --name "NetworkWatcherAgentLinux" --publisher "Microsoft.Azure.NetworkWatcher"  
 
