@@ -84,7 +84,7 @@ The following operating systems are currently supported by the Azure Monitor age
   - CentOS 6<sup>1</sup>, 7
   - Debian 9, 10
   - Oracle Linux 6<sup>1</sup>, 7
-  - RHEL 6<sup>1</sup>, 7, 8
+  - RHEL 6<sup>1</sup>, 7
   - SLES 11, 12, 15
   - Ubuntu 14.04 LTS, 16.04 LTS, 18.04 LTS
 
@@ -95,6 +95,8 @@ The following operating systems are currently supported by the Azure Monitor age
 ## Security
 The Azure Monitor agent doesn't require any keys but instead requires a [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity). You must have a system-assigned managed identity enabled on each virtual machine before deploying the agent.
 
+## Networking
+The Azure Monitor agent supports Azure service tags (both AzureMonitor and AzureResourceManager tags are required) but does not yet work with Azure Monitor Private Link Scopes or direct proxies.
 
 ## Install the Azure Monitor agent
 The Azure Monitor Agent is implemented as an [Azure VM extension](../../virtual-machines/extensions/overview.md) with the details in the following table. 

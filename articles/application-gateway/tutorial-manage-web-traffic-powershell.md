@@ -15,10 +15,9 @@ Application gateway is used to manage and secure web traffic to servers that you
 
 In this article, you learn how to:
 
-> [!div class="checklist"]
-> * Set up the network
-> * Create an application gateway
-> * Create a virtual machine scale set with the default backend pool
+* Set up the network
+* Create an application gateway
+* Create a virtual machine scale set with the default backend pool
 
 If you prefer, you can complete this procedure using [Azure CLI](tutorial-manage-web-traffic-cli.md).
 

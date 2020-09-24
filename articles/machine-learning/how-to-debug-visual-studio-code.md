@@ -5,7 +5,7 @@ description: Interactively debug Azure Machine Learning code, pipelines and depl
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: troubleshooting
+ms.topic: conceptual
 author: luisquintanilla
 ms.author: luquinta
 ms.date: 08/06/2020
@@ -13,7 +13,7 @@ ms.date: 08/06/2020
 
 # Interactive debugging with Visual Studio Code
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Learn how to interactively debug Azure Machine Learning pipelines and deployments using Visual Studio Code (VS Code) and [depugpy](https://github.com/microsoft/debugpy/).
 
@@ -32,7 +32,7 @@ In some cases, you may need to interactively debug the Python code used in your 
   * A Compute instance of Notebook VM in the virtual network
   * A client machine that has private network connectivity to the virtual network, either by VPN or via ExpressRoute.
 
-For more information on using an Azure Virtual Network with Azure Machine Learning, see [Secure Azure ML experimentation and inference jobs within an Azure Virtual Network](how-to-enable-virtual-network.md).
+For more information on using an Azure Virtual Network with Azure Machine Learning, see [Virtual network isolation and privacy overview](how-to-network-security-overview.md).
 
 > [!TIP]
 > Although you can work with Azure Machine Learning resources that are not behind a virtual network, using a virtual network is recommended.
@@ -104,7 +104,7 @@ To enable debugging, make the following changes to the Python script(s) used by 
         print(f'Debugger attached = {debugpy.is_client_connected()}')
     ```
 
-The following Python example shows a basic `train.py` file that enables debugging:
+The following Python example shows a simple `train.py` file that enables debugging:
 
 ```python
 # Copyright (c) Microsoft. All rights reserved.
@@ -277,7 +277,7 @@ Save the `ip_address` value. It is used in the next section.
 In some cases, you may need to interactively debug the Python code contained in your model deployment. For example, if the entry script is failing and the reason cannot be determined by additional logging. By using VS Code and the debugpy, you can attach to the code running inside the Docker container.
 
 > [!IMPORTANT]
-> This method of debugging does not work when using `Model.deploy()` and `LocalWebservice.deploy_configuration` to deploy a model locally. Instead, you must create an image using the [Model.package()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#package-workspace--models--inference-config-none--generate-dockerfile-false-) method.
+> This method of debugging does not work when using `Model.deploy()` and `LocalWebservice.deploy_configuration` to deploy a model locally. Instead, you must create an image using the [Model.package()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py&preserve-view=true#&preserve-view=truepackage-workspace--models--inference-config-none--generate-dockerfile-false-) method.
 
 Local web service deployments require a working Docker installation on your local system. For more information on using Docker, see the [Docker Documentation](https://docs.docker.com/). Note that when working with compute instances, Docker is already installed.
 

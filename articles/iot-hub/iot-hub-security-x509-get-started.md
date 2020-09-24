@@ -15,6 +15,8 @@ ms.custom: [amqp, 'Role: Cloud Development','Role: IoT Device', devx-track-cshar
 
 This tutorial shows the steps you need to secure your Azure IoT hub using the *X.509 Certificate Authentication*. For the purpose of illustration, we use the open-source tool OpenSSL to create certificates locally on your Windows machine. We recommend that you use this tutorial for test purposes only. For production environment, you should purchase the certificates from a *root certificate authority (CA)*.
 
+[!INCLUDE [iot-hub-include-x509-ca-signed-support-note](../../includes/iot-hub-include-x509-ca-signed-support-note.md)]
+
 ## Prerequisites
 
 This tutorial requires that you have the following resources ready:

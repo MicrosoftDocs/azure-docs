@@ -72,7 +72,7 @@ You can create an ExpressRoute circuit by selecting the option to create a new r
 
     * **SKU** determines whether an ExpressRoute local, ExpressRoute standard, or an ExpressRoute premium add-on is enabled. You can specify **Local** to get the local SKU, **Standard** to get the standard SKU or **Premium** for the premium add-on. Note that you can change the SKU to enable the premium add-on.
     > [!IMPORTANT]
-    > You can not change the SKU from **Standard/Premium** to **Local**, or vice versa.
+    > You cannot change the SKU from **Standard/Premium** to **Local**.
     
     * **Billing model** determines the billing type. You can specify **Metered** for a metered data plan and **Unlimited** for an unlimited data plan. Note that you can change the billing type from **Metered** to **Unlimited**.
 
@@ -150,7 +150,7 @@ You can perform the following tasks with no downtime:
 * Enable or disable an ExpressRoute Premium add-on for your ExpressRoute circuit.
 
 > [!IMPORTANT]
-  > Changing the SKU from **Standard/Premium** to **Local** and vice versa is not supported.
+  > Changing the SKU from **Standard/Premium** to **Local** is not supported.
 
 * Increase the bandwidth of your ExpressRoute circuit, provided there is capacity available on the port.
 

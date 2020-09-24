@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/29/2019
+ms.date: 09/22/2020
 ms.author: memildin
 
 ---
@@ -52,7 +52,7 @@ Security Center analyzes the security state of your resources to identify potent
 
     The page includes:
 
-    -**Enforce** and **Deny** buttons on supported recommendations (see [Prevent misconfigurations with Enforce/Deny recommendations](prevent-misconfigurations.md))
+    - **Enforce** and **Deny** buttons on supported recommendations (see [Prevent misconfigurations with Enforce/Deny recommendations](prevent-misconfigurations.md))
     - **Severity indicator**
     - **Freshness interval**  (where relevant) 
     - **Description** - A short description of the issue

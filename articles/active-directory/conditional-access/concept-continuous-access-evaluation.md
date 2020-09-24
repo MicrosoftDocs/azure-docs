@@ -45,26 +45,26 @@ Continuous access evaluation is implemented by enabling services, like Exchange 
 - Administrator explicitly revokes all refresh tokens for a user
 - Elevated user risk detected by Azure AD Identity Protection
 
-This process enables the scenario where users lose access to organizational SharePoint Online files, email, calendar, or tasks, and Teams from O365 client apps within mins after one of these critical events. 
+This process enables the scenario where users lose access to organizational SharePoint Online files, email, calendar, or tasks, and Teams from Microsoft 365 client apps within mins after one of these critical events. 
 
 ### Conditional Access policy evaluation (preview)
 
 Exchange and SharePoint are able to synchronize key Conditional Access policies so they can be evaluated within the service itself.
 
-This process enables the scenario where users lose access to organizational files, email, calendar, or tasks from O365 client apps or SharePoint Online immediately after network location changes.
+This process enables the scenario where users lose access to organizational files, email, calendar, or tasks from Microsoft 365 client apps or SharePoint Online immediately after network location changes.
 
 > [!NOTE]
 > Not all app and resource provider combination are supported. See table below. Office refers to Word, Excel, and PowerPoint
 
 | | Outlook Web | Outlook Win32 | Outlook iOS | Outlook Android | Outlook Mac |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| SharePoint Online | Supported | Supported | Not Supported | Not Supported | Supported |
-| Exchange Online | Supported | Supported | Supported | Supported | Supported |
+| **SharePoint Online** | Supported | Supported | Not Supported | Not Supported | Supported |
+| **Exchange Online** | Supported | Supported | Supported | Supported | Supported |
 
 | | Office web apps | Office Win32 apps | Office for iOS | Office for Android | Office for Mac |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| SharePoint Online | Supported | Supported | Not Supported | Supported | Supported |
-| Exchange Online | Supported | Supported | Not Supported | Supported | Supported |
+| **SharePoint Online** | Not Supported | Supported | Supported | Supported | Supported |
+| **Exchange Online** | Not Supported | Supported | Supported | Supported | Supported |
 
 ### Client-side claim challenge
 

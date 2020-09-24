@@ -10,6 +10,12 @@ ms.date: 11/01/2018
 ---
 
 # How to use Micrometer with Azure Application Insights Java SDK
+
+> [!NOTE]
+> Application Insights Java SDK does not support Spring Webflux. 
+>
+> Both Webflux and Micrometer are supported in [Application Insights Java 3.0 agent](https://docs.microsoft.com/azure/azure-monitor/app/java-on-premises) that requires no instrumentation. 
+
 Micrometer application monitoring measures metrics for JVM-based application code and lets you export the data to your favorite monitoring systems. This article will teach you how to use Micrometer with Application Insights for both Spring Boot and non-Spring Boot applications.
 
 ## Using Spring Boot 1.5x

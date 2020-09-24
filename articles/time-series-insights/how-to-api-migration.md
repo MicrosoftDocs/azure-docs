@@ -51,7 +51,7 @@ To help users migrate their [Time Series Model variables](./concepts-variables.m
 
     [![Update variables](media/api-migration/ux-migration-tool-downloaded-types.png)](media/v2-update-overview/overview-one.png#lightbox)
 
-1. Click **Update saved queries**. The tool will notify you when variables have been updated.
+1. Click **Update saved queries**. The tool will notify you when saved queries have been updated.
 
     [![Update saved queries](media/api-migration/ux-migration-tool-updated-variables.png)](media/v2-update-overview/overview-one.png#lightbox)
 

@@ -1,11 +1,11 @@
 ---
 title: "Quickstart: Change model with REST APIs - LUIS"
 titleSuffix: Azure Cognitive Services
-description: In this REST API quickstart, use an available public LUIS app to determine a user's intention from conversational text.
+description: In this REST API quickstart, add example utterances to change a model and train the app.
 services: cognitive-services
 author: diberry
 manager: nitinme
-ms.custom: "seodec18, devx-track-python, devx-track-javascript, devx-track-csharp"
+ms.custom: "seodec18, devx-track-python, devx-track-js, devx-track-csharp"
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart

@@ -1,6 +1,6 @@
 ---
-title: Tutorial to filter, analyze data with compute on Azure Stack Edge with GPU | Microsoft Docs
-description: Learn how to configure compute role on Azure Stack Edge GPU device and use it to transform data before sending to Azure.
+title: Tutorial to filter, analyze data with compute on Azure Stack Edge Pro with GPU | Microsoft Docs
+description: Learn how to configure compute role on Azure Stack Edge Pro GPU device and use it to transform data before sending to Azure.
 services: databox
 author: alkohli
 
@@ -9,14 +9,14 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 08/28/2020
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge so I can use it to transform the data before sending it to Azure.
+Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
 ---
 
-# Tutorial: Transform data with Azure Stack Edge
+# Tutorial: Transform data with Azure Stack Edge Pro
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-This tutorial describes how to configure a compute role on your Azure Stack Edge device. After you configure the compute role, Azure Stack Edge can transform data before sending it to Azure.
+This tutorial describes how to configure a compute role on your Azure Stack Edge Pro device. After you configure the compute role, Azure Stack Edge Pro can transform data before sending it to Azure.
 
 This procedure can take around 10 to 15 minutes to complete.
 
@@ -32,14 +32,14 @@ In this tutorial, you learn how to:
  
 ## Prerequisites
 
-Before you set up a compute role on your Azure Stack Edge device, make sure that:
+Before you set up a compute role on your Azure Stack Edge Pro device, make sure that:
 
-- You've activated your Azure Stack Edge device as described in [Activate your Azure Stack Edge](azure-stack-edge-gpu-deploy-activate.md).
+- You've activated your Azure Stack Edge Pro device as described in [Activate your Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-activate.md).
 
 
 ## Configure compute
 
-To configure compute on your Azure Stack Edge, you'll create an IoT Hub resource.
+To configure compute on your Azure Stack Edge Pro, you'll create an IoT Hub resource.
 
 1. In the Azure portal of your Azure Stack Edge resource, go to **Overview**. In the right-pane, on the **Compute** tile, select **Get started**.
 
@@ -68,7 +68,7 @@ To configure compute on your Azure Stack Edge, you'll create an IoT Hub resource
     ![Get started with compute](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-5.png)
 
     > [!NOTE]
-    > If the **Configure Compute** dialog is closed before the IoT Hub is associated with the Azure Stack Edge device, the IoT Hub gets created but is not shown in the compute configuration. 
+    > If the **Configure Compute** dialog is closed before the IoT Hub is associated with the Azure Stack Edge Pro device, the IoT Hub gets created but is not shown in the compute configuration. 
     
     When the Edge compute role is set up on the Edge device, it creates two devices: an IoT device and an IoT Edge device. Both devices can be viewed in the IoT Hub resource. An IoT Edge Runtime is also running on this IoT Edge device. At this point, only the Linux platform is available for your IoT Edge device.
 
@@ -97,7 +97,7 @@ For the simple deployment in this tutorial, you'll need two shares: one Edge sha
     For more information about the `rsync` command, go to [Rsync documentation](https://www.computerhope.com/unix/rsync.htm).
 
     > [!NOTE]
-    > To mount NFS share to compute, the compute network must be configured on same subnet as NFS Virtual IP address. For details on how to configure compute network, go to [Enable compute network on your Azure Stack Edge](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).
+    > To mount NFS share to compute, the compute network must be configured on same subnet as NFS Virtual IP address. For details on how to configure compute network, go to [Enable compute network on your Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).
 
     The Edge share is created, and you'll receive a successful creation notification. The share list might be updated, but you must wait for the share creation to be completed.
 
@@ -113,9 +113,9 @@ For the simple deployment in this tutorial, you'll need two shares: one Edge sha
 
 ## Add a module
 
-You could add a custom or a pre-built module. There are no custom modules on this Edge device. To learn how to create a custom module, go to [Develop a C# module for your Azure Stack Edge device](azure-stack-edge-j-series-create-iot-edge-module.md).
+You could add a custom or a pre-built module. There are no custom modules on this Edge device. To learn how to create a custom module, go to [Develop a C# module for your Azure Stack Edge Pro device](azure-stack-edge-j-series-create-iot-edge-module.md).
 
-In this section, you add a custom module to the IoT Edge device that you created in [Develop a C# module for your Azure Stack Edge](azure-stack-edge-j-series-create-iot-edge-module.md). This custom module takes files from an Edge local share on the Edge device and moves them to an Edge (cloud) share on the device. The cloud share then pushes the files to the Azure storage account that's associated with the cloud share.
+In this section, you add a custom module to the IoT Edge device that you created in [Develop a C# module for your Azure Stack Edge Pro](azure-stack-edge-j-series-create-iot-edge-module.md). This custom module takes files from an Edge local share on the Edge device and moves them to an Edge (cloud) share on the device. The cloud share then pushes the files to the Azure storage account that's associated with the cloud share.
 
 1. Go to **Edge compute > Get started**. On the **Add modules** tile, select the scenario type as **simple**. Select **Add**.
 2. In the **Configure and add module** blade, input the following values:
@@ -123,7 +123,7 @@ In this section, you add a custom module to the IoT Edge device that you created
     
     |Field  |Value  |
     |---------|---------|
-    |Name     | A unique name for the module. This module is a docker container that you can deploy to the IoT Edge device that's associated with your Azure Stack Edge.        |
+    |Name     | A unique name for the module. This module is a docker container that you can deploy to the IoT Edge device that's associated with your Azure Stack Edge Pro.        |
     |Image URI     | The image URI for the corresponding container image for the module.        |
     |Credentials required     | If checked, username and password are used to retrieve modules with a matching URL.        |
     |Input share     | Select an input share. The Edge local share is the input share in this case. The module used here moves files from the Edge local share to an Edge share where they are uploaded into the cloud.        |
@@ -177,7 +177,7 @@ In this tutorial, you learned how to:
 > * Add a compute module
 > * Verify data transform and transfer
 
-To learn how to administer your Azure Stack Edge device, see:
+To learn how to administer your Azure Stack Edge Pro device, see:
 
 > [!div class="nextstepaction"]
-> [Use local web UI to administer an Azure Stack Edge](azure-stack-edge-manage-access-power-connectivity-mode.md)
+> [Use local web UI to administer an Azure Stack Edge Pro](azure-stack-edge-manage-access-power-connectivity-mode.md)
