@@ -46,6 +46,7 @@ curl -s -v -X POST http://localhost:5000/speech/synthesize/cognitiveservices/v1 
  -d '<speak version="1.0" xml:lang="en-US"><voice name="{VOICE_NAME}">This is a test, only a test.</voice></speak>' > output.wav
 ```
 
+
 This command:
 
 * Constructs an HTTP POST request for the `speech/synthesize/cognitiveservices/v1` endpoint.
