@@ -209,8 +209,8 @@ The following string functions are supported:
 
 | Function | Description |
 | -------- | ----------- |
-| STARTS_WITH(x, y) | Returns a Boolean indicating whether the first string expression starts with the second. |
-| ENDS_WITH(x, y) | Returns a Boolean indicating whether the first string expression ends with the second. |
+| STARTSWITH(x, y) | Returns a Boolean indicating whether the first string expression starts with the second. |
+| ENDSWITH(x, y) | Returns a Boolean indicating whether the first string expression ends with the second. |
 
 ## Run queries with an API call
 
