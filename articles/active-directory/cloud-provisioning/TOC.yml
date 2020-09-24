@@ -23,6 +23,8 @@
 
 - name: Concepts
   items:
+  - name: How cloud provisioning works
+    href: concept-how-it-works.md
   - name: What is password hash sync?
     href: ../hybrid/whatis-phs.md?context=azure%2factive-directory%2fcloud-provisioning%2fcontext%2fcloud-provisioning-context
   - name: Understanding the Azure AD schema, attributes, and expressions
