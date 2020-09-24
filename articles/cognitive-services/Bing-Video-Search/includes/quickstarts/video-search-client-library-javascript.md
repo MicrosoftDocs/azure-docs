@@ -18,8 +18,8 @@ Use this quickstart to begin searching for news with the Bing Video Search clien
 - [Node.js](https://www.nodejs.org/)
 
 To set up a console application using the Bing Video Search client library:
-* Run `npm install ms-rest-azure` in your development environment.
-* Run `npm install azure-cognitiveservices-videosearch` in your development environment.
+* Run `npm install @azure/ms-rest-azure-js` in your development environment.
+* Run `npm install @azure/cognitiveservices-videosearch` in your development environment.
 
 [!INCLUDE [cognitive-services-bing-video-search-signup-requirements](~/includes/cognitive-services-bing-video-search-signup-requirements.md)]
 
@@ -28,8 +28,8 @@ To set up a console application using the Bing Video Search client library:
 1. Create a new JavaScript file in your favorite IDE or editor, and add a `require()` statement for the Bing Video Search client library, and `CognitiveServicesCredentials` module. Create a variable for your subscription key. 
     
     ```javascript
-    const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
-    const VideoSearchAPIClient = require('azure-cognitiveservices-videosearch');
+    const CognitiveServicesCredentials = require('@azure/ms-rest-azure-js').CognitiveServicesCredentials;
+    const VideoSearchAPIClient = require('@azure/cognitiveservices-videosearch');
     ```
 
 2. Create an instance of `CognitiveServicesCredentials` with your key. Then use it to create an instance of the video search client.

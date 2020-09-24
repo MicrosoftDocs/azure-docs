@@ -19,8 +19,8 @@ Use this quickstart to begin getting image insights from the Bing Visual Search 
 * [Node.js](https://www.nodejs.org/)
 * The Bing Visual Search client library for JavaScript
     * To set up a console application using the Bing Visual Search client library, run the following commands:
-        1. `npm install ms-rest-azure`
-        2. `npm install azure-cognitiveservices-visualsearch`.
+        1. `npm install @azure/ms-rest-azure-js`
+        2. `npm install @azure/cognitiveservices-visualsearch`.
 
 
 [!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](~/includes/cognitive-services-bing-visual-search-signup-requirements.md)]
@@ -35,8 +35,8 @@ Use this quickstart to begin getting image insights from the Bing Visual Search 
     const os = require("os");
     const async = require('async');
     const fs = require('fs');
-    const Search = require('azure-cognitiveservices-visualsearch');
-    const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
+    const Search = require('@azure/cognitiveservices-visualsearch');
+    const CognitiveServicesCredentials = require('@azure/ms-rest-azure-js').CognitiveServicesCredentials;
     
     let keyVar = 'YOUR-VISUAL-SEARCH-ACCESS-KEY';
     let credentials = new CognitiveServicesCredentials(keyVar);

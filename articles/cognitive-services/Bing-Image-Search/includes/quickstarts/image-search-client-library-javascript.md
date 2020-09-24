@@ -19,8 +19,8 @@ The source code for this sample is available on [GitHub](https://github.com/Azur
 
 * The [Cognitive Services Image Search SDK for Node.js](https://www.npmjs.com/package/@azure/cognitiveservices-imagesearch)
     * Install using `npm install @azure/cognitiveservices-imagesearch`
-* The [Node.js Azure Rest](https://www.npmjs.com/package/ms-rest-azure) module
-    * Install using `npm install ms-rest-azure`
+* The [Node.js Azure Rest](https://www.npmjs.com/package/@azure/ms-rest-azure-js) module
+    * Install using `npm install @azure/ms-rest-azure-js`
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](~/includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
@@ -31,7 +31,7 @@ The source code for this sample is available on [GitHub](https://github.com/Azur
     ```javascript
     'use strict';
     const ImageSearchAPIClient = require('@azure/cognitiveservices-imagesearch');
-    const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
+    const CognitiveServicesCredentials = require('@azure/ms-rest-azure-js').CognitiveServicesCredentials;
     ```
 
 2. In the main method of your project, create variables for your valid subscription key, the image results to be returned by Bing, and a search term. Then instantiate the image search client using the key.
