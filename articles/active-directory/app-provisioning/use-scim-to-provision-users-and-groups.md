@@ -1196,7 +1196,7 @@ The SCIM spec does not define a SCIM-specific scheme for authentication and auth
 |--|--|--|--|
 |Username and password (not recommended or supported by Azure AD)|Easy to implement|Insecure - [Your Pa$$word doesn't matter](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/your-pa-word-doesn-t-matter/ba-p/731984)|Supported on a case-by-case basis for gallery apps. Not supported for non-gallery apps.|
 |Long-lived bearer token|Long-lived tokens do not require a user to be present. They are easy for admins to use when setting up provisioning.|Long-lived tokens can be hard to share with an admin without using insecure methods such as email. |Supported for gallery and non-gallery apps. |
-|OAuth authorization code grant|Access tokens are much shorter-lived than passwords, and have an automated refresh mechanism that long-lived bearer tokens do not have.  A real user must be present during initial authorization, adding a level of accountability. |Requires a user to be present. If the user leaves the organization, the token is invalid and authorization will need to be completed again.|Supported for gallery apps, but not non-gallery apps. Support for non-gallery is in our backlog.|
+|OAuth authorization code grant|Access tokens are much shorter-lived than passwords, and have an automated refresh mechanism that long-lived bearer tokens do not have.  A real user must be present during initial authorization, adding a level of accountability. |Requires a user to be present. If the user leaves the organization, the token is invalid and authorization will need to be completed again.|Supported for gallery apps, but not non-gallery apps. However, you can provide an access token in the UI as the secret token for short term testing purposes. Support for OAuth code grant on non-gallery is in our backlog.|
 |OAuth client credentials grant|Access tokens are much shorter-lived than passwords, and have an automated refresh mechanism that long-lived bearer tokens do not have. Both the authorization code grant and the client credentials grant create the same type of access token, so moving between these methods is transparent to the API.  Provisioning can be completely automated, and new tokens can be silently requested without user interaction. ||Not supported for gallery and non-gallery apps. Support is in our backlog.|
 
 > [!NOTE]
@@ -1213,6 +1213,17 @@ Note that OAuth v1 is not supported due to exposure of the client secret. OAuth 
 Best practices (recommended but not required):
 * Support multiple redirect URLs. Administrators can configure provisioning from both "portal.azure.com" and "aad.portal.azure.com". Supporting multiple redirect URLs will ensure that users can authorize access from either portal.
 * Support multiple secrets to ensure smooth secret renewal, without downtime. 
+
+Steps in the OAuth code grant flow:
+1. User signs into the Azure portal > Enterprise applications > Select application > Provisioning > click authorize.
+2. Azure portal redirects user to the Authorization URL (sign in page for the third party app).
+3. Admin provides credentials to the third party application. 
+4. Third party app redirects user back to Azure portal and provides the grant code 
+5. Azure AD provisioning services calls the token URL and provides the grant code. The third party application responds with the access token, refresh token, and expiry date
+6. When the provisioning cycle begins, the service checks if the current access token is valid and exchanges it for a new token if needed. The access token is provided in each request made to the app and the validity of the request is checked before each request.
+
+> [!NOTE]
+> While it is not possible to setup OAuth on the non-gallery application today, you can manually generate an access token from your authorization server and input that in the secret token field of the non-gallery application. This allows you to verify compatibility of your SCIM server with the Azure AD SCIM client before onboarding to the app gallery, which does support the OAuth code grant.  
 
 **Long-lived OAuth bearer tokens:** If your application does not support the OAuth authorization code grant flow, you can also generate a long lived OAuth bearer token than that an administrator can use to setup the provisioning integration. The token should be perpetual, or else the provisioning job will be [quarantined](application-provisioning-quarantine-status.md) when the token expires. This token must be below 1KB in size.  
 

@@ -113,7 +113,7 @@ Select the Phone Numbers tab in the menu to manage your phone numbers.
 
 Common questions and issues:
 
-- Only US and Canada support purchasing phone numbers at this time. This is based on the billing address of the subscription the resource is associated with. At this time, you cannot move the resource to another subscription.
+- Only US is supported for purchasing phone numbers at this time. This is based on the billing address of the subscription that the resource is associated with. At this time, you cannot move a resource to another subscription.
 
 - When a phone number is deleted, the phone number will not be released or able to be repurchased until the end of the billing cycle.
 

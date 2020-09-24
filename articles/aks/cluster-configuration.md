@@ -257,6 +257,8 @@ When the status shows as registered, refresh the registration of the `Microsoft.
 az provider register --namespace Microsoft.ContainerService
 ```
 
+Ephemeral OS requires at least version 0.4.63 of the aks-preview CLI extension.
+
 To install the aks-preview CLI extension, use the following Azure CLI commands:
 
 ```azurecli
@@ -271,25 +273,25 @@ az extension update --name aks-preview
 
 ### Use Ephemeral OS on new clusters (Preview)
 
-Configure the cluster to use Ephemeral OS disks when the cluster is created. Use the `--aks-custom-headers` flag to set Ephemeral OS as the OS disk type for the new cluster.
+Configure the cluster to use Ephemeral OS disks when the cluster is created. Use the `--node-osdisk-type` flag to set Ephemeral OS as the OS disk type for the new cluster.
 
 ```azurecli
-az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_DS3_v2 --aks-custom-headers EnableEphemeralOSDisk=true
+az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_DS3_v2 --node-osdisk-type Ephemeral
 ```
 
-If you want to create a regular cluster using network-attached OS disks, you can do so by omitting the custom `--aks-custom-headers` tag. You can also choose to add more ephemeral OS node pools as per below.
+If you want to create a regular cluster using network-attached OS disks, you can do so by omitting the custom `--node-osdisk-type` tag, or specifying `--node-osdisk-type=Managed`. You can also choose to add more ephemeral OS node pools as per below.
 
 ### Use Ephemeral OS on existing clusters (Preview)
-Configure a new node pool to use Ephemeral OS disks. Use the `--aks-custom-headers` flag to set as the OS disk type as the OS disk type for that node pool.
+Configure a new node pool to use Ephemeral OS disks. Use the `--node-osdisk-type` flag to set as the OS disk type as the OS disk type for that node pool.
 
 ```azurecli
-az aks nodepool add --name ephemeral --cluster-name myAKSCluster --resource-group myResourceGroup -s Standard_DS3_v2 --aks-custom-headers EnableEphemeralOSDisk=true
+az aks nodepool add --name ephemeral --cluster-name myAKSCluster --resource-group myResourceGroup -s Standard_DS3_v2 --node-osdisk-type Ephemeral
 ```
 
 > [!IMPORTANT]
 > With ephemeral OS you can deploy VM and instance images up to the size of the VM cache. In the AKS case, the default node OS disk configuration uses 100GiB, which means that you need a VM size that has a cache larger than 100 GiB. The default Standard_DS2_v2 has a cache size of 86 GiB, which is not large enough. The Standard_DS3_v2 has a cache size of 172 GiB, which is large enough. You can also reduce the default size of the OS disk by using `--node-osdisk-size`. The minimum size for AKS images is 30GiB. 
 
-If you want to create node pools with network-attached OS disks, you can do so by omitting the custom `--aks-custom-headers` tag.
+If you want to create node pools with network-attached OS disks, you can do so by omitting the custom `--node-osdisk-type` tag.
 
 ## Custom resource group name
 

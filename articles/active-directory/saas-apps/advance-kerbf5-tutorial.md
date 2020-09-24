@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Azure Active Directory single sign-on integration with F5 | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and F5.
+description: In this article, learn the steps you need to perform to integrate F5 with Azure Active Directory (Azure AD).
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -34,8 +34,9 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* F5 supports **SP and IDP** initiated SSO
-* F5 SSO can be configured in three different ways.
+F5 supports **SP and IDP** initiated SSO.
+
+F5 SSO can be configured in three different ways:
 
 - [Configure F5 single sign-on for Advanced Kerberos application](#configure-f5-single-sign-on-for-advanced-kerberos-application)
 

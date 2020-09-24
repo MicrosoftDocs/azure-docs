@@ -7,7 +7,7 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/24/2020
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 # Debug user-defined functions in Azure Stream Analytics 

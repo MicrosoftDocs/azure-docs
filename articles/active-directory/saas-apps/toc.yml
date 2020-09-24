@@ -1334,6 +1334,8 @@
         href: proxyclick-tutorial.md
       - name: Pulse Secure PCS
         href: pulse-secure-pcs-tutorial.md
+      - name: Pulse Secure Virtual Traffic Manager
+        href: pulse-secure-virtual-traffic-manager-tutorial.md        
       - name: PureCloud by Genesys
         href: purecloud-by-genesys-tutorial.md
       - name: PurelyHR
@@ -1959,6 +1961,10 @@
         href: cernercentral-provisioning-tutorial.md
       - name: Cisco Webex
         href: cisco-webex-provisioning-tutorial.md
+      - name: Coda
+        href: coda-provisioning-tutorial.md
+      - name: Code42
+        href: code42-provisioning-tutorial.md
       - name: Cofense Recipient Sync
         href: cofense-provision-tutorial.md
       - name: Comeet Recruiting Software
