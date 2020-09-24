@@ -1,7 +1,7 @@
 ---
 title: Deploy ML models to FPGAs  
 titleSuffix: Azure Machine Learning
-description: Learn about field-programmable gate arrays & how to deploy a web service with a model running on an FPGA with Azure Machine Learning for ultra-low latency inference. 
+description: Learn about field-programmable gate arrays. You can deploy a web service on an FPGA with Azure Machine Learning for ultra-low latency inference. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -34,11 +34,11 @@ You can reconfigure FPGAs for different types of machine learning models. This f
 
 ## FPGA support in Azure
 
-Microsoft Azure is the world's largest cloud investment in FPGAs. Microsoft uses FPGAs for DNN evaluation, Bing search ranking, and software defined networking (SDN) acceleration to reduce latency, while freeing CPUs for other tasks.
+Microsoft Azure is the world's largest cloud investment in FPGAs. Microsoft uses FPGAs for deep neural networks (DNN) evaluation, Bing search ranking, and software defined networking (SDN) acceleration to reduce latency, while freeing CPUs for other tasks.
 
 FPGAs on Azure are based on Intel's FPGA devices, which data scientists and developers use to accelerate real-time AI calculations. This FPGA-enabled architecture offers performance, flexibility, and scale, and is available on Azure.
 
-Azure FPGAs are integrated with Azure Machine Learning. Azure can parallelize pre-trained deep neural networks (DNN) across FPGAs to scale out your service. The DNNs can be pre-trained, as a deep featurizer for transfer learning, or fine-tuned with updated weights.
+Azure FPGAs are integrated with Azure Machine Learning. Azure can parallelize pre-trained DNN across FPGAs to scale out your service. The DNNs can be pre-trained, as a deep featurizer for transfer learning, or fine-tuned with updated weights.
 
 |Scenarios & configurations on Azure|Supported DNN models|Regional support|
 |--------------------------|--------------------|----------------|
@@ -46,7 +46,7 @@ Azure FPGAs are integrated with Azure Machine Learning. Azure can parallelize pr
 
 To optimize latency and throughput, your client sending data to the FPGA model should be in one of the regions above (the one you deployed the model to).
 
-The **PBS Family of Azure VMs** contains Intel Arria 10 FPGAs. It will show as "Standard PBS Family vCPUs" when you check your Azure quota allocation. The PB6 VM has six vCPUs and one FPGA, and it will automatically be provisioned by Azure ML as part of deploying a model to an FPGA. It is only used with Azure ML, and it cannot run arbitrary bitstreams. For example, you will not be able to flash the FPGA with bitstreams to do encryption, encoding, etc.
+The **PBS Family of Azure VMs** contains Intel Arria 10 FPGAs. It will show as "Standard PBS Family vCPUs" when you check your Azure quota allocation. The PB6 VM has six vCPUs and one FPGA. PB6 VM is automatically provisioned by Azure Machine Learning during model deployment to an FPGA. It is only used with Azure ML, and it cannot run arbitrary bitstreams. For example, you will not be able to flash the FPGA with bitstreams to do encryption, encoding, etc.
 
 ## Deploy models on FPGAs
 
@@ -56,7 +56,7 @@ In this example, you create a TensorFlow graph to preprocess the input image, ma
 
 ### Prerequisites
 
-- An Azure subscription. If you do not have one, you will need to create a [pay-as-you-go](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) account (free Azure accounts are not eligible for FPGA quota).
+- An Azure subscription. If you do not have one, create a [pay-as-you-go](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) account (free Azure accounts are not eligible for FPGA quota).
 
 - An Azure Machine Learning workspace and the Azure Machine Learning SDK for Python installed, as described in [Create a workspace](how-to-manage-workspace.md).
  
@@ -137,7 +137,7 @@ Begin by using the [Azure Machine Learning SDK for Python](https://docs.microsof
                                   outputs={'output_alias': classifier_output})
    ```
 
-1. Save input and output tensors **as you will need them for model conversion and inference requests**. 
+1. Save input and output tensors **as you will use them for model conversion and inference requests**. 
 
    ```python
    input_tensors = in_images.name
@@ -198,7 +198,7 @@ Before you can deploy to FPGAs, convert the model to the Open Neural Network Exc
          registered_model.version, sep='\t')
    ```
 
-1. Convert the TensorFlow graph to the ONNX format.  You will need to provide the names of the input and output tensors, and these names will be used by your client when you consume the web service.
+1. Convert the TensorFlow graph to the ONNX format.  You must provide the names of the input and output tensors, so your client can use them when you consume the web service.
 
    ```python
    from azureml.accel import AccelOnnxConverter
