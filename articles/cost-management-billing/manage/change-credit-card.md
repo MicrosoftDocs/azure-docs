@@ -14,7 +14,7 @@ ms.author: banders
 
 This document applies to customers who signed up for Azure online with a credit card.
 
-In the Azure portal, you can change your default payment method to a new credit card and update your credit card details. You must be an [Account Administrator](billing-subscription-transfer.md#whoisaa) to make these changes.
+In the Azure portal, you can change your default payment method to a new credit card and update your credit card details. You must be an [Account Administrator](../understand/subscription-transfer.md#whoisaa) to make these changes.
 
 If you want to a delete credit card, see [Delete an Azure billing payment method](delete-azure-payment-method.md).
 
