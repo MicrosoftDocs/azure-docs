@@ -29,6 +29,7 @@ The HDFS connector is supported for the following activities:
 
 - [Copy activity](copy-activity-overview.md) with [supported source and sink matrix](copy-activity-overview.md)
 - [Lookup activity](control-flow-lookup-activity.md)
+- [Delete activity](delete-activity.md)
 
 Specifically, the HDFS connector supports:
 
