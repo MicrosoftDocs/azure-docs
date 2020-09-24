@@ -112,28 +112,28 @@ If you don't want to acquire the token yourself, *Microsoft.Identity.Web* provid
 
 If you want to call Microsoft Graph, Microsoft.Identity.Web enables you to directly use the `GraphServiceClient` (exposed by the Microsoft Graph SDK) in your API actions. To expose Microsoft Graph:
 
-  1. Add the [Microsoft.Identity.Web.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Identity.Web.MicrosoftGraph) NuGet package to your project.
-  1. Add `.AddMicrosoftGraph()` after `.EnableTokenAcquisitionToCallDownstreamApi()` in the *Startup.cs* file. `.AddMicrosoftGraph()` has several overrides. Using the override that takes a configuration section as a parameter, the code becomes:
+1. Add the [Microsoft.Identity.Web.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Identity.Web.MicrosoftGraph) NuGet package to your project.
+1. Add `.AddMicrosoftGraph()` after `.EnableTokenAcquisitionToCallDownstreamApi()` in the *Startup.cs* file. `.AddMicrosoftGraph()` has several overrides. Using the override that takes a configuration section as a parameter, the code becomes:
 
-    ```csharp
-    using Microsoft.Identity.Web;
+```csharp
+using Microsoft.Identity.Web;
 
-    public class Startup
-    {
-      // ...
-      public void ConfigureServices(IServiceCollection services)
-      {
-      // ...
-      services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-              .AddMicrosoftIdentityWebApi(Configuration, Configuration.GetSection("AzureAd"))
-                .EnableTokenAcquisitionToCallDownstreamApi()
-                   .AddMicrosoftGraph(Configuration.GetSection("GraphBeta"))
-                .AddInMemoryTokenCaches();
-       // ...
-      }
-      // ...
-    }
-    ```
+public class Startup
+{
+  // ...
+  public void ConfigureServices(IServiceCollection services)
+  {
+  // ...
+  services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+          .AddMicrosoftIdentityWebApi(Configuration, Configuration.GetSection("AzureAd"))
+            .EnableTokenAcquisitionToCallDownstreamApi()
+               .AddMicrosoftGraph(Configuration.GetSection("GraphBeta"))
+            .AddInMemoryTokenCaches();
+   // ...
+  }
+  // ...
+}
+```
 
 ### Option 2: Call a downstream web API other than Microsoft Graph
 
