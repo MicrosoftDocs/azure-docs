@@ -123,6 +123,9 @@ Changing the size of your backend pool might affect some of your established flo
 
  Outbound rules enable configuration of public [standard load balancer](load-balancer-standard-overview.md)'s outbound network address translation.  
 
+> [!NOTE]
+> **Azure Virtual Network NAT** can provide outbound connectivity for virtual machines in a virtual network.  See [What is Azure Virtual Network NAT?](../virtual-network/nat-overview.md) for more information.
+
 You have full declarative control over outbound connectivity to scale and tune this ability to your needs. This section expands scenario 2 as described above.
 
 ![Load balancer outbound rules](media/load-balancer-outbound-rules-overview/load-balancer-outbound-rules.png)
@@ -142,9 +145,6 @@ Outbound rules allow you to control:
 
 Outbound rules follow the same familiar syntax as load balancing and inbound NAT rules: **frontend** + **parameters** + **backend pool**. 
 An outbound rule configures outbound NAT for _all virtual machines identified by the backend pool_ to be translated to the _frontend_.  The _parameters_ provide additional fine grained control over the outbound NAT algorithm.
-
-> [!NOTE]
-> **Azure Virtual Network NAT** can provide outbound connectivity for virtual machines in a virtual network.  See [What is Azure Virtual Network NAT?](../virtual-network/nat-overview.md) for more information.
 
 ### <a name="scale"></a> Scale outbound NAT with multiple IP addresses
 
