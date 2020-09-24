@@ -12,10 +12,7 @@ ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-<<<<<<< HEAD
 ms.date: 09/24/2020
-=======
->>>>>>> c9326a42ed199307f237e08d87f9c89bc005d59c
 ms.topic: how-to
 ms.author: billmath
 ms.collection: M365-identity-device-management 
