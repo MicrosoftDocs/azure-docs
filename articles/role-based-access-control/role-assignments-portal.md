@@ -7,7 +7,7 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 06/24/2020
+ms.date: 09/24/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
@@ -30,19 +30,15 @@ To add or remove role assignments, you must have:
 
 ![Access control (IAM) page for a subscription](./media/role-assignments-portal/access-control-subscription.png)
 
-To be the most effective with the Access control (IAM) page, it helps if you can answer the following three questions when you are trying to assign a role:
+To be the most effective with the Access control (IAM) page, it helps to follow these steps to assign a role.
 
-1. **Who needs access?**
+1. Determine who needs access. You can assign a role to a user, group, service principal, or managed identity.
 
-    Who refers to a user, group, service principal, or managed identity. This is also called a *security principal*.
+1. Find the appropriate role. Permissions are grouped together into roles. You can select from a list of several [Azure built-in roles](built-in-roles.md) or you can use your own custom roles.
 
-1. **What role do they need?**
+1. Identify the needed scope. Azure provides four levels of scope: [management groups](../governance/management-groups/overview.md), subscriptions, [resource groups](../azure-resource-manager/management/overview.md#resource-groups), and resources. For more information about scope, see [Understand scope](scope-overview.md).
 
-    Permissions are grouped together into roles. You can select from a list of several [built-in roles](built-in-roles.md) or you can use your own custom roles.
-
-1. **Where do they need access?**
-
-    Where refers to the set of resources that the access applies to. Where can be a management group, subscription, resource group, or a single resource such as a storage account. This is called the *scope*.
+1. Perform the steps in one of the following sections to assign a role.
 
 ## Add a role assignment
 
