@@ -43,9 +43,12 @@ The redirect URIs to use in a desktop application depend on the flow you want to
 
 - If you build a native Objective-C or Swift app for macOS, register the redirect URI based on your application's bundle identifier in the following format: `msauth.<your.app.bundle.id>://auth`. Replace `<your.app.bundle.id>` with your application's bundle identifier.
 - If your app uses only Integrated Windows Authentication or a username and a password, you don't need to register a redirect URI for your application. These flows do a round trip to the Microsoft identity platform v2.0 endpoint. Your application won't be called back on any specific URI.
-- To distinguish [device code flow](scenario-desktop-acquire-token.md#device-code-flow), [Integrated Windows Authentication](scenario-desktop-acquire-token.md#integrated-windows-authentication), and a [username and a password](scenario-desktop-acquire-token.md#username-and-password) from a confidential client application using a client credential flow used in [daemon applications](scenario-daemon-overview.md), none of which requires a redirect URI, you need to configure it as a public client application. To achieve this configuration, go to the **Authentication** section for your application. In the **Advanced settings** subsection, in the **Default client type** paragraph, select **Yes** for **Treat application as a public client**.
+- To distinguish [device code flow](scenario-desktop-acquire-token.md#device-code-flow), [Integrated Windows Authentication](scenario-desktop-acquire-token.md#integrated-windows-authentication), and a [username and a password](scenario-desktop-acquire-token.md#username-and-password) from a confidential client application using a client credential flow used in [daemon applications](scenario-daemon-overview.md), none of which requires a redirect URI, you need to configure it as a public client application. To achieve this configuration:
 
-  :::image type="content" source="media/scenarios/default-client-type.png" alt-text="Allow public client setting in the app registration portal":::
+    1. In the [Azure portal](https://portal.azure.com), select your app in **App registrations**, and then select **Authentication**.
+    1. In **Advanced settings** > **Default client type** > **Treat application as a public client**, select **Yes**.
+
+        :::image type="content" source="media/scenarios/default-client-type.png" alt-text="Enable public client setting on Authentication pane in Azure portal":::
 
 ## API permissions
 
