@@ -18,7 +18,7 @@ Use this quickstart to begin searching for entities with the Bing Entity Search 
 * The latest version of [Node.js](https://nodejs.org/en/download/).
 * The [Bing Entity Search SDK for JavaScript](https://www.npmjs.com/package/@azure/cognitiveservices-entitysearch)
      *  To install, run `npm install @azure/cognitiveservices-entitysearch`
-* The `CognitiveServicesCredentials` class from the Azure runtime for auto generated JavaScript packages to authenticate the client against the Bing Entity Search service.
+* The `CognitiveServicesCredentials` class from `@azure/ms-rest-azure-js` package to authenticate the client against the Bing Entity Search service.
      * To install, run `npm install @azure/ms-rest-azure-js`
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](~/includes/cognitive-services-bing-entity-search-signup-requirements.md)]

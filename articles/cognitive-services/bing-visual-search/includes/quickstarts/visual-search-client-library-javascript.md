@@ -20,7 +20,7 @@ Use this quickstart to begin getting image insights from the Bing Visual Search 
 * The latest version of [Node.js](https://nodejs.org/en/download/).
 * The [Bing Visual Search SDK for JavaScript](https://www.npmjs.com/package/@azure/cognitiveservices-visualsearch)
      *  To install, run `npm install @azure/cognitiveservices-visualsearch`
-* The `CognitiveServicesCredentials` class from the Azure runtime for auto generated JavaScript packages to authenticate the client against the Bing Visual Search service.
+* The `CognitiveServicesCredentials` class from `@azure/ms-rest-azure-js` package to authenticate the client against the Bing Visual Search service.
      * To install, run `npm install @azure/ms-rest-azure-js`
 
 [!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](~/includes/cognitive-services-bing-visual-search-signup-requirements.md)]

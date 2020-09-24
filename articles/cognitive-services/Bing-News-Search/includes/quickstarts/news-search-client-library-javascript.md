@@ -18,7 +18,7 @@ Use this quickstart to begin searching for news with the Bing News Search client
 * The latest version of [Node.js](https://nodejs.org/en/download/).
 * The [Bing News Search SDK for JavaScript](https://www.npmjs.com/package/@azure/cognitiveservices-newssearch)
      *  To install, run `npm install @azure/cognitiveservices-newssearch`
-* The `CognitiveServicesCredentials` class from the Azure runtime for auto generated JavaScript packages to authenticate the client against the Bing News Search service.
+* The `CognitiveServicesCredentials` class from `@azure/ms-rest-azure-js` package to authenticate the client against the Bing News Search service.
      * To install, run `npm install @azure/ms-rest-azure-js`
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](~/includes/cognitive-services-bing-news-search-signup-requirements.md)]
