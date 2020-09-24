@@ -13,14 +13,14 @@ ms.custom: devx-track-js
 
 Use this quickstart to begin getting image insights from the Bing Visual Search service, using the JavaScript client library. While Bing Visual Search has a REST API compatible with most programming languages, the client library provides an easy way to integrate the service into your applications. The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/visualSearch.js). 
 
-[Reference documentation](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-visualsearch/?view=azure-node-latest) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-visualsearch) | [Package (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-visualsearch) | [Samples](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/)
+[Reference documentation](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-visualsearch/?view=azure-node-latest&preserve-view=true) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-visualsearch) | [Package (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-visualsearch) | [Samples](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/)
 
 ## Prerequisites
 
 * The latest version of [Node.js](https://nodejs.org/en/download/).
 * The [Bing Visual Search SDK for JavaScript](https://www.npmjs.com/package/@azure/cognitiveservices-visualsearch)
      *  To install, run `npm install @azure/cognitiveservices-visualsearch`
-* The `CognitiveServicesCredentials` class from `@azure/ms-rest-azure-js` package to authenticate the client against the Bing Visual Search service.
+* The `CognitiveServicesCredentials` class from `@azure/ms-rest-azure-js` package to authenticate the client.
      * To install, run `npm install @azure/ms-rest-azure-js`
 
 [!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](~/includes/cognitive-services-bing-visual-search-signup-requirements.md)]
