@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/25/2019
+ms.date: 09/24/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
@@ -27,39 +27,19 @@ To add or remove role assignments, you must have:
 - `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/roleAssignments/delete` permissions, such as [User Access Administrator](built-in-roles.md#user-access-administrator) or [Owner](built-in-roles.md#owner)
 - [Bash in Azure Cloud Shell](/azure/cloud-shell/overview) or [Azure CLI](/cli/azure)
 
-## Get object IDs
+## Steps to assign an Azure role
 
-To add or remove role assignments, you might need to specify the unique ID of an object. The ID has the format: `11111111-1111-1111-1111-111111111111`. You can get the ID using the Azure portal or Azure CLI.
+1. Determine who needs access. You can assign a role to a user, group, service principal, or managed identity.
 
-### User
+1. Find the appropriate role. Permissions are grouped together into roles. You can select from a list of several [Azure built-in roles](built-in-roles.md) or you can use your own custom roles.
 
-To get the object ID for an Azure AD user, you can use [az ad user show](/cli/azure/ad/user#az-ad-user-show).
+1. Identify the needed scope. Azure provides four levels of scope: [management groups](../governance/management-groups/overview.md), subscriptions, [resource groups](../azure-resource-manager/management/overview.md#resource-groups), and resources. For more information about scope, see [Understand scope](scope-overview.md).
 
-```azurecli
-az ad user show --id "{email}" --query objectId --output tsv
-```
+1. Perform the steps in one of the following sections to assign a role.
 
-### Group
+## Add role assignment at resource group scope
 
-To get the object ID for an Azure AD group, you can use [az ad group show](/cli/azure/ad/group#az-ad-group-show) or [az ad group list](/cli/azure/ad/group#az-ad-group-list).
-
-```azurecli
-az ad group show --group "{name}" --query objectId --output tsv
-```
-
-### Application
-
-To get the object ID for an Azure AD service principal (identity used by an application), you can use [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list). For a service principal, use the object ID and **not** the application ID.
-
-```azurecli
-az ad sp list --display-name "{name}" --query [].objectId --output tsv
-```
-
-## Add a role assignment
-
-In Azure RBAC, to grant access, you add a role assignment.
-
-### User at a resource group scope
+### Add role assignment for a user
 
 To add a role assignment for a user at a resource group scope, use [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create).
 
@@ -73,16 +53,12 @@ The following example assigns the *Virtual Machine Contributor* role to *patlong
 az role assignment create --role "Virtual Machine Contributor" --assignee patlong@contoso.com --resource-group pharma-sales
 ```
 
-### Using the unique role ID
+### Add role assignment for a user using the unique role ID
 
 There are a couple of times when a role name might change, for example:
 
 - You are using your own custom role and you decide to change the name.
 - You are using a preview role that has **(Preview)** in the name. When the role is released, the role is renamed.
-
-> [!IMPORTANT]
-> A preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Even if a role is renamed, the role ID does not change. If you are using scripts or automation to create your role assignments, it's a best practice to use the unique role ID instead of the role name. Therefore, if a role is renamed, your scripts are more likely to work.
 
@@ -98,31 +74,23 @@ The following example assigns the [Virtual Machine Contributor](built-in-roles.m
 az role assignment create --role 9980e02c-c2be-4d73-94e8-173b1dc7cf3c --assignee patlong@contoso.com --resource-group pharma-sales
 ```
 
-### Group at a subscription scope
-
-To add a role assignment for a group, use [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create). For information about how to get the object ID of the group, see [Get object IDs](#get-object-ids).
+### Add role assignment for all blob containers
 
 ```azurecli
-az role assignment create --role {roleNameOrId} --assignee-object-id {assigneeObjectId} --resource-group {resourceGroup} --scope /subscriptions/{subscriptionId}
+az role assignment create --assignee $AZURE_CLIENT_ID \
+    --role "Storage Blob Data Contributor" \
+    --scope "/subscriptions/$AZURE_SUBSCRIPTION_ID/resourceGroups/PythonAzureExample-Storage-rg"
 ```
 
-The following example assigns the *Reader* role to the *Ann Mack Team* group with ID 22222222-2222-2222-2222-222222222222 at a subscription scope.
+Alternately, you can specify the resource group with the `--resource-group` parameter:
 
 ```azurecli
-az role assignment create --role Reader --assignee-object-id 22222222-2222-2222-2222-222222222222 --scope /subscriptions/00000000-0000-0000-0000-000000000000
+az role assignment create --assignee $AZURE_CLIENT_ID \
+    --role "Storage Blob Data Contributor" \
+    --resource-group "PythonAzureExample-Storage-rg"
 ```
 
-### Group at a resource scope
-
-To add a role assignment for a group, use [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create). For information about how to get the object ID of the group, see [Get object IDs](#get-object-ids).
-
-The following example assigns the *Virtual Machine Contributor* role to the *Ann Mack Team* group with ID 22222222-2222-2222-2222-222222222222 at a resource scope for a virtual network named *pharma-sales-project-network*.
-
-```azurecli
-az role assignment create --role "Virtual Machine Contributor" --assignee-object-id 22222222-2222-2222-2222-222222222222 --scope /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/pharma-sales/providers/Microsoft.Network/virtualNetworks/pharma-sales-project-network
-```
-
-### Application at a resource group scope
+### Add role assignment for an application
 
 To add a role assignment for an application, use [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create). For information about how to get the object ID of the application, see [Get object IDs](#get-object-ids).
 
@@ -136,35 +104,7 @@ The following example assigns the *Virtual Machine Contributor* role to an appli
 az role assignment create --role "Virtual Machine Contributor" --assignee-object-id 44444444-4444-4444-4444-444444444444 --resource-group pharma-sales
 ```
 
-### User at a subscription scope
-
-To add a role assignment for a user at a subscription scope, use [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create). To get the subscription ID, you can find it on the **Subscriptions** blade in the Azure portal or you can use [az account list](/cli/azure/account#az-account-list).
-
-```azurecli
-az role assignment create --role {roleNameOrId} --assignee {assignee} --subscription {subscriptionNameOrId}
-```
-
-The following example assigns the *Reader* role to the *annm\@example.com* user at a subscription scope.
-
-```azurecli
-az role assignment create --role "Reader" --assignee annm@example.com --subscription 00000000-0000-0000-0000-000000000000
-```
-
-### User at a management group scope
-
-To add a role assignment for a user at a management group scope, use [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create). To get the management group ID, you can find it on the **Management groups** blade in the Azure portal or you can use [az account management-group list](/cli/azure/account/management-group#az-account-management-group-list).
-
-```azurecli
-az role assignment create --role {roleNameOrId} --assignee {assignee} --scope /providers/Microsoft.Management/managementGroups/{groupId}
-```
-
-The following example assigns the *Billing Reader* role to the *alain\@example.com* user at a management group scope.
-
-```azurecli
-az role assignment create --role "Billing Reader" --assignee alain@example.com --scope /providers/Microsoft.Management/managementGroups/marketing-group
-```
-
-### New service principal
+### Add role assignment for a new service principal
 
 If you create a new service principal and immediately try to assign a role to that service principal, that role assignment can fail in some cases. For example, if you use a script to create a new managed identity and then try to assign a role to that service principal, the role assignment might fail. The reason for this failure is likely a replication delay. The service principal is created in one region; however, the role assignment might occur in a different region that hasn't replicated the service principal yet. To address this scenario, you should specify the principal type when creating the role assignment.
 
@@ -178,6 +118,116 @@ The following example assigns the *Virtual Machine Contributor* role to the *msi
 
 ```azurecli
 az role assignment create --role "Virtual Machine Contributor" --assignee-object-id 33333333-3333-3333-3333-333333333333 --assignee-principal-type ServicePrincipal --resource-group pharma-sales
+```
+
+## Add role assignment at resource scope
+
+### Add role assignment for a specific blob container
+
+```azurecli
+az role assignment create --assignee $AZURE_CLIENT_ID \
+    --role "Storage Blob Data Contributor" \
+    --scope "/subscriptions/$AZURE_SUBSCRIPTION_ID/resourceGroups/PythonAzureExample-Storage-rg/providers/Microsoft.Storage/storageAccounts/pythonazurestorage12345/blobServices/default/containers/blob-container-01"
+```
+
+### Add role assignment for all blob containers in a storage account
+
+```azurecli
+az role assignment create --assignee $AZURE_CLIENT_ID \
+    --role "Storage Blob Data Contributor" \
+    --scope "/subscriptions/$AZURE_SUBSCRIPTION_ID/resourceGroups/PythonAzureExample-Storage-rg/providers/Microsoft.Storage/storageAccounts/pythonazurestorage12345"
+```
+
+### Add role assignment for a group
+
+To add a role assignment for a group, use [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create). For information about how to get the object ID of the group, see [Get object IDs](#get-object-ids).
+
+The following example assigns the *Virtual Machine Contributor* role to the *Ann Mack Team* group with ID 22222222-2222-2222-2222-222222222222 at a resource scope for a virtual network named *pharma-sales-project-network*.
+
+```azurecli
+az role assignment create --role "Virtual Machine Contributor" --assignee-object-id 22222222-2222-2222-2222-222222222222 --scope /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/pharma-sales/providers/Microsoft.Network/virtualNetworks/pharma-sales-project-network
+```
+
+## Add role assignment at subscription scope
+
+### Add role assignment for a user
+
+To add a role assignment for a user at a subscription scope, use [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create). To get the subscription ID, you can find it on the **Subscriptions** blade in the Azure portal or you can use [az account list](/cli/azure/account#az-account-list).
+
+```azurecli
+az role assignment create --role {roleNameOrId} --assignee {assignee} --subscription {subscriptionNameOrId}
+```
+
+The following example assigns the *Reader* role to the *annm\@example.com* user at a subscription scope.
+
+```azurecli
+az role assignment create --role "Reader" --assignee annm@example.com --subscription 00000000-0000-0000-0000-000000000000
+```
+
+### Add role assignment for a group
+
+To add a role assignment for a group, use [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create). For information about how to get the object ID of the group, see [Get object IDs](#get-object-ids).
+
+```azurecli
+az role assignment create --role {roleNameOrId} --assignee-object-id {assigneeObjectId} --resource-group {resourceGroup} --scope /subscriptions/{subscriptionId}
+```
+
+The following example assigns the *Reader* role to the *Ann Mack Team* group with ID 22222222-2222-2222-2222-222222222222 at a subscription scope.
+
+```azurecli
+az role assignment create --role Reader --assignee-object-id 22222222-2222-2222-2222-222222222222 --scope /subscriptions/00000000-0000-0000-0000-000000000000
+```
+
+### Add role assignment for all blob containers
+
+```azurecli
+az role assignment create --assignee $AZURE_CLIENT_ID \
+    --role "Storage Blob Data Contributor" \
+    --scope "/subscriptions/$AZURE_SUBSCRIPTION_ID"
+```
+
+## Add role assignment at management group scope
+
+### Add role assignment for a user
+
+To add a role assignment for a user at a management group scope, use [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create). To get the management group ID, you can find it on the **Management groups** blade in the Azure portal or you can use [az account management-group list](/cli/azure/account/management-group#az-account-management-group-list).
+
+```azurecli
+az role assignment create --role {roleNameOrId} --assignee {assignee} --scope /providers/Microsoft.Management/managementGroups/{groupId}
+```
+
+The following example assigns the *Billing Reader* role to the *alain\@example.com* user at a management group scope.
+
+```azurecli
+az role assignment create --role "Billing Reader" --assignee alain@example.com --scope /providers/Microsoft.Management/managementGroups/marketing-group
+```
+
+## How to get IDs
+
+To add or remove role assignments, you might need to specify the unique ID of an object. The ID has the format: `11111111-1111-1111-1111-111111111111`. You can get the ID using the Azure portal or Azure CLI.
+
+### Get ID for a user
+
+To get the object ID for an Azure AD user, you can use [az ad user show](/cli/azure/ad/user#az-ad-user-show).
+
+```azurecli
+az ad user show --id "{email}" --query objectId --output tsv
+```
+
+### Get ID for a group
+
+To get the object ID for an Azure AD group, you can use [az ad group show](/cli/azure/ad/group#az-ad-group-show) or [az ad group list](/cli/azure/ad/group#az-ad-group-list).
+
+```azurecli
+az ad group show --group "{name}" --query objectId --output tsv
+```
+
+### Get ID for an application
+
+To get the object ID for an Azure AD service principal (identity used by an application), you can use [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list). For a service principal, use the object ID and **not** the application ID.
+
+```azurecli
+az ad sp list --display-name "{name}" --query [].objectId --output tsv
 ```
 
 ## Remove a role assignment
