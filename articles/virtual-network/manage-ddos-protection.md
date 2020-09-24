@@ -24,7 +24,7 @@ ms.author: kumud
 
 Learn how to enable and disable distributed denial of service (DDoS) protection, and use telemetry to mitigate a DDoS attack with Azure DDoS Protection Standard. DDoS Protection Standard protects Azure resources such as virtual machines, load balancers, and application gateways that have an Azure [public IP address](virtual-network-public-ip-address.md) assigned to it. To learn more about DDoS Protection Standard and its capabilities, see [DDoS Protection Standard overview](ddos-protection-overview.md).
 
-Before completing any steps in this tutorial, log in to the Azure portal at https://portal.azure.com with an account assigned to the [network contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role or to a [custom role](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) that is assigned the appropriate actions listed in [Permissions](#permissions).
+Before completing any steps in this tutorial, log in to the Azure portal at https://portal.azure.com with an account assigned to the [network contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role or to a [custom role](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) that is assigned the appropriate actions listed in [Permissions](#permissions-and-restrictions).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
