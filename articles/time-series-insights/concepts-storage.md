@@ -24,7 +24,7 @@ When you create an Azure Time Series Insights Gen2 environment, you have the fol
    * Create a new Azure Storage resource in the subscription and region you’ve chosen for your environment.
    * Attach a pre-existing Azure Storage account. This option is only available by deploying from an Azure Resource Manager [template](https://docs.microsoft.com/azure/templates/microsoft.timeseriesinsights/allversions), and is not visible in the Azure portal.
 * Warm data storage:
-   * A warm store is optional, and can be enabled or disabled during or after time of provisioning. If you decide to enable warm store at a later time and there is already data in your cold store, review [this](./concepts-storage#Warm-store-behavior) section below to understand the expected behavior. The warm store data retention time can be configured for 7 to 31 days, and this can also be adjusted as needed.
+   * A warm store is optional, and can be enabled or disabled during or after time of provisioning. If you decide to enable warm store at a later time and there is already data in your cold store, review [this](./concepts-storage#warm-store-behavior) section below to understand the expected behavior. The warm store data retention time can be configured for 7 to 31 days, and this can also be adjusted as needed.
 
 When an event is ingested, it is indexed in both warm store (if enabled) and cold store.
 
@@ -36,7 +36,7 @@ When an event is ingested, it is indexed in both warm store (if enabled) and col
 
 ## Data availability
 
-Azure Time Series Insights Gen2 partitions and indexes data for optimum query performance. Data becomes available to query from both warm (if enabled) and cold store after it's indexed. The amount of data that's being ingested and the per-partition throughput rate can affect availability. Review the event source throughput limitations and [best practices](./concepts-streaming-ingestion-event-sources.md#streaming-ingestion-best-practices) for best performance. You can also configure a lag [alert](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency#monitor-latency-and-throttling-with-alerts) to be notified if your environment is experiencing issues processing data.
+Azure Time Series Insights Gen2 partitions and indexes data for optimum query performance. Data becomes available to query from both warm (if enabled) and cold store after it's indexed. The amount of data that's being ingested and the per-partition throughput rate can affect availability. Review the event source [throughput limitations](./concepts-streaming-ingress-throughput-limits.md) and [best practices](./concepts-streaming-ingestion-event-sources.md#streaming-ingestion-best-practices) for best performance. You can also configure a lag [alert](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency#monitor-latency-and-throttling-with-alerts) to be notified if your environment is experiencing issues processing data.
 
 > [!IMPORTANT]
 > You might experience a period of up to 60 seconds before data becomes available. If you experience significant latency beyond 60 seconds, please submit a support ticket through the Azure portal.
@@ -48,9 +48,10 @@ Data in your warm store is available only via the [Time Series Query APIs](./tim
 ### Warm store behavior 
 
 * When enabled, all data streamed into your environment will be routed to your warm store, regardless of the event timestamp. Note that the streaming ingestion pipeline is built for near-real time streaming and ingesting historical events is [not supported](./concepts-streaming-ingestion-event-sources#historical-data-ingestion).
-* The retention period is calculated based on when the event was indexed in warm store, not the event timestamp. This means that data is no longer available in warm store after the retention period has elasped, even if the event timestamp if for the future.
+* The retention period is calculated based on when the event was indexed in warm store, not the event timestamp. This means that data is no longer available in warm store after the retention period has elasped, even if the event timestamp is for the future.
+  - Example: an event with 10-day weather forecasts is ingested and indexed in a warm storage container configured with a 7 day retention period. After 7 days time, the prediction is no longer accessible in warm store, but can be queried from cold. 
 * If you enable warm store on an existing environment that already has recent data indexed in cold storage, note that your warm store will not be back-filled with this data.
-  * If you just enabled warm store and are experiencing issues viewing your recent data in the Explorer, you can temporarily toggle warm store queries off:
+* If you just enabled warm store and are experiencing issues viewing your recent data in the Explorer, you can temporarily toggle warm store queries off:
 
 [![Disable warm queries](media/concepts-storage/toggle-warm.png)](media/concepts-storage/toggle-warm.png#lightbox)
 
