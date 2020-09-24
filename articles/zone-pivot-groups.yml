@@ -763,7 +763,7 @@ groups:
   - id: platform-azp
     title: Azure portal
   - id: platform-arm
-    title: Azure resource manager
+    title: Azure Resource Manager
   - id: platform-net
     title: .NET
   - id: platform-python
