@@ -411,7 +411,7 @@ When you are done and if you want to, you can delete the resource group. The act
 
 3. In the resource group page, click **Delete resource group**.
 
-    ![Delete resource group](../media/azure-netapp-files/azure-netapp-files-azure-delete-resource-group.png) 
+    ![Screenshot that highlights the Delete resource group button.](../media/azure-netapp-files/azure-netapp-files-azure-delete-resource-group.png) 
 
     A window opens and displays a warning about the resources that will be deleted with the resource group.
 
