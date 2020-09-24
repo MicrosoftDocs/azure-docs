@@ -75,7 +75,7 @@ The principal now has the required permissions to deploy the template.
 
 ## Deployment scopes
 
-When deploying to a tenant, you can target the tenant or management groups, subscriptions and resource groups in the tenant. The user deploying the template must have access to the specified scope.
+When deploying to a tenant, you can target the tenant or management groups, subscriptions, and resource groups in the tenant. The user deploying the template must have access to the specified scope.
 
 Resources defined within the resources section of the template are applied to the tenant.
 
