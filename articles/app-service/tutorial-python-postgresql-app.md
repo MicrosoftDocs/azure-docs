@@ -219,7 +219,7 @@ Django database migrations ensure that the schema in the PostgreSQL on Azure dat
 
     Replace `<app-name>` with the name used earlier in the `az webapp up` command.
 
-    On macOS and Linux, you can alternately connect to an SSH session with the [`az webapp ssh`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_ssh) command.
+    On macOS and Linux, you can alternately connect to an SSH session with the [`az webapp ssh`](/cli/azure/webapp?view=azure-cli-latest&preserve-view=true#az_webapp_ssh) command.
 
 1. In the SSH session, run the following commands (you can paste commands using **Ctrl**+**Shift**+**V**):
 
