@@ -10,7 +10,7 @@ ms.devlang:
 ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
-ms.reviewer: vanto, carlrab
+ms.reviewer: vanto, sstein
 ms.date: 08/17/2020
 ---
 
