@@ -182,7 +182,7 @@ import msal
 Then, initialize MSAL using the following code:
 
 ```Python
-app = msal.ConfidentialClientApplication(landing page
+app = msal.ConfidentialClientApplication(
     config["client_id"], authority=config["authority"],
     client_credential=config["secret"])
 ```
