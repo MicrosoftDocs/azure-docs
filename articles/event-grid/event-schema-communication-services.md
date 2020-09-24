@@ -7,6 +7,12 @@ ms.author: mikben
 ---
 
 # Azure Communication Services as an Event Grid source
+
+> [!IMPORTANT]
+> Azure Communication Services is currently in public preview.
+> This preview version is provided without a service-level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 This article provides the properties and schema for Azure Communication Services events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md).
 
 ## Event Grid event schema
@@ -30,7 +36,6 @@ Azure Communication Services emits the following event types:
 | Microsoft.Communication.ChatMemberAddedToThreadWithUser     | Published when the user is added as member to a chat thread.                                   |
 | Microsoft.Communication.ChatMemberRemovedFromThreadWithUser | Published when the user is removed from a chat thread.                                         |
 
-You can use the Azure portal or Azure CLI to subscribe to events emitted by your Communication Services resource. Get started with handling events by looking at [How to handle SMS Events in Communication Services](../quickstarts/telephony-sms/handle-sms-events.md)
 
 *Please make sure you provide "sender name" in your "send message" API calls for these events to get triggered.
 
