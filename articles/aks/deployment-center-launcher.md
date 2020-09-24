@@ -47,19 +47,15 @@ In this tutorial, you will:
 
 1. Go to the resource group that you created in the previous section.
 
-1. Select the AKS cluster, and then select **Deployment Center (preview)** on the left blade. Select **Get started**.
+1. Select the AKS cluster, and then select **Deployment Center (preview)** on the left blade. 
 
-   ![settings](media/deployment-center-launcher/settings.png)
+1. Choose the location of the code -  **Azure Repos** ; **GitHub** or **BitBucket**. In case your repository is hosted somewhere else, you can use option of **External Git**.  and then, select **Next**.  
 
-1. Choose the location of the code and select **Next**. Then, select one of the currently supported repositories: **[Azure Repos](/azure/devops/repos/index?view=azure-devops)** or **GitHub**.
-
-    Azure Repos is a set of version control tools that help you manage your code. Whether your software project is large or small, using version control as early as possible is a good idea.
-
-    - **Azure Repos**: Choose a repository from your existing project and organization.
+    - Azure portal is already authorised to access **Azure Repos** and you can choose a repository from your existing project and organization.
 
         ![Azure Repos](media/deployment-center-launcher/azure-repos.gif)
 
-    - **GitHub**: Authorize and select the repository for your GitHub account.
+    - For others you would need to authorize your account and select the repository. Example - **GitHub**: 
 
         ![GitHub](media/deployment-center-launcher/github.gif)
 
@@ -72,19 +68,20 @@ In this tutorial, you will:
 
     ![Dockerfile](media/deployment-center-launcher/dockerfile.png)
 
-1. Select an existing container registry or create one, and then select **Finish**. The pipeline is created automatically and queues a build in [Azure Pipelines](/azure/devops/pipelines/index?view=azure-devops).
-
-    Azure Pipelines is a cloud service that you can use to automatically build and test your code project and make it available to other users. Azure Pipelines combines continuous integration and continuous delivery to constantly and consistently test and build your code and ship it to any target.
+1. Select an existing container registry or create one, and then select **Finish**. Deployment Center for AKS configures automatically configures appropriate CI/CD tool - either [Azure Pipelines](/azure/devops/pipelines/index?view=azure-devops) or [GitHub Actions](https://github.com/features/actions) for your application and trigger the workflow run. 
+   
 
     ![Container Registry](media/deployment-center-launcher/container-registry.png)
-
-1. Select the link to see the ongoing pipeline.
 
 1. You'll see the successful logs after deployment is complete.
 
     ![Logs](media/deployment-center-launcher/logs.png)
+    
 
-## Examine the CI pipeline
+## Examine the GitHub Actions Workflow
+You can look at the history of [workflow runs](https://docs.github.com/en/actions/managing-workflow-runs/viewing-workflow-run-history)  configured by clicking on **Pipeline** link.  A workflow is a configurable automated process defined in a  YAML file. To update the workflow YML refer [this](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions). 
+
+## Examine the CI in Azure pipeline
 
 Deployment Center automatically configures your Azure DevOps organization's CI/CD pipeline. The pipeline can be explored and customized.
 
@@ -106,7 +103,7 @@ Deployment Center automatically configures your Azure DevOps organization's CI/C
 
 1. Select **Retention**. You can specify policies to keep or remove a number of builds, depending on your scenario.
 
-## Examine the CD pipeline
+## Examine the CD in Azure pipeline
 
 Deployment Center automatically creates and configures the relationship between your Azure DevOps organization and your Azure subscription. The steps involved include setting up an Azure service connection to authenticate your Azure subscription with Azure DevOps. The automated process also creates a release pipeline, which provides continuous delivery to Azure.
 
@@ -130,7 +127,7 @@ Deployment Center automatically creates and configures the relationship between 
 
 ## Clean up resources
 
-You can delete the related resources that you created when you don't need them anymore. Use the delete functionality on the DevOps Projects dashboard.
+You can delete the related resources that you created when you don't need them anymore. 
 
 ## Next steps
 
