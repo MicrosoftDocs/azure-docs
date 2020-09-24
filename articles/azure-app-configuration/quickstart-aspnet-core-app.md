@@ -125,10 +125,10 @@ A `UserSecretsId` element containing a GUID is added to the *.csproj* file:
 
     Access this secret using the .NET Core Configuration API. A colon (`:`) works in the configuration name with the Configuration API on all supported platforms. See [Configuration by environment](/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0).
 
-1. Open *Program.cs*, and add a reference to the .NET Core App Configuration provider:
+1. In *Program.cs*, add a reference to the .NET Core Configuration provider namespace:
 
     ```csharp
-    using Microsoft.Extensions.Configuration.AzureAppConfiguration;
+    using Microsoft.Extensions.Configuration;
     ```
 
 1. Update the `CreateWebHostBuilder` method to use App Configuration by calling the `AddAzureAppConfiguration` method.
