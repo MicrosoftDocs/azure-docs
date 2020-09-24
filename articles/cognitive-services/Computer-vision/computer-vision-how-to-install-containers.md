@@ -35,7 +35,7 @@ You must meet the following prerequisites before using the containers:
 
 ## Request approval to run the container
 
-Fill out and submit the [request form](https://aka.ms/cognitivegate) to request approval to run the container. 
+Fill out and submit the [request form](https://aka.ms/csgate) to request approval to run the container. 
 
 [!INCLUDE [Request access to public preview](../../../includes/cognitive-services-containers-request-access.md)]
 
@@ -340,7 +340,7 @@ You can use the following operation to synchronously read an image.
 
 # [Version 3.0-preview](#tab/version-3)
 
-`POST /vision/v3.0/read/SyncAnalyze`
+`POST /vision/v3.0/read/syncAnalyze`
 
 ---
 
