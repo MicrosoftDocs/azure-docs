@@ -18,23 +18,23 @@ To see if an Azure Data Factory feature or article applies to Azure Synapse, che
 
 ![Applies to moniker](../media/concepts-data-factory-differences/applies-to-moniker.png "Applies to moniker")
 
-## The following features are available in Azure Data Factory, but aren't planned for Azure Synapse.
+## Features in Azure Data Factory not planned for Azure Synapse
 
 The following features are available in Azure Data Factory, but aren't planned for Azure Synapse.
 
-* The ability to lift and shift SSIS packages
-* Snowflake as a sink in the copy activity and mapping data flow
+* The ability to lift and shift SSIS packages.
+* Snowflake as a sink in the copy activity and mapping data flow.
 * The mapping data flow time to live setting of the Azure integration runtime.
 
 ## Azure Synapse features not supported in Azure Data Factory
 
-The following features are available in Azure Synapse but aren't planned for Azure Data Factory.
+The following features are available in Azure Synapse, but aren't planned for Azure Data Factory.
 
-* Spark job monitoring of mapping data flows is only available in Synapse. In Synapse, the Spark engine is contained in the user's subscription so users can view detailed Spark logs. In ADF, job execution occurs on an ADF-managed Spark cluster. 
+* Spark job monitoring of mapping data flows is only available in Synapse. In Synapse, the Spark engine is contained in the user's subscription so users can view detailed Spark logs. In Azure Data Factory, job execution occurs on an Azure Data Factory-managed Spark cluster. 
 
-## Azure Data Factory features that behave different in Synapse
+## Azure Data Factory features that behave differently in Synapse
 
-The following features either behave differently or don't yet exist in Azure Synapse. 
+The following features either behave differently or don't currently exist in Azure Synapse. 
 
 * Wrangling data flows
 * The solution template gallery
