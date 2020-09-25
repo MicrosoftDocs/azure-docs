@@ -7,8 +7,8 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
-ms.date: 2/5/2020
-ms.author: martinle
+ms.date: 9/25/2020
+ms.author: kevinvngo
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ---
@@ -17,7 +17,7 @@ ms.custom: azure-synapse
 
 Azure Stream Analytics is a fully managed service providing low-latency, highly available, scalable complex event processing over streaming data in the cloud. You can learn the basics by reading [Introduction to Azure Stream Analytics](../../stream-analytics/stream-analytics-introduction.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). You can then learn how to create an end-to-end solution with Stream Analytics by following the [Get started using Azure Stream Analytics](../../stream-analytics/stream-analytics-real-time-fraud-detection.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) tutorial.
 
-In this article, you will learn how to use your data warehouse as an output sink for your Azure Stream Analytics jobs.
+In this article, you will learn how to use your data warehouse as an output sink for high throughput data ingestion with Azure Stream Analytics jobs.
 
 ## Prerequisites
 
