@@ -20,18 +20,9 @@ This article assumes that you have an Azure account and Speech service subscript
 
 ## Set source and target language
 
-This command calls Speech CLI to translate speech from the microphone from Italian to French. You can say _grazie_, which translate into _merci_.
+This command calls Speech CLI to translate speech from the microphone from Italian to French. You can say _grazie_, which translates into _merci_.
 
 ```shell
  spx translate --microphone --source it-IT --target fr
 ```
 
-The **--source** parameter expects a language-locale format string. You can provide any value in the **Locale** column in the list of supported [locales/languages](../../../language-support.md).
-
-## Synthesize translations
-
-### Event-based synthesis
-
-### Manual synthesis
-
-For more information about speech synthesis, see [the basics of speech synthesis](../../../text-to-speech-basics.md).
