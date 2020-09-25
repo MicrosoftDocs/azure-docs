@@ -116,11 +116,11 @@ To configure Azure AD single sign-on with Springer Link, perform the following s
 
 6. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click the copy icon to copy **App Federation Metadata Url** and save it on your computer.
 
-	![The metadata download link](common/metadata-url.png)
+	![The metadata download link](common/copy_metadataurl.png)
 
 ### Configure Springer Link Single Sign-On
 
-To configure single sign-on on **Springer Link** side, you need to send the copied **App Federation Metadata Url** to [Springer Link support team](mailto:onlineservice@springernature.com). They use this Url to have the SAML SSO connection set up properly on both sides.
+To configure single sign-on on the **Springer Link** side, you need to send the copied **App Federation Metadata Url** to the [Springer Link support team](mailto:onlineservice@springernature.com). The Springer link support team uses this URL to set up the SAML SSO connection properly on both sides.
 
 ### Create an Azure AD test user 
 
