@@ -28,6 +28,12 @@ During initial setup, the a few things are done that makes cloud provisoining ha
 - **During agent installation**: You configure the agent for the AD domains you want to provision from.  This configuration registers the domains in the hybrid identity service and establishes an outbound connection to the service bus listening for requests.
 - **When you enable provisioning**: You select the AD domain and enable provisioning which runs every 2 mins. Optionally you may deselect password hash sync and define notification email. You can also manage attribute transformation using Microsoft Graph APIs.
 
+## What is System for Cross-domain Identity Management (SCIM)?
+
+The [SCIM specification](https://tools.ietf.org/html/draft-scim-core-schema-01) is a standard that is used to automate the exchanging of user or group identity information between identity domains such as Azure AD. SCIM is becoming the de facto standard for provisioning and, when used in conjunction with federation standards like SAML or OpenID Connect, provides administrators an end-to-end standards-based solution for access management.
+
+The Azure AD Connect cloud provisioning agent uses SCIM with Azure AD to provision and deprovision users and groups.
+
 ## Cloud provisioning flow
 ![provisioning](media/concept-how-it-works/provisioning1.png)
 Once you have installed the agent and enabled provisioning, the following flow occurs.
