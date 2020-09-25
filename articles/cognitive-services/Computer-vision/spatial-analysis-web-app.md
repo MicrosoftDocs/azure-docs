@@ -122,14 +122,13 @@ Now that the [deployment manifest](https://go.microsoft.com/fwlink/?linkid=21421
 ```azurecli
 az login
 az extension add --name azure-iot
-az iot edge deployment create --deployment-id "<deployment name>" --hub-name "<IoT Hub name>" --content DeploymentManifest.json --target-condition "deviceId='<IoT Edge device name>'"--subscription "<subscriptionId>"
+az iot edge set-modules --hub-name "<IoT Hub name>" --device-id "<IoT Edge device name>" --content DeploymentManifest.json -–subscription "<subscriptionId>"
 ```
 
 Fill in the required parameters:
 
-* Deployment name: Choose a name for this deployment
 * IoT Hub Name: Your Azure IoT Hub name
-* Deployment.json: The name of your deployment file
+* DeploymentManifest.json: The name of your deployment file
 * IoT Edge device name: The IoT Edge device name of your host computer
 * Subscription: Your subscription ID or name
 
