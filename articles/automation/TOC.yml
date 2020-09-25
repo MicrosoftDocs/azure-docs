@@ -193,29 +193,31 @@
         - name: Change tracking and inventory
           items:
             - name: Overview
-              href: change-tracking.md
+              href: change-tracking/overview.md
             - name: Support regions for linked Log Analytics workspace
               href: how-to/region-mappings.md
             - name: Enable
               items:
                 - name: Enable Change Tracking and Inventory from the Azure portal
-                  href: automation-enable-changes-from-browse.md
+                  href: change-tracking/enable-from-portal.md
                 - name: Enable Change Tracking and Inventory from an Azure VM
-                  href: automation-enable-changes-from-vm.md
+                  href: change-tracking/enable-from-vm.md
                 - name: Enable Change Tracking and Inventory from an Automation account
-                  href: automation-enable-changes-from-auto-acct.md
+                  href: change-tracking/enable-from-automation-account.md
                 - name: Enable Change Tracking and Inventory from a runbook
-                  href: automation-enable-changes-from-runbook.md
+                  href: change-tracking/enable-from-runbook.md
             - name: Manage change tracking and inventory
-              href: change-tracking-file-contents.md
+              href: change-tracking/manage-change-tracking.md
             - name: Manage inventory collection from VMs
-              href: automation-vm-inventory.md
+              href: change-tracking/manage-inventory-vms.md
             - name: Work with scope configurations
-              href: automation-scope-configurations-change-tracking.md
-            - name: Unlink workspace from Automation account
-              href: automation-unlink-workspace-change-tracking.md
-            - name: Remove VMs from Change Tracking and Inventory
-              href: automation-remove-vms-from-change-tracking.md
+              href: change-tracking/manage-scope-configurations.md
+            - name: Disable
+              items:
+                - name: Remove Change Tracking and Inventory
+                  href: change-tracking/remove-feature.md
+                - name: Remove VMs from Change Tracking and Inventory
+                  href: change-tracking/remove-vms-from-change-tracking.md
             - name: Troubleshoot
               items:
                 - name: Troubleshoot feature deployment issues

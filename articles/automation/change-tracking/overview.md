@@ -3,13 +3,13 @@ title: Azure Automation Change Tracking and Inventory overview
 description: This article describes the Change Tracking and Inventory feature, which helps you identify software and Microsoft service changes in your environment.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 08/17/2020
+ms.date: 09/25/2020
 ms.topic: conceptual
 ---
 
 # Change Tracking and Inventory overview
 
-This article introduces you to Change Tracking and Inventory in Azure Automation. This feature tracks changes in virtual machines and server infrastructure to help you pinpoint operational and environmental issues with software managed by the Distribution Package Manager. Items that are tracked by Change Tracking and Inventory include: 
+This article introduces you to Change Tracking and Inventory in Azure Automation. This feature tracks changes in virtual machines hosted in Azure, on-premises, and other cloud environments to help you pinpoint operational and environmental issues with software managed by the Distribution Package Manager. Items that are tracked by Change Tracking and Inventory include:
 
 - Windows software
 - Linux software (packages)
@@ -21,40 +21,45 @@ This article introduces you to Change Tracking and Inventory in Azure Automation
 > [!NOTE]
 > To track Azure Resource Manager property changes, see the Azure Resource Graph [change history](../governance/resource-graph/how-to/get-resource-changes.md).
 
-Change Tracking and Inventory obtains its data from Azure Monitor. Virtual machines connected to Log Analytics workspaces use the Log Analytics agent to collect data about changes to installed software, Microsoft services, Windows registry and files, and Linux daemons on monitored servers. When data is available, the agent sends it to Azure Monitor for processing. Azure Monitor applies logic to the received data, records it, and makes it available.
+Change Tracking and Inventory makes use of [Azure Security Center File Integrity Monitoring (FIM)](../security-center/security-center-file-integrity-monitoring.md) to examines files and registries of operating systems. While FIM monitors those entities, Change Tracking and Inventory natively tracks:
+
+- Software changes
+- Microsoft services
+- Linux daemons
+
+Enabling all features included in Change Tracking and Inventory might cause additional charges. Before proceeding, review [Automation Pricing](https://azure.microsoft.com/pricing/details/automation/). We recommend that you monitor your linked Log Analytics workspace to keep track of your exact usage. For more information about analyzing Azure Monitor Logs data usage, see [Manage usage and cost](../../azure-monitor/platform/manage-cost-storage.md).
+
+Change Tracking and Inventory forwards data to Azure Monitor Logs and this collected data is stored in a Log Analytics workspace. The File Integrity Monitoring (FIM) feature is available only when **Azure Defender for servers** is enabled. See [Pricing](../../security-center/security-center-pricing.md) to learn more. FIM uploads data to the same Log Analytics workspace as the one created to store data from Change Tracking and Inventory.
+
+Machines connected to the Log Analytics workspace use the Log Analytics agent to collect data about changes to installed software, Microsoft services, Windows registry and files, and Linux daemons on monitored servers. When data is available, the agent sends it to Azure Monitor Logs for processing. Azure Monitor Logs applies logic to the received data, records it, and makes it available.
 
 > [!NOTE]
 > Change Tracking and Inventory requires linking a Log Analytics workspace to your Automation account. For a definitive list of supported regions, see [Azure Workspace mappings](./how-to/region-mappings.md). The region mappings don't affect the ability to manage VMs in a separate region from your Automation account.
 
-Change Tracking and Inventory currently doesn't support the following items:
+## Current limitations
+
+Change Tracking and Inventory doesn't support or has the following limitations:
 
 - Recursion for Windows registry tracking
-- Network filesystems
+- Network file systems
 - Different installation methods
-- ***.exe** files for Windows
-
-Other limitations:
-
+- ***.exe** files stored on Windows
 - The **Max File Size** column and values are unused in the current implementation.
-- If you collect more than 2500 files in a 30-minute collection cycle, Change Tracking and Inventory performance might be degraded.
-- When network traffic is high, change records can take up to six hours to display.
-- If you modify a configuration while a computer is shut down, the computer might post changes belonging to the previous configuration.
-
-Change Tracking and Inventory currently is experiencing the following issues:
-
-- Hotfix updates aren't collected on Windows Server 2016 Core RS3 machines.
-
-- Linux daemons might show a changed state even though no change has occurred. This issue arises because of the way the `SvcRunLevels` data in the Azure Monitor [ConfigurationChange](/azure/azure-monitor/reference/tables/configurationchange) log is captured.
+- If you try to collect more than 2500 files in a 30-minute collection cycle, Change Tracking and Inventory performance might be degraded.
+- If network traffic is high, change records can take up to six hours to display.
+- If you modify a configuration while a machine or server is shut down, it might post changes belonging to the previous configuration.
+- Collecting Hotfix updates on Windows Server 2016 Core RS3 machines.
+- Linux daemons might show a changed state even though no change has occurred. This issue arises because of the way the `SvcRunLevels` data in the Azure Monitor [ConfigurationChange](/azure/azure-monitor/reference/tables/configurationchange) table is written.
 
 ## Supported operating systems
 
-Change Tracking and Inventory is supported on all operating systems that meet Log Analytics agent requirements. The official operating system versions are Windows Server 2008 SP1 or later and Windows 7 SP1 or later. The feature is also supported on a number of Linux operating systems. For a list of supported operating systems, see [Log Analytics agent overview](../azure-monitor/platform/log-analytics-agent.md).
+Change Tracking and Inventory is supported on all operating systems that meet Log Analytics agent requirements. See [Supported operating systems](../../azure-monitor/platform/agents-overview.md#supported-operating-systems) for a list of the Windows and Linux operating system versions that are currently supported by the Log Analytics agent.
 
 To understand client requirements for TLS 1.2, see [TLS 1.2 enforcement for Azure Automation](automation-managing-data.md#tls-12-enforcement-for-azure-automation).
 
 ## Network requirements
 
-Change Tracking and Inventory specifically requires the network addresses listed in the next table. Communications to these addresses use port 443.
+The following addresses are required specifically for Change Tracking and Inventory. Communication to these addresses occurs over port 443.
 
 |Azure Public  |Azure Government  |
 |---------|---------|
@@ -63,45 +68,15 @@ Change Tracking and Inventory specifically requires the network addresses listed
 |*.blob.core.windows.net | *.blob.core.usgovcloudapi.net|
 |*.azure-automation.net | *.azure-automation.us|
 
-## Change Tracking and Inventory user interface
+When you create network group security rules or configure Azure Firewall to allow traffic to the Automation service and the Log Analytics workspace, use the [service tag](../../virtual-network/service-tags-overview.md#available-service-tags) **GuestAndHybridManagement** and **AzureMonitor**. This simplifies the ongoing management of your network security rules. To connect to the Automation service from your Azure VMs securely and privately, review [Use Azure Private Link](../how-to/private-link-security.md). To obtain the current service tag and range information to include as part of your on-premises firewall configurations, see [downloadable JSON files](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
 
-Use Change Tracking and Inventory in the Azure portal to view the summary of changes for monitored computers. The feature is available by selecting one of the add VMs options for either **Change tracking** or **Inventory** under **Configuration Management** in your Automation account.  
-
-![Change Tracking dashboard](./media/change-tracking/change-tracking-dash01.png)
-
-Dropdowns are available at the top of the dashboard to limit the change tracking chart and detailed information based on change type and time ranges. You can also click and drag on the chart to select a custom time range. 
-
-You can click on a change or event to bring up its details. The available change types are:
-
-- Events
-- Daemons
-- Files
-- Registry
-- Software
-- Microsoft services
-
-You can add, modify, or remove each change. The example below shows a change in the startup type of a service from Manual to Auto.
-
-![Change Tracking and Inventory details](./media/change-tracking/change-tracking-details.png)
-
-## FIM support in Azure Security Center
-
-Change Tracking and Inventory makes use of [Azure Security Center File Integrity Monitoring (FIM)](../security-center/security-center-file-integrity-monitoring.md). While FIM monitors files and registries only, the full Change Tracking and Inventory feature also includes tracking for:
-
-- Software changes
-- Microsoft services
-- Linux daemons
-
-> [!NOTE]
-> Enabling the full Change Tracking and Inventory feature might cause additional charges. See [Automation Pricing](https://azure.microsoft.com/pricing/details/automation/). It's possible to delete FIM from the [list of installed monitoring solutions](../azure-monitor/insights/solutions.md#list-installed-monitoring-solutions) available in the Azure portal. See [Remove a monitoring solution](../azure-monitor/insights/solutions.md#remove-a-monitoring-solution).
-
-## Tracking of file changes
+## Tracking file changes
 
 For tracking changes in files on both Windows and Linux, Change Tracking and Inventory uses MD5 hashes of the files. The feature uses the hashes to detect if changes have been made since the last inventory.
 
-## Tracking of file content changes
+## Tracking file content changes
 
-Change Tracking and Inventory allows you to view the contents of a Windows or Linux file. For each change to a file, Change Tracking and Inventory stores the contents of the file in an [Azure Storage account](../storage/common/storage-account-create.md). When you're tracking a file, you can view its contents before or after a change. The file content can be viewed either inline or side by side. 
+Change Tracking and Inventory allows you to view the contents of a Windows or Linux file. For each change to a file, Change Tracking and Inventory stores the contents of the file in an [Azure Storage account](../storage/common/storage-account-create.md). When you're tracking a file, you can view its contents before or after a change. The file content can be viewed either inline or side by side.
 
 ![View changes in a file](./media/change-tracking/view-file-changes.png)
 
