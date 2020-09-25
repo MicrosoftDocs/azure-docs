@@ -94,8 +94,6 @@
         href: ../common/scalability-targets-resource-provider.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Performance and scalability checklist
       href: storage-performance-checklist.md
-  - name: Concurrency
-    href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
   - name: Monitor and troubleshoot
     items:
     - name: Troubleshooting tutorial
@@ -209,6 +207,8 @@
       href: ../common/last-sync-time-get.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Initiate account failover
       href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+  - name: Manage concurrency
+    href: concurrency-manage.md
   - name: Use a storage emulator
     items:
     - name: Use the Azurite open-source emulator

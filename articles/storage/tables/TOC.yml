@@ -148,6 +148,8 @@
       href: ../common/last-sync-time-get.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
     - name: Initiate account failover
       href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+  - name: Manage concurrency
+    href: concurrency-manage.md
   - name: Transfer data
     items:  
     - name: AzCopy on Windows (v8)
