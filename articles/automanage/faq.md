@@ -34,7 +34,7 @@ The following are prerequisites for enabling Azure Automanage:
 
 If you are enabling Automanage on an VM with an existing Automanage Account, you need Contributor role to the Resource Group where the VM resides.
 
-If you are using a new Automanage Account when enabling, users must have either the Owner role or have Contributor + User Access Administrator role to the subscription.
+If you are using a new Automanage Account when enabling, you must have either the Owner role or have Contributor + User Access Administrator role to the subscription.
 
 
 **What regions are supported?**
