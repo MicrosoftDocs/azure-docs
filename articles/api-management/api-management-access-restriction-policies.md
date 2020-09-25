@@ -14,7 +14,6 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
-ms.custom: fasttrack-edit
 ---
 
 # API Management access restriction policies
@@ -155,7 +154,7 @@ For more information and examples of this policy, see [Advanced request throttli
 > Due to the distributed nature of throttling architecture, rate limiting is never completely accurate. The difference between configured and the real number of allowed requests vary based on request volume and rate, backend latency, and other factors.
 
 > [!NOTE]
-> [To understand the difference between rate limits and quotas, please see here.](./api-management-sample-flexible-throttling.md#rate-limits-and-quotas)
+> To understand the difference between rate limits and quotas, [see Rate limits and quotas.](./api-management-sample-flexible-throttling.md#rate-limits-and-quotas)
 
 ### Policy statement
 
@@ -265,7 +264,7 @@ The `quota` policy enforces a renewable or lifetime call volume and/or bandwidth
 > [Policy expressions](api-management-policy-expressions.md) cannot be used in any of the policy attributes for this policy.
 
 > [!NOTE]
-> [To understand the difference between rate limits and quotas, please see here.](./api-management-sample-flexible-throttling.md#rate-limits-and-quotas)
+> To understand the difference between rate limits and quotas, [see Rate limits and quotas.](./api-management-sample-flexible-throttling.md#rate-limits-and-quotas)
 
 ### Policy statement
 
@@ -325,7 +324,7 @@ The `quota-by-key` policy enforces a renewable or lifetime call volume and/or ba
 For more information and examples of this policy, see [Advanced request throttling with Azure API Management](./api-management-sample-flexible-throttling.md).
 
 > [!NOTE]
-> [To understand the difference between rate limits and quotas, please see here.](./api-management-sample-flexible-throttling.md#rate-limits-and-quotas)
+> To understand the difference between rate limits and quotas, [see Rate limits and quotas.](./api-management-sample-flexible-throttling.md#rate-limits-and-quotas)
 
 ### Policy statement
 
