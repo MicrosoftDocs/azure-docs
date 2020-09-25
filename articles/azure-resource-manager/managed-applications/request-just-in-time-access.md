@@ -60,15 +60,13 @@ In "outputs":
 > [!NOTE]
 > JIT access is in preview. The schema for JIT configuration could change in future iterations.
 
-To learn more about publishing your first managed application offering in the Azure Marketplace, see [Create an Azure application offer](../../marketplace/partner-center-portal/create-new-azure-apps-offer.md).
-
 ## Enable JIT access
 
 When creating your offer in Partner Center, make sure you enable JIT access.
 
 1. Sign in to the Commercial Marketplace portal in [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview).
 
-1. For guidance creating a new managed application, follow the steps in [Create an Azure application offer](../../marketplace/partner-center-portal/create-new-azure-apps-offer).
+1. For guidance creating a new managed application, follow the steps in [Create an Azure application offer](../../marketplace/partner-center-portal/create-new-azure-apps-offer.md).
 
 1. On the **Technical configuration** page, select the **Enable just-in-time (JIT) access** checkbox.
 
