@@ -144,9 +144,9 @@ If you have some JMX metrics that you are interested in capturing:
     "preview": {
       "jmxMetrics": [
         {
-          "objectName": "java.lang:type=GarbageCollector,name=*",
-          "attribute": "LastGcInfo.duration",
-          "display": "GC Duration"
+          "objectName": "java.lang:type=Runtime",
+          "attribute": "Uptime",
+          "display": "JVM uptime (millis)"
         },
         {
           "objectName": "java.lang:type=MemoryPool,name=Code Cache",
