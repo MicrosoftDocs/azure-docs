@@ -88,7 +88,7 @@ This role allows the user to view all devices at single glance, with the ability
  
 All the new query capabilities introduced for Directory Objects (AAD) APIs are now available in the v1.0 endpoint and production-ready. Developers can Count, Search, Filter, and Sort Directory Objects and related links using the standard OData operators.
 
-To learn more, see [Use query parameters to customize responses](https://docs.microsoft.com/graph/query-parameters?context=graph/api/1.0), and you can also send feedback with this [brief survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR_yN8EPoGo5OpR1hgmCp1XxUMENJRkNQTk5RQkpWTE44NEk2U0RIV0VZRy4u).
+To learn more, see the documentation [here](https://aka.ms/BlogPostMezzoGA), and you can also send feedback with this [brief survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR_yN8EPoGo5OpR1hgmCp1XxUMENJRkNQTk5RQkpWTE44NEk2U0RIV0VZRy4u).
  
 ---
 
@@ -112,19 +112,19 @@ Administrators can now require that users requesting an access package answer ad
  
 ---
 
-### Enhanced user management
+### Public preview: Enhanced user management
 
 **Type:** New feature  
 **Service category:** User Management  
 **Product capability:** User Management
  
 
-We're making it easier to search, sort, and filter the All users and Deleted users lists in the Azure AD portal. Changes in the preview include: 
+The Azure AD portal has been updated to make it easier to find users in the All users and Deleted users pages. Changes in the preview include: 
 - More visible user properties including object ID, directory sync status, creation type, and identity issuer.
 - Search now allows combined search of names, emails, and object IDs.
-- Enhanced filtering by user type (member and guest), directory sync status, creation type, company name, and domain name.
+- Enhanced filtering by user type (member, guest, and none), directory sync status, creation type, company name, and domain name.
 - New sorting capabilities on properties like name, user principal name and deletion date.
-A new total users count that updates with any searches or filters.
+- A new total users count that updates with any searches or filters.
 
 For more information, please see [User management enhancements (preview) in Azure Active Directory](../users-groups-roles/users-search-enhanced.md).
 
