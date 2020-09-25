@@ -193,7 +193,7 @@ You can use more than one feature to describe a trait or concept. A common pairi
 
 ### Example: ticket-booking entity features for a travel app  
 
-As a first example, consider an app for booking a flight with a flight-reservation _intent_ and a ticket-booking _entity_. The ticket-booking entity captures the information to book a airplane ticket in a reservation system. This example is meant as an illustration of features, and not meant to be a complete or exact example.
+As a basic example, consider an app for booking a flight with a flight-reservation _intent_ and a ticket-booking _entity_. The ticket-booking entity captures the information to book a airplane ticket in a reservation system. 
 
 The machine-learning entity for ticket-book has two subentities to capture origin and destination. The features need to be added to each subentity, not the top level entity.
 
