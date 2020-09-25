@@ -30,7 +30,7 @@ This article applies to billing accounts for Microsoft Partner Agreements. These
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using CSP Admin Agent credentials in the CSP tenant.
 1. Search for **Cost Management + Billing**.  
-    ![Screenshot that shows Azure portal search for cost management + billing](./media/mpa-request-ownership/search-cmb.png)
+    ![Screenshot that shows Azure portal search for cost management + billing to request billing ownership.](./media/mpa-request-ownership/search-cmb.png)
 1. Select **Customers** from the left-hand side and then select a customer from the list.  
     [![Screenshot that shows selecting customers](./media/mpa-request-ownership/mpa-select-customers.png)](./media/mpa-request-ownership/mpa-select-customers.png#lightbox)
 1. Select **Transfer requests** from the lower-left side and then select **Add a new request**.  
@@ -52,7 +52,7 @@ This article applies to billing accounts for Microsoft Partner Agreements. These
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for **Cost Management + Billing**.  
-    ![Screenshot that shows Azure portal search for cost management + billing](./media/mpa-request-ownership/billing-search-cost-management-billing.png)
+    ![Screenshot that shows Azure portal search for cost management + billing to request transfer status.](./media/mpa-request-ownership/billing-search-cost-management-billing.png)
 1. Select **Customers** from the left-hand side.  
     [![Screenshot that shows selecting customers](./media/mpa-request-ownership/mpa-select-customers.png)](./media/mpa-request-ownership/mpa-select-customers.png#lightbox)
 1. Select the customer from the list for which you sent the transfer request.
