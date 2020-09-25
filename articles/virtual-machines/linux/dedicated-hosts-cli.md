@@ -25,7 +25,7 @@ Make sure that you have installed Azure CLI version 2.0.70 or later, and signed 
 ## Create resource group 
 An Azure resource group is a logical container into which Azure resources are deployed and managed. Create the resource group with az group create. The following example creates a resource group named *myDHResourceGroup* in the *East US* location.
 
-```bash
+```azurecli-interactive
 az group create --name myDHResourceGroup --location eastus 
 ```
  
@@ -64,8 +64,11 @@ Add the `--automatic-placement true` parameter to have your VMs and scale set in
 
 > [!IMPORTANT]
 > Automatic placement is currently in public preview.
+>
 > To participate in the preview, complete the preview onboarding survey at [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview).
+>
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+>
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ### Other examples
@@ -115,14 +118,14 @@ Create a virtual machine within a dedicated host using [az vm create](/cli/azure
 az vm create \
    -n myVM \
    --image debian \
-   --generate-ssh-keys \
    --host-group myHostGroup \
-   --host myHost \
    --generate-ssh-keys \
    --size Standard_D4s_v3 \
    -g myDHResourceGroup \
    --zone 1
 ```
+
+To place the VM on a specific host, use `--host` instead of specifying the host group with `--host-group`.
  
 > [!WARNING]
 > If you create a virtual machine on a host which does not have enough resources, the virtual machine will be created in a FAILED state. 
@@ -131,8 +134,11 @@ az vm create \
 
 > [!IMPORTANT]
 > Virtual Machine Scale Sets on Dedicated Hosts is currently in public preview.
+>
 > To participate in the preview, complete the preview onboarding survey at [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview).
+>
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+>
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 When you deploy a scale set, you specify the host group.
@@ -144,7 +150,6 @@ az vmss create \
   --image UbuntuLTS \
   --upgrade-policy-mode automatic \
   --admin-username azureuser \
-  --generate-ssh-keys
   --host-group myHostGroup \
   --generate-ssh-keys \
   --size Standard_D4s_v3 \
