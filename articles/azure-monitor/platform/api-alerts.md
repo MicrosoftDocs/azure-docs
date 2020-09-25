@@ -9,10 +9,10 @@ ms.date: 07/29/2018
 
 # Create and manage alert rules in Log Analytics with REST API 
 
-The Log Analytics Alert REST API allows you to create and manage alerts in Log Analytics.  This article provides details of the API and several examples for performing different operations.
-
 > [!IMPORTANT]
-> As [announced earlier](https://azure.microsoft.com/updates/switch-api-preference-log-alerts/), log analytics workspace(s) created after *June 1, 2019* - will be able to manage alert rules using **only** Azure scheduledQueryRules [REST API](/rest/api/monitor/scheduledqueryrules/), [Azure Resource Mananger Template](./alerts-log.md#managing-log-alerts-using-azure-resource-template) and [PowerShell cmdlet](./alerts-log.md#managing-log-alerts-using-powershell). Customers can easily [switch their preferred means of alert rule management](./alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api) for older workspaces to leverage Azure Monitor scheduledQueryRules as default and gain many [new benefits](./alerts-log-api-switch.md#benefits-of-switching-to-new-azure-api) like the ability to use native PowerShell cmdlets, increased lookback time period in rules, creation of rules in separate resource group or subscription and much more.
+> As [announced](https://azure.microsoft.com/updates/switch-api-preference-log-alerts/), log analytics workspace(s) created after *June 1, 2019* manage alert rules using the current [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrules/). Customers are encouraged to [switch to the current API](./alerts-log-api-switch.md) in older workspaces to leverage Azure Monitor scheduledQueryRules [benefits](./alerts-log-api-switch.md#benefits). This article describes management of alert rules using the legacy API.
+
+The Log Analytics Alert REST API allows you to create and manage alerts in Log Analytics.  This article provides details of the API and several examples for performing different operations.
 
 The Log Analytics Search REST API is RESTful and can be accessed via the Azure Resource Manager REST API. In this document, you will find examples where the API is accessed from a PowerShell command line using  [ARMClient](https://github.com/projectkudu/ARMClient), an open-source command-line tool that simplifies invoking the Azure Resource Manager API. The use of ARMClient and PowerShell is one of many options to access the Log Analytics Search API. With these tools, you can utilize the RESTful Azure Resource Manager API to make calls to Log Analytics workspaces and perform search commands within them. The API will output search results to you in JSON format, allowing you to use the search results in many different ways programmatically.
 

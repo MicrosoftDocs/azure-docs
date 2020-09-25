@@ -40,7 +40,7 @@ The two tabs below show the features of Azure Security Center that are available
 |Missing OS patches assessment|✔|✔|✔|Azure: Free<br><br>Non-Azure: Yes|
 |Security misconfigurations assessment|✔|✔|✔|Azure: No<br><br>Non-Azure: Yes|
 |[Endpoint protection assessment](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Azure: No<br><br>Non-Azure: Yes|
-|Disk encryption assessment|✔|✔|-|Free|
+|Disk encryption assessment|✔</br>(for [supported scenarios](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios))|✔|-|Free|
 |Third-party vulnerability assessment|✔|-|-|Free|
 |[Network security assessment](security-center-network-recommendations.md)|✔|✔|-|Free|
 
@@ -64,7 +64,7 @@ The two tabs below show the features of Azure Security Center that are available
 |Missing OS patches assessment|✔|✔|✔|Azure: Free<br><br>Non-Azure: Yes|
 |Security misconfigurations assessment|✔|✔|✔|Azure: Free<br><br>Non-Azure: Yes|
 |[Endpoint protection assessment](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|Free|
-|Disk encryption assessment|✔|✔|-|Free|
+|Disk encryption assessment|✔</br>(for [supported scenarios](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios))|✔|-|Free|
 |Third-party vulnerability assessment|✔|-|-|Free|
 |[Network security assessment](security-center-network-recommendations.md)|✔|✔|-|Free|
 

@@ -1,6 +1,6 @@
 ---
 title: Allowed CA for enabling custom HTTPS on Azure Front Door
-description: If you are using your own certificate to enable HTTPS on a custom domain, you must use an allowed certificate authority (CA) to create it.  
+description: If you are using your own certificate to enable HTTPS on an Azure Front Door 0custom domain, you must use an allowed certificate authority (CA) to create it.  
 services: frontdoor
 documentationcenter: ''
 author: duongau

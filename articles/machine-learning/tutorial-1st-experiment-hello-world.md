@@ -119,7 +119,7 @@ Here's a description of how the control script works:
       `run = experiment.submit(config)`
    :::column-end:::
    :::column span="2":::
-       Submits your script. This submission is called a [Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py&preserve-view=true).  A run encapsulates a single execution of your code. Use a run to monitor the script progress, capture the output, analyze the results, visualize metrics and more.
+       Submits your script. This submission is called a [Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true).  A run encapsulates a single execution of your code. Use a run to monitor the script progress, capture the output, analyze the results, visualize metrics and more.
    :::column-end:::
 :::row-end:::
 :::row:::

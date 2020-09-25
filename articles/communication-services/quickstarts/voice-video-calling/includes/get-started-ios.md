@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ---
 
-In this quickstart, you'll learn how start a call using the Azure Communication Services Calling client library for iOS.
+In this quickstart, you'll learn how to start a call using the Azure Communication Services Calling client library for iOS.
 
 ## Prerequisites
 
@@ -23,9 +23,9 @@ To complete this tutorial, you’ll need the following prerequisites:
 
 ### Creating the Xcode project
 
-In Xcode, create a new iOS project and select the **Single View App** template. This tutorial uses the [SwiftUI framework](https://developer.apple.com/xcode/swiftui/), so you should set the the **Language** to **Swift** and the **User Interface** to **SwiftUI**. You're not going to create unit tests or UI tests during this quick start. Feel free to un-check **Include Unit Tests** and also un-check **Include UI Tests**.
+In Xcode, create a new iOS project and select the **Single View App** template. This tutorial uses the [SwiftUI framework](https://developer.apple.com/xcode/swiftui/), so you should set the **Language** to **Swift** and the **User Interface** to **SwiftUI**. You're not going to create tests during this quick start. Feel free to uncheck **Include Tests**.
 
-:::image type="content" source="../media/ios/xcode-new-ios-project.png" alt-text="Screenshot showing the create new New Project window within Xcode.":::
+:::image type="content" source="../media/ios/xcode-new-ios-project.png" alt-text="Screenshot showing the New Project window within Xcode.":::
 
 ### Install the package
 
@@ -33,12 +33,12 @@ Add the Azure Communication Services Calling client library and its dependencies
 
 > [!NOTE]
 > With the release of AzureCommunicationCalling SDK you will find a bash script `BuildAzurePackages.sh`. 
-The script when run `sh ./BuildAzurePackages.sh` will give you the path to the generated framework packages which needs to be imported in the sample app in the next step. Note that you will need to set up Xcode Command Line Tools if you have not done so before you run the script: Start Xcode, select "Preferences -> Locations". Pick your Xcode version for the Command Line Tools.
+The script when run `sh ./BuildAzurePackages.sh` will give you the path to the generated framework packages which needs to be imported in the sample app in the next step. Note that you will need to set up Xcode Command Line Tools if you have not done so before you run the script: Start Xcode, select "Preferences -> Locations". Pick your Xcode version for the Command Line Tools. **BuildAzurePackages.sh script works only with Xcode 11.5 and above**
 
-1. Download the Azure Communication Services Calling client library for iOS.
+1. [Download](https://github.com/Azure/Communication/releases) the Azure Communication Services Calling client library for iOS.
 2. In Xcode, click on your project file to and select the build target to open the project settings editor.
 3. Under the **General** tab, scroll to the **Frameworks, Libraries, and Embedded Content** section and click the **"+"** icon.
-4. In the bottom left of the dialog, chose **Add Files**, navigate to the **AzureCommunicationCalling.framework** directory of the un-zipped client library package.
+4. In the bottom left of the dialog, use the drop-down chose **Add Files**, navigate to the **AzureCommunicationCalling.framework** directory of the unzipped client library package.
     1. Repeat the last step for adding **AzureCore.framework** and **AzureCommunication.framework**.
 5. Open the **Build Settings** tab of the project settings editor and scroll to the **Search Paths** section. Add a new **Framework Search Paths** entry for the directory containing the **AzureCommunicationCalling.framework**.
     1. Add another Framework Search Paths entry pointing to the folder containing the dependencies.
@@ -47,7 +47,7 @@ The script when run `sh ./BuildAzurePackages.sh` will give you the path to the g
 
 ### Request access to the microphone
 
-In order to access the device's microphone, you need to update your app's Information Property List with an `NSMicrophoneUsageDescription`. You set the associated value to a `string` that will be included in the dialog the system uses to request request access from the user.
+In order to access the device's microphone, you need to update your app's Information Property List with an `NSMicrophoneUsageDescription`. You set the associated value to a `string` that will be included in the dialog the system uses to request access from the user.
 
 Right-click the `Info.plist` entry of the project tree and select **Open As** > **Source Code**. Add the following lines the top level `<dict>` section, and then save the file.
 
@@ -117,7 +117,7 @@ The following classes and interfaces handle some of the major features of the Az
 | ACSCallClient | The CallClient is the main entry point to the Calling client library.|
 | ACSCallAgent | The CallAgent is used to start and manage calls. |
 | CommunicationUserCredential | The CommunicationUserCredential is used as the token credential to instantiate the CallAgent.| 
-| CommunicationIndentifier | The CommunicationIndentifier is used to represent the identity of the user which can be one of the following: CommunicationUser/PhoneNumber/CallingApplication. |
+| CommunicationIdentifier | The CommunicationIdentifier is used to represent the identity of the user which can be one of the following: CommunicationUser/PhoneNumber/CallingApplication. |
 
 ## Authenticate the client
 
@@ -186,7 +186,7 @@ func endCall()
 
 ## Run the code
 
-You can build an run your app on iOS simulator by selecting **Product** > **Run** or by using the (&#8984;-R) keyboard shortcut.
+You can build and run your app on iOS simulator by selecting **Product** > **Run** or by using the (&#8984;-R) keyboard shortcut.
 
 :::image type="content" source="../media/ios/quick-start-make-call.png" alt-text="Final look and feel of the quick start app":::
 
@@ -195,6 +195,6 @@ You can make an outbound VOIP call by providing a user ID in the text field and 
 > [!NOTE]
 > The first time you make a call, the system will prompt you for access to the microphone. In a production application, you should use the `AVAudioSession` API [check the permission status](https://developer.apple.com/documentation/uikit/protecting_the_user_s_privacy/requesting_access_to_protected_resources) and gracefully update your application's behavior when permission is not granted.
 
-## Sample
+## Sample Code
 
-You can download the sample app from [GitHub](https://github.com/Azure/Communication/tree/master/samples/AzureCommunicationCalling/iOS/Swift)
+You can download the sample app from [GitHub](https://github.com/Azure/Communication/tree/master/samples/Add%20Voice%20Calling/iOS/Swift)

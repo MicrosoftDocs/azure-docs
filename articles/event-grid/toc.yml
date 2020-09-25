@@ -112,6 +112,8 @@
         href: event-schema-app-service.md
       - name: Azure Blob Storage
         href: event-schema-blob-storage.md
+      - name: Azure Communication Services
+        href: event-schema-communication-services.md
       - name: Azure Container Registry
         href: event-schema-container-registry.md
       - name: Azure Event Hubs
@@ -214,7 +216,7 @@
     href: auth0-how-to.md
   - name: Receive events at HTTP endpoint
     href: receive-events.md
-  - name: Dead letter and retry
+  - name: Set dead-letter location and retry policy
     href: manage-event-delivery.md
   - name: Filter events
     href: how-to-filter-events.md

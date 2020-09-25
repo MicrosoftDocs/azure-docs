@@ -11,6 +11,7 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 09/15/2020
 ms.author: pafarley
+ms.custom: cog-serv-seo-aug-2020
 ---
 
 # Quickstart: How to build a classifier with Custom Vision
