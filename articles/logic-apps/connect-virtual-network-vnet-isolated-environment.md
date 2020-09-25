@@ -305,7 +305,7 @@ If you don't permit access for these dependencies, your ISE deployment fails and
    >    }
    > }
    > ```
-   > You will need to disable or remove your policy in order to add the ISE connectors.
+   > To add ISE connectors, you have to either disable or remove your policy.
    > 
 
 ## Next steps
