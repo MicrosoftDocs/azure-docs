@@ -1612,6 +1612,8 @@
         href: sprinklr-tutorial.md
       - name: SSOGEN Azure AD SSO Gateway for Oracle E Business Suite EBS, PeopleSoft, and JDE
         href: ssogen-tutorial.md
+      - name: Starmind
+        href: starmind-tutorial.md
       - name: StatusPage
         href: statuspage-tutorial.md
       - name: Stormboard
