@@ -93,7 +93,7 @@ where
 |`/np`     |Does not display progress of the copying operation.         |
 |`/MT:32 or 64`  |Uses multithreading, with 32 or 64 threads.           |
 |`/fft`    |Reduces time stamp granularity for any file system.        |
-|`/log+:\<LogFile>`  |Appends the output to the existing log file.|
+|`/log+:<LogFile>`  |Appends the output to the existing log file.|
 
 For more information on these `robocopy` parameters, see [Tutorial: Copy data to Azure Data Box via SMB](./data-box-deploy-copy-data.md)
 
