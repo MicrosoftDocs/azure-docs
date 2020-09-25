@@ -102,5 +102,49 @@ The following table gives the values for different properties of the **Operation
 | ConfigurationScope | | | | | InvalidSyntax | |
 | Data Collection Status | | | | | Warning | |
 
+## Columns
+
+| Column | Description |
+|:---|:---|
+| TimeGenerated | Incident time in UTC. |
+| Category  | Indicate the operation category group. Can be used to filter on types of operations and help create more precise system auditing and alerts. List of operation types descriptions might be found here. |
+| Operation  | The operation type description. This can indicate one of the Log Analytics limits, type of operation, or part of a process. |
+| Level | Status should reflect to the users the level of attention needed for this logged issue.<br>- Info: No specific attention needed.<br>- Warning: Process was not completed as expected, and attention is needed.<br>- Error: Process failed and urgent attention is needed. 
+| Detail | Operation details, will add more specific information in regarding the operation, and specific error message if exists. |
+| ResoruceId | References URI of the Azure based resource, this is the resource relate to the operation.  |
+| Computer | References to non-Azure based compute resource name running one of Azure Monitor agents. |
+| CorrelationId | User this property to group couple of consecutive operations together. for example: Agent installation process. |
+
+
+## Categories
+
+| Category | Description | Operations |
+|:---|:---|:---|
+| Ingestion | Operations that are part of the data ingestion process. Consists of issues that occurred during data ingestions including notification about reaching the Azure Log Analytics workspace limits, issues related to this category might suggest data loss. |- Ingestion volume rate limit<br>- Daily ingestion cap<br>- Free tier ingestion limit<br>- Max column limit<br>- Max column size limit<br>- JSON parsing |
+| Agent | Indicates an issue with agent installation. Monitor this type to audit your agent.  | - Auditd plugin issue<br>Agent for Linux |
+| Data collection | Operations related to data collections processes. | - Azure Activity Log Collection<br>- Active Directory Group Collection<br>- WSUS Client Group Collection |
+| Solution targeting | Operation of type *ConfigurationScope* was processed. |
+| Assessment solution | An assessment process was executed. | - Assessment Execution<br>- Is Local Administrator Check<br>- .Net 4.0 Check<br>- Assessment Target Check<br>- Security Baseline |
+
+
+
+
+
+, we recommend to filter on this type after the assessment was executed, and a summery sent to the process owner or Log Analytics workspace\subscription admin. 
+Operation types: Assessment Execution, Is Local Administrator Check, .Net 4.0 Check, Assessment Target Check, Security Baseline
+
+
+
+## Alerts
+
+
+
+
+, we recommend to set an alert on operation of this type with status == Failed. This indicated that a configuration attempt failed and should be check. 
+
+ We recommend to periodically audit operations at this status.  You should also consider 
+                      setting alerts if on all Warnings or just specific ones, for example, many limits place warnings when limit is reached at 80%.
+We recommend to add specific alerts at this status.  
+
 
 ## Next steps
