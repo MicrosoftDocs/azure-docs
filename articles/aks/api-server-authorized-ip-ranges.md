@@ -132,7 +132,7 @@ az aks update \
 
 You must add your development machines, tooling or automation IP addresses to the AKS cluster list of approved IP ranges in order to access the API server from there. 
 
-Another option is to configure a jumpbox with the needed tooling inside a separate subnet in the Firewall's virtual network. This assumes your environment has a Firewall with the respective network, and you have added the Firewall IPs to authorized ranges. Similarly, if you have forced tunnelling from the AKS subnet to the Firewall subnet, than having the jumpbox in the cluster subnet would be fine too.
+Another option is to configure a jumpbox with the needed tooling inside a separate subnet in the Firewall's virtual network. This assumes your environment has a Firewall with the respective network, and you have added the Firewall IPs to authorized ranges. Similarly, if you have forced tunnelling from the AKS subnet to the Firewall subnet, than having the jumpbox in the cluster subnet is fine too.
 
 Add another IP address to the approved ranges with the following command.
 
