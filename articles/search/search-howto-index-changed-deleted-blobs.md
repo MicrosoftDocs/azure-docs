@@ -1,7 +1,7 @@
 ---
 title: Changed and deleted blobs
 titleSuffix: Azure Cognitive Search
-description: Configure a search indexer to extract plain text from Azure blobs for full text search in Azure Cognitive Search.
+description: After an initial search index build that imports from Azure Blob storage, subsequent indexing can pick up just those blobs that are changed or deleted. This article explains the details.
 
 manager: nitinme
 author: MarkHeff

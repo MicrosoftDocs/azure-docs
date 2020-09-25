@@ -415,6 +415,8 @@ The following table summarizes processing done for each document format, and des
 | RTF (application/rtf) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_page_count`<br/>`metadata_word_count`<br/> | Extract text|
 | Plain text (text/plain) |`metadata_content_type`<br/>`metadata_content_encoding`<br/> | Extract text|
 
-## Help us make Azure Cognitive Search better
+## See also
 
-If you have feature requests or ideas for improvements, let us know on our [UserVoice site](https://feedback.azure.com/forums/263029-azure-search/).
+* [Indexers in Azure Cognitive Search](search-indexer-overview.md)
+* [Understand blobs using AI](search-blob-ai-integration.md)
+* [Blob indexing overview](search-blob-storage-integration.md)
