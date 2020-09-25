@@ -292,7 +292,7 @@
         href: log-query/query-optimization.md
       - name: Parse text data
         href: log-query/parse-text.md
-    - name: Workspaces
+    - name: Workspaces and clusters
       items:
       - name: Design a workspace deployment
         href: platform/design-logs-deployment.md
@@ -312,6 +312,8 @@
         href: platform/service-providers.md
       - name: Manage access
         href: platform/manage-access.md
+      - name: Dedicated clusters
+        href: log-query/logs-dedicated-clusters.md
   - name: Metrics explorer
     items:
     - name: Getting started with Metrics Explorer

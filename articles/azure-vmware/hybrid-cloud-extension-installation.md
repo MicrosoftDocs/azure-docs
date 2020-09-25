@@ -2,14 +2,14 @@
 title: Install VMware HCX
 description: Set up the VMware HCX solution for your Azure VMware Solution private cloud
 ms.topic: how-to
-ms.date: 09/24/2020
+ms.date: 09/24/2020  
 ---
 
 # Install HCX for Azure VMware Solution
 
 In this article, we walk through procedures for setting up the VMWare HCX solution for your Azure VMWare Solution private cloud. HCX enables migration of your VMware workloads to the cloud, and other connected sites through various built-in HCX supported migration types.
 
-HCX Advanced, the default installation, supports up to three site connections (on-premises or cloud to cloud). If more than three site connections are required, customers have the option to enable the HCX Enterprise add-on through Support, which is currently in preview. HCX Enterprise carries additional charges for customers after general availability (GA) but provides [additional features](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/).
+HCX Advanced, the default installation, supports up to three site connections (on-premises or cloud to cloud). If more than three site connections or HCX [Enterprise features](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/) are required, customers have the option to enable the HCX Enterprise add-on through Support, which is currently in preview. HCX EE is available with AVS as a Preview function/service. While HCX EE for AVS is in Preview it is a free function/service and subject to Preview service terms and conditions. Once the HCX EE service is GA, you will get a 30 day notice that billing will switch over. You will also have the option to switch off/opt-out of the service.
 
 
 Thoroughly review [Before you begin](#before-you-begin), [Software version requirements](#software-version-requirements), and [Prerequisites](#prerequisites) first. 
@@ -58,17 +58,15 @@ Infrastructure components must be running the required minimum version.
 
 * On-premises HCX IX and NE appliances should be able to reach vCenter and ESXi infrastructure.
 
-* To deploy the WAN Interconnect appliance, in addition to the /22 CIDR network address block used for SDDC deployment in the Azure portal, HCX requires a /29 block. Make sure to factor this requirement into your network planning.
+* To deploy the WAN Interconnect appliance, specific CIDR ranges are already allocated from the customer provided \22 for the private cloud creation.
 
 ## Deploy the VMware HCX OVA on-premises
 
 1. Sign in to Azure VMware Solution HCX Manager on `https://x.x.x.9` port 443 with the **cloudadmin** user credentials, and then go to **Support**.
 
-1. Select the download link for the VMware HCX OVA file. 
+1. Select the download link for the VMware HCX OVA file to be deployed to your vCenter.
 
-1. Sign in to Azure VMware Solution SDDC vCenter and select **HCX**.
-   
-1. Go to the on-premises vCenter and select an OVF template to deploy to your on-premises vCenter.  
+1. Go to the on-premises vCenter and select the newly downloaded OVF template to deploy to your on-premises vCenter.  
 
    :::image type="content" source="media/hybrid-cloud-extension-installation/select-template.png" alt-text="Next, go to the on-premises vCenter and select an OVF template to deploy to your on-premises vCenter.":::
 
