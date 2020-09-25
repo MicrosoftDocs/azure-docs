@@ -43,6 +43,15 @@ Managed identities are used in Azure HDInsight in multiple scenarios. See the re
 * [Enterprise Security Package](domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-and-authorize-a-managed-identity)
 * [Customer-managed key disk encryption](disk-encryption.md)
 
+HDInsight will automatically renew the certificates for the managed identities you use for these scenarios. However, there is a limitation when multiple different managed identities are used for long running clusters, the certificate renewal may not work as expected for all of the managed identities. Due to this limitation, if you are planning to use long running clusters (e.g. more than 60 days), we recommend to use the same managed identity for all of the above scenarios. 
+
+If you have already created a long running cluster with multiple different managed identities and are running into one of these issues:
+ * In ESP clusters, cluster services starts failing or scale up and other operations start failing with authentications errors.
+ * In ESP clusters, when changing AAD-DS LDAPS cert, the LDAPS certificate does not automatically get updated and therefore LDAP sync and scale ups start failing.
+ * MSI access to ADLS Gen2 start failing.
+ * Encryption Keys can not be rotated in the CMK scenario.
+then you should assing the required roles and persmissions for the above scenarios to all of those managed identities used in the cluster. For example, if you used different managed identities for ADLS Gen2 and ESP clusters then both of them should have the "Storage blob data Owner" and "HDInsight Domain Services Contributor" roles assigned to them to avoid running in to these issues.
+
 ## FAQ
 
 ### What happens if I delete the managed identity after the cluster creation?
