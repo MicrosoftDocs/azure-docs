@@ -41,7 +41,7 @@ Please see the following documentation to understand how to register a user or a
 * Registering a user in AAD [link](https://docs.microsoft.com/azure/active-directory/fundamentals/add-users-azure-active-directory)
 * Registering an application in AAD [link](https://docs.microsoft.com/powerapps/developer/common-data-service/walkthrough-register-app-azure-active-directory)
 
-## Assign the security principal a role in AAD
+## Assign your security principal a role in AAD
 
 Azure Active Directory uses role-based access control (RBAC) to assign permissions to security principals. These permissions are called role-assignments.
 
@@ -56,7 +56,7 @@ In the context of key vault, these role assignments determine a security princip
 * To learn more about AAD roles [link](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)
 * To learn more about assigning or removing role assignments [link](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 
-## Configure key vault access policies for the security principal
+## Configure key vault access policies for your security principal
 
 Before you grant access for your users and applications to access key vault, it is important to understand the different types of operations that can be performed on a key vault. There are two main types of key vault operations, management plane (also referred to as control plane) operations, and data plane Operations.
 
@@ -146,13 +146,15 @@ Once you have followed all of the steps above, you will be able to set and retri
 
 ### AAD authentication process for applications or services (examples)
 
-    1. An application provides a client secret and client id in a function to get an AAD token. 
-    2. An application provides a certificate to get an AAD token. 
-    3. An azure resource uses MSI authentication to get an AAD token. 
+* An application provides a client secret and client id in a function to get an AAD token. 
+
+* An application provides a certificate to get an AAD token. 
+
+* An azure resource uses MSI authentication to get an AAD token. 
 
 * Learn more about MSI authentication [link](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
 
-### Python application authentication
+### Authentication process for application (Python Example)
 
 Use the following code sample to test whether your application can retrieve a secret from your key vault using the service principal you configured.
 
