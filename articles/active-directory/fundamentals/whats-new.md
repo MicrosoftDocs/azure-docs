@@ -12,7 +12,7 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/03/2020
+ms.date: 09/28/2020
 ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
@@ -92,13 +92,13 @@ To learn more, see [Use query parameters to customize responses](https://docs.mi
  
 ---
 
-### Continuous access evaluation for tenants who configured Conditional Access policies
+### PUblic Preview: Continuous access evaluation for tenants who configured Conditional Access policies
 
 **Type:** New feature  
 **Service category:** Authentications (Logins)  
 **Product capability:** Identity Security & Protection
  
-continuous access evaluation (CAE) is now available in public preview for Azure AD tenants with Conditional Access policies. With CAE, critical security events  can be evaluated in real time. Policies, including account disable, password reset, or location change, can also be evaluated. To learn more, see [Continuous access evaluation](../conditional-access/concept-continuous-access-evaluation.md).
+Continuous access evaluation (CAE) is now available in public preview for Azure AD tenants with Conditional Access policies. With CAE, critical security events and policies are evaluated in real-time. This includes account disable, password reset, and location change. To learn more, see [Continuous access evaluation](../conditional-access/concept-continuous-access-evaluation.md).
 
 ---
 
