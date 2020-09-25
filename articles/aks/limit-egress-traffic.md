@@ -764,7 +764,7 @@ Navigate to the Azure Firewall frontend IP address in a browser to validate conn
 You should see the AKS voting app. In this example, the Firewall public IP was `52.253.228.132`.
 
 
-![aks-vote](media/limit-egress-traffic/aks-vote.png)
+![Screenshot shows the A K S Voting App with buttons for Cats, Dogs, and Reset, and totals.](media/limit-egress-traffic/aks-vote.png)
 
 
 ### Clean up resources
