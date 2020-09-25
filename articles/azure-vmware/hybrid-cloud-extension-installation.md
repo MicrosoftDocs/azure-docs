@@ -35,7 +35,7 @@ After completing the setup, you can follow the recommended next steps provided a
 
 Sizing workloads against compute and storage resources is an essential planning step when you're preparing to use the Azure VMware Solution Private Cloud HCX solution. Address the sizing step as part of the initial private cloud environment planning. 
 
-You also can size workloads by completing an [Azure VMware Solution Assessment](https://docs.microsoft.com/azure/migrate/how-to-create-azure-vmware-solution-assessment) in the Azure Migrate portal.
+You also can size workloads by completing an [Azure VMware Solution Assessment](../migrate/how-to-create-azure-vmware-solution-assessment.md) in the Azure Migrate portal.
 
 ## Software version requirements
 
