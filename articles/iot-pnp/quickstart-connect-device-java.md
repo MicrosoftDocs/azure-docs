@@ -38,12 +38,12 @@ git clone https://github.com/Azure/azure-iot-sdk-java.git
 
 ## Build the code
 
-On Windows, navigate to the root folder of the cloned Java SDK repository. Then navigate to the *\device\iot-device-samples\pnp-device-sample\thermostat-device-sample* folder.
+On Windows, navigate to the root folder of the cloned Java SDK repository.
 
 Run the following command to build the sample application:
 
 ```cmd
-mvn clean package
+mvn install -T 2C -DskipTests
 ```
 
 ## Run the device sample
@@ -51,6 +51,8 @@ mvn clean package
 [!INCLUDE [iot-pnp-environment](../../includes/iot-pnp-environment.md)]
 
 To learn more about the sample configuration, see the [sample readme](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/pnp-device-sample/readme.md).
+
+Navigate to the *\device\iot-device-samples\pnp-device-sample\thermostat-device-sample* folder.
 
 To run the sample application, run the following command:
 

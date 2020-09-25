@@ -29,9 +29,12 @@ Azure Migrate: Server Migration tool migrates UEFI-based machines to Azure as Az
 | SUSE Linux Enterprise Server 15 SP1                     | Y                                                                                                                                         | Y                              | Y                                                          |
 | SUSE Linux Enterprise Server 12 SP4                     | Y                                                                                                                                         | Y                              | Y                                                          |
 | Ubuntu Server 16.04, 18.04, 19.04, 19.10                | Y                                                                                                                                         | Y                              | Y                                                          |
-| RHEL 8.1, 8.0, 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x        | Y<br>                 RHEL 8.x requires [manual preparation](https://go.microsoft.com/fwlink/?linkid=2143939)   | Y                              | Y                                                          |
+| RHEL 8.1, 8.0, 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x        | Y<br>                 _RHEL 8.x requires [manual preparation](https://go.microsoft.com/fwlink/?linkid=2143939)_   | Y                              | Y                                                          |
 | Cent OS 8.1, 8.0, 7.7, 7.6, 7.5, 7.4, 6.x               | Y<br>_Cent OS 8.x requires [manual preparation](https://go.microsoft.com/fwlink/?linkid=2143939)_ | Y                              | Y                                                          |
 | Oracle Linux 7.7, 7.7-CI                                |  Y                                                                                                                                        | Y                              | Y                                                          |
+
+## Can I use the recovery services vault created by Azure Migrate for Disaster Recovery scenarios?
+We do not recommend using the recovery services vault created by Azure Migrate for Disaster Recovery scenarios. Doing so can result in start replication failures in Azure Migrate. 
 
 ## Where should I install the replication appliance for agent-based migrations?
 
