@@ -13,8 +13,6 @@ Customer intent: As someone with a networking background, I want to learn about 
 
 Azure Virtual WAN has worked with networking partners to build automation that makes it easy to connect their Customer Premise Equipment (CPE) to an Azure VPN gateway in the virtual hub. Azure is working with select networking partners to enable customers to deploy a third-party Network Virtual Appliance (NVA) directly into the virtual hub. This allows customers who want to connect their branch CPE to the same brand NVA in the virtual hub so that they can take advantage of proprietary end-to-end SD-WAN capabilities.
 
-Barracuda Networks is the first partner to provide an NVA offering that can be deployed directly to the Virtual WAN hub with their [Barracuda CloudGen WAN](https://www.barracuda.com/products/cloudgenwan) product. Azure is working with more partner so expect to see other offerings follow.
-
 > [!NOTE]
 > Only NVA offers that are available to be deployed into the Virtual WAN hub can deployed into the Virtual WAN hub. They cannot be deployed into an arbitrary virtual network in Azure.
 
@@ -83,11 +81,11 @@ NVA in the virtual hub is available for Preview in the following regions:
 
 ### I am a network appliance partner and want to get our NVA in the hub.  Can I join this partner program?
 
-Unfortunately, we do not have capacity to on-board any new partner offers at this time. Check back with us in November!
+If you're a networking partner and are interested in having your network virtual appliance in teh virtual WAN hub, please send mail to vwannvaonboarding@microsoft.com
 
 ### Can I deploy any NVA from Azure Marketplace into the Virtual WAN hub?
 
-No. At this time, only [Barracuda CloudGen WAN](https://aka.ms/BarracudaMarketPlaceOffer) is available to be deployed into the Virtual WAN hub.
+No. At this time, only NVA offers that have been on-boarded to this program are available to be deployed into the Virtual WAN hub.
 
 ### What is the cost of the NVA?
 
@@ -99,11 +97,11 @@ No. You must use a Standard hub if you want to deploy an NVA.
 
 ### Can I deploy an NVA into a Secure hub?
 
-Yes. Barracuda CloudGen WAN can be deployed into a hub with Azure Firewall.
+Yes. NVAs that are available can be deployed into a hub with Azure Firewall.
 
 ### Can I connect any CPE device in my branch office to Barracuda CloudGen WAN NVA in the hub?
 
-No. Barracuda CloudGen WAN is only compatible with Barracuda CPE devices. To learn more about CloudGen WAN requirements, see [Barracuda's CloudGen WAN page](https://www.barracuda.com/products/cloudgenwan).
+No. Only CPE devices from the same Networking vendor can be connected to an NVA in the Virtual Hub.  
 
 ### What routing scenarios are supported with NVA in the hub?
 
