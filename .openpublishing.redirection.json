@@ -111,6 +111,26 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/virtual-machines/linux/dedicated-hosts.md",
+      "redirect_url": "/azure/virtual-machines/dedicated-hosts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/dedicated-hosts.md",
+      "redirect_url": "/azure/virtual-machines/dedicated-hosts",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/dedicated-hosts-portal.md",
+      "redirect_url": "/azure/virtual-machines/dedicated-hosts-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/dedicated-hosts-portal.md",
+      "redirect_url": "/azure/virtual-machines/dedicated-hosts-portal",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-cli-sample-copy-snapshot-to-storage-account.md",
       "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-cli-sample-copy-snapshot-to-storage-account",
       "redirect_document_id": false
