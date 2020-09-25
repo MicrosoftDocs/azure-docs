@@ -28,7 +28,7 @@ They can also be managed through the [Azure portal](https://portal.azure.com). F
 ## Prerequisites
 
 * You'll need an **Azure account** (you can set one up for free [here](https://azure.microsoft.com/free/?WT.mc_id=A261C142F))
-* You'll need an **Azure Digital Twins instance** in your Azure subscription. If you don't have an instance already, you can create one using the steps in [*How-to: Set up an instance and authentication*](how-to-set-up-instance-scripted.md). Have the following values from setup handy to use later in this article:
+* You'll need an **Azure Digital Twins instance** in your Azure subscription. If you don't have an instance already, you can create one using the steps in [*How-to: Set up an instance and authentication*](how-to-set-up-instance-portal.md). Have the following values from setup handy to use later in this article:
     - Instance name
     - Resource group
     
@@ -45,7 +45,7 @@ To link an endpoint to Azure Digital Twins, the event grid topic, event hub, or 
 
 ### Create an Event Grid endpoint
 
-The following example shows how to create an event grid-type endpoint using the Azure CLI. You can use [Azure Cloud Shell](https://shell.azure.com), or [install the CLI locally](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+The following example shows how to create an event grid-type endpoint using the Azure CLI. You can use [Azure Cloud Shell](https://shell.azure.com), or [install the CLI locally](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
 
 First, create an event grid topic. You can use the following command, or view the steps in more detail by visiting [the *Create a custom topic* section](../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic) of the Event Grid *Custom events* quickstart.
 
