@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 09/21/2020
+ms.date: 09/24/2020
 ms.custom: contperfq4, tracking-python
 
 ---
@@ -105,7 +105,17 @@ aks_target = ComputeTarget.create(workspace=ws,
 
 When the creation process is completed, you can run inference, or model scoring, on an AKS cluster behind a virtual network. For more information, see [How to deploy to AKS](how-to-deploy-and-where.md).
 
-## Private AKS cluster
+## Secure VNet traffic
+
+There are two approaches to isolate traffic to and from the AKS cluster to the virtual network:
+
+* __Private AKS cluster__: This approach uses Azure Private Link to create a private endpoint for the AKS cluster within the VNet.
+* __Internal AKS load balancer__: This approach configures the load balancer for the cluster to use an internal IP address in the VNet.
+
+> [!WARNING]
+> Both configurations are different ways to achieve the same goal (securing traffic to the AKS cluster within the VNet). **Use one or the other, but not both**.
+
+### Private AKS cluster
 
 By default, AKS clusters have a control plane, or API server, with public IP addresses. You can configure AKS to use a private control plane by creating a private AKS cluster. For more information, see [Create a private Azure Kubernetes Service cluster](../aks/private-clusters.md).
 
@@ -120,7 +130,7 @@ By default, AKS deployments use a [public load balancer](../aks/load-balancer-st
 
 A private load balancer is enabled by configuring AKS to use an _internal load balancer_. 
 
-### Network contributor role
+#### Network contributor role
 
 > [!IMPORTANT]
 > If you create or attach an AKS cluster by providing a virtual network you previously created, you must grant the service principal (SP) or managed identity for your AKS cluster the _Network Contributor_ role to the resource group that contains the virtual network. This must be done before you try to change the internal load balancer to private IP.
@@ -152,7 +162,7 @@ A private load balancer is enabled by configuring AKS to use an _internal load b
     ```
 For more information on using the internal load balancer with AKS, see [Use internal load balancer with Azure Kubernetes Service](/azure/aks/internal-lb).
 
-### Enable private load balancer
+#### Enable private load balancer
 
 > [!IMPORTANT]
 > You cannot enable private IP when creating the Azure Kubernetes Service cluster. It must be enabled as an update to an existing cluster.
