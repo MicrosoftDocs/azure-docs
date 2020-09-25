@@ -42,7 +42,7 @@ To complete this tutorial, you must have the following:
 * Azure PowerShell, minimum version of 1.0.0. To install Azure PowerShell and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](/powershell/azure/). If you have already installed Azure PowerShell and don't know the version, from the Azure PowerShell console, enter `$PSVersionTable.PSVersion`.  
 * Sufficient storage on Azure for your Key Vault logs.
 
-## Connect to your key vault subscription
+## <a id="connect"></a>Connect to your key vault subscription
 
 The first step in setting up key logging is to point Azure PowerShell to the key vault that you want to log.
 
