@@ -41,7 +41,7 @@ To create a new node type, you'll need to define three properties:
 
 ```powershell
 $resourceGroup = "myResourceGroup"
-$clusterName = "myCluster"
+$clusterName = "mysfcluster"
 $nodeTypeName = "nt2"
 $vmSize = "Standard_D2_v2"
 

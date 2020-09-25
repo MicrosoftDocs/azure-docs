@@ -33,7 +33,7 @@ Change the instance count to increase or decrease the number of nodes on the nod
 
 ```powershell
 $resourceGroup = "myResourceGroup"
-$clusterName = "myCluster"
+$clusterName = "mysfcluster"
 $nodeTypeName = "FE"
 $instanceCount = "7"
 

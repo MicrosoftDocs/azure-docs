@@ -37,13 +37,13 @@ To connect to your cluster, you'll need the cluster certificate thumbprint. You 
 The following command can be used to query your cluster resource for the cluster certificate thumbprint.
 
 ```powershell
-$serverThumbprint = (Get-AzResource -ResourceId /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ServiceFabric/managedclusters/myCluster).Properties.clusterCertificateThumbprint
+$serverThumbprint = (Get-AzResource -ResourceId /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ServiceFabric/managedclusters/mysfcluster).Properties.clusterCertificateThumbprint
 ```
 
 With the cluster certificate thumbprint, you're ready to connect to your cluster.
 
 ```powershell
-$connectionEndpoint = "mycluster.eastus2.cloudapp.azure.com:19000"
+$connectionEndpoint = "mysfcluster.eastus2.cloudapp.azure.com:19000"
 Connect-ServiceFabricCluster -ConnectionEndpoint $connectionEndpoint -KeepAliveIntervalInSec 10 `
       -X509Credential `
       -ServerCertThumbprint $serverThumbprint  `
