@@ -112,7 +112,7 @@ If you accidentally deleted the `aad-extensions-app`, you have 30 days to recove
 1. Log in as a global administrator for the Azure AD tenant that you want to recover the deleted app for.
 1. Run the PowerShell command `Get-AzureADDeletedApplication`
 1. Find the application in the list where the display name begins with `aad-extensions-app` and copy its `ObjectId` property value.
-1. Run the PowerShell command `Restore-AzureADDeletedApplication -ObjectId {id}`. Replace the `{id}` portion of the URL with the `ObjectId` from the previous step.
+1. Run the PowerShell command `Restore-AzureADDeletedApplication -ObjectId {id}`. Replace the `{id}` portion of the command with the `ObjectId` from the previous step.
 
 You should now see the restored app in the Azure portal.
 
