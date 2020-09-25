@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/06/2020
 ---
-# Consistency levels in Azure Cosmos DB
+# What are consistency levels in Azure Cosmos DB?
 
 Distributed databases that rely on replication for high availability, low latency, or both, make the fundamental tradeoff between the read consistency vs. availability, latency, and throughput. Most commercially available distributed databases ask developers to choose between the two extreme consistency models: *strong* consistency and *eventual* consistency. The linearizability of the strong consistency model is the gold standard of data programmability. But it adds a price of higher write latency (in steady state) and reduced availability (during failures). On the other hand, eventual consistency offers higher availability and better performance, but makes it hard to program applications.
 
