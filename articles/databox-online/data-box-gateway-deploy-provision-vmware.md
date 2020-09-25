@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 03/25/2019
+ms.date: 09/25/2020
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to provision a virtual device for Data Box Gateway in VMware so I can use it to transfer data to Azure.  
 ---
@@ -190,7 +190,7 @@ Perform the following steps to start your virtual device and connect to it.
 
    ![Enter virtual device password](./media/data-box-gateway-deploy-provision-vmware/image23.png)
 
-6. Steps 5-7 only apply when booting up in a non-DHCP environment. If you are in a DHCP environment, then skip these steps and go to step 8. If you booted up your device in non-DHCP environment, you will see a message to the effect: **Use the Set-HcsIPAddress cmdlet to configure the network**. 
+6. Steps 6-8 only apply when booting up in a non-DHCP environment. If you are in a DHCP environment, then skip these steps and go to step 9. If you booted up your device in non-DHCP environment, you will see a message to the effect: **Use the Set-HcsIPAddress cmdlet to configure the network**. 
    
 7. To configure the network, at the command prompt, use the `Get-HcsIpAddress` command to list the network interfaces enabled on your virtual device. If your device has a single network interface enabled, the default name assigned to this interface is `Ethernet`.
 
