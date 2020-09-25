@@ -72,7 +72,7 @@ An API exposes one or more operations. In this section, add an operation to the 
 8. In the **Sample** text box, enter  `{ "sampleField" : "test" }`.
 9. Select **Save**.
 
-:::image type="content" source="media/mock-api-responses/03-MockAPIResponses-02-AddOperation.png" alt-text="Create blank API":::
+:::image type="content" source="media/mock-api-responses/03-MockAPIResponses-02-AddOperation.png" alt-text="Add API operation":::
 
 Although not required for this example, additional settings for an API operation can be configured on other tabs, including:
 
@@ -88,14 +88,14 @@ Although not required for this example, additional settings for an API operation
 2. Select the test operation that you added.
 3. In the window on the right, select the **Design** tab.
 4. In the **Inbound processing** window, select **+ Add policy**.
-   :::image type="content" source="media/mock-api-responses/03-MockAPIResponses-03-EnableMocking.png" alt-text="Enable response mocking":::
+   :::image type="content" source="media/mock-api-responses/03-MockAPIResponses-03-EnableMocking.png" alt-text="Add processing policy":::
 1. Select **Mock responses**  from the gallery.
 
     :::image type="content" source="media/mock-api-responses/mock-responses-policy-tile.png" alt-text="Mock responses policy tile":::
 
 6. In the **API Management response** textbox, type **200 OK, application/json**. This selection indicates that your API should return the response sample you defined in the previous section.
 
-    ![Enable response mocking](./media/mock-api-responses/mock-api-responses-set-mocking.png)
+    :::image type="content" source="media/mock-api-responses/mock-api-responses-set-mocking.png" alt-text="Set mocking response":::
 
 7. Select **Save**.
 
