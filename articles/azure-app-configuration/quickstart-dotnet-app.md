@@ -85,23 +85,15 @@ In this quickstart, you incorporate Azure App Configuration into a .NET Framewor
         string message = System.Configuration.ConfigurationManager.AppSettings["TestApp:Settings:Message"];
 
         Console.WriteLine(message);
+        Console.ReadKey();
     }
     ```
 
 ## Build and run the app locally
 
-1. Set an environment variable named **ConnectionString** to the connection string of your App Configuration store. If you use the Windows command prompt, run the following command:
+1. Update the **App.config** file by replacing `${ConnectionString}` with the actual connection string to your Application Configuration instance. You can find it in the **Access keys** tab of the Application Configuration resource in the Azure Portal.
 
-    ```cmd
-        setx ConnectionString "connection-string-of-your-app-configuration-store"
-    ```
-
-    If you use Windows PowerShell, run the following command:
-
-    ```azurepowershell
-        $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
-    ```
-1. Restart Visual Studio to allow the change to take effect. Press Ctrl + F5 to build and run the console app.
+1. Press Ctrl + F5 to build and run the console app.
 
 ## Clean up resources
 
