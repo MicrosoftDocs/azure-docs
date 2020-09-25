@@ -66,7 +66,7 @@ The Resource Manager sample template found [here](https://github.com/Azure/azure
 
 > [!IMPORTANT]
 > Automatic placement is currently in public preview.
-> To participate in the preview, complete the preview onboarding survey at [aka.ms/vmss-adh-preview](aka.ms/vmss-adh-preview).
+> To participate in the preview, complete the preview onboarding survey at [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview).
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -92,7 +92,7 @@ Virtual machine scale sets let you treat a group of virtual machines as a single
 
 > [!IMPORTANT]
 > Virtual Machine Scale Sets on Dedicated Hosts is currently in public preview.
-> To participate in the preview, complete the preview onboarding survey at [aka.ms/vmss-adh-preview](aka.ms/vmss-adh-preview).
+> To participate in the preview, complete the preview onboarding survey at [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview).
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -104,9 +104,9 @@ The following requirements apply when creating a virtual machine scale set in a 
 - The availability setting of your host group should match your scale set. 
 	- A regional host group (created without specifying an availability zone) should be used for regional scale sets.
 	- The host group and the scale set must be using the same availability zone. 
-	- The fault domain count for the host group level should match the fault domain count for your scale set. The Azure portal lets you specify a *max spreading* for your scale set, which sets the fault domain count of 1.
--	Dedicated hosts should be created first, with sufficient capacity, and the same settings for scale set zones and fault domains.
--	The supported VM sizes for your dedicated hosts should match the one used for your scale set.
+	- The fault domain count for the host group level should match the fault domain count for your scale set. The Azure portal lets you specify *max spreading* for your scale set, which sets the fault domain count of 1.
+- Dedicated hosts should be created first, with sufficient capacity, and the same settings for scale set zones and fault domains.
+- The supported VM sizes for your dedicated hosts should match the one used for your scale set.
 
 Not all scale-set orchestration and optimizations settings are supported by dedicated hosts. Apply the following settings to your scale set: 
 - Disable overprovisioning.

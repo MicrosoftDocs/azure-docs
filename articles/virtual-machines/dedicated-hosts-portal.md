@@ -18,7 +18,7 @@ This article guides you through how to create an Azure [dedicated host](dedicate
 
 > [!IMPORTANT]
 > This article also covers Automatic placement of VMs and scale set instances. Automatic placement is currently in public preview.
-> To participate in the preview, complete the preview onboarding survey at [aka.ms/vmss-adh-preview](aka.ms/vmss-adh-preview).
+> To participate in the preview, complete the preview onboarding survey at [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview).
 > To acces the preview feature in the Azure portal, you must use this URL: [https://aka.ms/vmssadh](https://aka.ms/vmssadh).
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -95,7 +95,7 @@ It will take a few minutes for your VM to be deployed.
 
 > [!IMPORTANT]
 > Virtual Machine Scale Sets on Dedicated Hosts is currently in public preview.
-> To participate in the preview, complete the preview onboarding survey at [aka.ms/vmss-adh-preview](aka.ms/vmss-adh-preview).
+> To participate in the preview, complete the preview onboarding survey at [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview).
 > To acces the preview feature in the Azure portal, you must use this URL: [https://aka.ms/vmssadh](https://aka.ms/vmssadh).
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).

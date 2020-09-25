@@ -331,7 +331,7 @@
       href: virtual-machine-scale-sets-placement-groups.md
     - name: Convert a scale set template to use managed disk
       href: virtual-machine-scale-sets-convert-template-to-md.md
-    - name: Use dedicated hosts
+    - name: Use dedicated hosts (preview)
       href: ../virtual-machines/dedicated-hosts.md
       items:
       - name: CLI
