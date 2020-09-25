@@ -189,7 +189,7 @@ Because the user expects to use the secondary language across any intent or enti
 You can use more than one feature to describe a trait or concept. A common pairing is to use:
 
 * A phrase list feature: You can use multiple phrase lists as features to the same model.
-* A model as a feature: prebuilt entity, regular expression entity, list entity. Use only one model as a feature because these are text-matching models. Having more than one text-matching model as a feature doesn't help with prediction.
+* A model as a feature: [prebuilt entity](luis-reference-prebuilt-entities.md), [regular expression entity](reference-entity-regular-expression.md), [list entity](reference-entity-list.md). 
 
 ### Example: ticket-booking entity features for a travel app  
 
