@@ -38,7 +38,7 @@ DocumentSearchResult<Hotel> results  = await _indexClient.Documents.SearchAsync<
 
 This one call initiates a search of Azure data and returns the results.
 
-:::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-pool.png" alt-text="Searching for "pool"" border="false":::
+:::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-pool.png" alt-text="Searching for *pool*" border="false":::
 
 
 ## Prerequisites
@@ -54,7 +54,7 @@ To complete this tutorial, you need to:
 1. Using Visual Studio, navigate to, and open the solution for the basic search page, and select **Start without debugging** (or press F5).
 1. Type in some words (for example "wifi", "view", "bar", "parking"), and examine the results!
 
-    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-wifi.png" alt-text="Searching for "wifi"" border="false":::
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-wifi.png" alt-text="Searching for *wifi*" border="false":::
 
 Hopefully this project will run smoothly, and you have Azure app running. Many of the essential components for more sophisticated searches are included in this one app, so it is a good idea to go through it, and recreate it step by step.
 
@@ -513,7 +513,7 @@ Now, let's check the app runs correctly.
 
 2. Enter text such as "beach" (or any text that comes to mind), and click the search icon. You should get some results.
 
-     :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-beach.png" alt-text="Searching for "beach"" border="false":::
+     :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-beach.png" alt-text="Searching for *beach*" border="false":::
 
 3. Try entering "five star". Note how you get no results. A more sophisticated search would treat "five star" as a synonym for "luxury" and return those results. The use of synonyms is available in Azure Cognitive Search, though we will not be covering it in the first tutorials.
  
