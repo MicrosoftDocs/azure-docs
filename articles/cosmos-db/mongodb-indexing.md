@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 08/07/2020
 author: timsander1
 ms.author: tisande
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 # Manage indexing in Azure Cosmos DB's API for MongoDB
 

@@ -110,7 +110,7 @@ If you are executing the data flow in a debug test execution from a debug pipeli
 
 - **Message**: There are a high number of null values or missing values which may be caused by having too few rows sampled. Try updating the debug row limit and refreshing the data.
 - **Causes**: Join condition did not match any rows or resulted in high number of NULLs during data preview.
-- **Recommendation**: Go to Debug Settings and increase the number of rows in the source row limit. Make sure that you have select and Azure IR with a large enough data flow cluster to handle more data.
+- **Recommendation**: Go to Debug Settings and increase the number of rows in the source row limit. Make sure that you have select an Azure IR with a large enough data flow cluster to handle more data.
 
 
 ## General troubleshooting guidance

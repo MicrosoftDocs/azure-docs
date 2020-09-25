@@ -36,5 +36,8 @@ See the following tutorial for an example of using an Azure Relay hybrid connect
 }
 ```
 
+> [!NOTE]
+> Delivering events to an Azure Relay hybrid connection in **another tenant** isn't supported. 
+
 ## Next steps
 See the [Event handlers](event-handlers.md) article for a list of supported event handlers. 

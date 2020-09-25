@@ -3,7 +3,7 @@ title: Exempt a resource from Azure Security Center security recommendations and
 description: Learn how to exempt a resource from security recommendations and the secure score
 author: memildin
 ms.author: memildin
-ms.date: 9/12/2020
+ms.date: 9/22/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
@@ -58,7 +58,7 @@ The resource will be listed as not applicable and the reason will be shown as "e
 
     :::image type="content" source="./media/exempt-resource/modifying-exemption.png" alt-text="Modifying an exemption":::
 
-    The reason for each exemption is included in the table. 
+    The reason for each exemption is included in the table (1).
 
     To modify or delete an exemption, select the ellipsis menu ("...") as shown (2).
 

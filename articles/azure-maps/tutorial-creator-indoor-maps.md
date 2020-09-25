@@ -1,16 +1,16 @@
 ---
-title: Use Creator to create indoor maps
-description: Use Azure Maps Creator to create indoor maps.
+title: 'Tutorial: Use Creator to create indoor maps'
+description: Tutorial on how to use Azure Maps Creator to create indoor maps
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 08/29/2020
-ms.topic: conceptual
+ms.date: 09/22/2020
+ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ---
 
-# Use Creator to create indoor maps
+# Tutorial: Use Creator to create indoor maps
 
 This tutorial shows you how to create indoor maps. In this tutorial, you'll learn how to use the API to:
 

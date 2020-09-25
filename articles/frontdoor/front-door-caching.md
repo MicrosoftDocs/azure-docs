@@ -1,6 +1,6 @@
 ---
 title: Azure Front Door - caching | Microsoft Docs
-description: This article helps you understand how Azure Front Door monitors the health of your backends
+description: This article helps you understand behavior for Front Door with routing rules that have enabled caching.
 services: frontdoor
 documentationcenter: ''
 author: duongau
