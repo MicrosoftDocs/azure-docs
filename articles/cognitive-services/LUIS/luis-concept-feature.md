@@ -222,7 +222,7 @@ For the ticket booking example, Label the example utterances in the intent with 
 
 ### Example: pizza ordering app
 
-For a second example, consider an app for a pizza restaurant, which receives pizza orders including the details of the type of pizza someone is ordering. Each detail of the pizza should be extracted, if possible.
+For a second example, consider an app for a pizza restaurant, which receives pizza orders including the details of the type of pizza someone is ordering. Each detail of the pizza should be extracted, if possible, in order to complete the order processing.
 
 The machine-learning entity in this example is more complex with nested subentities, phrase lists, prebuilt entities, and custom entities.
 
