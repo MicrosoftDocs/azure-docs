@@ -24,8 +24,6 @@ ms.date: 1/31/2020
     | **Location** | *Central US* | Use **Location** to specify the geographic location in which your app configuration store is hosted. For the best performance, create the resource in the same region as other components of your application. |
     | **Pricing tier** | *Free* | Select the desired pricing tier. For more details, please see the [App Configuration pricing page](https://azure.microsoft.com/pricing/details/app-configuration/). |
 
-    ![Create an App Configuration store resource](media/azure-app-configuration-create/azure-portal-app-configuration-create-settings.png)
-
 1. Select **Review + create** to validate your settings.
 
 1. Select **Create**. The deployment might take a few minutes.
