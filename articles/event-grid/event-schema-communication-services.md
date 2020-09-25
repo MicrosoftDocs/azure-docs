@@ -333,6 +333,10 @@ This section contains an example of what that data would look like for each even
 }]
 ```
 
+## Tutorials
+|Title  |Description  |
+|---------|---------|
+| [Quickstart: Handle SMS events](../communication-services/quickstarts/telephony-sms/handle-sms-events.md) | Shows how to subscribe to Communication Services SMS events and handle events using a Web Hook. You will create an Event Grid subscription for **SMS Received** and **SMS Delivery Report Received*** events from Communication Services with a Web Hook as an event handler.  |
 
 ## Next steps
 
