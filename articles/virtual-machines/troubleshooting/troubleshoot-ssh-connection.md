@@ -27,7 +27,7 @@ After each troubleshooting step, try reconnecting to the VM.
 
 1. [Reset the SSH configuration](#reset-the-ssh-configuration).
 2. [Reset the credentials](#reset-ssh-credentials-for-a-user) for the user.
-3. Verify the [network security group](../../virtual-network/security-overview.md) rules permit SSH traffic.
+3. Verify the [network security group](../../virtual-network/network-security-groups-overview.md) rules permit SSH traffic.
    * Ensure that a [Network Security Group rule](#check-security-rules) exists to permit SSH traffic (by default, TCP port 22).
    * You cannot use port redirection / mapping without using an Azure load balancer.
 4. Check the [VM resource health](../../service-health/resource-health-overview.md).
