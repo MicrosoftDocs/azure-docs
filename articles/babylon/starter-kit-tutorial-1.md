@@ -37,7 +37,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-* [Prepare your Windows machine by running a series of scripts](#prepare-your-windows-machine-to-run-the-starter-kit-client-software). These scripts work only on Windows. If this requirement prevents you from running the starter kit, contact BabylonDiscussion\@microsoft.com.
+* [Prepare your Windows machine by running a series of scripts](#prepare-your-machine-to-run-the-starter-kit). These scripts work only on Windows. If this requirement prevents you from running the starter kit, contact BabylonDiscussion\@microsoft.com.
 
 * [Create an Azure Babylon account](create-catalog-portal.md).
 
@@ -133,7 +133,7 @@ Follow these steps to add the Catalog admin running the script to the Azure Baby
 
 ### Run the client-side setup scripts
 
-After the catalog configuration is complete, run the following scripts in the PowerShell window to create the assets,  replacing the placeholders with the [previously collected values](#collect-data-needed-to-run-the-scripts):
+After the catalog configuration is complete, run the following scripts in the PowerShell window to create the assets,  replacing the placeholders with the [values you previously collected](#collect-data-needed-to-run-the-scripts):
 
 1. **Go to the starter kit folder**.
 
