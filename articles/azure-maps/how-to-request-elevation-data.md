@@ -20,7 +20,7 @@ The Azure Maps  [Elevation service service](https://docs.microsoft.com/rest/api/
 1. [Make an Azure Maps account in the S1 pricing tier](quick-demo-map-app.md#create-an-azure-maps-account)
 2. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key.
 
-For more information on authentication in Azure Maps, see manage authentication in Azure Maps.
+For more information on authentication in Azure Maps, [Manage Authentication in Azure Maps](how-to-manage-authentication.md).
 
 This article uses the [Postman](https://www.postman.com/) application, but you may choose a different API development environment.
 
@@ -90,9 +90,9 @@ In this example, we'll use the [Get Data For Points API](https://docs.microsoft.
 
 ### Request elevation data samples along a Polyline
 
-In the first part of this example, we'll use the [Get Data for Polyline](https://docs.microsoft.com/rest/api/maps/elevation/getdataforpolyline) to request five equally-spaced samples of elevation data along a straight line between coordinates at Mt. Everest and Chamlang mountains. Both coordinates must be defined in Long/Lat format.
+In the first part of this example, we'll use the [Get Data for Polyline](https://docs.microsoft.com/rest/api/maps/elevation/getdataforpolyline) to request five equally spaced samples of elevation data along a straight line between coordinates at Mt. Everest and Chamlang mountains. Both coordinates must be defined in Long/Lat format.
 
-Then, we'll use the Get Data for Polyline to request three equally-spaced samples of elevation data along a path. We'll define the precise location for the samples by passing in three Long/Lat coordinate pairs.
+Then, we'll use the Get Data for Polyline to request three equally spaced samples of elevation data along a path. We'll define the precise location for the samples by passing in three Long/Lat coordinate pairs.
 
 >[!NOTE]
 >If you do not specify a value for the `samples` parameter, the number of samples defaults to 10. The maximum number of samples is 2,000.
@@ -149,7 +149,7 @@ Then, we'll use the Get Data for Polyline to request three equally-spaced sample
     }
     ```
 
-4. Now, we'll request three samples of elevation data along a path between coordinates at Mount Everest, Chamlang, and Jannu mountains. In the **Params** section, copy the following for the value of the `lines` query key.
+4. Now, we'll request three samples of elevation data along a path between coordinates at Mount Everest, Chamlang, and Jannu mountains. In the **Params** section, copy the following coordinate array for the value of the `lines` query key.
 
     ```html
         86.9797222, 27.775|86.9252778, 27.9880556 | 88.0444444, 27.6822222
@@ -191,7 +191,7 @@ Then, we'll use the Get Data for Polyline to request three equally-spaced sample
 
 ### Request elevation data by Bounding Box
 
-Now we'll use the [Get Data for Bounding Box](https://docs.microsoft.com/rest/api/maps/elevation/getdataforboundingbox) to request elevation data near Mt. Rainier, WA. The elevation data will be returned at equally-spaced locations within a bounding box. A bounding box is defined by the coordinates for two corners (southwest, northeast) and then subsequently divided into rows and columns. Elevations are returned for the vertices of the grid created by the rows and columns. Up to 2000 elevations can be returned in a single request.
+Now we'll use the [Get Data for Bounding Box](https://docs.microsoft.com/rest/api/maps/elevation/getdataforboundingbox) to request elevation data near Mt. Rainier, WA. The elevation data will be returned at equally spaced locations within a bounding box. A bounding box is defined by the coordinates for two corners (southwest, northeast) and then divided into rows and columns. Elevations are returned for the vertices of the grid created by the rows and columns. Up to 2000 elevations can be returned in a single request.
 
 In this example, we'll request two rows and three columns for the Bounding Box. The returned elevation values are ordered, starting at the southwest corner, and then proceeding west to east along the row. At the end of the row, it moves north to the next row, and repeats the process until it reaches the far northeast corner.
 
@@ -205,7 +205,7 @@ In this example, we'll request two rows and three columns for the Bounding Box. 
     https://atlas.microsoft.com/elevation/lattice?subscription-key=DsPCGIGfua7ti-MljBYsItsT1u9mCjjeloOLKMHrBpo&api-version=1.0&bounds=-121.66853362143818, 46.84646479863713,-121.65853362143818, 46.85646479863713&rows=2&columns=3
     ```
 
-3. Click the blue **Send** button. You'll receive the following JSON response. Notice that there are six elevation data samples, one for each vertices of the grid.
+3. Click the blue **Send** button. You'll receive the following JSON response. Notice that there are six elevation data samples, one for each vertex of the grid.
 
     ```json
     {
