@@ -15,7 +15,7 @@ ms.date: 05/28/2020
 
 # Featurization in automated machine learning
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 In this guide, you learn:
 

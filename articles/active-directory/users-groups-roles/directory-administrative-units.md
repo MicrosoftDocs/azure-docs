@@ -1,5 +1,5 @@
 ---
-title: Administrative units management (preview) - Azure AD | Microsoft Docs
+title: Administrative units in Azure Active Directory | Microsoft Docs
 description: Using administrative units for more granular delegation of permissions in Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.topic: overview
 ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 07/27/2020
+ms.date: 09/22/2020
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
 ---
-# Administrative units management in Azure Active Directory (preview)
+# Administrative units in Azure Active Directory
 
-This article describes administrative units in Azure Active Directory (Azure AD). An administrative unit is an Azure AD resource that can be a container for other Azure AD resources. In this preview release, an administrative unit can contain only users and groups.
+This article describes administrative units in Azure Active Directory (Azure AD). An administrative unit is an Azure AD resource that can be a container for other Azure AD resources. An administrative unit can contain only users and groups.
 
 Administrative units allow you to grant admin permissions that are restricted to a department, region, or other segment of your organization that you define. You can use administrative units to delegate permissions to regional administrators or to set policy at a granular level. For example, a User account admin could update profile information, reset passwords, and assign licenses for users only in their administrative unit.
 
@@ -38,11 +38,11 @@ Using administrative units requires an Azure Active Directory Premium license fo
 
 ## Manage administrative units
 
-In this preview release, you can manage administrative units using the Azure portal, PowerShell cmdlets and scripts, or the Microsoft Graph. You can refer to our documentation for details:
+You can manage administrative units using the Azure portal, PowerShell cmdlets and scripts, or the Microsoft Graph. You can refer to our documentation for details:
 
 - [Create, remove, populate, and add roles to administrative units](roles-admin-units-manage.md): Complete how-to procedures
-- [Working with Admin Units](/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0): How to work with administrative units using PowerShell
-- [Administrative Unit Graph support](/graph/api/resources/administrativeunit?view=graph-rest-beta): Detailed documentation on Microsoft Graph for administrative units.
+- [Working with Admin Units](/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0&preserve-view=true): How to work with administrative units using PowerShell
+- [Administrative Unit Graph support](/graph/api/resources/administrativeunit?view=graph-rest-beta&preserve-view=true): Detailed documentation on Microsoft Graph for administrative units.
 
 ### Planning your administrative units
 
