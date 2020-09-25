@@ -297,7 +297,14 @@ If you don't permit access for these dependencies, your ISE deployment fails and
    > Managed ISE connectors currently do not support tag. If you have policy in place to enforce tagging, adding ISE connectors  
    > might fail with an error similar to this example: 
    > 
-   > {"code":"IntergrationServiceEnvironmentManagedApiDefinitionTagsNotSupported","message":"The tags are not supported in the managed API 'azureblob'."}}`
+   > ```json
+   > {
+   >    "error": { 
+   >       "code": "IntergrationServiceEnvironmentManagedApiDefinitionTagsNotSupported", 
+   >       "message": "The tags are not supported in the managed API 'azureblob'."
+   >    }
+   > }
+   > ```
    > You will need to disable or remove your policy in order to add the ISE connectors.
    > 
 
