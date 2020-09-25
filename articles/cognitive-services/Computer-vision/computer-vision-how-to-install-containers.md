@@ -32,7 +32,7 @@ The Read 3.0-preview container provides:
 * Confidence scores from 0 to 1.
 * Support for documents with both print and handwritten text
 
-The Read 3.1-preview container is in an earlier state of preview. It provides the same benefits as v3.0-preview, with additional features:
+The Read 3.1-preview container provides the same benefits as v3.0-preview, with additional features:
 
 * Support for Simplified Chinese and Japanese.
 * confidence scores and labels for printed and handwritten text. 
