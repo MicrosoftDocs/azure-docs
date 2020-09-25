@@ -83,7 +83,7 @@ Abandon the existing encryption key so that new encryption key can be created:
 
 4. Run the command: `./miiskmu.exe /a`
 
-![Azure AD Connect Sync Encryption Key Utility](./media/how-to-connect-sync-change-serviceacct-pass/key5.png)
+![Screenshot that shows PowerShell after running the command.](./media/how-to-connect-sync-change-serviceacct-pass/key5.png)
 
 #### Provide the password of the AD DS Connector account
 As the existing passwords stored inside the database can no longer be decrypted, you need to provide the Synchronization Service with the password of the AD DS Connector account. The Synchronization Service encrypts the passwords using the new encryption key:
@@ -96,7 +96,7 @@ As the existing passwords stored inside the database can no longer be decrypted,
 5. In the pop-up dialog, select **Connect to Active Directory Forest**:
 6. Enter the password of the AD DS account in the **Password** textbox. If you do not know its password, you must set it to a known value before performing this step.
 7. Click **OK** to save the new password and close the pop-up dialog.
-![Azure AD Connect Sync Encryption Key Utility](./media/how-to-connect-sync-change-serviceacct-pass/key6.png)
+![Screenshot that shows the "Connect to Active Directory Forest" page in the "Properties" window.](./media/how-to-connect-sync-change-serviceacct-pass/key6.png)
 
 #### Reinitialize the password of the ADSync service account
 You cannot directly provide the password of the Azure AD service account to the Synchronization Service. Instead, you need to use the cmdlet **Add-ADSyncAADServiceAccount** to reinitialize the Azure AD service account. The cmdlet resets the account password and makes it available to the Synchronization Service:
