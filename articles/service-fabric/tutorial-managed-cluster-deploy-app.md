@@ -27,9 +27,6 @@ This part of the series covers how to:
 
 * A Service Fabric managed cluster (see [*Deploy a managed cluster*](tutorial-managed-cluster-deploy.md)).
 
-> [!NOTE]
-> In the Service Fabric managed cluster preview you will not be able to publish applications directly from Visual Studio.
-
 ## Connect to your cluster
 
 To connect to your cluster, you'll need the cluster certificate thumbprint. You can find this value in the cluster properties output of your resource deployment or by querying the cluster properties on an existing resource.
@@ -58,14 +55,16 @@ Connect-ServiceFabricCluster -ConnectionEndpoint $connectionEndpoint -KeepAliveI
 
 In this tutorial, we will be using the [Service Fabric Voting Application](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/tree/voting-sample-no-reverse-proxy) sample. For more details on Service Fabric application deployment through PowerShell see [Service Fabric deploy and remove applications](service-fabric-deploy-remove-applications.md).
 
-You will first need to package the application for deployment following these [steps](service-fabric-package-apps.md). For this tutorial, please follow the steps for packaging an application from within Visual Studio. It is important to take note of the path where the application has been packaged as it will be used for the path below. Once the application package has been created you can upload the application package to your cluster.
-
 > [!NOTE]
-> This path is an example, please update the value to represent the path where your application package exists. 
+> In the Service Fabric managed cluster preview you will not be able to publish applications directly from Visual Studio.
+
+You will first need to [package the application for deployment](service-fabric-package-apps.md). For this tutorial, please follow the steps for packaging an application from within Visual Studio. It is important to take note of the path where the application has been packaged as it will be used for the path below.
+
+Once the application package has been created you can upload the application package to your cluster. Update the `$path` value to represent the path where your application package exists, and run the following:
 
 ```powershell
 $path = "C:\Users\<user>\Documents\service-fabric-dotnet-quickstart\Voting\pkg\Debug"
-Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $path -CompressPackage 
+Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $path -CompressPackage
 Register-ServiceFabricApplicationType -ApplicationPathInImageStore Debug
 ```
 
@@ -81,7 +80,7 @@ Once this operation completes, you should see your application instances running
 
 ### Remove an application
 
-When an application instance is no longer needed, you can permanently remove it by name using the Remove-ServiceFabricApplication cmdlet. Remove-ServiceFabricApplication automatically removes all services that belong to the application as well, permanently removing all service state.
+When an application instance is no longer needed, you can permanently remove it by name using the `Remove-ServiceFabricApplication` cmdlet, which also automatically removes all services that belong to the application, permanently removing all service state.
 
 ```powershell
 Remove-ServiceFabricApplication fabric:/Voting
@@ -92,4 +91,4 @@ Remove-ServiceFabricApplication fabric:/Voting
 In this step, we deployed an app to a Service Fabric managed cluster. To learn more about Service Fabric managed clusters, see:
 
 > [!div class="nextstepaction"]
-> [Service Fabric managed clusters frequently asked questions](./faq-managed-cluster.md)
+> [Service Fabric managed clusters frequently asked questions](faq-managed-cluster.md)
