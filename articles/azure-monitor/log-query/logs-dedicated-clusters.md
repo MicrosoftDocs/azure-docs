@@ -364,3 +364,6 @@ Old data of the unlinked workspace might be left on the cluster. If this data is
 A dedicated cluster resource can be deleted. You must unlink all workspaces from the cluster before deleting it. Once the cluster resource is deleted, the physical cluster enters a purge and deletion process. Deletion of a cluster deletes all the data that was stored on the cluster. The data could be from workspaces that were linked to the cluster in the past.
 
 ## Next steps
+
+Learn about [Log Analytics dedicated cluster billing](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters)
+Learn about [proper design of Log Analytics workspaces](../platform/design-logs-deployment.md)
