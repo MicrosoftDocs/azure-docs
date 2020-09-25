@@ -92,7 +92,7 @@ The `rate-limit` policy prevents API usage spikes on a per subscription basis by
 > Due to the distributed nature of throttling architecture, rate limiting is never completely accurate. The difference between configured and the real number of allowed requests vary based on request volume and rate, backend latency, and other factors.
 
 > [!NOTE]
-> [To understand the difference between rate limits and quotas, please see here.](./api-management-sample-flexible-throttling.md#rate-limits-and-quotas)
+> To understand the difference between rate limits and quotas, [see Rate limits and quotas.](./api-management-sample-flexible-throttling.md#rate-limits-and-quotas)
 
 ### Policy statement
 
