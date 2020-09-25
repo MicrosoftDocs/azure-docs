@@ -85,13 +85,13 @@ You can recover a single or instance database to a point in time from the overvi
 
 To recover a database to a point in time by using the Azure portal, open the database overview page and select **Restore** on the toolbar. Choose the backup source, and select the point-in-time backup point from which a new database will be created.
 
-  ![Screenshot of database restore options](./media/recovery-using-backups/pitr-backup-sql-database-annotated.png)
+  ![Screenshot of database restore options for SQL Database.](./media/recovery-using-backups/pitr-backup-sql-database-annotated.png)
 
 #### SQL Managed Instance
 
 To recover a managed instance database to a point in time by using the Azure portal, open the database overview page, and select **Restore** on the toolbar. Choose the point-in-time backup point from which a new database will be created.
 
-  ![Screenshot of database restore options](./media/recovery-using-backups/pitr-backup-managed-instance-annotated.png)
+  ![Screenshot of database restore options for SQL managed instance.](./media/recovery-using-backups/pitr-backup-managed-instance-annotated.png)
 
 > [!TIP]
 > To programmatically restore a database from a backup, see [Programmatically performing recovery using automated backups](recovery-using-backups.md).
