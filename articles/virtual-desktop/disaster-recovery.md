@@ -36,7 +36,6 @@ To successfully keep your users connected during a region outage, you'll need to
 - Make sure user identities you set up in the primary location are available in the secondary location.
 - Make sure any line of business applications relying on data in your primary location are failed over to the secondary location along with your data.
 
-
 ## VM replication
 
 First, you'll need to replicate your VMs. We recommend you use [Azure Site Recovery](../site-recovery/site-recovery-overview.md) to manage replication for [Azure VMs replicating between Azure regions](../site-recovery/azure-to-azure-architecture.md). Site Recovery supports both [Server-based and Client-based SKUs](../site-recovery/azure-to-azure-support-matrix.md#replicated-machine-operating-systems). 
@@ -45,9 +44,41 @@ Azure Site Recovery automatically registers VMs for you. The Windows Virtual Des
 
 To learn how to replicate VMs, see [Replicate Azure VMs to another Azure region](../site-recovery/azure-to-azure-how-to-enable-replication.md).
 
+
+If you want to set up disaster recovery on your VM, you have many options:
+
+- If all your VMs are configured with Azure Site Recovery (ASR) for both pooled and personal host pools, you'll only need to set up one host pool and its related app groups and workspaces.
+- You can create a new host pool in the failover region while keeping all resources in your primary location turned off. In this case, you'd only need to set up a new app group or workspace in the failover region. You can use an ASR Recovery Plan to power on host pools with this method.
+- You can create a host pool that's populated by VMs built in both the primary and failover regions while keeping the VMs in the failover region turned off. In this case, you only need to set up one host pool and its related app groups and workspaces. You can use an ASR Recovery Plan to power on host pools with this method.
+
+We recommend using [Azure Site Recovery](../site-recovery/site-recovery-overview.md) to manage replicating VMs in other Azure locations, as described in [Azure-to-Azure disaster recovery architecture](../site-recovery/azure-to-azure-architecture.md). We especially recommend using ASR for personal host pools. ASR supports both [server-based and client-based SKUs](../site-recovery/azure-to-azure-support-matrix.md#replicated-machine-operating-systems).
+
+If you use ASR, you won't need to register these VMs manually. The Windows Virtual Desktop agent in the secondary VM will automatically use the latest security token to connect to the service instance closest to it. The VM (session host) in the secondary location will automatically become part of the host pool. The end-user might have to reconnect during the process, but apart from that, there are no other manual operations.
+
+If there are existing user connections during the outage, before the admin can start failover to the secondary region, you need to end the user connections in the current region.
+
+To disconnect users in Windows Virtual Desktop (classic), run this cmdlet:
+
+```powershell
+Invoke-RdsUserSessionLogoff
+```
+
+To disconnect users in the Azure-integrated version of Windows Virtual Desktop, run this cmdlet:
+
+```powershell
+Remove-AzWvdUserSession
+```
+
+Once you've signed out all users in the primary region, you can fail over the VMs in the primary region and let users connect to the VMs in the secondary region. For more information about how this process works, see [Replicate Azure VMs to another Azure region](../site-recovery/azure-to-azure-how-to-enable-replication.md).
+
 ## Virtual network
 
-Next, create a virtual network (VNET) in the failover region. If there are any on-prem resources that need to be accessed, then you also need to configure the VNET to access those resources. 
+Next, create a virtual network (VNET) in the failover region. If there are any on-prem resources that need to be accessed, then you also need to configure the VNET to access those resources.
+
+
+Start planning for disaster recovery by considering network connectivity. You'll need to make sure you've set up a virtual network (VNET) in your secondary region. If your users need to access on-prem resources, you'll need to configure this VNET to access them. You can establish on-prem connections with a VPN, ExpressRoute, or virtual WAN.
+
+If you use ASR to set up the VNET in the failover region, it preserves your primary network's settings and doesn't need peering.
 
 ## User identities
 
@@ -56,21 +87,30 @@ Next, ensure that the domain controller is available at the secondary location.
 There are three ways to keep the domain controller available:
 
    - Have Active Directory Domain Controller at secondary location
-   - Use an on-premise Active Directory Domain Controller
+   - Use an on-premises Active Directory Domain Controller
    - Replicate Active Directory Domain Controller using [Azure Site Recovery](../site-recovery/site-recovery-active-directory.md)
-
-<!--->Do we have links for this?<-->
 
 ## User and app data
 
-If you're using profile containers, the next step is to set up data replication in the secondary location. You have four options to store FSLogix profiles:
+If you're using profile containers, the next step is to set up data replication in the secondary location. You have five options to store FSLogix profiles:
 
-   - S2D
+   - Storage Spaces Direct (S2D)
    - Network drives (VM with extra drives)
    - Azure Files
    - Azure NetApp Files
+   - Cloud cache for replication
 
 For more information, check out [Storage options for FSLogix profile containers in Windows Virtual Desktop](store-fslogix-profile.md).
+
+If you're setting up disaster recovery for profiles, these are your options:
+
+   - Set up Native Azure Replication (for example, Azure Files Standard storage account replication, Azure NetApp Files replication, or Azure Files Sync for file servers).
+    
+     >[!NOTE]
+     >NetApp replication is automatic after you first set it up. With ASR recovery plans, you can add pre-scripts and post-scripts to failover non-VM resources and can be used for Azure Storage replication.
+
+   - FSLogix Cloud Cache (automatic).
+   - Only setup disaster recovery for app data, not user data. This option ensures business-critical data can be accessed at all times but not necessarily user’s data, which can be retrieved once the disaster is mitigated.
 
 Let’s take a look at how to configure FSLogix to set up disaster recovery for each option.
 
@@ -114,7 +154,7 @@ If you replicate the network storage VMs using Azure Site Recovery like the sess
 
 Azure Files supports cross-region asynchronous replication that you can specify when you create the storage account. If the asynchronous nature of Azure Files already covers your disaster recovery goals, then you don't need to do additional configuration.
 
-If you do need synchronous replication to minimize data loss, then we recommend you use FSLogix Cloud Cache instead.
+If you need synchronous replication to minimize data loss, then we recommend you use FSLogix Cloud Cache instead.
 
 >[!NOTE]
 >This section doesn't cover the failover authentication mechanism for
@@ -122,15 +162,24 @@ Azure Files.
 
 ### Azure NetApp Files
 
-**We need to decide on the final content for this. If it's not ready yet, then we shouldn't include this until later.**
-
-\<TBD\>
-
->[!IMPORTANT]
->If there are existing user connections during the outage, before the admin can start failover to the secondary region, you need to end the user connections in the current region. To do this, open PowerShell and run the [Invoke-RdsUserSessionLogoff](/powershell/module/windowsvirtualdesktop/invoke-rdsusersessionlogoff/) cmdlet.
-
-Once you've signed out all users in the primary region, you can fail over the VMs in the primary region and let users connect to the VMs in the secondary region.
+Learn more about Azure NetApp Files at [Create replication peering for Azure NetApp Files](../azure-netapp-files/cross-region-replication-create-peering.md).
 
 ## App dependencies
 
 Finally, make sure that any business apps that rely on data located in the primary region can fail over to the secondary location. Also, be sure to configure the settings the apps need to work in the new location. For example, if one of the apps is dependent on the SQL backend, make sure to replicate SQL in the secondary location. You should configure the app to use the secondary location as either part of the failover process or as its default configuration.
+
+## Disaster recovery testing
+
+After you're done setting up disaster recovery, you'll want to test your plan to make sure it works.
+
+Here are some suggestions for how to test your plan:
+
+- If the test VMs have internet access, they will take over any existing session host for new connections, but all existing connections to the original session host will remain active. Make sure the admin running the test signs out all active users before testing the plan. 
+- You should only do full disaster recovery tests during a maintenance window to not disrupt your users. You can also use a host pool in the validation environment for the test. 
+- Make sure your test covers all business-critical apps.
+- We recommend you only scale up to 100 VMs at a time. If you have more VMs than that, we recommend you fail them over in batches 10 minutes apart.
+
+## Next steps
+
+
+
