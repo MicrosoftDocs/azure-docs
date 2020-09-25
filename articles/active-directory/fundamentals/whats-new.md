@@ -108,7 +108,7 @@ continuous access evaluation (CAE) is now available in public preview for Azure 
 **Service category:** User Access Management  
 **Product capability:** Entitlement Management
  
-Administrators can now require that users requesting an access package answer additional questions beyond just business justification in Azure AD ELM. The users' answers will then be shown to the approvers to help them make a more accurate access approval decision. To learn more, see [Collect additional requestor information for approval (preview)](../governance/entitlement-management-access-package-approval-policy.md#collect-additional-requestor-information-for-approval-preview)
+Administrators can now require that users requesting an access package answer additional questions beyond just business justification in Azure AD Entitlement management's My Access portal. The users' answers will then be shown to the approvers to help them make a more accurate access approval decision. To learn more, see [Collect additional requestor information for approval (preview)](../governance/entitlement-management-access-package-approval-policy.md#collect-additional-requestor-information-for-approval-preview)
  
 ---
 
@@ -159,7 +159,7 @@ For listing your application in the Azure AD app gallery, read the details here:
 ### New delegation role in Azure AD Entitlement Management: Access package assignment manager
 
 **Type:** New feature  
-**Service category:** Other  
+**Service category:** User Access Management  
 **Product capability:** Entitlement Management
  
 A new Access Package Assignment Manager role has been added in Azure AD entitlement management to provide granular permissions to manage assignments. You can now delegate tasks to a user in this role, who can delegate assignments management of an access package to a business owner. However, an Access Package Assignment Manager can't alter the access package policies or other properties that are set by the administrators. 
@@ -189,7 +189,7 @@ Onboarding to PIM does not have any direct adverse effect on your tenant. You ca
 ### Azure AD Entitlement Management: The Select pane of access package resources now shows by default the resources currently in the selected catalog
 
 **Type:** Changed feature  
-**Service category:** Other  
+**Service category:** User Access Management  
 **Product capability:** Entitlement Management
  
 
