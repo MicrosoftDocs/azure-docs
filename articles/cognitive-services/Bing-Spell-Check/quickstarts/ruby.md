@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Check spelling with the REST API and Ruby - Bing Spell Check"
 titleSuffix: Azure Cognitive Services
-description: Get started using the Bing Spell Check REST API to check spelling and grammar with this quickstart.
+description: Get started using the Bing Spell Check REST API and Ruby to check spelling and grammar.
 services: cognitive-services
 author: aahill
 manager: nitinme

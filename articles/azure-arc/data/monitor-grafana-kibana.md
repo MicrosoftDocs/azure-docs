@@ -78,7 +78,7 @@ az network nsg rule create -n ports_30777 --nsg-name azurearcvmNSG --priority 60
 Now that you have the IP address and exposed the ports you should be able to access Grafana and Kibana.
 
 > [!NOTE]
->  When prompted to enter a username and password, enter the username and password that you provided at the time that you deployed the Azure Arc data controller.
+>  When prompted to enter a username and password, enter the username and password that you provided at the time that you created the Azure Arc data controller.
 
 > [!NOTE]
 >  You will be prompted with a certificate warning because the certificates used in preview are self-signed certificates.

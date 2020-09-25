@@ -55,7 +55,7 @@ azdata arc sql mi create -n sqldemo --storage-class-data managed-premium --stora
 > [!NOTE]
 >  Names must be less than 13 characters in length and conform to [DNS naming conventions](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#dns-label-names)
 >
->  When specifying memory allocation and vCore allocation use this formula to ensure your deployment is successful - for each 1 vCore you need at least 4GB of RAM of capacity available on the Kubernetes node where the SQL managed instance pod will run.
+>  When specifying memory allocation and vCore allocation use this formula to ensure your creation is successful - for each 1 vCore you need at least 4GB of RAM of capacity available on the Kubernetes node where the SQL managed instance pod will run.
 >
 >  When creating a SQL instance do not use upper case in the name if you are provisioning in Azure
 >
@@ -63,9 +63,9 @@ azdata arc sql mi create -n sqldemo --storage-class-data managed-premium --stora
 
 
 > [!NOTE]
-> If you want to automate the deployment of SQL instances and avoid the interactive prompt for the admin password, you can set the `AZDATA_USERNAME` and `AZDATA_PASSWORD` environment variables to the desired username and password prior to running the `azdata arc sql mi create` command.
+> If you want to automate the creation of SQL instances and avoid the interactive prompt for the admin password, you can set the `AZDATA_USERNAME` and `AZDATA_PASSWORD` environment variables to the desired username and password prior to running the `azdata arc sql mi create` command.
 > 
->  If you deployed the data controller using AZDATA_USERNAME and AZDATA_PASSWORD in the same terminal session, then the values for AZDATA_USERNAME and AZDATA_PASSWORD will be used to deploy the SQL managed instance too.
+>  If you created the data controller using AZDATA_USERNAME and AZDATA_PASSWORD in the same terminal session, then the values for AZDATA_USERNAME and AZDATA_PASSWORD will be used to create the SQL managed instance too.
 
 > [!NOTE]
 > Creating Azure SQL Managed Instance will not register the resources in Azure. Steps to register the resource are in the following articles: 

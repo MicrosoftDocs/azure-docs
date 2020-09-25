@@ -1,6 +1,6 @@
 ---
 title: Planning for migration from classic to Azure Resource Manager
-description: Planning for migration of IaaS resources from classic to Azure Resource Manager
+description: In this article, learn how to plan for migration of IaaS resources from classic to Azure Resource Manager in Linux.
 services: virtual-machines-linux
 author: tanmaygore
 manager: vashan

@@ -212,7 +212,7 @@ Now that you have a variable to hold the subscription ID, you can configure the 
 
 23. Hover over `Login to Azure` until a circle appears on the bottom of the shape. Click the circle and drag the arrow to `Specify Subscription Id`. Your runbook should look like the following at this point.
 
-    ![Runbook authentication configuration](../media/automation-tutorial-runbook-graphical/runbook-auth-config.png)
+    :::image type="content" source="../media/automation-tutorial-runbook-graphical/runbook-auth-config.png" alt-text="Screenshot of the runbook after dragging the arrow to 'Specify Subscription ID'.":::
 
 ## Step 7 - Add activity to start a virtual machine
 

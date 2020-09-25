@@ -113,13 +113,13 @@ Replace {_argument_name_} with your own values:
 The following Docker examples are for the Read container.
 
 
-# [Version 3.0](#tab/version-3)
+# [Version 3.0-preview](#tab/version-3)
 
 ### Basic example
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
-mcr.microsoft.com/azure-cognitive-services/vision/read:3.0 \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.0-preview \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
@@ -129,14 +129,14 @@ ApiKey={API_KEY}
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
-mcr.microsoft.com/azure-cognitive-services/vision/read:3.0 \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.0-preview \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
 Logging:Console:LogLevel:Default=Information
 ```
 
-# [Version 3.1](#tab/version-3-1)
+# [Version 3.1-preview](#tab/version-3-1)
 
 ### Basic example
 

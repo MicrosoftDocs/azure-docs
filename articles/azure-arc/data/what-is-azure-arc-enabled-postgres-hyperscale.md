@@ -43,13 +43,13 @@ This is the hyperscale form factor of the Postgres database engine available as 
 This is the hyperscale form factor of the Postgres database engine that is available with Azure Arc enabled data services. It is also powered by the Citus extension that enables the hyperscale experience. In this form factor, our customers provide the infrastructure that hosts the systems and operate them.
 
 ## Next steps
-- **Deploy**
+- **Create**
    > **Just want to try things out?**  
-   > Quick starter and packaged deployment option: Get started quickly with [Azure Arc JumpStart](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services) on Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) or in an Azure VM.
+   > Get started quickly with [Azure Arc Jumpstart](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services) on Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) or in an Azure VM.
 
-   - **Deploy on your terms:**
+   - **Create:**
       - [Install the client tools](install-client-tools.md)
-      - [Deploy the Azure Arc data controller](create-data-controller.md) (requires installing the client tools first)
-      - [Deploy an Azure Database for PostgreSQL Hyperscale server group on Azure Arc](create-postgresql-hyperscale-server-group.md) (Requires deployment of an Azure Arc data controller first.)
+      - [Create the Azure Arc data controller](create-data-controller.md) (requires installing the client tools first)
+      - [Create an Azure Database for PostgreSQL Hyperscale server group on Azure Arc](create-postgresql-hyperscale-server-group.md) (Requires creation of an Azure Arc data controller first.)
 - [**Read more about Azure Arc enabled data services**](https://azure.microsoft.com/services/azure-arc/hybrid-data-services)
 - [**Read about Azure Arc**](https://aka.ms/azurearc)

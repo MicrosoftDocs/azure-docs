@@ -8,8 +8,7 @@
     items:
     - name: SSL root certificate expiring
       href: concepts-certificate-rotation.md
-- name: Quickstarts
-  expanded: true
+- name: Shared documentation
   items:
   - name: Migration
     items:
@@ -23,6 +22,7 @@
         href: howto-migrate-online.md
         displayName: dms, data migration service
 - name: Single Server
+  expanded: true
   items:
   - name: Single Server documentation
     href: single-server/index.yml
@@ -379,12 +379,14 @@
       - name: Azure portal
         href: howto-move-regions-portal.md
 - name: Flexible Server (Preview)
+  expanded: true
   items:
   - name: Flexible Server documentation
     href: flexible-server/index.yml
   - name: Overview
     href: flexible-server/overview.md
   - name: Quickstarts
+    expanded: true
     items:
     - name: Create Server and Database
       items:

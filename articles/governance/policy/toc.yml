@@ -17,6 +17,9 @@
   - name: Assign a policy - Azure PowerShell
     displayName: assign, compliance
     href: ./assign-policy-powershell.md
+  - name: Assign a policy - JavaScript
+    displayName: assign, compliance
+    href: ./assign-policy-javascript.md  
   - name: Assign a policy - Python
     displayName: assign, compliance
     href: ./assign-policy-python.md
@@ -112,10 +115,10 @@
     href: ./concepts/policy-as-code.md
   - name: Kubernetes integration
     items:
-    - name: Azure Policy for Kubernetes (preview)
+    - name: Azure Policy for Kubernetes
       displayName: aks, engine, k8s, rego, opa, open policy agent, gatekeeper, v3, crd, constraints, arc
       href: ./concepts/policy-for-kubernetes.md
-    - name: Secure pods with Azure Policy (preview)
+    - name: Secure pods with Azure Policy
       displayName: aks, psp, rego, opa
       href: ../../aks/use-pod-security-on-azure-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
   - name: Audit VMs with Guest Configuration

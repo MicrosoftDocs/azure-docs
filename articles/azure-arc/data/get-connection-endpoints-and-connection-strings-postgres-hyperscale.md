@@ -38,15 +38,24 @@ azdata login --endpoint https://<external IP address of host/data controller>:30
 #### 2. Show the connection endpoints
 Run the following command:
 ```console
-azdata arc postgres server endpoint list -n <server group name>
+azdata arc postgres endpoint list -n <server group name>
 ```
 It returns an output like:
 ```console
-Description           Endpoint
---------------------  ------------------------------------------------------------------------------------------------------------------------
-PostgreSQL Instance   postgresql://postgres:<replace with password>@<IPaddress>:<port number>
-Log Search Dashboard  https://<IPaddress>:<port number>/kibana/app/kibana#/discover?_a=(query:(language:kuery,query:'custom_resource_name:"<server group name>"'))
-Metrics Dashboard     https://<IPaddress>:<port number>/grafana/d/postgres-metrics?var-Namespace=arc&var-Name=<server group name>
+[
+  {
+    "Description": "PostgreSQL Instance",
+    "Endpoint": "postgresql://postgres:<replace with password>@12.345.123.456:1234"
+  },
+  {
+    "Description": "Log Search Dashboard",
+    "Endpoint": "https://12.345.123.456:12345/kibana/app/kibana#/discover?_a=(query:(language:kuery,query:'custom_resource_name:\"postgres01\"'))"
+  },
+  {
+    "Description": "Metrics Dashboard",
+    "Endpoint": "https://12.345.123.456:12345/grafana/d/postgres-metrics?var-Namespace=arc3&var-Name=postgres01"
+  }
+]
 ```
 Use these end points to:
 - Form your connection strings and connect with your client tools or applications
@@ -54,7 +63,7 @@ Use these end points to:
 
 For example, you can use the end point named _PostgreSQL Instance_ to connect with psql to your server group. For example:
 ```console
-psql postgresql://postgres:MyPassworkd@123.456.789.111:31066
+psql postgresql://postgres:MyPassworkd@12.345.123.456:1234
 psql (10.14 (Ubuntu 10.14-0ubuntu0.18.04.1), server 12.4 (Ubuntu 12.4-1.pgdg16.04+1))
 WARNING: psql major version 10, server major version 12.
          Some psql features might not work.
@@ -65,7 +74,7 @@ postgres=#
 ```
 > [!NOTE]
 >
-> - The password of the _postgresql_ user indicated in the end point named "_PostgreSQL Instance_ is the password you chose when deploying the server group.
+> - The password of the _postgres_ user indicated in the end point named "_PostgreSQL Instance_" is the password you chose when deploying the server group.
 > - About azdata: the lease associated to your connection lasts about 10 hours. After that you need to reconnect. If your lease has expired, you will get the following error message when you try to execute a command with azdata (other than azdata login):
 > _ERROR: (401)_
 > _Reason: Unauthorized_
