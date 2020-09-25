@@ -97,9 +97,9 @@ Permissions are applied at the record set level.  The user is granted control to
 
 Record-set level RBAC permissions can be configured via the Azure portal, using the **Access Control (IAM)** button in the record set page:
 
-![Record set level RBAC via the Azure portal](./media/dns-protect-private-zones-recordsets/rbac3.png)
+![Screenshot shows the Access Control (I A M) button.](./media/dns-protect-private-zones-recordsets/rbac3.png)
 
-![Record set level RBAC via the Azure portal](./media/dns-protect-private-zones-recordsets/rbac4.png)
+![Screenshot shows Access Control with Add role assignment selected.](./media/dns-protect-private-zones-recordsets/rbac4.png)
 
 Record-set level RBAC permissions can also be [granted using Azure PowerShell](../role-based-access-control/role-assignments-powershell.md):
 
