@@ -100,7 +100,7 @@ await nodes.ForEachAsync(node =>
 }).ConfigureAwait(continueOnCapturedContext: false);
 ```
 
-### List task sounts for the job
+### List task counts for the job
 This code snippet gets task counts for the job, which includes both tasks and tasks slots count per task state.
 ```csharp
 TaskCountsResult result = await batchClient.JobOperations.GetJobTaskCountsAsync(jobId);
