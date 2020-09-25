@@ -13,7 +13,7 @@ ms.custom: mvc
 
 # Request elevation data using the Azure Maps Elevation service
 
-The Azure Maps  [Elevation service service](https://docs.microsoft.com/rest/api/maps/elevation) provides APIs to query elevation data for locations on earth. You can request sampled elevation data along paths, within a defined bounding box, or at specific coordinates. Also, you can use the [Render V2 - Get Map Tile API](https://docs.microsoft.com/rest/api/maps/renderv2) to retrieve elevation data from tiles in GeoTIFF raster format. This article shows you how to use Azure Maps Elevation service and the Get Map Tile API to request elevation data in both GeoJSON and raster tile formats.
+The Azure Maps [Elevation service service](https://docs.microsoft.com/rest/api/maps/elevation) provides APIs to query elevation data for locations on earth. You can request sampled elevation data along paths, within a defined bounding box, or at specific coordinates. Also, you can use the [Render V2 - Get Map Tile API](https://docs.microsoft.com/rest/api/maps/renderv2) to retrieve elevation data in tile format. The tiles are delivered in GeoTIFF raster format. This article shows you how to use Azure Maps Elevation service and the Get Map Tile API to request elevation data in both GeoJSON and GeoTiff formats.
 
 ## Prerequisites
 
@@ -29,7 +29,7 @@ This article uses the [Postman](https://www.postman.com/) application, but you m
 To request elevation data in raster tile format, use the [Render V2 - Get Map Tile API](https://docs.microsoft.com/rest/api/maps/renderv2). The API returns the tile as a GeoTIFF. All raster DEM tiles are calibrated to sea level. In this example, we'll request elevation data for Mt. Everest.
 
 >[!TIP]
->To retrieve a tile at a specific area on the world map, you'll need to find the correct tile at the appropriate zoom level. For more information, see [Zoom levels and tile grid](zoom-levels-and-tile-grid.md).
+>To retrieve a tile at a specific area on the world map, you'll need to find the correct tile at the appropriate zoom level. Note also that, WorldDEM covers the entire global landmass but does not cover oceans.  For more information, see [Zoom levels and tile grid](zoom-levels-and-tile-grid.md).
 
 1. Open the Postman app. Near the top of the Postman app, select **New**. In the **Create New** window, select **Collection**.  Name the collection and select the **Create** button.
 
