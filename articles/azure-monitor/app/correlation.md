@@ -213,9 +213,9 @@ This feature is in `Microsoft.ApplicationInsights.JavaScript`. It's disabled by 
 
 ## Telemetry correlation in OpenCensus Python
 
-OpenCensus Python follows the [OpenTracing](https://opentracing.io/) data model specifications and supports [W3C Trace-Context](https://w3c.github.io/trace-context/) without requiring any configuration.
+OpenCensus Python supports [W3C Trace-Context](https://w3c.github.io/trace-context/) without requiring additional configuration.
 
-For definitions of OpenTracing concepts, see the OpenTracing [specification](https://github.com/opentracing/specification/blob/master/specification.md) and [semantic conventions](https://github.com/opentracing/specification/blob/master/semantic_conventions.md).
+As a reference, the OpenCensus data model can be found [here](https://github.com/census-instrumentation/opencensus-specs/tree/master/trace).
 
 ### Incoming request correlation
 
