@@ -169,7 +169,7 @@ Make sure the curated environment includes all the dependencies required by your
 pytorch_env = Environment.from_conda_specification(name='pytorch-1.6-gpu', file_path='./conda_dependencies.yml')
 ```
 
-If you modified the environment object directly, you can clone that environment with a new name:
+If you had instead modified the curated environment object directly, you can clone that environment with a new name:
 ```python
 pytorch_env = pytorch_env.clone(new_name='pytorch-1.6-gpu')
 ```
