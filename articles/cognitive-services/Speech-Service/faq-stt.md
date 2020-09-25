@@ -24,7 +24,7 @@ If you can't find answers to your questions in this FAQ, check out [other suppor
 
 **Q: Where do I start if I want to use a baseline model?**
 
-**A**: First, get a [subscription key](get-started.md). If you want to make REST calls to the predeployed baseline models, see the [REST APIs](rest-apis.md). If you want to use WebSockets, [download the SDK](speech-sdk.md).
+**A**: First, get a [subscription key](overview.md#try-the-speech-service-for-free). If you want to make REST calls to the predeployed baseline models, see the [REST APIs](rest-apis.md). If you want to use WebSockets, [download the SDK](speech-sdk.md).
 
 **Q: Do I always need to build a custom speech model?**
 
