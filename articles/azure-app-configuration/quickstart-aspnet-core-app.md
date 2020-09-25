@@ -15,12 +15,12 @@ ms.author: lcozzens
 ---
 # Quickstart: Create an ASP.NET Core app with Azure App Configuration
 
-In this quickstart, you'll use Azure App Configuration to centralize storage and management of application settings for an ASP.NET Core application. ASP.NET Core builds a single, key-value-based configuration object using settings from one or more data sources specified by an application. These data sources are known as *configuration providers*. Because App Configuration's .NET Core client is implemented as a configuration provider, the service appears like another data source.
+In this quickstart, you'll use Azure App Configuration to centralize storage and management of application settings for an ASP.NET Core app. ASP.NET Core builds a single, key-value-based configuration object using settings from one or more data sources specified by an app. These data sources are known as *configuration providers*. Because App Configuration's .NET Core client is implemented as a configuration provider, the service appears like another data source.
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/dotnet)
-- [.NET Core SDK](https://dotnet.microsoft.com/download)
+* Azure subscription - [create one for free](https://azure.microsoft.com/free/dotnet)
+* [.NET Core SDK](https://dotnet.microsoft.com/download)
 
 > [!TIP]
 > The Azure Cloud Shell is a free, interactive shell that you can use to run the command line instructions in this article. It has common Azure tools preinstalled, including the .NET Core SDK. If you're logged in to your Azure subscription, launch your [Azure Cloud Shell](https://shell.azure.com) from shell.azure.com. You can learn more about Azure Cloud Shell by [reading our documentation](../cloud-shell/overview.md)
@@ -28,7 +28,8 @@ In this quickstart, you'll use Azure App Configuration to centralize storage and
 ## Create an App Configuration store
 
 [!INCLUDE[Azure App Configuration resource creation steps](../../includes/azure-app-configuration-create.md)]
-1. Select **Operations** > **Configuration explorer** > **Create** > **Key-value** to add the following key-value pairs:
+
+7. Select **Operations** > **Configuration explorer** > **Create** > **Key-value** to add the following key-value pairs:
 
     | Key                                | Value                               |
     |------------------------------------|-------------------------------------|
@@ -165,9 +166,11 @@ A `UserSecretsId` element containing a GUID is added to the *.csproj* file:
 
     ---
 
+    With the preceding change, the [configuration provider for App Configuration](https://go.microsoft.com/fwlink/?linkid=2074664) has been registered with the .NET Core Configuration API.
+
 ## Read from the App Configuration store
 
-The Azure App Configuration configuration provider has been registered in the ASP.NET Core project. Complete the following steps to read and display values stored in the App Configuration store. The .NET Core Configuration API will be used with Razor syntax.
+Complete the following steps to read and display values stored in the App Configuration store. The .NET Core Configuration API will be used to access the store. Razor syntax will be used to display the keys' values.
 
 Open *\<app root>/Views/Home/Index.cshtml*, and replace its content with the following code:
 
@@ -188,7 +191,7 @@ Open *\<app root>/Views/Home/Index.cshtml*, and replace its content with the fol
 <h1>@Configuration["TestApp:Settings:Message"]</h1>
 ```
 
-In the preceding snippet, the App Configuration store's keys are used as follows:
+In the preceding code, the App Configuration store's keys are used as follows:
 
 * The `TestApp:Settings:BackgroundColor` key's value is assigned to the CSS `background-color` property.
 * The `TestApp:Settings:FontColor` key's value is assigned to the CSS `color` property.
@@ -221,7 +224,14 @@ In the preceding snippet, the App Configuration store's keys are used as follows
 
 ## Next steps
 
-In this quickstart, you created a new App Configuration store. The store was used by an ASP.NET Core MVC project via the [App Configuration provider](https://go.microsoft.com/fwlink/?linkid=2074664). To learn how to configure your ASP.NET Core app to dynamically refresh configuration settings, continue to the next tutorial.
+In this quickstart, you:
+
+* Provisioned a new App Configuration store.
+* Registered the App Configuration store's .NET Core configuration provider.
+* Read the App Configuration store's keys with the configuration provider.
+* Displayed the App Configuration store's key values using Razor syntax.
+
+To learn how to configure your ASP.NET Core app to dynamically refresh configuration settings, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
 > [Enable dynamic configuration](./enable-dynamic-configuration-aspnet-core.md)
