@@ -83,7 +83,7 @@ To verify if the Azure AD Connect server has actual connectivity with the Proxy 
 PowerShell uses the configuration in machine.config to contact the proxy. The settings in winhttp/netsh should not impact these cmdlets.
 
 If the proxy is correctly configured, you should get a success status:
-![proxy200](./media/tshoot-connect-connectivity/invokewebrequest200.png)
+![Screenshot that shows the success status when the proxy is configured correctly.](./media/tshoot-connect-connectivity/invokewebrequest200.png)
 
 If you receive **Unable to connect to the remote server**, then PowerShell is trying to make a direct call without using the proxy or DNS is not correctly configured. Make sure the **machine.config** file is correctly configured.
 ![unabletoconnect](./media/tshoot-connect-connectivity/invokewebrequestunable.png)
