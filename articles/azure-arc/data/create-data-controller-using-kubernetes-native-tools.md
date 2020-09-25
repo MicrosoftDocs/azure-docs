@@ -26,7 +26,7 @@ To create the Azure Arc data Controller using Kubernetes tools you will need to 
 > [!NOTE]
 > Some of the steps to create the Azure Arc data controller that are indicated below require Kubernetes cluster administrator permissions.  If you are not a Kubernetes cluster administrator, you will need to have the Kubernetes cluster administrator perform these steps on your behalf.
 
-## Cleanup from past installations
+#### Cleanup from past installations
 
 If you installed Azure Arc data controller in the past on the same cluster and deleted the Azure Arc data controller using the `azdata arc dc delete` command, there may be some cluster level objects that would still need to be deleted. Run the following commands to delete Azure Arc data controller cluster level objects:
 
