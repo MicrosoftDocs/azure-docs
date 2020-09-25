@@ -103,7 +103,7 @@ A `UserSecretsId` element containing a GUID is added to the *.csproj* file:
 > [!TIP]
 > To learn more about Secret Manager, see [Safe storage of app secrets in development in ASP.NET Core](/aspnet/core/security/app-secrets).
 
-## Connect to an App Configuration store
+## Connect to the App Configuration store
 
 1. Run the following command to add a [Microsoft.Azure.AppConfiguration.AspNetCore](https://www.nuget.org/packages/Microsoft.Azure.AppConfiguration.AspNetCore) NuGet package reference:
 
@@ -165,61 +165,45 @@ A `UserSecretsId` element containing a GUID is added to the *.csproj* file:
 
     ---
 
-1. Open *\<app root>/Views/Home/Index.cshtml*, and replace its content with the following code:
+## Read from the App Configuration store
 
-    ```cshtml
-    @using Microsoft.Extensions.Configuration
-    @inject IConfiguration Configuration
+The Azure App Configuration configuration provider has been registered in the ASP.NET Core project. Complete the following steps to read and display values stored in the App Configuration store. The .NET Core Configuration API will be used with Razor syntax.
 
-    <style>
-        body {
-            background-color: @Configuration["TestApp:Settings:BackgroundColor"]
-        }
-        h1 {
-            color: @Configuration["TestApp:Settings:FontColor"];
-            font-size: @Configuration["TestApp:Settings:FontSize"]px;
-        }
-    </style>
+Open *\<app root>/Views/Home/Index.cshtml*, and replace its content with the following code:
 
-    <h1>@Configuration["TestApp:Settings:Message"]</h1>
-    ```
+```cshtml
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
 
-1. Open *\<app root>/Views/Shared/_Layout.cshtml*, and replace its content with the following code:
+<style>
+    body {
+        background-color: @Configuration["TestApp:Settings:BackgroundColor"]
+    }
+    h1 {
+        color: @Configuration["TestApp:Settings:FontColor"];
+        font-size: @Configuration["TestApp:Settings:FontSize"]px;
+    }
+</style>
 
-    ```cshtml
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>@ViewData["Title"] - hello_world</title>
+<h1>@Configuration["TestApp:Settings:Message"]</h1>
+```
 
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-        <link rel="stylesheet" href="~/css/site.css" />
-    </head>
-    <body>
-        <div class="container body-content">
-            @RenderBody()
-        </div>
+In the preceding snippet, the App Configuration store's keys are used as follows:
 
-        <script src="~/lib/jquery/dist/jquery.js"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-        <script src="~/js/site.js" asp-append-version="true"></script>
-
-        @RenderSection("Scripts", required: false)
-    </body>
-    </html>
-    ```
+* The `TestApp:Settings:BackgroundColor` key's value is assigned to the CSS `background-color` property.
+* The `TestApp:Settings:FontColor` key's value is assigned to the CSS `color` property.
+* The `TestApp:Settings:FontSize` key's value is assigned to the CSS `font-size` property.
+* The `TestApp:Settings:Message` key's value is displayed as a heading.
 
 ## Build and run the app locally
 
-1. To build the app using the .NET Core CLI, navigate to the root directory of your application and run the following command in the command shell:
+1. To build the app using the .NET Core CLI, navigate to the root directory of your project. Run the following command in the command shell:
 
     ```dotnetcli
     dotnet build
     ```
 
-1. After the build successfully completes, run the following command to run the web app locally:
+1. After the build completes successfully, run the following command to run the web app locally:
 
     ```dotnetcli
     dotnet run
@@ -227,11 +211,9 @@ A `UserSecretsId` element containing a GUID is added to the *.csproj* file:
 
 1. If you're working on your local machine, use a browser to navigate to `http://localhost:5000`. This address is the default URL for the locally hosted web app. If you're working in the Azure Cloud Shell, select the **Web Preview** button followed by **Configure**.
 
-![Locate the Web Preview button](./media/quickstarts/cloud-shell-web-preview.png)
+    ![Locate the Web Preview button](./media/quickstarts/cloud-shell-web-preview.png)
 
-When prompted to configure the port for preview, enter *5000* and select **Open and browse**. The web page will read "Data from Azure App Configuration."
-
-![Launching quickstart app](./media/quickstarts/aspnet-core-app-launch-local-before.png)
+    When prompted to configure the port for preview, enter *5000* and select **Open and browse**. The web page will read "Data from Azure App Configuration."
 
 ## Clean up resources
 
@@ -239,7 +221,7 @@ When prompted to configure the port for preview, enter *5000* and select **Open 
 
 ## Next steps
 
-In this quickstart, you created a new App Configuration store. The store was used by an ASP.NET Core web app via the [App Configuration provider](https://go.microsoft.com/fwlink/?linkid=2074664). To learn how to configure your ASP.NET Core app to dynamically refresh configuration settings, continue to the next tutorial.
+In this quickstart, you created a new App Configuration store. The store was used by an ASP.NET Core MVC project via the [App Configuration provider](https://go.microsoft.com/fwlink/?linkid=2074664). To learn how to configure your ASP.NET Core app to dynamically refresh configuration settings, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
 > [Enable dynamic configuration](./enable-dynamic-configuration-aspnet-core.md)
