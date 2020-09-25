@@ -41,7 +41,7 @@ Let's start by setting up the development environment for our Node.js project.
     npm init
     ```
 
-1. Now, let's install some azure modules and add them to the `package.json`:
+1. Now, let's install some Azure modules and add them to the `package.json`:
 
     ```console
     npm install --save @azure/cognitiveservices-websearch
