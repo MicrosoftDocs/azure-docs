@@ -74,7 +74,7 @@ In this quickstart, you use a sample IoT solution in Python to interact with the
 
 1. Navigate to the */azure-iot-sdk-python/azure-iot-hub/samples* folder of the cloned Python SDK repository.
 
-1. In the samples folder, there are four sample files with a `pnp` prefix. These samples show how to use each API for interacting with IoT Plug and Play devices:
+1. In the samples folder, there are four sample files demonstrating the operations with the Digital Twin Manager class: *get_digital_twin_sample.py, update_digitial_twin_sample.py, invoke_command_sample.py, and invoke_component_command_sample-.py*.  These samples show how to use each API for interacting with IoT Plug and Play devices:
 
 ### Get digital twin
 
@@ -86,7 +86,7 @@ In [Set up your environment for the IoT Plug and Play quickstarts and tutorials]
 Use the following command in the **service** terminal to run this sample:
 
 ```cmd/sh
-python pnp_get_digital_twin_sample.py
+python get_digital_twin_sample.py
 ```
 
 The output shows the device's digital twin and prints its model ID:
@@ -96,7 +96,7 @@ The output shows the device's digital twin and prints its model ID:
 Model Id: dtmi:com:example:Thermostat;1
 ```
 
-The following snippet shows the sample code from *pnp_get_digital_twin_sample.py*:
+The following snippet shows the sample code from *get_digital_twin_sample.py*:
 
 ```python
     # Get digital twin and retrieve the modelId from it
@@ -110,7 +110,7 @@ The following snippet shows the sample code from *pnp_get_digital_twin_sample.py
 
 ### Update a digital twin
 
-This sample shows you how to use a *patch* to update properties through your device's digital twin. The following snippet from *pnp_update_digital_twin_sample.py* shows how to construct the patch:
+This sample shows you how to use a *patch* to update properties through your device's digital twin. The following snippet from *update_digital_twin_sample.py* shows how to construct the patch:
 
 ```python
 # If you already have a component thermostat1:
@@ -123,7 +123,7 @@ print("Patch has been succesfully applied")
 Use the following command in the **service** terminal to run this sample:
 
 ```cmd/sh
-python pnp_update_digital_twin_sample.py
+python update_digital_twin_sample.py
 ```
 
 You can verify that the update is applied in the **device** terminal that shows the following output:
@@ -142,7 +142,7 @@ Patch has been successfully applied
 
 ### Invoke a command
 
-To invoke a command, run the *pnp_invoke_command_sample.py* sample. This sample shows how to invoke a command in a simple thermostat device. Before you run this sample, set the `IOTHUB_COMMAND_NAME` and `IOTHUB_COMMAND_PAYLOAD` environment variables in the **service** terminal:
+To invoke a command, run the *invoke_command_sample.py* sample. This sample shows how to invoke a command in a simple thermostat device. Before you run this sample, set the `IOTHUB_COMMAND_NAME` and `IOTHUB_COMMAND_PAYLOAD` environment variables in the **service** terminal:
 
 ```cmd/sh
 set IOTHUB_COMMAND_NAME="getMaxMinReport" # this is the relevant command for the thermostat sample
@@ -152,7 +152,7 @@ set IOTHUB_COMMAND_PAYLOAD="hello world" # this payload doesn't matter for this 
 In the **service** terminal, use the following command to run the sample:
   
 ```cmd/sh
-python pnp_invoke_command_sample.py
+python invoke_command_sample.py
 ```
 
 The **service** terminal shows a confirmation message from the device:
