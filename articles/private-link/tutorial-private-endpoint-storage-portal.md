@@ -1,5 +1,6 @@
 ---
 title: 'Tutorial: Connect to a storage account using an Azure Private endpoint'
+titleSuffix: Azure Private Link
 description: Get started with Azure Private endpoint to connect to a storage account privately.
 author: asudbring
 ms.author: allensu
