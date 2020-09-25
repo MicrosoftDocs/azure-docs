@@ -30,7 +30,7 @@ Here are some use cases for Connection Monitor (Preview):
 - Your hybrid application needs connectivity to an Azure Storage endpoint. Your on-premises site and your Azure application connect to the same Azure Storage endpoint. You want to compare the latencies of the on-premises site to the latencies of the Azure application.
 - You want to check the connectivity between your on-premises setups and the Azure VMs that host your cloud application.
 
-In its preview phase, Connection Monitor combines the best of two features: the Network Watcher [Connection Monitor](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#monitor-communication-between-a-virtual-machine-and-an-endpoint) feature and the Network Performance Monitor (NPM) [Service Connectivity Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-service-connectivity), [ExpressRoute Monitoring](https://docs.microsoft.com/en-us/azure/expressroute/how-to-npm), and [Performance Monitoring](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/network-performance-monitor-performance-monitor) feature.
+In its preview phase, Connection Monitor combines the best of two features: the Network Watcher [Connection Monitor](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#monitor-communication-between-a-virtual-machine-and-an-endpoint) feature and the Network Performance Monitor (NPM) [Service Connectivity Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-service-connectivity), [ExpressRoute Monitoring](https://docs.microsoft.com/azure/expressroute/how-to-npm), and [Performance Monitoring](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-performance-monitor) feature.
 
 Here are some benefits of Connection Monitor (Preview):
 
@@ -152,7 +152,7 @@ After you create a connection monitor, sources check connectivity to destination
 
 Based on the protocol that you chose in the test configuration, Connection Monitor (Preview) runs a series of checks for the source-destination pair. The checks run according to the test frequency that you chose.
 
-If you use HTTP, the service calculates the number of HTTP responses that returned a valid response code. Valid response codes can be set using Powershell and CLI. The result determines the percentage of failed checks. To calculate RTT, the service measures the time between an HTTP call and the response.
+If you use HTTP, the service calculates the number of HTTP responses that returned a valid response code. Valid response codes can be set using PowerShell and CLI. The result determines the percentage of failed checks. To calculate RTT, the service measures the time between an HTTP call and the response.
 
 If you use TCP or ICMP, the service calculates the packet-loss percentage to determine the percentage of failed checks. To calculate RTT, the service measures the time taken to receive the acknowledgment (ACK) for the packets that were sent. If you enabled traceroute data for your network tests, you can see hop-by-hop loss and latency for your on-premises network.
 
@@ -192,9 +192,9 @@ On the dashboard, you can expand each connection monitor to see its test groups.
 
 You can filter a list based on:
 
-* **Top-level filters** – Search list by text, entity type (Connection Monitor, test group or test) m time and scope. Scope includes subscriptions, regions,  sources, and destination types. See box 1 in the following image.
+* **Top-level filters** – Search list by text, entity type (Connection Monitor, test group or test) timestamp and scope. Scope includes subscriptions, regions,  sources, and destination types. See box 1 in the following image.
 * **State-based filters** – Filter by the state of the connection monitor, test group, or test. See box 2 in the following image.
-* **Alert based filter** - Filter by alerts fired on the connection monitor resource 
+* **Alert based filter** - Filter by alerts fired on the connection monitor resource. See box 3 in the following image.
 
 ![Screenshot showing how to filter views of connection monitors, test groups, and tests in Connection Monitor (Preview)](./media/connection-monitor-2-preview/cm-view.png)
 
@@ -223,7 +223,7 @@ To view the trends in RTT and the percentage of failed checks for a connection m
 1. Select the connection monitor that you want to investigate.
 
    ![Screenshot showing metrics for a connection monitor, displayed by test group](./media/connection-monitor-2-preview/cm-drill-landing.png)
-
+   
 1. You will see the following sections  
     1. Essentials - Resource specific properties of the selected Connection Monitor 
     1. Summary - 
