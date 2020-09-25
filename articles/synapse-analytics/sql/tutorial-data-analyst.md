@@ -1,6 +1,6 @@
 ---
 title: Use SQL on-demand (preview) to analyze Azure Open Datasets in Azure Synapse Studio (preview)
-description: In this tutorial, you will learn how to easily perform exploratory data analysis combining different Azure Open Datasets using SQL on-demand (preview) and visualize the results in Azure Synapse Studio.
+description: Learn how to easily perform exploratory data analysis combining different Azure Open Datasets using SQL on-demand (preview) and visualize the results in Azure Synapse Studio.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -130,7 +130,7 @@ Again, you can easily visualize data by plotting the **Column** chart with the *
 
 ![Column chart showing daily number of rides for 2016](./media/tutorial-data-analyst/7.png)
 
-From the plot chart, you can see that there's a weekly pattern, with Saturdays as the peak day. During summer months, there are fewer taxi rides because of vacations. There are also some significant drops in the number of taxi rides without a clear pattern of when and why they occur.
+From the plot chart, you can see there's a weekly pattern, with Saturdays as the peak day. During summer months, there are fewer taxi rides because of vacations. Also, notice some significant drops in the number of taxi rides without a clear pattern of when and why they occur.
 
 Next, let's see if the drops correlate with public holidays by joining the NYC Taxi rides dataset with the Public Holidays dataset:
 
