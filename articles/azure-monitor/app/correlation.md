@@ -68,13 +68,13 @@ Application Insights also defines the [extension](https://github.com/lmolkova/co
 
 The [W3C Trace-Context](https://w3c.github.io/trace-context/) and Application Insights data models map in the following way:
 
-| Application Insights                   | W3C                                      |
+| Application Insights                   | W3C TraceContext                                      |
 |------------------------------------    |-------------------------------------------------    |
-| `Request`, `PageView`                  | `Span` with `span.kind = server`                    |
-| `Dependency`                           | `Span` with `span.kind = client`                    |
+| `Request`, `PageView`                  | `SpanKind` is server if synchronous; `SpanKind` is consumer if asynchronous                    |
+| `Dependency`                           | `SpanKind` is client if synchronous; `SpanKind` is producer if asynchronous                   |
 | `Id` of `Request` and `Dependency`     | `SpanId`                                            |
 | `Operation_Id`                         | `TraceId`                                           |
-| `Operation_ParentId`                   | `Reference` of type `ChildOf` (the parent span)     |
+| `Operation_ParentId`                   | `SpanId` of this span's parent span. If this is a root span, then this field must be empty.     |
 
 For more information, see [Application Insights telemetry data model](../../azure-monitor/app/data-model.md).
 
