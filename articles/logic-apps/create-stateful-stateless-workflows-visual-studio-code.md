@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, rohitha, vikanand, hongzili, sopai, absaafan, logicappspm
 ms.topic: conceptual
-ms.date: 09/23/2020
+ms.date: 09/25/2020
 ---
 
 # Create stateful or stateless workflows in Visual Studio Code with the Azure Logic Apps (Preview) extension
@@ -75,11 +75,11 @@ The Azure Logic Apps (Preview) extension brings many current and additional Logi
 
 * *Stateless*
 
-  Create stateless logic apps when you don't need to save, review, or reference data from previous events. These logic apps keep the input and output for each action and their workflow states only in memory, rather than transfer this information to external storage. As a result, stateless logic apps have shorter runs that are usually no longer than 5 minutes, faster performance with quicker response times, higher throughput, and reduced running costs because the run details and history aren't kept in external storage. However, if or when outages happen, interrupted runs aren't automatically restored, so the caller needs to manually resubmit interrupted runs. For easier debugging, you can [enable run history](#run-history) for stateless logic apps.
+  Create stateless logic apps when you don't need to save, review, or reference data from previous events in external storage for later review. These logic apps keep the input and output for each action and their workflow states only in memory, rather than transfer this information to external storage. As a result, stateless logic apps have shorter runs that are usually no longer than 5 minutes, faster performance with quicker response times, higher throughput, and reduced running costs because the run details and history aren't kept in external storage. However, if or when outages happen, interrupted runs aren't automatically restored, so the caller needs to manually resubmit interrupted runs. These logic apps can only run synchronously and for easier debugging, you can [enable run history](#run-history), which has some impact on performance.
 
   Stateless workflows currently support only actions for [managed connectors](../connectors/apis-list.md#managed-api-connectors), not triggers. To start your workflow, select the [built-in Request, Event Hubs, or Service Bus trigger](../connectors/apis-list.md#built-ins). For more information about unsupported triggers, actions, and connectors, see [Unsupported capabilities](#unsupported).
 
-For differences in how nested logic apps behave between stateful and stateless logic apps, see [Nested behavior differences between stateful and stateless logic apps](#nested-behavior).
+For information about how nested logic apps behave differently between stateful and stateless logic apps, see [Nested behavior differences between stateful and stateless logic apps](#nested-behavior).
 
 <a name="pricing-model"></a>
 
@@ -949,7 +949,7 @@ By using the [.NET Core command-line interface (CLI) tool](/dotnet/core/tools/),
 
 ## Nested behavior differences between stateful and stateless logic apps
 
-You can [make a logic app workflow callable](../logic-apps/logic-apps-http-endpoint.md) from other logic app workflows by using the [Request](../connectors/connectors-native-reqres.md) trigger, [HTTP Webhook](../connectors/connectors-native-webhook.md) trigger, or managed connector triggers that have the [ApiConnectionWehook type](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) and can receive HTTPS requests.
+You can [make a logic app workflow callable](../logic-apps/logic-apps-http-endpoint.md) from other logic app workflows that exist in the same **Logic App (Preview)** resource by using the [Request](../connectors/connectors-native-reqres.md) trigger, [HTTP Webhook](../connectors/connectors-native-webhook.md) trigger, or managed connector triggers that have the [ApiConnectionWehook type](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) and can receive HTTPS requests.
 
 Here are the behavior patterns that nested logic app workflows can follow after a parent workflow calls a child workflow:
 
@@ -961,7 +961,7 @@ Here are the behavior patterns that nested logic app workflows can follow after 
 
   The child acknowledges the call by immediately returning a `202 ACCEPTED` response, and the parent continues to the next action without waiting for the results from the child. Instead, the parent receives the results when the child finishes running. Child stateful workflows that don't include a Response action always follow the synchronous pattern. For child stateful workflows, the run history is available for you to review.
 
-  To enable this behavior, in the workflow's JSON definition, set the `OperationOptions` property to `DisableAsyncPattern`. For more information, see [Trigger and action types - Operation options](../logic-apps/logic-apps-workflow-actions-triggers.md#operation-options).
+  To enable this behavior, in the workflow's JSON definition, set the `operationOptions` property to `DisableAsyncPattern`. For more information, see [Trigger and action types - Operation options](../logic-apps/logic-apps-workflow-actions-triggers.md#operation-options).
 
 * Trigger and wait
 
@@ -997,7 +997,9 @@ For this public preview, these capabilities are not available or not supported:
 
 * Creating the new **Logic App (Preview)** resource is currently unavailable on macOS.
 
-* Custom connectors, webhook-based triggers, and the Sliding Window trigger aren't supported in this preview. For stateless logic app workflows, you can only add actions for [managed connectors](../connectors/apis-list.md#managed-api-connectors), not triggers. To start your workflow, use the [built-in Request, Event Hubs, or Service Bus trigger](../connectors/apis-list.md#built-ins).
+* To start your workflow, use the [Request, HTTP, Event Hubs, or Service Bus trigger](../connectors/apis-list.md). Currently, [enterprise connectors](../connectors/apis-list.md#enterprise-connectors), [on-premises data gateway triggers](../connectors/apis-list.md#on-premises-connectors), webhook-based triggers, Sliding Window trigger, [custom connectors](../connectors/apis-list.md#custom-apis-and-connectors), integration accounts, their artifacts, and [their connectors](../connectors/apis-list.md#integration-account-connectors) aren't supported in this preview. The "call an Azure function" capability is unavailable, so for now, use the HTTP *action* to call the request URL for the Azure function.
+
+  Stateless logic app workflows can only use actions for [managed connectors](../connectors/apis-list.md#managed-api-connectors), not triggers. Except for the previously specified triggers, stateful workflows can use both triggers and actions for managed connectors.
 
 * You can deploy the new **Logic App (Preview)** resource type only to a [Premium or App Service hosting plan in Azure](#publish-azure) or to a [Docker container](#deploy-docker), and not [integration service environments (ISEs)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). **Consumption** hosting plans aren't supported nor available for deploying this resource type.
 
