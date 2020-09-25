@@ -9,8 +9,12 @@ ms.date: 06/19/2020
 
 ---
 
-# Troubleshoot Log analytics issues using operation table
-The **Operation** table is automatically created in each Log Analytics workspace and includes data that can be used to inspect and troubleshoot issues with the workspace. The Log Analytics workflow continuously writes information to this able about errors and warnings originated from the system. 
+# Monitor issues with Azure Monitor Logs
+This article describes how to monitor the health of your Log Analytics workspace using data in the [Operation](/azure-monitor/reference/tables/operation) table. This table is included in every Log Analytics workspace and contains error and warnings that occur in your workspace. You can create alerts based on this data to be proactively notified when there are any important incidents in your workspace.
+
+## _LogsOperation function
+Each workspace has a function called *_LogsOperation* that's based on the *Operation* table. 
+
 
 ## Table structure
 See [Azure Monitor data reference](/azure-monitor/reference/tables/operation) for a listing and description of the properties of the **Operations** table.
