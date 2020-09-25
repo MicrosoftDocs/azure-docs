@@ -35,7 +35,7 @@ After completing the setup, you can follow the recommended next steps provided a
 
 Sizing workloads against compute and storage resources is an essential planning step when you're preparing to use the Azure VMware Solution Private Cloud HCX solution. Address the sizing step as part of the initial private cloud environment planning. 
 
-You also can size workloads by completing an [Azure VMware Solution Assessment](https://docs.microsoft.com/azure/migrate/how-to-create-azure-vmware-solution-assessment) in the Azure Migrate portal.
+You also can size workloads by completing an [Azure VMware Solution Assessment](../migrate/how-to-create-azure-vmware-solution-assessment.md) in the Azure Migrate portal.
 
 ## Software version requirements
 
@@ -91,7 +91,7 @@ Infrastructure components must be running the required minimum version.
 
 After installation, perform the following steps.
 
-1. Log on to the on-premises HCX manager at `https://HCXManagerIP:9443` and sign in with the **admin** username credentials. 
+1. Log on to the on-premises HCX manager at `https://HCXManagerIP:9443` and sign in with the **admin** user credentials. 
 
    > [!IMPORTANT]
    > Make sure to include the `9443` port number with the HCX Manager IP address.

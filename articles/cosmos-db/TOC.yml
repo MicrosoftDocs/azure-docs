@@ -21,6 +21,8 @@
         href: create-sql-api-dotnet.md
       - name: Java app
         href: create-sql-api-java.md
+      - name: Spring Data app
+        href: create-sql-api-spring-data.md        
       - name: Node.js app
         href: create-sql-api-nodejs.md
       - name: Python app
