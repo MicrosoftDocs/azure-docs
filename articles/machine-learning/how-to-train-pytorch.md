@@ -271,7 +271,37 @@ src = ScriptRunConfig(source_directory=project_folder,
 For a full tutorial on running distributed PyTorch with Horovod on Azure ML, see [Distributed PyTorch with Horovod](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/pytorch/distributed-pytorch-with-horovod).
 
 ### DistributedDataParallel
+If you are using PyTorch's built-in [DistributedDataParallel](https://pytorch.org/tutorials/intermediate/ddp_tutorial.html) module that is built using the torch.distributed package in your training code, you can also launch the distributed job via Azure ML.
 
+In order to run a distributed PyTorch job with DistributedDataParallel, specify a [PyTorchConfiguration]((https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration?view=azure-ml-py&preserve-view=true)) to the `distributed_job_config` parameter of the ScriptRunConfig constructor. To use the NCCL backend for torch.distributed, specify `communication_backend='Nccl'` in the PyTorchConfiguration. The below code will configure a 2-node distributed job. The NCCL backend is the recommended backend for PyTorch distributed GPU training.
+
+For distributed PyTorch jobs configured via PyTorchConfiguration, Azure ML will set the following environment variables on the nodes of the compute target:
+
+* `AZ_BATCHAI_PYTORCH_INIT_METHOD`: URL for the shared file system initialization of the process group
+* `AZ_BATCHAI_TASK_INDEX`: global rank of the worker process
+
+You can specify these environment variables to the corresponding arguments of the training script via the `arguments` parameter of ScriptRunConfig.
+
+```python
+from azureml.core import ScriptRunConfig
+from azureml.core.runconfig import PyTorchConfiguration
+
+args = ['--dist-backend', 'nccl',
+        '--dist-url', '$AZ_BATCHAI_PYTORCH_INIT_METHOD',
+        '--rank', '$AZ_BATCHAI_TASK_INDEX',
+        '--world-size', 2]
+
+src = ScriptRunConfig(source_directory=project_folder,
+                      script='pytorch_mnist.py',
+                      arguments=args,
+                      compute_target=compute_target,
+                      environment=pytorch_env,
+                      distributed_job_config=PyTorchConfiguration(communication_backend='Nccl', node_count=2))
+```
+
+If you would instead like to use the Gloo backend for distributed training, specify `communication_backend='Gloo'` instead. The Gloo backend is recommended for distributed CPU training.
+
+For a full tutorial on running distributed PyTorch on Azure ML, see [Distributed PyTorch with DistributedDataParallel](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/pytorch/distributed-pytorch-with-nccl-gloo).
 
 ## Export to ONNX
 
