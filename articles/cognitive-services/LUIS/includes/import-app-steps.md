@@ -4,6 +4,7 @@ services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: include
 ms.date: 06/22/2020
 ms.author: diberry

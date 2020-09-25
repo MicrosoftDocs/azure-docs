@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 09/24/2020
 ms.author: b-juche
 ---
 # Create an SMB volume for Azure NetApp Files
@@ -250,7 +250,7 @@ This setting is configured in the **Active Directory Connections** under **NetAp
 
         A volume name must be unique within each capacity pool. It must be at least three characters long. You can use any alphanumeric characters.   
 
-        You can't use `default` as the volume name.
+        You can't use `default` or `bin` as the volume name.
 
     * **Capacity pool**  
         Specify the capacity pool where you want the volume to be created.
