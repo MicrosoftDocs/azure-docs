@@ -8,6 +8,7 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: tutorial #Required
 ms.date: 09/21/2020
+---
 
 # Tutorial: use Video Indexer with Logic App and Power Automate
 
