@@ -134,7 +134,7 @@ The device twin is updated with the next reported property:
 
 ### Writable properties
 
-These properties can be set by the device or updated by the solution. If the solution updates a property, the client receives a notification as a callback in the `DeviceClient` or `ModuleClient`. To follow the IoT Plug and Play conventions, the device must inform the service that the property was successfully received.
+These properties can be set by the device or updated by the solution. If the solution updates a property, the client receives a notification as a callback in the `Client` or `ModuleClient`. To follow the IoT Plug and Play conventions, the device must inform the service that the property was successfully received.
 
 #### Report a writable property
 
@@ -328,13 +328,6 @@ Models without components receive the command name as it was invoked by the serv
 Models with components will receive the command name prefixed with the component and the `*` separator.
 
 ```nodejs
-await client.SetMethodHandlerAsync("themostat*reboot", (MethodRequest req, object ctx) =>
-{
-  Console.WriteLine("REBOOT");
-  return Task.FromResult(new MethodResponse(200));
-},
-null);
-
 const commandHandler = async (request, response) => {
   switch (request.methodName) {
   
