@@ -41,7 +41,7 @@ While the capacity reservation is attached at the cluster level, there are two o
 - *Cluster* (default) - The capacity reservation costs for your cluster are attributed to the *cluster* resource.
 - *Workspaces* - The capacity reservation costs for your cluster are attributed proportionately to the workspaces in the cluster. The *cluster* resource is billed some of the usage if the total ingested data for the day is under the capacity reservation. See [Log Analytics Dedicated Clusters](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters) to learn more about the Cluster pricing model.
 
-For more information on dedicated clusters billing, see [Log Analytics Dedicated Cluster Billing](../platform/manage-cost-storage#log-analytics-dedicated-clusters.md).
+For more information on dedicated clusters billing, see [Log Analytics Dedicated Cluster Billing](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters).
 
 ## Creating a cluster
 
