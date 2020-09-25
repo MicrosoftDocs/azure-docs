@@ -18,21 +18,15 @@ This article assumes that you have an Azure account and Speech service subscript
 
 [!INCLUDE [SPX Setup](../../spx-setup.md)]
 
-## Change source language
+## Set source and target language
 
-One common task of speech translation is specifying the input (or source) language. Let's take a look at how you would set the input language to Italian.
+This command calls Speech CLI to translate speech from the microphone from Italian to French. You can say _grazie_, which translate into _merci_.
 
 ```shell
- spx translate --microphone --source it-IT
+ spx translate --microphone --source it-IT --target fr
 ```
 
 The **--source** parameter expects a language-locale format string. You can provide any value in the **Locale** column in the list of supported [locales/languages](../../../language-support.md).
-
-## Add translation language
-
-## Initialize a translation recognizer
-
-## Translate speech
 
 ## Synthesize translations
 
