@@ -6,7 +6,7 @@ author: asudbring
 ms.author: allensu
 ms.service: private-link
 ms.topic: tutorial
-ms.date: 9/28/2020
+ms.date: 9/25/2020
 ---
 
 # Tutorial: Connect to a storage account using an Azure Private Endpoint
@@ -123,7 +123,7 @@ In this section, you'll create a virtual machine that will be used to test the p
   
 6. Review the settings, and then select **Create**.
 
-## Create storage account with a private endpoint.
+## Create storage account with a private endpoint
 
 In this section, you'll create a storage account and configure the private endpoint.
 
