@@ -36,7 +36,7 @@ User Administrator  |  Can manage all aspects of users and groups, including res
 ## Security principals that can be assigned to an AU scoped role
 The following security principals can be assigned to an AU scoped role:
 * Users
-* Role assignable cloud groups
+* Role assignable cloud groups (preview)
 * Service Principal Name (SPN)
 
 ## Assign a scoped role
