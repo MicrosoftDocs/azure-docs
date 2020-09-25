@@ -31,8 +31,9 @@ During initial setup, the a few things are done that makes cloud provisoining ha
 - **During agent installation**: You configure the agent for the AD domains you want to provision from.  This configuration registers the domains in the hybrid identity service and establishes an outbound connection to the service bus listening for requests.
 - **When you enable provisioning**: You select the AD domain and enable provisioning which runs every 2 mins. Optionally you may deselect password hash sync and define notification email. You can also manage attribute transformation using Microsoft Graph APIs.
 
-The following is a walk-through of what occurs when the cloud provisioning agent is installed.
 
+## Agent installation
+The following is a walk-through of what occurs when the cloud provisioning agent is installed.
 
 - First, the Installer installs the Agent binaries and the Agent Service running under the Virtual Service Account (NETWORK SERVICE\AADProvisioningAgent).  A virtual service account is a special type of account that does not have a password and is managed by Windows.
 - The Installer then starts the Wizard.
@@ -55,23 +56,31 @@ The [SCIM specification](https://tools.ietf.org/html/draft-scim-core-schema-01) 
 
 The Azure AD Connect cloud provisioning agent uses SCIM with Azure AD to provision and deprovision users and groups.
 
-## Cloud provisioning flow
+## Synchronization flow
 ![provisioning](media/concept-how-it-works/provisioning1.png)
 Once you have installed the agent and enabled provisioning, the following flow occurs.
 
 1.  Once configured, the Azure AD Provisioning service calls the Azure AD hybrid service to add a request to the Service bus. The agent constantly maintains an outbound connection to the Service Bus listening for requests and picks up the System for Cross-domain Identity Management (SCIM) request immediately. 
-2.  The agent sends a LDAP query to AD. 
-3.  AD returns the result to the agent. 
-4.  Agent returns the SCIM response to Azure AD. 
+2.  The agent breaks up the request into seperate queries based on object type. 
+3.  AD returns the result to the agent and the agent filters this data before sending it to Azure AD.  
+4.  Agent returns the SCIM response to Azure AD.  These responses are based on the filtering that happened within the agent.  The agent uses scoping to filter the results. 
 5.  The provisioning service writes the changes to Azure AD.
+6. If this is a delta Sync as opposed to a full sync, then cookie/watermark is used. New queries will get changes from that cookie/watermark onwards.
 
 ## Supported scenarios:
 The following scenarios are supported for cloud provisioning.
 
 
 - **Existing hybrid customer with a new forest**: Azure AD Connect sync is used for primary forests. Cloud provisioning is used for provisioning from an AD forest (including disconnected).
-- **New hybrid customer**: Azure AD Connect sync is not used. Cloud provisioning is used for provisioning from an AD forest.
+
+ ![Existing hybrid](media/concept-how-it-works/scenario2.png)
+- **New hybrid customer**:      Azure AD Connect sync is not used. Cloud provisioning is used for provisioning from an AD forest.
+ 
+ ![New customers](media/concept-how-it-works/scenario1.png)
+
 - **Existing hybrid customer**: Azure AD Connect sync is used for primary forests.Cloud provisioning is piloted for a small set of users in the primary forests.
+
+For more information, see [Supported topologies](plan-cloud-provisioning-topologies.md).
 
 >[!NOTE]
 >As we GA cloud provisioning and add more features to cloud provisioning, customers can move from piloting to deploying cloud provisioning for forests that are using Azure AD Connect sync. 
