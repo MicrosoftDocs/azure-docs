@@ -26,7 +26,10 @@ This article uses the [Postman](https://www.postman.com/) application, but you m
 
 ## Request elevation data in raster tiled format
 
-To request elevation data in raster tile format, use the [Render V2 - Get Map Tile API](https://docs.microsoft.com/rest/api/maps/renderv2). The API returns the tile as a GeoTIFF. All  raster DEM tiles are calibrated to sea level.
+To request elevation data in raster tile format, use the [Render V2 - Get Map Tile API](https://docs.microsoft.com/rest/api/maps/renderv2). The API returns the tile as a GeoTIFF. All raster DEM tiles are calibrated to sea level. In this example, we'll request elevation data for Mt. Everest.
+
+>[!TIP]
+>To retrieve a tile at a specific area on the world map, you'll need to find the correct tile at the appropriate zoom level. For more information, see [Zoom levels and tile grid](zoom-levels-and-tile-grid.md).
 
 1. Open the Postman app. Near the top of the Postman app, select **New**. In the **Create New** window, select **Collection**.  Name the collection and select the **Create** button.
 
@@ -35,10 +38,10 @@ To request elevation data in raster tile format, use the [Render V2 - Get Map Ti
 3. Select the **GET** HTTP method in the builder tab and enter the following URL to request the raster tile. For this request, and other requests mentioned in this article, replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key.
 
     ```http
-    https://atlas.microsoft.com/map/tile?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=2.0&tilesetId=microsoft.dem&zoom=6&x=10&y=22
+    https://atlas.microsoft.com/map/tile?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=2.0&tilesetId=microsoft.dem&zoom=13&x=6074&y=3432
     ```
 
-4. Click the **Send** button. Results....
+4. Click the **Send** button. You should receive the raster tile containing the elevation data in GeoTIFF format.
 
 ## Request elevation data in GeoJSON format
 
