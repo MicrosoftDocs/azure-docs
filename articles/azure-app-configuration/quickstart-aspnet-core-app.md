@@ -6,9 +6,9 @@ author: lisaguthrie
 
 ms.service: azure-app-configuration
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: "devx-track-csharp, contperfq1"
 ms.topic: quickstart
-ms.date: 09/24/2020
+ms.date: 09/25/2020
 ms.author: lcozzens
 
 #Customer intent: As an ASP.NET Core developer, I want to learn how to manage all my app settings in one place.
@@ -125,7 +125,7 @@ A `UserSecretsId` element containing a GUID is added to the *.csproj* file:
 
     Access this secret using the .NET Core Configuration API. A colon (`:`) works in the configuration name with the Configuration API on all supported platforms. For more information, see [Configuration keys and values](/aspnet/core/fundamentals/configuration#configuration-keys-and-values).
 
-1. In *Program.cs*, add a reference to the .NET Core Configuration provider namespace:
+1. In *Program.cs*, add a reference to the .NET Core Configuration API namespace:
 
     ```csharp
     using Microsoft.Extensions.Configuration;
