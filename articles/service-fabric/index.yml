@@ -20,7 +20,7 @@ landingContent:
         links:
           - text: What are Service Fabric managed clusters (preview)
             url: overview-managed-cluster.md
-          - text: Deploy a managed cluster
+          - text: Deploy a managed cluster (preview)
             url: quickstart-managed-cluster-template.md
 
       - linkListType: tutorial

@@ -47,4 +47,4 @@ The cluster will begin upgrading automatically and after a few minutes you will 
 In this step we scaled a node type on a Service Fabric managed cluster. To learn more about adding and removing node types, see:
 
 > [!div class="nextstepaction"]
-> [Add and remove node types to a Service Fabric managed cluster](./tutorial-managed-cluster-add-remove-node-type.md)
+> [Add and remove node types to a Service Fabric managed cluster](tutorial-managed-cluster-add-remove-node-type.md)

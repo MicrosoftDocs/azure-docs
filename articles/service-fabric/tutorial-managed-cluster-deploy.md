@@ -69,12 +69,12 @@ For this step, provide your own values for the following  parameters:
 * **Cluster Name**: Enter a unique name for your cluster, such as *mysfcluster*.
 * **Admin Password**: Enter a password for the admin to be used for RDP on the underlying VMs in the cluster.
 * **Client Certificate Thumbprint**: Provide the thumbprint of the client certificate that you would like to use to access your cluster. If you do not have a certificate, follow [set and retrieve a certificate](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-portal) to create a self-signed certificate.
-* **Cluster SKU**: This is the type of Service Fabric cluster being deployed, basic SKU clusters are meant for test deployments only.
+* **Cluster SKU**: Specify the [type of Service Fabric managed cluster](overview-managed-cluster.md#service-fabric-managed-cluster-skus) to deploy. *Basic* SKU clusters are meant for test deployments only, and do not allow for node type addition or removal.
 
 ```powershell
-$clusterName = "mysfcluster" 
+$clusterName = "<unique cluster name>"
 $password = "Password4321!@#" | ConvertTo-SecureString -AsPlainText -Force
-$clientThumbprint = "<Certificate Thumbprint>"
+$clientThumbprint = "<certificate thumbprint>"
 $clusterSku = "Standard"
 
 New-AzServiceFabricManagedCluster -ResourceGroupName $resourceGroup -Location $location -ClusterName $clusterName -ClientCertThumbprint $clientThumbprint -ClientCertIsAdmin -AdminPassword $password -Sku $clusterSKU -Verbose
@@ -110,4 +110,4 @@ Once the deployment completes, find the Service Fabric Explorer value in the Ser
 In this step we created and deployed our first Service Fabric managed cluster. To learn more about how to scale a cluster, see:
 
 > [!div class="nextstepaction"]
-> [Scale out a Service Fabric managed cluster](./tutorial-managed-cluster-scale.md)
+> [Scale out a Service Fabric managed cluster](tutorial-managed-cluster-scale.md)

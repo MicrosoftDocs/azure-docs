@@ -21,7 +21,6 @@ Before you begin this quickstart:
 
 The template used in this quickstart is from [Azure Samples - Service Fabric cluster templates](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Basic-SKU-1-NT).
 
-
 ## Create a client certificate
 
 Service Fabric managed clusters use a client certificate as a key for access control. If you already have a client certificate that you would like to use for access control to your cluster, you can skip this step.
@@ -42,9 +41,7 @@ Take note of the certificate thumbprint as this will be required to deploy the t
 
     * **Subscription**: Select an Azure subscription.
     * **Resource Group**: Select **Create new**. Enter a unique name for the resource group, such as *myResourceGroup*, then choose **OK**.
-    * **Location**: Select a location, such as **eastus2**.
-> [!NOTE]
-> Supported regions for Service Fabric managed clusters preview include `centraluseuap`, `eastus2euap`, `eastasia`, `northeurope`, `westcentralus`, and `eastus2`.
+    * **Location**: Select a location, such as **eastus2**. Supported regions for Service Fabric managed clusters preview include `centraluseuap`, `eastus2euap`, `eastasia`, `northeurope`, `westcentralus`, and `eastus2`.
     * **Cluster Name**: Enter a unique name for your cluster, such as *mysfcluster*.
     * **Admin Username**: Enter a name for the admin to be used for RDP on the underlying VMs in the cluster.
     * **Admin Password**: Enter a password for the admin to be used for RDP on the underlying VMs in the cluster.
@@ -67,16 +64,15 @@ Once the deployment completes, find the Service Fabric Explorer value in the out
 
 ## Clean up resources
 
-When no longer needed, delete the resource group, which deletes the resources in the resource group.
+If you plan to continue on to work with subsequent quickstarts and tutorials, you may wish to leave these resources in place. When no longer needed, delete the resource group, which deletes the Service Fabric cluster and related resources. To delete the resource group through the portal:
 
-```powershell
-$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-Remove-AzResourceGroup -Name $resourceGroupName
-```
+1. Enter the name of your resource group in the *Search* box at the top of the portal. When you see the resource group used in this quickstart in the search results, select it.
+2. Select **Delete resource group**.
+3. In the **TYPE THE RESOURCE GROUP NAME:** box type in the name of the resource group and select **Delete**.
 
 ## Next steps
 
-In this quickstart, you deployed a managed Service Fabric cluster.
+In this quickstart, you deployed a managed Service Fabric cluster. To learn more about how to scale a cluster, see:
 
 > [!div class="nextstepaction"]
-> [Learn how to add and remove node types](tutorial-managed-cluster-add-remove-node-type.md)
+> [Scale out a Service Fabric managed cluster](tutorial-managed-cluster-scale.md)
