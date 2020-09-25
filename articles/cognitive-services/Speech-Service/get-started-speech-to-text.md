@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.date: 09/15/2020
 ms.author: trbye
 ms.custom: "devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020"
-zone_pivot_groups: speech-full-stack-go
+zone_pivot_groups: speech-full-stack-go-objectivec-swift
 keywords: speech to text, speech to text software
 ---
 
@@ -31,6 +31,10 @@ keywords: speech to text, speech to text software
 
 ::: zone pivot="programming-language-javascript"
 [!INCLUDE [JavaScript Basics include](includes/how-to/speech-to-text-basics/speech-to-text-basics-javascript.md)]
+::: zone-end
+
+::: zone pivot="programming-languages-objectivec-swift"
+[!INCLUDE [ObjectiveC/Swift Basics include](includes/how-to/speech-to-text-basics/speech-to-text-basics-objectivec-swift.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"

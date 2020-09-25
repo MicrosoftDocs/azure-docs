@@ -666,6 +666,27 @@ groups:
     title: Python
   - id: programming-language-spx
     title: CLI
+- id: speech-full-stack-go-objectivec-swift
+  # Owner: erhopf
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-languages-objectivec-swift
+    title: Objective-C/Swift
+  - id: programming-language-go
+    title: Go
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-spx
+    title: CLI
 - id: acs-js-csharp
   # Owner: mikben (Azure Communication Services)
   title: JS and C# pivots
