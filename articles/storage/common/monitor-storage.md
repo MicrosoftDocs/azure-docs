@@ -35,43 +35,19 @@ Start with the article [Monitoring Azure resources with Azure Monitor](../../azu
 
 The following sections build on this article by describing the specific data gathered from Azure Storage. Examples show how to configure data collection and analyze this data with Azure tools.
 
-## Monitoring data from Azure Blob storage
+## Monitoring data
 
-Azure Blob storage collects the same kinds of monitoring data as other Azure resources, which are described in [Monitoring data from Azure resources](../../azure-monitor/insights/monitor-azure-resource.md#monitoring-data). For more information on the logs and metrics created by Azure Blob storage, see [Azure Blob storage monitoring data reference](monitor-storage-reference.md).
+Azure Blob storage collects the same kinds of monitoring data as other Azure resources, which are described in [Monitoring data from Azure resources](../../azure-monitor/insights/monitor-azure-resource.md#monitoring-data). 
+
+See [Azure Blob storage monitoring data reference](monitor-storage-reference.md) for detailed information on the metrics and logs metrics created by Azure Blob storage.
 
 Metrics and logs in Azure Monitor support only Azure Resource Manager storage accounts. Azure Monitor doesn't support classic storage accounts. If you want to use metrics or logs on a classic storage account, you need to migrate to an Azure Resource Manager storage account. See [Migrate to Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-overview).
 
 You can continue using classic metrics and logs if you want to. In fact, classic metrics and logs are available in parallel with metrics and logs in Azure Monitor. The support remains in place until Azure Storage ends the service on legacy metrics and logs.
 
-### Logs in Azure Monitor (preview)
+## Collection and routing
 
-Log entries are created only if there are requests made against the service endpoint. For example, if a storage account has activity in its blob endpoint but not in its table or queue endpoints, only logs that pertain to the blob service are created. Azure Storage logs contain detailed information about successful and failed requests to a storage service. This information can be used to monitor individual requests and to diagnose issues with a storage service. Requests are logged on a best-effort basis.
-
-#### Log authenticated requests
-
- The following types of authenticated requests are logged:
-
-- Successful requests
-- Failed requests, including timeout, throttling, network, authorization, and other errors
-- Requests that use a shared access signature (SAS) or OAuth, including failed and successful requests
-- Requests to analytics data (classic log data in the **$logs** container and class metric data in the **$metric** tables)
-
-Requests made by the Blob storage service itself, such as log creation or deletion, aren't logged. For a full list of the logged data, see [Storage logged operations and status messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) and [Storage log format](monitor-storage-reference.md).
-
-#### Log anonymous requests
-
- The following types of anonymous requests are logged:
-
-- Successful requests
-- Server errors
-- Time-out errors for both client and server
-- Failed GET requests with the error code 304 (Not Modified)
-
-All other failed anonymous requests aren't logged. For a full list of the logged data, see [Storage logged operations and status messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) and [Storage log format](monitor-storage-reference.md).
-
-## Configuration
-
-Platform metrics and the Activity log are collected automatically, but you must create a diagnostic setting to collect resource logs or forward them outside of Azure Monitor. 
+Platform metrics and the Activity log are collected automatically, but can be routed to other locations by using a diagnostic setting. You must create a diagnostic setting to collect resource logs. 
 
 To create a diagnostic setting by using the Azure portal, the Azure CLI, or PowerShell, see [Create diagnostic setting to collect platform logs and metrics in Azure](../../azure-monitor/platform/diagnostic-settings.md). 
 
@@ -89,7 +65,7 @@ You also have to specify one of the following categories of operations for which
 | StorageWrite | Write operations on objects. |
 | StorageDelete | Delete operations on objects. |
 
-## Analyzing metric data
+## Analyzing metrics
 
 You can analyze metrics for Azure Storage with metrics from other Azure services by using Metrics Explorer. Open Metrics Explorer by choosing **Metrics** from the **Azure Monitor** menu. For details on using this tool, see [Getting started with Azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md). 
 
@@ -300,7 +276,7 @@ The following example shows how to read metric data on the metric supporting mul
 
 ---
 
-## Analyzing log data
+## Analyzing logs
 
 You can access resource logs either as a blob in a storage account, as event data, or through Log Analytic queries.
 
@@ -308,6 +284,30 @@ For a detailed reference of the fields that appear in these logs, see [Azure Sto
 
 > [!NOTE]
 > Azure Storage logs in Azure Monitor is in public preview and is available for preview testing in all public cloud regions. To enroll in the preview, see [this page](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u). This preview enables logs for blobs (which includes Azure Data Lake Storage Gen2), files, queues, tables, premium storage accounts in general-purpose v1, and general-purpose v2 storage accounts. Classic storage accounts aren't supported.
+
+Log entries are created only if there are requests made against the service endpoint. For example, if a storage account has activity in its blob endpoint but not in its table or queue endpoints, only logs that pertain to the blob service are created. Azure Storage logs contain detailed information about successful and failed requests to a storage service. This information can be used to monitor individual requests and to diagnose issues with a storage service. Requests are logged on a best-effort basis.
+
+### Log authenticated requests
+
+ The following types of authenticated requests are logged:
+
+- Successful requests
+- Failed requests, including timeout, throttling, network, authorization, and other errors
+- Requests that use a shared access signature (SAS) or OAuth, including failed and successful requests
+- Requests to analytics data (classic log data in the **$logs** container and class metric data in the **$metric** tables)
+
+Requests made by the Blob storage service itself, such as log creation or deletion, aren't logged. For a full list of the logged data, see [Storage logged operations and status messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) and [Storage log format](monitor-storage-reference.md).
+
+### Log anonymous requests
+
+ The following types of anonymous requests are logged:
+
+- Successful requests
+- Server errors
+- Time-out errors for both client and server
+- Failed GET requests with the error code 304 (Not Modified)
+
+All other failed anonymous requests aren't logged. For a full list of the logged data, see [Storage logged operations and status messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) and [Storage log format](monitor-storage-reference.md).
 
 ### Accessing logs in a storage account
 
@@ -337,9 +337,12 @@ Data is stored in the **StorageBlobLog** table.
 
 Logs for Data Lake Storage Gen2 do not appear in a dedicated table. That's because Data Lake Storage Gen2 is not service. It's a set of capabilities that you can enable in your storage account. If you've enabled those capabilities, logs will continue to appear in the StorageBlobLogs table. 
 
-### Azure Storage Log Analytics queries in Azure Monitor
+#### Sample Kusto queries
 
 Here are some queries that you can enter in the **Log search** bar to help you monitor your Blob storage. These queries work with the [new language](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
+
+> [!IMPORTANT]
+> When you select **Logs** from the storage account resource group menu, Log Analytics is opened with the query scope set to the current resource group. This means that log queries will only include data from that resource group. If you want to run a query that includes data from other resources or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](/azure/azure-monitor/log-query/scope/) for details.
 
 Use these queries to help you monitor your Azure Storage accounts:
 
