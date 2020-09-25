@@ -236,8 +236,6 @@ In this section, you'll use the virtual machine you created in the previous step
 
 If you're not going to continue to use this application, delete the virtual network, virtual machine, and storage account with the following steps:
 
-<resources> with the following steps:
-
 1. From the left-hand menu, select **Resource groups**.
 
 2. Select **myResourceGroup**.
@@ -253,12 +251,3 @@ If you're not going to continue to use this application, delete the virtual netw
 Learn how to create a Private Link service:
 > [!div class="nextstepaction"]
 > [Create a Private Link service](create-private-link-service-portal.md)
-
-<!--- Required:
-Tutorials should always have a Next steps H2 that points to the next
-logical tutorial in a series, or, if there are no other tutorials, to
-some other cool thing the customer can do. A single link in the blue box
-format should direct the customer to the next article - and you can
-shorten the title in the boxes if the original one doesn’t fit.
-Do not use a "More info section" or a "Resources section" or a "See also
-section". --->
