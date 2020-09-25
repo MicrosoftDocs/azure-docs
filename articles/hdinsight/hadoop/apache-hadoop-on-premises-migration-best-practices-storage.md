@@ -206,7 +206,7 @@ For more information, see the following articles:
 
 ## Attach additional Azure Storage accounts to cluster
 
-During the HDInsight creation process, an Azure Storage account or Azure Data Lake Storage account is chosen as the default file system. In addition to this default storage account, additional storage accounts can be added from the same Azure subscription or different Azure subscriptions during the cluster creation process or after a cluster has been created.
+During the HDInsight creation process, an Azure Storage account,  Azure Data Lake Storage Gen1, or Azure Data Lake Storage Gen2 is chosen as the default file system. In addition to this default storage account, additional storage accounts can be added from the same Azure subscription or different Azure subscriptions during the cluster creation process or after a cluster has been created.
 
 Additional storage account can be added in one on the following ways:
 - Ambari HDFS Config Advanced Custom core-site Add the storage Account Name and key Restarting the services

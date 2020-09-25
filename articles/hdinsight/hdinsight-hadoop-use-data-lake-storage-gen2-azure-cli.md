@@ -33,8 +33,8 @@ You can [download a sample template file](https://github.com/Azure-Samples/hdins
 |---|---|
 | `<SUBSCRIPTION_ID>` | The ID of your Azure subscription |
 | `<RESOURCEGROUPNAME>` | The resource group where you want the new cluster and storage account created. |
-| `<MANAGEDIDENTITYNAME>` | The name of the managed identity that will be given permissions on your Azure Data Lake Storage Gen2 account. |
-| `<STORAGEACCOUNTNAME>` | The new Azure Data Lake Storage Gen2 account that will be created. |
+| `<MANAGEDIDENTITYNAME>` | The name of the managed identity that will be given permissions on your storage account with Azure Data Lake Storage Gen2. |
+| `<STORAGEACCOUNTNAME>` | The new storage account with Azure Data Lake Storage Gen2 that will be created. |
 | `<FILESYSTEMNAME>`  | The name of the filesystem that this cluster should use in the storage account. |
 | `<CLUSTERNAME>` | The name of your HDInsight cluster. |
 | `<PASSWORD>` | Your chosen password for signing in to the cluster using SSH and the Ambari dashboard. |
@@ -46,7 +46,7 @@ The code snippet below does the following initial steps:
 1. Creates a new resource group for the new deployment activities.
 1. Creates a user-assigned managed identity.
 1. Adds an extension to the Azure CLI to use features for Data Lake Storage Gen2.
-1. Creates a new Data Lake Storage Gen2 account by using the `--hierarchical-namespace true` flag.
+1. Creates a new storage account with Data Lake Storage Gen2 by using the `--hierarchical-namespace true` flag.
 
 ```azurecli
 az login

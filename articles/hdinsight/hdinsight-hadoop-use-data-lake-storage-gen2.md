@@ -20,10 +20,10 @@ For a full comparison of cluster creation options using Data Lake Storage Gen2, 
 
 ## Data Lake Storage Gen2 availability
 
-Data Lake Storage Gen2 is available as a storage option for almost all Azure HDInsight cluster types as both a default and an additional storage account. HBase, however, can have only one Data Lake Storage Gen2 account.
+Data Lake Storage Gen2 is available as a storage option for almost all Azure HDInsight cluster types as both a default and an additional storage account. HBase, however, can have only one account with Data Lake Storage Gen2.
 
 > [!Note]  
-> After you select Data Lake Storage Gen2 as your **primary storage type**, you cannot select a Data Lake Storage Gen1 account as additional storage.
+> After you select Data Lake Storage Gen2 as your **primary storage type**, you cannot select a Data Lake Storage Gen1 as additional storage.
 
 ## Create HDInsight clusters using Data Lake Storage Gen2
 

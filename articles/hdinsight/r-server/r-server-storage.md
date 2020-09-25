@@ -105,7 +105,7 @@ hadoop fs -mkdir wasbs://container2@storage2.blob.core.windows.net/user/RevoShar
 
 ## Use Azure Data Lake Storage with ML Services cluster
 
-To use Data Lake Storage with your HDInsight cluster, you need to give your cluster access to each Azure Data Lake Storage that you want to use. For instructions on how to use the Azure portal to create a HDInsight cluster with an Azure Data Lake Storage account as the default storage or as additional storage, see [Create an HDInsight cluster with Data Lake Storage using Azure portal](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+To use Data Lake Storage with your HDInsight cluster, you need to give your cluster access to each Azure Data Lake Storage that you want to use. For instructions on how to use the Azure portal to create a HDInsight cluster with an Azure Data Lake Storage as the default storage or as additional storage, see [Create an HDInsight cluster with Data Lake Storage using Azure portal](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
 You then use the storage in your R script much like you did a secondary Azure storage account as described in the previous procedure.
 
@@ -146,7 +146,7 @@ hdfsFS <- RxHdfsFileSystem(hostName=myNameNode, port=myPort)
 inputFile <-file.path(bigDataDirRoot,"mysamplefile.csv")
 ```
 
-The following commands are used to configure the Data Lake Storage Gen1 account with the RevoShare directory and add the sample .csv file from the previous example:
+The following commands are used to configure the Data Lake Storage Gen1 with the RevoShare directory and add the sample .csv file from the previous example:
 
 ```bash
 hadoop fs -mkdir adl://rkadl1.azuredatalakestore.net/user
