@@ -182,7 +182,7 @@ If you select **Use XML file**, you can specify specific containers and blobs (p
 
 7. You have successfully added the XML file to the container. Only blobs and Azure files you specified in this XML will be exported.
 
-   ![Screenshot of the Order wizard with teh Next: Security option called out.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-12.png)
+   ![Screenshot of the Order wizard with the Next: Security option called out.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-12.png)
 
 ## Track the order
 
