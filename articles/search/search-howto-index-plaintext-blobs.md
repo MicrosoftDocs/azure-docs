@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 09/25/2020
 ---
 
-## How to index plain text blobs in Azure Cognitive Search
+# How to index plain text blobs in Azure Cognitive Search
 
 When using a [blob indexer](search-howto-indexing-azure-blob-storage.md) to extract searchable text for full text search, you can invoke various parsing modes to get better indexing outcomes. By default, the indexer parses delimited text blobs as a single chunk of text. However, if all your blobs contain plain text in the same encoding, you can significantly improve indexing performance by using **text parsing mode**.
 
@@ -61,4 +61,3 @@ Parsing modes are specified in the indexer definition.
 * [Indexers in Azure Cognitive Search](search-indexer-overview.md)
 * [How to configure a blob indexer](search-howto-indexing-azure-blob-storage.md)
 * [Blob indexing overview](search-blob-storage-integration.md)
-* [Indexing changed documents](search-howto-indexing-changed-blobs.md)

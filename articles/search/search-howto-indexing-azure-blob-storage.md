@@ -4,9 +4,8 @@ titleSuffix: Azure Cognitive Search
 description: Set up an Azure Blob indexer to automate indexing of blob content for full text search operations in Azure Cognitive Search.
 
 manager: nitinme
-author: mgottein 
-ms.author: magottei
-ms.devlang: rest-api
+author: MarkHeff
+ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/23/2020
@@ -61,7 +60,7 @@ To create a data source:
         "type" : "azureblob",
         "credentials" : { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>;" },
         "container" : { "name" : "my-container", "query" : "<optional-virtual-directory-name>" }
-    }   
+    }
 ```
 
 For more on the Create Datasource API, see [Create Datasource](/rest/api/searchservice/create-data-source).
@@ -323,6 +322,27 @@ You may want to "assemble" documents from multiple sources in your index. For ex
 
 For this to work, all indexers and other components need to agree on the document key. For additional details on this topic, refer to [Index multiple Azure data sources](./tutorial-multiple-data-sources.md) or this blog post, [Combine documents with other data in Azure Cognitive Search](https://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html).
 
+## Index large datasets
+
+Indexing blobs can be a time-consuming process. In cases where you have millions of blobs to index, you can speed up indexing by partitioning your data and using multiple indexers to process the data in parallel. Here's how you can set this up:
+
+* Partition your data into multiple blob containers or virtual folders
+
+* Set up several Azure Cognitive Search data sources, one per container or folder. To point to a blob folder, use the `query` parameter:
+
+    ```json
+    {
+        "name" : "blob-datasource",
+        "type" : "azureblob",
+        "credentials" : { "connectionString" : "<your storage connection string>" },
+        "container" : { "name" : "my-container", "query" : "my-folder" }
+    }
+    ```
+
+* Create a corresponding indexer for each data source. All the indexers can point to the same target search index.  
+
+* One search unit in your service can run one indexer at any given time. Creating multiple indexers as described above is only useful if they actually run in parallel. To run multiple indexers in parallel, scale out your search service by creating an appropriate number of partitions and replicas. For example, if your search service has 6 search units (for example, 2 partitions x 3 replicas), then 6 indexers can run simultaneously, resulting in a six-fold increase in the indexing throughput. To learn more about scaling and capacity planning, see [Adjust the capacity of an Azure Cognitive Search service](search-capacity-planning.md).
+
 <a name="DealingWithErrors"></a>
 
 ## Handle errors
@@ -360,111 +380,6 @@ You can also continue indexing if errors happen at any point of processing, eith
       "parameters" : { "maxFailedItems" : 10, "maxFailedItemsPerBatch" : 10 }
     }
 ```
-
-## Incremental indexing and deletion detection
-
-When you set up a blob indexer to run on a schedule, it reindexes only the changed blobs, as determined by the blob's `LastModified` timestamp.
-
-> [!NOTE]
-> You don't have to specify a change detection policy – incremental indexing is enabled for you automatically.
-
-To support deleting documents, use a "soft delete" approach. If you delete the blobs outright, corresponding documents will not be removed from the search index.
-
-There are two ways to implement the soft delete approach. Both are described below.
-
-### Native blob soft delete (preview)
-
-> [!IMPORTANT]
-> Support for native blob soft delete is in preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [REST API version 2020-06-30-Preview](./search-api-preview.md) provides this feature. There is currently no portal or .NET SDK support.
-
-> [!NOTE]
-> When using the native blob soft delete policy the document keys for the documents in your index must either be a blob property or blob metadata.
-
-In this method you will use the [native blob soft delete](../storage/blobs/soft-delete-blob-overview.md) feature offered by Azure Blob storage. If native blob soft delete is enabled on your storage account, your data source has a native soft delete policy set, and the indexer finds a blob that has been transitioned to a soft deleted state, the indexer will remove that document from the index. The native blob soft delete policy is not supported when indexing blobs from Azure Data Lake Storage Gen2.
-
-Use the following steps:
-
-1. Enable [native soft delete for Azure Blob storage](../storage/blobs/soft-delete-blob-overview.md). We recommend setting the retention policy to a value that's much higher than your indexer interval schedule. This way if there's an issue running the indexer or if you have a large number of documents to index, there's plenty of time for the indexer to eventually process the soft deleted blobs. Azure Cognitive Search indexers will only delete a document from the index if it processes the blob while it's in a soft deleted state.
-
-1. Configure a native blob soft deletion detection policy on the data source. An example is shown below. Since this feature is in preview, you must use the preview REST API.
-
-1. Run the indexer or set the indexer to run on a schedule. When the indexer runs and processes the blob the document will be removed from the index.
-
-    ```http
-    PUT https://[service name].search.windows.net/datasources/blob-datasource?api-version=2020-06-30-Preview
-    Content-Type: application/json
-    api-key: [admin key]
-    {
-        "name" : "blob-datasource",
-        "type" : "azureblob",
-        "credentials" : { "connectionString" : "<your storage connection string>" },
-        "container" : { "name" : "my-container", "query" : null },
-        "dataDeletionDetectionPolicy" : {
-            "@odata.type" :"#Microsoft.Azure.Search.NativeBlobSoftDeleteDeletionDetectionPolicy"
-        }
-    }
-    ```
-
-#### Reindexing undeleted blobs
-
-If you delete a blob from Azure Blob storage with native soft delete enabled on your storage account the blob will transition to a soft deleted state giving you the option to undelete that blob within the retention period. When an Azure Cognitive Search data source has a native blob soft delete policy and the indexer processes a soft deleted blob it will remove that document from the index. If that blob is later undeleted the indexer will not always reindex that blob. This is because the indexer determines which blobs to index based on the blob's `LastModified` timestamp. When a soft deleted blob is undeleted its `LastModified` timestamp does not get updated, so if the indexer has already processed blobs with `LastModified` timestamps more recent than the undeleted blob it won't reindex the undeleted blob. To make sure that an undeleted blob is reindexed, you will need to update the blob's `LastModified` timestamp. One way to do this is by resaving the metadata of that blob. You don't need to change the metadata but resaving the metadata will update the blob's `LastModified` timestamp so that the indexer knows that it needs to reindex this blob.
-
-### Soft delete using custom metadata
-
-In this method you will use a blob's metadata to indicate when a document should be removed from the search index.
-
-Use the following steps:
-
-1. Add a custom metadata key-value pair to the blob to indicate to Azure Cognitive Search that it is logically deleted.
-
-1. Configure a soft deletion column detection policy on the data source. An example is shown below.
-
-1. Once the indexer has processed the blob and deleted the document from the index, you can delete the blob for Azure Blob storage.
-
-For example, the following policy considers a blob to be deleted if it has a metadata property `IsDeleted` with the value `true`:
-
-```http
-    PUT https://[service name].search.windows.net/datasources/blob-datasource?api-version=2020-06-30
-    Content-Type: application/json
-    api-key: [admin key]
-
-    {
-        "name" : "blob-datasource",
-        "type" : "azureblob",
-        "credentials" : { "connectionString" : "<your storage connection string>" },
-        "container" : { "name" : "my-container", "query" : null },
-        "dataDeletionDetectionPolicy" : {
-            "@odata.type" :"#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy",     
-            "softDeleteColumnName" : "IsDeleted",
-            "softDeleteMarkerValue" : "true"
-        }
-    }
-```
-
-#### Reindexing undeleted blobs
-
-If you set a soft delete column detection policy on your data source, then add the custom metadata to a blob with the marker value, then run the indexer, the indexer will remove that document from the index. If you would like to reindex that document, simply change the soft delete metadata value for that blob and rerun the indexer.
-
-## Indexing large datasets
-
-Indexing blobs can be a time-consuming process. In cases where you have millions of blobs to index, you can speed up indexing by partitioning your data and using multiple indexers to process the data in parallel. Here's how you can set this up:
-
-* Partition your data into multiple blob containers or virtual folders
-
-* Set up several Azure Cognitive Search data sources, one per container or folder. To point to a blob folder, use the `query` parameter:
-
-    ```json
-    {
-        "name" : "blob-datasource",
-        "type" : "azureblob",
-        "credentials" : { "connectionString" : "<your storage connection string>" },
-        "container" : { "name" : "my-container", "query" : "my-folder" }
-    }
-    ```
-
-* Create a corresponding indexer for each data source. All the indexers can point to the same target search index.  
-
-* One search unit in your service can run one indexer at any given time. Creating multiple indexers as described above is only useful if they actually run in parallel. To run multiple indexers in parallel, scale out your search service by creating an appropriate number of partitions and replicas. For example, if your search service has 6 search units (for example, 2 partitions x 3 replicas), then 6 indexers can run simultaneously, resulting in a six-fold increase in the indexing throughput. To learn more about scaling and capacity planning, see [Adjust the capacity of an Azure Cognitive Search service](search-capacity-planning.md).
 
 <a name="ContentSpecificMetadata"></a>
 
