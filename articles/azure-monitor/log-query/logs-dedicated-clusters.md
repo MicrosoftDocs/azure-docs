@@ -14,10 +14,10 @@ Azure Monitor Logs Dedicated Clusters are a deployment option that is available 
 
 Other than the support for high volume, there are other benefits of using dedicated clusters:
 
-- **Rate limit** – A customer can have higher ingestion rate limits only on dedicated cluster.
+- **Rate limit** - A customer can have higher ingestion rate limits only on dedicated cluster.
 - **Features** - Certain enterprise features are only available on dedicated clusters - specifically customer-managed keys (CMK) and LockBox support. 
-- **Consistency** – Customers have their own dedicated resources and so there is no influence from other customers running on the same shared infrastructure.
-- **Cost efficiency** – It might be more cost effective to use dedicated cluster as the assigned capacity reservation tiers takes into account all cluster ingestion and applies to all its workspaces, even if some of them are small and not eligible for capacity reservation discount.
+- **Consistency** - Customers have their own dedicated resources and so there is no influence from other customers running on the same shared infrastructure.
+- **Cost efficiency** - It might be more cost effective to use dedicated cluster as the assigned capacity reservation tiers take into account all cluster ingestion and applies to all its workspaces, even if some of them are small and not eligible for capacity reservation discount.
 - **Cross-workspace** queries run faster if all workspaces are on the same cluster.
 
 Dedicated clusters require customers to commit using a capacity of at least 1 TB of data ingestion per day. Migration to a dedicated cluster is simple. There is no data loss or service interruption. 
@@ -242,9 +242,9 @@ The propagation of the Key identifier takes a few minutes to complete. You can c
 
 ## Link a workspace to the cluster
 
-When a workspace is linked to a dedicated cluster, new data that is ingested into the workspace is routed to the new cluster while existing data remains on the existing cluster. If the dedicated cluster is encrypted using customer-managed keys (CMK), only new data will be encrypted by it. The system is abstracting this from the users and the users just query the workspace as they used to while performing cross-cluster queries in the backend.
+When a workspace is linked to a dedicated cluster, new data that is ingested into the workspace is routed to the new cluster while existing data remains on the existing cluster. If the dedicated cluster is encrypted using customer-managed keys (CMK), only new data is encrypted with the key. The system is abstracting this difference from the users and the users just query the workspace as usual while the system performs cross-cluster queries on the backend.
 
-A cluster can be linked up to 100 workspaces. Linked workspaces shall be located in the same region as the cluster. To protect the system backend and avoid fragmentation of data, a workspace can’t be linked to a cluster more than twice a month.
+A cluster can be linked to up to 100 workspaces. Linked workspaces are located in the same region as the cluster. To protect the system backend and avoid fragmentation of data, a workspace can’t be linked to a cluster more than twice a month.
 
 To perform the link operation, you need to have 'write' permissions to both the workspace and the *cluster* resource:
 
@@ -308,7 +308,7 @@ You can check the workspace association state in two ways:
 
 - Copy the Azure-AsyncOperation URL value from the response and follow the asynchronous operations status check.
 
-- Send a [Workspaces – Get](https://docs.microsoft.com/rest/api/loganalytics/workspaces/get) request and observe the response, associated workspace will have a clusterResourceId under "features".
+- Send a [Workspaces – Get](https://docs.microsoft.com/rest/api/loganalytics/workspaces/get) request and observe the response. The associated workspace has a clusterResourceId under "features".
 
 A send request looks like the following:
 
@@ -365,5 +365,5 @@ A dedicated cluster resource can be deleted. You must unlink all workspaces from
 
 ## Next steps
 
-Learn about [Log Analytics dedicated cluster billing](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters)
-Learn about [proper design of Log Analytics workspaces](../platform/design-logs-deployment.md)
+- Learn about [Log Analytics dedicated cluster billing](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters)
+- Learn about [proper design of Log Analytics workspaces](../platform/design-logs-deployment.md)
