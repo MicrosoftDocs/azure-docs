@@ -104,7 +104,7 @@ Within the Azure US Government cloud, B2B collaboration is currently only suppor
 
 ## I receive the error that Azure AD cannot find the aad-extensions-app in my tenant
 
-When using self-service sign up features, like custom user attributes or user flows, an app called `aad-extensions-app. Do not modify. Used by AAD for storing user data.` is automatically created. It is used by Azure AD External Identities to store information about users who sign up and custom attributes collected.
+When using self-service sign-up features, like custom user attributes or user flows, an app called `aad-extensions-app. Do not modify. Used by AAD for storing user data.` is automatically created. It's used by Azure AD External Identities to store information about users who sign up and custom attributes collected.
 
 If you accidentally deleted the `aad-extensions-app`, you have 30 days to recover it. You can restore the app using the Azure AD PowerShell module.
 
