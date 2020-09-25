@@ -1,5 +1,6 @@
 ---
-title: Configure a web app that calls web APIs - Microsoft identity platform | Azure
+title: Configure a web app that calls web APIs | Azure
+titleSuffix: Microsoft identity platform
 description: Learn how to configure the code of a web app that calls web APIs
 services: active-directory
 author: jmprieur
@@ -9,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/14/2020
+ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
 #Customer intent: As an application developer, I want to know how to write a web app that calls web APIs by using the Microsoft identity platform for developers.
@@ -30,7 +31,7 @@ The following libraries in the Microsoft Authentication Library (MSAL) support t
 
 | MSAL library | Description |
 |--------------|-------------|
-| ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Support for .NET Framework and .NET Core platforms. Not supported are Universal Windows Platform (UWP), Xamarin.iOS, and Xamarin.Android, because those platforms are used to build public client applications. For ASP.NET Core web apps and web APIs, MSAL.NET is encapsulated in a higher-level library named [Microsoft.Identity.Web](https://aka.ms/ms-identity-web)|
+| ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Support for .NET Framework and .NET Core platforms. Not supported are Universal Windows Platform (UWP), Xamarin.iOS, and Xamarin.Android, because those platforms are used to build public client applications. <br/><br/>For ASP.NET Core web apps and web APIs, MSAL.NET is encapsulated in a higher-level library named [Microsoft.Identity.Web](https://aka.ms/ms-identity-web). |
 | ![MSAL Python](media/sample-v2-code/logo_python.png) <br/> MSAL for Python | Support for Python web applications. |
 | ![MSAL Java](media/sample-v2-code/logo_java.png) <br/> MSAL for Java | Support for Java web applications. |
 
@@ -53,7 +54,7 @@ In the following example, the `GraphBeta` section specifies these settings.
     "Instance": "https://login.microsoftonline.com/",
     "ClientId": "[Client_id-of-web-app-eg-2ec40e65-ba09-4853-bcde-bcb60029e596]",
     "TenantId": "common"
-  
+
    // To call an API
    "ClientSecret": "[Copy the client secret added to the app from the Azure portal]",
    "ClientCertificates": [
@@ -74,7 +75,7 @@ Instead of a client secret, you can provide a client certificate. The following 
     "Instance": "https://login.microsoftonline.com/",
     "ClientId": "[Client_id-of-web-app-eg-2ec40e65-ba09-4853-bcde-bcb60029e596]",
     "TenantId": "common"
-  
+
    // To call an API
    "ClientCertificates": [
       {
@@ -91,11 +92,11 @@ Instead of a client secret, you can provide a client certificate. The following 
 }
 ```
 
-Microsoft.Identity.Web provides several ways to describe certificates, both by configuration or by code. For details, see [Microsoft.Identity.Web - Using certificates](https://github.com/AzureAD/microsoft-identity-web/wiki/Using-certificates) on GitHub.
+*Microsoft.Identity.Web* provides several ways to describe certificates, both by configuration or by code. For details, see [Microsoft.Identity.Web - Using certificates](https://github.com/AzureAD/microsoft-identity-web/wiki/Using-certificates) on GitHub.
 
 ## Startup.cs
 
-Your web app will need to acquire a token for the downstream API. You specify it by adding the `.EnableTokenAcquisitionToCallDownstreamApi()` line after `.AddMicrosoftIdentityWebApi(Configuration)`. This line exposes the `ITokenAcquisition` service, that you can use in your controller/pages actions. However, as you'll see in the next two bullet points, you can do even simpler. You'll also need to choose a token cache implementation, for example `.AddInMemoryTokenCaches()`, in *Startup.cs*:
+Your web app will need to acquire a token for the downstream API. You specify it by adding the `.EnableTokenAcquisitionToCallDownstreamApi()` line after `.AddMicrosoftIdentityWebApi(Configuration)`. This line exposes the `ITokenAcquisition` service that you can use in your controller and page actions. However, as you'll see in the following two options, it can be done more simply. You'll also need to choose a token cache implementation, for example `.AddInMemoryTokenCaches()`, in *Startup.cs*:
 
    ```csharp
    using Microsoft.Identity.Web;
@@ -115,16 +116,14 @@ Your web app will need to acquire a token for the downstream API. You specify it
      // ...
    }
    ```
-   > [!NOTE]
-   > The scopes passed to `EnableTokenAcquisitionToCallDownstreamApi` are optional and enable your web app to already
-   > request these scopes (and have the user consent) when the user logs-in. If you don't specify them, Microsoft.Identity.Web
-   > will enable an incremental consent experience.
 
-If you don't want to acquire the token yourself, *Microsoft.Identity.Web* provides two mechanisms for calling a downstream web API from another API. The option you choose depends on whether you want to call Microsoft Graph or another API.
+The scopes passed to `EnableTokenAcquisitionToCallDownstreamApi` are optional, and enable your web app to request the scopes and the user's consent to those scopes when they log in. If you don't specify the scopes, *Microsoft.Identity.Web* will enable an incremental consent experience.
+
+If you don't want to acquire the token yourself, *Microsoft.Identity.Web* provides two mechanisms for calling a web API from a web app. The option you choose depends on whether you want to call Microsoft Graph or another API.
 
 ### Option 1: Call Microsoft Graph
 
-If you want to call Microsoft Graph, Microsoft.Identity.Web enables you to directly use the `GraphServiceClient` (exposed by the Microsoft Graph SDK) in your API actions. To expose Microsoft Graph:
+If you want to call Microsoft Graph, *Microsoft.Identity.Web* enables you to directly use the `GraphServiceClient` (exposed by the Microsoft Graph SDK) in your API actions. To expose Microsoft Graph:
 
 1. Add the [Microsoft.Identity.Web.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Identity.Web.MicrosoftGraph) NuGet package to your project.
 1. Add `.AddMicrosoftGraph()` after `.EnableTokenAcquisitionToCallDownstreamApi()` in the *Startup.cs* file. `.AddMicrosoftGraph()` has several overrides. Using the override that takes a configuration section as a parameter, the code becomes:
@@ -175,7 +174,7 @@ To call a web API other than Microsoft Graph, *Microsoft.Identity.Web* provides 
 
 ### Summary
 
-As with web APIs, you can choose various token cache implementations. For details, see [Microsoft identity web - Token cache serialization](https://aka.ms/ms-id-web/token-cache-serialization) on GitHub.
+As with web APIs, you can choose various token cache implementations. For details, see [Microsoft Identity web - Token cache serialization](https://aka.ms/ms-id-web/token-cache-serialization) on GitHub.
 
 The following image shows the various possibilities of *Microsoft.Identity.Web* and their impact on the *Startup.cs* file:
 
@@ -186,7 +185,7 @@ The following image shows the various possibilities of *Microsoft.Identity.Web* 
 
 # [ASP.NET](#tab/aspnet)
 
-Because user sign-in is delegated to the Open ID connect (OIDC) middleware, you must interact with the OIDC process. How you interact depends on the framework you use.
+Because user sign-in is delegated to the OpenID Connect (OIDC) middleware, you must interact with the OIDC process. How you interact depends on the framework you use.
 
 For ASP.NET, you'll subscribe to middleware OIDC events:
 
