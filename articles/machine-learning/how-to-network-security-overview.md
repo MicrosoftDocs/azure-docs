@@ -8,7 +8,7 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 07/07/2020
+ms.date: 09/25/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions
 
@@ -60,22 +60,6 @@ The next five sections show you how to secure the network scenario described abo
 1. Optionally: [**enable studio functionality**](#optional-enable-studio-functionality).
 1. Configure [**firewall settings**](#configure-firewall-settings)
 
-> [!TIP]
->  Some combinations of virtual network and Azure services require an Enterprise edition workspace. Use the following table to understand what scenarios require Enterprise edition:
->
-> | Scenario | Enterprise</br>edition | Basic</br>edition |
-> | ----- |:-----:|:-----:| 
-> | No virtual network or Private Link | ✔ | ✔ |
-> | Workspace without Private Link. Other resources (except Azure Container Registry) in a virtual network | ✔ | ✔ |
-> | Workspace without Private Link. Other resources with Private Link | ✔ | |
-> | Workspace with Private Link. Other resources (except Azure Container Registry) in a virtual network | ✔ | ✔ |
-> | Workspace and any other resource with Private Link | ✔ | |
-> | Workspace with Private Link. Other resources without Private Link or virtual network | ✔ | ✔ |
-> | Azure Container Registry in a virtual network | ✔ | |
-> | Customer Managed Keys for workspace | ✔ | |
->
-
-
 ## Secure the workspace and associated resources
 
 Use the following steps to secure your workspace and associated resources. These steps allow your services to communicate in the virtual network.
@@ -92,10 +76,20 @@ For detailed instructions on how to complete these steps, see [Secure an Azure M
 ### Limitations
 
 Securing your workspace and associated resources within a virtual network have the following limitations:
-- Workspace Private Link is only available in the following regions: eastus, westus2, southcentralus
-    - This limitation does not apply to the associated resources. For example, you can enable VNet for storage in any Azure Machine Learning region.
+- Workspace Private Link is only available in the following regions:
+    - **East US**
+    - **South Central US**
+    - **West US**
+    - **West US 2**
+    - **Central Canada**
+    - **Southeast Asia**
+    - **Japan East**
+    - **North Europe**
+    - **East Australia**
+    - **UK South**
+    
+    This limitation does not apply to the associated resources. For example, you can enable VNet for storage in any Azure Machine Learning region.
 - All resources must be behind the same VNet. However, subnets within the same VNet are allowed.
-- Some studio features like the designer, AutoML, labeling, and data profiling cannot be used with storage accounts configured to use a private endpoint. If you need to use these studio features, use service endpoints instead.
 
 ## Secure the training environment
 
@@ -162,7 +156,7 @@ Although the studio can access data in a storage account configured with a servi
 * Submit an AutoML experiment.
 * Start a labeling project.
 
-To enable full functionality while using a storage service endpoint, see [Use Azure Machine Learning studio in a virtual network](how-to-enable-studio-virtual-network.md#access-data-using-the-studio). Currently, the studio does not support storage private endpoints.
+To enable full functionality while using a storage service endpoint, see [Use Azure Machine Learning studio in a virtual network](how-to-enable-studio-virtual-network.md#access-data-using-the-studio). The studio supports both service endpoints and private endpoints for storage accounts.
 
 ### Limitations
 - The studio cannot access data in storage accounts configured to use private endpoints. For full functionality, you must use service endpoints for storage and use managed identity.

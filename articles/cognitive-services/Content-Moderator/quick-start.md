@@ -11,7 +11,6 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 06/29/2020
 ms.author: pafarley
-
 ---
 
 # Quickstart: Try Content Moderator on the web

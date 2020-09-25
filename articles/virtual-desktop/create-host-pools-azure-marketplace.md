@@ -42,7 +42,7 @@ To start creating your new host pool:
 
 1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com/).
    
-   >![NOTE]
+   >[!NOTE]
    > If you're signing in to the US Gov portal, go to [https://portal.azure.us/](https://portal.azure.us/) instead.
 
 2. Enter **Windows Virtual Desktop** into the search bar, then find and select **Windows Virtual Desktop** under Services.
