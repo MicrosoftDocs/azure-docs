@@ -2,7 +2,7 @@
 title: Troubleshoot Azure Automation Update Management issues
 description: This article tells how to troubleshoot and resolve issues with Azure Automation Update Management.
 services: automation
-ms.date: 06/30/2020
+ms.date: 09/25/2020
 ms.topic: conceptual
 ms.service: automation
 ---
@@ -320,7 +320,7 @@ If you're using a cloned image, different computer names have the same source co
 
 3. Run `Restart-Service HealthService` to restart the health service. This operation recreates the key and generates a new UUID.
 
-4. If this approach doesn't work, run sysprep on the image first and then install the MMA.
+4. If this approach doesn't work, run sysprep on the image first and then install the Log Analytics agent for Windows.
 
 ## <a name="multi-tenant"></a>Scenario: You receive a linked subscription error when you create an update deployment for machines in another Azure tenant
 
@@ -381,24 +381,15 @@ This error can occur for one of the following reasons:
 * The machine doesn't exist anymore.
 * The machine is turned off and unreachable.
 * The machine has a network connectivity issue, and therefore the hybrid worker on the machine is unreachable.
-* There was an update to the MMA that changed the source computer ID.
+* There was an update to the Log Analytics agent that changed the source computer ID.
 * Your update run was throttled if you hit the limit of 200 concurrent jobs in an Automation account. Each deployment is considered a job, and each machine in an update deployment counts as a job. Any other automation job or update deployment currently running in your Automation account counts toward the concurrent job limit.
 
 ### Resolution
 
 When applicable, use [dynamic groups](../update-management/update-mgmt-groups.md) for your update deployments. In addition, you can take the following steps.
 
-1. Verify that the machine still exists and is reachable. 
-2. If the machine doesn't exist, edit your deployment and remove the machine.
-3. See the [network planning](../update-management/update-mgmt-overview.md#ports) section for a list of ports and addresses that are required for Update Management, and then verify that your machine meets these requirements.
-4. Verify connectivity to the Hybrid Runbook Worker using the Hybrid Runbook Worker agent troubleshooter. To learn more about the troubleshooter, see [Troubleshoot update agent issues](update-agent-issues.md).
-5. Run the following query in Log Analytics to find machines in your environment for which the source computer ID has changed. Look for computers that have the same `Computer` value but a different `SourceComputerId` value.
-
-   ```kusto
-   Heartbeat | where TimeGenerated > ago(30d) | distinct SourceComputerId, Computer, ComputerIP
-   ```
-
-6. After you find affected machines, edit the update deployments that target those machines, and then remove and readd them so that `SourceComputerId` reflects the correct value.
+1. Verify that your machine or server meets the [requirements](../update-management/update-mgmt-overview.md#client-requirements).
+2. Verify connectivity to the Hybrid Runbook Worker using the Hybrid Runbook Worker agent troubleshooter. To learn more about the troubleshooter, see [Troubleshoot update agent issues](update-agent-issues.md).
 
 ## <a name="updates-nodeployment"></a>Scenario: Updates are installed without a deployment
 
