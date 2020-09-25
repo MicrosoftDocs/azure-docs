@@ -11,7 +11,7 @@
 ---
 ### Is Azure Virtual WAN as service general available? 
 
-Yes, Azure Virtual WAN is a general available service and solution. Virtual WAN as a Service and Solutions consists on several features and scenarios. There are feature or scenarios within Virtual WAN where Microsoft applies the preview tag. In those cases the specific feature or the scenario it self is in preview but that has no implication on Azure Virtual WAN General Availability. If you do not use a specific preview feature, the regular GA support applies. If you use a feature in preview, a support in preview will be granted. 
+Yes, Azure Virtual WAN is Generally Available (GA). However, Virtual WAN consists of several features and scenarios. There are feature or scenarios within Virtual WAN where Microsoft applies the Preview tag. In those cases, the specific feature, or the scenario itself, is in Preview. If you do not use a specific preview feature, regular GA support applies. For more information about Preview support, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/).
 
 ### Does the user need to have hub and spoke with SD-WAN/VPN devices to use Azure Virtual WAN?
 
