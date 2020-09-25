@@ -104,7 +104,7 @@ When you deploy a scale set, you specify the host group.
 
 1. Search for *Scale set* and select **Virtual machine scale sets** from the list.
 1. Select **Add** to create a new scale set.
-1. Complet the fields on the **Basics** tab as you usually would, but make sure you select a VM size that is from the series you chose for your dedicated host, like **Standard E2s v3**.
+1. Complete the fields on the **Basics** tab as you usually would, but make sure you select a VM size that is from the series you chose for your dedicated host, like **Standard E2s v3**.
 1. On the **Advanced** tab, for **Spreading algorithm** select **Max spreading**.
 1. In **Host group**, select the host group from the drop-down. If you recently created the group, it might take a minute to get added to the list.
 1. 
