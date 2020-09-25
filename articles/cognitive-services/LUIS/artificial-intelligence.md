@@ -2,6 +2,8 @@
 title: Artificial intelligence (AI)
 description: LUIS uses artificial intelligence (AI) to provide language understanding to your data, based on the schema you defined.
 ms.topic: conceptual
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.date: 08/07/2020
 ms.custom: cog-serv-seo-aug-2020
 ---
