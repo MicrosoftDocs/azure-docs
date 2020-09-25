@@ -55,7 +55,7 @@ This is required. You can find your connection string in your Application Insigh
 
 You can also set the connection string using the environment variable `APPLICATIONINSIGHTS_CONNECTION_STRING`.
 
-you can disable Java agent to send any telemetries to Application Insights by removing 'connectionString' from the `ApplicationInsights.json`.
+Not setting the connection string will disable the Java agent.
 
 ## Cloud role name
 
@@ -161,6 +161,9 @@ If you have some JMX metrics that you are interested in capturing:
 
 You can also set the JMX metrics using the environment variable `APPLICATIONINSIGHTS_JMX_METRICS`.
 
+This environment variable content must be json data matching the above structure, e.g.
+`[{"objectName": "java.lang:type=Runtime", "attribute": "Uptime", "display": "JVM uptime (millis)"}, {"objectName": "java.lang:type=MemoryPool,name=Code Cache", "attribute": "Usage.used", "display": "Code Cache Used"}]`
+
 ## Micrometer (including metrics from Spring Boot Actuator)
 
 If your application uses [Micrometer](https://micrometer.io), Application Insights 3.0 (starting with Preview.2) now captures metrics sent to the Micrometer global registry.
@@ -225,9 +228,9 @@ Here is an example how to set the sampling to **10% of all transactions** - plea
 }
 ```
 
-## HTTP Proxy
-
 You can also set the sampling percentage using the environment variable `APPLICATIONINSIGHTS_SAMPLING_PERCENTAGE`.
+
+## HTTP Proxy
 
 If your application is behind a firewall and cannot connect directly to Application Insights (see [IP addresses used by Application Insights](./ip-addresses.md)), you can configure Application Insights Java 3.0 Preview to use an HTTP proxy:
 
