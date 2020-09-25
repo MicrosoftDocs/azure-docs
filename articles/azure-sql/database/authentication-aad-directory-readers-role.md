@@ -1,6 +1,6 @@
 ---
 title: Directory Readers role in Azure Active Directory for Azure SQL
-description: Azure AD Applications (service principals) support Azure AD user creation in Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse Analytics
+description: Learn about the directory reader's role in Azure AD for Azure SQL.
 ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: azure-synapse

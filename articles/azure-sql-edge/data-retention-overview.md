@@ -1,6 +1,6 @@
 ---
-title: Data retention policy overview - Azure SQL Edge (Preview)
-description: Learn about the data retention policy in Azure SQL Edge (Preview)
+title: Data retention policy overview - Azure SQL Edge
+description: Learn about the data retention policy in Azure SQL Edge
 keywords: SQL Edge, data retention
 services: sql-edge
 ms.service: sql-edge
@@ -11,11 +11,11 @@ ms.reviewer: sstein
 ms.date: 09/04/2020
 ---
 
-# Data retention policy overview
+# Data retention overview
 
 Collection and storage of data from connected IoT devices is important to drive and gain operational and business insights. However given the volume of data originating from these devices, it becomes important for organizations to carefully plan the amount of data they want to retain and at what granularity. While retaining all data at all granularity is desirable, it's not always practical. Additionally, the volume of data that can be retained is constrained by the amount of storage available on the IoT or Edge devices. 
 
-Azure SQL Edge (Preview) CTP2.3 adds a new capability that allows database administrators to define data retention policy on a SQL Edge database and its underlying tables. Once the data retention policy is defined, a background system task will run to purge any obsolete (old) data from the user tables. 
+In Azure SQL Edge database administrators can define data retention policy on a SQL Edge database and its underlying tables. Once the data retention policy is defined, a background system task will run to purge any obsolete (old) data from the user tables. 
 
 > [!Note]
 > Data once purged from the table, is not recoverable. The only possible way to recover the purged data is to restore the database from an older backup.
@@ -35,6 +35,7 @@ After data retention is configured for a table, a background task runs to identi
 
 - Data Retention, if enabled, is automatically disabled when the database is restored from a full backup or is reattached. 
 - Data Retention cannot be enabled for a Temporal History Table
+- Data Retention filter colomn cannot be altered. To alter the column, disable data retention on the table.  
 
 ## Next Steps
 
