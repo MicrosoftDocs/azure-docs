@@ -60,9 +60,9 @@ When a superseded update becomes 100 percent not applicable, you should change t
 
 1. In the Automation account, select **Update Management** to view machine status. See [View update assessments](../update-management/update-mgmt-view-update-assessments.md).
 
-2. Check the superseded update to make sure that it's 100 percent not applicable. 
+2. Check the superseded update to make sure that it's 100 percent not applicable.
 
-3. Mark the update as declined unless you have a question about the update. 
+3. Mark the update as declined unless you have a question about the update.
 
 4. Select **Computers** and, in the **Compliance** column, force a rescan for compliance. See [Manage updates for VMs](../update-management/update-mgmt-manage-updates-for-vm.md).
 
@@ -107,9 +107,9 @@ This issue can be caused by local configuration issues or by improperly configur
    | summarize by Computer, Solutions
    ```
 
-4. If you don't see your machine in the query results, it hasn't recently checked in. There's probably a local configuration issue and you should [reinstall the agent](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows). 
+4. If you don't see your machine in the query results, it hasn't recently checked in. There's probably a local configuration issue and you should [reinstall the agent](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows).
 
-5. If your machine shows up in the query results, check for scope configuration problems. The [scope configuration](../update-management/update-mgmt-scope-configuration.md) determines which machines are configured for Update Management. 
+5. If your machine shows up in the query results, check for scope configuration problems. The [scope configuration](../update-management/update-mgmt-scope-configuration.md) determines which machines are configured for Update Management.
 
 6. If your machine is showing up in your workspace but not in Update Management, you must configure the scope configuration to target the machine. To learn how to do this, see [Enable machines in the workspace](../update-management/update-mgmt-enable-automation-account.md#enable-machines-in-the-workspace).
 
@@ -175,7 +175,7 @@ If your subscription isn't configured for the Automation resource provider, you 
 
 1. In the [Azure portal](../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal), access the Azure service list.
 
-2. Select **All services**, and then select **Subscriptions** in the General service group. 
+2. Select **All services**, and then select **Subscriptions** in the General service group.
 
 3. Find the subscription defined in the scope for your deployment.
 
@@ -246,7 +246,7 @@ Follow the steps below to find out if your queries are working correctly.
     | project id, location, name, tags
     ```
 
-2. Check to see if the machines you're looking for are listed in the query results. 
+2. Check to see if the machines you're looking for are listed in the query results.
 
 3. If the machines aren't listed, there is probably an issue with the filter selected in the dynamic group. Adjust the group configuration as needed.
 
@@ -338,7 +338,7 @@ This error occurs when you create an update deployment that has Azure VMs in ano
 
 ### Resolution
 
-Use the following workaround to get these items scheduled. You can use the [New-AzAutomationSchedule](/powershell/module/az.automation/new-azautomationschedule?view=azps-3.7.0) cmdlet with the `ForUpdateConfiguration` parameter to create a schedule. Then, use the [New-AzAutomationSoftwareUpdateConfiguration](/powershell/module/Az.Automation/New-AzAutomationSoftwareUpdateConfiguration?view=azps-3.7.0) cmdlet and pass the machines in the other tenant to the `NonAzureComputer` parameter. The following example shows how to do this:
+Use the following workaround to get these items scheduled. You can use the [New-AzAutomationSchedule](/powershell/module/az.automation/new-azautomationschedule) cmdlet with the `ForUpdateConfiguration` parameter to create a schedule. Then, use the [New-AzAutomationSoftwareUpdateConfiguration](/powershell/module/Az.Automation/New-AzAutomationSoftwareUpdateConfiguration) cmdlet and pass the machines in the other tenant to the `NonAzureComputer` parameter. The following example shows how to do this:
 
 ```azurepowershell-interactive
 $nonAzurecomputers = @("server-01", "server-02")
@@ -452,7 +452,7 @@ Access is denied. (Exception form HRESULT: 0x80070005(E_ACCESSDENIED))
 
 ### Cause
 
-A proxy, gateway, or firewall might be blocking network communication. 
+A proxy, gateway, or firewall might be blocking network communication.
 
 ### Resolution
 
