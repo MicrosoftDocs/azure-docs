@@ -294,7 +294,7 @@ If you don't permit access for these dependencies, your ISE deployment fails and
    > so that they appear in the Logic App Designer.
 
    > [!IMPORTANT]
-   > Managed ISE connectors currently do not support tag. If you have policy in place to enforce tagging, adding ISE connectors  
+   > Managed ISE connectors currently do not support [tags](../azure-resource-manager/management/tag-support.md). If you set up a policy that enforces tagging, trying to add ISE connectors  
    > might fail with an error similar to this example: 
    > 
    > ```json
