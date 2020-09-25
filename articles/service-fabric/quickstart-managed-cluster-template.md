@@ -19,12 +19,8 @@ Before you begin this quickstart:
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Samples - Service Fabric cluster templates](https://github.com/Azure-Samples/service-fabric-cluster-templates/3-VM-Windows-1-NodeType-Managed-Basic).
+The template used in this quickstart is from [Azure Samples - Service Fabric cluster templates](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Basic-SKU-1-NT).
 
-<!-- To be updated when samples are added 
-
-:::code language="json" source="https://github.com/Azure-Samples/service-fabric-cluster-templates/3-VM-Windows-1-NodeType-Managed-Basic/azuredeploy.json" range="1-112" :::
--->
 
 ## Create a client certificate
 
@@ -38,7 +34,7 @@ Take note of the certificate thumbprint as this will be required to deploy the t
 
 1. Select the following image to sign in to Azure and open a template.
 
-      [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure-samples%2Fservice-fabric-cluster-templates%2F3-vm-windows-1-nodetype-managed-basic%2Fazuredeploy.json)
+      [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fservice-fabric-cluster-templates%2Fmaster%2FSF-Managed-Basic-SKU-1-NT%2Fazuredeploy.json)
 
 2. Select or enter the following values
 
