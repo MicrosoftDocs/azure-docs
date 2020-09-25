@@ -62,7 +62,7 @@ For more information about how to better secure your organization by using autom
 **Service category:** Device Access Management  
 **Product capability:** Device Lifecycle Management
  
-When IT admins or end users read their BitLocker recovery key, our service generates an audit log that captures who accessed a recovery key. The audit also provides which device most recently had the BitLocker key backed up. 
+When IT admins or end users read BitLocker recovery key(s) they have access to, Azure Active Directory now generates an audit log that captures who accessed the recovery key. The same audit provides details of the device the BitLocker key was associated with.
 
 End users can [access their recovery keys via My Account](../user-help/my-account-portal-devices-page.md#view-a-bitlocker-key). IT admins can access recovery keys via the [BitLocker recovery key API in beta](https://docs.microsoft.com/graph/api/resources/bitlockerrecoverykey?view=graph-rest-beta,) or via the Azure AD Portal. To learn more, see [View or copy BitLocker keys in the Azure AD Portal](../devices/device-management-azure-portal.md#view-or-copy-bitlocker-keys).
 
@@ -92,13 +92,13 @@ To learn more, see [Use query parameters to customize responses](https://docs.mi
  
 ---
 
-### PUblic Preview: Continuous access evaluation for tenants who configured Conditional Access policies
+### Public Preview: Continuous access evaluation for tenants who configured Conditional Access policies
 
 **Type:** New feature  
 **Service category:** Authentications (Logins)  
 **Product capability:** Identity Security & Protection
  
-Continuous access evaluation (CAE) is now available in public preview for Azure AD tenants with Conditional Access policies. With CAE, critical security events and policies are evaluated in real-time. This includes account disable, password reset, and location change. To learn more, see [Continuous access evaluation](../conditional-access/concept-continuous-access-evaluation.md).
+Continuous access evaluation (CAE) is now available in public preview for Azure AD tenants with Conditional Access policies. With CAE, critical security events and policies are evaluated in real time. This includes account disable, password reset, and location change. To learn more, see [Continuous access evaluation](../conditional-access/concept-continuous-access-evaluation.md).
 
 ---
 
@@ -123,7 +123,7 @@ We're making it easier to search, sort, and filter the All users and Deleted use
 - More visible user properties including object ID, directory sync status, creation type, and identity issuer.
 - Search now allows combined search of names, emails, and object IDs.
 - Enhanced filtering by user type (member and guest), directory sync status, creation type, company name, and domain name.
-- New sorting capabilities on properties like name, user principal name and deletion date
+- New sorting capabilities on properties like name, user principal name and deletion date.
 A new total users count that updates with any searches or filters.
 
 For more information, please see [User management enhancements (preview) in Azure Active Directory](../users-groups-roles/users-search-enhanced.md).
@@ -883,7 +883,7 @@ With External Identities in Azure AD, you can allow people outside your organiza
 **Service category:** Conditional Access  
 **Product capability:** Identity Security & Protection
 
-The [insights and reporting workbook](../conditional-access/howto-conditional-access-insights-reporting.md) gives admins a summary view of Azure AD Conditional Access in their tenant. With the capability to select an individual policy, admins can better understand what each policy does and monitor any changes in real-time. The workbook streams data stored in Azure Monitor, which you can set up in a few minutes [following these instructions](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md). To make the dashboard more discoverable, we’ve moved it to the new insights and reporting tab within the Azure AD Conditional Access menu.
+The [insights and reporting workbook](../conditional-access/howto-conditional-access-insights-reporting.md) gives admins a summary view of Azure AD Conditional Access in their tenant. With the capability to select an individual policy, admins can better understand what each policy does and monitor any changes in real time. The workbook streams data stored in Azure Monitor, which you can set up in a few minutes [following these instructions](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md). To make the dashboard more discoverable, we’ve moved it to the new insights and reporting tab within the Azure AD Conditional Access menu.
 
 ---
 
