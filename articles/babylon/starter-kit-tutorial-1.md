@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Scan data into Azure Babylon'
-description: This tutorial describes how to scan data into your Azure Babylon instance. 
+title: 'Tutorial: Run the starter kit and scan data'
+description: This tutorial describes how to run the starter kit to set up a data estate, and then to scan data from data sources into your Azure Babylon catalog. 
 author: viseshag
 ms.author: viseshag
 ms.service: data-catalog
@@ -10,7 +10,7 @@ ms.date: 09/23/2020
 # Customer intent: As a data steward or catalog administrator, I need to understand how to scan data into the catalog.
 ---
 
-# Tutorial: Starter Kit #1 - Scan data into Azure Babylon
+# Tutorial: Run the starter kit and scan data
 
 The starter kit gives you a quick tour of how Azure Babylon works and what it can do. To make it easy for you to experiment and explore, the starter kit client-side code follows these steps to create a simulated *data estate*, which is the state of all the data that a company owns:
 
@@ -59,9 +59,9 @@ When you run the starter kit script, it does the following steps on your behalf:
 
 1. Pushes the lineage associated with the copy activity into the catalog.
 
-## Prepare your Windows machine to run the starter kit client software
+## Prepare your machine to run the starter kit
 
-Follow these steps to set up the starter kit on your Windows machine:
+Follow these steps to set up the starter kit client software on your Windows machine:
 
 1. <!--- [Download the .zip file](./assets/starter-kit-v2.zip)---> Download the .zip file that contains the starter kit to your computer. Extract its contents to the location of your choice.
 
