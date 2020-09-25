@@ -230,7 +230,9 @@ if __name__ == "__main__":
 
 ## Submit the run to Azure Machine Learning
 
-If you switched local environments, be sure to switch back to an environment that has the Azure Machine Learning SDK for Python installed. Then run:
+If you switched local environments, be sure to switch back to an environment that has the Azure Machine Learning SDK for Python installed. 
+
+Then run:
 
 ```bash
 python 04-run-pytorch.py
