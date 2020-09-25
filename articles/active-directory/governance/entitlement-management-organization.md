@@ -49,6 +49,24 @@ For a demonstration of how to add a connected organization, watch the following 
 
 >[!VIDEO https://www.microsoft.com/videoplayer/embed/RE4dskS]
 
+## State properties of connected organizations
+
+There are two different types of state properties for connected organizations in Azure AD entitlement management currently, configured and proposed: 
+
+- A configured connected organization is a fully functional connected organization that allows users within that organization access to access packages. When an admin creates a new connected organization in the Azure portal, it will be in the **configured** state by default since the administrator created and wants to use this connected organization. Additionally, when a connected org is created programmatically via the API, the default state should be **configured** unless set to another state explicitly. 
+
+    Configured connected organizations will show up in the pickers for connected organizations and will be in scope for any policies that target “all” connected organizations.
+
+- A proposed connected organization is a connected organization that has been automatically created, but hasn't had an administrator create or approve the organization. When a user signs up for an access package outside of a configured connected organization, any automatically created connected organizations will be in the **proposed** state since no administrator in the tenant set-up that partnership. 
+    
+    Proposed connected organizations should not show up in the pickers for configured connected organizations, and are not in scope for the “all connected organizations” setting on any policies. 
+
+Only users from configured connected organizations can request access packages that are available to users from all configured organizations. Users from proposed connected organizations typically have an experience as if there is no connected organization for that domain, and won't have access to the access package until the state is changed by an administrator.
+
+> [!NOTE]
+> There’s a difference between manually and automatically connected organization. Manually connected organizations were created by an administrator, while automatically connected organizations are created when a user without an established organization requests access to an access package. <ul><li>Organizations created before 09/09/20 are considered “manually” created, so review these organizations. If you had an access package that allowed any user to sign up, that could have created an automatically created connected organization that was mis-categorized.<li>Automatically created connected organizations can be changed to a fully connected organization by changing the **State** property to **configured** For guidance, see [Update a connected organization](#update-a-connected-organization)
+
+
 ## Add a connected organization
 
 To add an external Azure AD directory or domain as a connected organization, follow the instructions in this section.
@@ -64,6 +82,8 @@ To add an external Azure AD directory or domain as a connected organization, fol
 1. Select the **Basics** tab, and then enter a display name and description for the organization.
 
     ![The "Add connected organization" Basics pane](./media/entitlement-management-organization/organization-basics.png)
+
+1. The state will automatically be set to **Configured** when you create a new connected organization. For more information about state properties, see [State properties of connected organizations](#state-properties-of-connected-organizations)
 
 1. Select the **Directory + domain** tab, and then select **Add directory + domain**.
 
@@ -108,7 +128,7 @@ If the connected organization changes to a different domain, the organization's 
 
 1. In the left pane, select **Connected organizations**, and then select the connected organization to open it.
 
-1. In the connected organization's overview pane, select **Edit** to change the organization name or description.  
+1. In the connected organization's overview pane, select **Edit** to change the organization name, description, or state.  
 
 1. In the **Directory + domain** pane, select **Update directory + domain** to change to a different directory or domain.
 
