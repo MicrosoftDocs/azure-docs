@@ -463,7 +463,7 @@ This command:
 * If the custom model was previously downloaded, the `ModelId` is ignored.
 * Automatically removes the container after it exits. The container image is still available on the host computer.
 
-# [Language Detection](#tab/lid)
+# [Speech Language Detection](#tab/lid)
 
 To run the *Speech Language Detection* container, execute the following `docker run` command.
 
@@ -477,7 +477,7 @@ ApiKey={API_KEY}
 
 This command: 
 
-* Runs a speech language-detection container from the container image.
+* Runs a speech language-detection container from the container image. Currently you will not be charged for running this image. 
 * Allocates 1 CPU cores and 1 gigabyte (GB) of memory.
 * Exposes TCP port 5003 and allocates a pseudo-TTY for the container.
 * Automatically removes the container after it exits. The container image is still available on the host computer.
@@ -504,7 +504,7 @@ docker run --rm -v ${HOME}:/root -ti antsu/on-prem-client:latest ./speech-to-tex
 | Containers | SDK Host URL | Protocol |
 |--|--|--|
 | Standard Speech-to-text and Custom Speech-to-text | `ws://localhost:5000` | WS |
-| Text-to-speech (including Standard, Custom and Neural), Language detection | `http://localhost:5000` | HTTP |
+| Text-to-speech (including Standard, Custom and Neural), Speech Language detection | `http://localhost:5000` | HTTP |
 
 For more information on using WSS and HTTPS protocols, see [container security](../cognitive-services-container-support.md#azure-cognitive-services-container-security).
 
