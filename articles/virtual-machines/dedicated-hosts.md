@@ -66,6 +66,7 @@ The Resource Manager sample template found [here](https://github.com/Azure/azure
 
 > [!IMPORTANT]
 > Automatic placement is currently in public preview.
+> To participate in the preview, complete the preview onboarding survey at [aka.ms/vmss-adh-preview](aka.ms/vmss-adh-preview).
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -88,6 +89,12 @@ Known issues and limitations when using automatic VM placement:
 ## Virtual machine scale set support
 
 Virtual machine scale sets let you treat a group of virtual machines as a single resource, and apply  availability, management, scaling and orchestration policies as a group. Your existing dedicated hosts can also be used for virtual machine scale sets. 
+
+> [!IMPORTANT]
+> Virtual Machine Scale Sets on Dedicated Hosts is currently in public preview.
+> To participate in the preview, complete the preview onboarding survey at [aka.ms/vmss-adh-preview](aka.ms/vmss-adh-preview).
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 When creating a virtual machine scale set you can specify an existing host group to have all of the VM instances created on dedicated hosts.
 

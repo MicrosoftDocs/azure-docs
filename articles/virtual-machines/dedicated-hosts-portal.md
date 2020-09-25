@@ -15,13 +15,21 @@ ms.author: cynthn
 
 This article guides you through how to create an Azure [dedicated host](dedicated-hosts.md) to host your virtual machines (VMs). 
 
+
+> [!IMPORTANT]
+> This article also covers Automatic placement of VMs and scale set instances. Automatic placement is currently in public preview.
+> To participate in the preview, complete the preview onboarding survey at [aka.ms/vmss-adh-preview](aka.ms/vmss-adh-preview).
+> To acces the preview feature in the Azure portal, you must use this URL: [https://aka.ms/vmssadh](https://aka.ms/vmssadh).
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ## Limitations
 
 - The sizes and hardware types available for dedicated hosts vary by region. Refer to the host [pricing page](https://aka.ms/ADHPricing) to learn more.
 
 ## Create a host group
 
-A **host group** is a new resource that represents a collection of dedicated hosts. You create a host group in a region and an availability zone, and add hosts to it. When planning for high availability, there are additional options. You can use one or both of the following options with your dedicated hosts: 
+A **host group** is a resource that represents a collection of dedicated hosts. You create a host group in a region and an availability zone, and add hosts to it. When planning for high availability, there are additional options. You can use one or both of the following options with your dedicated hosts: 
 - Span across multiple availability zones. In this case, you are required to have a host group in each of the zones you wish to use.
 - Span across multiple fault domains which are mapped to physical racks. 
  
@@ -32,7 +40,7 @@ You can also decide to use both availability zones and fault domains.
 In this example, we will create a host group using 1 availability zone and 2 fault domains. 
 
 
-1. Open the Azure [portal](https://portal.azure.com).
+1. Open the Azure [portal](https://portal.azure.com). If you would like to try the preview for **Automatic placement**, use this URL: [https://aka.ms/vmssadh](https://aka.ms/vmssadh).
 1. Select **Create a resource** in the upper left corner.
 1. Search for **Host group** and then select **Host Groups** from the results.
 1. In the **Host Groups** page, select **Create**.
@@ -42,16 +50,12 @@ In this example, we will create a host group using 1 availability zone and 2 fau
 1. For **Location**, select **East US**.
 1. For **Availability Zone**, select **1**.
 1. For **Fault domain count**, select **2**.
-1. For **Automatic placement**, select this option to automatically assign VMs and scale set instances to an available host in this group.
+1. If you used the **Automatic placement** URL, select this option to automatically assign VMs and scale set instances to an available host in this group.
 1. Select **Review + create** and then wait for validation.
 1. Once you see the **Validation passed** message, select **Create** to create the host group.
 
 It should only take a few moments to create the host group.
 
-> [!IMPORTANT]
-> Automatic placement is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Create a dedicated host
 
@@ -91,6 +95,8 @@ It will take a few minutes for your VM to be deployed.
 
 > [!IMPORTANT]
 > Virtual Machine Scale Sets on Dedicated Hosts is currently in public preview.
+> To participate in the preview, complete the preview onboarding survey at [aka.ms/vmss-adh-preview](aka.ms/vmss-adh-preview).
+> To acces the preview feature in the Azure portal, you must use this URL: [https://aka.ms/vmssadh](https://aka.ms/vmssadh).
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
