@@ -28,8 +28,8 @@ The container also has the following container-specific configuration settings:
 
 |Required|Setting|Purpose|
 |--|--|--|
-|No|ReadEngineConfig:ResultExpirationPeriod|Result expiration period in hours. The default is 48 hours. The setting specifies when the system should clear recognition results. For example, if `resultExpirationPeriod=1`, the system clears the recognition result 1 hour after the process. If `resultExpirationPeriod=0`, the system clears the recognition result after the result is retrieved.|
-|No|Cache:Redis|Enables Redis storage for storing results. A cache is *required* if multiple read containers are placed behind a load balancer.|
+|No|ReadEngineConfig:ResultExpirationPeriod| v2.0 containers only. Result expiration period in hours. The default is 48 hours. The setting specifies when the system should clear recognition results. For example, if `resultExpirationPeriod=1`, the system clears the recognition result 1 hour after the process. If `resultExpirationPeriod=0`, the system clears the recognition result after the result is retrieved.|
+|No|Cache:Redis| v2.0 containers only. Enables Redis storage for storing results. A cache is *required* if multiple read containers are placed behind a load balancer.|
 |No|Queue:RabbitMQ|v2.0 containers only. Enables RabbitMQ for dispatching tasks. The setting is useful when multiple read containers are placed behind a load balancer.|
 |No|Queue:Azure:QueueVisibilityTimeoutInMilliseconds | v3.x containers only. The time for a message to be invisible when another worker is processing it. |
 |No|Storage::DocumentStore::MongoDB|v2.0 containers only. Enables MongoDB for permanent result storage. |
