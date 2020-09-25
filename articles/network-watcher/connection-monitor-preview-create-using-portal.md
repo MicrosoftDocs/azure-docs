@@ -103,7 +103,7 @@ From the Azure portal, to create a test group in a connection monitor, you speci
 
       **Subscription** > **Resource groups** > **VNETs** > **Subnets** > **VMs with agents**
 
-      You can also change the value of the *group by** field to start the tree from any other level. For example, if you group by virtual network, you see the VMs that have agents in the hierarchy **VNETs** > **Subnets** > **VMs with agents**.
+      You can also change the value of the **group by** field to start the tree from any other level. For example, if you group by virtual network, you see the VMs that have agents in the hierarchy **VNETs** > **Subnets** > **VMs with agents**.
        Selecting a VNET ,subnet or a single VM sets the corresponding resource ID as the endpoint. By default, all VMs in the selected VNET or subnet with Network Watcher extension participate in monitoring. To reduce the scope, either select specific subnets/agents or change the value of the scope property. 
 
       ![Screenshot of Connection Monitor, showing the Add Sources panel and the Azure Agents tab](./media/connection-monitor-2-preview/add-azure-sources.png)
@@ -116,13 +116,11 @@ From the Azure portal, to create a test group in a connection monitor, you speci
 
       ![Screenshot of Connection Monitor, showing the Add Sources panel and the Non-Azure Agents tab](./media/connection-monitor-2-preview/add-non-azure-sources.png)
 
-   * To choose recently used endpoints, select **Recent Endpoint** tab
-   
-     ![Screenshot of Connection Monitor, showing the Add Sources panel and the Recent Endpoints Tab](./media/connection-monitor-2-preview/add-recent-sources.png) 
+   * You can also choose recently used endpoints, using **Recent Endpoint** tab 
    
    * When you finish setting up sources, select **Done**. You can still edit basic properties like endpoint name by clicking the endpoint in the Create Test Group view. 
 
-* **Destinations** – You can monitor connectivity to Azure VMs, on-premises machine or any endpoint (a public IP, URL, or FQDN) by specifying them as destinations. In a single test group, you can add Azure VMs, on-premises machine, Office 365 URLs, Dynamics 365 URLs, and custom endpoints.
+* **Destinations** – You can monitor connectivity to Azure VMs, on-premises machines or any endpoint (a public IP, URL, or FQDN) by specifying them as destinations. In a single test group, you can add Azure VMs, on-premises machine, Office 365 URLs, Dynamics 365 URLs, and custom endpoints.
 
     * To choose Azure VMs as destinations, select the **Azure endpoints** tab. By default, the Azure VMs are grouped into a subscription hierarchy that's in the same region that you selected in the **Create Connection Monitor** view, on the **Basics** tab. You can change the region and choose Azure VMs from the newly selected region. Then you can drill down from Subscription level to other levels in the hierarchy, just like the source Azure endpoints.
      You can select VNETs, subnets or single VMs,  similar to source Azure endpoints.Selecting a VNET ,subnet or a single VM sets the corresponding resource ID as the endpoint. By default, all VMs in the selected VNET or subnet with Network Watcher extension participate in monitoring. To reduce the scope, either select specific subnets/agents or change the value of the scope property. 
@@ -151,6 +149,7 @@ From the Azure portal, to create a test group in a connection monitor, you speci
         * **Create network test configuration** – This check box appears only if you select **HTTP** in the **Protocol** field. Select this box to create another test configuration that uses the same sources and destinations that you specified elsewhere in your configuration. The newly created test configuration is named `<the name of your test configuration>_networkTestConfig`.
         * **Disable traceroute** – This field applies when protocol is TCP or ICMP. Select this box to stop sources from discovering topology and hop-by-hop RTT.
     * **Destination port** – You can customize this field with a destination port of your choice.
+    	* Listen on port - This field applies when protocol is TCP. Select this box to open the chosen TCP port if not already open. 
     * **Test Frequency** – Use this field to choose how frequently sources will ping destinations on the protocol and port that you specified. You can choose 30 seconds, 1 minute, 5 minutes, 15 minutes, or 30 minutes. Select custom to enter frequency of your choice between 30 seconds to 30 minutes. Sources will test connectivity to destinations based on the value that you choose.  For example, if you select 30 seconds, sources will check connectivity to the destination at least once in a 30-second period.
     * **Success Threshold** – You can set thresholds on the following network parameters:
        * **Checks failed** – Set the percentage of checks that can fail when sources check connectivity to destinations by using the criteria that you specified. For TCP or ICMP protocol, the percentage of failed checks can be equated to the percentage of packet loss. For HTTP protocol, this field represents the percentage of HTTP requests that received no response.
@@ -164,7 +163,7 @@ You can setup alerts on tests that are failing based on the thresholds set in te
 
 From the Azure portal, to create alerts in a connection monitor, you specify values for the following fields: 
 
-- Create alert - You can select this field to create a metric alert in Azure Monitor. Selecting this will enable the other fields for editing. Additional charges for alert will be applicable based  on <https://azure.microsoft.com/pricing/details/monitor/> 
+- Create alert - You can select this field to create a metric alert in Azure Monitor. Selecting this will enable the other fields for editing. Additional charges for alert will be applicable based on [pricing for alerts](https://azure.microsoft.com/pricing/details/monitor/) 
 
 - Scope -> Resource and Scope -> Hierarchy - This is prefilled based on the values specified in the Basics tab 
 
