@@ -35,8 +35,7 @@ For more information, see [Azure Security Baselines overview](../security/benchm
 **Guidance**: 
 An App Service Environment (ASE) refers to a deployment of Microsoft Azure App Service into a subnet within an Azure Virtual Network. Network security groups are used to secure an ASE by blocking inbound and outbound traffic to resources in the virtual network, or to restrict access to apps on an ASE. 
 
-Any allow rules need to be built, as network security groups include an implicit deny rule at the lowest priority to deny everything at the Azure portal. 
-No access is available to the VMs being used to host the ASE as they're in a Microsoft-managed subscription.
+Any allow rules need to be built, as network security groups include an implicit deny rule at the lowest priority to deny everything at the Azure portal. No access is available to the VMs being used to host the ASE as they're in a Microsoft-managed subscription.
 
 ASEs can additionally be protected with an Azure Application Gateway enabled Web Application Firewall (WAF) which operates at Layer 7 with OWASP Top 10 vulnerabilities protection.  
 
@@ -95,7 +94,6 @@ Azure Firewall uses a static public IP address for your virtual network resource
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4439).
 
 **Guidance**: Secure an internet accessible app in an App Service Environment (ASE) by:
-
 - Deploying a Web Application Firewall (WAF) with Azure Application Gateway in front of your internet facing apps
 
 - Use Access Restrictions to secure inbound traffic to the Application Gateway 
@@ -221,7 +219,7 @@ Use a third-party application in the Azure Marketplace offering a complete IDS o
 
 - Drive all application-traffic outbound through an Azure Firewall device and monitor the logs
 
-If you want to secure an internet accessible app in the multi-tenant service:
+If you want to secure an internet accessible app in the multi-tenant App Service:
 
 - Deploy a WAF enabled device in front of your apps
 
@@ -620,7 +618,7 @@ Implement MFA for Azure AD. Administrators need to ensure that the subscription 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4464).
 
-**Guidance**: Use Azure Active Directory (Azure AD)'s Privileged Identity Management (PIM) for generation of logs and alerts when suspicious or unsafe activity occurs in the environment.
+**Guidance**: Use Azure Active Directory's (Azure AD) Privileged Identity Management (PIM) for generation of logs and alerts when suspicious or unsafe activity occurs in the environment.
 
 In addition, use Azure AD risk detections to view alerts and reports on risky user behavior.
 
