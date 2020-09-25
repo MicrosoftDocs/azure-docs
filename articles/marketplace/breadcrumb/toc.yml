@@ -12,9 +12,6 @@
   - name: Commercial marketplace
     tocHref: /legal/marketplace/
     topicHref: /azure/marketplace/index
-#- name: Commercial marketplace
- # tocHref: /partner-center/
- # topicHref: /azure/marketplace/index
 - name: Azure
   tocHref: /partner-center/
   topicHref: /azure/index
