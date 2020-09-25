@@ -41,7 +41,7 @@ To request elevation data in raster tile format, use the [Render V2 - Get Map Ti
     https://atlas.microsoft.com/map/tile?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=2.0&tilesetId=microsoft.dem&zoom=13&x=6074&y=3432
     ```
 
-4. Click the **Send** button. You should receive the raster tile containing the elevation data in GeoTIFF format.
+4. Click the **Send** button. You should receive the raster tile containing the elevation data in GeoTIFF format. Each pixel within the raster tile raw data is of type `float`. The value of each pixel represents the elevation height in meters.
 
 ## Request elevation data in GeoJSON format
 
