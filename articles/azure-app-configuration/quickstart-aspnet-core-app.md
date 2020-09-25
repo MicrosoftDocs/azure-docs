@@ -166,7 +166,7 @@ A `UserSecretsId` element containing a GUID is added to the *.csproj* file:
 
     ---
 
-1. Open *<app root>/Views/Home/Index.cshtml*, and replace its content with the following code:
+1. Open *\<app root>/Views/Home/Index.cshtml*, and replace its content with the following code:
 
     ```cshtml
     @using Microsoft.Extensions.Configuration
@@ -185,7 +185,7 @@ A `UserSecretsId` element containing a GUID is added to the *.csproj* file:
     <h1>@Configuration["TestApp:Settings:Message"]</h1>
     ```
 
-1. Open *<app root>/Views/Shared/_Layout.cshtml*, and replace its content with the following code:
+1. Open *\<app root>/Views/Shared/_Layout.cshtml*, and replace its content with the following code:
 
     ```cshtml
     <!DOCTYPE html>
