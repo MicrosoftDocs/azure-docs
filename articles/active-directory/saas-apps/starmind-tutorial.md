@@ -73,7 +73,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
-	a. In the **Sign on URL** text box, type a URL using the following pattern:
+	a. In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<SUBDOMAIN>.starmind.com`
 
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
@@ -93,7 +93,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![The Certificate download link](common/metadataxml.png)
 
-1. On the **Set up Starmind** section, copy the appropriate URL(s) based on your requirement.
+1. On the **Setup Starmind** section, copy the appropriate URL(s) based on your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
