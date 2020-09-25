@@ -21,20 +21,13 @@ ms.custom: aaddev, identityplatformtop40
 
 Learn how to build a mobile app that calls web APIs.
 
-## Prerequisites
-
-[!INCLUDE [Prerequisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
-
 ## Getting started
 
-Create your first mobile application and try out a quickstart.
+If you haven't already, create your first application by completing a quickstart:
 
-> [!div class="nextstepaction"]
-> [Quickstart: Acquire a token and call Microsoft Graph API from an Android app](./quickstart-v2-android.md)
->
-> [Quickstart: Acquire a token and call Microsoft Graph API from an iOS app](./quickstart-v2-ios.md)
->
-> [Quickstart: Acquire a token and call Microsoft Graph API from a Xamarin iOS and Android app](https://github.com/Azure-Samples/active-directory-xamarin-native-v2)
+- [Quickstart: Acquire a token and call Microsoft Graph API from an Android app](./quickstart-v2-android.md)
+- [Quickstart: Acquire a token and call Microsoft Graph API from an iOS app](./quickstart-v2-ios.md)
+- [Quickstart: Acquire a token and call Microsoft Graph API from a Xamarin iOS and Android app](https://github.com/Azure-Samples/active-directory-xamarin-native-v2) (GitHub)
 
 ## Overview
 
@@ -56,6 +49,10 @@ Keep in mind the following considerations when you build a mobile app on Microso
 - Depending on the platform, some user interaction might be required the first time that users sign in. For example, iOS requires apps to show user interaction when they use SSO for the first time through Microsoft Authenticator (and Intune Company Portal on Android).
 - On iOS and Android, MSAL might use an external browser to sign in users. The external browser might appear on top of your app.
 - Never use a secret in a mobile application. In these applications, secrets are accessible to all users.
+
+## Recommended reading
+
+[!INCLUDE [recommended-topics](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
 ## Next steps
 

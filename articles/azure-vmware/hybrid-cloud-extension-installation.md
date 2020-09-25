@@ -67,9 +67,7 @@ Infrastructure components must be running the required minimum version.
 1. Select the download link for the VMware HCX OVA file. 
 
 1. Sign in to Azure VMware Solution SDDC vCenter and select **HCX**.
-
-   :::image type="content" source="media/hybrid-cloud-extension-installation/avs-vsphere-client.png" alt-text="Sign in to Azure VMware Solution SDDC vCenter and select HCX.":::
-
+   
 1. Go to the on-premises vCenter and select an OVF template to deploy to your on-premises vCenter.  
 
    :::image type="content" source="media/hybrid-cloud-extension-installation/select-template.png" alt-text="Next, go to the on-premises vCenter and select an OVF template to deploy to your on-premises vCenter.":::
@@ -91,7 +89,7 @@ Infrastructure components must be running the required minimum version.
 
 After installation, perform the following steps.
 
-1. Log on to the on-premises HCX manager at `https://HCXManagerIP:9443` and sign in with the **admin** user credentials. 
+1. Log on to the on-premises HCX manager at `https://HCXManagerIP:9443` and sign in with the **admin** username credentials. 
 
    > [!IMPORTANT]
    > Make sure to include the `9443` port number with the HCX Manager IP address.
