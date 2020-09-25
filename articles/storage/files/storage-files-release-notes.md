@@ -16,7 +16,7 @@ Azure File Sync allows you to centralize your organization's file shares in Azur
 This article provides the release notes for the supported versions of the Azure File Sync agent.
 
 ## Supported versions
-The following versions are supported for the Azure File Sync agent:
+The following Azure File Sync agent versions are supported:
 
 | Milestone | Agent version number | Release date | Status |
 |----|----------------------|--------------|------------------|
@@ -26,6 +26,12 @@ The following versions are supported for the Azure File Sync agent:
 | December 2019 update rollup - [KB4522360](https://support.microsoft.com/help/4522360)| 9.1.0.0 | December 12, 2019 | Supported - Agent version will expire on February 16, 2021 |
 | V9 Release - [KB4522359](https://support.microsoft.com/help/4522359)| 9.0.0.0 | December 2, 2019 | Supported - Agent version will expire on February 16, 2021 |
 | V8 Release - [KB4511224](https://support.microsoft.com/help/4511224)| 8.0.0.0 | October 8, 2019 | Supported - Agent version will expire on January 12, 2021 |
+
+## Unsupported versions
+The following Azure File Sync agent versions have expired and are no longer supported:
+
+| Milestone | Agent version number | Release date | Status |
+|----|----------------------|--------------|------------------|
 | V7 Release | 7.0.0.0 - 7.2.0.0 | N/A | Not Supported - Agent versions expired on September 1, 2020 |
 | V6 Release | 6.0.0.0 - 6.3.0.0 | N/A | Not Supported - Agent versions expired on April 21, 2020 |
 | V5 Release | 5.0.2.0 - 5.2.0.0 | N/A | Not Supported - Agent versions expired on March 18, 2020 |
