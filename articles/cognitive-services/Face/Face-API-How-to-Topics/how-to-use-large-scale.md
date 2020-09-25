@@ -258,7 +258,7 @@ private static void TrainTimerOnElapsed(string largePersonGroupId, int timeInter
 }
 ```
 
-For more information about data management and identification-related implementations, see [Add faces](how-to-add-faces.md) and [Identify faces in an image](HowtoIdentifyFacesinImage.md).
+For more information about data management and identification-related implementations, see [Add faces](how-to-add-faces.md).
 
 ## Summary
 
@@ -269,7 +269,7 @@ In this guide, you learned how to migrate the existing PersonGroup or FaceList c
 
 ## Next steps
 
-Follow a how-to guide to learn how to add faces to a PersonGroup or execute the Identify operation on a PersonGroup.
+Follow a how-to guide to learn how to add faces to a PersonGroup or write a script to do the Identify operation on a PersonGroup.
 
 - [Add faces](how-to-add-faces.md)
-- [Identify faces in an image](HowtoIdentifyFacesinImage.md)
+- [Face client library quickstart](../Quickstarts/client-libraries.md)

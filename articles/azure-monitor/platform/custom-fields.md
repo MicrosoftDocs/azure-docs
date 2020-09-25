@@ -19,7 +19,7 @@ ms.date: 08/23/2019
 
 The **Custom Fields** feature of Azure Monitor allows you to extend existing records in your Log Analytics workspace by adding your own searchable fields.  Custom fields are automatically populated from data extracted from other properties in the same record.
 
-![Overview](media/custom-fields/overview.png)
+![Diagram shows an original record associated with a modified record in a Log Analytics workspace with property value pairs added to the original property in the modified record.](media/custom-fields/overview.png)
 
 For example, the sample record below has useful data buried in the event description. Extracting this data into a separate property makes it available for such actions as sorting and filtering.
 
@@ -77,7 +77,7 @@ The following section walks through a complete example of creating a custom fiel
 
 We enter the following query to return all events from Service Control Manager that have an Event ID of 7036 which is the event that indicates a service starting or stopping.
 
-![Query](media/custom-fields/query.png)
+![Screenshot shows a query for an event source and ID.](media/custom-fields/query.png)
 
 We then select and expand any record with event ID 7036.
 

@@ -2,7 +2,7 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 09/10/2020
+ms.date: 09/16/2020
 ms.author: dacoulte
 ms.custom: generated
 ---
@@ -10,7 +10,7 @@ ms.custom: generated
 |Name |Description |Policies |Version |
 |---|---|---|---|
 |[Australian Government ISM PROTECTED](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/IRAP_Audit.json) |This initiative includes audit and virtual machine extension deployment policies that address a subset of Australian Government Information Security Manual(ISM) controls. Additional policies will be added in upcoming releases. For more information, visit [https://aka.ms/AustralianGovernmentISM-blueprint](https://aka.ms/AustralianGovernmentISM-blueprint). |62 |3.0.0-preview |
-|[Azure Security Benchmark](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/asb_audit.json) |This initiative includes audit and virtual machine extension deployment policies that address a subset of Azure Security Benchmark recommendations. Additional policies will be added in upcoming releases. For more information, visit [https://aka.ms/azsecbm](https://aka.ms/azsecbm). |137 |6.0.0-preview |
+|[Azure Security Benchmark](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/asb_audit.json) |This initiative includes audit and virtual machine extension deployment policies that address a subset of Azure Security Benchmark recommendations. Additional policies will be added in upcoming releases. For more information, visit [https://aka.ms/azsecbm](https://aka.ms/azsecbm). |136 |6.0.0-preview |
 |[Canada Federal PBMM](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/CanadaFederalPBMM_audit.json) |This initiative includes audit and virtual machine extension deployment policies that address a subset of Canada Federal PBMM controls. Additional policies will be added in upcoming releases. For more information, visit [https://aka.ms/canadafederalpbmm-blueprint](https://aka.ms/canadafederalpbmm-blueprint). |60 |3.0.0 |
 |[CIS Microsoft Azure Foundations Benchmark 1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/CISv1_1_0_audit.json) |This initiative includes audit policies that address a subset of CIS Microsoft Azure Foundations Benchmark recommendations. Additional policies will be added in upcoming releases. For more information, visit [https://aka.ms/cisazure-blueprint](https://aka.ms/cisazure-blueprint). |87 |7.0.0 |
 |[FedRAMP High](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/FedRAMP_H_audit.json) |This initiative includes audit and virtual machine extension deployment policies that address a subset of FedRAMP H controls. Additional policies will be added in upcoming releases. For more information, visit [https://aka.ms/fedramph-blueprint](https://aka.ms/fedramph-blueprint). |72 |3.0.0 |

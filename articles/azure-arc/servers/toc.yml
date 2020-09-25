@@ -47,9 +47,11 @@
     items:
     - name: Agent connection issues
       href: troubleshoot-agent-onboard.md
-  - name: Reference
-    items:
-    - name: Region availability and data residency
+    - name: VM Extension issues
+      href: troubleshoot-vm-extensions.md
+- name: Reference
+  items:
+    - name: Data residency
       href: data-residency.md
     - name: REST
       href: /rest/api/hybridcompute
