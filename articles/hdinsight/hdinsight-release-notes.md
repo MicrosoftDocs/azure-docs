@@ -25,14 +25,17 @@ This release applies for both HDInsight 3.6 and HDInsight 4.0. HDInsight release
 ### LLAP cluster auto scale General Available
 Auto scale for LLAP cluster type is now General Available (GA). All LLAP clusters created after August 27 will have GA support for auto scale.
 
-### Moving to Azure virtual machine scale sets
-HDInsight now uses Azure virtual machines to provision the cluster. Starting from this release, the service will gradually migrate to [Azure virtual machine scale sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview). The entire process may take months. After your regions and subscriptions are migrated, newly created HDInsight clusters will run on virtual machine scale sets without customer actions. No breaking change is expected.
+### HBase cluster supports Premium ADLS Gen2
+HDInsight now supports Premium ADLS Gen2 as primary storage account for HDInsight HBase 3.6 and 4.0 clusters. Together with [Accelerated Writes](./hbase/apache-hbase-accelerated-writes.md), you can get better performance for your HBase clusters.
 
 ### Encryption in transit
 Customers can enable encryption in transit between cluster nodes using IPSec encryption with platform-managed keys. This option can be enabled at the cluster creation time. See more details about [how to enable encryption in transit](./domain-joined/encryption-in-transit.md).
 
 ### Encryption at host
 When you enable encryption at host, data stored on the VM host is encrypted at rest and flows encrypted to the storage service. From this release, you can **Enable encryption at host on temp data disk** when creating the cluster. Encryption at host is only supported on [certain VM SKUs in limited regions](https://docs.microsoft.com/azure/virtual-machines/linux/disks-enable-host-based-encryption-portal). HDInsight supports the [following node configuration and SKUs](./hdinsight-supported-node-configuration.md). See more details about [how to enable encryption at host](https://docs.microsoft.com/azure/hdinsight/disk-encryption#encryption-at-host-using-platform-managed-keys).
+
+### Moving to Azure virtual machine scale sets
+HDInsight now uses Azure virtual machines to provision the cluster. Starting from this release, the service will gradually migrate to [Azure virtual machine scale sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview). The entire process may take months. After your regions and subscriptions are migrated, newly created HDInsight clusters will run on virtual machine scale sets without customer actions. No breaking change is expected.
 
 ## Deprecation
 No deprecation for this release.
