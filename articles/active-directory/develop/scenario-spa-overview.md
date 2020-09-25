@@ -23,8 +23,7 @@ Learn all you need to build a single-page application (SPA).
 
 If you haven't already,  create your first app by completing the JavaScript SPA quickstart:
 
-> [!div class="nextstepaction"]
-> [Quickstart: Single-page application](./quickstart-v2-javascript.md)
+[Quickstart: Single-page application](./quickstart-v2-javascript.md)
 
 ## Overview
 
