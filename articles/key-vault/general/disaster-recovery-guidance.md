@@ -27,6 +27,7 @@ Through this high availability design, Azure Key Vault requires no downtime for 
 There are a few caveats to be aware of:
 
 * In the event of a region failover, it may take a few minutes for the service to fail over. Requests that are made during this time prior to failover may fail.
+* If you are using private link to connect to your key vault, it may take up to 20 minutes for the connection to be re-established in the event of a failover. 
 * During failover, your key vault is in read-only mode. Requests that are supported in this mode are:
   * List certificates
   * Get certificates
