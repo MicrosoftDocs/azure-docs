@@ -126,7 +126,7 @@ Here's a description of how the control script works:
       `aml_url = run.get_portal_url()` 
    :::column-end:::
    :::column span="2":::
-        The `run` object provides a handle on the execution of your code. Monitor its progress from Azure Machine Learning Studio with the URL that's printed from the Python script.  
+        The `run` object provides a handle on the execution of your code. Monitor its progress from the Azure Machine Learning studio with the URL that's printed from the Python script.  
    :::column-end:::
 :::row-end:::
 
@@ -138,9 +138,9 @@ Run your control script, which in turn runs `hello.py` on the compute cluster th
 python 03-run-hello.py
 ```
 
-## Monitor your code in the cloud by using Machine Learning Studio
+## Monitor your code in the cloud by using the studio
 
-The output will contain a link to Azure Machine Learning Studio that looks something like this:
+The output will contain a link to the studio that looks something like this:
 `https://ml.azure.com/experiments/hello-world/runs/<run-id>?wsid=/subscriptions/<subscription-id>/resourcegroups/<resource-group>/workspaces/<workspace-name>`.
 
 Follow the link and go to the **Outputs + logs** tab. There you can see a 

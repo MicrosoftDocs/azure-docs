@@ -27,7 +27,7 @@ In this tutorial, you:
 > * Create a training script.
 > * Use Conda to define an Azure Machine Learning environment.
 > * Create a control script.
-> * Understand Azure Machine Learning classes (environment, run, metrics).
+> * Understand Azure Machine Learning classes (`Environment`, `Run`, `Metrics`).
 > * Submit and run your training script.
 > * View your code output in the cloud.
 > * Log metrics to Azure Machine Learning.
@@ -35,7 +35,7 @@ In this tutorial, you:
 
 ## Prerequisites
 
-* Completion of [part 1](tutorial-1st-experiment-sdk-setup-local.md) if you don't already have an Azure Machine Learning workspace.
+* Completion of [part 2](tutorial-1st-experiment-hello-world.md) of the series.
 * Introductory knowledge of the Python language and machine learning workflows.
 * Local development environment, such as Visual Studio Code, Jupyter, or PyCharm.
 * Python (version 3.5 to 3.7).
@@ -149,7 +149,7 @@ tutorial
 └──03-run-hello.py
 ```
 
-## Define a Python environment
+## Create a Python environment
 
 For demonstration purposes, we're going to use a Conda environment. (The steps for a pip virtual environment are almost identical.)
 
@@ -175,8 +175,8 @@ Use the following code to test your script runs locally in this environment:
 
 ```bash
 conda env create -f .azureml/pytorch-env.yml    # create conda environment
-conda activate pytorch-env             # activate conda environment
-python src/train.py                    # train model
+conda activate pytorch-env                      # activate conda environment
+python src/train.py                             # train model
 ```
 
 After you run this script, you'll see the data downloaded into a directory called `tutorial/data`.
@@ -213,7 +213,7 @@ if __name__ == "__main__":
 
 :::row:::
    :::column span="":::
-      `env = Environment.from_conda_specification( ... )`
+      `env = ...`
    :::column-end:::
    :::column span="2":::
       Azure Machine Learning provides the concept of an [environment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true) to represent a reproducible, versioned Python environment for running experiments. It's easy to create an environment from a local Conda or pip environment.
@@ -239,7 +239,7 @@ python 04-run-pytorch.py
 >[!NOTE] 
 > The first time you run this script, Azure Machine Learning will build a new Docker image from your PyTorch environment. The whole run might take 5 to 10 minutes to complete. 
 >
-> You can see the Docker build logs in Azure Machine Learning Studio. Follow the link to Machine Learning Studio, select the **Outputs + logs** tab, and then select `20_image_build_log.txt`.
+> You can see the Docker build logs in the Azure Machine Learning studio. Follow the link to the studio, select the **Outputs + logs** tab, and then select `20_image_build_log.txt`.
 >
 > This image will be reused in future runs to make them run much quicker.
 
@@ -273,7 +273,7 @@ Environments can be registered to a workspace with `env.register(ws)`. They can 
 
 Azure Machine Learning also maintains a collection of curated environments. These environments cover common machine learning scenarios and are backed by cached Docker images. Cached Docker images make the first remote run faster.
 
-In short, using registered environments can save you time! You can find more details in the [environments documentation](./how-to-use-environments.md).
+In short, using registered environments can save you time! Read [How to use environments](./how-to-use-environments.md) for more information.
 
 ## Log training metrics
 
@@ -300,8 +300,15 @@ from azureml.core import Run
 run = Run.get_context()
 
 # download CIFAR10 data
-trainset = torchvision.datasets.CIFAR10(root='./data', train=True, download=True, transform=torchvision.transforms.ToTensor())
-trainloader = torch.utils.data.DataLoader(trainset, batch_size=4, shuffle=True, num_workers=2)
+trainset = torchvision.datasets.CIFAR10(
+    root="./data",
+    train=True,
+    download=True,
+    transform=torchvision.transforms.ToTensor(),
+)
+trainloader = torch.utils.data.DataLoader(
+    trainset, batch_size=4, shuffle=True, num_workers=2
+)
 
 if __name__ == "__main__":
 
