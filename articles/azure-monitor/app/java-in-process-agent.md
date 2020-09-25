@@ -16,7 +16,7 @@ Adding the Application Insights Java SDK to your application is no longer requir
 
 You can still send custom telemetry from your application. The 3.0 agent will track and correlate it along with all of the autocollected telemetry.
 
-Java 3.0 agent supports Java 8 and above.
+The 3.0 agent supports Java 8 and above.
 
 ## Quickstart
 
