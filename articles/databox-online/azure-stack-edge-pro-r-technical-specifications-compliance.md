@@ -40,11 +40,35 @@ The Azure Stack Edge Pro R device has two 100-240 V Power supply units (PSUs) wi
 | Specification           | 550 W PSU                  |
 |-------------------------|----------------------------|
 | Maximum output power    | 550 W                      |
-| Heat                    | 2891 BTU/hr                |
+| Heat dissipation (maximum)                   | 2891 BTU/hr                |
 | Frequency               | 50/60 Hz                   |
 | Voltage range selection | Auto ranging: 115-230 V AC |
 | Hot pluggable           | Yes                        |
 
+## Network specifications
+
+The Azure Stack Edge Pro R device has four network interfaces, PORT1 - PORT4. 
+
+
+|Specification  |Description                              |
+|----------------------|----------------------------------|
+|Network interfaces    |**2 x 1 Gbe RJ45** <br> PORT 1 is used as management interface for initial setup and is static by default. After the initial setup is complete, you can use the interface for data with any IP address. However, on reset, the interface reverts back to static IP. <br>The other interface PORT 2 is user configurable, can be used for data transfer, and is DHCP by default.     |
+|Network interfaces    |**2 x 25 Gbe SFP28** <br> These data interfaces PORT 3 and PORT 4 can be configured as DHCP (default) or static.            |
+
+Your Azure Stack Edge Pro R device has the following network hardware:
+
+* **Mellanox dual port 25G ConnectX-4 channel network adapter** - PORT 3 and PORT 4. 
+
+Here are the details for the Mellanox card: MCX4421A-ACAN
+
+| Parameter           | Description                 |
+|-------------------------|----------------------------|
+| Model    | ConnectX®-4 Lx EN network interface card                      |
+| Model Description               | 25GbE dual-port SFP28; PCIe3.0 x8; ROHS R6                    |
+| Device Part Number (XR2) | MCX4421A-ACAN  |
+| PSID (R640)           | MT_2420110034                         |<!-- confirm w/ Ravi what is this-->
+
+For a full list of supported cables, switches, and transceivers for these network cards, go to: [Mellanox dual port 25G ConnectX-4 channel network adapter compatible products](https://docs.mellanox.com/display/ConnectX4LxFirmwarev14271016/Firmware+Compatible+Products).
 
 ## Storage specifications
 
@@ -118,7 +142,7 @@ The weight of the device depends on the configuration of the enclosure.
 
 |     Enclosure                                 |     Weight          |
 |-----------------------------------------------|---------------------|
-|    Total weight of 1-node device + UPS + rugged case with end caps     |    ~105 lbs.          |
+|    Total weight of 1-node device + rugged case with end caps     |    ~114 lbs.          |
 
 <!--#### For the 4-node system
 
@@ -128,45 +152,19 @@ The weight of the device depends on the configuration of the enclosure.
 |   Approximate weight of fully populated 4 UPS in 4U case    |    ~145 lbs.          |
 -->
 
-<!--## Enclosure environment specifications
+## Enclosure environment specifications
+
+This section lists the specifications related to the enclosure environment such as temperature, vibration, shock, and altitude.
 
 
-This section lists the specifications related to the enclosure environment such as temperature, humidity, and altitude.
+|     Specification              |     Value    |
+|--------------------------------|-------------------------------------------------------------------|
+|     Temperature range          |     0 – 43° C (operational)    |
+|     Vibration                  |     MIL-STD-810 Method 514.7*<br>Procedure I CAT 4, 20                  |
+|     Shock                      |     MIL-STD-810 Method 516.7*<br>Procedure IV, Logistic                 |
+|     Altitude                   |     Operational:   10,000 feet<br>Non-operational: 40,000 feet          |
 
-
-### Temperature and humidity
-
-|     Enclosure         |     Ambient    temperature range     |     Ambient relative    humidity     |     Maximum dew point     |
-|-----------------------|--------------------------------------|--------------------------------------|---------------------------|
-|    Operational        |    10°C - 35°C (50°F - 86°F)         |    10% - 80% non-condensing.         |    29°C (84°F)            |
-|    Non-operational    |    -40°C to 65°C (-40°F - 149°F)     |    5% - 95% non-condensing.          |    33°C (91°F)            |
-
-### Airflow, altitude, shock, vibration, orientation, safety, and EMC
-
-|     Enclosure                           |     Operational specifications                                                                                                                                                                                         |
-|-----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|    Airflow                              |    System airflow is front to rear. System must be operated with a low-pressure, rear-exhaust installation. <!--Back pressure created by rack doors and obstacles should not exceed 5 pascals (0.5 mm water gauge).   |
-|    Maximum altitude, operational        |    3048 meters (10,000 feet) with maximum operating temperature de-rated determined by [Operating temperature de-rating specifications](#operating-temperature-de-rating-specifications).                                                                                |
-|    Maximum altitude, non-operational    |    12,000 meters (39,370 feet)                                                                                                                                                                                         |
-|    Shock, operational                   |    6 G for 11 milliseconds in 6 orientations                                                                                                                                                                         |
-|    Shock, non-operational               |    71 G for 2 milliseconds in 6 orientations                                                                                                                                                                           |
-|    Vibration, operational               |    0.26 G<sub>RMS</sub> 5 Hz to 350 Hz random                                                                                                                                                                                     |
-|    Vibration, non-operational           |    1.88 G<sub>RMS</sub> 10 Hz to 500 Hz for 15 minutes (all six sides tested.)                                                                                                                                                  |
-|    Orientation and mounting             |    19" rack mount                                                                                                                                                                                        |
-|    Safety and approvals                 |    EN 60950-1:2006 +A1:2010 +A2:2013 +A11:2009 +A12:2011/IEC 60950-1:2005 ed2 +A1:2009 +A2:2013 EN 62311:2008                                                                                                                                                                       |
-|    EMC                                  |    FCC A, ICES-003 <br>EN 55032:2012/CISPR 32:2012  <br>EN 55032:2015/CISPR 32:2015  <br>EN 55024:2010 +A1:2015/CISPR 24:2010 +A1:2015  <br>EN 61000-3-2:2014/IEC 61000-3-2:2014 (Class D)   <br>EN 61000-3-3:2013/IEC 61000-3-3:2013                                                                                                                                                                                         |
-|    Energy             |    Commission Regulation (EU) No. 617/2013                                                                                                                                                                                        |
-|    RoHS           |    EN 50581:2012                                                                                                                                                                                        |
-
-
-### Operating temperature de-rating specifications
-
-|     Operating    temperature de-rating     |     Ambient    temperature range                                                         |
-|--------------------------------------------|------------------------------------------------------------------------------------------|
-|    Up to 35°C (95°F)                       |    Maximum temperature is reduced by 1°C/300 m (1°F/547 ft) above 950 m (3,117 ft).    |
-|    35°C to 40°C (95°F to 104°F)            |    Maximum temperature is reduced by 1°C/175 m (1°F/319 ft) above 950 m (3,117 ft).    |
-|    40°C to 45°C (104°F to 113°F)           |    Maximum temperature is reduced by 1°C/125 m (1°F/228 ft) above 950 m (3,117 ft).    |
-End of this section-->
+**All references are to MIL-STD-810G Change 1 (2014)*
 
 ## Next steps
 
