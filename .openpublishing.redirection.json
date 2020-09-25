@@ -281,6 +281,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/storage/common/monitor-storage.md",
+      "redirect_url": "/azure/storage/common/monitor-blob-storage",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/container-service/index.yml",
       "redirect_url": "/previous-versions/azure/container-service/dcos-swarm/container-service-intro",
       "redirect_document_id": false
