@@ -22,12 +22,7 @@ This article assumes you have trained and registered a model with Azure Machine 
 
 ## Limitations
 
-Internally, profiling uses Azure Container Instances (ACI). There are some limitations when using ACI with an Azure Virtual Network, which may cause profiling to fail.
-
-* When using Azure Container Instances in a virtual network, the virtual network must be in the same resource group as your Azure Machine Learning workspace.
-* When using Azure Container Instances inside the virtual network, the Azure Container Registry (ACR) for your workspace cannot also be in the virtual network.
-
-For more information, see [How to secure inferencing with virtual networks](how-to-secure-inferencing-vnet.md#enable-azure-container-instances-aci).
+* Profiling will not work when the Azure Container Registry (ACR) for your workspace is behind a virtual network.
 
 ## Run the profiler
 
