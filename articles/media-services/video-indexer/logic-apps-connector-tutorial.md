@@ -49,7 +49,7 @@ To set up the first flow, you will need to provide yourâ€¯Video Indexer API Keyâ
 ![Connection name and API key](./media/logic-apps-connector-tutorial/connection-name-api-key.png)
 
 > [!TIP]
-> If you previously connected a Video Indexer or Storage account in Logic Apps your connection details are stored and you will be connected automatically. You can edit the connection by clicking on **Change connection** at the bottom of each action.
+> If you previously connected an Azure Storage account or Video Indexer account to a Logic App, your connection details are stored and you will be connected automatically. <br/>You can edit the connection by clicking on **Change connection** at the bottom of an Azure Storage or Video Indexer action.
 
 Once you can connect to your Azure Storage and Video Indexer accounts, find and choose the "When a blob is added or modified" trigger in **Logic Apps Designer**.
 
