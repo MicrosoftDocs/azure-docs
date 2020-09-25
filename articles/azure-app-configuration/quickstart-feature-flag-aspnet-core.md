@@ -20,8 +20,8 @@ The .NET Core Feature Management libraries extend the framework with comprehensi
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/dotnet)
-- [.NET Core SDK](https://dotnet.microsoft.com/download).
+* Azure subscription - [create one for free](https://azure.microsoft.com/free/dotnet)
+* [.NET Core SDK](https://dotnet.microsoft.com/download).
 
 ## Create an App Configuration store
 
@@ -38,63 +38,13 @@ The .NET Core Feature Management libraries extend the framework with comprehensi
 
 Use the [.NET Core command-line interface (CLI)](/dotnet/core/tools) to create a new ASP.NET Core MVC project. The advantage of using the .NET Core CLI instead of Visual Studio is that the .NET Core CLI is available across the Windows, macOS, and Linux platforms.
 
-1. Create a new folder for your project. For this quickstart, name it *TestFeatureFlags*.
+Run the following command to create an ASP.NET Core MVC project in a new *TestFeatureFlags* folder:
 
-1. In the new folder, run the following command to create a new ASP.NET Core MVC web app project:
+```dotnetcli
+dotnet new mvc --no-https --output TestFeatureFlags
+```
 
-   ```    
-   dotnet new mvc --no-https
-   ```
-
-## Add Secret Manager
-
-To use Secret Manager, add a `UserSecretsId` element to your *.csproj* file.
-
-1. Open the *.csproj* file.
-
-1.  Add a `UserSecretsId` element as shown here. You can use the same GUID, or you can replace this value with your own.
-
-    > [!IMPORTANT]
-    > `CreateHostBuilder` replaces `CreateWebHostBuilder` in .NET Core 3.0.  Select the correct syntax based on your environment.
-
-    #### [.NET Core 2.x](#tab/core2x)
-
-    ```xml
-    <Project Sdk="Microsoft.NET.Sdk.Web">
-
-        <PropertyGroup>
-            <TargetFramework>netcoreapp2.1</TargetFramework>
-            <UserSecretsId>79a3edd0-2092-40a2-a04d-dcb46d5ca9ed</UserSecretsId>
-        </PropertyGroup>
-
-        <ItemGroup>
-            <PackageReference Include="Microsoft.AspNetCore.App" />
-            <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
-        </ItemGroup>
-
-    </Project>
-    ```
-
-    #### [.NET Core 3.x](#tab/core3x)
-
-    ```xml
-    <Project Sdk="Microsoft.NET.Sdk.Web">
-
-        <PropertyGroup>
-            <TargetFramework>netcoreapp3.1</TargetFramework>
-            <UserSecretsId>79a3edd0-2092-40a2-a04d-dcb46d5ca9ed</UserSecretsId>
-        </PropertyGroup>
-
-    </Project>
-    ```
-    ---
-
-1. Save the *.csproj* file.
-
-The Secret Manager tool stores sensitive data for development work outside of your project tree. This approach helps prevent the accidental sharing of app secrets within source code.
-
-> [!TIP]
-> To learn more about Secret Manager, see [Safe storage of app secrets in development in ASP.NET Core](/aspnet/core/security/app-secrets).
+[!INCLUDE[Add Secret Manager support to an ASP.NET Core project](../../includes/azure-app-configuration-add-secret-manager.md)]
 
 ## Connect to an App Configuration store
 
@@ -123,12 +73,12 @@ The Secret Manager tool stores sensitive data for development work outside of yo
 
     You use Secret Manager only to test the web app locally. When you deploy the app to [Azure App Service](https://azure.microsoft.com/services/app-service), for example, you use an application setting named **Connection Strings** in App Service instead of using Secret Manager to store the connection string.
 
-    You can access this secret with the App Configuration API. A colon (`:`) works in the configuration name with the App Configuration API on all supported platforms. For more information, see [Configuration keys and values](/aspnet/core/fundamentals/configuration#configuration-keys-and-values)
+    You can access this secret with the App Configuration API. A colon (`:`) works in the configuration name with the App Configuration API on all supported platforms. For more information, see [Configuration keys and values](/aspnet/core/fundamentals/configuration#configuration-keys-and-values).
 
 1. In *Program.cs*, update the `CreateWebHostBuilder` method to use App Configuration by calling the `AddAzureAppConfiguration` method.
 
     > [!IMPORTANT]
-    > `CreateHostBuilder` replaces `CreateWebHostBuilder` in .NET Core 3.0. Select the correct syntax based on your environment.
+    > `CreateHostBuilder` replaces `CreateWebHostBuilder` in .NET Core 3.x. Select the correct syntax based on your environment.
 
     #### [.NET Core 3.x](#tab/core3x)
 
@@ -199,24 +149,24 @@ The Secret Manager tool stores sensitive data for development work outside of yo
     ```csharp
     public void Configure(IApplicationBuilder app, IHostingEnvironment env)
     {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-                app.UseExceptionHandler("/Home/Error");
-            }
-            app.UseStaticFiles();
-            app.UseRouting();
-            app.UseAuthorization();
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
-            });
-            app.UseAzureAppConfiguration();
+        if (env.IsDevelopment())
+        {
+            app.UseDeveloperExceptionPage();
+        }
+        else
+        {
+            app.UseExceptionHandler("/Home/Error");
+        }
+        app.UseStaticFiles();
+        app.UseRouting();
+        app.UseAuthorization();
+        app.UseEndpoints(endpoints =>
+        {
+            endpoints.MapControllerRoute(
+                name: "default",
+                pattern: "{controller=Home}/{action=Index}/{id?}");
+        });
+        app.UseAzureAppConfiguration();
     }
     ```
 
@@ -225,30 +175,30 @@ The Secret Manager tool stores sensitive data for development work outside of yo
     ```csharp
     public void Configure(IApplicationBuilder app, IHostingEnvironment env)
     {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-                app.UseExceptionHandler("/Home/Error");
-            }
+        if (env.IsDevelopment())
+        {
+            app.UseDeveloperExceptionPage();
+        }
+        else
+        {
+            app.UseExceptionHandler("/Home/Error");
+        }
 
-            app.UseStaticFiles();
-            app.UseCookiePolicy();
-            app.UseAzureAppConfiguration();
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
-            });
+        app.UseStaticFiles();
+        app.UseCookiePolicy();
+        app.UseAzureAppConfiguration();
+        app.UseMvc(routes =>
+        {
+            routes.MapRoute(
+                name: "default",
+                template: "{controller=Home}/{action=Index}/{id?}");
+        });
     }
     ```
 
     ---
 
-1. Add a *MyFeatureFlags.cs* file:
+1. Add a *MyFeatureFlags.cs* file with the following code:
 
     ```csharp
     namespace TestFeatureFlags
@@ -260,7 +210,7 @@ The Secret Manager tool stores sensitive data for development work outside of yo
     }
     ```
 
-1. Add *BetaController.cs* to the *Controllers* directory:
+1. Add a *BetaController.cs* file to the *Controllers* directory with the following code:
 
     ```csharp
     using Microsoft.AspNetCore.Mvc;
@@ -279,10 +229,7 @@ The Secret Manager tool stores sensitive data for development work outside of yo
             }
 
             [FeatureGate(MyFeatureFlags.Beta)]
-            public IActionResult Index()
-            {
-                return View();
-            }
+            public IActionResult Index() => View();
         }
     }
     ```
