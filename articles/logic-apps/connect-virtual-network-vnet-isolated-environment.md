@@ -169,7 +169,7 @@ If you don't permit access for these dependencies, your ISE deployment fails and
 
 * [Logic Apps inbound and outbound addresses for the ISE region](../logic-apps/logic-apps-limits-and-config.md#firewall-configuration-ip-addresses-and-service-tags)
 
-* [Azure Connectors addresses for the ISE region](https://www.microsoft.com/en-us/download/details.aspx?id=56519)
+* [Azure IP addresses for connectors in the ISE region, which are in this download file](https://www.microsoft.com/download/details.aspx?id=56519)
 
 * You need to enable service endpoints for Azure SQL, Storage, Service Bus, and Event Hub because you can't send traffic through a firewall to these services.
 
