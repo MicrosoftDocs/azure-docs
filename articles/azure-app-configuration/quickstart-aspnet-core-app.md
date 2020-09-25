@@ -123,7 +123,7 @@ A `UserSecretsId` element containing a GUID is added to the *.csproj* file:
 
     Secret Manager is used only to test the web app locally. When the app is deployed to [Azure App Service](https://azure.microsoft.com/services/app-service/web), use the **Connection Strings** application setting in App Service instead of Secret Manager to store the connection string.
 
-    Access this secret using the .NET Core Configuration API. A colon (`:`) works in the configuration name with the Configuration API on all supported platforms. See [Configuration by environment](/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0).
+    Access this secret using the .NET Core Configuration API. A colon (`:`) works in the configuration name with the Configuration API on all supported platforms. For more information, see [Configuration keys and values](/aspnet/core/fundamentals/configuration#configuration-keys-and-values).
 
 1. In *Program.cs*, add a reference to the .NET Core Configuration provider namespace:
 
