@@ -3,7 +3,7 @@ title: Request elevation data
 description: Learn how to request elevation data using the Azure Maps Elevation service.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 09/18/2020
+ms.date: 09/25/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
@@ -26,7 +26,7 @@ This article uses the [Postman](https://www.postman.com/) application, but you m
 
 ## Request elevation data in raster tiled format
 
-To request elevation data in raster tile format, use the [Render V2 - Get Map Tile API](https://docs.microsoft.com/rest/api/maps/renderv2). The API will return the tile as a GeoTIFF.
+To request elevation data in raster tile format, use the [Render V2 - Get Map Tile API](https://docs.microsoft.com/rest/api/maps/renderv2). The API returns the tile as a GeoTIFF. All  raster DEM tiles are calibrated to sea level.
 
 1. Open the Postman app. Near the top of the Postman app, select **New**. In the **Create New** window, select **Collection**.  Name the collection and select the **Create** button.
 
@@ -44,19 +44,19 @@ To request elevation data in raster tile format, use the [Render V2 - Get Map Ti
 
 Use the Elevation service APIs to request elevation data in GeoJSON format. This section will show you each one of the three APIs:
 
-* [Get Data for Lat Long Coordinates](https://docs.microsoft.com/rest/api/maps/elevation/getdataforlatlongcoordinates)
+* [Get Data For Points](https://docs.microsoft.com/rest/api/maps/elevation/getdataforlatlongcoordinates)
 * [Get Data for Polyline](https://docs.microsoft.com/rest/api/maps/elevation/getdataforpolyline)
 * [Get Data for Bounding Box](https://docs.microsoft.com/rest/api/maps/elevation/getdataforboundingbox)
 
-### Request elevation data at Lat/Long coordinates
+### Request elevation data for points
 
-In this example, we'll use the [Get Data for Lat Long Coordinates API](https://docs.microsoft.com/rest/api/maps/elevation/getdataforlatlongcoordinates) to request elevation data at Mt. Everest and Chamlang mountains. Both coordinate points must be defined in Lat/Long format.
+In this example, we'll use the [Get Data For Points API](https://docs.microsoft.com/rest/api/maps/elevation/getdataforlatlongcoordinates) to request elevation data at Mt. Everest and Chamlang mountains. Both coordinate points must be defined in Lat/Long format.
 
 1. Open the Postman app. Near the top of the Postman app, select **New**. In the **Create New** window, select **Collection**.  Name the collection and select the **Create** button.
 
 2. To create the request, select **New** again. In the **Create New** window, select **Request**. Enter a **Request name** for the request. Select the collection you created in the previous step, and then select **Save**.
 
-3. Select the **GET** HTTP method in the builder tab and enter the following URL:
+3. Select the **GET** HTTP method in the builder tab and enter the following URL. For this request, and other requests mentioned in this article, replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key.
 
     ```http
     https://atlas.microsoft.com/elevation/point?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0&points=-73.998672, 40.714728|150.644,-34.397
@@ -85,7 +85,7 @@ In this example, we'll use the [Get Data for Lat Long Coordinates API](https://d
     }
     ```
 
-### Request elevation data samples along a line
+### Request elevation data samples along a Polyline
 
 In the first part of this example, we'll use the [Get Data for Polyline](https://docs.microsoft.com/rest/api/maps/elevation/getdataforpolyline) to request five equally-spaced samples of elevation data along a straight line between coordinates at Mt. Everest and Chamlang mountains. Both coordinates must be defined in Long/Lat format.
 
@@ -96,7 +96,7 @@ Then, we'll use the Get Data for Polyline to request three equally-spaced sample
 
 1. Select **New**. In the **Create New** window, select **Request**. Enter a **Request name** and select a collection. Click **Save**.
 
-2. Select the **GET** HTTP method in the builder tab and enter the following URL:
+2. Select the **GET** HTTP method in the builder tab and enter the following URL. For this request, and other requests mentioned in this article, replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key.
 
     ```http
     https://atlas.microsoft.com/elevation/line?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}&lines=40.714728,-73.998672|-34.397,150.644&samples=5
@@ -146,11 +146,17 @@ Then, we'll use the Get Data for Polyline to request three equally-spaced sample
     }
     ```
 
-4. Now, we'll request three samples of elevation data along a path between coordinates at Mount Everest, Chamlang, and Jannu mountains. In the **Params** section, append '' to the `lines` query key. Change the 'samples' query key to '3'.
+4. Now, we'll request three samples of elevation data along a path between coordinates at Mount Everest, Chamlang, and Jannu mountains. In the **Params** section, copy the following for the value of the `lines` query key.
+
+    ```html
+        86.9797222, 27.775|86.9252778, 27.9880556 | 88.0444444, 27.6822222
+    ```
+
+5. Change the `samples` query key value to `3`.  The image below shows the new values.
 
      :::image type="content" source="./media/how-to-request-elevation-data/get-elevation-samples.png" alt-text="Retrieve three elevation data samples.":::
 
-5. Click the blue **Send** button. You'll receive the following JSON response:
+6. Click the blue **Send** button. You'll receive the following JSON response:
 
     ```json
     {
@@ -180,8 +186,72 @@ Then, we'll use the Get Data for Polyline to request three equally-spaced sample
     }
     ```
 
-
 ### Request elevation data by Bounding Box
+
+Now we'll use the [Get Data for Bounding Box](https://docs.microsoft.com/rest/api/maps/elevation/getdataforboundingbox) to request elevation data near Mt. Rainier, WA. The elevation data will be returned at equally-spaced locations within a bounding box. A bounding box is defined by the coordinates for two corners (southwest, northeast) and then subsequently divided into rows and columns. Elevations are returned for the vertices of the grid created by the rows and columns. Up to 2000 elevations can be returned in a single request.
+
+In this example, we'll request two rows and three columns for the Bounding Box. The returned elevation values are ordered, starting at the southwest corner, and then proceeding west to east along the row. At the end of the row, it moves north to the next row, and repeats the process until it reaches the far northeast corner.
+
+:::image type="content" source="./media/how-to-request-elevation-data/bounding-box.png" alt-text="Bounding box coordinates at NE and SE corners.":::
+
+1. Select **New**. In the **Create New** window, select **Request**. Enter a **Request name** and select a collection. Click **Save**.
+
+2. Select the **GET** HTTP method in the builder tab and enter the following URL. For this request, and other requests mentioned in this article, replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key.
+
+    ```http
+    https://atlas.microsoft.com/elevation/lattice?subscription-key=DsPCGIGfua7ti-MljBYsItsT1u9mCjjeloOLKMHrBpo&api-version=1.0&bounds=-121.66853362143818, 46.84646479863713,-121.65853362143818, 46.85646479863713&rows=2&columns=3
+    ```
+
+3. Click the blue **Send** button. You'll receive the following JSON response. Notice that there are six elevation data samples, one for each vertices of the grid.
+
+    ```json
+    {
+    "data": [
+        {
+            "coordinate": { //southwest corner
+                "latitude": 46.846464798637129,
+                "longitude": -121.66853362143819
+            },
+            "elevationInMeter": 2298.6581875651746
+        },
+        {
+            "coordinate": {
+                "latitude": 46.846464798637129,
+                "longitude": -121.66353362143818
+            },
+            "elevationInMeter": 2257.6278392402046
+        },
+        {
+            "coordinate": {
+                "latitude": 46.846464798637129,
+                "longitude": -121.65853362143818
+            },
+            "elevationInMeter": 2133.1756767157253
+        },
+        {
+            "coordinate": {
+                "latitude": 46.856464798637127,
+                "longitude": -121.66853362143819
+            },
+            "elevationInMeter": 2318.753153399402
+        },
+        {
+            "coordinate": { 
+                "latitude": 46.856464798637127,
+                "longitude": -121.66353362143818
+            },
+            "elevationInMeter": 2100.2079523153739
+        },
+        {
+            "coordinate": { //northeast corner
+                "latitude": 46.856464798637127,
+                "longitude": -121.65853362143818
+            },
+            "elevationInMeter": 1988.3631481900356
+        }
+     ]
+    }
+    ```
 
 ## Next steps
 
