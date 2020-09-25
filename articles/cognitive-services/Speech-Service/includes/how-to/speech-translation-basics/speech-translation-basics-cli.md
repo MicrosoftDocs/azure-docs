@@ -6,11 +6,7 @@ ms.date: 04/13/2020
 ms.author: v-demjoh
 ---
 
-One of the core features of the Speech service is the ability to recognize human speech and translate it to other languages. In this quickstart you learn how to use the Speech SDK in your apps and products to perform high-quality speech translation. This quickstart covers topics including:
-
-* Translating speech-to-text
-* Translating speech to multiple target languages
-* Performing direct speech-to-speech translation
+One of the core features of the Speech service is the ability to recognize human speech and translate it to other languages. In this quickstart you learn how to use the Speech SDK in your apps and products to perform high-quality speech translation. This quickstart translates speech from the microphone into text in another language.
 
 ## Prerequisites
 
@@ -25,4 +21,3 @@ This command calls Speech CLI to translate speech from the microphone from Itali
 ```shell
  spx translate --microphone --source it-IT --target fr
 ```
-
