@@ -37,7 +37,6 @@ Sizing workloads against compute and storage resources is an essential planning 
 
 You also can size workloads by completing an [Azure VMware Solution Assessment](../migrate/how-to-create-azure-vmware-solution-assessment.md) in the Azure Migrate portal.
 
-
 ## Software version requirements
 
 Infrastructure components must be running the required minimum version. 
@@ -63,7 +62,7 @@ Infrastructure components must be running the required minimum version.
 
 ## Deploy the VMware HCX OVA on-premises
 
-1. Sign into the **Azure VMware Solution HCX Manager** on `https://x.x.x.9` port 443 with the **cloudadmin** user credentials and then go to **Support**.
+1. Sign in to Azure VMware Solution HCX Manager on `https://x.x.x.9` port 443 with the **cloudadmin** user credentials, and then go to **Support**.
 
 1. Select the download link for the VMware HCX OVA file. 
 
