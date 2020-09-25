@@ -1,7 +1,7 @@
 ---
-title: Search over Azure Blob storage content
+title: Configure a Blob indexer
 titleSuffix: Azure Cognitive Search
-description: Learn how to index documents in Azure Blob Storage and extract text from documents with Azure Cognitive Search.
+description: Set up an Azure Blob indexer to automate indexing of blob content for full text search operations in Azure Cognitive Search.
 
 manager: nitinme
 author: mgottein 
@@ -9,22 +9,22 @@ ms.author: magottei
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/11/2020
-ms.custom: fasttrack-edit
+ms.date: 09/23/2020
 ---
 
-# How to index documents in Azure Blob Storage with Azure Cognitive Search
+# How to configure a blob indexer in Azure Cognitive Search
 
-This article shows how to use Azure Cognitive Search to index documents (such as PDFs, Microsoft Office documents, and several other common formats) stored in Azure Blob storage. First, it explains the basics of setting up and configuring a blob indexer. Then, it offers a deeper exploration of behaviors and scenarios you are likely to encounter.
+This article shows you how to use Azure Cognitive Search to index text-based documents (such as PDFs, Microsoft Office documents, and several other common formats) stored in Azure Blob storage. First, it explains the basics of setting up and configuring a blob indexer. Then, it offers a deeper exploration of behaviors and scenarios you are likely to encounter.
 
 <a name="SupportedFormats"></a>
 
-## Supported document formats
+## Supported formats
+
 The blob indexer can extract text from the following document formats:
 
 [!INCLUDE [search-blob-data-sources](../../includes/search-blob-data-sources.md)]
 
-## Setting up blob indexing
+## Set up blob indexing
 You can set up an Azure Blob Storage indexer using:
 
 * [Azure portal](https://ms.portal.azure.com)
@@ -130,7 +130,7 @@ For more information about defining indexer schedules see [How to schedule index
 
 <a name="how-azure-search-indexes-blobs"></a>
 
-## How Azure Cognitive Search indexes blobs
+## How blobs are indexed
 
 Depending on the [indexer configuration](#PartsOfBlobToIndex), the blob indexer can index storage metadata only (useful when you only care about the metadata and don't need to index the content of blobs), storage and content metadata, or both metadata and textual content. By default, the indexer extracts both metadata and content.
 
@@ -170,7 +170,7 @@ In Azure Cognitive Search, the document key uniquely identifies a document. Ever
 
 You should carefully consider which extracted field should map to the key field for your index. The candidates are:
 
-* **metadata\_storage\_name** - this might be a convenient candidate, but note that 1) the names might not be unique, as you may have blobs with the same name in different folders, and 2) the name may contain characters that are invalid in document keys, such as dashes. You can deal with invalid characters by using the `base64Encode` [field mapping function](search-indexer-field-mappings.md#base64EncodeFunction) - if you do this, remember to encode document keys when passing them in API calls such as Lookup. (For example, in .NET you can use the [UrlTokenEncode method](/dotnet/api/system.web.httpserverutility.urltokenencode?view=netframework-4.8) for that purpose).
+* **metadata\_storage\_name** - this might be a convenient candidate, but note that 1) the names might not be unique, as you may have blobs with the same name in different folders, and 2) the name may contain characters that are invalid in document keys, such as dashes. You can deal with invalid characters by using the `base64Encode` [field mapping function](search-indexer-field-mappings.md#base64EncodeFunction) - if you do this, remember to encode document keys when passing them in API calls such as Lookup. (For example, in .NET you can use the [UrlTokenEncode method](/dotnet/api/system.web.httpserverutility.urltokenencode) for that purpose).
 * **metadata\_storage\_path** - using the full path ensures uniqueness, but the path definitely contains `/` characters that are [invalid in a document key](/rest/api/searchservice/naming-rules).  As above, you have the option of encoding the keys using the `base64Encode` [function](search-indexer-field-mappings.md#base64EncodeFunction).
 * If none of the options above work for you, you can add a custom metadata property to the blobs. This option does, however, require your blob upload process to add that metadata property to all blobs. Since the key is a required property, all blobs that don't have that property will fail to be indexed.
 
@@ -231,10 +231,12 @@ There are times when you need to use an encoded version of a field like metadata
     }
 ```
 <a name="WhichBlobsAreIndexed"></a>
-## Controlling which blobs are indexed
+## Index by file type
+
 You can control which blobs are indexed, and which are skipped.
 
-### Index only the blobs with specific file extensions
+### Include blobs having specific file extensions
+
 You can index only the blobs with the file name extensions you specify by using the `indexedFileNameExtensions` indexer configuration parameter. The value is a string containing a comma-separated list of file extensions (with a leading dot). For example, to index only the .PDF and .DOCX blobs, do this:
 
 ```http
@@ -248,7 +250,8 @@ You can index only the blobs with the file name extensions you specify by using 
     }
 ```
 
-### Exclude blobs with specific file extensions
+### Exclude blobs having specific file extensions
+
 You can exclude blobs with specific file name extensions from indexing by using the `excludedFileNameExtensions` configuration parameter. The value is a string containing a comma-separated list of file extensions (with a leading dot). For example, to index all blobs except those with the .PNG and .JPEG extensions, do this:
 
 ```http
@@ -265,7 +268,7 @@ You can exclude blobs with specific file name extensions from indexing by using 
 If both `indexedFileNameExtensions` and `excludedFileNameExtensions` parameters are present, Azure Cognitive Search first looks at `indexedFileNameExtensions`, then at `excludedFileNameExtensions`. This means that if the same file extension is present in both lists, it will be excluded from indexing.
 
 <a name="PartsOfBlobToIndex"></a>
-## Controlling which parts of the blob are indexed
+## Index parts of a blob
 
 You can control which parts of the blobs are indexed using the `dataToExtract` configuration parameter. It can take the following values:
 
@@ -296,7 +299,8 @@ The configuration parameters described above apply to all blobs. Sometimes, you 
 | AzureSearch_SkipContent |"true" |This is equivalent of `"dataToExtract" : "allMetadata"` setting described [above](#PartsOfBlobToIndex) scoped to a particular blob. |
 
 <a name="DealingWithErrors"></a>
-## Dealing with errors
+
+## Handle errors
 
 By default, the blob indexer stops as soon as it encounters a blob with an unsupported content type (for example, an image). You can of course use the `excludedFileNameExtensions` parameter to skip certain content types. However, you may need to index blobs without knowing all the possible content types in advance. To continue indexing when an unsupported content type is encountered, set the `failOnUnsupportedContentType` configuration parameter to `false`:
 
@@ -466,7 +470,7 @@ By default, the `UTF-8` encoding is assumed. To specify a different encoding, us
 ## Content type-specific metadata properties
 The following table summarizes processing done for each document format, and describes the metadata properties extracted by Azure Cognitive Search.
 
-| Document format / content type | Content-type specific metadata properties | Processing details |
+| Document format / content type | Extracted metadata | Processing details |
 | --- | --- | --- |
 | HTML (text/html) |`metadata_content_encoding`<br/>`metadata_content_type`<br/>`metadata_language`<br/>`metadata_description`<br/>`metadata_keywords`<br/>`metadata_title` |Strip HTML markup and extract text |
 | PDF (application/pdf) |`metadata_content_type`<br/>`metadata_language`<br/>`metadata_author`<br/>`metadata_title` |Extract text, including embedded documents (excluding images) |
