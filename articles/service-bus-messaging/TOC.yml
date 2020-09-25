@@ -91,7 +91,7 @@
   - name: Security
     items:
     - name: Security baseline
-      href: service-baseline.md
+      href: security-baseline.md
     - name: Authentication and authorization
       href: service-bus-authentication-and-authorization.md
       items:
