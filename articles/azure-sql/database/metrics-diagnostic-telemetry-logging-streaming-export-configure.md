@@ -9,7 +9,7 @@ ms.devlang: sqldbrb=2
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: jrasnik, sstein
 ms.date: 04/06/2020
 ---
 
@@ -67,7 +67,7 @@ This diagnostic telemetry can be streamed to one of the following Azure resource
 
 This diagnostic telemetry streamed to one of these destinations can be used to gauge resource utilization and query execution statistics for easier performance monitoring.
 
-![Architecture](./media/metrics-diagnostic-telemetry-logging-streaming-export-configure/architecture.png)
+![Diagram shows many SQL databases and databases in managed instances sending telemetry to Azure Diagnostics, which forwards information to Azure SQL Analytics, Event Hub, and storage.](./media/metrics-diagnostic-telemetry-logging-streaming-export-configure/architecture.png)
 
 ## Enable and configure the streaming export of diagnostic telemetry
 

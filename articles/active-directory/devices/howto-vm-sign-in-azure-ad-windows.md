@@ -45,7 +45,7 @@ The following Windows distributions are currently supported during the preview o
 - Windows 10 1809 and later
 
 > [!IMPORTANT]
-> Remote connection to VMs joined to Azure AD is only allowed from Windows 10 PCs that are Azure AD joined or hybrid Azure AD joined to the **same** directory as the VM. 
+> Remote connection to VMs joined to Azure AD is only allowed from Windows 10 PCs that are either Azure AD registered (starting Windows 10 20H1), Azure AD joined or hybrid Azure AD joined to the **same** directory as the VM. 
 
 The following Azure regions are currently supported during the preview of this feature:
 

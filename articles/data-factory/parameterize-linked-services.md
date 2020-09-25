@@ -5,14 +5,15 @@ services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-
 ms.topic: conceptual
-ms.date: 08/21/2020
+ms.date: 09/21/2020
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
 ---
+
 # Parameterize linked services in Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 You can now parameterize a linked service and pass dynamic values at run time. For example, if you want to connect to different databases on the same logical SQL server, you can now parameterize the database name in the linked service definition. This prevents you from having to create a linked service for each database on the logical SQL server. You can parameterize other properties in the linked service definition as well - for example, *User name.*
@@ -28,7 +29,8 @@ For a seven-minute introduction and demonstration of this feature, watch the fol
 
 ## Supported data stores
 
-At this time, linked service parameterization is supported in the Data Factory UI for the following data stores. For all other data stores, you can parameterize the linked service by selecting the **Code** icon on the **Connections** tab and using the JSON editor.
+You can parameterize any type of linked service.
+When authoring linked service on UI,  Data Factory provides built-in parameterization experience for the following types of connectors. In linked service creation/edit blade, you can find options to new parameters and add dynamic content.
 
 - Amazon Redshift
 - Azure Cosmos DB (SQL API)
@@ -40,6 +42,13 @@ At this time, linked service parameterization is supported in the Data Factory U
 - SQL Server
 - Generic HTTP
 - Generic REST
+
+For other types, you can parameterize the linked service by editing the JSON on UI:
+
+- In linked service creation/edit blade -> expand "Advanced" at the bottom -> check "Specify dynamic contents in JSON format" checkbox -> specify the linked service JSON payload. 
+- Or, after you create a linked service without parameterization, in [Management hub](author-visually.md#management-hub) -> Linked services -> find the specific linked service -> click "Code" (button "{}") to edit the JSON. 
+
+Refer to the [JSON sample](#json) to add ` parameters` section to define parameters and reference the parameter using ` @{linkedService().paraName} `.
 
 ## Data Factory UI
 

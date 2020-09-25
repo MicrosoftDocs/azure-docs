@@ -7,7 +7,7 @@ ms.author: alzam
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: tutorial #Required
-ms.date: 05/01/2020
+ms.date: 09/21/2020
 ---
 
 # Tutorial: use Video Indexer with Logic App and Power Automate
@@ -16,7 +16,7 @@ Azure Media Services [Video Indexer v2 REST API](https://api-portal.videoindexer
 
 To make the integration even easier, we support [Logic Apps](https://azure.microsoft.com/services/logic-apps/) and [Power Automate](https://preview.flow.microsoft.com/connectors/shared_videoindexer-v2/video-indexer-v2/) connectors that are compatible with our API. You can use the connectors to set up custom workflows to effectively index and extract insights from a large amount of video and audio files, without writing a single line of code. Furthermore, using the connectors for your integration gives you better visibility on the health of your workflow and an easy way to debug it.  
 
-To help you get started quickly with the Video Indexer connectors, we will do a walkthrough of an example Logic App and Power Automate solution you can set up. This tutorial shows how to set up flows using Logic Apps.
+To help you get started quickly with the Video Indexer connectors, we will do a walkthrough of an example Logic App and Power Automate solution you can set up. This tutorial shows how to set up flows using Logic Apps. However, the editors and capabilities are almost identical in both solutions, thus the diagrams and explanations are applicable to both Logic Apps and Power Automate.
 
 The "upload and index your video automatically" scenario covered in this tutorial is comprised of two different flows that work together. 
 * The first flow is triggered when a blob is added or modified in an Azure Storage account. It uploads the new file to Video Indexer with a callback URL to send a notification once the indexing operation completes. 
@@ -48,7 +48,12 @@ To set up the first flow, you will need to provide your Video Indexer API Key�
 
 ![Connection name and API key](./media/logic-apps-connector-tutorial/connection-name-api-key.png)
 
-Once you can connect to your Azure Storage and Video Indexer accounts, find and choose the "When a blob is added or modified" trigger in **Logic Apps Designer**. Select the container that you will place your video files in. 
+> [!TIP]
+> If you previously connected a Video Indexer or Storage account in Logic Apps your connection details are stored and you will be connected automatically. You can edit the connection by clicking on **Change connection** at the bottom of each action.
+
+Once you can connect to your Azure Storage and Video Indexer accounts, find and choose the "When a blob is added or modified" trigger in **Logic Apps Designer**.
+
+Select the container that you will place your video files in. 
 
 ![Screenshot shows the When a blob is added or modified dialog box where you can select a container.](./media/logic-apps-connector-tutorial/container.png)
 

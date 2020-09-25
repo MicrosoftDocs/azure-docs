@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: mathoma, carlrab
+ms.reviewer: mathoma, sstein
 ms.date: 02/13/2019
 ---
 # Tutorial: Configure active geo-replication and failover in the Azure portal (Azure SQL Database)
@@ -49,12 +49,12 @@ After the secondary is created and seeded, data begins replicating from the prim
     ![Configure geo-replication](./media/active-geo-replication-configure-portal/configure-geo-replication.png)
 3. Select or configure the server and pricing tier for the secondary database.
 
-    ![Screenshot shows the Create secondary pane.](./media/active-geo-replication-configure-portal/create-secondary.png)
+    ![create secondary form](./media/active-geo-replication-configure-portal/create-secondary.png)
 4. Optionally, you can add a secondary database to an elastic pool. To create the secondary database in a pool, click **elastic pool** and select a pool on the target server. A pool must already exist on the target server. This workflow does not create a pool.
 5. Click **Create** to add the secondary.
 6. The secondary database is created and the seeding process begins.
 
-    ![Screenshot shows world map with the seconary database appearing the the South Central U S region.](./media/active-geo-replication-configure-portal/seeding0.png)
+    ![secondaries map](./media/active-geo-replication-configure-portal/seeding0.png)
 7. When the seeding process is complete, the secondary database displays its status.
 
     ![Seeding complete](./media/active-geo-replication-configure-portal/seeding-complete.png)

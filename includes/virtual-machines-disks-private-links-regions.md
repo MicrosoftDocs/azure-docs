@@ -12,4 +12,4 @@
 
 Private links for managed disk importing or exporting is currently only available in:
 
-- North Central US
+- East US 2
