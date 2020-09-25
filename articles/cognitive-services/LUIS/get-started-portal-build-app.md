@@ -1,6 +1,8 @@
 ---
 title: "Quickstart: Create a new app in the LUIS portal"
 description: In this quickstart, you create the basic parts of an app, intents, and entities as well as test with sample utterance in the LUIS portal.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 05/19/2020
 ---

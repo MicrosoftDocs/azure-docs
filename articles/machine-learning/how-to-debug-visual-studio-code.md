@@ -412,7 +412,7 @@ Local web service deployments require a working Docker installation on your loca
 
 At this point, VS Code connects to debugpy inside the Docker container and stops at the breakpoint you set previously. You can now step through the code as it runs, view variables, etc.
 
-For more information on using VS Code to debug Python, see [Debug your Python code](https://docs.microsoft.com/visualstudio/python/debugging-python-in-visual-studio?view=vs-2019).
+For more information on using VS Code to debug Python, see [Debug your Python code](https://docs.microsoft.com/visualstudio/python/debugging-python-in-visual-studio?view=vs-2019&preserve-view=true).
 
 ### Stop the container
 
