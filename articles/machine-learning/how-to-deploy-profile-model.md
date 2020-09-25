@@ -20,6 +20,15 @@ This article shows how to profile a machine learning to model to determine how m
 
 This article assumes you have trained and registered a model with Azure Machine Learning. See the [sample tutorial here](how-to-train-scikit-learn.md) for an example of training and registering a scikit-learn model with Azure Machine Learning.
 
+## Limitations
+
+Internally, profiling uses Azure Container Instances (ACI). There are some limitations when using ACI with an Azure Virtual Network, which may cause profiling to fail.
+
+* When using Azure Container Instances in a virtual network, the virtual network must be in the same resource group as your Azure Machine Learning workspace.
+* When using Azure Container Instances inside the virtual network, the Azure Container Registry (ACR) for your workspace cannot also be in the virtual network.
+
+For more information, see [How to secure inferencing with virtual networks](how-to-secure-inferencing-vnet.md#enable-azure-container-instances-aci).
+
 ## Run the profiler
 
 Once you have registered your model and prepared the other components necessary for its deployment, you can determine the CPU and memory the deployed service will need. Profiling tests the service that runs your model and returns information such as the CPU usage, memory usage, and response latency. It also provides a recommendation for the CPU and memory based on resource usage.
