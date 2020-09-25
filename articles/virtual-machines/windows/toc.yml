@@ -376,7 +376,7 @@
       - name: PowerShell
         href: dedicated-hosts-powershell.md
       - name: Portal
-        href: dedicated-hosts-portal.md
+        href: ../dedicated-hosts-portal.md
     - name: Deploy spot VMs
       items:
       - name: Portal
