@@ -25,7 +25,7 @@ In this article, you will learn how to setup web endpoints in a Custom Commands 
 > [!div class = "checklist"]
 > * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
 > * An Azure subscription key for Speech service:
-[Get one for free](get-started.md) or create it on the [Azure portal](https://portal.azure.com)
+[Get one for free](overview.md#try-the-speech-service-for-free) or create it on the [Azure portal](https://portal.azure.com)
 > * A previously [created Custom Commands app](quickstart-custom-commands-application.md)
 > * A Speech SDK enabled client app:
 [How-to: end activity to client application](./how-to-custom-commands-setup-speech-sdk.md)
