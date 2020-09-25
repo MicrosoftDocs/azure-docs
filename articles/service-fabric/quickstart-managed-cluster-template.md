@@ -19,7 +19,7 @@ Before you begin this quickstart:
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Samples - Service Fabric cluster templates](https://raw.githubusercontent.com/Azure-Samples/service-fabric-cluster-templates/master/SF-Managed-Basic-SKU-1-NT/azuredeploy.json).
+The template used in this quickstart is from [Azure Samples - Service Fabric cluster templates](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Basic-SKU-1-NT).
 
 
 ## Create a client certificate
