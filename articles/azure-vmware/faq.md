@@ -60,6 +60,10 @@ With the new Azure VMware Solution, Microsoft and VMware have a direct cloud pro
 
 Microsoft and Red Hat share an integrated, co-located support team that provides a unified contact point for Red Hat ecosystems running on the Azure platform.  Like other Azure platform services that work with Red Hat Enterprise Linux, Azure VMware Solution falls under the Cloud Access and integrated support umbrella, and Red Hat Enterprise Linux is supported for running on top of Azure VMware Solution within Azure.
 
+### Is VMware HCX Enterprise Edition available, and if so, how much does it cost?
+
+VMware HCX Enterprise Edition (EE) is available with Azure VMware Solution as a *Preview* function/service. While VMware HCX EE for Azure VMware Solution is in Preview, it is a free function/service and subject to Preview service terms and conditions. Once the VMware HCX EE service goes GA, you'll get a 30-day notice that billing will switch over. You'll also have the option to switch off/opt-out of the service.
+
 ## Compute, network, and storage
 
 ### Is there more than one type of host available?
@@ -76,11 +80,11 @@ The servers have 576 GB of RAM.
 
 ### What is the storage capacity of each host?
 
-Each ESXi host has two vSAN diskgroups with a capacity tier of 15.2 TB and a 3.2 TB NVMe cache tier (1.6 TB in each diskgroup).
+Each ESXi host has two vSAN diskgroups with a capacity tier of 15.2 TB and a 3.2-TB NVMe cache tier (1.6 TB in each diskgroup).
 
 ### How much network bandwidth is available in each ESXi host?
 
-Each ESXi host is Azure VMware Solution is configured with four 25 Gbps NICs, with two NICs provisioned for ESXi system traffic and two NICs provisioned for workload traffic. 
+Each ESXi host is Azure VMware Solution is configured with four 25-Gbps NICs, with two NICs provisioned for ESXi system traffic and two NICs provisioned for workload traffic. 
 
 ### Is data stored on the vSAN datastores encrypted at rest?
 
