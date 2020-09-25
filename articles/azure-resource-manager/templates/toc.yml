@@ -401,6 +401,8 @@
       href: deployment-quota-exceeded.md
     - name: InvalidTemplate
       href: error-invalid-template.md
+    - name: JobSizeExceeded
+      href: error-job-size-exceeded.md
     - name: Linux deployment issues
       href: ../../virtual-machines/troubleshooting/troubleshoot-deploy-vm-linux.md
     - name: NoRegisteredProviderFound
