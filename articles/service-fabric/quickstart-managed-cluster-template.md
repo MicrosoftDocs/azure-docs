@@ -64,7 +64,7 @@ Once the deployment completes, find the Service Fabric Explorer value in the out
 
 ## Clean up resources
 
-If you plan to continue on to work with subsequent quickstarts and tutorials, you may wish to leave these resources in place. When no longer needed, delete the resource group, which deletes the Service Fabric cluster and related resources. To delete the resource group through the portal:
+When no longer needed, delete the resource group for your Service Fabric managed cluster. To delete the resource group through the portal:
 
 1. Enter the name of your resource group in the *Search* box at the top of the portal. When you see the resource group used in this quickstart in the search results, select it.
 2. Select **Delete resource group**.

@@ -60,9 +60,7 @@ In this tutorial, we will be using the [Service Fabric Voting Application](https
 
 You will first need to [package the application for deployment](service-fabric-package-apps.md). For this tutorial, please follow the steps for packaging an application from within Visual Studio. It is important to take note of the path where the application has been packaged as it will be used for the path below.
 
-Once the application package has been created you can upload the application package to your cluster.
-
-Update the `$path` value to represent the path where your application package exists, and run the following commands.
+Once the application package has been created you can upload the application package to your cluster. Update the `$path` value to represent the path where your application package exists, and run the following:
 
 ```powershell
 $path = "C:\Users\<user>\Documents\service-fabric-dotnet-quickstart\Voting\pkg\Debug"
