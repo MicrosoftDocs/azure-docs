@@ -42,7 +42,7 @@ Permissions are grouped together into roles. You can select from a list of sever
 
 ## Step 3: Identify the needed scope
 
-Azure provides four levels of scope: [management groups](../governance/management-groups/overview.md), subscriptions, [resource groups](../azure-resource-manager/management/overview.md#resource-groups), and resources. The following image shows an example of these levels.
+Azure provides four levels of scope: [management group](../governance/management-groups/overview.md), subscription, [resource group](../azure-resource-manager/management/overview.md#resource-groups), and resource. The following image shows an example of these levels.
 
 ![Scope for a role assignment](./media/shared/rbac-scope.png)
 

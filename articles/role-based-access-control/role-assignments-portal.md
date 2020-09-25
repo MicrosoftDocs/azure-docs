@@ -36,7 +36,7 @@ To be the most effective with the Access control (IAM) page, it helps to follow 
 
 1. Find the appropriate role. Permissions are grouped together into roles. You can select from a list of several [Azure built-in roles](built-in-roles.md) or you can use your own custom roles.
 
-1. Identify the needed scope. Azure provides four levels of scope: [management groups](../governance/management-groups/overview.md), subscriptions, [resource groups](../azure-resource-manager/management/overview.md#resource-groups), and resources. For more information about scope, see [Understand scope](scope-overview.md).
+1. Identify the needed scope. Azure provides four levels of scope: [management group](../governance/management-groups/overview.md), subscription, [resource group](../azure-resource-manager/management/overview.md#resource-groups), and resource. For more information about scope, see [Understand scope](scope-overview.md).
 
 1. Perform the steps in one of the following sections to assign a role.
 
