@@ -36,10 +36,11 @@ This document assumes you are familiar with the following concepts. If you are n
 
 When a user or application makes a request to key vault, the request must first be authenticated by Azure Active Directory (AAD). For this to work, the user or application needs to be registered in AAD as a security principal.
 
-Please see the following documentation to understand how to register a user or application in AAD.
+Follow the documentation links below to understand how to register a user or application in AAD.
+**Make sure you create a password for user registration and a client secret or client certificate credential for applications.**
 
 * Registering a user in AAD [link](https://docs.microsoft.com/azure/active-directory/fundamentals/add-users-azure-active-directory)
-* Registering an application in AAD [link](https://docs.microsoft.com/powerapps/developer/common-data-service/walkthrough-register-app-azure-active-directory)
+* Registering an application in AAD [link](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app)
 
 ## Assign your security principal a role in AAD
 
