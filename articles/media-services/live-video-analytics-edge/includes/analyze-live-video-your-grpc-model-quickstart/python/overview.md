@@ -1,5 +1,5 @@
 
-![Overview](../../../media/quickstarts/overview-grpc.png)
+![Overview](../../../media/quickstarts/gRPC-extension.svg)
 
 This diagram shows how the signals flow in this quickstart. An [edge module](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source](../../../media-graph-concept.md#rtsp-source) node pulls the video feed from this server and sends video frames to the [motion detection processor](../../../media-graph-concept.md#motion-detection-processor) node. This processor will detect motion and upon detection will push video frames to the [gRPC extension processor](../../../media-graph-concept.md#grpc-extension-processor) node.
 

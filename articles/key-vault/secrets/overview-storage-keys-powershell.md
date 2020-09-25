@@ -71,7 +71,7 @@ Set-AzContext -SubscriptionId <subscriptionId>
 
 ### Set variables
 
-First, set the variables to be used by the PowerShell cmdlets in the following steps. Be sure to update the <YourResourceGroupName>, <YourStorageAccountName>, and <YourKeyVaultName> placeholders, and set $keyVaultSpAppId to `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` (as specified in [Service principal application ID](#service-principal-application-id), above).
+First, set the variables to be used by the PowerShell cmdlets in the following steps. Be sure to update the "YourResourceGroupName", "YourStorageAccountName", and "YourKeyVaultName" placeholders, and set $keyVaultSpAppId to `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` (as specified in [Service principal application ID](#service-principal-application-id), above).
 
 We will also use the Azure PowerShell [Get-AzContext](/powershell/module/az.accounts/get-azcontext?view=azps-2.6.0) and [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount?view=azps-2.6.0) cmdlets to get your user ID and the context of your Azure storage account.
 

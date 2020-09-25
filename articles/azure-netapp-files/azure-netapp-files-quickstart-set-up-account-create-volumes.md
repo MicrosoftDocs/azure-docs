@@ -6,7 +6,7 @@ ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: quickstart 
-ms.date: 06/09/2020 
+ms.date: 09/22/2020 
 ms.custom: devx-track-azurecli, subject-armqs
 #Customer intent: As an IT admin new to Azure NetApp Files, I want to quickly set up Azure NetApp Files and create a volume.
 ---
@@ -181,14 +181,15 @@ The following code snippet shows how to create a NetApp account in an Azure Reso
 
 3. Click **+ Add pools**. 
 
-    ![Click Add pools](../media/azure-netapp-files/azure-netapp-files-click-add-pools.png)  
+    ![Click Add pools](../media/azure-netapp-files/azure-netapp-files-new-capacity-pool.png)  
 
 4. Provide information for the capacity pool: 
-    1. Enter **mypool1** as the pool name.
-    2. Select **Premium** for the service level. 
-    3. Specify **4 (TiB)** as the pool size. 
+    * Enter **mypool1** as the pool name.
+    * Select **Premium** for the service level. 
+    * Specify **4 (TiB)** as the pool size. 
+    * Use the **Auto** QoS type.
 
-5. Click **OK**.
+5. Click **Create**.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -411,7 +412,7 @@ When you are done and if you want to, you can delete the resource group. The act
 
 3. In the resource group page, click **Delete resource group**.
 
-    ![Delete resource group](../media/azure-netapp-files/azure-netapp-files-azure-delete-resource-group.png) 
+    ![Screenshot that highlights the Delete resource group button.](../media/azure-netapp-files/azure-netapp-files-azure-delete-resource-group.png) 
 
     A window opens and displays a warning about the resources that will be deleted with the resource group.
 
