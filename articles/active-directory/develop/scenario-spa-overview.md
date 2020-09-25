@@ -49,6 +49,10 @@ To enable this scenario for your application, you need:
 * Application configuration with the registered application properties, such as the application ID.
 * Using Microsoft Authentication Library for JavaScript (MSAL.js) to do the authentication flow to sign in and acquire tokens.
 
+## Recommended reading
+
+[!INCLUDE [recommended-topics](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
+
 ## Next steps
 
 > [!div class="nextstepaction"]
