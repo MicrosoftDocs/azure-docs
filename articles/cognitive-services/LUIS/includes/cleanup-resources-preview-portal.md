@@ -6,7 +6,7 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.subservice: luis
+ms.subservice: language-understanding
 ms.topic: include
 ms.date: 03/02/2020
 ms.author: diberry

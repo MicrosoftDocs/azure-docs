@@ -179,8 +179,6 @@ The storage replication option lets you choose between geo-redundant storage (th
 
 1. Select the storage replication type, and select **Save**.
 
-   ![Set storage configuration for new vault.](../backup/media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
-
 ## Download and install the software package
 
 Follow the steps in this section to download, extract, and install the software package.

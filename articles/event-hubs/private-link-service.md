@@ -1,7 +1,7 @@
 ---
 title: Integrate Azure Event Hubs with Azure Private Link Service
 description: Learn how to integrate Azure Event Hubs with Azure Private Link Service
-ms.date: 07/29/2020
+ms.date: 08/22/2020
 ms.topic: article
 ---
 
@@ -19,7 +19,6 @@ For more information, see [What is Azure Private Link?](../private-link/private-
 > 
 > Here are some of the services that can't access Event Hubs resources when private endpoints are enabled. Note that the list is **NOT** exhaustive.
 >
-> - Azure Stream Analytics
 > - Azure IoT Hub Routes
 > - Azure IoT Device Explorer
 > - Azure Event Grid
