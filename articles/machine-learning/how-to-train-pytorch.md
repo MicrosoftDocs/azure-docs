@@ -234,7 +234,7 @@ run.download_file(name='outputs/model.pt', output_file_path='./model/model.pt'),
 
 Azure Machine Learning also supports multi-node distributed PyTorch jobs so that you can scale your training workloads. You can easily run distributed PyTorch jobs and Azure ML will manage the orchestration for you.
 
-Azure ML supports running distributed PyTorch jobs with both Horovod and the **torch.distributed** DistributedDataParallel module.
+Azure ML supports running distributed PyTorch jobs with both Horovod and PyTorch's built-in DistributedDataParallel module.
 
 ### Horovod
 [Horovod](https://github.com/uber/horovod) is an open-source, all reduce framework for distributed training developed by Uber. It offers an easy path to writing distributed PyTorch code for training.
@@ -268,7 +268,7 @@ src = ScriptRunConfig(source_directory=project_folder,
                       distributed_job_config=MpiConfiguration(node_count=2))
 ```
 
-For a full tutorial on running distributed PyTorch with Horovod on Azure ML, see (Distributed PyTorch with Horovod)[https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/pytorch/distributed-pytorch-with-horovod].
+For a full tutorial on running distributed PyTorch with Horovod on Azure ML, see [Distributed PyTorch with Horovod](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/pytorch/distributed-pytorch-with-horovod).
 
 ### DistributedDataParallel
 
