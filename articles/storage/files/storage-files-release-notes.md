@@ -77,7 +77,7 @@ The following release notes are for version 10.0.0.0 of the Azure File Sync agen
 		- Cloud tiering policy details: volume size, current free space, or the last accessed time of the oldest file in the local cache.
 	- These changes will ship in the Azure portal shortly after the initial V10 agent release.
 
-- Support for moving the Storage Sync Service and/or storage account to a different Azure Active Directory (AAD) tenant
+- Support for moving the Storage Sync Service and/or storage account to a different Azure Active Directory tenant
 	- Azure File Sync now supports moving the Storage Sync Service and/or storage account to a different resource group, subscription or Azure AD tenant.
 	
 - Miscellaneous performance and reliability improvements
