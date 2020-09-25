@@ -37,7 +37,6 @@ Sizing workloads against compute and storage resources is an essential planning 
 
 You also can size workloads by completing an [Azure VMware Solution Assessment](../migrate/how-to-create-azure-vmware-solution-assessment.md) in the Azure Migrate portal.
 
-
 ## Software version requirements
 
 Infrastructure components must be running the required minimum version. 
@@ -63,14 +62,12 @@ Infrastructure components must be running the required minimum version.
 
 ## Deploy the VMware HCX OVA on-premises
 
-1. Sign into the **Azure VMware Solution HCX Manager** on `https://x.x.x.9` port 443 with the **cloudadmin** user credentials and then go to **Support**.
+1. Sign in to Azure VMware Solution HCX Manager on `https://x.x.x.9` port 443 with the **cloudadmin** user credentials, and then go to **Support**.
 
 1. Select the download link for the VMware HCX OVA file. 
 
 1. Sign in to Azure VMware Solution SDDC vCenter and select **HCX**.
-
-   :::image type="content" source="media/hybrid-cloud-extension-installation/avs-vsphere-client.png" alt-text="Sign in to Azure VMware Solution SDDC vCenter and select HCX.":::
-
+   
 1. Go to the on-premises vCenter and select an OVF template to deploy to your on-premises vCenter.  
 
    :::image type="content" source="media/hybrid-cloud-extension-installation/select-template.png" alt-text="Next, go to the on-premises vCenter and select an OVF template to deploy to your on-premises vCenter.":::
@@ -92,7 +89,7 @@ Infrastructure components must be running the required minimum version.
 
 After installation, perform the following steps.
 
-1. Log on to the on-premises HCX manager at `https://HCXManagerIP:9443` and sign in with the **admin** user credentials. 
+1. Log on to the on-premises HCX manager at `https://HCXManagerIP:9443` and sign in with the **admin** username credentials. 
 
    > [!IMPORTANT]
    > Make sure to include the `9443` port number with the HCX Manager IP address.
