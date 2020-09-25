@@ -25,6 +25,8 @@
     href: data-catalog-frequently-asked-questions.md
 - name: How-to guides
   items:
+  - name: Link Azure-Data-Share-to-Babylon
+    href: Babylon-how-to-link-Azure-Data-Share.md
   - name: Register data sources
     href: data-catalog-how-to-register.md
   - name: Discover data sources
