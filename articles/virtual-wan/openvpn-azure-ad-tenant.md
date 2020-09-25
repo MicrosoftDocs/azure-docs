@@ -3,11 +3,11 @@ title: 'Azure AD tenant for User VPN connections: Azure AD authentication'
 description: You can use Azure Virtual WAN User VPN (point-to-site) to connect to your VNet using Azure AD authentication
 titleSuffix: Azure Virtual WAN
 services: virtual-wan
-author: kumudD
+author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 03/19/2020
+ms.date: 09/22/2020
 ms.author: alzam
 
 ---
