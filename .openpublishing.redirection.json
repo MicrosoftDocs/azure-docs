@@ -21,6 +21,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/media-services/previous/media-services-premium-workflow-encoder-formats.md",
+      "redirect_url": "/azure/media-services/previous/media-services-encode-asset",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/previous/media-services-compare-encoders.md",
+      "redirect_url": "/azure/media-services/previous/media-services-media-encoder-standard-formats",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/previous/media-services-media-encoder-premium-workflow-tutorials.md",
+      "redirect_url": "/azure/media-services/previous/media-services-encode-asset",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/previous/media-services-media-encoder-premium-workflow-multiplefilesinput.md",
+      "redirect_url": "/azure/media-services/previous/media-services-encode-asset",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/media-services/previous/media-services-process-content-with-indexer2.md",
       "redirect_url": "/azure/media-services/previous/legacy-components",
       "redirect_document_id": false
@@ -41493,6 +41513,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machines/linux/manage-availability.md",
+      "redirect_url": "/azure/virtual-machines/manage-availability",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/manage-availability.md",
+      "redirect_url": "/azure/virtual-machines/manage-availability",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/log-analytics/log-analytics-activity.md",
       "redirect_url": "/azure/azure-monitor/platform/collect-activity-logs",
       "redirect_document_id": true
@@ -52574,6 +52604,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Face/Face-API-How-to-Topics/HowtoIdentifyFacesinImage.md",
+      "redirect_url": "/azure/cognitive-services/face/QuickStarts/client-libraries.md",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/text-analytics/vs-text-connected-service.md",
       "redirect_url": "/azure/cognitive-services/text-analytics/",
       "redirect_document_id": false
@@ -57730,6 +57765,11 @@
     {
       "source_path": "articles/azure-monitor/nuget.md",
       "redirect_url": "/azure/azure-monitor/azure-monitor-app-hub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-link/create-private-endpoint-storage-portal.md",
+      "redirect_url": "/azure/private-link/tutorial-private-endpoint-storage-portal",
       "redirect_document_id": false
     }
   ]

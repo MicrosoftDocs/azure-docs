@@ -165,8 +165,8 @@ productDirectory:
         - ai-machine-learning
       url: cognitive-services/bing-web-search/overview.md
     # Card
-    - title: Communication Services
-      summary: Add real-time voice, video, and telephony to your apps
+    - title: Azure Communication Services (Preview)
+      summary: Build rich communication experiences with the same secure platform used by Microsoft Teams
       imageSrc: ./media/index/communication-services.svg
       azureCategories:
         - web

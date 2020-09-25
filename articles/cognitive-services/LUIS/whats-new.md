@@ -1,6 +1,8 @@
 ---
 title: What's New - Language Understanding (LUIS)
 description: This article is regularly updated with news about the Azure Cognitive Services Language Understanding API.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: overview
 ms.date: 06/15/2020
 ---

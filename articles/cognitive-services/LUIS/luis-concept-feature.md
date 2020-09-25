@@ -1,6 +1,8 @@
 ---
 title: Machine-learning features with LUIS
 description: Add features to a language model to provide hints about how to recognize input that you want to label or classify.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/10/2020
 ---
