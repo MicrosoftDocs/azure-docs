@@ -49,7 +49,7 @@ To set up the first flow, you will need to provide your Video Indexer API Key�
 ![Connection name and API key](./media/logic-apps-connector-tutorial/connection-name-api-key.png)
 
 > [!TIP]
-> If you previously connected an Azure Storage account or Video Indexer account to a Logic App, your connection details are stored and you will be connected automatically. <br/>You can edit the connection by clicking on **Change connection** at the bottom of an Azure Storage or Video Indexer action.
+> If you previously connected an Azure Storage account or Video Indexer account to a Logic App, your connection details are stored and you will be connected automatically. <br/>You can edit the connection by clicking on **Change connection** at the bottom of an Azure Storage (the storage window) or Video Indexer (the player window) action.
 
 Once you can connect to your Azure Storage and Video Indexer accounts, find and choose the "When a blob is added or modified" trigger in **Logic Apps Designer**.
 
@@ -75,7 +75,7 @@ You will leave the callback URL empty for now. You’ll add it only after finish
 
 You can use the default value for the other parameters or set them according to your needs. 
 
-Click “Save”, and let’s move on to configure the second flow, to extract the insights once the upload and indexing is completed. 
+Click **Save**, and let’s move on to configure the second flow, to extract the insights once the upload and indexing is completed. 
 
 ## Set up the second flow - JSON extraction  
 
