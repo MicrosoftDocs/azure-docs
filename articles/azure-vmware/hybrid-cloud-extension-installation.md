@@ -87,7 +87,7 @@ Infrastructure components must be running the required minimum version.
 
 After installation, perform the following steps.
 
-1. Log on to the on-premises HCX manager at `https://HCXManagerIP:9443` and sign in with the **admin** user credentials. 
+1. Log on to the on-premises HCX manager at `https://HCXManagerIP:9443` and sign in with the **admin** username credentials. 
 
    > [!IMPORTANT]
    > Make sure to include the `9443` port number with the HCX Manager IP address.

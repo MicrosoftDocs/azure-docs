@@ -5,7 +5,7 @@ services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: 
+ms.subservice: face-api
 ms.topic: include
 ms.date: 09/17/2020
 ms.author: pafarley
