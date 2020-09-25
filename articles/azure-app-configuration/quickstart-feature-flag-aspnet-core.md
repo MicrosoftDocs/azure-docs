@@ -27,12 +27,12 @@ The .NET Core Feature Management libraries extend the framework with comprehensi
 
 [!INCLUDE[Azure App Configuration resource creation steps](../../includes/azure-app-configuration-create.md)]
 
-7. Select **Feature Manager** > **+Add** to add a feature flag called `Beta`.
+7. Select **Operations** > **Feature manager** > **Add** to add a feature flag called `Beta`.
 
     > [!div class="mx-imgBorder"]
     > ![Enable feature flag named Beta](media/add-beta-feature-flag.png)
 
-    Leave `label` undefined for now. Select **Apply** to save the new feature flag.
+    Leave **Label** empty for now. Select **Apply** to save the new feature flag.
 
 ## Create an ASP.NET Core web app
 
@@ -48,32 +48,22 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
 ## Connect to an App Configuration store
 
-1. Add reference to the `Microsoft.Azure.AppConfiguration.AspNetCore` and the `Microsoft.FeatureManagement.AspNetCore` NuGet packages by running the following commands:
+1. Install the `Microsoft.Azure.AppConfiguration.AspNetCore` and `Microsoft.FeatureManagement.AspNetCore` NuGet packages by running the following commands:
 
     ```dotnetcli
     dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore
     dotnet add package Microsoft.FeatureManagement.AspNetCore
     ```
 
-1. Run the following command to restore packages for your project:
-
-    ```dotnetcli
-    dotnet restore
-    ```
-
-1. Add a secret named `ConnectionStrings:AppConfig` to Secret Manager.
-
-    This secret contains the connection string to access your App Configuration store. Replace the `<your_connection_string>` value in the following command with the connection string for your App Configuration store. You can find the primary read-only key  connection string under **Access Keys** in the Azure portal.
-
-    This command must be executed in the same directory as the *.csproj* file.
+1. Run the following command in the same directory as the *.csproj* file. The command uses Secret Manager to store a secret named `ConnectionStrings:AppConfig`, which stores the connection string for your App Configuration store. Replace the `<your_connection_string>` placeholder with your App Configuration store's connection string. You can find the connection string under **Access Keys** in the Azure portal.
 
     ```dotnetcli
     dotnet user-secrets set ConnectionStrings:AppConfig "<your_connection_string>"
     ```
 
-    You use Secret Manager only to test the web app locally. When you deploy the app to [Azure App Service](https://azure.microsoft.com/services/app-service), for example, you use an application setting named **Connection Strings** in App Service instead of using Secret Manager to store the connection string.
+    Secret Manager is used only to test the web app locally. When the app is deployed to [Azure App Service](https://azure.microsoft.com/services/app-service/web), use the **Connection Strings** application setting in App Service instead of Secret Manager to store the connection string.
 
-    You can access this secret with the App Configuration API. A colon (`:`) works in the configuration name with the App Configuration API on all supported platforms. For more information, see [Configuration keys and values](/aspnet/core/fundamentals/configuration#configuration-keys-and-values).
+    Access this secret using the .NET Core Configuration API. A colon (`:`) works in the configuration name with the Configuration API on all supported platforms. For more information, see [Configuration keys and values](/aspnet/core/fundamentals/configuration#configuration-keys-and-values).
 
 1. In *Program.cs*, update the `CreateWebHostBuilder` method to use App Configuration by calling the `AddAzureAppConfiguration` method.
 
@@ -111,6 +101,8 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
     ---
 
+    With the preceding change, the [configuration provider for App Configuration](https://go.microsoft.com/fwlink/?linkid=2074664) has been registered with the .NET Core Configuration API.
+
 1. In *Startup.cs*, add a reference to the .NET Core feature manager:
 
     ```csharp
@@ -142,7 +134,7 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
     ---
 
-1. Update the `Startup.Configure` method to add a middleware to allow the feature flag values to be refreshed at a recurring interval while the ASP.NET Core web app continues to receive requests.
+1. Update the `Startup.Configure` method to add a middleware to allow the feature flag values to be refreshed at a recurring interval while the ASP.NET Core web app receives requests.
 
     #### [.NET Core 3.x](#tab/core3x)
 
@@ -295,7 +287,7 @@ dotnet new mvc --no-https --output TestFeatureFlags
     dotnet run
     ```
 
-1. Open a browser window, and go to `https://localhost:5000`, which is the default URL for the web app hosted locally. If you're working in the Azure Cloud Shell, select the **Web Preview** button followed by **Configure**. When prompted, select port 5000.
+1. Open a browser window, and go to `http://localhost:5000`, which is the default URL for the web app hosted locally. If you're working in the Azure Cloud Shell, select the **Web Preview** button followed by **Configure**. When prompted, select port 5000.
 
     ![Locate the Web Preview button](./media/quickstarts/cloud-shell-web-preview.png)
 
@@ -321,7 +313,7 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
 In this quickstart, you created a new App Configuration store and used it to manage features in an ASP.NET Core web app via the [Feature Management libraries](https://go.microsoft.com/fwlink/?linkid=2074664).
 
-- Learn more about [feature management](./concept-feature-management.md).
-- [Manage feature flags](./manage-feature-flags.md).
-- [Use feature flags in an ASP.NET Core app](./use-feature-flags-dotnet-core.md).
-- [Use dynamic configuration in an ASP.NET Core app](./enable-dynamic-configuration-aspnet-core.md)
+* Learn more about [feature management](./concept-feature-management.md).
+* [Manage feature flags](./manage-feature-flags.md).
+* [Use feature flags in an ASP.NET Core app](./use-feature-flags-dotnet-core.md).
+* [Use dynamic configuration in an ASP.NET Core app](./enable-dynamic-configuration-aspnet-core.md)
