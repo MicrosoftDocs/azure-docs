@@ -1,5 +1,6 @@
 ---
-title: Call a web api from a web app - Microsoft identity platform | Azure
+title: Call a web api from a web app | Azure
+titleSuffix: Microsoft identity platform
 description: Learn how to build a web app that calls web APIs (calling a protected web API)
 services: active-directory
 author: jmprieur
@@ -9,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/14/2019
+ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a web app that calls web APIs by using the Microsoft identity platform for developers.
@@ -17,7 +18,7 @@ ms.custom: aaddev
 
 # A web app that calls web APIs: Call a web API
 
-Now that you have a token, you can call a protected web API. You usually call the downstream APIs from the controller or pages of your web app.
+Now that you have a token, you can call a protected web API. You usually call a downstream API from the controller or pages of your web app.
 
 ## Call a protected web API
 
@@ -25,11 +26,15 @@ Calling a protected web API depends on your language and framework of choice:
 
 # [ASP.NET Core](#tab/aspnetcore)
 
-When you use *Microsoft.Identity.Web*, you have three usage scenarios:
+When you use *Microsoft.Identity.Web*, you have three usage options for calling an API:
+
+- [Option 1: Call Microsoft Graph with the Microsoft Graph SDK](#option-1-call-microsoft-graph-with-the-sdk)
+- [Option 2: Call a downstream web API with the helper class](#option-2-call-a-downstream-web-api-with-the-helper-class)
+- [Option 3: Call a downstream web API without the helper class](#option-3-call-a-downstream-web-api-without-the-helper-class)
 
 ### Option 1: Call Microsoft Graph with the SDK
 
-You want to call Microsoft Graph. In this scenario, you've added `AddMicrosoftGraph` in *Startup.cs*, and you can directly inject the `GraphServiceClient` in your controller or page constructor for use in the actions. The following example Razor page displays the photo of the signed-in user.
+You want to call Microsoft Graph. In this scenario, you've added `AddMicrosoftGraph` in *Startup.cs* as specified in [Code configuration](scenario-web-app-call-api-app-configuration.md#option-1-call-microsoft-graph), and you can directly inject the `GraphServiceClient` in your controller or page constructor for use in the actions. The following example Razor page displays the photo of the signed-in user.
 
 ```CSharp
 [Authorize]
@@ -65,7 +70,7 @@ public class IndexModel : PageModel
 
 ### Option 2: Call a downstream web API with the helper class
 
-You want to call a web API other than Microsoft Graph. In that case, you've added `AddDownstreamWebApi` in *Startup.cs*, and you can directly inject an `IDownstreamWebApi` service in your controller or page constructor and use it in the actions:
+You want to call a web API other than Microsoft Graph. In that case, you've added `AddDownstreamWebApi` in *Startup.cs* as specified in [Code configuration](scenario-web-app-call-api-app-configuration.md#option-2-call-a-downstream-web-api-other-than-microsoft-graph), and you can directly inject an `IDownstreamWebApi` service in your controller or page constructor and use it in the actions:
 
 ```CSharp
 [Authorize]
@@ -93,7 +98,7 @@ public class TodoListController : Controller
 }
 ```
 
-The `CallWebApiForUserAsync` also has strongly typed generic overrides that enable you to directly receive an object. For example, the following method received a `Todo` instance, which is a strongly typed representation of the JSON returned by the web API.
+The `CallWebApiForUserAsync` also has strongly typed generic overrides that enable you to directly receive an object. For example, the following method receives a `Todo` instance, which is a strongly typed representation of the JSON returned by the web API.
 
 ```CSharp
     // GET: TodoList/Details/5
@@ -113,9 +118,9 @@ The `CallWebApiForUserAsync` also has strongly typed generic overrides that enab
 
 ### Option 3: Call a downstream web API without the helper class
 
-You've decided to acquire a token manually using the `ITokenAcquisition` service, and you now need to use the token. In that case, the following code continues the example code shown in [A web API that calls web APIs: Acquire a token for the app](scenario-web-api-call-api-acquire-token.md). The code is called in the actions of the API controllers. It calls a downstream API named *todolist*.
+You've decided to acquire a token manually using the `ITokenAcquisition` service, and you now need to use the token. In that case, the following code continues the example code shown in [A web app that calls web APIs: Acquire a token for the app](scenario-web-app-call-api-acquire-token.md). The code is called in the actions of the web app controllers.
 
-After you've acquired the token, use it as a bearer token to call the downstream API.
+After you've acquired the token, use it as a bearer token to call the downstream API, in this case Microsoft Graph.
 
  ```csharp
 public async Task<IActionResult> Profile()
