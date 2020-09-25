@@ -28,7 +28,6 @@ In this quickstart, you'll use Azure App Configuration to centralize storage and
 ## Create an App Configuration store
 
 [!INCLUDE[Azure App Configuration resource creation steps](../../includes/azure-app-configuration-create.md)]
-
 1. Select **Operations** > **Configuration explorer** > **Create** > **Key-value** to add the following key-value pairs:
 
     | Key                                | Value                               |
