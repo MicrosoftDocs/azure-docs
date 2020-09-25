@@ -37,9 +37,9 @@ The software requirements include the information on the supported operating sys
 > [!IMPORTANT] 
 > Connection to Data Box shares is not supported via REST for export orders. 
 
-### Supported SMB versions
+<!--### Supported SMB versions
 
-[!INCLUDE [data-box-supported-smb-versions](../../includes/data-box-supported-smb-versions.md)]
+[!INCLUDE [data-box-supported-smb-versions](../../includes/data-box-supported-smb-versions.md)]-->
 
 ### Supported storage accounts
 
