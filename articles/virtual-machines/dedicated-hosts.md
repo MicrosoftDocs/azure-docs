@@ -1,18 +1,21 @@
 ---
- title: include file
- description: include file
- services: virtual-machines
- author: cynthn
- ms.service: virtual-machines
- ms.topic: include
- ms.date: 03/10/2020
- ms.author: cynthn
- ms.custom: include file
+title: Overview of Azure Dedicated Hosts for virtual machines 
+description: Learn more about how Azure Dedicated Hosts can be used for deploying virtual machines.
+author: cynthn
+ms.service: virtual-machines
+ms.topic: conceptual
+ms.workload: infrastructure
+ms.date: 07/28/2020
+ms.author: cynthn
+ms.reviewer: zivr
+
+#Customer intent: As an IT administrator, I want to learn about more about using a dedicated host for my Azure virtual machines
 ---
 
-## Limitations
+# Azure Dedicated Hosts
 
-- Virtual machine scale sets are not currently supported on dedicated hosts.
+Azure Dedicated Host is a service that provides physical servers - able to host one or more virtual machines - dedicated to one Azure subscription. Dedicated hosts are the same physical servers used in our data centers, provided as a resource. You can provision dedicated hosts within a region, availability zone, and fault domain. Then, you can place VMs directly into your provisioned hosts, in whatever configuration best meets your needs.
+
 
 ## Benefits 
 
@@ -30,8 +33,6 @@ Reserving the entire host provides the following benefits:
 A **host group** is a resource that represents a collection of dedicated hosts. You create a host group in a region and an availability zone, and add hosts to it.
 
 A **host** is a resource, mapped to a physical server in an Azure data center. The physical server is allocated when the host is created. A host is created within a host group. A host has a SKU describing which VM sizes can be created. Each host can host multiple VMs, of different sizes, as long as they are from the same size series.
-
-When creating a VM in Azure, you can select which dedicated host to use for your VM. You have full control as to which VMs are placed on your hosts.
 
 
 ## High Availability considerations 
@@ -59,6 +60,60 @@ VMs deployed to hosts with different fault domains, will have their underlying m
 You can use both capabilities together to achieve even more fault isolation. In this case, you will specify the availability zone and fault domain count in for each host group, assign a fault domain to each of your hosts in the group, and assign an availability zone to each of your VMs
 
 The Resource Manager sample template found [here](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md) uses zones and fault domains to spread hosts for maximum resiliency in a region.
+
+
+## Manual vs. automatic placement 
+
+> [!IMPORTANT]
+> Automatic placement is currently in public preview.
+> To participate in the preview, complete the preview onboarding survey at [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview).
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+When creating a VM in Azure, you can select which dedicated host to use. You can also use the option to automatically place your VMs on existing hosts, within a host group. 
+
+When creating a new host group, make sure the setting for automatic VM placement is selected. When creating your VM, select the host group and let Azure pick the best host for your VM. 
+
+Host groups that are enabled for automatic placement do not require all the VMs to be automatically placed. You will still be able to explicitly pick a host, even when automatic placement is selected for the host group. 
+
+### Limitations
+
+Known issues and limitations when using automatic VM placement:
+
+- You will not be able to apply Azure Hybrid Benefits on your dedicated hosts.
+- You will not be able to redeploy your VM. 
+- You will not be able to control maintenance for your dedicated hosts.
+- You will not be able to use Lsv2, NVasv4, NVsv3, Msv2, or M-series VMs with dedicated hosts 
+
+
+## Virtual machine scale set support
+
+Virtual machine scale sets let you treat a group of virtual machines as a single resource, and apply  availability, management, scaling and orchestration policies as a group. Your existing dedicated hosts can also be used for virtual machine scale sets. 
+
+> [!IMPORTANT]
+> Virtual Machine Scale Sets on Dedicated Hosts is currently in public preview.
+> To participate in the preview, complete the preview onboarding survey at [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview).
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+When creating a virtual machine scale set you can specify an existing host group to have all of the VM instances created on dedicated hosts.
+
+The following requirements apply when creating a virtual machine scale set in a dedicated host group:
+
+- Automatic VM placement needs to be enabled.
+- The availability setting of your host group should match your scale set. 
+	- A regional host group (created without specifying an availability zone) should be used for regional scale sets.
+	- The host group and the scale set must be using the same availability zone. 
+	- The fault domain count for the host group level should match the fault domain count for your scale set. The Azure portal lets you specify *max spreading* for your scale set, which sets the fault domain count of 1.
+- Dedicated hosts should be created first, with sufficient capacity, and the same settings for scale set zones and fault domains.
+- The supported VM sizes for your dedicated hosts should match the one used for your scale set.
+
+Not all scale-set orchestration and optimizations settings are supported by dedicated hosts. Apply the following settings to your scale set: 
+- Disable overprovisioning.
+- Use the ScaleSetVM orchestration mode 
+- Do not use proximity placement groups for co-location
+
+
 
 ## Maintenance control
 
@@ -100,7 +155,7 @@ Software licensing, storage and network usage are billed separately from the hos
 
 For more information, see [Azure Dedicated Host pricing](https://aka.ms/ADHPricing).
 
-You can also save on costs with a [Reserved Instance of Azure Dedicated Hosts](../articles/virtual-machines/prepay-dedicated-hosts-reserved-instances.md).
+You can also save on costs with a [Reserved Instance of Azure Dedicated Hosts](prepay-dedicated-hosts-reserved-instances.md).
  
 ## Sizes and hardware generations
 
@@ -123,3 +178,11 @@ Azure monitors and manages the health status of your hosts. The following states
 | Host Pending Deallocate   | Azure can’t restore the host back to a healthy state and ask you to redeploy your virtual machines out of this host. If `autoReplaceOnFailure` is enabled, your virtual machines are *service healed* to healthy hardware. Otherwise, your virtual machine may be running on a host that is about to fail.|
 | Host deallocated  | All virtual machines have been removed from the host. You are no longer being charged for this host since the hardware was taken out of rotation.   |
 
+
+## Next steps
+
+- You can deploy a dedicated host using [Azure PowerShell](./windows/dedicated-hosts-powershell.md), the [portal](./windows/dedicated-hosts-portal.md), and [Azure CLI](./linux/dedicated-hosts-cli.md).
+
+- There is sample template, found [here](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md), that uses both zones and fault domains for maximum resiliency in a region.
+
+- You can also save on costs with a [Reserved Instance of Azure Dedicated Hosts](prepay-dedicated-hosts-reserved-instances.md).
