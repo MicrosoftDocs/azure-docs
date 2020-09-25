@@ -53,11 +53,11 @@ Before configuring Templafy for automatic user provisioning with Azure AD, you w
 
 2. Click on **Authentication Method**.
 
-	![Templafy Add SCIM](media/templafy-provisioning-tutorial/image01.png)
+	![Screenshot of the Templafy administration section with the Authentication method option called out.](media/templafy-provisioning-tutorial/image01.png)
 
 3. Copy the **SCIM Api Key** value. This value will be entered in the **Secret Token** field in the Provisioning tab of your Templafy application in the Azure portal.
 
-	![Templafy Add SCIM](media/templafy-provisioning-tutorial/image02.png)
+	![A screenshot of the S C I M A P I key.](media/templafy-provisioning-tutorial/image02.png)
 
 ## Add Templafy from the gallery
 
