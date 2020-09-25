@@ -300,11 +300,27 @@ Content-type: application/json
 
 ![Example  validation page](./media/api-connectors-overview/validation-error-postal-code.png)
 
-## Using Azure Functions
-You can use an HTTP trigger in Azure Functions as a simple way create an API endpoint to use with the API connector. You use the Azure Function to, [for example](code-samples-self-service-sign-up.md#api-connector-azure-function-quickstarts), perform validation logic and limit sign-ups to specific domains. You can also call and invoke other web APIs, user stores, and other cloud services from your Azure Function for extensive scenarios.
+
+## Best practices and how to troubleshoot
+
+### Using serverless cloud functions
+Serverless functions, like HTTP triggers in Azure Functions, provide a simple way create API endpoints to use with the API connector. You can use the serverless cloud function to, [for example](code-samples-self-service-sign-up.md#api-connector-azure-function-quickstarts), perform validation logic and limit sign-ups to specific domains. The serverless cloud function can also call and invoke other web APIs, user stores, and other cloud services for more complex scenarios.
+
+### Best practices
+Ensure that:
+* Your API is following the API request and response contracts as outlined above. 
+* The **Endpoint URL** of the API connector points to the correct API endpoint.
+* Your API explicitly checks for null values of received claims.
+* If using a serverless functions or scalable web service, use a hosting plan that keeps the API 'awake' or 'warm'. For Azure Functions, its recommended to use the [Premium plan](../../azure-functions/functions-scale.md#premium-plan).
+
+### Use logging
+In general, it's helpful to use the logging tools enabled by your web API service, like [Application insights](../../azure-functions/functions-monitoring.md), to monitor your API for unexpected error codes or exceptions.
+* Monitor for HTTP status codes that aren't HTTP 200 or 400.
+* A 401 or 403 HTTP status code typically indicate there's an issue with your authentication. Double check your APIs authentication layer and the corresponding configuration in the API connector.
+* Use more aggressive levels of logging (e.g. 'trace' or 'debug') in development if needed.
+* Look at your logs and ensure your API calls aren't taking longer than 30 seconds. This will cause an error.
 
 ## Next steps
-
 <!-- - Learn [where you can enable an API connector](api-connectors-overview.md#where-you-can-enable-an-api-connector-in-a-user-flow) -->
 - Learn how to [add a custom approval workflow to self-service sign-up](self-service-sign-up-add-approvals.md)
 - Get started with our [Azure Function quickstart samples](code-samples-self-service-sign-up.md#api-connector-azure-function-quickstarts).
