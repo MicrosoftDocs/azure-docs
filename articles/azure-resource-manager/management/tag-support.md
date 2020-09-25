@@ -792,7 +792,7 @@ Jump to a resource provider namespace:
 > | virtualMachineScaleSets | Yes | Yes |
 > | virtualMachineScaleSets / extensions | No | No |
 > | virtualMachineScaleSets / networkInterfaces | No | No |
-> | virtualMachineScaleSets / publicIPAddresses | No | No |
+> | virtualMachineScaleSets / publicIPAddresses | Yes | No |
 > | virtualMachineScaleSets / virtualMachines | No | No |
 > | virtualMachineScaleSets / virtualMachines / networkInterfaces | No | No |
 
@@ -1502,7 +1502,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
-> | labaccounts | Yes | Yes |
+> | labaccounts | Yes | No |
 > | users | No | No |
 
 ## Microsoft.Logic

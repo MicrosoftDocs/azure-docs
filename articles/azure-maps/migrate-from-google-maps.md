@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Migrate from Google Maps to Azure Maps | Microsoft Azure Maps'
-description:  A tutorial on how to migrate from Google Maps to Microsoft Azure Maps. Guidance walks you through how to switch to Azure Maps APIs and SDKs.
+title: 'Migrate from Google Maps to Azure Maps | Microsoft Azure Maps'
+description:  How to migrate from Google Maps to Microsoft Azure Maps. Guidance walks you through how to switch to Azure Maps APIs and SDKs.
 author: rbrundritt
 ms.author: richbrun
-ms.date: 12/17/2019
-ms.topic: tutorial
+ms.date: 09/23/2020
+ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
@@ -13,7 +13,7 @@ ms.custom:
 
 # Migrate from Google Maps to Azure Maps
 
-This tutorial provides insights on how to migrate web, mobile and server-based applications from Google Maps to the Microsoft Azure Maps platform. This tutorial includes comparative code samples, migration suggestions, and best practices for migrating to Azure Maps.
+This article provides insights on how to migrate web, mobile and server-based applications from Google Maps to the Microsoft Azure Maps platform. This tutorial includes comparative code samples, migration suggestions, and best practices for migrating to Azure Maps.
 
 ## Azure Maps platform overview
 
@@ -103,15 +103,10 @@ Here is a list of useful technical resources for Azure Maps.
 
 Developers can seek migration support through the [forums](https://aka.ms/AzureMapsForums) or through one of the many Azure support options: [https://azure.microsoft.com/support/options](https://azure.microsoft.com/support/options)
 
-## Next steps
+You can learn to migrate your Google Maps application using: 
 
-Learn the details of how to migrate your Google Maps application with these articles:
+[Migrate an Android app](migrate-from-google-maps-android-app.md) 
 
-> [!div class="nextstepaction"]
-> [Migrate a web app](migrate-from-google-maps-web-app.md)
+[Migrate a web service](migrate-from-google-maps-web-services.md) 
 
-> [!div class="nextstepaction"]
-> [Migrate an Android app](migrate-from-google-maps-android-app.md)
-
-> [!div class="nextstepaction"]
-> [Migrate a web service](migrate-from-google-maps-web-services.md)
+[Migrate a web app](migrate-from-google-maps-web-app.md)
