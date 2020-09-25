@@ -4,8 +4,18 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 07/14/2020
 ms.author: v-demjoh
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
+
+One of the core features of the Speech service is the ability to recognize human speech and translate it to other languages. In this quickstart you learn how to use the Speech SDK in your apps and products to perform high-quality speech translation. This quickstart covers topics including:
+
+* Translating speech-to-text
+* Translating speech to multiple target languages
+* Performing direct speech-to-speech translation
+
+## Skip to samples on GitHub
+
+If you want to skip straight to sample code, see the [JavaScript quickstart samples](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node) on GitHub.
 
 ## Prerequisites
 

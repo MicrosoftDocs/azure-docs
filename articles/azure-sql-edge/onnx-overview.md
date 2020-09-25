@@ -1,6 +1,6 @@
 ---
-title: Machine learning and AI with ONNX in Azure SQL Edge (Preview)
-description: Machine learning in Azure SQL Edge (Preview) supports models in the Open Neural Network Exchange (ONNX) format. ONNX is an open format you can use to interchange models between various machine learning frameworks and tools.
+title: Machine learning and AI with ONNX in Azure SQL Edge
+description: Machine learning in Azure SQL Edge supports models in the Open Neural Network Exchange (ONNX) format. ONNX is an open format you can use to interchange models between various machine learning frameworks and tools.
 keywords: deploy SQL Edge
 services: sql-edge
 ms.service: sql-edge
@@ -11,9 +11,9 @@ ms.author: davidph
 ms.date: 05/19/2020
 ---
 
-# Machine learning and AI with ONNX in SQL Edge (Preview)
+# Machine learning and AI with ONNX in SQL Edge
 
-Machine learning in Azure SQL Edge (Preview) supports models in the [Open Neural Network Exchange (ONNX)](https://onnx.ai/) format. ONNX is an open format you can use to interchange models between various [machine learning frameworks and tools](https://onnx.ai/supported-tools).
+Machine learning in Azure SQL Edge supports models in the [Open Neural Network Exchange (ONNX)](https://onnx.ai/) format. ONNX is an open format you can use to interchange models between various [machine learning frameworks and tools](https://onnx.ai/supported-tools).
 
 ## Overview
 
@@ -50,4 +50,4 @@ The model inputs should be structured so that each input to the model correspond
 ## Next steps
 
 - [Deploy SQL Edge through Azure portal](deploy-portal.md)
-- [Deploy an ONNX model on Azure SQL Edge (Preview) ](deploy-onnx.md)
+- [Deploy an ONNX model on Azure SQL Edge ](deploy-onnx.md)

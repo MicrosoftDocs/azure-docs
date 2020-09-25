@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/03/2019
+ms.date: 09/16/2020
 ms.author: kenwith
 ---
 
@@ -311,6 +311,7 @@ Selecting this option will effectively force a resynchronization of all users wh
 - The Azure AD provisioning service does not support provisioning null values.
 - They primary key, typically "ID", should not be included as a target attribute in your attribute mappings. 
 - The role attribute typically needs to be mapped using an expression, rather than a direct mapping. See section above for more details on role mapping. 
+- While you can disable groups from your mappings, disabling users is not supported. 
 
 ## Next steps
 

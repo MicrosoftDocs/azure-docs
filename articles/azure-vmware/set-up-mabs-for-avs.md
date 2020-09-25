@@ -7,7 +7,7 @@ ms.date: 06/09/2020
 
 # Set up Azure Backup Server for Azure VMware Solution
 
-Azure Backup Server is a robust enterprise backup and recovery system that contributes to your business continuity and disaster recovery (BCDR) strategy. During the Azure VMware Solution preview, you can configure only virtual machine (VM)-level backup by using Azure Backup Server. 
+Azure Backup Server is a robust enterprise backup and recovery system that contributes to your business continuity and disaster recovery (BCDR) strategy. During the  Azure VMware Solution, you can configure only virtual machine (VM)-level backup by using Azure Backup Server. 
 
 Azure Backup Server can store backup data to:
 
@@ -29,7 +29,7 @@ In this article, we help you prepare your Azure VMware Solution environment to b
 - **Agentless backup:** Azure Backup Server doesn't require an agent to be installed on the vCenter or ESXi server to back up the virtual machine. Instead, just provide the IP address or fully qualified domain name (FQDN) and the sign-in credentials used to authenticate the VMware server with Azure Backup Server.
 - **Cloud-integrated backup:** Azure Backup Server protects workloads to disk and the cloud. The backup and recovery workflow of Azure Backup Server helps you manage long-term retention and offsite backup.
 - **Detect and protect VMs managed by vCenter:** Azure Backup Server detects and protects VMs deployed on a vCenter or ESXi server. Azure Backup Server also detects VMs managed by vCenter so that you can protect large deployments.
-- **Folder-level autoprotection:** vCenter lets you organize your VMs in VM folders. Azure Backup Server detects these folders, and you can use it to protect VMs at the folder level, which includes all subfolders. When protecting folders, Azure Backup Server not only protects the VMs in that folder but also protects VMs added later. Azure Backup Server detects new VMs daily and protects them automatically. As you organize your VMs in recursive folders, Azure Backup Server automatically detects and protects the new VMs deployed in the recursive folders.
+- **Folder-level autoprotection:** vCenter lets you organize your VMs in VM folders. Azure Backup Server detects these folders. You can use it to protect VMs at the folder level, which includes all subfolders. When protecting folders, Azure Backup Server not only protects the VMs in that folder but also protects VMs added later. Azure Backup Server detects new VMs daily and protects them automatically. As you organize your VMs in recursive folders, Azure Backup Server automatically detects and protects the new VMs deployed in the recursive folders.
 - **Azure Backup Server continues to protect vMotioned VMs within the cluster:** As VMs are vMotioned for load balancing within the cluster, Azure Backup Server automatically detects and continues VM protection.
 - **Recover necessary files faster:** Azure Backup Server can recover files or folders from a Windows VM without recovering the entire VM.
 
@@ -63,7 +63,7 @@ Ensure that you [configure networking for your VMware private cloud in Azure](tu
 
 ### Determine the size of the virtual machine
 
-You must create a Windows virtual machine in the virtual network that you created in the previous step. When you choose a server for running Azure Backup Server, start with a gallery image of Windows Server 2019 Datacenter. The tutorial [Create your first Windows virtual machine in the Azure portal](../virtual-machines/windows/quick-create-portal.md) gets you started with the recommended VM in Azure, even if you've never used Azure.
+Create a Windows virtual machine in the virtual network that you created in the previous step. When you choose a server for running Azure Backup Server, start with a gallery image of Windows Server 2019 Datacenter. The tutorial [Create your first Windows virtual machine in the Azure portal](../virtual-machines/windows/quick-create-portal.md) gets you started with the recommended VM in Azure, even if you've never used Azure.
 
 The following table summarizes the maximum number of protected workloads for each Azure Backup Server virtual machine size. The information is based on internal performance and scale tests with canonical values for the workload size and churn. The actual workload size can be larger but should be accommodated by the disks attached to the Azure Backup Server virtual machine.
 
@@ -178,8 +178,6 @@ The storage replication option lets you choose between geo-redundant storage (th
 1. Under **Settings**, select **Properties**. Under **Backup Configuration**, select **Update**.
 
 1. Select the storage replication type, and select **Save**.
-
-   ![Set storage configuration for new vault.](../backup/media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
 
 ## Download and install the software package
 
@@ -304,7 +302,7 @@ If you downloaded the software package to a different server, copy the files to 
    * **Database**: **DatabaseName** should be **ReportServer$\<SQLInstanceName>**.
    * **Web Portal URL**: **Virtual Directory** should be **Reports_\<SQLInstanceName>**.
 
-   [Learn more](/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017) about SSRS configuration.
+   Learn more about [SSRS configuration](/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode).
 
    > [!NOTE]
    > [Microsoft Online Services Terms](https://www.microsoft.com/licensing/product-licensing/products) (OST) governs the licensing for SQL Server used as the database for Azure Backup Server. According to OST, SQL Server bundled with Azure Backup Server can be used only as the database for Azure Backup Server.

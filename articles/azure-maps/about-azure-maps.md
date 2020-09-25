@@ -227,10 +227,8 @@ Verify that the location of your current IP address is in a supported country/re
 
 Try a sample app that showcases Azure Maps:
 
-> [!div class="nextstepaction"]
-> [Quickstart: Create a web app](quick-demo-map-app.md)
+[Quickstart: Create a web app](quick-demo-map-app.md)
 
 Stay up to date on Azure Maps:
 
-> [!div class="nextstepaction"]
-> [Azure Maps blog](https://azure.microsoft.com/blog/topics/azure-maps/)
+[Azure Maps blog](https://azure.microsoft.com/blog/topics/azure-maps/)
