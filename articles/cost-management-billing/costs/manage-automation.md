@@ -229,7 +229,7 @@ There are many ways to configure a budget in your Azure environment. Consider yo
 - **Time Period** - Represents how long your budget is valid. The budget actively monitors and alerts you only while it remains valid.
 - **Notifications**
   - Contact Emails – The email addresses receive alerts when a budget accrues costs and exceeds defined thresholds.
-  - Contact Roles - All users who have a matching Azure RBAC role on the given scope receive email alerts with this option. For example, Subscription Owners could receive an alert for a budget created at the subscription scope.
+  - Contact Roles - All users who have a matching Azure role on the given scope receive email alerts with this option. For example, Subscription Owners could receive an alert for a budget created at the subscription scope.
   - Contact Groups - The budget calls the configured action groups when an alert threshold is exceeded.
 - **Cost dimension filters** - The same filtering you can do in Cost Analysis or the Query API can also be done on your budget. Use this filter to reduce the range of costs that you're monitoring with the budget.
 
