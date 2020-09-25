@@ -191,7 +191,7 @@ You can use more than one feature to describe a trait or concept. A common pairi
 * A phrase list feature: You can use multiple phrase lists as features to the same model.
 * A model as a feature: prebuilt entity, regular expression entity, list entity. Use only one model as a feature because these are text-matching models. Having more than one text-matching model as a feature doesn't help with prediction.
 
-### Travel app example of ticket-booking entity features
+### Example: ticket-booking entity features for a travel app  
 
 As a first example, consider an app for booking a flight with a flight-reservation _intent_ and a ticket-booking _entity_. The ticket-booking entity captures the information to book a airplane ticket in a reservation system. This example is meant as an illustration of features, and not meant to be a complete or exact example.
 
