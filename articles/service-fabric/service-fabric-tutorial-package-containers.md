@@ -273,7 +273,7 @@ Open a browser and navigate to Service Fabric Explorer at http:\//containertestc
 
 In order to connect to the running application, open a web browser and go to the cluster url - for example http:\//containertestcluster.eastus.cloudapp.azure.com:80. You should see the Voting application in the web UI.
 
-![votingapp][votingapp]
+![Screenshot shows the Azure Voting App with buttons for Cats, Dogs, and Reset, and totals.][votingapp]
 
 ## Clean up
 
