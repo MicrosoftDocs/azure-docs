@@ -30,7 +30,7 @@ Here are some use cases for Connection Monitor (Preview):
 - Your hybrid application needs connectivity to an Azure Storage endpoint. Your on-premises site and your Azure application connect to the same Azure Storage endpoint. You want to compare the latencies of the on-premises site to the latencies of the Azure application.
 - You want to check the connectivity between your on-premises setups and the Azure VMs that host your cloud application.
 
-In its preview phase, Connection Monitor combines the best of two features: the Network Watcher [Connection Monitor](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#monitor-communication-between-a-virtual-machine-and-an-endpoint) feature and the Network Performance Monitor (NPM) [Service Connectivity Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-service-connectivity) feature.
+In its preview phase, Connection Monitor combines the best of two features: the Network Watcher [Connection Monitor](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#monitor-communication-between-a-virtual-machine-and-an-endpoint) feature and the Network Performance Monitor (NPM) [Service Connectivity Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-service-connectivity), [ExpressRoute Monitoring](https://docs.microsoft.com/en-us/azure/expressroute/how-to-npm), and [Performance Monitoring](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/network-performance-monitor-performance-monitor) feature.
 
 Here are some benefits of Connection Monitor (Preview):
 
@@ -152,7 +152,7 @@ After you create a connection monitor, sources check connectivity to destination
 
 Based on the protocol that you chose in the test configuration, Connection Monitor (Preview) runs a series of checks for the source-destination pair. The checks run according to the test frequency that you chose.
 
-If you use HTTP, the service calculates the number of HTTP responses that returned a response code. The result determines the percentage of failed checks. To calculate RTT, the service measures the time between an HTTP call and the response.
+If you use HTTP, the service calculates the number of HTTP responses that returned a valid response code. Valid response codes can be set using Powershell and CLI. The result determines the percentage of failed checks. To calculate RTT, the service measures the time between an HTTP call and the response.
 
 If you use TCP or ICMP, the service calculates the packet-loss percentage to determine the percentage of failed checks. To calculate RTT, the service measures the time taken to receive the acknowledgment (ACK) for the packets that were sent. If you enabled traceroute data for your network tests, you can see hop-by-hop loss and latency for your on-premises network.
 
@@ -201,19 +201,19 @@ You can filter a list based on:
 For example, to look at all tests in Connection Monitor (Preview) where the source IP is 10.192.64.56:
 1. Change the view to **Test**.
 1. In the search field, type *10.192.64.56*
-1. In the drop-down list in top level filter, select **Sources**.
+1. In **Scope** in top level filter, select **Sources**.
 
 To show only failed tests in Connection Monitor (Preview) where the source IP is 10.192.64.56:
 1. Change the view to **Test**.
 1. For the state-based filter, select **Fail**.
 1. In the search field, type *10.192.64.56*
-1. In the drop-down list in top level filter, select **Sources**.
+1. In **Scope** in top level filter, select **Sources**.
 
 To show only failed tests in Connection Monitor (Preview) where the destination is outlook.office365.com:
 1. Change view to **Test**.
 1. For the state-based filter, select **Fail**.
 1. In the search field, enter *outlook.office365.com*
-1. In the drop-down list in top level filter, select **Destinations**.
+1. In **Scope** in top level filter, select **Destinations**.
 
    ![Screenshot showing a view that's filtered to show only failed tests for the Outlook.Office365.com destination](./media/connection-monitor-2-preview/tests-view.png)
 
@@ -285,12 +285,13 @@ When you use metrics, set the resource type as Microsoft.Network/networkWatchers
 | ChecksFailedPercent (Preview) | % Checks Failed (Preview) | Percentage | Average | Percentage of failed checks for a test. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protocol <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Region |
 | RoundTripTimeMs (Preview) | Round-trip Time (ms) (Preview) | Milliseconds | Average | RTT for checks sent between source and destination. This value isn't averaged. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protocol <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Region |
 
-#### Metric alerts in Azure Monitor
+#### Metric based alerts for Connection Monitor
 
 You can create metric alerts on connection monitors using the methods below 
 
 1. From Connection Monitor(Preview), during creation of Connection Monitor [using Azure portal](connection-monitor-preview-create-using-portal.md#) 
 1. From Connection Monitor (Preview), using "Configure Alerts" in the dashboard 
+1. From Azure Monitor - To create an alert in Azure Monitor: 
     1. Choose the connection monitor resource that you created in Connection Monitor (Preview).
     1. Ensure that **Metric** shows up as signal type for the connection monitor.
     1. In **Add Condition**, for the **Signal Name**, select **ChecksFailedPercent(Preview)** or **RoundTripTimeMs(Preview)**.
@@ -305,7 +306,7 @@ You can create metric alerts on connection monitors using the methods below
     1. Create the alert rule.
 
    ![Screenshot showing the Create rule area in Azure Monitor; "Source address" and "Source endpoint name" are highlighted](./media/connection-monitor-2-preview/mdm-alerts.jpg)
-1. From Azure Monitor
+
 ## Diagnose issues in your network
 
 Connection Monitor (Preview) helps you diagnose issues in your connection monitor and your network. Issues in your hybrid network are detected by the Log Analytics agents that you installed earlier. Issues in Azure are detected by the Network Watcher extension. 
