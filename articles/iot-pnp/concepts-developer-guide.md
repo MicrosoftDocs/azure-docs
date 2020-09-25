@@ -50,6 +50,16 @@ The model ID announcement has been added to the next versions of the SDKs
 |Node|1.17.0|
 |Python|2.1.4|
 
+## DPS payload
+
+Devices using the [Device Provisioning Service (DPS)](../iot-dps/about-iot-dps.md) can include the `modelId` to be used during the provisioning process using the following JSON payload.
+
+```json
+{
+    "modelId" : "dtmi:com:example:Thermostat;1"
+}
+```
+
 ## Implement telemetry, properties, and commands
 
 As described in [Understand components in IoT Plug and Play models](concepts-components.md), device builders must decide if they want to use components to describe their devices. When using components, devices must follow the rules described in this section.

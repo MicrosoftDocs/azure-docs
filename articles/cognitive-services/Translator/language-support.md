@@ -13,7 +13,7 @@ ms.author: swmachan
 ---
 # Language and region support for text and speech translation
 
-Use Translator to translate to and from any of the 60+ text translation languages. Neural Machine Translation (NMT) is the new standard for high-quality AI-powered machine translations and is available as the default using V3 of Translator when a neural system is available.
+Use Translator to translate to and from any of the 70+ text translation languages. Neural Machine Translation (NMT) is the new standard for high-quality AI-powered machine translations and is available as the default using V3 of Translator when a neural system is available.
 
 You can also use Translator in conjunction with Custom Translator to build neural translation systems that understand the terminology used in your own business and industry, and with Microsoft Speech Service to add speech translation to your app.
 
@@ -41,6 +41,7 @@ Translator supports the following languages for text to text translation.
 |Chinese Traditional|	`zh-Hant`		|
 |Croatian|	`hr`	|
 |Czech|	`cs`	|
+|Dari|	`prs`	|
 |Danish|	`da`		|
 |Dutch|	`nl`|
 |English|	`en`	|
@@ -68,6 +69,8 @@ Translator supports the following languages for text to text translation.
 |Klingon|	`tlh-Latn`	|
 |Klingon (plqaD)|	`tlh-Piqd`	|
 |Korean	|`ko`	|
+|Kurdish (Central)	|`ku`	|
+|Kurdish (Northern)	|`kmr`	|
 |Latvian|	`lv`	|
 |Lithuanian|	`lt`	|
 |Malagasy|	`mg`	|
@@ -77,6 +80,8 @@ Translator supports the following languages for text to text translation.
 |Maori| `mi`  |
 |Marathi| `mr`  |
 |Norwegian|	`nb`	|
+|Odia|	`or`	|
+|Pashto|	`ps`	|
 |Persian|	`fa`	|
 |Polish|	`pl`	|
 |Portuguese (Brazil)|	`pt-br`	|
@@ -144,11 +149,13 @@ Translator detects the following languages for translation and transliteration.
 |Kiswahili|	`sw`	|
 |Klingon|	`tlh-Latn`	|
 |Korean	|`ko`	|
+|Kurdish (Central)	|`ku-Arab`	|
 |Latvian|	`lv`	|
 |Lithuanian|	`lt`	|
 |Malay|	`ms`		|
 |Maltese|	`mt`	|
 |Norwegian|	`nb`	|
+|Pashto|	`ps`	|
 |Persian|	`fa`	|
 |Polish|	`pl`	|
 |Portuguese (Brazil)|	`pt-br`	|
@@ -185,19 +192,19 @@ The Transliterate method supports the following languages. In the "To/From", "<-
 | Chinese (Simplified) | `zh-Hans` | Chinese Simplified `Hans`| <--> | Chinese Traditional `Hant`|
 | Chinese (Traditional) | `zh-Hant` | Chinese Traditional `Hant`| <--> | Latin `Latn` |
 | Chinese (Traditional) | `zh-Hant` | Chinese Traditional `Hant`| <--> | Chinese Simplified `Hans` |
-| Gujarati | `gu`  | Gujarati `Gujr` | --> | Latin `Latn` |
+| Gujarati | `gu`  | Gujarati `Gujr` | <--> | Latin `Latn` |
 | Hebrew | `he` | Hebrew `Hebr` | <--> | Latin `Latn` |
 | Hindi | `hi` | Devanagari `Deva` | <--> | Latin `Latn` |
 | Japanese | `ja` | Japanese `Jpan` | <--> | Latin `Latn` |
-| Kannada | `kn` | Kannada `Knda` | --> | Latin `Latn` |
-| Malayalam | `ml` | Malayalam `Mlym` | --> | Latin `Latn` |
-| Marathi | `mr` | Devanagari `Deva` | --> | Latin `Latn` |
+| Kannada | `kn` | Kannada `Knda` | <--> | Latin `Latn` |
+| Malayalam | `ml` | Malayalam `Mlym` | <--> | Latin `Latn` |
+| Marathi | `mr` | Devanagari `Deva` | <--> | Latin `Latn` |
 | Odia | `or` | Oriya `Orya` | <--> | Latin `Latn` |
 | Punjabi | `pa` | Gurmukhi `Guru`  | <--> | Latin `Latn`  |
 | Serbian (Cyrillic) | `sr-Cyrl` | Cyrillic `Cyrl`  | --> | Latin `Latn` |
 | Serbian (Latin) | `sr-Latn` | Latin `Latn` | --> | Cyrillic `Cyrl`|
-| Tamil | `ta` | Tamil `Taml` | --> | Latin `Latn` |
-| Telugu | `te` | Telugu `Telu` | --> | Latin `Latn` |
+| Tamil | `ta` | Tamil `Taml` | <--> | Latin `Latn` |
+| Telugu | `te` | Telugu `Telu` | <--> | Latin `Latn` |
 | Thai | `th` | Thai `Thai` | --> | Latin `Latn` |
 
 ### Dictionary
@@ -271,10 +278,12 @@ The following languages are available for customization to or from English using
 
 | Language    | Language code |
 |:----------- |:-------------:|
+|Afrikaans|	`af`|
 | Arabic       | `ar`          |
 | Bangla      | `bn`          |
 | Bosnian (Latin)      | `bs`          |
 | Bulgarian      | `bg`          |
+|Catalan|	`ca`	|
 | Chinese Simplified      | `zh-Hans`          |
 |Chinese Traditional|	`zh-Hant`	|
 | Croatian      | `hr`          |
@@ -283,10 +292,13 @@ The following languages are available for customization to or from English using
 | Dutch      | `nl`          |
 | English    | `en`     |
 | Estonian      | `et`          |
+|Fijian|	`fj`	|
+|Filipino|	`fil`	|
 | Finnish      | `fi`          |
 | French      | `fr`          |
 | German      | `de`          |
 | Greek      | `el`          |
+| Gujarati|	`gu`	|
 | Hebrew      | `he`          |
 | Hindi      | `hi`          |
 | Hungarian      | `hu`          |
@@ -295,16 +307,21 @@ The following languages are available for customization to or from English using
 | Irish | `ga`	|
 | Italian      | `it`          |
 | Japanese      | `ja`          |
+|Kannada|`kn`|
 | Kiswahili|	`sw`	|
 | Korean      | `ko`          |
 | Latvian      | `lv`          |
 | Lithuanian      | `lt`          |
 | Malagasy|	`mg`	|
+| Malay|	`ms`		|
+|Maltese|	`mt`	|
 | Maori| `mi`  |
+| Marathi| `mr`  |
 | Norwegian      | `nb`          |
 | Persian      | `fa`          |
 | Polish      | `pl`          |
 | Portuguese (Brazil) | `pt-br` |
+| Punjabi|`pa`|
 | Romanian      | `ro`          |
 | Russian      | `ru`          |
 | Samoan|	`sm`	|
@@ -313,9 +330,12 @@ The following languages are available for customization to or from English using
 | Slovenian      | `sl`          |
 | Spanish      | `es`          |
 | Swedish      | `sv`          |
+|Tahitian|	`ty`	|
 | Thai      | `th`          |
+|Tongan|	`to`	|
 | Turkish      | `tr`          |
 | Ukrainian      | `uk`          |
+| Urdu|	`ur`	|
 | Vietnamese      | `vi`          |
 | Welsh | `cy` |
 

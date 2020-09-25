@@ -32,6 +32,8 @@
       href: tutorial-micro-fulfillment-center.md 
   - name : Video analytics - object and motion detection
     items:
+    - name: 0 - Deploy object and motion detection application
+      href: tutorial-video-analytics-deploy.md
     - name: 1 - Create a video analytics application
       href: tutorial-video-analytics-create-app.md
     - name: 2 - Configure an IoT Edge device
@@ -64,9 +66,7 @@
       href: ../core/concepts-app-templates.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
 - name: How-to guides
   items:
-    - name: Deploy object and motion detection application
-      href: howto-deploy-video-analytics-template.md
-    - name: Connect devices
+    - name: Connect and develop devices
       items:
         - name: Prepare and connect a Rigado Cascade 500
           href: ../core/howto-connect-rigado-cascade-500.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json

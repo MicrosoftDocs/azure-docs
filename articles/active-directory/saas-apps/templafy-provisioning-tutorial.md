@@ -2,17 +2,12 @@
 title: 'Tutorial: Configure Templafy for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Templafy.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-
-ms.assetid: 230877d5-e466-4449-82c8-88cfa42f6501
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
@@ -58,11 +53,11 @@ Before configuring Templafy for automatic user provisioning with Azure AD, you w
 
 2. Click on **Authentication Method**.
 
-	![Templafy Add SCIM](media/templafy-provisioning-tutorial/image01.png)
+	![Screenshot of the Templafy administration section with the Authentication method option called out.](media/templafy-provisioning-tutorial/image01.png)
 
 3. Copy the **SCIM Api Key** value. This value will be entered in the **Secret Token** field in the Provisioning tab of your Templafy application in the Azure portal.
 
-	![Templafy Add SCIM](media/templafy-provisioning-tutorial/image02.png)
+	![A screenshot of the S C I M A P I key.](media/templafy-provisioning-tutorial/image02.png)
 
 ## Add Templafy from the gallery
 
@@ -105,11 +100,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 3. Select the **Provisioning** tab.
 
-	![Provisioning tab](common/provisioning.png)
+	![Screenshot of the Manage options with the Provisioning option called out.](common/provisioning.png)
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-	![Provisioning tab](common/provisioning-automatic.png)
+	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
 5. Under the **Admin Credentials** section, input `https://scim.templafy.com/scim` in **Tenant URL**. Input the **SCIM API Key** value retrieved earlier in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to Templafy. If the connection fails, ensure your Templafy account has Admin permissions and try again.
 

@@ -5,13 +5,12 @@ description: In this tutorial, you'll create a Python application that starts th
 services: cognitive-services
 author: dylankil
 manager: guillasi
-
 ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: tutorial
-ms.date: 01/14/2020
+ms.date: 09/11/2020
 ms.author: dylankil
-ms.custom: devx-track-python
+ms.custom: "devx-track-python"
 #Customer intent: As a developer, I want to learn more about the Immersive Reader SDK so that I can fully utilize all that the SDK has to offer.
 ---
 
@@ -24,7 +23,7 @@ In the [overview](./overview.md), you learned about what the Immersive Reader is
 > * Acquire an access token.
 > * Start the Immersive Reader with sample content.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
 ## Prerequisites
 

@@ -10,7 +10,7 @@ ms.devlang:
 ms.topic: conceptual
 author: sashan
 ms.author: sashan
-ms.reviewer: carlrab, sashan
+ms.reviewer: sstein, sashan
 ms.date: 08/12/2020
 ---
 
@@ -86,7 +86,7 @@ The zone redundant version of the high availability architecture is illustrated 
 
 ## Accelerated Database Recovery (ADR)
 
-[Accelerated Database Recovery (ADR)](../accelerated-database-recovery.md) is a new database engine feature that greatly improves database availability, especially in the presence of long running transactions. ADR is currently available for Azure SQL Database, Azure SQL Managed Instance, and Azure SQL Data Warehouse.
+[Accelerated Database Recovery (ADR)](../accelerated-database-recovery.md) is a new database engine feature that greatly improves database availability, especially in the presence of long running transactions. ADR is currently available for Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse Analytics (formerly SQL Data Warehouse).
 
 ## Testing application fault resiliency
 
@@ -112,4 +112,5 @@ Azure SQL Database and Azure SQL Managed Instance feature a built-in high availa
 - Learn about [Azure Availability Zones](../../availability-zones/az-overview.md)
 - Learn about [Service Fabric](../../service-fabric/service-fabric-overview.md)
 - Learn about [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md)
+- Learn [How to initiate a manual failover on SQL Managed Instance](../managed-instance/user-initiated-failover.md)
 - For more options for high availability and disaster recovery, see [Business Continuity](business-continuity-high-availability-disaster-recover-hadr-overview.md)

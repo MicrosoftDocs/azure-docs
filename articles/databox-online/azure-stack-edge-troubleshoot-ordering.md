@@ -1,18 +1,18 @@
 ---
-title: Use the Azure portal to troubleshoot Azure Stack Edge ordering issues | Microsoft Docs 
-description: Describes how to troubleshoot Azure Stack Edge ordering issues.
+title: Use the Azure portal to troubleshoot Azure Stack Edge Pro ordering issues | Microsoft Docs 
+description: Describes how to troubleshoot Azure Stack Edge Pro ordering issues.
 services: databox
-author: priestlg
+author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
 ms.date: 08/11/2020
-ms.author: v-grpr
+ms.author: alkohli
 ---
-# Troubleshoot your Azure Stack Edge ordering issues
+# Troubleshoot your Azure Stack Edge Pro ordering issues
 
-This article describes how to troubleshoot Azure Stack Edge ordering issues.
+This article describes how to troubleshoot Azure Stack Edge Pro ordering issues.
 
 In this tutorial, you learn how to:
 
@@ -54,7 +54,7 @@ For more information, see [Register resource providers](azure-stack-edge-manage-
 
 ## Microsoft.DataBoxEdge not registered for subscription
 
-**Error:** In Azure portal, you select a subscription to use for Azure Stack Edge or Data Box Gateway and get the following error:
+**Error:** In Azure portal, you select a subscription to use for Azure Stack Edge Pro or Data Box Gateway and get the following error:
 
 *Resource provider(s): Microsoft.DataBoxEdge are not registered for subscription &lt;subscription name&gt; and you don't have permissions to register a resource provider for subscription &lt;subscription name&gt;*.
 
@@ -70,4 +70,4 @@ For more information, see [Register resource providers](azure-stack-edge-manage-
 
 ## Next steps
 
-* Learn more about how to [Troubleshoot your Azure Stack Edge issues](azure-stack-edge-troubleshoot.md).
+* Learn more about how to [Troubleshoot your Azure Stack Edge Pro issues](azure-stack-edge-troubleshoot.md).

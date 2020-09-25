@@ -5,11 +5,11 @@ description: Azure SQL Database and Azure SQL Managed Instance automatically cre
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: backup-restore
-ms.custom: sqldbrb=2
+ms.custom: references_regions
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: mathoma, carlrab, danil
+ms.reviewer: mathoma, sstein, danil
 ms.date: 08/04/2020
 ---
 # Automated backups - Azure SQL Database & SQL Managed Instance
@@ -30,19 +30,24 @@ When you restore a database, the service determines which full, differential, an
 
 ### Backup storage redundancy
 
-> [!IMPORTANT]
-> Configurable storage redundancy for backups is currently only available for SQL Managed Instance, and can only be specified during the create managed instance process. Once the resource is provisioned, you can't change the backup storage redundancy option.
+By default, SQL Database and SQL Managed Instance store data in geo-redundant (RA-GRS) [storage blobs](../../storage/common/storage-redundancy.md) that are replicated to a [paired region](../../best-practices-availability-paired-regions.md). This helps to protect against outages impacting backup storage in the primary region and allow you to restore your server to a different region in the event of a disaster. 
 
-The option to configure backup storage redundancy provides the flexibility to choose between locally-redundant (LRS), zone-redundant (ZRS) or geo-redundant (RA-GRS) [storage blobs](../../storage/common/storage-redundancy.md). Storage redundancy mechanisms store multiple copies of your data so that it is protected from planned and unplanned events, including transient hardware failure, network or power outages, or massive natural disasters. This feature is currently only available for SQL Managed Instance.
+SQL Managed Instance introduces the ability to change the storage redundancy to either locally-redundant (LRS) or zone-redundant (ZRS) storage blobs to ensure that your data stays within the same region where your managed instance is deployed. Storage redundancy mechanisms store multiple copies of your data so that it is protected from planned and unplanned events, including transient hardware failure, network or power outages, or massive natural disasters. 
 
-RA-GRS storage blobs are replicated to a [paired region](../../best-practices-availability-paired-regions.md) to protect against outages impacting backup storage in the primary region and allow you to restore your server to a different region in the event of a disaster. 
+The option to configure backup storage redundancy provides the flexibility to choose between LRS, ZRS, or RA-GRS storage blobs for a SQL Managed Instance. Configure backup storage redundancy during the managed instance creation process as once the resource is provisioned, it is no longer possible to change the storage redundancy. (Zone-redundant storage (ZRS) is currently only available in [certain regions](../../storage/common/storage-redundancy.md#zone-redundant-storage)).
 
-Conversely, LRS and ZRS storage blobs ensure that your data stays within the same region where your SQL Database or SQL Managed Instance is deployed. Zone-redundant storage (ZRS) is currently only available in [certain regions](../../storage/common/storage-redundancy.md#zone-redundant-storage)).
 
 > [!IMPORTANT]
 > In SQL Managed Instance, the configured backup redundancy is applied to both short-term backup retention settings that are used for point in time restore (PITR) and long-term retention backups used for long-term backups (LTR).
 
+
+> [!NOTE]
+> Azure SQL Database Configurable Backup Storage Redundancy is currently available as a limited private preview for certain customers in Southeast Asia Azure region. If you would like to be considered for enrollment in this private preview, please contact [sqlbackuppreview@microsoft.com](mailto:sqlbackuppreview@microsoft.com). 
+
+If your data protection rules require that your backups are available for an extended time (up to 10 years), you can configure [long-term retention](long-term-retention-overview.md) for both single and pooled databases.
+
 ### Backup usage
+
 
 You can use these backups to:
 

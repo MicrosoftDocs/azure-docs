@@ -66,7 +66,6 @@ Azure Security Center analyzes the security state of your Azure resources. When 
 Only recommendations that are enabled in Security Policies are shown here.
 
 
-
 ## What triggers a security alert?
 Azure Security Center automatically collects, analyzes, and fuses log data from your Azure resources, the network, and partner solutions like antimalware and firewalls. When threats are detected, a security alert is created. Examples include detection of:
 
@@ -74,10 +73,6 @@ Azure Security Center automatically collects, analyzes, and fuses log data from 
 * Advanced malware detected using Windows error reporting
 * Brute force attacks against virtual machines
 * Security alerts from integrated partner security solutions such as Anti-Malware or Web Application Firewalls
-
-
-## Why did Secure Score values change? <a name="secure-score-faq"></a>
-As of February 2019, Security Center adjusted the score of a few recommendations, in order to better fit their severity. As a result of this adjustment, there may be changes in overall Secure Score values.  For more information about secure score, see [Enhanced secure score in Azure Security Center](secure-score-security-controls.md).
 
 
 ## What's the difference between threats detected and alerted on by Microsoft Security Response Center versus Azure Security Center?

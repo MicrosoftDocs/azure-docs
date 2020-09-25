@@ -10,6 +10,7 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/20/2019
 ms.author: trbye
+ms.custom: devx-track-csharp
 ---
 
 # Custom keyword basics
@@ -18,7 +19,7 @@ In this article, you learn the basics of working with custom keywords, using Spe
 
 ## Prerequisites
 
-The steps in this article require a Speech subscription, and the Speech SDK. If you don't already have a subscription, [try the Speech service for free](get-started.md). To get the SDK, see the [install guide](quickstarts/setup-platform.md) for your platform.
+The steps in this article require a Speech subscription, and the Speech SDK. If you don't already have a subscription, [try the Speech service for free](overview.md#try-the-speech-service-for-free). To get the SDK, see the [install guide](quickstarts/setup-platform.md) for your platform.
 
 ## Create a keyword in Speech Studio
 

@@ -9,6 +9,7 @@ ms.author: rgarcia
 ms.date: 02/22/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
+ms.custom: devx-track-csharp
 ---
 # Logging and diagnostics in Azure Spatial Anchors
 

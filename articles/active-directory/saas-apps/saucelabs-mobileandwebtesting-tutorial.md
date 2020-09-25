@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Sauce Labs - Mobile and Web Testing | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Sauce Labs - Mobile and Web Testing.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 3142d947-70e5-4345-8a30-b92d8715fac9
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/22/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Sauce Labs - Mobile and Web Testing
 

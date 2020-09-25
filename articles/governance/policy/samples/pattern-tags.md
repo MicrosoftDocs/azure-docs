@@ -1,7 +1,7 @@
 ---
 title: "Pattern: Using tags in a policy definition"
 description: This Azure Policy pattern provides examples of how to add parameterized tags or inherit tags from a resource group in a policy definition.
-ms.date: 05/20/2020
+ms.date: 08/17/2020
 ms.topic: sample
 ---
 # Azure Policy pattern: tags

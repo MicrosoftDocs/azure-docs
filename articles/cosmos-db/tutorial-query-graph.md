@@ -8,6 +8,7 @@ ms.subservice: cosmosdb-graph
 ms.topic: tutorial
 ms.date: 12/03/2018
 ms.reviewer: sngun
+ms.custom: devx-track-csharp
 ---
 
 # Tutorial: Query Azure Cosmos DB Gremlin API by using Gremlin

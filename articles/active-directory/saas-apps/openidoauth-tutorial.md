@@ -2,22 +2,15 @@
 title: 'Configure an OpenID/OAuth application from the Azure AD app gallery | Microsoft Docs'
 description: Steps to configure an OpenID/OAuth application from the Azure AD app gallery.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-
-ms.assetid: eedebb76-e78c-428f-9cf0-5891852e79fb
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ---
 # Configure an OpenID/OAuth application from the Azure AD app gallery
@@ -77,13 +70,13 @@ By default, Azure AD promotes multitenant applications. They're easily accessed 
 ## Consent framework
 
 You can use the Azure AD consent framework to develop multitenant web and native client applications. These applications allow sign-in by user accounts from an Azure AD tenant, different from the one where the application is registered. They might also need to access web APIs such as:
-- The Microsoft Graph API, to access Azure AD, Intune, and services in Office 365.
+- The Microsoft Graph API, to access Azure AD, Intune, and services in Microsoft 365.
 - Other Microsoft services' APIs.
 - Your own web APIs.
 
 The framework is based on a user or an administrator giving consent to an application that asks to be registered in their directory. The registration might involve accessing directory data. After consent is given, the client application can call the Microsoft Graph API on behalf of the user, and use the information as needed.
 
-The [Microsoft Graph API](https://developer.microsoft.com/graph/) provides access to data in Office 365, like:
+The [Microsoft Graph API](https://developer.microsoft.com/graph/) provides access to data in Microsoft 365, like:
 
 - Calendars and messages from Exchange.
 - Sites and lists from SharePoint.
@@ -122,7 +115,7 @@ The following steps show you how the consent experience works for the applicatio
 
 3. If the user is not already authenticated, the Azure AD /authorize endpoint prompts for sign-in.
 
-    ![Authentication](./media/openidoauth-tutorial/authentication.png)
+    ![A Screenshot of the sign-in prompt for the account](./media/openidoauth-tutorial/authentication.png)
 
 4. After the user has signed in, Azure AD determines if the user needs to be shown a consent page. This determination is based on whether the user (or their organization's administrator) has already granted the application consent.
 

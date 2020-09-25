@@ -1,6 +1,6 @@
 ---
 title: Disaster recovery guidance for Azure Data Lake Storage Gen1 | Microsoft Docs
-description: Guidance on high availability and disaster recovery for Azure Data Lake Storage Gen1
+description: Learn how to further protect your data from region-wide outages or accidental deletions beyond the locally redundant storage of Azure Data Lake Storage Gen1.
 
 author: twooley
 ms.service: data-lake-store

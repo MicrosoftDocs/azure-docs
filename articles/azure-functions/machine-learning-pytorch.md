@@ -6,7 +6,7 @@ author: gvashishtha
 ms.topic: tutorial
 ms.date: 02/28/2020
 ms.author: gopalv
-ms.custom: devx-track-python
+ms.custom: devx-track-python, devx-track-azurepowershell
 
 ---
 

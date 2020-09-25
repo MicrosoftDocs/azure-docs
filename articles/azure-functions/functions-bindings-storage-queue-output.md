@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
-ms.custom: cc996988-fb4f-47, devx-track-python
+ms.custom: "devx-track-csharp, cc996988-fb4f-47, devx-track-python"
 ---
 
 # Azure Queue storage output bindings for Azure Functions
@@ -361,7 +361,7 @@ The output queue item is available via `context.bindings.<NAME>` where `<NAME>` 
 
 # [Python](#tab/python)
 
-There are two options for outputting an Event Hub message from a function:
+There are two options for outputting an Queue message from a function:
 
 - **Return value**: Set the `name` property in *function.json* to `$return`. With this configuration, the function's return value is persisted as a Queue storage message.
 
@@ -369,11 +369,11 @@ There are two options for outputting an Event Hub message from a function:
 
 # [Java](#tab/java)
 
-There are two options for outputting an Event Hub message from a function by using the [QueueOutput](/java/api/com.microsoft.azure.functions.annotation.queueoutput) annotation:
+There are two options for outputting an Queue message from a function by using the [QueueOutput](/java/api/com.microsoft.azure.functions.annotation.queueoutput) annotation:
 
-- **Return value**: By applying the annotation to the function itself, the return value of the function is persisted as an Event Hub message.
+- **Return value**: By applying the annotation to the function itself, the return value of the function is persisted as an Queue message.
 
-- **Imperative**: To explicitly set the message value, apply the annotation to a specific parameter of the type [`OutputBinding<T>`](/java/api/com.microsoft.azure.functions.outputbinding), where `T` is a POJO or any native Java type. With this configuration, passing a value to the `setValue` method persists the value as an Event Hub message.
+- **Imperative**: To explicitly set the message value, apply the annotation to a specific parameter of the type [`OutputBinding<T>`](/java/api/com.microsoft.azure.functions.outputbinding), where `T` is a POJO or any native Java type. With this configuration, passing a value to the `setValue` method persists the value as an Queue message.
 
 ---
 

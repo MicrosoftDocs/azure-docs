@@ -18,7 +18,7 @@ Visual Studio Code integrates with [Azure Functions Core Tools](../articles/azur
 
 1. With Core Tools running, navigate to the following URL to execute a GET request, which includes `?name=Functions` query string.
 
-    <http://localhost:7071/api/HttpExample?name=Functions>
+    `http://localhost:7071/api/HttpExample?name=Functions`
 
 1. A response is returned, which looks like the following in a browser:
 

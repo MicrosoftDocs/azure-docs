@@ -15,6 +15,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/15/2017
 ms.reviewer: dx@sendgrid.com
+ms.custom: devx-track-dotnet
 
 ---
 # How to Send Email Using SendGrid with Azure

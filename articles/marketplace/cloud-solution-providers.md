@@ -11,7 +11,7 @@ ms.date: 07/14/2020
 
 # Cloud Solution Provider program
 
-This article explains how to configure your offer to be available to the Cloud Solution Provider (CSP) program. In addition to publishing your offers through [commercial marketplace web storefronts](comparing-appsource-azure-marketplace.md), you can also sell through the CSP program to reach millions of qualified Microsoft customers that the program serves.
+This article explains how to configure your offer to be available to the Cloud Solution Provider (CSP) program. In addition to publishing your offers through [commercial marketplace online stores](comparing-appsource-azure-marketplace.md), you can also sell through the CSP program to reach millions of qualified Microsoft customers that the program serves.
 
 You can configure new or existing offers for availability in the CSP program on an opt-in basis, which allows CSP partners sell your products and create bundled solutions for customers.
 
@@ -161,7 +161,7 @@ If your offer is currently **Option 3: No partners in the CSP program**, you can
 
 ## Sharing sales and support materials with partners in the CSP program
 
-To help partners in the Cloud Solution Provider program most effectively represent your offer and engage with your organization, you must submit sales and support materials that will be available to the resellers. These resources will not be exposed to customers in the marketplace storefronts.
+To help partners in the Cloud Solution Provider program most effectively represent your offer and engage with your organization, you must submit sales and support materials that will be available to the resellers. These resources will not be exposed to customers in the online stores.
 
 ### Partner Center CSP channel
 

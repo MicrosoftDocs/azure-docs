@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 08/07/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
 
@@ -20,7 +20,7 @@ For more information about virtual hub routing, see [About virtual hub routing](
 
 ## <a name="design"></a>Design
 
-We can use a connectivity matrix to summarize the requirements of this scenario. In the matrix, each cell describes whether a Virtual WAN connection (the "From" side of the flow, the row headers in the table) learns a destination prefix (the "To" side of the flow, the column headers in italics in the table) for a specific traffic flow.
+We can use a connectivity matrix to summarize the requirements of this scenario. In the matrix, each cell describes whether a Virtual WAN connection (the "From" side of the flow, the row headers in the table) learns a destination prefix (the "To" side of the flow, the column headers in italics in the table) for a specific traffic flow. An "X" means that connectivity is provided by Virtual WAN:
 
 **Connectivity matrix**
 

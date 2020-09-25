@@ -1,6 +1,6 @@
 ---
 title: Branching and chaining activities in a pipeline using Azure portal
-description: Learn how to control flow of data in Azure Data Factory by branching and chaining activities.
+description: Learn how to control flow of data in Azure Data Factory pipeline by using the Azure portal.
 services: data-factory
 author: djpmsft
 ms.author: daperlov
@@ -20,7 +20,7 @@ ms.date: 01/11/2018
 In this tutorial, you create a Data Factory pipeline that showcases some of the control flow features. This pipeline does a simple copy from a container in Azure Blob Storage to another container in the same storage account. If the copy activity succeeds, the pipeline sends details of the successful copy operation (such as the amount of data written) in a success email. If the copy activity fails, the pipeline sends details of copy failure (such as the error message) in a failure email. Throughout the tutorial, you see how to pass parameters.
 
 A high-level overview of the scenario:
-![Overview](media/tutorial-control-flow-portal/overview.png)
+![Diagram shows Azure Blob Storage, which is the target of a copy, which, on success, sends an email with details or, on failure, sends an email with error details.](media/tutorial-control-flow-portal/overview.png)
 
 You perform the following steps in this tutorial:
 

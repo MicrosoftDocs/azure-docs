@@ -42,7 +42,7 @@ If the core geospatial APIs meet your service requirements, choose the S0 pricin
 | Azure Maps Data (Preview)                |                     | ✓        |
 | Mobility (Preview)                       |                     | ✓        |
 | Weather (Preview)                        |✓                    |✓        |
-| Maps Creator                         |✓                    |✓        |
+|  Creator (Preview)                         |                   |✓        |
 
 Consider these additional points:
 

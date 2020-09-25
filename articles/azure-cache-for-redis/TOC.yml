@@ -70,10 +70,14 @@
       href: cache-how-to-premium-clustering.md
     - name: Persist your cache with Redis data persistence
       href: cache-how-to-premium-persistence.md
+    - name: Add more replicas
+      href: cache-how-to-multi-replicas.md
     - name: Secure your cache with a virtual network
       href: cache-how-to-premium-vnet.md
-    - name: Connect privately to a cache 
+    - name: Connect privately to a cache
       href: cache-private-link.md
+    - name: Enable zone redundancy 
+      href: cache-how-to-zone-redundancy.md
     - name: Set up geo-replication
       href: cache-how-to-geo-replication.md
     - name: Save with reserved capacity
@@ -94,9 +98,11 @@
       href: cache-how-to-manage-redis-cache-powershell.md
     - name: Deploy and Manage using Azure CLI
       href: cli-samples.md
-    - name: Provision an Azure Cache for Redis
+    - name: Create Redis cache - ARM template
+      displayName: Resource Manager
       href: cache-redis-cache-arm-provision.md
-    - name: Provision a Web App with Azure Cache for Redis
+    - name: Create Web App with Redis cache - ARM template
+      displayName: Resource Manager
       href: cache-web-app-arm-with-redis-cache-provision.md
   - name: Manage
     items:
@@ -159,7 +165,8 @@
   - name: Resource Manager template
     href: /azure/templates/microsoft.cache/allversions
   - name: Azure Policy built-ins
-    href: ./policy-samples.md
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
   - name: Redis commands
     href: https://redis.io/commands#
 - name: Resources

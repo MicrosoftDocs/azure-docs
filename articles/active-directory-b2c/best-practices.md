@@ -40,6 +40,7 @@ Define your application and service architecture, inventory current systems, and
 | Usability vs. security | Your solution must strike the right balance between application usability and your organization's acceptable level of risk. |
 | Move on-premises dependencies to the cloud | To help ensure a resilient solution, consider moving existing application dependencies to the cloud. |
 | Migrate existing apps to b2clogin.com | The deprecation of login.microsoftonline.com will go into effect for all Azure AD B2C tenants on 04 December 2020. [Learn more](b2clogin.md). |
+| Use Identity Protection and Conditional Access | Use these capabilities for significantly greater control over risky authentications and access policies. Azure AD B2C Premium P2 is required. [Learn more](conditional-access-identity-protection-overview.md). |
 
 ## Implementation
 
@@ -50,7 +51,6 @@ During the implementation phase, consider the following recommendations.
 | Edit custom policies with the Azure AD B2C extension for Visual Studio Code | Download Visual Studio Code and this community-built [extension from the Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c). While not an official Microsoft product, the Azure AD B2C extension for Visual Studio Code includes several features that help make working with custom policies easier. |
 | Learn how to troubleshoot Azure AD B2C | Learn how to [troubleshoot custom policies](https://docs.microsoft.com/azure/active-directory-b2c/troubleshoot-custom-policies?tabs=applications) during development. Learn what a normal authentication flow looks like and use tools for discovering anomalies and errors. For example, use [Application Insights](troubleshoot-with-application-insights.md) to review output logs of user journeys. |
 | Leverage our library of proven custom policy patterns | Find [samples](https://github.com/azure-ad-b2c/samples) for several enhanced Azure AD B2C customer identity and access management (CIAM) user journeys. |
-
 
 ## Testing
 
@@ -74,11 +74,10 @@ Manage your Azure AD B2C environment.
 |--|--|
 | Create multiple environments | For easier operations and deployment roll-out, create separate environments for development, testing, pre-production, and production. Create Azure AD B2C tenants for each. |
 | Use version control for your custom policies | Consider using GitHub, Azure Repos, or another cloud-based version control system for your Azure AD B2C custom policies. |
-| Use the Microsoft Graph API to automate the management of your B2C tenants | Microsoft Graph APIs:<br/>Manage [Identity Experience Framework](https://docs.microsoft.com/graph/api/resources/trustframeworkpolicy?view=graph-rest-beta) (custom policies)<br/>[Keys](https://docs.microsoft.com/graph/api/resources/trustframeworkkeyset?view=graph-rest-beta)<br/>[User Flows](https://docs.microsoft.com/graph/api/resources/identityuserflow?view=graph-rest-beta) |
+| Use the Microsoft Graph API to automate the management of your B2C tenants | Microsoft Graph APIs:<br/>Manage [Identity Experience Framework](https://docs.microsoft.com/graph/api/resources/trustframeworkpolicy?view=graph-rest-beta&preserve-view=true) (custom policies)<br/>[Keys](https://docs.microsoft.com/graph/api/resources/trustframeworkkeyset?view=graph-rest-beta&preserve-view=true)<br/>[User Flows](https://docs.microsoft.com/graph/api/resources/identityuserflow?view=graph-rest-beta&preserve-view=true) |
 | Integrate with Azure DevOps | A [CI/CD pipeline](deploy-custom-policies-devops.md) makes moving code between different environments easy and ensures production readiness at all times.   |
 | Integrate with Azure Monitor | [Audit log events](view-audit-logs.md) are only retained for seven days. [Integrate with Azure Monitor](azure-monitor.md) to retain the logs for long-term use, or integrate with third-party security information and event management (SIEM) tools to gain insights into your environment. |
 | Setup active alerting and monitoring | [Track user behavior](active-directory-b2c-custom-guide-eventlogger-appins.md) in Azure AD B2C using Application Insights. |
-
 
 ## Support and Status Updates
 

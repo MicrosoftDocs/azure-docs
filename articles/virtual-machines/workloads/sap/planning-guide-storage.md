@@ -33,7 +33,7 @@ There are several more redundancy methods, which are all described in the articl
 
 ### Azure managed disks
 
-Managed disks are a resource type in Azure Resource Manager that can be used instead of VHDs that are stored in Azure Storage Accounts. Managed Disks automatically align with the [availability set][virtual-machines-manage-availability] of the virtual machine they are attached to and therefore increase the availability of your virtual machine and the services that are running on the virtual machine. For more information, read the [overview article](../../windows/managed-disks-overview.md).
+Managed disks are a resource type in Azure Resource Manager that can be used instead of VHDs that are stored in Azure Storage Accounts. Managed Disks automatically align with the [availability set][virtual-machines-manage-availability] of the virtual machine they are attached to and therefore increase the availability of your virtual machine and the services that are running on the virtual machine. For more information, read the [overview article](../../managed-disks-overview.md).
 
 Related to resiliency, this example demonstrates the advantage of managed disks:
 
@@ -58,7 +58,7 @@ Persisted storage is needed in SAP workload in various components of the stack t
 - File shares or shared disks that contain your global transport directory for NetWeaver or S/4HANA. Content of those shares is either consumed by software running in multiple VMs or is used to build high-availability failover cluster scenarios
 - The /sapmnt directory or common file shares for EDI processes or similar. Content of those shares is either consumed by software running in multiple VMs or is used to build high-availability failover cluster scenarios
 
-In the next few sections, the different Azure storage types and their usability for SAP workload gets discussed that apply to the four scenarios above. A general categorization of how the different Azure storage types should be used is documented in the article [What disk types are available in Azure?](../../linux/disks-types.md). The recommendations for using the different Azure storage types for SAP workload are not going to be majorly different.
+In the next few sections, the different Azure storage types and their usability for SAP workload gets discussed that apply to the four scenarios above. A general categorization of how the different Azure storage types should be used is documented in the article [What disk types are available in Azure?](../../disks-types.md). The recommendations for using the different Azure storage types for SAP workload are not going to be majorly different.
 
 For support restrictions on Azure storage types for SAP NetWeaver/application layer of S/4HANA, read the [SAP support note 2015553](https://launchpad.support.sap.com/#/notes/2015553)
 For SAP HANA certified and supported Azure storage types read the article [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md).
@@ -82,7 +82,7 @@ Before going into the details, we are presenting the summary and recommendations
 | DBMS log volume non-HANA non-M/Mv2 VM families | not supported | restricted suitable (non-prod) | suitable for up to medium workload | recommended | not supported |
 
 
-<sup>1</sup> With usage of [Azure Write Accelerator](../../windows/how-to-enable-write-accelerator.md) for M/Mv2 VM families for log/redo log volumes
+<sup>1</sup> With usage of [Azure Write Accelerator](../../how-to-enable-write-accelerator.md) for M/Mv2 VM families for log/redo log volumes
 <sup>2</sup> Using ANF requires /hana/data as well as /hana/log to be on ANF 
 
 Characteristics you can expect from the different storage types list like:
@@ -100,7 +100,7 @@ Characteristics you can expect from the different storage types list like:
 | Geo redundancy | not for managed disks | not for managed disks | no | no | no |
 
 
-<sup>1</sup> With usage of [Azure Write Accelerator](../../windows/how-to-enable-write-accelerator.md) for M/Mv2 VM families for log/redo log volumes
+<sup>1</sup> With usage of [Azure Write Accelerator](../../how-to-enable-write-accelerator.md) for M/Mv2 VM families for log/redo log volumes
 
 <sup>2</sup> Costs depend on provisioned IOPS and throughput
 
@@ -123,7 +123,7 @@ Azure premium SSD storage got introduced with the goal to provide:
 * Less variability in I/O latency
 
 This type of storage is targeting DBMS workloads, storage traffic that requires low single digit millisecond latency, and SLAs on IOPS and throughput
-Cost basis in the case of Azure premium storage is not the actual data volume stored in such disks, but the size category of such a disk, independent of the amount of the data that is stored within the disk. You also can create disks on premium storage that are not directly mapping into the size categories shown in the article [Premium SSD](../../linux/disks-types.md#premium-ssd). Conclusions out of this article are:
+Cost basis in the case of Azure premium storage is not the actual data volume stored in such disks, but the size category of such a disk, independent of the amount of the data that is stored within the disk. You also can create disks on premium storage that are not directly mapping into the size categories shown in the article [Premium SSD](../../disks-types.md#premium-ssd). Conclusions out of this article are:
 
 - The storage is organized in ranges. For example, a disk in the range 513 GiB to 1024 GiB capacity share the same capabilities and the same monthly costs
 - The IOPS per GiB are not tracking linear across the size categories. Smaller disks below 32 GiB have higher IOPS rates per GiB. For disks beyond 32 GiB to 1024 GiB, the IOPS rate per GiB is between 4-5 IOPS per GiB. For larger disks up to 32,767 GiB, the IOPS rate per GiB is going below 1
@@ -137,7 +137,7 @@ The capability matrix for SAP workload looks like:
 | Capability| Comment| Notes/Links | 
 | --- | --- | --- | 
 | OS base VHD | suitable | all systems |
-| Data disk | suitable | all systems - [specially for SAP HANA](../../windows/how-to-enable-write-accelerator.md) |
+| Data disk | suitable | all systems - [specially for SAP HANA](../../how-to-enable-write-accelerator.md) |
 | SAP global transport directory | YES | [Supported](https://launchpad.support.sap.com/#/notes/2015553) |
 | SAP sapmnt | suitable | all systems |
 | Backup storage | suitable | for short term storage of backups |
@@ -149,12 +149,12 @@ The capability matrix for SAP workload looks like:
 | Maximum IOPS per disk | 20,000 [dependent on disk size](https://azure.microsoft.com/pricing/details/managed-disks/) | Also consider [VM limits](../../sizes.md) |
 | Throughput SLA | YES | - |
 | Throughput linear to capacity | semi linear in brackets | [Managed Disk pricing](https://azure.microsoft.com/pricing/details/managed-disks/) |
-| HANA certified | YES | [specially for SAP HANA](../../windows/how-to-enable-write-accelerator.md) |
+| HANA certified | YES | [specially for SAP HANA](../../how-to-enable-write-accelerator.md) |
 | Disk snapshots possible | YES | - |
-| Azure Backup VM snapshots possible | YES | except for [Write Accelerator](../../windows/how-to-enable-write-accelerator.md) cached disks  |
+| Azure Backup VM snapshots possible | YES | except for [Write Accelerator](../../how-to-enable-write-accelerator.md) cached disks  |
 | Costs | MEDIUM | - |
 
-Azure premium storage does not fulfill SAP HANA storage latency KPIs with the common caching types offered with Azure premium storage. In order to fulfill the storage latency KPIs for SAP HANA log writes, you need to use Azure Write Accelerator caching as described in the article [Enable Write Accelerator](../../windows/how-to-enable-write-accelerator.md). Azure Write Accelerator benefits all other DBMS systems for their transaction log writes and redo log writes. Therefore, it is recommended to use it across all the SAP DBMS deployments. For SAP HANA, the usage of Azure Write Accelerator in conjunction with Azure premium storage is mandatory.
+Azure premium storage does not fulfill SAP HANA storage latency KPIs with the common caching types offered with Azure premium storage. In order to fulfill the storage latency KPIs for SAP HANA log writes, you need to use Azure Write Accelerator caching as described in the article [Enable Write Accelerator](../../how-to-enable-write-accelerator.md). Azure Write Accelerator benefits all other DBMS systems for their transaction log writes and redo log writes. Therefore, it is recommended to use it across all the SAP DBMS deployments. For SAP HANA, the usage of Azure Write Accelerator in conjunction with Azure premium storage is mandatory.
 
 
 
@@ -184,8 +184,8 @@ Azure ultra disks deliver high throughput, high IOPS, and consistent low latency
 As you create an ultra disk, you have three dimensions you can define:
 
 - The capacity of the disk. Ranges are from 4 GiB to 65,536 GiB
-- Provisioned IOPS for the disk. Different maximum values apply to the capacity of the disk. Read the article [Ultra disk](../../linux/disks-types.md#ultra-disk) for more details
-- Provisioned storage bandwidth. Different maximum bandwidth applies dependent on the capacity of the disk. Read the article [Ultra disk](../../linux/disks-types.md#ultra-disk) for more details
+- Provisioned IOPS for the disk. Different maximum values apply to the capacity of the disk. Read the article [Ultra disk](../../disks-types.md#ultra-disk) for more details
+- Provisioned storage bandwidth. Different maximum bandwidth applies dependent on the capacity of the disk. Read the article [Ultra disk](../../disks-types.md#ultra-disk) for more details
 
 The cost of a single disk is determined by the three dimensions you can define for the particular disks separately. 
 

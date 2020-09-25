@@ -29,7 +29,7 @@ This article walks through how to customize a cluster's egress route to support 
 
 ## Overview of outbound types in AKS
 
-An AKS cluster can be customized with a unique `outboundType` of type load balancer or user-defined routing.
+An AKS cluster can be customized with a unique `outboundType` of type `loadBalancer` or `userDefinedRouting`.
 
 > [!IMPORTANT]
 > Outbound type impacts only the egress traffic of your cluster. For more information, see [setting up ingress controllers](ingress-basic.md).
@@ -48,7 +48,7 @@ The following configuration is done by AKS.
 
 Below is a network topology deployed in AKS clusters by default, which use an `outboundType` of `loadBalancer`.
 
-![outboundtype-lb](media/egress-outboundtype/outboundtype-lb.png)
+![Diagram shows ingress I P and egress I P, where the ingress I P directs traffic to a load balancer, which directs traffic to and from an internal cluster and other traffic to the egress I P, which directs traffic to the Internet, M C R, Azure required services, and the A K S Control Plane.](media/egress-outboundtype/outboundtype-lb.png)
 
 ### Outbound type of userDefinedRouting
 
@@ -59,7 +59,11 @@ If `userDefinedRouting` is set, AKS won't automatically configure egress paths. 
 
 The AKS cluster must be deployed into an existing virtual network with a subnet that has been previously configured because when not using standard load balancer (SLB) architecture, you must establish explicit egress. As such, this architecture requires explicitly sending egress traffic to an appliance like a firewall, gateway, proxy or to allow the Network Address Translation (NAT) to be done by a public IP assigned to the standard load balancer or appliance.
 
-The AKS resource provider will deploy a standard load balancer (SLB). The load balancer isn't configured with any rules and [doesn't incur a charge until a rule is placed](https://azure.microsoft.com/pricing/details/load-balancer/). AKS **won't** automatically provision a public IP address for the SLB frontend nor automatically configure the load balancer backend pool.
+#### Load balancer creation with userDefinedRouting
+
+AKS clusters with an outbound type of UDR receive a standard load balancer (SLB) only when the first Kubernetes service of type 'loadBalancer' is deployed. The load balancer is configured with a public IP address for *inbound* requests and a backend pool for *inbound* requests. Inbound rules are configured by the Azure cloud provider, but **no outbound public IP address or outbound rules** are configured as a result of having an outbound type of UDR. Your UDR will still be the only source for egress traffic.
+
+Azure load balancers [don't incur a charge until a rule is placed](https://azure.microsoft.com/pricing/details/load-balancer/).
 
 ## Deploy a cluster with outbound type of UDR and Azure Firewall
 
@@ -68,7 +72,7 @@ To illustrate the application of a cluster with outbound type using a user-defin
 > [!IMPORTANT]
 > Outbound type of UDR requires there is a route for 0.0.0.0/0 and next hop destination of NVA (Network Virtual Appliance) in the route table.
 > The route table already has a default 0.0.0.0/0 to Internet, without a Public IP to SNAT just adding this route will not provide you egress. AKS will validate that you don't create a 0.0.0.0/0 route pointing to the Internet but instead to NVA or gateway, etc.
-
+> When using an outbound type of UDR, a load balancer public IP address for **inbound requests** is not created unless a service of type *loadbalancer* is configured. A public IP address for **outbound requests** is never created by AKS if an outbound type of UDR is set.
 
 ## Next steps
 

@@ -7,6 +7,7 @@ ms.date: 05/21/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
+ms.custom: device-developer
 ---
 
 # What are device templates?
