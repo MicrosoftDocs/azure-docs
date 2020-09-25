@@ -145,6 +145,8 @@ pytorch_env.docker.enabled = True
 pytorch_env.docker.base_image = 'mcr.microsoft.com/azureml/openmpi3.1.2-cuda10.1-cudnn7-ubuntu18.04'
 ```
 
+Optionally, you can just capture all your dependencies directly in a custom Docker image or Dockerfile, and create your environment from that.
+
 For more information on creating and using environments, see [Create and use software environments in Azure Machine Learning](how-to-use-environments.md).
 
 #### Use a curated environment
@@ -162,7 +164,15 @@ To see the packages included in the curated environment, you can write out the c
 pytorch_env.save_to_directory(path=curated_env_name)
 ```
 
-Make sure the curated environment includes all the dependencies required by your training script. If not, you will have to modify the environment to include the missing dependencies. Note that if the environment is modified, you will have to give it a new name, as the 'AzureML' prefix is reserved for curated environments.
+Make sure the curated environment includes all the dependencies required by your training script. If not, you will have to modify the environment to include the missing dependencies. Note that if the environment is modified, you will have to give it a new name, as the 'AzureML' prefix is reserved for curated environments. If you modified the conda dependencies YAML file, you can create a new environment from it with a new name, e.g.:
+```python
+pytorch_env = Environment.from_conda_specification(name='pytorch-1.6-gpu', file_path='./conda_dependencies.yml')
+```
+
+If you modified the environment object directly, you can clone that environment with a new name:
+```python
+pytorch_env = pytorch_env.clone(new_name='pytorch-1.6-gpu')
+```
 
 ## Configure and submit your training run
 
