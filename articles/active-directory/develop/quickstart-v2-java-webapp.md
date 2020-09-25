@@ -246,11 +246,11 @@ Add a reference to MSAL for Java by adding the following code to the top of the 
 import com.microsoft.aad.msal4j.*;
 ```
 
+[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
 ## Next Steps
 
-To know more about the auth flow for this scenario, see the Oauth 2.0 authorization code flow:
+For a more in-depth discussion of building web apps that sign in users on the Microsoft identity platform, move on to our multi-part scenario series:
 
 > [!div class="nextstepaction"]
-> [Authorization Code Oauth flow](./v2-oauth2-auth-code-flow.md)
-
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+[Scenario: Web app that signs in users](scenario-web-app-sign-user-overview.md?tabs=java)

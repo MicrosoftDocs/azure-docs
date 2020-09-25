@@ -13,18 +13,23 @@ ms.author: jmprieur
 ms.custom: include file
 ---
 
-If you're new to identity and access management (IAM) with OAuth 2.0 and OpenID Connect, or even just new to IAM on the Microsoft identity platform, these articles should be high on your reading list.
+If you're new to identity and access management (IAM) with OAuth 2.0 and OpenID Connect, or even just new to IAM on the Microsoft identity platform, the following set of articles should be high on your reading list.
 
 Although not required reading before completing your first quickstart or tutorial, they cover topics integral to the platform, and familiarity with them will help you on your path as you build more complex scenarios.
 
-**Authentication and authorization**
+:::row:::
+    :::column:::
+        **Authentication and authorization**
 
-- [Authentication basics](../articles/active-directory/develop/authentication-vs-authorization.md)
-- [ID tokens](../articles/active-directory/develop/id-tokens.md)
-- [Access tokens](../articles/active-directory/develop/access-tokens.md)
+        - [Authentication basics](../articles/active-directory/develop/authentication-vs-authorization.md)
+        - [ID tokens](../articles/active-directory/develop/id-tokens.md)
+        - [Access tokens](../articles/active-directory/develop/access-tokens.md)
+    :::column-end:::
+    :::column:::
+        **Microsoft identity platform**
 
-**Microsoft identity platform**
-
-- [Audiences](../articles/active-directory/develop/v2-supported-account-types.md)
-- [Applications and service principals](../articles/active-directory/develop/app-objects-and-service-principals.md)
-- [Permissions and consent](../articles/active-directory/develop/v2-permissions-and-consent.md)
+        - [Audiences](../articles/active-directory/develop/v2-supported-account-types.md)
+        - [Applications and service principals](../articles/active-directory/develop/app-objects-and-service-principals.md)
+        - [Permissions and consent](../articles/active-directory/develop/v2-permissions-and-consent.md)
+    :::column-end:::
+:::row-end:::
