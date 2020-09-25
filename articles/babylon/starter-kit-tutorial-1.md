@@ -63,7 +63,7 @@ When you run the starter kit script, it does the following steps on your behalf:
 
 Follow these steps to set up the starter kit on your Windows machine:
 
-1. [Download the .zip file](./assets/starter-kit-v2.zip) that contains the starter kit to your computer. Extract its contents to the location of your choice.
+1. <!--- [Download the .zip file](./assets/starter-kit-v2.zip)---> Download the .zip file that contains the starter kit to your computer. Extract its contents to the location of your choice.
 
 1. On your computer, enter **PowerShell** in the search box on the Windows taskbar. In the search list, right-click **Windows PowerShell**, and then select **Run as administrator**.
 
@@ -253,5 +253,7 @@ In this tutorial, you used a client-side tool to create a sample environment wit
 
 Advance to the next article to learn how to navigate the home page and search for an asset.
 
+<!---
 > [!div class="nextstepaction"]
 > [Tutorial: Starter Kit #2 - Home page and search](starter-kit-tutorial-2.md)
+--->
