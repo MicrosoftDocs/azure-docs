@@ -205,7 +205,7 @@ In SAP SuccessFactors, a *picklist* is a configurable set of options from which 
 1. Note down the **Option ID** associated with the *Cell* phone. This is the code that we will use with *cellPhoneType* in the attribute-mapping table.
 
    > [!div class="mx-imgBorder"]
-   > ![Get business phone code](./media/sap-successfactors-inbound-provisioning/get-cell-phone-code.png)
+   > ![Get cell phone code](./media/sap-successfactors-inbound-provisioning/get-cell-phone-code.png)
 
    > [!NOTE]
    > Drop the comma character when you copy over the value. For e.g. if the **Option ID** value is *10,606*, then set the *cellPhoneType* in Azure AD to the constant number *10606* (without the comma character). 
