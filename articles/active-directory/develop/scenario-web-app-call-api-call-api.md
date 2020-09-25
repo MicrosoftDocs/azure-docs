@@ -25,73 +25,77 @@ Calling a protected web API depends on your language and framework of choice:
 
 # [ASP.NET Core](#tab/aspnetcore)
 
-
 When you use *Microsoft.Identity.Web*, you have three usage scenarios:
 
-1. You want to call Microsoft Graph. In this scenario, you've added `AddMicrosoftGraph` in *Startup.cs*, and you can directly inject the `GraphServiceClient` in your controller or page constructor for use in the actions. The following example Razor page displays the photo of the signed-in user.
+### Option 1: Call Microsoft Graph with the SDK
 
-   ```CSharp
-    [Authorize]
-    [AuthorizeForScopes(Scopes = new[] { "user.read" })]
-    public class IndexModel : PageModel
-    {
-        private readonly GraphServiceClient _graphServiceClient;
+You want to call Microsoft Graph. In this scenario, you've added `AddMicrosoftGraph` in *Startup.cs*, and you can directly inject the `GraphServiceClient` in your controller or page constructor for use in the actions. The following example Razor page displays the photo of the signed-in user.
 
-        public IndexModel(GraphServiceClient graphServiceClient)
-        {
-            _graphServiceClient = graphServiceClient;
-        }
+```CSharp
+[Authorize]
+[AuthorizeForScopes(Scopes = new[] { "user.read" })]
+public class IndexModel : PageModel
+{
+ private readonly GraphServiceClient _graphServiceClient;
 
-        public async Task OnGet()
-        {
-            var user = await _graphServiceClient.Me.Request().GetAsync();
-            try
-            {
-                using (var photoStream = await _graphServiceClient.Me.Photo.Content.Request().GetAsync())
-                {
-                    byte[] photoByte = ((MemoryStream)photoStream).ToArray();
-                    ViewData["photo"] = Convert.ToBase64String(photoByte);
-                }
-                ViewData["name"] = user.DisplayName;
-            }
-            catch (Exception)
-            {
-                ViewData["photo"] = null;
-            }
-        }
-    }
-   ```
+ public IndexModel(GraphServiceClient graphServiceClient)
+ {
+    _graphServiceClient = graphServiceClient;
+ }
 
-1. You want to call a web API other than Microsoft Graph. In that case, you've added `AddDownstreamWebApi` in *Startup.cs*, and you can directly inject an `IDownstreamWebApi` service in your controller or page constructor and use it in the actions:
+ public async Task OnGet()
+ {
+  var user = await _graphServiceClient.Me.Request().GetAsync();
+  try
+  {
+   using (var photoStream = await _graphServiceClient.Me.Photo.Content.Request().GetAsync())
+   {
+    byte[] photoByte = ((MemoryStream)photoStream).ToArray();
+    ViewData["photo"] = Convert.ToBase64String(photoByte);
+   }
+   ViewData["name"] = user.DisplayName;
+  }
+  catch (Exception)
+  {
+   ViewData["photo"] = null;
+  }
+ }
+}
+```
 
-   ```CSharp
-    [Authorize]
-    [AuthorizeForScopes(ScopeKeySection = "TodoList:Scopes")]
-    public class TodoListController : Controller
-    {
-        private IDownstreamWebApi _downstreamWebApi;
-        private const string ServiceName = "TodoList";
+### Option 2: Call a downstream web API with the helper class
 
-        public TodoListController(IDownstreamWebApi downstreamWebApi)
-        {
-            _downstreamWebApi = downstreamWebApi;
-        }
+You want to call a web API other than Microsoft Graph. In that case, you've added `AddDownstreamWebApi` in *Startup.cs*, and you can directly inject an `IDownstreamWebApi` service in your controller or page constructor and use it in the actions:
 
-        public async Task<ActionResult> Details(int id)
-        {
-            var value = await _downstreamWebApi.CallWebApiForUserAsync(
-                ServiceName,
-                options =>
-                {
-                    options.RelativePath = $"me";
-                });
-            return View(value);
-        }
-   ```
+```CSharp
+[Authorize]
+[AuthorizeForScopes(ScopeKeySection = "TodoList:Scopes")]
+public class TodoListController : Controller
+{
+  private IDownstreamWebApi _downstreamWebApi;
+  private const string ServiceName = "TodoList";
 
-   The `CallWebApiForUserAsync` also has strongly typed generic overrides that enable you to directly receive an object. For example, the following method received a `Todo` instance, which is a strongly typed representation of the JSON returned by the web API.
+  public TodoListController(IDownstreamWebApi downstreamWebApi)
+  {
+    _downstreamWebApi = downstreamWebApi;
+  }
 
-   ```CSharp
+  public async Task<ActionResult> Details(int id)
+  {
+    var value = await _downstreamWebApi.CallWebApiForUserAsync(
+      ServiceName,
+      options =>
+      {
+        options.RelativePath = $"me";
+      });
+      return View(value);
+  }
+}
+```
+
+The `CallWebApiForUserAsync` also has strongly typed generic overrides that enable you to directly receive an object. For example, the following method received a `Todo` instance, which is a strongly typed representation of the JSON returned by the web API.
+
+```CSharp
     // GET: TodoList/Details/5
     public async Task<ActionResult> Details(int id)
     {
@@ -107,9 +111,11 @@ When you use *Microsoft.Identity.Web*, you have three usage scenarios:
     }
    ```
 
-1. You've decided to acquire a token manually using the `ITokenAcquisition` service, and you now need to use the token. In that case, the following code continues the example code shown in [A web API that calls web APIs: Acquire a token for the app](scenario-web-api-call-api-acquire-token.md). The code is called in the actions of the API controllers. It calls a downstream API named *todolist*.
+### Option 3: Call a downstream web API without the helper class
 
-   After you've acquired the token, use it as a bearer token to call the downstream API.
+You've decided to acquire a token manually using the `ITokenAcquisition` service, and you now need to use the token. In that case, the following code continues the example code shown in [A web API that calls web APIs: Acquire a token for the app](scenario-web-api-call-api-acquire-token.md). The code is called in the actions of the API controllers. It calls a downstream API named *todolist*.
+
+After you've acquired the token, use it as a bearer token to call the downstream API.
 
  ```csharp
 public async Task<IActionResult> Profile()
@@ -138,7 +144,7 @@ public async Task<IActionResult> Profile()
 > [!NOTE]
 > You can use the same principle to call any web API.
 >
-> Most Azure web APIs provide an SDK that simplifies calling the API as is the case for Microsoft Graph.
+> Most Azure web APIs provide an SDK that simplifies calling the API as is the case for Microsoft Graph. See, for instance, [Create a web application that authorizes access to Blob storage with Azure AD](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-app?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=dotnet) for an example of a web app using Microsoft.Identity.Web and using the Azure Storage SDK.
 
 # [Java](#tab/java)
 

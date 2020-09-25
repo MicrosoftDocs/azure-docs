@@ -30,7 +30,7 @@ The following libraries in the Microsoft Authentication Library (MSAL) support t
 
 | MSAL library | Description |
 |--------------|-------------|
-| ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Support for .NET Framework and .NET Core platforms. Not supported are Universal Windows Platform (UWP), Xamarin.iOS, and Xamarin.Android, because those platforms are used to build public client applications. For ASP.NET Core web apps and web APIs, MSAL.NET is encapsulated in a higher level library named [Microsoft.Identity.Web](https://aka.ms/ms-identity-web)|
+| ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Support for .NET Framework and .NET Core platforms. Not supported are Universal Windows Platform (UWP), Xamarin.iOS, and Xamarin.Android, because those platforms are used to build public client applications. For ASP.NET Core web apps and web APIs, MSAL.NET is encapsulated in a higher-level library named [Microsoft.Identity.Web](https://aka.ms/ms-identity-web)|
 | ![MSAL Python](media/sample-v2-code/logo_python.png) <br/> MSAL for Python | Support for Python web applications. |
 | ![MSAL Java](media/sample-v2-code/logo_java.png) <br/> MSAL for Java | Support for Java web applications. |
 
@@ -91,7 +91,7 @@ Instead of a client secret, you can provide a client certificate. The following 
 }
 ```
 
-Microsoft.Identity.Web provides several ways to describe certificates, both by configuration or by code. For details, see [Microsoft.Identity.Web wiki - Using certificates](https://github.com/AzureAD/microsoft-identity-web/wiki/Using-certificates) on GitHub.
+Microsoft.Identity.Web provides several ways to describe certificates, both by configuration or by code. For details, see [Microsoft.Identity.Web - Using certificates](https://github.com/AzureAD/microsoft-identity-web/wiki/Using-certificates) on GitHub.
 
 ## Startup.cs
 
@@ -117,7 +117,7 @@ Your web app will need to acquire a token for the downstream API. You specify it
    ```
    > [!NOTE]
    > The scopes passed to `EnableTokenAcquisitionToCallDownstreamApi` are optional and enable your web app to already
-   > request these scopes (and have the user consent) when the user logs-in. If you don't specifiy them, Microsoft.Identity.Web
+   > request these scopes (and have the user consent) when the user logs-in. If you don't specify them, Microsoft.Identity.Web
    > will enable an incremental consent experience.
 
 If you don't want to acquire the token yourself, *Microsoft.Identity.Web* provides two mechanisms for calling a downstream web API from another API. The option you choose depends on whether you want to call Microsoft Graph or another API.
@@ -172,6 +172,8 @@ To call a web API other than Microsoft Graph, *Microsoft.Identity.Web* provides 
      // ...
    }
    ```
+
+### Summary
 
 As with web APIs, you can choose various token cache implementations. For details, see [Microsoft identity web - Token cache serialization](https://aka.ms/ms-id-web/token-cache-serialization) on GitHub.
 
