@@ -161,9 +161,6 @@ Example test run output
 
 The following steps show you how to use the [Azure Certified Device portal](https://aka.ms/acdp) to onboard, register product details, submit a getting started guide, and run the certification tests.
 
-> [!NOTE]
-> At the time of writing, the portal doesn't support publishing to the [Certified for Azure IoT device catalog](https://aka.ms/devicecatalog).
-
 ### Onboarding
 
 To use the [certification portal](https://aka.ms/acdp), you must use an Azure Active Directory from your work or school tenant.
@@ -198,6 +195,13 @@ There are three steps to be completed:
 1. Connect and discover interfaces. The device must connect to the Azure IoT certification service through DPS. Choose the authentication method (X.509 certificate, symmetric keys, or trusted platform module) to use and update the device application with the DPS information.
 1. Review interfaces. Review the interface and make sure each one has payload inputs that make sense for testing.
 1. Test. The system tests each device model to check that the telemetry, properties, and commands described in the model follow the IoT Plug and Play conventions. When the test is complete, select the **view logs** link to see the telemetry from the device and the raw data sent to IoT Hub device twin properties.
+
+### Submitting and Publishing
+The final required stage to complete certification is to Submit the project for review. This will notify an Azure Certified Device team member to review your project for completeness, including the device and marketing details and the Get started guide. A team member may reach out to you at the company email address previously provided with questions or edit requests prior to approval.
+
+If further manual validation is required on your device as part of certification, you may receive notice at this time.
+
+Once a device has been certified, you may optionally choose to publish your product details to the Azure Certified Device Catalog via the 'Publish to catalog' feature in the product summary page.
 
 ## Next steps
 
