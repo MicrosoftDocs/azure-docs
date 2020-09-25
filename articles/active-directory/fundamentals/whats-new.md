@@ -56,16 +56,15 @@ For more information about how to better secure your organization by using autom
  
 ---
 
-### Audited BitLocker Recovery in AAD - Public Preview
+### Audited BitLocker Recovery in Azure AD - Public Preview
 
 **Type:** New feature  
 **Service category:** Device Access Management  
 **Product capability:** Device Lifecycle Management
  
+When IT admins or end users read their BitLocker recovery key, our service generates an audit log that captures who accessed a recovery key. The audit also provides which device most recently had the BitLocker key backed up. 
 
-When IT admins or end users read their BitLocker recovery key, our service generates an audit log that captures who accessed a recovery key and which device most recently had the BitLocker key backed up. 
-
-End users can [access their recovery keys via My Account](../user-help/my-account-portal-devices-page.md#view-a-bitlocker-key), and IT admins can access recovery keys via the [BitLocker recovery key API in beta](https://docs.microsoft.com/graph/api/resources/bitlockerrecoverykey?view=graph-rest-beta) or via the AAD Portal. To learn more, see [View or copy BitLocker keys in the AAD Portal](../devices/device-management-azure-portal.md#view-or-copy-bitlocker-keys).
+End users can [access their recovery keys via My Account](../user-help/my-account-portal-devices-page.md#view-a-bitlocker-key). IT admins can access recovery keys via the [BitLocker recovery key API in beta](https://docs.microsoft.com/graph/api/resources/bitlockerrecoverykey?view=graph-rest-beta,) or via the Azure AD Portal. To learn more, see [View or copy BitLocker keys in the Azure AD Portal](../devices/device-management-azure-portal.md#view-or-copy-bitlocker-keys).
 
 ---
 
@@ -75,15 +74,11 @@ End users can [access their recovery keys via My Account](../user-help/my-accoun
 **Service category:** RBAC  
 **Product capability:** Access Control
  
-
 Users with the [Teams Devices Administrator](../users-groups-roles/directory-assign-admin-roles.md#teams-devices-administrator) role can manage [Teams-certified devices](https://www.microsoft.com/microsoft-365/microsoft-teams/across-devices/devices) from the Teams Admin Center. 
 
-This role allows the user to view all devices at single glance, with the ability to search and filter devices. The user can also check the details of each device including logged-in account and the make and model of the device. The user can change the settings on the device and update the software versions. This role does not grant permissions to check Teams activity and call quality of the device.
+This role allows the user to view all devices at single glance, with the ability to search and filter devices. The user can also check the details of each device including logged-in account and the make and model of the device. The user can change the settings on the device and update the software versions. This role doesn't grant permissions to check Teams activity and call quality of the device.
  
 ---
- 
-
-[1056284](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1056284&triage=true&fullScreen=false&_a=edit)
 
 ### Advanced Query Capabilities for Directory Objects
 
@@ -91,36 +86,21 @@ This role allows the user to view all devices at single glance, with the ability
 **Service category:** MS Graph  
 **Product capability:** Developer Experience
  
+All the new query capabilities introduced for Directory Objects (AAD) APIs are now available in the v1.0 endpoint and production-ready. Developers can Count, Search, Filter, and Sort Directory Objects and related links using the standard OData operators.
 
+To learn more, see [Use query parameters to customize responses](https://docs.microsoft.com/graph/query-parameters?context=graph/api/1.0), and you can also send feedback with this [brief survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR_yN8EPoGo5OpR1hgmCp1XxUMENJRkNQTk5RQkpWTE44NEk2U0RIV0VZRy4u).
  
-
 ---
- 
 
-[1143652](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1143652&triage=true&fullScreen=false&_a=edit)
-
-### Continuous access evaluation for tenants who configured Conditional Access polices
+### Continuous access evaluation for tenants who configured Conditional Access policies
 
 **Type:** New feature  
 **Service category:** Authentications (Logins)  
 **Product capability:** Identity Security & Protection
  
-
-
-It’s been five months since we introduced continuous access evaluation (CAE) for tenants with no Conditional Access policies. With continuous access evaluation, critical security events and policies, including account disable, password reset, or location change, are evaluated in real-time.
-
- 
-
-Today marks an important milestone in bringing this capability to everyone – now CAE is available in public preview for Azure AD tenants with Conditional Access policies as well.
-
-Blog: TBD
-Docs: https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/concept-continuous-access-evaluation
- 
+continuous access evaluation (CAE) is now available in public preview for Azure AD tenants with Conditional Access policies. With CAE, critical security events  can be evaluated in real time. Policies, including account disable, password reset, or location change, can also be evaluated. To learn more, see [Continuous access evaluation](../conditional-access/concept-continuous-access-evaluation.md).
 
 ---
- 
-
-[1070594](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1070594&triage=true&fullScreen=false&_a=edit)
 
 ### Ask users requesting an access package additional questions to improve approval decisions
 
@@ -128,14 +108,9 @@ Docs: https://docs.microsoft.com/en-us/azure/active-directory/conditional-access
 **Service category:** User Access Management  
 **Product capability:** Entitlement Management
  
-
-We've added the ability for administrators to require that users requesting an access package answer additional questions beyond just business justification. Their answers will then be shown to the approvers to help them make a more accurate access approval decision. 
+Administrators can now require that users requesting an access package answer additional questions beyond just business justification in Azure AD ELM. The users' answers will then be shown to the approvers to help them make a more accurate access approval decision. To learn more, see [Collect additional requestor information for approval (preview)](../governance/entitlement-management-access-package-approval-policy.md#collect-additional-requestor-information-for-approval-preview)
  
-
 ---
- 
-
-[727611](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=727611&triage=true&fullScreen=false&_a=edit)
 
 ### Enhanced user management
 
@@ -144,79 +119,42 @@ We've added the ability for administrators to require that users requesting an a
 **Product capability:** User Management
  
 
-We're making it easier to search, sort and filter the All users and Deleted users lists in the Azure AD portal. Changes in the preview include: 
-More visible user properties including object ID, directory sync status, creation type, and identity issuer
-Search now allows combined search of names, emails, and object IDs
-Enhanced filtering by user type (member and guest), directory sync status, creation type, company name and domain name
-New sorting capabilities on properties like name, user principal name and deletion date
-A new total users count that updates with any searches or filters
-For more information, please see User management enhancements (preview) in Azure Active Directory.
- 
+We're making it easier to search, sort, and filter the All users and Deleted users lists in the Azure AD portal. Changes in the preview include: 
+- More visible user properties including object ID, directory sync status, creation type, and identity issuer.
+- Search now allows combined search of names, emails, and object IDs.
+- Enhanced filtering by user type (member and guest), directory sync status, creation type, company name, and domain name.
+- New sorting capabilities on properties like name, user principal name and deletion date
+A new total users count that updates with any searches or filters.
+
+For more information, please see [User management enhancements (preview) in Azure Active Directory](../users-groups-roles/users-search-enhanced.md).
 
 ---
- 
 
-[671574](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=671574&triage=true&fullScreen=false&_a=edit)
-
-### Resource Forests: Enable auth without password hash synchronization to use AAD-DS including smart-card auth
+### New notes field for Enterprise applications
 
 **Type:** New feature  
-**Service category:** Azure AD Domain Services  
-**Product capability:** Azure AD Domain Services
- 
+**Service category:** Enterprise Apps 
+**Product capability:** SSO
 
-The capability of resource forests in Azure AD DS is now generally available.
- 
+You can add free text notes to Enterprise applications. You can add any relevant information that will help you manager applications under Enterprise applications. For more information, see [Quickstart: Configure properties for an application in your Azure Active Directory (Azure AD) tenant](../manage-apps/add-application-portal-configure.md). 
 
 ---
- 
-
-[917938](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=917938&triage=true&fullScreen=false&_a=edit)
-
-### Regional replica support for Azure AD DS managed domains to provide high availability and disaster recovery
-
-**Type:** New feature  
-**Service category:** Azure AD Domain Services  
-**Product capability:** Azure AD Domain Services
- 
-
-You can expand a managed domain to have more than one replica set per Azure AD tenant. Replica sets can be added to any peered virtual network in any Azure region that supports Azure AD DS. Additional replica sets in different Azure regions provide geographical disaster recovery for legacy applications if an Azure region goes offline.
-
-
- 
-
----
- 
-
-[1150263](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1150263&triage=true&fullScreen=false&_a=edit)
 
 ### New Federated Apps available in Azure AD Application gallery - September 2020
 
 **Type:** New feature  
 **Service category:** Enterprise Apps  
 **Product capability:** 3rd Party Integration
- 
-
 
 In September 2020 we have added following 34 new applications in our App gallery with Federation support:
 
+[VMware Horizon - Unified Access Gateway](), [Pulse Secure PCS](../saas-apps/vmware-horizon-unified-access-gateway-tutorial), [Inventory360](../saas-apps/pulse-secure-pcs-tutorial), [Frontitude](https://services.enteksystems.de/sso/microsoft/signup), [BookWidgets](https://www.bookwidgets.com/sso/office365), [ZVD_Server](https://zaas.zenmutech.com/user/signin), [HashData for Business](https://hashdata.app/login.xhtml), [SecureLogin](https://securelogin.securelogin.nu/sso/azure/login), [CyberSolutions MAILBASEΣ/CMSS](../saas-apps/cybersolutions-mailbase-tutorial), [CyberSolutions CYBERMAILΣ](../saas-apps/cybersolutions-cybermail-tutorial), [LimbleCMMS](https://auth.limblecmms.com/), [Glint Inc](../saas-apps/glint-inc-tutorial), [zeroheight](../saas-apps/zeroheight-tutorial), [Gender Fitness](https://app.genderfitness.com/), [Coeo Portal](https://my.coeo.com/), [Grammarly](../saas-apps/grammarly-tutorial), [Fivetran](../saas-apps/fivetran-tutorial), [Kumolus](../saas-apps/kumolus-tutorial), [RSA Archer Suite](../saas-apps/rsa-archer-suite-tutorial), [TeamzSkill](../saas-apps/teamzskill-tutorial), [raumfürraum](../saas-apps/raumfurraum-tutorial), [Saviynt](../saas-apps/saviynt-tutorial), [BizMerlinHR](https://marketplace.bizmerlin.net/bmone/signup), [Mobile Locker](../saas-apps/mobile-locker-tutorial), [Zengine](../saas-apps/zengine-tutorial), [CloudCADI](https://app.cloudcadi.com/login), [Simfoni Analytics](https://simfonianalytics.com/accounts/microsoft/login/), [Priva Identity & Access Management](https://my.priva.com/), [Nitro Pro](https://www.gonitro.com/nps/product-details/downloads), [Eventfinity](../saas-apps/eventfinity-tutorial), [Fexa](../saas-apps/fexa-tutorial), [Secured Signing Enterprise Portal](https://www.securedsigning.com/aad/Auth/ExternalLogin/AdminPortal), [Secured Signing Enterprise Portal AAD Setup](https://www.securedsigning.com/aad/Auth/ExternalLogin/AdminPortal), [Wistec Online](https://wisteconline.com/auth/oidc), [Oracle PeopleSoft - Protected by F5 BIG-IP APM](../saas-apps/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial)
 
+You can also find the documentation of all the applications from here: https://aka.ms/AppsTutorial.
 
-VMware Horizon - Unified Access Gateway, Pulse Secure PCS, Inventory360, Frontitude, BookWidgets,ZVD_Server, HashData for Business, SecureLogin, CyberSolutions MAILBASEΣ/CMSS, CyberSolutions CYBERMAILΣ, LimbleCMMS, Glint Inc, zeroheight, Gender Fitness, Coeo Portal, Grammarly, Fivetran, Kumolus, RSA Archer Suite, TeamzSkill, raum]für[raum, Saviynt, BizMerlinHR, Mobile Locker, Zengine, CloudCADI, Simfoni Analytics, Priva Identity & Access Management, Nitro Pro, Eventfinity, Fexa, Secured Signing Enterprise Portal, Secured Signing Enterprise Portal AAD Setup, Wistec Online, Oracle PeopleSoft - Protected by F5 BIG-IP APM,
-
-
-
-You can also find the documentation of all the applications from here https://aka.ms/AppsTutorial
-
-For listing your application in the Azure AD app gallery, please read the details here https://aka.ms/AzureADAppRequest
-
-
- 
+For listing your application in the Azure AD app gallery, read the details here: https://aka.ms/AzureADAppRequest.
 
 ---
- 
-
-[1061364](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1061364&triage=true&fullScreen=false&_a=edit)
 
 ### New delegation role in Azure AD Entitlement Management: Access package assignment manager
 
@@ -224,13 +162,11 @@ For listing your application in the Azure AD app gallery, please read the detail
 **Service category:** Other  
 **Product capability:** Entitlement Management
  
+A new Access Package Assignment Manager role has been added in Azure AD entitlement management to provide granular permissions to manage assignments. You can now delegate tasks to a user in this role, who can delegate assignments management of an access package to a business owner. However, an Access Package Assignment Manager can't alter the access package policies or other properties that are set by the administrators. 
 
-Do you find the delegation capabilities of Entitlement Management (EM) useful but you see that the delegation roles currently offered do not provide granular permissions to manage assignments? With the new access package assignment manager, you can delegate assignments management of an access package to a business owner, without the latter being able to alter the access package policies or other properties that are set by the administrators. Using this new role, you benefit from the least privileges needed to delegate management of assignments while maintaining administrative control on all other access package configurations.
+With this new role, you benefit from the least privileges needed to delegate management of assignments and maintain administrative control on all other access package configurations. To learn more, see [Entitlement management roles](../governance/entitlement-management-delegate.md#entitlement-management-roles).
  
-
 ---
-
- [876065](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=876065&triage=true&fullScreen=false&_a=edit)
 
 ### Changes to Privileged Identity Management's onboarding flow
 
@@ -238,15 +174,17 @@ Do you find the delegation capabilities of Entitlement Management (EM) useful bu
 **Service category:** Privileged Identity Management  
 **Product capability:** Privileged Identity Management
  
+Previously, onboarding to Privileged Identity Management required user consent and an onboarding flow in PIM's blade that included enrollment in Azure MFA. With the recent integration of PIM experience into the Azure AD roles and administrators blade, we are removing this experience. Any tenant with valid P2 license will be auto-onboarded to PIM.
 
-Previously, onboarding to Privileged Identity Management required user consent and an onboarding flow in PIM's blade which includes enrolling in Azure MFA. With the recent integration of PIM experience into the Azure AD roles and administrators blade, we are removing this experience and auto onboarding any tenant with valid P2 license on to PIM.
+Onboarding to PIM does not have any direct adverse effect on your tenant. You can expect the following changes:
+- Additional assignment options such as active vs. eligible with start and end time when you make an assignment in either PIM or Azure AD roles and administrators blade. 
+- Additional scoping mechanisms, like Administrative Units and custom roles, introduced directly into the assignment experience. 
+- If you are a global administrator or privileged role administrator, you may start getting a few additional emails like the PIM weekly digest. 
+- You might also see ms-pim service principal in the audit log related to role assignment. This expected change should n't affect your regular workflow.
 
-Onboarding to PIM does not have any direct affect on your tenant that you need to worry about. It will give you additional assignment options such as active vs eligible with start and end time when you make an assignment in either PIM or Azure AD roles and administrators blade. It will also bring in scoping mechanism like Administrative Units and custom roles directly into the assignment experience . If you are a global administrator or privileged role administrator, You may start getting a few additional emails like the PIM weekly digest. You might also see ms-pim service principal in the audit log related to role assignment. This is expected change that should have no affect on your regular workflow
+ For more information, see [Start using Privileged Identity Management](../privileged-identity-management/pim-getting-started.md).
 
- 
 ---
-
-[995424](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=995424&triage=true&fullScreen=false&_a=edit)
 
 ### Azure AD Entitlement Management: The Select pane of access package resources now shows by default the resources currently in the selected catalog
 
@@ -255,7 +193,9 @@ Onboarding to PIM does not have any direct affect on your tenant that you need t
 **Product capability:** Entitlement Management
  
 
-In the access package creation flow, under the Resource roles tab, the Select pane behavior is changing. Currently, the default behavior is to show all resources that are owned by the user as well as resources added to the selected catalog. We are changing this based on your feedback in order to display by default only resources currently added in the catalog so that users are able to pick easily resources from the catalog. This would help in terms of discoverability of the resources to add to access packages, as well as reduce risk of inadvertently adding resources owned by the user that are not part of the catalog.
+In the access package creation flow, under the Resource roles tab, the Select pane behavior is changing. Currently, the default behavior is to show all resources that are owned by the user and resources added to the selected catalog. 
+
+This experience will be changed to display only the resources currently added in the catalog by default, so that users can easily pick resources from the catalog. The update will help with discoverability of the resources to add to access packages, and reduce risk of inadvertently adding resources owned by the user that aren't part of the catalog. To learn more, see [Create a new access package in Azure AD entitlement management](../governance/entitlement-management-access-package-create#resource-roles).
  
 ---
 
