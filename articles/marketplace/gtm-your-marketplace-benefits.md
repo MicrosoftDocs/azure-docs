@@ -11,7 +11,7 @@ ms.author: keferna
 
 # Your commercial marketplace benefits
 
-You've published to Microsoft commercial marketplace, now you want to see your offer be successful. We provide you the benefits - sales, technical, and marketing - you need to accelerate your offer's growth.
+You've published to Microsoft commercial marketplace, now you want to see your offer be successful. We provide you the sales, technical, and marketing benefits you need to accelerate your offer's growth.
 
 Once your offer is live on Microsoft AppSource or Azure Marketplace, go to [Partner Center](https://partner.microsoft.com/dashboard/mpn/membership/benefits/commercialmarketplace) to access and activate your eligible marketing, sales, and technical benefits. View the Marketplace Rewards [demo video](https://partner.microsoft.com/asset/detail/marketplace-rewards-demo-mp4) for an overview on how to enroll in Marketplace Rewards and activate benefits in Partner Center. Marketplace Rewards benefits accrue based on your commercial marketplace engagement and sales. The more you engage, the more you get back.
 
