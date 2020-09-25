@@ -2,7 +2,7 @@
 title: Install VMware HCX
 description: Set up the VMware HCX solution for your Azure VMware Solution private cloud
 ms.topic: how-to
-ms.date: 07/15/2020
+ms.date: 09/24/2020
 ---
 
 # Install HCX for Azure VMware Solution
@@ -35,7 +35,7 @@ After completing the setup, you can follow the recommended next steps provided a
 
 Sizing workloads against compute and storage resources is an essential planning step when you're preparing to use the Azure VMware Solution Private Cloud HCX solution. Address the sizing step as part of the initial private cloud environment planning. 
 
-You also can size workloads by completing an Azure VMware Solution Assessment in the Azure Migrate portal (https://docs.microsoft.com/azure/migrate/how-to-create-azure-vmware-solution-assessment).
+You also can size workloads by completing an [Azure VMware Solution Assessment](https://docs.microsoft.com/azure/migrate/how-to-create-azure-vmware-solution-assessment) in the Azure Migrate portal.
 
 ## Software version requirements
 
@@ -62,14 +62,12 @@ Infrastructure components must be running the required minimum version.
 
 ## Deploy the VMware HCX OVA on-premises
 
-1. Sign into the **HCX Manager** on x.x.x.9 port 443 with your vCenter credentials and the go to **Support**.
+1. Sign in to Azure VMware Solution HCX Manager on `https://x.x.x.9` port 443 with the **cloudadmin** user credentials, and then go to **Support**.
 
 1. Select the download link for the VMware HCX OVA file. 
 
 1. Sign in to Azure VMware Solution SDDC vCenter and select **HCX**.
-
-   :::image type="content" source="media/hybrid-cloud-extension-installation/avs-vsphere-client.png" alt-text="Sign in to Azure VMware Solution SDDC vCenter and select HCX.":::
-
+   
 1. Go to the on-premises vCenter and select an OVF template to deploy to your on-premises vCenter.  
 
    :::image type="content" source="media/hybrid-cloud-extension-installation/select-template.png" alt-text="Next, go to the on-premises vCenter and select an OVF template to deploy to your on-premises vCenter.":::
@@ -91,7 +89,7 @@ Infrastructure components must be running the required minimum version.
 
 After installation, perform the following steps.
 
-1. Log on to the on-premises HCX manager at `https://HCXManagerIP:9443` and sign in with your username and your password. 
+1. Log on to the on-premises HCX manager at `https://HCXManagerIP:9443` and sign in with the **admin** username credentials. 
 
    > [!IMPORTANT]
    > Make sure to include the `9443` port number with the HCX Manager IP address.
