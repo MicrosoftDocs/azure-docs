@@ -88,7 +88,10 @@ You can use the notes field to add any information that is relevant for the mana
 1. In the Azure AD portal, select **Enterprise applications**. Then find and select the application you want to configure.
 2. In the **Manage** section, select **Properties** to open the **Properties** pane for editing.
 3. Update the Notes field, select **Save**.
- 
+
+    ![Screenshot of the Properties screen that shows how to change the notes](media/add-application-portal/notes-application.png)
+
+    
 ## Clean up resources
 
 If you're not going to continue with the quickstart series, then consider deleting the app to clean up your test tenant. Deleting the app is covered in the last quickstart in this series, see [Delete an app](delete-application-portal.md).
