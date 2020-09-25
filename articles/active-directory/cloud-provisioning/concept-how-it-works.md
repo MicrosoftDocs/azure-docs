@@ -16,6 +16,9 @@ ms.collection: M365-identity-device-management
 # Cloud provisioning deep dive - how it works
 
 ## Overview of components
+
+![How it works](media/concept-how-it-works/how1.png)
+
 Cloud provisioning is built on top of the Azure AD services and has 2 key components:
 
 - **Provisioning agent**: Same agent as Workday inbound and built on the same server-side technology as app proxy and Pass Through Authentication. Requires outbound connection only and agents are auto-updated. 
@@ -27,6 +30,24 @@ During initial setup, the a few things are done that makes cloud provisoining ha
 
 - **During agent installation**: You configure the agent for the AD domains you want to provision from.  This configuration registers the domains in the hybrid identity service and establishes an outbound connection to the service bus listening for requests.
 - **When you enable provisioning**: You select the AD domain and enable provisioning which runs every 2 mins. Optionally you may deselect password hash sync and define notification email. You can also manage attribute transformation using Microsoft Graph APIs.
+
+The following is a walk-through of what occurs when the cloud provisioning agent is installed.
+
+
+- First, the Installer installs the Agent binaries and the Agent Service running under the Virtual Service Account (NETWORK SERVICE\AADProvisioningAgent).  A virtual service account is a special type of account that does not have a password and is managed by Windows.
+- The Installer then starts the Wizard.
+- The Wizard will prompt for Azure AD credentials, will then authenticate, and retrieve a token.
+- The wizard then asks for the current machine Domain Administrators credentials.
+- Using these credentials, the agent general managed service account (GMSA) for this domain is either created or located and reused if it already exists.
+- The agent service is now reconfigured to run under the GMSA.
+- The wizard now asks for domain configuration along with the Enterprise Admin (EA)/Domain Admin(DA) Account for each domain you want the agent to service.
+- The GMSA account is then updated with permissions that enable it access to each domain entered above.
+- Next, the wizard triggers agent registration
+- The agent creates a certificate and using the Azure AD token, registers itself and the certificate with the Hybird Identity Service(HIS) Registration Service
+- The Wizard triggers an AgentResourceGrouping call. This call to HIS Admin Service is to assign the agent to one or more AD Domains in the HIS configuration.
+- The wizard now restarts the agent service.
+- The agent calls a Bootstrap Service on restart (and every 10 mins afterwards) to check for configuration updates.  The bootstrap service validates the agent identity.  It also updates the last bootstrap time.  This is important because if agents don't bootstrap, they are not getting updated Service Bus endpoints and may not be able to receive requests. 
+
 
 ## What is System for Cross-domain Identity Management (SCIM)?
 
