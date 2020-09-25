@@ -24,7 +24,7 @@ The starter kit gives you a quick tour of how Azure Babylon works and what it ca
 
 After the starter kit creates this infrastructure, it walks you through setting up scans on the Azure Blob storage and Azure Data Lake Storage Gen2 accounts. This environment is then reused throughout the next tutorials in the series.
 
-:::image type="content" source="./media/starter-kit-tutorial-1/image1.png" alt-text="Diagram showing the Azure resources created by the starter kit.":::
+:::image type="content" source="./media/starter-kit-tutorial-1/azure-resources-created-by-starter-kit.png" alt-text="Diagram showing the Azure resources created by the starter kit.":::
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -87,10 +87,10 @@ Follow these steps to set up the starter kit on your Windows machine:
 
 1. If you see the warning prompt, *NuGet provider is required to continue*, enter **Y**, and then press Enter.
 
-   :::image type="content" source="./media/starter-kit-tutorial-1/image11.png" alt-text="Screenshot showing an example of a NuGet warning.":::
+   :::image type="content" source="./media/starter-kit-tutorial-1/nuget-warning.png" alt-text="Screenshot showing an example of a NuGet warning.":::
 1. If you see the warning prompt, *Untrusted repository*, enter **A**, and then press Enter.
 
-   :::image type="content" source="./media/starter-kit-tutorial-1/image12.png" alt-text="Screenshot showing an example of an untrusted repository warning.":::
+   :::image type="content" source="./media/starter-kit-tutorial-1/untrusted-repository-warning.png" alt-text="Screenshot showing an example of an untrusted repository warning.":::
 
 It might take up to a minute for PowerShell to install the required modules. When it's finished, you can run the catalog scripts described in the next section.
 
@@ -195,7 +195,7 @@ To scan the Azure Blob storage data source:
    :::image type="content" source="./media/starter-kit-tutorial-1/select-new-data-source.png" alt-text="Screenshot showing how to select a new data source on the Data sources page.":::
 1. Select **Azure Blob Storage** > **Continue**.
 
-   :::image type="content" source="./media/starter-kit-tutorial-1/image24.png" alt-text="Screenshot showing Azure Blob Storage selected for a new data source.":::
+   :::image type="content" source="./media/starter-kit-tutorial-1/select-azure-blob-storage.png" alt-text="Screenshot showing Azure Blob Storage selected for a new data source.":::
 1. On the **Register sources** page, enter a **Name**. Choose the **Storage account name** of the Azure Blob storage account that you previously created with the starter kit: &lt;*YourResourceGroupName*&gt;**adcblob**. Select **Finish**.
 
    :::image type="content" source="./media/starter-kit-tutorial-1/register-azure-blob-storage.png" alt-text="Screenshot showing the settings to register an Azure Blob storage data source.":::
@@ -209,7 +209,7 @@ To scan the Azure Blob storage data source:
    1. In the [Azure portal](https://portal.azure.com), search for and select the name of the Azure Blob storage account that you created as part of running the script.
    1. Select **Access keys** under **Settings**, and then copy the value of key1 from this page.
 
-      :::image type="content" source="./media/starter-kit-tutorial-1/image29.png" alt-text="Screenshot showing the settings for key 1 on the storage account page.":::
+      :::image type="content" source="./media/starter-kit-tutorial-1/key1-settings.png" alt-text="Screenshot showing the settings for key1 on the storage account page.":::
    1. On the **Set up a scan** page, paste the key1 value to **Storage account key**, and then select **Continue**.
 1. Set the scan to run once. On the **Set a scan trigger** page, select **Once**, and then select **Continue**.
 
@@ -224,7 +224,7 @@ To scan the Azure Data Lake Storage Gen2 data source:
 
 1. From the **New data source** page, select **Azure Data Lake Storage Gen2** > **Continue**.
 
-   :::image type="content" source="./media/starter-kit-tutorial-1/image32.png" alt-text="Screenshot showing the Azure Data Lake Storage Gen2 data source selected.":::
+   :::image type="content" source="./media/starter-kit-tutorial-1/select-azure-data-lake-storage-gen2.png" alt-text="Screenshot showing the Azure Data Lake Storage Gen2 data source selected.":::
 
 1. On the **Register sources** page, enter a **Name**. Choose the **Storage account name** of the Azure Data Lake Storage Gen2 storage account that you previously created with the starter kit: &lt;*YourResourceGroupName*&gt;**adcadls**. Select **Finish**.
 
