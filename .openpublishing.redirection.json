@@ -111,6 +111,26 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/virtual-machines/linux/dedicated-hosts.md",
+      "redirect_url": "/azure/virtual-machines/dedicated-hosts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/dedicated-hosts.md",
+      "redirect_url": "/azure/virtual-machines/dedicated-hosts",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/dedicated-hosts-portal.md",
+      "redirect_url": "/azure/virtual-machines/dedicated-hosts-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/dedicated-hosts-portal.md",
+      "redirect_url": "/azure/virtual-machines/dedicated-hosts-portal",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-cli-sample-copy-snapshot-to-storage-account.md",
       "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-cli-sample-copy-snapshot-to-storage-account",
       "redirect_document_id": false
@@ -21782,6 +21802,41 @@
       "redirect_url": "/azure/marketplace/plan-saas-offer",
       "redirect_document_id": false
     },
+    {
+      "source_path": "articles/marketplace/partner-center-portal/payout-policy-details.md",
+      "redirect_url": "/partner-center/payout-policy-details?context=/azure/marketplace/context/context",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/partner-center-portal/get-paid.md",
+      "redirect_url": "/partner-center/marketplace-get-paid?context=/azure/marketplace/context/context",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/partner-center-portal/tax-details-paid-transactions.md",
+      "redirect_url": "/partner-center/tax-details-marketplace?context=/azure/marketplace/context/context",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/partner-center-portal/set-up-your-payout-account-tax-forms.md",
+      "redirect_url": "/partner-center/set-up-your-payout-account?context=/azure/marketplace/context/context",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/partner-center-portal/payout-summary.md",
+      "redirect_url": "/partner-center/payout-statement?context=/azure/marketplace/context/context",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/partner-center-portal/payout-summary-overview.md",
+      "redirect_url": "/partner-center/payout-statement?context=/azure/marketplace/context/context",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/partner-center-portal/payment-thresholds-methods-timeframes.md",
+      "redirect_url": "/partner-center/payment-thresholds-methods-timeframes?context=/azure/marketplace/context/context",
+      "redirect_document_id": false
+    },                
     {
       "source_path": "articles/marketplace/marketplace-saas-applications-technical-publishing-guide.md",
       "redirect_url": "/azure/marketplace/plan-saas-offer",
