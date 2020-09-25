@@ -176,15 +176,13 @@ This command performs the following actions, which may take a few minutes:
 - Create the App Service app if it doesn't exist.
 - Enable default logging for the app, if not already enabled.
 - Upload the repository using ZIP deployment with build automation enabled.
+- Cache common parameters, such as the name of the resource group and App Service plan, into the file *.azure/config*. As a result, you don't need to specify all the same parameter with later commands. For example, to redeploy the app after making changes, you can just run `az webapp up` again without any parameters. Commands that come from CLI extensions, such as `az postgres up`, however, do not at present use the cache, which is why you needed to specify the resource group and location here with the initial use of `az webapp up`.
 
 Upon successful deployment, the command generates JSON output like the following example:
 
 ![Example az webapp up command output](./media/tutorial-python-postgresql-app/az-webapp-up-output.png)
 
 [Having issues? Let us know.](https://aka.ms/DjangoCLITutorialHelp)
-
-> [!TIP]
-> Many Azure CLI commands cache common parameters, such as the name of the resource group and App Service plan, into the file *.azure/config*. As a result, you don't need to specify all the same parameter with later commands. For example, to redeploy the app after making changes, you can just run `az webapp up` again without any parameters. Commands that come from CLI extensions, such as `az postgres up`, however, do not at present use the cache, which is why you needed to specify the resource group and location here with `az webapp up`.
 
 > [!NOTE]
 > If you attempt to visit the app's URL at this point, you encounter the error "DisallowedHost at /". This error happens because you have not yet configured the app to use the production settings discussed earlier, which you do in the following section.
@@ -241,6 +239,8 @@ Django database migrations ensure that the schema in the PostgreSQL on Azure dat
     ```
     
 1. The `createsuperuser` command prompts you for superuser credentials. For the purposes of this tutorial, use the default username `root`, press **Enter** for the email address to leave it blank, and enter `Pollsdb1` for the password.
+
+1. If you see an error that the database is locked, make sure that you ran the `az webapp settings` command in the previous section. Without those settings, the migrate command cannot communicate with the database, resulting in the error.
 
 [Having issues? Let us know.](https://aka.ms/DjangoCLITutorialHelp)
     
