@@ -318,7 +318,6 @@ In general, it's helpful to use the logging tools enabled by your web API servic
 * Monitor for HTTP status codes that aren't HTTP 200 or 400.
 * A 401 or 403 HTTP status code typically indicate there's an issue with your authentication. Double check your APIs authentication layer and the corresponding configuration in the API connector.
 * Use more aggressive levels of logging (e.g. 'trace' or 'debug') in development if needed.
-* Look at your logs and ensure your API calls aren't taking longer than 30 seconds. This will cause an error.
 
 ## Next steps
 <!-- - Learn [where you can enable an API connector](api-connectors-overview.md#where-you-can-enable-an-api-connector-in-a-user-flow) -->
