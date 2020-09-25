@@ -1,6 +1,6 @@
 ---
-title: Azure Load Balancer concepts
-description: Overview of Azure Load Balancer concepts
+title: Floating IP
+description: Overview of Azure Load Balancer Floating IP
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -16,7 +16,7 @@ ms.author: allensu
 
 # Floating IP
 
-Load balancer provides several capabilities for both UDP and TCP applications. 
+Load balancer provides several capabilities for both UDP and TCP applications.
 
 ## Floating IP
 

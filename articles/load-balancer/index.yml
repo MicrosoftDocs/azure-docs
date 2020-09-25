@@ -110,6 +110,8 @@ landingContent:
     linkLists:
       - linkListType: reference
         links:
+          - text: Videos
+            url: load-balancer-videos.md
           - text: Azure PowerShell
             url: https://docs.microsoft.com/powershell/module/az.network/?view=azps-2.5.0#load_balancer
           - text: Azure CLI

@@ -140,6 +140,8 @@
       href: troubleshoot-rhc.md
 - name: Reference
   items:
+  - name: Videos
+    href: load-balancer-videos.md
   - name: Code samples
     href: https://azure.microsoft.com/resources/samples/?service=load-balancer
   - name: Azure PowerShell
