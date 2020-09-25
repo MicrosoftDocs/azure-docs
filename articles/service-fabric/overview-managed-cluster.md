@@ -11,6 +11,12 @@ Service Fabric managed clusters are an evolution of the Azure Service Fabric clu
 
 The Azure Resource Model (ARM) template for traditional Service Fabric clusters requires you to define a cluster resource alongside a number of supporting resources, all of which must be "wired up"  correctly (upon deployment and throughout the lifecycle of the cluster) in order for the cluster and your services to function properly. In contrast, the encapsulation model for Service Fabric managed clusters consists of a single, *Service Fabric managed cluster* resource. All of the underlying resources for the cluster are abstracted away and managed by Azure on your behalf.
 
+**Service Fabric traditional cluster model**
+![Service Fabric traditional cluster model][sf-composition]
+
+**Service Fabric managed cluster model**
+![Service Fabric encapsulated cluster model][sf-encapsulation]
+
 In terms of size and complexity, the ARM template for a Service Fabric managed cluster is about 100 lines of JSON, versus some 1000 lines required to define a typical Service Fabric cluster:
 
 | Service Fabric resources | Service Fabric managed cluster resources |
@@ -51,9 +57,25 @@ Service Fabric managed clusters are available in both Basic and Standard SKUs.
 | Add/remove node types | No | Yes |
 | Zone redundancy | No | Yes |
 
+## Service Fabric managed cluster known gaps 
+As this is an early preview version of Service Fabric managed clusters their are some scenario gaps to be aware of. We are working to add these features in future releases. 
+
+* Publishing applications to clusters directly from Visual Studio
+* Managed Identities 
+* ARM Application Deployments 
+* Availability Zones 
+* Reverse Proxy 
+* Auto scaling 
+* Updating NSG rules 
+* Auto OS Upgrades
+
 ## Next steps
 
 To get started with Service Fabric managed clusters, try out the quickstart:
 
 > [!div class="nextstepaction"]
 > [Create a Service Fabric managed cluster (preview)](quickstart-managed-cluster-template.md)
+
+
+[sf-composition]: ./media/overview-managed-cluster/sfrp-composition-resource.png
+[sf-encapsulation]: ./media/overview-managed-cluster/sfrp-encapsulated-resource.png
