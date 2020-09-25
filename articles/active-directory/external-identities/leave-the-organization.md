@@ -59,13 +59,15 @@ If you permanently delete a user, this action is irrevocable.
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-dsr-and-stp-note.md)]
 
-## View or export unsubscribed organizations
+## View organizations you've left
 
-A guest user can follow these steps to view or export the organizations they have left:
+A guest user can follow these steps to view or export the organizations they have left (unsubscribed from):
 
 1. Go to [https://invitations.microsoft.com/unsubscribe/manage](https://invitations.microsoft.com/unsubscribe/manage).
 2. Enter your email and follow the sign-in steps for email one-time passcode authentication.
-3. View the organizations you have unsubscribed from. You can also restart application access by selecting an organization and selecting Next.
+3. View the organizations you have unsubscribed from, or export the names using copy and paste.
+   > [!NOTE]
+   > If you want to restore your access to an organization, you can choose the organization and select **Next**.
 
 ## Next steps
 
