@@ -160,8 +160,6 @@
     items:
     - name: Work with indexers
       items:
-      - name: Configure indexers
-        href: search-indexer-overview.md
       - name: Monitor indexers
         href: search-howto-monitor-indexers.md
       - name: Schedule indexers
