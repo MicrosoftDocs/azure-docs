@@ -21785,27 +21785,27 @@
     {
       "source_path": "articles/marketplace/partner-center-portal/payout-policy-details.md",
       "redirect_url": "/partner-center/payout-policy-details?context=/azure/marketplace/context/context",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace/partner-center-portal/get-paid.md",
       "redirect_url": "/partner-center/marketplace-get-paid?context=/azure/marketplace/context/context",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace/partner-center-portal/tax-details-paid-transactions.md",
       "redirect_url": "/partner-center/tax-details-marketplace?context=/azure/marketplace/context/context",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace/partner-center-portal/set-up-your-payout-account-tax-forms.md",
       "redirect_url": "/partner-center/set-up-your-payout-account?context=/azure/marketplace/context/context",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace/partner-center-portal/payout-summary.md",
       "redirect_url": "/partner-center/payout-statement?context=/azure/marketplace/context/context",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace/partner-center-portal/payout-summary-overview.md",
@@ -21815,7 +21815,7 @@
     {
       "source_path": "articles/marketplace/partner-center-portal/payment-thresholds-methods-timeframes.md",
       "redirect_url": "/partner-center/payment-thresholds-methods-timeframes?context=/azure/marketplace/context/context",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },                
     {
       "source_path": "articles/marketplace/marketplace-saas-applications-technical-publishing-guide.md",
