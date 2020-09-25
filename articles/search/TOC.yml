@@ -186,6 +186,8 @@
         href: search-howto-indexing-azure-blob-storage.md
       - name: Index one-to-many blobs
         href: search-howto-index-one-to-many-blobs.md
+      - name: Index plain text
+        href: search-howto-index-plaintext-blobs.md
       - name: Index CSV blobs
         href: search-howto-index-csv-blobs.md
       - name: Index JSON blobs

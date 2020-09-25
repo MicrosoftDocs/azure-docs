@@ -317,6 +317,12 @@ The configuration parameters described above apply to all blobs. Sometimes, you 
 | AzureSearch_Skip |"true" |Instructs the blob indexer to completely skip the blob. Neither metadata nor content extraction is attempted. This is useful when a particular blob fails repeatedly and interrupts the indexing process. |
 | AzureSearch_SkipContent |"true" |This is equivalent of `"dataToExtract" : "allMetadata"` setting described [above](#PartsOfBlobToIndex) scoped to a particular blob. |
 
+## Index from multiple sources
+
+You may want to "assemble" documents from multiple sources in your index. For example, you may want to merge text from blobs with other metadata stored in Cosmos DB. You can even use the push indexing API together with various indexers to  build up search documents from multiple parts.
+
+For this to work, all indexers and other components need to agree on the document key. For additional details on this topic, refer to [Index multiple Azure data sources](./tutorial-multiple-data-sources.md) or this blog post, [Combine documents with other data in Azure Cognitive Search](https://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html).
+
 <a name="DealingWithErrors"></a>
 
 ## Handle errors
@@ -458,39 +464,7 @@ Indexing blobs can be a time-consuming process. In cases where you have millions
 
 * Create a corresponding indexer for each data source. All the indexers can point to the same target search index.  
 
-* One search unit in your service can run one indexer at any given time. Creating multiple indexers as described above is only useful if they actually run in parallel. To run multiple indexers in parallel, scale out your search service by creating an appropriate number of partitions and replicas. For example, if your search service has 6 search units (for example, 2 partitions x 3 replicas), then 6 indexers can run simultaneously, resulting in a six-fold increase in the indexing throughput. To learn more about scaling and capacity planning, see [Scale resource levels for query and indexing workloads in Azure Cognitive Search](search-capacity-planning.md).
-
-## Indexing documents along with related data
-
-You may want to "assemble" documents from multiple sources in your index. For example, you may want to merge text from blobs with other metadata stored in Cosmos DB. You can even use the push indexing API together with various indexers to  build up search documents from multiple parts. 
-
-For this to work, all indexers and other components need to agree on the document key. For additional details on this topic, refer to [Index multiple Azure data sources](./tutorial-multiple-data-sources.md). For a detailed walk-through, see this external article: [Combine documents with other data in Azure Cognitive Search](https://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html).
-
-<a name="IndexingPlainText"></a>
-
-## Indexing plain text 
-
-If all your blobs contain plain text in the same encoding, you can significantly improve indexing performance by using **text parsing mode**. To use text parsing mode, set the `parsingMode` configuration property to `text`:
-
-```http
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
-    Content-Type: application/json
-    api-key: [admin key]
-
-    {
-      ... other parts of indexer definition
-      "parameters" : { "configuration" : { "parsingMode" : "text" } }
-    }
-```
-
-By default, the `UTF-8` encoding is assumed. To specify a different encoding, use the `encoding` configuration property: 
-
-```http
-    {
-      ... other parts of indexer definition
-      "parameters" : { "configuration" : { "parsingMode" : "text", "encoding" : "windows-1252" } }
-    }
-```
+* One search unit in your service can run one indexer at any given time. Creating multiple indexers as described above is only useful if they actually run in parallel. To run multiple indexers in parallel, scale out your search service by creating an appropriate number of partitions and replicas. For example, if your search service has 6 search units (for example, 2 partitions x 3 replicas), then 6 indexers can run simultaneously, resulting in a six-fold increase in the indexing throughput. To learn more about scaling and capacity planning, see [Adjust the capacity of an Azure Cognitive Search service](search-capacity-planning.md).
 
 <a name="ContentSpecificMetadata"></a>
 
