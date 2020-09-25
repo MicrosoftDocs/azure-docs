@@ -1,7 +1,7 @@
 ---
 title: Understand how effects work
 description: Azure Policy definitions have various effects that determine how compliance is managed and reported.
-ms.date: 08/27/2020
+ms.date: 09/15/2020
 ms.topic: conceptual
 ---
 # Understand Azure Policy effects
@@ -20,7 +20,7 @@ These effects are currently supported in a policy definition:
 - [Disabled](#disabled)
 - [Modify](#modify)
 
-The following effects are being _deprecated_:
+The following effects are _deprecated_:
 
 - [EnforceOPAConstraint](#enforceopaconstraint)
 - [EnforceRegoPolicy](#enforceregopolicy)
@@ -479,12 +479,10 @@ pass Gatekeeper v3 admission control rules defined with
 [OPA Constraint Framework](https://github.com/open-policy-agent/frameworks/tree/master/constraint#opa-constraint-framework)
 to [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) to Kubernetes clusters on Azure.
 
-> [!NOTE]
-> [Azure Policy for Kubernetes](./policy-for-kubernetes.md) is in Preview and only supports Linux
-> node pools and built-in policy definitions. Built-in policy definitions are in the **Kubernetes**
-> category. The limited preview policy definitions with **EnforceOPAConstraint** effect and the
-> related **Kubernetes Service** category are being _deprecated_. Instead, use the effects _audit_
-> and _deny_ with Resource Provider mode `Microsoft.Kubernetes.Data`.
+> [!IMPORTANT]
+> The limited preview policy definitions with **EnforceOPAConstraint** effect and the related
+> **Kubernetes Service** category are _deprecated_. Instead, use the effects _audit_ and _deny_ with
+> Resource Provider mode `Microsoft.Kubernetes.Data`.
 
 ### EnforceOPAConstraint evaluation
 
@@ -550,12 +548,10 @@ to pass Gatekeeper v2 admission control rules defined with
 [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) on
 [Azure Kubernetes Service](../../../aks/intro-kubernetes.md).
 
-> [!NOTE]
-> [Azure Policy for Kubernetes](./policy-for-kubernetes.md) is in Preview and only supports Linux
-> node pools and built-in policy definitions. Built-in policy definitions are in the **Kubernetes**
-> category. The limited preview policy definitions with **EnforceRegoPolicy** effect and the related
-> **Kubernetes Service** category are being _deprecated_. Instead, use the effects _audit_ and
-> _deny_ with Resource Provider mode `Microsoft.Kubernetes.Data`.
+> [!IMPORTANT]
+> The limited preview policy definitions with **EnforceRegoPolicy** effect and the related
+> **Kubernetes Service** category are _deprecated_. Instead, use the effects _audit_ and _deny_ with
+> Resource Provider mode `Microsoft.Kubernetes.Data`.
 
 ### EnforceRegoPolicy evaluation
 

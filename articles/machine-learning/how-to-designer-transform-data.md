@@ -1,7 +1,7 @@
 ---
-title: Transform data in the designer (preview)
+title: Transform data in the designer
 titleSuffix: Azure Machine Learning
-description: Learn how to transform data in Azure Machine Learning designer (preview) to create your own datasets.
+description: Learn how to transform data in Azure Machine Learning designer to create your own datasets.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,8 +12,8 @@ ms.topic: conceptual
 ms.custom: how-to, designer
 ---
 
-# Transform data in Azure Machine Learning designer (preview)
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
+# Transform data in Azure Machine Learning designer
+
 
 In this article, you learn how to transform and save datasets in Azure Machine Learning designer so that you can prepare your own data for machine learning.
 
@@ -107,7 +107,7 @@ Now that your pipeline is set up to split the data, you need to specify where to
     **File format**: csv
 
     > [!NOTE]
-    > This article assumes that you have access to a datastore registered to the current Azure Machine Learning workspace. For instructions on how to setup a datastore, see [Connect to Azure storage services](how-to-access-data.md#studio).
+    > This article assumes that you have access to a datastore registered to the current Azure Machine Learning workspace. For instructions on how to setup a datastore, see [Connect to Azure storage services](how-to-connect-data-ui.md#create-datastores).
 
     If you don't have a datastore, you can create one now. For example purposes, this article will save the datasets to the default blob storage account associated with the workspace. It will save the datasets into the `azureml` container in a new folder called `data`.
 

@@ -59,7 +59,7 @@ The following steps help you locate and view metrics:
 
 3. Select **Metrics**.
 
-   :::image type="content" source="./media/logs-metrics/metrics.png" alt-text="metrics":::
+   :::image type="content" source="./media/logs-metrics/metrics.png" alt-text="Screenshot shows a site to site V P N pane with View in Azure Monitor selected.":::
 
 4. On the **Metrics** page, you can view the metrics that you are interested in.
 
