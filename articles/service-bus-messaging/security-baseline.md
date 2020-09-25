@@ -85,7 +85,7 @@ Use Azure Security Center and follow network protection recommendations to help 
 
 - [How to enable Network Watcher](../network-watcher/network-watcher-create.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -846,7 +846,7 @@ Microsoft anti-malware is enabled on the underlying host that supports Azure ser
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Customer
+**Responsibility**: Shared
 
 ## Data recovery
 
