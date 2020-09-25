@@ -42,7 +42,7 @@ In this quickstart, you'll use Azure App Configuration to centralize storage and
 
 ## Create an ASP.NET Core web app
 
-Use the [.NET Core command-line interface (CLI)](/dotnet/core/tools) to create a new ASP.NET Core MVC web app project. The [Azure Cloud Shell](https://shell.azure.com) provides these tools for you. They're also available across the Windows, macOS, and Linux platforms.
+Use the [.NET Core command-line interface (CLI)](/dotnet/core/tools) to create a new ASP.NET Core MVC project. The [Azure Cloud Shell](https://shell.azure.com) provides these tools for you. They're also available across the Windows, macOS, and Linux platforms.
 
 Run the following command to create an ASP.NET Core MVC project in a new *TestAppConfig* folder:
 
