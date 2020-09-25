@@ -278,7 +278,7 @@ public static async Task SpeakerIdentification(SpeechConfig config, List<VoicePr
 
     Console.WriteLine("Speak some text to identify who it is from your list of enrolled speakers.");
     var result = await speakerRecognizer.RecognizeOnceAsync(model);
-    Console.WriteLine($"The most similiar voice profile is {profileMapping[result.ProfileId]} with similiarity score {result.Score}");
+    Console.WriteLine($"The most similar voice profile is {profileMapping[result.ProfileId]} with similarity score {result.Score}");
 }
 ```
 
