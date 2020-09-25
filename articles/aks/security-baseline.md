@@ -1408,13 +1408,17 @@ Limit credential exposure by not defining credentials in your application code. 
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32951.).
 
 **Guidance**: 
-Install Microsoft Anti-malware on Azure Kubernetes Service (AKS) Virtual Machines and virtual machine scale set nodes and enable antimalware event collection for them. Review alerts in Security Center for remediation.
+AKS manages the lifecycle and operations of agent nodes on your behalf - modifying the IaaS resources associated with the agent nodes is not supported. However, for Linux nodes you may use daemon sets to install custom software like an anti-malware solution.
+
+For Windows nodes install Microsoft Anti-malware on Azure Kubernetes Service (AKS) Virtual Machines and virtual machine scale set nodes and enable antimalware event collection for them. Review alerts in Security Center for remediation.
 
 - [Microsoft Antimalware for Azure Cloud Services and Virtual Machines](../security/fundamentals/antimalware.md)
 
-- [Security alerts - a reference guide](../security-center/alerts-reference.md)
+- [Security alerts reference guide](../security-center/alerts-reference.md)
 
 - [Alerts for containers - Azure Kubernetes Service clusters](../security-center/alerts-reference.md#alerts-akscluster)
+
+- [AKS shared responsibility and Daemon Sets](support-policies.md#shared-responsibility)
 
 **Azure Security Center monitoring**: Not applicable
 
