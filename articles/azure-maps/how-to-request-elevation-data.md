@@ -275,4 +275,4 @@ To further explore the Azure Maps Elevation APIs, see:
 For a complete list of Azure Maps REST APIs, see:
 
 > [!div class="nextstepaction"]
-> [Azure Maps REST APIs](https://docs.microsoft.com/en-us/rest/api/maps/)
+> [Azure Maps REST APIs](https://docs.microsoft.com/rest/api/maps/)
