@@ -63,6 +63,11 @@ Here's an example *info* file produced by converting a file called `buggy.gltf`:
         "numMeshUsagesInScene": 236,
         "maxNodeDepth": 3
     },
+    "overriddenMaterials": {
+        "Default": "Default",
+        "Material1": "Material[0-9]+",
+        "Material2": "Material[0-9]+"
+    },
     "outputInfo": {
         "conversionToolVersion": "3b28d840de9916f9d628342f474d38c3ab949590",
         "conversionHash": "CCDB1F7A4C09F565"
@@ -112,6 +117,12 @@ This section records information about the source file format.
 * `sourceAssetFormat`: A description of the source file format.
 * `sourceAssetFormatVersion`: The version of the source file format.
 * `sourceAssetGenerator`: The name of the tool that generated the source file, if available.
+
+### The *overriddenMaterials* section
+
+This section is present only if you provide a non-empty [material override file](override-materials.md) to the conversion service.
+It maps material names to the name of the override entry that applied to them.
+Materials that were not overridden are not listed here.
 
 ### The *inputStatistics* section
 
