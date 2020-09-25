@@ -174,7 +174,7 @@ To call a web API other than Microsoft Graph, *Microsoft.Identity.Web* provides 
 
 ### Summary
 
-As with web APIs, you can choose various token cache implementations. For details, see [Microsoft Identity web - Token cache serialization](https://aka.ms/ms-id-web/token-cache-serialization) on GitHub.
+As with web APIs, you can choose various token cache implementations. For details, see [Microsoft.Identity.Web - Token cache serialization](https://aka.ms/ms-id-web/token-cache-serialization) on GitHub.
 
 The following image shows the various possibilities of *Microsoft.Identity.Web* and their impact on the *Startup.cs* file:
 
