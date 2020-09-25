@@ -7,7 +7,7 @@ ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 09/04/2020
 ---
 
 # Azure AD and transactable SaaS offers in the commercial marketplace
@@ -20,7 +20,7 @@ By following the guidance in this article, you’ll help to certify your SaaS of
 
 ## Before you begin
 
-When you [create your SaaS offer](./partner-center-portal/create-new-saas-offer.md) in Partner Center, you choose from a set of specific call to action options that will be displayed on the offer listing. Your choice determines how your offer is transacted in the commercial marketplace. Offers sold through Microsoft are called transactable offers. We bill the customer on your behalf for all transactable offers. If you choose to sell through Microsoft and have us host transactions on your behalf (the **Yes** option), then you’ve chosen to create a transactable offer and this article is for you. We recommend that you read it in its entirety.
+When you [create your SaaS offer](./partner-center-portal/create-new-saas-offer.md) in Partner Center, you choose from a set of specific listing options that will be displayed on the offer listing. Your choice determines how your offer is transacted in the commercial marketplace. Offers sold through Microsoft are called transactable offers. We bill the customer on your behalf for all transactable offers. If you choose to sell through Microsoft and have us host transactions on your behalf (the **Yes** option), then you’ve chosen to create a transactable offer and this article is for you. We recommend that you read it in its entirety.
 
 If you choose to only list your offer through the commercial marketplace and process transactions independently (the **No** option), you have three options for how potential customers will access your offer: Get it now (free), Free trial, and Contact me. If you select **Get it now (free)** or **Free trial**, this article is not for you. Instead, see [Build the landing page for your free or trial SaaS offer in the commercial marketplace](./azure-ad-free-or-trial-landing-page.md) for more information. If you select **Contact me**, there are no direct publisher responsibilities. Continue creating your offer in the Partner Center.
 

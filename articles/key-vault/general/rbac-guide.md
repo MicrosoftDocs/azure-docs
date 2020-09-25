@@ -13,6 +13,9 @@ ms.author: mbaldwin
 ---
 # Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control (preview)
 
+> [!NOTE]
+> Key Vault resource provider supports two resource types: **vaults** and **managed HSMs**. Access control described in this article only applies to **vaults**. To learn more about access control for managed HSM, see [Managed HSM access control](../managed-hsm/access-control.md).
+
 Azure role-based access control (Azure RBAC) is an authorization system built on [Azure Resource
 Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)
 that provides fine-grained access management of Azure resources.
@@ -43,6 +46,8 @@ More about Azure Key Vault management guidelines, see:
 - [Azure Key Vault service limits](service-limits.md)
 
 ## Azure built-in roles for Key Vault data plane operations (preview)
+> [!NOTE]
+> `Key Vault Contributor` role is for management plane operations to manage key vaults. It does not allow access to keys, secrets and certificates.
 
 | Built-in role | Description | ID |
 | --- | --- | --- |
@@ -62,10 +67,6 @@ For more information about Azure built-in roles definitions, see [Azure built-in
 The new Azure RBAC permission model for key vault provides alternative to the vault access policy permissions model. 
 
 ### Enable Azure RBAC permissions on Key Vault
-
-During preview, you must use the Azure RBAC feature tag (Microsoft_Azure_KeyVault_RBACEnabled=true) to see the new permission model options.
-
-https://portal.azure.com/?Microsoft_Azure_KeyVault_RBACEnabled=true#home
 
 > [!IMPORTANT]
 > Setting Azure RBAC permission model invalidates all access policies permissions. It can cause outages when equivalent Azure roles aren't assigned.

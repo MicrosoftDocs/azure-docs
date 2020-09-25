@@ -50,7 +50,7 @@ If your device is brand-new and hasn't been set up yet, you can go through the W
 
     Your device is now joined to your organization's network.
 
-## To make sure you're joined
+## To make sure you're joined (new device)
 You can make sure that you're joined by looking at your settings.
 
 1. Open **Settings**, and then select **Accounts**.

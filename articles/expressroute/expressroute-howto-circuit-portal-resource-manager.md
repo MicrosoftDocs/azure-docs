@@ -70,7 +70,10 @@ You can create an ExpressRoute circuit by selecting the option to create a new r
     > [!IMPORTANT]
     > The Peering Location indicates the [physical location](expressroute-locations.md) where you are peering with Microsoft. This is **not** linked to "Location" property, which refers to the geography where the Azure Network Resource Provider is located. While they are not related, it is a good practice to choose a Network Resource Provider geographically close to the Peering Location of the circuit.
 
-    * **SKU** determines whether an ExpressRoute local, ExpressRoute standard, or an ExpressRoute premium add-on is enabled. You can specify **Local** to get local SKU, **Standard** to get the standard SKU or **Premium** for the premium add-on.
+    * **SKU** determines whether an ExpressRoute local, ExpressRoute standard, or an ExpressRoute premium add-on is enabled. You can specify **Local** to get the local SKU, **Standard** to get the standard SKU or **Premium** for the premium add-on. Note that you can change the SKU to enable the premium add-on.
+    > [!IMPORTANT]
+    > You cannot change the SKU from **Standard/Premium** to **Local**.
+    
     * **Billing model** determines the billing type. You can specify **Metered** for a metered data plan and **Unlimited** for an unlimited data plan. Note that you can change the billing type from **Metered** to **Unlimited**.
 
     > [!IMPORTANT]
@@ -145,6 +148,10 @@ You can modify certain properties of an ExpressRoute circuit without impacting c
 You can perform the following tasks with no downtime:
 
 * Enable or disable an ExpressRoute Premium add-on for your ExpressRoute circuit.
+
+> [!IMPORTANT]
+  > Changing the SKU from **Standard/Premium** to **Local** is not supported.
+
 * Increase the bandwidth of your ExpressRoute circuit, provided there is capacity available on the port.
 
   > [!IMPORTANT]

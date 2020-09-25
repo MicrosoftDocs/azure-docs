@@ -82,7 +82,7 @@ Enable private peering to connect to VMs and cloud services deployed within the 
 
 #### For Microsoft peering
 
-Enable this to access Microsoft online services, such as Office 365. Additionally, all Azure PaaS services are accessible through Microsoft peering. You must ensure that you use a separate proxy/edge to connect to Microsoft than the one you use for the Internet. Using the same edge for both ExpressRoute and the Internet will cause asymmetric routing and cause connectivity outages for your network.
+Enable this to access Microsoft online services, such as Microsoft 365. Additionally, all Azure PaaS services are accessible through Microsoft peering. You must ensure that you use a separate proxy/edge to connect to Microsoft than the one you use for the Internet. Using the same edge for both ExpressRoute and the Internet will cause asymmetric routing and cause connectivity outages for your network.
 
 * Peering subnet for path 1 (/30) - must be public IP
 * Peering subnet for path 2 (/30) - must be public IP

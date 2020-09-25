@@ -39,7 +39,7 @@ For more information on creating groups in Azure Active Directory through the Az
 
 	![Selecting the service principal for the access policy](../media/authentication/assign-policy-portal-03.png)
 
-    If you're using a managed identity for the app, search for and select the name of the app itself. (For more information on managed identity and service principals, see [Key Vault authentication - app identity and service principals](authentication.md#app-identity-and-service-principals).)
+    If you're using a managed identity for the app, search for and select the name of the app itself. (For more information on managed identity and service principals, see [Key Vault authentication - app identity and service principals](authentication.md#app-identity-and-security-principals).)
  
 1.	Back in the **Add access policy** pane, select **Add** to save the access policy.
 

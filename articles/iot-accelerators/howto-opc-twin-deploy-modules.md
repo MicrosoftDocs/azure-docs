@@ -13,6 +13,9 @@ manager: philmea
 
 # Deploy OPC Twin module and dependencies from scratch
 
+> [!IMPORTANT]
+> While we update this article, see [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/) for the most up to date content.
+
 The OPC Twin module runs on IoT Edge and provides several edge services to the OPC device twin and registry services. 
 
 There are several options to deploy modules to your [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) Gateway, among them

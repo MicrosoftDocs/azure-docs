@@ -53,7 +53,7 @@ Now, prepare your blob storage and SQL database for the tutorial by performing t
 
 #### Create a sink SQL table
 
-1. Use the following SQL script to create the **dbo.emp** table in your SQL database:
+Use the following SQL script to create the **dbo.emp** table in your SQL database:
 
     ```sql
     CREATE TABLE dbo.emp
@@ -66,8 +66,6 @@ Now, prepare your blob storage and SQL database for the tutorial by performing t
 
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
-
-1. Allow Azure services to access SQL Server. Ensure that **Allow access to Azure services** is turned **ON** for your SQL server so that Data Factory can write data to your SQL server. To verify and turn on this setting, go to **Azure SQL Server** > **Overview** > **Set server firewall**. Set the **Allow access to Azure services** option to **ON**.
 
 ## Create a data factory
 In this step, you create a data factory and start the Data Factory UI to create a pipeline in the data factory.

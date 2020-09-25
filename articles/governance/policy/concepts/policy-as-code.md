@@ -51,7 +51,9 @@ Examples of these file formats are available in the
 
 The recommended general workflow of Policy as Code looks like this diagram:
 
-:::image type="content" source="../media/policy-as-code/policy-as-code-workflow.png" alt-text="Policy as Code workflow overview" border="false":::
+:::image type="complex" source="../media/policy-as-code/policy-as-code-workflow.png" alt-text="Diagram showing Policy as Code workflow boxes from Create to Test to Deploy." border="false":::
+   The diagram showing the Policy as Code workflow boxes. Create covers creation of the policy and initiative definitions. Test covers assignment with enforcement mode disabled. A gateway check for the compliance status is followed by granting the assignments M S I permissions and remediating resources.  Deploy covers updating the assignment with enforcement mode enabled.
+:::image-end:::
 
 ### Create and update policy definitions
 

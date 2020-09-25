@@ -11,7 +11,7 @@ ms.subservice: files
 
 # Migrate from Linux to a hybrid cloud deployment with Azure File Sync
 
-Azure File Sync works on Windows Server instances with direct attached storage (DAS). It does not support sync to and from Linux or a remote Server Message Block (SMB) share.
+Azure File Sync works on Windows Server instances with direct attached storage (DAS). It does not support sync to and from Linux clients, or a remote Server Message Block (SMB) share, or Network File System (NFS) shares.
 
 As a result, transforming your file services into a hybrid deployment makes a migration to Windows Server necessary. This article guides you through the planning and execution of such a migration.
 

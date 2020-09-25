@@ -43,6 +43,11 @@ For apps running in .NET Core 3.0 or higher, the following counters are collecte
 |`System.Runtime` | `threadpool-completed-items-count` |
 |`System.Runtime` | `active-timer-count` |
 
+> [!NOTE]
+> Starting with 2.15.0-beta3 version of either [AspNetCore SDK](asp-net-core.md) or [WorkerService SDK](worker-service.md),
+> no counters are collected by default. The module itself is enabled, so users can simply add the desired counters to
+> collect them.
+
 ## Customizing counters to be collected
 
 The following example shows how to add/remove counters. This customization would be done in the `ConfigureServices` method of your application after Application Insights telemetry collection is enabled using either `AddApplicationInsightsTelemetry()` or `AddApplicationInsightsWorkerService()`. Following is an example code from an ASP.NET Core application. For other type of applications, refer to [this](worker-service.md#configuring-or-removing-default-telemetrymodules) document.
@@ -75,7 +80,8 @@ The following example shows how to add/remove counters. This customization would
 
 ## Disabling EventCounter collection module
 
-`EventCounterCollectionModule` can be disabled by using `ApplicationInsightsServiceOptions`, as shown in the below example.
+`EventCounterCollectionModule` can be disabled by using `ApplicationInsightsServiceOptions`. An
+example when using ASP.NET Core SDK is shown below.
 
 ```csharp
     using Microsoft.ApplicationInsights.AspNetCore.Extensions;
@@ -87,8 +93,20 @@ The following example shows how to add/remove counters. This customization would
 
         var applicationInsightsServiceOptions = new ApplicationInsightsServiceOptions();
         applicationInsightsServiceOptions.EnableEventCounterCollectionModule = false;
-        services.AddApplicationInsightsTelemetry(applicationInsightsServiceOptions);        
+        services.AddApplicationInsightsTelemetry(applicationInsightsServiceOptions);
     }
+```
+
+A similar approach can be used for the WorkerService SDK as well, but the namespace must be
+changed as shown in the example below.
+
+```csharp
+    using Microsoft.ApplicationInsights.WorkerService;
+    using Microsoft.Extensions.DependencyInjection;
+
+    var applicationInsightsServiceOptions = new ApplicationInsightsServiceOptions();
+    applicationInsightsServiceOptions.EnableEventCounterCollectionModule = false;
+    services.AddApplicationInsightsTelemetryWorkerService(applicationInsightsServiceOptions);
 ```
 
 ## Event counters in Metric Explorer

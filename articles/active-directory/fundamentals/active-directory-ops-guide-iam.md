@@ -30,8 +30,8 @@ Managing Azure Active Directory requires the continuous execution of key operati
 | :- | :- |
 | Define the process how to create Azure subscriptions | Varies by organization |
 | Decide who gets Enterprise Mobility + Security licenses | IAM Operations Team |
-| Decide who gets Office 365 licenses | Productivity Team |
-| Decide who gets other licenses, for example, Dynamics, VSO | Application Owner |
+| Decide who gets Microsoft 365 licenses | Productivity Team |
+| Decide who gets other licenses, for example, Dynamics, Visual Studio Codespaces | Application Owner |
 | Assign licenses | IAM Operations Team |
 | Troubleshoot and remediate license assignment errors | IAM Operations Team |
 | Provision identities to applications in Azure AD | IAM Operations Team |
@@ -135,7 +135,7 @@ The [Azure AD Connect Configuration Documenter](https://github.com/Microsoft/AAD
 
 Azure Active Directory streamlines the management of licenses through [group-based licensing](./active-directory-licensing-whatis-azure-portal.md) for Microsoft cloud services. This way, IAM provides the group infrastructure and delegated management of those groups to the proper teams in the organizations. There are multiple ways to set up the membership of groups in Azure AD, including:
 
-- **Synchronized from on-premises** - Groups can come from on-premises directories, which could be a good fit for organizations that have established group management processes that can be extended to assign licenses in office 365.
+- **Synchronized from on-premises** - Groups can come from on-premises directories, which could be a good fit for organizations that have established group management processes that can be extended to assign licenses in Microsoft 365.
 
 - **Attribute-based / dynamic** - Groups can be created in the cloud based on an expression based on user attributes, for example, Department equals "sales". Azure AD maintains the members of the group, keeping it consistent with the expression defined. Using this kind of group for license assignment enables an attribute-based license assignment, which is a good fit for organizations that have high data quality in their directory.
 
@@ -183,7 +183,7 @@ The [default delta sync](../hybrid/how-to-connect-sync-feature-scheduler.md) fre
 
 #### Azure AD Connect troubleshooting recommended reading
 
-- [Prepare directory attributes for synchronization with Office 365 by using the IdFix tool - Office 365](/office365/enterprise/prepare-directory-attributes-for-synch-with-idfix)
+- [Prepare directory attributes for synchronization with Microsoft 365 by using the IdFix tool](/office365/enterprise/prepare-directory-attributes-for-synch-with-idfix)
 - [Azure AD Connect: Troubleshooting Errors during synchronization](../hybrid/tshoot-connect-sync-errors.md)
 
 ## Summary

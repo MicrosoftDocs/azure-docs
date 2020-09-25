@@ -20,7 +20,7 @@ Azure Key Vault's soft-delete feature allows recovery of deleted vaults and vaul
 
 ## Prerequisites
 
-- Azure CLI - If you don't have this setup for your environment, see [Manage Key Vault using Azure CLI](manage-with-cli2.md)).
+- Azure CLI - If you don't have this setup for your environment, see [Manage Key Vault using Azure CLI](manage-with-cli2.md).
 
 For Key Vault specific reference information for CLI, see [Azure CLI Key Vault reference](https://docs.microsoft.com/cli/azure/keyvault).
 
@@ -34,7 +34,7 @@ Key Vault operations are separately managed via role-based access control (RBAC)
 |Recover|Restores a deleted key vault.|Microsoft.KeyVault/vaults/write|
 |Purge|Permanently removes a deleted key vault and all its contents.|Microsoft.KeyVault/locations/deletedVaults/purge/action|
 
-For more information on permissions and access control, see [Secure your key vault](secure-your-key-vault.md)).
+For more information on permissions and access control, see [Secure your key vault](secure-your-key-vault.md).
 
 ## Enabling soft-delete
 
@@ -53,7 +53,7 @@ az keyvault update -n ContosoVault --enable-soft-delete true
 
 ### New key vault
 
-Soft delete is automatically enabled on all key vaults by default. By December 31st 2020 it will no longer be possible to create a new key vault without soft delete enabled.
+Soft delete is automatically enabled on all key vaults by default. From December 31st 2020, it will no longer be possible to create a new key vault without soft delete enabled.
 
 ### Verify soft-delete enablement
 
@@ -236,6 +236,6 @@ az keyvault update --name ContosoVault --resource-group ContosoRG --enable-purge
 
 ## Other resources
 
-- For an overview of Key Vault's soft-delete feature, see [Azure Key Vault soft-delete overview](soft-delete-overview.md)).
-- For a general overview of Azure Key Vault usage, see [What is Azure Key Vault?](overview.md)).
+- For an overview of Key Vault's soft-delete feature, see [Azure Key Vault soft-delete overview](soft-delete-overview.md).
+- For a general overview of Azure Key Vault usage, see [What is Azure Key Vault?](overview.md)
 

@@ -63,7 +63,7 @@ Additionally, the use of zonal frontends directly for load balanced endpoints wi
   <img src="./media/az-zonal/zonal-lb-1.svg" alt="Figure depicts three zonal standard load balancers each directing traffic in a zone to three different subnets in a zonal configuration." width="512" title="Virtual Network NAT">
 </p>
 
-*Figure: Zonal redundant load balancer*
+*Figure: Zonal load balancer*
 
 If you wish to blend these concepts (zone-redundant and zonal for same backend), review [multiple frontends for Azure Load Balancer](load-balancer-multivip-overview.md).
 
