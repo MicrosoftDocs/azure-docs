@@ -9,7 +9,7 @@ ms.custom: references_regions
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: mathoma, carlrab, danil
+ms.reviewer: mathoma, sstein, danil
 ms.date: 08/04/2020
 ---
 # Automated backups - Azure SQL Database & SQL Managed Instance

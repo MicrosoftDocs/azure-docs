@@ -101,6 +101,13 @@ These common scenarios can affect the total backup time:
 - **Disk churn:** If protected disks that are undergoing incremental backup have a daily churn of more than 200 GB, backup can take a long time (more than eight hours) to complete.
 - **Backup versions:** The latest version of Backup (known as the Instant Restore version) uses a more optimized process than checksum comparison for identifying changes. But if you're using Instant Restore and have deleted a backup snapshot, the backup switches to checksum comparison. In this case, the backup operation will exceed 24 hours (or fail).
 
+### Restore performance
+
+These common scenarios can affect the total restore time:
+
+- The total restore time depends on the Input/output operations per second (IOPS) and the throughput of the storage account.
+- The total restore time can be affected if the target storage account is loaded with other application read and write operations. To improve restore operation, select a storage account that isn't loaded with other application data.
+
 ## Best practices
 
 When you're configuring VM backups, we suggest following these practices:

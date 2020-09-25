@@ -56,7 +56,7 @@ If you or your organization have applications in development or production that 
 
 ## Next steps
 
-* [Try out Speech service for free](get-started.md)
+* [Try out Speech service for free](overview.md#try-the-speech-service-for-free)
 * [Quickstart: Recognize speech in a UWP app using the Speech SDK](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=uwp)
 
 ## See also
