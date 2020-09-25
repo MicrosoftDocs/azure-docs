@@ -81,7 +81,7 @@ The bastion host will be used to connect securely to the virtual machine for tes
 
 ## Create a virtual machine
 
-In this section you'll create a virtual machine that will be used to test the private endpoint.
+In this section, you'll create a virtual machine that will be used to test the private endpoint.
 
 
 1. On the upper-left side of the portal, select **Create a resource** > **Compute** > **Virtual machine** or search for **Virtual machine** in the search box.
@@ -117,8 +117,6 @@ In this section you'll create a virtual machine that will be used to test the pr
     | Public IP | Select **None**. |
     | NIC network security group | **Basic**|
     | Public inbound ports | Select **None**. |
-    | **Load balancing**  |
-    | Place this virtual machine behind an existing load balancing solution? | Select **No** |
    
 5. Select **Review + create**. 
   
@@ -126,9 +124,9 @@ In this section you'll create a virtual machine that will be used to test the pr
 
 ## Create storage account with a private endpoint.
 
-In this section you'll create a storage account and configure the private endpoint.
+In this section, you'll create a storage account and configure the private endpoint.
 
-1. On the upper-left side of the screen in the Azure portal, select **Create a resource** > **Storage** > **Storage account** or search for **Storage account** in the search box.
+1. In the left-hand menu, select **Create a resource** > **Storage** > **Storage account**, or search for **Storage account** in the search box.
 
 2. In the **Basics** tab of **Create storage account** enter or select the following information:
 
@@ -138,7 +136,7 @@ In this section you'll create a storage account and configure the private endpoi
     | Subscription | Select your Azure subscription |
     | Resource Group | Select **myResourceGroup** |
     | **Instance details** |  |
-    | Storage account name name | Enter **mystorageaccount**, if the name is taken enter a unique name. |
+    | Storage account name | Enter **mystorageaccount**. If the name is unavailable, enter a unique name. |
     | Location | Select **East US** |
     | Performance | Leave the default **Standard** |
     | Account kind | Leave the default **Storage (general purpose v2)** |
@@ -158,7 +156,7 @@ In this section you'll create a storage account and configure the private endpoi
     | Resource Group | Select **myResourceGroup** |
     | Location | Select **East US** |
     | Name | Enter **myPrivateEndpoint** |
-    | Storage sub-resource | Leave the default **blob** |
+    | Storage subresource | Leave the default **blob** |
     | **Networking** |  |
     | Virtual network | Select **myVNet** |
     | Subnet | Select **mySubnet** |
@@ -172,27 +170,27 @@ In this section you'll create a storage account and configure the private endpoi
 
 9. Select **Create**.
 
-10. Select **Resource groups** in the left hand navigation pane.
+10. Select **Resource groups** in the left-hand navigation pane.
 
 11. Select **myResourceGroup**.
 
-12. Select the storage account you just created in the previous steps.
+12. Select the storage account you created in the previous steps.
 
-13. In the **Settings** section of the storage account select **Access keys**.
+13. In the **Settings** section of the storage account, select **Access keys**.
 
 14. Select copy on the **Connection string** for **key1**.
 
 ## Test connectivity to private endpoint
 
-In this section you'll use the virtual machine you created in the previous step to connect to the storage account across the private endpoint.
+In this section, you'll use the virtual machine you created in the previous step to connect to the storage account across the private endpoint.
 
-1. Select **Resource groups** in the left hand navigation pane.
+1. Select **Resource groups** in the left-hand navigation pane.
 
 2. Select **myResourceGroup**.
 
 3. Select **myVM**.
 
-4. On the overview page for **myVM** select **Connect** then **Bastion**.
+4. On the overview page for **myVM**, select **Connect** then **Bastion**.
 
 5. Select the blue **Use Bastion** button.
 
@@ -200,7 +198,7 @@ In this section you'll use the virtual machine you created in the previous step 
 
 7. Open Windows PowerShell on the server after you connect.
 
-8. Enter `nslookup <storage-account-name>.blob.core.windows.net`. Replace **\<storage-account-name>** with the name of the storage account you created in the previous steps.  You'll receive a message similar to this:
+8. Enter `nslookup <storage-account-name>.blob.core.windows.net`. Replace **\<storage-account-name>** with the name of the storage account you created in the previous steps.  You'll receive a message similar to what is displayed below:
 
     ```powershell
     Server:  UnKnown
@@ -222,9 +220,9 @@ In this section you'll use the virtual machine you created in the previous step 
 
 12. Select **Next**.
 
-13. Enter your storage account name from the previous steps in **Display name:**.
+13. Enter your storage account name from the previous steps in **Display name**.
 
-14. Paste the connection string from the storage account you copied in the previous steps into the box under **Connection string:**.
+14. In the box under **Connection String**, paste the connection string from the storage account you copied in the previous steps.
 
 15. Select **Next**.
 
@@ -236,11 +234,11 @@ In this section you'll use the virtual machine you created in the previous step 
 
 ## Clean up resources
 
-If you're not going to continue to use this application, delete the virtual network, virtual machine and storage account with the following steps:
+If you're not going to continue to use this application, delete the virtual network, virtual machine, and storage account with the following steps:
 
 <resources> with the following steps:
 
-1. From the left-hand menu select **Resource groups**.
+1. From the left-hand menu, select **Resource groups**.
 
 2. Select **myResourceGroup**.
 
