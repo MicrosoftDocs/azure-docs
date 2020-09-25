@@ -15,25 +15,3 @@
 - name: Azure
   tocHref: /partner-center/
   topicHref: /azure/index
-  items:
-  - name: Commercial marketplace
-  tocHref: /partner-center/payout-policy-faq/
-  topicHref: /azure/marketplace/index
-  - name: Commercial marketplace
-  tocHref: /partner-center/payout-policy-details/
-  topicHref: /azure/marketplace/index
-  - name: Commercial marketplace
-  tocHref: /partner-center/marketplace-get-paid/
-  topicHref: /azure/marketplace/index
-  - name: Commercial marketplace
-  tocHref: /partner-center/tax-details-marketplace/
-  topicHref: /azure/marketplace/index
-  - name: Commercial marketplace
-  tocHref: /partner-center/set-up-your-payout-account/
-  topicHref: /azure/marketplace/index
-  - name: Commercial marketplace
-  tocHref: /partner-center/payout-statement/
-  topicHref: /azure/marketplace/index
-  - name: Commercial marketplace
-  tocHref: /partner-center/payment-thresholds-methods-timeframes/
-  topicHref: /azure/marketplace/index
