@@ -725,6 +725,8 @@
         "articles/advisor/**/*.md": "Azure Advisor",
         "articles/advisor/*.yml": "Azure Advisor",
         "articles/azure-arc/**/*.md": "Azure Arc",
+        "articles/babylon/**/*.md" : "Azure Babylon",
+        "articles/babylon/**/*.yml" : "Azure Babylon",
         "articles/asc-for-iot/**/*.md": "Azure Security Center for IoT",
         "articles/asc-for-iot/**/*.yml": "Azure Security Center for IoT",
         "articles/azure-monitor/**/*.yml" : "Azure Monitor",

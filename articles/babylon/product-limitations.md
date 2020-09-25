@@ -33,7 +33,7 @@ Read this document carefully. It includes warnings that Azure Babylon preview cu
 
   * On-premises SQL Server scanning in Azure Babylon isn't yet available.
 
-  * Power BI scanning is available only in limited preview. Send an email to BabylonDiscussion\@microsoft.com to get whitelisted, and then supply a feature flag to enable it. Otherwise, Azure Babylon starts the scan, but won't receive an asset.
+  * Power BI scanning is available only in limited preview. Send an email to BabylonDiscussion\@microsoft.com to be placed on the allow list, and then supply a feature flag to enable it. Otherwise, Azure Babylon starts the scan, but won't receive an asset.
 
 ## Warnings that require customer awareness
 
