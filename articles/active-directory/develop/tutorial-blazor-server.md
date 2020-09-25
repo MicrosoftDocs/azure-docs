@@ -191,8 +191,6 @@ else
 
 Launch the app. You’ll notice that you're prompted for the newly added permissions, indicating that everything is working as expected. Now, beyond basic user profile data, the app is requesting access to email data.
 
-:::image type="content" source="./media/tutorial-blazor-server/consent-dialog-2.png" alt-text="Image of a dialog box asking the user permission for the Blazor app to maintain access to data you have given it access to, sign you in and read your profile, and read your mail.":::
-
 After granting consent, navigate to the "Fetch data" page to read some email.
 
 :::image type="content" source="./media/tutorial-blazor-server/final-app-2.png" alt-text="Screenshot of the final app. It has a heading that says Hello Nicholas and it shows a list of emails belonging to Nicholas.":::
