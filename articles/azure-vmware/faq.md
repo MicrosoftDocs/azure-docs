@@ -191,7 +191,7 @@ For general questions on pricing, see the Azure VMware Solution [pricing](https:
 
 #### Who supports Azure VMware Solution?
 
-Support for Azure VMware Solution is delivered by Microsoft. You can raise a Support ticket from [this link](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
+Support for Azure VMware Solution is delivered by Microsoft. You can submit a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 #### What accounts do I need to create an Azure VMware Solution private cloud?
 
