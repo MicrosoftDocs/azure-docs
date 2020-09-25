@@ -22,14 +22,14 @@ In this quickstart, you'll use Azure App Configuration to centralize storage and
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/dotnet)
 - [.NET Core SDK](https://dotnet.microsoft.com/download)
 
->[!TIP]
+> [!TIP]
 > The Azure Cloud Shell is a free, interactive shell that you can use to run the command line instructions in this article. It has common Azure tools preinstalled, including the .NET Core SDK. If you're logged in to your Azure subscription, launch your [Azure Cloud Shell](https://shell.azure.com) from shell.azure.com. You can learn more about Azure Cloud Shell by [reading our documentation](../cloud-shell/overview.md)
 
 ## Create an App Configuration store
 
-[!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
+[!INCLUDE[Azure App Configuration resource creation steps](../../includes/azure-app-configuration-create.md)]
 
-6. Select **Operations** > **Configuration explorer** > **Create** > **Key-value** to add the following key-value pairs:
+1. Select **Operations** > **Configuration explorer** > **Create** > **Key-value** to add the following key-value pairs:
 
     | Key                                | Value                               |
     |------------------------------------|-------------------------------------|
@@ -106,7 +106,7 @@ A `UserSecretsId` element containing a GUID is added to the *.csproj* file:
 
 ## Connect to an App Configuration store
 
-1. Run the following command to add a reference to the [Microsoft.Azure.AppConfiguration.AspNetCore](https://www.nuget.org/packages/Microsoft.Azure.AppConfiguration.AspNetCore) NuGet package:
+1. Run the following command to add a [Microsoft.Azure.AppConfiguration.AspNetCore](https://www.nuget.org/packages/Microsoft.Azure.AppConfiguration.AspNetCore) NuGet package reference:
 
     ```dotnetcli
     dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore
