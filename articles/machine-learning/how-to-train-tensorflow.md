@@ -162,7 +162,7 @@ tf_env.docker.base_image = 'mcr.microsoft.com/azureml/openmpi3.1.2-cuda10.1-cudn
 For more information on creating and using environments, see [Create and use software environments in Azure Machine Learning](how-to-use-environments.md).
 
 #### Use a curated environment
-Optionally, Azure ML provides prebuilt, curated environments if you don't want to build your own image. Azure ML has several CPU and GPU curated environments for PyTorch corresponding to different versions of TensorFlow. For more info, see [here](resource-curated-environments.md).
+Optionally, Azure ML provides prebuilt, curated environments if you don't want to build your own image. Azure ML has several CPU and GPU curated environments for TensorFlow corresponding to different versions of TensorFlow. For more info, see [here](resource-curated-environments.md).
 
 If you want to use a curated environment, you can run the following command instead:
 
@@ -307,7 +307,7 @@ For a full tutorial on running distributed TensorFlow with Horovod on Azure ML, 
 
 If you are using [native distributed TensorFlow](https://www.tensorflow.org/guide/distributed_training) in your training code, e.g. TensorFlow 2.x's `tf.distribute.Strategy` API, you can also launch the distributed job via Azure ML. 
 
-To do so, specify a [TensorflowConfiguration](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration?view=azure-ml-py&preserve-view=true) to the `distributed_job_config` parameter of the ScriptRunConfig constructor. If you are using `tf.distribute.experimental.MultiWorkerMirroredStrategy`, specify the `worker_count` in the TensorflowConfiguration corresponding to the number of nodes for your trianing job.
+To do so, specify a [TensorflowConfiguration](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration?view=azure-ml-py&preserve-view=true) to the `distributed_job_config` parameter of the ScriptRunConfig constructor. If you are using `tf.distribute.experimental.MultiWorkerMirroredStrategy`, specify the `worker_count` in the TensorflowConfiguration corresponding to the number of nodes for your training job.
 
 ```python
 import os
