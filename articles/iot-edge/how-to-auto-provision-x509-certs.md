@@ -13,7 +13,7 @@ services: iot-edge
 
 # Create and provision an IoT Edge device using X.509 certificates
 
-With the [Azure IoT Hub Device Provisioning Service (DPS)](../iot-dps/index.yml), you can automatically provision IoT Edge devices using X.509 certificates. If you're unfamiliar with the process of auto-provisioning, review the [auto-provisioning concepts](../iot-dps/concepts-auto-provisioning.md) before continuing.
+With the [Azure IoT Hub Device Provisioning Service (DPS)](../iot-dps/index.yml), you can automatically provision IoT Edge devices using X.509 certificates. If you're unfamiliar with the process of auto-provisioning, review the [provisioning](../iot-dps/about-iot-dps.md#provisioning-process) overview before continuing.
 
 This article shows you how to create a Device Provisioning Service enrollment using X.509 certificates on an IoT Edge device with the following steps:
 

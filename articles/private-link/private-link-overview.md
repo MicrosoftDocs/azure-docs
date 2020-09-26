@@ -9,8 +9,7 @@ ms.service: private-link
 ms.topic: overview
 ms.date: 09/03/2020
 ms.author: allensu
-ms.custom: fasttrack-edit
-
+ms.custom: fasttrack-edit, references_regions
 ---
 # What is Azure Private Link? 
 Azure Private Link enables you to access Azure PaaS Services (for example, Azure Storage and SQL Database) and Azure hosted customer-owned/partner services over a [private endpoint](private-endpoint-overview.md) in your virtual network.
@@ -19,8 +18,6 @@ Traffic between your virtual network and the service travels the Microsoft backb
 
 > [!IMPORTANT]
 > Azure Private Link is now generally available. Both Private Endpoint and Private Link service (service behind standard load balancer) are generally available. Different Azure PaaS will onboard to Azure Private Link at different schedules. Check [availability](https://docs.microsoft.com/azure/private-link/private-link-overview#availability) section below for accurate status of Azure PaaS on Private Link. For known limitations, see [Private Endpoint](private-endpoint-overview.md#limitations) and [Private Link Service](private-link-service-overview.md#limitations). 
-
-![Private endpoint overview](media/private-link-overview/private-endpoint.png)
 
 ## Key benefits
 Azure Private Link provides the following benefits:  
@@ -39,18 +36,18 @@ Azure Private Link provides the following benefits:
 
 |Supported services  |Available regions | Additional considerations | Status  |
 |:-------------------|:-----------------|:----------------|:--------|
-|Private Link services behind standard Azure Load Balancer | All public regions<br/> All Government regions  | Supported on Standard Load Balancer | GA <br/> [Learn more](https://docs.microsoft.com/azure/private-link/private-link-service-overview) |
-| Azure Blob storage (including Data Lake Storage Gen2)       |  All public regions       |  Supported on Account Kind General Purpose V2 | GA <br/> [Learn more](/azure/storage/common/storage-private-endpoints)  |
-| Azure Files | All public regions      | |   GA <br/> [Learn more](/azure/storage/files/storage-files-networking-endpoints)   |
+|Private Link services behind standard Azure Load Balancer | All public regions<br/> All Government regions<br/>All China regions  | Supported on Standard Load Balancer | GA <br/> [Learn more](https://docs.microsoft.com/azure/private-link/private-link-service-overview) |
+| Azure Blob storage (including Data Lake Storage Gen2)       |  All public regions<br/> All Government regions       |  Supported on Account Kind General Purpose V2 | GA <br/> [Learn more](/azure/storage/common/storage-private-endpoints)  |
+| Azure Files | All public regions<br/> All Government regions      | |   GA <br/> [Learn more](/azure/storage/files/storage-files-networking-endpoints)   |
 | Azure File Sync | All public regions      | |   GA <br/> [Learn more](/azure/storage/files/storage-sync-files-networking-endpoints)   |
-| Azure Queue storage       |  All public regions       |  Supported on Account Kind General Purpose V2 | GA <br/> [Learn more](/azure/storage/common/storage-private-endpoints)  |
-| Azure Table storage       |  All public regions       |  Supported on Account Kind General Purpose V2 | GA <br/> [Learn more](/azure/storage/common/storage-private-endpoints)  |
-|  Azure SQL Database         | All public regions <br/> All Government regions      |  Supported for Proxy [connection policy](https://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policyhttps://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policy) | GA <br/> [Learn more](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)      |
+| Azure Queue storage       |  All public regions<br/> All Government regions       |  Supported on Account Kind General Purpose V2 | GA <br/> [Learn more](/azure/storage/common/storage-private-endpoints)  |
+| Azure Table storage       |  All public regions<br/> All Government regions       |  Supported on Account Kind General Purpose V2 | GA <br/> [Learn more](/azure/storage/common/storage-private-endpoints)  |
+|  Azure SQL Database         | All public regions <br/> All Government regions<br/>All China regions      |  Supported for Proxy [connection policy](https://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policyhttps://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policy) | GA <br/> [Learn more](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)      |
 |Azure Synapse Analytics (formerly SQL Data Warehouse)| All public regions <br/> All Government regions |  Supported for Proxy [connection policy](https://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policyhttps://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policy) |GA <br/> [Learn more](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)|
-|Azure Cosmos DB|  All public regions<br/> All Government regions | |GA <br/> [Learn more](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-private-endpoints)|
-|  Azure Database for PostgreSQL - Single server         | All public regions <br/> All Government regions     | Supported for General Purpose and Memory Optimized pricing tiers | GA <br/> [Learn more](https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-private-link)      |
-|  Azure Database for MySQL         | All public regions<br/> All Government regions      |  | GA <br/> [Learn more](https://docs.microsoft.com/azure/mysql/concepts-data-access-security-private-link)     |
-|  Azure Database for MariaDB         | All public regions<br/> All Government regions     |  | GA <br/> [Learn more](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-private-link)      |
+|Azure Cosmos DB|  All public regions<br/> All Government regions</br> All China regions | |GA <br/> [Learn more](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-private-endpoints)|
+|  Azure Database for PostgreSQL - Single server         | All public regions <br/> All Government regions<br/>All China regions     | Supported for General Purpose and Memory Optimized pricing tiers | GA <br/> [Learn more](https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-private-link)      |
+|  Azure Database for MySQL         | All public regions<br/> All Government regions<br/>All China regions      |  | GA <br/> [Learn more](https://docs.microsoft.com/azure/mysql/concepts-data-access-security-private-link)     |
+|  Azure Database for MariaDB         | All public regions<br/> All Government regions<br/>All China regions     |  | GA <br/> [Learn more](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-private-link)      |
 |  Azure Key Vault         | All public regions<br/> All Government regions      |  | GA   <br/> [Learn more](https://docs.microsoft.com/azure/key-vault/private-link-service)   |
 |Azure Kubernetes Service - Kubernetes API | All public regions      |  | GA   <br/> [Learn more](https://docs.microsoft.com/azure/aks/private-clusters)   |
 |Azure Search | All public regions <br/> All Government regions | Supported with service in Private Mode | GA   <br/> [Learn more](https://docs.microsoft.com/azure/search/search-security-overview#endpoint-access)    |
@@ -62,12 +59,15 @@ Azure Private Link provides the following benefits:
 |Azure Relay | All public regions      |  | Preview <br/> [Learn more](https://docs.microsoft.com/azure/service-bus-relay/private-link-service)  |
 |Azure Event Grid| All public regions<br/> All Government regions       |  | GA   <br/> [Learn more](https://docs.microsoft.com/azure/event-grid/network-security) |
 |Azure Web Apps | All public regions      | Supported with PremiumV2 Windows and Linux and Elastic Premium Functions  | Preview   <br/> [Learn more](https://docs.microsoft.com/azure/app-service/networking/private-endpoint)   |
-|Azure Machine Learning | EAST US, SOUTH CENTRAL US, WEST US 2      |  | Preview   <br/> [Learn more](https://docs.microsoft.com/azure/machine-learning/how-to-configure-private-link)   |
+|Azure Machine Learning | EAST US, SOUTH CENTRAL US,<br/>WEST US, WEST US 2,<br/>CENTRAL CANADA, SOUTHEAST ASIA,<br/>JAPAN EAST, NORTH EUROPE,<br/>UK SOUTH, EAST AUSTRALIA     |  | Preview   <br/> [Learn more](https://docs.microsoft.com/azure/machine-learning/how-to-configure-private-link)   |
 | Azure Automation  | All public regions |  | Preview | |
 | Azure IoT Hub | All public regions    |  | GA   <br/> [Learn more](https://docs.microsoft.com/azure/iot-hub/virtual-network-support ) |
-| Azure SignalR | EAST US, WEST US 2, SOUTH CENTRAL US      |  | Preview   <br/> [Learn more](https://aka.ms/asrs/privatelink)   |
+| Azure SignalR | EAST US, SOUTH CENTRAL US,<br/>WEST US 2, All China regions      |  | Preview   <br/> [Learn more](https://aka.ms/asrs/privatelink)   |
 | Azure Monitor <br/>(Log Analytics & Application Insights) | All public regions      |  | GA   <br/> [Learn more](https://docs.microsoft.com/azure/azure-monitor/platform/private-link-security)   | 
-| Azure Batch | EAST US, WEST US 2, SOUTH CENTRAL US, WEST CENTRAL US, FRANCE CENTRAL, EAST ASIA, UK SOUTH, US GOV VIRGINIA, US GOV ARIZONA  | | GA <br/> [Learn more](https://docs.microsoft.com/azure/batch/private-connectivity) |
+| Azure Batch | CENTRAL US, NORTH CENTRAL US, SOUTH CENTRAL US, WEST CENTRAL US, EAST US, EAST US 2, WEST US, WEST US 2, EAST ASIA, FRANCE CENTRAL, UK SOUTH, NORTH EUROPE, WEST EUROPE, JAPAN EAST, JAPAN WEST, AUSTRALIA EAST <br/> All Government regions  | | GA <br/> [Learn more](https://docs.microsoft.com/azure/batch/private-connectivity) |
+|Azure Data Factory | All public regions<br/> All Government regions<br/>All China regions    | Credentials need to be stored in an Azure key vault| GA   <br/> [Learn more](https://docs.microsoft.com/azure/data-factory/data-factory-private-link)   |
+
+
 
 For the most up-to-date notifications, check the [Azure Private Link updates page](https://azure.microsoft.com/updates/?product=private-link).
 

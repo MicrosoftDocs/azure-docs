@@ -137,13 +137,15 @@ See the complete regional availability of Functions here: [Azure.com](https://az
 
 |Region| Windows | Linux |
 |--| -- | -- |
-|Australia Central| 20 | Not Available |
-|Australia Central 2| 20 | Not Available |
+|Australia Central| 100 | Not Available |
+|Australia Central 2| 100 | Not Available |
 |Australia East| 100 | 20 |
 |Australia Southeast | 100 | 20 |
-|Brazil South| 60 | 20 |
+|Brazil South| 100 | 20 |
 |Canada Central| 100 | 20 |
 |Central US| 100 | 20 |
+|China East 2| 100 | 20 |
+|China North 2| 100 | 20 |
 |East Asia| 100 | 20 |
 |East US | 100 | 20 |
 |East US 2| 100 | 20 |
@@ -152,17 +154,24 @@ See the complete regional availability of Functions here: [Azure.com](https://az
 |Japan East| 100 | 20 |
 |Japan West| 100 | 20 |
 |Korea Central| 100 | 20 |
+|Korea South| Not Available | 20 |
 |North Central US| 100 | 20 |
 |North Europe| 100 | 20 |
-|Norway East| 20 | 20 |
+|Norway East| 100 | 20 |
 |South Central US| 100 | 20 |
 |South India | 100 | Not Available |
 |Southeast Asia| 100 | 20 |
+|Switzerland North| 100 | Not Available |
+|Switzerland West| 100 | Not Available |
 |UK South| 100 | 20 |
 |UK West| 100 | 20 |
+|USGov Arizona| 100 | 20 |
+|USGov Virginia| 100 | 20 |
+|USNat East| 100 | Not Available |
+|USNat West| 100 | Not Available |
 |West Europe| 100 | 20 |
 |West India| 100 | 20 |
-|West Central US| 20 | 20 |
+|West Central US| 100 | 20 |
 |West US| 100 | 20 |
 |West US 2| 100 | 20 |
 

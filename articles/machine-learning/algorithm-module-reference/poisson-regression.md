@@ -14,7 +14,7 @@ ms.date: 07/13/2020
 
 # Poisson Regression
 
-This article describes a module in Azure Machine Learning designer (preview).
+This article describes a module in Azure Machine Learning designer.
 
 Use this module to create a Poisson regression model in a pipeline. Poisson regression is intended for predicting numeric values, typically counts. Therefore, you should use this module to create your regression model only if the values you are trying to predict fit the following conditions:
 
@@ -45,7 +45,7 @@ Because the response variable has a Poisson distribution, the model makes differ
 
 ## How to configure Poisson Regression
 
-1. Add the **Poisson Regression** module to your pipeline in Designer (preview). You can find this module under **Machine Learning Algorithms**, in the **Regression** category.
+1. Add the **Poisson Regression** module to your pipeline in designer. You can find this module under **Machine Learning Algorithms**, in the **Regression** category.
 
 2. Add a dataset that contains training data of the correct type. 
 

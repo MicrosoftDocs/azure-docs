@@ -60,7 +60,10 @@ To use the data plane APIs:
    - you can view the [SDK reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/digitaltwins?view=azure-dotnet-preview&preserve-view=true).
    - you can see detailed information and usage examples by continuing to the [.NET (C#) SDK (data plane)](#net-c-sdk-data-plane) section of this article.
 * You can use the **JavaScript** SDK. To use the JavaScript SDK...
-   - you can view and install the package from npm: [Azure Azure Digital Twins client library for JavaScript](https://www.npmjs.com/package/@azure/digital-twins/v/1.0.0-preview.1)
+   - you can view and install the package from npm: [Azure Azure Digital Twins client library for JavaScript](https://www.npmjs.com/package/@azure/digital-twins/v/1.0.0-preview.1).
+   - you can view the [SDK reference documentation](https://docs.microsoft.com/javascript/api/@azure/digital-twins/?view=azure-node-latest&preserve-view=true).
+* You can use the **JavaScript** SDK. To use the JavaScript SDK...
+   - you can view and install the package from Maven: [`com.azure:azure-digitaltwins-core`](https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0-beta.1/jar)
 * You can generate an SDK for another language using AutoRest. Follow the instructions in [*How-to: Create custom SDKs for Azure Digital Twins with AutoRest*](how-to-create-custom-sdks.md).
 
 You can also exercise date plane APIs by interacting with Azure Digital Twins through the [CLI](how-to-use-cli.md).
@@ -298,7 +301,7 @@ From here, you can view the metrics for your instance and create custom views.
 ## Next steps
 
 See how to use the APIs to set up an Azure Digital Twins instance and authentication:
-* [*How-to: Set up an instance and authentication*](how-to-set-up-instance-scripted.md)
+* [*How-to: Set up an instance and authentication*](how-to-set-up-instance-portal.md)
 
 Or, walk through the steps to create a client app like the one used in this how-to:
 * [*Tutorial: Code a client app*](tutorial-code.md)

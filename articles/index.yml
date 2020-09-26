@@ -40,7 +40,7 @@ productDirectory:
   title: Browse Azure products
   items:
     # Card
-    - title: Anomaly Detector (Preview)
+    - title: Anomaly Detector
       summary: Easily add anomaly detection capabilities to your apps
       imageSrc: https://static.docs.com/ui/media/product/azure/anomaly-detector.svg
       azureCategories:
@@ -164,6 +164,14 @@ productDirectory:
       azureCategories:
         - ai-machine-learning
       url: cognitive-services/bing-web-search/overview.md
+    # Card
+    - title: Azure Communication Services (Preview)
+      summary: Build rich communication experiences with the same secure platform used by Microsoft Teams
+      imageSrc: ./media/index/communication-services.svg
+      azureCategories:
+        - web
+        - mobile
+      url: communication-services/overview.md
     # Card
     - title: Computer Vision
       summary: Distill actionable information from images
@@ -701,7 +709,7 @@ productDirectory:
         - databases
       url: azure-sql/managed-instance/index.yml
     # Card
-    - title: Azure SQL Edge (Preview)
+    - title: Azure SQL Edge
       summary: Small-footprint, edge-optimized data engine with built-in AI
       imageSrc: https://static.docs.com/ui/media/product/azure/sql-database-edge.svg
       azureCategories:
@@ -767,7 +775,7 @@ productDirectory:
       imageSrc: https://docs.microsoft.com/media/logos/logo_visual-studio.svg
       azureCategories:
         - developer-tools
-      url: https://docs.microsoft.com/visualstudio/
+      url: https://docs.microsoft.com/visualstudio/windows
     # Card
     - title: Visual Studio Code
       summary: A powerful, lightweight code editor for cloud development

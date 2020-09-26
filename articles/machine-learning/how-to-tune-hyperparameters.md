@@ -15,7 +15,7 @@ ms.custom: how-to, devx-track-python
 ---
 
 # Tune hyperparameters for your model with Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Efficiently tune hyperparameters for your model using Azure Machine Learning.  Hyperparameter tuning includes the following steps:
 
@@ -148,11 +148,9 @@ param_sampling = BayesianParameterSampling( {
 ```
 
 > [!NOTE]
-> Bayesian sampling does not support any early termination policy (See [Specify an early termination policy](#specify-early-termination-policy)). When using Bayesian parameter sampling, set `early_termination_policy = None`, or leave off the `early_termination_policy` parameter.
+> Bayesian sampling does not support any early termination policy (See [Specify an early termination policy](#early-termination)). When using Bayesian parameter sampling, set `early_termination_policy = None`, or leave off the `early_termination_policy` parameter.
 
-<a name='specify-primary-metric-to-optimize'/>
-
-## Specify primary metric
+## <a name="specify-primary-metric-to-optimize"></a> Specify primary metric
 
 Specify the [primary metric](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.primarymetricgoal?view=azure-ml-py&preserve-view=true) you want the hyperparameter tuning experiment to optimize. Each training run is evaluated for the primary metric. Poorly performing runs (where the primary metric does not meet criteria set by the early termination policy) will be terminated. In addition to the primary metric name, you also specify the goal of the optimization - whether to maximize or minimize the primary metric.
 
@@ -166,9 +164,7 @@ primary_metric_goal=PrimaryMetricGoal.MAXIMIZE
 
 Optimize the runs to maximize "accuracy".  Make sure to log this value in your training script.
 
-<a name='log-metrics-for-hyperparameter-tuning'/>
-
-### Log metrics for hyperparameter tuning
+### <a name="log-metrics-for-hyperparameter-tuning"></a>Log metrics for hyperparameter tuning
 
 The training script for your model must log the relevant metrics during model training. When you configure the hyperparameter tuning, you specify the primary metric to use for evaluating run performance. (See [Specify a primary metric to optimize](#specify-primary-metric-to-optimize).)  In your  training script, you must log this metric so it is available to the hyperparameter tuning process.
 
@@ -182,8 +178,6 @@ run_logger.log("accuracy", float(val_accuracy))
 
 The training script calculates the `val_accuracy` and logs it as "accuracy", which is used as the primary metric. Each time the metric is logged it is received by the hyperparameter tuning service. It is up to the model developer to determine how frequently to report this metric.
 
-<a name='specify-early-termination-policy'/>
-
 ## <a name="early-termination"></a> Specify early termination policy
 
 Terminate poorly performing runs automatically with an early termination policy. Termination reduces wastage of resources and instead uses these resources for exploring other parameter configurations.
@@ -193,11 +187,11 @@ When using an early termination policy, you can configure the following paramete
 * `evaluation_interval`: the frequency for applying the policy. Each time the training script logs the primary metric counts as one interval. Thus an `evaluation_interval` of 1 will apply the policy every time the training script reports the primary metric. An `evaluation_interval` of 2 will apply the policy every other time the training script reports the primary metric. If not specified, `evaluation_interval` is set to 1 by default.
 * `delay_evaluation`: delays the first policy evaluation for a specified number of intervals. It is an optional parameter that allows all configurations to run for an initial minimum number of intervals, avoiding premature termination of training runs. If specified, the policy applies every multiple of evaluation_interval that is greater than or equal to delay_evaluation.
 
-Azure Machine Learning supports the following Early Termination Policies.
+Azure Machine Learning supports the following early termination policies.
 
 ### Bandit policy
 
-[Bandit](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.banditpolicy?view=azure-ml-py#&preserve-view=truedefinition) is a termination policy based on slack factor/slack amount and evaluation interval. The policy early terminates any runs where the primary metric is not within the specified slack factor / slack amount with respect to the best performing training run. It takes the following configuration parameters:
+[Bandit](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.banditpolicy?view=azure-ml-py&preserve-view=true#&preserve-view=truedefinition) is a termination policy based on slack factor/slack amount and evaluation interval. The policy early terminates any runs where the primary metric is not within the specified slack factor / slack amount with respect to the best performing training run. It takes the following configuration parameters:
 
 * `slack_factor` or `slack_amount`: the slack allowed with respect to the best performing training run. `slack_factor` specifies the allowable slack as a ratio. `slack_amount` specifies the allowable slack as an absolute amount, instead of a ratio.
 
@@ -288,29 +282,29 @@ This code configures the hyperparameter tuning experiment to use a maximum of 20
 
 ## Configure experiment
 
-[Configure your hyperparameter tuning](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.hyperdriverunconfig?view=azure-ml-py&preserve-view=true) experiment using the defined hyperparameter search space, early termination policy, primary metric, and resource allocation from the sections above. Additionally, provide an `estimator` that will be called with the sampled hyperparameters. The `estimator` describes the training script you run, the resources per job (single or multi-gpu), and the compute target to use. Since concurrency for your hyperparameter tuning experiment is gated on the resources available, ensure that the compute target specified in the `estimator` has sufficient resources for your desired concurrency. (For more information on estimators, see [how to train models](how-to-train-ml-models.md).)
+[Configure your hyperparameter tuning](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.hyperdriverunconfig?view=azure-ml-py&preserve-view=true) experiment using the defined hyperparameter search space, early termination policy, primary metric, and resource allocation from the sections above. Additionally, provide the ScriptRunConfig `src` for the run that will be called with the sampled hyperparameters. The ScriptRunConfig defines the training script to run, the resources per job (single or multi-node), and the compute target to use. Since concurrency for your hyperparameter tuning experiment is gated on the resources available, ensure that the compute target specified in `src` has sufficient resources for your desired concurrency. (For more information on ScriptRunConfig, see [Configure training runs](how-to-set-up-training-targets.md).)
 
 Configure your hyperparameter tuning experiment:
 
 ```Python
 from azureml.train.hyperdrive import HyperDriveConfig
-hyperdrive_run_config = HyperDriveConfig(estimator=estimator,
-                          hyperparameter_sampling=param_sampling, 
-                          policy=early_termination_policy,
-                          primary_metric_name="accuracy", 
-                          primary_metric_goal=PrimaryMetricGoal.MAXIMIZE,
-                          max_total_runs=100,
-                          max_concurrent_runs=4)
+hd_config = HyperDriveConfig(run_config=src,
+                             hyperparameter_sampling=param_sampling,
+                             policy=early_termination_policy,
+                             primary_metric_name="accuracy",
+                             primary_metric_goal=PrimaryMetricGoal.MAXIMIZE,
+                             max_total_runs=100,
+                             max_concurrent_runs=4)
 ```
 
 ## Submit experiment
 
-Once you define your hyperparameter tuning configuration, [submit an experiment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment%28class%29?view=azure-ml-py#&preserve-view=truesubmit-config--tags-none----kwargs-):
+Once you define your hyperparameter tuning configuration, [submit an experiment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truesubmit-config--tags-none----kwargs-):
 
 ```Python
 from azureml.core.experiment import Experiment
 experiment = Experiment(workspace, experiment_name)
-hyperdrive_run = experiment.submit(hyperdrive_run_config)
+hyperdrive_run = experiment.submit(hd_config)
 ```
 
 `experiment_name` is the name you assign to your hyperparameter tuning experiment, and `workspace` is the workspace in which you want to create the experiment (For more information on experiments, see [How does Azure Machine Learning work?](concept-azure-machine-learning-architecture.md))
@@ -344,15 +338,15 @@ You can configure your hyperparameter tuning experiment to warm start from a pre
 ```Python
 from azureml.train.hyperdrive import HyperDriveConfig
 
-hyperdrive_run_config = HyperDriveConfig(estimator=estimator,
-                          hyperparameter_sampling=param_sampling, 
-                          policy=early_termination_policy,
-                          resume_from=warmstart_parents_to_resume_from, 
-                          resume_child_runs=child_runs_to_resume,
-                          primary_metric_name="accuracy", 
-                          primary_metric_goal=PrimaryMetricGoal.MAXIMIZE,
-                          max_total_runs=100,
-                          max_concurrent_runs=4)
+hd_config = HyperDriveConfig(run_config=src,
+                             hyperparameter_sampling=param_sampling,
+                             policy=early_termination_policy,
+                             resume_from=warmstart_parents_to_resume_from,
+                             resume_child_runs=child_runs_to_resume,
+                             primary_metric_name="accuracy",
+                             primary_metric_goal=PrimaryMetricGoal.MAXIMIZE,
+                             max_total_runs=100,
+                             max_concurrent_runs=4)
 ```
 
 ## Visualize experiment
@@ -380,7 +374,7 @@ You can visualize all your hyperparameter tuning runs in the Azure web portal as
 
 ## Find the best model
 
-Once all of the hyperparameter tuning runs have completed, [identify the best performing configuration](/python/api/azureml-train-core/azureml.train.hyperdrive.hyperdriverun?view=azure-ml-py#&preserve-view=trueget-best-run-by-primary-metric-include-failed-true--include-canceled-true--include-resume-from-runs-true-----typing-union-azureml-core-run-run--nonetype-) and the corresponding hyperparameter values:
+Once all of the hyperparameter tuning runs have completed, [identify the best performing configuration](/python/api/azureml-train-core/azureml.train.hyperdrive.hyperdriverun?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-best-run-by-primary-metric-include-failed-true--include-canceled-true--include-resume-from-runs-true-----typing-union-azureml-core-run-run--nonetype-) and the corresponding hyperparameter values:
 
 ```Python
 best_run = hyperdrive_run.get_best_run_by_primary_metric()
@@ -396,7 +390,7 @@ print('\n batch size:',parameter_values[7])
 
 ## Sample notebook
 Refer to train-hyperparameter-* notebooks in this folder:
-* [how-to-use-azureml/training-with-deep-learning](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning)
+* [how-to-use-azureml/ml-frameworks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
 

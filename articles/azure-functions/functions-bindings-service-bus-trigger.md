@@ -15,7 +15,7 @@ ms.custom: "devx-track-csharp, devx-track-python"
 Use the Service Bus trigger to respond to messages from a Service Bus queue or topic. 
 Starting with extension version 3.1.0, you can trigger on a session-enabled queue or topic.
 
-For information on setup and configuration details, see the [overview](functions-bindings-service-bus-output.md).
+For information on setup and configuration details, see the [overview](functions-bindings-service-bus.md).
 
 ## Example
 

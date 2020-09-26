@@ -10,7 +10,7 @@ ms.devlang:
 ms.topic: quickstart
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: sstein, carlrab, bonova
+ms.reviewer: sstein, bonova
 ms.date: 12/14/2018
 ---
 # Quickstart: Restore a database to Azure SQL Managed Instance with SSMS
@@ -70,7 +70,7 @@ In SQL Server Management Studio, follow these steps to restore the Wide World Im
      'https://mitutorials.blob.core.windows.net/databases/WideWorldImporters-Standard.bak'
    ```
 
-    ![restore](./media/restore-sample-database-quickstart/restore.png)
+    ![Screenshot shows the script running in Object Explorer with a success message.](./media/restore-sample-database-quickstart/restore.png)
 
 6. Run the following script to track the status of your restore.
 

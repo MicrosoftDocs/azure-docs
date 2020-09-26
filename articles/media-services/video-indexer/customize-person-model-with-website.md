@@ -24,7 +24,7 @@ You can use the Video Indexer website to edit faces that were detected in a vide
 
 2. Select the content model customization button on the top-right corner of the page.
 
-    ![Content model customization](./media/customize-face-model/content-model-customization.png)
+    ![Screenshot shows the Video Indexer with the content model customization button selected.](./media/customize-face-model/content-model-customization.png)
 
 3. Select the People tab.
 
@@ -32,23 +32,23 @@ You can use the Video Indexer website to edit faces that were detected in a vide
 
     If you created other Person models, they'll also be listed on this page.
 
-    ![Content model customization](./media/customize-face-model/content-model-customization-people-tab.png)
+    ![Screenshot shows the Content model customization dialog box.](./media/customize-face-model/content-model-customization-people-tab.png)
 
 ## Create a new Person model
 
 1. Select the **+ Add model** button.
 
-    ![Add a new person model](./media/customize-face-model/add-new-person.png)
+    ![Screenshot shows the Content model customization dialog box with the People tab selected.](./media/customize-face-model/add-new-person.png)
 
 2. Enter the name of the model and select the check button next to the name.
 
-    ![Add a new person model](./media/customize-face-model/add-new-person2.png)
+    ![Screenshot shows the Content model customization dialog box with a name entered for the model.](./media/customize-face-model/add-new-person2.png)
 
     You've created a new Person model. You can now add faces to the new Person model.
 
 3. Select the list menu button and choose **+ Add person**.
 
-    ![Add a new person model](./media/customize-face-model/add-new-person3.png)
+    ![Screenshot shows the Content model customization dialog box with a contextual menu for your new model with the option to Add person.](./media/customize-face-model/add-new-person3.png)
 
 ## Add a new person to a Person model
 
@@ -59,11 +59,11 @@ You can use the Video Indexer website to edit faces that were detected in a vide
 
 1. Select **+ Add person** from the menu.
 
-    ![Add a new face to the person](./media/customize-face-model/add-new-face.png)
+    ![Screenshot shows the Content model customization dialog box ready to add a person with the contextual menu.](./media/customize-face-model/add-new-face.png)
 
     A pop-up will prompt you to fill out the Person's details. Type in the name of the person and select the check button.
 
-    ![Add a new face to the person](./media/customize-face-model/add-new-face2.png)
+    ![Screenshot shows a person's details.](./media/customize-face-model/add-new-face2.png)
 
     You can then choose from your file explorer or drag and drop the face images of the face. Video Indexer will take all standard image file types (ex: JPG, PNG, and more).
 
@@ -76,11 +76,11 @@ You can rename any Person model in your account including the Default Person mod
 1. Select the list menu button next to the Person model that you want to rename.
 2. Select **Rename** from the menu.
 
-    ![Rename a person model](./media/customize-face-model/rename-person.png)
+    ![Screenshot shows the Content model customization dialog box with a contextual menu with the option to rename a person model. ](./media/customize-face-model/rename-person.png)
 
 3. Select the current name of the model and type in your new name.
 
-    ![Rename a person model](./media/customize-face-model/rename-person2.png)
+    ![Screenshot shows the renamed person model.](./media/customize-face-model/rename-person2.png)
 
 4. Select the check button for your model to be renamed.
 
@@ -90,11 +90,11 @@ You can delete any Person model that you created in your account. However, you c
 
 1. Select **Delete** from the menu.
 
-    ![Delete a person model](./media/customize-face-model/delete-person.png)
+    ![Screenshot shows the Content model customization dialog box with a contextual menu with the option to delete a person model.](./media/customize-face-model/delete-person.png)
 
     A pop-up will show up and notify you that this action will delete the Person model and all of the people and files that it contains. This action can't be undone.
 
-    ![Delete a person model](./media/customize-face-model/delete-person2.png)
+    ![Screenshot shows a confirm dialog box for deleting the person model.](./media/customize-face-model/delete-person2.png)
 
 1. If you're sure, select delete again.
 
@@ -105,7 +105,7 @@ You can delete any Person model that you created in your account. However, you c
 
 To look at the contents of any of your Person models, select the arrow next to the name of the Person model. The drop-down shows you all of the people in that particular Person model. If you select the list menu button next to each of the people, you see manage, rename, and delete options.  
 
-![Add a new face to the person](./media/customize-face-model/manage-people.png)
+![Screenshot shows a contextual menu with options to Manage, Rename, and Delete.](./media/customize-face-model/manage-people.png)
 
 ### Rename a person
 
@@ -146,16 +146,16 @@ To use your Person model on a new video, do the following steps:
 
 1. Select the **Upload** button on the top of the page.
 
-    ![Upload a person model](./media/customize-face-model/upload.png)
+    ![Screenshot shows the Upload button.](./media/customize-face-model/upload.png)
 
 1. Drop your video file in the circle or browse for your file.
 1. Select the **Advanced options** arrow.
 
-    ![Upload a person model](./media/customize-face-model/upload2.png)
+    ![Screenshot shows an Upload your media file dialog box.](./media/customize-face-model/upload2.png)
 
 1. Select the drop-down and select the Person model that you created.
 
-    ![Upload a person model](./media/customize-face-model/upload3.png)
+    ![Screenshot shows an Upload your media file dialog box with Default selected for People model in the Advanced options.](./media/customize-face-model/upload3.png)
 
 1. Select the **Upload** option in the bottom of the page, and your new video will be indexed using your Person model.
 
@@ -169,12 +169,12 @@ You see options to edit, delete, and reindex your video.
 
 1. Select the option to reindex your video.
 
-    ![Use Person model to reindex a video](./media/customize-face-model/reindex.png)
+    ![Screenshot shows Account videos and the option to reindex your video.](./media/customize-face-model/reindex.png)
 
     You can now select the Person model to reindex your video with.
 1. Select the drop-down and select the Person model that you want to use.
 
-    ![Use Person model to reindex a video](./media/customize-face-model/reindex2.png)
+    ![Screenshot shows options for a video, including selecting a People model.](./media/customize-face-model/reindex2.png)
 
 1. Select the **Reindex** button and your video will be reindexed using your Person model.
 
@@ -199,14 +199,14 @@ If you don't assign a Person model to the video during upload, your edit is save
 1. Search for a video you want to view and edit in your account.
 1. To edit a face in your video, go to the Insights tab and select the pencil icon on the top-right corner of the window.
 
-    ![Edit a face in your video](./media/customize-face-model/edit-face.png)
+    ![Screenshot shows a video with an unknown face to select.](./media/customize-face-model/edit-face.png)
 
 1. Select any of the detected faces and change their names from "Unknown #X" (or the name that was previously assigned to the face).
 1. After typing in the new name, select the check icon next to the new name. This action saves the new name and recognizes and names all occurrences of this face in your other current videos and in the future videos that you upload. Recognition of the face in your other current videos might take some time to take effect as this is a batch process.
 
 If you name a face with the name of an existing person in the Person model that the video is using, the detected face images from this video of that person will merge with what already exists in the model. If you name a face with a new name, a new Person entry is created in the Person model that the video is using.
 
-![Edit a face in your video](./media/customize-face-model/edit-face2.png)
+![Screenshot shows a face with a name added.](./media/customize-face-model/edit-face2.png)
 
 ### Delete a face
 

@@ -238,7 +238,7 @@ The Cloud Device Administrator should enter their organizational email under **O
 
 ![register-device screen](media/tutorial-v2-shared-device-mode/register-device.png)
 
-![sign-in](media/tutorial-v2-shared-device-mode/sign-in.png)
+![Screenshot shows a sign-in page.](media/tutorial-v2-shared-device-mode/sign-in.png)
 
 The device is now in shared mode.
 
