@@ -735,7 +735,7 @@ Control access to the keys used to authenticate requests for all other operation
 
 - Enable audit logging for Azure resources
 
-Azure Resource Manager has the ability to export the template in Java Script Object Notation (JSON), which should be reviewed to ensure that the configurations meet the security requirements for your organization. 
+Azure Resource Manager has the ability to export the template in JavaScript Object Notation (JSON), which should be reviewed to ensure that the configurations meet the security requirements for your organization. 
 
 You can also use the recommendations from Azure Security Center as a secure configuration baseline for your Azure resources. 
 
