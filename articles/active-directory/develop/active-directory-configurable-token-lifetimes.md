@@ -10,9 +10,9 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/17/2020
+ms.date: 09/25/2020
 ms.author: ryanwi
-ms.custom: aaddev, identityplatformtop40
+ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1
 ms.reviewer: hirsin, jlu, annaba
 ---
 # Configurable token lifetimes in Microsoft identity platform (Preview)
@@ -379,170 +379,37 @@ In this example, you create a few policies to learn how the priority system work
 
 ## Cmdlet reference
 
+These are the cmdlets in the [Azure Active Directory PowerShell for Graph Preview module](/powershell/module/azuread/?view=azureadps-2.0-preview#service-principals).
+
 ### Manage policies
 
 You can use the following cmdlets to manage policies.
 
-#### New-AzureADPolicy
-
-Creates a new policy.
-
-```powershell
-New-AzureADPolicy -Definition <Array of Rules> -DisplayName <Name of Policy> -IsOrganizationDefault <boolean> -Type <Policy Type>
-```
-
-| Parameters | Description | Example |
-| --- | --- | --- |
-| <code>&#8209;Definition</code> |Array of stringified JSON that contains all the policy's rules. | `-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
-| <code>&#8209;DisplayName</code> |String of the policy name. |`-DisplayName "MyTokenPolicy"` |
-| <code>&#8209;IsOrganizationDefault</code> |If true, sets the policy as the organization's default policy. If false, does nothing. |`-IsOrganizationDefault $true` |
-| <code>&#8209;Type</code> |Type of policy. For token lifetimes, always use "TokenLifetimePolicy." | `-Type "TokenLifetimePolicy"` |
-| <code>&#8209;AlternativeIdentifier</code> [Optional] |Sets an alternative ID for the policy. |`-AlternativeIdentifier "myAltId"` |
-
-</br></br>
-
-#### Get-AzureADPolicy
-Gets all Azure AD policies or a specified policy.
-
-```powershell
-Get-AzureADPolicy
-```
-
-| Parameters | Description | Example |
-| --- | --- | --- |
-| <code>&#8209;Id</code> [Optional] |**ObjectId (ID)** of the policy you want. |`-Id <ObjectId of Policy>` |
-
-</br></br>
-
-#### Get-AzureADPolicyAppliedObject
-Gets all apps and service principals that are linked to a policy.
-
-```powershell
-Get-AzureADPolicyAppliedObject -Id <ObjectId of Policy>
-```
-
-| Parameters | Description | Example |
-| --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectId (ID)** of the policy you want. |`-Id <ObjectId of Policy>` |
-
-</br></br>
-
-#### Set-AzureADPolicy
-Updates an existing policy.
-
-```powershell
-Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName <string>
-```
-
-| Parameters | Description | Example |
-| --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectId (ID)** of the policy you want. |`-Id <ObjectId of Policy>` |
-| <code>&#8209;DisplayName</code> |String of the policy name. |`-DisplayName "MyTokenPolicy"` |
-| <code>&#8209;Definition</code> [Optional] |Array of stringified JSON that contains all the policy's rules. |`-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
-| <code>&#8209;IsOrganizationDefault</code> [Optional] |If true, sets the policy as the organization's default policy. If false, does nothing. |`-IsOrganizationDefault $true` |
-| <code>&#8209;Type</code> [Optional] |Type of policy. For token lifetimes, always use "TokenLifetimePolicy." |`-Type "TokenLifetimePolicy"` |
-| <code>&#8209;AlternativeIdentifier</code> [Optional] |Sets an alternative ID for the policy. |`-AlternativeIdentifier "myAltId"` |
-
-</br></br>
-
-#### Remove-AzureADPolicy
-Deletes the specified policy.
-
-```powershell
- Remove-AzureADPolicy -Id <ObjectId of Policy>
-```
-
-| Parameters | Description | Example |
-| --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectId (ID)** of the policy you want. | `-Id <ObjectId of Policy>` |
-
-</br></br>
+| Cmdlet | Description | 
+| --- | --- |
+| [New-AzureADPolicy](/powershell/module/azuread/new-azureadpolicy?view=azureadps-2.0-preview) | Creates a new policy. |
+| [Get-AzureADPolicy](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview) | Gets all Azure AD policies or a specified policy. |
+| [Get-AzureADPolicyAppliedObject](/powershell/module/azuread/get-azureadpolicyappliedobject?view=azureadps-2.0-preview) | Gets all apps and service principals that are linked to a policy. |
+| [Set-AzureADPolicy](/powershell/module/azuread/set-azureadpolicy?view=azureadps-2.0-preview) | Updates an existing policy. |
+| [Remove-AzureADPolicy](/powershell/module/azuread/remove-azureadpolicy?view=azureadps-2.0-preview) | Deletes the specified policy. |
 
 ### Application policies
 You can use the following cmdlets for application policies.</br></br>
 
-#### Add-AzureADApplicationPolicy
-Links the specified policy to an application.
-
-```powershell
-Add-AzureADApplicationPolicy -Id <ObjectId of Application> -RefObjectId <ObjectId of Policy>
-```
-
-| Parameters | Description | Example |
-| --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectId (ID)** of the application. | `-Id <ObjectId of Application>` |
-| <code>&#8209;RefObjectId</code> |**ObjectId** of the policy. | `-RefObjectId <ObjectId of Policy>` |
-
-</br></br>
-
-#### Get-AzureADApplicationPolicy
-Gets the policy that is assigned to an application.
-
-```powershell
-Get-AzureADApplicationPolicy -Id <ObjectId of Application>
-```
-
-| Parameters | Description | Example |
-| --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectId (ID)** of the application. | `-Id <ObjectId of Application>` |
-
-</br></br>
-
-#### Remove-AzureADApplicationPolicy
-Removes a policy from an application.
-
-```powershell
-Remove-AzureADApplicationPolicy -Id <ObjectId of Application> -PolicyId <ObjectId of Policy>
-```
-
-| Parameters | Description | Example |
-| --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectId (ID)** of the application. | `-Id <ObjectId of Application>` |
-| <code>&#8209;PolicyId</code> |**ObjectId** of the policy. | `-PolicyId <ObjectId of Policy>` |
-
-</br></br>
+| Cmdlet | Description | 
+| --- | --- |
+| [Add-AzureADApplicationPolicy](/powershell/module/azuread/add-azureadapplicationpolicy?view=azureadps-2.0-preview) | Links the specified policy to an application. |
+| [Get-AzureADApplicationPolicy](/powershell/module/azuread/get-azureadapplicationpolicy?view=azureadps-2.0-preview) | Gets the policy that is assigned to an application. |
+| [Remove-AzureADApplicationPolicy](/powershell/module/azuread/remove-azureadapplicationpolicy?view=azureadps-2.0-preview) | Removes a policy from an application. |
 
 ### Service principal policies
 You can use the following cmdlets for service principal policies.
 
-#### Add-AzureADServicePrincipalPolicy
-Links the specified policy to a service principal.
-
-```powershell
-Add-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal> -RefObjectId <ObjectId of Policy>
-```
-
-| Parameters | Description | Example |
-| --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectId (ID)** of the application. | `-Id <ObjectId of Application>` |
-| <code>&#8209;RefObjectId</code> |**ObjectId** of the policy. | `-RefObjectId <ObjectId of Policy>` |
-
-</br></br>
-
-#### Get-AzureADServicePrincipalPolicy
-Gets any policy linked to the specified service principal.
-
-```powershell
-Get-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>
-```
-
-| Parameters | Description | Example |
-| --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectId (ID)** of the application. | `-Id <ObjectId of Application>` |
-
-</br></br>
-
-#### Remove-AzureADServicePrincipalPolicy
-Removes the policy from the specified service principal.
-
-```powershell
-Remove-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>  -PolicyId <ObjectId of Policy>
-```
-
-| Parameters | Description | Example |
-| --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectId (ID)** of the application. | `-Id <ObjectId of Application>` |
-| <code>&#8209;PolicyId</code> |**ObjectId** of the policy. | `-PolicyId <ObjectId of Policy>` |
+| Cmdlet | Description | 
+| --- | --- |
+| [Add-AzureADServicePrincipalPolicy](/powershell/module/azuread/add-azureadserviceprincipalpolicy?view=azureadps-2.0-preview) | Links the specified policy to a service principal. |
+| [Get-AzureADServicePrincipalPolicy](/powershell/module/azuread/get-azureadserviceprincipalpolicy?view=azureadps-2.0-preview) | Gets any policy linked to the specified service principal.|
+| [Remove-AzureADServicePrincipalPolicy](/powershell/module/azuread/remove-azureadserviceprincipalpolicy?view=azureadps-2.0-preview) | Removes the policy from the specified service principal.|
 
 ## License requirements
 
