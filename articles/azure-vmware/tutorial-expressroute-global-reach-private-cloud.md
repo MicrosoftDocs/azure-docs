@@ -104,7 +104,7 @@ In this tutorial, you learned how to create a second authorization key for the p
 Continue to the next tutorial to learn how to deploy and configure VMware HCX solution for your Azure VMware Solution private cloud.
 
 > [!div class="nextstepaction"]
-> [Deploy and configure VMware HCX](hybrid-cloud-extension-installation.md)
+> [Deploy and configure VMware HCX](tutorial-deploy-vmare-hcx.md)
 
 
 <!-- LINKS - external-->
