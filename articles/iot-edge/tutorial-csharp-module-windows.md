@@ -320,7 +320,7 @@ Make sure that your IoT Edge device is up and running.
 
 4. In the file explorer, select the **deployment.windows-amd64.json** file in the config folder of your solution.
 
-5. Refresh the Cloud Explorer to see the deployed modules listed under your device.
+5. Refresh Cloud Explorer to see the deployed modules listed under your device.
 
 ## View generated data
 
