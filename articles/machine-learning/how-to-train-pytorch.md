@@ -114,7 +114,7 @@ To define the Azure ML [Environment](concept-environments.md) that encapsulates 
 
 #### Create a custom environment
 
-Define the Azure ML [Environment](concept-environments.md) that encapsulates your training script's dependencies.
+Define the Azure ML environment that encapsulates your training script's dependencies.
 
 First, define your conda dependencies in a YAML file; in this example the file is named `conda_dependencies.yml`.
 
@@ -145,7 +145,8 @@ pytorch_env.docker.enabled = True
 pytorch_env.docker.base_image = 'mcr.microsoft.com/azureml/openmpi3.1.2-cuda10.1-cudnn7-ubuntu18.04'
 ```
 
-Optionally, you can just capture all your dependencies directly in a custom Docker image or Dockerfile, and create your environment from that.
+> [!TIP]
+> Optionally, you can just capture all your dependencies directly in a custom Docker image or Dockerfile, and create your environment from that. For more information, see [Train with custom image](how-to-train-with-custom-image.md).
 
 For more information on creating and using environments, see [Create and use software environments in Azure Machine Learning](how-to-use-environments.md).
 
