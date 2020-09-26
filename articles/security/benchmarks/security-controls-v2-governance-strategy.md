@@ -47,9 +47,9 @@ For more information, see the following references:
 
 - [Cloud Adoption Framework - Azure data security and encryption best practices](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices?toc=/azure/cloud-adoption-framework/toc.json&amp;bc=/azure/cloud-adoption-framework/_bread/toc.json)
 
-- [Azure Security Benchmark - Asset management](/azure/security/benchmarks/security-benchmark-v2-asset-management)
+- [Azure Security Benchmark - Asset management](security-controls-v2-asset-management.md)
 
-- [Azure Security Benchmark - Data Protection](/azure/security/benchmarks/security-benchmark-v2-data-protection)
+- [Azure Security Benchmark - Data Protection](security-controls-v2-data-protection.md)
 
 **Responsibility**: Customer
 
@@ -89,7 +89,7 @@ Ensure that the segmentation strategy is implemented consistently across control
 
 Continuously measure and mitigate risks to your individual assets and the environment they are hosted in. Prioritize high value assets and highly-exposed attack surfaces, such as published applications, network ingress and egress points, user and administrator endpoints, etc.
 
-- [Azure Security Benchmark - Posture and vulnerability management](/azure/security/benchmarks/security-benchmark-v2-posture-vulnerability-management)
+- [Azure Security Benchmark - Posture and vulnerability management](security-controls-v2-posture-vulnerability-management.md)
 
 **Responsibility**: Customer
 
@@ -143,7 +143,7 @@ For more information, see the following references:
 
 - [Azure Security Best Practice 11 - Architecture. Single unified security strategy](https://aka.ms/AzSec11)
 
-- [Azure Security Benchmark - Network Security](/azure/security/benchmarks/security-benchmark-v2-network-security)
+- [Azure Security Benchmark - Network Security](security-controls-v2-network-security.md)
 
 - [Azure network security overview](../fundamentals/network-overview.md)
 
@@ -177,13 +177,13 @@ This strategy should include documented guidance, policy, and standards for the 
 
 For more information, see the following references:
 
-- [Azure Security Benchmark - Identity management](/azure/security/benchmarks/security-benchmark-v2-identity-management)
+- [Azure Security Benchmark - Identity management](security-controls-v2-identity-management.md)
 
-- [Azure Security Benchmark - Privileged access](/azure/security/benchmarks/security-benchmark-v2-privileged-access)
+- [Azure Security Benchmark - Privileged access](security-controls-v2-privileged-access.md)
 
 - [Azure Security Best Practice 11 - Architecture. Single unified security strategy](https://aka.ms/AzSec11)
 
-- [Azure identity management security overview](../fundamentals/identity-management-overview.md) 
+- [Azure identity management security overview](../fundamentals/identity-management-overview.md)
 
 **Responsibility**: Customer
 
@@ -216,9 +216,9 @@ This strategy should include documented guidance, policy, and standards for the 
 - Processes for handling incidents and post-incident activities, such as lessons learned and evidence retention
 
 For more information, see the following references:
-- [Azure Security Benchmark - Logging and threat detection](/azure/security/benchmarks/security-benchmark-v2-logging-threat-detection)
+- [Azure Security Benchmark - Logging and threat detection](security-controls-v2-logging-threat-detection.md)
 
-- [Azure Security Benchmark - Incident response](/azure/security/benchmarks/security-benchmark-v2-incident-response)
+- [Azure Security Benchmark - Incident response](security-controls-v2-incident-response.md)
 
 - [Azure Security Best Practice 4 - Process. Update Incident Response Processes for Cloud](https://aka.ms/AzSec4)
 
@@ -249,7 +249,7 @@ This strategy should include documented guidance, policy, and standards for the 
 - Protection of backup using access control and data encryption
 
 For more information, see the following references:
-- [Azure Security Benchmark - Backup and recovery](/azure/security/benchmarks/security-benchmark-v2-backup-recovery)
+- [Azure Security Benchmark - Backup and recovery](security-controls-v2-backup-recovery.md)
 
 - [Azure Well-Architecture Framework - Backup and disaster recover for Azure applications](/azure/architecture/framework/resiliency/backup-and-recovery)
 
