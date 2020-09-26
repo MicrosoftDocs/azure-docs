@@ -34,6 +34,8 @@
     href: concepts-rbac.md
   - name: Private cloud upgrades
     href: concepts-upgrades.md
+  - name: Monitor and repair private clouds
+    href: concepts-monitor-repair-private-cloud.md
 - name: How-to guides
   items:
   - name: Enable Azure VMware Solution
@@ -46,7 +48,7 @@
     href: manage-dhcp.md
   - name: Disaster recovery
     href: disaster-recovery.md
-  - name: Deploy VM via content library
+  - name: Deploy a VM via content library
     href: deploy-vm-content-library.md
   - name: Azure native integration
     items:
@@ -68,10 +70,16 @@
       href: deploy-traffic-manager-to-balance-avs-workloads.md
     - name: NetApp Files
       href: net-app-files.md
+  - name: GitHub Enterprise Server
+    href: github-enterprise-server.md
   - name: VMware solutions
     items:
     - name: Set up vRealize Operations
-      href: vrealize-operations-for-avs.md  
+      href: vrealize-operations-for-avs.md
+  - name: VMware ecosystem
+    items:
+    - name: Backup solutions for VMs
+      href: ecosystem-back-up-vms.md
 - name: Reference
   items:
 - name: Resources

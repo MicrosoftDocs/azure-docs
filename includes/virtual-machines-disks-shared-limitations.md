@@ -5,7 +5,7 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 08/26/2020
+ ms.date: 09/22/2020
  ms.author: rogarana
  ms.custom: include file
 ---
@@ -54,7 +54,7 @@ Shared premium SSDs are only supported in the following regions:
 - Canada East
 - Japan East
 - Japan West
+- South East Asia
+- East Asia
 - US Gov Virginia
 - US Gov Arizona
-
-If you're interested in trying shared premium SSDs, [sign up for access](https://aka.ms/AzureSharedDiskGASignUp).

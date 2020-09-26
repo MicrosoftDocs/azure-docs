@@ -292,7 +292,7 @@
         href: log-query/query-optimization.md
       - name: Parse text data
         href: log-query/parse-text.md
-    - name: Workspaces
+    - name: Workspaces and clusters
       items:
       - name: Design a workspace deployment
         href: platform/design-logs-deployment.md
@@ -312,6 +312,8 @@
         href: platform/service-providers.md
       - name: Manage access
         href: platform/manage-access.md
+      - name: Dedicated clusters
+        href: log-query/logs-dedicated-clusters.md
   - name: Metrics explorer
     items:
     - name: Getting started with Metrics Explorer
@@ -497,14 +499,16 @@
         href: platform/alerts-troubleshoot-metric.md
     - name: Log alert rules
       items:  
-      - name: Configure alerts on analytics query
+      - name: Manage log alerts
         href: platform/alerts-log.md
-      - name: Queries
+      - name: Optimizing alert queries
         href: platform/alerts-log-query.md
-      - name: Webhook actions
-        href: platform/alerts-log-webhook.md
+      - name: Using Resource Manager template
+        href: platform/alerts-log-create-templates.md
       - name: Troubleshoot log alerts
         href: platform/alerts-troubleshoot-log.md
+      - name: Webhook actions
+        href: platform/alerts-log-webhook.md
     - name:  Activity log alert rules
       items:
       - name: Alert on an activity log event
@@ -1145,6 +1149,8 @@
         href: platform/workbooks-tree-visualizations.md
       - name: Graph
         href: platform/workbooks-graph-visualizations.md
+      - name: Honey comb
+        href: platform/workbooks-honey-comb.md
       - name: Composite bar
         href: platform/workbooks-composite-bar.md
     - name: Data sources
@@ -1245,8 +1251,6 @@
       href: app/auto-collect-dependencies.md
     - name: Telemetry correlation
       href: app/correlation.md
-    - name: NuGet packages
-      href: app/nuget.md 
     - name: Platform support
       href: app/platforms.md
     - name: Endpoint overrides
@@ -1324,7 +1328,7 @@
       href: ./platform/classic-api-retirement-metrics-autoscale.md 
     - name: Classic alerting & monitoring 
       href: platform/monitoring-classic-retirement.md
-    - name: Switch log alert API preference
+    - name: Switch to current log alert API
       href: platform/alerts-log-api-switch.md
     - name: Web App Analytics solution
       href: insights/azure-web-apps-analytics.md
