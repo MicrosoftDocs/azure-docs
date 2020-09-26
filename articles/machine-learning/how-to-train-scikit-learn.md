@@ -57,7 +57,7 @@ In this tutorial, the training script **train_iris.py** is already provided for 
 
 Notes:
 - The provided training script shows how to log some metrics to your Azure ML run using the `Run` object within the script.
-- The provided training script uses example data from the  `iris = datasets.load_iris()` function.  For your own data, you may need to use steps such as [Upload dataset and scripts](how-to-train-keras.md#data-upload) to make data available during training.
+- The provided training script uses example data from the  `iris = datasets.load_iris()` function.  To use and access your own data, see [how to train with datasets](how-to-train-with-datasets.md) to make data available during training.
 
 ### Define your environment
 
