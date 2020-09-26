@@ -92,7 +92,7 @@ Details of how traffic shall be migrated to new Gateways in specific regions are
 | India Central        | 104.211.96.159     |
 | India South          | 104.211.224.146    |
 | India West           | 104.211.160.80     |
-| Japan East           | 13.78.61.196, 40.79.184.8, 13.78.106.224, 191.237.240.43, 40.79.192.5 |
+| Japan East           | 13.78.61.196, 40.79.184.8, 191.237.240.43, 40.79.192.5 |
 | Japan West           | 104.214.148.156, 40.74.100.192, 191.238.68.11, 40.74.97.10 |
 | Korea Central        | 52.231.32.42       |
 | Korea South          | 52.231.200.86      |
