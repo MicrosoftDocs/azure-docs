@@ -179,7 +179,7 @@ pytorch_env = pytorch_env.clone(new_name='pytorch-1.6-gpu')
 
 ### Create a ScriptRunConfig
 
-Create a ScriptRunConfig object to specify the configuration details of your training job, including your training script, environment to use, and the compute target to run on. Any arguments to your training script will be passed via command line if specified in the `arguments` parameter. 
+Create a [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) object to specify the configuration details of your training job, including your training script, environment to use, and the compute target to run on. Any arguments to your training script will be passed via command line if specified in the `arguments` parameter. 
 
 ```python
 from azureml.core import ScriptRunConfig
