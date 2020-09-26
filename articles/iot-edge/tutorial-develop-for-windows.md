@@ -270,7 +270,7 @@ If you encounter errors when building and pushing your module image, it often ha
 
 You verified that the built container images are stored in your container registry, so it's time to deploy them to a device. Make sure that your IoT Edge device is up and running.
 
-1. Open the Cloud Explorer in Visual Studio and expand the details for your IoT hub.
+1. Open Cloud Explorer in Visual Studio and expand the details for your IoT hub.
 
 2. Select the name of the device that you want to deploy to. In the **Actions** list, select **Create Deployment**.
 
@@ -280,7 +280,7 @@ You verified that the built container images are stored in your container regist
 
    Do not use the deployment.template.json file, which doesn't have the full module image values in it.
 
-4. Expand the details for your IoT Edge device in the Cloud Explorer to see the modules on your device.
+4. Expand the details for your IoT Edge device in Cloud Explorer to see the modules on your device.
 
 5. Use the **Refresh** button to update the device status to see that the SimulatedTemperatureSensor and IotEdgeModule1 modules are deployed your device.
 
