@@ -307,7 +307,7 @@ Notice how the script gets data and saves models:
 
 ### Configure the training job
 
-Create a [ScriptRunConfig](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) object to specify the configuration details of your training job, including your training script, environment to use, and the compute target to run on. Configure the ScriptRunConfig by specifying:
+Create a [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) object to specify the configuration details of your training job, including your training script, environment to use, and the compute target to run on. Configure the ScriptRunConfig by specifying:
 
 * The directory that contains your scripts. All the files in this directory are uploaded into the cluster nodes for execution.
 * The compute target. In this case, you use the Azure Machine Learning compute cluster you created.
