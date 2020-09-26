@@ -55,7 +55,7 @@ After deploying the Azure VMware Solution instance of vRealize Operations you ca
 
 ## Known limitations
 
-- The **cloudadmin@vsphere.local** user in Azure VMware Solution has [limited privileges](concepts-role-based-access.md). In-guest memory collection using VMware tools is not supported with virtual machines (VMs) on Azure VMware Solution. Active and consumed memory utilizations continue to work in this case.
+- The **cloudadmin@vsphere.local** user in Azure VMware Solution has [limited privileges](concepts-role-based-access-control.md). In-guest memory collection using VMware tools is not supported with virtual machines (VMs) on Azure VMware Solution. Active and consumed memory utilizations continue to work in this case.
 - Workload optimization for host-based business intent does not work because Azure VMware Solutions manage cluster configurations, including DRS settings.
 - Workload optimization for the cross cluster placement within the SDDC using the cluster-based business intent is fully supported with vRealize Operations Manager 8.0  and onwards. However, workload optimization is not aware of resource pools and places the virtual machines at the cluster level. A user can manually correct this in the Azure VMware Solution vCenter Server interface.
 - You cannot sign in to vRealize Operations Manager using your Azure VMware Solution vCenter Server credentials. 

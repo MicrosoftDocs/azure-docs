@@ -35,15 +35,15 @@ In this guide the following replication scenarios are covered:
 
 1. Log into **vSphere Client** on the source site and access **HCX plugin**.
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines-virtual-machines/hcx-vsphere.png" alt-text="HCX option in vSphere" border="true":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/hcx-vsphere.png" alt-text="HCX option in vSphere" border="true":::
 
 1. Enter the **Disaster Recovery** area and select **PROTECT VMS**.
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines-virtual-machines/protect-virtual-machine.png" alt-text="select protect vms" border="true":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/protect-virtual-machine.png" alt-text="select protect vms" border="true":::
 
 1. Select the Source and the Remote sites. The Remote site in this case should be the Azure VMware Solution private cloud.
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines-virtual-machines/protect-virtual-machines.png" alt-text="protect VMs window" border="true":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/protect-virtual-machines.png" alt-text="protect VMs window" border="true":::
 
 1. If needed, select the **Default replication** options:
 
@@ -63,21 +63,21 @@ In this guide the following replication scenarios are covered:
 
    - **Number of Snapshots:** Total number of snapshots within the configured snapshot interval.
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines-virtual-machines/protect-virtual-machine-options.png" alt-text="protect VMs options" border="true":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/protect-virtual-machine-options.png" alt-text="protect VMs options" border="true":::
 
 1. Select one or more VMs from the list and configure the replication options as needed.
 
    By default, the VMs inherit the Global Settings Policy configured in the Default replication options. For each network interface in the selected VM, configure the remote **Network Port Group** and select **Finish** to start the protection process.
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines-virtual-machines/network-interface-options.png" alt-text="network interface options" border="true":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/network-interface-options.png" alt-text="network interface options" border="true":::
 
 1. Monitor the process for each of the selected VMs in the same disaster recovery area.
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines-virtual-machines/protect-monitor-progress.png" alt-text="monitor progress of protection" border="true":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/protect-monitor-progress.png" alt-text="monitor progress of protection" border="true":::
 
 1. After the VM has been protected, you can view the different snapshots in the **Snapshots** tab.
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines-virtual-machines/list-of-snapshots.png" alt-text="list of snapshots" border="true":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/list-of-snapshots.png" alt-text="list of snapshots" border="true":::
 
    The yellow triangle means the snapshots and the virtual haven't been tested in a Test Recovery operation.
 
@@ -88,21 +88,21 @@ In this guide the following replication scenarios are covered:
 1. Log into **vSphere Client** on the remote site, which is the Azure VMware Solution private cloud. 
 1. Within the **HCX plugin**, in the Disaster Recovery area, select the vertical ellipses on any VM to display the operations menu and then select **Test Recover VM**.
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines-virtual-machines/test-recover-virtual-machine.png" alt-text="Select Test Recover VM" border="true":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/test-recover-virtual-machine.png" alt-text="Select Test Recover VM" border="true":::
 
 1. Select the options for the test and the snapshot you want to use to test different states of the VM.
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines-virtual-machines/choose-snapshot.png" alt-text="choose a snapshot and select test" border="true":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/choose-snapshot.png" alt-text="choose a snapshot and select test" border="true":::
 
 1. After selecting **Test**, the recovery operation begins.
 
 1. When finished, you can check the new VM in the Azure VMware Solution private cloud vCenter.
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines-virtual-machines/verify-test-recovery.png" alt-text="check recovery operation" border="true":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/verify-test-recovery.png" alt-text="check recovery operation" border="true":::
 
 1. After testing has been done on the VM or any application running on it, do a cleanup to delete the test instance.
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines-virtual-machines/cleanup-test-instance.png" alt-text="cleanup test instance" border="true":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/cleanup-test-instance.png" alt-text="cleanup test instance" border="true":::
 
 ## Recover VMs
 
@@ -112,11 +112,11 @@ In this guide the following replication scenarios are covered:
 
 1. Select the VM to be recovered from the list, open the **ACTIONS** menu, and select **Recover VMs**.
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines-virtual-machines/recover-virtual-machines.png" alt-text="recover VMs" border="true":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/recover-virtual-machines.png" alt-text="recover VMs" border="true":::
 
 1. Configure the recovery options for each instance and select **Recover** to start the recovery operation.
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines-virtual-machines/recover-virtual-machines-confirm.png" alt-text="recover VMs confirmation" border="true":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/recover-virtual-machines-confirm.png" alt-text="recover VMs confirmation" border="true":::
 
 1. After the recovery operation is completed, the new VMs appear in the remote vCenter Server inventory.
 
@@ -130,11 +130,11 @@ In this guide the following replication scenarios are covered:
 1. From the list, select the VMs to be replicated back to the source site, open the **ACTIONS** menu, and select **Reverse**. 
 1. Select **Reverse** to start the replication.
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines-virtual-machines/reverse-operation-virtual-machines.png" alt-text="Select reverse action under protect operations" border="true":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/reverse-operation-virtual-machines.png" alt-text="Select reverse action under protect operations" border="true":::
 
 1. Monitor on the details section of each VM.
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines-virtual-machines/review-reverse-operation.png" alt-text="review the results of reverse action" border="true":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/review-reverse-operation.png" alt-text="review the results of reverse action" border="true":::
 
 ## Disaster recovery plan automation
 
