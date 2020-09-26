@@ -23,7 +23,7 @@ This release applies for both HDInsight 3.6 and HDInsight 4.0. HDInsight release
 
 ## New features
 ### LLAP cluster auto scale General Available
-Auto scale for LLAP cluster type is now General Available (GA). All LLAP clusters created after August 27 will have GA support for auto scale.
+Auto scale for LLAP cluster type is now General Available (GA). All LLAP clusters created after 27 August 2020 will have GA support for auto scale.
 
 ### HBase cluster supports Premium ADLS Gen2
 HDInsight now supports Premium ADLS Gen2 as primary storage account for HDInsight HBase 3.6 and 4.0 clusters. Together with [Accelerated Writes](./hbase/apache-hbase-accelerated-writes.md), you can get better performance for your HBase clusters.
