@@ -32,7 +32,7 @@ When you use *Microsoft.Identity.Web*, you have three usage options for calling 
 - [Option 2: Call a downstream web API with the helper class](#option-2-call-a-downstream-web-api-with-the-helper-class)
 - [Option 3: Call a downstream web API without the helper class](#option-3-call-a-downstream-web-api-without-the-helper-class)
 
-### Option 1: Call Microsoft Graph with the SDK
+#### Option 1: Call Microsoft Graph with the SDK
 
 You want to call Microsoft Graph. In this scenario, you've added `AddMicrosoftGraph` in *Startup.cs* as specified in [Code configuration](scenario-web-app-call-api-app-configuration.md#option-1-call-microsoft-graph), and you can directly inject the `GraphServiceClient` in your controller or page constructor for use in the actions. The following example Razor page displays the photo of the signed-in user.
 
@@ -68,7 +68,7 @@ public class IndexModel : PageModel
 }
 ```
 
-### Option 2: Call a downstream web API with the helper class
+#### Option 2: Call a downstream web API with the helper class
 
 You want to call a web API other than Microsoft Graph. In that case, you've added `AddDownstreamWebApi` in *Startup.cs* as specified in [Code configuration](scenario-web-app-call-api-app-configuration.md#option-2-call-a-downstream-web-api-other-than-microsoft-graph), and you can directly inject an `IDownstreamWebApi` service in your controller or page constructor and use it in the actions:
 
@@ -116,7 +116,7 @@ The `CallWebApiForUserAsync` also has strongly typed generic overrides that enab
     }
    ```
 
-### Option 3: Call a downstream web API without the helper class
+#### Option 3: Call a downstream web API without the helper class
 
 You've decided to acquire a token manually using the `ITokenAcquisition` service, and you now need to use the token. In that case, the following code continues the example code shown in [A web app that calls web APIs: Acquire a token for the app](scenario-web-app-call-api-acquire-token.md). The code is called in the actions of the web app controllers.
 
