@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, rohitha, vikanand, hongzili, sopai, absaafan, logicappspm
 ms.topic: conceptual
-ms.date: 09/25/2020
+ms.date: 09/26/2020
 ---
 
 # Create stateful or stateless workflows in Visual Studio Code with the Azure Logic Apps (Preview) extension
@@ -57,7 +57,7 @@ The Azure Logic Apps (Preview) extension brings many current and additional Logi
 
 * Create stateless logic apps that run only in memory so that they finish more quickly, respond faster, have higher throughput, and cost less to run because the run histories and data between actions don't persist in external storage. Optionally, you can enable run history for easier debugging. For more information, see [Stateful versus stateless logic apps](#stateful-stateless).
 
-* Test your logic apps locally in the Visual Studio Code development environment.
+* Run and debug your logic apps locally in the Visual Studio Code development environment.
 
 * Publish and deploy your logic apps from Visual Studio Code directly to various hosting environments, such as [Azure App Service](../app-service/environment/intro.md) and [Docker containers](/dotnet/core/docker/introduction).
 
@@ -97,9 +97,25 @@ For more information about the pricing models that apply to this new resource ty
 * [App Service pricing details](https://azure.microsoft.com/pricing/details/app-service/windows/)
 * [Azure Storage pricing details](https://azure.microsoft.com/pricing/details/storage/)
 
-## Prerequisites
+<a name="unsupported"></a>
 
-Currently, creating the new **Logic App (Preview)** resource is not available on macOS. For Windows or other OS, such as Linux, you'll need the following items:
+## Unavailable or unsupported capabilities
+
+For this public preview, these capabilities are not available or not supported:
+
+* Creating the new **Logic App (Preview)** resource is currently unavailable on macOS.
+
+* Not all Azure regions are supported yet. For currently available regions, check the [regions list](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md#available-regions).
+
+* To start your workflow, use the [Request, HTTP, Event Hubs, or Service Bus trigger](../connectors/apis-list.md). Currently, [enterprise connectors](../connectors/apis-list.md#enterprise-connectors), [on-premises data gateway triggers](../connectors/apis-list.md#on-premises-connectors), webhook-based triggers, Sliding Window trigger, [custom connectors](../connectors/apis-list.md#custom-apis-and-connectors), integration accounts, their artifacts, and [their connectors](../connectors/apis-list.md#integration-account-connectors) aren't supported in this preview. The "call an Azure function" capability is unavailable, so for now, use the HTTP *action* to call the request URL for the Azure function.
+
+  Stateless logic app workflows can only use actions for [managed connectors](../connectors/apis-list.md#managed-api-connectors), not triggers. Except for the previously specified triggers, stateful workflows can use both triggers and actions for managed connectors.
+
+* You can deploy the new **Logic App (Preview)** resource type only to a [Premium or App Service hosting plan in Azure](#publish-azure) or to a [Docker container](#deploy-docker), and not [integration service environments (ISEs)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). **Consumption** hosting plans aren't supported nor available for deploying this resource type.
+
+* In the Azure portal, you can't create new logic apps with the new **Logic App (Preview)** resource type. You can only create these logic apps in Visual Studio Code. However, after you deploy logic apps with this resource type from Visual Studio Code to Azure, you can [add new workflows to those logic apps](#add-workflows).
+
+## Prerequisites
 
 ### Access and connectivity
 
@@ -141,7 +157,7 @@ Currently, creating the new **Logic App (Preview)** resource is not available on
     > for running JavaScript code, you need to use the Azure Functions runtime version 3x because the 
     > action doesn't support version 2x. Also, this action currently isn't supported on Linux operating systems.
 
-  * [Azure Logic Apps (Preview) extension for Visual Studio Code](https://go.microsoft.com/fwlink/p/?linkid=2143167). This public preview extension provides the capability for you to create stateful and stateless logic apps and to test them locally in Visual Studio Code.
+  * [Azure Logic Apps (Preview) extension for Visual Studio Code](https://go.microsoft.com/fwlink/p/?linkid=2143167). This public preview extension provides the capability for you to create stateful and stateless logic apps and run them locally in Visual Studio Code.
 
     Currently, you can have both the original **Azure Logic Apps** extension and the new **Azure Logic Apps (Preview)** extension installed at the same time in Visual Studio Code. By selecting the Azure icon on the Visual Studio Code toolbar, you can view all the logic apps deployed in Azure, but each resource type appears in their own extension sections, **Logic Apps** and **Azure Logic Apps (Preview)**.
 
@@ -227,7 +243,9 @@ Currently, creating the new **Logic App (Preview)** resource is not available on
 
    ![Screenshot that shows Azure pane and selected link for Azure sign in.](./media/create-stateful-stateless-workflows-visual-studio-code/sign-in-azure-subscription.png)
 
-   After you sign in, the Azure pane shows the subscriptions in your Azure account. If the expected subscriptions don't appear, or you want the pane to show only specific subscriptions, follow these steps:
+   After you sign in, the Azure pane shows the subscriptions in your Azure account. If you have the publicly released Logic Apps extension, you can find any original Logic Apps resources that you created using the original extension in the released extension's **Logic Apps** section, not the preview extension's **Logic Apps (Preview** section.
+   
+   If the expected subscriptions don't appear, or you want the pane to show only specific subscriptions, follow these steps:
 
    1. In the subscriptions list, move your pointer next to the first subscription until the **Select subscriptions** button (filter icon) appears. Select the filter icon.
 
@@ -462,11 +480,13 @@ The logic app workflow in this example uses this trigger and these actions:
 
 1. On the designer, select **Save**.
 
-Next, debug and test your workflow locally in Visual Studio Code.
+Next, run and debug your workflow locally in Visual Studio Code.
 
 <a name="debug-test-locally"></a>
 
-## Debug and test your logic app
+## Run and debug locally
+
+To test your logic app, follow these steps to start a debugging session and find the URL for the endpoint that's created by the Request trigger. You need this URL so that you can later send a request to that endpoint.
 
 1. To help you more easily debug a stateless logic app workflow, you can [enable the run history for that workflow](#run-history).
 
@@ -987,22 +1007,6 @@ Although many [existing limits for Azure Logic Apps](../logic-apps/logic-apps-li
   * The limit on code characters increases from 1,024 characters to 100,000 characters.
 
   * The limit on time to run the code increases from five seconds to 15 seconds.
-
-<a name="unsupported"></a>
-
-## Unavailable or unsupported capabilities
-
-For this public preview, these capabilities are not available or not supported:
-
-* Creating the new **Logic App (Preview)** resource is currently unavailable on macOS.
-
-* To start your workflow, use the [Request, HTTP, Event Hubs, or Service Bus trigger](../connectors/apis-list.md). Currently, [enterprise connectors](../connectors/apis-list.md#enterprise-connectors), [on-premises data gateway triggers](../connectors/apis-list.md#on-premises-connectors), webhook-based triggers, Sliding Window trigger, [custom connectors](../connectors/apis-list.md#custom-apis-and-connectors), integration accounts, their artifacts, and [their connectors](../connectors/apis-list.md#integration-account-connectors) aren't supported in this preview. The "call an Azure function" capability is unavailable, so for now, use the HTTP *action* to call the request URL for the Azure function.
-
-  Stateless logic app workflows can only use actions for [managed connectors](../connectors/apis-list.md#managed-api-connectors), not triggers. Except for the previously specified triggers, stateful workflows can use both triggers and actions for managed connectors.
-
-* You can deploy the new **Logic App (Preview)** resource type only to a [Premium or App Service hosting plan in Azure](#publish-azure) or to a [Docker container](#deploy-docker), and not [integration service environments (ISEs)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). **Consumption** hosting plans aren't supported nor available for deploying this resource type.
-
-* In the Azure portal, you can't create new logic apps with the new **Logic App (Preview)** resource type. You can only create these logic apps in Visual Studio Code. However, after you deploy logic apps with this resource type from Visual Studio Code to Azure, you can [add new workflows to those logic apps](#add-workflows).
 
 ## Next steps
 
