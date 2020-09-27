@@ -163,7 +163,7 @@ As with web apps, you can choose various token cache implementations. For detail
 
 The following image shows the various possibilities of *Microsoft.Identity.Web* and their impact on the *Startup.cs* file:
 
-:::image type="content" source="media/scenarios/microsoft-identity-web-startup-cs.png" alt-text="When creating a web api, you can choose to call a downstream api, and token cache implementations.":::
+:::image type="content" source="media/scenarios/microsoft-identity-web-startup-cs.svg" alt-text="Block diagram showing service configuration options in startup dot C S for calling a web API and specifying a token cache implementation":::
 
 > [!NOTE]
 > To fully understand the code examples here, you need to be familiar with [ASP.NET Core fundamentals](/aspnet/core/fundamentals), and in particular with [dependency injection](/aspnet/core/fundamentals/dependency-injection) and [options](/aspnet/core/fundamentals/configuration/options).
