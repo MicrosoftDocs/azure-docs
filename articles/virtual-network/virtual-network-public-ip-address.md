@@ -49,7 +49,8 @@ For instructions on how to Create Public IP addresses using the Portal, Powershe
  * [Create public IP addresses - PowerShell](https://docs.microsoft.com/azure/virtual-network/create-public-ip-powershell?tabs=option-create-public-ip-standard-zones)
  * [Create public IP addresses - Azure CLI](https://docs.microsoft.com/azure/virtual-network/create-public-ip-cli?tabs=option-create-public-ip-standard-zones)
 
- >[!NOTE]Though the portal provides the option to create two public IP address resources (one IPv4 and one IPv6), the PowerShell and CLI commands create one resource with an address for one IP version or the other. If you want two public IP address resources, one for each IP version, you must run the command twice, specifying different names and IP versions for the public IP address resources.
+>[!NOTE]
+>Though the portal provides the option to create two public IP address resources (one IPv4 and one IPv6), the PowerShell and CLI commands create one resource with an address for one IP version or the other. If you want two public IP address resources, one for each IP version, you must run the command twice, specifying different names and IP versions for the public IP address resources.
 
 For additional detail on the specific attributes of a Public IP address during creation, see the table below.
 
