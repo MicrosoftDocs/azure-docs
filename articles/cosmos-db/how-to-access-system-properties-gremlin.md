@@ -5,6 +5,8 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 09/10/2019
+author: luisbosquez
+ms.author: lbosq
 ---
 
 # System document properties
