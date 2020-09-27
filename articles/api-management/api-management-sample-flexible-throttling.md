@@ -15,7 +15,6 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2018
 ms.author: apimpm
-ms.custom: fasttrack-edit
 
 ---
 # Advanced request throttling with Azure API Management
