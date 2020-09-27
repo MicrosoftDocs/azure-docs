@@ -237,7 +237,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Nihilent Inc](https://nihilent.com)|
 |[Norseman, Inc](https://www.norseman.com)|
 |[Northern Sky Technologies, Inc]|
-|[Nortrop Grumman](https://www.northropgrumman.com)|
+|[Northrop Grumman](https://www.northropgrumman.com)|
 |[NTS Cloud](http://ntscloud.com/ )|
 |[NTT America, Inc.](https://www.us.ntt.net)|
 |[Nubelity LLC](http://www.nubelity.com)|

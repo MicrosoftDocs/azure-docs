@@ -175,7 +175,7 @@ To create a pipeline with a step to deploy a template:
     * **Deployment mode**: Select **Incremental**.
     * **Deployment name**: Enter **DeployPipelineTemplate**. Select **Advanced** before you can see **Deployment name**.
 
-    ![Azure Resource Manager Azure DevOps Azure Pipelines step](./media/deployment-tutorial-pipeline/resource-manager-template-pipeline-configure.png)
+    ![Screenshot shows the ARM template deployment page with required values entered.](./media/deployment-tutorial-pipeline/resource-manager-template-pipeline-configure.png)
 
 1. Select **Add**.
 
@@ -183,7 +183,7 @@ To create a pipeline with a step to deploy a template:
 
     The yml file shall be similar to:
 
-    ![Azure Resource Manager Azure DevOps Azure Pipelines yaml](./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-yml.png)
+    ![Screenshot shows the Review page with the new pipline titled Review your pipeline YAML.](./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-yml.png)
 
 1. Select **Save and run**.
 1. From the **Save and run** pane, select **Save and run** again. A copy of the YAML file is saved into the connected repository. You can see the YAML file by browse to your repository.

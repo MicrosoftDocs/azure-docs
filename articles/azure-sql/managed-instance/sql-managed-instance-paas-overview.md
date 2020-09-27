@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: bonova
 ms.author: bonova
-ms.reviewer: sstein, carlrab, vanto
+ms.reviewer: sstein, vanto
 ms.date: 08/14/2020
 ---
 

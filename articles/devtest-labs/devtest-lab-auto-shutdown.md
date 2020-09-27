@@ -157,7 +157,7 @@ To get started, create a logic app in your Azure subscription by using the follo
     }
     ```
     
-    ![Request Body JSON Schema](./media/devtest-lab-auto-shutdown/request-json.png)
+    ![Screenshot that shows the "Request Body JSON Schema".](./media/devtest-lab-auto-shutdown/request-json.png)
 7. Select **+ New step** in the designer, and follow these steps:
     1. Search for **Office 365 Outlook - Send an email**. 
     2. Select **Send an email** from **Actions**. 
