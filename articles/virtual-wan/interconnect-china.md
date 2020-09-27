@@ -13,7 +13,7 @@ ms.author: sukishen
 
 # Interconnect with China using Azure Virtual WAN and Secure Hub
 
-When looking at common automotive, manufacturing, logistics industries or other institutes like embassies, there is often the question about how to improve interconnection with China. Those improvements are mostly relevant for using Cloud Services like Office 365, Azure Global Services, or interconnect branches inside of China with a customer backbone.
+When looking at common automotive, manufacturing, logistics industries or other institutes like embassies, there is often the question about how to improve interconnection with China. Those improvements are mostly relevant for using Cloud Services like Microsoft 365, Azure Global Services, or interconnect branches inside of China with a customer backbone.
 
 In most of the cases, customers are struggling with high latencies, low bandwidth, unstable connection, and high costs connecting to outside of China (for example, Europe or the United States).
 
@@ -92,7 +92,7 @@ The figure below shows both examples for this scenario.
 
 ![Global Reach](./media/interconnect-china/global.png)
 
-## <a name="secure"></a>Secure Internet breakout for Office 365
+## <a name="secure"></a>Secure Internet breakout for Microsoft 365
 
 Another consideration is network security as well as logging for the entry point between China and the Virtual WAN established backbone component, and the customer backbone. In most cases, there is a need to breakout to the Internet in Hong Kong to directly reach the Microsoft Edge Network and, with that, the Azure Front Door Servers used for Microsoft 365 Services.
 
@@ -106,7 +106,7 @@ The following figure shows an example of this scenario:
 
 Depending on your choice regarding the connection to Hong Kong, the overall architecture may change slightly. This section shows three available architectures in different combination with VPN or SDWAN and/or ExpressRoute.
 
-All of these options make use of Azure Virtual WAN secured hub for direct M365 connectivity in Hong Kong. These architectures also support the compliance requirements for [Office 365 Multi-Geo](https://docs.microsoft.com/office365/enterprise/office-365-multi-geo) and keep that traffic near the next Office 365 Front Door location. As a result, it's also an improvement for the usage of Microsoft 365 out of China.
+All of these options make use of Azure Virtual WAN secured hub for direct Microsoft 365 connectivity in Hong Kong. These architectures also support the compliance requirements for [Microsoft 365 Multi-Geo](/microsoft-365/enterprise/microsoft-365-multi-geo) and keep that traffic near the next Azure Front Door location. As a result, it's also an improvement for the usage of Microsoft 365 out of China.
 
 When using Azure Virtual WAN together with Internet connections, every connection can benefit from additional services like [Microsoft Azure Peering Services (MAPS)](https://docs.microsoft.com/azure/peering-service/about). MAPS was built to optimize traffic coming to the Microsoft Global Network from 3rd Party Internet Service Providers.
 
