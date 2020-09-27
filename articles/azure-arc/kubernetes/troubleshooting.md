@@ -99,7 +99,7 @@ This operation might take a while...
 
 ### Helm issue
 
-Helm `v3.3.0-rc.1` version has an issue where helm install/upgrade (used under the hood by connectedk8s CLI extension) results in running of all hooks leading to the following error:
+Helm `v3.3.0-rc.1` version has an [issue](https://github.com/helm/helm/pull/8527) where helm install/upgrade (used under the hood by connectedk8s CLI extension) results in running of all hooks leading to the following error:
 
 ```console
 $ az connectedk8s connect -n shasbakstest -g shasbakstest
