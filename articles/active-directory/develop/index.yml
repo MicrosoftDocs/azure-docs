@@ -62,10 +62,10 @@ landingContent:
         links:
           - text: ASP.NET
             url: quickstart-v2-aspnet-webapp.md
-          - text: Blazor Server
-            url: tutorial-blazor-server.md
           - text: ASP.NET Core
             url: quickstart-v2-aspnet-core-webapp.md
+          - text: Blazor Server
+            url: tutorial-blazor-server.md
   - title: Mobile / native app
     linkLists:
       - linkListType: get-started
