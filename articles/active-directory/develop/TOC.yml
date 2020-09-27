@@ -611,6 +611,13 @@
             href: msal-java-token-cache-serialization.md
           - name: Get and remove accounts from the token cache
             href: msal-java-get-remove-accounts-token-cache.md
+  - name: Work with Microsoft Identity Web
+    displayName: Microsoft Identity Web
+    items:
+      - name: Use Microsoft Identity Web for web apps and web APIs
+        href: ms-id-web.md
+      - name: Use certificate with Microsoft Identity Web
+        href: ms-id-web-using-certificates.md
   - name: Use the Microsoft Graph API
     href: microsoft-graph-intro.md
   - name: Work with Visual Studio
