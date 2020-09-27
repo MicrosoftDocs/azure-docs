@@ -10,7 +10,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/24/2020
+ms.date: 09/25/2020
 ---
 
 # Copy data to and from Azure Databricks Delta Lake by using Azure Data Factory
@@ -26,36 +26,37 @@ This Azure Databricks Delta Lake connector is supported for the following activi
 - [Copy activity](copy-activity-overview.md) with a [supported source/sink matrix](copy-activity-overview.md) table
 - [Lookup activity](control-flow-lookup-activity.md)
 
-For the Copy activity, this Azure Databricks Delta Lake connector supports the following functions:
+In general, Azure Data Factory supports Delta Lake with the following capabilities:
 
-- copy to/from
-- use cluster
-
-Data flow vs copy
+- Copy activity supports copying data from any supported source data store to Databricks delta lake tables, and from Databricks delta lake tables to any supported sink data store. It leverages your Databricks cluster to perform the data movement, see details in [Prerequisites section](#prerequisites).
+- Mapping Data Flow supports generic [Delta format](format-delta.md) as source and sink, and runs on managed Azure Integration Runtime to interact with delta lake on Azure Storage.
 
 ## Prerequisites
 
-To use this Azure Databricks Delta Lake connector, you neet to set up a cluster in Azure Databricks for data integration need. Azure Data Factory copy activity submits job to Azure Databricks cluster to read data from Azure Storage, which is either your original source or a staging area where Data Factory writes the source data to.
+To use this Azure Databricks Delta Lake connector, you need to set up a cluster in Azure Databricks.
 
-The Databricks cluster needs to have access to an Azure Blob or Azure Data Lake Storage Gen2. To secure access to data in Azure Storage, you can use an account access key or an Azure Active Directory service principal authentication.
+- To copy data to delta lake, Copy activity invokes Azure Databricks cluster to read data from an Azure Storage, which is either your original source or a staging area to where Data Factory firstly writes the source data via built-in staged copy. Learn more from [Delta lake as the source](#delta-lake-as-source).
+- Similarly, to copy data from delta lake, Copy activity invokes Azure Databricks cluster to write data to an Azure Storage, which is either your original sink or a staging area from where Data Factory continues to write data to final sink via built-in staged copy. Learn more from [Delta lake as the sink](#delta-lake-as-sink).
 
-### Use an Azure storage account access key
+During copy activity execution, if the cluster you configured has been terminated, Data Factory automatically starts it. If you author pipeline using Data Factory authoring UI, for operations like data preview, you need to have a live cluster, Data Factory won't start the cluster on your behalf.
 
-You can configure a storage account access key on the integration cluster as part of the Apache Spark configuration. Ensure that the storage account has access to the storage container and file system used for staging data and the storage container and file system where you want to write the Delta Lake tables. To configure the integration cluster to use the key, follow the steps in [Access Azure Blob with storage key]() or [Access ADLS Gen2 with storage key](../databricks/data/data-sources/azure/azure-datalake-gen2.md#adls-gen2-access-key).
+The Databricks cluster needs to have access to Azure Blob or Azure Data Lake Storage Gen2 account, both the storage container/file system used for source or staging and the container/file system where you want to write the Delta Lake tables.  Follow the guidance to encure secure access to data in Azure Storage.
 
-### Use an Azure service principal
+#### Use Azure Data Lake Storage Gen2
 
-You can configure a service principal on the Azure Databricks integration cluster as part of the Apache Spark configuration. Ensure that the service principal has access to the storage container used for staging data and the storage container where you want to write the Delta tables. To configure the integration cluster to use the service principal, follow the steps in [Access Azure Blob with service principal]() or [Access ADLS Gen2 with service principal](../databricks/data/data-sources/azure/azure-datalake-gen2.md#adls-gen2-oauth-2).
+You can configure a **service principal** or **storage account access key** on the Databrics cluster as part of the Apache Spark configuration.  To configure the integration cluster, follow the steps in [Access directly with service principal](../databricks/data/data-sources/azure/azure-datalake-gen2.md#--access-directly-with-service-principal-and-oauth-20) or [Access directly using the storage account access key](../databricks/data/data-sources/azure/azure-datalake-gen2.md#--access-directly-using-the-storage-account-access-key).
 
-### Specify the cluster configuration
+#### Use Azure Blob storage
+
+You can configure a **storage account access key** or **SAS token** on the Databrics cluster as part of the Apache Spark configuration. Ensure that the storage account has access to the storage container used for source or staging data and the storage container, as well as the container where you want to write the Delta Lake tables. To configure the integration cluster, follow the steps in [Access Azure Blob storage using the RDD API](../databricks/data/data-sources/azure/azure-storage.md#access-azure-blob-storage-using-the-rdd-api).
+
+#### Specify the cluster configuration
 
 1. In the **Cluster Mode** drop-down, select **Standard**.
 
 2. In the **Databricks Runtime Version** drop-down, select a Databricks runtime version.
 
-3. Turn on [Auto Optimize](https://docs.microsoft.com/en-us/azure/databricks/delta/optimizations/auto-optimize) by adding the following properties to your [Spark configuration](https://docs.microsoft.com/en-us/azure/databricks/clusters/configure#spark-config):
-
-   iniCopy
+3. Turn on [Auto Optimize](../azure/databricks/delta/optimizations/auto-optimize.md) by adding the following properties to your [Spark configuration](../azure/databricks/clusters/configure#spark-config.md):
 
    ```
    spark.databricks.delta.optimizeWrite.enabled true
@@ -64,7 +65,7 @@ You can configure a service principal on the Azure Databricks integration cluste
 
 4. Configure your cluster depending on your integration and scaling needs.
 
-For cluster configuration details, see [Configure clusters](https://docs.microsoft.com/en-us/azure/databricks/clusters/configure).
+For cluster configuration details, see [Configure clusters](../azure/databricks/clusters/configure.md).
 
 ## Get started
 
@@ -80,8 +81,8 @@ The following properties are supported for a Azure Databricks Delta Lake linked 
 | :---------- | :----------------------------------------------------------- | :------- |
 | type        | The type property must be set to **AzureDatabricksDeltaLake**. | Yes      |
 | domain      | Specify the Azure Databricks workspace URL, e.g. `https://adb-xxxxxxxxx.xx.azuredatabricks.net`. |          |
-| clusterId   | Specify the cluster ID of an existing cluster. It should be an already created Interactive Cluster. <br>You can find the Cluster ID of an Interactive Cluster on Databricks workspace -> Clusters -> Interactive Cluster Name -> Configuration -> Tags. [More details](https://docs.databricks.com/user-guide/clusters/tags.html) |          |
-| accessToken | Access token is required for Data Factory to authenticate to Azure Databricks. Access token needs to be generated from the databricks workspace. More detailed steps to find the access token can be found [here](https://docs.azuredatabricks.net/api/latest/authentication.html#generate-token). |          |
+| clusterId   | Specify the cluster ID of an existing cluster. It should be an already created Interactive Cluster. <br>You can find the Cluster ID of an Interactive Cluster on Databricks workspace -> Clusters -> Interactive Cluster Name -> Configuration -> Tags. [Learn more](../databricks/clusters/configure.md#cluster-tags). |          |
+| accessToken | Access token is required for Data Factory to authenticate to Azure Databricks. Access token needs to be generated from the databricks workspace. More detailed steps to find the access token can be found [here](../databricks/dev-tools/api/latest/authentication.md#generate-token). |          |
 | connectVia  | The [integration runtime](concepts-integration-runtime.md) that is used to connect to the data store. You can use the Azure integration runtime or a self-hosted integration runtime (if your data store is located in a private network). If not specified, it uses the default Azure integration runtime. | No       |
 
 **Example:**
@@ -113,7 +114,7 @@ The following properties are supported for the Azure Databricks Delta Lake datas
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
 | type      | The type property of the dataset must be set to **AzureDatabricksDeltaLakeDataset**. | Yes                         |
 | database | Name of the database. |No for source, yes for sink  |
-| table | Name of the detla table. |No for source, yes for sink  |
+| table | Name of the delta table. |No for source, yes for sink  |
 
 **Example:**
 
@@ -150,8 +151,8 @@ To copy data from Azure Databricks Delta Lake, the following properties are supp
 | exportSettings | Advanced settings used to retrieve data from delta table. | No       |
 | ***Under `exportSettings`:*** |  |  |
 | type | The type of export command, set to **AzureDatabricksDeltaLakeExportCommand**. | Yes |
-| dateFormat | Sets the string that indicates a date format. Custom date formats follow the formats at [datetime pattern](https://spark.apache.org/docs/latest/sql-ref-datetime-pattern.html). This applies to date type. If not specified, it uses the default value `yyyy-MM-dd`. | No |
-| timestampFormat | Sets the string that indicates a timestamp format. Custom date formats follow the formats at [datetime pattern](https://spark.apache.org/docs/latest/sql-ref-datetime-pattern.html). This applies to timestamp type. If not specified, it uses the default value `yyyy-MM-dd'T'HH:mm:ss[.SSS][XXX]`. | No |
+| dateFormat | Format date type to string with a date format. Custom date formats follow the formats at [datetime pattern](https://spark.apache.org/docs/latest/sql-ref-datetime-pattern.html). If not specified, it uses the default value `yyyy-MM-dd`. | No |
+| timestampFormat | Format timestamp type to string with a timestamp format. Custom date formats follow the formats at [datetime pattern](https://spark.apache.org/docs/latest/sql-ref-datetime-pattern.html). If not specified, it uses the default value `yyyy-MM-dd'T'HH:mm:ss[.SSS][XXX]`. | No |
 
 #### Direct copy from delta lake
 
@@ -168,9 +169,9 @@ If your sink data store and format meet the criteria described in this section, 
         - `encodingName` UTF-7 is not supported.
     - For **Avro** format, the compression codec is **none**, **deflate**, or **snappy**.
 
-- In copy activity source, `additionalColumns` is not specified.
+- In the Copy activity source, `additionalColumns` is not specified.
 - If copying data to delimited text, in copy activity sink, `fileExtension` need to be ".csv".
-- Type conversion is not specified.
+- In the Copy activity mapping, type conversion is not enabled.
 
 **Example:**
 
@@ -260,12 +261,12 @@ To copy data to Azure Databricks Delta Lake, the following properties are suppor
 | Property      | Description                                                  | Required |
 | :------------ | :----------------------------------------------------------- | :------- |
 | type          | The type property of the Copy activity sink, set to **AzureDatabricksDeltaLakeSink**. | Yes      |
-| preCopyScript | Specify a SQL query for the Copy activity to run before writing data into Databricks Delta table in each run. You can use this property to clean up the preloaded data, or add a truncate table or Vacuum statement. | No       |
+| preCopyScript | Specify a SQL query for the Copy activity to run before writing data into Databricks delta table in each run. You can use this property to clean up the preloaded data, or add a truncate table or Vacuum statement. | No       |
 | importSettings | Advanced settings used to write data into delta table. | No |
 | ***Under `importSettings`:*** |                                                              |  |
 | type | The type of import command, set to **AzureDatabricksDeltaLakeImportCommand**. | Yes |
-| dateFormat |  | No |
-| timestampFormat |  | No |
+| dateFormat | Format string to date type with a date format. Custom date formats follow the formats at [datetime pattern](https://spark.apache.org/docs/latest/sql-ref-datetime-pattern.html). If not specified, it uses the default value `yyyy-MM-dd`. | No |
+| timestampFormat | Format string to timestamp type with a timestamp format. Custom date formats follow the formats at [datetime pattern](https://spark.apache.org/docs/latest/sql-ref-datetime-pattern.html). If not specified, it uses the default value `yyyy-MM-dd'T'HH:mm:ss[.SSS][XXX]`. | No |
 
 #### Direct copy to delta lake
 
@@ -284,9 +285,11 @@ If your source data store and format meet the criteria described in this section
 
 - In the Copy activity source: 
 
-    -  `additionalColumns` is not specified.
+    - `wildcardFileName` only contains wildcard `*` but not `?`, and `wildcardFolderName` is not specified.
     - `prefix`, `modifiedDateTimeStart`, `modifiedDateTimeEnd`, and `enablePartitionDiscovery` are not specified.
-    - `wildcardFileName` one of the following: "*", "*.*", "*.fileextension", and `wildcardFolderName` is not specified.
+    - `additionalColumns` is not specified.
+
+- In the Copy activity mapping, type conversion is not enabled.
 
 **Example:**
 
