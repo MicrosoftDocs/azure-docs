@@ -99,6 +99,8 @@ For more information about the pricing models that apply to this new resource ty
 
 ## Prerequisites
 
+Currently, creating the new **Logic App (Preview)** resource is not available on macOS. For Windows or other OS, such as Linux, you'll need the following items:
+
 ### Access and connectivity
 
 * Access to the internet so that you can download the requirements, connect from Visual Studio Code to your Azure account, and publish from Visual Studio Code to Azure, a Docker container, or other environment.
@@ -108,6 +110,18 @@ For more information about the pricing models that apply to this new resource ty
 * To build the same example logic app in this article, you need an Office 365 Outlook email account that uses a Microsoft work or school account to sign in.
 
   If you choose to use a different [email connector that's supported by Azure Logic Apps](/connectors/), such as Outlook.com or [Gmail](../connectors/connectors-google-data-security-privacy-policy.md), you can still follow the example, and the general overall steps are the same, but your user interface and options might differ in some ways. For example, if you use the Outlook.com connector, use your personal Microsoft account instead to sign in.
+
+### Storage requirements
+
+1. Download and install [Azure Storage Emulator 5.10](https://go.microsoft.com/fwlink/p/?linkid=717179).
+
+1. To run the emulator, you need to have a local SQL DB installation, such as the free [SQL Server 2019 Express Edition](https://go.microsoft.com/fwlink/p/?linkid=866658). For more information, see [Use the Azure Storage emulator for development and testing](../storage/common/storage-use-emulator.md).
+
+   > [!IMPORTANT]
+   > Before you open the Logic App Designer to create your logic app workflow, make sure that you start the emulator. 
+   > Otherwise, you get a message that the `Workflow design time could not be started`.
+   >
+   > ![Screenshot that shows the Azure Storage Emulator running.](./media/create-stateful-stateless-workflows-visual-studio-code/start-storage-emulator.png)
 
 ### Tools
 
@@ -166,20 +180,6 @@ For more information about the pricing models that apply to this new resource ty
 * To test the example logic app that you create in this article, you need a tool that can send calls to the Request trigger, which is the first step in example logic app. If you don't have such a tool, you can download, install, and use [Postman](https://www.postman.com/downloads/).
 
 * For easier diagnostics logging and tracing capability, you can add and use an [Application Insights](../azure-monitor/app/app-insights-overview.md) resource. You can create this resource during logic app deployment, or in the Azure portal after you deploy your logic app.
-
-### Storage requirements
-
-Currently, creating the new **Logic App (Preview)** resource is not available on macOS. However, for Windows or other OS, such as Linux, set up this storage requirement.
-
-1. Download and install [Azure Storage Emulator 5.10](https://go.microsoft.com/fwlink/p/?linkid=717179).
-
-1. To run the emulator, you need to have a local SQL DB installation, such as the free [SQL Server 2019 Express Edition](https://go.microsoft.com/fwlink/p/?linkid=866658). For more information, see [Use the Azure Storage emulator for development and testing](../storage/common/storage-use-emulator.md).
-
-   > [!IMPORTANT]
-   > Before you open the Logic App Designer to create your logic app workflow, make sure that you start the emulator. 
-   > Otherwise, you get a message that the `Workflow design time could not be started`.
-   >
-   > ![Screenshot that shows the Azure Storage Emulator running.](./media/create-stateful-stateless-workflows-visual-studio-code/start-storage-emulator.png)
 
 <a name="set-up"></a>
 
@@ -245,19 +245,6 @@ Before you can create your logic app, create a local project so that you can man
 
 1. On your computer, create an *empty* local folder to use for the project that you'll later create in Visual Studio Code.
 
-   If you have .NET Core SDK 5.0 installed, create a **global.json** file that references any .NET Core runtime version 3.x that's later than 3.1.201, for example:
-
-   ```json
-   {
-      "sdk": {
-         "version": "3.1.8",
-         "rollForward": "disable"
-      }
-   }
-   ```
-
-   Later, after you create your project, but before you try to open the **workflow.json** file in the Logic App Designer, you need to add this **global.json** file to your project's root location.
-
 1. In Visual Studio Code, close any and all open folders.
 
 1. In the Azure pane, next to **Azure: Logic Apps (Preview)**, select **Create New Project** (icon that shows a folder and lightning bolt).
@@ -282,18 +269,30 @@ Before you can create your logic app, create a local project so that you can man
 
    ![Screenshot that shows list with "Open in current window" selected.](./media/create-stateful-stateless-workflows-visual-studio-code/select-project-location.png)
 
-   Visual Studio Code reloads, opens the Explorer pane, and shows your project, which now includes automatically generated project files. For example, the project has a folder that shows your logic app workflow's name. Inside this folder, the `workflow.json` file contains your logic app workflow's underlying JSON definition.
+   Visual Studio Code reloads, opens the Explorer pane, and shows your project, which now includes automatically generated project files. For example, the project has a folder that shows your logic app workflow's name. Inside this folder, the **workflow.json** file contains your logic app workflow's underlying JSON definition.
 
    ![Screenshot that shows the Explorer window with project folder, workflow folder, and "workflow.json" file.](./media/create-stateful-stateless-workflows-visual-studio-code/local-project-created.png)
-
-1. If you have .NET Core SDK 5.0 installed, and you created a **global.json** file that references a .NET Core runtime version 3.x that's later than 3.1.201, you need to add that **global.json** file to your project's root location from inside Visual Studio Code.
-
-   > [!NOTE]
-   > Make sure that you complete this step before you try to open the **workflow.json** file, which contains your workflow's underlying JSON definition, in the Logic App Designer. Otherwise, the designer won't open.
 
 <a name="open-workflow-definition-designer"></a>
 
 ## Open the workflow definition file in Logic App Designer
+
+1. Check the versions that are installed on your computer by running the this command:
+
+   `..\Users\{yourUserName}\dotnet --list-sdks`
+
+   If you have .NET Core SDK 5.x, this version might prevent you from opening the logic app's underlying workflow definition in the designer. Rather than uninstall this version, in your project's root location, create a **global.json** file that references the .NET Core runtime 3.x version that you have that's later than 3.1.201, for example:
+
+   ```json
+   {
+      "sdk": {
+         "version": "3.1.8",
+         "rollForward": "disable"
+      }
+   }
+   ```
+
+   Make sure that you expliclitly add that **global.json** file to your project at the root location from inside Visual Studio Code. Otherwise, the designer won't open.
 
 1. If Visual Studio Code is running on Windows or Linux, make sure that the Azure Storage Emulator is running. For more information, review the [Prerequisites](#prerequisites).
 
