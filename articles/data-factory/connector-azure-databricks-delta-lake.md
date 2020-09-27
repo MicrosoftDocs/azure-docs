@@ -44,11 +44,11 @@ The Databricks cluster needs to have access to Azure Blob or Azure Data Lake Sto
 
 #### Use Azure Data Lake Storage Gen2
 
-You can configure a **service principal** or **storage account access key** on the Databrics cluster as part of the Apache Spark configuration.  To configure the integration cluster, follow the steps in [Access directly with service principal](../databricks/data/data-sources/azure/azure-datalake-gen2.md#--access-directly-with-service-principal-and-oauth-20) or [Access directly using the storage account access key](../databricks/data/data-sources/azure/azure-datalake-gen2.md#--access-directly-using-the-storage-account-access-key).
+You can configure a **service principal** or **storage account access key** on the Databrics cluster as part of the Apache Spark configuration.  To configure the integration cluster, follow the steps in [Access directly with service principal](https://docs.microsoft.com/azure/databricks/data/data-sources/azure/azure-datalake-gen2.md#--access-directly-with-service-principal-and-oauth-20) or [Access directly using the storage account access key](https://docs.microsoft.com/azure/databricks/data/data-sources/azure/azure-datalake-gen2.md#--access-directly-using-the-storage-account-access-key).
 
 #### Use Azure Blob storage
 
-You can configure a **storage account access key** or **SAS token** on the Databrics cluster as part of the Apache Spark configuration. Ensure that the storage account has access to the storage container used for source or staging data and the storage container, as well as the container where you want to write the Delta Lake tables. To configure the integration cluster, follow the steps in [Access Azure Blob storage using the RDD API](../databricks/data/data-sources/azure/azure-storage.md#access-azure-blob-storage-using-the-rdd-api).
+You can configure a **storage account access key** or **SAS token** on the Databrics cluster as part of the Apache Spark configuration. Ensure that the storage account has access to the storage container used for source or staging data and the storage container, as well as the container where you want to write the Delta Lake tables. To configure the integration cluster, follow the steps in [Access Azure Blob storage using the RDD API](https://docs.microsoft.com/azure/databricks/data/data-sources/azure/azure-storage.md#access-azure-blob-storage-using-the-rdd-api).
 
 #### Specify the cluster configuration
 
@@ -56,7 +56,7 @@ You can configure a **storage account access key** or **SAS token** on the Datab
 
 2. In the **Databricks Runtime Version** drop-down, select a Databricks runtime version.
 
-3. Turn on [Auto Optimize](../azure/databricks/delta/optimizations/auto-optimize.md) by adding the following properties to your [Spark configuration](../azure/databricks/clusters/configure#spark-config.md):
+3. Turn on [Auto Optimize](../azure/databricks/delta/optimizations/auto-optimize.md) by adding the following properties to your [Spark configuration](https://docs.microsoft.com/azure/databricks/clusters/configure#spark-config.md):
 
    ```
    spark.databricks.delta.optimizeWrite.enabled true
@@ -65,7 +65,7 @@ You can configure a **storage account access key** or **SAS token** on the Datab
 
 4. Configure your cluster depending on your integration and scaling needs.
 
-For cluster configuration details, see [Configure clusters](../azure/databricks/clusters/configure.md).
+For cluster configuration details, see [Configure clusters](https://docs.microsoft.com/azure/databricks/clusters/configure).
 
 ## Get started
 
@@ -81,8 +81,8 @@ The following properties are supported for a Azure Databricks Delta Lake linked 
 | :---------- | :----------------------------------------------------------- | :------- |
 | type        | The type property must be set to **AzureDatabricksDeltaLake**. | Yes      |
 | domain      | Specify the Azure Databricks workspace URL, e.g. `https://adb-xxxxxxxxx.xx.azuredatabricks.net`. |          |
-| clusterId   | Specify the cluster ID of an existing cluster. It should be an already created Interactive Cluster. <br>You can find the Cluster ID of an Interactive Cluster on Databricks workspace -> Clusters -> Interactive Cluster Name -> Configuration -> Tags. [Learn more](../databricks/clusters/configure.md#cluster-tags). |          |
-| accessToken | Access token is required for Data Factory to authenticate to Azure Databricks. Access token needs to be generated from the databricks workspace. More detailed steps to find the access token can be found [here](../databricks/dev-tools/api/latest/authentication.md#generate-token). |          |
+| clusterId   | Specify the cluster ID of an existing cluster. It should be an already created Interactive Cluster. <br>You can find the Cluster ID of an Interactive Cluster on Databricks workspace -> Clusters -> Interactive Cluster Name -> Configuration -> Tags. [Learn more](https://docs.microsoft.com/azure/databricks/clusters/configure#cluster-tags). |          |
+| accessToken | Access token is required for Data Factory to authenticate to Azure Databricks. Access token needs to be generated from the databricks workspace. More detailed steps to find the access token can be found [here](https://docs.microsoft.com/azure/databricks/dev-tools/api/latest/authentication#generate-token). |          |
 | connectVia  | The [integration runtime](concepts-integration-runtime.md) that is used to connect to the data store. You can use the Azure integration runtime or a self-hosted integration runtime (if your data store is located in a private network). If not specified, it uses the default Azure integration runtime. | No       |
 
 **Example:**
@@ -140,7 +140,7 @@ The following properties are supported for the Azure Databricks Delta Lake datas
 
 For a full list of sections and properties available for defining activities, see the [Pipelines](concepts-pipelines-activities.md) article. This section provides a list of properties supported by the Azure Databricks Delta Lake source and sink.
 
-### Delta lake as the source
+### Delta lake as source
 
 To copy data from Azure Databricks Delta Lake, the following properties are supported in the Copy activity **source** section.
 
@@ -158,7 +158,7 @@ To copy data from Azure Databricks Delta Lake, the following properties are supp
 
 If your sink data store and format meet the criteria described in this section, you can use the Copy activity to directly copy from Azure Databricks Delta table to sink. Data Factory checks the settings and fails the Copy activity run if the following criteria is not met:
 
-- The **sink linked service** is [Azure Blob storage](connector-azure-blob.md) or [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md). The account credential should be pre-configured in Azure Databricks cluster configuration, learn more from [Prerequisites](#prerequisites).
+- The **sink linked service** is [Azure Blob storage](connector-azure-blob-storage.md) or [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md). The account credential should be pre-configured in Azure Databricks cluster configuration, learn more from [Prerequisites](#prerequisites).
 
 - The **sink data format** is of **Parquet**, **delimited text**, or **Avro** with the following configurations, and points to a folder instead of file.
 
@@ -272,7 +272,7 @@ To copy data to Azure Databricks Delta Lake, the following properties are suppor
 
 If your source data store and format meet the criteria described in this section, you can use the Copy activity to directly copy from source to Azure Databricks Delta Lake. Azure Data Factory checks the settings and fails the Copy activity run if the following criteria is not met:
 
-- The **source linked service** is [Azure Blob storage](connector-azure-blob.md) or [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md). The account credential should be pre-configured in Azure Databricks cluster configuration, learn more from [Prerequisites](#prerequisites).
+- The **source linked service** is [Azure Blob storage](connector-azure-blob-storage.md) or [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md). The account credential should be pre-configured in Azure Databricks cluster configuration, learn more from [Prerequisites](#prerequisites).
 
 - The **source data format** is of **Parquet**, **delimited text**, or **Avro** with the following configurations, and points to a folder instead of file.
 
