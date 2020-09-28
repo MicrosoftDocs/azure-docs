@@ -13,6 +13,8 @@
     href: create-member.md
   - name: Create member using CLI
     href: create-member-cli.md
+  - name: Create member using Azure PowerShell
+    href: create-member-powershell.md
   - name: Create member using ARM template
     displayName: Resource Manager
     href: create-member-template.md

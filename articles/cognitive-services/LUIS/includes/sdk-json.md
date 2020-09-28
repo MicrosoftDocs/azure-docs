@@ -8,7 +8,7 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.date: 08/12/2020
 ms.topic: include
-ms.custom: include file, devx-track-javascript
+ms.custom: include file, devx-track-js
 ms.author: diberry
 ---
 

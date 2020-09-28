@@ -158,9 +158,6 @@ The secondary region restore user experience will be similar to the primary regi
 
 ![Restore configuration](./media/backup-azure-arm-restore-vms/rest-config.png)
 
->[!NOTE]
->The virtual network in the secondary region needs to be assigned uniquely, and can't be used for any other VMs in that resource group.
-
 ![Trigger restore in progress notification](./media/backup-azure-arm-restore-vms/restorenotifications.png)
 
 - To restore and create a VM, refer to [Create a VM](#create-a-vm).

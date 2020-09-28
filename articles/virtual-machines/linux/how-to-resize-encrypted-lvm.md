@@ -10,7 +10,7 @@ ms.date: 09/21/2020
 
 # How to resize logical volume management devices encrypted with Azure Disk Encryption
 
-This article is a step-by-step process on how to resize of ADE encrypted data disks using Logical Volume Management (LVM) on Linux, applicable to multiple scenarios.
+This article is a step-by-step process on how to resize ADE encrypted data disks using Logical Volume Management (LVM) on Linux, applicable to multiple scenarios.
 
 The process applies to the following environments:
 
@@ -32,7 +32,7 @@ This document assumes that:
 2. The disks are already encrypted using Azure Disk Encryption
    Check [Configure LVM on crypt](how-to-configure-lvm-raid-on-crypt.md) for information on how to configure LVM-on-Crypt.
 
-3. Certain Linux and LVM are required to follow these examples.
+3. You have the required Linux and LVM expertise to follow these examples.
 
 4. You understand that the recommendation to use data disks on Azure as mentioned on [troubleshoot device names problems](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-device-names-problems), is to use the /dev/disk/scsi1/ paths.
 
@@ -70,7 +70,7 @@ Traditional method used to resize logical volumes, it can be applied to non-encr
     df -h /mountpoint
     ```
 
-    ![scenarioa-check-fs](./media/disk-encryption/resize-lvm/001-resize-lvm-scenarioa-check-fs.png)
+    ![scenarioa-check-fs1](./media/disk-encryption/resize-lvm/001-resize-lvm-scenarioa-check-fs.png)
 
 2. Verify that the VG has enough space to increase the LV
 
@@ -198,7 +198,7 @@ Applicable when you need to add a new disk to increase the volume group size.
     lsbk
     ```
 
-    ![scenariob-check-lsblk1](./media/disk-encryption/resize-lvm/009-resize-lvm-scenariob-check-lsblk1.png)
+    ![scenariob-check-lsblk12](./media/disk-encryption/resize-lvm/009-resize-lvm-scenariob-check-lsblk1.png)
 
 8. Create a new PV on top of the new Data Disk
 
@@ -495,7 +495,7 @@ You can use this method to add space to an already existent LV or instead you ca
     lsblk
     ```
 
-    ![scenarioe-check-newdisk02](./media/disk-encryption/resize-lvm/035-resize-lvm-scenarioe-check-newdisk02.png)
+    ![scenarioe-check-newdisk002](./media/disk-encryption/resize-lvm/035-resize-lvm-scenarioe-check-newdisk02.png)
 
     Add a new disk either with PowerShell, the Azure CLI, or the Azure portal. Check how to [attach a disk](attach-disk-portal.md) for reference on adding disks to a VM.
 
@@ -513,7 +513,7 @@ You can use this method to add space to an already existent LV or instead you ca
     lsblk
     ```
 
-    ![scenarioe-check-newdisk03](./media/disk-encryption/resize-lvm/036-resize-lvm-scenarioe-check-newdisk03.png)
+    ![scenarioe-check-newdisk003](./media/disk-encryption/resize-lvm/036-resize-lvm-scenarioe-check-newdisk03.png)
 
 5. Create a filesystem on top of the recently added disk
 
@@ -706,7 +706,7 @@ You can use this method to add space to an already existent LV or instead you ca
     pvs
     ```
 
-    ![scenariof-pvs](./media/disk-encryption/resize-lvm/041-resize-lvm-scenariof-pvs.png)
+    ![scenariof-pvs1](./media/disk-encryption/resize-lvm/041-resize-lvm-scenariof-pvs.png)
 
 3. Check your vg information
 

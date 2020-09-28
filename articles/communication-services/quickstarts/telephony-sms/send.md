@@ -10,7 +10,7 @@ ms.author: mikben
 ms.date: 03/10/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.custom: tracking-python, devx-track-javascript
+ms.custom: tracking-python, devx-track-js
 zone_pivot_groups: acs-js-csharp-java-python
 ---
 # Quickstart: Send an SMS message
