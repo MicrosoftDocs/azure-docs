@@ -218,7 +218,7 @@ To show only failed tests in Connection Monitor (Preview) where the destination 
 
 To know reason  for failure of a Connection monitor or test group or test, click the column named reason.  This tells which threshold ( checks failed % or  RTT) was breached and related diagnostic messages
   
-  :::image type="content" source="./media/connection-monitor-2-preview/cm-reason-of-failure.png" alt-text="Screenshot showing reason of failue for a connection monitor, test or test group" lightbox="./media/connection-monitor-2-preview/cm-reason-of-failure.png":::
+  :::image type="content" source="./media/connection-monitor-2-preview/cm-reason-of-failure.png" alt-text="Screenshot showing reason of failure for a connection monitor, test or test group" lightbox="./media/connection-monitor-2-preview/cm-reason-of-failure.png":::
     
 To view the trends in RTT and the percentage of failed checks for a connection monitor:
 1. Select the connection monitor that you want to investigate.
