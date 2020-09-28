@@ -38,7 +38,7 @@ In this article, we will describe the Azure Synapse machine learning capabilitie
 Most machine learning projects involve well established steps, and one of these steps is to access and understand the data.
 
 #### Data source and pipelines
-Thanks to [Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/introduction) being a natively integrated part of Azure Synapse, there is a powerful set of tools available for data ingestion and data orchestration pipelines. This allows you to easily build data pipelines to access and transform the data into a format that can be consumed for machine learning. [Learn more about data pipelines](https://docs.microsoft.com/en-us/azure/data-factory/concepts-pipelines-activities?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) in Synapse. 
+Thanks to [Azure Data Factory](/azure/data-factory/introduction.md) being a natively integrated part of Azure Synapse, there is a powerful set of tools available for data ingestion and data orchestration pipelines. This allows you to easily build data pipelines to access and transform the data into a format that can be consumed for machine learning. [Learn more about data pipelines](/azure/data-factory/concepts-pipelines-activities.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) in Synapse. 
 
 #### Data preparation and exploration/visualization
 An important part of the machine learning process is to understand the data by exploration and visualizations.
