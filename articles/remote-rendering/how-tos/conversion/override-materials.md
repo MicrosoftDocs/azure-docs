@@ -101,7 +101,7 @@ Otherwise, the first regex entry in the file that matches the material name is c
 
 ### Getting information about which entries applied
 
-If you supply a non-empty material override file, then the [info file](get-information.md#information-about-a-converted-model-the-info-file) written to the output container will carry a table of showing how material names matched entries.
+The [info file](get-information.md#information-about-a-converted-model-the-info-file) written to the output container carries information about the number of overrides provided, and the number of materials that were overridden.
 
 ## JSON schema
 
