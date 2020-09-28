@@ -49,7 +49,7 @@ Sign in to the [Azure portal](https://portal.azure.com/)
 1. Download [Predict NYC Taxi Tips.ipynb](TODO:Link to GitHub)
 1. Launch the Azure ML workspace in [Azure ML Studio](https://ml.azure.com). 
 1. Go to "Notebooks" and click "Upload files", select "Predict NYC Taxi Tips.ipynb" that you had downloaded and upload the file.
-![Upload file](media/tutorial-sql-scoring-wizard-train-00a.png)
+![Upload file](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-train-00a.png)
 1. After the notebook is uploaded and opened, click "Run all cells". 
 - *Note that you need to verify that your version of sklearn is 0.20.3*
 - *One of the cells may fail and ask you to authenticate to Azure. Keep an eye out for this in the cell outputs, and authenticate in your browser by following the link and entering the code. Then re-run the Notebook.*
@@ -134,5 +134,4 @@ Click "Continue".
 
 
 ## Next steps
-
 
