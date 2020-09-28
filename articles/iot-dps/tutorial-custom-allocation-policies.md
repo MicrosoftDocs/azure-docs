@@ -21,13 +21,16 @@ For example, maybe you want to examine the certificate a device is using during 
 
 This article demonstrates an enrollment group with a custom allocation policy that uses an Azure Function written in C# to provision toaster devices using symmetric keys. Any device not recognized as a toaster device will not be provisioned to an IoT hub.
 
+Devices will request provisioning using provisioning sample code included in the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c).
+
+
 In this tutorial you will do the following:
 
 > [!div class="checklist"]
 > * Create a new Azure Function App to support a custom allocation function
 > * Create a new group enrollment using an Azure Function for the custom allocation policy
-> * Create device keys for two devices.
-> * Set up the development environment for the device code used in the devices
+> * Create device keys for two devices
+> * Set up the development environment for example device code from the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c)
 > * Run the devices and verify that they are provisioned according to the custom allocation policy
 
 
@@ -254,7 +257,7 @@ contoso-heatpump-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
 
 ## Prepare an Azure IoT C SDK development environment
 
-Devices will be provisioned using provisioning sample code for devices included in the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c).
+Devices will request provisioning using provisioning sample code included in the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c).
 
 In this section, you prepare the development environment used to build the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c). The SDK includes the sample code for the simulated device. This simulated device will attempt provisioning during the device's boot sequence.
 
@@ -437,19 +440,6 @@ This sample code simulates a device boot sequence that sends the provisioning re
     Press enter key to exit:    
     ```
     
-## Troubleshooting custom allocation policies
-
-The following table shows expected scenarios and the results error codes you might receive. Use this table to help troubleshoot custom allocation policy failures with your Azure Functions.
-
-| Scenario | Registration result from Provisioning Service | Provisioning SDK Results |
-| -------- | --------------------------------------------- | ------------------------ |
-| The webhook returns 200 OK with ‘iotHubHostName’ set to a valid IoT hub host name | Result status: Assigned  | SDK returns PROV_DEVICE_RESULT_OK along with hub information |
-| The webhook returns 200 OK with ‘iotHubHostName’ present in the response, but set to an empty string or null | Result status: Failed<br><br> Error code: CustomAllocationIotHubNotSpecified (400208) | SDK returns PROV_DEVICE_RESULT_HUB_NOT_SPECIFIED |
-| The webhook returns 401 Unauthorized | Result status: Failed<br><br>Error code: CustomAllocationUnauthorizedAccess (400209) | SDK returns PROV_DEVICE_RESULT_UNAUTHORIZED |
-| An Individual Enrollment was created to disable the device | Result status: Disabled | SDK returns PROV_DEVICE_RESULT_DISABLED |
-| The webhook returns error code >= 429 | DPS’ orchestration will retry a number of times. The retry policy is currently:<br><br>&nbsp;&nbsp;- Retry count: 10<br>&nbsp;&nbsp;- Initial interval: 1s<br>&nbsp;&nbsp;- Increment: 9s | SDK will ignore error and submit another get status message in the specified time |
-| The webhook returns any other status code | Result status: Failed<br><br>Error code: CustomAllocationFailed (400207) | SDK returns PROV_DEVICE_RESULT_DEV_AUTH_ERROR |
-
 ## Clean up resources
 
 If you plan to continue working with the resources created in this article, you can leave them. If you don't plan to continue using the resources, use the following steps to delete all of the resources created in this article to avoid unnecessary charges.
