@@ -103,7 +103,7 @@ Do the following steps to download the update from the Microsoft Update Catalog.
 
 1. Start the browser and navigate to [https://catalog.update.microsoft.com](https://catalog.update.microsoft.com).
 
-   ![Screenshot of the Microsoft Update Catalog in a browser window with Data Box Gateway typed into the search text box. Both the Browser's address bar and the Search text box are called out.](./media/data-box-gateway-apply-updates/download-update-1.png)
+   ![Screenshot of the Microsoft Update Catalog in a browser window with Data Box Gateway typed into the search text box. Both the browser's address bar and the Search text box are called out.](./media/data-box-gateway-apply-updates/download-update-1.png)
 
 2. In the search box of the Microsoft Update Catalog, enter the Knowledge Base (KB) number of the hotfix or terms for the update you want to download. For example, enter **Azure Data Box Gateway**, and then click **Search**.
 
@@ -122,21 +122,21 @@ Prior to the update or hotfix installation, make sure that:
 - You have the update or the hotfix downloaded either locally on your host or accessible via a network share.
 - Your device status is healthy as shown in the **Overview** page of the local web UI.
 
-   ![Screenshot of the Data Box Gateway local web UI with the Dashboard option and the Software status: Healthy message called out.](./media/data-box-gateway-apply-updates/local-ui-update-1.png)
+   ![Screenshot of the Data Box Gateway local web U I with the Dashboard option and the Software status: Healthy message called out.](./media/data-box-gateway-apply-updates/local-ui-update-1.png)
 
 This procedure takes around 20 minutes to complete. Perform the following steps to install the update or hotfix.
 
 1. In the local web UI, go to **Maintenance** > **Software update**. Make a note of the software version that you are running.
 
-   ![Screenshot of the Data Box Gateway local web UI with the Software update option and the Current software version message called out.](./media/data-box-gateway-apply-updates/local-ui-update-2.png)
+   ![Screenshot of the Data Box Gateway local web U I with the Software update option and the Current software version message called out.](./media/data-box-gateway-apply-updates/local-ui-update-2.png)
 
 2. Provide the path to the update file. You can also browse to the update installation file if placed on a network share. Select the software update file with *SoftwareUpdatePackage.exe* suffix.
 
-   ![Screenshot of File Explorer with the Software Update Package dot EXE file called out.](./media/data-box-gateway-apply-updates/local-ui-update-3.png)
+   ![Screenshot of File Explorer with the Software Update Package dot E X E file called out.](./media/data-box-gateway-apply-updates/local-ui-update-3.png)
 
 3. Select **Apply**.
 
-   ![Screenshot of the Data Box Gateway local web UI with the Software update option, the Update file path text box, and the Apply Update option called out.](./media/data-box-gateway-apply-updates/local-ui-update-4.png)
+   ![Screenshot of the Data Box Gateway local web U I with the Software update option, the Update file path text box, and the Apply Update option called out.](./media/data-box-gateway-apply-updates/local-ui-update-4.png)
 
 4. When prompted for confirmation, select **Yes** to proceed. Given the device is a single node device, after the update is applied, the device restarts and there is downtime.
    ![Screenshot of the Software update dialog box with the Yes option highlighted.](./media/data-box-gateway-apply-updates/local-ui-update-5.png)
@@ -145,7 +145,7 @@ This procedure takes around 20 minutes to complete. Perform the following steps 
 
 6. After the restart is complete, you are taken to the **Sign in** page. To verify that the device software has updated, in the local web UI, go to **Maintenance** > **Software update**. The displayed software version in this example is **1.6.1049.786**.
 
-   ![Screenshot of the Data Box Gateway local web UI with the Software update option and the updated Current software version message called out.](./media/data-box-gateway-apply-updates/local-ui-update-6.png)
+   ![Screenshot of the Data Box Gateway local web U I with the Software update option and the updated Current software version message called out.](./media/data-box-gateway-apply-updates/local-ui-update-6.png)
 
 ## Next steps
 

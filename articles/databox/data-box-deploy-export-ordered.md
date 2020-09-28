@@ -155,7 +155,7 @@ Perform the following steps in the Azure portal to order a device.
 If you select **Use XML file**, you can specify specific containers and blobs (page and block) you want to export. You will need to follow the [Sample XML file table](#sample-xml-file) specifications for formatting your XML. The steps below show you how to use an XML file for exporting your data:
 
 1. For **Export type**, select **Use XML file**. This is your XML file that specifies specific blobs and Azure files you want to export. To add the XML file, select **Click here to select an XML file**.
-     ![Screenshot of the Select Export option with the Click here to select an XML file option called out.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-01.png)
+     ![Screenshot of the Select Export option with the Click here to select an X M L file option called out.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-01.png)
 
 2. Select **+ Container** to create a container.
     ![Screenshot of the Containers section.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-02.png)

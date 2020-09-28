@@ -53,7 +53,7 @@ Before you begin this tutorial, you must have the following:
 
     Because the data will be registered in an organization-wide data catalog, it is a recommended approach to add some metadata that you can later use to quickly locate the data. For example, you can add an e-mail address for the data owner (for example, one who is uploading the data) or add a tag to identify the data. The screen capture below shows a tag that you add to the data.
 
-    ![Screenshot of the Microsoft Azure Data Catalog - Store Account dialog box with the tag that was added to teh data called out.](./media/data-lake-store-with-data-catalog/view-selected-data-structure.png "View data structure")
+    ![Screenshot of the Microsoft Azure Data Catalog - Store Account dialog box with the tag that was added to the data called out.](./media/data-lake-store-with-data-catalog/view-selected-data-structure.png "View data structure")
 
     Click **Register**.
 1. The following screen capture denotes that the data is successfully registered in the Data Catalog.
