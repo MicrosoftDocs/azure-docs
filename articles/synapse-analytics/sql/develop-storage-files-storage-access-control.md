@@ -302,7 +302,7 @@ WITH (    LOCATION   = 'https://<storage_account>.dfs.core.windows.net/<containe
 
 CREATE EXTERNAL TABLE dbo.userData ( [id] int, [first_name] varchar(8000), [last_name] varchar(8000) )
 WITH ( LOCATION = 'parquet/user-data/*.parquet',
-       DATA_SOURCE = 'mysample',
+       DATA_SOURCE = [mysample],
        FILE_FORMAT = [SynapseParquetFormat] );
 
 ```
