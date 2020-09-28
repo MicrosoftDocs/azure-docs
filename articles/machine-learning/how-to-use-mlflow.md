@@ -223,7 +223,7 @@ To register and view a model from a run, use the following steps:
 
     In the following example the registered model, `my-model` has MLflow tracking metadata tagged. 
 
-    ![registered-mlflow-model](./media/how-to-use-mlflow/registered-mlflow-model.png)
+    ![register-mlflow-model](./media/how-to-use-mlflow/registered-mlflow-model.png)
 
 1. Select the **Artifacts** tab to see all the model files that align with the MLflow model schema (conda.yaml, MLmodel, model.pkl).
 
