@@ -125,9 +125,9 @@ az account management-group list --query '[].{name:name, id:id}' --output tsv
     
 ### Step 4: Add role assignment
 
-To add a role assignment, use the [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) command.
+To add a role assignment, use the [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) command. Depending on the scope, the command typically has one of the following formats.
 
-To add a role assignment at a resource scope, the command typically has the following format.
+**Resource scope**
 
 ```azurecli
 az role assignment create --assignee {assignee} \
@@ -135,7 +135,7 @@ az role assignment create --assignee {assignee} \
 --scope /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/{providerName}/{resourceType}/{resourceSubType}/{resourceName}
 ```
 
-To add a role assignment at a resource group scope, the command typically has the following format.
+**Resource group scope**
 
 ```azurecli
 az role assignment create --assignee {assignee} \
@@ -143,7 +143,7 @@ az role assignment create --assignee {assignee} \
 --resource-group {resourceGroupName}
 ```
 
-To add a role assignment at a subscription scope, the command typically has the following format.
+**Subscription scope** 
 
 ```azurecli
 az role assignment create --assignee {assignee} \
@@ -151,7 +151,7 @@ az role assignment create --assignee {assignee} \
 --subscription {subscriptionNameOrId}
 ```
 
-To add a role assignment at a management group scope, the command typically has the following format. 
+**Management group scope** 
 
 ```azurecli
 az role assignment create --assignee {assignee} \
