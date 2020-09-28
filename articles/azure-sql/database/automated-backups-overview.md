@@ -407,7 +407,7 @@ Note that, it may take up to 48 hours for the changes to be applied on the datab
 Set-AzSqlDatabase -ResourceGroupName "ResourceGroup01" -DatabaseName "Database01" -ServerName "Server01" -BackupStorageRedundancy Zone
 ```
 
-For details visit [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase?view=azps-4.7.0)
+For details visit [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase)
 
 
 #### [SQL Managed Instance](#tab/managed-instance)
@@ -423,7 +423,7 @@ For more details visit [New-AzSqlInstance](https://docs.microsoft.com/powershell
 ## Use Azure Policy to enforce backup storage redundancy
 
 If you hvae data residency requirements that require you to keep all your data in a single Azure region, you may want to enfore zone-redundant or locally-redundant backups for your SQL Database or Managed Instance using Azure Policy. 
-Azure Policy is a service that you can use to create, assign, and manage policies that apply rules to Azure resources. Azure Policy helps you to keep these resources compliant with your corporate standards and service level agreements. For more information, see [Overview of Azure Policy](https://docs.microsoft.com/en-us/azure/governance/policy/overview). 
+Azure Policy is a service that you can use to create, assign, and manage policies that apply rules to Azure resources. Azure Policy helps you to keep these resources compliant with your corporate standards and service level agreements. For more information, see [Overview of Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview). 
 
 ### Built-in backup storage redundancy policies 
 
@@ -437,7 +437,7 @@ A full list of built-in policy definitions for SQL Database and Managed Instance
 
 To enforce data residency requirements at an organizational level, these policies can be assigned to a subscription. After these are assigned at a subscription level, users in the given subscription will not be able to create a database or a managed instance with geo-redundant backup storage via Azure Portal or Azure PowerShell. Note that, Azure policies are not enforced when creating a database via T-SQL. 
 
-Learn how to assign policies using [Azure Portal](https://docs.microsoft.com/azure/governance/policy/assign-policy-portal) or [Azure PowerShell](https://docs.microsoft.com/en-us/azure/governance/policy/assign-policy-powershell)
+Learn how to assign policies using [Azure Portal](https://docs.microsoft.com/azure/governance/policy/assign-policy-portal) or [Azure PowerShell](https://docs.microsoft.com/azure/governance/policy/assign-policy-powershell)
 
 ---
 
