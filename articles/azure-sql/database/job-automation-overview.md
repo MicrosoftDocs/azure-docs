@@ -6,10 +6,10 @@ ms.service: sql-db-mi
 ms.subservice: features
 ms.custom: sqldbrb=1
 ms.devlang: 
-ms.topic: overview
-author: jovanpop-msft
-ms.author: jovanpop
-ms.reviewer: sstein
+ms.topic: conceptual
+author: stevestein
+ms.author: sstein
+ms.reviewer:
 ms.date: 03/10/2020
 ---
 # Automate management tasks using database jobs
