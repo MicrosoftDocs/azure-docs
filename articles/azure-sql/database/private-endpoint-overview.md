@@ -152,7 +152,8 @@ At the end of this setup, the Azure VM can connect only to a database in SQL Dat
 With Private Link, customers can now set up network access controls like NSGs to restrict access to the private endpoint. Individual Azure PaaS resources are then mapped to specific private endpoints. A malicious insider can only access the mapped PaaS resource (for example a database in SQL Database) and no other resource. 
 
 ## Limitations 
-Connections to private endpoint only support **Proxy** as the [connection policy](connectivity-architecture.md#connection-policy)
+- Connections to private endpoint only support **Proxy** as the [connection policy](connectivity-architecture.md#connection-policy)
+- If you are planning to configure Private link as well as Vnet service endpoints with Azure SQL , then the Deny public network access should be set to No , in order to accomodate for the vnet rules to be added in SQL server firewall blade. 
 
 
 ## Connecting from an Azure VM in Peered Virtual Network 
