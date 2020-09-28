@@ -1411,7 +1411,7 @@ Jump to a resource provider namespace:
 > | frontdoors | No | No |
 > | ipallocations | Yes | Yes |
 > | ipgroups | Yes | Yes |
-> | loadbalancers | Yes - Basic SKU<br>No - Standard SKU | Yes - Basic SKU<br>No - Standard SKU |
+> | loadbalancers | Yes - Basic SKU<br> Yes - Standard SKU | Yes - Basic SKU<br>No - Standard SKU |
 > | localnetworkgateways | Yes | Yes |
 > | natgateways | No | No |
 > | networkexperimentprofiles | No | No |
