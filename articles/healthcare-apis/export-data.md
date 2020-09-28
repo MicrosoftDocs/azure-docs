@@ -29,7 +29,7 @@ Azure API for FHIR supports $export at the system, patient, and group level. For
 
 ## Next steps
 
-In this article, you learned how to export FHIR resources using $export command. Next you can review our supported features
+In this article, you learned how to export FHIR resources using $export command. Next, you can review our supported features:
  
 >[!div class="nextstepaction"]
 >[Supported features](fhir-features-supported.md)
