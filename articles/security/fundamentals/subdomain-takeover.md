@@ -114,14 +114,7 @@ If you're a global administrator of your organization’s tenant, elevate your a
 
 ### Run the script
 
-There are two versions of the script, both have the same input parameters and produce similar output:
-
-|Script  |Information  |
-|---------|---------|
-|**Get-DanglingDnsRecordsPsCore.ps1**    |Parallel mode is supported only in PowerShell version 7 and higher, else will run serial mode.|
-|**Get-DanglingDnsRecordsPsDesktop.ps1** |Only supported in PowerShell desktop/version lower than 6, as this script uses [Windows Workflow](https://docs.microsoft.com/dotnet/framework/windows-workflow-foundation/overview).|
-
-Learn more and download the PowerShell scripts from GitHub: https://aka.ms/DanglingDNSDomains.
+Learn more about the PowerShell script, **Get-DanglingDnsRecords.ps1**, and download it from GitHub: https://aka.ms/DanglingDNSDomains.
 
 ## Remediate dangling DNS entries 
 

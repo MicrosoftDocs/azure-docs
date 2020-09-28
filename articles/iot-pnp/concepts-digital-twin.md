@@ -369,6 +369,9 @@ content-encoding:utf-8
 ]
 ```
 
+> [!NOTE]
+> Twin change notification messages are doubled when turned on in both device and digital twin change notification.
+
 ## Next steps
 
 Now that you've learned about digital twins, here are some additional resources:
