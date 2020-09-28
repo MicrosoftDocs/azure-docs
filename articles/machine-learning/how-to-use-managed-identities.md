@@ -181,7 +181,7 @@ Once you've created machine learning compute cluster with managed identity as de
 
 ### Grant compute's managed identity access to storage account
 
-[Grant the managed identity a reader role](https://docs.microsoft.com/en-us/azure/storage/common/storage-auth-aad#assign-azure-roles-for-access-rights) on the storage account in which you store your training data.
+[Grant the managed identity a reader role](https://docs.microsoft.com/azure/storage/common/storage-auth-aad#assign-azure-roles-for-access-rights) on the storage account in which you store your training data.
 
 ### Register data store with Workspace
 
