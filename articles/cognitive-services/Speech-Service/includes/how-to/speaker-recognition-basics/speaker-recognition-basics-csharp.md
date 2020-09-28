@@ -1,3 +1,11 @@
+---
+author: v-jaswel
+ms.service: cognitive-services
+ms.topic: include
+ms.date: 09/28/2020
+ms.author: v-jawe
+---
+
 In this quickstart, you learn basic design patterns for Speaker Recognition using the Speech SDK, including:
 
 * Text-dependent and text-independent verification
