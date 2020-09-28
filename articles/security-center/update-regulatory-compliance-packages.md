@@ -8,7 +8,7 @@ manager: rkarlin
 ms.assetid: c42d02e4-201d-4a95-8527-253af903a5c6
 ms.service: security-center
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019

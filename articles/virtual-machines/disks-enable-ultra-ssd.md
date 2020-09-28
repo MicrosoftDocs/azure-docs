@@ -4,7 +4,7 @@ description: Learn about ultra disks for Azure VMs
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 09/28/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
@@ -404,4 +404,5 @@ Update-AzDisk -ResourceGroupName $resourceGroup -DiskName $diskName -DiskUpdate 
 
 ## Next steps
 
-See [Use Azure ultra disks on Azure Kubernetes Service (preview)](../aks/use-ultra-disks.md).
+- [Use Azure ultra disks on Azure Kubernetes Service (preview)](../aks/use-ultra-disks.md).
+- [Migrate log disk to an ultra disk](../azure-sql/virtual-machines/windows/storage-migrate-to-ultradisk.md).

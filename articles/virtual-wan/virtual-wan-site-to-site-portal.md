@@ -225,7 +225,7 @@ If you need instructions to configure your device, you can use the instructions 
 
 You can view and configure your VPN gateway settings at any time by selecting **View/Configure**.
 
-:::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-1.png" alt-text="View configuration" lightbox="media/virtual-wan-site-to-site-portal/view-configuration-1-expand.png":::
+:::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-1.png" alt-text="Screenshot that shows the 'VPN (Site-to-site)' page with an arrow pointing to the 'View/Configure' action." lightbox="media/virtual-wan-site-to-site-portal/view-configuration-1-expand.png":::
 
 On the **Edit VPN Gateway** page, you can see the following settings:
 

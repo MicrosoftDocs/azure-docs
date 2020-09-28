@@ -47,19 +47,19 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 2. Navigate to **Manage** in the top-right corner of the page. 
 
-	![Zoom Install](media/zoom-provisioning-tutorial/zoom02.png)
+	![Screenshot of the Zoom App Marketplace with the Manage option called out.](media/zoom-provisioning-tutorial/zoom02.png)
 
 3. Navigate to your created Azure AD app. 
 	
-	![Zoom App](media/zoom-provisioning-tutorial/zoom03.png)
+	![Screenshot of the Created Apps section with the Azure A D app called out.](media/zoom-provisioning-tutorial/zoom03.png)
 
 4. Select **App Credentials** in the left navigation pane.
 
-	![Zoom App](media/zoom-provisioning-tutorial/zoom04.png)
+	![Screenshot of the left navigation pane with the App Credentials option highlighted.](media/zoom-provisioning-tutorial/zoom04.png)
 
 5. Copy and save the **JWT Token**. This value will be entered in the **Secret Token** field in the Provisioning tab of your Zoom application in the Azure portal. If you need a new non-expiring token, you will need to reconfigure the expiration time which will auto generate a new token. 
 
-	![Zoom Install](media/zoom-provisioning-tutorial/zoom05.png)
+	![Screenshot of the App Credentials page.](media/zoom-provisioning-tutorial/zoom05.png)
 
 ## Step 3. Add Zoom from the Azure AD application gallery
 

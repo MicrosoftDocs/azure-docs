@@ -41,7 +41,7 @@ Complete the following quickstart: [Create an Azure API Management instance](get
 3. In the **WSDL specification**, enter the URL to where your SOAP API resides.
 4. The **SOAP pass-through** radio button is selected by default. With this selection, the API is going to be exposed as SOAP. Consumer has to use SOAP rules. If you want to "restify" the API, follow the steps in [Import a SOAP API and convert it to REST](restify-soap-api.md).
 
-    ![Pass-through](./media/import-soap-api/pass-through.png)
+    ![Screenshot shows the Create from W S D L dialog box where you can enter a W S D L specification.](./media/import-soap-api/pass-through.png)
 5. Press tab.
 
     The following fields get filled up with the info from the SOAP API: Display name, Name, Description.

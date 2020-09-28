@@ -41,11 +41,11 @@ Create a new local Git repo for your project by selecting **Add to Source Contro
 
 In the **Push** view in **Team Explorer**, select the **Publish Git Repo** button under **Push to Azure DevOps**.
 
-![Push Git repo][push-git-repo]
+![Screenshot of the Team Explorer - Synchronization window in Visual Studio. Under Push to Azure DevOps, the Publish to Git Repo button is highlighted.][push-git-repo]
 
 Verify your email and select your organization in the **Account** drop-down. You may have to set up an organization if you don't already have one. Enter your repository name and select **Publish repository**.
 
-![Push Git repo][publish-code]
+![Screenshot of the Push to Azure DevOps window. The settings for Email, Account, Repository name, and the Publish Repository button are highlighted.][publish-code]
 
 Publishing the repository creates a new team project in your account with the same name as the local repo. To create the repository in an existing team project, click **Advanced** next to **Repository** name and select a team project. You can view your code on the web by selecting **See it on the web**.
 
@@ -153,7 +153,7 @@ To check your build progress, switch to the **Builds** tab in **Team Explorer** 
 
 Verify that the deployment succeeded and the application is running in the cluster.  Open a web browser and navigate to `http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/`.  Note the application version, in this example it is "1.0.0.20170815.3".
 
-![Service Fabric Explorer][sfx1]
+![Screenshot of the Voting app in Service Fabric Explorer. In the Essentials tab, the app version "1.0.0.20170815.3" is highlighted.][sfx1]
 
 ## Update the application
 
@@ -161,11 +161,11 @@ Make code changes in the application.  Save and commit the changes, following th
 
 Once the upgrade of the application begins, you can watch the upgrade progress in Service Fabric Explorer:
 
-![Service Fabric Explorer][sfx2]
+![Screenshot of the Voting app in Service Fabric Explorer. An "Upgrade in Progress" message is highlighted and the app Status is "Upgrading".][sfx2]
 
 The application upgrade may take several minutes. When the upgrade is complete, the application will be running the next version.  In this example "1.0.0.20170815.4".
 
-![Service Fabric Explorer][sfx3]
+![Screenshot of the Voting app in Service Fabric Explorer. In the Essentials tab, the updated app version "1.0.0.20170815.4" is highlighted.][sfx3]
 
 ## Next steps
 
