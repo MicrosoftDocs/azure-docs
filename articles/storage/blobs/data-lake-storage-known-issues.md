@@ -108,7 +108,7 @@ The setting for retention days is not yet supported, but you can delete logs man
 
 ### Lifecycle management policies
 
-- Lifecycle management policies are supported only on general-purpose V2 accounts. They aren't yet supported in premium BlockBlobStorage storage accounts.
+- Lifecycle management policies are supported only on general-purpose v2 accounts. They aren't yet supported in premium BlockBlobStorage storage accounts.
 - Data can't be moved from the premium tier to lower tiers.
 
 
