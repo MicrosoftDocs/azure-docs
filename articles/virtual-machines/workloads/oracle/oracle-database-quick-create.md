@@ -138,7 +138,7 @@ The Oracle software is already installed on the Marketplace image. Create a samp
            -databaseType MULTIPURPOSE \
            -automaticMemoryManagement false \
            -storageType FS \
-           -datafileDestination "/u01/app/oracle/oradata/"
+           -datafileDestination "/u01/app/oracle/oradata/" \
            -ignorePreReqs
     ```
 
