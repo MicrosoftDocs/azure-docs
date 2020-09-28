@@ -156,11 +156,11 @@ To inform the StorSimple Device Manager service of the change, you will need to 
 
 3. Click **...More** and then select **Sync access key to rotate**.   
 
-    ![synchronize keys](./media/storsimple-8000-manage-storage-accounts/syncaccesskey2.png)
+    ![synchronize keys 2](./media/storsimple-8000-manage-storage-accounts/syncaccesskey2.png)
 
 4. In the StorSimple Device Manager service, you need to update the key that was previously changed in the Microsoft Azure Storage service. If the primary access key was changed (regenerated), select **primary** key. If the secondary key was changed, select **secondary** key. Click **Sync key**.
       
-      ![synchronize keys](./media/storsimple-8000-manage-storage-accounts/syncaccesskey3.png)
+      ![synchronize keys 3](./media/storsimple-8000-manage-storage-accounts/syncaccesskey3.png)
 
 You will be notified after the key is successfully synchronized.
 
