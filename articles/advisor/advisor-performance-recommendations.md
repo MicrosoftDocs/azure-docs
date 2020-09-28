@@ -164,11 +164,12 @@ Advisor analysis indicates that your MySQL server may be incurring unnecessary I
 ## Distribute data in server group to distribute workload among nodes
 Advisor identifies the server groups where the data has not been distributed but stays on the coordinator. Based on this, Advisor recommends that for full Hyperscale (Citus) benefits distribute data on worker nodes for your server groups. This will improve query performance by utilizing resource of each node in the server group. [Learn more](https://go.microsoft.com/fwlink/?linkid=2135201) 
 
-## Upgrade to the latest version of the Azure Connected Machine agent
-The [Azure Connected Machine agent](https://docs.microsoft.com/azure/azure-arc/servers/manage-agent) is updated regularly with bug fixes, stability enhancements, and new functionality. We have identified resources which are not working on the latest version of machine agent and this Advisor recommendation will suggest you to upgrade your agent to the latest version for the best Azure Arc experience.
+## Improve user experience and connectivity by deploying VMs closer to Windows Virtual Desktop deployment location
+We have determined that your VMs are located in a region different or far from where your users are connecting from, using Windows Virtual Desktop (WVD). This may lead to prolonged connection response times and will impact overall user experience on WVD. When creating VMs for your host pools, you should attempt to use a region closer to the user. Having close proximity ensures continuing satisfaction with the WVD service and a better overall quality of experience. [Learn more about connection latency here](https://docs.microsoft.com/azure/virtual-desktop/connection-latency).
 
-## Do not override hostname to ensure website integrity
-Advisor recommend to try avoid overriding the hostname when configuring Application Gateway. Having a different domain on the frontend of Application Gateway than the one which is used to access the backend can potentially lead to cookies or redirect urls being broken. Note that this might not be the case in all situations and that certain categories of backends (like REST API's) in general are less sensitive to this. Please make sure the backend is able to deal with this or update the Application Gateway configuration so the hostname does not need to be overwritten towards the backend. When used with App Service, attach a custom domain name to the Web App and avoid use of the *.azurewebsites.net host name towards the backend.* [Learn more about custom domain](https://aka.ms/appgw-advisor-usecustomdomain).
+## Upgrade to the latest version of the Immersive Reader SDK
+We have identified resources under this subscription using outdated versions of the Immersive Reader SDK. Using the latest version of the Immersive Reader SDK provides you with updated security, performance and an expanded set of features for customizing and enhancing your integration experience.
+Learn more about [Immersive reader SDK](https://aka.ms/ImmersiveReaderAzureAdvisorSDKLearnMore).
 
 
 ## How to access performance recommendations in Advisor
