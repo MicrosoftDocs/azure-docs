@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 09/28/2020
+ms.date: 06/13/2019
 
 ms.author: mimart
 author: msmimart
@@ -42,7 +42,7 @@ To leave an organization, follow these steps.
 
    ![Screenshot showing Leave organization option in the user interface](media/leave-the-organization/LeaveOrg.png)
 
-4. When asked to confirm, select **Leave**.
+4. When asked to confirm, select **Leave**. 
 
 ## Account removal
 
@@ -61,5 +61,7 @@ If you permanently delete a user, this action is irrevocable.
 
 ## Next steps
 
-- A guest user can also [block future invitations from an organization](invitation-email-elements.md#blocking-an-organization-unsubscribing).
 - For an overview of Azure AD B2B, see [What is Azure AD B2B collaboration?](what-is-b2b.md)
+
+
+
