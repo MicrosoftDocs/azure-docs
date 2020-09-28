@@ -97,10 +97,38 @@ Based on the information in the discover and assess phase, create your target SQ
 
 ## Migrate
 
-After you have completed tasks associated with the Pre-migration stage, you are ready to perform the schema and data migration. 
+After you have completed tasks associated with the Pre-migration stage, you are ready to perform the schema and data migration. You can migrate your data using your chosen [migration method](sql-server-to-managed-instance-overview.md#migration-options) based on your workload and scenario. While there are tools / utilities based migration options that can be leveraged to migrate your SQL Server databases to Azure SQL Managed Instance with minimal downtime, you can also take advantage of natively backing up your source SQL Server databases and restoring them on Azure SQL Managed Instance which is a unique capability in Azure SQL MI compared to other Azure SQL PaaS deployment models. The two most recommended options for migrating to Azure SQL Managed Instance are described below.
 
-Migrate your data using your chosen [migration method](sql-server-to-managed-instance-overview.md#migration-options). 
+#### Migration with minimal downtime (Online Sync and Cutover)
+To perform migrations using DMS with minimal downtime via an online sync and cutover approach, follow the steps below:
+1. Register the **Microsoft.DataMigration** resource provider in your subscription if you are performing this for the first time.
+2. Create an Azure Database Migration Service Instance in a desired location of your choice (preferably in the same region as your target Azure SQL Managed Instance) and select an existing virtual network or create a new one to host your DMS instance.
+3. After creating your DMS instance, create a new migration project and specify the source server type as **SQL Server** and the target server type as **Azure SQL Database Managed Instance**. Aslo, choose the type of activity as **Online data migration** in the migration project creation blade.
+4. Specify the source SQL Server details in the Migration source detail screen and the target Azure SQL Managed Instance details in the Migration target details screen.
+5. In the next steps of the Migration Wizard, **select the databases** you want to migrate, provide the configuration settings to **specify your SMB Network Share** (that contains your database backups files that can be accessed by DMS using the provided Windows user credentials) and **provide your Azure storage account details** that DMS can upload backup files from the SMB network share to.
+6. Subsequently, review the migration summary based on the details you provided and click on **Run migration**. You can then monitor the migration activity and check the progress of your server objects. The migration process, essentially, copies your source SQL Server database's full and transaction log backups and restores them on the target SQL Managed Instance.
+7. Finally, after your full database backup is restored on the target Azure SQL Managed Instance, the database is available for performing a migration cutover by selecting **Start Cutover**. At this stage, the migration process will copy the tail-log backup once you make it available in the SMB network share and restore it on the target.
+8. It is important to note that during the cutover stage, you should stop all incoming traffic to your source database and update your application's connection string to point to the new Azure SQL Managed Instance database.
 
+#### Migration with native backup and restore (Offline size of data operation)
+To perform migrations using native backup and restore which is an offline / asynchronous operation based on the size of your database, follow the steps below:
+1. You can backup database(s) to Azure Blob storage service natively with SQL Server 2012 SP1 CU2 and above. Manage your backups to Azure Blob storage (also referred to as SQL Server Backup to URL) by following the instructions to [Backup with SSMS](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url?view=sqlallproducts-allversions#BackupTaskSSMS).
+	> [!NOTE]
+	> For SQL Server versions previous to SQL Server 2012 SP1 CU2, you can use the add-in SQL Server Backup to Microsoft Azure Tool to quickly and easily create backups to Microsoft Azure storage. For more information, see [download center](https://go.microsoft.com/fwlink/?LinkID=324399).
+2. Next, connect to your Azure SQL Managed Instance using SSMS and create a credential (using Shared Access Signature) to access your Azure Blob Storage account that contains your source SQL Server database backup. A sample script to create a credential is below.
+   ```sql
+   CREATE CREDENTIAL [https://mitutorials.blob.core.windows.net/databases]
+   WITH IDENTITY = 'SHARED ACCESS SIGNATURE'
+   , SECRET = 'sv=2017-11-09&ss=bfqt&srt=sco&sp=rwdlacup&se=2028-09-06T02:52:55Z&st=2018-09-04T18:52:55Z&spr=https&sig=WOTiM%2FS4GVF%2FEEs9DGQR9Im0W%2BwndxW2CQ7%2B5fHd7Is%3D'
+   ```
+3. Run the restore from the backup provided in the Azure storage blob container. A sample script to restore from URL is below.
+	```sql
+   RESTORE DATABASE [TargetDatabaseName] FROM URL =
+     'https://mitutorials.blob.core.windows.net/databases/WideWorldImporters-Standard.bak'
+   ```
+	> [!NOTE]
+	> A database restore operation is asynchronous and retryable. You might get an error in SQL Server Management Studio if the connection breaks or a time-out expires. Azure SQL Database will keep trying to restore database in the background, and you can track the progress of the restore using the [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) and [sys.dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) views.
+4. Once the restore operation is complete, you can view the database in Object Explorer in SSMS.
 
 ## Data sync and cutover
 
