@@ -58,8 +58,6 @@ Advisor identifies tables that don't have up-to-date [table statistics](../synap
 
 Advisor analysis can indicate that your application connecting to a MySQL server might not be managing connections efficiently. This condition could lead to unnecessary resource consumption and overall higher application latency. To improve connection management, we recommend that you reduce the number of short-lived connections and eliminate unnecessary idle connections. You can make these improvements by configuring a server-side connection pooler, like ProxySQL.
 
-## Update your current Compute Management SDK version to the most recent version
-Advisor identifies subscriptions which have operations using outdated Compute Management SDK versions. This might impact the security and performance of your workloads and thus, Advisor recommends you to switch to the latest version of Compute Management SDK. 
 
 ## Scale up to optimize cache utilization on your Azure Synapse Analytics tables to increase query performance
 
@@ -166,6 +164,13 @@ Advisor analysis indicates that your MySQL server may be incurring unnecessary I
 ## Distribute data in server group to distribute workload among nodes
 Advisor identifies the server groups where the data has not been distributed but stays on the coordinator. Based on this, Advisor recommends that for full Hyperscale (Citus) benefits distribute data on worker nodes for your server groups. This will improve query performance by utilizing resource of each node in the server group. [Learn more](https://go.microsoft.com/fwlink/?linkid=2135201) 
 
+## Upgrade to the latest version of the Azure Connected Machine agent
+The [Azure Connected Machine agent](https://docs.microsoft.com/azure/azure-arc/servers/manage-agent) is updated regularly with bug fixes, stability enhancements, and new functionality. We have identified resources which are not working on the latest version of machine agent and this Advisor recommendation will suggest you to upgrade your agent to the latest version for the best Azure Arc experience.
+
+## Do not override hostname to ensure website integrity
+Advisor recommend to try avoid overriding the hostname when configuring Application Gateway. Having a different domain on the frontend of Application Gateway than the one which is used to access the backend can potentially lead to cookies or redirect urls being broken. Note that this might not be the case in all situations and that certain categories of backends (like REST API's) in general are less sensitive to this. Please make sure the backend is able to deal with this or update the Application Gateway configuration so the hostname does not need to be overwritten towards the backend. When used with App Service, attach a custom domain name to the Web App and avoid use of the *.azurewebsites.net host name towards the backend.* [Learn more about custom domain](https://aka.ms/appgw-advisor-usecustomdomain).
+
+
 ## How to access performance recommendations in Advisor
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and then open [Advisor](https://aka.ms/azureadvisordashboard).
@@ -178,6 +183,7 @@ To learn more about Advisor recommendations, see:
 
 * [Introduction to Advisor](advisor-overview.md)
 * [Get started with Advisor](advisor-get-started.md)
+* [Advisor score](azure-advisor-score.md)
 * [Advisor cost recommendations](advisor-cost-recommendations.md)
 * [Advisor reliability recommendations](advisor-high-availability-recommendations.md)
 * [Advisor security recommendations](advisor-security-recommendations.md)
