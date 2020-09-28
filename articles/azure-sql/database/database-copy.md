@@ -82,6 +82,9 @@ Start copying the source database with the [CREATE DATABASE ... AS COPY OF](http
 > Terminating the T-SQL statement does not terminate the database copy operation. To terminate the operation, drop the target database.
 >
 
+> [!IMPORTANT]
+> Selecting backup storage redundancy when using T-SQL CREATE DATABASE ... AS COPY OF command is not supported yet. 
+
 ### Copy to the same server
 
 Log in to the master database with the server administrator login or the login that created the database you want to copy. For database copying to succeed, logins that are not the server administrator must be members of the `dbmanager` role.
