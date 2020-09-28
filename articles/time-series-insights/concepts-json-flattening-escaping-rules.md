@@ -11,9 +11,7 @@ ms.topic: conceptual
 ms.date: 09/28/2020
 ---
 
-# Ingestion Rules
-
-## JSON Flattening, Escaping, and Array Handling
+# JSON Flattening, Escaping, and Array Handling
 
 Your Azure Time Series Insights Gen2 environment will dynamically create the columns of your warm and cold stores, following a particular set of naming conventions. When an event is ingested, a set of rules is applied to the JSON payload and property names. These include escaping certain special characters and flattening nested JSON objects. It's important to know these rules so that you understand how the shape of your JSON will influence how your events are stored and queried. See the table below for the full list of rules. Examples A & B also demonstrate how you're able to efficiently batch multiple time series in an array.
 
@@ -150,8 +148,8 @@ The configuration and payload above will produce four columns and six events
 | `2020-01-22T16:38:09Z` |`9336971` | ``100231-A-A1`` | 20.560796 |
 | `2020-01-22T16:38:09Z` | `9336971` | ``100231-A-A9`` | 177 |
 | `2020-01-22T16:38:09Z` | `9336971` | ``100231-A-A8`` | 420 |
-| `2020-01-22T16:42:14Z` | `9336972` | ``100231-A-A7`` | -30.9918 |  
-| `2020-01-22T16:42:14Z` | `9336972` | ``100231-A-A4`` | 19.960796 |
+| `2020-01-22T16:42:14Z` | `9336971` | ``100231-A-A7`` | -30.9918 |  
+| `2020-01-22T16:42:14Z` | `9336971` | ``100231-A-A4`` | 19.960796 |
 
 ### Example C
 
