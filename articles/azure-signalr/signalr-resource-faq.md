@@ -57,11 +57,13 @@ For new applications, only default and serverless mode should be used. The main 
 
 Classic mode is designed for backward compatibility for existing applications so should not be used for new applications.
 
-You can find the details about service mode in [this article](concept-service-mode.md).
+For more information about service mode in [this doc](concept-service-mode.md).
 
 ## Can I send message from client in serverless mode?
 
-You can send message from client if you configure upstream in your SignalR instance. Upstream is a set of endpoints that can receive messages and connection events from SignalR service. If no upstream is configured, messages from client will be ignored. You can find more information about upstream in [this article](concept-upstream.md).
+You can send message from client if you configure upstream in your SignalR instance. Upstream is a set of endpoints that can receive messages and connection events from SignalR service. If no upstream is configured, messages from client will be ignored.
+
+For more information about upstream see [this doc](concept-upstream.md).
 
 Upstream is currently in public preview.
 
