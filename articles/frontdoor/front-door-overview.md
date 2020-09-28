@@ -17,7 +17,7 @@ ms.author: duau
 
 # What is Azure Front Door?
 
-Azure Front Door is a global, scalable entry-point that utilizes Microsoft's global edge network to create fast, secure, and widely scalable web applications. With Front Door, you can transform your global consumer and enterprise applications into robust, high-performing personalized modern applications, APIs, and contents that reach a global audience with Azure.
+Azure Front Door is a global, scalable entry-point that uses the Microsoft global edge network to create fast, secure, and widely scalable web applications. With Front Door, you can transform your global consumer and enterprise applications into robust, high-performing personalized modern applications and contents that reach a global audience with Azure.
 
 :::image type="content" source="media/front-door-overview/front-door-visual-diagram.png#center" alt-text="Front Door architecture":::
 
@@ -36,9 +36,9 @@ Front Door works at Layer 7 (HTTP/HTTPS layer) using anycast protocol with split
 
 With Front Door you can build, operate, and scale out your dynamic web application and static content. Front Door enables you to define, manage, and monitor the global routing for your web traffic by optimizing for top-tier end-user performance and reliability through quick global failover.
 
-Key features that are included with Front Door:
+Key features included with Front Door:
 
-* Accelerate application performance by using **[split TCP](front-door-routing-architecture.md#splittcp)**-based **[anycast protocol](front-door-routing-architecture.md#anycast)**.
+* Accelerated application performance by using **[split TCP](front-door-routing-architecture.md#splittcp)**-based **[anycast protocol](front-door-routing-architecture.md#anycast)**.
 
 * Intelligent **[health probe](front-door-health-probes.md)** monitoring for backend resources.
 
