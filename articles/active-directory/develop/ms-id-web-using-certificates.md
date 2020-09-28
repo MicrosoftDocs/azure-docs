@@ -40,7 +40,6 @@ Table of contents:
   - [Ways of specifying certificates](#ways-of-specifying-certificates)
     - [Specifying certificates as an X509Certificate2](#specifying-certificates-as-an-x509certificate2)
     - [Getting certificates from Key Vault](#getting-certificates-from-key-vault)
-      - [Microsoft.Identity.Web leverages Managed Identity](#microsoftidentityweb-leverages-managed-identity)
     - [Specifying certificates](#specifying-certificates)
     - [Microsoft Identity Web classes used for certificate management](#microsoft-identity-web-classes-used-for-certificate-management)
 
@@ -271,8 +270,6 @@ Describing the certificate by configuration allows for just-in-time loading, rat
 
 When your certificate is in Key Vault, Microsoft.Identity.Web uses Managed Identity, therefore enabling your application to have the same code when deployed (for instance on a VM or Azure app services), or locally on your developer box (using developer credentials).
 
-The following sections show how to specify the client credential certificates, but the principle is the same for the decryption certificates. Just replace `ClientCertificates` with `TokenDecryptionCertificates`.
-
 ### Specifying certificates as an X509Certificate2
 
 You can also directly specify the certificate description as an **X509Certificate2** that would you've loaded. This is only possible programmatically, both for 
@@ -294,8 +291,6 @@ microsoftIdentityOptions.TokenDecryptionCertificates = new CertificateDescriptio
 
 ### Getting certificates from Key Vault
 
-#### Microsoft.Identity.Web leverages Managed Identity
-
 To fetch certificates from KeyVault, Microsoft.Identity.Web uses Managed Identity through the Azure SDK
 [DefaultAzureCredential](https://azure.github.io/azure-sdk/posts/2020-02-25/defaultazurecredentials.html).
 
@@ -313,6 +308,9 @@ user-assigned managed identity clientID. You can do that through the Azure porta
   which account to use, by setting another environment variable `AZURE_USERNAME`
 
 ### Specifying certificates
+
+The following table shows all the ways to specify client certificates by configuration or programmatically. To
+specify token decryption certificates instead of, or in addition to, client certificates, just replace `ClientCertificates` by `TokenDecryptionCertificates`.
 
 <table>
 <tr>

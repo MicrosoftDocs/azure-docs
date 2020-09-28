@@ -391,6 +391,8 @@
         href: ms-id-web.md
       - name: Use certificates with Microsoft Identity Web
         href: ms-id-web-using-certificates.md
+      - name: Handle incremental consent and conditional access
+        href: ms-id-web-handling-incremental-consent-conditional-access.md
   - name: Authentication protocols
     displayName: Auth protocol
     items:
