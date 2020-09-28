@@ -46,9 +46,9 @@ As described in [Understand components in IoT Plug and Play models](concepts-com
 
 ### Telemetry
 
-Models without components don't require any special property.
+A default component doesn't require any special property.
 
-When using components, devices must set a message property with the component name:
+When using nested components, devices must set a message property with the component name:
 
 ```c
 void PnP_ThermostatComponent_SendTelemetry(
@@ -90,7 +90,7 @@ PnP_ThermostatComponent_SendTelemetry(g_thermostatHandle1, deviceClient);
 
 ### Read-only properties
 
-Models without components don't require any special construct:
+Reporting a property from the default component doesn't require any special construct:
 
 ```c
 static const char g_maxTemperatureSinceRebootFormat[] = "{\"maxTempSinceLastReboot\":%.2f}";
@@ -119,7 +119,7 @@ The device twin is updated with the next reported property:
 }
 ```
 
-When using components, properties must be created within the component name. The following example uses the **PnpHelper** class to add the component name to the property:
+When using nested components, properties must be created within the component name:
 
 ```c
 STRING_HANDLE PnP_CreateReportedProperty(
@@ -221,7 +221,7 @@ These properties can be set by the device or updated by the solution. If the sol
 
 When a device reports a writable property, it must include the `ack` values defined in the conventions.
 
-To report a writable property without components:
+To report a writable property from the default component:
 
 ```c
 IOTHUB_CLIENT_RESULT iothubClientResult;
@@ -254,7 +254,7 @@ The device twin is updated with the next reported property:
 }
 ```
 
-To report a writable property from a component, the twin must include a marker:
+To report a writable property from a nested component, the twin must include a marker:
 
 ```c
 STRING_HANDLE PnP_CreateReportedPropertyWithStatus(const char* componentName,
@@ -338,7 +338,7 @@ The device twin is updated with the next reported property:
 
 Services can update desired properties that trigger a notification on the connected devices. This notification includes the updated desired properties, including the version number identifying the update. Devices must respond with the same `ack` message as reported properties.
 
-Models without components see the single property and create the reported `ack` with the received version:
+A default component sees the single property and creates the reported `ack` with the received version:
 
 ```c
 static void Thermostat_DeviceTwinCallback(
@@ -404,7 +404,7 @@ The device twin shows the property in the desired and reported sections:
 }
 ```
 
-Models with components receive the desired properties wrapped with the component name, and should report back the `ack` reported property:
+A nested component receives the desired properties wrapped with the component name, and should report back the `ack` reported property:
 
 ```c
 bool PnP_ProcessTwinData(
@@ -460,7 +460,7 @@ static void PnP_TempControlComponent_DeviceTwinCallback(
 }
 ```
 
-The device twin for components shows the desired and reported sections as follows:
+The device twin for a nested component shows the desired and reported sections as follows:
 
 ```json
 {
@@ -487,9 +487,9 @@ The device twin for components shows the desired and reported sections as follow
 
 ### Commands
 
-Models without components receive the command name as it was invoked by the service.
+A default component receives the command name as it was invoked by the service.
 
-Models with components will receive the command name prefixed with the component and the `*` separator.
+A nested component receives the command name prefixed with the component name and the `*` separator.
 
 ```c
 void PnP_ParseCommandName(
