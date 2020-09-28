@@ -34,7 +34,7 @@ The following figure shows a high-level view of the existing global network incl
 
 The following points can be understood from the existing network topology:
 
-- A hub-and-spoke topology is used in multiple regions including ExpressRoute Premium circuits for connectivity back to a common private WAN.
+- A hub-and-spoke topology is used in multiple regions including ExpressRoute circuits for connectivity back to a common private WAN.
 
 - Some of these sites also have VPN tunnels directly in to Azure to reach applications hosted within the Microsoft cloud.
 
@@ -104,9 +104,6 @@ Deploy a Virtual WAN hub in each region. Set up the Virtual WAN hub with VPN Gat
 ### Step 3: Connect remote sites (ExpressRoute and VPN) to Virtual WAN
 
 Connect the Virtual WAN hub to the existing ExpressRoute circuits and set up Site-to-site VPNs over the Internet to any remote branches.
-
-> [!NOTE]
-> Express Routes Circuits must be upgraded to Premium SKU type to connect to Virtual WAN hub.
 
 ![Connect remote sites to Virtual WAN](./media/migrate-from-hub-spoke-topology/figure3.png)
 **Figure 3: Customer-managed hub-and-spoke to Virtual WAN migration**
@@ -181,7 +178,7 @@ Path 2 shows traffic flow from the ExpressRoute connected European HQ to an Azur
 
 The traffic is routed as follows:
 
-- European HQ is connected via premium ExpressRoute circuit into West Europe Virtual WAN hub.
+- European HQ is connected via ExpressRoute circuit into West Europe Virtual WAN hub.
 
 - Virtual WAN hub-to-hub global connectivity enables transit of traffic to VNet connected in remote region.
 
