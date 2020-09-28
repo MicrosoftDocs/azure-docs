@@ -62,7 +62,7 @@ Follow these steps to configure device related settings:
 
     5. After the settings are applied, select **Next: Update server**.
 
-        ![Local web UI "Device" page](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/device-4.png)
+        ![Local web UI "Device" page 3](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/device-4.png)
 
 ## Configure update
 
@@ -74,7 +74,7 @@ Follow these steps to configure device related settings:
 
         You can also choose to deploy updates from the **Windows Server Update services** (WSUS). Provide the path to the WSUS server.
         
-        ![Local web UI "Update Server" page](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/update-3.png)
+        ![Local web UI "Update Server" page 2](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/update-3.png)
 
         > [!NOTE] 
         > If a separate Windows Update server is configured and if you choose to connect over *https* (instead of *http*), then signing chain certificates required to connect to the update server are needed. For information on how to create and upload certificates, go to [Manage certificates](azure-stack-edge-j-series-manage-certificates.md). 
