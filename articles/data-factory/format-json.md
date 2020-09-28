@@ -212,6 +212,7 @@ The below table lists the properties supported by a json source. You can edit th
 | Has comments | Select **Has comments** if the JSON data has C or C++ style commenting | no | `true` or `false` | asComments |
 | Single quoted | Reads JSON columns that aren't surrounded by quotes | no | `true` or `false` | singleQuoted |
 | Backslash escaped | Select **Backslash escaped** if backslashes are used to escape characters in the JSON data | no | `true` or `false` | backslashEscape |
+| Allow no files found | If true, an error is not thrown if no files are found | no | `true` or `false` | ignoreNoFilesFound |
 
 ### Source format options
 

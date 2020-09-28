@@ -2,7 +2,7 @@
 title: Reduce service costs using Azure Advisor
 description: Use Azure Advisor to optimize the cost of your Azure deployments.
 ms.topic: article
-ms.date: 01/29/2019
+ms.date: 09/27/2020
 
 ---
 
@@ -16,7 +16,7 @@ Although certain application scenarios can result in low utilization by design, 
 
 The recommended actions are shut down or resize, specific to the resource being evaluated.
 
-The advanced evaluation model in Advisor considers shutting down virtual machines when both of these statements are true: 
+The advanced evaluation model in Advisor considers shutting down virtual machines when all of these statements are true: 
 - P95th of the maximum of maximum value of CPU utilization is less than 3%. 
 - Network utilization is less than 2% over a seven-day period.
 - Memory pressure is lower than the threshold values
@@ -107,6 +107,7 @@ Advisor identifies resources where reducing the table cache policy will free up 
 
 To learn more about Advisor recommendations, see:
 * [Introduction to Advisor](advisor-overview.md)
+* [Advisor score](azure-advisor-score.md)
 * [Get started with Advisor](advisor-get-started.md)
 * [Advisor performance recommendations](advisor-performance-recommendations.md)
 * [Advisor high availability recommendations](advisor-high-availability-recommendations.md)

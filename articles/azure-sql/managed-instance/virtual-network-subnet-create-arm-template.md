@@ -10,7 +10,7 @@ ms.devlang:
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: sstein, bonova, carlrab
+ms.reviewer: sstein, bonova
 ms.date: 09/12/2019
 ---
 # Create a virtual network for Azure SQL Managed Instance

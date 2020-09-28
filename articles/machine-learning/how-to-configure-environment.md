@@ -14,7 +14,7 @@ ms.custom: how-to, devx-track-python
 ---
 
 # Configure a development environment for Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 In this article, you learn how to configure a development environment to work with Azure Machine Learning. Azure Machine Learning is platform agnostic. The only hard requirement for your development environment is Python 3. An isolated environment like Anaconda or Virtualenv is also recommended.
 
@@ -56,7 +56,7 @@ There is nothing to install or configure for a compute instance.  Create one any
 
 To learn more about compute instances, including how to install packages, see [compute instances](concept-compute-instance.md).
 
-To stop incurring compute charges, [stop the compute instance](tutorial-1st-experiment-sdk-train.md#clean-up-resources).
+To stop incurring compute charges, [stop the compute instance](tutorial-1st-experiment-bring-data.md#clean-up-resources).
 
 ## <a id="dsvm"></a>Data Science Virtual Machine
 

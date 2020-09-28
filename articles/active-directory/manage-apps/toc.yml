@@ -18,8 +18,10 @@
       href: add-application-portal-configure.md
     - name: Assign users to an app
       href: add-application-portal-assign-users.md
-    - name: Set up single sign-on
+    - name: Set up SAML-based single sign-on
       href: add-application-portal-setup-sso.md
+    - name: Set up OIDC-based single sign-on
+      href: add-application-portal-setup-oidc-sso.md
     - name: Delete an app
       href: delete-application-portal.md
   - name: Tutorials

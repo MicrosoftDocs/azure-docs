@@ -12,7 +12,7 @@ ms.author: mayg
 ---
 # Azure ExpressRoute with Azure Site Recovery
 
-Microsoft Azure ExpressRoute lets you extend your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services, such as Microsoft Azure, Office 365, and Dynamics 365.
+Microsoft Azure ExpressRoute lets you extend your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services, such as Microsoft Azure, Microsoft 365, and Dynamics 365.
 
 This article describes how you can use Azure ExpressRoute with Azure Site Recovery for disaster recovery and migration.
 

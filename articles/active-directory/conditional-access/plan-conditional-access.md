@@ -259,7 +259,7 @@ The naming standard helps you to find policies and understand their purpose with
 
 * When it applies (if applicable)
 
-![Naming standard](media/plan-conditional-access/11.png)
+![Screenshot that shows the naming standards for policies.](media/plan-conditional-access/11.png)
 
 **Example**; A policy to require MFA for marketing users accessing the Dynamics CRP app from external networks might be:
 

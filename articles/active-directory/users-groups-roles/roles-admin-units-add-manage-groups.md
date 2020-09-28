@@ -1,5 +1,5 @@
 ---
-title: Add, remove, and list groups in an administrative unit (preview) - Azure Active Directory | Microsoft Docs
+title: Add, remove, and list groups in an administrative unit - Azure Active Directory | Microsoft Docs
 description: Manage groups and their role permissions in an administrative unit in Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 06/23/2020
+ms.date: 09/22/2020
 ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
@@ -26,7 +26,7 @@ For steps to prepare to use PowerShell and Microsoft Graph for administrative un
 
 ### Azure portal
 
-In the preview, you can assign groups only individually to an administrative unit. There is no option of bulk assignment of groups to an administrative unit. You can assign a group to an administrative unit in one of the two ways in portal:
+You can assign groups only individually to an administrative unit. There is no option of assigning groups in bulk to an administrative unit. You can assign a group to an administrative unit in one of the two ways in portal:
 
 1. From the **Azure AD > Groups** page
 

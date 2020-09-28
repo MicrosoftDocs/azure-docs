@@ -12,7 +12,7 @@ ms.tgt_pltfrm: azure-pipelines
 ms.workload: infrastructure
 ms.date: 1/3/2020
 ms.author: ushan
-ms.custom: devops, devx-track-javascript
+ms.custom: devops, devx-track-js
 
 #Customer intent: As a developer, I want to learn about CI/CD features in Azure so that I can use devops services like Azure Pipelines to build and deploy my applications automatically.
 ---

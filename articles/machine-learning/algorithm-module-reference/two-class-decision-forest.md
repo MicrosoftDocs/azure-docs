@@ -13,7 +13,7 @@ ms.date: 09/03/2020
 ---
 # Two-Class Decision Forest module
 
-This article describes a module in Azure Machine Learning designer (preview).
+This article describes a module in Azure Machine Learning designer.
 
 Use this module to create a machine learning model based on the decision forests algorithm.  
 

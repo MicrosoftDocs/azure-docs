@@ -57,10 +57,10 @@ The following script gets the resource ID for the event hub, and subscribes to a
 
 ```azurecli-interactive
 hubid=$(az eventhubs eventhub show --name $hubname --namespace-name $namespace --resource-group gridResourceGroup --query id --output tsv)
+topicid=$(az eventgrid topic show --name $topicname -g gridResourceGroup --query id --output tsv)
 
 az eventgrid event-subscription create \
-  --topic-name $topicname \
-  -g gridResourceGroup \
+  --source-resource-id $topicid \
   --name subtoeventhub \
   --endpoint-type eventhub \
   --endpoint $hubid
