@@ -90,7 +90,7 @@ All systems must be continuously monitored and updated with latest security upda
 
 ### Security monitoring
 
-Subscribe to or implement appropriate security monitoring. For example, subscribe to a central monitoring solution (such as Azure Security Center or Office 365 monitoring solution), and configure it appropriately to ensure that security events are transmitted to the monitoring solution.
+Subscribe to or implement appropriate security monitoring. For example, subscribe to a central monitoring solution (such as Azure Security Center or Microsoft 365 monitoring solution), and configure it appropriately to ensure that security events are transmitted to the monitoring solution.
 
 > [!IMPORTANT]
 > By default, the OPC Vault service is deployed with [Azure Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/devops) as a monitoring solution. Adding a security solution like [Azure Security Center](https://azure.microsoft.com/services/security-center/) is highly recommended.
