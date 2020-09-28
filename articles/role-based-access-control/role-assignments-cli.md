@@ -46,7 +46,7 @@ For an Azure AD group, you need the group object ID. To get the object ID, you c
 az ad group show --group "{groupName}" --query objectId --output tsv
 ```
 
-**Application**
+**Service principal**
 
 For an Azure AD service principal (identity used by an application), you need the service principal object ID. To get the object ID, you can use [az ad sp list](/cli/azure/ad/sp#az_ad_sp_list). For a service principal, use the object ID and **not** the application ID.
 
@@ -54,7 +54,21 @@ For an Azure AD service principal (identity used by an application), you need th
 az ad sp list --all --query "[].{displayName:displayName, objectId:objectId}" --output tsv
 az ad sp list --display-name "{displayName}"
 ```
-        
+
+**Managed identity**
+
+For system-assigned and user-assigned managed identities, you need the object ID. To get the object ID, you can use [az ad sp list](/cli/azure/ad/sp#az_ad_sp_list).
+
+```azurecli
+az ad sp list --all --filter "servicePrincipalType eq 'ManagedIdentity'"
+```
+
+You can use [az identity list](/cli/azure/identity#az_identity_list) to just list user-assigned managed identities.
+
+```azurecli
+az identity list
+```
+    
 ### Step 2: Find the appropriate role
 
 Permissions are grouped together into roles. You can select from a list of several [Azure built-in roles](built-in-roles.md) or you can use your own custom roles. It's a best practice to grant access with the least privilege that is needed, so avoid assigning a broader role.
