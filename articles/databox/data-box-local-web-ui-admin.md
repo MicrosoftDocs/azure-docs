@@ -201,7 +201,7 @@ To enable SMB signing in your Azure Device:
 
 Your web UI users have Backup Operator privileges on SMB shares by default. If you don't want this, use **Enable Back Operator privileges** to disable or enable the privileges.
 
-For information about Backup Operators privileges, see "Backup Operators" in [Active Directory Security Groups](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-security-groups#backup-operators).
+For information, see Backup Operators in [Active Directory Security Groups](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-security-groups#backup-operators).
 
 To enable Backup Operator privileges in your Azure Device:
 
@@ -224,7 +224,7 @@ Metadata on files is transferred by default when users upload data via SMB to yo
 <!--For more information about metadata that is transferred, see [Preserving the ACLs and metadata with Azure Data Box](./data-box-local-web-ui-admin.md#enable-backup-operator-privileges) - IN DEVELOPMENT-->
 
 > [!Note]
-> To transfer metadata with files, you must be a Backup Operator. When you use this feature, make sure local users of the web UI are Backup Operators. [Enable Backup Operator privileges](#enable-backup-operator-privileges)
+> To transfer metadata with files, you must be a Backup Operator. When you use this feature, make sure local users of the web UI are Backup Operators. See [Enable Backup Operator privileges](#enable-backup-operator-privileges).
 
 To enable transfer of ACLs for Azure files:
 
