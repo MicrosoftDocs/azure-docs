@@ -74,6 +74,8 @@ For Azure SQL Database, the virtual network rules feature has the following limi
 
 - Turning ON virtual network service endpoints to Azure SQL Database also enables the endpoints for the MySQL and PostgreSQL Azure services. However, with endpoints ON, attempts to connect from the endpoints to your MySQL or PostgreSQL instances may fail.
   - The underlying reason is that MySQL and PostgreSQL likely do not have a virtual network rule configured. You must configure a virtual network rule for Azure Database for MySQL and PostgreSQL and the connection will succeed.
+  
+- If Private endpoints are enabled for the SQL server already, then the Deny public network access should be set to No , reason being the Vnet service endpoints for Azure SQL listens on public endpoints and should be allowed in order to add vnet rules to the SQL server firewall.
 
 - On the firewall, IP address ranges do apply to the following networking items, but virtual network rules do not:
   - [Site-to-Site (S2S) virtual private network (VPN)][vpn-gateway-indexmd-608y]
