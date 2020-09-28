@@ -1,11 +1,11 @@
 ---
-title: Troubleshoot Log analytics issues using operation table
-description: 
+title: Troubleshoot issues in Log Analytics workspaces using operation table
+description: The Operations table in each Log Analytics workspace includes details of operations that occur in the workspace and can be monitored so you can be proactively notified of any issues.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 06/19/2020
+ms.date: 09/28/2020
 
 ---
 
@@ -15,7 +15,7 @@ To maintain the performance and availability of your Log Analytics workspace in 
 ## _LogsOperation function
 Azure Monitor Logs sends details on any issues to the [Operation](/azure-monitor/reference/tables/operation) table in the workspace where the issue occurred. The **_LogsOperation** system function is based on the **Operation** table and provides a simplified set of information for analysis and alerting.
 
-### Columns
+## Columns
 
 The **_LogsOperation** function returns the columns in the following table.
 
@@ -31,9 +31,10 @@ The **_LogsOperation** function returns the columns in the following table.
 | CorrelationId | Used to group consecutive related operations. |
 
 
-### Categories
+## Categories
+The following sections describe the categories from the _LogsOperations function. Each includes the operations that may be included in each category.
 
-#### Ingestion
+### Ingestion
 Operations that are part of the data ingestion process. Consists of issues that occurred during data ingestions including notification about reaching the Azure Log Analytics workspace limits, issues related to this category might suggest data loss.
 
 | Operation | Level | Detail |
@@ -47,45 +48,45 @@ Operations that are part of the data ingestion process. Consists of issues that 
 | JSON parsing                | Error   | Failed to parse JSON message.       |
 
 
-#### Agent
+### Agent
 Indicates an issue with agent installation. Monitor this type to audit your agent.  
 
 | Operation | Level | Detail |
 |:---|:---|:---|
 | AuditD plugin issue  |  |  |
-| Agent for Linux   |  |  |
+| Agent for Linux      |  |  |
 
 
 
-#### Data collection 
+### Data collection 
 Operations related to data collections processes.
 
 | Operation | Level | Detail |
 |:---|:---|:---|
-| Azure Activity Log Collection | | |
+| Azure Activity Log Collection     | | |
 | Active Directory Group Collection | | |
-| WSUS Client Group Collection | | | 
+| WSUS Client Group Collection      | | | 
 
 
 
-#### Solution targeting 
+### Solution targeting 
 Operation of type *ConfigurationScope* was processed. 
 
 
-#### Assessment solution
+### Assessment solution
 An assessment process was executed.
 
 | Operation | Level | Detail |
 |:---|:---|:---|
-| Assessment Execution | | |
+| Assessment Execution         | | |
 | Is Local Administrator Check | | |
-| .Net 4.0 Check | | |
-| Assessment Target Check | | |
-| Security Baseline | | |
+| .Net 4.0 Check               | | |
+| Assessment Target Check      | | |
+| Security Baseline            | | |
 
 
 
-## Alerts
+## Alert rules
 Use [log query alerts](../platform/alerts-log-query.md) in Azure Monitor to be proactively notified when an issue is detected in your Log Analytics workspace. You should use a strategy that allows you to respond in a timely manner to issues while minimizing your costs. Your subscription is charged for each alert rule with a cost depending on the frequency that it's evaluated.
 
 A recommended strategy is to start with two alert rules based on the level of the issue. Use a short frequency such as every 5 minutes for Errors and a longer frequency such as 24 hours for Warnings. Since Errors indicate potential data loss, you want to respond to them quickly to minimize any loss. Warnings typically indicate an issue that does not require immediate attention, so you can review them daily.
