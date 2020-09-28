@@ -54,7 +54,7 @@ landingContent:
         links:
           - text: S
             url: s
-    - title: Migrate apps
+  - title: Migrate apps
     linkLists:
       - linkListType: learn
         links:
