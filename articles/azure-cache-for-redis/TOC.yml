@@ -10,7 +10,7 @@
   expanded: true
   items:
   - name: Create a cache
-    items:
+    items: 
     - name: Basic, Standard and Premium tiers
       href: quickstart-create-redis.md
     - name: Enterprise tiers
