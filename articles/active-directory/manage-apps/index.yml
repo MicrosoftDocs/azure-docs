@@ -36,7 +36,7 @@ landingContent:
         links:
           - text: W
             url: w
-    - title: Manage apps
+  - title: Manage apps
     linkLists:
       - linkListType: learn
         links:
