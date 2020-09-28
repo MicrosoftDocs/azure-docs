@@ -186,7 +186,7 @@ For more details about backup storage pricing visit [Azure SQL Database pricing 
 
 To understand backup storage costs, go to **Cost Management + Billing** in the Azure portal, select **Cost Management**, and then select **Cost analysis**. Select the desired subscription as the **Scope**, and then filter for the time period and service that you're interested in.
 
-Add a filter for **Service name**, and then select **sql database** in the drop-down list. Use the **meter subcategory** filter to choose the billing counter for your service. For a single database or an elastic database pool, select **single/elastic pool pitr backup storage**. For a managed instance, select **mi pitr backup storage**. The **Storage** and **compute** subcategories might interest you as well, but they're not associated with backup storage costs.
+Add a filter for **Service name**, and then select **sql database** in the drop-down list. Use the **meter subcategory** filter to choose the billing counter for your service. For a single database or an elastic database pool, select **single/elastic pool PITR backup storage**. For a managed instance, select **mi PITR backup storage**. The **Storage** and **compute** subcategories might interest you as well, but they're not associated with backup storage costs.
 
 ![Backup storage cost analysis](./media/automated-backups-overview/check-backup-storage-cost-sql-mi.png)
 
@@ -365,7 +365,7 @@ For more information, see [Backup Retention REST API](https://docs.microsoft.com
 ## Configure backup storage redundancy
 
 > [!NOTE]
-> Configurable storage redundancy for backups for SQL Managed Instance can only be specified during the create managed instance process. Once the resource is provisioned, you can't change the backup storage redundancy option. For SQL Database, public preview of this feature is currently only available in Southeast Asia Azure region. Public preview in other regions will follow in upcoming months. 
+> Configurable storage redundancy for backups for SQL Managed Instance can only be specified during the create managed instance process. Once the resource is provisioned, you can't change the backup storage redundancy option. For SQL Database, public preview of this feature is currently only available in Southeast Asia Azure region. 
 
 A backup storage redundancy of a managed instance can be set during instance creation only. For a SQL Database it can be set when creating the database or can be updated for an existing database. The default value is geo-redundant storage (RA-GRS). For differences in pricing between locally-redundant (LRS), zone-redundant (ZRS) and geo-redundant (RA-GRS) backup storage visit [managed instance pricing page](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
 
@@ -374,15 +374,15 @@ A backup storage redundancy of a managed instance can be set during instance cre
 #### [SQL Database](#tab/single-database)
 
 In Azure portal, you can configure the backup storage redundancy on the **Create SQL Database** blade. The option is available under the Backup Storage Redundancy section. 
-![Open Create SQL Database blade](./media/automated-backups-overview/sqldb-backup-storage-redundancy.png)
+![Open Create SQL Database blade](./media/automated-backups-overview/sql-database-backup-storage-redundancy.png)
 
 #### [SQL Managed Instance](#tab/managed-instance)
 
 In the Azure portal, the option to change backup storage redundancy is located on the **Compute + storage** blade accessible from the **Configure Managed Instance** option on the **Basics** tab when you are creating your SQL Managed Instance.
-![Open Compute+Storage configuration-blade](./media/automated-backups-overview/open-configuration-blade-mi.png)
+![Open Compute+Storage configuration-blade](./media/automated-backups-overview/open-configuration-blade-managedinstance.png)
 
 Find the option to select backup storage redundancy on the **Compute + storage** blade.
-![Configure backup storage redundancy](./media/automated-backups-overview/select-backup-storage-redundancy-mi.png)
+![Configure backup storage redundancy](./media/automated-backups-overview/select-backup-storage-redundancy-managedinstance.png)
 
 ---
 
@@ -422,7 +422,7 @@ For more details visit [New-AzSqlInstance](https://docs.microsoft.com/powershell
 
 ## Use Azure Policy to enforce backup storage redundancy
 
-If you hvae data residency requirements that require you to keep all your data in a single Azure region, you may want to enfore zone-redundant or locally-redundant backups for your SQL Database or Managed Instance using Azure Policy. 
+If you have data residency requirements that require you to keep all your data in a single Azure region, you may want to enforce zone-redundant or locally-redundant backups for your SQL Database or Managed Instance using Azure Policy. 
 Azure Policy is a service that you can use to create, assign, and manage policies that apply rules to Azure resources. Azure Policy helps you to keep these resources compliant with your corporate standards and service level agreements. For more information, see [Overview of Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview). 
 
 ### Built-in backup storage redundancy policies 
@@ -435,7 +435,7 @@ Following new built-in policies are added, which can be assigned at the subscrip
 
 A full list of built-in policy definitions for SQL Database and Managed Instance can be found [here](https://docs.microsoft.com/azure/azure-sql/database/policy-reference).
 
-To enforce data residency requirements at an organizational level, these policies can be assigned to a subscription. After these are assigned at a subscription level, users in the given subscription will not be able to create a database or a managed instance with geo-redundant backup storage via Azure Portal or Azure PowerShell. Note that, Azure policies are not enforced when creating a database via T-SQL. 
+To enforce data residency requirements at an organizational level, these policies can be assigned to a subscription. After these are assigned at a subscription level, users in the given subscription will not be able to create a database or a managed instance with geo-redundant backup storage via Azure portal or Azure PowerShell. Note that, Azure policies are not enforced when creating a database via T-SQL. 
 
 Learn how to assign policies using [Azure Portal](https://docs.microsoft.com/azure/governance/policy/assign-policy-portal) or [Azure PowerShell](https://docs.microsoft.com/azure/governance/policy/assign-policy-powershell)
 
