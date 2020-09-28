@@ -36,7 +36,7 @@ If you don't have an Azure subscription, [create a free account before you begin
 ## Prerequisites
 
 - [Synapse Analytics workspace](quickstart-create-workspace.md) with an ADLS Gen2 storage account configured as the default storage. You need to be the **Storage Blob Data Contributor** of the ADLS Gen2 filesystem that you work with.
-- Synapse SQL Pool in your Synapse WS. [Create a Synapse SQL pool](https://docs.microsoft.com/en-us/azure/synapse-analytics/quickstart-create-sql-pool-studio)
+- Synapse SQL Pool in your Synapse WS. [Create a Synapse SQL pool](../quickstart-create-sql-pool-studio.md)
 - Azure ML linked service in your Synapse WS. [Create an Azure ML linked service in Synapse](quickstart-integrate-azure-ml.md)
 
 ## Sign in to the Azure portal
