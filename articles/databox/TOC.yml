@@ -78,7 +78,7 @@
           href: security-baseline.md
         - name: Review security 
           href: data-box-security.md
-      - name: Transfer ACLs, metadata
+      - name: Transfer ACLs and metadata
         href: data-box-file-acls-preservation.md 
       - name: FAQ
         href: data-box-faq.md 
