@@ -34,7 +34,7 @@ By default, SQL Database and SQL Managed Instance store data in geo-redundant (R
 
 The option to configure backup storage redundancy provides the flexibility to choose between locally-redundant, zone-redundant, or geo-redundant storage blobs for a SQL Managed Instance or a SQL Database. To ensure that your data stays within the same region where your managed instance or SQL database is deployed, you can change the default geo-redundant backup storage redundancy and configure either locally-redundant (LRS) or zone-redundant (ZRS) storage blobs for backups. Storage redundancy mechanisms store multiple copies of your data so that it is protected from planned and unplanned events, including transient hardware failure, network or power outages, or massive natural disasters. The configured backup storage redundancy is applied to both short-term backup retention settings that are used for point in time restore (PITR) and long-term retention backups used for long-term backups (LTR). 
 
-For a SQL Database the backup storage redundancy can be configured at the time of database creation or can be updated for an existing database. The updated backup storage redundancy on an existing database, only applies to the future backups taken.
+For a SQL Database the backup storage redundancy can be configured at the time of database creation or can be updated for an existing database; the changes made to an existing database apply to future backups only. After the backup storage redundancy of an existing database is updated, it may take up to 48 hours for the changes to be applied. Note that, geo restore is disabled as soon as a database is updated to use local or zone redundant storage. 
 
 
 > [!IMPORTANT]
@@ -400,14 +400,14 @@ New-AzSqlDatabase -ResourceGroupName "ResourceGroup01" -ServerName "Server01" -D
 For details visit [New-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase).
 
 To update backup storage redundancy of an existing database, you can use the -BackupStorageRedundancy parameter. Possible values are Geo, Zone and Local.
-Note that switching from geo-redundant backup storage to local or zone redundant disables Geo Restore. 
+Note that, it may take up to 48 hours for the changes to be applied on the database. Switching from geo-redundant backup storage to local or zone redundant storage disables geo restore. 
 
 ```powershell
 # Change the backup storage redundancy for Database01 to zone-redundant. 
 Set-AzSqlDatabase -ResourceGroupName "ResourceGroup01" -DatabaseName "Database01" -ServerName "Server01" -BackupStorageRedundancy Zone
 ```
 
-For details visit [Set-AzSqlDatabase](https://docs.microsoft.com/en-us/powershell/module/az.sql/set-azsqldatabase?view=azps-4.7.0)
+For details visit [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase?view=azps-4.7.0)
 
 
 #### [SQL Managed Instance](#tab/managed-instance)
@@ -433,9 +433,11 @@ Following new built-in policies are added, which can be assigned at the subscrip
 
 [SQL Managed Instances should avoid using GRS backup redundancy](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa9934fd7-29f2-4e6d-ab3d-607ea38e9079)
 
-A full list of built-in policy definitions for SQL Database and Managed Instance can be found [here](https://docs.microsoft.com/en-us/azure/azure-sql/database/policy-reference).
+A full list of built-in policy definitions for SQL Database and Managed Instance can be found [here](https://docs.microsoft.com/azure/azure-sql/database/policy-reference).
 
-To enforce data residency requirements at an organizational level, these policies can be assigned to a subscription. After these are assigned at a subscription level, users in the given subscription will not be able to create a database or a managed instance with geo-redundant backup storage. Learn how to assign policies using [Azure Portal](https://docs.microsoft.com/en-us/azure/governance/policy/assign-policy-portal) or [Azure PowerShell](https://docs.microsoft.com/en-us/azure/governance/policy/assign-policy-powershell)
+To enforce data residency requirements at an organizational level, these policies can be assigned to a subscription. After these are assigned at a subscription level, users in the given subscription will not be able to create a database or a managed instance with geo-redundant backup storage via Azure Portal or Azure PowerShell. Note that, Azure policies are not enforced when creating a database via T-SQL. 
+
+Learn how to assign policies using [Azure Portal](https://docs.microsoft.com/azure/governance/policy/assign-policy-portal) or [Azure PowerShell](https://docs.microsoft.com/en-us/azure/governance/policy/assign-policy-powershell)
 
 ---
 
