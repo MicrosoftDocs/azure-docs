@@ -1,5 +1,5 @@
 ---
-title: Learn about Azure Image Builder (preview)
+title: Learn more about Azure Image Builder (preview)
 description: Learn more about Azure Image Builder for building VM images in Azure.
 author: cynthn
 ms.author: cynthn
