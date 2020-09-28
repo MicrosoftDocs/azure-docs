@@ -13,7 +13,7 @@ ms.custom: monitoring
 
 # Azure Storage monitoring data reference
 
-See [Monitoring Azure Storage](monitor-storage.md) for details on collecting and analyzing monitoring data for Azure Storage.
+See [Monitoring Azure Storage](monitor-blob-storage.md) for details on collecting and analyzing monitoring data for Azure Storage.
 
 ## Metrics
 
