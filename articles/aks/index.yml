@@ -84,7 +84,19 @@ landingContent:
             url: tutorial-kubernetes-app-update.md
           - text: 7. Upgrade Kubernetes in AKS
             url: tutorial-kubernetes-upgrade-cluster.md
-
+  # Card
+  - title: Best practices
+    linkLists:
+      - linkListType: concept
+        links:
+            - text: Overview
+              url: best-practices.md
+            - text: Baseline architecture for an AKS cluster
+              url: /azure/architecture/reference-architectures/containers/aks/secure-baseline-aks/
+            - text: AKS solution guidance
+              url: /azure/architecture/reference-architectures/containers/aks-start-here?bc=%2fazure%2faks%2fbreadcrumb%2ftoc.json&toc=%2fazure%2faks%2ftoc.json
+            - text: Checking for best practices
+              url: kube-advisor-tool.md
     # Card
   - title: Build your skills with Microsoft Learn
     linkLists:
