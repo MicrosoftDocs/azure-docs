@@ -17,7 +17,7 @@ ms.author: negust     # Your microsoft.com email alias
 Linking a Synapse workspace to an Azure ML workspace allows you to leverage Azure ML from various experiences in Synapse.
 Examples of experiences that this linking to an Azure ML workspace enables:
 
-* Run your Azure Machine Learning pipelines as a step in your Synapse pipelines. [Learn more about using Azure ML in pipelines](https://docs.microsoft.com/en-us/azure/data-factory/transform-data-machine-learning-service)
+* Run your Azure Machine Learning pipelines as a step in your Synapse pipelines. [Learn more about using Azure ML in pipelines](/azure/data-factory/transform-data-machine-learning-service.md)
 
 * Enrich your data with predictions by bringing an ML model from the Azure ML model registry and score the model in Synapse SQL pools. [Learn more about the Synapse model scoring experience](TODO)
 
