@@ -11,9 +11,9 @@
   - name: Release notes
     href: release-notes.md
 - name: Quickstarts
-  expanded: true
   items:
   - name: Get Started
+    expanded: true
     items: 
     - name: Introduction
       href: get-started.md
@@ -51,16 +51,16 @@
     href: quickstart-power-bi.md
 - name: Tutorials
   items:
-  - name: Data Scientist
-    items:
-  - name: Data Analyst
-    items:
+  # - name: Data Scientist
+  #   items:
+  # - name: Data Analyst
+  #   items:
 - name: Samples
   href: https://github.com/Azure-Samples/Synapse
 - name: Concepts
   items:
-  - name: Workspace
-    items:
+  # - name: Workspace
+  #   items:
   - name: Security
     items:
     - name: Security baseline
@@ -115,15 +115,13 @@
     #       href: ../sql-database/sql-database-threat-detection-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     #     - name: Auditing
     #       href: ../sql-database/sql-database-auditing.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-  - name: Integration and orchestration
-    items:
-  - name: Apache Spark
-    items:
-    - name: Overview
-      items:
-  - name: Synapse SQL
-    items: 
-  - name: Synapse Link
+  # - name: Integration and orchestration
+  #   items:
+  # - name: Apache Spark
+  #   items:
+  # - name: Synapse SQL
+  #   items: 
+  # - name: Synapse Link
     items:
 - name: Workspace
   items:
@@ -395,6 +393,22 @@
         href: sql/create-use-external-tables.md
       - name: Store query results to storage
         href: sql/create-external-table-as-select.md
+    - name: Connect tools to Synapse workspaces
+      items:
+      - name: Overview
+        href: sql/connect-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      - name: Query with Azure Data Studio
+        href: sql/get-started-azure-data-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      - name: Connection strings
+        href: sql/connection-strings.md
+      - name: Query with sqlcmd
+        href: sql/get-started-connect-sqlcmd.md
+      - name: Query with SSMS
+        href: sql/get-started-ssms.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      - name: Query with Visual Studio
+        href: sql/get-started-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      - name: Connect to Power BI Desktop
+        href: sql/get-started-power-bi-professional.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
 - name: Apache Spark
   items:
   - name: Overview
@@ -553,42 +567,6 @@
       items:
       - name: Pipeline runs
         href: monitoring/how-to-monitor-pipeline-runs.md
-- name: How-to guides
-  items:
-  - name: Secure
-    items:
-    - name: Manage access control 
-      items:
-      - name: Set up permissions for Azure Synapse workspace managed Identity
-        href: security/how-to-grant-workspace-managed-identity-permissions.md
-      - name: Set up access control
-        href: security/how-to-set-up-access-control.md
-    - name: Manage private endpoints
-      items:
-      - name: Set up Managed private endpoints to data sources
-        href: security/how-to-create-managed-private-endpoints.md
-      - name: Connect to Azure Synapse workspace with private endpoints
-        href: security/how-to-connect-to-workspace-with-private-links.md
-      - name: Provision and secure a linked service with Managed Vnet
-        href: ./data-integration/linked-service.md
-  - name: Manage and monitor
-    items:
-  - name: Ingest and prepare data
-    items:
-    - name: Into the data warehouse
-      items:
-      - name: Synapse SQL
-        items:
-      - name: Apache Spark
-        items:
-  - name: Transform & analyze data
-    items:
-    - name: Analyze arrays and nested structures
-      href: how-to-analyze-complex-schema.md
-    - name: Synapse Link
-      items:
-    - name: Synapse SQL
-      items:
     - name: Data Flow and Data Ingest
       items:
       - name: Transformation overview 
@@ -631,8 +609,6 @@
         href: ../data-factory/data-flow-unpivot.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Window
         href: ../data-factory/data-flow-window.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-  - name: Integrate and Orchestrate
-    items:
     - name: Author
       items:
       - name: Visually author data factories
@@ -968,24 +944,44 @@
         href: ../data-factory/copy-data-tool-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Self-hosted Integration Runtimes troubleshooting
         href: ../data-factory/self-hosted-integration-runtime-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-  - name: Connect tools to Synapse workspaces
+- name: How-to guides
+  items:
+  - name: Secure
     items:
-    - name: Synapse SQL 
+    - name: Manage access control 
       items:
-      - name: Overview
-        href: sql/connect-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-      - name: Query with Azure Data Studio
-        href: sql/get-started-azure-data-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-      - name: Connection strings
-        href: sql/connection-strings.md
-      - name: Query with sqlcmd
-        href: sql/get-started-connect-sqlcmd.md
-      - name: Query with SSMS
-        href: sql/get-started-ssms.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-      - name: Query with Visual Studio
-        href: sql/get-started-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-      - name: Connect to Power BI Desktop
-        href: sql/get-started-power-bi-professional.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      - name: Set up permissions for Azure Synapse workspace managed Identity
+        href: security/how-to-grant-workspace-managed-identity-permissions.md
+      - name: Set up access control
+        href: security/how-to-set-up-access-control.md
+    - name: Manage private endpoints
+      items:
+      - name: Set up Managed private endpoints to data sources
+        href: security/how-to-create-managed-private-endpoints.md
+      - name: Connect to Azure Synapse workspace with private endpoints
+        href: security/how-to-connect-to-workspace-with-private-links.md
+      - name: Provision and secure a linked service with Managed Vnet
+        href: ./data-integration/linked-service.md
+  # - name: Manage and monitor
+  #   items:
+  # - name: Ingest and prepare data
+  #   items:
+  #   - name: Into the data warehouse
+  #     items:
+  #     - name: Synapse SQL
+  #       items:
+  #     - name: Apache Spark
+  #       items:
+  - name: Transform & analyze data
+    items:
+    - name: Analyze arrays and nested structures
+      href: how-to-analyze-complex-schema.md
+    # - name: Synapse Link
+    #   items:
+    # - name: Synapse SQL
+    #   items:
+  # - name: Integrate and Orchestrate
+  #   items:
 - name: Reference
   items:
   - name: Azure CLI
