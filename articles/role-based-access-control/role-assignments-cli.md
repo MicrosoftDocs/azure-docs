@@ -56,7 +56,7 @@ az ad sp list --display-name "{spName}" --query [].objectId --output tsv
         
 ### Step 2: Find the appropriate role
 
-Permissions are grouped together into roles. You can select from a list of several [Azure built-in roles](built-in-roles.md) or you can use your own custom roles. It's a best practice to grant access with least privilege, so avoid assigning a broader role.
+Permissions are grouped together into roles. You can select from a list of several [Azure built-in roles](built-in-roles.md) or you can use your own custom roles. It's a best practice to grant access with the least privilege that is needed, so avoid assigning a broader role.
 
 To list roles and get the unique role ID, you can use [az role definition list](/cli/azure/role/definition#az_role_definition_list).
 
@@ -74,7 +74,7 @@ For more information, see [List Azure role definitions](role-definitions-list.md
  
 ### Step 3: Identify the needed scope
 
-Azure provides four levels of scope: resource, [resource group](../azure-resource-manager/management/overview.md#resource-groups), subscription, and [management group](../governance/management-groups/overview.md). It's a best practice to grant access with least privilege, so avoid assigning a broader role at a broader scope.
+Azure provides four levels of scope: resource, [resource group](../azure-resource-manager/management/overview.md#resource-groups), subscription, and [management group](../governance/management-groups/overview.md). It's a best practice to grant access with the least privilege that is needed, so avoid assigning a role at a broader scope.
 
 **Resource scope**
 
