@@ -277,7 +277,19 @@ By setting the `vnetOption` parameter value to either `new` or `existing`, you a
 If your associated resources are not behind a virtual network, you can set the **privateEndpointType** parameter to `AutoAproval` or `ManualApproval` to deploy the workspace behind a private endpoint. This can be done for both new and existing workspaces. When updating an existing workspace, fill in the template parameters with the information from the existing workspace.
 
 > [!IMPORTANT]
-> Using Azure Private Link to create a private endpoint for Azure Machine Learning workspace is currently in public preview. This functionality is only available in the **US East**, **US South Central**, and **US West 2** regions. 
+> Using Azure Private Link to create a private endpoint for Azure Machine Learning workspace is currently in public preview. This functionality is only available in the following regions:
+>
+> * **East US**
+> * **South Central US**
+> * **West US**
+> * **West US 2**
+> * **Central Canada**
+> * **Southeast Asia**
+> * **Japan East**
+> * **North Europe**
+> * **East Australia**
+> * **UK South**
+>
 > This preview is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 

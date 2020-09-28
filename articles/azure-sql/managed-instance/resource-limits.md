@@ -10,7 +10,7 @@ ms.devlang:
 ms.topic: conceptual
 author: bonova
 ms.author: bonova
-ms.reviewer: carlrab, jovanpop, sachinp, sstein
+ms.reviewer: sstein, jovanpop, sachinp
 ms.date: 09/14/2020
 ---
 # Overview of Azure SQL Managed Instance resource limits

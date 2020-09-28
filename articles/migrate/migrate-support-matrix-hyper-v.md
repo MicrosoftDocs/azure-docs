@@ -41,7 +41,7 @@ To set up Hyper-V VM assessment, you create an Azure Migrate project, and add th
 | :----------------------------- | :------------------- |
 | **Operating system** | All operating systems can be assessed for migration.  |
 | **Integration Services**       | [Hyper-V Integration Services](/virtualization/hyper-v-on-windows/reference/integration-services) must be running on VMs that you assess, in order to capture operating system information. |
-
+| **Storage** | Local Disk, DAS, JBOD, Storage Spaces, CSV, SMB. These Hyper-V Host storage on which VHD/VHDX are stored are supported. <br/> IDE and SCSI virtual controllers are supported| 
 
 ## Azure Migrate appliance requirements
 
