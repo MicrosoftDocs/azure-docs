@@ -41,9 +41,9 @@ To use this Azure Databricks Delta Lake connector, you need to set up a cluster 
 
 The Databricks cluster needs to have access to Azure Blob or Azure Data Lake Storage Gen2 account, both the storage container/file system used for source/sink/staging and the container/file system where you want to write the Delta Lake tables.
 
-- To use **Azure Data Lake Storage Gen2**, you can configure a **service principal** or **storage account access key** on the Databricks cluster as part of the Apache Spark configuration. Follow the steps in [Access directly with service principal](https://docs.microsoft.com/azure/databricks/data/data-sources/azure/azure-datalake-gen2.md#--access-directly-with-service-principal-and-oauth-20) or [Access directly using the storage account access key](https://docs.microsoft.com/azure/databricks/data/data-sources/azure/azure-datalake-gen2.md#--access-directly-using-the-storage-account-access-key).
+- To use **Azure Data Lake Storage Gen2**, you can configure a **service principal** or **storage account access key** on the Databricks cluster as part of the Apache Spark configuration. Follow the steps in [Access directly with service principal](https://docs.microsoft.com/azure/databricks/data/data-sources/azure/azure-datalake-gen2#--access-directly-with-service-principal-and-oauth-20) or [Access directly using the storage account access key](https://docs.microsoft.com/azure/databricks/data/data-sources/azure/azure-datalake-gen2#--access-directly-using-the-storage-account-access-key).
 
-- To use **Azure Blob storage**, you can configure a **storage account access key** or **SAS token** on the Databricks cluster as part of the Apache Spark configuration. Follow the steps in [Access Azure Blob storage using the RDD API](https://docs.microsoft.com/azure/databricks/data/data-sources/azure/azure-storage.md#access-azure-blob-storage-using-the-rdd-api).
+- To use **Azure Blob storage**, you can configure a **storage account access key** or **SAS token** on the Databricks cluster as part of the Apache Spark configuration. Follow the steps in [Access Azure Blob storage using the RDD API](https://docs.microsoft.com/azure/databricks/data/data-sources/azure/azure-storage#access-azure-blob-storage-using-the-rdd-api).
 
 During copy activity execution, if the cluster you configured has been terminated, Data Factory automatically starts it. If you author pipeline using Data Factory authoring UI, for operations like data preview, you need to have a live cluster, Data Factory won't start the cluster on your behalf.
 
@@ -367,9 +367,9 @@ To use this feature, create an [Azure Blob storage linked service](connector-azu
 ]
 ```
 
-# Monitoring
+## Monitoring
 
-Azure Data Factory provides the same [copy activity monitoring experience](copy-activity-monitoring.md) as other connectors. In addition, because loading data from/to delta lake is running on your Azure Databricks cluster, you can further [view detailed cluster logs](https://docs.microsoft.com/azure/databricks/clusters/clusters-manage#--view-cluster-logs) and [monitor performance](https://docs.microsoft.com/en-us/azure/databricks/clusters/clusters-manage#--monitor-performance).
+Azure Data Factory provides the same [copy activity monitoring experience](copy-activity-monitoring.md) as other connectors. In addition, because loading data from/to delta lake is running on your Azure Databricks cluster, you can further [view detailed cluster logs](https://docs.microsoft.com/azure/databricks/clusters/clusters-manage#--view-cluster-logs) and [monitor performance](https://docs.microsoft.com/azure/databricks/clusters/clusters-manage#--monitor-performance).
 
 ## Lookup activity properties
 
