@@ -117,7 +117,7 @@
     #       href: ../sql-database/sql-database-auditing.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
   - name: Integration and orchestration
     items:
-  - name: Spark
+  - name: Apache Spark
     items:
     - name: Overview
       items:
@@ -327,6 +327,74 @@
         href: ./sql-data-warehouse/sql-data-warehouse-concept-resource-utilization-query-activity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json 
   - name: How-to guides
     items:
+    - name: Manage and monitor
+      items:
+      - name: Monitor Gen2 cache
+        href: ./sql-data-warehouse/sql-data-warehouse-how-to-monitor-cache.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      - name: Monitor your workload - DMVs 
+        href: ./sql-data-warehouse/sql-data-warehouse-manage-monitor.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      - name: Monitor your workload - portal 
+        href: ./sql-data-warehouse/sql-data-warehouse-monitor-workload-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      - name: Restore your data warehouse
+        href: ./sql-data-warehouse/backup-and-restore.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      - name: Manage workloads
+        items:
+        - name: Analyze your workload
+          href: ./sql-data-warehouse/analyze-your-workload.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Configure workload importance
+          href: ./sql-data-warehouse/sql-data-warehouse-how-to-configure-workload-importance.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Manage and monitor workload importance
+          href: ./sql-data-warehouse/sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      - name: Upgrade to Gen2
+        href: ./sql-data-warehouse/upgrade-to-latest-generation.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+    - name: Ingest and prepare data
+      items:
+      - name: Into the data warehouse
+        items:
+        - name: Azure Data Lake Storage
+          href: ./sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Data Factory
+          href: /azure/data-factory/load-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Azure Databricks
+          href: /azure/azure-databricks/databricks-extract-load-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: SSIS
+          href: /sql/integration-services/load-data-to-sql-data-warehouse
+        - name: New York taxi cab data
+          href: ./sql-data-warehouse/load-data-from-azure-blob-storage-using-copy.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Contoso public data
+          href: ./sql-data-warehouse/sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Load WideWorldImporters
+          href: ./sql-data-warehouse/load-data-wideworldimportersdw.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: With the copy activity 
+          href: data-integration/data-integration-sql-pool.md
+      - name: Into the Data Lake
+        items:
+        - name: With the copy activity
+          href: data-integration/data-integration-data-lake.md
+    - name: Query external data
+      items:
+      - name: Overview
+        href: sql/query-data-storage.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      - name: Query CSV files
+        href: sql/query-single-csv-file.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      - name: Query Parquet files
+        href: sql/query-parquet-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      - name: Query JSON files
+        href: sql/query-json-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      - name: Query Azure Cosmos DB
+        href: sql/query-cosmos-db-analytical-store.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      - name: Query nested types
+        href: sql/query-parquet-nested-types.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      - name: Query folders and multiple files
+        href: sql/query-folders-multiple-csv-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      - name: Query partitioned files using file metadata
+        href: sql/query-specific-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      - name: Create and use views
+        href: sql/create-use-views.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      - name: Create and use external tables
+        href: sql/create-use-external-tables.md
+      - name: Store query results to storage
+        href: sql/create-external-table-as-select.md
 - name: Apache Spark
   items:
   - name: Overview
@@ -391,6 +459,18 @@
         href: ./spark/apache-spark-history-server.md
   - name: How-to guides
     items:
+    - name: Manage and monitor
+      items:
+      - name: Apache Spark applications
+        href: monitoring/how-to-monitor-spark-applications.md
+      - name: Apache Spark application details
+        href: monitoring/apache-spark-applications.md
+    - name: Ingest and prepare data
+      items:
+      - name: Into the data warehouse
+        items:
+        - name: Import and export data with Apache Spark
+          href: ./spark/synapse-spark-sql-pool-import-export.md
 - name: Synapse link
   items:
   - name: Overview
@@ -415,6 +495,16 @@
     items:  
   - name: How-to guides
     items:
+    - name: Configure Synapse Link
+      href: ../cosmos-db/configure-synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+    - name: Connect to Azure Synapse Link for Cosmos DB
+      href: ./synapse-link/how-to-connect-synapse-link-cosmos-db.md
+    - name: Query Azure Cosmos DB analytical store with Apache Spark
+      href: ./synapse-link/how-to-query-analytical-store-spark.md
+    - name: Copy data from Synapse Link into a SQL pool using Apache Spark
+      href: ./synapse-link/how-to-copy-to-sql-pool.md  
+    - name: Query Azure Cosmos DB analytical store with SQL on-demand
+      href: sql/query-cosmos-db-analytical-store.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
 - name: Integrate
   items:
   - name: Overview
@@ -459,6 +549,10 @@
         href: ./data-integration/concepts-data-factory-differences.md
   - name: How-to guides
     items:
+    - name: Manage and monitor
+      items:
+      - name: Pipeline runs
+        href: monitoring/how-to-monitor-pipeline-runs.md
 - name: How-to guides
   items:
   - name: Secure
@@ -479,104 +573,22 @@
         href: ./data-integration/linked-service.md
   - name: Manage and monitor
     items:
-    - name: Pipeline runs
-      href: monitoring/how-to-monitor-pipeline-runs.md
-    - name: Apache Spark applications
-      href: monitoring/how-to-monitor-spark-applications.md
-    - name: Apache Spark application details
-      href: monitoring/apache-spark-applications.md
-    - name: Synapse SQL
-      items:
-      - name: Monitor Gen2 cache
-        href: ./sql-data-warehouse/sql-data-warehouse-how-to-monitor-cache.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-      - name: Monitor your workload - DMVs 
-        href: ./sql-data-warehouse/sql-data-warehouse-manage-monitor.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-      - name: Monitor your workload - portal 
-        href: ./sql-data-warehouse/sql-data-warehouse-monitor-workload-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-      - name: Restore your data warehouse
-        href: ./sql-data-warehouse/backup-and-restore.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-      - name: Manage workloads
-        items:
-        - name: Analyze your workload
-          href: ./sql-data-warehouse/analyze-your-workload.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: Configure workload importance
-          href: ./sql-data-warehouse/sql-data-warehouse-how-to-configure-workload-importance.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: Manage and monitor workload importance
-          href: ./sql-data-warehouse/sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-      - name: Upgrade to Gen2
-        href: ./sql-data-warehouse/upgrade-to-latest-generation.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
   - name: Ingest and prepare data
     items:
     - name: Into the data warehouse
       items:
-      - name: SQL
+      - name: Synapse SQL
         items:
-        - name: Azure Data Lake Storage
-          href: ./sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: Data Factory
-          href: /azure/data-factory/load-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: Azure Databricks
-          href: /azure/azure-databricks/databricks-extract-load-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: SSIS
-          href: /sql/integration-services/load-data-to-sql-data-warehouse
-        - name: New York taxi cab data
-          href: ./sql-data-warehouse/load-data-from-azure-blob-storage-using-copy.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: Contoso public data
-          href: ./sql-data-warehouse/sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: Load WideWorldImporters
-          href: ./sql-data-warehouse/load-data-wideworldimportersdw.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: With the copy activity 
-          href: data-integration/data-integration-sql-pool.md
-      - name: Spark
+      - name: Apache Spark
         items:
-        - name: Import and export data with Apache Spark
-          href: ./spark/synapse-spark-sql-pool-import-export.md
-    - name: Into the Data Lake
-      items:
-       - name: With the copy activity
-         href: data-integration/data-integration-data-lake.md
   - name: Transform & analyze data
     items:
     - name: Analyze arrays and nested structures
       href: how-to-analyze-complex-schema.md
     - name: Synapse Link
       items:
-      - name: Configure Synapse Link
-        href: ../cosmos-db/configure-synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-      - name: Connect to Azure Synapse Link for Cosmos DB
-        href: ./synapse-link/how-to-connect-synapse-link-cosmos-db.md
-      - name: Query Azure Cosmos DB analytical store with Apache Spark
-        href: ./synapse-link/how-to-query-analytical-store-spark.md
-      - name: Copy data from Synapse Link into a SQL pool using Apache Spark
-        href: ./synapse-link/how-to-copy-to-sql-pool.md  
-      - name: Query Azure Cosmos DB analytical store with SQL on-demand
-        href: sql/query-cosmos-db-analytical-store.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Synapse SQL
       items:
-      - name: Query external data
-        items:
-        - name: Overview
-          href: sql/query-data-storage.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: Query CSV files
-          href: sql/query-single-csv-file.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: Query Parquet files
-          href: sql/query-parquet-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: Query JSON files
-          href: sql/query-json-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: Query Azure Cosmos DB
-          href: sql/query-cosmos-db-analytical-store.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: Query nested types
-          href: sql/query-parquet-nested-types.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: Query folders and multiple files
-          href: sql/query-folders-multiple-csv-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: Query partitioned files using file metadata
-          href: sql/query-specific-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: Create and use views
-          href: sql/create-use-views.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: Create and use external tables
-          href: sql/create-use-external-tables.md
-        - name: Store query results to storage
-          href: sql/create-external-table-as-select.md
     - name: Data Flow and Data Ingest
       items:
       - name: Transformation overview 
