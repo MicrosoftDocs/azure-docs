@@ -115,11 +115,13 @@ To recover from this issue, follow these steps:
 
 1. Delete the Azure Arc enabled Kubernetes resource of concern in the Azure portal.
 2. Run the following commands on your machine:
+    
     ```console
     kubectl delete ns azure-arc
     kubectl delete clusterrolebinding azure-arc-operator
     kubectl delete secret sh.helm.release.v1.azure-arc.v1
     ```
+
 3. [Install a stable version](https://helm.sh/docs/intro/install/) of Helm 3 on your machine instead of the release candidate version.
 4. Run the `az connectedk8s connect` command with the appropriate values to connect the cluster to Azure Arc.
 
