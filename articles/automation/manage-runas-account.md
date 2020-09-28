@@ -220,7 +220,7 @@ Some configuration items necessary for a Run As or Classic Run As account might 
 
 For such misconfiguration instances, the Automation account detects the changes and displays a status of *Incomplete* on the Run As Accounts properties pane for the account.
 
-![Incomplete Run As account configuration status](media/manage-runas-account/automation-account-runas-incomplete-config.png)
+![Incomplete Run As account configuration status](media/manage-runas-account/automation-account-runas-config-incomplete.png)
 
 When you select the Run As account, the account properties pane displays the following error message:
 
