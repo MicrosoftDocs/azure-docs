@@ -63,7 +63,10 @@ The model ID is stored in a device twin property as the following screenshot sho
 
 :::image type="content" source="media/concepts-components/twin-model-id.png" alt-text="Model ID in digital twin property":::
 
-A DTDL model without components is a useful simplification for a device with a single set of telemetry, properties, and commands. A model that doesn't use components makes it easy to migrate an existing device to be an IoT Plug and Play device - you create a DTDL model that describes your actual device without the need to define any components.
+A DTDL model without components is a useful simplification for a device or IoT Edge module with a single set of telemetry, properties, and commands. A model that doesn't use components makes it easy to migrate an existing device or module to be an IoT Plug and Play device or module - you create a DTDL model that describes your actual device or module without the need to define any components.
+
+> [!TIP]
+> A module can be a device [module](../iot-hub/iot-hub-devguide-module-twins.md or an [IoT Edge module](../iot-edge/about-iot-edge.md).
 
 ## Multiple components
 
@@ -112,5 +115,6 @@ This model has three components defined in the contents section -  two `Thermost
 
 Now that you've learned about model components, here are some additional resources:
 
+- [Install and use the DTDL authoring tools](howto-use-dtdl-authoring-tools.md)
 - [Digital Twins Definition Language v2 (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl)
 - [Model repositories](./concepts-model-repository.md)

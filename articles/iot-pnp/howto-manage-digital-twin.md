@@ -1,6 +1,6 @@
 ---
 title: How to manage IoT Plug and Play digital twins
-description: How to manage IoT Plug and Play Preview device using digital twin APIs
+description: How to manage IoT Plug and Play device using digital twin APIs
 author: prashmo
 ms.author: prashmo
 ms.date: 07/20/2020
@@ -13,7 +13,7 @@ services: iot-pnp
 
 IoT Plug and Play supports **Get digital twin** and **Update digital twin** operations to manage digital twins. You can use either the [REST APIs](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin) or one of the [service SDKs](libraries-sdks.md).
 
-At the time of writing, the digital twin API version for public preview is `2020-05-31-preview`.
+At the time of writing, the digital twin API version is `2020-09-30`.
 
 ## Update a digital twin
 
