@@ -16,7 +16,7 @@ For a high-level look at Speech Recognition concepts, see the [overview](speaker
 
 ## Prerequisites
 
-This article assumes that you have an Azure account and Speech service subscription. If you don't have an account and subscription, [try the Speech service for free](overview.md#try-the-speech-service-for-free).
+This article assumes that you have an Azure account and Speech service subscription. If you don't have an account and subscription, [try the Speech service for free](../../../overview.md#try-the-speech-service-for-free).
 
 > [!IMPORTANT]
 > Speaker Recognition is currently *only* supported in Azure Speech resources created in the `westus` region.
