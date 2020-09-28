@@ -219,6 +219,8 @@ To show only failed tests in Connection Monitor (Preview) where the destination 
 
 To know reason  for failure of a Connection monitor or test group or test, click the column named reason.  This tells which threshold ( checks failed % or  RTT) was breached and related diagnostic messages 
 
+   ![Screenshot showing reason of failue for a connection monitor, test or test group](./media/connection-monitor-2-preview/cm-reason-of-failure.png)
+
 To view the trends in RTT and the percentage of failed checks for a connection monitor:
 1. Select the connection monitor that you want to investigate.
 
@@ -232,6 +234,8 @@ To view the trends in RTT and the percentage of failed checks for a connection m
     1. Tabs for Test Groups , Sources, Destinations and Test Configurations- Lists test groups, sources or destinations in the Connection Monitor. Check tests  failed, aggregate RTT and checks failed % values.  You can also go back in time to view data. 
     1. Issues - Hop level issues for each test in the Connection Monitor. 
 
+   ![Screenshot showing metrics for a connection monitor, displayed by test group part 2](./media/connection-monitor-2-preview/cm-drill-landing-2.png)
+
 1. You can
     1. Click View all tests - to view all tests in the Connection Monitor
     1. Click View all test groups, test configurations, sources and destinations - to view  details specific to each.  
@@ -239,6 +243,9 @@ To view the trends in RTT and the percentage of failed checks for a connection m
 
 1. From the view all tests view, you can:
     1. select tests and click compare.
+  
+   ![Screenshot showing metrics for a connection monitor, displayed by test group part 2](./media/connection-monitor-2-preview/cm-compare-test.png)
+  
     1. Use cluster to expand compound resources like VNET, Subnets to its child resources
     1. View topology for any tests by clicking topology.
 
@@ -249,6 +256,8 @@ To view the trends in RTT and the percentage of failed checks for a test group:
 
 To view the trends in RTT and the percentage of failed checks for a test:
 1. Select the test that you want to investigate. You will see the network topology and the end to end trend charts for checks failed % and round trip time. To see the identified issues, in the topology, select any hop in the path. (These hops are Azure resources.) This functionality isn't currently available for on-premises networks
+
+   ![Screenshot showing metrics for a connection monitor, displayed by test group part 2](./media/connection-monitor-2-preview/cm-test-topology.png)
 
 #### Log queries in Log Analytics
 
