@@ -32,7 +32,7 @@ You can assign a role to a user, group, service principal, or managed identity. 
 
 **User**
 
-To get the object ID for an Azure AD user, you can use [az ad user show](/cli/azure/ad/user#az_ad_user_show).
+For an Azure AD user, get the user principal name, such as *patlong\@contoso.com* or the user object ID. To get the object ID, you can use [az ad user show](/cli/azure/ad/user#az_ad_user_show).
 
 ```azurecli
 az ad user show --id "{email}" --query objectId --output tsv
@@ -40,7 +40,7 @@ az ad user show --id "{email}" --query objectId --output tsv
 
 **Group**
 
-To get the object ID for an Azure AD group, you can use [az ad group show](/cli/azure/ad/group#az_ad_group_show) or [az ad group list](/cli/azure/ad/group#az_ad_group_list).
+For an Azure AD group, you need the group object ID. To get the object ID, you can use [az ad group show](/cli/azure/ad/group#az_ad_group_show) or [az ad group list](/cli/azure/ad/group#az_ad_group_list).
 
 ```azurecli
 az ad group show --group "{groupName}" --query objectId --output tsv
@@ -48,10 +48,11 @@ az ad group show --group "{groupName}" --query objectId --output tsv
 
 **Application**
 
-To get the object ID for an Azure AD service principal (identity used by an application), you can use [az ad sp list](/cli/azure/ad/sp#az_ad_sp_list). For a service principal, use the object ID and **not** the application ID.
+For an Azure AD service principal (identity used by an application), you need the service principal object ID. To get the object ID, you can use [az ad sp list](/cli/azure/ad/sp#az_ad_sp_list). For a service principal, use the object ID and **not** the application ID.
 
 ```azurecli
-az ad sp list --display-name "{spName}" --query [].objectId --output tsv
+az ad sp list --all --query "[].{displayName:displayName, objectId:objectId}" --output tsv
+az ad sp list --display-name "{displayName}"
 ```
         
 ### Step 2: Find the appropriate role
