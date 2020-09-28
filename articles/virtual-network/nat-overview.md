@@ -47,7 +47,7 @@ All outbound traffic for the subnet is processed by NAT automatically without an
 
 NAT uses "port network address translation" (PNAT or PAT) and is recommended for most workloads. Dynamic or divergent workloads can be easily accommodated with on-demand outbound flow allocation. Extensive pre-planning, pre-allocation, and ultimately overprovisioning of outbound resources is avoided. SNAT port resources are shared and available across all subnets using a specific NAT gateway resource and are provided when needed.
 
-A public IP address attached to NAT provides up to 64,000 concurrent flows for UDP and TCP. You can start with a single IP address and scale up to 16  IP addresses using public IP addresses or public IP prefixes or both.  A NAT gateway resource will use all IP addresses associated with the resource for outbound connections from all subnets configured with the same NAT gateway resource.
+A public IP address attached to NAT provides up to 64,000 concurrent flows for UDP and TCP respectively. You can start with a single IP address and scale up to 16  IP addresses using public IP addresses or public IP prefixes or both.  A NAT gateway resource will use all IP addresses associated with the resource for outbound connections from all subnets configured with the same NAT gateway resource.
 
 NAT allows flows to be created from the virtual network to the Internet. Return traffic from the Internet is only allowed in response to an active flow.
 
