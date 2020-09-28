@@ -202,10 +202,7 @@ The following FQDN / application rules are required for AKS clusters that have t
 | `storage.googleapis.com` | **`HTTPS:443`** | This address is used to pull helm/tiller images |
 
 
-### Azure Policy (preview)
-
-> [!CAUTION]
-> Some of the features below are in preview.  The suggestions in this article are subject to change as the feature moves to public preview and future release stages.
+### Azure Policy
 
 #### Required FQDN / application rules 
 
@@ -216,7 +213,6 @@ The following FQDN / application rules are required for AKS clusters that have t
 | **`gov-prod-policy-data.trafficmanager.net`** | **`HTTPS:443`** | This address is used for correct operation of Azure Policy. (currently in preview in AKS) |
 | **`raw.githubusercontent.com`**               | **`HTTPS:443`** | This address is used to pull the built-in policies from GitHub to ensure correct operation of Azure Policy. (currently in preview in AKS) |
 | **`dc.services.visualstudio.com`**            | **`HTTPS:443`** | Azure Policy add-on that sends telemetry data to applications insights endpoint. |
-
 
 ## Restrict egress traffic using Azure firewall
 
@@ -764,7 +760,7 @@ Navigate to the Azure Firewall frontend IP address in a browser to validate conn
 You should see the AKS voting app. In this example, the Firewall public IP was `52.253.228.132`.
 
 
-![aks-vote](media/limit-egress-traffic/aks-vote.png)
+![Screenshot shows the A K S Voting App with buttons for Cats, Dogs, and Reset, and totals.](media/limit-egress-traffic/aks-vote.png)
 
 
 ### Clean up resources

@@ -47,9 +47,9 @@ You can assign users to administrative units in two ways.
 ### PowerShell
 
 ```powershell
-$administrativeunitObj = Get-AzureADAdministrativeUnit -Filter "displayname eq 'Test administrative unit 2'"
+$administrativeunitObj = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'Test administrative unit 2'"
 $UserObj = Get-AzureADUser -Filter "UserPrincipalName eq 'billjohn@fabidentity.onmicrosoft.com'"
-Add-AzureADAdministrativeUnitMember -ObjectId $administrativeunitObj.ObjectId -RefObjectId $UserObj.ObjectId
+Add-AzureADMSAdministrativeUnitMember -Id $administrativeunitObj.ObjectId -RefObjectId $UserObj.ObjectId
 ```
 
 In the above example, the cmdlet Add-AzureADAdministrativeUnitMember is used to add the user to the administrative unit. The object ID of the administrative unit where user is to be added and the object ID of the user who is to be added are taken as argument. The highlighted section may be changed as required for the specific environment.
@@ -61,7 +61,7 @@ Http request
 POST /administrativeUnits/{Admin Unit id}/members/$ref
 Request body
 {
-  "@odata.id":"https://graph.microsoft.com/beta/users/{id}"
+  "@odata.id":"https://graph.microsoft.com/v1.0/users/{id}"
 }
 ```
 
@@ -69,7 +69,7 @@ Example:
 
 ```http
 {
-  "@odata.id":"https://graph.microsoft.com/beta/users/johndoe@fabidentity.com"
+  "@odata.id":"https://graph.microsoft.com/v1.0/users/johndoe@fabidentity.com"
 }
 ```
 
@@ -90,13 +90,13 @@ In the Azure portal you can open a user's profile by:
 ### PowerShell
 
 ```powershell
-Get-AzureADAdministrativeUnit | where { Get-AzureADAdministrativeUnitMember -ObjectId $_.ObjectId | where {$_.ObjectId -eq $userObjId} }
+Get-AzureADMSAdministrativeUnit | where { Get-AzureADMSAdministrativeUnitMember -Id $_.ObjectId | where {$_.RefObjectId -eq $userObjId} }
 ```
 
 ### Microsoft Graph
 
 ```http
-https://graph.microsoft.com/beta/users//memberOf/$/Microsoft.Graph.AdministrativeUnit
+https://graph.microsoft.com/v1.0/users/{id}/memberOf/$/Microsoft.Graph.AdministrativeUnit
 ```
 
 ## Remove a single user from an AU
@@ -114,12 +114,12 @@ You can also remove a user in **Azure AD** > **Administrative units** by selecti
 ### PowerShell
 
 ```powershell
-Remove-AzureADAdministrativeUnitMember -ObjectId $auId -MemberId $memberUserObjId
+Remove-AzureADMSAdministrativeUnitMember -Id $auId -MemberId $memberUserObjId
 ```
 
 ### Microsoft Graph
 
-   https://graph.microsoft.com/beta/administrativeUnits/<adminunit-id>/members/<user-id>/$ref
+   https://graph.microsoft.com/v1.0/directory/administrativeUnits/{adminunit-id}/members/{user-id}/$ref
 
 ## Bulk remove more than one user
 
