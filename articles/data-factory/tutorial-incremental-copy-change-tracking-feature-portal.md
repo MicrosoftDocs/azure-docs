@@ -441,7 +441,7 @@ In this step, you create a pipeline with the following activities, and run it pe
     ![Screenshot shows pipeline runs for a data factory including your pipeline.](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-pipeline-runs.png)
 2. To view activity runs associated with the pipeline run, click the **View Activity Runs** link in the **Actions** column. There is only one activity in the pipeline, so you see only one entry in the list. To switch back to the pipeline runs view, click **Pipelines** link at the top.
 
-    ![Screenshot shows pipeline runs for a data factory.](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-activity-runs.png)
+    ![Screenshot shows pipeline runs for a data factory with several marked as succeeded.](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-activity-runs.png)
 
 
 ### Review the results

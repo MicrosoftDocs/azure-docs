@@ -630,7 +630,7 @@ Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -Resource
     ![Screenshot shows pipeline runs for a data factory including your pipeline.](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-pipeline-runs-6.png)    
 2. When you click the link in the **Actions** column, you see the following page that shows all the **activity runs** for the pipeline.
 
-    ![Screenshot shows pipeline runs for a data factory.](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-activity-runs-7.png)
+    ![Screenshot shows pipeline runs for a data factory with several marked as succeeded.](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-activity-runs-7.png)
 3. To switch back to the **Pipeline runs** view, click **Pipelines** as shown in the image.
 
 ### Review the results
