@@ -2,7 +2,7 @@
 title: Save costs with Azure VMware Solution reserved instance
 description: Learn how to buy a reserved instance for Azure VMware Solution.
 ms.topic: how-to
-ms.date: 10/2/2020
+ms.date: 10/02/2020
 ---
 
 # Save costs with Azure VMware Solution
