@@ -12,7 +12,7 @@ In this quickstart, you learn basic design patterns for Speaker Recognition usin
 * Speaker identification to identify a voice sample among a group of voices
 * Deleting voice profiles
 
-For a high-level look at Speech Recognition concepts, see the [overview](speaker-recognition-overview.md) article.
+For a high-level look at Speech Recognition concepts, see the [overview](../../../speaker-recognition-overview.md) article.
 
 ## Prerequisites
 
