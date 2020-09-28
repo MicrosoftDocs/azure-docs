@@ -25,7 +25,7 @@ A common challenge for developers is the management of secrets and credentials t
 
 What can a managed identity be used for?
 
-    > [!VIDEO https://www.youtube.com/embed/5lqayO_oeEo]
+   > [!VIDEO https://youtu.be/embed/5lqayO_oeEo]
 
 Here are some of the benefits of using Managed identities:
 
