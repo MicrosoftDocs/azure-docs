@@ -25,6 +25,10 @@ keywords: speech to text, speech to text software
 [!INCLUDE [C++ Basics include](includes/how-to/speech-to-text-basics/speech-to-text-basics-cpp.md)]
 ::: zone-end
 
+::: zone pivot="programming-language-go"
+[!INCLUDE [Go include](includes/how-to/speech-to-text-basics/speech-to-text-basics-go.md)]
+::: zone-end
+
 ::: zone pivot="programming-language-java"
 [!INCLUDE [Java Basics include](includes/how-to/speech-to-text-basics/speech-to-text-basics-java.md)]
 ::: zone-end
@@ -39,10 +43,6 @@ keywords: speech to text, speech to text software
 
 ::: zone pivot="programming-language-python"
 [!INCLUDE [Python Basics include](./includes/how-to/speech-to-text-basics/speech-to-text-basics-python.md)]
-::: zone-end
-
-::: zone pivot="programming-language-go"
-[!INCLUDE [Go include](includes/how-to/speech-to-text-basics/speech-to-text-basics-go.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-spx"

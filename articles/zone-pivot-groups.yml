@@ -675,14 +675,14 @@ groups:
     title: C#
   - id: programming-language-cpp
     title: C++
+  - id: programming-language-go
+    title: Go
   - id: programming-language-java
     title: Java
   - id: programming-language-javascript
     title: JavaScript
   - id: programming-languages-objectivec-swift
     title: Objective-C/Swift
-  - id: programming-language-go
-    title: Go
   - id: programming-language-python
     title: Python
   - id: programming-language-spx
