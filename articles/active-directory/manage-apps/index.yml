@@ -36,13 +36,25 @@ landingContent:
         links:
           - text: W
             url: w
-  - title: Configure single sign-on
+    - title: Manage apps
+    linkLists:
+      - linkListType: learn
+        links:
+          - text: W
+            url: w
+  - title: Understand single sign-on
     linkLists:
       - linkListType: learn
         links:
           - text: W
             url: w
   - title: Understand app consent and permissions
+    linkLists:
+      - linkListType: learn
+        links:
+          - text: S
+            url: s
+    - title: Migrate apps
     linkLists:
       - linkListType: learn
         links:
