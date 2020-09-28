@@ -236,17 +236,17 @@ To view the trends in RTT and the percentage of failed checks for a connection m
     :::image type="content" source="./media/connection-monitor-2-preview/cm-drill-landing-2.png" alt-text="Screenshot showing metrics for a connection monitor, displayed by test group part 2" lightbox="./media/connection-monitor-2-preview/cm-drill-landing-2.png":::
 
 1. You can
-    1. Click View all tests - to view all tests in the Connection Monitor
-    1. Click View all test groups, test configurations, sources and destinations - to view  details specific to each. 
-    1. Choose a test group, test configuration, source or destination - to view all tests in the entity.
+    * Click View all tests - to view all tests in the Connection Monitor
+    * Click View all test groups, test configurations, sources and destinations - to view  details specific to each. 
+    * Choose a test group, test configuration, source or destination - to view all tests in the entity.
 
 1. From the view all tests view, you can:
-    1. Select tests and click compare.
+    * Select tests and click compare.
     
     :::image type="content" source="./media/connection-monitor-2-preview/cm-compare-test.png" alt-text="Screenshot showing comparison of 2 tests" lightbox="./media/connection-monitor-2-preview/cm-compare-test.png":::
     
-    1. Use cluster to expand compound resources like VNET, Subnets to its child resources
-    1. View topology for any tests by clicking topology.
+    * Use cluster to expand compound resources like VNET, Subnets to its child resources
+    * View topology for any tests by clicking topology.
 
 To view the trends in RTT and the percentage of failed checks for a test group:
 1. Select the test group that you want to investigate. 
