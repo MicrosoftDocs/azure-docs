@@ -96,11 +96,11 @@ Follow these steps to configure the Azure Arc resource to deploy a GitOps config
 
 1. The configuration deployment starts and the **Operator state** shows as **Pending**. 
 
-    ![Go to Configurations](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-1.png)
+    ![Go to Configurations 2](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-1.png)
 
 1. The deployment takes a couple minutes. When the deployment completes, the **Operator state** shows as **Installed**.
 
-    ![Go to Configurations](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-2.png)
+    ![Go to Configurations 3](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-2.png)
 
 
 ## Verify deployment
