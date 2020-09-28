@@ -81,7 +81,7 @@ Azure provides four levels of scope: resource, [resource group](../azure-resourc
 For resource scope, you need the resource ID for the resource. You can find the resource ID by looking at the properties of the resource in the Azure portal. A resource ID has the following format.
 
 ```
-/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/{providerName}/{resourceType}/{resourceSubType1}/{resourceSubType2}/{resourceName}
+/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/{providerName}/{resourceType}/{resourceSubType}/{resourceName}
 ```
 
 **Resource group scope**
@@ -141,7 +141,7 @@ To add a role assignment at a management group scope, the command typically has 
 ```azurecli
 az role assignment create --assignee {assignee} \
 --role {roleNameOrId} \
---scope /providers/Microsoft.Management/managementGroups/{groupName}
+--scope /providers/Microsoft.Management/managementGroups/{managementGroupName}
 ``` 
     
 ## Add role assignment examples
