@@ -1,19 +1,20 @@
 ---
-title: How to install and run containers - Computer Vision
+title: Install and run Docker containers for the Computer Vision Read API
 titleSuffix: Azure Cognitive Services
-description: How to download, install, and run containers for Computer Vision in this walkthrough tutorial.
+description: Use the Docker container for the Computer Vision Read API to detect and extract text from images, on-premises.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 09/03/2020
+ms.date: 09/28/2020
 ms.author: aahi
-ms.custom: seodec18
+ms.custom: seodec18, cog-serv-seo-aug-2020
+keywords: on-premises, Docker, container
 ---
 
-# Install and run Read containers (Preview)
+# Install and run Docker containers for the Read API (Preview) 
 
 [!INCLUDE [container hosting on the Microsoft Container Registry](../containers/includes/gated-container-hosting.md)]
 
