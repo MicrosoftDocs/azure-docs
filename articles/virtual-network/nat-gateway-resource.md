@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/11/2020
+ms.date: 09/29/2020
 ms.author: allensu
 ---
 
@@ -237,14 +237,13 @@ Source network address translation (SNAT) rewrites the source of a flow to origi
 
 ### Fundamentals
 
-Let's look at an example of four flows to explain the basic concept.  The NAT gateway is using public IP address resource 65.52.0.2.
+Let's look at an example of four flows to explain the basic concept.  The NAT gateway is using public IP address resource 65.52.0.1.
 
 | Flow | Source tuple | Destination tuple |
 |:---:|:---:|:---:|
 | 1 | 192.168.0.16:4283 | 65.52.0.1:80 |
 | 2 | 192.168.0.16:4284 | 65.52.0.1:80 |
 | 3 | 192.168.0.17.5768 | 65.52.0.1:80 |
-| 4 | 192.168.0.16:4285 | 65.52.0.2:80 |
 
 These flows might look like this after PAT has taken place:
 
@@ -253,11 +252,24 @@ These flows might look like this after PAT has taken place:
 | 1 | 192.168.0.16:4283 | 65.52.0.2:234 | 65.52.0.1:80 |
 | 2 | 192.168.0.16:4284 | 65.52.0.2:235 | 65.52.0.1:80 |
 | 3 | 192.168.0.17.5768 | 65.52.0.2:236 | 65.52.0.1:80 |
-| 4 | 192.168.0.16:4285 | 65.52.0.2:237 | 65.52.0.2:80 |
 
-The destination will see the source of the flow as 65.52.0.2 (SNAT source tuple) with the assigned port shown.  PAT as shown in the preceding table is also called port masquerading SNAT.  Multiple private sources are masqueraded behind an IP and port.
+The destination will see the source of the flow as 65.52.0.1 (SNAT source tuple) with the assigned port shown.  PAT as shown in the preceding table is also called port masquerading SNAT.  Multiple private sources are masqueraded behind an IP and port.  
 
-Don't take a dependency on the specific way source ports are assigned.  The preceding is an illustration of the fundamental concept only.
+#### source (SNAT) port reuse
+
+NAT gateways opportunistically reuse source (SNAT) ports.  The following illustrates this concept.
+
+| Flow | Source tuple | Destination tuple |
+|:---:|:---:|:---:|
+| 4 | 192.168.0.16:4285 | 65.52.0.2:80 |
+
+| Flow | Source tuple | SNAT'ed source tuple | Destination tuple | 
+|:---:|:---:|:---:|:---:|
+| 4 | 192.168.0.16:4285 | 65.52.0.2:234 | 65.52.0.2:80 |
+ 
+A NAT gateway will likely translate flow 4 to a port that may be used to other destinations.  See [Scaling](https://docs.microsoft.com/en-us/azure/virtual-network/nat-gateway-resource#scaling) for additional discussion on correctly sizing your IP address provisioning.
+
+Don't take a dependency on the specific way source ports are assigned in the above example.  The preceding is an illustration of the fundamental concept only.
 
 SNAT provided by NAT is different from [Load Balancer](../load-balancer/load-balancer-outbound-connections.md) in several aspects.
 
@@ -290,7 +302,11 @@ Scaling NAT is primarily a function of managing the shared, available SNAT port 
 
 SNAT maps private addresses to one or more public IP addresses, rewriting source address and source port in the processes. A NAT gateway resource will use 64,000 ports (SNAT ports) per configured public IP address for this translation. NAT gateway resources can scale up to 16 IP addresses and 1M SNAT ports. If a public IP prefix resource is provided, each IP address within the prefix is providing SNAT port inventory. And adding more public IP addresses increases the available inventory SNAT ports. TCP and UDP are separate SNAT port inventories and unrelated.
 
-NAT gateway resources opportunistically reuse source ports. For scaling purposes, you should assume each flow requires a new SNAT port and scale the total number of available IP addresses for outbound traffic.
+NAT gateway resources opportunistically reuse source (SNAT) ports. As design guidance for scaling purposes, you should assume each flow requires a new SNAT port and scale the total number of available IP addresses for outbound traffic.  You should carefully consider the scale you are designing for and provision IP addresses quantities accordingly.
+
+SNAT ports to different destinations are most likely to be reused when possible. And as SNAT port exhaustion approaches, flows may not succeed.  
+
+See [SNAT fundamentals] for examples (https://docs.microsoft.com/en-us/azure/virtual-network/nat-gateway-resource#source-network-address-translation)
 
 ### Protocols
 
