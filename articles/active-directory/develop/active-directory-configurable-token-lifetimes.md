@@ -379,7 +379,7 @@ In this example, you create a few policies to learn how the priority system work
 
 ## Cmdlet reference
 
-These are the cmdlets in the [Azure Active Directory PowerShell for Graph Preview module](/powershell/module/azuread/?view=azureadps-2.0-preview#service-principals).
+These are the cmdlets in the [Azure Active Directory PowerShell for Graph Preview module](/powershell/module/azuread/?view=azureadps-2.0-preview#service-principals&preserve-view=true&preserve-view=true).
 
 ### Manage policies
 
@@ -387,29 +387,29 @@ You can use the following cmdlets to manage policies.
 
 | Cmdlet | Description | 
 | --- | --- |
-| [New-AzureADPolicy](/powershell/module/azuread/new-azureadpolicy?view=azureadps-2.0-preview) | Creates a new policy. |
-| [Get-AzureADPolicy](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview) | Gets all Azure AD policies or a specified policy. |
-| [Get-AzureADPolicyAppliedObject](/powershell/module/azuread/get-azureadpolicyappliedobject?view=azureadps-2.0-preview) | Gets all apps and service principals that are linked to a policy. |
-| [Set-AzureADPolicy](/powershell/module/azuread/set-azureadpolicy?view=azureadps-2.0-preview) | Updates an existing policy. |
-| [Remove-AzureADPolicy](/powershell/module/azuread/remove-azureadpolicy?view=azureadps-2.0-preview) | Deletes the specified policy. |
+| [New-AzureADPolicy](/powershell/module/azuread/new-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) | Creates a new policy. |
+| [Get-AzureADPolicy](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) | Gets all Azure AD policies or a specified policy. |
+| [Get-AzureADPolicyAppliedObject](/powershell/module/azuread/get-azureadpolicyappliedobject?view=azureadps-2.0-preview&preserve-view=true) | Gets all apps and service principals that are linked to a policy. |
+| [Set-AzureADPolicy](/powershell/module/azuread/set-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) | Updates an existing policy. |
+| [Remove-AzureADPolicy](/powershell/module/azuread/remove-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) | Deletes the specified policy. |
 
 ### Application policies
 You can use the following cmdlets for application policies.</br></br>
 
 | Cmdlet | Description | 
 | --- | --- |
-| [Add-AzureADApplicationPolicy](/powershell/module/azuread/add-azureadapplicationpolicy?view=azureadps-2.0-preview) | Links the specified policy to an application. |
-| [Get-AzureADApplicationPolicy](/powershell/module/azuread/get-azureadapplicationpolicy?view=azureadps-2.0-preview) | Gets the policy that is assigned to an application. |
-| [Remove-AzureADApplicationPolicy](/powershell/module/azuread/remove-azureadapplicationpolicy?view=azureadps-2.0-preview) | Removes a policy from an application. |
+| [Add-AzureADApplicationPolicy](/powershell/module/azuread/add-azureadapplicationpolicy?view=azureadps-2.0-preview&preserve-view=true) | Links the specified policy to an application. |
+| [Get-AzureADApplicationPolicy](/powershell/module/azuread/get-azureadapplicationpolicy?view=azureadps-2.0-preview&preserve-view=true) | Gets the policy that is assigned to an application. |
+| [Remove-AzureADApplicationPolicy](/powershell/module/azuread/remove-azureadapplicationpolicy?view=azureadps-2.0-preview&preserve-view=true) | Removes a policy from an application. |
 
 ### Service principal policies
 You can use the following cmdlets for service principal policies.
 
 | Cmdlet | Description | 
 | --- | --- |
-| [Add-AzureADServicePrincipalPolicy](/powershell/module/azuread/add-azureadserviceprincipalpolicy?view=azureadps-2.0-preview) | Links the specified policy to a service principal. |
-| [Get-AzureADServicePrincipalPolicy](/powershell/module/azuread/get-azureadserviceprincipalpolicy?view=azureadps-2.0-preview) | Gets any policy linked to the specified service principal.|
-| [Remove-AzureADServicePrincipalPolicy](/powershell/module/azuread/remove-azureadserviceprincipalpolicy?view=azureadps-2.0-preview) | Removes the policy from the specified service principal.|
+| [Add-AzureADServicePrincipalPolicy](/powershell/module/azuread/add-azureadserviceprincipalpolicy?view=azureadps-2.0-preview&preserve-view=true) | Links the specified policy to a service principal. |
+| [Get-AzureADServicePrincipalPolicy](/powershell/module/azuread/get-azureadserviceprincipalpolicy?view=azureadps-2.0-preview&preserve-view=true) | Gets any policy linked to the specified service principal.|
+| [Remove-AzureADServicePrincipalPolicy](/powershell/module/azuread/remove-azureadserviceprincipalpolicy?view=azureadps-2.0-preview&preserve-view=true) | Removes the policy from the specified service principal.|
 
 ## License requirements
 
