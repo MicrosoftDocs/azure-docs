@@ -107,7 +107,7 @@ az vm extension set --resource-group "DALANDEMO" --vm-name "Linux-01" --name "Ne
 
 ```
 
-**Option 3:Reboot your VMs**
+**Option 3: Reboot your VMs**
 
 If you have auto-upgrade set to true for the NetworkWatcher extension. Rebooting your VM install the latest extension.
 
