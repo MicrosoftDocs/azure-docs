@@ -131,7 +131,7 @@ You can remove a license from a user's Azure AD user page, from the group overvi
 
 1. Select **Remove license**.
 
-    ![Licensed groups page with Remove license option highlighted](media/license-users-groups/license-products-group-blade-with-remove-option-highlight.png)
+    ![Licensed groups page with Remove license option highlighted 2](media/license-users-groups/license-products-group-blade-with-remove-option-highlight.png)
     
     > [!NOTE]
     > When an on-premises user account synced to Azure AD falls out of scope for the sync or when the sync is removed, the user is soft-deleted in Azure AD. When this occurs, licenses assigned to the user directly or via group-based licensing will be marked as **suspended** rather than **deleted**.
