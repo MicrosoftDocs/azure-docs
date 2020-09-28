@@ -397,7 +397,7 @@ For a usage-based monthly billed plan, use one of the following three pricing en
 
 #### Free Trial
 
-You can offer a one-month or three-month *Free Trial* to your customers.
+You can offer a one-month or three-month or six-month *Free Trial* to your customers.
 
 #### Visibility
 
