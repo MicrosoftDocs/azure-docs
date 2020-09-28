@@ -43,9 +43,9 @@ The following table provides information about the certificates that are being r
 
 1. If your application uses the operating system certificate store to get the root certificate, no action is needed.
 
-1. If your application pins the Baltimore root, among others, no action is needed related to this change.
+2. If your application pins the Baltimore root, among others, no action is needed related to this change.
 
-1. If your application pins any intermediate or leaf TLS certificate, we recommend that you pin the following roots:
+3. If your application pins any intermediate or leaf TLS certificate, we recommend that you pin the following roots:
 
     | Certificate | Thumbprint |
     | ----- | ----- |
@@ -65,7 +65,7 @@ The following table provides information about the certificates that are being r
 | [Microsoft Azure TLS Issuing CA 06](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20TLS%20Issuing%20CA%2006.cer) | 30e01761ab97e59a06b41ef20af6f2de7ef4f7b0 |
 
 
-1. If your application validates certificate in code, you will need to modify it to recognize the properties (e.g., Issuers, Thumbprint) of the newly pinned certificates. This extra verification should cover all pinned certificates to be more future-proof.
+4. If your application validates certificate in code, you will need to modify it to recognize the properties (e.g., Issuers, Thumbprint) of the newly pinned certificates. This extra verification should cover all pinned certificates to be more future-proof.
 
 ## Next steps
 
