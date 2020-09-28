@@ -48,7 +48,7 @@ Retrieve the explanation from the `best_run`, which includes explanations for en
 You can use `ExplanationClient` to download the engineered feature explanations from the artifact store of the `best_run`. 
 
 ```python
-from azureml.explain.model._internal.explanation_client import ExplanationClient
+from azureml.interpret import ExplanationClient
 
 client = ExplanationClient.from_run(best_run)
 engineered_explanations = client.download_model_explanation(raw=False)
@@ -94,7 +94,7 @@ To generate an explanation for AutoML models, use the `MimicWrapper` class. You 
 The MimicWrapper also takes the `automl_run` object where the engineered explanations will be uploaded.
 
 ```python
-from azureml.explain.model.mimic_wrapper import MimicWrapper
+from azureml.interpret import MimicWrapper
 
 # Initialize the Mimic Explainer
 explainer = MimicWrapper(ws, automl_explainer_setup_obj.automl_estimator,
