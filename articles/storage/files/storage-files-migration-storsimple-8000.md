@@ -93,6 +93,20 @@ If you want to only migrate the live data and have no requirements for backups, 
 ### Map your existing StorSimple volumes to Azure file shares
 [!INCLUDE [storage-files-migration-namespace-mapping](../../../includes/storage-files-migration-namespace-mapping.md)]
 
+### Number of storage accounts
+Your migration will likely benefit from a deployment of multiple storage accounts, that each hold a smaller number of Azure file shares. Consider this:
+
+If you have highly active shares (shares used by many users and/or applications), then two Azure file shares might reach the performance limit of a storage account.
+
+A best practice is to deploy storage accounts with one file share each. You can pool multiple Azure file shares into the same storage account, in case you have archival shares in them.
+
+These considerations apply more to [direct cloud access](#direct-share-access-vs-azure-file-sync) (through an Azure VM or service) than to Azure File Sync. If you plan to use Azure File Sync only on these shares, then grouping several into a single Azure storage account is fine. Just also consider you might want to lift and shift an app into the cloud, that would then directly access a file share. Or you could start using a service in Azure that would also benefit from having higher IO per Second and throughput numbers available. 
+
+If you've made a list of your shares, you should map each share to the storage account that it will reside in.
+
+> [!IMPORTANT]
+> Make sure you decide on an Azure region and then each storage account and Azure File Sync resource match that same region you've selected.
+
 ### Phase 1 summary
 At the end of Phase 1:
 * You have a good overview of your StorSimple devices and volumes.
@@ -108,7 +122,7 @@ At the end of Phase 1:
 
 If you want to only migrate the live data and have no requirements for backups, you can continue following this guide.
 
-## Phase 2: Deploying Azure resources
+## Phase 2: Deploying Azure storage and migration resources
 
 This section discusses considerations around deploying the different resource types that are needed in Azure. Some will hold your data post migration and some are needed solely for the migration. Start deploying resources only, when you know your plan is final - it is often hard or impossible to change certain aspects of your Azure resources later on.
 
@@ -131,6 +145,9 @@ You can pick a different region from where your StorSimple data (storage account
 
 > [!IMPORTANT]
 > If you pick a different region from your current, StorSimple storage account location, [egress charges will apply](https://azure.microsoft.com/pricing/details/bandwidth) during the migration, as data will leave the StorSimple region and enter your new storage account region. No bandwidth charges apply if you stay within the same Azure region.
+
+> [!IMPORTANT]
+> Make sure you decide on an Azure region and then each storage account and Azure File Sync resource match that same region you've selected.
 
 ##### Performance
 You have the option to pick premium storage (SSD) for Azure file shares or standard storage. Standard storage includes [several tiers for a file share](storage-how-to-create-file-share.md#changing-the-tier-of-an-azure-file-share). Standard storage is the right option for most customers migrating from StorSimple.
@@ -193,17 +210,19 @@ This section describes how to set up a migration job and carefully map the direc
 
 |  |  |
 |---------|:--------|
-|![StorSimple 8000 series migration phases overview](media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-new-job.png "A screenshot of the new job creation form for a Data Transformation Job")     |**Job definition name**</br>This name should be indicative of the set of files you are moving. Giving it a similar name as the Azure file share can be a good practice.</br></br>**Location where the job runs**</br>It is important that you pick a location close to the storage account containing your StorSimple data. It is possible that for your the exact region is not available in the list, in that case, pick a region close to it.</br></br><h3>Source</h3>**Source subscription**</br>Pick the subscription in which you store your StorSimple Data Manager resource.</br></br>**StorSimple resource**</br>Pick your StorSimple Device Manager your appliance is registered with.</br></br>**Service Data Encryption Key**</br>[Check this prior section in this article](#storsimple-service-data-encryption-key), in case you don't have it handy.</br></br>**Device**</br>Select your StorSimple device that hold the volume where you want to either migrate the whole volume or sub-directories into the target Azure file share.</br></br>**Volume**</br>Select the source volume.</br></br><h3>Target</h3>Pick the subscription, storage account and Azure file share as the target of this migration job.|
+|![StorSimple 8000 series migration phases overview](media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-new-job.png "A screenshot of the new job creation form for a Data Transformation Job")     |**Job definition name**</br>This name should be indicative of the set of files you are moving. Giving it a similar name as the Azure file share can be a good practice.</br></br>**Location where the job runs**</br>It is important that you pick a location close to the storage account containing your StorSimple data. It is possible that for your the exact region is not available in the list, in that case, pick a region close to it.</br></br><h3>Source</h3>**Source subscription**</br>Pick the subscription in which you store your StorSimple Data Manager resource.</br></br>**StorSimple resource**</br>Pick your StorSimple Device Manager your appliance is registered with.</br></br>**Service Data Encryption Key**</br>Check this [prior section in this article](#storsimple-service-data-encryption-key), in case you can't locate the key in your records.</br></br>**Device**</br>Select your StorSimple device that hold the volume where you want to either migrate the whole volume or sub-directories into the target Azure file share.</br></br>**Volume**</br>Select the source volume.</br></br><h3>Target</h3>Pick the subscription, storage account and Azure file share as the target of this migration job.|
 
 ### Directory Mapping
-As part of your migration plan, you may have decided that the folders on a StorSimple volume need to be split across multiple Azure file shares. Very similar to A Windows Server volume having multiple SMB shares, pointing each to their own sub-folder, often on the root level of the volume but sometimes also further down the directory tree.
+This is optional for your migration job. If you leave it empty, **all** the files and folders on the root of your StorSimple volume will be moved into the root of your target Azure file share. In most cases, storing an entire volume's content in an Azure file share is not the best thing to do. It's often best to split a volume's content across multiple file shares in Azure. If you haven't made a plan already, check out this section first: [Map your StorSimple volume to Azure file shares](#map-your-existing-storsimple-volumes-to-azure-file-shares)
+
+As part of your migration plan, you may have decided that the folders on a StorSimple volume need to be split across multiple Azure file shares. Very similar to a Windows Server volume having multiple SMB shares that are each pointing to their own sub-folder. No matter how many directory levels deep that folder is located.
 
 So it is important to understand that with a migration job, you can accomplish that split by:
 1. Defining multiple jobs to migrate the folders on one volume, each will have the same StorSimple volume source but a different Azure file share as the target.
-1. Specifying precisely which folders from the StorSimple volume need to be migrated into the specified file share, by using the *Directory mapping* section of the job creation form and following the specific mapping semantics.
+1. Specifying precisely which folders from the StorSimple volume need to be migrated into the specified file share, by using the *Directory mapping* section of the job creation form and following the specific [mapping semantics](#semantic-elements).
 
 > [!IMPORTANT]
-> The paths and mapping expressions in this form cannot be validated when the form is submitted. If mappings are specified incorrectly, a job may either fail completely or produce an undesirable result. In some cases another job run can fix omitted folders (because of prior path misspellings) but often you should rather delete the Azure file share, recreate it and also create a new migration ob for the share, such that you can fix the mapping statements.
+> The paths and mapping expressions in this form cannot be validated when the form is submitted. If mappings are specified incorrectly, a job may either fail completely or produce an undesirable result. In some cases another job run can fix omitted folders (because of prior path misspellings) but often you should rather delete the Azure file share, recreate it and also create a new migration job for the share, such that you can fix the mapping statements.
 
 #### Semantic elements
 A mapping is expressed from left to right: [\source path] \> [\target path].
@@ -235,122 +254,42 @@ Sorts multiple source locations into a new directory structure:
 * Do not include drive letters. 
 * When specifying multiple paths, source or target paths cannot overlap:
    Invalid source path overlap example:
-    \\folder\1 > \\folder
-    \\folder\\1\\2 > \\folder2
+    *\\folder\1 > \\folder*
+    *\\folder\\1\\2 > \\folder2*
    Invalid target path overlap example:
-   \\folder > \\
-   \\folder2 > \\
+   *\\folder > \\*
+   *\\folder2 > \\*
 </br>
 * Source folders that do not exist, will be ignored. 
 * Folder structures that do not exist on the target, will be created. 
 * Like Windows: folder names are case insensitive but case preserving.
 
-## 4: Accessing your Azure file shares
+## Phase 4: Accessing your Azure file shares
+
+There are two main strategies for accessing your Azure file shares.
+
+* **Azure File Sync:** [How to deploy Azure File Sync](#deploy-azure-file-sync) to an on-premises Windows Server. AFS has all the advantages of a local cache, just like StorSimple, only better.
+* **Direct share access:** [How to deploy direct-share-access](#deploy-direct-share-access). Use this strategy if your access scenario for a given Azure file share will not benefit from local caching or you have no longer an ability to host an on-premises Windows Server. Here, your users and apps will continue to access SMB shares over the SMB protocol, but these shares are no longer on an on-premises server, but directly in the cloud.
+
+In the previous section [Direct share access vs. Azure File Sync](#direct-share-access-vs-azure-file-sync) in Phase 1 of this guide, you've already made the decisions what to use for which Azure file share. This section focuses on deployment instructions.
 
 ### Deploy Azure File Sync
-### Deploy direct-share-access
 
-## 5: User cut-over
+> [!IMPORTANT]
+> Azure File Sync (AFS) should be deployed only after your migration jobs to an Azure file share have completed.
 
+If you start sync to an Azure file share before or during the migration of files and folders from StorSimple, then it is possible, that your server will be behind, and presents you with an incomplete namespace for some time. Eventually it will catch up but it will make it hard to tell when the time has come for the next and final phase (Phase 4) of cutting your users over. So it is always better to start syncing an Azure file share after the migration job(s) have finished and there are no more cloud-side changes to the share.
 
+If you want to get a head-start, you can deploy your Windows Server, it's storage, install the Azure File Sync agent, deploy the Storage Sync Service Azure resource and register the server with it. All of this while or even before you are migrating into your Azure file shares. Just don't set up any share to sync before the you finish making changes to the Azure file share.
 
-
-
-
-
-## Retrieve the Service Data Encryption Key
-
-In case you cannot find your Service Data Encryption Key for this appliance in your records, you can use PowerShell to retrieve the key from the appliance.
-
-### Preparing your PowerShell session
-
-You can connect to your StorSimple appliance [via a serial console](../../storsimple/storsimple-8000-windows-powershell-administration.md#connect-to-windows-powershell-for-storsimple-via-the-device-serial-console) or through a [remote PowerShell session](../../storsimple/storsimple-8000-windows-powershell-administration.md#connect-remotely-to-storsimple-using-windows-powershell-for-storsimple). 
-
-> [!CAUTION]
-> When you are deciding how to connect to Windows PowerShell for StorSimple, consider the following:
-> * Connecting through an HTTPS session is the most secure and recommended option.
-> * Connecting directly to the device serial console is secure, but connecting to the serial console over network switches is not. 
-> * HTTP session connections are an option but are **not encrypted** and therefore also not recommended unless used within in a closed, trusted network.
-
-### Retrieving the key
-
-```powershell
-Get-HcsmServiceDataEncryptionKey
-```
-Securely note the key. You will need it when specifying any subsequent Data Transformation job.
-
-## Azure File Sync
-
-
-Azure File Sync is a Microsoft cloud service, based on two main components:
-
-* File synchronization and cloud tiering.
-* File shares as native storage in Azure, that can be accessed over multiple protocols like SMB and file REST. An Azure file share is comparable to a file share on a Windows Server, that you can natively mount as a network drive. It supports important file fidelity aspects like attributes, permissions, and timestamps. With Azure file shares, there is no longer a need for an application or service to interpret the files and folders stored in the cloud. You can access them natively over familiar protocols and clients like Windows File Explorer. That makes Azure file shares the ideal, and most flexible approach to store general purpose file server data as well as some application data, in the cloud.
-
-This article focuses on the migration steps. If before migrating you'd like to learn more about Azure File Sync, we recommend the following articles:
-
-* [Azure File Sync - overview](https://aka.ms/AFS "Overview")
-* [Azure File Sync - deployment guide](storage-sync-files-deployment-guide.md)
-
-## StorSimple 8000 series migration path to Azure File Sync
-
-A local Windows Server is required to run an Azure File Sync agent. The Windows Server can be at a minimum a 2012R2 server but ideally is a Windows Server 2019.
-
-There are numerous, alternative migration paths and it would create too long of an article to document all of them and illustrate why they bear risk or disadvantages over the route we recommend as a best practice in this article.
-
-![StorSimple 8000 series migration phases overview](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-overview.png "StorSimple 8000 series migration route overview of the phases further below in this article.")
-
-The previous image depicts phases that correspond to sections in this article.
-We use a cloud-side migration to avoid unnecessary recall of files to your local StorSimple appliance. This approach avoids impacting local caching behavior or network bandwidth use, either of which can affect your production workloads.
-A cloud-side migration is operating on a snapshot (a volume clone) of your data. So your production data is isolated from this process - until cut-over at the end of the migration. Working off of what is essentially a backup, makes the migration safe and easily repeatable, should you run into any difficulties.
-
-## Considerations around existing StorSimple backups
-
-StorSimple allows you to take backups in the form of volume clones. This article uses a new volume clone to migrate your live files.
-If you need to migrate backups in addition to your live data, then all the guidance in this article still applies. The only difference is that instead of starting with a new volume clone, you will start with the oldest backup volume clone you need to migrate.
-
-The sequence is as follows:
-
-* Determine the minimum set of volume clones you must migrate. We recommend keeping this list to a minimum if possible, because the more backups you migrate the longer the overall migration process will take.
-* When going through the migration process, begin with the oldest volume clone you intend to migrate and on each subsequent migration, use the next oldest.
-* When each volume clone migration completes, you must take an Azure file share snapshot. [Azure file share snapshots](storage-snapshots-files.md) are how you keep point-in-time backups of the files and folder structure for your Azure file shares. You will need these snapshots after the migration completes, to ensure you have preserved versions of each of your volume clones as you progress through the migration.
-* Ensure that you take Azure file share snapshots for all Azure file shares, that are served by the same StorSimple volume. Volume clones are on the volume level, Azure file share snapshots are on the share level. You must take a share snapshot (on each Azure file share) after the migration of a volume clone is finished.
-* Repeat the migration process for a volume clone and taking share snapshots after each volume clone until you get caught up to a snapshot of the live data. The process of migrating a volume clone is described in the phases below. 
-
-If you do not need to move backups at all and can start a new chain of backups on the Azure file share side after the migration of only the live data is done, then that is beneficial to reduce complexity in the migration and amount of time the migration will take. You can make the decision whether or not to move backups and how many for each volume (not each share) you have in StorSimple.
-
-## Phase 1: Get ready
-
-:::row:::
-    :::column:::
-        ![An image illustrating a part of the earlier, overview image that helps focus this subsection of the article.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-1.png)
-    :::column-end:::
-    :::column:::
-        The basis for the migration is a volume clone and a virtual cloud appliance, called a StorSimple 8020.
-This phase focuses on deployment of these resources in Azure.
-    :::column-end:::
-:::row-end:::
-
-
-### Map your existing namespaces to Azure file shares
-
-[!INCLUDE [storage-files-migration-namespace-mapping](../../../includes/storage-files-migration-namespace-mapping.md)]
-
-### Deploy Azure file shares
-
-[!INCLUDE [storage-files-migration-provision-azfs](../../../includes/storage-files-migration-provision-azure-file-share.md)]
-
-> [!TIP]
-> If you need to change the Azure region from the current region your StorSimple data resides in, then provision the Azure file shares in the new region you want to use. You determine the region by selecting it when you provision the storage accounts that hold your Azure file shares. Make sure that also the Azure File Sync resource you will provision below, is in that same, new region.
-
-### Deploy the Azure File Sync cloud resource
+#### Deploy the Azure File Sync cloud resource
 
 [!INCLUDE [storage-files-migration-deploy-afs-sss](../../../includes/storage-files-migration-deploy-azure-file-sync-storage-sync-service.md)]
 
 > [!TIP]
 > If you need to change the Azure region from the current region your StorSimple data resides in, then you have provisioned the storage accounts for your Azure file shares in the new region. Make sure that you selected that same region when you deploy this Storage Sync Service.
 
-### Deploy an on-premises Windows Server
+#### Deploy an on-premises Windows Server
 
 * Create a Windows Server 2019 - at a minimum 2012R2 - as a virtual machine or physical server. A Windows Server fail-over cluster is also supported. Don't reuse the server you might have fronting the StorSimple 8100 or 8600.
 * Provision or add Direct Attached Storage (DAS as compared to NAS, which is not supported).
@@ -358,11 +297,11 @@ This phase focuses on deployment of these resources in Azure.
 It is best practice to give your new Windows Server an equal or larger amount of storage than your StorSimple 8100 or 8600 appliance has locally available for caching. You will use the Windows Server the same way you used the StorSimple appliance, if it has the same amount of storage as the appliance then the caching experience should be similar, if not the same.
 You can add or remove storage from your Windows Server at will. This enables you to scale your local volume size and the amount of local storage available for caching.
 
-### Prepare the Windows Server for file sync
+#### Prepare the Windows Server for file sync
 
 [!INCLUDE [storage-files-migration-deploy-afs-agent](../../../includes/storage-files-migration-deploy-azure-file-sync-agent.md)]
 
-### Configure Azure File Sync on the Windows Server
+#### Configure Azure File Sync on the Windows Server
 
 Your registered on-premises Windows Server must be ready and connected to the internet for this process.
 
@@ -371,134 +310,82 @@ Your registered on-premises Windows Server must be ready and connected to the in
 > [!WARNING]
 > **Be sure to turn on cloud tiering!** Cloud tiering is the AFS feature that allows the local server to have less storage capacity than is stored in the cloud, yet have the full namespace available. Locally interesting data is also cached locally for fast, local access performance. Another reason to turn on cloud tiering at this step is that we do not want to sync file content at this stage, only the namespace should be moving at this time.
 
-## Phase 4: Configure the Azure VM for sync
+### Deploy direct-share-access
 
 :::row:::
     :::column:::
-        ![An image illustrating a part of the earlier, overview image that helps focus this subsection of the article.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-4.png)
+        [![Step by step guide and demo for how to securely expose Azure file shares directly to information workers and apps - click to play!](./media/storage-sync-files-planning/azure-file-sync-interview-video-snapshot.png)](https://www.youtube.com/watch?v=nfWLO7F52-s)
     :::column-end:::
     :::column:::
-        This phase concerns your Azure VM with the iSCSI mounted, first volume clone(s). During this phase, you will get the VM connected via Azure File Sync and start a first round of moving files from your StorSimple volume clone(s).
-        
-    :::column-end:::
+        This videos is a guide and demo for how to securely expose Azure file shares directly to information workers and apps in 5 simple steps.
+        The video references dedicated documentation for some topics:
+* [Identity overview](storage-files-active-directory-overview.md)
+* [How to domain join a storage account](storage-files-identity-auth-active-directory-enable.md)
+* [Networking overview for Azure file shares](storage-files-networking-overview.md)
+* [How to configure public and private endpoints](storage-files-networking-endpoints.md)
+* [How to configure a S2S VPN](storage-files-configure-s2s-vpn.md)
+* [How to configure a Windows P2S VPN](storage-files-configure-p2s-vpn-windows.md)
+* [How to configure a Linux P2S VPN](storage-files-configure-p2s-vpn-linux.md)
+* [How to configure DNS forwarding](storage-files-networking-dns.md)
+* [Configure DFS-N](https://aka.ms/AzureFiles/Namespaces)
+   :::column-end:::
 :::row-end:::
 
-You already have configured your on-premises server that will replace your StorSimple 8100 or 8600 appliance, for Azure File Sync. 
+### Phase 4 summary
+In this phase you've created and run multiple *Data Transformation Service* (DTS) jobs in your *StorSimple Data Manager*. Those jobs have migrated your files and folders and possibly sorted them into more Azure file shares than you have StorSimple volumes.
+Furthermore, you've decided and deployed either Azure File Sync or prepared your network and storage accounts for direct-share-access.
 
-Configuring the Azure VM is an almost identical process, with one additional step. The following steps will guide you through the process.
+## 5: User cut-over
+This phase is all about wrapping up your migration:
+* Plan your downtime.
+* Catch-up with any changes your users and apps produced on the StorSimple side while the *Data Transformation* (DTS) jobs in Phase 3 have been running. 
+* Fail your users over to the new Windows Server with Azure File Sync or the Azure file shares via direct-share-access.
 
-> [!IMPORTANT]
-> It is important that the Azure VM is **not configured with cloud tiering enabled!** You will exchange the volume of this server with newer volume clones throughout the migration. Cloud tiering has no benefit and overhead on CPU usage you should avoid.
+### Plan your downtime
+This migration approach requires some downtime for your users and apps. Maybe a weekend works for your access patterns. The goal is to keep downtime to a minimum and the following considerations help with that:
 
-1. [Deploy the AFS agent. (see previous section)](#prepare-the-windows-server-for-file-sync)
-2. [Getting the VM ready for Azure File Sync.](#get-the-vm-ready-for-azure-file-sync)
-3. [Configure sync](#configure-azure-file-sync-on-the-azure-vm)
+* Keep your StorSimple volumes available during running your DTS migration jobs.
+* When you finished running your DTS jobs, it's time to remove user access (at least write access) from the StorSimple volumes/shares. A final RoboCopy will catch up your Azure file share, then you can cut-over your users. From where to where you run this RoboCopy depends on what you chose (Azure File Sync / direc-share-access). The upcoming section on RoboCopy covers that.
+* Once you completed the RoboCopy catch-up, you are ready to expose the new location (either the Azure file share directly or an SMB share on a Windows Server with AFS) to your users. Often a DFS-N deployment will help accomplish a cut-over quickly, and efficiently. It will keep your existing share addresses consistent and simply re-point to a new location, containing your migrated files and folders.
 
-### Get the VM ready for Azure File Sync
+### Determine when your namespace has fully synced to your server
 
-Azure File Sync is used to move the files from the mounted iSCSI StorSimple volumes to the target Azure file shares.
-During this migration process, you will mount several volume clones to your VM, under the same drive letter. Azure File Sync must be configured to see the next volume clone you've mounted as a newer version of the files and folders and update the Azure file shares connected via Azure File Sync. 
+When you use Azure File Sync for an Azure file share, it is important that you determine sync (download direction) is complete **BEFORE** you start any local RoboCopy. You can use two different ways to determine that your namspace has fully arrived on the server:
 
-> [!IMPORTANT]
-> For this to work, a registry key must be set on the server before Azure File Sync is configured.
+#### Azure portal
+You can tell from the Azure portal, when your namespace has arrived fully on the server, such that you can proceed with a local RoboCopy.
+* Navigate to the Azure portal, identify the sync group and server endpoint and observe the Sync status. 
+* The interesting direction is download: If the server endpoint is newly provisioned, it will show "*Initial sync*" indicating the namespace is still coming down.
+Once that changes to anything but *Initial sync*, your namespace will be fully populated on the server and you are good to proceed with a local RoboCopy.
 
-1. Create a new directory on the system drive of the VM. Azure File Sync information will need to be persisted there instead of on the mounted volume clones. For example: `"C:\syncmetadata"`
-2. Open regedit and locate the following registry hive: `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync`
-3. Create a new Key of type String, named: ***MetadataRootPath***
-4. Set the full path to the directory you created on the system volume, for example: `C:\syncmetadata"`
+#### Windows Server log
+You can also tell from a Windows Server, when your namespace has arrived fully on the server, such that you can proceed with a local RoboCopy.
 
-### Configure Azure File Sync on the Azure VM
+1. Open the *Event Viewer* and navigate to **Applications and Services**.
+1. Navigate and open **Microsoft\FileSync\Agent\Telemetry**.
+1. Look for the most recent **event 9102**, which corresponds to a completed sync session.
+1. Select **Details** and confirm that you are looking at an event where the **SyncDirection** value is **Download**.
+1. For the time where your namespace has completed download to the server, there will be a single event with **Scenario**, value **"FullGhostedSync"** and **HResult** = **0**.
+1. Should you miss that event, you can also look for other **9102 events** with **SyncDirection** = **Download** and **Scenario** = **"RegularSync"**. Finding one of these events also indicates that the namespace has finished downloading and sync progressed to regular sync sessions, whether there is anything to sync or not, at this time.
 
-This step is similar to the previous section, that discusses how you configure AFS on the on-premises server.
+### A final RoboCopy
+At this point, there are differences between your on-premises Windows Server and the StorSimple 8100 or 8600 appliance:
 
-The difference is, that you must not enable cloud tiering on this server and that you need to make sure that the right folders are connected to the right Azure file shares. Otherwise your naming of Azure file shares and data content won't match and there is no way to rename the cloud resources or local folders without reconfiguring sync.
+1. You need to catch up with the changes that users/apps produced on the StorSimple side while the migration was ongoing.
+1. There may be files that got left behind by the DTS job, due to invalid characters in file names or other reasons. At this point you want to copy them to the AFS enabled Windows Server and you fix them later. When these files were fixed, they will then start to sync. If you don't user AFS for a particular share, you'd be better off renaming the files with invalid characters on the StorSimple volume and then run the RoboCopy directly against the Azure file share. The DTS job run has a copy log column, where you can retrieve a list of files that have failed and the reason for them failing. That number should generally be small, if it is not: fixing these issues on the StorSimple volumes and restarting a migration job might be the best course of action.
+1. For cases where you use Azure File Sync: The StorSimple appliance has a populated cache vs. the Windows Server just a namespace with no file content stored locally at this time.
 
-Refer to the [previous section on how to configure Azure File Sync on a Windows Server](#configure-azure-file-sync-on-the-windows-server).
+> [!WARNING]
+> You **must not start the RoboCopy** before the server has the namespace for an Azure file share downloaded fully!
+> Checkout: "[Determine when your namespace has fully downloaded to your server](#determine-when-your-namespace-has-fully-synced-to-your-server)"
 
-### Step 4 summary
-
-At this point, you will have successfully configured Azure File Sync on the Azure VM you have mounted your StorSimple volume clone(s) via iSCSI.
-Data is now flowing from the Azure VM to the various Azure file shares and from there a fully tired namespace appears on your on-premises Windows Server.
-
-> [!IMPORTANT]
-> Ensure there are no changes made or user access granted to the Windows Server at this time.
-
-The initial volume clone data moving through the Azure VM to the Azure file shares can take a long time, potentially weeks. Estimating the time this will take is tricky and depends on many factors. Most notably the speed at which the Azure VM can access files on the StorSimple volumes and how fast Azure File Sync can process the files and folders that need syncing. 
-
-From experience, we can assume that the bandwidth - therefore the actual data size - plays a subordinate role. The time this or any subsequent migration round will take is mostly dependent on the number of items that can be processed per second. So for example 1 TiB with a 100,000 files and folders will most likely finish slower than 1 TiB with only 50,000 files and folders.
-
-## Phase 5: Iterate through multiple volume clones
-
-:::row:::
-    :::column:::
-        ![An image illustrating a part of the earlier, overview image that helps focus this subsection of the article.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-5.png)
-    :::column-end:::
-    :::column:::
-        As discussed in the previous phase, the initial sync can take a long time. Your users and applications are still accessing the on-premises StorSimple 8100 or 8600 appliance. That means that changes are accumulating, and with every day a larger delta between the live data and the initial volume clone, you are currently migration, forms. In this section, you'll learn how to minimize downtime by using multiple volume clones and telling when sync is done.
-    :::column-end:::
-:::row-end:::
-
-Unfortunately, the migration process isn't instantaneous. That means that the aforementioned delta to the live data is an unavoidable consequence. The good news is that you can repeat the process of mounting new volume clones. Each volume clone's delta will be progressively smaller. So eventually, a sync will finish in a duration of time that you consider acceptable for taking users and apps offline to cut over to your on-premises Windows server.
-
-Repeat the following steps until sync completes in a fast enough duration that you feel comfortable taking users and apps offline:
-
-1. [Determine sync is complete for a given volume clone.](#determine-when-sync-is-done)
-2. [Take a new volume clone(s) and mount it to the 8020 virtual appliance.](#the-next-volume-clones)
-3. [Determine when sync is done.](#determine-when-sync-is-done)
-4. [Cut-over strategy](#cut-over-strategy)
-
-### The next volume clone(s)
-
-We have discussed taking a volume clone(s) earlier in this article.
-This phase has two actions:
-
-1. [Take a volume clone](../../storsimple/storsimple-8000-clone-volume-u2.md#create-a-clone-of-a-volume)
-2. [Mount that volume clone (see above)](#use-the-volume-clone)
-
-### Determine when sync is done
-
-When sync is done, you can stop your time measurement and determine if you need to repeat the process of taking a volume clone and mounting it or if the time sync took with the last volume clone was sufficiently small.
-
-In order to determine sync is complete:
-
-1. Open the Event Viewer and navigate to **Applications and Services**
-2. Navigate and open **Microsoft\FileSync\Agent\Telemetry**
-3. Look for the most recent **event 9102**, which corresponds to a completed sync session
-4. Select **Details** and confirm that the **SyncDirection** value is **Upload**
-5. Check the **HResult** and confirm it shows **0**. This means that the sync session was successful. If HResult is a non-zero value, then there was an error during sync. If the **PerItemErrorCount** is greater than 0, then some files or folders did not sync properly. It is possible to have an HResult of 0 but a PerItemErrorCount that is greater than 0. At this point, you don't need to worry about the PerItemErrorCount. We will catch these files later. If this error count is significant, thousands of items, contact customer support and ask to be connected to the Azure File Sync product group for direct guidance on best, next phases.
-6. Check to see multiple 9102 events with HResult 0 in a row. This indicates that sync is complete for this volume clone.
-
-### Cut-over strategy
-
-1. Determine if sync from a volume clone is fast enough now. (Delta small enough.)
-2. Take the StorSimple appliance offline.
-3. A final RoboCopy.
-
-Measure the time and determine if sync from a recent volume clone can finish within a time window small enough, that you can afford as downtime in your system.
-
-It is now time disable user access to the StorSimple appliance. No more changes. Downtime has begun.
-You need to leave the appliance online and connected but must now prevent changes on it.
-
-In phase 6 you will catch up with any delta in the live data since the last volume clone.
-
-## Phase 6: A final RoboCopy
-
-At this point, there are two differences between your on-premises Windows Server and the StorSimple 8100 or 8600 appliance:
-
-1. There may be files that haven't synced (see **PerItemErrors** from the event log above)
-2. The StorSimple appliance has a populated cache vs. the Windows Server just a namespace with no file content stored locally at this time.
-
-![An image illustrating a part of the earlier, overview image that helps focus this subsection of the article.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-6.png)
-
-We can bring the cache of the Windows Server up to the state of the appliance and ensure no file is left behind with a final RoboCopy.
-
-> [!CAUTION]
-> It is imperative that the RoboCopy command you follow, is exactly as described below. We only want to copy files that are local and files that haven't moved through the volume clone+sync approach before. We can solve the problems why they didn't sync later, after the migration is complete. (See [Azure File Sync troubleshooting](storage-sync-files-troubleshoot.md#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing). It's most likely unprintable characters in file names that you won't miss when they are deleted.)
+ > [!CAUTION]
+> The RoboCopy command below contains best-practice parameters. You only want to copy files that were changed after the DTS job last ran and files that haven't moved through the Data Transformation Service jobs before. You can solve the problems why they didn't move later on the server, after the migration is complete. (See [Azure File Sync troubleshooting](storage-sync-files-troubleshoot.md#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing). It's most likely unprintable characters in file names that you won't miss when they are deleted.)
 
 RoboCopy command:
 
 ```console
-Robocopy /MT:32 /UNILOG:<file name> /TEE /B /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
+Robocopy /MT:16 /UNILOG:<file name> /TEE /B /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
 ```
 
 Background:
@@ -568,36 +455,45 @@ Background:
    :::column-end:::
 :::row-end:::
 
-You should run this RoboCopy command for each of the directories on the Windows Server as a target, that you've configured with file sync to an Azure file.
+When you configure source and target locations of the RoboCopy command, make sure you review the structure of source and target to ensure they match. You might have used the directory mapping feature of the migration job (DTS job) and so your root-directory structure might be different than on your StorSimple volume. You might need multiple RoboCopy jobs, one for each sub-directory. Since this RoboCopy command uses /MIR - it will not move files that are the same (tiered files for instance), but if you get source and target path wrong, /MIR also purges directory structures on your Windows Server / Azure file share, that are not present on the StorSimple source path. So they must match exactly. 
 
-You can run multiple of these commands in parallel.
-Once this RoboCopy step is complete, you can allow your users and apps to access the Windows Server like they did the StorSimple appliance before.
+Consult the robocopy log file(s) to see if files have been left behind. If issues should exist, in most cases you can resolve them after the migration is complete and your users and apps have been re-homed to your Windows Server. If you need to fix any issues, do so before deprovisioning any StorSimple resources.
 
-Consult the robocopy log file(s) to see if files have been left behind. If issues should exist, in most cases you can resolve them after the migration is complete and your users and apps have been re-homed to your Windows Server. If you need to fix any issues, do so before phase 7.
+If you don't use Azure File Sync to cache the particular Azure file share in question, but rather opted for direct-share-access:
+1. [Mount your Azure file share](storage-how-to-use-files-windows.md#mount-the-azure-file-share) as a network drive to a local Windows machine.
+1. Perform the RoboCopy between your StorSimple and the mounted Azure file share. If files don't copy, fix up their names on the StorSimple side to remove invalid characters and retry RoboCopy. The previously listed RoboCopy command can be run multiple times w/o causing unnecessary recall to StorSimple.
 
-It is likely needed to create the SMB shares on the Windows Server that you had on the StorSimple data before. You can front-load this step and do it earlier to not lose time here, but you must ensure that before this point, no changes to files occur on the Windows server.
+### User cut-over
 
-If you have a DFS-N deployment, you can point the DFN-Namespaces to the new server folder locations. If you do not have a DFS-N deployment, and you fronted your 8100 8600 appliance locally with a Windows Server, you can take that server off the domain, and domain join your new Windows Server with AFS to the domain, give it the same server name as the old server, and the same share names, then the cut-over to the new server remains transparent for your users, group policy, or scripts.
+If you use Azure File Sync, you likely need to create the SMB shares on that AFS enabled Windows Server that match the shares you had on the StorSimple volumes. You can front-load this step and do it earlier to not lose time here, but you must ensure that before this point, nobody has access to cause changes to the Windows Server.
 
-## Phase 7: Deprovision
+If you have a DFS-N deployment, you can point the DFN-Namespaces to the new server folder locations. If you do not have a DFS-N deployment, and you fronted your 8100 / 8600 appliance locally with a Windows Server, you can take that server off the domain, and domain join your new Windows Server with AFS to the domain, give it the same server name as the old server, and the same share names, then the cut-over to the new server remains transparent for your users, group policy, or scripts.
 
-During the last phase you have iterated through multiple volume clones, and eventually were able to cut over user access to the new Windows Server after taking you StorSimple appliance offline.
+[Learn more about DFS-N](https://aka.ms/AzureFiles/Namespaces).
 
-You can now begin to deprovision unnecessary resources.
+## Deprovision
+
+> [!CAUTION]
+> Deprovisioning resources always means a **loss of configuration and data** that **cannot be undone**.
+> Stop and confirm your migration is complete and nothing and no one depends on these resources, before you proceed.
+
+Only proceed, when you are certain that you:
+* ...don't need any more files / folders from StorSimple.
+* ...don't need StorSimple volume backups.
+
 Before you begin, it is a best practice to observe your new Azure File Sync deployment in production, for a bit. That gives you options to fix any problems you might encounter.
 
 Once you are satisfied and have observed your AFS deployment for at least a few days, you can begin to deprovision resources in this order:
 
-1. Turn off the Azure VM that we have used to move data from the volume clones to the Azure file shares via file sync.
-2. Go to your Storage Sync Service resource in Azure, and unregister the Azure VM. That removes it from all the sync groups.
-
-    > [!WARNING]
-    > **ENSURE you pick the right machine.** You've turned the cloud VM off, that means it should show as the only offline server in the list of registered servers. You must not pick the on-premises Windows Server at this step, doing so will unregister it.
-
-3. Delete Azure VM and its resources.
-4. Disable the 8020 virtual StorSimple appliance.
-5. Deprovision all StorSimple resources in the Azure.
-6. Unplug the StorSimple physical appliance from your data center.
+1. Deprovision your StorSimple Data Manager resource in the Azure.
+   All of your DTS jobs will be deleted with it. You won't be able to easily get at the copy logs anymore. If they are important for you to add to your records, retrieve them beforehand.
+1. Unregister the StorSimple physical appliances your have finished migrating.
+   If you have any doubt, stop and think this through. Deprovisioning resources always means a loss of configuration and data that cannot be undone.
+1. If there are no more registered devices left in a StorSimple Device Manager, you can proceed to remove that Device Manager resource.
+1. It is now time to delete the StorSimple storage account in Azure. Again, stop and confirm your migration is complete and nothing and no one depends on this data, before you proceed.
+1. Unplug the StorSimple physical appliance from your data center.
+1. If you own the StorSimple appliance, you are free to PC Recycle it. 
+   If your device is leased, inform the lessor and return the device as appropriate.
 
 Your migration is complete.
 
@@ -611,7 +507,7 @@ Your migration is complete.
 Get more familiar with Azure File Sync.
 Especially with the flexibility of cloud tiering policies.
 
-If you see in the Azure portal, or from the earlier events, that some files are permanently not syncing, review the troubleshooting guide for steps to resolve these issues.
+If you see in the Azure portal, or from the earlier events, that some files are permanently not syncing, review the [troubleshooting guide](storage-sync-files-troubleshoot.md) for steps to resolve these issues.
 
 * [Azure File Sync overview: aka.ms/AFS](https://aka.ms/AFS)
 * [Cloud tiering](storage-sync-cloud-tiering.md) 
