@@ -18,22 +18,22 @@ Azure Static Web Apps is a service that automatically builds and deploys full st
 
 The workflow of Azure Static Web Apps is tailored to a developer's daily workflow. Apps are built and deployed based off GitHub interactions.
 
-When you create an Azure Static Web Apps resource, Azure sets up a GitHub Actions workflow in the app's source code repository that monitors a branch of your choice. Every time you push commits or accept pull requests into the watched branch, the GitHub Action automatically builds and deploys your app and its API to Azure.
+When you create an Azure Static Web Apps resource, Azure sets up a GitHub Actions workflow in the app's source code repository that monitors a branch of your choice. Every time you push commits or accept pull requests into the watched branch. The GitHub Action automatically builds and deploys your app and its API to Azure.
 
-Static web apps are commonly built using libraries and frameworks like Angular, React, Svelte, Vue, or Blazor. These apps include HTML, CSS, JavaScript, and image assets that make up the application. With a traditional web server, these assets are served from a single server alongside any required API endpoints.
+Static web apps are commonly built using libraries and frameworks like Angular, React, Svelte, Vue or Blazor. These apps include HTML, CSS, JavaScript and image assets that make up the application. With a traditional web server, these assets are served from a single server alongside any required API endpoints.
 
 With Static Web Apps, static assets are separated from a traditional web server and are instead served from points geographically distributed around the world. This distribution makes serving files much faster as files are physically closer to end users. In addition, API endpoints are hosted using a [serverless architecture](../azure-functions/functions-overview.md), which avoids the need for a full back-end server all together.
 
 ## Key features
 
-- **Web hosting** for static content like HTML, CSS, JavaScript, and images.
+- **Web hosting** for static content like HTML, CSS, JavaScript and images.
 - **Integrated API** support provided by Azure Functions.
 - **First-class GitHub integration** where repository changes trigger builds and deployments.
 - **Globally distributed** static content, putting content closer to your users.
 - **Free SSL certificates**, which are automatically renewed.
 - **Custom domains** to provide branded customizations to your app.
 - **Seamless security model** with a reverse-proxy when calling APIs, which requires no CORS configuration.
-- **Authentication provider integrations** with Azure Active Directory, Facebook, Google, GitHub, and Twitter.
+- **Authentication provider integrations** with Azure Active Directory, Facebook, Google, GitHub and Twitter.
 - **Customizable authorization role definition** and assignments.
 - **Back-end routing rules** enabling full control over the content and routes you serve.
 - **Generated staging versions** powered by pull requests enabling preview versions of your site before publishing.
