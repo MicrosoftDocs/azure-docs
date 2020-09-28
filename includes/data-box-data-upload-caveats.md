@@ -14,4 +14,4 @@ ms.author: alkohli
 - Every file written into *StorageAccount_BlockBlob* and *StorageAccount_PageBlob* shares is uploaded as a block blob and page blob respectively.
 - Azure blob storage doesn't support directories. If you create a folder under the *StorageAccount_BlockBlob* folder, then virtual folders are created in the blob name. For Azure Files, the actual directory structure is maintained.
 - Any empty directory hierarchy (without any files) created under *StorageAccount_BlockBlob* and *StorageAccount_PageBlob* folders isn't uploaded.
-- If there are any errors when uploading data to Azure, an error log is created in the target storage account. The path to this error log is available when the upload is complete and you can review the log to take corrective action. Don't delete data from the source without verifying the uploaded data.
+- If there are any errors when uploading data to Azure, an error log is created in the target storage account. The path to this error log is available when the upload is complete, and you can review the log to take corrective action. Don't delete data from the source without verifying the uploaded data.
