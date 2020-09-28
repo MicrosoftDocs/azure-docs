@@ -37,11 +37,11 @@ Table of contents:
   - [Decryption certificates](#decryption-certificates)
     - [Describing decryption certificates to use by configuration](#describing-decryption-certificates-to-use-by-configuration)
     - [Describing decryption certificates to use programmatically](#describing-decryption-certificates-to-use-programmatically)
-      - [Specifying certificates as an X509Certificate2](#specifying-certificates-as-an-x509certificate2)
-  - [Specifying certificates](#specifying-certificates)
+  - [Ways of specifying certificates](#ways-of-specifying-certificates)
+    - [Specifying certificates as an X509Certificate2](#specifying-certificates-as-an-x509certificate2)
     - [Getting certificates from Key Vault](#getting-certificates-from-key-vault)
       - [Microsoft.Identity.Web leverages Managed Identity](#microsoftidentityweb-leverages-managed-identity)
-    - [Specifying certificates](#specifying-certificates-1)
+    - [Specifying certificates](#specifying-certificates)
     - [Microsoft Identity Web classes used for certificate management](#microsoft-identity-web-classes-used-for-certificate-management)
 
 ## Client certificates
@@ -85,21 +85,74 @@ See [Specifying certificates](#specifying-certificates) below for all the ways t
 
 ### Describing client certificates to use programmatically
 
-You can also specify the certificate description programmatically. For this, you add `CertificateDescription` instances to the `ClientCertificates` property of `MicrosoftIdentityOptions`. You can then use some of the overloads of `AddMicrosoftIdentityWebApp`, `EnableTokenAcquisitionToCallDownstreamApi` using delegates to set the `MicrosoftIdentityOptions`.
+You can also specify the certificate description programmatically. For this, you add `CertificateDescription` instances to the `ClientCertificates` property of `MicrosoftIdentityOptions`. You can then use some of the overloads of `AddMicrosoftIdentityWebApp`, using delegates to set the `MicrosoftIdentityOptions`.
 
-```Csharp
-MicrosoftIdentityOptions options = new MicrosoftIdentityOptions();
-options.ClientCertificates = new CertificateDescription[] {
- CertificateDescription.FromKeyVault("https://msidentitywebsamples.vault.azure.net",
-                                     "MicrosoftIdentitySamplesCert")
-};
+For a Web app, this would look like the following:
+
+```CSharp
+using Microsoft.Identity.Web;
+
+public class Startup
+{
+ // More code here
+ public void ConfigureServices(IServiceCollection services)
+ {
+  // More code here
+  services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
+    .AddMicrosoftIdentityWebApp(microsoftIdentityOptions=>
+    {
+      Configuration.Bind("AzureAd", microsoftIdentityOptions);
+      microsoftIdentityOptions.ClientCertificates = new CertificateDescription[] {
+        CertificateDescription.FromKeyVault("https://msidentitywebsamples.vault.azure.net",
+                                            "MicrosoftIdentitySamplesCert")};
+    })
+  .EnableTokenAcquisitionToCallDownstreamApi(confidentialClientApplicationOptions=>
+    {
+    Configuration.Bind("AzureAd", confidentialClientApplicationOptions); 
+    })
+  .AddInMemoryTokenCaches();
+ }
+}
 ```
 
-See [Specifying certificates](#specifying-certificates) below for all the ways to describe certificates.
+For a web API, the code snippet, becomes:
+
+```CSharp
+using Microsoft.Identity.Web;
+
+public class Startup
+{
+ // More code here
+ public void ConfigureServices(IServiceCollection services)
+ {
+  // More code here
+  services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+   .AddMicrosoftIdentityWebApi(
+     configureJwtBearerOptions =>
+     {
+      Configuration.Bind("AzureAd", configureJwtBearerOptions);
+     }, microsoftIdentityOptions=>
+     {
+      Configuration.Bind("AzureAd", microsoftIdentityOptions);
+      microsoftIdentityOptions.TokenDecryptionCertificates = new CertificateDescription[] {
+         CertificateDescription.FromKeyVault("https://msidentitywebsamples.vault.azure.net",
+                                             "MicrosoftIdentitySamplesDecryptCert")};
+     })
+   .EnableTokenAcquisitionToCallDownstreamApi(
+     confidentialClientApplicationOptions=>
+     {
+      Configuration.Bind("AzureAd", confidentialClientApplicationOptions); 
+     })
+   .AddInMemoryTokenCaches();
+ }
+}
+```
+
+See [Specifying certificates](#specifying-certificates) below for all the ways to specify client  certificates.
 
 ### Helping certificate rotation by sending x5c
 
-It's possible to specify if the x5c claim (public key of the certificate) should be sent to the STS each
+It's possible to specify if the *x5c* claim (public key of the certificate) should be sent to Azure AD each
 time the web app or web API calls Azure AD. Sending the x5c enables application developers to achieve easy certificate
 rollover in Azure AD: this method will send the public certificate to Azure AD along with the token request,
 so that Azure AD can use it to validate the subject name based on a trusted issuer policy.
@@ -160,30 +213,50 @@ See [Specifying certificates](#specifying-certificates) below for all the ways t
 
 ### Describing decryption certificates to use programmatically
 
-You can also specify the certificate description programmatically:
+You can also specify the certificate description programmatically using the overload of `AddMicrosoftIdentityWebApi` 
+that take delegate parameters, by setting the `TokenDecryptionCertificates` property
+of the `MicrosoftIdentityOptions` parameter of the delegate.
 
-```Csharp
-MicrosoftIdentityOptions options = new MicrosoftIdentityOptions();
-options.TokenDecryptionCertificates = new CertificateDescription[] {
- CertificateDescription.FromKeyVault("https://msidentitywebsamples.vault.azure.net",
-                                     "MicrosoftIdentitySamplesCert")
-};
+```CSharp
+using Microsoft.Identity.Web;
+
+public class Startup
+{
+ // More code here
+ public void ConfigureServices(IServiceCollection services)
+ {
+  // More code here
+  services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+   .AddMicrosoftIdentityWebApi(
+     configureJwtBearerOptions => {
+      Configuration.Bind("AzureAd", configureJwtBearerOptions);
+     },
+     microsoftIdentityOptions=> {
+      Configuration.Bind("AzureAd", microsoftIdentityOptions);
+      microsoftIdentityOptions.TokenDecryptionCertificates = new CertificateDescription[] {
+         CertificateDescription.FromKeyVault("https://msidentitywebsamples. vault.azure.net",
+                                             "MicrosoftIdentitySamplesCert")};
+     })
+   .EnableTokenAcquisitionToCallDownstreamApi(
+     confidentialClientApplicationOptions=> {
+      Configuration.Bind("AzureAd", confidentialClientApplicationOptions); 
+     })
+   .AddInMemoryTokenCaches();
+ }
+```
+
+The code snippets below only describe the lines used to get a certificate description to fill-in the
+collection of certificate descriptions (therefore replacing the following lines from the code snippet
+above:
+
+```CSharp
+        CertificateDescription.FromKeyVault("https://msidentitywebsamples. vault.azure.net",
+                                            "MicrosoftIdentitySamplesCert")};
 ```
 
 See [Specifying certificates](#specifying-certificates) below for all the ways to describe certificates.
 
-#### Specifying certificates as an X509Certificate2
-
-You can also directly specify the certificate description as an X509Certificate2 that would you've loaded. This is only possible programmatically
-
-```csharp
-MicrosoftIdentityOptions options = new MicrosoftIdentityOptions();
-options.ClientCertificates = new CertificateDescription[] {
- CertificateDescription.FromCertificate(x509certificate2)
-};
-```
-
-## Specifying certificates
+## Ways of specifying certificates
 
 You can describe the certificates to load, either by configuration, or programmatically:
 
@@ -196,18 +269,37 @@ You can describe the certificates to load, either by configuration, or programma
 
 Describing the certificate by configuration allows for just-in-time loading, rather than paying the startup cost. For instance for a web app that signs in a user, don(t load the certificate until an access token is needed to call a web API.
 
-When your certificate is in Key Vault, Microsoft.Identity.Web leverages Managed Identity, therefore enabling your application to have the same code when deployed (for instance on a VM or Azure app services), or locally on your developer box (using developer credentials).
+When your certificate is in Key Vault, Microsoft.Identity.Web uses Managed Identity, therefore enabling your application to have the same code when deployed (for instance on a VM or Azure app services), or locally on your developer box (using developer credentials).
 
 The following sections show how to specify the client credential certificates, but the principle is the same for the decryption certificates. Just replace `ClientCertificates` with `TokenDecryptionCertificates`.
+
+### Specifying certificates as an X509Certificate2
+
+You can also directly specify the certificate description as an **X509Certificate2** that would you've loaded. This is only possible programmatically, both for 
+client certificates:
+
+```csharp
+microsoftIdentityOptions.ClientCertificates = new CertificateDescription[] {
+ TokenDecryptionCertificates.FromCertificate(x509certificate2)
+};
+```
+
+and for token decryption certificates:
+
+```csharp
+microsoftIdentityOptions.TokenDecryptionCertificates = new CertificateDescription[] {
+ CertificateDescription.FromCertificate(x509certificate2)
+};
+```
 
 ### Getting certificates from Key Vault
 
 #### Microsoft.Identity.Web leverages Managed Identity
 
-To fetch certificates from KeyVault, Microsoft.Identity.Web leverages Managed Identity through the Azure SDK
+To fetch certificates from KeyVault, Microsoft.Identity.Web uses Managed Identity through the Azure SDK
 [DefaultAzureCredential](https://azure.github.io/azure-sdk/posts/2020-02-25/defaultazurecredentials.html).
 
-This works out of the box on the developer machine using the developer credentials, and also when deployed with Service fabric or App Services in Azure
+This works seamlessly on you developer machine using your developer credentials (used in Visual Studio, Azure CLI, Azure PowerShell), and also when deployed with Service fabric or App Services in Azure
 provided you've been using a System-assigned Managed identity.
 
 However:
@@ -217,7 +309,7 @@ user-assigned managed identity clientID. You can do that through the Azure porta
   1. Go to Azure App Service -> Settings | Configuration -> Application  Settings
   2. Add or update the `AZURE_CLIENT_ID` app setting to the user assigned managed identity ID.
 
-- When used on your developer machine, you have several accounts in Visual Studio, you'll need to specify
+- When, on your developer machine, you have several accounts in Visual Studio, you'll need to specify
   which account to use, by setting another environment variable `AZURE_USERNAME`
 
 ### Specifying certificates
@@ -235,14 +327,13 @@ user-assigned managed identity clientID. You can do that through the Azure porta
 
 ```Json
 {
-    "ClientCertificates": [
-      {
-        "SourceType": "KeyVault",
-        "KeyVaultUrl": "https://msidentitywebsamples.vault.azure.net",
-        "KeyVaultCertificateName": "MicrosoftIdentitySamplesCert"
-      }
-     ]
+ "ClientCertificates": [
+  {
+  "SourceType": "KeyVault",
+  "KeyVaultUrl": "https://msidentitywebsamples.vault.azure.net",
+  "KeyVaultCertificateName": "MicrosoftIdentitySamplesCert"
   }
+ ]
 }
 ```
 
@@ -251,8 +342,7 @@ user-assigned managed identity clientID. You can do that through the Azure porta
 <td>
 
 ```CSharp
-MicrosoftIdentityOptions options = new MicrosoftIdentityOptions();
-options.ClientCertificates = new CertificateDescription[] {
+microsoftIdentityOptions.ClientCertificates = new CertificateDescription[] {
  CertificateDescription.FromKeyVault("https://msidentitywebsamples.vault.azure.net",
                                      "MicrosoftIdentitySamplesCert")
 };
@@ -267,12 +357,12 @@ options.ClientCertificates = new CertificateDescription[] {
 
 ```Json
 {
-    "ClientCertificates": [
-      {
-       "SourceType": "Path",
-       "CertificateDiskPath": "c:\\temp\\WebAppCallingWebApiCert.pfx",
-      "CertificatePassword": "password"
-      }]
+ "ClientCertificates": [
+ {
+  "SourceType": "Path",
+  "CertificateDiskPath": "c:\\temp\\WebAppCallingWebApiCert.pfx",
+  "CertificatePassword": "password"
+ }]
 }
 ```
 
@@ -281,8 +371,7 @@ options.ClientCertificates = new CertificateDescription[] {
 <td>
 
 ```CSharp
-MicrosoftIdentityOptions options = new MicrosoftIdentityOptions();
-options.ClientCertificates = new CertificateDescription[] {
+microsoftIdentityOptions.ClientCertificates = new CertificateDescription[] {
  CertificateDescription.FromPath(@"c:\temp\WebAppCallingWebApiCert.pfx",
                                      "password")
 };
@@ -297,12 +386,12 @@ options.ClientCertificates = new CertificateDescription[] {
 
 ```Json
 {
-    "ClientCertificates": [
-      {
-      "SourceType": "StoreWithDistinguishedName",
-      "CertificateStorePath": "CurrentUser/My",
-      "CertificateDistinguishedName": "CN=WebAppCallingWebApiCert"
-      }]
+ "ClientCertificates": [
+ {
+  "SourceType": "StoreWithDistinguishedName",
+  "CertificateStorePath": "CurrentUser/My",
+  "CertificateDistinguishedName": "CN=WebAppCallingWebApiCert"
+ }]
 }
 ```
 
@@ -311,8 +400,7 @@ options.ClientCertificates = new CertificateDescription[] {
 <td>
 
 ```csharp
-MicrosoftIdentityOptions options = new MicrosoftIdentityOptions();
-options.ClientCertificates = new CertificateDescription[] {
+microsoftIdentityOptions.ClientCertificates = new CertificateDescription[] {
  CertificateDescription.FromStoreWithDistinguishedName(StoreLocation.CurrentUser,
                                      StoreName.My,
                                      "CN=WebAppCallingWebApiCert")
@@ -328,12 +416,12 @@ options.ClientCertificates = new CertificateDescription[] {
 
 ```Json
 {
-    "ClientCertificates": [
-      {
-       "SourceType": "StoreWithThumbprint",
-       "CertificateStorePath": "CurrentUser/My",
-       "CertificateThumbprint": "962D129A859174EE8B5596985BD18EFEB6961684"
-      }]
+ "ClientCertificates": [
+ {
+  "SourceType": "StoreWithThumbprint",
+  "CertificateStorePath": "CurrentUser/My",
+  "CertificateThumbprint": "962D129A...D18EFEB6961684"
+ }]
 }
 ```
 
@@ -342,11 +430,10 @@ options.ClientCertificates = new CertificateDescription[] {
 <td>
 
 ```csharp
-MicrosoftIdentityOptions options = new MicrosoftIdentityOptions();
-options.ClientCertificates = new CertificateDescription[] {
+microsoftIdentityOptions.ClientCertificates = new CertificateDescription[] {
  CertificateDescription.FromStoreWithThumbprint(StoreLocation.CurrentUser,
                                      StoreName.My,
-                                     "962D129A859174EE8B5596985BD18EFEB6961684")
+                                     "962D129A...D18EFEB6961684")
 };
 ```
 
@@ -359,11 +446,11 @@ options.ClientCertificates = new CertificateDescription[] {
 
 ```Json
 {
-    "ClientCertificates": [
-      {
-       "SourceType": "Base64Encoded",
-       "Base64EncodedValue": "MIIDHzCCAgegA.....r1n8Czew8TPfab4OG37BuEMNmBpqoRrRgFnDzVtItOnhuFTa0="
-      }]
+ "ClientCertificates": [
+ {
+  "SourceType": "Base64Encoded",
+  "Base64EncodedValue": "MIIDHzCgegA.....r1n8Ta0="
+ }]
 }
 ```
 
@@ -372,19 +459,14 @@ options.ClientCertificates = new CertificateDescription[] {
 <td>
 
 ```csharp
-MicrosoftIdentityOptions options = new MicrosoftIdentityOptions();
-options.ClientCertificates = new CertificateDescription[] {
- CertificateDescription.FromBase64Encoded("MIIDHzCCAgegA.....r1n8Czew8TPfab4OG37BuEMNmBpqoRrRgFnDzVtItOnhuFTa0=")
+microsoftIdentityOptions.ClientCertificates = new CertificateDescription[] {
+ CertificateDescription.FromBase64Encoded("MIIDHzCgegA.....r1n8Ta0=")
 };
 ```
 
 </td>
-
 </tr>
-
 </table>
-
-
 
 ### Microsoft Identity Web classes used for certificate management
 
