@@ -52,7 +52,7 @@ Use the [Predictive Maintenance solution accelerator](iot-accelerators-predictiv
 
 You can use the predictive maintenance dashboard to view predictive maintenance analytics:
 
-:::image type="content" source="./media/about-iot-accelerators/pm-dashboard-inline.png" alt-text="Screenshot that shows the "Predictive maintenance" dashboard." lightbox="./media/about-iot-accelerators/pm-dashboard-expanded.png":::
+:::image type="content" source="./media/about-iot-accelerators/pm-dashboard-inline.png" alt-text="Screenshot that shows the 'Predictive maintenance' dashboard." lightbox="./media/about-iot-accelerators/pm-dashboard-expanded.png":::
 
 ### Device Simulation
 
