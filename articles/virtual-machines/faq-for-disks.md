@@ -394,7 +394,7 @@ No, standard SSD managed disks of any size cannot be used with unmanaged disks o
 
 **What is the largest Managed disk size supported for operating system and data disks?**
 
-The partition type that Azure supports for an operating system disk is the master boot record (MBR). The MBR format supports a disk size up to 2 TiB. The largest size that Azure supports for an operating system disk is 4 TiB. Azure supports up to 32 TiB for managed data disks.
+The partition type that Azure supports for an operating system disk is the master boot record (MBR) and GUID Partition Table (GPT) for Gen 1 and Gen 2 VMs. The MBR format supports a disk size up to 2 TiB. For Gen 1 VMs, while you can allocate up to 4 TiB, you can use only up to 2 TiB of this disk space for the operating system. For Gen 2 VMs, the largest size that you can allocate and use for an operating system disk is 4 TiB. Azure supports up to 32 TiB for managed data disks.
 
 **What is the largest Unmanaged Disk size supported for operating system and data disks?**
 
