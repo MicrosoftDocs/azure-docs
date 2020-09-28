@@ -10,7 +10,7 @@ ms.author: cshoe
 
 There are two aspects to deploying a static app. The first provisions the underlying Azure resources that make up your app. The second is a GitHub Actions workflow that builds and publishes your application.
 
-Before you can navigate to your new static site, the deployment build must first finish running.
+Before you can navigate to your new static site, the deployment builds must first finish running.
 
 The Static Web Apps overview window displays a series of links that help you interact with your web app.
 
