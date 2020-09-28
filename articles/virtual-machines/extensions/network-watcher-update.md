@@ -26,7 +26,7 @@ The Network Watcher extension is used by features like Connection Monitor, Conne
 ## Prerequisites
 This document assumes you have the Network Watcher Extension installed in your virtual machine and provide instructions for updating it to the latest version. 
 
-## Latest Version
+## Latest version
 The latest version of the Network Watcher extension is currently `1.4.1654.1`.
 
 ## Updating your extension 
