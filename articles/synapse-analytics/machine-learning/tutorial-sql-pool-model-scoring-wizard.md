@@ -130,7 +130,7 @@ Click "Continue".
 
 10. Once the script is generated, you can click "Run" , to execute the scoring to get predictions.
 
-![Run ptedictions](media/tutorial-sql-scoring-wizard-00g.png)
+![Run predictions](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-00g.png)
 
 
 ## Next steps
