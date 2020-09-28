@@ -122,7 +122,7 @@ Sign in to the [Azure portal](https://portal.azure.com/)
 8. Next step is to map the table columns to the model inputs, and also specify the model outputs. If the model is saved in the MLFlow format and the model signature is populated, we can automatically do the mapping for you using a logic based on the similarity of names). The interface also supports manual mapping.
 Click "Continue".
 
-![Table to model mapping](media/tutorial-sql-scoring-wizard-00e.png)
+![Table to model mapping](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-00e.png)
 
 9. The generated T-SQL code will be wrapped inside a Stored Procedure. and this is why you need to provide a stored procedure a name. The model binary incl. metadata (version, description, etc) will be physically copied from Azure ML to a SQL pool table. So, we also need to specify which table to save the model inn. You can either choose to "Use an existing table" or to "Create a new table". Once done, click "Deploy model + open editor" to deploy the model and generate a T-SQL prediction script.
 
