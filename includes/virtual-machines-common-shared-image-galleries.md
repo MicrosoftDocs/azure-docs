@@ -5,7 +5,7 @@
  ms.service: virtual-machines
  ms.topic: include
  ms.date: 07/08/2020
- ms.author: akjosh
+ ms.author: olayemio
  ms.custom: include file
 ---
 
@@ -64,6 +64,19 @@ The following are other parameters that can be set on your image definition so t
 * Disallowed disk types - you can provide information about the storage needs for your VM. For example, if the image isn't suited for standard HDD disks, you add them to the disallow list.
 * Hyper-V generation - you can specify whether the image was created from a gen 1 or gen 2 Hyper-V VHD.
 * Purchase plan information for Marketplace images - `-PurchasePlanPublisher `, `-PurchasePlanName`, and `-PurchasePlanProduct`. For more information about purchase plan information, see [Find images in the Azure Marketplace](https://docs.microsoft.com/azure/virtual-machines/windows/cli-ps-findimage) and [Supply Azure Marketplace purchase plan information when creating images](../articles/virtual-machines/marketplace-images.md).
+
+
+## Image versions
+
+An **image version** is what you use to create a VM. You can have multiple versions of an image as needed for your environment. When you use an **image version** to create a VM, the image version is used to create new disks for the VM. Image versions can be used multiple times.
+
+The properties of an image version are:
+
+- Version number. This is used as the name of the image version. It is always in the format: MajorVersion.MinorVersion.Patch. When you specify to use **latest** when creating a VM, the latest image is chosen based on the highest MajorVersion, then MinorVersion, then Patch. 
+- Source. The source can be a snapshot, managed disk, OS disk snapshot, or a VHD. 
+- Exclude from latest. You can keep a version from being used as the latest image version. 
+- End of life date. Date after which VMs can't be created from this image.
+
 
 ## Generalized and specialized images
 
