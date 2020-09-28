@@ -35,7 +35,7 @@ You can assign a role to a user, group, service principal, or managed identity. 
 For an Azure AD user, get the user principal name, such as *patlong\@contoso.com* or the user object ID. To get the object ID, you can use [az ad user show](/cli/azure/ad/user#az_ad_user_show).
 
 ```azurecli
-az ad user show --id "{principalName}" --query objectId --output tsv
+az ad user show --id "{principalName}" --query "objectId" --output tsv
 ```
 
 **Group**
@@ -43,7 +43,7 @@ az ad user show --id "{principalName}" --query objectId --output tsv
 For an Azure AD group, you need the group object ID. To get the object ID, you can use [az ad group show](/cli/azure/ad/group#az_ad_group_show) or [az ad group list](/cli/azure/ad/group#az_ad_group_list).
 
 ```azurecli
-az ad group show --group "{groupName}" --query objectId --output tsv
+az ad group show --group "{groupName}" --query "objectId" --output tsv
 ```
 
 **Service principal**
