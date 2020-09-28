@@ -334,7 +334,7 @@
       items:
       - name: MongoDB (legacy)
         href: connector-mongodb-legacy.md
-    - name: MongoDBAtlas
+    - name: MongoDB Atlas
       href: connector-mongodb-atlas.md
     - name: MySQL
       href: connector-mysql.md
