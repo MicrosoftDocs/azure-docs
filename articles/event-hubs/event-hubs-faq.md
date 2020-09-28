@@ -283,7 +283,7 @@ For example, if you are running on Azure Stack Hub version 2002](../azure-stack/
 
 If you are running on [Azure Stack Hub version 2005](../azure-stack/operator/azure-stack-overview.md?view=azs-2005), the highest available version for the Storage service is version 2019-02-02. 
 
-For the latest supported Storage service APIs on an Azure Stack Hub version, see [supproted API version](../azure-stack/user/azure-stack-acs-differences.md?view=azs-2005#api-version)
+For the latest supported Storage service APIs on an Azure Stack Hub version, see [supported API version](../azure-stack/user/azure-stack-acs-differences.md?view=azs-2005#api-version)
 
 For an example on how to target a specific Storage API version from your code, see the following samples on GitHub: 
 
