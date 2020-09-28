@@ -297,7 +297,7 @@ You can create metric alerts on connection monitors using the methods below
     1. Provide alert details.
     1. Create the alert rule.
 
-    :::image type="content" source="./media/connection-monitor-2-preview/mdm-alerts.jpg" alt-text="Screenshot showing the Create rule area in Azure Monitor; "Source address" and "Source endpoint name" are highlighted" lightbox="./media/connection-monitor-2-preview/mdm-alerts.jpg":::
+    :::image type="content" source="./media/connection-monitor-2-preview/mdm-alerts.jpg" alt-text="Screenshot showing the Create rule area in Azure Monitor. Source address and Source endpoint name are highlighted" lightbox="./media/connection-monitor-2-preview/mdm-alerts.jpg":::
 
 ## Diagnose issues in your network
 
