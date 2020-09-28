@@ -290,7 +290,7 @@ You verified that the built container images are stored in your container regist
 
 The IotEdgeModule1 code receives messages through its input queue and passes them along through its output queue. The deployment manifest declared routes that passed messages from SimulatedTemperatureSensor to IotEdgeModule1, and then forwarded messages from IotEdgeModule1 to IoT Hub. The Azure IoT Edge tools for Visual Studio allow you to see messages as they arrive at IoT Hub from your individual devices.
 
-1. In the Visual Studio Cloud Explorer, select the name of the IoT Edge device that you deployed to.
+1. In Visual Studio Cloud Explorer, select the name of the IoT Edge device that you deployed to.
 
 2. In the **Actions** menu, select **Start Monitoring Built-in Event Endpoint**.
 
