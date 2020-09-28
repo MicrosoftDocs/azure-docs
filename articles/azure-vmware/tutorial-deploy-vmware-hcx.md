@@ -32,7 +32,7 @@ Once finished, you can follow the recommended next steps at the end of this arti
 * Optionally review [VMware HCX Deployment Considerations](https://docs.vmware.com/en/VMware-HCX/services/install-checklist/GUID-C0A0E820-D5D0-4A3D-AD8E-EEAA3229F325.html).
 * Optionally review related VMware materials on HCX, such as the VMware vSphere [blog series](https://blogs.vmware.com/vsphere/2019/10/cloud-migration-series-part-2.html) on HCX. 
 * Optionally request an Azure VMware Solution HCX Enterprise activation through Azure VMware Solution support channels.
-* To deploy the WAN Interconnect applicance, specific CIDR ranges are already allocated from the customer provided `\22` for the private cloud creating.
+* To deploy the WAN Interconnect appliance, specific CIDR ranges are already allocated from the customer provided `\22` for the private cloud creating.
 
 Sizing workloads against compute and storage resources is an essential planning step. Address the sizing step as part of the initial private cloud environment planning. 
 
@@ -77,19 +77,21 @@ Infrastructure components must be running the required minimum version.
 
 1. Select the **download** link to download the VMware HCX OVA file.
 
-1. Go to the on-premises vCenter and select an OVF template, which is the OVA file you just downloaded, to deploy to your on-premises vCenter.  
+1. Go to the on-premises vCenter and select an OVF template, which is the OVA file you downloaded, to deploy to your on-premises vCenter.  
 
-   :::image type="content" source="media/tutorial-vmware-hcx/select-ovf-template.png" alt-text="Go to the on-premises vCenter and select an OVF template to deploy to your on-premises vCenter.":::
+   :::image type="content" source="media/tutorial-vmware-hcx/select-ovf-template.png" alt-text="Go to the on-premises vCenter and select an OVF template to deploy to your on-premises vCenter." lightbox="media/tutorial-vmware-hcx/select-ovf-template.png":::
+
+   
 
 1. Select a name and location, a resource/cluster where you are deploying HCX, and then review the details and required resources.  
 
-   :::image type="content" source="media/tutorial-vmware-hcx/configure-template.png" alt-text=" Select a name and location, a resource/cluster where you are deploying HCX, and then review the details and required resources.":::
+   :::image type="content" source="media/tutorial-vmware-hcx/configure-template.png" alt-text="Select a name and location, a resource/cluster where you are deploying HCX, and then review the details and required resources." lightbox="media/tutorial-vmware-hcx/configure-template.png:::
 
 1. Review license terms, and if you agree, select the required storage and network, and then select **Next**.
 
 1. In **Customize template**, enter all required information. 
 
-   :::image type="content" source="media/tutorial-vmware-hcx/customize-template.png" alt-text="In Customize template, enter all required information.":::
+   :::image type="content" source="media/tutorial-vmware-hcx/customize-template.png" alt-text="In Customize template, enter all required information" lightbox="media/tutorial-vmware-hcx/customize-template.png":::
 
 1. Select **Next**, verify configuration, and then select **Finish** to deploy HCX OVA.
      
@@ -116,7 +118,7 @@ After deploying the VMware HCX OVA on-premises, you're ready to activate VMware 
 
 1. In **Licensing**, enter your **HCX Advanced Key**.  
 
-   :::image type="content" source="media/tutorial-vmware-hcx/vmware-hcx-advanced-license-key.png" alt-text="In Licensing, enter your HCX Advanced Key." lightbox="media/tutorial-vmware-hcx/vmware-hcx-advanced-license-key.png":::
+   :::image type="content" source="media/tutorial-vmware-hcx/vmware-hcx-advanced-license-key.png" alt-text="In Licensing, enter your HCX Advanced Key." lightbox="media/tutorial-vmware-hcx/vmware-hcx-advanced-license.png":::
    
     
     > [!NOTE]
@@ -124,7 +126,7 @@ After deploying the VMware HCX OVA on-premises, you're ready to activate VMware 
 
 1. In **Datacenter Location**, provide the nearest location where you install the VMware HCX Manager on-premises.
 
-   :::image type="content" source="media/tutorial-vmware-hcx/datacenter-location.png" alt-text="In Datacenter Location, if needed, edit the datacenter location.":::
+   :::image type="content" source="media/tutorial-vmware-hcx/datacenter-location.png" alt-text="In Datacenter Location, if needed, edit the datacenter location." lightbox="media/tutorial-vmware-hcx/datacenter-location.png":::
 
 1. Modify the **System Name** or accept the default.
 
@@ -132,11 +134,10 @@ After deploying the VMware HCX OVA on-premises, you're ready to activate VMware 
    
 1. You can either Finish Later or Continue, select the option **Yes, Continue** to continue.
 
-   :::image type="content" source="media/tutorial-vmware-hcx/continue-vmware-hcx-configuration.png" alt-text="You can either Finish Later or Continue, select the option Yes, Continue to continue." lightbox="media/tutorial-vmware-hcx/continue-vmware-hcx-configuration.png":::
     
 1. In **Connect your vCenter**, provide the FQDN or IP address of your vCenter server and the appropriate credentials.
 
-   :::image type="content" source="media/tutorial-vmware-hcx/connect-vcenter.png" alt-text="In Connect your vCenter, provide the FQDN or IP address of your vCenter server and the appropriate credentials." lightbox="media/tutorial-vmware-hcx/connect-vcenter.png":::
+   :::image type="content" source="media/tutorial-vmware-hcx/connect-vcenter.png" alt-text="In Connect your vCenter, provide the FQDN or IP address of your vCenter server and the appropriate credentials.":::
    
 1. In **Configure SSO/PSC**, provide the FQDN or IP address of your PSC. Typically it's the same as your vCenter FQDN/IP.
 
@@ -144,7 +145,7 @@ After deploying the VMware HCX OVA on-premises, you're ready to activate VMware 
 
 1. Verify that all the inputs are correct and select **Restart**.
 
-   :::image type="content" source="media/tutorial-vmware-hcx/verify-and-restart.png" alt-text="Verify that all the inputs are correct and select Restart." lightbox="media/tutorial-vmware-hcx/verify-and-restart.png":::
+   :::image type="content" source="media/tutorial-vmware-hcx/verify-and-restart.png" alt-text="Verify that all the inputs are correct and select Restart.":::
     
    > [!NOTE]
    > You'll experience a delay after restarting before being prompted for the next step.
@@ -166,13 +167,13 @@ You can connect (pair) the VMware HCX Manager in Azure VMware Solution with the 
 
 1. Sign in to your on-premises vCenter, and under **Home**, select **HCX**.
 
-   :::image type="content" source="media/tutorial-vmware-hcx/vcenter-vmware-hcx.png" alt-text="Sign into on-premises vCenter, and under Home, select HCX.":::
+   :::image type="content" source="media/tutorial-vmware-hcx/vcenter-vmware-hcx.png" alt-text="Sign into on-premises vCenter, and under Home, select HCX." lightbox="media/tutorial-vmware-hcx/vcenter-vmware-hcx.png":::
 
 1. Under **Infrastructure**, select **Site Pairing**, and then select the **Connect To Remote Site** option (in middle of screen). 
 
-   :::image type="content" source="media/tutorial-vmware-hcx/connect-remote-site.png" alt-text="Under Infrastructure, select Site Pairing > Add a site pairing.":::
+   :::image type="content" source="media/tutorial-vmware-hcx/connect-remote-site.png" alt-text="Under Infrastructure, select Site Pairing > Add a site pairing." lightbox="media/tutorial-vmware-hcx/connect-remote-site.png":::
 
-1. Enter the **Remote HCX URL or IP address**, the Azure VMware Solution **cloudadmin@vsphere.local** username and **password**, and then select **Connect**.
+1. Enter the **Remote HCX URL or IP address**, the Azure VMware Solution cloudadmin@vsphere.local username and **password**, and then select **Connect**.
 
    :::image type="content" source="media/tutorial-vmware-hcx/connect-remote-site-credentials.png" alt-text="Enter the Remote HCX URL or IP address, cloudadmin@vsphere.local username and password, and then select Connect.":::
 
@@ -202,13 +203,13 @@ You will create four network profiles:
 
 1. Under **Infrastructure**, select **Interconnect** > **Multi-Site Service Mesh** > **Network Profiles** > **Create Network Profile**.
 
-   :::image type="content" source="media/tutorial-vmware-hcx/network-profile-start.png" alt-text="Under Infrastructure, select Interconnect > Multi-Site Service Mesh > Network Profiles > Create Network Profile.":::
+   :::image type="content" source="media/tutorial-vmware-hcx/network-profile-start.png" alt-text="Under Infrastructure, select Interconnect > Multi-Site Service Mesh > Network Profiles > Create Network Profile." lightbox="media/tutorial-vmware-hcx/network-profile-start.png":::
 
 1. For each network profile, select the port group, provide a name, and create the IP pool for that particular segment. 
 
    These are the example configuration screens of each of the network profiles. Additionally, there is a video that shows the creation of all of these network profiles.
 
-   :::image type="content" source="media/tutorial-vmware-hcx/example-configurations-network-profile.png" alt-text="For the new network profile, enter the VMware HCX IX and NE IP address ranges (a minimum of two IP addresses is required for IX and NE appliances)." lightbox="media/tutorial-vmware-hcx/example-configurations-network-profile.png":::
+   :::image type="content" source="media/tutorial-vmware-hcx/example-configurations-network-profile.png" alt-text="For the new network profile, enter the VMware HCX IX and NE IP address ranges (a minimum of two IP addresses is required for IX and NE appliances)." lightbox="media/tutorial-vmware-hcx/example-configurations-network-profile.png" lightbox="media/tutorial-vmware-hcx/example-configurations-network-profile.png":::
 
 For an end-to-end overview of this step, view the [Azure VMware Solution - VMware HCX create network profile](https://www.youtube.com/embed/NhyEcLco4JY) video.
 
@@ -217,7 +218,7 @@ For an end-to-end overview of this step, view the [Azure VMware Solution - VMwar
 
 1. Select **Compute Profiles** > **Create Compute Profile**.
 
-   :::image type="content" source="media/tutorial-vmware-hcx/compute-profile-create.png" alt-text="Now select **Compute Profiles** > **Create Compute Profile**":::
+   :::image type="content" source="media/tutorial-vmware-hcx/compute-profile-create.png" alt-text="Now select Compute Profiles > Create Compute Profile" lightbox="media/tutorial-vmware-hcx/compute-profile-create.png":::
 
 1. Enter a name for the profile and select **Continue**.  
 

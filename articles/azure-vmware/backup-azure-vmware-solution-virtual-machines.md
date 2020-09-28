@@ -100,7 +100,7 @@ VMware 6.7 onwards had TLS enabled as the communication protocol.
 
 1. Right-click the TLS.REG file, and select **Merge** or **Open** to add the settings to the registry.
 
-## Add the provisioning IP address for Azure VMware Solution ESXi hosts on Azure Backup Server
+## Add the provisioning IP address 
 
 During the preview, Azure VMware Solution doesn't resolve the ESX host from the virtual machine deployed in the virtual network. You'll need to perform additional steps to add the host file entry on the Azure Backup Server virtual machine.
 

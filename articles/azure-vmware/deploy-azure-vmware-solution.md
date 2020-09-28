@@ -50,7 +50,7 @@ If you've already defined a virtual network in the deployment screen in Azure, t
 
 [!INCLUDE [connect-expressroute-to-vnet](includes/connect-expressroute-vnet.md)]
 
-## Verify network routes advertised from Azure VMware Solution to Azure Virtual Network
+## Verify network routes advertised
 
 The jump box is in the virtual network where Azure VMware Solution connects via its ExpressRoute circuit.  In Azure, go to the jump box's network interface and [view the effective routes](../virtual-network/manage-route-table.md#view-effective-routes).
 

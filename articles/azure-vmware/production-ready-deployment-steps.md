@@ -42,7 +42,7 @@ Remember, any IP segments created must be unique across your Azure and on-premis
 
 :::image type="content" source="media/pre-deployment/nsx-segment-diagram.png" alt-text="Identify - IP address segment for virtual machine workloads" border="false":::     
 
-## (Optional) Networks extended to Azure VMware Solution from on-premises
+## (Optional) Extend networks
 
 You can extend network segments from on-premises to Azure VMware Solution, and if you do, identify those networks now.  
 

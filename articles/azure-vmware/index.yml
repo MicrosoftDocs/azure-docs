@@ -42,6 +42,8 @@ landingContent:
         links:
           - text: Pre-deployment process
             url: production-ready-deployment-steps.md
+          - text: Pre-deployment checklist
+            url: pre-deployment-checklist.md
           - text: 1 - Deploy Azure VMware Solution
             url: deploy-azure-vmware-solution.md
           - text: 2 - Connect to on-premises
