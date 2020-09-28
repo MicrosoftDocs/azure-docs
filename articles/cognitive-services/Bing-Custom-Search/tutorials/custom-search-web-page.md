@@ -114,7 +114,7 @@ Custom Search provides a hosted UI to render the JSON response of your custom se
   
 5. Select your subscription keys from the dropdown lists. Or, you can enter the subscription key manually.
   
-   ![Screenshot of the Hosted UI additional configurations step](./media/custom-search-hosted-ui-subscription-key.png)
+   ![Screenshot of the Hosted UI subscription key](./media/custom-search-hosted-ui-subscription-key.png)
 
 [!INCLUDE [publish or revert](../includes/publish-revert.md)]
 
@@ -140,7 +140,7 @@ The remainder of this tutorial illustrates **Option 1: JavaScript snippet**.
   
 4. In the **New ASP.NET Core Web Application** window, select **Web Application** and click **OK**.  
   
-   ![Screenshot of new project window](./media/custom-search-new-webapp.png)  
+   ![Screenshot of new webapp window](./media/custom-search-new-webapp.png)  
 
 ## Edit index.cshtml
 
