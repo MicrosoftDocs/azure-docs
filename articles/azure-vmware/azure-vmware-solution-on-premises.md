@@ -2,8 +2,7 @@
 title: Connect Azure VMware Solution to your on-premises environment
 description: Learn how to connect Azure VMware Solution to your on-premises environment.
 ms.topic: tutorial
-ms.date: 09/28/2020
-ms.author: tredavis 
+ms.date: 10/02/2020
 ---
 
 # Connect Azure VMware Solution to your on-premises environment
