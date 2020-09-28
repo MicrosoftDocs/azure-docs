@@ -63,8 +63,8 @@
       href: ./hdinsight-capacity-planning.md
     - name: Cluster management best practices
       href: ./cluster-management-best-practices.md
-    - name: Availability and reliability
-      href: ./hdinsight-high-availability-linux.md
+    - name: Business Continuity
+      href: ./hdinsight-business-continuity.md
     - name: Understand managed identities
       href: ./hdinsight-managed-identities.md
     - name: Compare storage options
