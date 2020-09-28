@@ -51,7 +51,32 @@ By default when you create a VM, Azure provides you with an OS disk (**/dev/sda*
 ## Linux Swap File
 If your Azure VM is from an Ubuntu or CoreOS image, then you can use CustomData to send a cloud-config to cloud-init. If you [uploaded a custom Linux image](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) that uses cloud-init, you also configure swap partitions using cloud-init.
 
-On Ubuntu Cloud Images, you must use cloud-init to configure the swap partition. For more information, see [AzureSwapPartitions](https://wiki.ubuntu.com/AzureSwapPartitions).
+For all images that are being provisioned and supported by cloud-init, which can all be found [here](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/using-cloud-init). You cannot use the **/etc/waagent.conf** to manage swap.
+
+The easiest method when using cloud-init is to follow the steps below:
+
+Create a file called **create_swapfile.sh** under **/var/lib/cloud/scripts/per-boot** folder.
+**$ sudo touch /var/lib/cloud/scripts/per-boot/create_swapfile.sh**
+
+Add the following lines to the file:
+**$ sudo vi /var/lib/cloud/scripts/per-boot/create_swapfile.sh**
+
+```
+#!/bin/sh
+if [ ! -f '/mnt/swapfile' ]; then
+fallocate --length 2GiB /mnt/swapfile
+chmod 600 /mnt/swapfile
+mkswap /mnt/swapfile
+swapon /mnt/swapfile
+swapon -a ; fi
+```
+**NOTE**: You can change the value according to your need and also based on the available space in your resource disk which is different based on the VM size being used.
+
+Make the file executable by using:
+**$ sudo chmod +x /var/lib/cloud/scripts/per-boot/create_swapfile.sh**
+
+You can execute the script right after the last step for the swapfile to be created right away:
+**$ sudo /var/lib/cloud/scripts/per-boot/./create_swapfile.sh**
 
 For images without cloud-init support, VM images deployed from the Azure Marketplace have a VM Linux Agent integrated with the OS. This agent allows the VM to interact with various Azure services. Assuming you have deployed a standard image from the Azure Marketplace, you would need to do the following to correctly configure your Linux swap file settings:
 
