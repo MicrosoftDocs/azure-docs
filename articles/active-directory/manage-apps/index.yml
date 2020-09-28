@@ -16,7 +16,7 @@ metadata:
    manager: celested
 
 landingContent:
-  - title: About application management
+  - title: About app management
     linkLists:
       - linkListType: overview
         links:
@@ -24,7 +24,7 @@ landingContent:
             url: what-is-application-management.md
           - text: What is single sign-on?
             url: what-is-single-sign-on.md
-  - title: Get started with app management
+  - title: Get started
     linkLists:
       - linkListType: quickstart
         links:
@@ -32,26 +32,30 @@ landingContent:
             url: view-applications-portal.md
           - text: Add an app
             url: add-application-portal.md
-          - text: Configure an app
-            url: add-application-portal-configure.md
   - title: Add and configure apps
     linkLists:
       - linkListType: learn
         links:
-          - text: W
-            url: w
+          - text: Add an app
+            url: add-application-portal.md
+          - text: Configure an app
+            url: add-application-portal-configure.md
   - title: Manage apps
     linkLists:
       - linkListType: learn
         links:
-          - text: W
-            url: w
+          - text: Best practices
+            url: application-management-fundamentals.md
+          - text: Common scenarios
+            url: common-scenarios.md
   - title: Understand single sign-on
     linkLists:
       - linkListType: architecture
         links:
-          - text: W
-            url: w
+          - text: Single sign-on concepts
+            url: what-is-single-sign-on.md
+          - text: Single sign-on options
+            url: sso-options.md
   - title: Understand app consent and permissions
     linkLists:
       - linkListType: learn
