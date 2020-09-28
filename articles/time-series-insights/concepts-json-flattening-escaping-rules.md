@@ -43,9 +43,9 @@ If one or more of your Time Series ID propert(ies) is nested within objects in a
 
 ### Example A
 
-Time Series ID at the object root and timestamp nested<br/>
-**Environment Time Series ID:** `"id"`<br/>
-**Event source timestamp:** `"values.time"`<br/>
+Time Series ID at the object root and timestamp nested\
+**Environment Time Series ID:** `"id"`\
+**Event source timestamp:** `"values.time"`\
 **JSON payload:**
 
 ```JSON
@@ -79,8 +79,7 @@ Time Series ID at the object root and timestamp nested<br/>
 ]
 ```
 
-**Result in Parquet file:**
-<br/>
+**Result in Parquet file:**\
 The configuration and payload above will produce three columns and four events
 
 | timestamp  | id_string | values.value_double
@@ -92,9 +91,9 @@ The configuration and payload above will produce three columns and four events
 
 ### Example B
 
-Composite Time Series ID with one property nested<br/>
-**Environment Time Series ID:** `"plantId"` and `"telemetry.tagId"`<br/>
-**Event source timestamp:** `"timestamp"`<br/>
+Composite Time Series ID with one property nested\
+**Environment Time Series ID:** `"plantId"` and `"telemetry.tagId"`\
+**Event source timestamp:** `"timestamp"`\
 **JSON payload:**
 
 ```JSON
@@ -138,8 +137,7 @@ Composite Time Series ID with one property nested<br/>
 ]
 ```
 
-**Result in Parquet file:**
-<br/>
+**Result in Parquet file:**\
 The configuration and payload above will produce four columns and six events
 
 | timestamp  | plantId_string | telemetry.tagId_string | telemetry.value_double
@@ -153,9 +151,9 @@ The configuration and payload above will produce four columns and six events
 
 ### Example C
 
-Time Series ID and timestamp are at the object root<br/> 
-**Environment Time Series ID:** `"id"`<br/>
-**Event source timestamp:** `"timestamp"`<br/>
+Time Series ID and timestamp are at the object root\
+**Environment Time Series ID:** `"id"`\
+**Event source timestamp:** `"timestamp"`\
 **JSON payload:**
 
 ```JSON
@@ -172,8 +170,7 @@ Time Series ID and timestamp are at the object root<br/>
 }
 ```
 
-**Result in Parquet file:**
-<br/>
+**Result in Parquet file:**\
 The configuration and payload above will produce three columns and one event
 
 | timestamp  | id_string | datapoints_dynamic  
