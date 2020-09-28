@@ -102,7 +102,7 @@ In this section, you'll add the [Secret Manager tool](https://docs.microsoft.com
     This secret is accessed with the Configuration API. A colon (:) works in the configuration name with the Configuration API on all supported platforms. See [Configuration by environment](/dotnet/core/extensions/configuration-providers#environment-variable-configuration-provider).
 
 
-4. Open *Startup.cs* and update the `ConfigureServices` method to use Azure SignalR Service by calling the <xref:Microsoft.Extensions.DependencyInjection.SignalRDependencyInjectionExtensions.AddSignalR%2A> method:
+4. Open *Startup.cs* and update the `ConfigureServices` method to use Azure SignalR Service by calling the `AddSignalR()` method:
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
