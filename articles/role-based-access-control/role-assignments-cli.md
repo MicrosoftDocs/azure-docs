@@ -57,13 +57,13 @@ az ad sp list --display-name "{displayName}"
 
 **Managed identity**
 
-For system-assigned and user-assigned managed identities, you need the object ID. To get the object ID, you can use [az ad sp list](/cli/azure/ad/sp#az_ad_sp_list).
+For a system-assigned or a user-assigned managed identity, you need the object ID. To get the object ID, you can use [az ad sp list](/cli/azure/ad/sp#az_ad_sp_list).
 
 ```azurecli
 az ad sp list --all --filter "servicePrincipalType eq 'ManagedIdentity'"
 ```
 
-You can use [az identity list](/cli/azure/identity#az_identity_list) to just list user-assigned managed identities.
+To just list user-assigned managed identities, you can use [az identity list](/cli/azure/identity#az_identity_list).
 
 ```azurecli
 az identity list
