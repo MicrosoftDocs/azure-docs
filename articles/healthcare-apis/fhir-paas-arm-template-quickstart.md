@@ -18,7 +18,7 @@ In this quickstart, you'll learn how to use an Azure Resource Manager template (
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-azure-api-for-fhir%2fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Deploy to Azure an Azure API for FHIR service using an ARM template in the Azure portal.":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-azure-api-for-fhir%2fazuredeploy.json)
 
 ## Prerequisites
 
@@ -48,7 +48,7 @@ The template defines one Azure resource:
 
 * [**Microsoft.HealthcareApis/services**](/azure/templates/microsoft.healthcareapis/services)
 
-More Azure API for FHIR template samples can be found in the [quickstart template gallery](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.HealthcareApis&pageNumber=1&sort=Popular).
+More Azure API for FHIR template samples can be found in the [quickstart template gallery](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Healthcareapis&pageNumber=1&sort=Popular).
 
 ## Deploy the template
 
@@ -56,7 +56,7 @@ More Azure API for FHIR template samples can be found in the [quickstart templat
 
 Select the following link to deploy the Azure API for FHIR using the ARM template in the Azure portal:
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-azure-api-for-fhir%2fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Deploy to Azure an Azure API for FHIR service using the ARM template in the Azure portal.":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-azure-api-for-fhir%2fazuredeploy.json)
 
 On the **Deploy Azure API for FHIR** page:
 
@@ -97,7 +97,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
     -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-azure-api-for-fhir/azuredeploy.json `
     -serviceName $serviceName `
     -location $serviceLocation
-Read-Host "Press [ENTER] to continue ..."
+Read-Host "Press [ENTER] to continue"
 ```
 
 # [CLI](#tab/CLI)
@@ -111,16 +111,16 @@ az extension add --name healthcareapis
 Use the following code to deploy the Azure API for FHIR service using the ARM template. The code prompts you for the new FHIR service name, the name of a new resource group, and the locations for each of them.
 
 ```azurecli-interactive
-read -p "Enter a name for the new Azure API for FHIR service:" serviceName &&
-read -p "Enter an Azure region (for example, westus2) for the service:" serviceLocation &&
-read -p "Enter a name for the new resource group to contain the service:" resourceGroupName &&
-read -p "Enter an Azure region (for example, centralus) for the resource group:" resourceGroupRegion &&
+read -p "Enter a name for the new Azure API for FHIR service: " serviceName &&
+read -p "Enter an Azure region (for example, westus2) for the service: " serviceLocation &&
+read -p "Enter a name for the new resource group to contain the service: " resourceGroupName &&
+read -p "Enter an Azure region (for example, centralus) for the resource group: " resourceGroupRegion &&
 params='serviceName='$serviceName' location='$serviceLocation &&
 echo "CREATE RESOURCE GROUP:  az group create --name $resourceGroupName --location $resourceGroupRegion" &&
 az group create --name $resourceGroupName --location $resourceGroupRegion &&
 echo "RUN az deployment group create, which creates an Azure API for FHIR service using an ARM template" &&
 az deployment group create --resource-group $resourceGroupName --parameters $params --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-azure-api-for-fhir/azuredeploy.json &&
-read -p "Press [ENTER] to continue ..."
+read -p "Press [ENTER] to continue: "
 ```
 
 ---
@@ -135,6 +135,8 @@ Follow these steps to see an overview of your new Azure API for FHIR service:
 
 2. In the FHIR list, select your new service. The **Overview** page for the new Azure API for FHIR service appears.
 
+3. To validate that the new FHIR API account is provisioned, select the link next to **FHIR metadata endpoint** to fetch the FHIR API capability statement. The link has a format of `https://<service-name>.azurehealthcareapis.com/metadata`. If the account is provisioned, a large JSON file is displayed.
+
 # [PowerShell](#tab/PowerShell)
 
 Run the following interactive code to view details about your Azure API for FHIR service. You'll have to enter the name of the new service and the resource group.
@@ -144,7 +146,12 @@ $serviceName = Read-Host -Prompt "Enter the name of your Azure API for FHIR serv
 $resourceGroupName = Read-Host -Prompt "Enter the resource group name"
 Write-Verbose "Get-AzHealthcareApisService -ResourceGroupName $resourceGroupName -Name $serviceName" -Verbose
 Get-AzHealthcareApisService -ResourceGroupName $resourceGroupName -Name $serviceName
-Read-Host "Press [ENTER] to continue..."
+Read-Host "Press [ENTER] to fetch the FHIR API capability statement, which shows that the new service has been provisioned"
+
+$requestUri="https://" + $serviceName + ".azurehealthcareapis.com/metadata"
+$metadata = Invoke-WebRequest -Uri $requestUri
+$metadata.RawContent
+Read-Host "Press [ENTER] to continue"
 ```
 
 # [CLI](#tab/CLI)
@@ -152,11 +159,14 @@ Read-Host "Press [ENTER] to continue..."
 Run the following interactive code to view details about your Azure API for FHIR service. You'll have to enter the name of the new service and the resource group.
 
 ```azurecli-interactive
-read -p "Enter the name of your Azure API for FHIR service:" serviceName &&
-read -p "Enter the resource group name:" resourceGroupName &&
+read -p "Enter the name of your Azure API for FHIR service: " serviceName &&
+read -p "Enter the resource group name: " resourceGroupName &&
 echo "SHOW SERVICE DETAILS:  az healthcareapis service show --resource-group $resourceGroupName --resource-name $serviceName" &&
 az healthcareapis service show --resource-group $resourceGroupName --resource-name $serviceName &&
-read -p "Press [ENTER] to continue ..."
+read -p "Press [ENTER] to fetch the FHIR API capability statement, which shows that the new service has been provisioned: " &&
+requestUrl='https://'$serviceName'.azurehealthcareapis.com/metadata' &&
+curl --url $requestUrl &&
+read -p "Press [ENTER] to continue: "
 ```
 
 ---
@@ -181,16 +191,16 @@ When it's no longer needed, delete the resource group, which deletes the resourc
 $resourceGroupName = Read-Host -Prompt "Enter the name of the resource group to delete"
 Write-Verbose "Remove-AzResourceGroup -Name $resourceGroupName" -Verbose
 Remove-AzResourceGroup -Name $resourceGroupName
-Read-Host "Press [ENTER] to continue..."
+Read-Host "Press [ENTER] to continue"
 ```
 
 # [CLI](#tab/CLI)
 
 ```azurecli-interactive
-read -p "Enter the name of the resource group to delete:" resourceGroupName &&
+read -p "Enter the name of the resource group to delete: " resourceGroupName &&
 echo "DELETE A RESOURCE GROUP (AND ITS RESOURCES):  az group delete --name $resourceGroupName" &&
 az group delete --name $resourceGroupName &&
-read -p "Press [ENTER] to continue ..."
+read -p "Press [ENTER] to continue: "
 ```
 
 ---
