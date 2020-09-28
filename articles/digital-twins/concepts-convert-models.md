@@ -87,7 +87,7 @@ There are several third-party libraries that can be used when converting RDF-bas
 
 The following table is an example of how RDFS and OWL constructs can be mapped to DTDL. 
 
-| RDFS/OWL | Construct | DTDL | Construct |
+| RDFS/OWL concept | RDFS/OWL construct | DTDL concept | DTDL construct |
 | --- | --- | --- | --- |
 | Classes | owl:Class<br>IRI suffix<br>rdfs:label<br>rdfs:comment | Interface | @type:Interface<br>@id<br>displayName<br>comment 
 | Subclasses | owl:Class<br>IRI suffix<br>rdfs:label<br>rdfs:comment<br>rdfs:subClassOf | Interface | @type:Interface<br>@id<br>displayName<br>comment<br>extends 
