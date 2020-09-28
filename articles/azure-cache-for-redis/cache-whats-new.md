@@ -16,7 +16,7 @@ ms.author: yegu
 
 ## Azure TLS Certificate Change
 
-Microsoft is updating Azure services to use TLS server certificates from a different set of Certificate Authorities (CAs). This important change is being rolled out in a phased manner beginning on August 13, 2020 and completing by October 26, 2020. Azure services are making this change because the current CA certificates don't comply with one of the [CA/Browser Forum Baseline requirements](https://bugzilla.mozilla.org/show_bug.cgi?id=1649951). The problem was reported on July 1, 2020 and applies to multiple popular Public Key Infrastructure (PKI) providers worldwide. Most of the TLS certificates used by Azure services today come from the *Baltimore CyberTrust Root* PKI. The Azure Cache for Redis service will continue to be chained to the Baltimore CyberTrust Root. Its TLS server certificates, however, will be issued by new Intermediate Certificate Authorities (ICAs) starting on October 12, 2020.
+Microsoft is updating Azure services to use TLS server certificates from a different set of Certificate Authorities (CAs). This change is rolled out in phases from August 13, 2020 to October 26, 2020 (estimated). Azure is making this change because the current CA certificates don't comply with one of the [CA/Browser Forum Baseline requirements](https://bugzilla.mozilla.org/show_bug.cgi?id=1649951). The problem was reported on July 1, 2020 and applies to multiple popular Public Key Infrastructure (PKI) providers worldwide. Most TLS certificates used by Azure services today come from the *Baltimore CyberTrust Root* PKI. The Azure Cache for Redis service will continue to be chained to the Baltimore CyberTrust Root. Its TLS server certificates, however, will be issued by new Intermediate Certificate Authorities (ICAs) starting on October 12, 2020.
 
 > [!NOTE]
 > This change is limited to services in public [Azure regions](https://azure.microsoft.com/global-infrastructure/geographies/). It excludes sovereign (e.g., China) or government clouds.
@@ -25,7 +25,7 @@ Microsoft is updating Azure services to use TLS server certificates from a diffe
 
 ### Does this change affect me?
 
-We expect that most Azure Cache for Redis customers aren't affected by the change. Your application may be impacted if it explicitly specifies a list of acceptable certificates, a practice known as “certificate pinning”. If it is pinned to an intermediate or leaf certificate instead of the Baltimore CyberTrust Root, you should **take immediate actions** to change the certificate configuration.
+We expect that most Azure Cache for Redis customers aren't affected by the change. Your application may be impacted if it explicitly specifies a list of acceptable certificates, a practice known as “certificate pinning”. If it's pinned to an intermediate or leaf certificate instead of the Baltimore CyberTrust Root, you should **take immediate actions** to change the certificate configuration.
 
 The following table provides information about the certificates that are being rolled. Depending on which certificate your application uses, you may need to update it to prevent loss of connectivity to your Azure Cache for Redis instance.
 
@@ -65,8 +65,8 @@ To continue to pin intermediate certificates, replace them with the following an
 | [Microsoft Azure TLS Issuing CA 06](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20TLS%20Issuing%20CA%2006.cer) | 30e01761ab97e59a06b41ef20af6f2de7ef4f7b0 |
 
 
-1. If your application validates certificate in code, you will need to modify it to recognize the properties (Issuer, Subject Name, Alternative DNS, or Thumbprint, etc.) of the newly pinned certificates. This extra verification should cover all pinned certificates to be more future-proof.
+1. If your application validates certificate in code, you will need to modify it to recognize the properties (e.g., Issuers, Thumbprint) of the newly pinned certificates. This extra verification should cover all pinned certificates to be more future-proof.
 
 ## Next steps
 
-If you have additional questions, please contact us through [support](https://azure.microsoft.com/support/options/).  
+If you have additional questions, contact us through [support](https://azure.microsoft.com/support/options/).  
