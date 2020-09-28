@@ -44,7 +44,7 @@ landingContent:
             url: w
   - title: Understand single sign-on
     linkLists:
-      - linkListType: learn
+      - linkListType: architecture
         links:
           - text: W
             url: w
