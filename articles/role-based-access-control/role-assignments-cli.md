@@ -304,9 +304,9 @@ az role assignment create --assignee "{assignee}" \
 Assigns the [Billing Reader](built-in-roles.md#billing-reader) role to the *alain\@example.com* user at a management group scope.
 
 ```azurecli
-az role assignment create --assignee alain@example.com \
+az role assignment create --assignee "alain@example.com" \
 --role "Billing Reader" \
---scope /providers/Microsoft.Management/managementGroups/marketing-group
+--scope "/providers/Microsoft.Management/managementGroups/marketing-group"
 ```
 
 ## Remove role assignment
