@@ -37,12 +37,12 @@ The two tabs below show the features of Azure Security Center that are available
 |[Adaptive network hardening](security-center-adaptive-network-hardening.md)|✔|-|-|Yes|
 |[Regulatory compliance dashboard & reports](security-center-compliance-dashboard.md)|✔|✔|✔|Yes|
 |Recommendations and threat protection on Docker-hosted IaaS containers|-|-|-|Yes|
-|Missing OS patches assessment|✔|✔|✔|Azure: Free<br><br>Non-Azure: Yes|
+|Missing OS patches assessment|✔|✔|✔|Azure: No<br><br>Non-Azure: Yes|
 |Security misconfigurations assessment|✔|✔|✔|Azure: No<br><br>Non-Azure: Yes|
 |[Endpoint protection assessment](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Azure: No<br><br>Non-Azure: Yes|
-|Disk encryption assessment|✔</br>(for [supported scenarios](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios))|✔|-|Free|
-|Third-party vulnerability assessment|✔|-|-|Free|
-|[Network security assessment](security-center-network-recommendations.md)|✔|✔|-|Free|
+|Disk encryption assessment|✔</br>(for [supported scenarios](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios))|✔|-|No|
+|Third-party vulnerability assessment|✔|-|-|No|
+|[Network security assessment](security-center-network-recommendations.md)|✔|✔|-|No|
 
 
 ### [**Linux machines**](#tab/features-linux)
@@ -61,12 +61,12 @@ The two tabs below show the features of Azure Security Center that are available
 |[Adaptive network hardening](security-center-adaptive-network-hardening.md)|✔|-|-|Yes|
 |[Regulatory compliance dashboard & reports](security-center-compliance-dashboard.md)|✔|✔|✔|Yes|
 |Recommendations and threat protection on Docker-hosted IaaS containers|✔|✔|✔|Yes|
-|Missing OS patches assessment|✔|✔|✔|Azure: Free<br><br>Non-Azure: Yes|
-|Security misconfigurations assessment|✔|✔|✔|Azure: Free<br><br>Non-Azure: Yes|
-|[Endpoint protection assessment](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|Free|
-|Disk encryption assessment|✔</br>(for [supported scenarios](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios))|✔|-|Free|
-|Third-party vulnerability assessment|✔|-|-|Free|
-|[Network security assessment](security-center-network-recommendations.md)|✔|✔|-|Free|
+|Missing OS patches assessment|✔|✔|✔|Azure: No<br><br>Non-Azure: Yes|
+|Security misconfigurations assessment|✔|✔|✔|Azure: No<br><br>Non-Azure: Yes|
+|[Endpoint protection assessment](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|No|
+|Disk encryption assessment|✔</br>(for [supported scenarios](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios))|✔|-|No|
+|Third-party vulnerability assessment|✔|-|-|No|
+|[Network security assessment](security-center-network-recommendations.md)|✔|✔|-|No|
 
 --- 
 
