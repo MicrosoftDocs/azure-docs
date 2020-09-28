@@ -9,30 +9,37 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/10/2018
+ms.date: 09/28/2020
 ms.author: duau
 ---
 
 # Load-balancing with Azure’s application delivery suite
 
 ## Introduction
-Microsoft Azure provides multiple global and regional services for managing how your network traffic is distributed and load balanced: Traffic Manager, Front Door, Application Gateway, and Load Balancer.  Along with Azure’s many regions and zonal architecture, using these services together enable you to build robust, scalable high-performance applications.
+Microsoft Azure provides various global and regional services for managing how your network traffic is distributed and load balanced: 
 
-![Application Delivery Suite ][1]
+* Application Gateway
+* Front Door 
+* Load Balancer  
+* Traffic Manager
+
+Along with Azure’s many regions and zonal architecture, using these services together can enable you to build robust, scalable high-performance applications.
+
+:::image type="content" source="./media/front-door-lb-with-azure-app-delivery-suite/application-delivery-figure1.png" alt-text="Application Delivery Suite":::
  
 These services are broken into two categories:
-1. **Global load-balancing services** such as Traffic Manager and Front Door distribute traffic from your end users across your regional backends, across clouds or even your hybrid on-premises services. Global load balancing routes your traffic to your closest service backend and reacts to changes in service reliability or performance to maintain always-on, maximal performance for your users. 
-2. **Regional load-balancing services** such as Standard Load Balancer or Application Gateway provide the ability to distribute traffic within virtual networks (VNETs) across your virtual machines (VMs) or zonal service endpoints within a region.
+1. **Global load-balancing services** such as Traffic Manager and Front Door distribute traffic from your end users across your regional backends, across clouds and even your hybrid on-premises services. Global load balancing routes your traffic to your closest service backend and reacts to changes in service reliability to maintain always-on availability and high performance for your users. 
+1. **Regional load-balancing services** such as Standard Load Balancer or Application Gateway provide the ability to distribute traffic within a virtual network (VNETs) across your virtual machines (VMs) or zonal service endpoints within a region.
 
-Combining global and regional services in your application provides an end-to-end reliable, performant, and secure way to route traffic to and from your users to your IaaS, PaaS, or on-premises services. In the next section, we describe each of these services.
+Combining global and regional services in your application provides an end-to-end reliable and secure way to route traffic to and from your users to your IaaS, PaaS, or on-premises services. In the next section, we describe each of these services.
 
 ## Global load balancing
-**Traffic Manager** provides global DNS load balancing. It looks at incoming DNS requests and responds with a healthy backend, in accordance with the routing policy the customer has selected. Options for routing methods are:
-- Performance routing to send the requestor to the closest backend in terms of latency.
-- Priority routing to direct all traffic to a backend, with other backends as backup.
-- Weighted round-robin routing, which distributes traffic based on the weighting that is assigned to each backend.
-- Geographic routing to ensure that requestors located in specific geographic regions are directed to the backends mapped to those regions (for example, all requests from Spain should be directed to the France Central Azure region)
-- Subnet routing that allows you to map IP address ranges to backends so that requests coming from those will be sent to the specified backend (for example, all users connecting from your corporate HQ’s IP address range should get different web content than the general users)
+**Traffic Manager** provides global DNS load balancing. It looks at incoming DNS requests and responds with a healthy backend, following the routing policy the customer has selected. Options for routing methods are:
+- **Performance routing:** send requests to the closest backend with the least latency.
+- **Priority routing:** direct all traffic to a backend, with other backends as backup.
+- **Weighted round-robin routing:** distributes traffic based on the weighting that is assigned to each backend.
+- **Geographic routing:** ensures that requests located in specific geographic regions are directed to the backends mapped to those regions (for example, all requests from Spain should be directed to the France Central Azure region)
+- **Subnet routing:** allows you to map IP address ranges to backends so that incoming requests for those IPs will be sent to the specific backend (for example, any users connecting from your corporate HQ’s IP address range should get different web content than the general users)
 
 The client connects directly to that backend. Azure Traffic Manager detects when a backend is unhealthy and then redirects the clients to another healthy instance. Refer to [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) documentation to learn more about the service.
 
@@ -53,24 +60,24 @@ When choosing a global load balancer between Traffic Manager and Azure Front Doo
 
 | Traffic Manager |	Azure Front Door |
 | --------------- | ------------------------ |
-|**Any protocol:** Because Traffic Manager works at the DNS layer, you can route any type of network traffic; HTTP, TCP, UDP, etc. | **HTTP acceleration:** With Front Door traffic is proxied at the edge of Microsoft’s network.  Because of this, HTTP(S) requests see latency and throughput improvements reducing latency for TLS negotiation and using hot connections from AFD to your application.|
-|**On-premises routing:** With routing at a DNS layer, traffic always goes from point to point.  Routing from your branch office to your on premises datacenter can take a direct path; even on your own network using Traffic Manager. | **Independent scalability:** Because Front Door works with the HTTP request, requests to different URL paths can be routed to different backend / regional service pools (microservices) based on rules and the health of each application microservice.|
+|**Any protocol:** Since Traffic Manager works at the DNS layer, you can route any type of network traffic; HTTP, TCP, UDP, etc. | **HTTP acceleration:** With Front Door, traffic is proxied at the edge of the Microsoft network.  HTTP(S) requests will see latency and throughput improvements, which reduce latency for TLS negotiation and using hot connections from AFD to your application.|
+|**On-premises routing:** With routing at a DNS layer, traffic always goes from point to point.  Routing from your branch office to your on premises datacenter can take a direct path; even on your own network using Traffic Manager. | **Independent scalability:** Since Front Door works with the HTTP request, requests to different URL paths can be routed to different backend / regional service pools (microservices) based on rules and the health of each application microservice.|
 |**Billing format:** DNS-based billing scales with your users and for services with more users, plateaus to reduce cost at higher usage. |**Inline security:** Front Door enables rules such as rate limiting and IP ACL-ing to let you protect your backends before traffic reaches your application. 
 
-</br>Because of the performance, operability and security benefits to HTTP workloads with Front Door, we recommend customers use Front Door for their HTTP workloads.    Traffic Manager and Front Door can be used in parallel to serve all traffic for your application. 
+</br>We recommend customers to use Front Door for their HTTP workload due to the performance, operability, and security benefits that HTTP works with Front Door. Traffic Manager and Front Door can be used in parallel to serve all traffic for your application. 
 
 ## Building with Azure’s application delivery suite 
-We recommend that all websites, APIs, services be geographically redundant and deliver traffic to its users from the closest (lowest latency) location to them whenever possible.  Combining services from Traffic Manager, Front Door, Application Gateway, and Load Balancer enables you to build geographically and zonally redundant to maximize reliability, scale, and performance.
+We recommend that all websites, APIs, services be geographically redundant and deliver traffic to its users from the nearest (lowest latency) location to them whenever possible.  Combining services such Traffic Manager, Front Door, Application Gateway, and Load Balancer enables you to build geographical and zonal redundancy to maximize reliability and performance.
 
-In the following diagram, we describe an example service that uses a combination of all these services to build a global web service.   In this case, the architect has used Traffic Manager to route to global backends for file and object delivery, while using Front Door to globally route URL paths that match the pattern /store/* to the service they’ve migrated to App Service while routing all other requests to regional Application Gateways.
+In the following diagram, we describe an example architecture that uses a combination of all these services to build a global web service. In this case, the architect used Traffic Manager to route traffic to global backends for file and object delivery, while using Front Door to globally route URL paths that match the pattern /store/* to the service they’ve migrated to App Service. Lastly, routing all other requests to regional Application Gateways.
 
-In the region, for their IaaS service, the application developer has decided that any URLs that match the pattern /images/* are served from a dedicated pool of VMs that are different from the rest of the web farm.
+In each region of IaaS service, the application developer has decided that any URLs that match the pattern /images/* are served from a dedicated pool of VMs that are different from the rest of the web farm.
 
 Additionally, the default VM pool serving the dynamic content needs to talk to a back-end database that is hosted on a high-availability cluster. The entire deployment is set up through Azure Resource Manager.
 
 The following diagram shows the architecture of this scenario:
 
-![Application Delivery Suite Detailed Architecture][2] 
+:::image type="content" source="./media/front-door-lb-with-azure-app-delivery-suite/application-delivery-figure2.png" alt-text="Application Delivery Suite Detailed Architecture":::
 
 > [!NOTE]
 > This example is only one of many possible configurations of the load-balancing services that Azure offers. Traffic Manager, Front Door, Application Gateway, and Load Balancer can be mixed and matched to best suit your load-balancing needs. For example, if TLS/SSL offload or Layer 7 processing is not necessary, Load Balancer can be used in place of Application Gateway.
@@ -80,7 +87,3 @@ The following diagram shows the architecture of this scenario:
 
 - Learn how to [create a Front Door](quickstart-create-front-door.md).
 - Learn [how Front Door works](front-door-routing-architecture.md).
-
-<!--Image references-->
-[1]: ./media/front-door-lb-with-azure-app-delivery-suite/application-delivery-figure1.png
-[2]: ./media/front-door-lb-with-azure-app-delivery-suite/application-delivery-figure2.png
