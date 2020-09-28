@@ -22,7 +22,7 @@ In this article, you learn how to:
 * Add another tenant as a Contributor on your Azure subscription.
 * Connect a cross tenant VNet to a virtual hub.
 
-The steps for this configuration are performed using a combination of the Azure portal and PowerShell. However, the feature itself is available in Powershell and CLI only.
+The steps for this configuration are performed using a combination of the Azure portal and PowerShell. However, the feature itself is available in PowerShell and CLI only.
 
 ## Before You Begin
 
