@@ -8,11 +8,12 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 09/28/2020
 ---
 
 # Ingestion Rules
-### JSON Flattening, Escaping, and Array Handling
+
+## JSON Flattening, Escaping, and Array Handling
 
 Your Azure Time Series Insights Gen2 environment will dynamically create the columns of your warm and cold stores, following a particular set of naming conventions. When an event is ingested, a set of rules is applied to the JSON payload and property names. These include escaping certain special characters and flattening nested JSON objects. It's important to know these rules so that you understand how the shape of your JSON will influence how your events are stored and queried. See the table below for the full list of rules. Examples A & B also demonstrate how you're able to efficiently batch multiple time series in an array.
 
@@ -34,15 +35,16 @@ Your Azure Time Series Insights Gen2 environment will dynamically create the col
 
 ## Understanding the dual behavior for arrays
 
-Arrays of objects will either be stored whole or split into multiple events depending on how you've modeled your data. This allows you to  use an array to batch events, and avoid repeating telemetry properties that are defined at the root object level. Batching may be advantageous as it results in fewer Event Hubs or IoT Hub messages sent. 
+Arrays of objects will either be stored whole or split into multiple events depending on how you've modeled your data. This allows you to  use an array to batch events, and avoid repeating telemetry properties that are defined at the root object level. Batching may be advantageous as it results in fewer Event Hubs or IoT Hub messages sent.
 
 However, in some cases, arrays containing objects are only meaningful in the context of other values. Creating multiple events would render the data meaningless. To ensure that an array of objects is stored as-is as a dynamic type, follow the data modeling guidance below and take a look at [Example C](concepts-json-flattening-escaping-rules.md#example-c)
 
-### How do I know if my array of objects will produce multiple events?
+### How to know if my array of objects will produce multiple events
 
 If one or more of your Time Series ID propert(ies) is nested within objects in an array, *or* if your event source timestamp property is nested, the ingestion engine will split it out to create multiple events. The property names that you provided for your TS ID(s) and/or timestamp should follow the flattening rules above, and will therefore indicate the shape of your JSON. See the examples below, and check out the guide on how to [select a Time Series ID property.](time-series-insights-update-how-to-id.md)
 
-### Example A:
+### Example A
+
 Time Series ID at the object root and timestamp nested<br/>
 **Environment Time Series ID:** `"id"`<br/>
 **Event source timestamp:** `"values.time"`<br/>
@@ -83,15 +85,16 @@ Time Series ID at the object root and timestamp nested<br/>
 <br/>
 The configuration and payload above will produce three columns and four events
 
-| timestamp  | id_string | values.value_double 
-| ---- | ---- | ---- | 
-| `2020-05-01T00:59:59.000Z` | `caaae533-1d6c-4f58-9b75-da102bcc2c8c`| ``25.6073`` | 
-| `2020-05-01T01:00:29.000Z` |`caaae533-1d6c-4f58-9b75-da102bcc2c8c` | ``43.9077`` | 
-| `2020-05-01T00:59:59.000Z` | `1ac87b74-0865-4a07-b512-56602a3a576f` | ``0.337288`` | 
-| `2020-05-01T01:00:29.000Z` | `1ac87b74-0865-4a07-b512-56602a3a576f` | ``4.76562`` | 
+| timestamp  | id_string | values.value_double
+| ---- | ---- | ---- |
+| `2020-05-01T00:59:59.000Z` | `caaae533-1d6c-4f58-9b75-da102bcc2c8c`| ``25.6073`` |
+| `2020-05-01T01:00:29.000Z` |`caaae533-1d6c-4f58-9b75-da102bcc2c8c` | ``43.9077`` |
+| `2020-05-01T00:59:59.000Z` | `1ac87b74-0865-4a07-b512-56602a3a576f` | ``0.337288`` |
+| `2020-05-01T01:00:29.000Z` | `1ac87b74-0865-4a07-b512-56602a3a576f` | ``4.76562`` |
 
-### Example B:
-Composite Time Series ID with one property nested<br/> 
+### Example B
+
+Composite Time Series ID with one property nested<br/>
 **Environment Time Series ID:** `"plantId"` and `"telemetry.tagId"`<br/>
 **Event source timestamp:** `"timestamp"`<br/>
 **JSON payload:**
@@ -141,16 +144,17 @@ Composite Time Series ID with one property nested<br/>
 <br/>
 The configuration and payload above will produce four columns and six events
 
-| timestamp  | plantId_string | telemetry.tagId_string | telemetry.value_double 
+| timestamp  | plantId_string | telemetry.tagId_string | telemetry.value_double
 | ---- | ---- | ---- | ---- |
 | `2020-01-22T16:38:09Z` | `9336971`| ``100231-A-A6`` |  -31.149018 |
 | `2020-01-22T16:38:09Z` |`9336971` | ``100231-A-A1`` | 20.560796 |
 | `2020-01-22T16:38:09Z` | `9336971` | ``100231-A-A9`` | 177 |
 | `2020-01-22T16:38:09Z` | `9336971` | ``100231-A-A8`` | 420 |
 | `2020-01-22T16:42:14Z` | `9336972` | ``100231-A-A7`` | -30.9918 |  
-| `2020-01-22T16:42:14Z` | `9336972` | ``100231-A-A4`` | 19.960796 | 
+| `2020-01-22T16:42:14Z` | `9336972` | ``100231-A-A4`` | 19.960796 |
 
-### Example C:
+### Example C
+
 Time Series ID and timestamp are at the object root<br/> 
 **Environment Time Series ID:** `"id"`<br/>
 **Event source timestamp:** `"timestamp"`<br/>
@@ -161,11 +165,11 @@ Time Series ID and timestamp are at the object root<br/>
     "id": "800500054755",
     "timestamp": "2020-11-01T10:00:00.000Z",
     "datapoints": [{
-    		"value": 120
-    	},
-    	{
-    		"value": 124
-    	}
+            "value": 120
+        },
+        {
+            "value": 124
+        }
     ]
 }
 ```
@@ -175,7 +179,7 @@ Time Series ID and timestamp are at the object root<br/>
 The configuration and payload above will produce three columns and one event
 
 | timestamp  | id_string | datapoints_dynamic  
-| ---- | ---- | ---- | 
+| ---- | ---- | ---- |
 | `2020-11-01T10:00:00.000Z` | `800500054755`| ``[{"value": 120},{"value":124}]`` |
 
 ## Next steps

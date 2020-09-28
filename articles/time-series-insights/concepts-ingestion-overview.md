@@ -8,7 +8,7 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 09/28/2020
 ms.custom: seodec18
 ---
 
@@ -32,4 +32,4 @@ The following articles cover data processing in depth, including best practices 
 
 ## Next steps
 
-* Continue on to learn more about [event sources](./concepts-streaming-ingestion-event-sources.md) for your Azure Time Series Insights Gen2 environment. 
+* Continue on to learn more about [event sources](./concepts-streaming-ingestion-event-sources.md) for your Azure Time Series Insights Gen2 environment.
