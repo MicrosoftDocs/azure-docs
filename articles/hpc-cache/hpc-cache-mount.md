@@ -74,7 +74,7 @@ Follow this procedure to create the mount command.
 
 1. Choose the **Virtual namespace path** to use for the client. These paths link to exports on the back-end storage system.
 
-   ![screenshot of the namespace paths field, with selector open](media/mount-select-target.png)
+   ![Screenshot that shows the "Virtual namespace path" field, with selector open.](media/mount-select-target.png)
 
    You can view and change virtual namespace paths on the Storage targets portal page. Read [Add storage targets](hpc-cache-add-storage.md) to see how.
 

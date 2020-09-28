@@ -44,7 +44,7 @@ Verify that the **Microsoft.Network** resource provider is registered to your su
 
 1. Next, complete the fields on the **Configuration** page.
 
-    :::image type="content" source="./media/how-to-expressroute-direct-portal/configuration.png" alt-text="Configuration page":::
+    :::image type="content" source="./media/how-to-expressroute-direct-portal/configuration.png" alt-text="Screenshot that shows the 'Create ExpressRoute Direct' page with the 'Configuration' tab selected.":::
 
     * **Peering Location**: The peering location where you will connect to the ExpressRoute Direct resource. For more information about peering locations, review [ExpressRoute Locations](expressroute-locations-providers.md).
    * **Bandwidth**: The port pair bandwidth that you want to reserve. ExpressRoute Direct supports both 10 Gb and 100 Gb bandwidth options. If your desired bandwidth is not available at the specified peering location, [open a Support Request in the Azure portal](https://aka.ms/azsupt).
@@ -58,7 +58,7 @@ Verify that the **Microsoft.Network** resource provider is registered to your su
 
 1. Specify any resource tags, then select **Review + create** to validate the ExpressRoute Direct resource settings.
 
-    :::image type="content" source="./media/how-to-expressroute-direct-portal/validate.png" alt-text="Review and create":::
+    :::image type="content" source="./media/how-to-expressroute-direct-portal/validate.png" alt-text="Screenshot that shows the 'Create ExpressRoute' page with the 'Review + create' tab selected.":::
 
 1. Select **Create**. You will see a message letting you know that your deployment is underway. Status will display on this page as the resources are created. 
 

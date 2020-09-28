@@ -18,7 +18,7 @@ Use the Azure portal to open a support ticket with Microsoft Customer Service an
 1. In the left panel, scroll to the bottom and click **Help + support**.
 1. Click **New support request**. 
 
-   ![Screenshot of blank support request form](media/fxt-support-blank.png)
+   ![Screenshot that shows the "Help + support" page with "New support request" selected.](media/fxt-support-blank.png)
 
 1. Fill out the request form.  
     1. In the **Basics** tab, choose the **Issue type** ``Technical``. 

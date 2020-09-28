@@ -30,18 +30,18 @@ Microsoft provides CSPs with APIs to manage the Azure customer subscriptions by 
 The contract you have with your customer will determine how the subscription will be managed. The CSP can directly manage the creation and maintenance of resources or the customer can maintain control of the Microsoft Azure subscription and create the Azure resources as they need. If your customer manages the creation of resources in their Microsoft Azure subscription, they will use one of two models: “*Connect-Through*” model, or “*Direct-To*” model. These models are described in detail in the following sections.  
 
 ### Connect-through model
-![alt text](./media/expressroute-for-cloud-solution-providers/connect-through.png)  
+![Diagram that shows the "Connect-through" model.](./media/expressroute-for-cloud-solution-providers/connect-through.png)  
 
 In the connect-through model, the CSP creates a direct connection between your datacenter and your customer’s Azure subscription. The direct connection is made using ExpressRoute, connecting your network with Azure. Then your customer connects to your network. This scenario requires that the customer passes through the CSP network to access Azure services. 
 
 If your customer has other Azure subscriptions not managed by the you, they would use the public Internet or their own private connection to connect to those services provisioned under the non-CSP subscription. 
 
-For CSP managing Azure services, it is assumed that the CSP has a previously established customer identity store, which would then be replicated into Azure Active Directory for management of their CSP subscription through Administrate-On-Behalf-Of (AOBO). Key drivers for this scenario include where a given partner or service provider has an established relationship with the customer, the customer is consuming provider services currently or the partner has a desire to provide a combination of provider-hosted and Azure-hosted solutions to provide flexibility and address customer challenges that cannot be satisfied by CSP alone. This model is illustrated in **Figure**, below.
+For CSP managing Azure services, it is assumed that the CSP has a previously established customer identity store, which would then be replicated into Azure Active Directory for management of their CSP subscription through Administrate-On-Behalf-Of (AOBO). Key drivers for this scenario include where a given partner or service provider has an established relationship with the customer, the customer is consuming provider services currently or the partner has a desire to provide a combination of provider-hosted and Azure-hosted solutions to provide flexibility and address customer challenges that cannot be satisfied by CSP alone. This model is illustrated in the **figure** below.
 
-![alt text](./media/expressroute-for-cloud-solution-providers/connect-through-model.png)
+![Diagram that shows a detailed scenario for the "Connect-through" model.](./media/expressroute-for-cloud-solution-providers/connect-through-model.png)
 
 ### Connect-to model
-![alt text](./media/expressroute-for-cloud-solution-providers/connect-to.png)
+![Diagram that shows the "Connect-To" model.](./media/expressroute-for-cloud-solution-providers/connect-to.png)
 
 In the Connect-To model, the service provider creates a direct connection between their customer’s datacenter and the CSP provisioned Azure subscription using ExpressRoute over the customer’s (customer) network.
 
@@ -52,7 +52,7 @@ In the Connect-To model, the service provider creates a direct connection betwee
 
 This connectivity scenario requires that the customer connects directly through a customer network to access CSP-managed Azure subscription, using a direct network connection that is created, owned, and managed either wholly or in part by the customer. For these customers, it is assumed that the provider does not currently have a customer identity store established, and the provider would assist the customer in replicating their current identify store into Azure Active Directory for management of their subscription through AOBO. Key drivers for this scenario include where a given partner or service provider has an established relationship with the customer, the customer is consuming provider services currently, or the partner has a desire to provide services that are based solely on Azure-hosted solutions without the need for an existing provider datacenter or infrastructure.
 
-![alt text](./media/expressroute-for-cloud-solution-providers/connect-to-model.png)
+![Diagram that shows a detailed scenario for the "Connect-To" model.](./media/expressroute-for-cloud-solution-providers/connect-to-model.png)
 
 The choices between these two options are based on your customer’s needs and your current need to provide Azure services. The details of these models and the associated role-based access control, networking, and identity design patterns are covered in details in the following links:
 
@@ -105,7 +105,7 @@ The default route table includes the following routes:
 * Virtual network-to-virtual network using VPN gateway
 * Virtual network-to-on-premises network using a VPN or ExpressRoute gateway
 
-![alt text](./media/expressroute-for-cloud-solution-providers/default-routing.png)  
+![Diagram that shows the default routing options.](./media/expressroute-for-cloud-solution-providers/default-routing.png)  
 
 ### User-defined routing (UDR)
 User-defined routes allow the control of traffic outbound from the assigned subnet to other subnets in the virtual network or over one of the other predefined gateways (ExpressRoute; internet or VPN). The default system routing table can be replaced with a user-defined routing table that replaces the default routing table with custom routes. With user-defined routing, customers can create specific routes to appliances such as firewalls or intrusion detection appliances, or block access to specific subnets from the subnet hosting the user-defined route. For an overview of User-Defined Routes look [here](../virtual-network/virtual-networks-udr-overview.md). 

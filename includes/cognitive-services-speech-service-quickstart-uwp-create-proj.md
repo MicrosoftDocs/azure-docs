@@ -14,13 +14,13 @@ To start, make sure you're set up correctly in Visual Studio for UWP development
 
 1. Open Visual Studio 2019 to display the **Start** window.
 
-   ![Start window - Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-start-window.png)
+   ![Screenshot that shows the "Start" window with the "Continue without code" action highlighted.](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-start-window.png)
 
 1. Select **Continue without code** to go to the Visual Studio IDE.
 
 1. From the Visual Studio menu bar, select **Tools** > **Get Tools and Features** to open Visual Studio Installer and view the **Modifying** dialog box.
 
-   ![Workloads tab, Modifying dialog box, Visual Studio Installer](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-workload.png)
+   ![Screenshot that shows the "Workloads" tab of the "Modifying" dialog box with "Universal Windows Platform development" highlighted.](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-workload.png)
 
 1. In the **Workloads** tab, under **Windows**, find the **Universal Windows Platform development** workload. If the check box next to that workload is already selected, close the **Modifying** dialog box, and go to step 6.
 
@@ -34,13 +34,13 @@ Next, create your project:
 
 1. In the Visual Studio menu bar, choose **File** > **New** > **Project** to display the **Create a new project** window.
 
-   ![Create a new project - Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-create-new-project.png)
+   ![Screenshot that shows the "Create a new project" window with "Blank App (Universal Windows)" selected and the "Next" button highlighted.](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-create-new-project.png)
 
 1. Find and select **Blank App (Universal Windows)**. Make sure that you select the C# version of this project type (as opposed to Visual Basic).
 
 1. Select **Next** to display the **Configure your new project** screen.
 
-   ![Configure your new project - Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-configure-your-new-project.png)
+   ![Screenshot that shows the "Configure your new project" screen with the "Project name" and "Location" fields and "Create" button highlighted.](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-configure-your-new-project.png)
 
 1. In **Project name**, enter `helloworld`.
 
@@ -48,7 +48,7 @@ Next, create your project:
 
 1. Select **Create** to go to the **New Universal Windows Platform Project** window.
 
-   ![New Universal Windows Platform Project dialog box - Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-02-new-uwp-project.png)
+   ![Screenshot that shows the "New Universal Windows Platform Project" dialog box.](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-02-new-uwp-project.png)
 
 1. In **Minimum version** (the second drop-down box), choose **Windows 10 Fall Creators Update (10.0; Build 16299)**, which is the minimum requirement for the Speech SDK.
 
@@ -86,13 +86,13 @@ Finally, install the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget), 
 
 1. Select **Browse**.
 
-   ![Screenshot of Manage Packages for Solution dialog box](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-nuget-solution-browse.png)
+   ![Screenshot that shows the "Manage Packages for Solution" dialog box with the "Browse" tab, "Search" box, and "Package source" highlighted.](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-nuget-solution-browse.png)
 
 1. In **Package source**, choose **nuget.org**.
 
 1. In the **Search** box, enter `Microsoft.CognitiveServices.Speech`, and then choose that package after it appears in the search results.
 
-   ![Screenshot of Manage Packages for Solution dialog box](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-05-nuget-install-1.0.0.png)
+   ![Screenshot that shows "Microsoft.CognitiveServices.Speech" selected, with the project and "Install" button highlighted.](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-05-nuget-install-1.0.0.png)
 
 1. In the package status pane next to the search results, select your **helloworld** project.
 

@@ -24,7 +24,7 @@ It's important to ensure that when utilizing Microsoft or Public peering that tr
 
 Consider the following example scenario:
 
-![ExpressRoute Case 1 problem - suboptimal routing from customer to Microsoft](./media/expressroute-optimize-routing/expressroute-localPreference.png)
+![Diagram that shows the ExpressRoute Case 1 problem - suboptimal routing from customer to Microsoft](./media/expressroute-optimize-routing/expressroute-localPreference.png)
 
 In the above example, to prefer ExpressRoute paths configure Local Preference as follows. 
 
