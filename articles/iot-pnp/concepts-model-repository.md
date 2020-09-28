@@ -187,7 +187,7 @@ To publish a model using the REST API, see the [Publish a model](https://docs.mi
 To publish a model using the CLI, see the Azure CLI [Publish a Model](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp/model?view=azure-cli-latest#ext-azure-iot-az-iot-pnp-model-publish) command.
 
 > [!NOTE]
-> Models are required to be published in the model repository before running the certification tests. For more details, see the [How to certify IoT Plug and Play devices](https://docs.microsoft.com/en-us/azure/iot-pnp/howto-certify-device) article.
+> Models must be published in the model repository before you run the certification tests. To learn more, see [How to certify IoT Plug and Play devices](howto-certify-device.md).
 
 ### Share a model
 

@@ -196,12 +196,13 @@ There are three steps to be completed:
 1. Review interfaces. Review the interface and make sure each one has payload inputs that make sense for testing.
 1. Test. The system tests each device model to check that the telemetry, properties, and commands described in the model follow the IoT Plug and Play conventions. When the test is complete, select the **view logs** link to see the telemetry from the device and the raw data sent to IoT Hub device twin properties.
 
-### Submitting and Publishing
-The final required stage to complete certification is to Submit the project for review. This will notify an Azure Certified Device team member to review your project for completeness, including the device and marketing details and the Get started guide. A team member may reach out to you at the company email address previously provided with questions or edit requests prior to approval.
+### Submit and publish
 
-If further manual validation is required on your device as part of certification, you may receive notice at this time.
+The final required stage is to submit the project for review. This step notifies an Azure Certified Device team member to review your project for completeness, including the device and marketing details, and the get started guide. A team member may contact you at the company email address previously provided with questions or edit requests before approval.
 
-Once a device has been certified, you may optionally choose to publish your product details to the Azure Certified Device Catalog via the 'Publish to catalog' feature in the product summary page.
+If your device requires further manual validation as part of certification, you'll receive a notice at this time.
+
+When a device is certified, you can choose to publish your product details to the Azure Certified Device Catalog using the **Publish to catalog** feature in the product summary page.
 
 ## Next steps
 
