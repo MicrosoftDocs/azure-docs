@@ -107,3 +107,7 @@ The following sample commands do the first step, copying the data using `rsync`.
 cp -aR /etc /opt/ 
 rsync -avP /etc /opt (-a copies a directory)
 ```
+
+##Next steps
+
+- [Copy data to Azure Data Box via SMB](./data-box-deploy-copy-data.md)
