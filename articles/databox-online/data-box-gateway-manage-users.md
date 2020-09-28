@@ -40,7 +40,7 @@ Do the following steps in the Azure portal to add a user.
 
 2. Specify the username and password for the user you want to add. Confirm the password and click **Add**.
 
-    ![Click add user](media/data-box-gateway-manage-users/add-user-2.png)
+    ![Click add user 2](media/data-box-gateway-manage-users/add-user-2.png)
 
     > [!IMPORTANT] 
     > These users are reserved by the system and should not be used: Administrator, EdgeUser, EdgeSupport, HcsSetupUser, WDAGUtilityAccount, CLIUSR, DefaultAccount, Guest.  
@@ -65,11 +65,11 @@ Do the following steps in the Azure portal to delete a user.
 
 2. When prompted, confirm the deletion. 
 
-   ![Delete a user](media/data-box-gateway-manage-users/delete-user-2.png)
+   ![Delete a user 2](media/data-box-gateway-manage-users/delete-user-2.png)
 
 The list of users is updated to reflect the deleted user.
 
-![Delete a user](media/data-box-gateway-manage-users/delete-user-3.png)
+![Delete a user 3](media/data-box-gateway-manage-users/delete-user-3.png)
 
 
 ## Next steps
