@@ -20,7 +20,7 @@ Define what tests you are going to run and the expected outcome.
 | Connect ExpressRoute Global Reach | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 
 | Log into NSX Manager and vCenter | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
 
-<hr> 
+
 
 | Primary information needed | Your response |
 | --------| --------------|
@@ -32,7 +32,7 @@ Define what tests you are going to run and the expected outcome.
 | Enable internet | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
 | VM migration from on-premises to private cloud | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
 
-<hr>
+
 
 | Additional information needed | Your response |
 | --------| --------------|

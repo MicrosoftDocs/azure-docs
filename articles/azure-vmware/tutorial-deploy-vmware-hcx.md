@@ -85,7 +85,7 @@ Infrastructure components must be running the required minimum version.
 
 1. Select a name and location, a resource/cluster where you are deploying HCX, and then review the details and required resources.  
 
-   :::image type="content" source="media/tutorial-vmware-hcx/configure-template.png" alt-text="Select a name and location, a resource/cluster where you are deploying HCX, and then review the details and required resources." lightbox="media/tutorial-vmware-hcx/configure-template.png:::
+   :::image type="content" source="media/tutorial-vmware-hcx/configure-template.png" alt-text="Select a name and location, a resource/cluster where you are deploying HCX, and then review the details and required resources." lightbox="media/tutorial-vmware-hcx/configure-template.png":::
 
 1. Review license terms, and if you agree, select the required storage and network, and then select **Next**.
 
@@ -118,7 +118,7 @@ After deploying the VMware HCX OVA on-premises, you're ready to activate VMware 
 
 1. In **Licensing**, enter your **HCX Advanced Key**.  
 
-   :::image type="content" source="media/tutorial-vmware-hcx/vmware-hcx-advanced-license-key.png" alt-text="In Licensing, enter your HCX Advanced Key." lightbox="media/tutorial-vmware-hcx/vmware-hcx-advanced-license.png":::
+   :::image type="content" source="media/tutorial-vmware-hcx/vmware-hcx-advanced-license-key.png" alt-text="In Licensing, enter your HCX Advanced Key." lightbox="media/tutorial-vmware-hcx/vmware-hcx-advanced-license-key.png":::
    
     
     > [!NOTE]
@@ -209,7 +209,7 @@ You will create four network profiles:
 
    These are the example configuration screens of each of the network profiles. Additionally, there is a video that shows the creation of all of these network profiles.
 
-   :::image type="content" source="media/tutorial-vmware-hcx/example-configurations-network-profile.png" alt-text="For the new network profile, enter the VMware HCX IX and NE IP address ranges (a minimum of two IP addresses is required for IX and NE appliances)." lightbox="media/tutorial-vmware-hcx/example-configurations-network-profile.png" lightbox="media/tutorial-vmware-hcx/example-configurations-network-profile.png":::
+   :::image type="content" source="media/tutorial-vmware-hcx/example-configurations-network-profile.png" alt-text="For the new network profile, enter the VMware HCX IX and NE IP address ranges (a minimum of two IP addresses is required for IX and NE appliances)." lightbox="media/tutorial-vmware-hcx/example-configurations-network-profile.png":::
 
 For an end-to-end overview of this step, view the [Azure VMware Solution - VMware HCX create network profile](https://www.youtube.com/embed/NhyEcLco4JY) video.
 
