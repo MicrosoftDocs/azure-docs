@@ -8,7 +8,7 @@ author: lisaguthrie
 ms.service: azure-app-configuration
 ms.custom: devx-track-csharp
 ms.topic: quickstart
-ms.date: 12/17/2019
+ms.date: 09/28/2020
 ms.author: lcozzens
 
 #Customer intent: As a .NET Framework developer, I want to manage all my app settings in one place.
