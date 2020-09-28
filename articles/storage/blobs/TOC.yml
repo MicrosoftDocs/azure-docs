@@ -266,7 +266,7 @@
     - name: Monitoring
       items:
       - name: Monitor Blob storage
-        href: ../common/monitor-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        href: monitor-blob-storage.md
       - name: Transition from classic metrics
         href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Monitoring (classic)
@@ -554,7 +554,7 @@
       displayName: ARM
       href: /azure/templates/microsoft.storage/allversions
     - name: Monitoring data
-      href: ../common/monitor-storage-reference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      href: monitor-blob-storage-reference.md
     - name: Azure Policy built-ins
       displayName: samples, policies, definitions
       href: ../common/policy-reference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json

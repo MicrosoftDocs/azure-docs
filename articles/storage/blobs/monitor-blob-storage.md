@@ -39,7 +39,7 @@ The following sections build on this article by describing the specific data gat
 
 Azure Blob storage collects the same kinds of monitoring data as other Azure resources, which are described in [Monitoring data from Azure resources](../../azure-monitor/insights/monitor-azure-resource.md#monitoring-data). 
 
-See [Azure Blob storage monitoring data reference](monitor-storage-reference.md) for detailed information on the metrics and logs metrics created by Azure Blob storage.
+See [Azure Blob storage monitoring data reference](monitor-blob-storage-reference.md) for detailed information on the metrics and logs metrics created by Azure Blob storage.
 
 Metrics and logs in Azure Monitor support only Azure Resource Manager storage accounts. Azure Monitor doesn't support classic storage accounts. If you want to use metrics or logs on a classic storage account, you need to migrate to an Azure Resource Manager storage account. See [Migrate to Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-overview).
 
@@ -77,7 +77,7 @@ For metrics that support dimensions, you can filter the metric with the desired 
 
 ![Screenshot of accessing metrics with dimension in the Azure portal](./media/monitor-storage/access-metrics-portal-with-dimension.png)
 
-For a complete list of the dimensions that Azure Storage supports, see [Metrics dimensions](monitor-storage-reference.md#metrics-dimensions).
+For a complete list of the dimensions that Azure Storage supports, see [Metrics dimensions](monitor-blob-storage-reference.md#metrics-dimensions).
 
 Metrics for Azure Blob storage are in these namespaces: 
 
@@ -280,7 +280,7 @@ The following example shows how to read metric data on the metric supporting mul
 
 You can access resource logs either as a blob in a storage account, as event data, or through Log Analytic queries.
 
-For a detailed reference of the fields that appear in these logs, see [Azure Blob storage monitoring data reference](monitor-storage-reference.md).
+For a detailed reference of the fields that appear in these logs, see [Azure Blob storage monitoring data reference](monitor-blob-storage-reference.md).
 
 > [!NOTE]
 > Azure Storage logs in Azure Monitor is in public preview and is available for preview testing in all public cloud regions. To enroll in the preview, see [this page](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u). This preview enables logs for blobs (which includes Azure Data Lake Storage Gen2), files, queues, tables, premium storage accounts in general-purpose v1, and general-purpose v2 storage accounts. Classic storage accounts aren't supported.
@@ -296,7 +296,7 @@ Log entries are created only if there are requests made against the service endp
 - Requests that use a shared access signature (SAS) or OAuth, including failed and successful requests
 - Requests to analytics data (classic log data in the **$logs** container and class metric data in the **$metric** tables)
 
-Requests made by the Blob storage service itself, such as log creation or deletion, aren't logged. For a full list of the logged data, see [Storage logged operations and status messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) and [Storage log format](monitor-storage-reference.md).
+Requests made by the Blob storage service itself, such as log creation or deletion, aren't logged. For a full list of the logged data, see [Storage logged operations and status messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) and [Storage log format](monitor-blob-storage-reference.md).
 
 ### Log anonymous requests
 
@@ -307,7 +307,7 @@ Requests made by the Blob storage service itself, such as log creation or deleti
 - Time-out errors for both client and server
 - Failed GET requests with the error code 304 (Not Modified)
 
-All other failed anonymous requests aren't logged. For a full list of the logged data, see [Storage logged operations and status messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) and [Storage log format](monitor-storage-reference.md).
+All other failed anonymous requests aren't logged. For a full list of the logged data, see [Storage logged operations and status messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) and [Storage log format](monitor-blob-storage-reference.md).
 
 ### Accessing logs in a storage account
 
@@ -398,6 +398,6 @@ No. Azure Compute supports the metrics on disks. For more information, see [Per 
 
 ## Next steps
 
-- For a reference of the logs and metrics created by Azure Blob storage, see [Azure Blob storage monitoring data reference](monitor-storage-reference.md).
+- For a reference of the logs and metrics created by Azure Blob storage, see [Azure Blob storage monitoring data reference](monitor-blob-storage-reference.md).
 - For details on monitoring Azure resources, see [Monitor Azure resources with Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md).
 - For more information on metrics migration, see [Azure Storage metrics migration](./storage-metrics-migration.md).
