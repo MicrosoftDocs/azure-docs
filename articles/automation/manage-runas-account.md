@@ -55,13 +55,15 @@ Perform the following steps to update your Azure Automation account in the Azure
 
 3. On the Automation Accounts page, select your Automation account from the list.
 
-4. In the left pane, select **Run As Accounts** in the account settings section.
+4. In the left pane, select **Run As Accounts** in the **Account Settings** section.
 
-5. Depending on which account you require, select either **Azure Run As Account** or **Azure Classic Run As Account**.
+    :::image type="content" source="media/manage-runas-account/automation-account-properties-pane.png" alt-text="Select the Run As Account option.":::
 
-6. Depending on the account of interest, use the **Add Azure Run As** or **Add Azure Classic Run As Account** pane. After reviewing the overview information, click **Create**.
+5. Depending on the account you require, use the **+ Azure Run As Account** or **+ Azure Classic Run As Account** pane. After reviewing the overview information, click **Create**.
 
-7. While Azure creates the Run As account, you can track the progress under **Notifications** from the menu. A banner is also displayed stating that the account is being created. The process can take a few minutes to complete.
+    :::image type="content" source="media/manage-runas-account/automation-account-create-runas.png" alt-text="Select the option to create a Run As Account":::
+
+6. While Azure creates the Run As account, you can track the progress under **Notifications** from the menu. A banner is also displayed stating that the account is being created. The process can take a few minutes to complete.
 
 ## Create a Run As account using PowerShell
 
@@ -138,6 +140,8 @@ This section describes how to delete a Run As or Classic Run As account. When yo
 1. In the Azure portal, open the Automation account.
 
 2. In the left pane, select **Run As Accounts** in the account settings section.
+
+    
 
 3. On the Run As Accounts properties page, select either the Run As account or Classic Run As account that you want to delete.
 
