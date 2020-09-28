@@ -30,7 +30,7 @@ An error occurs during snapshot policy creation if your snapshot policy name is 
 
 You should revise the snapshot policy name according to the guidelines.  
 
-## Snapshot policy creation failing with invalid value for "Number of snapshots to keep" or "Minute on the hour to take snapshot" field 
+## Snapshot policy creation failing with invalid values 
 
 Azure NetApp Files fails to create a snapshot policy if you enter an invalid value for a field such as `Number of snapshots to keep` or `Minute on the hour to take snapshot`.  
  
@@ -41,11 +41,11 @@ The valid values are as follows:
 
 Make sure that a valid value is provided for the fields.
 
-## Snapshot policy creation fails with the error “The total number of snapshots to keep exceeds 255”  
+## Snapshot policy creation failing with “Total number of snapshots to keep exceeds 255” error 
 
-Each volume can have a [maximum of 255 snapshots](azure-netapp-files-resource-limits.md).  The maximum includes the sum of all hourly, daily, weekly, and monthly snapshots. You should decrease the `Snapshots to keep` value and try again.
+Each volume can have a [maximum of 255 snapshots](azure-netapp-files-resource-limits.md). The maximum includes the sum of all hourly, daily, weekly, and monthly snapshots. You should decrease the `Snapshots to keep` value and try again.
 
-## Assigning policy to a volume fails with the error “Total snapshot policy is over the max '255' for volume" 
+## Assigning policy to a volume failing with “Total snapshot policy is over the max '255' error
 
 Each volume can have a [maximum of 255 snapshots](azure-netapp-files-resource-limits.md). When the sum of all on-demand, hourly, daily, weekly, and monthly snapshots exceeds the maximum, an error occurs. Decrease the `snapshots to keep` value or delete some on-demand snapshots and try again.
 

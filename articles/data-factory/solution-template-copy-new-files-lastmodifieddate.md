@@ -70,7 +70,7 @@ The template defines six parameters:
 	
 7. Now you can add a tumbling windows trigger to automate this pipeline, so that the pipeline can always copy new and changed files only by LastModifiedDate periodically.  Select **Add trigger**, and select **New/Edit**.
 
-    ![Review the result](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate8.png)
+    ![Screenshot that highlights the New/Edit menu option that appears when you select Add trigger.](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate8.png)
 	
 8. In the **Add Triggers** window, select **+ New**.
 
@@ -98,7 +98,7 @@ The template defines six parameters:
 
 14. Review the result. You will see your pipeline will be triggered automatically every 15 minutes, and only the new or changed files from source store will be copied to the destination store in each pipeline run.
 
-    ![Review the result](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate15.png)
+    ![Screenshot that shows the results that return when the pipeline is triggered.](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate15.png)
 	
 ## Next steps
 

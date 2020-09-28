@@ -15,7 +15,7 @@ ms.service: azure-spatial-anchors
 
 In this tutorial, you'll learn how to use [Azure Spatial Anchors](../overview.md) to create anchors during one session and then locate them, on the same device or on a different one. These same anchors could also be located by multiple devices in the same place and at the same time.
 
-![Persistence](./media/persistence.gif)
+![Animation shows Azure Spatial Anchors created with a mobile device and used with a different device over the course of days.](./media/persistence.gif)
 
 Azure Spatial Anchors is a cross-platform developer service that allows you to create mixed reality experiences using objects that persist their location across devices over time. When you're finished, you'll have an app that can be deployed to two or more devices. Azure Spatial Anchors created by one instance can be shared to the others.
 

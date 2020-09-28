@@ -8,7 +8,7 @@ ms.subservice: data-movement
 author: stevestein
 ms.custom: sqldbrb=2
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer: 
 ms.date: 07/16/2019
 ms.topic: conceptual
 ---
