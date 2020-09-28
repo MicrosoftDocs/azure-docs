@@ -10,7 +10,7 @@ ms.date: 09/29/2020
 
 *Note on product naming:* This document focuses on the VMware Horizon product. This is formerly known as Horizon 7 before the product name change from Horizon 7 to Horizon. Horizon is a different solution than Horizon Cloud on Azure, although there are some shared components. Key advantages of the Azure VMware Solution include both a simpler sizing method and that VMware Cloud Foundation management is integrated into the Azure portal.
 
-[[VMware Horizon](https://www.vmware.com/products/horizon.html)®](https://www.vmware.com/products/horizon.html) is a virtual desktop and applications platform that runs in the data center and provides IT with simple and centralized management. It delivers virtual desktops and applications to end users on any device, anywhere. Horizon allows you to create and broker connections to Windows virtual desktops, Linux virtual desktops, Remote Desktop Server (RDS) hosted applications, desktops, and physical machines.
+[VMware Horizon](https://www.vmware.com/products/horizon.html)® is a virtual desktop and applications platform that runs in the data center and provides IT with simple and centralized management. It delivers virtual desktops and applications to end users on any device, anywhere. Horizon allows you to create and broker connections to Windows virtual desktops, Linux virtual desktops, Remote Desktop Server (RDS) hosted applications, desktops, and physical machines.
 
 Here, we focus specifically on deploying Horizon on Azure VMware Solution. For general information on VMware Horizon, refer to the Horizon production documentation:
 
