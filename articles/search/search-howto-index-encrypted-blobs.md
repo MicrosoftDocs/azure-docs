@@ -29,6 +29,8 @@ If you don't have an Azure subscription, open a [free account](https://azure.mic
 
 ## Prerequisites
 
+This example assumes that you have already uploaded your files to Azure Blob Storage and have encrypted them in the process. If you need help with getting your files initially uploaded and encrypted, check out [this tutorial](../storage/blobs/storage-encrypt-decrypt-blobs-key-vault.md) for how to do so.
+
 + [Azure Storage](https://azure.microsoft.com/services/storage/)
 + [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
 + [Azure Function](https://azure.microsoft.com/services/functions/)
@@ -38,29 +40,33 @@ If you don't have an Azure subscription, open a [free account](https://azure.mic
 > [!Note]
 > You can use the free service for this guide. A free search service limits you to three indexes, three indexers, three data sources and three skillsets. This guide creates one of each. Before starting, make sure you have room on your service to accept the new resources.
 
-This guide also assumes that you have already uploaded your files to Azure Blob Storage and have encrypted them in the process. If you need help with getting your files initially uploaded and encrypted, check out [this tutorial](../storage/blobs/storage-encrypt-decrypt-blobs-key-vault.md) for how to do so.
-
 ## 1 - Create services and collect credentials
 
 ### Set up the custom skill
 
-This guide uses the [DecryptBlobFile](https://github.com/Azure-Samples/azure-search-power-skills/blob/master/Utils/DecryptBlobFile) project in the [Azure Search Power Skills](https://github.com/Azure-Samples/azure-search-power-skills) GitHub repository. This project creates an Azure Function resource that fulfills the [custom skill interface](cognitive-search-custom-skill-interface.md) and can be used for Azure Cognitive Search enrichment. It takes the URL and SAS token for each blob as inputs, and it outputs the downloaded, decrypted file using the file reference contract that Azure Cognitive Search expects. To set it up, use the following steps:
+This example uses the sample [DecryptBlobFile](https://github.com/Azure-Samples/azure-search-power-skills/blob/master/Utils/DecryptBlobFile) project from the [Azure Search Power Skills](https://github.com/Azure-Samples/azure-search-power-skills) GitHub repository. In this section, you will deploy the skill to an Azure Function so that it can be used in a skillset. A built-in deployment script creates an Azure Function resource named starting with **psdbf-function-app-** and loads the skill. You'll be prompted to provide a subscription and resource group. Be sure to choose the same subscription that your Azure Key Vault instance lives in.
+
+Operationally, DecryptBlobFile takes the URL and SAS token for each blob as inputs, and it outputs the downloaded, decrypted file using the file reference contract that Azure Cognitive Search expects. Recall that DecryptBlobFile needs an access key to perform the decryption. As part of set up, you'll also create an access policy that grants DecryptBlobFile function access to the encryption key in Azure Key Vault.
 
 1. Click the **Deploy to Azure** button found on the [DecryptBlobFile landing page](https://github.com/Azure-Samples/azure-search-power-skills/blob/master/Utils/DecryptBlobFile#deployment), which will open the provided Resource Manager template within the Azure portal.
 
-1. Select **the subscription where your Azure Key Vault instance exists** (this guide will not work if you select a different subscription), and either select an existing resource group or create a new one (if you create a new one, you will also need to select a region to deploy to). You may also change the resource prefix if you desire.
+1. Select **the subscription where your Azure Key Vault instance exists** (this guide will not work if you select a different subscription), and either select an existing resource group or create a new one (if you create a new one, you will also need to select a region to deploy to).
 
 1. Select **Review + create**, make sure you agree to the terms, and then select **Create** to deploy the Azure Function.
 
     ![ARM template in portal](media/indexing-encrypted-blob-files/arm-template.jpg "ARM template in portal")
 
-1. Wait for the deployment to finish. When it is done, navigate to your Azure Key Vault instance in the portal.
+1. Wait for the deployment to finish.
 
-1. [Create an access policy](../key-vault/general/assign-access-policy-portal.md) in the Azure Key Vault that grants key access to the custom skill.
+1. Navigate to your Azure Key Vault instance in the portal. [Create an access policy](../key-vault/general/assign-access-policy-portal.md) in the Azure Key Vault that grants key access to the custom skill.
+ 
+    1. Under **Settings**, select **Access policies**, and then select **Add access policy**
+     
+       ![Keyvault add access policy](media/indexing-encrypted-blob-files/keyvault-access-policies.jpg "Keyvault access policies")
 
     1. Under **Configure from template**, select **Azure Data Lake Storage or Azure Storage**.
 
-    1. For the principal, select the Azure Function instance that you deployed. You can search for it using the resource prefix that was used to create it in step 2, which has a default value of **psdbf**.
+    1. For the principal, select the Azure Function instance that you deployed. You can search for it using the resource prefix that was used to create it in step 2, which has a default prefix value of **psdbf-function-app**.
 
     1. Do not select anything for the authorized application option.
      
@@ -70,9 +76,9 @@ This guide uses the [DecryptBlobFile](https://github.com/Azure-Samples/azure-sea
      
          ![Keyvault save access policy](media/indexing-encrypted-blob-files/keyvault-save-access-policy.jpg "Save Keyvault access policy")
 
-1. Navigate to your Azure Function in the portal, and make a note of the following properties as you will need them later in the guide:
+1. Navigate to the **psdbf-function-app** function in the portal, and make a note of the following properties as you will need them later in the guide:
 
-    1. The function URL, which can be found under **Essentials** on the main page for the function,
+    1. The function URL, which can be found under **Essentials** on the main page for the function.
     
         ![Function URL](media/indexing-encrypted-blob-files/function-uri.jpg "Where to find the Azure Function URL")
 
@@ -88,7 +94,7 @@ For this exercise, however, you can skip resource provisioning because Azure Cog
 
 ### Azure Cognitive Search
 
-The third component is Azure Cognitive Search, which you can [create in the portal](search-create-service-portal.md). You can use the Free tier to complete this guide. 
+The last component is Azure Cognitive Search, which you can [create in the portal](search-create-service-portal.md). You can use the Free tier to complete this guide. 
 
 As with the Azure Function, take a moment to collect the admin key. Further on, when you begin structuring requests, you will need to provide the endpoint and admin api-key used to authenticate each request.
 
