@@ -65,7 +65,7 @@ Sign in to the [Azure portal](https://portal.azure.com/)
 1. Open Synapse workspace with Synapse Studio.
 
 1. Navigate to "Data -> Linked -> Storage Accounts". Upload test_data.csv to the default storage account.
-![Upload data](media/tutorial-sql-scoring-wizard-00a.png)
+![Upload data](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-00a.png)
 1. Go to "Develop -> SQL scripts". Create a new SQL script to load test_data.csv into your SQL pool.
 
 **[Note]** the file URL needs to be updated properly before running the below script.
