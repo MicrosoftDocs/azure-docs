@@ -210,7 +210,7 @@ You may want to change a locally pinned volume to a tiered volume if you need ad
 
 1. Go to your StorSimple Device Manager service and then click **Devices**. From the tabular listing of the devices, select the device that has the volume that you intend to modify. Click **Settings > Volumes**.
 
-    ![Go to Volumes blade](./media/storsimple-8000-manage-volumes-u2/modifyvol2.png)
+    ![Go to Volumes blade 2](./media/storsimple-8000-manage-volumes-u2/modifyvol2.png)
 
 3. From the tabular listing of volumes, select the volume and right-click to invoke the context menu. Select **Modify**.
 
@@ -244,7 +244,7 @@ You may need to take a volume offline when you are planning to modify or delete 
    
     1. Go to your StorSimple Device Manager service and then click **Devices**. From the tabular listing of the devices, select the device that has the volume that you intend to modify. Click **Settings > Volumes**.
 
-        ![Go to Volumes blade](./media/storsimple-8000-manage-volumes-u2/modifyvol2.png)
+        ![Go to Volumes blade 3](./media/storsimple-8000-manage-volumes-u2/modifyvol2.png)
 
     2. From the tabular listing of volumes, select the volume and right-click to invoke the context menu. Select **Take offline** to take the volume you will modify offline.
 
@@ -272,7 +272,7 @@ Complete the following steps to delete a volume.
 
 1. Go to your StorSimple Device Manager service and then click **Devices**. From the tabular listing of the devices, select the device that has the volume that you intend to modify. Click **Settings > Volumes**.
 
-    ![Go to Volumes blade](./media/storsimple-8000-manage-volumes-u2/modifyvol2.png)
+    ![Go to Volumes blade 4](./media/storsimple-8000-manage-volumes-u2/modifyvol2.png)
 
 3. Check the status of the volume you want to delete. If the volume you want to delete is not offline, take it offline first. Follow the steps in [Take a volume offline](#take-a-volume-offline).
 4. After the volume is offline, select the volume, right-click to invoke the context menu and then select **Delete**.
