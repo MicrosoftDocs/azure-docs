@@ -92,6 +92,8 @@ Sources can be Azure VMs or on-premises machines that have an installed monitori
 1. You see all of the connection monitors that were created in Connection Monitor (Preview). To see the connection monitors that were created in the classic experience of Connection Monitor, go to the **Connection Monitor** tab.
 
     ![Screenshot showing connection monitors that were created in Connection Monitor (Preview)](./media/connection-monitor-2-preview/cm-resource-view.png)
+    
+    :::image type="content" source="./media/connection-monitor-2-preview/cm-resource-view.png" alt-text="Screenshot showing connection monitors that were created in Connection Monitor (Preview)" lightbox="./media/connection-monitor-2-preview/cm-resource-view.png":::
 
 
 ### Create a connection monitor
