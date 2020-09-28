@@ -57,7 +57,7 @@ Some things to consider include:
     
     If the Insights service can’t read data from the VMs, it is supposed to send you an email. For example, you get an email if the VMs are down. Be sure to check your email, at the email address you specified when you created your Azure account.
     
-    You can also look at the data yourself. Look at the Azure storage account using a Cloud Explorer. For example, using [Visual Studio Cloud Explorer](https://visualstudiogallery.msdn.microsoft.com/aaef6e67-4d99-40bc-aacf-662237db85a2), log in and pick the Azure subscription you’re using. Then, look at the Diagnostics storage account name referenced in the Diagnostics extension definition in your deployment template.
+    You can also look at the data yourself. Look at the Azure storage account using a cloud explorer. For example, using [Visual Studio Cloud Explorer](https://visualstudiogallery.msdn.microsoft.com/aaef6e67-4d99-40bc-aacf-662237db85a2), log in and pick the Azure subscription you’re using. Then, look at the Diagnostics storage account name referenced in the Diagnostics extension definition in your deployment template.
     
     ![Cloud Explorer][explorer]
     
