@@ -17,7 +17,7 @@ Azure Synapse Link for Azure Cosmos DB creates a tight integration between Azure
 
 ### Is Synapse Link supported for all Azure Cosmos DB APIs?
 
-In the public preview release, Synapse Link is supported for the Azure Cosmos DB SQL (Core) API and for the Azure Cosmos DB API for MongoDB. Support for Cassandra API is currently under gated preview. To request access to gated preview, reach out to the [Azure Cosmos DB team](mailto:cosmosdbsynapselink@microsoft.com).
+In the public preview release, Synapse Link is supported for the Azure Cosmos DB SQL (Core) API and for the Azure Cosmos DB API for MongoDB. 
 
 ### Is Synapse Link supported for multi-region Azure Cosmos accounts?
 
@@ -78,7 +78,7 @@ Analytical store is a read-only store in an Azure Cosmos container. So, you cann
 
 ### Is the autosync replication from transactional store to the analytical store asynchronous or synchronous and what are the latencies?
 
-The replication is asynchronous, and currently the expected latency is around 2 minutes (contained within 5 minutes).
+Auto-sync latency is usually within 2 minutes. In cases of shared throughput database with a large number of containers, auto-sync latency of individual containers could be higher and take up to 5 minutes. We would like to learn more how this latency fits your scenarios. For that, please reach out to the [Azure Cosmos DB team](mailto:cosmosdbsynapselink@microsoft.com).
 
 ### Are there any scenarios where the items from the transactional store are not automatically propagated to the analytical store?
 
