@@ -39,7 +39,7 @@ From the Azure portal, go to your Stream Analytics job and click on **Outputs** 
 
 Click on the **Add** button and choose **Azure Synapse Analytics** from the drop down menu.
 
-![Choose Azure Synapse Analytics](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asaoutput.png)
+![Choose Azure Synapse Analytics](./media/sql-data-warehouse-integrate-azure-stream-analytics/sql-pool-azure-stream-analytics-output.png)
 
 ### Step 3
 
@@ -55,7 +55,7 @@ Enter the following values:
 * *Table*: Specify the name of the target table in the database.
 * click on the **Save** button
 
-![Completed Azure Synapse Analytics form](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asaoutputdbsettings.png)
+![Completed Azure Synapse Analytics form](./media/sql-data-warehouse-integrate-azure-stream-analytics/sql-pool-azure-stream-analytics-output-db-settings.png)
 
 ### Step 4
 
