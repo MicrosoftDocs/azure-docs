@@ -10,7 +10,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/25/2020
+ms.date: 09/28/2020
 ---
 
 # Copy data to and from Azure Databricks Delta Lake by using Azure Data Factory
@@ -26,10 +26,11 @@ This Azure Databricks Delta Lake connector is supported for the following activi
 - [Copy activity](copy-activity-overview.md) with a [supported source/sink matrix](copy-activity-overview.md) table
 - [Lookup activity](control-flow-lookup-activity.md)
 
-In general, Azure Data Factory supports Delta Lake with the following capabilities:
+In general, Azure Data Factory supports Delta Lake with the following capabilities to meet your various need.
 
-- Copy activity supports copying data from any supported source data store to Databricks delta lake tables, and from Databricks delta lake tables to any supported sink data store. It leverages your Databricks cluster to perform the data movement, see details in [Prerequisites section](#prerequisites).
-- Mapping Data Flow supports generic [Delta format](format-delta.md) as source and sink, and runs on managed Azure Integration Runtime to interact with delta lake on Azure Storage.
+- Copy activity supports Azure Databricks Delta Lake connector to copy data from any supported source data store to Azure Databricks delta lake table, and from delta lake table to any supported sink data store. It leverages your Databricks cluster to perform the data movement, see details in [Prerequisites section](#prerequisites).
+- [Mapping Data Flow](concepts-data-flow-overview.md) supports generic [Delta format](format-delta.md) on Azure Storage as source and sink to read and write Delta files for code-free ETL, and runs on managed Azure Integration Runtime.
+- [Databricks activities](transform-data-databricks-notebook.md) supports orchestrating your code-centric ETL or machine learning workload on top of delta lake.
 
 ## Prerequisites
 
@@ -38,17 +39,13 @@ To use this Azure Databricks Delta Lake connector, you need to set up a cluster 
 - To copy data to delta lake, Copy activity invokes Azure Databricks cluster to read data from an Azure Storage, which is either your original source or a staging area to where Data Factory firstly writes the source data via built-in staged copy. Learn more from [Delta lake as the source](#delta-lake-as-source).
 - Similarly, to copy data from delta lake, Copy activity invokes Azure Databricks cluster to write data to an Azure Storage, which is either your original sink or a staging area from where Data Factory continues to write data to final sink via built-in staged copy. Learn more from [Delta lake as the sink](#delta-lake-as-sink).
 
+The Databricks cluster needs to have access to Azure Blob or Azure Data Lake Storage Gen2 account, both the storage container/file system used for source/sink/staging and the container/file system where you want to write the Delta Lake tables.
+
+- To use **Azure Data Lake Storage Gen2**, you can configure a **service principal** or **storage account access key** on the Databricks cluster as part of the Apache Spark configuration. Follow the steps in [Access directly with service principal](https://docs.microsoft.com/azure/databricks/data/data-sources/azure/azure-datalake-gen2.md#--access-directly-with-service-principal-and-oauth-20) or [Access directly using the storage account access key](https://docs.microsoft.com/azure/databricks/data/data-sources/azure/azure-datalake-gen2.md#--access-directly-using-the-storage-account-access-key).
+
+- To use **Azure Blob storage**, you can configure a **storage account access key** or **SAS token** on the Databricks cluster as part of the Apache Spark configuration. Follow the steps in [Access Azure Blob storage using the RDD API](https://docs.microsoft.com/azure/databricks/data/data-sources/azure/azure-storage.md#access-azure-blob-storage-using-the-rdd-api).
+
 During copy activity execution, if the cluster you configured has been terminated, Data Factory automatically starts it. If you author pipeline using Data Factory authoring UI, for operations like data preview, you need to have a live cluster, Data Factory won't start the cluster on your behalf.
-
-The Databricks cluster needs to have access to Azure Blob or Azure Data Lake Storage Gen2 account, both the storage container/file system used for source or staging and the container/file system where you want to write the Delta Lake tables.  Follow the guidance to encure secure access to data in Azure Storage.
-
-#### Use Azure Data Lake Storage Gen2
-
-You can configure a **service principal** or **storage account access key** on the Databrics cluster as part of the Apache Spark configuration.  To configure the integration cluster, follow the steps in [Access directly with service principal](https://docs.microsoft.com/azure/databricks/data/data-sources/azure/azure-datalake-gen2.md#--access-directly-with-service-principal-and-oauth-20) or [Access directly using the storage account access key](https://docs.microsoft.com/azure/databricks/data/data-sources/azure/azure-datalake-gen2.md#--access-directly-using-the-storage-account-access-key).
-
-#### Use Azure Blob storage
-
-You can configure a **storage account access key** or **SAS token** on the Databrics cluster as part of the Apache Spark configuration. Ensure that the storage account has access to the storage container used for source or staging data and the storage container, as well as the container where you want to write the Delta Lake tables. To configure the integration cluster, follow the steps in [Access Azure Blob storage using the RDD API](https://docs.microsoft.com/azure/databricks/data/data-sources/azure/azure-storage.md#access-azure-blob-storage-using-the-rdd-api).
 
 #### Specify the cluster configuration
 
@@ -56,7 +53,7 @@ You can configure a **storage account access key** or **SAS token** on the Datab
 
 2. In the **Databricks Runtime Version** drop-down, select a Databricks runtime version.
 
-3. Turn on [Auto Optimize](../azure/databricks/delta/optimizations/auto-optimize.md) by adding the following properties to your [Spark configuration](https://docs.microsoft.com/azure/databricks/clusters/configure#spark-config.md):
+3. Turn on [Auto Optimize](https://docs.microsoft.com/azure/databricks/delta/optimizations/auto-optimize) by adding the following properties to your [Spark configuration](https://docs.microsoft.com/azure/databricks/clusters/configure#spark-config):
 
    ```
    spark.databricks.delta.optimizeWrite.enabled true
@@ -369,6 +366,10 @@ To use this feature, create an [Azure Blob storage linked service](connector-azu
     }
 ]
 ```
+
+# Monitoring
+
+Azure Data Factory provides the same [copy activity monitoring experience](copy-activity-monitoring.md) as other connectors. In addition, because loading data from/to delta lake is running on your Azure Databricks cluster, you can further [view detailed cluster logs](https://docs.microsoft.com/azure/databricks/clusters/clusters-manage#--view-cluster-logs) and [monitor performance](https://docs.microsoft.com/en-us/azure/databricks/clusters/clusters-manage#--monitor-performance).
 
 ## Lookup activity properties
 
