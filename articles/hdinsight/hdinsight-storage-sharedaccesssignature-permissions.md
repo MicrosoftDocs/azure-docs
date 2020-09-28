@@ -1,6 +1,6 @@
 ---
 title: Restrict access using Shared Access Signatures - Azure HDInsight
-description: Learn how to use Shared Access Signatures to restrict HDInsight access to data stored in Azure storage blobs.
+description: Learn how to use Shared Access Signatures to restrict HDInsight access to data stored in Azure Blob storage.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -10,9 +10,9 @@ ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
 ---
 
-# Use Azure Storage Shared Access Signatures to restrict access to data in HDInsight
+# Use Azure Blob storage Shared Access Signatures to restrict access to data in HDInsight
 
-HDInsight has full access to data in the Azure Storage accounts associated with the cluster. You can use Shared Access Signatures on the blob container to restrict access to the data. Shared Access Signatures (SAS) are a feature of Azure storage accounts that allows you to limit access to data. For example, providing read-only access to data.
+HDInsight has full access to data in the Azure Blob storage accounts associated with the cluster. You can use Shared Access Signatures on the blob container to restrict access to the data. Shared Access Signatures (SAS) are a feature of Azure Blob storage accounts that allows you to limit access to data. For example, providing read-only access to data.
 
 > [!IMPORTANT]  
 > For a solution using Apache Ranger, consider using domain-joined HDInsight. For more information, see the [Configure domain-joined HDInsight](./domain-joined/apache-domain-joined-configure.md) document.
@@ -34,7 +34,7 @@ HDInsight has full access to data in the Azure Storage accounts associated with 
 
 * If using C#, Visual Studio must be version 2013 or higher.
 
-* The URI scheme for your storage account. This scheme would be `wasb://` for Azure Storage, `abfs://` for Azure Data Lake Storage Gen2 or `adl://` for Azure Data Lake Storage Gen1. If secure transfer is enabled for Azure Storage, the URI would be `wasbs://`.
+* The URI scheme for your storage account. This scheme would be `wasb://` for Azure Blob storage, `abfs://` for Azure Data Lake Storage Gen2 or `adl://` for Azure Data Lake Storage Gen1. If secure transfer is enabled for Azure Blob storage, the URI would be `wasbs://`.
 
 * An existing HDInsight cluster to add a Shared Access Signature to. If not, you can use Azure PowerShell to create a cluster and add a Shared Access Signature during cluster creation.
 

@@ -25,7 +25,7 @@ Learn how to use Azure PowerShell to configure an HDInsight cluster with Azure D
 > If you are going to use Data Lake Storage Gen1 as additional storage for HDInsight cluster, we strongly recommend that you do this while you create the cluster as described in this article. Adding Data Lake Storage Gen1 as additional storage to an existing HDInsight cluster is a complicated process and prone to errors.
 >
 
-For supported cluster types, Data Lake Storage Gen1 can be used as a default storage or additional storage account. When Data Lake Storage Gen1 is used as additional storage, the default storage account for the clusters will still be Azure Storage Blobs (WASB) and the cluster-related files (such as logs, etc.) are still written to the default storage, while the data that you want to process can be stored in a Data Lake Storage Gen1. Using Data Lake Storage Gen1 as an additional storage account does not impact performance or the ability to read/write to the storage from the cluster.
+For supported cluster types, Data Lake Storage Gen1 can be used as a default storage or additional storage account. When Data Lake Storage Gen1 is used as additional storage, the default storage account for the clusters will still be Azure Blob storage (WASB) and the cluster-related files (such as logs, etc.) are still written to the default storage, while the data that you want to process can be stored in a Data Lake Storage Gen1. Using Data Lake Storage Gen1 as an additional storage account does not impact performance or the ability to read/write to the storage from the cluster.
 
 ## Using Data Lake Storage Gen1 for HDInsight cluster storage
 
@@ -210,7 +210,7 @@ In this section, we create an HDInsight Hadoop Linux cluster with Data Lake Stor
     $tenantID = (Get-AzContext).Tenant.TenantId
     ```
 
-2. For this release, for a Hadoop cluster, Data Lake Storage Gen1 can only be used as an additional storage for the cluster. The default storage will still be the Azure storage blobs (WASB). So, we'll first create the storage account and storage containers required for the cluster.
+2. For this release, for a Hadoop cluster, Data Lake Storage Gen1 can only be used as an additional storage for the cluster. The default storage will still be the Azure Blob storage (WASB). So, we'll first create the storage account and storage containers required for the cluster.
 
     ```azurepowershell
     # Create an Azure storage account

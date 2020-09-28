@@ -26,7 +26,7 @@ Learn how to use the Azure portal to create a HDInsight cluster with Azure Data 
 Before you begin, ensure that you've met the following requirements:
 
 * **An Azure subscription**. Go to [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-* **A Azure storage account with Data Lake Storage Gen1**. Follow the instructions from [Get started with Azure Data Lake Storage Gen1 by using the Azure portal](data-lake-store-get-started-portal.md). You must also create a root folder on the account.  In this article, a root folder called __/clusters__ is used.
+* **A Azure Data Lake Storage Gen1 account**. Follow the instructions from [Get started with Azure Data Lake Storage Gen1 by using the Azure portal](data-lake-store-get-started-portal.md). You must also create a root folder on the account.  In this article, a root folder called __/clusters__ is used.
 * **An Azure Active Directory service principal**. This how-to guide provides instructions on how to create a service principal in Azure Active Directory (Azure AD). However, to create a service principal, you must be an Azure AD administrator. If you're an administrator, you can skip this prerequisite and continue.
 
 >[!NOTE]
@@ -50,13 +50,13 @@ To create an HDInsight cluster with a Data Lake Storage Gen1 as the default stor
     * **Select Data Lake Store**: Select an existing account with Data Lake Storage Gen1. An existing storage account with Data Lake Storage Gen1 is required.  See [Prerequisites](#prerequisites).
     * **Root path**: Enter a path where the cluster-specific files are to be stored. On the screenshot, it is __/clusters/myhdiadlcluster/__, in which the __/clusters__ folder must exist, and the Portal creates *myhdicluster* folder.  The *myhdicluster* is the cluster name.
     * **Data Lake Store access**: Configure access between the account with Data Lake Storage Gen1 and HDInsight cluster. For instructions, see [Configure Data Lake Storage Gen1 access](#configure-data-lake-storage-gen1-access).
-    * **Additional storage accounts**: Add Azure storage accounts as additional storage accounts for the cluster. To add additional accounts with Data Lake Storage Gen1 is done by giving the cluster permissions on data in more accounts with Data Lake Storage Gen1 while configuring a storage account with Data Lake Storage Gen1 as the primary storage type. See [Configure Data Lake Storage Gen1 access](#configure-data-lake-storage-gen1-access).
+    * **Additional storage accounts**: Add Azure Blob storage accounts as additional storage accounts for the cluster. To add additional accounts with Data Lake Storage Gen1 is done by giving the cluster permissions on data in more accounts with Data Lake Storage Gen1 while configuring a storage account with Data Lake Storage Gen1 as the primary storage type. See [Configure Data Lake Storage Gen1 access](#configure-data-lake-storage-gen1-access).
 
 4. On the **Data Lake Store access**, click **Select**, and then continue with cluster creation as described in [Create Hadoop clusters in HDInsight](../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ### Create a cluster with Data Lake Storage Gen1 as additional storage
 
-The following instructions create a HDInsight cluster with an Azure storage account as the default storage, and a storage account with Data Lake Storage Gen1 as an additional storage.
+The following instructions create a HDInsight cluster with an Azure Slob storage account as the default storage, and a storage account with Data Lake Storage Gen1 as an additional storage.
 
 To create a HDInsight cluster with Data Lake Storage Gen1 as an additional storage account:
 
@@ -179,8 +179,8 @@ If the cluster that you created uses Blob storage as default storage, the sample
 
 For information on how to copy data from Blob storage to a storage account with Data Lake Storage Gen1, see the following articles:
 
-* [Use Distcp to copy data between Azure Storage blobs and Data Lake Storage Gen1](data-lake-store-copy-data-wasb-distcp.md)
-* [Use AdlCopy to copy data from Azure Storage blobs to Data Lake Storage Gen1](data-lake-store-copy-data-azure-storage-blob.md)
+* [Use Distcp to copy data between Azure Blob storage and Data Lake Storage Gen1](data-lake-store-copy-data-wasb-distcp.md)
+* [Use AdlCopy to copy data from Azure Blob storage to Data Lake Storage Gen1](data-lake-store-copy-data-azure-storage-blob.md)
 
 ### Use Data Lake Storage Gen1 with a Spark cluster
 
