@@ -10,7 +10,7 @@ ms.devlang:
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer:
 ms.date: 05/28/2020
 ---
 # Choose between the vCore and DTU purchasing models - Azure SQL Database and SQL Managed Instance

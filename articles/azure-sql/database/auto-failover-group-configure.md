@@ -10,7 +10,7 @@ ms.devlang:
 ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
-ms.reviewer: sstein, carlrab
+ms.reviewer: sstein
 ms.date: 08/14/2019
 ---
 # Configure a failover group for Azure SQL Database

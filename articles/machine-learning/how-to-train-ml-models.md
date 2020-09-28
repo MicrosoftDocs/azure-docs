@@ -15,7 +15,7 @@ ms.custom: how-to
 ---
 
 # Train models with Azure Machine Learning using estimator
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 With Azure Machine Learning, you can easily submit your training script to [various compute targets](how-to-set-up-training-targets.md), using a [RunConfiguration object](how-to-set-up-training-targets.md#whats-a-run-configuration) and a [ScriptRunConfig object](how-to-set-up-training-targets.md#submit). That pattern gives you a lot of flexibility and maximum control.
 
@@ -127,7 +127,7 @@ print(run.get_portal_url())
 
 Once you've trained the model, you can save and register it to your workspace. Model registration lets you store and version your models in your workspace to simplify [model management and deployment](concept-model-management-and-deployment.md).
 
-Running the following code will register the model to your workspace, and will make it available to reference by name in remote compute contexts or deployment scripts. See [`register_model`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#&preserve-view=trueregister-model-model-name--model-path-none--tags-none--properties-none--model-framework-none--model-framework-version-none--description-none--datasets-none--sample-input-dataset-none--sample-output-dataset-none--resource-configuration-none----kwargs-) in the reference docs for more information and additional parameters.
+Running the following code will register the model to your workspace, and will make it available to reference by name in remote compute contexts or deployment scripts. See [`register_model`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py&preserve-view=true#&preserve-view=trueregister-model-model-name--model-path-none--tags-none--properties-none--model-framework-none--model-framework-version-none--description-none--datasets-none--sample-input-dataset-none--sample-output-dataset-none--resource-configuration-none----kwargs-) in the reference docs for more information and additional parameters.
 
 ```python
 model = run.register_model(model_name='sklearn-sample', model_path=None)

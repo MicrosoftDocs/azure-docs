@@ -5,7 +5,7 @@ description: Learn how to build a LUIS app programmatically from preexisting dat
 services: cognitive-services
 author: diberry
 manager: nitinme
-ms.custom: seodec18, devx-track-javascript
+ms.custom: seodec18, devx-track-js
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to

@@ -10,47 +10,6 @@ Azure Backup now provides soft delete for SQL server in Azure VM and SAP HANA in
 
 [Soft delete](backup-azure-security-feature-cloud.md) is a security feature to help protect backup data even after deletion. With soft delete, even if a malicious actor deletes the backup of a database (or backup data is accidentally deleted), the backup data is retained for 14 additional days. This allows the recovery of that backup item with no data loss. This additional retention of 14 days of the backup data in the "soft delete" state doesn’t incur any cost to the customer.
 
->[!NOTE]
->Once preview is enabled for a subscription it's not possible to disable soft delete only for SQL server or SAP HANA DBs while keeping it enabled for virtual machines in the same vault. You can create separate vaults for granular control.
-
-## Steps to enroll in preview
-
-1. Sign in to your Azure Account.
-
-   ```powershell
-   Login-AzureRmAccount
-   ```
-
-2. Select the subscription that you want to enroll in the preview:
-
-   ```powershell
-   Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
-   ```
-
-3. Register this subscription to the preview program:
-
-   ```powershell
-   Register-AzureRMProviderFeature -FeatureName WorkloadBackupSoftDelete -ProviderNamespace Microsoft.RecoveryServices
-   ```
-
-4. Wait for 30 minutes for the subscription to be enrolled into the preview.
-
-5. To check the status, run the following cmdlets:
-
-   ```powershell
-   Get-AzureRmProviderFeature -FeatureName WorkloadBackupSoftDelete -ProviderNamespace Microsoft.RecoveryServices
-   ```
-
-6. Once the subscription shows as registered, run the following command:
-
-   ```powershell
-   Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
-   ```
-
->[!NOTE]
->Any time a new vault/vaults are created under the soft delete enabled subscription, the following command needs to be re-run to enable the feature for the newly created vaults.<BR>
-> `Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices`
-
 ## Soft delete for SQL server in Azure VM using Azure portal
 
 >[!NOTE]
