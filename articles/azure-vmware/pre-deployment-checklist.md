@@ -2,8 +2,7 @@
 title: Azure VMware Solution pre-deployment checklist
 description: Use this checklist as part of the pre-deployment planning process.
 ms.topic: how-to
-ms.date: 09/28/2020
-ms.author: tredavis 
+ms.date: 10/02/2020
 ---
 
 # Azure VMware Solution pre-deployment checklist

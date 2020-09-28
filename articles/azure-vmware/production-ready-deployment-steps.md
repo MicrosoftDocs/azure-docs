@@ -2,8 +2,7 @@
 title: Planning the Azure VMware Solution deployment
 description: This article outlines an Azure VMware Solution deployment workflow.  The final result is an environment ready for virtual machine (VM) creation and migration.
 ms.topic: tutorial
-ms.date: 09/28/2020
-ms.author: tredavis 
+ms.date: 10/02/2020
 ---
 
 # Planning the Azure VMware Solution deployment
