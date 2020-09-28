@@ -12,7 +12,7 @@ ms.author: zhshang
 
 ## Is Azure SignalR Service ready for production use?
 
-Yes, both the support for [ASP.NET Core SignalR](https://dotnet.microsoft.com/apps/aspnet/signalr) and [ASP.NET SignalR](https://docs.microsoft.com/en-us/aspnet/signalr/overview/getting-started/introduction-to-signalr) are all generally available.
+Yes, both the support for [ASP.NET Core SignalR](https://dotnet.microsoft.com/apps/aspnet/signalr) and [ASP.NET SignalR](https://docs.microsoft.com/en-us/aspnet/signalr/overview/getting-started/introduction-to-signalr) is all generally available.
 
 ## When there are multiple application servers, are client messages sent to all servers or just one of them?
 
@@ -53,7 +53,7 @@ take the aggregation type to [Messages and connections in Azure SignalR Service]
 
 ## What is the meaning of the `Default`, `Serverless`, and `Classic` service modes? How can I choose?
 
-For new applications, only default and serverless mode should be used. The main difference is whether you have application servers that establish server connections to the service (i.e. use `AddAzureSignalR()` to connect to service). If yes use default mode otherwise use serverless mode.
+For new applications, only default and serverless mode should be used. The main difference is whether you have application servers that establish server connections to the service (i.e. use `AddAzureSignalR()` to connect to service). If yes use default mode, otherwise use serverless mode.
 
 Classic mode is designed for backward compatibility for existing applications so should not be used for new applications.
 
