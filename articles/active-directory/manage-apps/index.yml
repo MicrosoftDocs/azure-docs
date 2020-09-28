@@ -30,10 +30,8 @@ landingContent:
         links:
           - text: View your apps
             url: view-applications-portal.md
-        links:
           - text: Add an app
             url: add-application-portal.md
-        links:
           - text: Configure an app
             url: add-application-portal-configure.md
   - title: Add and configure apps
