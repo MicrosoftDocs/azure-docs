@@ -47,12 +47,12 @@ Before you configure and set up your Azure Stack Edge Pro device with GPU, make 
 
 4. Select **Apply**.
 
-    ![Local web UI "Cloud details" page](./media/azure-stack-edge-gpu-deploy-activate/activate-2.png)
+    ![Local web UI "Cloud details" page 2](./media/azure-stack-edge-gpu-deploy-activate/activate-2.png)
 
 
 5. First the device is activated. You are then prompted to download the key file.
     
-    ![Local web UI "Cloud details" page](./media/azure-stack-edge-gpu-deploy-activate/activate-3.png)
+    ![Local web UI "Cloud details" page 3](./media/azure-stack-edge-gpu-deploy-activate/activate-3.png)
     
     Select **Download and continue** and save the *device-serial-no.json* file in a safe location outside of the device. **This key file contains the recovery keys for the OS disk and data disks on your device**. These keys may be needed to facilitate a future system recovery.
 
@@ -83,7 +83,7 @@ Before you configure and set up your Azure Stack Edge Pro device with GPU, make 
 
 6. Go to the **Overview** page. The device state should show as **Activated**.
 
-    ![Local web UI "Cloud details" page](./media/azure-stack-edge-gpu-deploy-activate/activate-4.png)
+    ![Local web UI "Cloud details" page 4](./media/azure-stack-edge-gpu-deploy-activate/activate-4.png)
  
 The device activation is complete. You can now add shares on your device.
 
