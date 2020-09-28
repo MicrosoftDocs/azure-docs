@@ -31,17 +31,17 @@ To complete this quickstart on Windows, you need the following software installe
 
 If you completed [Quickstart: Connect a sample IoT Plug and Play device application running on Windows to IoT Hub (C#)](quickstart-connect-device-csharp.md), you've already cloned the repository.
 
-Clone the samples from the Microsoft Azure IoT SDK for .NET GitHub repository. Open a command prompt in a folder of your choice. Run the following command to clone the [Microsoft Azure IoT SDK for .NET](https://github.com/Azure/azure-iot-sdk-csharp) GitHub repository:
+Clone the samples from the Microsoft Azure IoT SDK for .NET GitHub repository. Open a command prompt in a folder of your choice. Run the following command to clone the [Microsoft Azure IoT sample for .NET](https://github.com/Azure-Samples/azure-iot-samples-csharp) GitHub repository:
 
 ```cmd
-git clone https://github.com/Azure/azure-iot-sdk-csharp
+git clone https://github.com/Azure-Samples/azure-iot-samples-csharp.git
 ```
 
 ## Run the sample device
 
 In this quickstart, you use a sample thermostat device that's written in C# as the IoT Plug and Play device. To run the sample device:
 
-1. Open the *azure-iot-sdk-csharp\iothub\device\samples\DigitalTwinDeviceSamples\Thermostat\Thermostat.csproj"* project file in Visual Studio 2019.
+1. Open the *azure-iot-samples-csharp/digitaltwin/iot-hub/Samples/service/PnpServiceSamples/Thermostat/Thermostat.csproj* project file in Visual Studio 2019.
 
 1. In Visual Studio, navigate to **Project > Thermostat Properties > Debug**. Then add the following environment variables to the project:
 
@@ -53,7 +53,6 @@ In this quickstart, you use a sample thermostat device that's written in C# as t
     | IOTHUB_DEVICE_DPS_DEVICE_ID | my-pnp-device |
     | IOTHUB_DEVICE_DPS_DEVICE_KEY | The value you made a note of when you completed [Set up your environment](set-up-environment.md) |
 
-    To learn more about the sample configuration, see the [sample readme](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/iothub/device/samples/readme.md).
 
 1. You can now build the sample in Visual Studio and run it in debug mode.
 
