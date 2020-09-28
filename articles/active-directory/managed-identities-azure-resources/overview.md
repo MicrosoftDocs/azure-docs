@@ -59,8 +59,6 @@ The table below shows the differences between the two types of managed identitie
 
 ## How can I use managed identities for Azure resources?
 
-To learn how to use managed identities to access different Azure resources, try these tutorials.
-
 ![some examples of how a developer may use managed identities to get access to resources from their code without managing authentication information](media/overview/managed-identities-examples.png)
 
 ## What Azure services support the feature?<a name="which-azure-services-support-managed-identity"></a>
