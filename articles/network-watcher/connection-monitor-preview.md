@@ -223,8 +223,8 @@ To know reason  for failure of a Connection monitor or test group or test, click
 To view the trends in RTT and the percentage of failed checks for a connection monitor:
 1. Select the connection monitor that you want to investigate.
 
-  :::image type="content" source="./media/connection-monitor-2-preview/cm-drill-landing.png" alt-text="Screenshot showing metrics for a connection monitor, displayed by test group" lightbox="./media/connection-monitor-2-preview/cm-drill-landing.png":::
-  
+    :::image type="content" source="./media/connection-monitor-2-preview/cm-drill-landing.png" alt-text="Screenshot showing metrics for a connection monitor, displayed by test group" lightbox="./media/connection-monitor-2-preview/cm-drill-landing.png":::
+
 1. You will see the following sections  
     1. Essentials - Resource specific properties of the selected Connection Monitor 
     1. Summary - 
@@ -232,21 +232,21 @@ To view the trends in RTT and the percentage of failed checks for a connection m
         1. Top 5 across test groups, sources and destinations  based on the RTT or percentage of failed checks. 
     1. Tabs for Test Groups , Sources, Destinations and Test Configurations- Lists test groups, sources or destinations in the Connection Monitor. Check tests  failed, aggregate RTT and checks failed % values.  You can also go back in time to view data. 
     1. Issues - Hop level issues for each test in the Connection Monitor. 
-    
-  :::image type="content" source="./media/connection-monitor-2-preview/cm-drill-landing-2.png" alt-text="Screenshot showing metrics for a connection monitor, displayed by test group part 2" lightbox="./media/connection-monitor-2-preview/cm-drill-landing-2.png":::
-  
+
+    :::image type="content" source="./media/connection-monitor-2-preview/cm-drill-landing-2.png" alt-text="Screenshot showing metrics for a connection monitor, displayed by test group part 2" lightbox="./media/connection-monitor-2-preview/cm-drill-landing-2.png":::
+
 1. You can
     1. Click View all tests - to view all tests in the Connection Monitor
     1. Click View all test groups, test configurations, sources and destinations - to view  details specific to each. 
     1. Choose a test group, test configuration, source or destination - to view all tests in the entity.
 
 1. From the view all tests view, you can:
-   1. select tests and click compare.
-   
-  :::image type="content" source="./media/connection-monitor-2-preview/cm-compare-test.png" alt-text="Screenshot showing comparison of 2 tests" lightbox="./media/connection-monitor-2-preview/cm-compare-test.png":::
-  
-   1. Use cluster to expand compound resources like VNET, Subnets to its child resources
-   1. View topology for any tests by clicking topology.
+    1. Select tests and click compare.
+    
+    :::image type="content" source="./media/connection-monitor-2-preview/cm-compare-test.png" alt-text="Screenshot showing comparison of 2 tests" lightbox="./media/connection-monitor-2-preview/cm-compare-test.png":::
+    
+    1. Use cluster to expand compound resources like VNET, Subnets to its child resources
+    1. View topology for any tests by clicking topology.
 
 To view the trends in RTT and the percentage of failed checks for a test group:
 1. Select the test group that you want to investigate. 
