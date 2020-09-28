@@ -2,7 +2,7 @@
 title: Improve performance of Azure apps with Advisor
 description: Use performance recommendations in Azure Advisor to improve the speed and responsiveness of your business-critical applications.
 ms.topic: article
-ms.date: 01/29/2019
+ms.date: 07/29/2020
 ---
 
 # Improve the performance of Azure applications by using Azure Advisor
