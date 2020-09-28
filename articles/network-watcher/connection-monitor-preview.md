@@ -196,7 +196,7 @@ You can filter a list based on:
 * **State-based filters** – Filter by the state of the connection monitor, test group, or test. See box 2 in the following image.
 * **Alert based filter** - Filter by alerts fired on the connection monitor resource. See box 3 in the following image.
 
-![Screenshot showing how to filter views of connection monitors, test groups, and tests in Connection Monitor (Preview)](./media/connection-monitor-2-preview/cm-view.png)
+    ![Screenshot showing how to filter views of connection monitors, test groups, and tests in Connection Monitor (Preview)](./media/connection-monitor-2-preview/cm-view.png)
 
 For example, to look at all tests in Connection Monitor (Preview) where the source IP is 10.192.64.56:
 1. Change the view to **Test**.
