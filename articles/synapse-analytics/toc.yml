@@ -12,7 +12,6 @@
     href: release-notes.md
 - name: Quickstarts
   items:
-  expanded: true
   - name: Get Started
     items: 
     - name: Introduction
