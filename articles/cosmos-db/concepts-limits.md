@@ -197,7 +197,7 @@ Cosmos DB supports querying items using [SQL](how-to-sql-query.md). The followin
 | Maximum excluded paths per container| 500 |
 | Maximum properties in a composite index| 8 |
 
-<sup>*</sup> You can increase these SQL query limits by contacting Azure Support.
+<sup>*</sup> You can increase any of these SQL query limits by creating an [Azure Support request](create-support-request-quota-increase.md).
 
 ## MongoDB API-specific limits
 
