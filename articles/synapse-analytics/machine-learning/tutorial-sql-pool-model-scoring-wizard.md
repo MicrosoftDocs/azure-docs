@@ -117,7 +117,7 @@ Sign in to the [Azure portal](https://portal.azure.com/)
 
 7. Select the model we just trained. Then, click "Continue".
 
-![Select Azure ML model](media/tutorial-sql-scoring-wizard-00d.png)
+![Select Azure ML model](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-00d.png)
 
 8. Next step is to map the table columns to the model inputs, and also specify the model outputs. If the model is saved in the MLFlow format and the model signature is populated, we can automatically do the mapping for you using a logic based on the similarity of names). The interface also supports manual mapping.
 Click "Continue".
