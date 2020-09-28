@@ -138,6 +138,7 @@ These are the valid `threshold` values that you can specify in the `ApplicationI
 
 If you have some JMX metrics that you are interested in capturing:
 
+Java 8:
 ```json
 {
   "instrumentationSettings": {
@@ -159,10 +160,35 @@ If you have some JMX metrics that you are interested in capturing:
 }
 ```
 
+Java 11+:
+```json
+{
+  "instrumentationSettings": {
+    "preview": {
+      "jmxMetrics": [
+        {
+          "objectName": "java.lang:type=Runtime",
+          "attribute": "Uptime",
+          "display": "JVM uptime (millis)"
+        },
+        {
+          "objectName": "java.lang:type=MemoryPool,name=CodeHeap 'non-nmethods'",
+          "attribute": "Usage.used",
+          "display": "Code Cache Used"
+        }
+      ]
+    }
+  }
+}
+```
+
 You can also set the JMX metrics using the environment variable `APPLICATIONINSIGHTS_JMX_METRICS`.
 
 This environment variable content must be json data matching the above structure, e.g.
-`[{"objectName": "java.lang:type=Runtime", "attribute": "Uptime", "display": "JVM uptime (millis)"}, {"objectName": "java.lang:type=MemoryPool,name=Code Cache", "attribute": "Usage.used", "display": "Code Cache Used"}]`
+
+Java 8:`[{"objectName": "java.lang:type=Runtime", "attribute": "Uptime", "display": "JVM uptime (millis)"}, {"objectName": "java.lang:type=MemoryPool,name=Code Cache", "attribute": "Usage.used", "display": "Code Cache Used"}]`
+
+Java 11+:`[{"objectName": "java.lang:type=Runtime", "attribute": "Uptime", "display": "JVM uptime (millis)"}, {"objectName": "java.lang:type=MemoryPool,name=CodeHeap 'non-nmethods'", "attribute": "Usage.used", "display": "Code Cache Used"}]`
 
 ## Micrometer (including metrics from Spring Boot Actuator)
 
