@@ -53,7 +53,7 @@ Use the Elevation service APIs to request elevation data in GeoJSON format. This
 
 ### Request elevation data for points
 
-In this example, we'll use the [Get Data For Points API](https://docs.microsoft.com/rest/api/maps/elevation/getdataforlatlongcoordinates) to request elevation data at Mt. Everest and Chamlang mountains. Both coordinate points must be defined in Lat/Long format.
+In this example, we'll use the [Get Data For Points API](https://docs.microsoft.com/rest/api/maps/elevation/getdataforlatlongcoordinates) to request elevation data at Mt. Everest and Chamlang mountains. Latitudes and longitudes in the URL are expected to be in WGS84 (World Geodetic System) decimal degree.
 
 1. Open the Postman app. Near the top of the Postman app, select **New**. In the **Create New** window, select **Collection**.  Name the collection and select the **Create** button.
 
@@ -193,7 +193,7 @@ Then, we'll use the Get Data for Polyline to request three equally spaced sample
 
 Now we'll use the [Get Data for Bounding Box](https://docs.microsoft.com/rest/api/maps/elevation/getdataforboundingbox) to request elevation data near Mt. Rainier, WA. The elevation data will be returned at equally spaced locations within a bounding box. A bounding box is defined by the coordinates for two corners (southwest, northeast) and then divided into rows and columns. Elevations are returned for the vertices of the grid created by the rows and columns. Up to 2000 elevations can be returned in a single request.
 
-In this example, we'll request two rows and three columns for the Bounding Box. The returned elevation values are ordered, starting at the southwest corner, and then proceeding west to east along the row. At the end of the row, it moves north to the next row, and repeats the process until it reaches the far northeast corner.
+In this example, we'll request two rows and three columns for the Bounding Box. The returned elevation values are ordered, starting at the southwest corner, and then proceeding west to east along the row. At the end of the row, it moves north to the next row, and repeats the process until it reaches the far northeast corner. The image below illustrates the six samples that will be collected at the vertices of the grid.
 
 :::image type="content" source="./media/how-to-request-elevation-data/bounding-box.png" alt-text="Bounding box coordinates at NE and SE corners.":::
 
