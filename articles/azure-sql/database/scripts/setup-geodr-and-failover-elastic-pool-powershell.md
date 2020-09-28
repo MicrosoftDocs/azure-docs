@@ -9,7 +9,7 @@ ms.devlang: PowerShell
 ms.topic: sample
 author: mashamsft
 ms.author: mathoma
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 03/12/2019
 ---
 # Use PowerShell to configure active geo-replication for a pooled database in Azure SQL Database

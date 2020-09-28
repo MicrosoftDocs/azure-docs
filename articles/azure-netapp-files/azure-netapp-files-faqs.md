@@ -164,12 +164,6 @@ Azure NetApp Files supports Windows Server 2008r2SP1-2019 versions of Active Dir
 The volume size reported by the SMB client is the maximum size the Azure NetApp Files volume can grow to. The size of the Azure NetApp Files volume as shown on the SMB client is not reflective of the quota or size of the volume. You can get the Azure NetApp Files volume size or quota through the Azure portal or the API.
 
 <!--
-### Does Azure NetApp Files support Kerberos encryption?
-
-Yes, by default, Azure NetApp Files supports both AES-128 and AES-256 encryption for traffic between the service and the targeted Active Directory domain controllers. See [Create an SMB volume for Azure NetApp Files](azure-netapp-files-create-volumes-smb.md) for requirements. 
--->
-
-<!--
 ### Does Azure NetApp Files support LDAP signing? 
 
 Yes, Azure NetApp Files supports LDAP signing by default. This functionality enables secure LDAP lookups between the Azure NetApp Files service and the user-specified [Active Directory Domain Services domain controllers](https://docs.microsoft.com/windows/win32/ad/active-directory-domain-services). For more information, see [ADV190023 | Microsoft Guidance for Enabling LDAP Channel Binding and LDAP Signing](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023).

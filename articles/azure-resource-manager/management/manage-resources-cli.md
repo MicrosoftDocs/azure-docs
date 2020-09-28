@@ -131,7 +131,7 @@ Tagging helps organizing your resource group and resources logically. For inform
 
 ## Manage access to resources
 
-[Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) is the way that you manage access to resources in Azure. For more information, see [Manage access using RBAC and Azure CLI](../../role-based-access-control/role-assignments-cli.md).
+[Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) is the way that you manage access to resources in Azure. For more information, see [Add or remove Azure role assignments using Azure CLI](../../role-based-access-control/role-assignments-cli.md).
 
 ## Next steps
 
