@@ -100,8 +100,8 @@ landingContent:
         url: costs/tutorial-acm-opt-recommendations.md
     - linkListType: how-to-guide
       links:
-      - text: Prevent unexpected charges
-        url: manage/getting-started.md
+      - text: Analyze unexpected charges
+        url: understand/analyze-unexpected-charges.md
     - linkListType: learn
       links:
       - text: Start optimizing your costs today

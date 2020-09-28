@@ -311,8 +311,6 @@
       href: compute-benchmark-scores.md
   - name: Endorsed distros
     href: endorsed-distros.md
-  - name: Dedicated hosts
-    href: dedicated-hosts.md
   - name: Maintenance and updates
     href: ../maintenance-and-updates.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
   - name: Disk storage
@@ -362,6 +360,9 @@
       href: ../../bastion/bastion-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
   - name: States and lifecycle
     href: ../states-lifecycle.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+  - name: PUT calls for create or update operations
+    href: ../put-calls-create-or-update.md
+    maintainContext: true
   - name: Monitoring
     href: ../../azure-monitor/insights/monitor-vm-azure.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
   - name: Boot diagnostics
@@ -388,11 +389,12 @@
     - name: Copy or clone a VM
       href: copy-vm.md
     - name: Use dedicated hosts
+      href: ../dedicated-hosts.md
       items:
       - name: CLI
         href: dedicated-hosts-cli.md
       - name: Portal
-        href: dedicated-hosts-portal.md
+        href: ../dedicated-hosts-portal.md
     - name: Deploy spot VMs
       items:
       - name: CLI
@@ -556,8 +558,8 @@
           href: image-builder-permissions-powershell.md
       - name: DevOps task
         href: image-builder-devops-task.md
-      - name: ARM template reference
-        displayName: ARM,Resource Manager
+      - name: Image Builder template reference
+        displayName: json
         href: image-builder-json.md
       - name: Build for image galleries
         href: image-builder-gallery.md
@@ -851,10 +853,11 @@
     - name: Autoscale
       href: ../../virtual-machine-scale-sets/overview.md?bc=/azure/virtual-machines/linux/breadcrumb/toc.json&toc=/azure/virtual-machines/linux/toc.json
     - name: High availability
-      href: manage-availability.md
+      href: ../manage-availability.md
     - name: Change availability set
       href: ../windows/change-availability-set.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Create a proximity placement group
+      displayName: PPG aligned colocation co-location
       items:
       - name: CLI
         href: proximity-placement-groups.md

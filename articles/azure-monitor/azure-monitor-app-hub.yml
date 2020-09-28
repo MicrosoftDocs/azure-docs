@@ -435,9 +435,6 @@ conceptualContent:
 
     - title:  Reference
       links: 
-        - url: ./app/nuget.md
-          itemType: reference
-          text:  NuGet packages
         - url: ./app/platforms.md
           itemType: reference
           text:  Platforms
