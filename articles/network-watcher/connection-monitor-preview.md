@@ -242,23 +242,7 @@ To view the trends in RTT and the percentage of failed checks for a connection m
     1. Use cluster to expand compound resources like VNET, Subnets to its child resources
     1. View topology for any tests by clicking topology.
 
-1. Choose the test group that you want to investigate.
-
-   ![Screenshot showing where to select a test group](./media/connection-monitor-2-preview/cm-drill-select-tg.png)
-
-    You see your test group's top five failed tests, based on the RTT or percentage of failed checks. For each test, you see the RTT and trend lines for the percentage of failed checks.
-1. Select a test from the list, or choose another test to investigate. For your time interval and the percentage of failed checks, you see threshold and actual values. For RTT, you see the values for threshold, average, minimum, and maximum.
-
-   ![Screenshot showing a test's results for RTT and percentage of failed checks](./media/connection-monitor-2-preview/cm-drill-charts.png)
-
-1. Change the time interval to view more data.
-1. Change the view to see sources, destinations, or test configurations. 
-1. Choose a source based on failed tests, and investigate the top five failed tests. For example, choose **View by** > **Sources** and **View by** > **Destinations** to investigate the relevant tests in the connection monitor.
-
-   ![Screenshot showing performance metrics for the top five failed tests](./media/connection-monitor-2-preview/cm-drill-select-source.png)
-
 To view the trends in RTT and the percentage of failed checks for a test group:
-
 1. Select the test group that you want to investigate. 
 
 1. You will view similar to connection monitor - essentials, summary, table for test groups, sources, destinations and test configurations. Navigate them like you would do for a connection monitor
