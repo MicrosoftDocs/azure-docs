@@ -28,7 +28,7 @@ In Azure RBAC, to grant access, you add a role assignment. A role assignment con
 
 ### Step 1: Determine who needs access
 
-You can assign a role to a user, group, service principal, or managed identity. To add or remove role assignments, you might need to specify the unique ID of an object. The ID has the format: `11111111-1111-1111-1111-111111111111`. You can get the ID using the Azure portal or Azure CLI.
+You can assign a role to a user, group, service principal, or managed identity. To add a role assignment, you might need to specify the unique ID of the object. The ID has the format: `11111111-1111-1111-1111-111111111111`. You can get the ID using the Azure portal or Azure CLI.
 
 **User**
 
@@ -56,7 +56,7 @@ az ad sp list --display-name "{spName}" --query [].objectId --output tsv
         
 ### Step 2: Find the appropriate role
 
-Permissions are grouped together into roles. You can select from a list of several [Azure built-in roles](built-in-roles.md) or you can use your own custom roles.
+Permissions are grouped together into roles. You can select from a list of several [Azure built-in roles](built-in-roles.md) or you can use your own custom roles. It's a best practice to grant access with least privilege, so avoid assigning a broader role.
 
 To list roles and get the unique role ID, you can use [az role definition list](/cli/azure/role/definition#az_role_definition_list).
 
@@ -64,7 +64,7 @@ To list roles and get the unique role ID, you can use [az role definition list](
 az role definition list --query '[].{name:name, roleType:roleType, roleName:roleName}' --output tsv
 ```
 
-Here's how to list the details of a role.
+Here's how to list the details of a particular role.
 
 ```azurecli
 az role definition list --name {roleName}
@@ -74,11 +74,11 @@ For more information, see [List Azure role definitions](role-definitions-list.md
  
 ### Step 3: Identify the needed scope
 
-Azure provides four levels of scope: resource, [resource group](../azure-resource-manager/management/overview.md#resource-groups), subscription, and [management group](../governance/management-groups/overview.md). It's a best practice to grant access with least privilege, so avoid assigning a role at a broader scope.
+Azure provides four levels of scope: resource, [resource group](../azure-resource-manager/management/overview.md#resource-groups), subscription, and [management group](../governance/management-groups/overview.md). It's a best practice to grant access with least privilege, so avoid assigning a broader role at a broader scope.
 
 **Resource scope**
 
-For resource scope, you need the resource ID for the resource. You can look at the properties of the resource in the Azure portal. The resource ID will have the following format.
+For resource scope, you need the resource ID for the resource. You can find the resource ID by looking at the properties of the resource in the Azure portal. A resource ID has the following format.
 
 ```
 /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/{providerName}/{resourceType}/{resourceSubType1}/{resourceSubType2}/{resourceName}
@@ -94,7 +94,7 @@ az group list --query "[].{name:name}" --output tsv
 
 **Subscription scope** 
 
-For subscription scope, you need the subscription ID, you can find the ID on the **Subscriptions** page in the Azure portal or you can use [az account list](/cli/azure/account#az_account_list).
+For subscription scope, you need the subscription ID. You can find the ID on the **Subscriptions** page in the Azure portal or you can use [az account list](/cli/azure/account#az_account_list).
 
 ```azurecli
 az account list --query '[].{name:name, id:id}' --output tsv
@@ -102,7 +102,7 @@ az account list --query '[].{name:name, id:id}' --output tsv
 
 **Management group scope** 
 
-For management group scope, you need the management group name, you can find the name on the **Management groups** page in the Azure portal or you can use [az account management-group list](/cli/azure/account/management-group#az_account_management_group_list).
+For management group scope, you need the management group name. You can find the name on the **Management groups** page in the Azure portal or you can use [az account management-group list](/cli/azure/account/management-group#az_account_management_group_list).
 
 ```azurecli
 az account management-group list --query '[].{name:name, id:id}' --output tsv
