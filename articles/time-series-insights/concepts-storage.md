@@ -48,7 +48,7 @@ Data in your warm store is available only via the [Time Series Query APIs](./tim
 
 * When enabled, all data streamed into your environment will be routed to your warm store, regardless of the event timestamp. Note that the streaming ingestion pipeline is built for near-real time streaming and ingesting historical events is [not supported](./concepts-streaming-ingestion-event-sources.md#historical-data-ingestion).
 * The retention period is calculated based on when the event was indexed in warm store, not the event timestamp. This means that data is no longer available in warm store after the retention period has elapsed, even if the event timestamp is for the future.
-  * Example: an event with 10-day weather forecasts is ingested and indexed in a warm storage container configured with a 7 day retention period. After 7 days time, the prediction is no longer accessible in warm store, but can be queried from cold.
+  * Example: an event with 10-day weather forecasts is ingested and indexed in a warm storage container configured with a 7-day retention period. After 7 days time, the prediction is no longer accessible in warm store, but can be queried from cold.
 * If you enable warm store on an existing environment that already has recent data indexed in cold storage, note that your warm store will not be back-filled with this data.
 * If you just enabled warm store and are experiencing issues viewing your recent data in the Explorer, you can temporarily toggle warm store queries off:
 
