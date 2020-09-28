@@ -17,7 +17,7 @@ ms.author: duau
 
 # What is Azure Front Door?
 
-Azure Front Door is a global, scalable entry-point that utilizes Microsoft's global edge network to create fast, secure and widely scalable web applications. With Front Door, you can transform your global consumer and enterprise applications into robust, high-performing personalized modern applications, APIs, and contents that reaches a global audience with Azure.
+Azure Front Door is a global, scalable entry-point that utilizes Microsoft's global edge network to create fast, secure, and widely scalable web applications. With Front Door, you can transform your global consumer and enterprise applications into robust, high-performing personalized modern applications, APIs, and contents that reach a global audience with Azure.
 
 :::image type="content" source="media/front-door-overview/front-door-visual-diagram.png#center" alt-text="Front Door architecture":::
 
@@ -34,7 +34,7 @@ Front Door works at Layer 7 (HTTP/HTTPS layer) using anycast protocol with split
 
 ## Why use Azure Front Door?
 
-With Front Door you can build, operate and scale out your dynamic web application and static content. Front Door enables you to define, manage, and monitor the global routing for your web traffic by optimizing for top-tier end-user performance and reliability through quick global failover.
+With Front Door you can build, operate, and scale out your dynamic web application and static content. Front Door enables you to define, manage, and monitor the global routing for your web traffic by optimizing for top-tier end-user performance and reliability through quick global failover.
 
 Key features that are included with Front Door:
 
@@ -44,7 +44,7 @@ Key features that are included with Front Door:
 
 *  **[URL-path based](front-door-route-matching.md)** routing for requests.
 
-* Enables hosting of multiple website for efficient application infrastructure. 
+* Enables hosting of multiple websites for efficient application infrastructure. 
 
 * Cookie-based **[session affinity](front-door-routing-methods.md#affinity)**.
 
