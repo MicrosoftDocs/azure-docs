@@ -99,7 +99,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 5. Under the **Admin Credentials** section, copy the **8x8 URL** from Configuration Manager into **Tenant URL**. Copy the **8x8 API Token** from Configuration Manager into **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to 8x8. If the connection fails, ensure your 8x8 account has Admin permissions and try again.
 
-	![Provisioning](./media/8x8-provisioning-tutorial/provisioning.png)
+	![Screenshot shows the Admin Credentials dialog box, where you can enter your Tenant U R L and Secret Token.](./media/8x8-provisioning-tutorial/provisioning.png)
 
 6. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.
 

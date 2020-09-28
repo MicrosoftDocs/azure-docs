@@ -42,4 +42,4 @@ You can use the Python library that you generated with the [Speech service sampl
 ## Next steps
 
 * [Speech service samples on GitHub](https://aka.ms/csspeech/samples).
-* [Get a Speech service subscription key for free](get-started.md)
+* [Get a Speech service subscription key for free](overview.md#try-the-speech-service-for-free)

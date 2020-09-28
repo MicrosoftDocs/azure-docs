@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.subservice: 
 ms.date: 09/03/2020
 ms.author: pimorano
-ms.reviewer: jrasnick, carlrab
+ms.reviewer: jrasnick 
 ---
 
 # Quickstart: Create a Synapse workspace
