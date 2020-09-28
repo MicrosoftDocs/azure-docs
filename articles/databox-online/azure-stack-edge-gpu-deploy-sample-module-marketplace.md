@@ -51,7 +51,7 @@ Before you begin, make sure you have:
 
 4. Select **Continue** to acknowledge the provider's terms of use and privacy policy. 
 
-    ![Get sample module](media/azure-stack-edge-gpu-deploy-sample-module-marketplace/terms-of-use-1.png)
+    ![Get sample module 2](media/azure-stack-edge-gpu-deploy-sample-module-marketplace/terms-of-use-1.png)
 
 5. Choose the subscription that you used to deploy your Azure Stack Edge Pro device.
 
@@ -85,7 +85,7 @@ Before you begin, make sure you have:
 
 13. Verify that the module is deployed in your IoT Hub in the Azure portal. Select your device, select **Set Modules** and the module should be listed in the **IoT Edge Modules** section.
 
-    ![Select create](media/azure-stack-edge-gpu-deploy-sample-module-marketplace/running-module-iotres-1.png)
+    ![Select create 2](media/azure-stack-edge-gpu-deploy-sample-module-marketplace/running-module-iotres-1.png)
 
 ## Monitor the module  
 
