@@ -286,7 +286,7 @@ For either option, make sure you turn on webhdfs for Hadoop cluster:
     Kadmin> ktadd -k /etc/security/keytab/spnego.service.keytab HTTP/<namenode hostname>@<REALM.COM>
     ```
 
-2. HDFS configuration options: Add the following three properties in `hdfs-site.xml`.
+2. HDFS configuration options: add the following three properties in `hdfs-site.xml`.
     ```xml
     <property>
         <name>dfs.webhdfs.enabled</name>
@@ -312,10 +312,10 @@ For either option, make sure you turn on webhdfs for Hadoop cluster:
 
 **On the KDC server:**
 
-Create the a principal for ADF and specify the password.
+Create a principal for Azure Data Factory to use, and specify the password.
 
 > [!IMPORTANT]
-> The username should NOT contain any hostname.
+> The username should not contain the hostname.
 
 ```bash
 Kadmin> addprinc <username>@<REALM.COM>
