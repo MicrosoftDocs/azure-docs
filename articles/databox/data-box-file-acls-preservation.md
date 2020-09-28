@@ -101,13 +101,12 @@ For more information on these `robocopy` parameters, see [Tutorial: Copy data to
 
 Transferring metadata in Linux is a two-step process. First, you copy the source data using a tool such as `rsync`, which does not copy metadata. After you copy the data, you can copy the metadata using a tool such as `smbcacls` or `cifsacl`. 
 
-The following sample commands do the first step, copying the data using `rsync`.
+The following sample commands do the first step, copying the data using `rsync`. 
 
 ```console
 cp -aR /etc /opt/ 
 rsync -avP /etc /opt (-a copies a directory)
-```
 
-## Next steps
+## Next steps## Next steps
 
 - [Copy data to Azure Data Box via SMB](./data-box-deploy-copy-data.md)
