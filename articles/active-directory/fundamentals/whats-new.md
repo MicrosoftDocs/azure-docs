@@ -108,7 +108,7 @@ Continuous access evaluation (CAE) is now available in public preview for Azure 
 **Service category:** User Access Management  
 **Product capability:** Entitlement Management
  
-Administrators can now require that users requesting an access package answer additional questions beyond just business justification in Azure AD Entitlement management's My Access portal. The users' answers will then be shown to the approvers to help them make a more accurate access approval decision. To learn more, see [Collect additional requestor information for approval (preview)](../governance/entitlement-management-access-package-approval-policy.md#collect-additional-requestor-information-for-approval-preview)
+Administrators can now require that users requesting an access package answer additional questions beyond just business justification in Azure AD Entitlement management's My Access portal. The users' answers will then be shown to the approvers to help them make a more accurate access approval decision. To learn more, see [Collect additional requestor information for approval (preview)](../governance/entitlement-management-access-package-approval-policy.md#collect-additional-requestor-information-for-approval-preview).
  
 ---
 
@@ -174,13 +174,13 @@ With this new role, you benefit from the least privileges needed to delegate man
 **Service category:** Privileged Identity Management  
 **Product capability:** Privileged Identity Management
  
-Previously, onboarding to Privileged Identity Management required user consent and an onboarding flow in PIM's blade that included enrollment in Azure MFA. With the recent integration of PIM experience into the Azure AD roles and administrators blade, we are removing this experience. Any tenant with valid P2 license will be auto-onboarded to PIM.
+Previously, onboarding to Privileged Identity Management (PIM) required user consent and an onboarding flow in PIM's blade that included enrollment in Azure MFA. With the recent integration of PIM experience into the Azure AD roles and administrators blade, we are removing this experience. Any tenant with valid P2 license will be auto-onboarded to PIM.
 
 Onboarding to PIM does not have any direct adverse effect on your tenant. You can expect the following changes:
 - Additional assignment options such as active vs. eligible with start and end time when you make an assignment in either PIM or Azure AD roles and administrators blade. 
 - Additional scoping mechanisms, like Administrative Units and custom roles, introduced directly into the assignment experience. 
 - If you are a global administrator or privileged role administrator, you may start getting a few additional emails like the PIM weekly digest. 
-- You might also see ms-pim service principal in the audit log related to role assignment. This expected change should n't affect your regular workflow.
+- You might also see ms-pim service principal in the audit log related to role assignment. This expected change shouldn't affect your regular workflow.
 
  For more information, see [Start using Privileged Identity Management](../privileged-identity-management/pim-getting-started.md).
 
