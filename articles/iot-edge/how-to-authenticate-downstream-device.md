@@ -179,13 +179,21 @@ Connection strings for downstream devices need the following components:
 
 * The IoT hub that the device connects to: `Hostname={iothub name}.azure-devices.net`
 * The device ID registered with the hub: `DeviceID={device ID}`
-* Either the primary or secondary key: `SharedAccessKey={key}`
+* The authentication method, whether symmetric key or X.509 certificates
+  * If using symmetric key authentication provide either the primary or secondary key: `SharedAccessKey={key}`
+  * If using X.509 certificate authentication, provide a flag: `x509=true`
 * The gateway device that the device connects through. Provide the **hostname** value from the IoT Edge gateway device's config.yaml file: `GatewayHostName={gateway hostname}`
 
 All together, a complete connection string looks like:
 
 ```
 HostName=myiothub.azure-devices.net;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz;GatewayHostName=myGatewayDevice
+```
+
+Or:
+
+```
+HostName=myiothub.azure-devices.net;DeviceId=myDownstreamDevice;x509=true;GatewayHostName=myGatewayDevice
 ```
 
 If you established a parent/child relationship for this downstream device, then you can simplify the connection string by calling the gateway directly as the connection host. Parent/child relationships are required for X.509 authentication but optional for symmetric key authentication. For example:
