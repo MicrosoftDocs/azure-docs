@@ -35,7 +35,7 @@ You can assign a role to a user, group, service principal, or managed identity. 
 For an Azure AD user, get the user principal name, such as *patlong\@contoso.com* or the user object ID. To get the object ID, you can use [az ad user show](/cli/azure/ad/user#az_ad_user_show).
 
 ```azurecli
-az ad user show --id "{email}" --query objectId --output tsv
+az ad user show --id "{principalName}" --query objectId --output tsv
 ```
 
 **Group**
@@ -76,13 +76,13 @@ Permissions are grouped together into roles. You can select from a list of sever
 To list roles and get the unique role ID, you can use [az role definition list](/cli/azure/role/definition#az_role_definition_list).
 
 ```azurecli
-az role definition list --query '[].{name:name, roleType:roleType, roleName:roleName}' --output tsv
+az role definition list --query "[].{name:name, roleType:roleType, roleName:roleName}" --output tsv
 ```
 
 Here's how to list the details of a particular role.
 
 ```azurecli
-az role definition list --name {roleName}
+az role definition list --name "{roleName}"
 ```
 
 For more information, see [List Azure role definitions](role-definitions-list.md#azure-cli).
@@ -112,7 +112,7 @@ az group list --query "[].{name:name}" --output tsv
 For subscription scope, you need the subscription ID. You can find the ID on the **Subscriptions** page in the Azure portal or you can use [az account list](/cli/azure/account#az_account_list).
 
 ```azurecli
-az account list --query '[].{name:name, id:id}' --output tsv
+az account list --query "[].{name:name, id:id}" --output tsv
 ```
 
 **Management group scope** 
@@ -120,7 +120,7 @@ az account list --query '[].{name:name, id:id}' --output tsv
 For management group scope, you need the management group name. You can find the name on the **Management groups** page in the Azure portal or you can use [az account management-group list](/cli/azure/account/management-group#az_account_management_group_list).
 
 ```azurecli
-az account management-group list --query '[].{name:name, id:id}' --output tsv
+az account management-group list --query "[].{name:name, id:id}" --output tsv
 ```
     
 ### Step 4: Add role assignment
@@ -130,33 +130,33 @@ To add a role assignment, use the [az role assignment create](/cli/azure/role/as
 **Resource scope**
 
 ```azurecli
-az role assignment create --assignee {assignee} \
---role {roleNameOrId} \
---scope /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/{providerName}/{resourceType}/{resourceSubType}/{resourceName}
+az role assignment create --assignee "{assignee}" \
+--role "{roleNameOrId}" \
+--scope "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/{providerName}/{resourceType}/{resourceSubType}/{resourceName}"
 ```
 
 **Resource group scope**
 
 ```azurecli
-az role assignment create --assignee {assignee} \
---role {roleNameOrId} \
---resource-group {resourceGroupName}
+az role assignment create --assignee "{assignee}" \
+--role "{roleNameOrId}" \
+--resource-group "{resourceGroupName}"
 ```
 
 **Subscription scope** 
 
 ```azurecli
-az role assignment create --assignee {assignee} \
---role {roleNameOrId} \
---subscription {subscriptionNameOrId}
+az role assignment create --assignee "{assignee}" \
+--role "{roleNameOrId}" \
+--subscription "{subscriptionNameOrId}"
 ```
 
 **Management group scope** 
 
 ```azurecli
-az role assignment create --assignee {assignee} \
---role {roleNameOrId} \
---scope /providers/Microsoft.Management/managementGroups/{managementGroupName}
+az role assignment create --assignee "{assignee}" \
+--role "{roleNameOrId}" \
+--scope "/providers/Microsoft.Management/managementGroups/{managementGroupName}"
 ``` 
     
 ## Add role assignment examples
@@ -166,7 +166,7 @@ az role assignment create --assignee {assignee} \
 Assigns the [Storage Blob Data Contributor](built-in-roles.md#storage-blob-data-contributor) role at a resource scope for a blob container named *blob-container-01*.
 
 ```azurecli
-az role assignment create --assignee {assignee} \
+az role assignment create --assignee "{assignee}" \
 --role "Storage Blob Data Contributor" \
 --scope "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Example-Storage-rg/providers/Microsoft.Storage/storageAccounts/storage12345/blobServices/default/containers/blob-container-01"
 ```
@@ -176,7 +176,7 @@ az role assignment create --assignee {assignee} \
 Assigns the [Storage Blob Data Contributor](built-in-roles.md#storage-blob-data-contributor) role at a resource scope for a storage account named *storage12345*.
 
 ```azurecli
-az role assignment create --assignee {assignee} \
+az role assignment create --assignee "{assignee}" \
 --role "Storage Blob Data Contributor" \
 --scope "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Example-Storage-rg/providers/Microsoft.Storage/storageAccounts/storage12345"
 ```
@@ -186,9 +186,9 @@ az role assignment create --assignee {assignee} \
 Assigns the [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) role to the *Ann Mack Team* group with ID 22222222-2222-2222-2222-222222222222 at a resource scope for a virtual network named *pharma-sales-project-network*.
 
 ```azurecli
-az role assignment create --assignee 22222222-2222-2222-2222-222222222222 \
+az role assignment create --assignee "22222222-2222-2222-2222-222222222222" \
 --role "Virtual Machine Contributor" \
---scope /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/pharma-sales/providers/Microsoft.Network/virtualNetworks/pharma-sales-project-network
+--scope "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/pharma-sales/providers/Microsoft.Network/virtualNetworks/pharma-sales-project-network"
 ```
 
 ### Add role assignment for a user at a resource group scope
@@ -196,9 +196,9 @@ az role assignment create --assignee 22222222-2222-2222-2222-222222222222 \
 Assigns the [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) role to *patlong\@contoso.com* user at the *pharma-sales* resource group scope.
 
 ```azurecli
-az role assignment create --assignee patlong@contoso.com \
+az role assignment create --assignee "patlong@contoso.com" \
 --role "Virtual Machine Contributor" \
---resource-group pharma-sales
+--resource-group "pharma-sales"
 ```
 
 ### Add role assignment for a user using the unique role ID at a resource group scope
@@ -213,9 +213,9 @@ Even if a role is renamed, the role ID does not change. If you are using scripts
 The following example assigns the [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) role to the *patlong\@contoso.com* user at the *pharma-sales* resource group scope.
 
 ```azurecli
-az role assignment create --assignee patlong@contoso.com \
---role 9980e02c-c2be-4d73-94e8-173b1dc7cf3c \
---resource-group pharma-sales
+az role assignment create --assignee "patlong@contoso.com" \
+--role "9980e02c-c2be-4d73-94e8-173b1dc7cf3c" \
+--resource-group "pharma-sales"
 ```
 
 ### Add role assignment for all blob containers at a resource group scope
@@ -223,7 +223,7 @@ az role assignment create --assignee patlong@contoso.com \
 Assigns the [Storage Blob Data Contributor](built-in-roles.md#storage-blob-data-contributor) role at the *Example-Storage-rg* resource group scope.
 
 ```azurecli
-az role assignment create --assignee {assignee} \
+az role assignment create --assignee "{assignee}" \
 --role "Storage Blob Data Contributor" \
 --resource-group "Example-Storage-rg"
 ```
@@ -231,19 +231,19 @@ az role assignment create --assignee {assignee} \
 Alternately, you can specify the fully qualified resource group with the `--scope` parameter:
 
 ```azurecli
-az role assignment create --assignee {assignee} \
+az role assignment create --assignee "{assignee}" \
 --role "Storage Blob Data Contributor" \
 --scope "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Example-Storage-rg"
 ```
 
 ### Add role assignment for an application at a resource group scope
 
-Assigns the [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) role to an application with object ID 44444444-4444-4444-4444-444444444444 at the *pharma-sales* resource group scope.
+Assigns the [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) role to an application with service principal object ID 44444444-4444-4444-4444-444444444444 at the *pharma-sales* resource group scope.
 
 ```azurecli
-az role assignment create --assignee 44444444-4444-4444-4444-444444444444 \
+az role assignment create --assignee "44444444-4444-4444-4444-444444444444" \
 --role "Virtual Machine Contributor" \
---resource-group pharma-sales
+--resource-group "pharma-sales"
 ```
 
 ### Add role assignment for a new service principal at a resource group scope
@@ -253,20 +253,20 @@ If you create a new service principal and immediately try to assign a role to th
 To add a role assignment, use [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create), specify a value for `--assignee-object-id`, and then set `--assignee-principal-type` to `ServicePrincipal`.
 
 ```azurecli
-az role assignment create --assignee-object-id {assigneeObjectId} \
---assignee-principal-type {assigneePrincipalType} \
---role {roleNameOrId} \
---resource-group {resourceGroupName} \
---scope /subscriptions/{subscriptionId}
+az role assignment create --assignee-object-id "{assigneeObjectId}" \
+--assignee-principal-type "{assigneePrincipalType}" \
+--role "{roleNameOrId}" \
+--resource-group "{resourceGroupName}" \
+--scope "/subscriptions/{subscriptionId}"
 ```
 
 The following example assigns the [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) role to the *msi-test* managed identity at the *pharma-sales* resource group scope:
 
 ```azurecli
-az role assignment create --assignee-object-id 33333333-3333-3333-3333-333333333333 \
---assignee-principal-type ServicePrincipal \
+az role assignment create --assignee-object-id "33333333-3333-3333-3333-333333333333" \
+--assignee-principal-type "ServicePrincipal" \
 --role "Virtual Machine Contributor" \
---resource-group pharma-sales
+--resource-group "pharma-sales"
 ```
 
 ### Add role assignment for a user at a subscription scope
@@ -274,9 +274,9 @@ az role assignment create --assignee-object-id 33333333-3333-3333-3333-333333333
 Assigns the [Reader](built-in-roles.md#reader) role to the *annm\@example.com* user at a subscription scope.
 
 ```azurecli
-az role assignment create --assignee annm@example.com \
+az role assignment create --assignee "annm@example.com" \
 --role "Reader" \
---subscription 00000000-0000-0000-0000-000000000000
+--subscription "00000000-0000-0000-0000-000000000000"
 ```
 
 ### Add role assignment for a group at a subscription scope
@@ -284,9 +284,9 @@ az role assignment create --assignee annm@example.com \
 Assigns the [Reader](built-in-roles.md#reader) role to the *Ann Mack Team* group with ID 22222222-2222-2222-2222-222222222222 at a subscription scope.
 
 ```azurecli
-az role assignment create --assignee 22222222-2222-2222-2222-222222222222 \
---role Reader \
---scope /subscriptions/00000000-0000-0000-0000-000000000000
+az role assignment create --assignee "22222222-2222-2222-2222-222222222222" \
+--role "Reader" \
+--subscription "00000000-0000-0000-0000-000000000000"
 ```
 
 ### Add role assignment for all blob containers at a subscription scope
@@ -294,7 +294,7 @@ az role assignment create --assignee 22222222-2222-2222-2222-222222222222 \
 Assigns the [Storage Blob Data Reader](built-in-roles.md#storage-blob-data-reader) role at a subscription scope.
 
 ```azurecli
-az role assignment create --assignee {assignee} \
+az role assignment create --assignee "{assignee}" \
 --role "Storage Blob Data Reader" \
 --scope "/subscriptions/00000000-0000-0000-0000-000000000000"
 ```
@@ -316,25 +316,25 @@ In Azure RBAC, to remove access, you remove a role assignment by using [az role 
 The following example removes the [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) role assignment from the *patlong\@contoso.com* user on the *pharma-sales* resource group:
 
 ```azurecli
-az role assignment delete --assignee patlong@contoso.com \
+az role assignment delete --assignee "patlong@contoso.com" \
 --role "Virtual Machine Contributor" \
---resource-group pharma-sales
+--resource-group "pharma-sales"
 ```
 
 Removes the [Reader](built-in-roles.md#reader) role from the *Ann Mack Team* group with ID 22222222-2222-2222-2222-222222222222 at a subscription scope.
 
 ```azurecli
-az role assignment delete --assignee 22222222-2222-2222-2222-222222222222 \
+az role assignment delete --assignee "22222222-2222-2222-2222-222222222222" \
 --role "Reader" \
---subscription 00000000-0000-0000-0000-000000000000
+--subscription "00000000-0000-0000-0000-000000000000"
 ```
 
 Removes the [Billing Reader](built-in-roles.md#billing-reader) role from the *alain\@example.com* user at the management group scope.
 
 ```azurecli
-az role assignment delete --assignee alain@example.com \
+az role assignment delete --assignee "alain@example.com" \
 --role "Billing Reader" \
---scope /providers/Microsoft.Management/managementGroups/marketing-group
+--scope "/providers/Microsoft.Management/managementGroups/marketing-group"
 ```
 
 ## Next steps
