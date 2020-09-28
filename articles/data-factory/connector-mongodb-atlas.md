@@ -87,7 +87,7 @@ For a full list of sections and properties that are available for defining datas
         },
         "schema": [],
         "linkedServiceName": {
-            "referenceName": "<MongoDbAtlas linked service name>",
+            "referenceName": "<MongoDB Atlas linked service name>",
             "type": "LinkedServiceReference"
         }
     }
