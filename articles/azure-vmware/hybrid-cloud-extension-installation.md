@@ -1,5 +1,5 @@
 ---
-title: Install VMware HCX
+title: Install VMware HCX1
 description: Set up the VMware HCX solution for your Azure VMware Solution private cloud
 ms.topic: how-to
 ms.date: 09/24/2020  
