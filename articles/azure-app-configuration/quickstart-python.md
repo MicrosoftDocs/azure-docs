@@ -1,19 +1,19 @@
 ---
-title: Quickstart for Azure App Configuration with Python | Microsoft Docs
+title: Quickstart for using Azure App Configuration with Python apps | Microsoft Docs
 description: In this quickstart, use Python with Azure App Configuration to centralize storage and management of application settings separate from your code.
 services: azure-app-configuration
 author: drewbatgit
 ms.service: azure-app-configuration
 ms.topic: quickstart
-ms.custom: devx-track-csharp
+ms.custom: devx-track-python
 ms.date: 9/17/2020
 ms.author: drewbat
 
 #Customer intent: As a Python developer, I want to manage all my app settings in one place.
 ---
-# Quickstart: Use Azure App Configuration with Python
+# Quickstart: Create a Python app with Azure App Configuration
 
-In this quickstart, you access the Azure App Configuration service from Python in order to centralize storage and management of application settings separate from your code. For more information, see [Azure App Configuration client library for Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/appconfiguration/azure-appconfiguration).
+In this quickstart, you will use Azure App Configuration to centralize storage and management of application settings using the [Azure App Configuration client library for Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/appconfiguration/azure-appconfiguration).
 
 ## Prerequisites
 
@@ -117,7 +117,9 @@ print(fetched_config_setting.value)
 
 In this quickstart, you created a new App Configuration store and accessed it from Python. 
 
-To learn about creating other applications with Azure App Configuration, continue to the following article:
+For tutorials, samples, quick starts and other documentation, visit:
 
 > [!div class="nextstepaction"]
-> [Quickstart: Create an ASP.NET Core app with Azure App Configuration](quickstart-aspnet-core-app.md)
+> [Azure for Python Developers](https://docs.microsoft.com/azure/python/)
+
+* To learn more, see the [Azure App Configuration client library for Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/appconfiguration/azure-appconfiguration).
