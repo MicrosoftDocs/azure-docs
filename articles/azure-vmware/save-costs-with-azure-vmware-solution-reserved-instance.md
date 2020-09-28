@@ -7,7 +7,7 @@ ms.date: 10/2/2020
 
 # Save costs with Azure VMware Solution
 
-When you commit to a reserved instance of Azure VMware Solution, you can save money. The reservation discount is applied automatically to the number of running AVS hosts that match the reservation scope and attributes. You don't need to assign a reservation to a dedicated host to get the discounts. A reserved instance purchase covers only the compute part of your usage and does
+When you commit to a reserved instance of Azure VMware Solution, you can save money. The reservation discount is applied automatically to the number of running Azure VMware Solution hosts that match the reservation scope and attributes. You don't need to assign a reservation to a dedicated host to get the discounts. A reserved instance purchase covers only the compute part of your usage and does
 include software licensing costs. See the [Overview of Azure VMware Solution](introduction.md).
 
 ## Purchase restriction considerations
@@ -20,15 +20,15 @@ Reserved instances are available with some exceptions.
 
 -   **Offer Eligibility**- You'll need an [Azure Enterprise Agreement (EA)](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-agreements) with Microsoft.
 
--   **Capacity restrictions** - In rare circumstances, Azure limits the purchase of new reservations for AVS host SKUs, because of low capacity in a region.
+-   **Capacity restrictions** - In rare circumstances, Azure limits the purchase of new reservations for Azure VMware Solution host SKUs, because of low capacity in a region.
 
 ## Buy a reservation
 
-You can buy a reserved instance of an Azure Dedicated Host instance in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22VirtualMachines%22%7D).
+You can buy a reserved instance of an Azure VMware Solution host instance in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22VirtualMachines%22%7D).
 
 Pay for the reservation [up front or with monthly payments](../cost-management-billing/reservations/prepare-buy-reservation.md).
 
-These requirements apply to buying a reserved Dedicated Host instance:
+These requirements apply to buying a reserved dedicated host instance:
 
 -   You must be in an Owner role for at least one EA subscription or a subscription with a pay-as-you-go rate.
 
@@ -42,7 +42,7 @@ To buy an instance:
 
 3. Select **Add** to purchase a new reservation and then select **Azure VMware Solution**.
 
-4. Enter required fields. Running AVS hosts that match the attributes you select qualify to get the reservation discount. The actual number of your AVS hosts that get the discount depend on the scope and quantity selected.
+4. Enter required fields. Running Azure VMware Solution hosts that match the attributes you select qualify to get the reservation discount. The actual number of your Azure VMware Solution hosts that get the discount depend on the scope and quantity selected.
 
    If you have an EA agreement, you can use the **Add more option** to quickly add additional instances. The option isn't available for other subscription types.
 
@@ -53,7 +53,7 @@ To buy an instance:
    | Region       | The Azure region that’s covered by the reservation.   |
    | Host Size    | AV36    |
    | Term         | One year or three years.  |
-   | Quantity     | The number of instances being purchased within the reservation. The quantity is the number of running AVS hosts that can get the billing discount.    |
+   | Quantity     | The number of instances being purchased within the reservation. The quantity is the number of running Azure VMware Solution hosts that can get the billing discount.    |
 
 ## Usage data and reservation utilization
 
