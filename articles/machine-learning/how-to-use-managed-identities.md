@@ -9,14 +9,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
 ms.topic: conceptual
-ms.date: 22/09/2020
+ms.date: 09/28/2020
 ms.custom: seodec18
 ---
 
 # Use Managed Identities with Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-When configuring Azure Machine Learning Workspace in trustworthy manner, it is important to ensure that different services associated with the workspace have correct level of access. [Managed identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) allow you the configure compute resources so that they have only the minimum required permissions to Azure Container Registry (ACR) and storage accounts used for in your machine learning workflow. Furthermore, managed identities allow fine-grained control over permissions, for example you can grant or revoke access from specific compute resource to specific ACR.
+When configuring Azure Machine Learning Workspace in trustworthy manner, it is important to ensure that different services associated with the workspace have correct level of access. During machine learning workflow, the Workspace needs access to Azure Container Registry for Docker images, and storage accounts for training data. [Managed identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) allow you to configure your Workspace with minimum requred permissions to these resources. Furthermore, managed identities allow fine-grained control over permissions, for example you can grant or revoke access from specific compute resource to specific ACR.
 
 This document describes how to use managed identities to:
 
@@ -32,10 +32,10 @@ You have Azure Machine Learning CLI extension and Azure Machine Learning Python 
 
 ### Set up Workspace ACR without admin user
 
-In some situations it's necessary to disallow admin user access to ACR. For example, the ACR may be shared and you need to disallow admin access by other users. Or, creating ACR with admin user enabled is disallowed by subscription level IT policy. When you create ACR
+In some situations, it's necessary to disallow admin user access to ACR. For example, the ACR may be shared and you need to disallow admin access by other users. Or, creating ACR with admin user enabled is disallowed by subscription level IT policy. When you create ACR
 without admin user, managed identities are used to access the ACR to build and pull Docker images.
 
-You can either bring your own ACR with admin user disable, or let Azure Machine Learning create Workspace ACR, and disable admin user afterwards.
+You can bring your own ACR with admin user disabled when you create the Workspace. Alternatively, let Azure Machine Learning create Workspace ACR and disable admin user afterwards.
 
 > [!NOTE]
 > When using Azure Machine Learning for inferencing on Azure Container Instance, ACR admin user must be enabled.
@@ -45,7 +45,7 @@ You can either bring your own ACR with admin user disable, or let Azure Machine 
 
 if ACR admin user is disallowed by subscription policy, you should first create ACR without admin user, and then associate it with the workspace. Also, if you have existing ACR with admin user disabled, you can attach it to the workspace.
 
-[Create ACR from Azure CLI](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli) without setting ```--admin-enabled``` argument, or from Azure Portal without enabling admin user. Then, when creating Azure Machine Learning Workspace, specify the Azure resource ID of the ACR. For example, use Azure CLI as:
+[Create ACR from Azure CLI](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli) without setting ```--admin-enabled``` argument, or from Azure portal without enabling admin user. Then, when creating Azure Machine Learning Workspace, specify the Azure resource ID of the ACR. For example, use Azure CLI as:
 
 ```azurecli-interactive
 az ml workspace create -w <workspace name> -g <workspace resource group> -l <region> --container-registry /subscriptions/<subscription id>/resourceGroups/<acr resource group>/providers/Microsoft.ContainerRegistry/registries/<acr name>
@@ -69,7 +69,7 @@ az acr update --name <my acr> --admin-enabled false
 
 ### Create compute with managed identity to access Docker images for training
 
-To access the Workspace ACR, create machine learning compute cluster with system-assigned managed identity enabled. You can enable the identity from Azure Portal or Studio when creating compute, or from Azure CLI using
+To access the Workspace ACR, create machine learning compute cluster with system-assigned managed identity enabled. You can enable the identity from Azure portal or Studio when creating compute, or from Azure CLI using
 
 ```azurecli-interaction
 az ml computetarget create amlcompute --name cpucluster -w <workspace> -g <resource group> --vm-size <vm sku> --assign-identity '[system]'
@@ -82,9 +82,9 @@ The managed identity is automatically granted ACRPull role on workspace ACR to e
 
 ## Access base images from private ACR
 
-By default, Azure Machine Learning uses Docker base images that come from a public repository managed by Microsoft, and builds your training or inferencing environment on those images. 
+By default, Azure Machine Learning uses Docker base images that come from a public repository managed by Microsoft. It then builds your training or inferencing environment on those images. See [What are ML environments?](concept-environments.md) for an overview of environments.
 
-To use a custom base image internal to your enterprise, you can use managed identities to access your own private ACR. There are 2 use cases:
+To use a custom base image internal to your enterprise, you can use managed identities to access your own private ACR. There are two use cases:
 
  * Use base image for training as is
  * Build Azure Machine Learning managed image with custom image as a base.
@@ -97,13 +97,13 @@ Create machine learning compute cluster with system-assigned managed identity en
 az ml computetarget amlcompute identity show --name <cluster name> -w <workspace> -g <resource group>
 ```
 
-Optionally, you can update the cluster to assign a user-assigned managed identity:
+Optionally, you can update the compute cluster to assign a user-assigned managed identity:
 
 ```azurecli-interactive
 az ml computetarget amlcompute identity assign --name cpucluster -w $mlws -g $mlrg --identities <my-identity-id>
 ```
 
-To allow compute to pull the base images, grant the managed service identity ACRPull role on the private ACR
+To allow the compute cluster to pull the base images, grant the managed service identity ACRPull role on the private ACR
 
 ```azurecli-interactive
 az role assignment create --assignee <principal ID> --role acrpull --scope "/subscriptions/<subscription ID>/resourceGroups/<private ACR resource group>/providers/Microsoft.ContainerRegistry/registries/<private ACR name>"
@@ -118,19 +118,23 @@ env.docker.base_image = "<ACR name>.azurecr.io/<base image repository>/<base ima
 env.python.user_managed_dependencies = True
 ```
 
-Note that you must set user managed dependencies to True and not specify Dockerfile to ensure that base image pulled directly to compute. Otherwise Azure Machine Learning service will attempt to build a new Docker image and fail, because only the compute cluster has access to pull the base image from ACR.
+You must set user-managed dependencies to True and not specify Dockerfile to ensure that base image pulled directly to compute. Otherwise Azure Machine Learning service will attempt to build a new Docker image and fail, because only the compute cluster has access to pull the base image from ACR. If user-managed dependencies is set to False, follow the instructions in next section.
 
 ### Build Azure Machine Learning managed environment into base image from private ACR for training or inferencing
 
-First, create user-assigned managed identity, and grant the identity ACRPull access to external ACR. Note that you must use user-assigned managed identity in this scenario.
+In this scenario, Azure Machine Learning service builds the training or inferencing environment on top of a base image you supply from private ACR. Because the image build task happens on workspace ACR using ACR Tasks, you must perform additional steps to allow access.
 
-Then, grant Workspace system-assigned managed identity Managed Identity Operator role on user-assigned managed identity. This role allows Workspace to assign the user-assigned managed identity to ACR Task for building the managed environment. To do this, obtain the principal Id of Workspace system-assigned managed identity
+First, create user-assigned managed identity, and grant the identity ACRPull access to external ACR. In this scenario, you must use a user-assigned managed identity.
+
+Then, grant Workspace system-assigned managed identity a Managed Identity Operator role on user-assigned managed identity. This role allows Workspace to assign the user-assigned managed identity to ACR Task for building the managed environment. 
+
+Obtain the principal ID of Workspace system-assigned managed identity
 
 ```azurecli-interactive
 az ml workspace show -w <workspace name> -g <resource group> --query identityPrincipalId
 ```
 
-Then grant this identity Managed Identity Operator role on the user-assigned managed identity you created earlier.
+Grant the Managed Identity Operator role
 
 ```azurecli-interactive
 az role assignment create --assignee <principal ID> --role managedidentityoperator --scope <UAI resource ID>
@@ -175,7 +179,7 @@ env.docker.base_image = "my-acr.azurecr.io/my-repo/my-image:latest"
 
 Once you've created machine learning compute cluster with managed identity as described earlier, you can use that identity to access training data without storage account keys. You can use either system- or user-assigned managed identity for this scenario.
 
-### Grant compute's managed identity access to storge account
+### Grant compute's managed identity access to storage account
 
 [Grant the managed identity a reader role](https://docs.microsoft.com/en-us/azure/storage/common/storage-auth-aad#assign-azure-roles-for-access-rights) on the storage account in which you store your training data.
 
