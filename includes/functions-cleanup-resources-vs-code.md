@@ -2,13 +2,13 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 01/12/2020
+ms.date: 09/28/2020
 ms.author: glenga
 ---
 
-1. In Visual Studio Code, press F1 to open the command palette. In the command palette, search for and select `Azure Functions: Open in portal`.
+1. In Visual Studio Code, press <kbd>F1</kbd> to open the command palette. In the command palette, search for and select `Azure Functions: Open in portal`.
 
-1. Choose your function app, and press Enter. The function app page opens in the Azure portal.
+1. Choose your function app, and press <kbd>Enter</kbd>. The function app page opens in the Azure portal.
 
 1. In the **Overview** tab, select the named link next to **Resource group**.
 

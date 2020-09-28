@@ -605,7 +605,7 @@ Use Azure Resource Graph to query for and discover resources within their subscr
 
 **Guidance**: Implement Credential Scanner to identify credentials within code. Credential Scanner will also encourage moving discovered credentials to more secure locations such as Azure Key Vault.
 
-- [How to setup Credential Scanner](https://secdevtools.azurewebsites.net/helpcredscan.html)
+- [How to set up Credential Scanner](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
 **Azure Security Center monitoring**: Not applicable
 

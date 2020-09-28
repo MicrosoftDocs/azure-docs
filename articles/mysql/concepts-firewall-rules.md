@@ -20,7 +20,7 @@ All database access to your Azure Database for MySQL server is by default blocke
 
 Connection attempts from the Internet and Azure must first pass through the firewall before they can reach your Azure Database for MySQL database, as shown in the following diagram:
 
-![Example flow of how the firewall works](./media/concepts-firewall-rules/1-firewall-concept.png)
+:::image type="content" source="./media/concepts-firewall-rules/1-firewall-concept.png" alt-text="Example flow of how the firewall works":::
 
 ## Connecting from the Internet
 Server-level firewall rules apply to all databases on the Azure Database for MySQL server.
@@ -38,7 +38,7 @@ If a fixed outgoing IP address isn't available for your Azure service, you can c
 > The **Allow access to Azure services** option configures the firewall to allow all connections from Azure including connections from the subscriptions of other customers. When selecting this option, make sure your login and user permissions limit access to only authorized users.
 > 
 
-![Configure Allow access to Azure services in the portal](./media/concepts-firewall-rules/allow-azure-services.png)
+:::image type="content" source="./media/concepts-firewall-rules/allow-azure-services.png" alt-text="Configure Allow access to Azure services in the portal":::
 
 ### Connecting from a VNet
 To connect securely to your Azure Database for MySQL server from a VNet, consider using [VNet service endpoints](./concepts-data-access-and-security-vnet.md). 

@@ -148,7 +148,7 @@ If you're transferring Enterprise Agreement (EA) subscriptions or Microsoft Cust
 
 ### Access to Azure services
 
-Access for existing users, groups, or service principals that was assigned using (Azure RBAC (role-based access control))[../role-based-access-control/overview.md] isn't affected during the transition.
+Access for existing users, groups, or service principals that was assigned using [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) isn't affected during the transition.
 
 ### Azure support plan
 

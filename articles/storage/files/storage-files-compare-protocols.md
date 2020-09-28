@@ -50,7 +50,7 @@ Mounting Azure file shares with NFS 4.1 is currently in preview. It offers a tig
 NFS with Azure Files is ideal for:
 
 - Workloads that require POSIX-compliant file shares, case sensitivity, or Unix style permissions(UID/GID).
-- Linux-centric workloads that do not require SMB access.
+- Linux-centric workloads that do not require Windows access.
 
 ### Security
 

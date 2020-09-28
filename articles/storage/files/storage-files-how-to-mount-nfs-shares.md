@@ -56,4 +56,5 @@ You have now mounted your NFS share.
 
 ## Next steps
 
-Learn more about Azure Files with our article, [Planning for an Azure Files deployment](storage-files-planning.md).
+- Learn more about Azure Files with our article, [Planning for an Azure Files deployment](storage-files-planning.md).
+- If you experience any issues, see [Troubleshoot Azure NFS file shares](storage-troubleshooting-files-nfs.md).
