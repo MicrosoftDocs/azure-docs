@@ -40,9 +40,6 @@ From the **Server Parameters** page, you can return to the list of logs by closi
 
 ## Set up diagnostics
 
-> [!NOTE]
-> Integration with Azure Monitor diagnostic settings to access logs is in the process of deploying and full functionality will be available soon.
-
 Slow query logs are integrated with Azure Monitor diagnostic settings to allow you to pipe your logs to Azure Monitor logs, Event Hubs, or Azure Storage.
 
 1. Under the **Monitoring** section in the sidebar, select **Diagnostic settings** > **Add diagnostic settings**.
@@ -61,7 +58,7 @@ Slow query logs are integrated with Azure Monitor diagnostic settings to allow y
 
 1. Access the slow query logs by exploring them in the data sinks you configured. It can take up to 10 minutes for the logs to appear.
 
-If you piped your logs to Azure Monitor Logs (Log Analytics), refer to some [sample queries](concepts-audit-logs.md#analyze-logs-in-azure-monitor-logs) you can use for analysis. 
+If you piped your logs to Azure Monitor Logs (Log Analytics), refer to some [sample queries](concepts-slow-query-logs.md#analyze-logs-in-azure-monitor-logs) you can use for analysis. 
 
 ## Next steps
 <!-- - See [Access slow query Logs in CLI](howto-configure-server-logs-in-cli.md) to learn how to download slow query logs programmatically.-->
