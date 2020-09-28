@@ -14,7 +14,7 @@ services: iot-central
 
 The **Video analytics - object and motion detection** application template lets you build IoT solutions include live video analytics capabilities.
 
-:::image type="content" source="media/architecture-video-analytics/architecture.png" alt-text="Architecture":::
+:::image type="content" source="media/architecture-video-analytics/architecture.png" alt-text="Diagram of Video analytics object and motion detection components overview.":::
 
 The key components of the video analytics solution include:
 
