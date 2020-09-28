@@ -23,7 +23,7 @@ ms.author: damendo
 [Azure Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md) is a network performance monitoring, diagnostic, and analytics service that allows monitoring of Azure networks. The Network Watcher Agent virtual machine extension is a requirement for capturing network traffic on demand, and other advanced functionality on Azure virtual machines. 
 The Network Watcher extension is used by features like Connection Monitor, Connection Monitor (Preview), Connection Troubleshoot and Packet Capture.   
 
-## Pre-requisites
+## Prerequisites
 This document assumes you have the Network Watcher Extension installed in your virtual machine and provide instructions for updating it to the latest version. 
 
 ## Latest Version
@@ -35,23 +35,27 @@ The latest version of the Network Watcher extension is currently `1.4.1654.1`.
 
 **Using the Azure portal**
 
-- Go to the ‘Extensions’ blade of your VM in the Azure portal.   
-- Click on the ‘AzureNetworkWatcher’ extension to see the details pane.  
-- Locate the version number in the ‘Version’ field.  
+1. Go to the ‘Extensions’ blade of your VM in the Azure portal.   
+2. Click on the ‘AzureNetworkWatcher’ extension to see the details pane.  
+3. Locate the version number in the ‘Version’ field.  
 
 **Using Azure CLI**
 Run the below command from an Azure CLI prompt.   
+
 ```azurecli
 az vm extension list --resource-group  <ResourceGroupName> --vm-name <VMName>
 ```
+
 Locate the AzureNetworkWatcher extension in the output and identify the version number from the “TypeHandlerVersion” field in the output.  
 
 
 **Using PowerShell**
-Run the following commands from a PowerShell prompt:.   
+Run the following commands from a PowerShell prompt:   
+
 ```powershell
 Get-AzVMExtension -ResourceGroupName <ResourceGroupName> -VMName <VMName>  
 ```
+
 Locate the AzureNetworkWatcher extension in the output and identify the version number from the “TypeHandlerVersion” field in the output.   
 
 
