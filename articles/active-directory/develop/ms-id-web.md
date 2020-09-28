@@ -1,5 +1,5 @@
 ---
-title: Microsoft identity web
+title: Microsoft identity web - Overview
 titleSuffix: Microsoft identity platform
 description: Learn about Microsoft identity web, the glue between ASP.NET Core, authentication middleware, and MSAL.NET.
 services: active-directory

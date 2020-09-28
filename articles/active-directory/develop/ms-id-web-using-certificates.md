@@ -1,5 +1,5 @@
 ---
-title: Microsoft identity web
+title: Microsoft identity web - Using certificates
 titleSuffix: Microsoft identity platform
 description: Learn how to use certificates with Microsoft identity web for app client credentials or token decryption.
 services: active-directory
