@@ -2,7 +2,7 @@
 title: CI/CD pipeline with Azure DevOps Starter - Azure IoT Edge | Microsoft Docs
 description: Azure DevOps Starter makes it easy to get started on Azure. It helps you launch an Azure IoT Edge app of your choice in few quick steps.
 author: shizn
-ms.author: xshi
+ms.author: kgremban
 ms.date: 08/25/2020
 ms.topic: conceptual
 ms.service: iot-edge

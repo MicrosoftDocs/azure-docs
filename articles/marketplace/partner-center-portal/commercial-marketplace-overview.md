@@ -9,9 +9,9 @@ ms.author: keferna
 ms.date: 05/19/2020
 ---
 
-# Overview of the commercial marketplace Portal in Partner Center
+# Overview of the commercial marketplace portal in Partner Center
 
-Welcome to the commercial marketplace Portal in Partner Center. The [commercial marketplace portal](https://partner.microsoft.com/dashboard/commercial-marketplace/) helps you monetize your products and services, reach customers, and grow your business.
+Welcome to the commercial marketplace portal in Partner Center. The [commercial marketplace portal](https://partner.microsoft.com/dashboard/commercial-marketplace/) helps you monetize your products and services, reach customers, and grow your business.
 
 These articles cover the basics of creating and using your Partner Center account. This includes creating new offers that can be listed on [Azure Marketplace](https://azuremarketplace.microsoft.com/) or [AppSource](https://appsource.microsoft.com/), managing your existing offers that were migrated from the Cloud Partner Portal, and providing resources to help with questions and collect your feedback.
 
