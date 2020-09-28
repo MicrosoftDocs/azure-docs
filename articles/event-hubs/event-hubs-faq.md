@@ -274,6 +274,26 @@ Technical support for Event Hubs is available through the [Microsoft Q&A questio
 
 To learn more about our SLA, see the [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/) page.
 
+## Azure Stack Hub
+
+### How can I target a specific version of Azure Storage SDK?
+If you are running on Azure Stack Hub, that platform may support a different version of Storage Blob SDK than those typically available on Azure. 
+
+For example, if you are running on Azure Stack Hub version 2002](../azure-stack/user/event-hubs-overview.md?view=azs-2002), the highest available version for the Storage service is version 2017-11-09. In this case, you may need to add code to target the Storage service API version 2017-11-09. 
+
+If you are running on [Azure Stack Hub version 2005](../azure-stack/operator/azure-stack-overview.md?view=azs-2005), the highest available version for the Storage service is version 2019-02-02. 
+
+For the latest supported Storage service APIs on an Azure Stack Hub version, see [supproted API version](../azure-stack/user/azure-stack-acs-differences.md?view=azs-2005#api-version)
+
+For an example on how to target a specific Storage API version from your code, see the following samples on GitHub: 
+
+- [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample10_RunningWithDifferentStorageVersion.cs)
+- [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/EventProcessorWithCustomStorageVersion.java)
+- Python - [Synchrnous](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob/samples/receive_events_using_checkpoint_store_storage_api_version.py), [Asynchronous](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/receive_events_using_checkpoint_store_storage_api_version_async.py)
+- [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript/receiveEventsWithApiSpecificStorage.js) and [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/typescript/src/receiveEventsWithApiSpecificStorage.ts)
+
+For more information on the Azure Storage service versions supported on Azure Stack Hub, see [Azure Stack Hub storage: Differences and considerations](https://docs.microsoft.com/en-us/azure-stack/user/azure-stack-acs-differences).
+
 ## Next steps
 
 You can learn more about Event Hubs by visiting the following links:
