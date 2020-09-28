@@ -36,11 +36,6 @@ The following table provides information about the certificates that are being r
 
 ### What actions should I take?
 
-> [!TIP]
-> Both the intermediate and leaf certificates are expected to change frequently. We recommend not to take a dependency on them. Instead pin your application to a root certificate since it rolls less frequently.
->
->
-
 If your application uses the operating system certificate store or pins the Baltimore root among others, no action is needed. On the other hand, if your application pins any intermediate or leaf TLS certificate, we recommend that you pin the following roots:
 
 | Certificate | Thumbprint |
@@ -48,6 +43,11 @@ If your application uses the operating system certificate store or pins the Balt
 | [Baltimore Root CA](https://cacerts.digicert.com/BaltimoreCyberTrustRoot.crt) | d4de20d05e66fc53fe1a50882c78db2852cae474 |
 | [Microsoft RSA Root Certificate Authority 2017](https://www.microsoft.com/pkiops/certs/Microsoft%20RSA%20Root%20Certificate%20Authority%202017.crt) | 73a5e64a3bff8316ff0edccc618a906e4eae4d74 |
 | [Digicert Global Root G2](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt) | df3c24f9bfd666761b268073fe06d1cc8d4f82a4 |
+
+> [!TIP]
+> Both the intermediate and leaf certificates are expected to change frequently. We recommend not to take a dependency on them. Instead pin your application to a root certificate since it rolls less frequently.
+>
+>
 
 To continue to pin intermediate certificates, replace them with the following and add new ones to minimize future changes:
 
