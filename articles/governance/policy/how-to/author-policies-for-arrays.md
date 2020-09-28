@@ -222,18 +222,23 @@ rule and array of existing values above:
 |`{<field>,"Equals":"10.0.4.1"}` |Nothing |All match |Both array elements evaluate as false (10.0.4.1 == 127.0.0.1 and 10.0.4.1 == 192.168.1.1), so the **Equals** condition is _false_ and the effect isn't triggered. |
 
 ## Modifying arrays
-The [append](../concepts/effects.md#append) and [modify](../concepts/effects.md#modify) effects can be used to modify properties in the resource content, including arrays (note that using the `modify` effect with aliases is still in preview). When working with arrays, the behavior of these effects depends on whether the operation is trying to modify the  **\[\*\]** alias or not:
+
+The [append](../concepts/effects.md#append) and [modify](../concepts/effects.md#modify) effects can be used to modify properties in the resource content, including arrays. When working with arrays, the behavior of these effects depends on whether the operation is trying to modify the  **\[\*\]** alias or not:
+
+> [!NOTE]
+> Using the `modify` effect with aliases is in currently in preview.
+
 |Alias |Effect | Outcome |
 |-|-|-|
-| `Microsoft.Storage/storageAccounts/networkAcls.ipRules` | `append` | Policy will append the entire array specified in the effect details if missing |
-| `Microsoft.Storage/storageAccounts/networkAcls.ipRules` | `modify` with `add` operation | Policy will append the entire array specified in the effect details if missing |
-| `Microsoft.Storage/storageAccounts/networkAcls.ipRules` | `modify` with `addOrReplace` operation | Policy will append the entire array specified in the effect details if missing or replace the existing array |
-| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]` | `append` | Policy will append the array member specified in the effect details |
-| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]` | `modify` with `add` operation | Policy will append the array member specified in the effect details |
-| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]` | `modify` with `addOrReplace` operation | Policy will remove all existing array members and append the array member specified in the effect details |
-| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].action` | `append` | Policy will append a value to the `action` property of each array member |
-| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].action` | `modify` with `add` operation | Policy will append a value to the `action` property of each array member |
-| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].action` | `modify` with `addOrReplace` operation | Policy will append or replace the existing `action` property of each array member |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules` | `append` | Azure Policy appends the entire array specified in the effect details if missing. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules` | `modify` with `add` operation | Azure Policy appends the entire array specified in the effect details if missing. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules` | `modify` with `addOrReplace` operation | Azure Policy appends the entire array specified in the effect details if missing or replaces the existing array. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]` | `append` | Azure Policy appends the array member specified in the effect details. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]` | `modify` with `add` operation | Azure Policy appends the array member specified in the effect details. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]` | `modify` with `addOrReplace` operation | Azure Policy removes all existing array members and appends the array member specified in the effect details. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].action` | `append` | Azure Policy appends a value to the `action` property of each array member. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].action` | `modify` with `add` operation | Azure Policy appends a value to the `action` property of each array member. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].action` | `modify` with `addOrReplace` operation | Azure Policy appends or replaces the existing `action` property of each array member. |
 
 For more information, see the [append examples](../concepts/effects.md#append-examples).
 
