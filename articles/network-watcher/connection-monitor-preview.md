@@ -244,7 +244,7 @@ To view the trends in RTT and the percentage of failed checks for a connection m
 1. From the view all tests view, you can:
     1. select tests and click compare.
   
-   ![Screenshot showing metrics for a connection monitor, displayed by test group part 2](./media/connection-monitor-2-preview/cm-compare-test.png)
+   ![Screenshot showing comparison of 2 tests](./media/connection-monitor-2-preview/cm-compare-test.png)
   
     1. Use cluster to expand compound resources like VNET, Subnets to its child resources
     1. View topology for any tests by clicking topology.
@@ -257,7 +257,7 @@ To view the trends in RTT and the percentage of failed checks for a test group:
 To view the trends in RTT and the percentage of failed checks for a test:
 1. Select the test that you want to investigate. You will see the network topology and the end to end trend charts for checks failed % and round trip time. To see the identified issues, in the topology, select any hop in the path. (These hops are Azure resources.) This functionality isn't currently available for on-premises networks
 
-   ![Screenshot showing metrics for a connection monitor, displayed by test group part 2](./media/connection-monitor-2-preview/cm-test-topology.png)
+   ![Screenshot showing topology view of a test](./media/connection-monitor-2-preview/cm-test-topology.png)
 
 #### Log queries in Log Analytics
 
