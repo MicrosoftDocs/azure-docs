@@ -60,15 +60,15 @@ Select the following link to deploy the Azure API for FHIR using the ARM templat
 
 On the **Deploy Azure API for FHIR** page:
 
-1. For **Resource group**, select **Create new**, enter a name for the new resource group, and select **OK**.
+1. If you want, change the **Subscription** from the default to a different subscription.
 
-2. If you created a new resource group, select a **Region** for the resource group.
+2. For **Resource group**, select **Create new**, enter a name for the new resource group, and select **OK**.
 
-3. Enter a new **Service Name** and the **Location** of the Azure API for FHIR.
+3. If you created a new resource group, select a **Region** for the resource group.
+
+4. Enter a new **Service Name** and choose the **Location** of the Azure API for FHIR.
 
     :::image type="content" source="./media/fhir-paas-arm-template-quickstart/deploy-azure-api-fhir.png" alt-text="Deploy the Azure API for FHIR using the ARM template in the Azure portal.":::
-
-4. If you want, change the **Subscription** from the default.
 
 5. Select **Review + create**.
 
