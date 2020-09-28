@@ -53,7 +53,7 @@ The following example shows part of a simple model that doesn't use components:
 ...
 ```
 
-Although the model doesn't explicitly define a component, it behaves as if there is a single component with all the telemetry, property, and command definitions.
+Although the model doesn't explicitly define a component, it behaves as if there is a single, _default component_, with all the telemetry, property, and command definitions.
 
 The following screenshot shows how the model displays in the Azure IoT explorer tool:
 
@@ -109,7 +109,7 @@ For a DTDL model with multiple components, there are two or more component secti
 ...
 ```
 
-This model has three components defined in the contents section -  two `Thermostat` components and a `DeviceInformation` component. There's also a default root component.
+This model has three components defined in the contents section -  two `Thermostat` components and a `DeviceInformation` component. There's also a default component.
 
 ## Next steps
 

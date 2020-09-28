@@ -16,7 +16,7 @@ ms.custom: devx-track-js
 
 [!INCLUDE [iot-pnp-tutorials-device-selector.md](../../includes/iot-pnp-tutorials-device-selector.md)]
 
-This tutorial shows you how to build a sample IoT Plug and Play device application with components and root interface, connect it to your IoT hub, and use the Azure IoT explorer tool to view the information it sends to the hub. The sample application is written for Node.js and is included in the Azure IoT Hub Device SDK for Node.js. A solution builder can use the Azure IoT explorer tool to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
+This tutorial shows you how to build a sample IoT Plug and Play device application with components, connect it to your IoT hub, and use the Azure IoT explorer tool to view the information it sends to the hub. The sample application is written for Node.js and is included in the Azure IoT Hub Device SDK for Node.js. A solution builder can use the Azure IoT explorer tool to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
 
 ## Prerequisites
 
@@ -42,7 +42,7 @@ git clone https://github.com/Azure/azure-iot-sdk-node
 
 ## Install required libraries
 
-You use the device SDK to build the included sample code. The application you build simulates a Plug and Play device with multiple components and root interface that connects to an IoT hub. The application sends telemetry and properties and receives commands.
+You use the device SDK to build the included sample code. The application you build simulates a Plug and Play device with multiple components that connects to an IoT hub. The application sends telemetry and properties and receives commands.
 
 1. In a local terminal window, go to the folder of your cloned repository and navigate to the */azure-iot-sdk-node/device/samples/pnp* folder. Then run the following command to install the required libraries:
 
@@ -85,7 +85,7 @@ Open the *pnpTemperatureController.js* file in a code editor of your choice. The
 
 - Define a listener for property updates.
 
-- Define a function to send telemetry from this device. Both thermostats and the root component send telemetry. This function receives the component name as parameter.
+- Define a function to send telemetry from this device. Both thermostats and the default component send telemetry. This function receives the component name as parameter.
 
 - Define a `main` function that:
 
