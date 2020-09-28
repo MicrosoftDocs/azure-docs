@@ -175,27 +175,16 @@ If your cluster is behind an outbound proxy server, Azure CLI and the Arc enable
 
 1. Check the version of `connectedk8s` extension installed on your machine by running this command:
 
-    ```bash
+    ```console
     az -v
     ```
 
     You need `connectedk8s` extension version >= 0.2.3 to set up agents with outbound proxy. If you have version < 0.2.3 on your machine, follow the [update steps](#before-you-begin) to get the latest version of extension on your machine.
 
-2. Set the environment variables needed for Azure CLI:
+2. Run the connect command with proxy parameters specified:
 
-    ```bash
-    export HTTP_PROXY=<proxy-server-ip-address>:<port>
-    export HTTPS_PROXY=<proxy-server-ip-address>:<port>
-    export NO_PROXY=<cluster-apiserver-ip-address>:<port>
-    ```
-
-3. Run the connect command with proxy parameters specified:
-
-    ```bash
-    az connectedk8s connect -n <cluster-name> -g <resource-group> \
-    --proxy-https https://<proxy-server-ip-address>:<port> \
-    --proxy-http http://<proxy-server-ip-address>:<port> \
-    --proxy-skip-range <excludedIP>,<excludedCIDR>
+    ```console
+    az connectedk8s connect -n <cluster-name> -g <resource-group> --proxy-https https://<proxy-server-ip-address>:<port> --proxy-http http://<proxy-server-ip-address>:<port> --proxy-skip-range <excludedIP>,<excludedCIDR>
     ```
 
 > [!NOTE]
