@@ -21,7 +21,7 @@ This article describes a pattern for converting RDF-based industry or custom mod
 
 Using industry models provides a rich starting point when designing your Azure Digital Twins model. Using industry models also helps with standardization and information sharing. Some common industry models include:  
 
-| Industry Vertical | Model |
+| Industry vertical | Model |
 | --- | --- | 
 | Building / facility management | [RealEstateCore](https://www.realestatecore.io/)<br>[BRICK Schema](https://brickschema.org/ontology/1.1/)<br>[Building Topology Ontology (BOT)](https://w3c-lbd-cg.github.io/bot/)<br>[Semantic Sensor Network](https://www.w3.org/TR/vocab-ssn/)<br>[buildingSmart Industry Foundation Classes (IFC)](https://technical.buildingsmart.org/standards/ifc/ifc-schema-specifications/) |
 | Smart Cities | [ETSI NGSI-LD](https://www.etsi.org/deliver/etsi_gr/CIM/001_099/008/01.01.01_60/gr_CIM008v010101p.pdf)<br>[Smart Applications REFerence (SAREF)](https://saref.etsi.org/) |
@@ -71,7 +71,7 @@ There are several 3rd party libraries that can be used when converting RDF-based
 
 The following table is an example of how RDFS and OWL constructs can be mapped to DTDL. 
 
-| RDFS/OWL Construct | | DTDL Construct | |
+| RDFS/OWL construct | | DTDL construct | |
 | --- | --- | --- | --- |
 | Classes | owl:Class<br>IRI suffix<br>rdfs:label<br>rdfs:comment | Interface | @type:Interface<br>@id<br>displayName<br>comment 
 | Subclasses | owl:Class<br>IRI suffix<br>rdfs:label<br>rdfs:comment<br>rdfs:subClassOf | Interface | @type:Interface<br>@id<br>displayName<br>comment<br>extends 
@@ -149,7 +149,7 @@ IReadOnlyDictionary<Dtmi, DTEntityInfo> parseTask = modelParser.ParseAsync(model
 
 For more information about this library, see [*How-to: Parse and validate models*](how-to-parse-models.md). 
 
-## Sample Application 
+## Sample application 
 
 [RdfToDtdlConverter](https://github.com/Azure-Samples/RdfToDtdlConverter) is a .NET Core command-line sample application that converts an RDF-based model file to JSON-LD-based [Digital Twins Definition Language (DTDL) version 2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) for use by the [Azure Digital Twins](overview.md) service. 
 
@@ -157,7 +157,7 @@ For more information about this library, see [*How-to: Parse and validate mode
 
 Once the model is converted and validated, you can upload it to your Azure Digital Twins instance. For more information, see [*How-to: Parse and validate models*](how-to-parse-models.md).
 
-## Next Steps 
+## Next steps 
 
 Read more about designing and managing digital twin models: 
 * [*Concepts: Custom models*]concepts-models.md)
