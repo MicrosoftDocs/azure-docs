@@ -37,7 +37,7 @@ The following is a quick overview of the steps:
 
 ## Register an application in Azure AD to represent the API
 
-To protect an API with Azure AD, first register an application in Azure AD that represents the API. The following steps use the Azure portal to register the application. For details about app registration, see [Quickstart: Configure an application to expose a web API](../active-directory/develop/quickstart-configure-app-expose-web-apis.md)
+To protect an API with Azure AD, first register an application in Azure AD that represents the API. The following steps use the Azure portal to register the application. For details about app registration, see [Quickstart: Configure an application to expose a web API](../active-directory/develop/quickstart-configure-app-expose-web-apis.md).
 
 1. Go to the [Azure portal](https://portal.azure.com) to register your application. Search for and select **App registrations**.
 
