@@ -350,7 +350,7 @@ Default value: null
 ##### `-preferences`
 
 > [!CAUTION]
-> **IMPORTANT** Do not attempt to programmatically change the values of the `-preferences` string sent to and from the Immersive Reader application as this may cause unexpected behavior resulting in a degraded user experience for your customers. Host applications should never assign a custom value to the `-preferences` option, and should defer the assignment to the return value of the `-onPreferencesChanged` callback option.
+> **IMPORTANT** Do not attempt to programmatically change the values of the `-preferences` string sent to and from the Immersive Reader application as this may cause unexpected behavior resulting in a degraded user experience for your customers. Host applications should never assign a custom value to or manipulate the `-preferences` string. When using the `-preferences` string option, use only the exact value that was returned from the `-onPreferencesChanged` callback option.
 
 ```Parameters
 Type: String
