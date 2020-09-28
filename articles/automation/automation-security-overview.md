@@ -60,7 +60,7 @@ When you create an Azure Classic Run As account, it performs the following tasks
 * Creates an Automation connection asset named `AzureClassicRunAsConnection` in the specified Automation account. The connection asset holds the subscription name, subscription ID, and certificate asset name.
 
 >[!NOTE]
->Azure Classic Run As account is not created by default at the same time when you create an Automation account. This account is created individually following the steps described in the [Manage Run As account](../manage-runas-account.md#create-a-run-as-account-in-azure-portal) article.
+>Azure Classic Run As account is not created by default at the same time when you create an Automation account. This account is created individually following the steps described in the [Manage Run As account](manage-runas-account.md#create-a-run-as-account-in-azure-portal) article.
 
 ## Service principal for Run As account
 
