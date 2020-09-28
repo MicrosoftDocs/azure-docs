@@ -29,6 +29,10 @@ keywords: speaker recognition, voice biometry
 [!INCLUDE [JavaScript Basics include](includes/how-to/speaker-recognition-basics/speaker-recognition-basics-javascript.md)]
 ::: zone-end
 
+::: zone pivot="programming-language-curl"
+[!INCLUDE [JavaScript Basics include](includes/how-to/speaker-recognition-basics/speaker-recognition-basics-curl.md)]
+::: zone-end
+
 ## Next steps
 
 * See the Speaker Recognition [reference documentation](https://docs.microsoft.com/rest/api/speakerrecognition/) for detail on classes and functions.
