@@ -54,7 +54,7 @@ Sign in to the [Azure portal](https://portal.azure.com/)
 - *Note that you need to verify that your version of sklearn is 0.20.3*
 - *One of the cells may fail and ask you to authenticate to Azure. Keep an eye out for this in the cell outputs, and authenticate in your browser by following the link and entering the code. Then re-run the Notebook.*
 - *Before running all cells, check if the compute instance is running.*
-![Verify AML compute](media/tutorial-sql-scoring-wizard-train-00b.png)
+![Verify AML compute](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-train-00b.png)
 . The notebook will train an ONNX model and register it with MLFlow. Go to "Models" to check if the new model is registered properly.
 ![Model in registry](media/tutorial-sql-scoring-wizard-train-00c.png)
 6. Running the notebook will also export the test data into a CSV file. Now, we need to download the CSV file to local. Later, we will import the CSV file into SQL pool and use the data to test the model.
@@ -134,4 +134,3 @@ Click "Continue".
 
 
 ## Next steps
-
