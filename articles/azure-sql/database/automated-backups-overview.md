@@ -437,7 +437,7 @@ A full list of built-in policy definitions for SQL Database and Managed Instance
 
 To enforce data residency requirements at an organizational level, these policies can be assigned to a subscription. After these are assigned at a subscription level, users in the given subscription will not be able to create a database or a managed instance with geo-redundant backup storage via Azure portal or Azure PowerShell. Note that, Azure policies are not enforced when creating a database via T-SQL. 
 
-Learn how to assign policies using [Azure Portal](https://docs.microsoft.com/azure/governance/policy/assign-policy-portal) or [Azure PowerShell](https://docs.microsoft.com/azure/governance/policy/assign-policy-powershell)
+Learn how to assign policies using the [Azure portal](https://docs.microsoft.com/azure/governance/policy/assign-policy-portal) or [Azure PowerShell](https://docs.microsoft.com/azure/governance/policy/assign-policy-powershell)
 
 ---
 
