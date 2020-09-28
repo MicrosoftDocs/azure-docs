@@ -86,7 +86,7 @@ In this section, you modify the simulated device app you created in [Send teleme
     mvn clean package -DskipTests
     ```
 
-The `execute` method in the `AppMessageCallback` class returns `IotHubMessageResult.COMPLETE`. This notifies IoT Hub that the message has been successfully processed and that the message can be safely removed from the device queue. The device should this value when its processing successfully completes regardless of the protocol it's using.
+The `execute` method in the `AppMessageCallback` class returns `IotHubMessageResult.COMPLETE`. This notifies IoT Hub that the message has been successfully processed and that the message can be safely removed from the device queue. The device should return this value when its processing successfully completes regardless of the protocol it's using.
 
 With AMQP and HTTPS, but not MQTT, the device can also:
 
