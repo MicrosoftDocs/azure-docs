@@ -9,7 +9,7 @@ ms.topic: conceptual
 ---
 # Automation account authentication overview
 
-Azure Automation allows you to automate tasks against resources in Azure, on-premises, and with other cloud providers such as Amazon Web Services (AWS). You can use runbooks to automate your tasks, or a Hybrid Runbook Worker if you have non-Azure tasks to manage. Either environment requires permissions to securely access the resources with the minimal rights required within the Azure subscription.
+Azure Automation allows you to automate tasks against resources in Azure, on-premises, and with other cloud providers such as Amazon Web Services (AWS). You can use runbooks to automate your tasks, or a Hybrid Runbook Worker if you have business or operational processes to manage outside of Azure. Working in any one of these environments require permissions to securely access the resources with the minimal rights required.
 
 This article covers authentication scenarios supported by Azure Automation and tells how to get started based on the environment or environments that you need to manage.
 
