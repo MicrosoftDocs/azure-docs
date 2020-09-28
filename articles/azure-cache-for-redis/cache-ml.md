@@ -234,7 +234,7 @@ When `show_output=True`, the output of the Docker build process is shown. Once t
     ```
 
     > [!IMPORTANT]
-    > At this point, the function app has been created. However, since you haven't provided the connection string for the blob trigger or credentials to the Azure Container Registry that contains the image, the function app is not active. In the next steps, you provide the connection string and the authentication information for the container registry. 
+    > At this point, the function app has been created. However, since you haven't provided the connection string for the HTTP trigger or credentials to the Azure Container Registry that contains the image, the function app is not active. In the next steps, you provide the connection string and the authentication information for the container registry. 
 
 1. To provide the function app with the credentials needed to access the container registry, use the following command. Replace `<app-name>` with the name of the function app. Replace `<acrinstance>` and `<imagetag>` with the values from the AZ CLI call in the previous step. Replace `<username>` and `<password>` with the ACR login information retrieved earlier:
 
