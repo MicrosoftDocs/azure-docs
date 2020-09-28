@@ -17,7 +17,7 @@ This article provides information about the **most recent** Azure HDInsight rele
 
 Azure HDInsight is one of the most popular services among enterprise customers for open-source analytics on Azure.
 
-## Release date: 09/22/2020
+## Release date: 09/28/2020
 
 This release applies for both HDInsight 3.6 and HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region in several days.
 
