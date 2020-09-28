@@ -1,6 +1,6 @@
 ---
-title: Create databases and users - Azure Database for MySQL
-description: This article describes how you can create new user accounts to interact with an Azure Database for MySQL server.
+title: Create databases and users - Database for MySQL
+description: This article describes how to create new user accounts to interact with an Azure Database for MySQL server.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
@@ -8,26 +8,26 @@ ms.topic: how-to
 ms.date: 4/2/2020
 ---
 
-# Create databases and users in Azure Database for MySQL server
+# Create databases and users in Azure Database for MySQL
 
 [!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
 
-This article describes how you can create users in an Azure Database for MySQL server.
+This article describes how to create users in Azure Database for MySQL.
 
 > [!NOTE]
-> Bias-free communication
+> **Bias-free communication**
 >
-> Microsoft supports a diverse and inclusionary environment. This article contains references to the word _slave_. The Microsoft [style guide for bias-free communication](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) recognizes this as an exclusionary word. The word is used in this article for consistency because it's currently the word that appears in the software. When the software is updated to remove the word, this article will be updated to be in alignment.
+> Microsoft supports a diverse and inclusionary environment. This article contains references to the word *slave*. The Microsoft [style guide for bias-free communication](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) recognizes this as an exclusionary word. The word is used in this article for consistency because it's currently the word that appears in the software. When the software is updated to remove the word, this article will be updated to be in alignment.
 >
 
-When you first created your Azure Database for MySQL, you provided a server admin login user name and password. For more information, you can follow the [Quickstart](quickstart-create-mysql-server-database-using-azure-portal.md). You can locate your server admin login user name from the Azure portal.
+When you first created your Azure Database for MySQL server, you provided a server admin user name and password. For more information, see this [Quickstart](quickstart-create-mysql-server-database-using-azure-portal.md). You can determine your server admin user name in the Azure portal.
 
-The server admin user gets certain privileges for your server as listed: 
+The server admin user has these privileges: 
 
-   SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE,        REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER
+   SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER
 
 
-Once the Azure Database for MySQL server is created, you can use the first server admin user account to create additional users and grant admin access to them. Also, the server admin account can be used to create less privileged users that have access to individual database schemas.
+After you create an Azure Database for MySQL server, you can use the first server admin account to create additional users and grant admin access to them. You can also use the server admin account to create less privileged users that have access to individual database schemas.
 
 > [!NOTE]
 > The SUPER privilege and DBA role are not supported. Review the [privileges](concepts-limits.md#privilege-support) in the limitations article to understand what's not supported in the service.
