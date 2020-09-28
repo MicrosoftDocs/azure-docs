@@ -58,7 +58,7 @@ To learn how to use managed identities to access different Azure resources, try 
 > [!NOTE]
 > Check out the [Implementing Managed Identities for Microsoft Azure Resources](https://www.pluralsight.com/courses/microsoft-azure-resources-managed-identities-implementing) course for more information about managed identities, including detailed video walkthroughs of several supported scenarios.
 
-![some examples of how a developer may use managed identities to get access to resources from their code without managing authentication information](/images/overview/managed-identities-examples.png)
+![some examples of how a developer may use managed identities to get access to resources from their code without managing authentication information](/media/overview/managed-identities-examples.png)
 
 >[!NOTE]
 >For guidance on how to use managed identities with some of these services visit the tutorial section of our table of contents.
