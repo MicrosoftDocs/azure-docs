@@ -111,7 +111,7 @@ Sign in to the [Azure portal](https://portal.azure.com/)
 5. Go to "Data -> Workspace". Open the SQL scoring wizard by right-clicking on the SQL Pool table. Select "Machine Learning -> Enrich with existing model".
 **Note:** The Machine learning option does not appear unless you have a linked service created for Azure ML (see Prerequisites at the top of this tutorial)
 
-![Machine Learning option](media/tutorial-sql-scoring-wizard-00c.png)
+![Machine Learning option](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-00c.png)
 
 6. Select a linked Azure ML workspace in the drop down box. This will load a list of machine learning models from model registry of the chosen Azure ML workspace. Currently, only ONNX models are supported and this will only display ONNX models. 
 
