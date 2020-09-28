@@ -76,7 +76,7 @@ There are two different sets of procedures to choose from in order to configure 
 
 ## Install PowerShell cmdlets
 
-[!INCLUDE [classic powershell install instructions](../../includes/expressroute-poweshell-classic-install-include.md)]
+[!INCLUDE [classic PowerShell install instructions](../../includes/expressroute-poweshell-classic-install-include.md)]
 
 ## <a name="new"></a>To create a new virtual network and coexisting connections
 This procedure will walk you through creating a VNet and create Site-to-Site and ExpressRoute connections that will coexist.

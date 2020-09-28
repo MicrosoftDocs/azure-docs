@@ -76,7 +76,7 @@ There are two different sets of procedures to choose from. The configuration pro
 
 [!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
-[!INCLUDE [working with cloud shell](../../includes/expressroute-cloudshell-powershell-about.md)]
+[!INCLUDE [working with Cloud Shell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
 
 ## <a name="new"></a>To create a new virtual network and coexisting connections
