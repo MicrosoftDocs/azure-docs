@@ -2,7 +2,7 @@
 title: Reduce service costs using Azure Advisor
 description: Use Azure Advisor to optimize the cost of your Azure deployments.
 ms.topic: article
-ms.date: 01/29/2019
+ms.date: 09/27/2020
 
 ---
 
@@ -107,6 +107,7 @@ Advisor identifies resources where reducing the table cache policy will free up 
 
 To learn more about Advisor recommendations, see:
 * [Introduction to Advisor](advisor-overview.md)
+* [Advisor score](azure-advisor-score.md)
 * [Get started with Advisor](advisor-get-started.md)
 * [Advisor performance recommendations](advisor-performance-recommendations.md)
 * [Advisor high availability recommendations](advisor-high-availability-recommendations.md)
