@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/18/2020
+ms.date: 09/28/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -59,12 +59,12 @@ There are two different types of state properties for connected organizations in
 
 - A proposed connected organization is a connected organization that has been automatically created, but hasn't had an administrator create or approve the organization. When a user signs up for an access package outside of a configured connected organization, any automatically created connected organizations will be in the **proposed** state since no administrator in the tenant set-up that partnership. 
     
-    Proposed connected organizations should not show up in the pickers for configured connected organizations, and are not in scope for the “all connected organizations” setting on any policies. 
+    Proposed connected organizations do not show up in the pickers for configured connected organizations, and are not in scope for the “all configured connected organizations” setting on any policies. 
 
-Only users from configured connected organizations can request access packages that are available to users from all configured organizations. Users from proposed connected organizations typically have an experience as if there is no connected organization for that domain, and won't have access to the access package until the state is changed by an administrator.
+Only users from configured connected organizations can request access packages that are available to users from all configured organizations. Users from proposed connected organizations have an experience as if there is no connected organization for that domain, and won't have access to the access package until the state is changed by an administrator.
 
 > [!NOTE]
-> There’s a difference between manually and automatically connected organization. Manually connected organizations were created by an administrator, while automatically connected organizations are created when a user without an established organization requests access to an access package. <ul><li>Organizations created before 09/09/20 are considered “manually” created, so review these organizations. If you had an access package that allowed any user to sign up, that could have created an automatically created connected organization that was mis-categorized.<li>Automatically created connected organizations can be changed to a fully connected organization by changing the **State** property to **configured** For guidance, see [Update a connected organization](#update-a-connected-organization)
+> As part of rolling out this new feature, all connected organizations created before 09/09/20 were considered **configured**. If you had an access package that allowed users from any organization to sign up, you should review your list of connected organizations that were created before that date to ensure none are miscategorized as **configured**.  An admin can update the **State** property as appropriate. For guidance, see [Update a connected organization](#update-a-connected-organization)
 
 
 ## Add a connected organization
