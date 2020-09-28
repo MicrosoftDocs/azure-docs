@@ -214,7 +214,7 @@ This table provides details about storage-related fields.
 
 ## Valid Operation Names for each table
 
-Each record in the above tables has an associated **Operation Name(()). An Operation Name describes the type of record (and also indicates which fields in the table are populated for that record). Each table (category) supports one or more distinct Operation Names. Below is a summary of the supported Operation Names for each of the above tables.
+Each record in the above tables has an associated **Operation Name**. An Operation Name describes the type of record (and also indicates which fields in the table are populated for that record). Each table (category) supports one or more distinct Operation Names. Below is a summary of the supported Operation Names for each of the above tables.
 
 | **Table Name / Category**                   | **Supported Operation Names** | **Description**              |
 | ------------------------------------------- | ------------------------------|----------------------------- |
