@@ -152,7 +152,7 @@ For more information, see [Flux documentation](https://aka.ms/FluxcdReadme).
 Using the Azure CLI validate that the `sourceControlConfiguration` was successfully created.
 
 ```console
-az k8sconfiguration show --resource-group AzureArcTest --name cluster-config --cluster-name AzureArcTest1 --cluster-type connectedClusters
+az k8sconfiguration show --name cluster-config --cluster-name AzureArcTest1 --resource-group AzureArcTest --cluster-type connectedClusters
 ```
 
 Note that the `sourceControlConfiguration` resource is updated with compliance status, messages, and debugging information.
@@ -295,7 +295,7 @@ Delete a `sourceControlConfiguration` using the Azure CLI or Azure portal.  Afte
 > Any changes to the cluster that were the result of deployments from the tracked git repo are not deleted when the `sourceControlConfiguration` is deleted.
 
 ```console
-az k8sconfiguration delete --name '<config name>' -g '<resource group name>' --cluster-name '<cluster name>' --cluster-type connectedClusters
+az k8sconfiguration delete --name cluster-config --cluster-name AzureArcTest1 --resource-group AzureArcTest --cluster-type connectedClusters
 ```
 
 **Output:**
