@@ -1,6 +1,6 @@
 ---
-title: Copy data from MongoDB
-description: Learn how to copy data from Mongo DB to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
+title: Copy data from MongoDB Atlas
+description: Learn how to copy data from MongoDB Atlas to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -11,42 +11,39 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 09/27/2020
+ms.date: 09/28/2020
 ---
 
-# Copy data from MongoDB using Azure Data Factory
+# Copy data from MongoDB Atlas using Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article outlines how to use the Copy Activity in Azure Data Factory to copy data from a MongoDB database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
-
->[!IMPORTANT]
->ADF release this new version of MongoDB connector which provides better native MongoDB support. If you are using the previous MongoDB connector in your solution which is supported as-is for backward compatibility, refer to [MongoDB connector (legacy)](connector-mongodb-legacy.md) article.
+This article outlines how to use the Copy Activity in Azure Data Factory to copy data from a MongoDB Atlas database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 ## Supported capabilities
 
-You can copy data from MongoDB database to any supported sink data store. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
+You can copy data from MongoDB Atlas database to any supported sink data store. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
-Specifically, this MongoDB connector supports **versions up to 3.4**.
+Specifically, this MongoDB Atlas connector supports **versions up to 4.2**.
 
 ## Prerequisites
 
-[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+If you use Azure Integration Runtime for copy, make sure you add the effective region's [Azure Integration Runtime IPs](azure-integration-runtime-ip-addresses.md) to the MongoDB Atlas IP Access List.
 
 ## Getting started
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-The following sections provide details about properties that are used to define Data Factory entities specific to MongoDB connector.
+The following sections provide details about properties that are used to define Data Factory entities specific to MongoDB Atlas connector.
 
 ## Linked service properties
 
-The following properties are supported for MongoDB linked service:
+The following properties are supported for MongoDB Atlas linked service:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type |The type property must be set to: **MongoDbV2** |Yes |
-| connectionString |Specify the MongoDB connection string e.g. `mongodb://[username:password@]host[:port][/[database][?options]]`. Refer to [MongoDB manual on connection string](https://docs.mongodb.com/manual/reference/connection-string/) for more details. <br/><br /> You can also put a password in Azure Key Vault and pull the `password` configuration out of the connection string. Refer to [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) with more details. |Yes |
+| type |The type property must be set to: **MongoDbAtlas** |Yes |
+| connectionString |Specify the MongoDB Atlas connection string e.g. `mongodb+srv://<username>:<password>@<clustername>.<randomString>.<hostName>/<dbname>?<otherProperties>`. <br/><br /> You can also put a connection string in Azure Key Vault. Refer to [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) with more details. |Yes |
 | database | Name of the database that you want to access. | Yes |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, it uses the default Azure Integration Runtime. |No |
 
@@ -54,11 +51,11 @@ The following properties are supported for MongoDB linked service:
 
 ```json
 {
-    "name": "MongoDBLinkedService",
+    "name": "MongoDbAtlasLinkedService",
     "properties": {
-        "type": "MongoDbV2",
+        "type": "MongoDbAtlas",
         "typeProperties": {
-            "connectionString": "mongodb://[username:password@]host[:port][/[database][?options]]",
+            "connectionString": "mongodb+srv://<username>:<password>@<clustername>.<randomString>.<hostName>/<dbname>?<otherProperties>",
             "database": "myDatabase"
         },
         "connectVia": {
@@ -71,26 +68,26 @@ The following properties are supported for MongoDB linked service:
 
 ## Dataset properties
 
-For a full list of sections and properties that are available for defining datasets, see [Datasets and linked services](concepts-datasets-linked-services.md). The following properties are supported for MongoDB dataset:
+For a full list of sections and properties that are available for defining datasets, see [Datasets and linked services](concepts-datasets-linked-services.md). The following properties are supported for MongoDB Atlas dataset:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the dataset must be set to: **MongoDbV2Collection** | Yes |
-| collectionName |Name of the collection in MongoDB database. |Yes |
+| type | The type property of the dataset must be set to: **MongoDbAtlasCollection** | Yes |
+| collectionName |Name of the collection in MongoDB Atlas database. |Yes |
 
 **Example:**
 
 ```json
 {
-    "name": "MongoDbDataset",
+    "name": "MongoDbAtlasDataset",
     "properties": {
-        "type": "MongoDbV2Collection",
+        "type": "MongoDbAtlasCollection",
         "typeProperties": {
             "collectionName": "<Collection name>"
         },
         "schema": [],
         "linkedServiceName": {
-            "referenceName": "<MongoDB linked service name>",
+            "referenceName": "<MongoDbAtlas linked service name>",
             "type": "LinkedServiceReference"
         }
     }
@@ -99,21 +96,21 @@ For a full list of sections and properties that are available for defining datas
 
 ## Copy activity properties
 
-For a full list of sections and properties available for defining activities, see the [Pipelines](concepts-pipelines-activities.md) article. This section provides a list of properties supported by MongoDB source.
+For a full list of sections and properties available for defining activities, see the [Pipelines](concepts-pipelines-activities.md) article. This section provides a list of properties supported by MongoDB Atlas source.
 
-### MongoDB as source
+### MongoDB Atlas as source
 
 The following properties are supported in the copy activity **source** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the copy activity source must be set to: **MongoDbV2Source** | Yes |
+| type | The type property of the copy activity source must be set to: **MongoDbAtlasSource** | Yes |
 | filter | Specifies selection filter using query operators. To return all documents in a collection, omit this parameter or pass an empty document ({}). | No |
 | cursorMethods.project | Specifies the fields to return in the documents for projection. To return all fields in the matching documents, omit this parameter. | No |
 | cursorMethods.sort | Specifies the order in which the query returns matching documents. Refer to [cursor.sort()](https://docs.mongodb.com/manual/reference/method/cursor.sort/#cursor.sort). | No |
 | cursorMethods.limit |	Specifies the maximum number of documents the server returns. Refer to [cursor.limit()](https://docs.mongodb.com/manual/reference/method/cursor.limit/#cursor.limit).  | No |
-| cursorMethods.skip | Specifies the number of documents to skip and from where MongoDB begins to return results. Refer to [cursor.skip()](https://docs.mongodb.com/manual/reference/method/cursor.skip/#cursor.skip). | No |
-| batchSize | Specifies the number of documents to return in each batch of the response from MongoDB instance. In most cases, modifying the batch size will not affect the user or the application. Cosmos DB limits each batch cannot exceed 40MB in size, which is the sum of the batchSize number of documents' size, so decrease this value if your document size being large. | No<br/>(the default is **100**) |
+| cursorMethods.skip | Specifies the number of documents to skip and from where MongoDB Atlas begins to return results. Refer to [cursor.skip()](https://docs.mongodb.com/manual/reference/method/cursor.skip/#cursor.skip). | No |
+| batchSize | Specifies the number of documents to return in each batch of the response from MongoDB Atlas instance. In most cases, modifying the batch size will not affect the user or the application. Cosmos DB limits each batch cannot exceed 40MB in size, which is the sum of the batchSize number of documents' size, so decrease this value if your document size being large. | No<br/>(the default is **100**) |
 
 >[!TIP]
 >ADF support consuming BSON document in **Strict mode**. Make sure your filter query is in Strict mode instead of Shell mode. More description can be found at [MongoDB manual](https://docs.mongodb.com/manual/reference/mongodb-extended-json/index.html).
@@ -123,11 +120,11 @@ The following properties are supported in the copy activity **source** section:
 ```json
 "activities":[
     {
-        "name": "CopyFromMongoDB",
+        "name": "CopyFromMongoDbAtlas",
         "type": "Copy",
         "inputs": [
             {
-                "referenceName": "<MongoDB input dataset name>",
+                "referenceName": "<MongoDB Atlas input dataset name>",
                 "type": "DatasetReference"
             }
         ],
@@ -139,7 +136,7 @@ The following properties are supported in the copy activity **source** section:
         ],
         "typeProperties": {
             "source": {
-                "type": "MongoDbV2Source",
+                "type": "MongoDbAtlasSource",
                 "filter": "{datetimeData: {$gte: ISODate(\"2018-12-11T00:00:00.000Z\"),$lt: ISODate(\"2018-12-12T00:00:00.000Z\")}, _id: ObjectId(\"5acd7c3d0000000000000000\") }",
                 "cursorMethods": {
                     "project": "{ _id : 1, name : 1, age: 1, datetimeData: 1 }",
@@ -158,11 +155,11 @@ The following properties are supported in the copy activity **source** section:
 
 ## Export JSON documents as-is
 
-You can use this MongoDB connector to export JSON documents as-is from a MongoDB collection to various file-based stores or to Azure Cosmos DB. To achieve such schema-agnostic copy, skip the "structure" (also called *schema*) section in dataset and schema mapping in copy activity.
+You can use this MongoDB Atlas connector to export JSON documents as-is from a MongoDB Atlas collection to various file-based stores or to Azure Cosmos DB. To achieve such schema-agnostic copy, skip the "structure" (also called *schema*) section in dataset and schema mapping in copy activity.
 
 ## Schema mapping
 
-To copy data from MongoDB to tabular sink, refer to [schema mapping](copy-activity-schema-and-type-mapping.md#schema-mapping).
+To copy data from MongoDB Atlas to tabular sink, refer to [schema mapping](copy-activity-schema-and-type-mapping.md#schema-mapping).
 
 ## Next steps
 For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

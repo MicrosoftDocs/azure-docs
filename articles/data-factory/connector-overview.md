@@ -6,7 +6,7 @@ author: linda33wj
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 09/28/2020
 ms.author: jingwang
 ms.reviewer: craigg
 ---

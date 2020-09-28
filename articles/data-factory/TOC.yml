@@ -332,6 +332,8 @@
       items:
       - name: MongoDB (legacy)
         href: connector-mongodb-legacy.md
+    - name: MongoDBAtlas
+      href: connector-mongodb-atlas.md
     - name: MySQL
       href: connector-mysql.md
     - name: Netezza
