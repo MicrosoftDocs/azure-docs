@@ -54,7 +54,7 @@ Depending on where the data is stored, Synapse offers a set of different tools t
 In Azure Synapse, training machine learning models can be performed on the Apache Spark Pools with tools like PySpark/Python, Scala or .NET.
 
 #### Train models on Spark Pools with MLlib
-ML models can be trained with help from various algorithms and libraries. [Spark MLlib](http://spark.apache.org/docs/latest/ml-guide.html) offers scalable ML algorithms that can help solving most classical ML problems. [This tutorial](https://docs.microsoft.com/en-us/azure/synapse-analytics/spark/apache-spark-machine-learning-mllib-notebook) covers how to train a model using MLlib in Synapse.
+ML models can be trained with help from various algorithms and libraries. [Spark MLlib](http://spark.apache.org/docs/latest/ml-guide.html) offers scalable ML algorithms that can help solving most classical ML problems. [This tutorial](../spark/apache-spark-machine-learning-mllib-notebook.md) covers how to train a model using MLlib in Synapse.
 
 In addition to MLib, popular libraries such as [Scikit Learn](https://scikit-learn.org/stable/) can also be used to develop models. [The following article](https://docs.microsoft.com/en-us/azure/synapse-analytics/spark/apache-spark-azure-portal-add-libraries) covers how to install libraries on Synapse Spark Pools.
 
