@@ -54,7 +54,7 @@ If you are using a Linux host computer, perform the following steps to configure
 
 1. Supply the IP addresses of the allowed clients that can access the share. In the local web UI, go to **Connect and copy** page. Under **NFS settings**, click **NFS client access**. 
 
-    ![Configure NFS client access 1](media/data-box-deploy-copy-data/nfs-client-access-1.png)
+    ![Configure NFS client access](media/data-box-deploy-copy-data/nfs-client-access-1.png)
 
 2. Supply the IP address of the NFS client and click **Add**. You can configure access for multiple NFS clients by repeating this step. Click **OK**.
 
@@ -141,11 +141,11 @@ During the copy process, if there are any errors, you will see a notification.
 
 Select **Download issue list**.
 
-![Download and view errors on Connect and copy](media/data-box-deploy-copy-data/view-errors-2.png)
+![Download and view errors on Connect and copy 2](media/data-box-deploy-copy-data/view-errors-2.png)
 
 Open the list to view the details of the error and select the resolution URL to view the recommended resolution.
 
-![Download and view errors on Connect and copy](media/data-box-deploy-copy-data/view-errors-3.png)
+![Download and view errors on Connect and copy 3](media/data-box-deploy-copy-data/view-errors-3.png)
 
 For more information, see [View error logs during data copy to Data Box](data-box-logs.md#view-error-log-during-data-copy). For a detailed list of errors during data copy, see [Troubleshoot Data Box issues](data-box-troubleshoot.md).
 
