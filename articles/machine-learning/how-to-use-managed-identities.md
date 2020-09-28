@@ -16,12 +16,13 @@ ms.custom: seodec18
 # Use Managed Identities with Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-When configuring Azure Machine Learning Workspace in trustworthy manner, it is important to ensure that different services associated with the workspace have correct level of access. [Managed identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) allow you the configure compute resources so that they have only the minimum required permissions to Azure Container Registries (ACRs) containing the Docker images used for training and inferencing. Furthermore, managed identities allow fine-grained control over permissions, for example you can grant or revoke access from specific compute resource to specific ACR.
+When configuring Azure Machine Learning Workspace in trustworthy manner, it is important to ensure that different services associated with the workspace have correct level of access. [Managed identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) allow you the configure compute resources so that they have only the minimum required permissions to Azure Container Registry (ACR) and storage accounts used for in your machine learning workflow. Furthermore, managed identities allow fine-grained control over permissions, for example you can grant or revoke access from specific compute resource to specific ACR.
 
 This document describes how to use managed identities to:
 
- * Configure and use ACR for your Azure Machine Learning Workspace without having to enable admin user access.
+ * Configure and use ACR for your Azure Machine Learning Workspace without having to enable admin user access to ACR.
  * Access private ACR external to Workspace, to pull base images for training or inferencing.
+ * Access data sets for training by using managed identities instead of storage access keys.
  
 ## Pre-requisites
 
