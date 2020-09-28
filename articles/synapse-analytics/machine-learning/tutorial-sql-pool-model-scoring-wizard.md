@@ -56,7 +56,7 @@ Sign in to the [Azure portal](https://portal.azure.com/)
 - *Before running all cells, check if the compute instance is running.*
 ![Verify AML compute](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-train-00b.png)
 . The notebook will train an ONNX model and register it with MLFlow. Go to "Models" to check if the new model is registered properly.
-![Model in registry](media/tutorial-sql-scoring-wizard-train-00c.png)
+![Model in registry](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-train-00c.png)
 6. Running the notebook will also export the test data into a CSV file. Now, we need to download the CSV file to local. Later, we will import the CSV file into SQL pool and use the data to test the model.
 *The CSV file is created in the same folder as your notebook file. Click "Refresh" on the file explorer and then you will be able to see it.*
 ![CSV file](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-train-00d.png)
