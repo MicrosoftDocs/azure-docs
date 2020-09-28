@@ -67,7 +67,7 @@ Take the following steps to order Data Box Disk.
   
 4. Select **Data Box Disk**. The maximum capacity of the solution for a single order of 5 disks is 35 TB. You could create multiple orders for larger data sizes.
 
-     ![Select Data Box Disk option](media/data-box-disk-deploy-ordered/select-data-box-sku-zoom.png)
+     ![Select Data Box Disk option 2](media/data-box-disk-deploy-ordered/select-data-box-sku-zoom.png)
 
 5. In **Order**, specify the **Order details**. Enter or select the following information.
 
