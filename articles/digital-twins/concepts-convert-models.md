@@ -160,5 +160,5 @@ Once the model is converted and validated, you can upload it to your Azure Digit
 
 Read more about designing and managing digital twin models: 
 * [*Concepts: Custom models*]concepts-models.md)
-* [*How-to: Manage custom models*](how-to-manage-models.md)
+* [*How-to: Manage custom models*](how-to-manage-model.md)
 * [*How-to: Parse and validate models*](how-to-parse-models.md)
