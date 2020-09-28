@@ -58,7 +58,7 @@ In this section, you create an Azure Databricks workspace using the [Azure porta
 
 1. In the Azure portal, select **Create a resource** > **Analytics** > **Azure Databricks**.
 
-    ![Databricks on Azure portal](../media/tutorials/azure-databricks-on-portal.png "Databricks on Azure portal")
+    ![Azure Databricks on portal](../media/tutorials/azure-databricks-on-portal.png "Databricks on Azure portal")
 
 3. Under **Azure Databricks Service**, provide the following values to create a Databricks workspace:
 
@@ -188,7 +188,7 @@ In this section, you create two notebooks in Databricks workspace with the follo
 
 2. In the **Create Notebook** dialog box, enter **SendTweetsToEventHub** as name, select **Scala** as the language, and select the Spark cluster that you created earlier.
 
-    ![Create notebook in Databricks](../media/tutorials/databricks-notebook-details.png "Create notebook in Databricks")
+    ![Notebook details](../media/tutorials/databricks-notebook-details.png "Create notebook in Databricks")
 
     Select **Create**.
 
