@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 09/26/2020
 ms.author: jmprieur
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a web API that calls web APIs by using the Microsoft identity platform for developers.
@@ -25,11 +25,11 @@ After you have a token, you can call a protected web API. You usually call the d
 
 When you use *Microsoft.Identity.Web*, you have three usage scenarios:
 
-- [Call Microsoft Graph](#call-microsoft-graph)
-- [Call a web API other than Microsoft Graph](#call-web-api-other-than-microsoft-graph)
-- [Acquire a token manually](#acquire-a-token-manually)
+- [Option 1: Call Microsoft Graph with the Microsoft Graph SDK](#option-1-call-microsoft-graph-with-the-sdk)
+- [Option 2: Call a downstream web API with the helper class](#option-2-call-a-downstream-web-api-with-the-helper-class)
+- [Option 3: Call a downstream web API without the helper class](#option-3-call-a-downstream-web-api-without-the-helper-class)
 
-#### Call Microsoft Graph
+#### Option 1: Call Microsoft Graph with the SDK
 
 In this scenario, you've added `.AddMicrosoftGraph()` in *Startup.cs* as specified in [Code configuration](scenario-web-api-call-api-app-configuration.md#option-1-call-microsoft-graph), and you can directly inject the `GraphServiceClient` in your controller or page constructor for use in the actions. The following example Razor page displays the photo of the signed-in user.
 
@@ -65,7 +65,7 @@ In this scenario, you've added `.AddMicrosoftGraph()` in *Startup.cs* as specifi
  }
 ```
 
-#### Call web API other than Microsoft Graph
+#### Option 2: Call a downstream web API with the helper class
 
 In this scenario, you've added `.AddDownstreamWebApi()` in *Startup.cs* as specified in [Code configuration](scenario-web-api-call-api-app-configuration.md#option-2-call-a-downstream-web-api-other-than-microsoft-graph), and you can directly inject an `IDownstreamWebApi` service in your controller or page constructor and use it in the actions:
 
@@ -112,7 +112,7 @@ The `CallWebApiForUserAsync` method also has strongly typed generic overrides th
  }
 ```
 
-#### Acquire a token manually
+#### Option 3: Call a downstream web API without the helper class
 
 If you've decided to acquire a token manually by using the `ITokenAcquisition` service, you now need to use the token. In that case, the following code continues the example code shown in [A web API that calls web APIs: Acquire a token for the app](scenario-web-api-call-api-acquire-token.md). The code is called in the actions of the API controllers. It calls a downstream API named *todolist*.
 

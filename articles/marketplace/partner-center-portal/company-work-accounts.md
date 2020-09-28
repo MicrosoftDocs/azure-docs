@@ -15,7 +15,7 @@ Partner Center uses company work accounts, also known as Azure Active Directory 
 
 ## Check whether your company already has a work account
 
-If your company has subscribed to a Microsoft cloud service such as Azure, Microsoft Intune, or Office 365, then you already have a work email account domain (also referred to as an Azure Active Directory tenant) that can be used with Partner Center.
+If your company has subscribed to a Microsoft cloud service such as Azure, Microsoft Intune, or Microsoft 365, then you already have a work email account domain (also referred to as an Azure Active Directory tenant) that can be used with Partner Center.
 
 Follow these steps to check:
 1. Sign in to the Azure admin portal at https://portal.azure.com.
