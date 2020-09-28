@@ -55,7 +55,7 @@ RDF, OWL and RDFS are the basic building blocks of the semantic web.
 
 Here are some examples of RDF triples:
 
-```xml
+```
 <Microsoft> <hasCEO> <SatyaNadella> 
 <http://example.com/person/tom> <hasFather> <http://example.com/person/david> 
 <Oranges> <eats> <Oranges> 
@@ -65,14 +65,14 @@ These examples are all valid RDF, but the last statement is semantically invalid
 
 Here is an example making use of OWL: 
 
-```xml
+```
 <Joe> <eats> <Oranges> 
 <Joe> <isType> <Human> 
 ```
 
 **RDFS** provides additional vocabulary semantics that help you define and describe classes. For example, one such class is `rdfs:subClassOf`:
 
-```xml
+```
 <Human> <subClassOf> <Mammal> 
 ```
 
@@ -87,9 +87,7 @@ There are several third-party libraries that can be used when converting RDF-bas
 
 The following table is an example of how RDFS and OWL constructs can be mapped to DTDL. 
 
-<!-- need titles for second-half columns -->
-
-| RDFS/OWL construct | | DTDL construct | |
+| RDFS/OWL | Construct | DTDL | Construct |
 | --- | --- | --- | --- |
 | Classes | owl:Class<br>IRI suffix<br>rdfs:label<br>rdfs:comment | Interface | @type:Interface<br>@id<br>displayName<br>comment 
 | Subclasses | owl:Class<br>IRI suffix<br>rdfs:label<br>rdfs:comment<br>rdfs:subClassOf | Interface | @type:Interface<br>@id<br>displayName<br>comment<br>extends 
@@ -151,23 +149,6 @@ var json = JsonConvert.SerializeObject(_interfaceList);
 
 [!INCLUDE [Azure Digital Twins: validate models info](../../includes/digital-twins-validate.md)]
 
-Here is an example showing usage of the parser library:
- 
-```csharp
-// Save to file 
-System.IO.File.WriteAllText(dtdlFile.ToString(), json); 
-Console.WriteLine($"DTDL written to: {dtdlFile}"); 
-
-// Run DTDL validation 
-Console.WriteLine("Validating DTDL..."); 
-ModelParser modelParser = new ModelParser(); 
-List<string> modelJson = new List<string>(); 
-modelJson.Add(json); 
-IReadOnlyDictionary<Dtmi, DTEntityInfo> parseTask = modelParser.ParseAsync(modelJson).GetAwaiter().GetResult(); 
-```
-
-<!-- should we include this code sample here, OR keep the info localized and just point to the article that holds the examples? if this looks the same as the other article's examples, this is duplication; if it's different, it's conflicting guidance in 2 places -->
-
 ## Upload models
 
 Once a model is converted and validated, you can upload it to your Azure Digital Twins instance. For more information on this process, see the [*Upload models*](how-to-manage-model.md#upload-models) section of *How-to: Manage custom models*.
@@ -177,8 +158,6 @@ Once a model is converted and validated, you can upload it to your Azure Digital
 There is a sample application available that converts an RDF-based model file to [DTDL (version 2)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) for use by the Azure Digital Twins service. The sample is a .NET Core command-line application called **RdfToDtdlConverter**.
 
 You can get the sample here: [**RdfToDtdlConverter**](https://docs.microsoft.com/samples/azure-samples/rdftodtdlconverter/digital-twins-model-conversion-samples/). To download the code to your machine, hit the *Download ZIP* button underneath the title on the sample landing page. This will download a *ZIP* file under the name *RdfToDtdlConverter_sample_application_to_convert_RDF_to_DTDL.zip*, which you can then unzip and explore.
-
-<!-- clarify the benefit statement--why are we providing this to them? "You can use this to..." -->
 
 You can use this sample to see the conversion patterns in context, and to have as a building block for your own applications performing model conversions according to your own specific needs.
 
