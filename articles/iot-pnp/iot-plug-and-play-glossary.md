@@ -33,7 +33,7 @@ IoT Hub is a managed service, hosted in the cloud, that acts as a central messag
 
 ## Azure IoT device SDK
 
-There are device SDKs for multiple languages that you can use to build IoT Plug and Play device client applications. USe **DeviceClient** for devices, and **ModuleClient** for modules and IoT Edge modules.
+There are device SDKs for multiple languages that you can use to build IoT Plug and Play device client applications. Use **DeviceClient** for devices, and **ModuleClient** for modules and IoT Edge modules.
 
 ## Commands
 
