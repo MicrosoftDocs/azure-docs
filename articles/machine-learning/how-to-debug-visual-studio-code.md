@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: conceptual
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 09/17/2020
+ms.date: 09/30/2020
 ---
 
 # Interactive debugging with Visual Studio Code
