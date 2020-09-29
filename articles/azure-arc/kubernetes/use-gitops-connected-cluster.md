@@ -25,11 +25,13 @@ The same pattern can be used to manage a larger collection of clusters, which ma
 
 This getting started guide will walk you through applying a set of configurations with cluster-admin scope.
 
+## Before you begin
+
+This article assumes that you have an existing Azure Arc enabled Kubernetes connected cluster. If you need a connected cluster, see the [connect a cluster quickstart](./connect-cluster.md).
+
 ## Create a configuration
 
-- Example repository: <https://github.com/Azure/arc-k8s-demo>
-
-The example repository is structured around the persona of a cluster operator who would like to provision a few namespaces, deploy a common workload, and provide some team-specific configuration. Using this repository creates the following resources on your cluster:
+The [example repository](https://github.com/Azure/arc-k8s-demo) used in this document is structured around the persona of a cluster operator who would like to provision a few namespaces, deploy a common workload, and provide some team-specific configuration. Using this repository creates the following resources on your cluster:
 
 **Namespaces:** `cluster-config`, `team-a`, `team-b`
 **Deployment:** `cluster-config/azure-vote`
@@ -43,12 +45,7 @@ If you are associating a private repository with the `sourceControlConfiguration
 Using the Azure CLI extension for `k8sconfiguration`, let's link our connected cluster to an [example git repository](https://github.com/Azure/arc-k8s-demo). We will give this configuration a name `cluster-config`, instruct the agent to deploy the operator in the `cluster-config` namespace, and give the operator `cluster-admin` permissions.
 
 ```console
-az k8sconfiguration create \
-    --name cluster-config \
-    --cluster-name AzureArcTest1 --resource-group AzureArcTest \
-    --operator-instance-name cluster-config --operator-namespace cluster-config \
-    --repository-url https://github.com/Azure/arc-k8s-demo \
-    --scope cluster --cluster-type connectedClusters
+az k8sconfiguration create --name cluster-config --cluster-name AzureArcTest1 --resource-group AzureArcTest --operator-instance-name cluster-config --operator-namespace cluster-config --repository-url https://github.com/Azure/arc-k8s-demo --scope cluster --cluster-type connectedClusters
 ```
 
 **Output:**
@@ -155,7 +152,7 @@ For more information, see [Flux documentation](https://aka.ms/FluxcdReadme).
 Using the Azure CLI validate that the `sourceControlConfiguration` was successfully created.
 
 ```console
-az k8sconfiguration show --resource-group AzureArcTest --name cluster-config --cluster-name AzureArcTest1 --cluster-type connectedClusters
+az k8sconfiguration show --name cluster-config --cluster-name AzureArcTest1 --resource-group AzureArcTest --cluster-type connectedClusters
 ```
 
 Note that the `sourceControlConfiguration` resource is updated with compliance status, messages, and debugging information.
@@ -298,7 +295,7 @@ Delete a `sourceControlConfiguration` using the Azure CLI or Azure portal.  Afte
 > Any changes to the cluster that were the result of deployments from the tracked git repo are not deleted when the `sourceControlConfiguration` is deleted.
 
 ```console
-az k8sconfiguration delete --name '<config name>' -g '<resource group name>' --cluster-name '<cluster name>' --cluster-type connectedClusters
+az k8sconfiguration delete --name cluster-config --cluster-name AzureArcTest1 --resource-group AzureArcTest --cluster-type connectedClusters
 ```
 
 **Output:**
