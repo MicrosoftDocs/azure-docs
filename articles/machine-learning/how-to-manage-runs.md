@@ -120,38 +120,38 @@ You'll need the following items:
 
     # [Python](#tab/python)
     
-    Get the status of a run with the [`get_status()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-status--) method.
+    * Get the status of a run with the [`get_status()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-status--) method.
     
-    ```python
-    print(notebook_run.get_status())
-    ```
-    
-    To get the run ID, execution time, and additional details about the run, use the [`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-details--) method.
-    
-    ```python
-    print(notebook_run.get_details())
-    ```
-    
-    When your run finishes successfully, use the [`complete()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truecomplete--set-status-true-) method to mark it as completed.
-    
-    ```python
-    notebook_run.complete()
-    print(notebook_run.get_status())
-    ```
-    
-    If you use Python's `with...as` design pattern, the run will automatically mark itself as completed when the run is out of scope. You don't need to manually mark the run as completed.
-    
-    ```python
-    with exp.start_logging() as notebook_run:
-        notebook_run.log(name="message", value="Hello from run!")
+        ```python
         print(notebook_run.get_status())
+        ```
     
-    print(notebook_run.get_status())
-    ```
+    * To get the run ID, execution time, and additional details about the run, use the [`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-details--) method.
+    
+        ```python
+        print(notebook_run.get_details())
+        ```
+    
+    * When your run finishes successfully, use the [`complete()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truecomplete--set-status-true-) method to mark it as completed.
+    
+        ```python
+        notebook_run.complete()
+        print(notebook_run.get_status())
+        ```
+    
+    * If you use Python's `with...as` design pattern, the run will automatically mark itself as completed when the run is out of scope. You don't need to manually mark the run as completed.
+        
+        ```python
+        with exp.start_logging() as notebook_run:
+            notebook_run.log(name="message", value="Hello from run!")
+            print(notebook_run.get_status())
+        
+        print(notebook_run.get_status())
+        ```
     
     # [Azure CLI](#tab/azure-cli)
     
-    1. To view a list of runs for your experiment, use the following command. Replace `experiment` with the name of your experiment:
+    * To view a list of runs for your experiment, use the following command. Replace `experiment` with the name of your experiment:
     
         ```azurecli-interactive
         az ml run list --experiment-name experiment
@@ -161,7 +161,7 @@ You'll need the following items:
     
         For more information, see [az ml experiment list](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/experiment?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-experiment-list).
     
-    2. To view information on a specific run, use the following command. Replace `runid` with the ID of the run:
+    * To view information on a specific run, use the following command. Replace `runid` with the ID of the run:
     
         ```azurecli-interactive
         az ml run show -r runid
@@ -383,7 +383,7 @@ In Azure Machine Learning, you can use properties and tags to help organize and 
 
 * Query properties and tags
 
-You can query runs within an experiment to return a list of runs that match specific properties and tags.
+    You can query runs within an experiment to return a list of runs that match specific properties and tags.
 
     # [Python](#tab/python)
     
