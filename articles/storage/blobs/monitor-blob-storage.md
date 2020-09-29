@@ -71,11 +71,11 @@ You can analyze metrics for Azure Storage with metrics from other Azure services
 
 This example shows how to view **Transactions** at the account level.
 
-![Screenshot of accessing metrics in the Azure portal](./media/monitor-storage/access-metrics-portal.png)
+![Screenshot of accessing metrics in the Azure portal](./media/monitor-blob-storage/access-metrics-portal.png)
 
 For metrics that support dimensions, you can filter the metric with the desired dimension value. This example shows how to view **Transactions** at the account level on a specific operation by selecting values for the **API Name** dimension.
 
-![Screenshot of accessing metrics with dimension in the Azure portal](./media/monitor-storage/access-metrics-portal-with-dimension.png)
+![Screenshot of accessing metrics with dimension in the Azure portal](./media/monitor-blob-storage/access-metrics-portal-with-dimension.png)
 
 For a complete list of the dimensions that Azure Storage supports, see [Metrics dimensions](monitor-blob-storage-reference.md#metrics-dimensions).
 
@@ -323,7 +323,7 @@ Here's an example:
 
 Logs sent to an event hub aren't stored as a file, but you can verify that the event hub received the log information. In the Azure portal, go to your event hub and verify that the **incoming messages** count is greater than zero. 
 
-![Audit logs](media/monitor-storage/event-hub-log.png)
+![Audit logs](media/monitor-blob-storage/event-hub-log.png)
 
 You can access and read log data that's sent to your event hub by using security information and event management and monitoring tools. For more information, see [What can I do with the monitoring data being sent to my event hub?](https://docs.microsoft.com/azure/azure-monitor/platform/stream-monitoring-data-event-hubs#what-can-i-do-with-the-monitoring-data-being-sent-to-my-event-hub).
 
@@ -400,4 +400,4 @@ No. Azure Compute supports the metrics on disks. For more information, see [Per 
 
 - For a reference of the logs and metrics created by Azure Blob storage, see [Azure Blob storage monitoring data reference](monitor-blob-storage-reference.md).
 - For details on monitoring Azure resources, see [Monitor Azure resources with Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md).
-- For more information on metrics migration, see [Azure Storage metrics migration](./storage-metrics-migration.md).
+- For more information on metrics migration, see [Azure Storage metrics migration](../common/storage-metrics-migration.md).
