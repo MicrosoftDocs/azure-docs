@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/01/2019
-ms.author: juliako
+ms.author: inhenkel
 
 ---
 # Perform live streaming using Media Services to create multi-bitrate streams with Azure portal
