@@ -10,7 +10,7 @@ ms.date: 09/28/2020
 ---
 
 # Monitor issues with Azure Monitor Logs
-To maintain the performance and availability of your Log Analytics workspace in Azure Monitor, you need to be able to proactively detect any issues that arise. This article describes how to monitor the health of your Log Analytics workspace using data in the [Operation](/azure-monitor/reference/tables/operation) table. This table is included in every Log Analytics workspace and contains error and warnings that occur in your workspace. You can create alerts based on this data to be proactively notified when there are any important incidents in your workspace.
+To maintain the performance and availability of your Log Analytics workspace in Azure Monitor, you need to be able to proactively detect any issues that arise. This article describes how to monitor the health of your Log Analytics workspace using data in the [Operation](/azure-monitor/reference/tables/operation) table. This table is included in every Log Analytics workspace and contains error and warnings that occur in your workspace. You should regularly review this data and create alerts to be proactively notified when there are any important incidents in your workspace.
 
 ## _LogsOperation function
 Azure Monitor Logs sends details on any issues to the [Operation](/azure-monitor/reference/tables/operation) table in the workspace where the issue occurred. The **_LogsOperation** system function is based on the **Operation** table and provides a simplified set of information for analysis and alerting.
@@ -26,7 +26,7 @@ The **_LogsOperation** function returns the columns in the following table.
 | Operation  | Description of the operation type. This can indicate one of the Log Analytics limits, type of operation, or part of a process. |
 | Level | Severity level of the issue.<br>- Info: No specific attention needed.<br>- Warning: Process was not completed as expected, and attention is needed.<br>- Error: Process failed and urgent attention is needed. 
 | Detail | Detailed description of the operation include specific error message if it exists. |
-| ResoruceId | Resource ID of the Azure resource related to the operation.  |
+| _ResourceId | Resource ID of the Azure resource related to the operation.  |
 | Computer | Computer name if the operation is related to an Azure Monitor agent. |
 | CorrelationId | Used to group consecutive related operations. |
 
@@ -35,7 +35,11 @@ The **_LogsOperation** function returns the columns in the following table.
 The following sections describe the categories from the _LogsOperations function. Each includes the operations that may be included in each category.
 
 ### Ingestion
-Operations that are part of the data ingestion process. Consists of issues that occurred during data ingestions including notification about reaching the Azure Log Analytics workspace limits, issues related to this category might suggest data loss.
+Operations that are part of the data ingestion process. These are issues that occurred during data ingestion including notification about reaching the Azure Log Analytics workspace limits. See [Azure Monitor service limits](../service-limits.md#log-analytics-workspaces) for service limits for Log Analytics workspaces.
+
+Error conditions in this category might suggest data loss, so they are particularly important to monitor.
+
+
 
 | Operation | Level | Detail |
 |:---|:---|:---|
