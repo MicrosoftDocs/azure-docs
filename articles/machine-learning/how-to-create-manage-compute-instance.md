@@ -103,7 +103,7 @@ You can also create a compute instance with an [Azure Resource Manager template]
 ### Create on behalf of (preview)
 
 As an administrator, you can create a compute instance on behalf of a data scientist and assign the instance to them with:
-* [Azure Resource Manager template](https://docs.microsoft.com/azure/templates/microsoft.machinelearningservices/2020-06-01/workspaces/computes).  For details on how to find the TenantID and ObjectID needed in this template, see [Find identity object IDs for authentication configuration](../healthcare-apis/find-identity-object-ids.md).  You can also find these values in the Azure Active Directory portal.
+* [Azure Resource Manager template](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/preview/2020-09-01-preview/examples/createComputeInstance.json).  For details on how to find the TenantID and ObjectID needed in this template, see [Find identity object IDs for authentication configuration](../healthcare-apis/find-identity-object-ids.md).  You can also find these values in the Azure Active Directory portal.
 * REST API
 
 The data scientist you create the compute instance for needs the following RBAC permissions: 
@@ -221,8 +221,6 @@ For each compute instance in your workspace that you created (or that was create
 
 ---
 
-### RBAC
-
 [RBAC](/azure/role-based-access-control/overview) allows you to control which users in the workspace can create, delete, start, stop, restart a compute instance. All users in the workspace contributor and owner role can create, delete, start, stop, and restart compute instances across the workspace. However, only the creator of a specific compute instance, or the user assigned if it was created on their behalf, is allowed to access Jupyter, JupyterLab, and RStudio on that compute instance. A compute instance is dedicated to a single user who has root access, and can terminal in through Jupyter/JupyterLab/RStudio. Compute instance will have single-user log in and all actions will use that user’s identity for RBAC and attribution of experiment runs. SSH access is controlled through public/private key mechanism.
 
 These actions can be controlled by RBAC:
@@ -232,6 +230,7 @@ These actions can be controlled by RBAC:
 * *Microsoft.MachineLearningServices/workspaces/computes/start/action*
 * *Microsoft.MachineLearningServices/workspaces/computes/stop/action*
 * *Microsoft.MachineLearningServices/workspaces/computes/restart/action*
+
 
 ## Access the terminal window
 
@@ -246,30 +245,41 @@ Use the terminal window to install packages and create additional kernels.
 
 ### Install packages
 
-Open a terminal window.  Then install Python packages into the **Python 3.6 - AzureML** environment.  Install R packages into the **R** environment.
-
-Or install directly in Jupyter Notebook or RStudio:
+You can install packages directly in Jupyter Notebook or RStudio:
 
 * RStudio Use the **Packages** tab on the bottom right, or the **Console** tab on the top left.  
 * Python: Add install code and execute in a Jupyter Notebook cell.
 
-Or use a terminal window to install packages.  
+Or you can access a terminal window in any of these ways:
 
-### Create kernels
- 
-The compute instance is configured with a number of Jupyter kernels to use for your machine learning tasks.  Use the terminal window to add new kernels.
+* RStudio: Select the **Terminal** tab on top left.
+* Jupyter Lab:  Select the **Terminal** tile under the **Other** heading in the Launcher tab.
+* Jupyter:  Select **New>Terminal** on top right in the Files tab.
+* SSH to the machine.  Then install Python packages into the **Python 3.6 - AzureML** environment.  Install R packages into the **R** environment.
 
-```bash
-conda create -n 'myenv3' python=3.7 ipykernel
-conda activate myenv3
-ipython kernel install --name "mykernel3" –user
-```
+### Add new kernels
 
-To learn more about IPython kernels, see [Kernels for different environments](https://ipython.readthedocs.io/en/stable/install/kernel_install.html#kernels-for-different-environments)
+To add a new Jupyter kernel to the compute instance:
 
+1. Create new terminal from Jupyter, JupyterLab or from notebooks pane or SSH into the compute instance
+2. Use the terminal window to create a new environment.  For example, the code below creates `newenv`:
+    ```shell
+    conda create --name newenv
+    ```
+3. Activate the environment.  For example, after creating `newenv`:
 
-> [!CAUTION]
-> Do not delete the existing **azureml_py36** environment.
+    ```shell
+    conda activate newenv
+    ```
+4. Install pip and ipykernel package to the new environment and create a kernel for that conda env
+
+    ```shell
+    conda install pip
+    conda install ipykernel
+    python -m ipykernel install --user --name newenv --display-name "Python (newenv)"
+    ```
+
+Any of the [available Jupyter Kernels](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels) can be installed
 
 ## Next steps
 
