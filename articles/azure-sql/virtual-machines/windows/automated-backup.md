@@ -39,7 +39,7 @@ To use Automated Backup v2, review the following prerequisites:
 - SQL Server 2016 or higher: Developer, Standard, or Enterprise
 
 > [!NOTE]
-> For SQL Server 2014, see [Automated Backup for SQL Server 2014](automated-backup-sql-2014.md)
+> For SQL Server 2014, see [Automated Backup for SQL Server 2014](automated-backup-sql-2014.md).
 
 **Database configuration**:
 
