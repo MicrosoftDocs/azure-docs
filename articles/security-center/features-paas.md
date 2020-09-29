@@ -8,7 +8,7 @@ manager: rkarlin
 ms.assetid: be2ab6d5-72a8-411f-878e-98dac21bc5cb
 ms.service: security-center
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/01/2020
@@ -19,7 +19,7 @@ ms.author: memildin
 
 The table below shows the availability of Azure Security Center features for the supported Azure PaaS resources.
 
-|Service|Recommendations (Free)|Security alerts (Standard)|Vulnerability assessment (Standard)|
+|Service|Recommendations (Free)|Security alerts (Azure Defender)|Vulnerability assessment (Azure Defender)|
 |:----|:----:|:----:|:----:|
 |Azure App Service|✔|✔|-|
 |Azure Automation account|✔|-|-|
@@ -36,7 +36,7 @@ The table below shows the availability of Azure Security Center features for the
 |Azure Database for PostgreSQL*|✔|✔|-|
 |Azure Event Hubs namespace|✔|-|-|
 |Azure Functions app|✔|-|-|
-|Azure Key Vault|✔|✔ *|-|
+|Azure Key Vault|✔|✔|-|
 |Azure Kubernetes Service|✔|✔|-|
 |Azure Load Balancer|✔|-|-|
 |Azure Logic Apps|✔|-|-|
@@ -51,4 +51,4 @@ The table below shows the availability of Azure Security Center features for the
 
 \* These features are currently supported in preview.
 
-\*\* Azure Active Directory (Azure AD) recommendations are available only for Standard subscriptions.
+\*\* Azure Active Directory (Azure AD) recommendations are available only for subscriptions with Azure Defender enabled.

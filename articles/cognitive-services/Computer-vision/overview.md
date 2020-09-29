@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services 
 ms.subservice: computer-vision 
 ms.topic: overview
-ms.date: 08/31/2020
+ms.date: 09/11/2020
 ms.author: pafarley
 ms.custom: [seodec18, cog-serv-seo-aug-2020]
 keywords: computer vision, computer vision applications, computer vision service
@@ -87,7 +87,11 @@ You can use Computer Vision to [detect adult content](concept-detecting-adult-co
 
 ## Use containers
 
-[Use Computer Vision containers](computer-vision-how-to-install-containers.md) to recognize printed and handwritten text locally by installing a standardized Docker container closer to your data.
+Use Computer Vision Docker containers to use the service on-premises. Currently there are two containers available:
+
+* The [Computer Vision read container](computer-vision-how-to-install-containers.md) lets you recognize printed and handwritten text in images.
+
+* The [Computer Vision spatial analysis container](spatial-analysis-container.md) lets you to analyze real-time streaming video to understand spatial relationships between people and their movement through physical environments.
 
 ## Image requirements
 

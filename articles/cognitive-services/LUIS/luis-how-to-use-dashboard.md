@@ -3,14 +3,14 @@ title: Dashboard - Language Understanding - LUIS
 titleSuffix: Azure Cognitive Services
 description: Fix intents and entities with your trained app's dashboard. The dashboard displays overall app information, with highlights of intents that should be fixed.
 services: cognitive-services
-author: diberry
+
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 11/08/2019
-ms.author: diberry
+
 ---
 
 # How to use the Dashboard to improve your app

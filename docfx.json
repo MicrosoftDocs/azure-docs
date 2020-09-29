@@ -133,6 +133,7 @@
     "fileMetadata": {
       "author": {
         "articles/advisor/*.md": "saket-ms",
+        "articles/automanage/*md": "daberry",
         "articles/azure-arc/servers/**/*.md": "mgoedtel",
         "articles/azure-arc/**/*.md": "mgoedtel",
         "articles/connectors/*.md": "ecfan",
@@ -182,7 +183,7 @@
         "articles/cognitive-services/Face/**/*.md": "PatrickFarley",
         "articles/cognitive-services/form-recognizer/**/*.md": "PatrickFarley",
         "articles/cognitive-services/Ink-Recognizer/**/*.md": "aahill",
-        "articles/cognitive-services/LUIS/**/*.md": "diberry",
+        "articles/cognitive-services/LUIS/**/*.md": "aahill",
         "articles/cognitive-services/personalizer/**/*.md": "edjez",
         "articles/cognitive-services/QnAMaker/**/*.md": "nerajput1607",
         "articles/cognitive-services/Speech/**/*.md": "nitinme",
@@ -403,6 +404,7 @@
         "articles/firewall/**/*.md": "https://feedback.azure.com/forums/217313-networking?category_id=345022"
       },
       "manager": {
+        "articles/automanage/*md": "daberry",
         "articles/azure-sql/**/*.md": "jroth",
         "articles/synapse-analytics/**/*.md": "jroth",
         "articles/azure-sql-edge/**/*.md" : "jroth",
@@ -472,6 +474,7 @@
       },
       "ms.author": {
         "articles/advisor/*.md": "sagupt",
+        "articles/automanage/*md": "daberry",
         "articles/azure-arc/servers/**/*.md": "magoedte",
         "articles/azure-arc/**/*.md": "magoedte",
         "articles/connectors/*.md": "estfan",
@@ -516,7 +519,7 @@
         "articles/cognitive-services/Face/**/*.md": "pafarley",
         "articles/cognitive-services/form-recognizer/**/*.md": "pafarley",
         "articles/cognitive-services/Ink-Recognizer/**/*.md": "aahi",
-        "articles/cognitive-services/LUIS/**/*.md": "diberry",
+        "articles/cognitive-services/LUIS/**/*.md": "aahi",
         "articles/cognitive-services/personalizer/**/*.md": "edjez",
         "articles/cognitive-services/QnAMaker/**/*.md": "nerajput",
         "articles/cognitive-services/Speech/**/*.md": "nitinme",

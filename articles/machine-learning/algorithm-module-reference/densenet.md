@@ -9,14 +9,19 @@ ms.topic: reference
 
 author: likebupt
 ms.author: keli19
-ms.date: 05/26/2020
+ms.date: 09/26/2020
 ---
 
 # DenseNet
 
-This article describes how to use the **DenseNet** module in Azure Machine Learning designer (preview), to create an image classification model using the Densenet algorithm.  
+This article describes how to use the **DenseNet** module in Azure Machine Learning designer, to create an image classification model using the Densenet algorithm.  
 
-This classification algorithm is a supervised learning method, and requires a labeled dataset. Refer to [Convert to Image Directory](convert-to-image-directory.md) module for more instruction about how to get a labeled image directory. You can train the model by providing the model and the labeled image directory as inputs to [Train Pytorch Model](train-pytorch-model.md). The trained model can then be used to predict values for the new input examples using [Score Image Model](score-image-model.md).
+This classification algorithm is a supervised learning method, and requires a labeled image directory. 
+
+> [!NOTE]
+> This module does not support labeled dataset generated from *Data Labeling* in the studio, but only support labeled image directory generated from [Convert to Image Directory](convert-to-image-directory.md) module. 
+
+You can train the model by providing the model and the labeled image directory as inputs to [Train Pytorch Model](train-pytorch-model.md). The trained model can then be used to predict values for the new input examples using [Score Image Model](score-image-model.md).
 
 ### More about DenseNet
 

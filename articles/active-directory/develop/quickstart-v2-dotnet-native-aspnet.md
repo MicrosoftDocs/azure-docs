@@ -159,7 +159,7 @@ One way you can allow users from other directories to access your web API is to 
 1. In the **Authorized scopes** section, select the scope for the `api://<Application ID>/access_as_user` web API.
 1. Select **Add application**.
 
-## Run your project
+### Run your project
 
 1. Press F5 to run your project. Your TodoListClient app should open.
 1. At the upper right, select **Sign in**, and then sign in by using a personal Microsoft account, such as live.com or hotmail.com, or a work or school account.

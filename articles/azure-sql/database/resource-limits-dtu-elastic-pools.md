@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: sachinpMSFT
 ms.author: sachinp
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 07/28/2020
 ---
 # Resources limits for elastic pools using the DTU purchasing model

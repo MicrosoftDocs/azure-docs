@@ -62,22 +62,10 @@ You can use Spring Data Azure Cosmos DB in your [Azure Spring Cloud](https://azu
 
 ### Configure dependencies
 
-Two Spring Data Azure Cosmos DB version 3 Maven artifacts are available.
-
-- Artifact that depends on Spring Data framework version 2.2:
   ```xml
   <dependency>
       <groupId>com.azure</groupId>
-      <artifactId>azure-spring-data-2-2-cosmos</artifactId>
-      <version>latest</version>
-  </dependency>
-  ```
-
-- Artifact that depends on Spring Data framework version 2.3:
-  ```xml
-  <dependency>
-      <groupId>com.azure</groupId>
-      <artifactId>azure-spring-data-2-3-cosmos</artifactId>
+      <artifactId>azure-spring-data-cosmos</artifactId>
       <version>latest</version>
   </dependency>
   ```
@@ -88,7 +76,7 @@ Two Spring Data Azure Cosmos DB version 3 Maven artifacts are available.
 
 Specify Azure Cosmos DB account and container details. Spring Data Azure Cosmos DB automatically creates the client and connects to the container.
 
-[application.properties](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started/blob/main/azure-spring-data-2-2-cosmos-java-getting-started/src/main/resources/application.properties):
+[application.properties](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started/blob/main/azure-spring-data-cosmos-java-getting-started/src/main/resources/application.properties):
 ```
 cosmos.uri=${ACCOUNT_HOST}
 cosmos.key=${ACCOUNT_KEY}
@@ -103,65 +91,22 @@ cosmos.queryMetricsEnabled=true
 
 ### Document operations
 
-[Create](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started/blob/main/azure-spring-data-2-3-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java):
-[!code-java[](~/spring-data-azure-cosmos-db-sql-tutorial/azure-spring-data-2-3-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java?name=Create)]
-
-[Delete](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started/blob/main/azure-spring-data-2-3-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java):
-[!code-java[](~/spring-data-azure-cosmos-db-sql-tutorial/azure-spring-data-2-3-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java?name=Delete)]
-
-# [Query](#tab/queries)
-
-[Query](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started/blob/main/azure-spring-data-2-3-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java):
-[!code-java[](~/spring-data-azure-cosmos-db-sql-tutorial/azure-spring-data-2-3-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java?name=Query)]
-
 ---
 
 ## Resources
 
-| Resource | Spring Data framework 2.2 | Spring Data framework 2.3 |
-|---|---|
-| **SDK download** | [Maven](https://mvnrepository.com/artifact/com.azure/azure-spring-data-2-2-cosmos) | [Maven](https://mvnrepository.com/artifact/com.azure/azure-spring-data-2-3-cosmos) |
-|**Contribute to the SDK** | [Spring Data Azure Cosmos DB repo on GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-spring-data-2-2-cosmos) | [Spring Data Azure Cosmos DB repo on GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-spring-data-2-3-cosmos) | 
-|**Tutorial**| [Spring Data Azure Cosmos DB tutorial on GitHub](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started/tree/main/azure-spring-data-2-2-cosmos-java-getting-started) | [Spring Data Azure Cosmos DB tutorial on GitHub](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started/tree/main/azure-spring-data-2-3-cosmos-java-getting-started) |
+* **Contribute to the SDK**: [Spring Data Azure Cosmos DB repo on GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-spring-data-cosmos)
 
-## Release history
+* **Tutorial**: [Spring Data Azure Cosmos DB tutorial on GitHub](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started) 
 
-### 3.0.0-beta.2 (unreleased)
-
-### 3.0.0-beta.1 (August 17, 2020)
-#### New features
-* Updates group ID to `com.azure`.
-* Updates artifact ID to `azure-spring-data-2-3-cosmos`.
-* Updates azure-cosmos SDK dependency to `4.3.2-beta.2`.
-* Adds support for auditing entities: automatic management of `createdBy`, `createdDate`, `lastModifiedBy`, and `lastModifiedDate` annotated fields.
-* Adds `@GeneratedValue` annotation support for automatic ID generation for ID fields of `String` type.
-* Adds multi-database configuration support for single Azure Cosmos DB accounts with multiple databases and multiple Azure Cosmos DB accounts with multiple databases.
-* Adds support for `@Version` annotation on any string field.
-* Updates sync API return types to `Iterable` types instead of `List`.
-* Exposes `CosmosClientBuilder` from the Azure Cosmos DB SDK as Spring bean to the `@Configuration` class.
-* Updates `CosmosConfig` to contain query metrics and response diagnostics processor implementation.
-* Adds support for returning the `Optional` data type for single result queries.
-#### Renames
-* `CosmosDbFactory` to `CosmosFactory`.
-* `CosmosDBConfig` to `CosmosConfig`.
-* `CosmosDBAccessException` to `CosmosAccessException`.
-* `Document` annotation to `Container` annotation.
-* `DocumentIndexingPolicy` annotation to `CosmosIndexingPolicy` annotation.
-* `DocumentQuery` to `CosmosQuery`.
-* application.properties flag `populateQueryMetrics` to `queryMetricsEnabled`.
-#### Key bug fixes
-* Scheduling of diagnostics logging task to `Parallel` threads to avoid blocking Netty I/O threads.
-* Fixes optimistic locking on delete operation.
-* Fixes issue with escaping queries for `IN` clause.
-* Fixes issue by allowing `long` data type for `@Id`.
-* Fixes issue by allowing `boolean`, `long`, `int`, and `double` as data types for the `@PartitionKey` annotation.
-* Fixes `IgnoreCase` and `AllIgnoreCase` keywords for ignore case queries.
-* Removes default request unit value of 4,000 when containers are created automatically.
+[!INCLUDE[Release notes](~/azure-sdk-for-java-cosmos-db/sdk/cosmos/azure-spring-data-cosmos/CHANGELOG.md)]
 
 ## FAQ
+
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## Next steps
+
 Learn more about [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
 
 Learn more about the [Spring Framework](https://spring.io/projects/spring-framework).
