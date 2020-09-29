@@ -113,7 +113,7 @@ Later in this tutorial when you configure the IoT Edge gateway, you need some co
 
 In the **Administration** section, select **Your application** and make a note of the **Application URL** and the **Application ID** in the *scratchpad.txt* file:
 
-:::image type="content" source="./media/tutorial-video-analytics-create-app/administration.png" alt-text="Administration":::
+:::image type="content" source="./media/tutorial-video-analytics-create-app/administration.png" alt-text="Screenshot shows the Administration pane of a video analytics page with Application U R L and Application I D highlighted.":::
 
 Select **API Tokens** and generate a new token called **LVAEdgeToken** for the **Operator** role:
 
