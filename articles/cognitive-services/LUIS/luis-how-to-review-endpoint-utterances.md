@@ -3,14 +3,14 @@ title: Review user utterances - LUIS
 titleSuffix: Azure Cognitive Services
 description: Review utterances captured by active learning to select intent and mark entities for read-world utterances; accept changes, train, and publish.
 services: cognitive-services
-author: diberry
+
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/07/2020
-ms.author: diberry
+
 ---
 
 # How to improve the LUIS app by reviewing endpoint utterances
