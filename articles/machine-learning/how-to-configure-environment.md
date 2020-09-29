@@ -30,7 +30,7 @@ The following table shows each development environment covered in this article, 
 
 This article also provides additional usage tips for the following tools:
 
-* Jupyter Notebooks: If you're already using Jupyter notebooks, the SDK has some extras that you should install.
+* Jupyter Notebooks: If you're already using Jupyter Notebooks, the SDK has some extras that you should install.
 
 * Visual Studio Code: If you use Visual Studio Code, the [Azure Machine Learning extension](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai) includes extensive language support for Python as well as features to make working with the Azure Machine Learning much more convenient and productive.
 
@@ -38,7 +38,7 @@ This article also provides additional usage tips for the following tools:
 
 * Azure Machine Learning workspace. If you don't have one you can create an Azure Machine Learning workspace through the [Azure Portal](how-to-manage-workspace.md), [Azure CLI](how-to-manage-workspace-cli.md#create-a-workspace), and [Azure Resource Manager templates](how-to-create-workspace-template.md).
 
-### <a id="workspace"></a> (Local and DSVM Only) Create a workspace configuration file
+### <a id="workspace"></a> (Local and DSVM only) Create a workspace configuration file
 
 The workspace configuration file is a JSON file that tells the SDK how to communicate with your Azure Machine Learning workspace. The file is named *config.json*, and it has the following format:
 
@@ -109,9 +109,9 @@ To configure a local development environment (which might also be a remote virtu
 
 Now that you have your local environment set up, you can interact with Azure Machine Learning in several ways.
 
-### Jupyter Notebooks
+### <a id="jupyter"></a>Jupyter Notebooks
 
-When running a local Jupyter notebook server, it's recommended that you create an IPython kernel for your Python virtual environment. This helps ensure the expected kernel and package import behavior.
+When running a local Jupyter Notebook server, it's recommended that you create an IPython kernel for your Python virtual environment. This helps ensure the expected kernel and package import behavior.
 
 1. Enable environment-specific IPython kernels
 
@@ -124,8 +124,9 @@ When running a local Jupyter notebook server, it's recommended that you create a
     ```bash
     ipython kernel install --user --name <myenv> --display-name "Python (myenv)"
     ```
+1. Launch the Jupyter Notebook server
 
-### Visual Studio Code
+### <a id="vscode"></a>Visual Studio Code
 
 To use Visual Studio Code for development:
 
@@ -268,7 +269,7 @@ Once you have the Visual Studio Code extension installed, you can manage your [A
 
 ## <a id="compute-instance"></a>Azure Machine Learning compute instance
 
-The Azure Machine Learning [compute instance](concept-compute-instance.md) is a secure, cloud-based Azure workstation that provides data scientists with a Jupyter notebook server, JupyterLab, and a fully managed machine learning environment.
+The Azure Machine Learning [compute instance](concept-compute-instance.md) is a secure, cloud-based Azure workstation that provides data scientists with a Jupyter Notebook server, JupyterLab, and a fully managed machine learning environment.
 
 There is nothing to install or configure for a compute instance.  
 
@@ -279,9 +280,9 @@ To learn more about compute instances, including how to install packages, see [c
 > [!TIP]
 > To prevent incurring charges for an unused compute instance, [stop the compute instance](tutorial-1st-experiment-bring-data.md#clean-up-resources).
 
-In addition to a Jupyter notebook server and JupyterLab, you can use compute instances in the [integrated notebook feature inside of Azure Machine Learning studio](how-to-run-jupyter-notebooks.md).
+In addition to a Jupyter Notebook server and JupyterLab, you can use compute instances in the [integrated notebook feature inside of Azure Machine Learning studio](how-to-run-jupyter-notebooks.md).
 
-You can also use the Azure Machine Learning Visual Studio Code extension to [use an Azure Machine Learning compute instance as a remote Jupyter notebook server](how-to-set-up-vs-code-remote.md#configure-compute-instance-as-remote-notebook-server).
+You can also use the Azure Machine Learning Visual Studio Code extension to [configure an Azure Machine Learning compute instance as a remote Jupyter Notebook server](how-to-set-up-vs-code-remote.md#configure-compute-instance-as-remote-notebook-server).
 
 ## <a id="dsvm"></a>Data Science Virtual Machine
 
