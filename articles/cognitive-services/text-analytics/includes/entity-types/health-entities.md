@@ -34,13 +34,15 @@ Additionally, the service recognizes relations between the different concepts in
 ## ANATOMY
 ### Entities
   + **BODY_STRUCTURE** - Body systems, anatomic locations or regions, and body sites. For example, arm, knee, abdomen, nose, liver, head, respiratory system, lymphocytes.
+> ![Anatomy_Entities](../media/ta-for-health/Anatomy_Entities.png)
 
 ### Attributes
   + **DIRECTION** - Directional terms, such as: left, lateral, upper, posterior, that characterizes a body structure.
-  
+> ![Anatomy_Attributes](../media/ta-for-health/Anatomy_Attributes.png)
+
 ### Supported Relations
   + **DIRECTION_OF_BODY_STRUCTURE**
-  
 
+## DEMOGRAPHICS
 
 
