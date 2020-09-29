@@ -40,7 +40,7 @@ git clone  https://github.com/Azure-Samples/azure-iot-samples-csharp.git
 
 You can now build the sample in Visual Studio and run it in debug mode.
 
-1. Open the *azure-iot-samples-csharp/iot-hub/Samples/device/PnpDeviceSamples/Thermostat/Thermostat.csproj* project file in Visual Studio 2019.
+1. Open the *azure-iot-samples-csharp\iot-hub\Samples\device\PnpDeviceSamples\Thermostat\Thermostat.csproj* project file in Visual Studio 2019.
 
 1. In Visual Studio, navigate to **Project > Thermostat Properties > Debug**. Then add the following environment variables to the project:
 

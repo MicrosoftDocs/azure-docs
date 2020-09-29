@@ -67,7 +67,7 @@ In [Set up your environment for the IoT Plug and Play quickstarts and tutorials]
 
 In this quickstart, you use a sample IoT solution in C# to interact with the sample device you just set up.
 
-1. In another instance of Visual Studio, open the *azure-iot-samples-csharp\iothub\Samples\service\PnpServiceSamples\Thermostat\Thermostat.csproj* project.
+1. In another instance of Visual Studio, open the *azure-iot-samples-csharp\iot-hub\Samples\service\PnpServiceSamples\Thermostat\Thermostat.csproj* project.
 
 1. In Visual Studio, navigate to **Project > Thermostat Properties > Debug**. Then add the following environment variables to the project:
 
