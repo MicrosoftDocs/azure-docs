@@ -84,6 +84,14 @@ It is also a practical way to use [SSIS DevOps Tools](https://docs.microsoft.com
 - [Migrate SSIS packages to Azure SQL Managed Instance](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages-managed-instance)
 - [Redeploy packages to Azure SQL Database](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages)
 
+- [On-premises data access from Azure-SSIS Integration Runtime](https://techcommunity.microsoft.com/t5/sql-server-integration-services/vnet-or-no-vnet-secure-data-access-from-ssis-in-azure-data/ba-p/1062056)
+- [Customize the setup for an Azure-SSIS Integration Runtime](how-to-configure-azure-ssis-ir-custom-setup.md)
+- [Access data stores and file shares with Windows authentication from SSIS packages in Azure](ssis-azure-connect-with-windows-auth.md)
+- [Use Managed identity authentication](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-storage-connection-manager#managed-identities-for-azure-resources-authentication)
+- [Use Azure Key Vault](store-credentials-in-key-vault.md)
+- [Configure the Azure-SSIS Integration Runtime for high performance](configure-azure-ssis-integration-runtime-performance.md)
+- [How to start and stop Azure-SSIS Integration Runtime on a schedule](how-to-schedule-azure-ssis-integration-runtime.md)
+
 ## Next steps
 
 - [Validate SSIS packages deployed to Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-validate-packages)

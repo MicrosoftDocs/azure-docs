@@ -10,7 +10,7 @@ ms.devlang:
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: sstein, carlr
+ms.reviewer: sstein
 ms.date: 04/16/2019
 ---
 # Azure SQL Managed Instance content reference
