@@ -69,7 +69,7 @@ When you run the starter kit script, it does the following steps on your behalf:
 
 Follow these steps to set up the starter kit client software on your Windows machine:
 
-1. [Download the .zip file](./assets/starter-kit-v2.zip) that contains the starter kit to your computer. Extract its contents to the location of your choice.
+1. Download to your computer the [.zip file](./assets/starter-kit-v2.zip) that contains the starter kit. Extract its contents to the location of your choice.
 
 1. On your computer, enter **PowerShell** in the search box on the Windows taskbar. In the search list, right-click **Windows PowerShell**, and then select **Run as administrator**.
 
