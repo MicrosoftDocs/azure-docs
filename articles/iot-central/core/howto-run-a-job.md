@@ -33,6 +33,14 @@ The following example shows you how to create and run a job to set the light thr
 
     Select **Save and exit** to add the job to the list of saved jobs on the **Jobs** page. You can later return to a job from the list of saved jobs.
 
+    Select **Next** to move to the **Delivery Options** page. The **Delivery Options** page helps create advanced delivery options for this job. Page has two toggles, Batches and Cancellation Threshold. 
+    
+    When you enable Batches toggle you are choosing to stagger how and when you run jobs for large numbers of devices. Each batch will complete before the next queued batch starts. 
+    
+    When you enable Cancellation Threshold toggle you are choosing for job to be automatically cancelled if the number of errors exceeds a limit you set. You can apply the threshold to all of your devices, or make it specific to each batch. 
+
+    :::image type="content" source="media/howto-run-a-job/job-wizard-delivery-options.png" alt-text="Screenshot of job wizard delivery options page":::
+
     Select **Next** to move to the **Review** page. The **Review** page shows the job configuration details. Select **Run** to submit the job.
 
     :::image type="content" source="media/howto-run-a-job/job-wizard-review.png" alt-text="Screenshot of job wizard review page":::
@@ -77,6 +85,7 @@ After a job is created, the **Status** column updates with the latest job status
 | Pending              | This job hasn't yet begun running on devices.         |
 | Running              | This job is currently running on devices.             |
 | Stopped              | A user has manually stopped this job.           |
+| Canceled             | This job has been cancelled due to threshold exceeded, which was set in delivery options by the user |
 
 The status message is followed by an overview of the devices in the job. The following table lists the possible *device status* values:
 
