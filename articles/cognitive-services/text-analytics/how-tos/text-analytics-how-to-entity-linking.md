@@ -137,10 +137,11 @@ Output is returned immediately. You can stream the results to an application tha
 
 ### Example responses
 
-Version 3 provides separate endpoints for NER and entity linking. The responses for both operations are below. 
+Version 3 provides separate endpoints for general NER, PII and entity linking. The responses for both operations are below. 
 
 #### [Version 3.0](#tab/version-3)
 
+Example of a general NER response:
 ```json
 {
   "documents": [
@@ -194,6 +195,44 @@ Version 3 provides separate endpoints for NER and entity linking. The responses 
 ```
 #### [Version 3.1-preview](#tab/version-3-preview)
 
+Example of a PII response:
+```json
+{
+  "documents": [
+    {
+    "redactedText": "You can even pre-order from their online menu at *************************, call ************ or send email to ***************************!",
+    "id": "0",
+    "entities": [
+        {
+        "text": "www.contososteakhouse.com",
+        "category": "URL",
+        "offset": 49,
+        "length": 25,
+        "confidenceScore": 0.8
+        }, 
+        {
+        "text": "312-555-0176",
+        "category": "Phone Number",
+        "offset": 81,
+        "length": 12,
+        "confidenceScore": 0.8
+        }, 
+        {
+        "text": "order@contososteakhouse.com",
+        "category": "Email",
+        "offset": 111,
+        "length": 27,
+        "confidenceScore": 0.8
+        }
+      ],
+    "warnings": []
+    }
+  ],
+  "errors": [],
+  "modelVersion": "2020-07-01"
+}
+```
+Example of an Entity linking response:
 ```json
 {
   "documents": [
@@ -240,7 +279,6 @@ Version 3 provides separate endpoints for NER and entity linking. The responses 
   "modelVersion": "2020-02-01"
 }
 ```
-
 ---
 
 
