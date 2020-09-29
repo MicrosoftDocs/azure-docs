@@ -21,7 +21,7 @@ There are three steps involved in configuring export in Azure API for FHIR:
 
 ## Enabling Managed Identity on Azure API for FHIR
 
-First step in configuring Azure API for FHIR for export is to enable system wide managed identity on the service. You can read all about Managed Identities in Azure [here](../active-directory/managed-identities-azure-resources/overview.md).
+The first step in configuring Azure API for FHIR for export is to enable system wide managed identity on the service. You can read all about Managed Identities in Azure [here](../active-directory/managed-identities-azure-resources/overview.md).
 
 To do so, navigate to Azure API for FHIR service and select Identity blade. Changing the status to On will enable managed identity in Azure API for FHIR Service.
 
