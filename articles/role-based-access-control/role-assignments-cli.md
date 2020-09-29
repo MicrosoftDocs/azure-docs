@@ -158,25 +158,41 @@ az role assignment create --assignee "{assignee}" \
 --role "{roleNameOrId}" \
 --scope "/providers/Microsoft.Management/managementGroups/{managementGroupName}"
 ``` 
+
+The following shows an example of the output when you assign the [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) role to a user at a resource group scope.
+
+```azurecli
+{
+  "canDelegate": null,
+  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId}",
+  "name": "{roleAssignmentId}",
+  "principalId": "{principalId}",
+  "principalType": "User",
+  "resourceGroup": "{resourceGroupName}",
+  "roleDefinitionId": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/9980e02c-c2be-4d73-94e8-173b1dc7cf3c",
+  "scope": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}",
+  "type": "Microsoft.Authorization/roleAssignments"
+}
+```
     
 ## Add role assignment examples
 
 ### Add role assignment for a specific blob container resource scope
 
-Assigns the [Storage Blob Data Contributor](built-in-roles.md#storage-blob-data-contributor) role at a resource scope for a blob container named *blob-container-01*.
+Assigns the [Storage Blob Data Contributor](built-in-roles.md#storage-blob-data-contributor) role to a service principal with object ID *55555555-5555-5555-5555-555555555555* at a resource scope for a blob container named *blob-container-01*.
 
 ```azurecli
-az role assignment create --assignee "{assignee}" \
+az role assignment create --assignee "55555555-5555-5555-5555-555555555555" \
 --role "Storage Blob Data Contributor" \
 --scope "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Example-Storage-rg/providers/Microsoft.Storage/storageAccounts/storage12345/blobServices/default/containers/blob-container-01"
 ```
 
 ### Add role assignment for all blob containers in a storage account resource scope
 
-Assigns the [Storage Blob Data Contributor](built-in-roles.md#storage-blob-data-contributor) role at a resource scope for a storage account named *storage12345*.
+Assigns the [Storage Blob Data Contributor](built-in-roles.md#storage-blob-data-contributor) role to a service principal with object ID *55555555-5555-5555-5555-555555555555* at a resource scope for a storage account named *storage12345*.
 
 ```azurecli
-az role assignment create --assignee "{assignee}" \
+az role assignment create --assignee "55555555-5555-5555-5555-555555555555" \
 --role "Storage Blob Data Contributor" \
 --scope "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Example-Storage-rg/providers/Microsoft.Storage/storageAccounts/storage12345"
 ```
@@ -220,10 +236,10 @@ az role assignment create --assignee "patlong@contoso.com" \
 
 ### Add role assignment for all blob containers at a resource group scope
 
-Assigns the [Storage Blob Data Contributor](built-in-roles.md#storage-blob-data-contributor) role at the *Example-Storage-rg* resource group scope.
+Assigns the [Storage Blob Data Contributor](built-in-roles.md#storage-blob-data-contributor) role to a service principal with object ID *55555555-5555-5555-5555-555555555555* at the *Example-Storage-rg* resource group scope.
 
 ```azurecli
-az role assignment create --assignee "{assignee}" \
+az role assignment create --assignee "55555555-5555-5555-5555-555555555555" \
 --role "Storage Blob Data Contributor" \
 --resource-group "Example-Storage-rg"
 ```
@@ -231,7 +247,7 @@ az role assignment create --assignee "{assignee}" \
 Alternately, you can specify the fully qualified resource group with the `--scope` parameter:
 
 ```azurecli
-az role assignment create --assignee "{assignee}" \
+az role assignment create --assignee "55555555-5555-5555-5555-555555555555" \
 --role "Storage Blob Data Contributor" \
 --scope "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Example-Storage-rg"
 ```
@@ -291,10 +307,10 @@ az role assignment create --assignee "22222222-2222-2222-2222-222222222222" \
 
 ### Add role assignment for all blob containers at a subscription scope
 
-Assigns the [Storage Blob Data Reader](built-in-roles.md#storage-blob-data-reader) role at a subscription scope.
+Assigns the [Storage Blob Data Reader](built-in-roles.md#storage-blob-data-reader) role to the *alain\@example.com* user at a subscription scope.
 
 ```azurecli
-az role assignment create --assignee "{assignee}" \
+az role assignment create --assignee "alain@example.com" \
 --role "Storage Blob Data Reader" \
 --scope "/subscriptions/00000000-0000-0000-0000-000000000000"
 ```
