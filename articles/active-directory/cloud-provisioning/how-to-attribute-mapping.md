@@ -43,6 +43,9 @@ Along with this property, attribute-mappings also support the following attribut
   - **Always** – Apply this mapping on both user creation and update actions.
   - **Only during creation** - Apply this mapping only on user creation actions.
 
+> [!NOTE]
+> This document describes how to use the Azure portal to map attributes.  For information on using Graph see [Transformations](how-to-transformation.md)
+
 ## Using attribute mapping
 To use the new feature, follow the steps below.
 
@@ -55,13 +58,14 @@ To use the new feature, follow the steps below.
  4. Under **Configuration**, select your configuration.
  5. Select **Click to edit mappings**.  This will open the attribute mapping screen.
 
-![Mapping attributes](media/how-to-attribute-mapping/mapping1.png)
- 
+ ![Mapping attributes](media/how-to-attribute-mapping/mapping6.png)
  6.  Click **Add Attribute**.
- 7. Select the **Mapping type**.  In this example we use Expression.
- 8.  Enter the expression in the box.  For this example we are using: `Replace([mail], "@contoso.com", , ,"", ,).`
- 9.  Enter the target attribute.  In this example we use ExtensionAttribute15.
- 10. Select when to apply this and then click **Apply**
+
+ ![Mapping attributes](media/how-to-attribute-mapping/mapping1.png)
+ 8. Select the **Mapping type**.  In this example we use Expression.
+ 9.  Enter the expression in the box.  For this example we are using: `Replace([mail], "@contoso.com", , ,"", ,).`
+ 10.  Enter the target attribute.  In this example we use ExtensionAttribute15.
+ 11. Select when to apply this and then click **Apply**
    
    ![Manage provisioning](media/how-to-attribute-mapping/mapping2.png)
  11. Back on the attribute mapping screen you should see your new attribute mapping.  Click **Save Schema**.
