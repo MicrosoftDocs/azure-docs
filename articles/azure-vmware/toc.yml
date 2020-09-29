@@ -41,6 +41,7 @@
   - name: Enable Azure VMware Solution
     href: enable-azure-vmware-solution.md
   - name: Deploy Horizon on Azure VMware Solution
+    href: azure-vmware-solution-horizon.md
   - name: Migration assessment
     href: ../migrate/how-to-create-azure-vmware-solution-assessment.md?context=/azure/migrate/context/migrate-context.json
   - name: Set up HCX
