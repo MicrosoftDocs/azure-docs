@@ -42,6 +42,10 @@ Get-AzVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -
 
 You can also get detailed *instanceView* information for all instances in one API call, which can help avoid API throttling for large installations.
 
+```powershell
+Get-AzVmssVM -InstanceView -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
+```
+
 ```rest
 armclient GET "https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/virtualMachineScaleSets/<VMSSName>/virtualMachines?api-version=2019-03-01&%24expand=instanceView"
 ```
