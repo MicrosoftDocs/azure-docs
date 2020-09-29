@@ -22,7 +22,7 @@ To learn more about etcd API in Azure Cosmos DB, see the [overview](etcd-api-int
 
 ## Prerequisites
 
-1. Install the latest version of [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). You can download Azure CLI specific to your operating system and install.
+1. Install the latest version of [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true). You can download Azure CLI specific to your operating system and install.
 
 1. Install the [latest version](https://github.com/Azure/aks-engine/releases) of Azure Kubernetes Engine. The installation instructions for different operating systems are available in [Azure Kubernetes Engine](https://github.com/Azure/aks-engine/blob/master/docs/tutorials/quickstart.md#install-aks-engine) page. You just need the steps from **Install AKS Engine** section of the linked doc. After downloading, extract the zip file.
 

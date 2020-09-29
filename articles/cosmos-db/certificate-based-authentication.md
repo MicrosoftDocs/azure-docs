@@ -59,7 +59,7 @@ In this step, you will install the Azure AD PowerShell module. This module is re
    Set-AzContext $context 
    ```
 
-1. Install and import the [AzureAD](/powershell/module/azuread/?view=azureadps-2.0) module
+1. Install and import the [AzureAD](/powershell/module/azuread/?view=azureadps-2.0&preserve-view=true) module
 
    ```powershell
    Install-Module AzureAD
