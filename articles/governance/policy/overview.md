@@ -99,7 +99,7 @@ the create or update.
 
 The combination of Azure RBAC and Azure Policy provide full scope control in Azure.
 
-### Azure RBAC Permissions in Azure Policy
+### Azure RBAC permissions in Azure Policy
 
 Azure Policy has several permissions, known as operations, in two Resource Providers:
 
