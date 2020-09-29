@@ -57,7 +57,7 @@ If a specific table is corrupt, select specific tables in your database to back 
 $ mysqldump --ssl-cert=</path/to/pem> -h mydemoserver.mysql.database.azure.com -u myserveradmin -p testdb table1 table2 > testdb_tables_backup.sql
 ```
 
-To back up one or more databases, use the `--database` switch and list the database names separated by spaces:
+To back up one or more databases, use the `--database` switch and list the database names, separated by spaces:
 
 ```
 $ mysqldump --ssl-cert=</path/to/pem>  -h mydemoserver.mysql.database.azure.com -u myserveradmin -p --databases testdb1 testdb3 testdb5 > testdb135_backup.sql
@@ -65,7 +65,7 @@ $ mysqldump --ssl-cert=</path/to/pem>  -h mydemoserver.mysql.database.azure.com 
 
 ### Restore your database or tables
 
-The following steps show how to restore your database or tables. After you create the backup file, you can restore the table or databases by using the mysql utility. Run this command:
+The following steps show how to restore your database or tables. After you create the backup file, you can restore the tables or databases by using the mysql utility. Run this command:
 
 ```
 mysql  --ssl-cert=</path/to/pem> -h [hostname] -u [uname] -p[pass] [db_to_restore] < [backupfile.sql]

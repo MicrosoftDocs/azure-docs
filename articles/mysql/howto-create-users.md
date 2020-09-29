@@ -17,7 +17,7 @@ This article describes how to create users in Azure Database for MySQL.
 > [!NOTE]
 > **Bias-free communication**
 >
-> Microsoft supports a diverse and inclusionary environment. This article contains references to the word *slave*. The Microsoft [style guide for bias-free communication](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) recognizes this as an exclusionary word. The word is used in this article for consistency because it's currently the word that appears in the software. When the software is updated to remove the word, this article will be updated to be in alignment.
+> Microsoft supports a diverse and inclusionary environment. This article contains references to the word *slave*. The Microsoft [style guide for bias-free communication](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) recognizes this as an exclusionary word. The word is used in this article for consistency because it's the word that currently appears in the software. When the software is updated to remove the word, this article will be updated to be in alignment.
 >
 
 When you first created your Azure Database for MySQL server, you provided a server admin user name and password. For more information, see this [Quickstart](quickstart-create-mysql-server-database-using-azure-portal.md). You can determine your server admin user name in the Azure portal.
@@ -82,7 +82,7 @@ After you create an Azure Database for MySQL server, you can use the first serve
 1. Get the connection information and admin user name.
    To connect to your database server, you need the full server name and admin sign-in credentials. You can easily find the server name and sign-in information on the server **Overview** page or on the **Properties** page in the Azure portal.
 
-2. Use the admin account and password to connect to your database server. Use your preferred client tool, such as MySQL Workbench, mysql.exe, HeidiSQL.
+2. Use the admin account and password to connect to your database server. Use your preferred client tool, such as MySQL Workbench, mysql.exe, or HeidiSQL.
    
 If you're not sure how to connect, see [Use MySQL Workbench to connect and query data](./connect-workbench.md).
 
