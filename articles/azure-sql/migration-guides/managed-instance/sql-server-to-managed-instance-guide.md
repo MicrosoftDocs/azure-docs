@@ -110,6 +110,7 @@ To perform migrations using DMS with minimal downtime via an online sync and cut
 7. Finally, after your full database backup is restored on the target Azure SQL Managed Instance, the database is available for performing a migration cutover by selecting **Start Cutover**. At this stage, the migration process will copy the tail-log backup once you make it available in the SMB network share and restore it on the target.
 8. It is important to note that during the cutover stage, you should stop all incoming traffic to your source database and update your application's connection string to point to the new Azure SQL Managed Instance database.
 
+For a detailed step-by-step tutorial of this migration option, see [Migrate SQL Server to an Azure SQL Managed Instance online using DMS](https://docs.microsoft.com/azure/dms/tutorial-sql-server-managed-instance-online). 
 #### Migration with native backup and restore (Offline size of data operation)
 To perform migrations using native backup and restore which is an offline / asynchronous operation based on the size of your database, follow the steps below:
 1. You can backup database(s) to Azure Blob storage service natively with SQL Server 2012 SP1 CU2 and above. Manage your backups to Azure Blob storage (also referred to as SQL Server Backup to URL) by following the instructions to [Backup with SSMS](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url?view=sqlallproducts-allversions#BackupTaskSSMS).
@@ -129,6 +130,8 @@ To perform migrations using native backup and restore which is an offline / asyn
 	> [!NOTE]
 	> A database restore operation is asynchronous and retryable. You might get an error in SQL Server Management Studio if the connection breaks or a time-out expires. Azure SQL Database will keep trying to restore database in the background, and you can track the progress of the restore using the [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) and [sys.dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) views.
 4. Once the restore operation is complete, you can view the database in Object Explorer in SSMS.
+
+To learn more about this migration option, see [Restore a database to Azure SQL Managed Instance with SSMS](https://docs.microsoft.com/azure/azure-sql/managed-instance/restore-sample-database-quickstart).
 
 ## Data sync and cutover
 
