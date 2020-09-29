@@ -23,7 +23,7 @@ When you create an Azure subscription programmatically, that subscription is gov
 
 You can find the documentation for the APIs in this article as follows:
 1. List Enrollment/Billing scopes - [REST]()
-1. Subscription Creation - [REST](), [Powershell](), [CLI](https://docs.microsoft.com/en-us/cli/azure/ext/account/account?view=azure-cli-latest)
+1. Subscription Creation - [REST](), [Powershell](), [CLI](https://docs.microsoft.com/cli/azure/ext/account/account?view=azure-cli-latest&preserve-view=true)
 
 ## Create subscriptions for an EA billing account
 
@@ -93,6 +93,8 @@ The API response lists all enrollment accounts you have access to:
 
 ```
 Note the `id` from one of your `enrollmentAccounts`. This is the billing scope under which a subscription creation request will be initiated. 
+
+---
 
 ### Create subscriptions under a specific enrollment account
 
@@ -179,7 +181,7 @@ To see a full list of all parameters, see [New-AzSubscription](/powershell/modul
 ### [Azure CLI](#tab/azure-cli)
 First, install this extension by running `az extension add --name account` and `az extension add --name alias`
 
-Run the [az account alias create](/cli/azure/ext/account/account/alias?view=azure-cli-latest#ext_account_az_account_alias_create) command below, provide as the `billing-scope` the `id` from one of your `enrollmentAccounts`. 
+Run the [az account alias create](/cli/azure/ext/account/account/alias?view=azure-cli-latest#ext_account_az_account_alias_create&preserve-view=true) command below, provide as the `billing-scope` the `id` from one of your `enrollmentAccounts`. 
 
 ```azurecli-interactive
 az account alias create --name "sampleAlias" --billing-scope "/providers/Microsoft.Billing/billingAccounts/1234567/enrollmentAccounts/654321" --display-name "Dev Team Subscription" --workload "Production"
@@ -390,7 +392,7 @@ TODO: this whole section
 ### [Azure CLI](#tab/azure-cli)
 First, install this extension by running `az extension add --name account` and `az extension add --name alias`
 
-Run the [az account alias create](/cli/azure/ext/account/account/alias?view=azure-cli-latest#ext_account_az_account_alias_create) command below 
+Run the [az account alias create](/cli/azure/ext/account/account/alias?view=azure-cli-latest#ext_account_az_account_alias_create&preserve-view=true) command below 
 
 ```azurecli-interactive
 az account alias create --name "sampleAlias" --billing-scope "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx" --display-name "Dev Team Subscription" --workload "Production"
@@ -585,7 +587,7 @@ TODO: this whole section
 ### [Azure CLI](#tab/azure-cli)
 First, install this extension by running `az extension add --name account` and `az extension add --name alias`
 
-Run the [az account alias create](/cli/azure/ext/account/account/alias?view=azure-cli-latest#ext_account_az_account_alias_create) command below. 
+Run the [az account alias create](/cli/azure/ext/account/account/alias?view=azure-cli-latest#ext_account_az_account_alias_create&preserve-view=true) command below. 
 
 ```azurecli-interactive
 az account alias create --name "sampleAlias" --billing-scope "/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx" --display-name "Dev Team Subscription" --workload "Production"
