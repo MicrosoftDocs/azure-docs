@@ -71,7 +71,7 @@ Managed Identity authentication is required when your storage account is attache
 3. You must have **Allow trusted Microsoft services to access this storage account** turned on under Azure Storage account **Firewalls and Virtual networks** settings menu. Refer to this [guide](../../storage/common/storage-network-security.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#exceptions) for more information.
 #### Steps
 
-1. In PowerShell, **register your SQL server** with Azure Active Directory (AAD):
+1. In PowerShell, **register your SQL server** with Azure Active Directory:
 
    ```powershell
    Connect-AzAccount
@@ -105,10 +105,10 @@ Managed Identity authentication is required when your storage account is attache
 	)
 	```
 
-## D. Azure Active Directory Authentication (AAD)
+## D. Azure Active Directory Authentication
 #### Steps
 
-1. Under your storage account, navigate to **Access Control (IAM)**, and select **Add role assignment**. Assign **Storage Blob Data Owner, Contributor, or Reader** Azure role to your AAD user. 
+1. Under your storage account, navigate to **Access Control (IAM)**, and select **Add role assignment**. Assign **Storage Blob Data Owner, Contributor, or Reader** Azure role to your AZURE AD user. 
 
     > [!IMPORTANT]
     > Specify the **Storage** **Blob Data** Owner, Contributor, or Reader Azure role. These roles are different than the Azure built-in roles of Owner, Contributor, and Reader.
