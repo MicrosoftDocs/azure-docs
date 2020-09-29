@@ -58,5 +58,5 @@ If your applications, tools, or products are using the [Translator Speech API](h
 ## Next steps
 
 * Complete the speech translation [quickstart](get-started-speech-translation.md)
-* [Get a Speech service subscription key for free](get-started.md)
+* [Get a Speech service subscription key for free](overview.md#try-the-speech-service-for-free)
 * [Get the Speech SDK](speech-sdk.md)

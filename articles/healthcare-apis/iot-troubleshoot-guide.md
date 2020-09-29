@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: troubleshooting
-ms.date: 08/07/2020
+ms.date: 09/16/2020
 ms.author: jasteppe
 ---
 # Azure IoT Connector for FHIR (preview) troubleshooting guide
@@ -19,6 +19,34 @@ You can use the conversion mapping JSON copies for editing and archiving outside
 
 > [!TIP]
 > If you'll be opening a [Azure Technical Support](https://azure.microsoft.com/support/create-ticket/) ticket for the Azure IoT Connector for FHIR, make sure to include copies of your conversion mapping JSON to help with the troubleshooting process.
+
+## Device and FHIR Conversion Mapping JSON Template Validations for Azure IoT Connector for FHIR (preview)
+In this section, you'll learn about the validation process that Azure IoT Connector for FHIR performs to validate the Device and FHIR conversion mapping JSON templates before allowing them to be saved for use.  These elements are required in the Device and FHIR Conversion Mapping JSON.
+
+**Device Mapping**
+
+|Element|Required|
+|:-------|:------|
+|TypeName|True|
+|TypeMatchExpression|True|
+|DeviceIdExpression|True|
+|TimestampExpression|True|
+|Values[].ValueName|True|
+|Values[].ValueExpression|True|
+
+> [!NOTE]
+> Values[].ValueName and Values[].ValueExpression
+>
+> These elements are only required if you have a value entry in the array - it is valid to have no values mapped. This is used when the telemetry being sent is an event. For example: When a wearable IoMT device is put on or removed. The element(s) do not have any values except for a name that Azure IoT Connector for FHIR  matches and emits. On the FHIR conversion, Azure IoT Connector for FHIR maps it to a code-able concept based on the semantic type - no actual values are populated.
+
+**FHIR Mapping**
+
+|Element|Required|
+|:------|:-------|
+|TypeName|True|
+
+> [!NOTE]
+> This is the only required FHIR Mapping element validated at this time.
 
 ## Error messages and fixes for Azure IoT Connector for FHIR (preview)
 
@@ -36,8 +64,8 @@ You can use the conversion mapping JSON copies for editing and archiving outside
 
 ##  Why is my Azure IoT Connector for FHIR (preview) data not showing up in Azure API for FHIR?
 
-|Potential issues  |Fixes            |
-|------------------|-----------------|
+|Potential issues|Fixes|
+|----------------|-----|
 |Data is still being processed.|Data is egressed to the Azure API for FHIR in batches (every ~15 minutes).  It’s possible the data is still being processed and additional time is needed for the data to be persisted in the Azure API for FHIR.|
 |Device conversion mapping JSON hasn't been configured.|Configure and save conforming device conversion mapping JSON.|
 |FHIR conversion mapping JSON has not been configured.|Configure and save conforming FHIR conversion mapping JSON.|
@@ -61,22 +89,22 @@ The mapping file copies should be provided to Azure Technical Support when openi
 
 1. Select **"IoT Connector (preview)"** on the lower left side of the Azure API for FHIR resource dashboard in the **"Add-ins"** section.
 
-   :::image type="content" source="media/iot-troubleshoot/map-files-main-with-box.png" alt-text="IoT Connector" lightbox="media/iot-troubleshoot/map-files-main-with-box.png":::
+   :::image type="content" source="media/iot-troubleshoot/map-files-main-with-box.png" alt-text="IoT Connector1" lightbox="media/iot-troubleshoot/map-files-main-with-box.png":::
 
 2. Select the **"Connector"** that you'll be copying the conversion mapping JSON from.
 
-   :::image type="content" source="media/iot-troubleshoot/map-files-select-connector-with-box.png" alt-text="IoT Connector" lightbox="media/iot-troubleshoot/map-files-select-connector-with-box.png":::
+   :::image type="content" source="media/iot-troubleshoot/map-files-select-connector-with-box.png" alt-text="IoT Connector2" lightbox="media/iot-troubleshoot/map-files-select-connector-with-box.png":::
 
 > [!NOTE]
 > This process may also be used for copying and saving the contents of the **"Configure FHIR mapping"** JSON.
 
 3. Select **"Configure device mapping"**.
 
-    :::image type="content" source="media/iot-troubleshoot/map-files-select-device-with-box.png" alt-text="IoT Connector" lightbox="media/iot-troubleshoot/map-files-select-device-with-box.png":::
+    :::image type="content" source="media/iot-troubleshoot/map-files-select-device-with-box.png" alt-text="IoT Connector3" lightbox="media/iot-troubleshoot/map-files-select-device-with-box.png":::
 
 4. Select the contents of the JSON and do a copy operation (for example: Select Ctrl + c). 
 
-   :::image type="content" source="media/iot-troubleshoot/map-files-select-device-json-with-box.png" alt-text="IoT Connector" lightbox="media/iot-troubleshoot/map-files-select-device-json-with-box.png":::
+   :::image type="content" source="media/iot-troubleshoot/map-files-select-device-json-with-box.png" alt-text="IoT Connector4" lightbox="media/iot-troubleshoot/map-files-select-device-json-with-box.png":::
 
 5. Do a paste operation (for example: Select Ctrl + v) into a new file within an editor (for example: Visual Studio Code, Notepad) and save the file with an *.json extension.
 
