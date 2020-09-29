@@ -23,9 +23,9 @@ Azure Front Door can redirect traffic at each of the following levels: protocol,
 A redirect type sets the response status code for the clients to understand the purpose of the redirect. The following types of redirection are supported:
 
 - **301 (Moved permanently)**: Indicates that the target resource has been assigned a new permanent URI. Any future references to this resource will use one of the enclosed URIs. Use 301 status code for HTTP to HTTPS redirection. 
-- **302 (Found)**: Indicates that the target resource is temporarily under a different URI. Since the redirection may be altered occasionally, the client should continue to use the effective request URI for future requests.
+- **302 (Found)**: Indicates that the target resource is temporarily under a different URI. Since the redirection can change on occasion, the client should continue to use the effective request URI for future requests.
 - **307 (Temporary redirect)**: Indicates that the target resource is temporarily under a different URI. The user agent MUST NOT change the request method if it does an automatic redirection to that URI. Since the redirection can change over time, the client ought to continue using the original effective request URI for future requests.
-- **308 (Permanent redirect)**: Indicates that the target resource has been assigned a new permanent URI. Any future references to this resource ought to use one of the enclosed URIs. Clients with link editing capabilities, should automatically relink references to the effective request URI for one or more of the new references sent by the server, where possible.
+- **308 (Permanent redirect)**: Indicates that the target resource has been assigned a new permanent URI. Any future references to this resource should use one of the enclosed URIs.
 
 ## Redirection protocol
 You can set the protocol that will be used for redirection. The most common use cases of the redirect feature, is to set HTTP to HTTPS redirection.
