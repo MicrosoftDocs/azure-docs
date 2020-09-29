@@ -193,7 +193,7 @@ Then, we'll use the Get Data for Polyline to request three equally spaced sample
 
 Now we'll use the [Get Data for Bounding Box](https://docs.microsoft.com/rest/api/maps/elevation/getdataforboundingbox) to request elevation data near Mt. Rainier, WA. The elevation data will be returned at equally spaced locations within a bounding box. The bounding area defined by (2) sets of lat/long coordinates (south latitude, west longitude | north latitude, east longitude) is divided into rows and columns. The edges of the bounding box account for two (2) of the rows and two (2) of the columns. Elevations are returned for the vertices of the grid created at the intersections of the rows and columns. Up to 2000 elevations can be returned in a single request.
 
-In this example, we'll specify rows=3 and columns=6. Fifteen elevation values are returned in the response. The elevation values are ordered starting with the southwest corner, and then proceed west to east and south to north. This is illustrated in the following diagram. The elevation points are numbered in the order that they are returned.
+In this example, we'll specify rows=3 and columns=6. Eighteen elevation values are returned in the response. The elevation values are ordered starting with the southwest corner, and then proceed west to east and south to north. This is illustrated in the following diagram. The elevation points are numbered in the order that they are returned.
 
 :::image type="content" source="./media/how-to-request-elevation-data/bounding-box.png" border="false" alt-text="Bounding box coordinates at NE and SE corners.":::
 
