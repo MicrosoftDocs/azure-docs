@@ -276,14 +276,10 @@ To learn more about our SLA, see the [Service Level Agreements](https://azure.mi
 
 ## Azure Stack Hub
 
-### How can I target a specific version of Azure Storage SDK?
-If you are running on Azure Stack Hub, that platform may support a different version of Storage Blob SDK than those typically available on Azure. 
+### How can I target a specific version of Azure Storage SDK when using Azure Blob Storage as a checkpoint store?
+If you run this code on Azure Stack Hub, you will experience runtime errors unless you target a specific Storage API version. That's because the Event Hubs SDK uses the latest available Azure Storage API available in  Azure that may not be available on your Azure Stack Hub platform. Azure Stack Hub may support a different version of Storage Blob SDK than those typically available on Azure. If you are using Azure Blog Storage as a checkpoint store, check the [supported Azure Storage API version for your Azure Stack Hub build](/azure-stack/user/azure-stack-acs-differences?#api-version) and target that version in your code. 
 
-For example, if you are running on Azure Stack Hub version 2002](../azure-stack/user/event-hubs-overview.md?view=azs-2002), the highest available version for the Storage service is version 2017-11-09. In this case, you may need to add code to target the Storage service API version 2017-11-09. 
-
-If you are running on [Azure Stack Hub version 2005](../azure-stack/operator/azure-stack-overview.md?view=azs-2005), the highest available version for the Storage service is version 2019-02-02. 
-
-For the latest supported Storage service APIs on an Azure Stack Hub version, see [supported API version](../azure-stack/user/azure-stack-acs-differences.md?view=azs-2005#api-version)
+For example, If you are running on Azure Stack Hub version 2005, the highest available version for the Storage service is version 2019-02-02. By default, the Event Hubs SDK client library uses the highest available version on Azure (2019-07-07 at the time of the release of the SDK). In this case, besides following steps in this section, you will also need to add code to target the Storage service API version 2019-02-02. For an example on how to target a specific Storage API version, see the following samples for C#, Java, Python, and JavaScript/TypeScript.  
 
 For an example on how to target a specific Storage API version from your code, see the following samples on GitHub: 
 
