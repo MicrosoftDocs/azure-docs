@@ -69,26 +69,15 @@ All triggers and bindings have a `direction` property in the [function.json](./f
 
 When you use [attributes in a class library](functions-dotnet-class-library.md) to configure triggers and bindings, the direction is provided in an attribute constructor or inferred from the parameter type.
 
+## Add bindings to a function
+
+You can connect your function to other services by using input or output bindings. Add a binding by adding its specific definitions to your function. To learn how, see [Add bindings to an existing function in Azure Functions](add-bindings-existing-function.md).  
+
 ## Supported bindings
 
 [!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
 
 For information about which bindings are in preview or are approved for production use, see [Supported languages](supported-languages.md).
-
-## Add bindings to a function
-
-When you create a function, language-specific trigger code is added in your project from a set of trigger templates. If you want to connect your function to other services by using input or output bindings, you have to update your function definitions and code.         
-
-The examples found in specific binding reference articles make it easier to make the required updates to your function bindings.  
-
->[!NOTE]
->If you are using Visual Studio Code to develop your function and your function uses a function.json file, you can use Visual Studio Code to automatically add a binding to an existing function.json file. To learn more, see [Add input and output bindings](functions-develop-vs-code.md#add-input-and-output-bindings). The Visual Studio Code tooling currently doesn't support either .NET Class library (C#) or Java functions, which use attributes instead of function.json. 
-
-### Find binding code examples
-
-Use the following table to find examples of specific binding types, which you can use to modify an existing function. First, choose the language tab that corresponds to your project. 
-
-[!INCLUDE [functions-bindings-code-example-chooser](../../includes/functions-bindings-code-example-chooser.md)]
 
 ## Resources
 - [Binding expressions and patterns](./functions-bindings-expressions-patterns.md)
