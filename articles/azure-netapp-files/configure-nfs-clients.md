@@ -72,8 +72,8 @@ This section describes Ubuntu configuration for the NFS clients.
 
 The following example queries the AD LDAP server from Ubuntu LDAP client for an LDAP user `ldapu1`   
 
-    `root@cbs-k8s-varun4-04:/home/cbs# getent passwd hari1`
-    `hari1:*:1237:1237:hari1:/home/hari1:/bin/bash`
+`root@cbs-k8s-varun4-04:/home/cbs# getent passwd hari1`
+`hari1:*:1237:1237:hari1:/home/hari1:/bin/bash`
 
 ## Next steps  
 
