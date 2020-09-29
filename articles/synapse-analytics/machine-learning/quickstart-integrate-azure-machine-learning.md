@@ -14,8 +14,9 @@ ms.author: negust
 ---
 # Quickstart: Create a new Azure Machine Learning linked service in Synapse
 
-Linking a Synapse workspace to an Azure Machine Learning workspace allows you to leverage Azure Machine Learning from various experiences in Synapse.
-Examples of experiences that this linking to an Azure Machine Learning workspace enables:
+In this quickstart, you'll link an Synapse Analytics workspace to an Azure Machine Learning workspace. Linking these workspaces allows you to leverage Azure Machine Learning from various experiences in Synapse.
+
+For example, this linking to an Azure Machine Learning workspace enables these experiences:
 
 - Run your Azure Machine Learning pipelines as a step in your Synapse pipelines. To learn more, see [Execute Azure Machine Learning pipelines](/azure/data-factory/transform-data-machine-learning-service).
 

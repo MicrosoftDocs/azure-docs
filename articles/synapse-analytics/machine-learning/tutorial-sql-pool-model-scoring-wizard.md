@@ -123,7 +123,7 @@ Before running all cells in the notebook, check if the compute instance is runni
 
    ![Machine Learning option](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-00c.png)
 
-1. Select a linked Azure Machine Learning workspace in the drop down box. This loads a list of machine learning models from the model registry of the chosen Azure Machine Learning workspace. Currently, only ONNX models are supported so this will display only ONNX models.
+1. Select a linked Azure Machine Learning workspace in the drop-down box. This loads a list of machine learning models from the model registry of the chosen Azure Machine Learning workspace. Currently, only ONNX models are supported so this will display only ONNX models.
 
 1. Select the model you just trained then click **Continue**.
 

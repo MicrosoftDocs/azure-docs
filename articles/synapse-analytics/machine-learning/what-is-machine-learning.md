@@ -47,7 +47,7 @@ An important part of the machine learning process is to understand the data by e
 
 Depending on where the data is stored, Synapse offers a set of different tools to explore and prepare it for analytics and machine learning. One of the quickest ways to get started with data exploration is using Apache Spark or Synapse SQL serverless pools directly over data in the data lake.
 
-* [Apache Spark for Azure Synapse](../spark/apache-spark-overview.md) offers capabilities to transform, prepare and explore your data at scale. These spark pools offer tools like PySpark/Python, Scala, and .NET for data processing at scale. Using powerful visualization libraries, the data exploration experience can be enhanced to help understand the data better. [Learn more about how to explore and visualize data in Synapse using Spark](../get-started-analyze-spark.md).
+* [Apache Spark for Azure Synapse](../spark/apache-spark-overview.md) offers capabilities to transform, prepare, and explore your data at scale. These spark pools offer tools like PySpark/Python, Scala, and .NET for data processing at scale. Using powerful visualization libraries, the data exploration experience can be enhanced to help understand the data better. [Learn more about how to explore and visualize data in Synapse using Spark](../get-started-analyze-spark.md).
 
 * [Synapse SQL serverless pools](../sql/on-demand-workspace-overview.md) offer a way to explore data using TSQL directly over the data lake. Synapse SQL serverless pools also offer some built-in visualizations in Synapse Studio. [Learn more about how to explore data with Synapse SQL serverless pools](../get-started-analyze-sql-on-demand.md).
 
