@@ -17,8 +17,8 @@ Devices can include [modules](../iot-hub/iot-hub-devguide-module-twins.md), or b
 
 You describe the telemetry, properties, and commands that an IoT Plug and Play device implements with a [Digital Twins Definition Language v2 (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl) _model_. There are two types of model referred to in this article:
 
-- **No component** - A model with no components. The model declares telemetry, properties, and commands as top-level properties in the contents section of the main interface.
-- **Multiple components** - A model composed of two or more interfaces. A main interface with telemetry, properties, and commands. One or more interfaces declared as components with additional telemetry, properties, and commands.
+- **No component** - A model with no components. The model declares telemetry, properties, and commands as top-level properties in the contents section of the main interface. In the Azure IoT explorer tool, this model appears as a single _default component_.
+- **Multiple components** - A model composed of two or more interfaces. A main interface, which appears as the _default component_, with telemetry, properties, and commands. One or more interfaces declared as components with additional telemetry, properties, and commands.
 
 For more information, see [IoT Plug and Play components in models](concepts-components.md).
 
@@ -244,7 +244,7 @@ Sample reported property second payload:
 
 The device or module must add the `{"__t": "c"}` marker to indicate that the element refers to a component.
 
-The marker is sent only for updates to properties defined in a component. Updates to properties defined in the main interface don't include the marker, see [Sample no component writable property](#sample-no-component-writable-property)
+The marker is sent only for updates to properties defined in a component. Updates to properties defined in the default component don't include the marker, see [Sample no component writable property](#sample-no-component-writable-property)
 
 When a device receives multiple reported properties in a single payload, it can send the reported property responses across multiple payloads.
 

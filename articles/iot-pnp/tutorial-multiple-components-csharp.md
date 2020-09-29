@@ -15,7 +15,7 @@ services: iot-pnp
 
 [!INCLUDE [iot-pnp-tutorials-device-selector.md](../../includes/iot-pnp-tutorials-device-selector.md)]
 
-This tutorial shows you how to build a sample IoT Plug and Play device application with components and root interface, connect it to your IoT hub, and use the Azure IoT explorer tool to view the information it sends to the hub. The sample application is written in C# and is included in the Azure IoT device SDK for C#. A solution builder can use the Azure IoT explorer tool to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
+This tutorial shows you how to build a sample IoT Plug and Play device application with components, connect it to your IoT hub, and use the Azure IoT explorer tool to view the information it sends to the hub. The sample application is written in C# and is included in the Azure IoT device SDK for C#. A solution builder can use the Azure IoT explorer tool to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
 
 ## Prerequisites
 
@@ -93,7 +93,7 @@ The model ID is stored in the code as shown in the following snippet:
 private const string ModelId = "dtmi:com:example:TemperatureController;1";
 ```
 
-After the device connects to your IoT hub, the code registers the command handlers. The `reboot` command is defined in the root interface. The `getMaxMinReport` command is defined in each of the two thermostat components:
+After the device connects to your IoT hub, the code registers the command handlers. The `reboot` command is defined in the default component. The `getMaxMinReport` command is defined in each of the two thermostat components:
 
 ```csharp
 await _deviceClient.SetMethodHandlerAsync("reboot", HandleRebootCommandAsync, _deviceClient, cancellationToken);
@@ -129,7 +129,7 @@ Use the Azure IoT explorer tool to view the telemetry and properties from the tw
 
 :::image type="content" source="media/tutorial-multiple-components-csharp/multiple-component.png" alt-text="Multiple component device in Azure IoT explorer":::
 
-You can also use the Azure IoT explorer tool to call commands in either of the two thermostat components, or in the root interface.
+You can also use the Azure IoT explorer tool to call commands in either of the two thermostat components, or in the default component.
 
 ## Next steps
 

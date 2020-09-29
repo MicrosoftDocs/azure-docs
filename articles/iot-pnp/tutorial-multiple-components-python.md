@@ -15,7 +15,7 @@ services: iot-pnp
 
 [!INCLUDE [iot-pnp-tutorials-device-selector.md](../../includes/iot-pnp-tutorials-device-selector.md)]
 
-This tutorial shows you how to build a sample IoT Plug and Play device application with components and root interface, connect it to your IoT hub, and use the Azure IoT explorer tool to view the information it sends to the hub. The sample application is written in Python and is included in the Azure IoT device SDK for Python. A solution builder can use the Azure IoT explorer tool to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
+This tutorial shows you how to build a sample IoT Plug and Play device application with components, connect it to your IoT hub, and use the Azure IoT explorer tool to view the information it sends to the hub. The sample application is written in Python and is included in the Azure IoT device SDK for Python. A solution builder can use the Azure IoT explorer tool to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
 
 ## Prerequisites
 
@@ -56,7 +56,7 @@ The *azure-iot-sdk-python\azure-iot-device\samples\pnp* folder contains the samp
 - temp_controller_with_thermostats.py
 - pnp_helper_preview_refresh.py
 
-Temperature controller has multiple components and a root interface, based on the temperature controller DTDL model.
+Temperature controller has multiple components and a default component, based on the temperature controller DTDL model.
 
 Open the *temp_controller_with_thermostats.py* file in an editor of your choice. The code in this file:
 
@@ -69,13 +69,13 @@ Open the *temp_controller_with_thermostats.py* file in an editor of your choice.
 
 1. Defines the DTMI `model_id` for the device that's being implemented. The DTMI is user-defined and must match the DTMI in the DTDL model file.
 
-1. Defines the names given to the components in the DTDL file. There are two thermostats in the DTDL and one device information component. A constant called `serial_number` is also defined in the root interface. A `serial_number` can't change for a device.
+1. Defines the names given to the components in the DTDL file. There are two thermostats in the DTDL and one device information component. A constant called `serial_number` is also defined in the default component. A `serial_number` can't change for a device.
 
 1. Defines command handler implementations. These define what the device does when it receives command requests.
 
 1. Defines functions to create a command response. These define how the device responds with to command requests. You create command response functions if a command needs to send a custom response back to the IoT hub. If a response function for a command isn't provided, a generic response is sent. In this sample, only the **getMaxMinReport** command has a custom response.
 
-1. Defines a function to send telemetry from this device. Both the thermostats and the root interface send telemetry. This function takes in a optional component name parameter to enable it to identify which component sent the telemetry.
+1. Defines a function to send telemetry from this device. Both the thermostats and the default component send telemetry. This function takes in a optional component name parameter to enable it to identify which component sent the telemetry.
 
 1. Defines a listener for command requests.
 

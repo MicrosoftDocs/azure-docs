@@ -17,7 +17,7 @@ services: iot-pnp
 
 This tutorial shows you how to build a multiple component sample IoT Plug and Play device application, connect it to your IoT hub, and use the Azure CLI to view the telemetry it sends. The sample application is written in Java and is included in the Azure IoT device SDK for Java. A solution builder can use the Azure CLI to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
 
-This tutorial shows you how to build a sample IoT Plug and Play device application with components and root interface, connect it to your IoT hub, and use the Azure IoT explorer tool to view the information it sends to the hub. The sample application is written in Java and is included in the Azure IoT device SDK for Java. A solution builder can use the Azure IoT explorer tool to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
+This tutorial shows you how to build a sample IoT Plug and Play device application with components, connect it to your IoT hub, and use the Azure IoT explorer tool to view the information it sends to the hub. The sample application is written in Java and is included in the Azure IoT device SDK for Java. A solution builder can use the Azure IoT explorer tool to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
 
 ## Prerequisites
 
@@ -138,7 +138,7 @@ Use the Azure IoT explorer tool to view the telemetry and properties from the tw
 
 :::image type="content" source="media/tutorial-multiple-components-java/multiple-component.png" alt-text="Multiple component device in Azure IoT explorer":::
 
-You can also use the Azure IoT explorer tool to call commands in either of the two thermostat components, or in the root interface.
+You can also use the Azure IoT explorer tool to call commands in either of the two thermostat components, or in the default component.
 
 [!INCLUDE [iot-pnp-clean-resources.md](../../includes/iot-pnp-clean-resources.md)]
 

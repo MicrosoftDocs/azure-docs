@@ -138,7 +138,7 @@ In this scenario, it outputs `Model Id: dtmi:com:example:Thermostat;1`.
 1. In your **device** terminal, you see the device has received the update:
 
     ```cmd/sh
-    The following properties will be updated for root interface:
+    The following properties will be updated for the default component:
     {
       targetTemperature: {
         value: 42,
