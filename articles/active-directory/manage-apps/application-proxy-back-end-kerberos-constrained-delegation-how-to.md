@@ -46,7 +46,7 @@ The best place to position connectors is as close as possible to their targets. 
 
 What shows a KCD problem? There are several common indications that KCD SSO is failing. The first signs of an issue appear in the browser.
 
-![Example: Incorrect KCD configuration error](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic1.png)
+![Example: Incorrect KCD config error](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic1.png)
 
 ![Example: Authorization failed because of missing permissions](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic2.png)
 
