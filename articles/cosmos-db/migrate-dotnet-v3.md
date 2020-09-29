@@ -672,5 +672,5 @@ private static async Task CreateContainerWithCustomIndexingPolicy(DocumentClient
 
 ## Next steps
 
-* [Build a Console app](https://docs.microsoft.com/en-us/azure/cosmos-db/sql-api-get-started) to manage Azure Cosmos DB SQL API data using the v3 SDK
+* [Build a Console app](sql-api-get-started.md) to manage Azure Cosmos DB SQL API data using the v3 SDK
 * Learn more about [what you can do with the v3 SDK](https://docs.microsoft.com/en-us/azure/cosmos-db/sql-api-dotnet-v3sdk-samples)
