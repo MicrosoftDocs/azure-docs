@@ -126,7 +126,7 @@ After deploying the VMware HCX OVA on-premises, you're ready to activate VMware 
 
 1. In **Datacenter Location**, provide the nearest location where you install the VMware HCX Manager on-premises.
 
-   :::image type="content" source="media/tutorial-vmware-hcx/datacenter-location.png" alt-text="In Datacenter Location, if needed, edit the datacenter location." lightbox="media/tutorial-vmware-hcx/datacenter-location.png":::
+   :::image type="content" source="media/tutorial-vmware-hcx/datacenter-location.png" alt-text="In Datacenter Location, if needed, edit the datacenter location.":::
 
 1. Modify the **System Name** or accept the default.
 
