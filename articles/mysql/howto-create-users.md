@@ -30,14 +30,14 @@ The server admin user has these privileges:
 After you create an Azure Database for MySQL server, you can use the first server admin account to create additional users and grant admin access to them. You can also use the server admin account to create less privileged users that have access to individual database schemas.
 
 > [!NOTE]
-> The SUPER privilege and DBA role are not supported. Review the [privileges](concepts-limits.md#privilege-support) in the limitations article to understand what's not supported in the service.
+> The SUPER privilege and DBA role aren't supported. Review the [privileges](concepts-limits.md#privilege-support) in the limitations article to understand what's not supported in the service.
 
-## How to create database with non admin user in Azure Database for MySQL
+## How to create a database with a non-admin user in Azure Database for MySQL
 
 1. Get the connection information and admin user name.
-   To connect to your database server, you need the full server name and admin sign-in credentials. You can easily find the server name and sign-in information from the server **Overview** page or the **Properties** page in the Azure portal.
+   To connect to your database server, you need the full server name and admin sign-in credentials. You can easily find the server name and sign-in information on the server **Overview** page or on the **Properties** page in the Azure portal.
 
-2. Use the admin account and password to connect to your database server. Use your preferred client tool, such as MySQL Workbench, mysql.exe, HeidiSQL, or others.
+2. Use the admin account and password to connect to your database server. Use your preferred client tool, such as MySQL Workbench, mysql.exe, or HeidiSQL.
    If you are unsure of how to connect, see how to use MySQL Workbench to [connect and query data for Single Server](./connect-workbench.md) or [connect and query data for Flexible Server](./flexible-server/connect-workbench.md)
 
 3. Edit and run the following SQL code. Replace the placeholder value `db_user` with your intended new user name, and placeholder value `testdb` with your own database name.
