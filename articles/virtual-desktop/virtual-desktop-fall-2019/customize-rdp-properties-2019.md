@@ -43,7 +43,7 @@ Set-RdsHostPool -TenantName <tenantname> -Name <hostpoolname> -CustomRdpProperty
 ```
 
 > [!div class="mx-imgBorder"]
-> ![A screenshot of PowerShell cmdlet Get-RDSRemoteApp with Name and FriendlyName highlighted.](../media/singlecustomrdpproperty.png)
+> ![A screenshot of PowerShell cmdlet Get-RDSRemoteApp with Name and FriendlyName highlighted to edit a custom R D P property.](../media/singlecustomrdpproperty.png)
 
 ## Add or edit multiple custom RDP properties
 
@@ -55,7 +55,7 @@ Set-RdsHostPool -TenantName <tenantname> -Name <hostpoolname> -CustomRdpProperty
 ```
 
 > [!div class="mx-imgBorder"]
-> ![A screenshot of PowerShell cmdlet Get-RDSRemoteApp with Name and FriendlyName highlighted.](../media/multiplecustomrdpproperty.png)
+> ![A screenshot of PowerShell cmdlet Set-RDSRemoteApp with Name and FriendlyName highlighted to edit a custom R D P property.](../media/multiplecustomrdpproperty.png)
 
 ## Reset all custom RDP properties
 
