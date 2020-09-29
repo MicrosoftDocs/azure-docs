@@ -34,7 +34,7 @@ This article also provides additional usage tips for the following tools:
 
 ## Prerequisites
 
-* Azure Machine Learning workspace. If you don't have one you can create an Azure Machine Learning workspace through the [Azure Portal](how-to-manage-workspace.md), [Azure CLI](how-to-manage-workspace-cli.md#create-a-workspace), and [Azure Resource Manager templates](how-to-create-workspace-template.md).
+* Azure Machine Learning workspace. If you don't have one you can create an Azure Machine Learning workspace through the [Azure portal](how-to-manage-workspace.md), [Azure CLI](how-to-manage-workspace-cli.md#create-a-workspace), and [Azure Resource Manager templates](how-to-create-workspace-template.md).
 
 ### <a id="workspace"></a> (Local and DSVM only) Create a workspace configuration file
 
@@ -54,11 +54,11 @@ To use this file from your code, use the [`Workspace.from_config`](https://docs.
 
 Create a workspace configuration file in one of the following methods:
 
-* Azure Portal
+* Azure portal
 
-    **Download the file**: In the [Azure Portal](https://ms.portal.azure.com), select  **Download config.json** from the **Overview** section of your workspace.
+    **Download the file**: In the [Azure portal](https://ms.portal.azure.com), select  **Download config.json** from the **Overview** section of your workspace.
 
-    ![Azure Portal](./media/how-to-configure-environment/configure.png)
+    ![Azure portal](./media/how-to-configure-environment/configure.png)
 
 * Azure Machine Learning Python SDK
 
@@ -162,7 +162,7 @@ To use the DSVM as a development environment
 
 1. Create a DSVM using one of the following methods:
 
-    * Use the Azure Portal to create an [Ubuntu](data-science-virtual-machine/dsvm-ubuntu-intro.md) or [Windows](data-science-virtual-machine/provision-vm.md) DSVM.
+    * Use the Azure portal to create an [Ubuntu](data-science-virtual-machine/dsvm-ubuntu-intro.md) or [Windows](data-science-virtual-machine/provision-vm.md) DSVM.
     * [Create a DSVM using ARM templates](data-science-virtual-machine/dsvm-tutorial-resource-manager.md).
     * Use the Azure CLI
 
