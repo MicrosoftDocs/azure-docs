@@ -1,29 +1,30 @@
 ---
-title: Set up a Python development environment
+title: Set up development environment | Python
 titleSuffix: Azure Machine Learning
-description: Learn to configure your development environment for Azure Machine Learning. Use Conda environments, create configuration files, and configure your own cloud-based notebook server, Jupyter Notebooks, Azure Databricks, IDEs, code editors, and the Data Science Virtual Machine.
+description: Learn to set up a Python development environment for Azure Machine Learning. Use Conda environments, create configuration files, and configure your own cloud-based notebook server, Jupyter Notebooks, Azure Databricks, IDEs, code editors, and the Data Science Virtual Machine.
 services: machine-learning
 author: rastala
 ms.author: roastala
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
-ms.date: 12/27/2019
+ms.date: 09/30/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python
+ms.custom: how-to, devx-track-python, contperfq1
 ---
 
-# Configure a development environment for Azure Machine Learning
+# Set up a development environment for Azure Machine Learning
 
+Learn how to configure a Python development environment for Azure Machine Learning.
 
-In this article, you learn how to configure a development environment to work with Azure Machine Learning. Azure Machine Learning is platform agnostic. The only hard requirement for your development environment is Python 3. An isolated environment like Anaconda or Virtualenv is also recommended.
+<!-- In this article, you learn how to configure a development environment to work with Azure Machine Learning. Azure Machine Learning is platform agnostic. The only hard requirement for your development environment is Python 3. An isolated environment like Anaconda or Virtualenv is also recommended. -->
 
 The following table shows each development environment covered in this article, along with pros and cons.
 
 | Environment | Pros | Cons |
 | --- | --- | --- |
-| [Cloud-based Azure Machine Learning compute instance](#compute-instance) | Easiest way to get started. The entire SDK is already installed in your workspace VM, and notebook tutorials are pre-cloned and ready to run. | Lack of control over your development environment and dependencies. Additional cost incurred for Linux VM (VM can be stopped when not in use to avoid charges). See [pricing details](https://azure.microsoft.com/pricing/details/virtual-machines/linux/). |
 | [Local environment](#local) | Full control of your development environment and dependencies. Run with any build tool, environment, or IDE of your choice. | Takes longer to get started. Necessary SDK packages must be installed, and an environment must also be installed if you don't already have one. |
+| [Cloud-based Azure Machine Learning compute instance](#compute-instance) | Easiest way to get started. The entire SDK is already installed in your workspace VM, and notebook tutorials are pre-cloned and ready to run. | Lack of control over your development environment and dependencies. Additional cost incurred for Linux VM (VM can be stopped when not in use to avoid charges). See [pricing details](https://azure.microsoft.com/pricing/details/virtual-machines/linux/). |
 | [Azure Databricks](#aml-databricks) | Ideal for running large-scale intensive machine learning workflows on the scalable Apache Spark platform. | Overkill for experimental machine learning, or smaller-scale experiments and workflows. Additional cost incurred for Azure Databricks. See [pricing details](https://azure.microsoft.com/pricing/details/databricks/). |
 | [The Data Science Virtual Machine (DSVM)](#dsvm) | Similar to the cloud-based compute instance (Python and the SDK are pre-installed), but with additional popular data science and machine learning tools pre-installed. Easy to scale and combine with other custom tools and workflows. | A slower getting started experience compared to the cloud-based compute instance. |
 
@@ -35,7 +36,9 @@ This article also provides additional usage tips for the following tools:
 
 ## Prerequisites
 
-An Azure Machine Learning workspace. To create the workspace, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md). A workspace is all you need to get started with your own [cloud-based notebook server](#compute-instance), a [DSVM](#dsvm), or [Azure Databricks](#aml-databricks).
+* Azure Machine Learning workspace. If you don't have one you can create an Azure Machine Learning workspace through the [Azure Portal](how-to-manage-workspace.md), [Azure CLI](how-to-manage-workspace-cli.md#create-a-workspace), and [Azure Resource Manager templates](how-to-create-workspace-template.md).
+
+<!-- An Azure Machine Learning workspace. To create the workspace, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md). A workspace is all you need to get started with your own [cloud-based notebook server](#compute-instance), a [DSVM](#dsvm), or [Azure Databricks](#aml-databricks).
 
 To install the SDK environment for your [local computer](#local), [Jupyter Notebook server](#jupyter) or [Visual Studio Code](#vscode) you also need:
 
@@ -43,97 +46,16 @@ To install the SDK environment for your [local computer](#local), [Jupyter Noteb
 
 - On Linux or macOS, you need the bash shell.
 
-    > [!TIP]
+    > [!IMPORTANT]
     > If you're on Linux or macOS and use a shell other than bash (for example, zsh) you might receive errors when you run some commands. To work around this problem, use the `bash` command to start a new bash shell and run the commands there.
 
-- On Windows, you need the command prompt or Anaconda prompt (installed by Anaconda and Miniconda).
-
-## <a id="compute-instance"></a>Your own cloud-based compute instance
-
-The Azure Machine Learning [compute instance](concept-compute-instance.md) is a secure, cloud-based Azure workstation that provides data scientists with a Jupyter notebook server, JupyterLab, and a fully prepared ML environment.
-
-There is nothing to install or configure for a compute instance.  Create one anytime from within your Azure Machine Learning workspace. Provide just a name and specify an Azure VM type. Try it now with this [Tutorial: Setup environment and workspace](tutorial-1st-experiment-sdk-setup.md).
-
-To learn more about compute instances, including how to install packages, see [compute instances](concept-compute-instance.md).
-
-To stop incurring compute charges, [stop the compute instance](tutorial-1st-experiment-bring-data.md#clean-up-resources).
-
-## <a id="dsvm"></a>Data Science Virtual Machine
-
-The DSVM is a customized virtual machine (VM) image. It's designed for data science work that's pre-configured with:
-
-  - Packages such as TensorFlow, PyTorch, Scikit-learn, XGBoost, and the Azure Machine Learning SDK
-  - Popular data science tools such as Spark Standalone and Drill
-  - Azure tools such as the Azure CLI, AzCopy, and Storage Explorer
-  - Integrated development environments (IDEs) such as Visual Studio Code and PyCharm
-  - Jupyter Notebook Server
-
-The Azure Machine Learning SDK works on either the Ubuntu or Windows version of the DSVM. But if you plan to use the DSVM as a compute target as well, only Ubuntu is supported.
-
-To use the DSVM as a development environment:
-
-1. Create a DSVM in either of the following environments:
-
-    * The Azure portal:
-
-        * [Create an Ubuntu Data Science Virtual Machine](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro)
-
-        * [Create a Windows Data Science Virtual Machine](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/provision-vm)
-
-    * The Azure CLI:
-
-        > [!IMPORTANT]
-        > * When you use the Azure CLI, you must first sign in to your Azure subscription by using the `az login` command.
-        >
-        > * When you use the commands in this step, you must provide a resource group name, a name for the VM, a username, and a password.
-
-        * To create an Ubuntu Data Science Virtual Machine, use the following command:
-
-            ```azurecli-interactive
-            # create a Ubuntu DSVM in your resource group
-            # note you need to be at least a contributor to the resource group in order to execute this command successfully
-            # If you need to create a new resource group use: "az group create --name YOUR-RESOURCE-GROUP-NAME --location YOUR-REGION (For example: westus2)"
-            az vm create --resource-group YOUR-RESOURCE-GROUP-NAME --name YOUR-VM-NAME --image microsoft-dsvm:linux-data-science-vm-ubuntu:linuxdsvmubuntu:latest --admin-username YOUR-USERNAME --admin-password YOUR-PASSWORD --generate-ssh-keys --authentication-type password
-            ```
-
-        * To create a Windows Data Science Virtual Machine, use the following command:
-
-            ```azurecli-interactive
-            # create a Windows Server 2016 DSVM in your resource group
-            # note you need to be at least a contributor to the resource group in order to execute this command successfully
-            az vm create --resource-group YOUR-RESOURCE-GROUP-NAME --name YOUR-VM-NAME --image microsoft-dsvm:dsvm-windows:server-2016:latest --admin-username YOUR-USERNAME --admin-password YOUR-PASSWORD --authentication-type password
-            ```
-
-2. The Azure Machine Learning SDK is already installed on the DSVM. To use the Conda environment that contains the SDK, use one of the following commands:
-
-    * For Ubuntu DSVM:
-
-        ```bash
-        conda activate py36
-        ```
-
-    * For Windows DSVM:
-
-        ```bash
-        conda activate AzureML
-        ```
-
-1. To verify that you can access the SDK and check the version, use the following Python code:
-
-    ```python
-    import azureml.core
-    print(azureml.core.VERSION)
-    ```
-
-1. To configure the DSVM to use your Azure Machine Learning workspace, see the [Create a workspace configuration file](#workspace) section.
-
-For more information, see [Data Science Virtual Machines](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/).
+- On Windows, you need the command prompt or Anaconda prompt (installed by Anaconda and Miniconda). -->
 
 ## <a id="local"></a>Local computer
 
 When you're using a local computer (which might also be a remote virtual machine), create an Anaconda environment and install the SDK. Here's an example:
 
-1. Download and install [Anaconda](https://www.anaconda.com/distribution/#download-section) (Python 3.7 version) if you don't already have it.
+<!-- 1. Download and install [Anaconda](https://www.anaconda.com/distribution/#download-section) (Python 3.7 version) if you don't already have it.
 
 1. Open an Anaconda prompt and create an environment with the following commands:
 
@@ -161,7 +83,7 @@ When you're using a local computer (which might also be a remote virtual machine
 
     ```bash
     ipython kernel install --user --name myenv --display-name "Python (myenv)"
-    ```
+    ``` -->
 
 1. Use the following commands to install packages:
 
@@ -263,9 +185,95 @@ To use Visual Studio Code for development:
     azureml.core.VERSION
     ```
     Run this code by clicking the "Run cell" CodeLens or simply press shift-enter.
-<a name="aml-databricks"></a>
 
-## Azure Databricks
+## <a id="compute-instance"></a>Your own cloud-based compute instance
+
+The Azure Machine Learning [compute instance](concept-compute-instance.md) is a secure, cloud-based Azure workstation that provides data scientists with a Jupyter notebook server, JupyterLab, and a fully prepared ML environment.
+
+There is nothing to install or configure for a compute instance.  Create one anytime from within your Azure Machine Learning workspace. Provide just a name and specify an Azure VM type. Try it now with this [Tutorial: Setup environment and workspace](tutorial-1st-experiment-sdk-setup.md).
+
+To learn more about compute instances, including how to install packages, see [compute instances](concept-compute-instance.md).
+
+To stop incurring compute charges, [stop the compute instance](tutorial-1st-experiment-bring-data.md#clean-up-resources).
+
+## <a id="dsvm"></a>Data Science Virtual Machine
+
+The DSVM is a customized virtual machine (VM) image. It's designed for data science work that's pre-configured tools and software like:
+
+  - Packages such as TensorFlow, PyTorch, Scikit-learn, XGBoost, and the Azure Machine Learning SDK
+  - Popular data science tools such as Spark Standalone and Drill
+  - Azure tools such as the Azure CLI, AzCopy, and Storage Explorer
+  - Integrated development environments (IDEs) such as Visual Studio Code and PyCharm
+  - Jupyter Notebook Server
+
+For a more comprehensive list of the tools, see the [DSVM included tools guide](data-science-virtual-machine/tools-included.md).
+
+> [!IMPORTANT]
+> If you plan to use the DSVM as a compute target, only Ubuntu is supported.
+
+To use the DSVM as a development environment
+
+* Use the Azure Portal to create a [Ubuntu](data-science-virtual-machine/dsvm-ubuntu-intro.md) or [Windows](data-science-virtual-machine/provision-vm.md) DSVM.
+* [Create a DSVM using ARM templates](data-science-virtual-machine/dsvm-tutorial-resource-manager.md).
+
+<!-- 1. Create a DSVM in either of the following environments:
+
+    * The Azure portal:
+
+        * [Create an Ubuntu Data Science Virtual Machine](data-science-virtual-machine/dsvm-ubuntu-intro.md)
+
+        * [Create a Windows Data Science Virtual Machine](data-science-virtual-machine/provision-vm.md)
+
+    * The Azure CLI:
+
+        > [!IMPORTANT]
+        > * When you use the Azure CLI, you must first sign in to your Azure subscription by using the `az login` command.
+        >
+        > * When you use the commands in this step, you must provide a resource group name, a name for the VM, a username, and a password.
+
+        * To create an Ubuntu Data Science Virtual Machine, use the following command:
+
+            ```azurecli-interactive
+            # create a Ubuntu DSVM in your resource group
+            # note you need to be at least a contributor to the resource group in order to execute this command successfully
+            # If you need to create a new resource group use: "az group create --name YOUR-RESOURCE-GROUP-NAME --location YOUR-REGION (For example: westus2)"
+            az vm create --resource-group YOUR-RESOURCE-GROUP-NAME --name YOUR-VM-NAME --image microsoft-dsvm:linux-data-science-vm-ubuntu:linuxdsvmubuntu:latest --admin-username YOUR-USERNAME --admin-password YOUR-PASSWORD --generate-ssh-keys --authentication-type password
+            ```
+
+        * To create a Windows Data Science Virtual Machine, use the following command:
+
+            ```azurecli-interactive
+            # create a Windows Server 2016 DSVM in your resource group
+            # note you need to be at least a contributor to the resource group in order to execute this command successfully
+            az vm create --resource-group YOUR-RESOURCE-GROUP-NAME --name YOUR-VM-NAME --image microsoft-dsvm:dsvm-windows:server-2016:latest --admin-username YOUR-USERNAME --admin-password YOUR-PASSWORD --authentication-type password
+            ```
+
+2. The Azure Machine Learning SDK is already installed on the DSVM. To use the Conda environment that contains the SDK, use one of the following commands:
+
+    * For Ubuntu DSVM:
+
+        ```bash
+        conda activate py36
+        ```
+
+    * For Windows DSVM:
+
+        ```bash
+        conda activate AzureML
+        ```
+
+1. To verify that you can access the SDK and check the version, use the following Python code:
+
+    ```python
+    import azureml.core
+    print(azureml.core.VERSION)
+    ```
+
+1. To configure the DSVM to use your Azure Machine Learning workspace, see the [Create a workspace configuration file](#workspace) section. -->
+
+For more information, see [Data Science Virtual Machines](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/).
+
+## <a name="aml-databricks"></a> Azure Databricks
 Azure Databricks is an  Apache Spark-based environment in the Azure cloud. It provides a collaborative Notebook-based environment with CPU or GPU-based compute cluster.
 
 How Azure Databricks works with Azure Machine Learning:
