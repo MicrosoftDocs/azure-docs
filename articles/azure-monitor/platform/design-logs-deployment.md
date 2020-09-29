@@ -125,13 +125,13 @@ To learn how to change the access control mode in the portal, with PowerShell, o
 
 ## Scale and ingestion volume rate limit
 
-Azure Monitor is a high scale data service that serves thousands of customers sending perabytes of data each month at a growing pace. Workspaces are not limited in their storage space and can grow to petabytes of data. There is no need to split workspaces due to scale.
+Azure Monitor is a high scale data service that serves thousands of customers sending petabytes of data each month at a growing pace. Workspaces are not limited in their storage space and can grow to petabytes of data. There is no need to split workspaces due to scale.
 
 To protect and isolate Azure Monitor customers and its backend infrastructure, there is a default ingestion rate limit that is designed to protect from spikes and floods situations. The rate limit default is about **6 GB/minute** and is designed to enable normal ingestion. For more details on ingestion volume limit measurement, see [Azure Monitor service limits](../service-limits.md#data-ingestion-volume-rate).
 
 Customers that ingest less than 4TB/day will usually not meet these limits. Customers that ingest higher volumes or that have spikes as part of their normal operations shall consider moving to [dedicated clusters](../log-query/logs-dedicated-clusters.md) where the ingestion rate limit could be raised.
 
-When the ingestion rate limit is activated or get to 80% of the threshold, an event is added to the *Operation* table in your workspace. It is recommended to monitor it and create an alert. See more detailes in [data ingestion volume rate](../service-limits.md#data-ingestion-volume-rate).
+When the ingestion rate limit is activated or get to 80% of the threshold, an event is added to the *Operation* table in your workspace. It is recommended to monitor it and create an alert. See more details in [data ingestion volume rate](../service-limits.md#data-ingestion-volume-rate).
 
 
 ## Recommendations
