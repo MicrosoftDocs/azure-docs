@@ -81,7 +81,6 @@ Infrastructure components must be running the required minimum version.
 
    :::image type="content" source="media/tutorial-vmware-hcx/select-ovf-template.png" alt-text="Go to the on-premises vCenter and select an OVF template to deploy to your on-premises vCenter." lightbox="media/tutorial-vmware-hcx/select-ovf-template.png":::
 
-   
 
 1. Select a name and location, a resource/cluster where you are deploying HCX, and then review the details and required resources.  
 
@@ -117,35 +116,24 @@ After deploying the VMware HCX OVA on-premises, you're ready to activate VMware 
    > Make sure to include the `9443` port number with the VMware HCX Manager IP address.
 
 1. In **Licensing**, enter your **HCX Advanced Key**.  
-
-   :::image type="content" source="media/tutorial-vmware-hcx/vmware-hcx-advanced-license-key.png" alt-text="In Licensing, enter your HCX Advanced Key." lightbox="media/tutorial-vmware-hcx/vmware-hcx-advanced-license-key.png":::
    
-    
     > [!NOTE]
     > VMware HCX Manager must have open internet access or a proxy configured.
 
 1. In **Datacenter Location**, provide the nearest location where you install the VMware HCX Manager on-premises.
 
-   :::image type="content" source="media/tutorial-vmware-hcx/datacenter-location.png" alt-text="In Datacenter Location, if needed, edit the datacenter location.":::
-
 1. Modify the **System Name** or accept the default.
-
-   :::image type=" content" source="media/tutorial-vmware-hcx/system-name.png" alt-text="Modify the System Name or accept the default.":::
    
 1. You can either Finish Later or Continue, select the option **Yes, Continue** to continue.
-
     
-1. In **Connect your vCenter**, provide the FQDN or IP address of your vCenter server and the appropriate credentials.
-
-   :::image type="content" source="media/tutorial-vmware-hcx/connect-vcenter.png" alt-text="In Connect your vCenter, provide the FQDN or IP address of your vCenter server and the appropriate credentials.":::
+1. In **Connect your vCenter**, provide the FQDN or IP address of your vCenter server and the appropriate credentials, and then select **Continue**.
    
-1. In **Configure SSO/PSC**, provide the FQDN or IP address of your PSC. Typically it's the same as your vCenter FQDN/IP.
-
-   :::image type="content" source="media/tutorial-vmware-hcx/configure-sso-psc.png" alt-text="Provide the FQDN or IP address of your PSC. Typically, it's the same as your vCenter FQDN/IP.":::
+1. In **Configure SSO/PSC**, provide the FQDN or IP address of your PSC and then select **Continue**.
+   
+   >[!NOTE]
+   >Typically the same as your vCenter FQDN/IP.
 
 1. Verify that all the inputs are correct and select **Restart**.
-
-   :::image type="content" source="media/tutorial-vmware-hcx/verify-and-restart.png" alt-text="Verify that all the inputs are correct and select Restart.":::
     
    > [!NOTE]
    > You'll experience a delay after restarting before being prompted for the next step.
@@ -175,8 +163,6 @@ You can connect (pair) the VMware HCX Manager in Azure VMware Solution with the 
 
 1. Enter the **Remote HCX URL or IP address**, the Azure VMware Solution cloudadmin@vsphere.local username and **password**, and then select **Connect**.
 
-   :::image type="content" source="media/tutorial-vmware-hcx/connect-remote-site-credentials.png" alt-text="Enter the Remote HCX URL or IP address, cloudadmin@vsphere.local username and password, and then select Connect.":::
-
    > [!NOTE]
    > The **Remote HCX URL** is your Azure VMware Solution private cloud HCX Manager, typically the ".9" address of the management network.  For example, if your vCenter is 192.168.4.2, then your HCX URL will be 192.168.4.9.
    >
@@ -184,7 +170,7 @@ You can connect (pair) the VMware HCX Manager in Azure VMware Solution with the 
 
    You see a screen showing your HCX Manager in Azure VMware Solution and your HCX Manager on-premises connected (paired).
 
-   :::image type="content" source="media/tutorial-vmware-hcx/site-pairing-complete.png" alt-text="You should now see a screen showing your HCX Manager in Azure VMware Solution and your HCX Manager on-premises connected (paired)." lightbox="media/tutorial-vmware-hcx/site-pairing-complete.png":::
+   :::image type="content" source="media/tutorial-vmware-hcx/site-pairing-complete.png" alt-text="You should now see a screen showing your HCX Manager in Azure VMware Solution and your HCX Manager on-premises connected (paired).":::
 
 For an end-to-end overview of this step, view the [Azure VMware Solution - VMware HCX site pairing](https://www.youtube.com/embed/sKizDCRHOko) video.
 
@@ -205,11 +191,9 @@ You will create four network profiles:
 
    :::image type="content" source="media/tutorial-vmware-hcx/network-profile-start.png" alt-text="Under Infrastructure, select Interconnect > Multi-Site Service Mesh > Network Profiles > Create Network Profile." lightbox="media/tutorial-vmware-hcx/network-profile-start.png":::
 
-1. For each network profile, select the port group, provide a name, and create the IP pool for that particular segment. 
+1. For each network profile, select the network, port group, provide a name, create the IP pool for that particular segment, and then select **Create**. 
 
-   These are the example configuration screens of each of the network profiles. Additionally, there is a video that shows the creation of all of these network profiles.
-
-   :::image type="content" source="media/tutorial-vmware-hcx/example-configurations-network-profile.png" alt-text="For the new network profile, enter the VMware HCX IX and NE IP address ranges (a minimum of two IP addresses is required for IX and NE appliances)." lightbox="media/tutorial-vmware-hcx/example-configurations-network-profile.png":::
+   :::image type="content" source="media/tutorial-vmware-hcx/example-configurations-network-profile.png" alt-text="For the new network profile, enter the VMware HCX IX and NE IP address ranges (a minimum of two IP addresses is required for IX and NE appliances).":::
 
 For an end-to-end overview of this step, view the [Azure VMware Solution - VMware HCX create network profile](https://www.youtube.com/embed/NhyEcLco4JY) video.
 
@@ -225,8 +209,6 @@ For an end-to-end overview of this step, view the [Azure VMware Solution - VMwar
    :::image type="content" source="media/tutorial-vmware-hcx/name-compute-profile.png" alt-text="Enter a compute profile name and select Continue." lightbox="media/tutorial-vmware-hcx/name-compute-profile.png":::
 
 1. Select the services to enable, such as migration, Network Extension, or Disaster Recovery, and then select **Continue**.
-
-   :::image type="content" source="media/tutorial-vmware-hcx/select-services.png" alt-text="Select the services to enable, such as migration, Network Extension, or Disaster Recovery, and then select Continue." lightbox="media/tutorial-vmware-hcx/select-services.png":::
   
    > [!NOTE]
    > Generally nothing will be changed here.
@@ -274,8 +256,6 @@ For an end-to-end overview of this step, view the [Azure VMware Solution - VMwar
 
 1. Select **Finish** to create the compute profile.
 
-   :::image type="content" source="media/tutorial-vmware-hcx/ready-to-complete.png" alt-text="Select Finish to create the compute profile." lightbox="media/tutorial-vmware-hcx/ready-to-complete.png":::
-
    You see a screen similar to the one shown below.
 
    :::image type="content" source="media/tutorial-vmware-hcx/compute-profile-done.png" alt-text="You should now see a screen very similar to the one shown below." lightbox="media/tutorial-vmware-hcx/compute-profile-done.png":::
@@ -298,9 +278,7 @@ Now it's time to configure Service Mesh between on-premises and Azure VMware Sol
    >[!NOTE]
    >If this is your first service mesh configuration, you won't need to modify this screen.  
 
-   :::image type="content" source="media/tutorial-vmware-hcx/select-sites.png" alt-text="Select paired sites to enable hybrid ability and select Continue." lightbox="media/tutorial-vmware-hcx/select-sites.png":::
-
-1. Select the drop-down for each source and remote compute profiles and then select **Continue**.  
+1. Select the drop-down for the source and remote compute profiles and then select **Continue**.  
 
    The selections define the resources where VMs can consume VMware HCX services.  
 
@@ -310,36 +288,21 @@ Now it's time to configure Service Mesh between on-premises and Azure VMware Sol
 
 1. Review services that will be enabled and then select **Continue**.  
 
-   :::image type="content" source="media/tutorial-vmware-hcx/vmware-hcx-services.png" alt-text="Select services to enable and select Continue." lightbox="media/tutorial-vmware-hcx/vmware-hcx-services.png":::
-
-1. In **Advanced Configuration - Override Uplink Network profiles** select **Continue**.  
-
-   Uplink network profiles connect to the network via which the remote site's interconnect appliances can be reached.  
-
-   :::image type=" content" source="media/tutorial-vmware-hcx/override-uplink-profiles.png" alt-text=" Uplink network profiles are used to connect to the network via which the remote site's interconnect appliances can be reached." lightbox="media/tutorial-vmware-hcx/override-uplink-profiles.png":::
-   
-
+1. In **Advanced Configuration - Override Uplink Network profiles** select **Continue**.  Uplink network profiles connect to the network via which the remote site's interconnect appliances can be reached.  
+  
 1. In **Advanced Configuration - Network Extension Appliance Scale Out**, review and select **Continue**. 
-
-   :::image type="content" source="media/tutorial-vmware-hcx/network-extension-scaleout-workloads.png" alt-text="Select Configure the Network Extension Appliance Scale Out." lightbox="media/tutorial-vmware-hcx/network-extension-scaleout-workloads.png":::
 
 1. In **Advanced Configuration - Traffic Engineering**, review and make any modifications you feel necessary, and then select **Continue**.
 
-   :::image type="content" source="media/tutorial-vmware-hcx/advanced-configuration-traffic-engineering.png" alt-text="Select Continue to skip." lightbox="media/tutorial-vmware-hcx/advanced-configuration-traffic-engineering.png":::
-
 1. Review the topology preview and select **Continue**.
-
-   :::image type="content" source="media/tutorial-vmware-hcx/review-topology.png" alt-text="1. Review the topology preview and select Continue." lightbox="media/tutorial-vmware-hcx/review-topology.png":::
 
 1. Enter a user-friendly name for this service mesh and select **Finish** to complete.  
 
-   :::image type="content" source="media/tutorial-vmware-hcx/finish-service-mesh.png" alt-text="Enter a user-friendly name for this Service Mesh" lightbox="media/tutorial-vmware-hcx/finish-service-mesh.png":::
+1. Select **View Tasks** to monitor the deployment. 
 
-1. Select **Tasks** to monitor the deployment.
+   :::image type="content" source="media/tutorial-vmware-hcx/monitor-service-mess.png" alt-text="Select View Tasks to monitor the deployment.":::
 
-   :::image type="content" source="media/tutorial-vmware-hcx/monitor-service-mesh.png" alt-text="You can now monitor the deployment by choosing Tasks." lightbox="media/tutorial-vmware-hcx/monitor-service-mesh.png":::
-
-   When the service mesh deployment completes successfully, you see a screen similar to this one.
+   When the service mesh deployment completes successfully, you'll see the services as green.
 
    :::image type="content" source="media/tutorial-vmware-hcx/service-mesh-green.png" alt-text="When the Service Mesh deployment is completed successfully, you see a screen similar to this one." lightbox="media/tutorial-vmware-hcx/service-mesh-green.png":::
 
@@ -361,11 +324,11 @@ If you want to extend any networks from your on-premises environment to Azure VM
 
 1. Select each of the networks you want to extend to Azure VMware Solution and then select **Next**.
 
-   :::image type="content" source="media/tutorial-vmware-hcx/select-extend-networks.png" alt-text=" Select each of the networks you want to extend to Azure VMware Solution and then select Next." lightbox="media/tutorial-vmware-hcx/select-extend-networks.png":::
+   :::image type="content" source="media/tutorial-vmware-hcx/select-extend-networks.png" alt-text=" Select each of the networks you want to extend to Azure VMware Solution and then select Next.":::
 
 1. Enter the on-premises gateway IP for each of the networks you're extending, and then select **Submit**. 
 
-   :::image type="content" source="media/tutorial-vmware-hcx/extend-networks-gateway.png" alt-text="Enter the on-premises gateway IP for each of the networks you're extending, and then select Submit." lightbox="media/tutorial-vmware-hcx/extend-networks-gateway.png":::
+   :::image type="content" source="media/tutorial-vmware-hcx/extend-networks-gateway.png" alt-text="Enter the on-premises gateway IP for each of the networks you're extending, and then select Submit.":::
 
    It takes a few minutes for the network extension to complete. When it does, you see the status change to **extension complete**.
 
