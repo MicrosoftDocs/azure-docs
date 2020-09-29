@@ -80,19 +80,19 @@ This role allows the user to view all devices at single glance, with the ability
  
 ---
 
-### Advanced Query Capabilities for Directory Objects
+### Advanced query capabilities for Directory Objects
 
 **Type:** New feature  
 **Service category:** MS Graph  
 **Product capability:** Developer Experience
  
-All the new query capabilities introduced for Directory Objects (AAD) APIs are now available in the v1.0 endpoint and production-ready. Developers can Count, Search, Filter, and Sort Directory Objects and related links using the standard OData operators.
+All the new query capabilities introduced for Directory Objects in Azure AD APIs are now available in the v1.0 endpoint and production-ready. Developers can Count, Search, Filter, and Sort Directory Objects and related links using the standard OData operators.
 
 To learn more, see the documentation [here](https://aka.ms/BlogPostMezzoGA), and you can also send feedback with this [brief survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR_yN8EPoGo5OpR1hgmCp1XxUMENJRkNQTk5RQkpWTE44NEk2U0RIV0VZRy4u).
  
 ---
 
-### Public Preview: Continuous access evaluation for tenants who configured Conditional Access policies
+### Public preview: continuous access evaluation for tenants who configured Conditional Access policies
 
 **Type:** New feature  
 **Service category:** Authentications (Logins)  
@@ -156,7 +156,7 @@ For listing your application in the Azure AD app gallery, read the details here:
 
 ---
 
-### New delegation role in Azure AD Entitlement Management: Access package assignment manager
+### New delegation role in Azure AD entitlement management: Access package assignment manager
 
 **Type:** New feature  
 **Service category:** User Access Management  
