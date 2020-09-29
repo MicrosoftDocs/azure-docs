@@ -173,16 +173,19 @@ print(notebook_run.get_status())
 
 To view the number of active runs for your experiment in the studio.
 
-1. Navigate to the **Experiments** section.. 
+1. Navigate to the **Experiments** section.
 
 1. Select an experiment.
 
     In the experiment page, you can see the number of active compute targets and the duration for each run. 
 
+1. Make customizations to the Experiment by selecting runs to compare, adding charts or applying filters. These changes can be saved as a **Custom View** so you can easily return to your work. Users with workspace permissions can edit or view the custom view. Also, share the custom view with others by copying and pasting the URL in the browser.  
+
+  :::image type="content" source="media/how-to-manage-runs/custom-views.gif" alt-text="Screenshot: create a custom view":::
+
 1. Select a specific run number.
 
 1. In the **Logs** tab, you can find diagnostic and error logs for your pipeline run.
-
 
 ## Cancel or fail runs
 
