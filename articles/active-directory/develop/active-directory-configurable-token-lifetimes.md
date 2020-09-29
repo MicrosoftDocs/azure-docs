@@ -143,7 +143,7 @@ All timespans used here are formatted according to the C# [TimeSpan](/dotnet/api
 
 **Summary:** This policy controls how long access and ID tokens for this resource are considered valid. Reducing the Access Token Lifetime property mitigates the risk of an access token or ID token being used by a malicious actor for an extended period of time. (These tokens cannot be revoked.) The trade-off is that performance is adversely affected, because the tokens have to be replaced more often.
 
-For an example, see [Create a policy for web sign-in](#create-a-policy-for-web-sign-in).
+For an example, see [Create a policy for web sign-in](configure-token-lifetimes.md#create-a-policy-for-web-sign-in).
 
 ### Refresh Token Max Inactive Time
 **String:** MaxInactiveTime
@@ -156,7 +156,7 @@ This policy forces users who have not been active on their client to reauthentic
 
 The Refresh Token Max Inactive Time property must be set to a lower value than the Single-Factor Token Max Age and the Multi-Factor Refresh Token Max Age properties.
 
-For an example, see [Create a policy for a native app that calls a web API](#create-a-policy-for-a-native-app-that-calls-a-web-api).
+For an example, see [Create a policy for a native app that calls a web API](configure-token-lifetimes.md#create-a-policy-for-a-native-app-that-calls-a-web-api).
 
 ### Single-Factor Refresh Token Max Age
 **String:** MaxAgeSingleFactor
@@ -167,7 +167,7 @@ For an example, see [Create a policy for a native app that calls a web API](#cre
 
 Reducing the max age forces users to authenticate more often. Because single-factor authentication is considered less secure than multi-factor authentication, we recommend that you set this property to a value that is equal to or lesser than the Multi-Factor Refresh Token Max Age property.
 
-For an example, see [Create a policy for a native app that calls a web API](#create-a-policy-for-a-native-app-that-calls-a-web-api).
+For an example, see [Create a policy for a native app that calls a web API](configure-token-lifetimes.md#create-a-policy-for-a-native-app-that-calls-a-web-api).
 
 ### Multi-Factor Refresh Token Max Age
 **String:** MaxAgeMultiFactor
@@ -178,7 +178,7 @@ For an example, see [Create a policy for a native app that calls a web API](#cre
 
 Reducing the max age forces users to authenticate more often. Because single-factor authentication is considered less secure than multi-factor authentication, we recommend that you set this property to a value that is equal to or greater than the Single-Factor Refresh Token Max Age property.
 
-For an example, see [Create a policy for a native app that calls a web API](#create-a-policy-for-a-native-app-that-calls-a-web-api).
+For an example, see [Create a policy for a native app that calls a web API](configure-token-lifetimes.md#create-a-policy-for-a-native-app-that-calls-a-web-api).
 
 ### Single-Factor Session Token Max Age
 **String:** MaxAgeSessionSingleFactor
@@ -189,7 +189,7 @@ For an example, see [Create a policy for a native app that calls a web API](#cre
 
 Reducing the max age forces users to authenticate more often. Because single-factor authentication is considered less secure than multi-factor authentication, we recommend that you set this property to a value that is equal to or less than the Multi-Factor Session Token Max Age property.
 
-For an example, see [Create a policy for web sign-in](#create-a-policy-for-web-sign-in).
+For an example, see [Create a policy for web sign-in](configure-token-lifetimes.md#create-a-policy-for-web-sign-in).
 
 ### Multi-Factor Session Token Max Age
 **String:** MaxAgeSessionMultiFactor
