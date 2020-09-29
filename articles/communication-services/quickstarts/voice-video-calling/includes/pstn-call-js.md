@@ -5,6 +5,7 @@ ms.topic: include
 ms.date: 9/11/2020
 ms.author: nikuklic
 ---
+[!INCLUDE [Emergency Calling Notice](../../../includes/emergency-calling-notice-include.md)]
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
