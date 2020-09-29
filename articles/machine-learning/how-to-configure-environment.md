@@ -58,9 +58,9 @@ Create a workspace configuration file in one of the following methods:
 
 * Azure Portal
 
-    **Download the file**: In the [Azure portal](https://ms.portal.azure.com), select  **Download config.json** from the **Overview** section of your workspace.
+    **Download the file**: In the [Azure Portal](https://ms.portal.azure.com), select  **Download config.json** from the **Overview** section of your workspace.
 
-    ![Azure portal](./media/how-to-configure-environment/configure.png)
+    ![Azure Portal](./media/how-to-configure-environment/configure.png)
 
 * Azure Machine Learning Python SDK
 
@@ -98,7 +98,7 @@ To install the SDK environment for your [local computer](#local), [Jupyter Noteb
 
 To configure a local development environment (which might also be a remote virtual machine):
 
-1. Create a Python virtual environment (virtualenv,conda).
+1. Create a Python virtual environment (virtualenv, conda).
 
     > [!NOTE]
     > Although not required, it's recommended you use [Anaconda](https://www.anaconda.com/download/) or [Miniconda](https://www.anaconda.com/download/) to manage Python virtual environments and install packages.
@@ -113,7 +113,7 @@ Now that you have your local environment set up, you can interact with Azure Mac
 
     When running a local Jupyter notebook server, it's recommended that you create an IPython kernel for your Python virtual environment. This helps ensure the expected kernel and package import behavior.
 
-    1. Enable environment specific IPython kernels
+    1. Enable environment-specific IPython kernels
 
         ```bash
         conda install notebook ipykernel
@@ -279,9 +279,9 @@ To learn more about compute instances, including how to install packages, see [c
 > [!TIP]
 > To prevent incurring charges for an unused compute instance, [stop the compute instance](tutorial-1st-experiment-bring-data.md#clean-up-resources).
 
-In addition to a Jupyter notebook server and JupyterLab, you can use compute instances to power the [integrated notebook inside of Azure Machine Learning studio](tutorial-1st-experiment-sdk-setup.md#azure).
+In addition to a Jupyter notebook server and JupyterLab, you can use compute instances in the [integrated notebook feature inside of Azure Machine Learning studio](how-to-run-jupyter-notebooks.md).
 
-You can also use the Azure Machine Learning Visual Studio Code extension to connect to an.
+You can also use the Azure Machine Learning Visual Studio Code extension to [use an Azure Machine Learning compute instance as a remote Jupyter notebook server](how-to-set-up-vs-code-remote.md#configure-compute-instance-as-remote-notebook-server).
 
 ## <a id="dsvm"></a>Data Science Virtual Machine
 
@@ -301,7 +301,7 @@ For a more comprehensive list of the tools, see the [DSVM included tools guide](
 To use the DSVM as a development environment
 
 1. Create a DSVM using one of the following methods:
-    * Use the Azure Portal to create a [Ubuntu](data-science-virtual-machine/dsvm-ubuntu-intro.md) or [Windows](data-science-virtual-machine/provision-vm.md) DSVM.
+    * Use the Azure Portal to create an [Ubuntu](data-science-virtual-machine/dsvm-ubuntu-intro.md) or [Windows](data-science-virtual-machine/provision-vm.md) DSVM.
     * [Create a DSVM using ARM templates](data-science-virtual-machine/dsvm-tutorial-resource-manager.md).
 1. Activate the conda environment containing the Azure Machine Learning SDK.
 
