@@ -64,6 +64,9 @@ MachineType | String | The Azure VM Size
 SubnetId | String | Subnet definition in the form `${rg}/${vnet}/${subnet}`
 Credentials | String | Name of the Cloud Provider account.
 
+The fourth required attribute is related to an image. An image attribute is required
+but there are several forms it can take - see Image Attributes.
+
 ## Additional Attributes
 
 ::: moniker range="=cyclecloud-7"
@@ -73,6 +76,7 @@ ComputerName | String | Computer name for VM. If specified, overrides the system
 ComputerNamePrefix | String | Prefix pre-pended to system-generated computer names
 Zone | String (list) | Availability Zone for VM or VMSS. Can be a list for VMSS. E.g. `Zone = 1,3`
 KeyPairLocation | Integer | Where CycleCloud will find a SSH keypair on the local filesystem
+KeepAlive | Boolean | If true, CycleCloud will prevent the termination of this node
 ::: moniker-end
 
 ::: moniker range=">=cyclecloud-8"
@@ -83,6 +87,7 @@ ComputerNamePrefix | String | Prefix pre-pended to system-generated computer nam
 EphemeralOSDisk | boolean | Use ephemeral boot disk for VM, if supported
 Zone | String (list) | Availability Zone for VM or VMSS. Can be a list for VMSS. E.g. `Zone = 1,3`
 KeyPairLocation | Integer | Where CycleCloud will find a SSH keypair on the local filesystem
+KeepAlive | Boolean | If true, CycleCloud will prevent the termination of this node
 ::: moniker-end
 
 ### Image Attributes
