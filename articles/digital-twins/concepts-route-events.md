@@ -56,7 +56,7 @@ To define an event route, developers first must define endpoints. An **endpoint*
 * Event Hub
 * Service Bus
 
-To create an endpoint, use the Azure Digital Twins [**control plane APIs**](how-to-use-apis-sdks.md#overview-control-plane-apis) ([instructions](how-to-manage-routes-apis-cli.md#create-an-endpoint-for-azure-digital-twins)), [**CLI commands**](how-to-use-cli.md) ([instructions](how-to-manage-routes-apis-cli.md#manage-endpoints-and-routes-with-cli)) or the [**Azure portal**](https://portal.azure.com) ([instructions](how-to-manage-routes-portal.md#create-an-endpoint-for-azure-digital-twins)). 
+To create an endpoint, you can use the instructions available for the Azure Digital Twins [**control plane APIs**](how-to-manage-routes-apis-cli.md#create-an-endpoint-for-azure-digital-twins), [**CLI commands**](how-to-manage-routes-apis-cli.md#manage-endpoints-and-routes-with-cli), or the [**Azure portal**](how-to-manage-routes-portal.md#create-an-endpoint-for-azure-digital-twins). 
 
 When defining an endpoint, you'll need to provide:
 * The endpoint's name
@@ -72,7 +72,7 @@ The endpoint APIs that are available in control plane are:
 
 ## Create an event route
  
-To create an event route, use the Azure Digital Twins [**data plane APIs**](how-to-use-apis-sdks.md#overview-data-plane-apis) ([instructions](how-to-manage-routes-apis-cli.md#create-an-event-route)), [**CLI commands**](how-to-use-cli.md) ([instructions](how-to-manage-routes-apis-cli.md#manage-endpoints-and-routes-with-cli)) or the [**Azure portal**](https://portal.azure.com) ([instructions](how-to-manage-routes-portal.md#create-an-event-route)). 
+To create an event route, you can use the instructions available for the Azure Digital Twins [**data plane APIs**](how-to-manage-routes-apis-cli.md#create-an-event-route), [**CLI commands**](how-to-manage-routes-apis-cli.md#manage-endpoints-and-routes-with-cli), or the [**Azure portal**](how-to-manage-routes-portal.md#create-an-event-route). 
 
 Here is an example of creating an event route within a client application, using the `CreateEventRoute` [.NET (C#) SDK](how-to-use-apis-sdks.md) call: 
 
