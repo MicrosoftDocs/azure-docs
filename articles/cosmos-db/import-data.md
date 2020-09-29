@@ -592,7 +592,7 @@ In the Advanced configuration screen, specify the location of the log file to wh
 
     :::image type="content" source="./media/import-data/summary.png" alt-text="Screenshot of summary screen.":::
 
-    :::image type="content" source="./media/import-data/summarycommand.png" alt-text="'Screenshot of summary screen with Command Line Preview.":::
+    :::image type="content" source="./media/import-data/summarycommand.png" alt-text="Screenshot of summary screen with Command Line Preview.":::
 
 2. Once you’re satisfied with your source and target options, click **Import**. The elapsed time, transferred count, and failure information (if you didn't provide a file name in the Advanced configuration) update as the import is in process. Once complete, you can export the results (for example, to deal with any import failures).
 
