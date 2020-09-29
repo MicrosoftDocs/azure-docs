@@ -79,7 +79,7 @@ Try Azure Cosmos DB subscriptions appear in the Azure portal next other subscrip
 
 The following conditions apply to Try Azure Cosmos DB subscriptions:
 
-* Account access can be granted to personal Microsoft accounts (MSA). Avoid using Active Directory (AAD) accounts or accounts belonging to corporate AAD Tenants, they might have limitations in place that could block access granting.
+* Account access can be granted to personal Microsoft accounts (MSA). Avoid using Azure Active Directory (Azure AD) accounts or accounts belonging to corporate Azure AD Tenants, they might have limitations in place that could block access granting.
 * One [throughput provisioned container](./set-throughput.md#set-throughput-on-a-container) per subscription for SQL, Gremlin API, and Table accounts.
 * Up to three [throughput provisioned collections](./set-throughput.md#set-throughput-on-a-container) per subscription for MongoDB accounts.
 * One [throughput provisioned database](./set-throughput.md#set-throughput-on-a-database) per subscription. Throughput provisioned databases can contain any number of containers inside.
