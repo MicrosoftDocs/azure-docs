@@ -11,6 +11,8 @@ ms.custom: devx-track-java
 
 # Understand app and deployment in Azure Spring Cloud
 
+**This article applies to:** ✔️ Java ✔️ C#
+
 **App** and **Deployment** are the two key concepts in the resource model of Azure Spring Cloud. In Azure Spring Cloud, an *App* is an abstraction of one business app or one microservice.  One version of code or binary deployed as the *App* runs in a *Deployment*.  Apps run in an *Azure Spring Cloud Service Instance*, or simply *service instance*, as shown next.
 
  ![Apps and Deployments](./media/spring-cloud-app-and-deployment/app-deployment-rev.png)
@@ -22,11 +24,11 @@ Azure Spring Cloud standard tier allows one App to have one production deploymen
 ## App
 The following features/properties are defined on App level.
 
-| Enum | Definition |
+| Features | Description |
 |:--|:----------------|
 | Public</br>Endpoint | The URL to access the app |
 | Custom</br>Domain | CNAME record that secures the custom domain |
-| Service</br>Binding | Binding configuration properties set in the function.json file and the *ServiceBusTrigger* attribute |
+| Service</br>Binding | Out of box connection with other Azure services |
 | Managed</br>Identity | Managed identity by Azure Active Directory allows your app to easily access other Azure AD-protected resources such as Azure Key Vault |
 | Persistent</br>Storage | Setting that enables data to persist beyond app restart |
 
@@ -34,14 +36,14 @@ The following features/properties are defined on App level.
 
 The following features/properties are defined on Deployment level, and will be exchanged when swapping production/staging deployment.
 
-| Enum | Definition |
+| Features | Description |
 |:--|:----------------|
 | CPU | Number of vcores per App instance |
-| Memory | Setting that allocates memory to scale up or scale out deployments |
+| Memory | Gb of memory per App instance|
 | Instance</br>Count | The number of app instances, set manually or automatically |
 | Auto-Scale | Scale instance count automatically based on predefined rules and schedules |
-| JVM</br>Options | setting: JAVA_OPTS |
-| Environment</br>Variables | Settings that apply to the entire Azure Spring Cloud environment |
+| JVM</br>Options | Setting JVM options  |
+| Environment</br>Variables | Setting environment variables |
 | Runtime</br>Version | Java 8/Java 11|
 
 ## Restrictions

@@ -6,10 +6,10 @@ ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: azure-synapse, sqldbrb=1
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: how-to
 author: GithubMirek
 ms.author: mireks
-ms.reviewer: vanto, carlrab
+ms.reviewer: vanto, sstein
 ms.date: 04/23/2020
 ---
 
@@ -163,7 +163,7 @@ The following authentication methods are supported for Azure AD server principal
 - For an overview of logins, users, database roles, and permissions in SQL Database, see [Logins, users, database roles, and permissions](logins-create-manage.md).
 - For more information about database principals, see [Principals](https://msdn.microsoft.com/library/ms181127.aspx).
 - For more information about database roles, see [Database roles](https://msdn.microsoft.com/library/ms189121.aspx).
-- For syntax on creating Azure AD server principals (logins) for SQL Managed Instance, see  [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
+- For syntax on creating Azure AD server principals (logins) for SQL Managed Instance, see  [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true).
 - For more information about firewall rules in SQL Database, see [SQL Database firewall rules](firewall-configure.md).
 
 <!--Image references-->

@@ -1,6 +1,6 @@
 ---
 title: Create a new VM image version from an existing image version using Azure Image Builder (preview)
-description: Create a new VM image version from an existing image version using Azure Image Builder.
+description: Create a new VM image version from an existing image version using Azure Image Builder in Linux.
 author: cynthn
 ms.author: cynthn
 ms.date: 05/05/2020

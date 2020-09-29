@@ -148,7 +148,7 @@ The following procedure creates a Power Automate flow that:
 1. Select the **Generate Answer** action box, and fill in your QnA Maker settings from a previous section titled [Create and publish a knowledge base](#create-and-publish-a-knowledge-base). Your **Service Host** in the following image refers to your knowledge base host **Host** and is in the format of `https://YOUR-RESOURCE-NAME.azurewebsites.net/qnamaker`.
 
 
-    :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-virtual-agent-fill-in-generate-answer-settings.png" alt-text="Partial Screenshot of QnA Maker template flow with Continue button highlighted.":::
+    :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-virtual-agent-fill-in-generate-answer-settings.png" alt-text="Partial Screenshot of QnA Maker template flow with Generate answer (Preview) highlighted.":::
 
 1. Select **Save** to save the flow.
 
@@ -195,10 +195,10 @@ For the agent to find and connect to the flow, the flow must be included in a Po
 
 1. From the context toolbar, select **Save**, to save the authoring canvas details for the topic.
 
-Here's what the final agent canvas.
+Here's what the final agent canvas looks like.
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot of final agent canvas](../media/how-to-integrate-power-virtual-agent/power-virtual-agent-topic-authoring-canvas-full-flow.png)
+> ![Screenshot shows the final agent canvas with Trigger Phrases, Action, and then Message sections.](../media/how-to-integrate-power-virtual-agent/power-virtual-agent-topic-authoring-canvas-full-flow.png)
 
 ## Test the agent
 

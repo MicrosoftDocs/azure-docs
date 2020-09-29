@@ -75,4 +75,4 @@ If the value of the **keySource** property is `Microsoft.Storage`, then the acco
 ## Next steps
 
 - [Azure Storage encryption for data at rest](storage-service-encryption.md)
-- [Use customer-managed keys with Azure Key Vault to manage Azure Storage encryption](encryption-customer-managed-keys.md)
+- [Customer-managed keys for Azure Storage encryption](customer-managed-keys-overview.md)

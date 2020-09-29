@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer:
 ms.date: 01/14/2019
 ---
 # Tutorial: Set up SQL Data Sync between databases in Azure SQL Database and SQL Server
