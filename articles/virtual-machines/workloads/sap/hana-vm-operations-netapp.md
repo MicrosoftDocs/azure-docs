@@ -14,7 +14,7 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/19/2020
+ms.date: 09/28/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -119,10 +119,10 @@ Documentation on how to deploy an SAP HANA scale-out configuration with standby 
 ANF system updates and upgrades are applied without impacting the customer environment. The defined [SLA is 99.99%](https://azure.microsoft.com/support/legal/sla/netapp/).
 
 
-## Volumes and IP addresses and Capacity pools
+## Volumes and IP addresses and capacity pools
 With ANF, it is important to understand how the underlying infrastructure is built. A capacity pool is only a structure, which makes it simpler to create a billing model for ANF. A capacity pool has no physical relationship to the underlying infrastructure. If you create a capacity pool only a shell is created which can be charged, not more. When you create a volume, the first SVM (Storage Virtual Machine) is created on a cluster of several NetApp systems. A single IP is created for this SVM to access the volume. If you create several volumes, all the volumes are distributed in this SVM over this multi-controller NetApp cluster. Even if you get only one IP the data is distributed over several controllers. ANF has a logic that automatically distributes customer workloads once the volumes or/and capacity of the configured storage reaches an internal pre-defined level. You might notice such cases because a new IP address gets assigned to access the volumes.
 
-##Log Volume and Log Backup Volume
+##Log volume and log backup volume
 The “log volume” (**/hana/log**) is used to write the online redo log. Thus, there are open files located in this volume and it makes no sense to snapshot this volume. Online redo logfiles are archived or backed up to the log backup volume once the online redo log file is full or a redo log backup is executed. To provide reasonable backup performance, the log backup volume requires a good throughput. To optimize storage costs, it can make sense to consolidate the log-backup-volume of multiple HANA instances. So that multiple HANA instances leverage the same volume and write their backups into different directories. Using such a consolidation, you can get more throughput with since you need to make the volume a bit larger. 
 
 The same applies for the volume you use write full HANA database backups to.  
@@ -150,19 +150,19 @@ Creating storage-based snapshot backups is a simple four-step procedure,
 BACKUP DATA FOR FULL SYSTEM CREATE SNAPSHOT COMMENT 'SNAPSHOT-2019-03-18:11:00';
 ```
 
-![ANF snapshot backup for SAP HANA](media/hana-vm-operations-anf/storage-snapshot-backup1.PNG)
+![ANF snapshot backup for SAP HANA](media/hana-vm-operations-netapp/storage-snapshot-scenario.png)
 
 ```
-snap create volume SNAPSHOT-2019-03-18:11:00 
+az netappfiles snapshot create -g mygroup --account-name myaccname --pool-name mypoolname --volume-name myvolname --name mysnapname 
 ```
 
-![ANF snapshot backup for SAP HANA part2](media/hana-vm-operations-anf/storage-snapshot-backup2.PNG)
+![ANF snapshot backup for SAP HANA part2](media/hana-vm-operations-netapp/storage-snapshot.png)
 
 ```
 BACKUP DATA FOR FULL SYSTEM CLOSE SNAPSHOT BACKUP_ID 47110815 SUCCESSFUL SNAPSHOT-2020-08-18:11:00';
 ```
 
-This Snapshot backup procedure can be managed in a variety of ways, using various tools. One example is the python script “ntaphana_azure.py” available on GitHub [https://github.com/netapp/ntaphana](https://github.com/netapp/ntaphana)
+This snapshot backup procedure can be managed in a variety of ways, using various tools. One example is the python script “ntaphana_azure.py” available on GitHub [https://github.com/netapp/ntaphana](https://github.com/netapp/ntaphana)
 This is sample code, provided “as-is” without any maintenance or support.
 
 
@@ -174,7 +174,7 @@ This is sample code, provided “as-is” without any maintenance or support.
 For users of Commvault backup products, a second option is Commvault IntelliSnap V.11.21 and later. This or later versions of Commvault offer Azure NetApp Files Support. The article [Commvault IntelliSnap 11.21](https://documentation.commvault.com/11.21/essential/116350_getting_started_with_backup_and_restore_operations_for_azure_netapp_file_services_smb_shares_and_nfs_shares.html) provides more information.
 
 
-### Back up the snapshot using Azure Blob storage
+### Back up the snapshot using Azure blob storage
 Back up to Azure blob storage is a cost effective and fast method to save ANF-based HANA database storage snapshot backups. To save the snapshots to Azure Blob storage, the azcopy tool is preferred. Download the latest version of this tool and install it, for example, in the bin directory where the python script from GitHub is installed.
 Download the latest azcopy tool:
 
@@ -191,7 +191,7 @@ For example, if a daily snapshot should be synchronized to the Azure blob contai
 root # > azcopy sync '/hana/data/SID/mnt00001/.snapshot' 'https://azacsnaptmytestblob01.blob.core.windows.net/abc?sv=2021-02-02&ss=bfqt&srt=sco&sp=rwdlacup&se=2021-02-04T08:25:26Z&st=2021-02-04T00:25:26Z&spr=https&sig=abcdefghijklmnopqrstuvwxyz' --recursive=true --delete-destination=true
 ```
 
-## Next Steps
+## Next steps
 Read the article:
 
 - [SAP HANA high availability for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-overview)
