@@ -39,7 +39,7 @@ To find your app's configuration page, open the [Azure portal](https://portal.az
 
 You can also search for "app service", then select **App Services** under **Services**. On the following page, select the name of your web app.
 
-Once you reach your app's **Overview** page, scroll down the left side menu to find the **Settings** group, then select **Configuration** to open the configuration page:
+Once you reach your app's **Overview** page, scroll the left side menu to find the **Settings** group, then select **Configuration** to open the configuration page:
 
 ![Opening the app's configuration page on the Azure portal](media/configure-language-python/portal-app-settings-configuration.png)
 ::: zone-end
@@ -71,11 +71,11 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 ::: zone pivot="portal"
 On the app's configuration page, select **General settings**.
 
-The supported Python versions are bounded by those shown in the **Major version** and **Minor version** controls:
+The supported Python versions are visible in the **Major version** and **Minor version** controls:
 
 ![Python versions shown on the Azure portal](media/configure-language-python/portal-python-versions.png)
 
-By selecting a major version you can then see what minor versions are supported.
+When you select a major version, you can then see what minor versions are supported.
 
 To change the version of Python used for your app, select the desired major and minor versions, then select **Save** at the top of the page.
 ::: zone-end
