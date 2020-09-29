@@ -119,7 +119,7 @@ Before running all cells in the notebook, check if the compute instance is runni
 1. Go to **Data** -> **Workspace**. Open the SQL scoring wizard by right-clicking the SQL Pool table. Select **Machine Learning** -> **Enrich with existing model**.
 
    > [!NOTE]
-   > The Machine learning option does not appear unless you have a linked service created for Azure Machine Learning (see **Prerequisites** at the beginning of this tutorial).
+   > The machine learning option does not appear unless you have a linked service created for Azure Machine Learning (see **Prerequisites** at the beginning of this tutorial).
 
    ![Machine Learning option](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-00c.png)
 
