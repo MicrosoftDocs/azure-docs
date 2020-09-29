@@ -5,7 +5,7 @@ author: yegu-ms
 
 ms.service: cache
 ms.topic: quickstart
-ms.date: 06/18/2018
+ms.date: 09/29/2020
 ms.author: yegu
 ms.custom: "devx-track-csharp, mvc"
 
@@ -18,7 +18,7 @@ In this quickstart, you use Visual Studio 2019 to create an ASP.NET web applicat
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- Azure subscription - [create one for free](https://azure.microsoft.com/free/dotnet)
 - [Visual Studio 2019](https://www.visualstudio.com/downloads/) with the **ASP.NET and web development** and **Azure development** workloads.
 
 ## Create the Visual Studio project
