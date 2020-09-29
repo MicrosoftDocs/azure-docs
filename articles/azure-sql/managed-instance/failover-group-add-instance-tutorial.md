@@ -737,7 +737,7 @@ For two managed instances to participate in a failover group, there must be eith
 This article provides steps to create the two VPN gateways and connect them, but you can skip ahead to creating the failover group if you have configured ExpressRoute instead. 
 
 > [!NOTE]
-> The SKU of the gateway affects throughput performance. This tutorial deploys a gateway with the most basic SKU (`HwGw1`). Deploy a higher SKU (example: `VpnGw3`) to achieve higher throughput. 
+> The SKU of the gateway affects throughput performance. This tutorial deploys a gateway with the most basic SKU (`HwGw1`). Deploy a higher SKU (example: `VpnGw3`) to achieve higher throughput. For all available options, see [Gateway SKUs](../../vpn-gateway/vpn-gateway-about-vpngateways.md#benchmark)
 
 # [Portal](#tab/azure-portal)
 

@@ -358,7 +358,7 @@ Consider the following prerequisites:
 If you have not configured [ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md), you can create the primary virtual network gateway with the Azure portal, or PowerShell.
 
 > [!NOTE]
-> The SKU of the gateway affects throughput performance. This article deploys a gateway with the most basic SKU (`HwGw1`). Deploy a higher SKU (example: `VpnGw3`) to achieve higher throughput. 
+> The SKU of the gateway affects throughput performance. This article deploys a gateway with the most basic SKU (`HwGw1`). Deploy a higher SKU (example: `VpnGw3`) to achieve higher throughput. For all available options, see [Gateway SKUs](../../vpn-gateway/vpn-gateway-about-vpngateways.md#benchmark) 
 
 # [Portal](#tab/azure-portal)
 
