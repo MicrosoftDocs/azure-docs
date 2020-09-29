@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Application management documentation
-summary: Azure Active Directory provides secure and seamless access to cloud and on-premises applications. Plus, there's no need to manage passwords. Your end users can sign in once to access Microsoft 365 and thousands of other applications. Learn how to manage and deploy apps that use Azure AD as an identity provider.
+summary: Azure Active Directory is an Identity and Access Management (IAM) system. It provides a single place to store information about digital identities. You can configure your software applications to use Azure AD as the place where user information is stored.
 
 metadata: 
    title: Application management documentation
-   description: Azure Active Directory provides secure and seamless access to cloud and on-premises applications. Plus, there's no need to manage passwords. Your end users can sign in once to access Microsoft 365 and thousands of other applications. Learn how to manage and deploy apps that use Azure AD as an identity provider.
+   description: Azure AD is an Identity and Access Management (IAM) system. It provides a single place to store information about digital identities. You can configure your software applications to use Azure AD as the place where user information is stored.
    ms.service: active-directory
    ms.subservice: app-mgmt
    ms.workload: identity
