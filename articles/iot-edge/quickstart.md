@@ -18,12 +18,10 @@ Try out Azure IoT Edge in this quickstart by deploying containerized code to a v
 
 In this quickstart you learn how to:
 
-> [!div class="checklist"]
->
-> * Create an IoT hub.
-> * Register an IoT Edge device to your IoT hub.
-> * Install and start the IoT Edge runtime on your virtual device.
-> * Remotely deploy a module to an IoT Edge device and send telemetry to IoT Hub.
+* Create an IoT hub.
+* Register an IoT Edge device to your IoT hub.
+* Install and start the IoT Edge runtime on your virtual device.
+* Remotely deploy a module to an IoT Edge device and send telemetry to IoT Hub.
 
 ![Diagram - Quickstart architecture for device and cloud](./media/quickstart/install-edge-full.png)
 

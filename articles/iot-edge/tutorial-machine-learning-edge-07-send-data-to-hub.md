@@ -227,11 +227,14 @@ If you plan to explore the resources used by this end-to-end tutorial, wait unti
 
 1. If you created certificates locally, delete the folder c:\\edgeCertificates.
 
-## Next steps
-
 In this article, we used our development VM to simulate a leaf device sending sensor and operational data to our IoT Edge device. We validated that the modules on the device routed, classified, persisted, and uploaded the data by examining the real-time operation of the edge device and by looking at the files uploaded to the storage account.
+
+## Next steps
 
 More information can be found at the following pages:
 
-* [Connect a downstream device to an Azure IoT Edge gateway](how-to-connect-downstream-device.md)
-* [Store data at the edge with Azure Blob Storage on IoT Edge (preview)](how-to-store-data-blob.md)
+> [!div class="nextstepaction"]
+> [Connect a downstream device to an Azure IoT Edge gateway](how-to-connect-downstream-device.md)
+
+> [!div class="nextstepaction"]
+> [Store data at the edge with Azure Blob Storage on IoT Edge (preview)](how-to-store-data-blob.md)
