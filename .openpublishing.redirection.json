@@ -42979,12 +42979,12 @@
     },
     {
       "source_path": "articles/storage/common/storage-enable-and-view-metrics.md",
-      "redirect_url": "/azure/storage/common/monitor-storage",
+      "redirect_url": "/azure/storage/blobs/monitor-blob-storage",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/storage/common/storage-metrics-in-azure-monitor.md",
-      "redirect_url": "/azure/storage/common/monitor-storage",
+      "redirect_url": "/azure/storage/blobs/monitor-blob-storage",
       "redirect_document_id": false
     },
     {
