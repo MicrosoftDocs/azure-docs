@@ -4,11 +4,13 @@
   items:
   - name: About Azure Cache for Redis
     href: cache-overview.md
+  - name: What's new
+    href: cache-whats-new.md
 - name: Quickstarts
   expanded: true
   items:
   - name: Create a cache
-    items:
+    items: 
     - name: Basic, Standard and Premium tiers
       href: quickstart-create-redis.md
     - name: Enterprise tiers

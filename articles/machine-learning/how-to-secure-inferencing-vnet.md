@@ -6,12 +6,11 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-
 ms.reviewer: larryfr
-ms.author: aashishb
-author: aashishb
+ms.author: peterlu
+author: peterclu
 ms.date: 09/24/2020
-ms.custom: contperfq4, tracking-python
+ms.custom: contperfq4, tracking-python, contperfq1
 
 ---
 

@@ -1522,6 +1522,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/machine-learning/how-to-train-ml-models.md",
+      "redirect_url": "/azure/machine-learning/how-to-set-up-training-targets",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/open-datasets/tutorial-opendatasets-automl.md",
       "redirect_url": "/azure/machine-learning/tutorial-auto-train-models",
       "redirect_document_id": false
@@ -20785,6 +20790,11 @@
     {
       "source_path": "articles/load-balancer/load-balancer-get-started-internet-classic-portal.md",
       "redirect_url": "/azure/load-balancer/load-balancer-get-started-internet-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/load-balancer/load-balancer-security-controls.md",
+      "redirect_url": "/azure/load-balancer/security-baseline",
       "redirect_document_id": false
     },
     {
