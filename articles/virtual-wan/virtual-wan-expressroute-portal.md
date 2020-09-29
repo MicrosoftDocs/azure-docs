@@ -35,7 +35,7 @@ Verify that you have met the following criteria before beginning your configurat
 
 * Obtain an IP address range for your hub region. The hub is a virtual network that is created and used by Virtual WAN. The address range that you specify for the hub cannot overlap with any of your existing virtual networks that you connect to. It also cannot overlap with your address ranges that you connect to on premises. If you are unfamiliar with the IP address ranges located in your on-premises network configuration, coordinate with someone who can provide those details for you.
 
-* The ExpressRoute circuit must be a Premium circuit in order to connect to the hub gateway.
+* You have a ExpressRoute circuit that is in Standard or Premium SKU in order to connect to the hub gateway.
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
