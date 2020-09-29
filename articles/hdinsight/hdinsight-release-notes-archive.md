@@ -68,7 +68,7 @@ No component version change for this release. You can find the current component
 
 ### Known issues
 
-An issue has been fixed in the Azure Portal, where users were experiencing an error when they were creating an Azure HDInsight cluster using an SSH authentication type of public key. When users clicked **Review + Create**, they would receive the error "Must not contain any three consecutive characters from SSH username." This issue has been fixed, but it may require that you refresh your browser cache by hitting CTRL + F5 to load the corrected view. The workaround to this issue was to create a cluster with an ARM template. 
+An issue has been fixed in the Azure portal, where users were experiencing an error when they were creating an Azure HDInsight cluster using an SSH authentication type of public key. When users clicked **Review + Create**, they would receive the error "Must not contain any three consecutive characters from SSH username." This issue has been fixed, but it may require that you refresh your browser cache by hitting CTRL + F5 to load the corrected view. The workaround to this issue was to create a cluster with an ARM template. 
 
 ## Release date: 07/13/2020
 
