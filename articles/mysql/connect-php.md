@@ -14,11 +14,12 @@ This quickstart demonstrates how to connect to an Azure Database for MySQL using
 
 ## Prerequisites
 This quickstart uses the resources created in either of these guides as a starting point:
-- [Create an Azure Database for MySQL server using Azure portal](./quickstart-create-mysql-server-database-using-azure-portal.md)
-- [Create an Azure Database for MySQL server using Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
-> [!IMPORTANT] 
-> Ensure the IP address you're connecting from has been added the server's firewall rules using the [Azure portal](./howto-manage-firewall-using-portal.md) or [Azure CLI](./howto-manage-firewall-using-cli.md)
+  |Task| How to guide|
+  |:--- |:--- |
+  | **Create a server**| [Portal](./quickstart-create-mysql-server-database-using-azure-portal.md) <br/> [CLI](./quickstart-create-mysql-server-database-using-azure-cli.md)
+  | **Configure firewall for your server** | [Portal](./howto-manage-firewall-using-portal.md) <br> [CLI](./howto-manage-firewall-using-cli.md)|
+
 
 ## Install PHP
 Install PHP on your own server, or create an Azure [web app](../app-service/overview.md) that includes PHP.
@@ -45,12 +46,12 @@ Get the connection information needed to connect to the Azure Database for MySQL
  :::image type="content" source="./media/connect-php/1_server-overview-name-login.png" alt-text="Azure Database for MySQL server name":::
 
 ## Connect and create a table
-Use the following code to connect and create a table by using **CREATE TABLE** SQL statement. 
+Use the following code to connect and create a table by using **CREATE TABLE** SQL statement.
 
-The code uses the **MySQL Improved extension** (mysqli) class included in PHP. The code calls methods [mysqli_init](https://secure.php.net/manual/mysqli.init.php) and [mysqli_real_connect](https://secure.php.net/manual/mysqli.real-connect.php) to connect to MySQL. Then it calls method 
+The code uses the **MySQL Improved extension** (mysqli) class included in PHP. The code calls methods [mysqli_init](https://secure.php.net/manual/mysqli.init.php) and [mysqli_real_connect](https://secure.php.net/manual/mysqli.real-connect.php) to connect to MySQL. Then it calls method
 [mysqli_query](https://secure.php.net/manual/mysqli.query.php) to run the query. Then it calls method [mysqli_close](https://secure.php.net/manual/mysqli.close.php) to close the connection.
 
-Replace the host, username, password, and db_name parameters with your own values. 
+Replace the host, username, password, and db_name parameters with your own values.
 
 ```php
 <?php
@@ -89,7 +90,7 @@ Use the following code to connect and insert data by using an **INSERT** SQL sta
 
 The code uses the **MySQL Improved extension** (mysqli) class included in PHP. The code uses method [mysqli_prepare](https://secure.php.net/manual/mysqli.prepare.php) to create a prepared insert statement, then binds the parameters for each inserted column value using method [mysqli_stmt_bind_param](https://secure.php.net/manual/mysqli-stmt.bind-param.php). The code runs the statement by using method [mysqli_stmt_execute](https://secure.php.net/manual/mysqli-stmt.execute.php) and afterwards closes the statement by using method [mysqli_stmt_close](https://secure.php.net/manual/mysqli-stmt.close.php).
 
-Replace the host, username, password, and db_name parameters with your own values. 
+Replace the host, username, password, and db_name parameters with your own values.
 
 ```php
 <?php
@@ -124,7 +125,7 @@ mysqli_close($conn);
 ## Read data
 Use the following code to connect and read the data by using a **SELECT** SQL statement.  The code uses the **MySQL Improved extension** (mysqli) class included in PHP. The code uses method [mysqli_query](https://secure.php.net/manual/mysqli.query.php) perform the sql query and method [mysqli_fetch_assoc](https://secure.php.net/manual/mysqli-result.fetch-assoc.php) to fetch the resulting rows.
 
-Replace the host, username, password, and db_name parameters with your own values. 
+Replace the host, username, password, and db_name parameters with your own values.
 
 ```php
 <?php
@@ -157,7 +158,7 @@ Use the following code to connect and update the data by using an **UPDATE** SQL
 
 The code uses the **MySQL Improved extension** (mysqli) class included in PHP. The code uses method [mysqli_prepare](https://secure.php.net/manual/mysqli.prepare.php) to create a prepared update statement, then binds the parameters for each updated column value using method [mysqli_stmt_bind_param](https://secure.php.net/manual/mysqli-stmt.bind-param.php). The code runs the statement by using method [mysqli_stmt_execute](https://secure.php.net/manual/mysqli-stmt.execute.php) and afterwards closes the statement by using method [mysqli_stmt_close](https://secure.php.net/manual/mysqli-stmt.close.php).
 
-Replace the host, username, password, and db_name parameters with your own values. 
+Replace the host, username, password, and db_name parameters with your own values.
 
 ```php
 <?php
@@ -191,11 +192,11 @@ mysqli_close($conn);
 
 
 ## Delete data
-Use the following code to connect and read the data by using a **DELETE** SQL statement. 
+Use the following code to connect and read the data by using a **DELETE** SQL statement.
 
 The code uses the **MySQL Improved extension** (mysqli) class included in PHP. The code uses method [mysqli_prepare](https://secure.php.net/manual/mysqli.prepare.php) to create a prepared delete statement, then binds the parameters for the where clause in the statement using method [mysqli_stmt_bind_param](https://secure.php.net/manual/mysqli-stmt.bind-param.php). The code runs the statement by using method [mysqli_stmt_execute](https://secure.php.net/manual/mysqli-stmt.execute.php) and afterwards closes the statement by using method [mysqli_stmt_close](https://secure.php.net/manual/mysqli-stmt.close.php).
 
-Replace the host, username, password, and db_name parameters with your own values. 
+Replace the host, username, password, and db_name parameters with your own values.
 
 ```php
 <?php
