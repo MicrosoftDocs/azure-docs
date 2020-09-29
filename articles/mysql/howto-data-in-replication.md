@@ -164,8 +164,8 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
    - master_host: hostname of the source server
    - master_user: username for the source server
    - master_password: password for the source server
-   - master_log_file: binary log file name from running ` show master status`
-   - master_log_pos: binary log position from running ` show master status`
+   - master_log_file: binary log file name from running `show master status`
+   - master_log_pos: binary log position from running `show master status`
    - master_ssl_ca: CA certificate's context. If not using SSL, pass in empty string.
        - It is recommended to pass this parameter in as a variable. See the following examples for more information.
 
