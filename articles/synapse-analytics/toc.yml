@@ -404,49 +404,6 @@
         href: machine-learning/tutorial-sql-pool-model-scoring-wizard.md
       - name: Run a regression experiment using Azure AutoML (Scoring in DW)
         href: ./spark/apache-spark-azure-machine-learning-tutorial.md
-    - name: Concepts
-      items:
-      - name: Connected services
-      - name: Data exploration and visualization
-      - name: Training and scoring capabilities available
-      - name: Model deployment
-    - name: How to
-      items:
-      - name: Library management
-      - name: ML on Spark
-      - name: ML with Python
-      - name: Connected services
-        items:
-        - name: Azure ML
-        - name: Cognitive Services
-        - name: Azure Search
-        - name: (code) Connect to AML from Synapse (Python/Scala)
-      - name: Data prep and exploration
-        items:
-        - name: (UI) No code/low code data prep to ML training (PQ)
-      - name: Training
-        items:
-        - name: (code) AutoML training on Spark
-        - name: (code) SparkML training and spark/dw scoring
-        - name: (code) Scikit-learn training  with Spark compute and spark/dw scoring
-        - name: AutoML training
-        - name: (code) AutoML training and spark/dw scoring
-      - name: Scoring
-        items:
-        - name: (code) Batch scoring with Cognitive services	
-        - name: Scoring wizard	
-          items:
-          - name: (UI-coming soon) Scoring wizard SQL Pools
-          - name: (UI-coming soon) Scoring wizard Cognitive services
-          - name: (UI-coming soon) Scoring wizard Spark pools
-        - name: TSQL Predict 	
-        - name: Troubleshoot predict	
-      - name: Deploy and manage models
-        items:
-        - name: (code) loading models in the data warehouse
-        - name: (code) converting models to onnx for data warehouse consumption
-        - name: MLOps
-        - name: Tracking
 
 
   - name: Tools integration (AI, ETL, BI)

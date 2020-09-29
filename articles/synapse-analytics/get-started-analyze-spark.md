@@ -118,4 +118,5 @@ df.write.sqlanalytics("SQLDB1.dbo.PassengerCountStats", Constants.INTERNAL )
 > [!div class="nextstepaction"]
 > [Analyze data in Storage](get-started-analyze-storage.md)
 
+[Apache Spark for Azure Synapse](./spark/apache-spark-overview.md) 
 
