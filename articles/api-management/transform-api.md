@@ -1,6 +1,6 @@
 ---
-title: Transform and protect your API in Azure API Management | Microsoft Docs
-description: Learn how to protect your API in API Management with quotas and throttling (rate-limiting) policies.
+title: Tutorial - Transform and protect your API in Azure API Management | Microsoft Docs
+description: In this tutorial, you learn how to protect your API in API Management with transformation and throttling (rate-limiting) policies.
 
 author: vladvino
 ms.service: api-management
@@ -10,7 +10,7 @@ ms.date: 09/28/2020
 ms.author: apimpm
 ---
 
-# Transform and protect your API
+# Tutorial: Transform and protect your API
 
 The tutorial shows how to transform your API so it does not reveal info about the private backend. For example, you might want to hide the info about the technology stack that is running on the backend. You might also want to hide original URLs that appear in the body of the API's HTTP response and instead redirect them to the APIM gateway.
 
@@ -57,6 +57,7 @@ The original response should look similar to the following:
 :::image type="content" source="media/transform-api/original-response.png" alt-text="Original API response":::
 
 As you can see the response includes the **X-Powered-By** and **X-AspNet-Version** headers.
+
 ### Set the transformation policy
 
 1. Select **Demo Conference API** > **Design** > **All operations**.
