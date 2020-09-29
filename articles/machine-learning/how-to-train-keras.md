@@ -141,7 +141,7 @@ dataset = Dataset.get_by_name(ws, 'mnist dataset')
 dataset.to_path()
 ```
 
-The TensorFlow estimator is implemented through the generic [`estimator`](https://docs.microsoft.com//python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py&preserve-view=true) class, which can be used to support any framework. Additionally, create a dictionary `script_params` that contains the DNN hyperparameter settings. For more information about training models using the generic estimator, see [train models with Azure Machine Learning using estimator](how-to-train-ml-models.md)
+The TensorFlow estimator is implemented through the generic [`estimator`](https://docs.microsoft.com//python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py&preserve-view=true) class, which can be used to support any framework. Additionally, create a dictionary `script_params` that contains the DNN hyperparameter settings. 
 
 ```python
 from azureml.train.dnn import TensorFlow
