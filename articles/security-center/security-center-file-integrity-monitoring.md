@@ -112,7 +112,7 @@ Security Center provides the following list of recommended items to monitor base
 
     - ![Upgrade plan icon][4] Upgrade the workspace to use Azure Defender. This icon Indicates that the workspace or subscription isn't protected by Azure Defender. To use the FIM features, your subscription must be protected by Azure Defender. [Learn more](security-center-pricing.md).
 
-    - ![Enable icon][3] Enable FIM on all machines under the workspace and configure the FIM options. This icon indicates that FIM is not enabled for the workspace - Use this button to  :
+    - ![Enable icon][3] Enable FIM on all machines under the workspace and configure the FIM options. This icon indicates that FIM is not enabled for the workspace.
 
         :::image type="content" source="./media/security-center-file-integrity-monitoring/workspace-list-fim.png" alt-text="Enabling FIM for a specific workspace":::
 
