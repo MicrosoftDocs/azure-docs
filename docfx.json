@@ -183,7 +183,7 @@
         "articles/cognitive-services/Face/**/*.md": "PatrickFarley",
         "articles/cognitive-services/form-recognizer/**/*.md": "PatrickFarley",
         "articles/cognitive-services/Ink-Recognizer/**/*.md": "aahill",
-        "articles/cognitive-services/LUIS/**/*.md": "aahi",
+        "articles/cognitive-services/LUIS/**/*.md": "aahill",
         "articles/cognitive-services/personalizer/**/*.md": "edjez",
         "articles/cognitive-services/QnAMaker/**/*.md": "nerajput1607",
         "articles/cognitive-services/Speech/**/*.md": "nitinme",
