@@ -17,15 +17,15 @@ ms.author: negust
 Linking a Synapse workspace to an Azure Machine Learning workspace allows you to leverage Azure Machine Learning from various experiences in Synapse.
 Examples of experiences that this linking to an Azure Machine Learning workspace enables:
 
-- Run your Azure Machine Learning pipelines as a step in your Synapse pipelines. [Learn more about using Azure Machine Learning in pipelines](/azure/data-factory/transform-data-machine-learning-service.md)
+- Run your Azure Machine Learning pipelines as a step in your Synapse pipelines. To learn more, see [Execute Azure Machine Learning pipelines](/azure/data-factory/transform-data-machine-learning-service).
 
-- Enrich your data with predictions by bringing a machine learning model from the Azure Machine Learning model registry and score the model in Synapse SQL pools.
+- Enrich your data with predictions by bringing a machine learning model from the Azure Machine Learning model registry and score the model in Synapse SQL pools. For more details, see [Tutorial: Machine learning model scoring wizard for Synapse SQL pools](tutorial-sql-pool-model-scoring-wizard.md).
 
 ## Prerequisites
 
 - Azure subscription - [Create one for free](https://azure.microsoft.com/free/).
 - [Synapse Analytics workspace](../get-started-create-workspace.md) with an ADLS Gen2 storage account configured as the default storage. You need to be the **Storage Blob Data Contributor** of the ADLS Gen2 filesystem that you work with.
-- [Azure Machine Learning Workspace](/azure/machine-learning/how-to-manage-workspace.md).
+- [Azure Machine Learning Workspace](/azure/machine-learning/how-to-manage-workspace).
 - You need permissions (or request from someone who has permissions) to create a service principal and secret which you can use to create the linked service. Note that this service principal needs to be assigned the contributor role in the Azure Machine Learning Workspace.
 
 ## Sign in to the Azure portal

@@ -99,7 +99,7 @@ Before running all cells in the notebook, check if the compute instance is runni
    
    COPY INTO dbo.nyc_taxi
    (tipped 1, fareAmount 2, paymentType 3, passengerCount 4, tripDistance 5, tripTimeSecs 6, pickupTimeBin 7)
-   FROM 'https://yifsoadlsgen2westus2.dfs.core.windows.net/sparkjob/TestData/test_data.csv'
+   FROM '<URL to linked storage account>/test_data.csv'
    WITH
    (
        FILE_TYPE = 'CSV',
