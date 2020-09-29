@@ -52,7 +52,7 @@ Keeping database schema and indexes in-sync with an application's schema is espe
 
 ### Battle tested database service
 
-Cosmos DB is a foundational service in Azure. For nearly a decade, Cosmos DB has been used by many of Microsoft's products for mission critical applications at global scale, including Skype, Xbox, Office 365, Azure, and many others. Today, Cosmos DB is one of the fastest growing services on Azure, used by many external customers and mission-critical applications that require elastic scale, turnkey global distribution, multi-master replication for low latency and high availability of both reads and writes.
+Cosmos DB is a foundational service in Azure. For nearly a decade, Cosmos DB has been used by many of Microsoft's products for mission critical applications at global scale, including Skype, Xbox, Microsoft 365, Azure, and many others. Today, Cosmos DB is one of the fastest growing services on Azure, used by many external customers and mission-critical applications that require elastic scale, turnkey global distribution, multi-master replication for low latency and high availability of both reads and writes.
 
 ### Ubiquitous regional presence
 
