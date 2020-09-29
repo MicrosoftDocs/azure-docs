@@ -44,7 +44,6 @@ To use compute targets managed by Azure Machine Learning, see:
 
     If you want to reattach a compute target, for example to change TLS or other cluster configuration setting, you must first remove the existing attachment.
 
-
 ## What's a compute target?
 
 With Azure Machine Learning, you can train your model on a variety of resources or environments, collectively referred to as [__compute targets__](concept-azure-machine-learning-architecture.md#compute-targets). A compute target can be a local machine or a cloud resource, such as an Azure Machine Learning Compute, Azure HDInsight, or a remote virtual machine.  You also use compute targets for model deployment as described in ["Where and how to deploy your models"](how-to-deploy-and-where.md).
