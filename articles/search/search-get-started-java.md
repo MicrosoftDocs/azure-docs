@@ -51,7 +51,7 @@ Calls to the service require a URL endpoint and an access key on every request. 
 
 :::image type="content" source="media/search-get-started-nodejs/service-name-and-keys.png" alt-text="Get the service name and admin and query keys" border="false":::
 
-Every request sent to your service requires an api key. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
+Every request sent to your service requires an API key. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 
 ## Set up your environment
 
@@ -144,7 +144,7 @@ Begin by opening IntelliJ IDEA and setting up a new project.
 
 1. In the **Project** window, expand the source tree to access the `src` >  `main` >`resources` > `app` folder, and add a `config.properties` file. To do this, select the `app` folder, press Alt + Insert, select **File**, and then enter the file name.
 
-1. Copy the following settings into the new file and replace `<YOUR-SEARCH-SERVICE-NAME>`, `<YOUR-ADMIN-KEY>`, and `<YOUR-QUERY-KEY>` with your service name and keys. If your service endpoint is `https://mydemo.search.windows.net`, the service name would be "mydemo".
+1. Copy the following settings into the new file and replace `<YOUR-SEARCH-SERVICE-NAME>`, `<YOUR-ADMIN-KEY>`, and `<YOUR-QUERY-KEY>` with your service name and keys. If your service endpoint is `https://mydemo.search.windows.net`, the service name would be `"mydemo"`.
 
     ```java
         SearchServiceName=<YOUR-SEARCH-SERVICE-NAME>
