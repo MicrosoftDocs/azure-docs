@@ -30,9 +30,9 @@ The following table shows each development environment covered in this article, 
 
 This article also provides additional usage tips for the following tools:
 
-* [Jupyter Notebooks](#jupyter): If you're already using the Jupyter Notebook, the SDK has some extras that you should install.
+* Jupyter Notebooks: If you're already using Jupyter notebooks, the SDK has some extras that you should install.
 
-* [Visual Studio Code](#vscode): If you use Visual Studio Code, the [Azure Machine Learning extension](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai) includes extensive language support for Python as well as features to make working with the Azure Machine Learning much more convenient and productive.
+* Visual Studio Code: If you use Visual Studio Code, the [Azure Machine Learning extension](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai) includes extensive language support for Python as well as features to make working with the Azure Machine Learning much more convenient and productive.
 
 ## Prerequisites
 
@@ -52,7 +52,7 @@ The workspace configuration file is a JSON file that tells the SDK how to commun
 
 This JSON file must be in the directory structure that contains your Python scripts or Jupyter Notebooks. It can be in the same directory, a subdirectory named *.azureml*, or in a parent directory.
 
-To use this file from your code, use the [`Workspace.from_config`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#from-config-path-none--auth-none---logger-none---file-name-none-) method. This code loads the information from the file and connects to your workspace.
+To use this file from your code, use the [`Workspace.from_config`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#from-config-path-none--auth-none---logger-none---file-name-none-&preserve-view=true) method. This code loads the information from the file and connects to your workspace.
 
 Create a workspace configuration file in one of the following methods:
 
@@ -64,7 +64,7 @@ Create a workspace configuration file in one of the following methods:
 
 * Azure Machine Learning Python SDK
 
-    Create a script to connect to your Azure Machine Learning workspace and use the [`write_config`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#write-config-path-none--file-name-none-) method to generate your file and save it as *.azureml/config.json*. Make sure to replace `subscription_id`,`resource_group`, and `workspace_name` with your own.
+    Create a script to connect to your Azure Machine Learning workspace and use the [`write_config`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#write-config-path-none--file-name-none-&preserve-view=true) method to generate your file and save it as *.azureml/config.json*. Make sure to replace `subscription_id`,`resource_group`, and `workspace_name` with your own.
 
     ```python
     from azureml.core import Workspace
