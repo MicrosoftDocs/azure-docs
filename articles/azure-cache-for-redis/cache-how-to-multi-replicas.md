@@ -52,7 +52,7 @@ To create a cache, follow these steps:
     > Multi-replica support only works with non-clustered caches currently.
     >
 
-1. Click **Create**. 
+1. Choose **Replica count** and click **Create**. 
    
     :::image type="content" source="media/cache-how-to-multi-replicas/create-multi-replicas.png" alt-text="Create Azure Cache for Redis.":::
    
