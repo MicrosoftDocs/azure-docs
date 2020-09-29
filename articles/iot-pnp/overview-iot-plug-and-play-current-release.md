@@ -49,12 +49,12 @@ To learn more about the libraries and SDKs, see [Microsoft SDKs for IoT Plug and
 
 - C device SDK [VcPkg 2020-07-19](https://github.com/microsoft/vcpkg/tree/master/ports/azure-iot-sdk-c)
 - .NET device SDK [NuGet Microsoft.Azure.Devices.Client 1.30.0](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/)
-- Java device SDK [Maven iot-device-client 1.25.0](https://search.maven.org/artifact/com.microsoft.azure.sdk.iot/iot-device-client/1.25.0/jar)
+- Java device SDK [Maven iot-device-client 1.25.0](https://search.maven.org/artifact/com.microsoft.azure.sdk.iot/iot-device-client)
 - Python device SDK [Pip azure-iot-device v2.2.0](https://pypi.org/project/azure-iot-device/)
 - Node.js device SDK [npm azure-iot-device 1.17.1](https://www.npmjs.com/package/azure-iot-device)
 - .NET - IoT Hub service [NuGet Microsoft.Azure.Devices 1.22.0](https://www.nuget.org/packages/Microsoft.Azure.Devices/)
-- Java - IoT Hub service [Maven iot-service-client 1.25.0](https://search.maven.org/artifact/com.microsoft.azure.sdk.iot/iot-service-client/1.25.0/jar)
-- Node.js - IoT Hub service [npm azure-iothub 1.12.5](npm azure-iot-device 1.17.1)
+- Java - IoT Hub service [Maven iot-service-client 1.25.0](https://search.maven.org/artifact/com.microsoft.azure.sdk.iot/iot-service-client)
+- Node.js - IoT Hub service [npm azure-iothub 1.12.5](https://www.npmjs.com/package/azure-iothub)
 - Python - IoT Hub/Digital Twins service [Pip azure-iot-hub 2.2.2](https://pypi.org/project/azure-iot-hub/)
 - DTDL model parser [NuGet](https://www.nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser).
 

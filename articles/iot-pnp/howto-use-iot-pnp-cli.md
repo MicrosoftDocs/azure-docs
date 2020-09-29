@@ -13,7 +13,7 @@ services: iot-pnp
 
 # Install and use the Azure IoT extension for the Azure CLI
 
-[The Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest&preserve-view=true) is an open-source cross platform command-line tool for managing Azure resources such as IoT Hub. The Azure CLI is available on Windows, Linux, and macOS. The Azure CLI lets you manage Azure IoT Hub resources, Device Provisioning Service instances, and linked-hubs without installing any extensions.
+[The Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest&preserve-view=true) is an open-source cross platform command-line tool for managing Azure resources such as IoT Hub. The Azure CLI is available on Windows, Linux, and macOS. The Azure CLI lets you manage Azure IoT Hub resources, Device Provisioning Service instances, and linked-hubs without installing any extensions.
 
 The Azure IoT extension for the Azure CLI is a command-line tool for interacting with, and testing IoT Plug and Play devices. You can use the extension to:
 
