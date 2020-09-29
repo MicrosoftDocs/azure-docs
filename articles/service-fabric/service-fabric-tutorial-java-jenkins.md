@@ -102,7 +102,7 @@ You can set up Jenkins either inside or outside a Service Fabric cluster. The fo
 
     You can also provide additional details used to deploy the application. See the following screenshot for an example for the application details:
 
-    ![Service Fabric Jenkins Build action](./media/service-fabric-tutorial-java-jenkins/sfjenkins.png)
+    ![Post-build Actions dialog with additional Service Fabric project deployment options](./media/service-fabric-tutorial-java-jenkins/sfjenkins.png)
 
     > [!NOTE]
     > The cluster here could be same as the one hosting the Jenkins container application, in case you are using Service Fabric to deploy the Jenkins container image.
