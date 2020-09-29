@@ -43,21 +43,21 @@ This step will create a new Service Principal. If you want to use an existing Se
 
 1. After the application is registered. Generate a secret for the application. Go to **Your application** -> **Certificate & Secret**. Click **Add client secret** to generate a secret. Keep the secret safe and it will be used later.
 
-   ![Generate secret](media/quickstart-integrate-azure-ml/quickstart-integrate-azure-ml-createsp-00a.png)
+   ![Generate secret](media/quickstart-integrate-azure-machine-learning/quickstart-integrate-azure-machine-learning-createsp-00a.png)
 
 1. Create a service principal for the application. Go to **Your application** -> **Overview** and then click **Create service principal**. In some cases, this service principal is automatically created.
 
-   ![Create service principal](media/quickstart-integrate-azure-ml/quickstart-integrate-azure-ml-createsp-00b.png)
+   ![Create service principal](media/quickstart-integrate-azure-machine-learning/quickstart-integrate-azure-machine-learning-createsp-00b.png)
 
 1. Add the service principal as "contributor" of the Azure Machine Learning workspace. Note that this will require being an owner of the resource group that the Azure Machine Learning workspace belongs to.
 
-   ![Assign contributor role](media/quickstart-integrate-azure-ml/quickstart-integrate-azure-ml-createsp-00c.png)
+   ![Assign contributor role](media/quickstart-integrate-azure-machine-learning/quickstart-integrate-azure-machine-learning-createsp-00c.png)
 
-## Navigate to the Synapse workspace and create a linked service
+## Create a linked service
 
 1. In the Synapse workspace where you want to create the new Azure Machine Learning linked service, go to **Management** -> **Linked service**, create a new linked service with type "Azure Machine Learning".
 
-   ![Create linked service](media/quickstart-integrate-azure-ml/quickstart-integrate-azure-ml-create-linked-service-00a.png)
+   ![Create linked service](media/quickstart-integrate-azure-machine-learning/quickstart-integrate-azure-machine-learning-create-linked-service-00a.png)
 
 2. Fill out the form:
 
@@ -74,4 +74,5 @@ This step will create a new Service Principal. If you want to use an existing Se
 
 ## Next steps
 
-- See [Tutorial: Machine learning model scoring wizard - SQL pool](tutorial-sql-pool-model-scoring-wizard.md).
+- [Tutorial: Machine learning model scoring wizard - SQL pool](tutorial-sql-pool-model-scoring-wizard.md)
+- [Machine Learning capabilities in Azure Synapse Analytics (workspaces preview)](what-is-machine-learning.md)

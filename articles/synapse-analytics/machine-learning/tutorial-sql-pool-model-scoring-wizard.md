@@ -29,7 +29,7 @@ If you don't have an Azure subscription, [create a free account before you begin
 
 - [Synapse Analytics workspace](../get-started-create-workspace.md) with an ADLS Gen2 storage account configured as the default storage. You need to be the **Storage Blob Data Contributor** of the ADLS Gen2 filesystem that you work with.
 - Synapse SQL Pool in your Synapse Analytics workspace. For details, see [Create a Synapse SQL pool](../quickstart-create-sql-pool-studio.md).
-- Azure Machine Learning linked service in your Synapse Analytics workspace. For details, see [Create an Azure Machine Learning linked service in Synapse](quickstart-integrate-azure-ml.md).
+- Azure Machine Learning linked service in your Synapse Analytics workspace. For details, see [Create an Azure Machine Learning linked service in Synapse](quickstart-integrate-azure-machine-learning.md).
 
 ## Sign in to the Azure portal
 
@@ -135,7 +135,7 @@ Before running all cells in the notebook, check if the compute instance is runni
 
    ![Table to model mapping](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-00e.png)
 
-1. The generated T-SQL code is wrapped inside a Stored Procedure. This is why you need to provide a stored procedure a name. The model binary including metadata (version, description, etc) will be physically copied from Azure Machine Learning to a SQL pool table. So you need to specify which table to save the model in. You can choose either to "Use an existing table" or to "Create a new table". Once done, click **Deploy model + open editor** to deploy the model and generate a T-SQL prediction script.
+1. The generated T-SQL code is wrapped inside a Stored Procedure. This is why you need to provide a stored procedure a name. The model binary including metadata (version, description, etc.) will be physically copied from Azure Machine Learning to a SQL pool table. So you need to specify which table to save the model in. You can choose either to "Use an existing table" or to "Create a new table". Once done, click **Deploy model + open editor** to deploy the model and generate a T-SQL prediction script.
 
    ![Create procedure](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-00f.png)
 
@@ -145,4 +145,5 @@ Before running all cells in the notebook, check if the compute instance is runni
 
 ## Next steps
 
-- See [Quickstart: Create a new Azure Machine Learning linked service in Synapse](quickstart-integrate-azure-ml.md).
+- [Quickstart: Create a new Azure Machine Learning linked service in Synapse](quickstart-integrate-azure-machine-learning.md)
+- [Machine Learning capabilities in Azure Synapse Analytics (workspaces preview)](what-is-machine-learning.md)

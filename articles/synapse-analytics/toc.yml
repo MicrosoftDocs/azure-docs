@@ -398,8 +398,8 @@
         href: machine-learning/what-is-machine-learning.md
     - name: Quickstarts
       items:
-      - name: Create a new Azure ML linked service
-        href: machine-learning/quickstart-integrate-azure-ml.md
+      - name: Create a new Azure Machine Learning linked service
+        href: machine-learning/quickstart-integrate-azure-machine-learning.md
     - name: Tutorials
       items:
       - name: Model scoring wizard for SQL pools
