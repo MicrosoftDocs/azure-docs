@@ -116,7 +116,7 @@ The numbered options in the screenshot relate to the following comments:
 
 2. When you add symptoms here, they will be added to the report, which helps you to share information with Azure Support.
 
-3. Select the duration of data collection. For the High-CPU option, select at least 15 minutes or more. In Azure Portal mode, you can collect up to 15 minutes of data. For longer periods of collection, you must run the program as an executable within the VM.
+3. Select the duration of data collection. For the High-CPU option, select at least 15 minutes or more. In Azure portal mode, you can collect up to 15 minutes of data. For longer periods of collection, you must run the program as an executable within the VM.
 
 4. If you are asked by Azure Support to collect this data, you can add the ticket number here. This field is optional.
 
