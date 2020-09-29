@@ -9,7 +9,7 @@ ms.topic: conceptual
 
 # Manage an Azure Automation Run As account
 
-Run As accounts in Azure Automation provide authentication for managing resources on the Azure Resource Manager or Azure Classic deployment model using Automation runbooks and other Automation features. This article provides guidance on how to manage a Run As or Classic Run As account.
+Run As accounts in Azure Automation provide authentication for managing resources on the Azure Resource Manager or Azure Classic deployment model using Automation runbooks and other Automation features. This article provides guidance on how to manage a Run As or Classic Run As account. To learn more about Azure Automation account authentication and guidance related to process automation scenarios, see [Automation Account authentication overview](automation-security-overview.md).
 
 ## <a name="permissions"></a>Obtain Run As account permissions
 
@@ -140,8 +140,6 @@ This section describes how to delete a Run As or Classic Run As account. When yo
 1. In the Azure portal, open the Automation account.
 
 2. In the left pane, select **Run As Accounts** in the account settings section.
-
-    
 
 3. On the Run As Accounts properties page, select either the Run As account or Classic Run As account that you want to delete.
 
