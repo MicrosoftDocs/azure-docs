@@ -17,6 +17,43 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
 
 See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
 
+## 2020-09-28
+
+### Azure Machine Learning SDK for Python v1.15.0
++ **Bug fixes and improvements**
+  + **azureml-contrib-interpret**
+    + LIME explainer moved from azureml-contrib-interpret to interpret-community package and image explainer removed from azureml-contrib-interpret package
+    + visualization dashboard removed from azureml-contrib-interpret package, explanation client moved to azureml-interpret package and deprecated in azureml-contrib-interpret package and notebooks updated to reflect improved API
+    + fix pypi package descriptions for azureml-interpret, azureml-explain-model, azureml-contrib-interpret and azureml-tensorboard
+  + **azureml-contrib-notebook**
+    + Pin nbcovert dependency to < 6 so that papermill 1.x continues to work.
+  + **azureml-core**
+    + Added parameters to the TensorflowConfiguration and MpiConfiguration constructor to enable a more streamlined initialization of the class attributes without requiring the user to set each individual attribute. Added a PyTorchConfiguration class for configuring distributed PyTorch jobs in ScriptRunConfig.
+    + Pin the version of azure-mgmt-resource to fix the authentication error.
+    + Support Triton No Code Deploy
+    + outputs directories specified in Run.start_logging() will now be tracked when using run in interactive scenarios. The tracked files will be visible on ML Studio upon calling Run.complete()
+    + File encoding can be now specified during dataset creation with `Dataset.Tabular.from_delimited_files` and `Dataset.Tabular.from_json_lines_files` by passing the `encoding` argument. The supported encodings are 'utf8', 'iso88591', 'latin1', 'ascii', utf16', 'utf32', 'utf8bom' and 'windows1252'.
+    + Bug fix when environment object is not passed to ScriptRunConfig constructor.
+    + Updated Run.cancel() to allow cancel of a local run from another machine.
+  + **azureml-dataprep**
+    +  Fixed dataset mount timeout issues.
+  + **azureml-explain-model**
+    + fix pypi package descriptions for azureml-interpret, azureml-explain-model, azureml-contrib-interpret and azureml-tensorboard
+  + **azureml-interpret**
+    + visualization dashboard removed from azureml-contrib-interpret package, explanation client moved to azureml-interpret package and deprecated in azureml-contrib-interpret package and notebooks updated to reflect improved API
+    + azureml-interpret package updated to depend on interpret-community 0.15.0
+    + fix pypi package descriptions for azureml-interpret, azureml-explain-model, azureml-contrib-interpret and azureml-tensorboard
+  + **azureml-pipeline-core**
+    +  Fixed pipeline hanging issue with `OutputFileDatasetConfig` when`register_on_complete` is called with the `name` parameter set to a pre-existing dataset name.
+  + **azureml-pipeline-steps**
+    + Removed stale databricks notebooks.
+  + **azureml-tensorboard**
+    + fix pypi package descriptions for azureml-interpret, azureml-explain-model, azureml-contrib-interpret and azureml-tensorboard
+  + **azureml-train-automl-runtime**
+    + visualization dashboard removed from azureml-contrib-interpret package, explanation client moved to azureml-interpret package and deprecated in azureml-contrib-interpret package and notebooks updated to reflect improved API
+  + **azureml-widgets**
+    + visualization dashboard removed from azureml-contrib-interpret package, explanation client moved to azureml-interpret package and deprecated in azureml-contrib-interpret package and notebooks updated to reflect improved API
+
 ## 2020-09-21
 
 ### Azure Machine Learning SDK for Python v1.14.0
