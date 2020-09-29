@@ -3,7 +3,7 @@ title: Query Azure Automation Update Management logs
 description: This article tells how to query the logs for Update Management in your Log Analytics workspace.
 services: automation
 ms.subservice: update-management
-ms.date: 07/28/2020
+ms.date: 09/24/2020
 ms.topic: conceptual
 ---
 
@@ -105,7 +105,7 @@ A record with a type of `UpdateRunProgress` is created that provides update depl
 | Computer | Fully-qualified domain name of reporting machine. |
 | ComputerEnvironment | Environment. Values are Azure or Non-Azure. |
 | CorrelationId | Unique identifier of the runbook job run for the update. |
-| EndTime | The time when the synchronization process ended. |
+| EndTime | The time when the synchronization process ended. *This property is currently not used. See TimeGenerated.* |
 | ErrorResult | Windows Update error code generated if an update fails to install. |
 | InstallationStatus | The possible installation states of an update on the client computer,<br> `NotStarted` - job not triggered yet.<br> `FailedToStart` - unable to start the job on machine.<br> `Failed` - job started but failed with an exception.<br> `InProgress` - job in progress.<br> `MaintenanceWindowExceeded` - if execution was remaining but maintenance window interval reached.<br> `Succeeded` - job succeeded.<br> `InstallFailed` - update failed to install successfully.<br> `NotIncluded`<br> `Excluded` |
 | KBID | Knowledge base article ID for the Windows update. |
@@ -118,8 +118,8 @@ A record with a type of `UpdateRunProgress` is created that provides update depl
 | ResourceType | Resource type. |
 | SourceComputerId | Unique identifier representing the source computer. |
 | SourceSystem | Source system for the record. The value is `OperationsManager`. |
-| StartTime | Time when the update is scheduled to be installed. |
-| SubscriptionId | Unique identifier for the Azure subscription. | 
+| StartTime | Time when the update is scheduled to be installed. *This property is currently not used. See TimeGenerated.* |
+| SubscriptionId | Unique identifier for the Azure subscription. |
 | SucceededOnRetry | Value indicating if the update execution failed on the first attempt and the current operation is a retry attempt. |
 | TimeGenerated | Date and time of record creation. |
 | Title | The title of the update. |

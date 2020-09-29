@@ -3,8 +3,8 @@ title: Azure Defender's dashboard and its features
 description: Learn about the features of the Azure Defender dashboard.
 author: memildin
 ms.author: memildin
-ms.date: 9/12/2020
-ms.topic: conceptual
+ms.date: 9/22/2020
+ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
 

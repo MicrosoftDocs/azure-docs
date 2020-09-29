@@ -34,14 +34,14 @@ The following are the list of Azure resources to which outbound private endpoint
 | Azure SQL Database | `sqlServer`|
 | Azure Database for MySQL (preview) | `mysqlServer`|
 | Azure Key Vault | `vault` |
-| Azure functions (preview) | `sites` |
+| Azure Functions (preview) | `sites` |
 
 The list of Azure resources for which outbound private endpoint connections are supported can also be queried via the [List Supported API](https://docs.microsoft.com/rest/api/searchmanagement/privatelinkresources/listsupported).
 
 For the purposes of this guide, a mix of [ARMClient](https://github.com/projectkudu/ARMClient) and [Postman](https://www.postman.com/) are used to demonstrate the REST API calls.
 
 > [!NOTE]
-> Throughout this guide, let's assume that the name of the search service is __contoso-search__ which exists in the resource group __contoso__ of a subscription with subscription id __00000000-0000-0000-0000-000000000000__. The resource id of this search service will be `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search`
+> Throughout this guide, let's assume that the name of the search service is __contoso-search__ which exists in the resource group __contoso__ of a subscription with subscription ID __00000000-0000-0000-0000-000000000000__. The resource ID of this search service will be `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search`
 
 The rest of the guide will show how the __contoso-search__ service can be configured so that its indexers can access data from the secure storage account `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Storage/storageAccounts/contoso-storage`
 

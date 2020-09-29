@@ -750,6 +750,10 @@
       items:
       - name: Overview
         href: managed-instance/management-operations-overview.md
+      - name: Monitor operations
+        href: managed-instance/management-operations-monitor.md
+      - name: Cancel operations
+        href: managed-instance/management-operations-cancel.md
       - name: API reference
         href: managed-instance/api-references-create-manage-instance.md
     - name: Machine Learning Services
@@ -1253,6 +1257,8 @@
       href: database/database-import-export-hang.md
   - name: Service updates
     items:
+    - name: SSL root certificate expiring
+      href: updates/ssl-root-certificate-expiring.md
     - name: Gateway IP address updates
       href: database/gateway-migration.md
     - name: Periodic maintenance events

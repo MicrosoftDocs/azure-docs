@@ -10,7 +10,7 @@ ms.reviewer: sngun
 
 ---
 
-# High availability with Azure Cosmos DB
+# How does Azure Cosmos DB provide high availability? 
 
 Azure Cosmos DB transparently replicates your data across all the Azure regions associated with your Azure Cosmos account. Azure Cosmos DB employs multiple layers of redundancy for your data as shown in the following image:
 
@@ -26,7 +26,7 @@ If your Azure Cosmos account is distributed across *N* Azure regions, there will
 
 ## SLAs for availability
 
-As a globally distributed database, Azure Cosmos DB provides comprehensive SLAs that encompass throughput, latency at the 99th percentile, consistency, and high availability. The table below shows the guarantees for high availability provided by Azure Cosmos DB for single and multi-region accounts. For high availability, always configure your Azure Cosmos accounts to have multiple write regions(also called multi-master).
+As a globally distributed database, Azure Cosmos DB provides comprehensive SLAs that encompass throughput, latency at the 99th percentile, consistency, and high availability. The table below shows the guarantees for high availability provided by Azure Cosmos DB for single and multi-region accounts. For high availability, always configure your Azure Cosmos accounts to have multiple write regions.
 
 |Operation type  | Single region |Multi-region (single region writes)|Multi-region (multi-region writes) |
 |---------|---------|---------|-------|
@@ -42,7 +42,7 @@ For the rare cases of regional outage, Azure Cosmos DB makes sure your database 
 
 - With Azure Cosmos DB, before a write operation is acknowledged to the client, the data is durably committed by a quorum of replicas within the region that accepts the write operations.
 
-- Multi-region accounts configured with multiple-write regions/multi-master will be highly available for both writes and reads. Regional failovers are instantaneous and don't require any changes from the application.
+- Multi-region accounts configured with multiple-write regions will be highly available for both writes and reads. Regional failovers are instantaneous and don't require any changes from the application.
 
 - Single-region accounts may lose availability following a regional outage. It's always recommended to set up **at least two regions** (preferably, at least two write regions) with your Azure Cosmos account to ensure high availability at all times.
 
@@ -75,7 +75,7 @@ Zone redundancy is a *supplemental capability* to the [replication in multi-regi
 
 When configuring multi-region writes for your Azure Cosmos account, you can opt into zone redundancy at no extra cost. Otherwise, please see the note below regarding the pricing for zone redundancy support. You can enable zone redundancy on an existing region of your Azure Cosmos account by removing the region and adding it back with the zone redundancy enabled.
 
-This feature is available in: *UK South, Southeast Asia, East US, East US 2, Central US, West Europe, West US 2, Japan East, North Europe, France Central,Australia East* regions.
+This feature is available in: *UK South, Southeast Asia, East US, East US 2, Central US, West Europe, West US 2, Japan East, North Europe, France Central,Australia East, East US 2 EUAP* regions.
 
 > [!NOTE]
 > Enabling Availability Zones for a single region Azure Cosmos account will result in charges that are equivalent to adding an additional region to your account. For details on pricing, see the [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) and the [multi-region cost in Azure Cosmos DB](optimize-cost-regions.md) articles.
@@ -125,6 +125,8 @@ You can enable Availability Zones by using Azure portal when creating an Azure C
 
 ## Building highly available applications
 
+- Review the expected [behavior of the Azure Cosmos SDKs](troubleshoot-sdk-availability.md) during these events and which are the configurations that affect it.
+
 - To ensure high write and read availability, configure your Azure Cosmos account to span at least two regions with multiple-write regions. This configuration will provide the highest availability, lowest latency, and best scalability for both reads and writes backed by SLAs. To learn more, see how to [configure your Azure Cosmos account with multiple write-regions](tutorial-global-distribution-sql-api.md).
 
 - For multi-region Azure Cosmos accounts that are configured with a single-write region, [enable automatic-failover by using Azure CLI or Azure portal](how-to-manage-database-account.md#automatic-failover). After you enable automatic failover, whenever there is a regional disaster, Cosmos DB will automatically failover your account.  
@@ -142,3 +144,4 @@ Next you can read the following articles:
 - [Global distribution - under the hood](global-dist-under-the-hood.md)
 - [Consistency levels in Azure Cosmos DB](consistency-levels.md)
 - [How to configure your Cosmos account with multiple write regions](how-to-multi-master.md)
+- [SDK behavior on multiregional environments](troubleshoot-sdk-availability.md)
