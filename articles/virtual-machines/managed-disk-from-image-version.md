@@ -14,14 +14,14 @@ ms.reviewer: olayemio
 
 # Create a managed disk from an image version
 
-
+If you need to, you can make a managed disk from an image version stored in a Shared Image Gallery.
 
 
 ## CLI
 
 Set the `source` variable to the ID of the image version, then use [az disk create](/cli/azure/disk.md#az_disk_create) to create the managed disk. You can see a list image versions using [az sig image-version list](/cli/azure/sig/image-version.md#az_sig_image_version_list).
 
-In this example, we create a managed disk named *myManagedDisk*, in the *EastUS* revion, in a resource group named *myResourceGroup*.
+In this example, we create a managed disk named *myManagedDisk*, in the *EastUS* region, in a resource group named *myResourceGroup*.
 
 ```azurecli-interactive
 source="/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/galleries/<galleryName>/images/<galleryImageDefinition>/versions/<imageVersion>"
@@ -30,9 +30,7 @@ az disk create --resource-group myResourceGroup --location EastUS --name myManag
 ```
 
 
-
 ## PowerShell
-
 
 You can list all of the image versions using [Get-AzGalleryImageVersion](/powershell/module/az.compute/get-azgalleryimageversion). 
 
