@@ -64,7 +64,7 @@ Verify that the **Microsoft.Network** resource provider is registered to your su
 
 ## <a name="authorization"></a>Generate the Letter of Authorization (LOA)
 
-Generating the letter of authorization is unavailable via the portal at the moment. Use **[PowerShell](expressroute-howto-erdirect.md#authorization)** or **[CLI](expressroute-howto-expressroute-direct-cli.md#authorization)** to obtain the letter of authorization.
+Generating the letter of authorization is unavailable from the portal at the moment. Use **[PowerShell](expressroute-howto-erdirect.md#authorization)** or **[CLI](expressroute-howto-expressroute-direct-cli.md#authorization)** to obtain the letter of authorization.
 
 ## <a name="state"></a>Change Admin State of links
 
@@ -102,11 +102,11 @@ The following steps help you create an ExpressRoute circuit from the ExpressRout
 
 1. Configure the settings in the **Configuration** page.
 
-   :::image type="content" source="./media/how-to-expressroute-direct-portal/configuration2.png" alt-text="Configuration page":::
+   :::image type="content" source="./media/how-to-expressroute-direct-portal/configuration2.png" alt-text="Configuration page - ExpressRoute Direct":::
 
 1. Specify any resource tags, the select **Review + Create** in order to validate the values before creating the resource.
 
-   :::image type="content" source="./media/how-to-expressroute-direct-portal/review.png" alt-text="Review and create":::
+   :::image type="content" source="./media/how-to-expressroute-direct-portal/review.png" alt-text="Review and create - ExpressRoute Direct":::
 
 1. Select **Create**. You will see a message letting you know that your deployment is underway. Status will display on this page as the resources are created. 
 
