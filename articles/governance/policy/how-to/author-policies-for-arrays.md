@@ -223,7 +223,7 @@ rule and array of existing values above:
 
 ## Modifying arrays
 
-The [append](../concepts/effects.md#append) and [modify](../concepts/effects.md#modify) effects can be used to modify properties in the resource content, including arrays. When working with arrays, the behavior of these effects depends on whether the operation is trying to modify the  **\[\*\]** alias or not:
+The [append](../concepts/effects.md#append) and [modify](../concepts/effects.md#modify) alter properties on a resource during creation or update. When working with array properties, the behavior of these effects depends on whether the operation is trying to modify the  **\[\*\]** alias or not:
 
 > [!NOTE]
 > Using the `modify` effect with aliases is in currently in preview.
