@@ -84,23 +84,31 @@ landingContent:
     linkLists:
       - linkListType: learn
         links:
-          - text: S
-            url: s
+          - text: Manage access to apps
+            url: what-is-access-management.md
+          - text: Manage tenant restrictions
+            url: tenant-restrictions.md
   - title: Set up My Apps
     linkLists:
       - linkListType: learn
         links:
-          - text: S
-            url: s
+          - text: Plan a My Apps deployment
+            url: access-panel-deployment-plan.md
+          - text: Create collections
+            url: access-panel-collections.md
   - title: Develop and integrate new apps
     linkLists:
       - linkListType: learn
         links:
-          - text: S
-            url: s
+          - text: Guidance for developers
+            url: developer-guidance-for-integrating-applications.md
+          - text: Understand the Microsoft Identity Platform
+            url: v2-overview.md
   - title: New in docs
     linkLists:
       - linkListType: whats-new
         links:
-          - text: S
-            url: s
+          - text: Set up SAML-based SSO
+            url: add-application-portal-setup-sso.md
+          - text: Set up OIDC-based SSO
+            url: add-application-portal-setup-oidc-sso.md
