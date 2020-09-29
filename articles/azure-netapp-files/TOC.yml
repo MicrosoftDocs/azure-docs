@@ -29,6 +29,8 @@
       href: azure-netapp-files-performance-metrics-volumes.md 
     - name: Performance benchmarks for Linux
       href: performance-benchmarks-linux.md
+    - name: Oracle database performance on Azure NetApp Files single volume
+      href: performance-oracle-single-volume.md
     - name: FAQs about SMB performance
       href: azure-netapp-files-smb-performance.md
   - name: Cost model for Azure NetApp Files
