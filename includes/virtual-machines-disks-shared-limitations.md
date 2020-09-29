@@ -25,7 +25,6 @@ Shared ultra disks are available in all regions that support ultra disks by defa
 
 ### Premium SSDs
 
-- Currently only supported in [a subset of regions](#regional-availability).
 - Currently limited to Azure Resource Manager or SDK support. 
 - Can only be enabled on data disks, not OS disks.
 - **ReadOnly** host caching is not available for premium SSDs with `maxShares>1`.
