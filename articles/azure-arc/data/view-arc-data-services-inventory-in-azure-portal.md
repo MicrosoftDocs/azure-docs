@@ -13,7 +13,7 @@ ms.topic: how-to
 
 # View inventory of your instances in the Azure portal
 
-After you have uploaded your [metrics, logs](upload-metrics-and-logs-to-azure-monitor.md), or [usage](view-billing-data-in-azure.md), you can view your instance as an Azure resource from the Azure portal. To do so navigate to the special URL [https://portal.azure.com](https://portal.azure.com) and follow the screenshots below
+After you have uploaded your [metrics, logs](upload-metrics-and-logs-to-azure-monitor.md), or [usage](view-billing-data-in-azure.md), you can view your instance as an Azure resource from the Azure portal. To do so navigate to the special URL [https://portal.azure.com](https://portal.azure.com) and follow the steps below
 
 1. Go to All services
 1. Search for your type of database instances types
