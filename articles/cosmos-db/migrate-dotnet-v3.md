@@ -11,7 +11,7 @@ ms.date: 09/23/2020
 # Migrate your application to use the Azure Cosmos DB .NET SDK v3.0
 
 > [!IMPORTANT]
-> For more information about this SDK, please view: Azure Cosmos DB .NET SDK v3 [Release Notes](https://docs.microsoft.com/en-us/azure/cosmos-db/sql-api-sdk-dotnet-standard), [.NET GitHub Repository](https://github.com/Azure/azure-cosmos-dotnet-v3), Azure Cosmos DB .NET SDK v3 [Performance Tips](https://docs.microsoft.com/en-us/azure/cosmos-db/performance-tips-dotnet-sdk-v3-sql), and Azure Cosmos DB .NET SDK v3 [General Troubleshooting Guide](https://docs.microsoft.com/en-us/azure/cosmos-db/troubleshoot-dot-net-sdk).
+> For more information about this SDK, please view: Azure Cosmos DB .NET SDK v3 [Release Notes](sql-api-sdk-dotnet-standard.md), [.NET GitHub Repository](https://github.com/Azure/azure-cosmos-dotnet-v3), Azure Cosmos DB .NET SDK v3 [Performance Tips](performance-tips-dotnet-sdk-v3-sql.md), and Azure Cosmos DB .NET SDK v3 [General Troubleshooting Guide](troubleshoot-dot-net-sdk.md).
 >
 
 This article highlights some of the considerations in upgrading your existing .NET application that is using an older Azure Cosmos DB .NET SDK to the newer Azure Cosmos DB .NET SDK v3 for Core (SQL) API. Azure Cosmos DB .NET SDK v3 corresponds to the Microsoft.Azure.Cosmos namespace. You can use the information provided in this doc if you are migrating your application from any of the following Azure Cosmos DB .NET SDKs:
