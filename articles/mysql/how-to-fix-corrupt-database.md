@@ -1,5 +1,5 @@
 ---
-title: Resolve database corruption - Database for MySQL
+title: Resolve database corruption - Azure Database for MySQL
 description: In this article, you'll learn about how to fix database corruption problems in Azure Database for MySQL.
 author: mksuni
 ms.author: sumuth
