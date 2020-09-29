@@ -70,13 +70,13 @@ The Rapid7 Metasploitable image is an image purposely configured with security v
 1. When the zip file is downloaded, extract the zip file, and remember the location.
 1. Convert the extracted vmdk file to a vhdx file so that you can use with Hyper-V. There are several tools available to convert VMWare images to Hyper-V images and vice versa.  We'll be using the [Starwind V2V Converter](https://www.starwindsoftware.com/starwind-v2v-converter).  To download, see [Starwind V2V Converter download page](https://www.starwindsoftware.com/starwind-v2v-converter#download).
     1. Start **Starwind V2V Converter**.
-    1. On the **Select location of image to convert** page, choose **Local file**.  Click **Next**.
-    1. On the **Source image** page, navigate to and select the Metasplotable.vmdk extracted in the previous step for the **File name** setting.  Click **Next**.
-    1. On the **Select location of destination image**, choose **Local file**.  Click **Next**.
-    1. On the **Select destination image format** page, choose **VHD/VHDX**.  Click **Next**.
-    1. On the **Select option for VHD/VHDX image format** page, choose **VHDX growable image**.  Click **Next**.
-    1. On the **Select destination file name** page, accept the default file name.  Click **Convert**.
-    1. On the **Converting** page, wait for the image to be converted.  This may take several minutes.  Click **Finish** when the conversion is completed.
+    1. On the **Select location of image to convert** page, choose **Local file**.  Select **Next**.
+    1. On the **Source image** page, navigate to and select the Metasplotable.vmdk extracted in the previous step for the **File name** setting.  Select **Next**.
+    1. On the **Select location of destination image**, choose **Local file**.  Select **Next**.
+    1. On the **Select destination image format** page, choose **VHD/VHDX**.  Select **Next**.
+    1. On the **Select option for VHD/VHDX image format** page, choose **VHDX growable image**.  Select **Next**.
+    1. On the **Select destination file name** page, accept the default file name.  Select **Convert**.
+    1. On the **Converting** page, wait for the image to be converted.  This may take several minutes.  Select **Finish** when the conversion is completed.
 1. Create a new Hyper-V virtual machine.
     1. Open **Hyper-V Manager**.
     1. Choose **Action** -> **New** -> **Virtual Machine**.
