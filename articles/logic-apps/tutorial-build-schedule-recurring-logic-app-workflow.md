@@ -76,7 +76,7 @@ Next, add the Recurrence [trigger](../logic-apps/logic-apps-overview.md#logic-ap
 
 ## Add the Recurrence trigger
 
-1. In the Logic Apps Designer search box, enter `recurrence`, and from the **Triggers** list, select the trigger named **Recurrence**.
+1. In the Logic Apps Designer search box, enter `recurrence`, and select the trigger named **Recurrence**.
 
    ![Screenshot that shows the Logic Apps Designer search box that contains the "recurrence" search term and in the "Triggers" list, the "Recurrence" trigger appears selected.](./media/tutorial-build-scheduled-recurring-logic-app-workflow/add-schedule-recurrence-trigger.png)
 
@@ -129,7 +129,7 @@ Now that you have a trigger, add an [action](../logic-apps/logic-apps-overview.m
 
 1. In the Logic App Designer, under the Recurrence trigger, select **New step**.
 
-1. Under **Choose an operation**, select **Standard**. In the search box, enter `bing maps`, and select the action, **Get route**.
+1. Under **Choose an operation**, select **Standard**. In the search box, enter `bing maps`, and select the action named **Get route**.
 
    ![Screenshot that shows the "Choose an operation" list filtered by "bing maps" actions, and the "Get route" action selected.](./media/tutorial-build-scheduled-recurring-logic-app-workflow/select-get-route-action.png)
 
@@ -180,7 +180,7 @@ By default, the **Get route** action returns the current travel time with traffi
 
 1. On the designer, under the **Get route** action, select **New step**.
 
-1. Under **Choose an operation**, select **Built-in**. In the search box, enter `variables`, and select the action, **Initialize variable**.
+1. Under **Choose an operation**, select **Built-in**. In the search box, enter `variables`, and select the action named **Initialize variable**.
 
    ![Screenshot that shows the "Initialize variable" action selected.](./media/tutorial-build-scheduled-recurring-logic-app-workflow/select-initialize-variable-action.png)
 
@@ -195,21 +195,21 @@ By default, the **Get route** action returns the current travel time with traffi
    | **Value** | No | An expression that converts the current travel time from seconds to minutes (see the steps under this table). | The initial value for your variable |
    |||||
 
-   1. To create the expression for the **Value** property, click inside the box so that the dynamic content list appears. If necessary, widen your browser until the dynamic list appears. From the dynamic content list, select **Expression**.
+   1. To create the expression for the **Value** property, click inside the box so that the dynamic content list appears. If necessary, widen your browser until the dynamic list appears. In the dynamic content list, select **Expression**, which shows the expression editor.
 
       ![Screenshot that shows the "Initialize variable" action with the cursor inside the "Value" property, which opens the dynamic content list.](./media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-action-settings.png)
 
-      The dynamic content list shows output values from previous actions that you can use as inputs in your workflow. The dynamic content list includes an expression editor where you can select functions to run operations in your expression. This expression editor appears only in the dynamic content list.
+      The dynamic content list shows the outputs from previous actions that are available for you to select as inputs to subsequent actions in your workflow. The dynamic content list includes an expression editor that you can use to select functions that perform operations in your expression. This expression editor is only available in the dynamic content list.
 
    1. In the expression editor, enter this expression: `div(,60)`
 
-      ![Screenshot that shows the expression editor with the expression: "div(,60)"](./media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-action-settings-2.png)
+      ![Screenshot that shows the expression editor with the "div(,60)" expression entered.](./media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-action-settings-2.png)
 
-   1. Within the expression, put your cursor between the left parenthesis (**(**) and the comma (**,**), and then select **Dynamic content**.
+   1. Within the expression, put your cursor between the left parenthesis (**(**) and the comma (**,**), and select **Dynamic content**.
 
-      ![Screenshot that shows where to put the cursor in the expression with "Dynamic content" selected.](./media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-action-settings-3.png)
+      ![Screenshot that shows where to put the cursor in the "div(,60)" expression with "Dynamic content" selected.](./media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-action-settings-3.png)
 
-   1. In the dynamic content list, select the property value, **Travel Duration Traffic**.
+   1. In the dynamic content list, under select the property value, **Travel Duration Traffic**.
 
       ![Screenshot that shows the "Travel Duration Traffic" property value selected.](./media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-action-settings-4.png)
 
@@ -227,29 +227,29 @@ Next, add a condition that checks whether the current travel time is greater tha
 
 ## Compare the travel time with limit
 
-1. Under the previous action, select **New step**.
+1. Under the **Create variable to store travel time** action, select **New step**.
 
-1. Under **Choose an operation**, select **Built-in**. In the search box, enter "condition" as your filter. From the actions list, select the action, **Condition**.
+1. Under **Choose an operation**, select **Built-in**. In the search box, enter `condition`. and from the actions list, select the action named **Condition**.
 
-   ![Select "Condition" action](./media/tutorial-build-scheduled-recurring-logic-app-workflow/select-condition-action.png)
+   ![Screenshot that shows the "Condition" action selected](./media/tutorial-build-scheduled-recurring-logic-app-workflow/select-condition-action.png)
 
 1. Rename the condition with this description: `If travel time exceeds limit`
 
 1. Build a condition that checks whether the **travelTime** property value exceeds your specified limit as described and shown here:
 
-   1. In the condition, click inside the **Choose a value** box on the condition's left side.
+   1. In the condition, on the condition's left side, click inside the **Choose a value** box.
 
-   1. From the dynamic content list that appears, under **Variables**, select the property, **travelTime**.
+   1. From the dynamic content list that appears, under **Variables**, select the property named **travelTime**.
 
-      ![Build the condition's left side](./media/tutorial-build-scheduled-recurring-logic-app-workflow/build-condition-left-side.png)
+      ![Screenshot that shows the "Choose a value" box on the condition's left side with the dynamic content list open and the "travelTime" property selected.](./media/tutorial-build-scheduled-recurring-logic-app-workflow/build-condition-left-side.png)
 
-   1. In the middle comparison box, select the operator, **is greater than**.
+   1. In the middle comparison box, select the operator named **is greater than**.
 
-   1. In the **Choose a value** box on the condition's right side, enter this limit: `15`
+   1. On the condition's right side, in the **Choose a value** box, enter this limit: `15`
 
       When you're done, the condition looks like this example:
 
-      ![Finished condition to check travel time](./media/tutorial-build-scheduled-recurring-logic-app-workflow/build-condition-check-travel-time.png)
+      ![Screenshot that shows the finished condition for comparing the travel time to the specified limit.](./media/tutorial-build-scheduled-recurring-logic-app-workflow/build-condition-check-travel-time.png)
 
 1. Save your logic app.
 
@@ -257,56 +257,62 @@ Next, add the action to run when the travel time exceeds your limit.
 
 ## Send email when limit exceeded
 
-Now, add an action that emails you when the travel time exceeds your limit. This email includes the current travel time and the extra time necessary to travel the specified route.
+Now, add an action that sends you email when the travel time exceeds your limit. This email includes the current travel time and the extra time necessary to travel the specified route.
 
-1. In the condition's **If true** branch, select **Add an action**.
+1. In the condition's **True** branch, select **Add an action**.
 
-1. Under **Choose an operation**, select **Standard**. In the search box, enter "send email". The list returns many results, so first select the email connector that you want, for example:
+1. Under **Choose an operation**, select **Standard**. In the search box, enter `send email`. The list returns many results, so to help you filter list, first select the email connector that you want.
 
-   ![Select the email connector that you want](./media/tutorial-build-scheduled-recurring-logic-app-workflow/add-action-send-email.png)
+   For example, if you have an Outlook email account, select the connector for your account type:
 
    * For Azure work or school accounts, select **Office 365 Outlook**.
    * For personal Microsoft accounts, select **Outlook.com**.
 
-1. When the connector's actions appear, select "send email action" that you want to use, for example:
+   This example continues by selecting Office 365 Outlook.
 
-   ![Select "send email" action](./media/tutorial-build-scheduled-recurring-logic-app-workflow/select-send-email-action.png)
+   ![Screenshot that shows the "Choose an operation list" with "Standard" category and "Office 365 Outlook" connector selected.](./media/tutorial-build-scheduled-recurring-logic-app-workflow/add-action-send-email.png)
 
-1. If you don't already have a connection, you're asked to sign in to your email account.
+1. When the connector's actions appear, select the action that sends email, for example:
 
-   Logic Apps creates a connection to your email account.
+   ![Screenshot that shows the "Send an email" action selected.](./media/tutorial-build-scheduled-recurring-logic-app-workflow/select-send-email-action.png)
+
+1. If you don't already have a connection, sign in and authenticate access to your email account when prompted.
+
+   Azure Logic Apps creates a connection to your email account.
 
 1. Rename the action with this description: `Send email with travel time`
 
-1. In the **To** box, enter the recipient's email address. For testing purposes, use your email address.
+1. For the **To** property, enter the recipient's email address. For testing purposes, you can use your email address.
 
-1. In the **Subject** box, specify the email's subject, and include the **travelTime** variable.
+1. For the **Subject** property, specify the email's subject, and include the **travelTime** variable by following these steps:
 
-   1. Enter the text `Current travel time (minutes):` with a trailing space. 
+   1. Enter the text `Current travel time (minutes):` with a trailing space. Keep your cursor in the **Subject** box so that the dynamic content list stays open.
 
-   1. In the dynamic content list, under **Variables**, select **See more**.
+   1. From the dynamic content list, in the **Variables** heading, select **See more** so that the variable named **travelTime** appears.
 
-      ![Find "travelTime" variable](./media/tutorial-build-scheduled-recurring-logic-app-workflow/find-travelTime-variable.png)
+      ![Screenshot that shows the dynamic content list with the "Variables" section and "See more" selected.](./media/tutorial-build-scheduled-recurring-logic-app-workflow/find-travelTime-variable.png)
 
-   1. After **travelTime** appears under **Variables**, select **travelTime**.
+      > [!NOTE]
+      > The dynamic content list doesn't automatically show the **travelTime** variable because 
+      > the **Subject** property expects a string value, while **travelTime** is an integer value.
 
-      ![Enter subject text and expression that returns the travel time](./media/tutorial-build-scheduled-recurring-logic-app-workflow/select-travelTime-variable.png)
+      ![Screenshot that shows the dynamic content list with the "travelTime" variable selected.](./media/tutorial-build-scheduled-recurring-logic-app-workflow/select-travelTime-variable.png)
 
-1. In the **Body** box, specify the content for the email body.
+1. For the **Body** property, specify the content for the email body by following these steps:
 
-   1. Enter the text `Add extra travel time (minutes):` with a trailing space.
+   1. Enter the text `Add extra travel time (minutes):` with a trailing space. Keep your cursor in the **Body** box so that the dynamic content list stays open.
 
-   1. In the dynamic content list, select **Expression**.
+   1. In the dynamic content list, select **Expression**, which shows the expression editor.
 
-      ![Build expression for email body](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings.png)
+      ![Screenshot that shows the dynamic content list with "Expression" selected.](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings.png)
 
-   1. In the expression editor, enter this expression so that you can calculate the number of minutes that exceed your limit: ```sub(,15)```
+   1. In the expression editor, enter `sub(,15)` so that you can calculate the number of minutes that exceed your limit: 
 
-      ![Enter expression to calculate extra minutes travel time](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings-2.png)
+      ![Screenshot that shows the expression editor with the "sub(,15)" expression entered.](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings-2.png)
 
-   1. Put your cursor inside the expression between the left parenthesis (**(**) and the comma (**,**). Select **Dynamic content**.
+   1. Within the expression, put your cursor between the left parenthesis (**(**) and the comma (**,**), and select **Dynamic content**.
 
-      ![Continue building expression to calculate extra minutes travel time](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings-3.png)
+      ![Screenshot that shows where to put the cursor in the "sub(,15)" expression with "Dynamic content" selected.](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings-3.png)
 
    1. Under **Variables**, select **travelTime**.
 
