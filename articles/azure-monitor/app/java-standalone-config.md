@@ -162,7 +162,6 @@ If you have some JMX metrics that you are interested in capturing:
 You can also set the JMX metrics using the environment variable `APPLICATIONINSIGHTS_JMX_METRICS`.
 
 This environment variable content must be json data matching the above structure, e.g.
-
 `[{"objectName": "java.lang:type=Runtime", "attribute": "Uptime", "display": "JVM uptime (millis)"}, {"objectName": "java.lang:type=MemoryPool,name=Metaspace", "attribute": "Usage.used", "display": "MetaSpace Used"}]`
 
 ## Micrometer (including metrics from Spring Boot Actuator)
