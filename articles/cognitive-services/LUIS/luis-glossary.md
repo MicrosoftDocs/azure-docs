@@ -1,6 +1,8 @@
 ---
 title: Glossary - LUIS
 description: The glossary explains terms that you might encounter as you work with the LUIS API Service.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 05/08/2020
 ---

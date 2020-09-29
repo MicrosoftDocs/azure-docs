@@ -277,19 +277,19 @@
   - name: Getting paid
     items:
     - name: Getting paid
-      href: partner-center-portal/get-paid.md
+      href: /partner-center/marketplace-get-paid?context=/azure/marketplace/context/context
     - name: Set up your payout account and tax forms
-      href: partner-center-portal/set-up-your-payout-account-tax-forms.md
-    - name: Payment thresholds, methods, and time-frames
-      href: partner-center-portal/payment-thresholds-methods-timeframes.md
-    - name: Payout summary overview
-      href: partner-center-portal/payout-summary-overview.md
-    - name: Payout summaries
-      href: partner-center-portal/payout-summary.md
+      href: /partner-center/set-up-your-payout-account?context=/azure/marketplace/context/context
+    - name: Payment thresholds and time frames
+      href: /partner-center/payment-thresholds-methods-timeframes?context=/azure/marketplace/context/context
+    - name: Payout statements
+      href: /partner-center/payout-statement?context=/azure/marketplace/context/context
     - name: Payout policy details
-      href: partner-center-portal/payout-policy-details.md
+      href: /partner-center/payout-policy-details?context=/azure/marketplace/context/context
     - name: Tax details
-      href: partner-center-portal/tax-details-paid-transactions.md
+      href: /partner-center/tax-details-marketplace?context=/azure/marketplace/context/context
+    - name: Payouts FAQ
+      href: /partner-center/payout-faq?context=/azure/marketplace/context/context
   - name: CPP API reference
     items:
     - name: Overview

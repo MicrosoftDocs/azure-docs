@@ -1502,7 +1502,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
-> | labaccounts | Yes | Yes |
+> | labaccounts | Yes | No |
 > | users | No | No |
 
 ## Microsoft.Logic
@@ -1532,11 +1532,8 @@ Jump to a resource provider namespace:
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
 > | workspaces | Yes | Yes |
-> | workspaces / codeJobs | No | No |
 > | workspaces / computes | No | No |
 > | workspaces / eventGridFilters | No | No |
-> | workspaces / inferenceEndpoints | Yes | Yes |
-> | workspaces / inferenceEndpoints / deployments | Yes | Yes |
 > | workspaces / linkedServices | No | No |
 
 ## Microsoft.Maintenance
