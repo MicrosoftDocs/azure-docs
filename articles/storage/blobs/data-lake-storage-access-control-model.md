@@ -18,7 +18,7 @@ Data Lake Storage Gen2 supports the following authorization mechanisms:
 - Role-based access control (RBAC)
 - Access control lists (ACL)
 
-[Shared Key and SAS authorization](#shared-key-and-shared-access-signature-sas-authorization) grants a user (or application) access without requiring them to have an identity in Azure Active Directory (Azure AD). 
+[Shared Key and SAS authorization](#shared-key-and-shared-access-signature-sas-authorization) grants access to a user (or application) without requiring them to have an identity in Azure Active Directory (Azure AD). 
 
 RBAC and ACL both require the user (or application) to have an identity in Azure AD.  RBAC lets you grant "coarse-grain" access to storage account data, such as read or write access to **all** of the data in a storage account, while ACLs let you grant "fine-grained" access, such as write access to a specific directory or file.  
 
