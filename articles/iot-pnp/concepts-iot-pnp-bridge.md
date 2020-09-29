@@ -59,7 +59,7 @@ To build, extend, and develop the IoT Plug and Play bridge you'll need:
 
 - A development environment that supports compiling C++ such as: [Visual Studio (Community, Professional, or Enterprise)](https://visualstudio.microsoft.com/downloads/)- make sure that you include the Desktop Development with C++ workload when you install Visual Studio.
 - [CMake](https://cmake.org/download/) - when you install CMake, select the option `Add CMake to the system PATH`.
-- If you are building on Windows, you will also need to download Windows 17763 SDK: [https://developer.microsoft.com/en-US/windows/downloads/windows-10-sdk](https://developer.microsoft.com/en-US/windows/downloads/windows-10-sdk)
+- If you are building on Windows, you will also need to download Windows 17763 SDK: [https://developer.microsoft.com/windows/downloads/windows-10-sdk](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
 - [Azure IoT Hub Device C SDK](https://github.com/Azure/azure-iot-sdk-c). The included build scripts in this repo will automatically clone the required Azure IoT C SDK for you.
 
 ### Azure IoT Products and Tools
