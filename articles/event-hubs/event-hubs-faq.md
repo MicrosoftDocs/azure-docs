@@ -288,8 +288,6 @@ For an example on how to target a specific Storage API version from your code, s
 - Python - [Synchrnous](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob/samples/receive_events_using_checkpoint_store_storage_api_version.py), [Asynchronous](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/receive_events_using_checkpoint_store_storage_api_version_async.py)
 - [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript/receiveEventsWithApiSpecificStorage.js) and [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/typescript/src/receiveEventsWithApiSpecificStorage.ts)
 
-For more information on the Azure Storage service versions supported on Azure Stack Hub, see [Azure Stack Hub storage: Differences and considerations](https://docs.microsoft.com/en-us/azure-stack/user/azure-stack-acs-differences).
-
 ## Next steps
 
 You can learn more about Event Hubs by visiting the following links:
