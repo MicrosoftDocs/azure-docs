@@ -29,7 +29,7 @@ At a high level, the process contains the following steps:
 * Modeling
 * Model deployment and scoring
 
-In this article, we will describe the Azure Synapse machine learning capabilities in different analytics engines, from a data science process perspective. For each step in the data science process, we have summarized the Azure Synapse capabilities that can help.
+This article describes the Azure Synapse machine learning capabilities in different analytics engines, from a data science process perspective. For each step in the data science process, the Azure Synapse capabilities that can help are summarized.
 
 ## Azure Synapse machine learning capabilities
 
@@ -69,7 +69,7 @@ Another way to train machine learning models, that does not require much prior f
 
 Models that have been trained either in Azure Synapse or outside Azure Synapse can easily be used for batch scoring. Currently in Synapse, there are two ways in which you can run batch scoring.
 
-* You can use the [TSQL PREDICT function](../sql-data-warehouse/sql-data-warehouse-predict.md) in Synapse SQL pools to run your predictions right where your data lives. This powerful and scalable function allows you to enrich your data without moving any data out of your data warehouse. We recently introduced a [new guided machine learning model experience in Synapse Studio](https://aka.ms/synapse-ml-ui), where you can deploy an ONNX model from the Azure Machine Learning model registry in Synapse SQL Pools for batch scoring using PREDICT.
+* You can use the [TSQL PREDICT function](../sql-data-warehouse/sql-data-warehouse-predict.md) in Synapse SQL pools to run your predictions right where your data lives. This powerful and scalable function allows you to enrich your data without moving any data out of your data warehouse. A new [guided machine learning model experience in Synapse Studio](https://aka.ms/synapse-ml-ui) was introduced where you can deploy an ONNX model from the Azure Machine Learning model registry in Synapse SQL Pools for batch scoring using PREDICT.
 
 * Another option for batch scoring machine learning models in Azure Synapse is to leverage the Apache Spark Pools for Azure Synapse. Depending on the libraries used to train the models, you can use a code experience to run your batch scoring.
 

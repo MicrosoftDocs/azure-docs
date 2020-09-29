@@ -36,12 +36,16 @@ Sign in to the [Azure portal](https://portal.azure.com/)
 
 This step will create a new Service Principal. If you want to use an existing Service Principal, you can skip this step.
 1. Open Azure portal. 
-1. Go to "Azure Active Directory -> App registrations". 
-1. Click "New registration". Then, follow instructions on the UI to register a new application.
-1. After the application is registered. Generate a secret for the application. Go to "Your application -> Certificate & Secret". Click "Add client secret" to generate a secret. Keep the secret safe and it will be used later.
+
+1. Go to **Azure Active Directory** -> **App registrations**.
+
+1. Click **New registration**. Then, follow instructions on the UI to register a new application.
+
+1. After the application is registered. Generate a secret for the application. Go to **Your application** -> **Certificate & Secret**. Click **Add client secret** to generate a secret. Keep the secret safe and it will be used later.
 
    ![Generate secret](media/quickstart-integrate-azure-ml/quickstart-integrate-azure-ml-createsp-00a.png)
-1. Create a service principal for the application. Go to "Your application -> Overview" and then click "Create service principal". In some cases, this service principal is automatically created.
+
+1. Create a service principal for the application. Go to **Your application** -> **Overview** and then click **Create service principal**. In some cases, this service principal is automatically created.
 
    ![Create service principal](media/quickstart-integrate-azure-ml/quickstart-integrate-azure-ml-createsp-00b.png)
 
@@ -51,20 +55,20 @@ This step will create a new Service Principal. If you want to use an existing Se
 
 ## Navigate to the Synapse workspace and create a linked service
 
-1. In the Synapse workspace where you want to create the new Azure Machine Learning linked service, go to "Management -> Linked service", create a new linked service with type "Azure Machine Learning".
+1. In the Synapse workspace where you want to create the new Azure Machine Learning linked service, go to **Management** -> **Linked service**, create a new linked service with type "Azure Machine Learning".
 
    ![Create linked service](media/quickstart-integrate-azure-ml/quickstart-integrate-azure-ml-create-linked-service-00a.png)
 
 2. Fill out the form:
-   
-   - Service principal ID: This is the **application (client) ID** of the Application. 
+
+   - Service principal ID: This is the **application (client) ID** of the Application.
   
      > [!NOTE]
      > This is NOT the name of the application. You can find this ID in the overview page of the application. It should be a long string looking similar to this "81707eac-ab38-406u-8f6c-10ce76a568d5".
 
-   - Service principal key: The secret we generated in the previous section.
+   - Service principal key: The secret you generated in the previous section.
 
-3. Click "Test Connection" to verify if the configuration is correct. If the connection test passes, click "Save".
+3. Click **Test Connection** to verify if the configuration is correct. If the connection test passes, click **Save**.
 
    If the connection test failed, make sure that the service principal ID and secret are correct and try again.
 

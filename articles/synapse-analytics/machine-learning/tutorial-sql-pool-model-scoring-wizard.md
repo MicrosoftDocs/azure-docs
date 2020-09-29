@@ -59,7 +59,7 @@ Before running all cells in the notebook, check if the compute instance is runni
 1. The notebook will train an ONNX model and register it with MLFlow. Go to **Models** to check if the new model is registered properly.
    ![Model in registry](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-train-00c.png)
 
-1. Running the notebook will also export the test data into a CSV file. Download the CSV file to your local system. Later, we will import the CSV file into SQL pool and use the data to test the model.
+1. Running the notebook will also export the test data into a CSV file. Download the CSV file to your local system. Later, you will import the CSV file into SQL pool and use the data to test the model.
 
    The CSV file is created in the same folder as your notebook file. Click "Refresh" on the file explorer if you don't see it right away.
 
@@ -125,7 +125,7 @@ Before running all cells in the notebook, check if the compute instance is runni
 
 1. Select a linked Azure Machine Learning workspace in the drop down box. This loads a list of machine learning models from the model registry of the chosen Azure Machine Learning workspace. Currently, only ONNX models are supported so this will display only ONNX models.
 
-1. Select the model we just trained. Then, click **Continue**.
+1. Select the model you just trained then click **Continue**.
 
    ![Select Azure Machine Learning model](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-00d.png)
 
