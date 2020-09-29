@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
-ms.date: 09/16/2020
+ms.date: 09/30/2020
 ---
 
 # Manage Azure Machine Learning resources with the VS Code Extension (preview)
