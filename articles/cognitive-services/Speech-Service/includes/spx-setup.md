@@ -7,19 +7,14 @@ ms.date: 05/15/2020
 ms.author: v-demjoh
 ---
 
-## Prerequisites
-
-The only prerequisite is an Azure Speech subscription. See the [guide](../get-started.md#new-resource) on creating a new subscription if you don't already have one.
-
 ## Download and install
 
 #### [Windows Install](#tab/windowsinstall)
 
 Follow these steps to install the Speech CLI on Windows:
 
-1. Install either [.NET Framework 4.7](https://dotnet.microsoft.com/download/dotnet-framework/net471) or [.NET Core 3.0](https://dotnet.microsoft.com/download/dotnet-core/3.0)
-2. Download the Speech CLI [zip archive](https://aka.ms/speech/spx-zips.zip), then extract it.
-3. Go to the root directory `spx-zips` that you extracted from the download, and extract the subdirectory that you need (`spx-net471` for .NET Framework 4.7, or `spx-netcore-win-x64` for .NET Core 3.0 on an x64 CPU).
+1. Download the Speech CLI [zip archive](https://aka.ms/speech/spx-zips.zip), then extract it.
+2. Go to the root directory `spx-zips` that you extracted from the download, and extract the subdirectory that you need (`spx-net471` for .NET Framework 4.7, or `spx-netcore-win-x64` for .NET Core 3.0 on an x64 CPU).
 
 In the command prompt, change directory to this location, and then type `spx` to see help for the Speech CLI.
 
@@ -48,12 +43,14 @@ Type `spx` to see help for the Speech CLI.
 
 #### [Docker Install](#tab/dockerinstall)
 
+> [!NOTE]
+> <a href="https://www.docker.com/get-started" target="_blank">Docker Desktop for your platform <span class="docon docon-navigate-external x-hidden-focus"></span></a> must be installed.
+
 Follow these steps to install the Speech CLI within a Docker container:
 
-1. Install and run [Docker Desktop for your platform](https://www.docker.com/get-started).
 1. In a new command prompt or terminal, type this command:
     `docker pull msftspeech/spx`
-1. Type this command. You should see help information for Speech CLI:
+2. Type this command. You should see help information for Speech CLI:
     `docker run -it --rm msftspeech/spx help`
 
 ### Mount a directory in the container

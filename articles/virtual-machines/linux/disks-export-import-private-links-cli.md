@@ -51,19 +51,17 @@ az account set --subscription $subscriptionId
 ```
 
 ## Create a disk access using Azure CLI
-```azurecli-interactive
-az deployment group create -g $resourceGroupName \
---template-uri "https://raw.githubusercontent.com/Azure-Samples/managed-disks-powershell-getting-started/master/privatelinks/CreateDiskAccess.json" \
---parameters "region=$region" "diskAccessName=$diskAccessName"
+```azurecli
+az disk-access create -n $diskAccessName -g $resourceGroupName -l $region
 
-diskAccessId=$(az resource show -n $diskAccessName -g $resourceGroupName --namespace Microsoft.Compute --resource-type diskAccesses --query [id] -o tsv)
+diskAccessId=$(az disk-access show -n $diskAccessName -g $resourceGroupName --query [id] -o tsv)
 ```
 
 ## Create a Virtual Network
 
 Network policies like network security groups (NSG) are not supported for private endpoints. In order to deploy a Private Endpoint on a given subnet, an explicit disable setting is required on that subnet. 
 
-```azurecli-interactive
+```azurecli
 az network vnet create --resource-group $resourceGroupName \
     --name $vnetName \
     --subnet-name $subnetName
@@ -72,7 +70,7 @@ az network vnet create --resource-group $resourceGroupName \
 
 Azure deploys resources to a subnet within a virtual network, so you need to update the subnet to disable private endpoint network policies. 
 
-```azurecli-interactive
+```azurecli
 az network vnet subnet update --resource-group $resourceGroupName \
     --name $subnetName  \
     --vnet-name $vnetName \
@@ -80,7 +78,7 @@ az network vnet subnet update --resource-group $resourceGroupName \
 ```
 ## Create a private endpoint for the disk access object
 
-```azurecli-interactive
+```azurecli
 az network private-endpoint create --resource-group $resourceGroupName \
     --name $privateEndPointName \
     --vnet-name $vnetName  \
@@ -95,7 +93,7 @@ az network private-endpoint create --resource-group $resourceGroupName \
 Create a Private DNS Zone for Storage blob domain, create an association link with the Virtual Network
 and create a DNS Zone Group to associate the private endpoint with the Private DNS Zone. 
 
-```azurecli-interactive
+```azurecli
 az network private-dns zone create --resource-group $resourceGroupName \
     --name "privatelink.blob.core.windows.net"
 
@@ -124,14 +122,13 @@ diskSizeGB=128
 
 diskAccessId=$(az resource show -n $diskAccessName -g $resourceGroupName --namespace Microsoft.Compute --resource-type diskAccesses --query [id] -o tsv)
 
-az deployment group create -g $resourceGroupName \
-   --template-uri "https://raw.githubusercontent.com/Azure-Samples/managed-disks-powershell-getting-started/master/privatelinks/CreateDisksWithExportViaPrivateLink.json" \
-   --parameters "diskName=$diskName" \
-   "diskSkuName=$diskSkuName" \
-   "diskSizeGB=$diskSizeGB" \
-   "diskAccessId=$diskAccessId" \
-   "region=$region" \
-   "networkAccessPolicy=AllowPrivate"
+az disk create -n $diskName \
+-g $resourceGroupName \
+-l $region \
+--size-gb $diskSizeGB \
+--sku $diskSkuName \
+--network-access-policy AllowPrivate \
+--disk-access $diskAccessId 
 ```
 
 ## Create a snapshot of a disk protected with Private Links
@@ -146,16 +143,15 @@ diskId=$(az disk show -n $sourceDiskName -g $resourceGroupName --query [id] -o t
 
 diskAccessId=$(az resource show -n $diskAccessName -g $resourceGroupName --namespace Microsoft.Compute --resource-type diskAccesses --query [id] -o tsv)
 
-az deployment group create -g $resourceGroupName \
-   --template-uri "https://raw.githubusercontent.com/Azure-Samples/managed-disks-powershell-getting-started/master/privatelinks/CreateSnapshotWithExportViaPrivateLink.json" \
-   --parameters "snapshotName=$snapshotNameSecuredWithPL" \
-   "sourceResourceId=$diskId" \
-   "diskAccessId=$diskAccessId" \
-   "region=$region" \
-   "networkAccessPolicy=AllowPrivate" 
+az snapshot create -n $snapshotNameSecuredWithPL \
+-g $resourceGroupName \
+-l $region \
+--source $diskId \
+--network-access-policy AllowPrivate \
+--disk-access $diskAccessId 
 ```
 
 ## Next steps
 
 - [FAQ on Private Links](../faq-for-disks.md#private-links-for-securely-exporting-and-importing-managed-disks)
-- [Export/Copy managed snapshots as VHD to a storage account in different region with CLI](../scripts/virtual-machines-linux-cli-sample-copy-managed-disks-vhd.md)
+- [Export/Copy managed snapshots as VHD to a storage account in different region with CLI](../scripts/virtual-machines-cli-sample-copy-managed-disks-vhd.md)

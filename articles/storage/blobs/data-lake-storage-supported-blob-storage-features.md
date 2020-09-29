@@ -40,7 +40,6 @@ This table lists the Blob storage features that you can use with Azure Data Lake
 |Snapshots|Preview|Not yet supported|[Blob snapshots](snapshots-overview.md)|
 |Static websites|Preview|Not yet supported|[Static website hosting in Azure Storage](storage-blob-static-website.md)|
 |Immutable storage|Preview|Not yet supported|[Store business-critical blob data with immutable storage](storage-blob-immutable-storage.md)|
-|Lifecycle management policies|Preview|Not yet supported|[Manage the Azure Blob storage lifecycle](storage-lifecycle-management-concepts.md)|
 |Container soft delete|Preview|Preview|[Soft delete for containers (preview)](soft-delete-container-overview.md)|
 |Blob soft delete|Not yet supported|Not yet supported|[Soft delete for blobs](storage-blob-soft-delete.md)|
 |Blobfuse|Preview|Not yet supported|[How to mount Blob storage as a file system with blobfuse](storage-how-to-mount-container-linux.md)|

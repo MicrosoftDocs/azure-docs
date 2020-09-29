@@ -19,7 +19,9 @@ ms.custom: devx-track-csharp
 
 ---
 
-# Customizing Media Encoder Standard presets  
+# Customizing Media Encoder Standard presets
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]  
 
 ## Overview
 

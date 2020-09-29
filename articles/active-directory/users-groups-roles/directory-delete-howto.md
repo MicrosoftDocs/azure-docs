@@ -24,12 +24,12 @@ When an Azure AD organization (tenant) is deleted, all resources that are contai
 
 ## Prepare the organization
 
-You can't delete a organization in Azure AD until it passes several checks. These checks reduce risk that deleting an Azure AD organization negatively impacts user access, such as the ability to sign in to Office 365 or access resources in Azure. For example, if the organization associated with a subscription is unintentionally deleted, then users can't access the Azure resources for that subscription. The following conditions are checked:
+You can't delete a organization in Azure AD until it passes several checks. These checks reduce risk that deleting an Azure AD organization negatively impacts user access, such as the ability to sign in to Microsoft 365 or access resources in Azure. For example, if the organization associated with a subscription is unintentionally deleted, then users can't access the Azure resources for that subscription. The following conditions are checked:
 
 * There can be no users in the Azure AD organization (tenant) except one global administrator who is to delete the organization. Any other users must be deleted before the organization can be deleted. If users are synchronized from on-premises, then sync must first be turned off, and the users must be deleted in the cloud organization using the Azure portal or Azure PowerShell cmdlets.
 * There can be no applications in the organization. Any applications must be removed before the organization can be deleted.
 * There can be no multi-factor authentication providers linked to the organization.
-* There can be no subscriptions for any Microsoft Online Services such as Microsoft Azure, Office 365, or Azure AD Premium associated with the organization. For example, if a default Azure AD organization was created for you in Azure, you cannot delete this organization if your Azure subscription still relies on this organization for authentication. Similarly, you can't delete a organization if another user has associated a subscription with it.
+* There can be no subscriptions for any Microsoft Online Services such as Microsoft Azure, Microsoft 365, or Azure AD Premium associated with the organization. For example, if a default Azure AD organization was created for you in Azure, you cannot delete this organization if your Azure subscription still relies on this organization for authentication. Similarly, you can't delete a organization if another user has associated a subscription with it.
 
 ## Delete the organization
 
@@ -49,16 +49,16 @@ You can't delete a organization in Azure AD until it passes several checks. Thes
 
 ## If you can't delete the organization
 
-When you configured your Azure AD organization, you may have also activated license-based subscriptions for your organization like Azure AD Premium P2, Office 365 Business Premium, or Enterprise Mobility + Security E5. To avoid accidental data loss, you can't delete a organization until the subscriptions are fully deleted. The subscriptions must be in a **Deprovisioned** state to allow organization deletion. An **Expired** or **Canceled** subscription moves to the **Disabled** state, and the final stage is the **Deprovisioned** state.
+When you configured your Azure AD organization, you may have also activated license-based subscriptions for your organization like Azure AD Premium P2, Microsoft 365 Business Standard, or Enterprise Mobility + Security E5. To avoid accidental data loss, you can't delete a organization until the subscriptions are fully deleted. The subscriptions must be in a **Deprovisioned** state to allow organization deletion. An **Expired** or **Canceled** subscription moves to the **Disabled** state, and the final stage is the **Deprovisioned** state.
 
-For what to expect when a trial Office 365 subscription expires (not including paid Partner/CSP, Enterprise Agreement, or Volume Licensing), see the following table. For more information on Office 365 data retention and subscription lifecycle, see [What happens to my data and access when my Office 365 for business subscription ends?](https://support.office.com/article/what-happens-to-my-data-and-access-when-my-office-365-for-business-subscription-ends-4436582f-211a-45ec-b72e-33647f97d8a3). 
+For what to expect when a trial Microsoft 365 subscription expires (not including paid Partner/CSP, Enterprise Agreement, or Volume Licensing), see the following table. For more information on Microsoft 365 data retention and subscription lifecycle, see [What happens to my data and access when my Microsoft 365 for business subscription ends?](https://support.office.com/article/what-happens-to-my-data-and-access-when-my-office-365-for-business-subscription-ends-4436582f-211a-45ec-b72e-33647f97d8a3). 
 
 Subscription state | Data | Access to data
 ----- | ----- | -----
-Active (30 days for trial) | Data accessible to all	| Users have normal access to Office 365 files, or apps<br>Admins have normal access to Microsoft 365 admin center and resources 
-Expired (30 days) | Data accessible to all| Users have normal access to Office 365 files, or apps<br>Admins have normal access to Microsoft 365 admin center and resources
-Disabled (30 days) | Data accessible to admin only | Users can’t access Office 365 files, or apps<br>Admins can access the Microsoft 365 admin center but can’t assign licenses to or update users
-Deprovisioned  (30 days after Disabled) | Data deleted (automatically deleted if no other services are in use) | Users can’t access Office 365 files, or apps<br>Admins can access the Microsoft 365 admin center to purchase and manage other subscriptions
+Active (30 days for trial) | Data accessible to all	| Users have normal access to Microsoft 365 files, or apps<br>Admins have normal access to Microsoft 365 admin center and resources 
+Expired (30 days) | Data accessible to all| Users have normal access to Microsoft 365 files, or apps<br>Admins have normal access to Microsoft 365 admin center and resources
+Disabled (30 days) | Data accessible to admin only | Users can’t access Microsoft 365 files, or apps<br>Admins can access the Microsoft 365 admin center but can’t assign licenses to or update users
+Deprovisioned  (30 days after Disabled) | Data deleted (automatically deleted if no other services are in use) | Users can’t access Microsoft 365 files, or apps<br>Admins can access the Microsoft 365 admin center to purchase and manage other subscriptions
 
 ## Delete a subscription
 
@@ -94,7 +94,7 @@ You can put a subscription into the **Deprovisioned** state to be deleted in thr
 
 ## I have a trial subscription that blocks deletion
 
-There are [self-service sign-up products](/office365/admin/misc/self-service-sign-up?view=o365-worldwide) like Microsoft Power BI, Rights Management Services, Microsoft Power Apps, or Dynamics 365, individual users can sign up via Office 365, which also creates a guest user for authentication in your Azure AD organization. These self-service products block directory deletions until the products are fully deleted from the organization, to avoid data loss. They can be deleted only by the Azure AD admin whether the user signed up individually or was assigned the product.
+There are [self-service sign-up products](/office365/admin/misc/self-service-sign-up?view=o365-worldwide) like Microsoft Power BI, Rights Management Services, Microsoft Power Apps, or Dynamics 365, individual users can sign up via Microsoft 365, which also creates a guest user for authentication in your Azure AD organization. These self-service products block directory deletions until the products are fully deleted from the organization, to avoid data loss. They can be deleted only by the Azure AD admin whether the user signed up individually or was assigned the product.
 
 There are two types of self-service sign-up products in how they are assigned: 
 
@@ -105,7 +105,7 @@ When you begin the deletion of the self-service sign-up product, the action perm
 
 For more information about currently available self-service sign-up products and services, see [Available self-service programs](/office365/admin/misc/self-service-sign-up?view=o365-worldwide#available-self-service-programs).
 
-For what to expect when a trial Office 365 subscription expires (not including paid Partner/CSP, Enterprise Agreement, or Volume Licensing), see the following table. For more information on Office 365 data retention and subscription lifecycle, see [What happens to my data and access when my Office 365 for business subscription ends?](/office365/admin/subscriptions-and-billing/what-if-my-subscription-expires?view=o365-worldwide).
+For what to expect when a trial Microsoft 365 subscription expires (not including paid Partner/CSP, Enterprise Agreement, or Volume Licensing), see the following table. For more information on Microsoft 365 data retention and subscription lifecycle, see [What happens to my data and access when my Microsoft 365 for business subscription ends?](/office365/admin/subscriptions-and-billing/what-if-my-subscription-expires?view=o365-worldwide).
 
 Product state | Data | Access to data
 ------------- | ---- | --------------

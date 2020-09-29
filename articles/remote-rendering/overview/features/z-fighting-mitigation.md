@@ -16,9 +16,9 @@ When two surfaces overlap, it is not clear which one should be rendered on top o
 
 |Situation                        | Result                               |
 |---------------------------------|:-------------------------------------|
-|Regular z-fighting               |![Z-fighting](./media/zfighting-0.png)|
-|Z-fighting mitigation enabled    |![Z-fighting](./media/zfighting-1.png)|
-|Checkerboard highlighting enabled|![Z-fighting](./media/zfighting-2.png)|
+|Regular z-fighting               |![No deterministic precedence between red and green quads](./media/zfighting-0.png)|
+|Z-fighting mitigation enabled    |![Red quad has precedence](./media/zfighting-1.png)|
+|Checkerboard highlighting enabled|![Red and green quad toggle preference in checkerboard pattern](./media/zfighting-2.png)|
 
 The following code enables z-fighting mitigation:
 
@@ -48,7 +48,6 @@ void EnableZFightingMitigation(ApiHandle<AzureSession> session, bool highlight)
 }
 ```
 
-
 > [!NOTE]
 > Z-fighting mitigation is a global setting that affects all rendered meshes.
 
@@ -71,6 +70,11 @@ The provided z-fighting mitigation is a best effort. There is no guarantee that 
 
 * Enabling z-fighting mitigation incurs little to no performance overhead.
 * Additionally enabling the z-fighting overlay does incur a non-trivial performance overhead, though it may vary depending on the scene.
+
+## API documentation
+
+* [C# RemoteManager.ZFightingMitigationSettings property](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.zfightingmitigationsettings)
+* [C++ RemoteManager::ZFightingMitigationSettings()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#zfightingmitigationsettings)
 
 ## Next steps
 

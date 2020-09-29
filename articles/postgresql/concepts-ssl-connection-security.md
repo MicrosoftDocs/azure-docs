@@ -27,7 +27,7 @@ You can optionally disable enforcing TLS connectivity. Microsoft Azure recommend
 
 Visit your Azure Database for PostgreSQL server and click **Connection security**. Use the toggle button to enable or disable the **Enforce SSL connection** setting. Then, click **Save**.
 
-![Connection Security - Disable Enforce TLS/SSL](./media/concepts-ssl-connection-security/1-disable-ssl.png)
+:::image type="content" source="./media/concepts-ssl-connection-security/1-disable-ssl.png" alt-text="Connection Security - Disable Enforce TLS/SSL":::
 
 You can confirm the setting by viewing the **Overview** page to see the **SSL enforce status** indicator.
 

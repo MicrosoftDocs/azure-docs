@@ -40,7 +40,7 @@ The following table outlines the username policies that apply to both on-premise
 
 A password policy is applied to all user accounts that are created and managed directly in Azure AD. This password policy can't be modified, though you can [configure custom banned passwords for Azure AD password protection](tutorial-configure-custom-password-protection.md).
 
-The password policy doesn't apply to user accounts synchronized from an on-premises AD DS environment using Azure AD Connect.
+The password policy doesn't apply to user accounts synchronized from an on-premises AD DS environment using Azure AD Connect, unless you enable EnforceCloudPasswordPolicyForPasswordSyncedUsers.
 
 The following password policy options are defined:
 
@@ -105,7 +105,7 @@ A *global administrator* or *user administrator* can use the [Microsoft Azure AD
 
 You can also use PowerShell cmdlets to remove the never-expires configuration or to see which user passwords are set to never expire.
 
-This guidance applies to other providers, such as Intune and Office 365, which also rely on Azure AD for identity and directory services. Password expiration is the only part of the policy that can be changed.
+This guidance applies to other providers, such as Intune and Microsoft 365, which also rely on Azure AD for identity and directory services. Password expiration is the only part of the policy that can be changed.
 
 > [!NOTE]
 > Only passwords for user accounts that aren't synchronized through Azure AD Connect can be configured to not expire. For more information about directory synchronization, see [Connect AD with Azure AD](../hybrid/whatis-hybrid-identity.md).

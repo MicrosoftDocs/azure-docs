@@ -18,6 +18,9 @@ ms.custom: devx-track-csharp
 
 ---
 # How to perform live streaming with on-premises encoders using .NET
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-live-passthrough-get-started.md)
 > * [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)

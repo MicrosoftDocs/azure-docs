@@ -18,7 +18,10 @@ ms.author: juliako
 ms.custom: devx-track-csharp
 
 ---
-# Dynamic encryption: Configure a content key authorization policy  
+# Dynamic encryption: Configure a content key authorization policy
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+ 
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
 
 ## Overview

@@ -1,6 +1,6 @@
 ---
-title: Manage compute network on Azure Stack Edge to access modules| Microsoft Docs 
-description: Describes how to extend the compute network on your Azure Stack Edge to access modules via an external IP.
+title: Deploy Kubernetes stateless app on Azure Stack Edge Pro GPU via IoT Edge module| Microsoft Docs 
+description: Describes how to deploy a Kubernetes stateless application on your Azure Stack Edge Pro GPU device by using an IoT Edge module which is accessed via an external IP.
 services: databox
 author: alkohli
 
@@ -11,14 +11,14 @@ ms.date: 08/26/2020
 ms.author: alkohli
 ---
 
-# Use IoT Edge module to run a Kubernetes stateless application on your Azure Stack Edge device
+# Use IoT Edge module to run a Kubernetes stateless application on your Azure Stack Edge Pro GPU device
 
-This article describes how you can use an IoT Edge module to deploy a stateless application on your Azure Stack Edge device.
+This article describes how you can use an IoT Edge module to deploy a stateless application on your Azure Stack Edge Pro device.
 
 To deploy the stateless application, you'll take the following steps:
 
 - Ensure that prerequisites are completed before you deploy an IoT Edge module.
-- Add an IoT Edge module to access compute network on your Azure Stack Edge.
+- Add an IoT Edge module to access compute network on your Azure Stack Edge Pro.
 - Verify the module can access the enabled network interface.
 
 In this how-to article, you'll use a webserver app module to demonstrate the scenario.
@@ -27,19 +27,19 @@ In this how-to article, you'll use a webserver app module to demonstrate the sce
 
 Before you begin, you'll need:
 
-- An Azure Stack Edge device. Make sure that:
+- An Azure Stack Edge Pro device. Make sure that:
 
     - Compute network settings are configured on the device.
     - Device is activated as per the steps in [Tutorial: Activate your device](azure-stack-edge-gpu-deploy-activate.md).
-- You've completed **Configure compute** step as per the [Tutorial: Configure compute on your Azure Stack Edge device](azure-stack-edge-gpu-deploy-configure-compute.md) on your device. Your device should have an associated IoT Hub resource, an IoT device, and an IoT Edge device.
+- You've completed **Configure compute** step as per the [Tutorial: Configure compute on your Azure Stack Edge Pro device](azure-stack-edge-gpu-deploy-configure-compute.md) on your device. Your device should have an associated IoT Hub resource, an IoT device, and an IoT Edge device.
 
 
 ## Add webserver app module
 
-Take the following steps to add a webserver app module on your Azure Stack Edge device.
+Take the following steps to add a webserver app module on your Azure Stack Edge Pro device.
 
 1. In the IoT Hub resource associated with your device, go to **Automatic Device Management > IoT Edge**.
-1. Select and click the IoT Edge device associated with your Azure Stack Edge device. 
+1. Select and click the IoT Edge device associated with your Azure Stack Edge Pro device. 
 
     ![Select IoT Edge device](media/azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module/select-iot-edge-device-1.png)  
 

@@ -15,6 +15,12 @@ This article answers common questions about backing up Azure VMs with the [Azure
 
 When you create a VM, you can enable backup for VMs running [supported operating systems](backup-support-matrix-iaas.md#supported-backup-actions).
 
+### Why Initial backup is taking lot of time to complete?
+
+Initial backup is always a full backup and it will depend on the size of the data and when the backup is processed. <br>
+To improve backup performance see, [backup best practices](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction#best-practices); [Backup considerations](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction#backup-and-restore-considerations) and [Backup Performance](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction#backup-performance)<br>
+Although the total backup time for incremental backups is less than 24 hours, that might not be the case for the first backup.
+
 ### Is the backup cost included in the VM cost?
 
 No. Backup costs are separate from a VM's costs. Learn more about [Azure Backup pricing](https://azure.microsoft.com/pricing/details/backup/).
@@ -149,6 +155,10 @@ Operations like secret/key roll-over don't require this step and the same key va
 
 Yes, you access the VM once restored due to a VM having broken relationship with domain controller. For more information, see this [article](./backup-azure-arm-restore-vms.md#post-restore-steps)
 
+### Why restore operation is taking long time to complete?
+
+The total restore time depends on the Input/output operations per second (IOPS) and the throughput of the storage account. The total restore time can be affected if the target storage account is loaded with other application read and write operations. To improve restore operation, select a storage account that isn't loaded with other application data.
+
 ## Manage VM backups
 
 ### What happens if I modify a backup policy?
@@ -191,6 +201,6 @@ Yes, there's a limit of 100 VMs that can be associated to the same backup policy
 
 Currently, you can view retention settings at a backup item (VM) level based on the backup policy that's assigned to the VM.
 
-One way to view the retention settings for your backups, is to navigate to the backup item [dashboard](https://docs.microsoft.com/azure/backup/backup-azure-manage-vms#view-vms-on-the-dashboard) for your VM, in the Azure portal. Clicking on the link to its backup policy helps you view the retention duration of all the daily, weekly, monthly and yearly retention points associated with the VM.
+One way to view the retention settings for your backups, is to navigate to the backup item [dashboard](https://docs.microsoft.com/azure/backup/backup-azure-manage-vms#view-vms-on-the-dashboard) for your VM, in the Azure portal. Selecting the link to its backup policy helps you view the retention duration of all the daily, weekly, monthly and yearly retention points associated with the VM.
 
 You can also use [Backup Explorer](https://docs.microsoft.com/azure/backup/monitor-azure-backup-with-backup-explorer) to view the retention settings for all your VMs within a single pane of glass. Navigate to Backup Explorer from any Recovery Services vault, go to the **Backup Items** tab and select the Advanced View to see detailed retention information for each VM.

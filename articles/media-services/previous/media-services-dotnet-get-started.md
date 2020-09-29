@@ -18,7 +18,9 @@ ms.custom: devx-track-csharp
 
 ---
 
-# Get started with delivering content on demand using .NET SDK  
+# Get started with delivering content on demand using .NET SDK
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]  
 
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
 

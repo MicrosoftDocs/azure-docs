@@ -1,21 +1,23 @@
 ---
-title: Use kubectl to deploy Kubernetes stateful app via statically provisioned share on Azure Stack Edge device| Microsoft Docs
-description: Describes how to create and manage a Kubernetes stateful application deployment via a statically provisioned share using kubectl on a Microsoft Azure Stack Edge device.
+title: Use kubectl to deploy Kubernetes stateful app via statically provisioned share on Azure Stack Edge Pro device| Microsoft Docs
+description: Describes how to create and manage a Kubernetes stateful application deployment via a statically provisioned share using kubectl on a Azure Stack Edge Pro GPU device.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/18/2020
+ms.date: 09/22/2020
 ms.author: alkohli
 ---
 
-# Use kubectl to run a Kubernetes stateful application with a PersistentVolume on your Azure Stack Edge device
+# Use kubectl to run a Kubernetes stateful application with a PersistentVolume on your Azure Stack Edge Pro device
 
 This article shows you how to deploy a single-instance stateful application in Kubernetes using a PersistentVolume (PV) and a deployment. The deployment uses `kubectl` commands on an existing Kubernetes cluster and deploys the MySQL application. 
 
-This procedure is intended for those who have reviewed the [Kubernetes storage on Azure Stack Edge device](azure-stack-edge-gpu-kubernetes-storage.md) and are familiar with the concepts of [Kubernetes storage](https://kubernetes.io/docs/concepts/storage/).
+This procedure is intended for those who have reviewed the [Kubernetes storage on Azure Stack Edge Pro device](azure-stack-edge-gpu-kubernetes-storage.md) and are familiar with the concepts of [Kubernetes storage](https://kubernetes.io/docs/concepts/storage/).
+
+Azure Stack Edge Pro also supports running Azure SQL Edge containers and these can be deployed in a similar way as detailed here for MySQL. For more information, see [Azure SQL Edge](../azure-sql-edge/overview.md).
 
 
 ## Prerequisites
@@ -24,34 +26,37 @@ Before you can deploy the stateful application, make sure that you have complete
 
 ### For device
 
-- You have sign-in credentials to a 1-node Azure Stack Edge device.
+- You have sign-in credentials to a 1-node Azure Stack Edge Pro device.
     - The device is activated. See [Activate the device](azure-stack-edge-gpu-deploy-activate.md).
     - The device has the compute role configured via Azure portal and has a Kubernetes cluster. See [Configure compute](azure-stack-edge-gpu-deploy-configure-compute.md).
 
 ### For client accessing the device
 
-- You have a  Windows client system that will be used to access the Azure Stack Edge device.
+- You have a  Windows client system that will be used to access the Azure Stack Edge Pro device.
     - The client is running Windows PowerShell 5.0 or later. To download the latest version of Windows PowerShell, go to [Install Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
     
     - You can have any other client with a [Supported operating system](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device) as well. This article describes the procedure when using a Windows client. 
     
-    - You have completed the procedure described in [Access the Kubernetes cluster on Azure Stack Edge device](azure-stack-edge-gpu-create-kubernetes-cluster.md). You have:
+    - You have completed the procedure described in [Access the Kubernetes cluster on Azure Stack Edge Pro device](azure-stack-edge-gpu-create-kubernetes-cluster.md). You have:
       - Created a `userns1` namespace via the `New-HcsKubernetesNamespace` command. 
       - Created a user `user1` via the `New-HcsKubernetesUser` command. 
       - Granted the `user1` access to `userns1` via the `Grant-HcsKubernetesNamespaceAccess` command.       
       - Installed `kubectl` on the client  and saved the `kubeconfig` file with the user configuration to C:\\Users\\&lt;username&gt;\\.kube. 
     
-    - Make sure that the `kubectl` client version is skewed no more than one version from the Kubernetes master version running on your Azure Stack Edge device. 
+    - Make sure that the `kubectl` client version is skewed no more than one version from the Kubernetes master version running on your Azure Stack Edge Pro device. 
         - Use `kubectl version` to check the version of kubectl running on the client. Make a note of the full version.
-        - In the local UI of your Azure Stack Edge device, go to **Overview** and note the Kubernetes software number. 
+        - In the local UI of your Azure Stack Edge Pro device, go to **Overview** and note the Kubernetes software number. 
         - Verify these two versions for compatibility from the mapping provided in the Supported Kubernetes version <!-- insert link-->. 
 
 
-You are ready to deploy a stateful application on your Azure Stack Edge device. 
+You are ready to deploy a stateful application on your Azure Stack Edge Pro device. 
 
 ## Provision a static PV
 
-To statically provision a PV, you need to create a share on your device. Follow these steps to provision a PV against your SMB or NFS share. 
+To statically provision a PV, you need to create a share on your device. Follow these steps to provision a PV against your SMB share. 
+
+> [!NOTE]
+> The specific example used in this how-to article does not work with NFS shares. In general, NFS shares can be provisioned on your Azure Stack Edge device with non-database applications.
 
 1. Choose whether you want to create an Edge share or an Edge local share. Follow the instructions in [Add a share](azure-stack-edge-manage-shares.md#add-a-share) to create a share. Make sure to select the check box for **Use the share with Edge compute**.
 
@@ -67,7 +72,7 @@ To statically provision a PV, you need to create a share on your device. Follow 
 
         ![Mount existing local share for PV](./media/azure-stack-edge-gpu-deploy-stateful-application-static-provision-kubernetes/mount-edge-share-2.png)
 
-1. Make a note of the share name. When this share is created, a persistent volume object is automatically created in the Kubernetes cluster corresponding to the SMB or NFS share you created. 
+1. Make a note of the share name. When this share is created, a persistent volume object is automatically created in the Kubernetes cluster corresponding to the SMB share you created. 
 
 ## Deploy MySQL
 
@@ -95,7 +100,7 @@ All `kubectl` commands you use to create and manage stateful application deploym
 
     This claim is satisfied by any existing PV that was statically provisioned when you created the share in the earlier step. On your device, a large PV of 32 TB is created for each share. The PV meets the requirements set forth by PVC and the PVC should be bound to this PV.
 
-    Copy and save the following `mysql-deployment.yml` file to a folder on the Windows client that you are using to access the Azure Stack Edge device.
+    Copy and save the following `mysql-deployment.yml` file to a folder on the Windows client that you are using to access the Azure Stack Edge Pro device.
     
     ```yml
     apiVersion: v1
@@ -143,7 +148,7 @@ All `kubectl` commands you use to create and manage stateful application deploym
               claimName: mysql-pv-claim
     ```
     
-2. Copy and save as a `mysql-pv.yml` file to the same folder where you saved the `mysql-deployment.yml`. To use the SMB or NFS share that you earlier created with `kubectl`, set the `volumeName` field in the PVC object to the name of the share. 
+2. Copy and save as a `mysql-pv.yml` file to the same folder where you saved the `mysql-deployment.yml`. To use the SMB share that you earlier created with `kubectl`, set the `volumeName` field in the PVC object to the name of the share. 
 
     > [!NOTE] 
     > Make sure that the YAML files have correct indentation. You can check with [YAML lint](http://www.yamllint.com/) to validate and then save.
@@ -154,8 +159,8 @@ All `kubectl` commands you use to create and manage stateful application deploym
     metadata:
       name: mysql-pv-claim
     spec:
-      volumeName: <nfs-or-smb-share-name-here>
-      storageClassName: manual
+      volumeName: <smb-share-name-here>
+      storageClassName: ""
       accessModes:
         - ReadWriteOnce
       resources:
@@ -285,7 +290,6 @@ All `kubectl` commands you use to create and manage stateful application deploym
 
 ## Verify MySQL is running
 
-The preceding YAML file creates a service that lets a Pod in the cluster access the database. The Service option clusterIP: None lets the Service DNS name resolve directly to the Pod's IP address. This is optimal when you have only one Pod behind a Service and you don't intend to increase the number of Pods.
 
 To run a command against a container in a pod that is running MySQL, type:
 
@@ -349,4 +353,4 @@ The PV is no longer bound to the PVC as the PVC was deleted. As the PV was provi
 ## Next steps
 
 To understand how to dynamically provision storage, see 
-[Deploy a stateful application via dynamic provisioning on an Azure Stack Edge device](azure-stack-edge-gpu-deploy-stateful-application-dynamic-provision-kubernetes.md)
+[Deploy a stateful application via dynamic provisioning on an Azure Stack Edge Pro device](azure-stack-edge-gpu-deploy-stateful-application-dynamic-provision-kubernetes.md)

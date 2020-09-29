@@ -43,7 +43,7 @@ Starting from July 1 2020, customers will not be able to create new Kafka cluste
 
 ## Behavior changes
 ### Ambari stack version change
-From this release, the Ambari version is changed from 2.x.x.x to 4.1. You can get the Ambari version from Ambari UI > About.
+In this release, the Ambari version changes from 2.x.x.x to 4.1. You can verify the stack version (HDInsight 4.1) in Ambari: Ambari > User > Versions.
 
 ## Upcoming changes
 No upcoming breaking changes that you need to pay attention to.

@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/26/2020
+ms.date: 09/21/2020
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-csharp
@@ -50,7 +50,7 @@ Install the necessary libraries.
    echo $PSVersionTable.PSVersion.ToString() 
    ```
     
-   To upgrade your version of PowerShell, see [Upgrading existing Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell)
+   To upgrade your version of PowerShell, see [Upgrading existing Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell)
     
 3. Install the latest version of the PowershellGet module.
 
@@ -66,7 +66,7 @@ Install the necessary libraries.
    Install-Module Az.Storage -Repository PsGallery -RequiredVersion 2.5.2-preview -AllowClobber -AllowPrerelease -Force  
    ```
 
-   For more information about how to install PowerShell modules, see [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.0.0)
+   For more information about how to install PowerShell modules, see [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps)
 
 ### [.NET](#tab/dotnet)
 
@@ -274,7 +274,9 @@ except Exception as e:
 
 ## Set an ACL recursively
 
-You can set the ACLs recursively.  
+When you *set* an ACL, you **replace** the entire ACL including all of it's entries. If you want to change the permission level of a security principal or add a new security principal to the ACL without affecting other existing entries, you should *update* the ACL instead. To update an ACL instead of replace it, see the [Update an ACL recursively](#update-an-acl-recursively) section of this article.   
+
+This section contains examples for how to set an ACL 
 
 ### [PowerShell](#tab/azure-powershell)
 
@@ -362,13 +364,17 @@ def set_permission_recursively():
 
 ## Update an ACL recursively
 
-You can update an existing ACL recursively.
+When you *update* an ACL, you modify the ACL instead of replacing the ACL. For example, you can add a new security principal to the ACL without affecting other security principals listed in the ACL.  To replace the ACL instead of update it, see the [Set an ACL recursively](#set-an-acl-recursively) section of this article. 
+
+To update an ACL, create a new ACL object with the ACL entry that you want to update, and then use that object in update ACL operation. Do not get the existing ACL, just provide ACL entries to be updated.
+
+This section contains examples for how to update an ACL.
 
 ### [PowerShell](#tab/azure-powershell)
 
 Update an ACL recursively by using the  **Update-AzDataLakeGen2AclRecursive** cmdlet. 
 
-This example updates an ACL entry with write permission.
+This example updates an ACL entry with write permission. 
 
 ```powershell
 $filesystemName = "my-container"
@@ -440,7 +446,9 @@ def update_permission_recursively():
 
 ## Remove ACL entries recursively
 
-You can remove one or more ACL entries recursively.
+You can remove one or more ACL entries recursively. To remove an ACL entry, create a new ACL object for ACL entry to be removed, and then use that object in remove ACL operation. Do not get the existing ACL, just provide the ACL entries to be removed. 
+
+This section contains examples for how to remove an ACL.
 
 ### [PowerShell](#tab/azure-powershell)
 
@@ -635,7 +643,7 @@ The maximum number of ACLs that you can apply to a directory or file is 32 acces
 
 ### Provide feedback or report issues
 
-You can provide your feedback or report an issue by using any of these pages: [PowerShell](https://github.com/Azure/azure-powershell/issues/new?assignees=&labels=triage&template=az-module-bug-report.md&title=), [.NET](https://github.com/Azure/azure-sdk-for-net/issues/new?assignees=&labels=&template=bug_report.md&title=), [Python](https://github.com/Azure/azure-sdk-for-python/issues/new?assignees=&labels=&template=bug_report.md&title=)
+You can provide your feedback or report an issue at  [recursiveACLfeedback@microsoft.com](mailto:recursiveACLfeedback@microsoft.com).
 
 ## See also
 

@@ -2,12 +2,12 @@
 title: 'Azure ExpressRoute: QoS requirements'
 description: This page provides detailed requirements for configuring and managing QoS. Skype for Business/voice services are discussed.
 services: expressroute
-author: cherylmc
+author: duongau
 
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 04/22/2019
-ms.author: cherylmc
+ms.author: duau
 
 ---
 # ExpressRoute QoS requirements

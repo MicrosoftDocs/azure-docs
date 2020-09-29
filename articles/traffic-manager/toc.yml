@@ -4,14 +4,17 @@
   items:
   - name: What is Traffic Manager?
     href: traffic-manager-overview.md
-- name: Quickstart
+- name: Quickstarts
   items:
-  - name: Create a Traffic Manager profile - portal
+  - name: Create a Traffic Manager profile - Portal
     href: quickstart-create-traffic-manager-profile.md
   - name: Create a Traffic Manager profile - PowerShell
     href: quickstart-create-traffic-manager-profile-powershell.md
   - name: Create a Traffic Manager profile - Azure CLI
     href: quickstart-create-traffic-manager-profile-cli.md
+  - name: Create a Traffic Manager profile - ARM Template
+    href: quickstart-create-traffic-manager-profile-template.md
+  expanded: true
 - name: Tutorials
   items:
   - name: Route traffic for low latency
@@ -59,7 +62,7 @@
     href: traffic-manager-how-it-works.md
   - name: FAQs
     href: traffic-manager-FAQs.md
-- name: How To
+- name: How-to guides
   items:
   - name: Configure performance routing in Traffic Manager
     href: traffic-manager-configure-performance-routing-method.md

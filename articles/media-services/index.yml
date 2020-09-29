@@ -1,13 +1,13 @@
 ### YamlMime:Hub
 
 title: Azure Media Services documentation # < 60 chars
-summary: Azure Media Services is a cloud-based media workflow platform that enables you to build solutions that require encoding, packaging, content-protection, and live event broadcasting.  
+summary: Azure Media Services is a collection of cloud and edge media workflow services that enable you to build solutions that require live and batch video analytics, transcoding, multi-device delivery services, content-protection, and live event broadcasting at scale. 
 # brand: aspnet | azure | dotnet | dynamics | m365 | ms-graph | office | power-platform | sql | sql-server | vs | visual-studio | windows | xamarin
 brand: azure
 
 metadata:
   title: Azure Media Services documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Azure Media Services is a cloud-based media workflow platfo/lrm that enables you to build solutions that require encoding, packaging, content-protection, and live event broadcasting. 
+  description: Azure Media Services is a collection of cloud and edge media workflow services that enable you to build solutions that require live and batch video analytics, transcoding, multi-device delivery services, content-protection, and live event broadcasting at scale. 
   services: media-services
   ms.service: media-services #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.subservice: 

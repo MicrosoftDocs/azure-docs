@@ -39,7 +39,7 @@ Azure file share backup is a native, cloud based backup solution that protects y
 
 6. You can restore the Azure file share contents (individual files or the full share) from snapshots available on the source file share. Once the operation is triggered, the snapshot URL is retrieved from the metadata store and the data is listed and transferred from the source snapshot to the target file share of your choice.
 
-7. If you are using Azure File Sync, the Backup service indicates to the Azure File Sync service the paths of the files being restored, which then triggers a background change detection process on these files. Any files that have changed are synced down to the server endpoint. This process happens in parallel with the original restore to the Azure file share.
+7. If you're using Azure File Sync, the Backup service indicates to the Azure File Sync service the paths of the files being restored, which then triggers a background change detection process on these files. Any files that have changed are synced down to the server endpoint. This process happens in parallel with the original restore to the Azure file share.
 
 8. The backup and restore job monitoring data is pushed to the Azure Backup Monitoring service. This allows you to monitor cloud backups for your file shares in a single dashboard. In addition, you can also configure alerts or email notifications when backup health is affected. Emails are sent via the Azure email service.
 
@@ -47,9 +47,9 @@ Azure file share backup is a native, cloud based backup solution that protects y
 
 There are two costs associated with Azure file share backup solution:
 
-1. **Snapshot storage cost**: Storage charges incurred for snapshots are billed along with Azure Files usage according to the pricing details mentioned [here](https://azure.microsoft.com/pricing/details/storage/files/) 
+1. **Snapshot storage cost**: Storage charges incurred for snapshots are billed along with Azure Files usage according to the pricing details mentioned [here](https://azure.microsoft.com/pricing/details/storage/files/)
 
-2. **Protected Instance fee** :Starting September 1, 2020, customers will be charged a protected instance fee according to the pricing details mentioned [here](https://azure.microsoft.com/en-in/pricing/details/backup/) .The protected instance fee depends on the total size of protected file shares in a storage account.
+2. **Protected Instance fee**: Starting September 1, 2020, customers will be charged a protected instance fee according to the pricing details mentioned [here](https://azure.microsoft.com/pricing/details/backup/).The protected instance fee depends on the total size of protected file shares in a storage account.
 
 To get detailed estimates for backing up Azure file shares, you can download the detailed [Azure Backup pricing estimator](https://aka.ms/AzureBackupCostEstimates).  
 

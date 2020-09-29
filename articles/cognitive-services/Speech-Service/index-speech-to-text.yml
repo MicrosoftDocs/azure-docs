@@ -22,20 +22,12 @@ landingContent:
         url: speech-to-text.md
       - text: What is batch speech-to-text?
         url: batch-transcription.md
-      - text: Speech recognition basics
-        url: speech-to-text-basics.md
       - text: Use the Speech CLI for speech-to-text with no code
         url: spx-overview.md
     - linkListType: quickstart
       links:
-        - text: Recognize speech with microphone input
-          url: quickstarts/speech-to-text-from-microphone.md
-        - text: Recognize speech from an audio file
-          url: quickstarts/speech-to-text-from-file.md
-        - text: Recognize speech stored in blob storage
-          url: quickstarts/from-blob.md
-        - text: Pronunciation assessment with reference input
-          url: rest-speech-to-text.md#pronunciation-assessment-parameters
+        - text: Get started with speech-to-text
+          url: get-started-speech-to-text.md
 - title: Develop with speech-to-text
   linkLists:
     - linkListType: how-to-guide

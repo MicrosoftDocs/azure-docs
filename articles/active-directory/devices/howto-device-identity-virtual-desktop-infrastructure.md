@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 09/14/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -67,7 +67,7 @@ Before configuring device identities in Azure AD for your VDI environment, famil
 
 <sup>4</sup> A **Managed** identity infrastructure environment represents an environment with Azure AD as the identity provider deployed with either [password hash sync (PHS)](../hybrid/whatis-phs.md) or [pass-through authentication (PTA)](../hybrid/how-to-connect-pta.md) with [seamless single sign-on](../hybrid/how-to-connect-sso.md).
 
-<sup>5</sup> **Non-Persistence support for Windows current** requires additional consideration as documented below in guidance section.
+<sup>5</sup> **Non-Persistence support for Windows current** requires additional consideration as documented below in guidance section. This scenario requires Windows 10 1803,  Windows Server 2019 or Windows Server (Semi-annual channel) starting version 1803
 
 <sup>6</sup> **Non-Persistence support for Windows down-level** requires additional consideration as documented below in guidance section.
 

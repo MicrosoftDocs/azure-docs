@@ -55,8 +55,8 @@ dataflow | The reference to the Data Flow being executed | DataFlowReference | Y
 integrationRuntime | The compute environment the data flow runs on. If not specified, the auto-resolve Azure integration runtime will be used. | IntegrationRuntimeReference | No
 compute.coreCount | The number of cores used in the spark cluster. Can only be specified if the auto-resolve Azure Integration runtime is used | 8, 16, 32, 48, 80, 144, 272 | No
 compute.computeType | The type of compute used in the spark cluster. Can only be specified if the auto-resolve Azure Integration runtime is used | "General", "ComputeOptimized", "MemoryOptimized" | No
-staging.linkedService | If you're using a SQL DW source or sink, the storage account used for PolyBase staging | LinkedServiceReference | Only if the data flow reads or writes to a SQL DW
-staging.folderPath | If you're using a SQL DW source or sink, the folder path in blob storage account used for PolyBase staging | String | Only if the data flow reads or writes to a SQL DW
+staging.linkedService | If you're using an Azure Synapse Analytics source or sink, the storage account used for PolyBase staging | LinkedServiceReference | Only if the data flow reads or writes to an Azure Synapse Analytics
+staging.folderPath | If you're using an Azure Synapse Analytics source or sink, the folder path in blob storage account used for PolyBase staging | String | Only if the data flow reads or writes to Azure Synapse Analytics
 
 ![Execute Data Flow](media/data-flow/activity-data-flow.png "Execute Data Flow")
 
@@ -81,7 +81,7 @@ For pipeline executions, the cluster is a job cluster, which takes several minut
 
 ### PolyBase
 
-If you're using an Azure SQL Data Warehouse as a sink or source, you must choose a staging location for your PolyBase batch load. PolyBase allows for batch loading in bulk instead of loading the data row-by-row. PolyBase drastically reduces the load time into the SQL DW.
+If you're using an Azure Synapse Analytics (formerly SQL Data Warehouse) as a sink or source, you must choose a staging location for your PolyBase batch load. PolyBase allows for batch loading in bulk instead of loading the data row-by-row. PolyBase drastically reduces the load time into Azure Synapse Analytics.
 
 ## Parameterizing Data Flows
 

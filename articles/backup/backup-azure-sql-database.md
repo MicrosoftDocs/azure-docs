@@ -27,7 +27,7 @@ This solution leverages the SQL native APIs to take backups of your SQL database
 * The plugin sends the data directly to the Recovery Services vault, thus eliminating the need for a staging location. The data is encrypted and stored by the Azure Backup service in storage accounts.
 * When the data transfer is complete, coordinator confirms the commit with the backup service.
 
-  ![SQL Backup architecture](./media/backup-azure-sql-database/backup-sql-overview.png)
+  ![SQL Backup architecture](./media/backup-azure-sql-database/azure-backup-sql-overview.png)
 
 ## Before you start
 
@@ -60,11 +60,11 @@ For all other versions, fix permissions with the following steps:
 
       ![In the Login - New dialog box, select Search](./media/backup-azure-sql-database/new-login-search.png)
 
-  4. The Windows virtual service account **NT SERVICE\AzureWLBackupPluginSvc** was created during the virtual machine registration and SQL discovery phase. Enter the account name as shown in **Enter the object name to select**. Select **Check Names** to resolve the name. Click **OK**.
+  4. The Windows virtual service account **NT SERVICE\AzureWLBackupPluginSvc** was created during the virtual machine registration and SQL discovery phase. Enter the account name as shown in **Enter the object name to select**. Select **Check Names** to resolve the name. Select **OK**.
 
       ![Select Check Names to resolve the unknown service name](./media/backup-azure-sql-database/check-name.png)
 
-  5. In **Server Roles**, make sure the **sysadmin** role is selected. Click **OK**. The required permissions should now exist.
+  5. In **Server Roles**, make sure the **sysadmin** role is selected. Select **OK**. The required permissions should now exist.
 
       ![Make sure the sysadmin server role is selected](./media/backup-azure-sql-database/sysadmin-server-role.png)
 
@@ -85,23 +85,23 @@ Add **NT AUTHORITY\SYSTEM** and **NT Service\AzureWLBackupPluginSvc** logins to 
 
 1. Go the SQL Server Instance in the Object explorer.
 2. Navigate to Security -> Logins
-3. Right click on the Logins and click *New Login…*
+3. Right-click on the logins and select *New Login…*
 
     ![New Login using SSMS](media/backup-azure-sql-database/sql-2k8-new-login-ssms.png)
 
 4. Go to the General tab and enter **NT AUTHORITY\SYSTEM** as the Login Name.
 
-    ![login name for SSMS](media/backup-azure-sql-database/sql-2k8-nt-authority-ssms.png)
+    ![Login name for SSMS](media/backup-azure-sql-database/sql-2k8-nt-authority-ssms.png)
 
 5. Go to *Server Roles* and choose *public* and *sysadmin* roles.
 
-    ![choosing roles in SSMS](media/backup-azure-sql-database/sql-2k8-server-roles-ssms.png)
+    ![Choosing roles in SSMS](media/backup-azure-sql-database/sql-2k8-server-roles-ssms.png)
 
 6. Go to *Status*. *Grant* the Permission to connect to database engine and Login as *Enabled*.
 
     ![Grant permissions in SSMS](media/backup-azure-sql-database/sql-2k8-grant-permission-ssms.png)
 
-7. Click OK.
+7. Select OK.
 8. Repeat the same sequence of steps (1-7 above) to add NT Service\AzureWLBackupPluginSvc login to the SQL Server instance. If the login already exists, make sure it has the sysadmin server role and under Status it has Grant the Permission to connect to database engine and Login as Enabled.
 9. After granting permission, **Rediscover DBs** in the portal: Vault **->** Backup Infrastructure **->** Workload in Azure VM:
 

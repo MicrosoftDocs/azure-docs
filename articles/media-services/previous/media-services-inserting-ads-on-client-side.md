@@ -19,6 +19,9 @@ ms.custom: devx-track-csharp
 
 ---
 # Inserting ads on the client side
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 This article contains information on how to insert various types of ads on the client side.
 
 For information about closed captioning and ad support in Live streaming videos, see [Supported Closed Captioning and Ad Insertion Standards](media-services-live-streaming-with-onprem-encoders.md#cc_and_ads).

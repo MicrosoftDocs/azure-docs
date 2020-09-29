@@ -16,24 +16,14 @@
   items:
     - name: Speech-to-text documentation
       href: index-speech-to-text.yml
-    - name: Overview
-      items:
-        - name: What is speech-to-text?
-          href: speech-to-text.md
-        - name: Speech recognition basics
-          href: speech-to-text-basics.md
-    - name: Quickstarts
-      items:
-        - name: Recognize speech with microphone input
-          href: quickstarts/speech-to-text-from-microphone.md
-        - name: Recognize speech from an audio file
-          href: quickstarts/speech-to-text-from-file.md
-        - name: Recognize speech stored in blob storage
-          href: quickstarts/from-blob.md
-        - name: Test a model using audio files in Speech Studio
-          href: quickstarts/speech-studio-test-model.md
+    - name: Speech-to-text overview
+      href: speech-to-text.md
+    - name: Speech-to-text quickstart
+      href: get-started-speech-to-text.md
     - name: How-to guides
       items:
+        - name: Recognize speech stored in blob storage
+          href: quickstarts/from-blob.md
         - name: Choose speech recognition mode
           href: how-to-choose-recognition-mode.md
         - name: Change speech recognition source language
@@ -57,6 +47,8 @@
           href: tutorial-tenant-model.md
     - name: Customization
       items:
+        - name: Test a model using audio files in Speech Studio
+          href: quickstarts/speech-studio-test-model.md
         - name: Prepare data for Custom Speech
           href: how-to-custom-speech-test-and-train.md
         - name: Inspect Custom Speech data
@@ -75,33 +67,29 @@
           href: how-to-custom-speech-human-labeled-transcriptions.md
     - name: Reference
       items:
-        - name: Speech SDK APIs
-          items:
-            - name: C++
-              displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
-              href: 'https://aka.ms/csspeech/cppref'
-            - name: 'C#'
-              displayName: CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation
-              href: 'https://aka.ms/csspeech/csharpref'
-            - name: Java
-              displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
-              href: 'https://aka.ms/csspeech/javaref'
-            - name: JavaScript
-              displayName: Node, Node.js, NodeJS, JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation
-              href: 'https://aka.ms/csspeech/javascriptref'
-            - name: Objective-C
-              displayName: Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation
-              href: 'https://aka.ms/csspeech/objectivecref'
-            - name: Python
-              displayName: Python SDK,Python dev kit,reference,reference docs,ref documentation
-              href: 'https://aka.ms/csspeech/pythonref'
-            - name: Release notes
-              displayName: 'release notes,updates,what''s new,what is new,changes'
-              href: releasenotes.md
-        - name: REST APIs
-          items:
-            - name: Speech-to-text REST API
-              href: rest-speech-to-text.md
+        - name: C++
+          displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
+          href: 'https://aka.ms/csspeech/cppref'
+        - name: 'C#'
+          displayName: CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation
+          href: 'https://aka.ms/csspeech/csharpref'
+        - name: Java
+          displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
+          href: 'https://aka.ms/csspeech/javaref'
+        - name: JavaScript
+          displayName: Node, Node.js, NodeJS, JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation
+          href: 'https://aka.ms/csspeech/javascriptref'
+        - name: Objective-C
+          displayName: Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation
+          href: 'https://aka.ms/csspeech/objectivecref'
+        - name: Python
+          displayName: Python SDK,Python dev kit,reference,reference docs,ref documentation
+          href: 'https://aka.ms/csspeech/pythonref'
+        - name: Release notes
+          displayName: 'release notes,updates,what''s new,what is new,changes'
+          href: releasenotes.md
+        - name: Speech-to-text REST API
+          href: rest-speech-to-text.md
     - name: Resources
       items:
         - name: Language support
@@ -241,11 +229,8 @@
   items:
     - name: Intent recognition documentation
       href: index-intent-recognition.yml
-    - name: Quickstart
-      items:
-        - name: 'Recognize speech, intents, and entities'
-          displayName: Recognize intents and entities with LUIS, LUIS, Language Understanding, prebuilt domains
-          href: quickstarts/intent-recognition.md
+    - name: Intent recognition quickstart
+      href: quickstarts/intent-recognition.md
     - name: How-to guides
       items:
         - name: 'Recognize speech intents with LUIS, C#'
@@ -466,18 +451,14 @@
           href: custom-keyword-basics.md
 - name: Speaker Recognition
   items:
-    - name: Overview
-      items:
-        - name: What is Speaker Recognition?
-          href: speaker-recognition-overview.md
-        - name: Speaker Recognition basics
-          href: speaker-recognition-basics.md 
+    - name: Speaker Recognition overview
+      href: speaker-recognition-overview.md
+    - name: Speaker Recognition quickstart
+      href: get-started-speaker-recognition.md 
     - name: Reference
       items:
-        - name: REST APIs
-          items:
-            - name: Speaker Recognition REST API
-              href: https://docs.microsoft.com/rest/api/speakerrecognition/
+        - name: Speaker Recognition REST API
+          href: https://docs.microsoft.com/rest/api/speakerrecognition/
 - name: Hosting
   items:
     - name: Hosting documentation

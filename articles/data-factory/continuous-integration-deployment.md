@@ -10,7 +10,7 @@ ms.author: daperlov
 ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
-ms.date: 04/30/2020
+ms.date: 09/23/2020
 ---
 
 # Continuous integration and delivery in Azure Data Factory
@@ -207,13 +207,17 @@ If your development factory has an associated git repository, you can override t
 * You use automated CI/CD and you want to change some properties during Resource Manager deployment, but the properties aren't parameterized by default.
 * Your factory is so large that the default Resource Manager template is invalid because it has more than the maximum allowed parameters (256).
 
-To override the default parameterization template, create a file named **arm-template-parameters-definition.json** in the root folder of your git branch. You must use that exact file name.
+To override the default parameterization template, go to the management hub and select **Parameterization template** in the source control section. Select **Edit template** to open the parameterization template code editor. 
 
-   ![Custom parameters file](media/continuous-integration-deployment/custom-parameters.png)
+![Manage custom parameters](media/author-management-hub/management-hub-custom-parameters.png)
+
+Creating a custom parameterization template creates a file named **arm-template-parameters-definition.json** in the root folder of your git branch. You must use that exact file name.
+
+![Custom parameters file](media/continuous-integration-deployment/custom-parameters.png)
 
 When publishing from the collaboration branch, Data Factory will read this file and use its configuration to generate which properties get parameterized. If no file is found, the default template is used.
 
-When exporting a Resource Manager template, Data Factory reads this file from whichever branch you're currently working on, not just from the collaboration branch. You can create or edit the file from a private branch, where you can test your changes by selecting **Export ARM Template** in the UI. You can then merge the file into the collaboration branch.
+When exporting a Resource Manager template, Data Factory reads this file from whichever branch you're currently working on, not the collaboration branch. You can create or edit the file from a private branch, where you can test your changes by selecting **Export ARM Template** in the UI. You can then merge the file into the collaboration branch.
 
 > [!NOTE]
 > A custom parameterization template doesn't change the ARM template parameter limit of 256. It lets you choose and decrease the number of parameterized properties.
@@ -330,6 +334,16 @@ Below is the current default parameterization template. If you need to add only 
 
 ```json
 {
+    "Microsoft.DataFactory/factories": {
+        "properties": {
+            "globalParameters": {
+                "*": {
+                    "value": "="
+                }
+            }
+        },
+        "location": "="
+    },
     "Microsoft.DataFactory/factories/pipelines": {
     },
     "Microsoft.DataFactory/factories/dataflows": {
@@ -385,7 +399,6 @@ Below is the current default parameterization template. If you need to add only 
             "typeProperties": {
                 "scope": "="
             }
-
         }
     },
     "Microsoft.DataFactory/factories/linkedServices": {
@@ -422,7 +435,8 @@ Below is the current default parameterization template. If you need to add only 
                     "aadResourceId": "=",
                     "sasUri": "|:-sasUri:secureString",
                     "sasToken": "|",
-                    "connectionString": "|:-connectionString:secureString"
+                    "connectionString": "|:-connectionString:secureString",
+                    "hostKeyFingerprint": "="
                 }
             }
         },
@@ -445,8 +459,8 @@ Below is the current default parameterization template. If you need to add only 
                     "fileName": "="
                 }
             }
-        }}
-}
+        }
+    }
 ```
 
 ### Example: parameterizing an existing Azure Databricks interactive cluster ID
@@ -455,6 +469,16 @@ The following example shows how to add a single value to the default parameteriz
 
 ```json
 {
+    "Microsoft.DataFactory/factories": {
+        "properties": {
+            "globalParameters": {
+                "*": {
+                    "value": "="
+                }
+            }
+        },
+        "location": "="
+    },
     "Microsoft.DataFactory/factories/pipelines": {
     },
     "Microsoft.DataFactory/factories/dataflows": {
@@ -613,6 +637,8 @@ If you're using Git integration with your data factory and have a CI/CD pipeline
 -   **Integration runtimes and sharing**. Integration runtimes don't change often and are similar across all stages in your CI/CD. So Data Factory expects you to have the same name and type of integration runtime across all stages of CI/CD. If you want to share integration runtimes across all stages, consider using a ternary factory just to contain the shared integration runtimes. You can use this shared factory in all of your environments as a linked integration runtime type.
 
 -   **Key Vault**. When you use linked services whose connection information is stored in Azure Key Vault, it is recommended to keep separate key vaults for different environments. You can also configure separate permission levels for each key vault. For example, you might not want your team members to have permissions to production secrets. If you follow this approach, we recommend that you to keep the same secret names across all stages. If you keep the same secret names, you don't need to parameterize each connection string across CI/CD environments because the only thing that changes is the key vault name, which is a separate parameter.
+
+-  **Resource naming** Due to ARM template constraints, issues in deployment may arise if your resources contain spaces in the name. The Azure Data Factory team recommends using '_' or '-' characters instead of spaces for resources. For example, 'Pipeline_1' would be a preferable name over 'Pipeline 1'.
 
 ## Unsupported features
 

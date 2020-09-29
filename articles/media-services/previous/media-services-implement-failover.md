@@ -19,6 +19,8 @@ ms.custom: devx-track-csharp
 ---
 # Implement failover streaming with Media Services v2
 
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 This walkthrough demonstrates how to copy content (blobs) from one asset into another in order to handle redundancy for on-demand streaming. This scenario is useful if you want to set up Azure Content Delivery Network to fail over between two datacenters, in case of an outage in one datacenter. This walkthrough uses the Azure Media Services SDK, the Azure Media Services REST API, and the Azure Storage SDK to demonstrate the following tasks:
 
 1. Set up a Media Services account in "Data Center A."

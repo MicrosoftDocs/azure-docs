@@ -56,6 +56,6 @@ Creating an effective keyword is vital to ensuring your device will consistently
 
 ## Next steps
 
-* [Get a Speech service subscription key for free](get-started.md)
+* [Get a Speech service subscription key for free](overview.md#try-the-speech-service-for-free)
 * [Get the Speech SDK](speech-sdk.md)
 * [Learn more about Voice Assistants](voice-assistants.md)

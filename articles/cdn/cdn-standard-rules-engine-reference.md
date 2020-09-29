@@ -37,7 +37,7 @@ Included in this limit is a default *global rule*. The global rule doesn't have 
 
 Each Azure CDN endpoint can have up to 25 rules. Each rule can have up to ten match conditions and five actions. Pricing for Rules Engine follows the below dimensions: 
 - Rules: $1 per rule per month 
-- Requests Processed: $0.60 per million requets
+- Requests Processed: $0.60 per million requests
 - The first 5 rules will remain free
 
 ## Syntax
@@ -56,7 +56,7 @@ A percent sign is used to indicate URL encoding (for example, `%20`).
 
 ### Wildcard values
 
-Currently we support the wildcard character in the **UrlPath Match Condition** in Standard Rules Engine. The \* character is an asterisk that represents one or more characters. 
+Currently we support the wildcard character in the **UrlPath Match Condition** in Standard Rules Engine. The \* character is a wildcard that represents one or more characters. 
 
 ## Next steps
 

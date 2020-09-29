@@ -3,7 +3,7 @@ title: Create a Dynamics 365 Business Central offer - Microsoft commercial marke
 description: Learn the steps and considerations for creating a new Dynamics 365 Business Central offer in the Microsoft commercial marketplace in Partner Center. You can list or sell your offer in Azure Marketplace or through the Cloud Solution Provider (CSP) program.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: how-to
 author: navits09
 ms.author: navits
 ms.date: 08/07/2020
@@ -66,9 +66,7 @@ Collect customer contact information by connecting your Customer Relationship Ma
 
 ### Test drive
 
-A test drive is a great way to showcase your offer to potential customers by giving them the option to "try before you buy", resulting in increased conversion and the generation of highly qualified leads. To learn more, start with [What is test drive](../what-is-test-drive.md).
-
-To enable a test drive for a fixed period of time, select the **Enable a test drive** check box. To remove test drive from your offer, clear this check box.
+At this point Dynamics 365 Business Central offers do not support test drive. To remove test drive from your offer, clear the **Enable a test drive** check box.
 
 ### Customer leads
 
