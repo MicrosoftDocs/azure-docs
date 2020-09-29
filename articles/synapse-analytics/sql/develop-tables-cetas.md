@@ -63,7 +63,7 @@ Specifies the name of the external data source object that contains the location
 
 FILE_FORMAT = *external_file_format_name*
 
-Specifies the name of the external file format object that contains the format for the external data file. To create an external file format, use [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](develop-tables-external-tables.md#create-external-file-format). Only external file formats with FORMAT_TYPE=PARQUET and FORMAT_TYPE=DELIMITEDTEXT are currently supported.
+Specifies the name of the external file format object that contains the format for the external data file. To create an external file format, use [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](develop-tables-external-tables.md#create-external-file-format). Only external file formats with FORMAT_TYPE=PARQUET and FORMAT_TYPE=DELIMITEDTEXT are currently supported. GZip compression for DELIMITEDTEXT format is not supported.
 
 WITH *<common_table_expression>*
 
@@ -139,32 +139,30 @@ CETAS can be used to store result sets with following SQL data types:
 - varbinary
 - char
 - varchar
+- nchar
+- nvarchar
+- smalldate
 - date
-- time
+- datetime
 - datetime2
+- datetimeoffset
+- time
 - decimal
 - numeric
 - float
 - real
 - bigint
-- int
-- smallint
 - tinyint
+- smallint
+- int
+- bigint
 - bit
-
-> [!NOTE]
-> LOBs can't be used with CETAS.
-
-The following data types can't be used in SELECT part of CETAS:
-
-- nchar
-- nvarchar
-- datetime
-- smalldatetime
-- datetimeoffset
 - money
 - smallmoney
 - uniqueidentifier
+
+> [!NOTE]
+> LOBs larger than 1MB can't be used with CETAS.
 
 ## Next steps
 
