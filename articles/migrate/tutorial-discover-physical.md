@@ -33,7 +33,7 @@ Before you start this tutorial, check you have these prerequisites in place.
 
 **Requirement** | **Details**
 --- | ---
-**Appliance** | You need a machine on which to run the Azure Migrate appliance. The machine should have:<br/><br/> - Windows Server 2016 installed. Running the appliance on a machine with Windows Server 2019 isn't supported.<br/><br/> - 16-GB RAM, 8 vCPUs, around 80 GB of disk storage, and an external virtual switch.<br/><br/> - A static or dynamic IP address, with internet access, either directly or through a proxy.
+**Appliance** | You need a machine on which to run the Azure Migrate appliance. The machine should have:<br/><br/> - Windows Server 2016 installed. _(Currently the deployment of appliance is only supported on Windows Server 2016.)_<br/><br/> - 16-GB RAM, 8 vCPUs, around 80 GB of disk storage<br/><br/> - A static or dynamic IP address, with internet access, either directly or through a proxy.
 **Windows servers** | Allow inbound connections on WinRM port 5985 (HTTP), so that the appliance can pull configuration and performance metadata.
 **Linux servers** | Allow inbound connections on port 22 (TCP).
 
@@ -65,7 +65,7 @@ If you just created a free Azure account, you're the owner of your subscription.
 
     ![Verify in User Settings that users can register Active Directory apps](./media/tutorial-discover-physical/register-apps.png)
 
-
+9. Alternately, the tenant/global admin can assign the **Application Developer** role to an account to allow the registration of AAD App(s). [Learn more](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 ## Prepare physical servers
 
@@ -136,13 +136,13 @@ Check that the zipped file is secure, before you deploy it.
 
         **Scenario** | **Download*** | **Hash value**
         --- | --- | ---
-        Physical (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2140334) | 207157bab39303dca1c2b93562d6f1deaa05aa7c992f480138e17977641163fb
+        Physical (85.8 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2140334) | ce5e6f0507936def8020eb7b3109173dad60fc51dd39c3bd23099bc9baaabe29
 
     - For Azure Government:
 
         **Scenario** | **Download*** | **Hash value**
         --- | --- | ---
-        Physical (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2140338) | ca67e8dbe21d113ca93bfe94c1003ab7faba50472cb03972d642be8a466f78ce
+        Physical (85.8 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2140338) | ae132ebc574caf231bf41886891040ffa7abbe150c8b50436818b69e58622276
  
 
 ### Run the Azure Migrate installer script
