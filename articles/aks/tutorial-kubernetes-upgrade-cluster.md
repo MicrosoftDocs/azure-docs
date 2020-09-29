@@ -155,4 +155,4 @@ For more information on AKS, see [AKS overview][aks-intro]. For guidance on a cr
 [azure-cli-install]: /cli/azure/install-azure-cli
 [az-group-delete]: /cli/azure/group#az-group-delete
 [sp-delete]: kubernetes-service-principal.md#additional-considerations
-[aks-solution-guidance]: /azure/architecture/reference-architectures/containers/aks-start-here?bc=%2fazure%2faks%2fbreadcrumb%2ftoc.json&toc=%2fazure%2faks%2ftoc.json
+[aks-solution-guidance]: /azure/architecture/reference-architectures/containers/aks-start-here
