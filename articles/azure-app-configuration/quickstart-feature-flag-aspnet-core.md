@@ -240,7 +240,7 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
     Your browser should display a page similar to the image below.
 
-    :::image type="content" source="media/quickstarts/aspnet-core-feature-flag-local-before.png" alt-text="Local quickstart app after change" border="true":::
+    :::image type="content" source="media/quickstarts/aspnet-core-feature-flag-local-before.png" alt-text="Local quickstart app before change" border="true":::
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Select **All resources**, and select the App Configuration store instance that you created in the quickstart.
 
