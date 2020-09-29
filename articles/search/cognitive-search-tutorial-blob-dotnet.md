@@ -902,7 +902,7 @@ catch (Exception e)
 }
 ```
 
-Repeat for additional fields: content, languageCode, keyPhrases, and organizations in this exercise. You can return multiple fields via the [Select](/dotnet/api/microsoft.azure.search.models.searchparameters.select?view=azure-dotnet) property using a comma-delimited list.
+Repeat for additional fields: content, languageCode, keyPhrases, and organizations in this exercise. You can return multiple fields via the [Select](/dotnet/api/microsoft.azure.search.models.searchparameters.select) property using a comma-delimited list.
 
 <a name="reset"></a>
 
