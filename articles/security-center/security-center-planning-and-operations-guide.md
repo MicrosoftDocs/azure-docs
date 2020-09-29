@@ -6,7 +6,7 @@ author: memildin
 manager: rkarlin
 
 ms.service: security-center
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 09/10/2019
 ms.author: memildin
 
