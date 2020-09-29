@@ -4,6 +4,8 @@
   items:
   - name: What is Azure NetApp Files
     href: azure-netapp-files-introduction.md
+  - name: What's new
+    href: whats-new.md
   - name: Storage hierarchy of Azure NetApp Files
     href: azure-netapp-files-understand-storage-hierarchy.md
 - name: Quickstarts
