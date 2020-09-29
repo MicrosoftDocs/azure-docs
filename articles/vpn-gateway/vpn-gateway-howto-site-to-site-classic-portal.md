@@ -108,7 +108,7 @@ The local site typically refers to your on-premises location. It contains the IP
    - **VPN gateway IP address:** This is the public IP address of the VPN device for your on-premises network. The VPN device requires an IPv4 public IP address. Specify a valid public IP address for the VPN device to which you want to connect. It must be reachable by Azure. If you don't know the IP address of your VPN device, you can always put in a placeholder value (as long as it is in the format of a valid public IP address) and then change it later.
    - **Client Address space:** List the IP address ranges that you want routed to the local on-premises network through this gateway. You can add multiple address space ranges. Make sure that the ranges you specify here do not overlap with ranges of other networks your virtual network connects to, or with the address ranges of the virtual network itself.
 
-   ![Local site](./media/vpn-gateway-howto-site-to-site-classic-portal/localnetworksite.png "Configure local site")
+   ![Screenshot that shows the "New VPN Connection and "Local site" windows.](./media/vpn-gateway-howto-site-to-site-classic-portal/localnetworksite.png)
 
 Click **OK** to close the Local site page. **Do not click OK to close the New VPN Connection page**.
 
@@ -155,9 +155,9 @@ In this step, you set the shared key and create the connection. The key you set 
 
 ### Step 1. Connect to your Azure account
 
-You must run these commands locally using the PowerShell service management module. 
+You must run these commands locally using the PowerShell Service Management module. 
 
-1. Open your PowerShell console with elevated rights. To switch to service management, use this command:
+1. Open your PowerShell console with elevated rights. To switch to Service Management, use this command:
 
    ```powershell
    azure config mode asm
