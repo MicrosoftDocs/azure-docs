@@ -37,10 +37,10 @@ objectid=$(az ad user show --id "{email}" --query objectId --output tsv)
 
 ### Managed identities
 
-To get the ID of a managed identity, you can use [Get-AzAdServiceprincipal](/powershell/module/az.resources/get-azadserviceprincipal) or [az ad user show](/cli/azure/ad/sp) commands.
+To get the ID of a managed identity, you can use [Get-AzAdServiceprincipal](/powershell/module/az.resources/get-azadserviceprincipal) or [az ad sp](/cli/azure/ad/sp) commands.
 
 ```azurepowershell
-Get-AzADServicePrincipal -DisplayName <VM or application name>
+$objectid = (Get-AzADServicePrincipal -DisplayName <VM or application name>).id
 ```
 
 ```azurecli
