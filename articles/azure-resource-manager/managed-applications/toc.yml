@@ -170,4 +170,4 @@
   - name: Resource Manager template best practices
     href: https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-managedapps
+    href: https://stackoverflow.com/questions/tagged/azure-managedapps
