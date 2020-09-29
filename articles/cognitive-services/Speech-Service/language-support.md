@@ -36,13 +36,11 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | `ar-AE` | Arabic (United Arab Emirates)     | Language model                                    |
 | `ar-BH` | Arabic (Bahrain), modern standard | Language model                                    |
 | `ar-EG` | Arabic (Egypt)                    | Language model                                    |
-| `ar-IL` | Arabic (Israel)                   | No                                                |
 | `ar-IQ` | Arabic (Iraq)                     | Language model                                    |
 | `ar-JO` | Arabic (Jordan)                   | Language model                                    |
 | `ar-KW` | Arabic (Kuwait)                   | Language model                                    |
 | `ar-LB` | Arabic (Lebanon)                  | Language model                                    |
 | `ar-OM` | Arabic (Oman)                     | Language model                                    |
-| `ar-PS` | Arabic (State of Palestine)       | No                                                |
 | `ar-QA` | Arabic (Qatar)                    | Language model                                    |
 | `ar-SA` | Arabic (Saudi Arabia)             | Language model                                    |
 | `ar-SY` | Arabic (Syria)                    | Language model                                    |
