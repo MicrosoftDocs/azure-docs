@@ -68,14 +68,18 @@ landingContent:
     linkLists:
       - linkListType: learn
         links:
-          - text: S
-            url: s
+          - text: Migration resources
+            url: migration-resources.md
+          - text: Migrate an AD FS app to Azure
+            url: migrate-adfs-apps-to-azure.md
   - title: Use on-premises apps
     linkLists:
       - linkListType: learn
         links:
-          - text: S
-            url: s
+          - text: What is Application Proxy?
+            url: what-is-application-proxy.md
+          - text: Plan an Application Proxy deployment
+            url: application-proxy-deployment-plan.md
   - title: Secure apps
     linkLists:
       - linkListType: learn
