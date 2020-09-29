@@ -5,7 +5,7 @@ author: emilyre
 ms.service: azure-australia
 ms.topic: conceptual
 ms.date: 07/22/2019
-ms.author: v-emread
+ms.author: yvettep
 ---
 
 # Controlling ingress traffic in Azure Australia
@@ -57,7 +57,7 @@ The architectural diagram shown here depicts the possible paths that network tra
 | **Traffic Manager** | Azure Traffic Manager is a Domain Name System (DNS) based traffic load balancer that can distribute traffic optimally to services across Azure regions, while providing high availability and responsiveness. Traffic Manager uses DNS to direct client requests to the most appropriate endpoint based on a traffic-routing method and the health of the endpoints.|
 | **ExpressRoute** | ExpressRoute is a dedicated network connection for consuming Microsoft cloud services. It is provisioned through a connectivity provider and offers more reliability, faster speeds, lower latencies, and higher security than typical connections over the Internet. An ExpressRoute circuit represents the logical connection between the on-premises infrastructure and Microsoft cloud services through a connectivity provider.|
 | **ExpressRoute Private Peering** | ExpressRoute Private Peering is a connection between the on-premises environment and private Azure virtual networks. Private Peering enables access to Azure services such as Virtual Machines, that are deployed within a virtual network. The resources and virtual networks accessed via private peering are considered an extension of an organization's core network. Private Peering provides bi-directional connectivity between the on-premises network and Azure virtual networks using private IP addresses.|
-| **ExpressRoute Microsoft Peering** | ExpressRoute Microsoft Peering is a connection between the on-premises environment and Microsoft and Azure public services. This includes connectivity to Office 365, Dynamics 365, and Azure PaaS services. Peering is established over public IP addresses that are owned by the organization or connectivity provider. No services are accessible via ExpressRoute Microsoft Peering by default and an organization must opt in to the services that are required. This process then provides connectivity to the same endpoints that are available on the Internet.|
+| **ExpressRoute Microsoft Peering** | ExpressRoute Microsoft Peering is a connection between the on-premises environment and Microsoft and Azure public services. This includes connectivity to Microsoft 365, Dynamics 365, and Azure PaaS services. Peering is established over public IP addresses that are owned by the organization or connectivity provider. No services are accessible via ExpressRoute Microsoft Peering by default and an organization must opt in to the services that are required. This process then provides connectivity to the same endpoints that are available on the Internet.|
 |
 
 ### IaaS ingress components

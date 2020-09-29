@@ -3,8 +3,8 @@ title: Oracle solutions on Azure virtual machines | Microsoft Docs
 description: Learn about supported configurations and limitations of Oracle virtual machine images on Microsoft Azure.
 services: virtual-machines-linux
 documentationcenter: ''
-author: BorisB2015
-manager: gwallace
+author: dbakevlar
+manager: 
 tags: azure-resource-management
 
 ms.assetid: 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/12/2020
-ms.author: borisb
+ms.author: kegorman
 ---
 # Oracle VM images and their deployment on Microsoft Azure
 
@@ -103,18 +103,18 @@ Azure NetApp Files was designed to meet the core requirements of running high-pe
 - High availability, high durability and manageability at scale, typically demanded by mission critical enterprise workloads (like SAP and Oracle)
 - Fast and efficient backup and recovery, to achieve the most aggressive RTO and RPO SLA’s
 
-These capabilities are possible because Azure NetApp Files is based on NetApp® ONTAP® all-flash systems running within Azure data center environment – as an Azure Native service. The result is an ideal database storage technology that can be provisioned and consumed just like other Azure storage options. See [Azure NetApp Files documentation](https://docs.microsoft.com/azure/azure-netapp-files/) for more information on how to deploy and access Azure NetApp Files NFS volumes. See [Oracle on Azure Deployment Best Practice Guide Using Azure NetApp Files](https://www.netapp.com/us/media/tr-4780.pdf) for best practice recommendations for operating an Oracle database on Azure NetApp Files.
+These capabilities are possible because Azure NetApp Files is based on NetApp® ONTAP® all-flash systems running within Azure data center environment – as an Azure Native service. The result is an ideal database storage technology that can be provisioned and consumed just like other Azure storage options. See [Azure NetApp Files documentation](../../../azure-netapp-files/index.yml) for more information on how to deploy and access Azure NetApp Files NFS volumes. See [Oracle on Azure Deployment Best Practice Guide Using Azure NetApp Files](https://www.netapp.com/us/media/tr-4780.pdf) for best practice recommendations for operating an Oracle database on Azure NetApp Files.
 
 ## Licensing Oracle Database & software on Azure
 
 Microsoft Azure is an authorized cloud environment for running Oracle Database. The Oracle Core Factor table is not applicable when licensing Oracle databases in the cloud. Instead, when using VMs with Hyper-Threading Technology enabled for Enterprise Edition databases, count two vCPUs as equivalent to one Oracle Processor license if hyperthreading is enabled (as stated in the policy document). The policy details can be found [here](http://www.oracle.com/us/corporate/pricing/cloud-licensing-070579.pdf).
-Oracle databases generally require higher memory and IO. For this reason, [Memory Optimized VMs](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory) are recommended for these workloads. To optimize your workloads further, [Constrained Core vCPUs](https://docs.microsoft.com/azure/virtual-machines/linux/constrained-vcpu) are recommended for Oracle Database workloads that require high memory, storage, and I/O bandwidth, but not a high core count.
+Oracle databases generally require higher memory and IO. For this reason, [Memory Optimized VMs](../../sizes-memory.md) are recommended for these workloads. To optimize your workloads further, [Constrained Core vCPUs](../../constrained-vcpu.md) are recommended for Oracle Database workloads that require high memory, storage, and I/O bandwidth, but not a high core count.
 
 When migrating Oracle software and workloads from on-premises to Microsoft Azure, Oracle provides license mobility as stated in the [Oracle on Azure FAQ](https://www.oracle.com/cloud/technologies/oracle-azure-faq.html)
 
 ## Oracle Real Application Cluster (Oracle RAC)
 
-Oracle Real Application Cluster (Oracle RAC) is designed to mitigate the failure of a single node in an on-premises multi-node cluster configuration. It relies on two on-premises technologies which are not native to hyper-scale public cloud environments: network multi-cast and shared disk. If your database solution requires Oracle RAC in Azure, you need third=party software to enable these technologies. For more information on Oracle RAC, see the [FlashGrid SkyCluster page](https://www.flashgrid.io/oracle-rac-in-azure/).
+Oracle Real Application Cluster (Oracle RAC) is designed to mitigate the failure of a single node in an on-premises multi-node cluster configuration. It relies on two on-premises technologies which are not native to hyper-scale public cloud environments: network multi-cast and shared disk. If your database solution requires Oracle RAC in Azure, you need third-party software to enable these technologies. For more information on Oracle RAC, see the [FlashGrid SkyCluster page](https://www.flashgrid.io/oracle-rac-in-azure/).
 
 ## High availability and disaster recovery considerations
 

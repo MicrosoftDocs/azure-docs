@@ -8,6 +8,8 @@ ms.author: normesta
 ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
+ms.custom: devx-track-js
+
 ---
 
 # Use JavaScript to manage directories, files, and ACLs in Azure Data Lake Storage Gen2
@@ -213,6 +215,8 @@ async function ManageDirectoryACLs(fileSystemClient) {
   await directoryClient.setAccessControl(acl);
 }
 ```
+
+You can also get and set the ACL of the root directory of a container. To get the root directory, pass an empty string (`/`) into the **DataLakeFileSystemClient.getDirectoryClient** method.
 
 ## Upload a file to a directory
 

@@ -2,17 +2,12 @@
 title: 'Tutorial: Configure Snowflake for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Snowflake.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-
-ms.assetid: f9ce85f4-0992-4bc6-8276-4b2efbce8dcb
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
@@ -58,11 +53,11 @@ Before configuring Snowflake for automatic user provisioning with Azure AD, you 
 
 2.  A SCIM Access Token will be generated for your Snowflake tenant. To retrieve it, click on the link highlighted below.
 
-	![Snowflake Add SCIM](media/Snowflake-provisioning-tutorial/image01.png)
+	![Screenshot of a worksheet in the Snowflake U I with the S C I M Access token called out.](media/Snowflake-provisioning-tutorial/image01.png)
 
 3. Copy the generated token value and click **Done**. This value will be entered in the **Secret Token** field in the Provisioning tab of your Snowflake application in the Azure portal.
 
-	![Snowflake Add SCIM](media/Snowflake-provisioning-tutorial/image02.png)
+	![Screenshot of the Details section showing the token copied into the text field and the Done option called out.](media/Snowflake-provisioning-tutorial/image02.png)
 
 ## Step 3. Add Snowflake from the Azure AD application gallery
 
@@ -93,11 +88,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 3. Select the **Provisioning** tab.
 
-	![Provisioning tab](common/provisioning.png)
+	![Screenshot of the Manage options with the Provisioning option called out.](common/provisioning.png)
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-	![Provisioning tab](common/provisioning-automatic.png)
+	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
 5. Under the Admin Credentials section, input the **SCIM 2.0 base URL and Authentication Token** values retrieved earlier in **Tenant URL** and **Secret Token** fields respectively. Click **Test Connection** to ensure Azure AD can connect to Snowflake. If the connection fails, ensure your Snowflake account has Admin permissions and try again.
 
@@ -153,12 +148,16 @@ This section guides you through the steps to configure the Azure AD provisioning
 Once you've configured provisioning, use the following resources to monitor your deployment:
 
 1. Use the [provisioning logs](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) to determine which users have been provisioned successfully or unsuccessfully
-2. Check the [progress bar](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) to see the status of the provisioning cycle and how close it is to completion
+2. Check the [progress bar](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) to see the status of the provisioning cycle and how close it is to completion
 3. If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).  
 
 ## Connector limitations
 
 * Snowflake generated SCIM tokens expire in 6 months. Be aware that these need to be refreshed before they expire to allow the provisioning syncs to continue working. 
+
+## Change Log
+
+* 07/21/2020 - Enabled soft-delete for all users (via the active attribute).
 
 ## Additional resources
 

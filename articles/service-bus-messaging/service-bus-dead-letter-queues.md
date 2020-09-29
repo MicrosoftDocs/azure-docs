@@ -3,6 +3,7 @@ title: Service Bus dead-letter queues | Microsoft Docs
 description: Describes dead-letter queues in Azure Service Bus. Service Bus queues and topic subscriptions provide a secondary subqueue, called a dead-letter queue.
 ms.topic: article
 ms.date: 06/23/2020
+ms.custom: "fasttrack-edit, devx-track-csharp"
 ---
 
 # Overview of Service Bus dead-letter queues
@@ -52,11 +53,11 @@ This behavior can't be disabled, but you can set [MaxDeliveryCount](/dotnet/api/
 
 When the [QueueDescription.EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.queuedescription) or [SubscriptionDescription.EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) property is set to **true** (the default is **false**), all expiring messages are moved to the DLQ, specifying the  `TTLExpiredException` reason code.
 
-Expired messages are only purged and moved to the DLQ when there is at least one active receiver pulling from the main queue or subscription; that behavior is by design.
+Expired messages are only purged and moved to the DLQ when there is at least one active receiver pulling from the main queue or subscription, and [deferred messages](./message-deferral.md) will also not be purged and moved to the dead-letter queue after they expire. These behaviours are by design.
 
 ## Errors while processing subscription rules
 
-When the [SubscriptionDescription.EnableDeadLetteringOnFilterEvaluationExceptions](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) property is enabled for a subscription, any errors that occur while a subscription's SQL filter rule executes are captured in the DLQ along with the offending message.
+When the [SubscriptionDescription.EnableDeadLetteringOnFilterEvaluationExceptions](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) property is enabled for a subscription, any errors that occur while a subscription's SQL filter rule executes are captured in the DLQ along with the offending message. Don't use this option in a production environment in which not all message types have subscribers.
 
 ## Application-level dead-lettering
 

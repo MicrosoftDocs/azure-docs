@@ -20,7 +20,7 @@ The disk with ReadOnly host caching are able to give higher IOPS than the disk l
 
 ### Iometer
 
-[Download the Iometer tool](https://sourceforge.net/projects/iometer/files/iometer-stable/2006-07-27/iometer-2006.07.27.win32.i386-setup.exe/download) on the VM.
+[Download the Iometer tool](http://sourceforge.net/projects/iometer/files/iometer-stable/1.1.0/iometer-1.1.0-win64.x86_64-bin.zip/download) on the VM.
 
 #### Test file
 
@@ -148,7 +148,7 @@ sudo fio --runtime 30 fiowrite.ini
 ```
 
 While the test runs, you are able to see the number of write IOPS the VM and Premium disks are delivering. As shown in the sample below, the DS14 VM is delivering its maximum write IOPS limit of 50,000 IOPS.  
-    ![Number of write IOPS VM and Premium disks are delivering](../articles/virtual-machines/linux/media/premium-storage-performance/image11.png)
+    ![Number of write IOPS VM and Premium disks are delivering.](../articles/virtual-machines/linux/media/premium-storage-performance/image11.png)
 
 #### Maximum read IOPS
 
@@ -189,7 +189,7 @@ sudo fio --runtime 30 fioread.ini
 ```
 
 While the test runs, you are able to see the number of read IOPS the VM and Premium disks are delivering. As shown in the sample below, the DS14 VM is delivering more than 64,000 Read IOPS. This is a combination of the disk and the cache performance.  
-    ![](../articles/virtual-machines/linux/media/premium-storage-performance/image12.png)
+    ![Screenshot of the number of write IOPS VM and Premium disks are delivering.](../articles/virtual-machines/linux/media/premium-storage-performance/image12.png)
 
 #### Maximum read and write IOPS
 

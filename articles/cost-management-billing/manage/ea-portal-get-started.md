@@ -3,9 +3,10 @@ title: Get started with the Azure Enterprise portal
 description: This article explains how Azure Enterprise Agreement (Azure EA) customers use the Azure Enterprise portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/06/2020
+ms.date: 08/20/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
+ms.subservice: enterprise
 ms.reviewer: boalcsva
 ---
 
@@ -236,10 +237,10 @@ Be aware of this important information when transferring accounts:
 
 - When you complete a subscription transfer, Microsoft updates the account owner.
 
-Understand these role-based access control (RBAC) policies:
+Understand these Azure role-based access control (Azure RBAC) policies:
 
-- When you perform subscription transfers between two organizational IDs in the same tenant, RBAC policies and existing service administrator and coadministrator roles are preserved.
-- Other subscription transfers result in losing your RBAC policies and role assignments.
+- When you perform subscription transfers between two organizational IDs in the same tenant, Azure RBAC policies and existing service administrator and coadministrator roles are preserved.
+- Other subscription transfers result in losing your Azure RBAC policies and role assignments.
 - Policies and administrator roles don't transfer across different directories. Service administrators are updated to the owner of destination account.
 
 Before changing an account owner:
@@ -563,7 +564,7 @@ You can set a spending quota at department level and the system will automatical
 
 To define your spending quota, select a department and then select the edit icon. After you edit the spending limit details, select **Save**.
 
-### I used resource groups to implement RBAC and track usage. How can I view the associated usage details?
+### I used resource groups to implement Azure RBAC and track usage. How can I view the associated usage details?
 
 If you use _resource groups_ and _tags_, this information is tracked at service level, and you can access it in the detailed usage download (CSV) file. See the [download usage report](https://ea.azure.com/report/downloadusage) in the Azure Enterprise portal.
 

@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: juliemsft
 ms.author: jrasnick
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 03/12/2019
 ---
 
@@ -29,7 +29,7 @@ Lower operational overhead and free up IT / DevOps staff to focus on work that a
 
 ## How Azure Automation can help manage your databases
 
-With Azure Automation, you can manage databases in Azure SQL Database by using [PowerShell cmdlets](https://docs.microsoft.com/powershell/module/servicemanagement/azure/#sql) that are available in the [Azure PowerShell tools](/powershell/azure/overview). Azure Automation has these Azure SQL Database PowerShell cmdlets available out of the box, so that you can perform all of your SQL Database management tasks within the service. You can also pair these cmdlets in Azure Automation with the cmdlets for other Azure services, to automate complex tasks across Azure services and across third-party systems.
+With Azure Automation, you can manage databases in Azure SQL Database by using [PowerShell cmdlets](/powershell/module/servicemanagement/azure.service/#sql) that are available in the [Azure PowerShell tools](/powershell/azure/). Azure Automation has these Azure SQL Database PowerShell cmdlets available out of the box, so that you can perform all of your SQL Database management tasks within the service. You can also pair these cmdlets in Azure Automation with the cmdlets for other Azure services, to automate complex tasks across Azure services and across third-party systems.
 
 Azure Automation also has the ability to communicate with SQL servers directly, by issuing SQL commands using PowerShell.
 

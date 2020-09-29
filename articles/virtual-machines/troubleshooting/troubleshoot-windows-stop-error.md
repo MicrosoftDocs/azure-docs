@@ -23,7 +23,7 @@ This article provides steps to resolve issues where Windows fails to start and d
 
 ## Symptom
 
-When you use [Boot diagnostics](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) to view the screenshot of the virtual machine (VM), you'll see that the screenshot displays the error code: `0xC0000017`. Depending upon the version of Windows you're running, you may see this code displayed in either the **Windows Boot Manager** or in the **Recovery screen**.
+When you use [Boot diagnostics](./boot-diagnostics.md) to view the screenshot of the virtual machine (VM), you'll see that the screenshot displays the error code: `0xC0000017`. Depending upon the version of Windows you're running, you may see this code displayed in either the **Windows Boot Manager** or in the **Recovery screen**.
 
    **Windows Boot Manager**
 
@@ -53,7 +53,7 @@ The operating system’s disk is either full, too fragmented, or the operating s
 
 ### Create and access a repair VM
 
-1. Use [steps 1-3 of the VM Repair Commands](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) to prepare a Repair VM.
+1. Use [steps 1-3 of the VM Repair Commands](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) to prepare a Repair VM.
 1. Using Remote Desktop Connection connect to the Repair VM.
 
 ### For Generation 2 VMs, assign a letter to the Extensible Firmware Interface (EFI) partition:
@@ -90,7 +90,7 @@ If you're using a Generation 2 VM, the EFI partition of the attached disk may no
 Now that the broken disk is attached to the repair VM, you should verify that the OS on that disk has enough space to function properly. 
 
 1. Check if the disk is full by right-clicking on the drive of the attached disk and selecting **Properties**.
-1. If the disk has **less than 300 Mb of free space**, [expand it to a maximum of 1 Tb using PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/expand-os-disk).
+1. If the disk has **less than 300 Mb of free space**, [expand it to a maximum of 1 Tb using PowerShell](../windows/expand-os-disk.md).
 1. Once the disk size is **1 Tb**, you'll need to perform a disk cleanup. You can use the [Disk Cleanup tool](https://support.microsoft.com/help/4026616/windows-10-disk-cleanup) to free up space.
 1. Open an elevated command prompt (run as administrator) instance and perform a de-fragmentation on the drive:
 
@@ -219,4 +219,4 @@ To enable memory dump collection and Serial Console, run the following script:
    
 ### Rebuild the VM
 
-Use [step 5 of the VM Repair Commands](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) to rebuild the VM.
+Use [step 5 of the VM Repair Commands](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) to rebuild the VM.

@@ -3,30 +3,30 @@ title: Protocol support for HTTP headers in Azure Front Door | Microsoft Docs
 description: This article describes HTTP header protocols that Front Door supports.
 services: frontdoor
 documentationcenter: ''
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/10/2018
-ms.author: sharadag
+ms.date: 09/28/2020
+ms.author: duau
 ---
 
 # Protocol support for HTTP headers in Azure Front Door
 This article outlines the protocol that Front Door supports with parts of the call path (see image). The following sections provide more information about HTTP headers supported by Front Door.
 
-![Azure Front Door HTTP headers protocol][1]
+:::image type="content" source="./media/front-door-http-headers-protocol/front-door-protocol-summary.png" alt-text="Azure Front Door HTTP headers protocol":::
 
 >[!IMPORTANT]
 >Front Door doesn't certify any HTTP headers that aren't documented here.
 
 ## Client to Front Door
-Front Door accepts most headers from the incoming request without modifying them. Some reserved headers are removed from the incoming request if sent, including headers with the X-FD-* prefix.
+Front Door accepts most headers for the incoming request without modifying them. Some reserved headers are removed from the incoming request if sent, including headers with the X-FD-* prefix.
 
 ## Front Door to backend
 
-Front Door includes headers from an incoming request unless removed because of restrictions. Front Door also adds the following headers:
+Front Door includes headers for an incoming request unless they're removed because of restrictions. Front Door also adds the following headers:
 
 | Header  | Example and description |
 | ------------- | ------------- |
@@ -39,6 +39,7 @@ Front Door includes headers from an incoming request unless removed because of r
 | X-Forwarded-Host | X-Forwarded-Host: contoso.azurefd.net </br> The X-Forwarded-Host HTTP header field is a common method used to identify the original host requested by the client in the Host HTTP request header. This is because the host name from Front Door may differ for the backend server handling the request. |
 | X-Forwarded-Proto | X-Forwarded-Proto: http </br> The X-Forwarded-Proto HTTP header field is often used to identify the originating protocol of an HTTP request because Front Door, based on configuration, might communicate with the backend by using HTTPS. This is true even if the request to the reverse proxy is HTTP. |
 | X-FD-HealthProbe | X-FD-HealthProbe HTTP header field is used to identify the health probe from Front Door. If this header set to 1, the request is health probe. You can use when want to strict access from particular Front Door with X-Forwarded-Host header field. |
+|X-Azure-FDID | X-Azure-FDID header: 437c82cd-360a-4a54-94c3-5ff707647783 </br> This field contains frontdoorID that can be used to identify which Front Door the incoming request is from. This field is populated by Front Door service. | 
 
 ## Front Door to client
 
@@ -46,12 +47,9 @@ Any headers sent to Front Door from the backend are also passed through to the c
 
 | Header  | Example |
 | ------------- | ------------- |
-| X-Azure-Ref |  *X-Azure-Ref: 0zxV+XAAAAABKMMOjBv2NT4TY6SQVjC0zV1NURURHRTA2MTkANDM3YzgyY2QtMzYwYS00YTU0LTk0YzMtNWZmNzA3NjQ3Nzgz* </br> This is a unique reference string that identifies a request served by Front Door. This is critical for troubleshooting as it's used to search access logs.|
+| X-Azure-Ref |  *X-Azure-Ref: 0zxV+XAAAAABKMMOjBv2NT4TY6SQVjC0zV1NURURHRTA2MTkANDM3YzgyY2QtMzYwYS00YTU0LTk0YzMtNWZmNzA3NjQ3Nzgz* </br> This is a unique reference string that identifies a request served by Front Door, which is critical for troubleshooting as it's used to search access logs.|
 
 ## Next steps
 
 - [Create a Front Door](quickstart-create-front-door.md)
 - [How Front Door works](front-door-routing-architecture.md)
-
-<!--Image references-->
-[1]: ./media/front-door-http-headers-protocol/front-door-protocol-summary.png

@@ -1,6 +1,6 @@
 ---
 title: Create a private link service in Azure Private Link
-description: In this quickstart, you use an Azure Resource Manager template to create a private link service.
+description: In this quickstart, you use an Azure Resource Manager template (ARM template) to create a private link service.
 services: private-link
 author: mblanco77
 ms.service: private-link
@@ -10,27 +10,29 @@ ms.date: 05/29/2020
 ms.author: allensu
 ---
 
-# Quickstart: Create a private link service by using an Azure Resource Manager template
+# Quickstart: Create a private link service by using an ARM template
 
-In this quickstart, you use an Azure Resource Manager template to create a private link service.
+In this quickstart, you use an Azure Resource Manager template (ARM template) to create a private link service.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 You can also complete this quickstart by using the [Azure portal](create-private-link-service-portal.md), [Azure PowerShell](create-private-link-service-powershell.md), or the [Azure CLI](create-private-link-service-cli.md).
 
-## Prerequisite
+If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
+
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-privatelink-service%2Fazuredeploy.json)
+
+## Prerequisites
 
 You need an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## Create a private link service
+## Review the template
 
 This template creates a private link service.
 
-### Review the template
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-privatelink-service/).
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/).
-
-:::code language="json" source="~/quickstart-templates/101-privatelink-service/azuredeploy.json" range="001-432" highlight="263-289":::
+:::code language="json" source="~/quickstart-templates/101-privatelink-service/azuredeploy.json":::
 
 Multiple Azure resources are defined in the template:
 
@@ -43,13 +45,13 @@ Multiple Azure resources are defined in the template:
 - [**Microsoft.Network/publicIpAddresses**](/azure/templates/microsoft.network/publicIpAddresses): There are two public IP addresses, one for each virtual machine.
 - [**Microsoft.Network/privateendpoints**](/azure/templates/microsoft.network/privateendpoints): The private endpoint to access the service.
 
-### Deploy the template
+## Deploy the template
 
-Here's how to deploy the Azure Resource Manager template to Azure:
+Here's how to deploy the ARM template to Azure:
 
 1. To sign in to Azure and open the template, select **Deploy to Azure**. The template creates a virtual machine, standard load balancer, private link service, private endpoint, networking, and a virtual machine to validate.
 
-   [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-private-endpoint-sql%2Fazuredeploy.json)
+   [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-privatelink-service%2Fazuredeploy.json)
 
 2. Select or create your resource group.
 3. Type the virtual machine administrator username and password.
@@ -58,7 +60,7 @@ Here's how to deploy the Azure Resource Manager template to Azure:
 ## Validate the deployment
 
 > [!NOTE]
-> The Azure Resource Manager template generates a unique name for the virtual machine myConsumerVm<b>{uniqueid}</b> resource. Substitute your generated value for **{uniqueid}**.
+> The ARM template generates a unique name for the virtual machine myConsumerVm<b>{uniqueid}</b> resource. Substitute your generated value for **{uniqueid}**.
 
 ### Connect to a VM from the internet
 
@@ -90,7 +92,7 @@ Connect to the VM _myConsumerVm{uniqueid}_ from the internet as follows:
 Here's how to connect to the http service from the VM by using the private endpoint.
 
 1.  Go to the Remote Desktop of _myConsumerVm{uniqueid}_.
-2.  Open a browser, and enter the private endpoint address: http://10.0.0.5/.
+2.  Open a browser, and enter the private endpoint address: `http://10.0.0.5/`.
 3.  The default IIS page appears.
 
 ## Clean up resources

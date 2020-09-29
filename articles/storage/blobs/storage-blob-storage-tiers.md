@@ -1,10 +1,10 @@
 ---
 title: Hot, cool, and archive access tiers for blobs - Azure Storage
-description: Hot, cool, and archive access tiers for Azure storage accounts.
+description: Read about hot, cool, and archive access tiers for Azure Blob storage. Review storage accounts that support tiering. Compare block blob storage options.
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 03/23/2019
+ms.date: 09/28/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
@@ -64,6 +64,9 @@ Example usage scenarios for the archive access tier include:
 - Long-term backup, secondary backup, and archival datasets
 - Original (raw) data that must be preserved, even after it has been processed into final usable form.
 - Compliance and archival data that needs to be stored for a long time and is hardly ever accessed.
+
+> [!NOTE]
+> The archive tier is not currently supported for ZRS, GZRS, or RA-GZRS accounts.
 
 ## Account-level tiering
 
@@ -149,7 +152,7 @@ In this section, the following scenarios are demonstrated using the Azure portal
 
 1. Click **Save** at the top.
 
-![Change storage account tier](media/storage-tiers/account-tier.png)
+![Change default account tier in Azure portal](media/storage-tiers/account-tier.png)
 
 # [PowerShell](#tab/azure-powershell)
 The following PowerShell script can be used to change the account tier. The `$rgName` variable must be initialized with your resource group name. The `$accountName` variable must be initialized with your storage account name. 
@@ -179,7 +182,7 @@ Set-AzStorageAccount -ResourceGroupName $rgName -Name $accountName -AccessTier H
 
 1. Select **Save** at the bottom.
 
-![Change storage account tier](media/storage-tiers/blob-access-tier.png)
+![Change blob tier in Azure portal](media/storage-tiers/blob-access-tier.png)
 
 # [PowerShell](#tab/azure-powershell)
 The following PowerShell script can be used to change the blob tier. The `$rgName` variable must be initialized with your resource group name. The `$accountName` variable must be initialized with your storage account name. The `$containerName` variable must be initialized with your container name. The `$blobName` variable must be initialized with your blob name. 
@@ -213,6 +216,8 @@ All storage accounts use a pricing model for Block blob storage based on the tie
 - **Outbound data transfer costs**: Outbound data transfers (data that is transferred out of an Azure region) incur billing for bandwidth usage on a per-gigabyte basis, consistent with general-purpose storage accounts.
 - **Changing the access tier**: Changing the account access tier will result in tier change charges for _access tier inferred_ blobs stored in the account that don't have an explicit tier set. For information on changing the access tier for a single blob, refer to [Blob-level tiering billing](#blob-level-tiering-billing).
 
+    Changing the access tier for a blob when versioning is enabled, or if the blob has snapshots, may result in additional charges. For more information about how you are billed when blob versioning is enabled and you explicitly change a blob's tier, see [Pricing and billing](versioning-overview.md#pricing-and-billing) in the documentation for blob versioning. For more information about how you are billed when a blob has snapshots and you explicitly change the blob's tier, see [Pricing and billing](snapshots-overview.md#pricing-and-billing) in the documentation for blob snapshots.
+
 > [!NOTE]
 > For more information about pricing for Block blobs, see [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) page. For more information on outbound data transfer charges, see [Data Transfers Pricing Details](https://azure.microsoft.com/pricing/details/data-transfers/) page.
 
@@ -240,11 +245,15 @@ No. Only hot and cool access tiers may be set as the default account access tier
 
 The hot and cool access tiers along with blob-level tiering are available in all regions. Archive storage will initially only be available in select regions. For a complete list, see [Azure products available by region](https://azure.microsoft.com/regions/services/).
 
+**Which redundancy options are supported for the hot, cool, and archive access tiers?**
+
+The hot and cool tiers support all redundancy options. The archive tier supports only LRS, GRS, and RA-GRS. ZRS, GZRS, and RA-GZRS are not supported for the archive tier.
+
 **Do the blobs in the cool access tier behave differently than the ones in the hot access tier?**
 
 Blobs in the hot access tier have the same latency as blobs in GPv1, GPv2, and Blob storage accounts. Blobs in the cool access tier have a similar latency (in milliseconds) as blobs in GPv1, GPv2, and Blob storage accounts. Blobs in the archive access tier have several hours of latency in GPv1, GPv2, and Blob storage accounts.
 
-Blobs in the cool access tier have a slightly lower availability service level (SLA) than the blobs stored in the hot access tier. For more information, see [SLA for storage](https://azure.microsoft.com/support/legal/sla/storage/v1_2/).
+Blobs in the cool access tier have a slightly lower availability service level (SLA) than the blobs stored in the hot access tier. For more information, see [SLA for storage](https://azure.microsoft.com/support/legal/sla/storage/v1_5/).
 
 **Are the operations among the hot, cool, and archive tiers the same?**
 

@@ -178,7 +178,7 @@ If you need to access Microsoft Container Registry (MCR) from behind a firewall,
 
 * Learn about [Azure best practices for network security](../security/fundamentals/network-best-practices.md)
 
-* Learn more about [security groups](/azure/virtual-network/security-overview) in an Azure virtual network
+* Learn more about [security groups](../virtual-network/security-overview.md) in an Azure virtual network
 
 * Learn more about setting up [Private Link](container-registry-private-link.md) for a container registry
 
@@ -194,4 +194,3 @@ If you need to access Microsoft Container Registry (MCR) from behind a firewall,
 
 [az-acr-update]: /cli/azure/acr#az-acr-update
 [az-acr-show-endpoints]: /cli/azure/acr#az-acr-show-endpoints
-

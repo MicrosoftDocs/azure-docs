@@ -4,10 +4,10 @@ description: Describes Azure EA transfers
 author: bandersmsft
 ms.reviewer: baolcsva
 ms.service: cost-management-billing
+ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 07/06/2020
+ms.date: 09/03/2020
 ms.author: banders
-
 ---
 
 # Azure Enterprise transfers
@@ -94,15 +94,15 @@ The Azure EA portal can transfer subscriptions from one account owner to another
 
 ## Subscription transfer effects
 
-When an Azure subscription is transferred to an account in the same Azure Active Directory tenant, then all users, groups, and service principals that had [role-based access control (RBAC)](../../role-based-access-control/overview.md) to manage resources keep their access.
+When an Azure subscription is transferred to an account in the same Azure Active Directory tenant, then all users, groups, and service principals that had [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) to manage resources keep their access.
 
-To view users with RBAC access to the subscription:
+To view users with Azure RBAC access to the subscription:
 
 1. In the Azure portal, open **Subscriptions**.
 2. Select the subscription you want to view, and then select **Access control (IAM)**.
-3. Select **Role assignments**. The role assignments page lists all users who have RBAC access to the subscription.
+3. Select **Role assignments**. The role assignments page lists all users who have Azure RBAC access to the subscription.
 
-If the subscription is transferred to an account in a different Azure AD tenant, then all users, groups, and service principals that had [RBAC](../../role-based-access-control/overview.md) to manage resources _lose_ their access. Although RBAC access isn't present, access to the subscription might be available through security mechanisms, including:
+If the subscription is transferred to an account in a different Azure AD tenant, then all users, groups, and service principals that had [Azure RBAC](../../role-based-access-control/overview.md) to manage resources _lose_ their access. Although Azure RBAC access isn't present, access to the subscription might be available through security mechanisms, including:
 
 - Management certificates that grant the user admin rights to subscription resources. For more information, see [Create and Upload a Management Certificate for Azure](../../cloud-services/cloud-services-certs-create.md).
 - Access keys for services like Storage. For more information, see [Azure storage account overview](../../storage/common/storage-account-overview.md).

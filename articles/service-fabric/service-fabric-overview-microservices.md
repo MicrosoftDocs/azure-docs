@@ -125,13 +125,16 @@ Health is different from diagnostics. Health is about the microservice reporting
 
 ## Guidance for designing microservices on Azure
 
-Visit the Azure architecture center for guidance on [designing and building microservices on Azure](https://docs.microsoft.com/azure/architecture/microservices/).
+Visit the Azure architecture center for guidance on [designing and building microservices on Azure](/azure/architecture/microservices/).
 
 ## Service Fabric as a microservices platform
 
 Azure Service Fabric emerged when Microsoft transitioned from delivering boxed products, which were typically monolithic, to delivering services. The experience of building and operating large services, like Azure SQL Database and Azure Cosmos DB, shaped Service Fabric. The platform evolved over time as more services adopted it. Service Fabric had to run not only in Azure but also in standalone Windows Server deployments.
 
 ***The aim of Service Fabric is to solve the hard problems of building and running a service and to use infrastructure resources efficiently, so teams can solve business problems by using a microservices approach.***
+
+This short video introduces Service Fabric and microservices:
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Service-Fabric/player]
 
 Service Fabric helps you build applications that use a microservices approach by providing:
 
@@ -185,7 +188,7 @@ The objective of Service Fabric is to reduce the complexities of building micros
 ## Next steps
 
 * [Microservices: An application revolution powered by the cloud](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)
-* [Azure Architecture Center: Building microservices on Azure](https://docs.microsoft.com/azure/architecture/microservices/)
+* [Azure Architecture Center: Building microservices on Azure](/azure/architecture/microservices/)
 * [Azure Service Fabric application and cluster best practices](service-fabric-best-practices-overview.md)
 * [Service Fabric terminology overview](service-fabric-technical-overview.md)
 

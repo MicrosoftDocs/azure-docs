@@ -120,9 +120,9 @@ Alternatively, you may enable and on-board data to Azure Sentinel.
 
 Enable antimalware event collection for Azure Virtual Machines and Cloud Services.
 
-- [How to configure Microsoft Antimalware for Virtual Machines](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azurevmmicrosoftantimalwareextension?view=azuresmps-4.0.0)
+- [How to configure Microsoft Antimalware for Virtual Machines](/powershell/module/servicemanagement/azure.service/set-azurevmmicrosoftantimalwareextension?view=azuresmps-4.0.0)
 
-- [How to configure Microsoft Antimalware for Cloud Services](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azureserviceantimalwareextension?view=azuresmps-4.0.0)
+- [How to configure Microsoft Antimalware for Cloud Services](/powershell/module/servicemanagement/azure.service/set-azureserviceantimalwareextension?view=azuresmps-4.0.0)
 
 - [Understand Microsoft Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
 

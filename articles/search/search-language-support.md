@@ -8,7 +8,7 @@ author: yahnoosh
 ms.author: jlembicz
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 07/12/2020
 ---
 
 # How to create an index for multiple languages in Azure Cognitive Search
@@ -63,4 +63,4 @@ Sometimes the language of the agent issuing a query is not known, in which case 
 
 ## Next steps
 
-If you're a .NET developer, note that you can configure language analyzers using the [Azure Cognitive Search .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Search) and the [Analyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet) property. 
+If you're a .NET developer, note that you can configure language analyzers using the [Azure Cognitive Search .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Search) and the [Analyzer](/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet) property.

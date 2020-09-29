@@ -10,7 +10,8 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 08/09/2018
+ms.date: 08/09/2018 
+ms.custom: devx-track-azurepowershell
 
 #Customer intent: As a developer working for a federal government agency "x", I want to connect to Azure Government using PowerShell so I can start developing against Azure Government's secure isolated datacenters.
 ---
@@ -34,7 +35,7 @@ If you don't have an Azure Government subscription, create a [free account](http
 
 ## Install PowerShell
 
-Install PowerShell on your local machine. For more information, check out the [Introduction to Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
+Install PowerShell on your local machine. For more information, check out the [Introduction to Azure PowerShell](https://docs.microsoft.com/powershell/azure/).
 
 
 ## Specifying Azure Government as the *environment* to connect to
@@ -45,7 +46,7 @@ When you start PowerShell, you have to tell Azure PowerShell to connect to Azure
 | --- | --- |
 | [Azure](/powershell/module/az.accounts/Connect-AzAccount) commands |`Connect-AzAccount -EnvironmentName AzureUSGovernment` |
 | [Azure Active Directory](/powershell/module/azuread/connect-azuread?view=azureadps-2.0) commands |`Connect-AzureAD -AzureEnvironmentName AzureUSGovernment` |
-| [Azure (Classic deployment model)](/powershell/module/servicemanagement/azure/add-azureaccount?view=azuresmps-3.7.0) commands |`Add-AzureAccount -Environment AzureUSGovernment` |
+| [Azure (Classic deployment model)](/powershell/module/servicemanagement/azure.service/add-azureaccount?view=azuresmps-3.7.0) commands |`Add-AzureAccount -Environment AzureUSGovernment` |
 | [Azure Active Directory (Classic deployment model)](/previous-versions/azure/jj151815(v=azure.100)) commands |`Connect-MsolService -AzureEnvironment UsGovernment` |
 
 ![Connect to Azure Government](./media/connect-with-powershell/connect-with-powershell.png)

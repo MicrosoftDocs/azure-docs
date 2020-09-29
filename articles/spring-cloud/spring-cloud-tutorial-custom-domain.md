@@ -6,15 +6,19 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 03/19/2020
 ms.author: brendm
-
+ms.custom: devx-track-java
 ---
+
 # Map an existing custom domain to Azure Spring Cloud
-Distributed Name Service (DNS) is a technique for storing network node names throughout a network. This tutorial maps a domain, such as www.contoso.com, using a CNAME record. It secures the custom domain with a certificate and shows how to enforce Transport Layer Security (TLS), also known as Secure Sockets Layer (SSL). 
+
+**This article applies to:** ✔️ Java ✔️ C#
+
+Domain Name Service (DNS) is a technique for storing network node names throughout a network. This tutorial maps a domain, such as www.contoso.com, using a CNAME record. It secures the custom domain with a certificate and shows how to enforce Transport Layer Security (TLS), also known as Secure Sockets Layer (SSL). 
 
 Certificates encrypt web traffic. These TLS/SSL certificates can be stored in Azure Key Vault. 
 
 ## Prerequisites
-* An application deployed to Azure Spring Cloud (see [Quickstart: Launch an existing Azure Spring Cloud application using the Azure portal](spring-cloud-quickstart-launch-app-portal.md), or use an existing app).
+* An application deployed to Azure Spring Cloud (see [Quickstart: Launch an existing Azure Spring Cloud application using the Azure portal](spring-cloud-quickstart.md), or use an existing app).
 * A domain name with access to the DNS registry for domain provider such as GoDaddy.
 * A private certificate (that is, your self-signed certificate) from a third-party provider. The certificate must match the domain.
 * A deployed instance of [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
@@ -49,12 +53,12 @@ Or, you can use the Azure CLI to grant Azure Spring Cloud access to key vault.
 
 Get the object id via the following command.
 ```
-az ad sp show --id 03b39d0f-4213-4864-a245-b1476ec03169 --query objectId
+az ad sp show --id <service principal id> --query objectId
 ```
 
 Grant Azure Spring Cloud read access to key vault, replace the object id in the following command.
 ```
-az keyvault set-policy -g <key vault resource group> -n <key vault name>  --object-id <object id> --certificate-permissions get list --secret-permissions get list
+az keyvault set-policy -g <key vault resource group> -n <key vault name>  --object-id <object id> --certificate-permissions get list
 ``` 
 
 To import certificate to Azure Spring Cloud:
@@ -84,7 +88,7 @@ When you have successfully imported your certificate, you'll see it in the list 
 Or, you can use the Azure CLI to show a list of certificates:
 
 ```
-az spring-cloud certificate list
+az spring-cloud certificate list --resource-group <resource group name> --service <service name>
 ```
 
 > [!IMPORTANT] 
@@ -120,7 +124,7 @@ Go to application page.
 
 Or, you can use the Azure CLI to add a custom domain:
 ```
-az spring-cloud app custom-domain bind --domain-name <domain name> --app <app name> 
+az spring-cloud app custom-domain bind --domain-name <domain name> --app <app name> --resource-group <resource group name> --service <service name>
 ```
 
 One app can have multiple domains, but one domain can only map to one app. When you've successfully mapped your custom domain to the app, you'll see it on the custom domain table.
@@ -129,7 +133,7 @@ One app can have multiple domains, but one domain can only map to one app. When 
 
 Or, you can use the Azure CLI to show a list of custom domains:
 ```
-az spring-cloud app custom-domain list --app <app name> 
+az spring-cloud app custom-domain list --app <app name> --resource-group <resource group name> --service <service name>
 ```
 
 > [!NOTE]
@@ -140,7 +144,7 @@ In the custom domain table, select **Add ssl binding** as shown in the previous 
 1. Select your **Certificate** or import it.
 1. Click **Save**.
 
-    ![Add SSL binding](./media/custom-dns-tutorial/add-ssl-binding.png)
+    ![Add SSL binding 1](./media/custom-dns-tutorial/add-ssl-binding.png)
 
 Or, you can use the Azure CLI to **Add ssl binding**:
 ```
@@ -149,18 +153,18 @@ az spring-cloud app custom-domain update --domain-name <domain name> --certifica
 
 After you successfully add SSL binding, the domain state will be secure: **Healthy**. 
 
-![Add SSL binding](./media/custom-dns-tutorial/secured-domain-state.png)
+![Add SSL binding 2](./media/custom-dns-tutorial/secured-domain-state.png)
 
 ## Enforce HTTPS
 By default, anyone can still access your app using HTTP, but you can redirect all HTTP requests to the HTTPS port.
 
 In your app page, in the left navigation, select **Custom Domain**. Then, set **HTTPS Only**, to *True*.
 
-![Add SSL binding](./media/custom-dns-tutorial/enforce-http.png)
+![Add SSL binding 3](./media/custom-dns-tutorial/enforce-http.png)
 
 Or, you can use the Azure CLI to enforce HTTPS:
 ```
-az spring-cloud app update -name <app-name> --https-only <true|false> -g <resource group> --service <service-name>
+az spring-cloud app custom-domain update --domain-name <domain name> --certificate <cert name> --app <app name> --resource-group <resource group name> --service <service name>
 ```
 
 When the operation is complete, navigate to any of the HTTPS URLs that point to your app. Note that HTTP URLs don't work.

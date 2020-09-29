@@ -31,7 +31,7 @@ As you go through the tutorials and work with the app, focus on the SaaS pattern
 
 ## SQL Database Wingtip SaaS tutorials
 
-After you deploy the app, explore the following tutorials that build on the initial deployment. These tutorials explore common SaaS patterns that take advantage of built-in features of SQL Database, Azure SQL Data Warehouse, and other Azure services. Tutorials include PowerShell scripts with detailed explanations. The explanations simplify understanding and implementation of the same SaaS management patterns in your applications.
+After you deploy the app, explore the following tutorials that build on the initial deployment. These tutorials explore common SaaS patterns that take advantage of built-in features of SQL Database, Azure Synapse Analytics (formerly SQL Data Warehouse), and other Azure services. Tutorials include PowerShell scripts with detailed explanations. The explanations simplify understanding and implementation of the same SaaS management patterns in your applications.
 
 
 | Tutorial | Description |

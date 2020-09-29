@@ -5,7 +5,8 @@ author: markjbrown
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/28/2019
-ms.author: mjbrown
+ms.author: mjbrown 
+ms.custom: devx-track-azurecli, devx-track-csharp
 ---
 
 # Provision standard (manual) throughput on a database in Azure Cosmos DB

@@ -19,7 +19,7 @@ If you choose to install AMD GPU drivers manually, this article provides support
 
 Only GPU drivers published by Microsoft are supported on NVv4 VMs. Please DO NOT install GPU drivers from any other source.
 
-For basic specs, storage capacities, and disk details, see [GPU Windows VM sizes](sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+For basic specs, storage capacities, and disk details, see [GPU Windows VM sizes](../sizes-gpu.md?toc=/azure/virtual-machines/windows/toc.json).
 
 
 
@@ -53,5 +53,3 @@ You can use dxdiag to verify the GPU display properties including the video RAM.
 If you are running Windows 10 build 1903 or higher then dxdiag will show no information in the 'Display' tab. Please use the 'Save All Information' option at the bottom and the output file will show the information related to AMD MI25 GPU.
 
 ![GPU driver properties](./media/n-series-amd-driver-setup/dxdiag-details.png)
-
-

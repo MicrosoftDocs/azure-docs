@@ -9,6 +9,7 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 01/22/2020
 ms.author: pafarley
+ms.custom: devx-track-js
 ---
 
 <a name="HOLTop"></a>
@@ -134,7 +135,7 @@ The following code detects common objects in the image and prints them to the co
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_objects)]
 
-Define the helper function `formatRectObjects`:
+Define the helper function `formatRectObjects` to return the top, left, bottom, and right coordinates, along with the width and height.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_objectformat)]
 
@@ -202,9 +203,9 @@ Define the helper function `describeType`:
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_imagetype_describe)]
 
-## Read printed and handwritten text
+## Extract text (OCR) with Read
 
-Computer Vision can read visible text in an image and convert it to a character stream.
+Computer Vision can extract the visible text in an image and convert it to a character stream. This sample uses the Read operations.
 
 > [!NOTE]
 > You can also read text from a local image. See the sample code on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js) for scenarios involving local images.
@@ -215,17 +216,17 @@ Save a reference of the URL of the images you want to extract text from.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_read_images)]
 
-### Call the Recognize API
+### Call the Read API
 
-Add the code below, which calls the `recognizeText` function for the given images.
+Add the code below, which calls the `readTextFromURL` and `readTextFromFile` functions for the given images.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_read_call)]
 
-Define the `recognizeText` function. This calls the **recognizeText** method on the client object, which returns an operation ID and starts an asynchronous process to read the content of the image. Then it uses the operation ID to check the operation at one-second intervals until the results are returned. It then returns the extracted results.
+Define the `readTextFromURL` and `readTextFromFile` functions. These call the **read** and **readInStream** methods on the client object, which return an operation ID and start an asynchronous process to read the content of the image. Then they use the operation ID to check the operation status until the results are returned. They then return the extracted results.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_read_helper)]
 
-Then, define the helper function `printRecText`, which prints the results of a Recognize operation to the console.
+Then, define the helper function `printRecText`, which prints the results of the Read operations to the console.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_read_print)]
 
@@ -249,5 +250,5 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 > [!div class="nextstepaction"]
 >[Computer Vision API reference (Node.js)](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest)
 
-* [What is Computer Vision?](../../Home.md)
+* [What is Computer Vision?](../../overview.md)
 * The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js).

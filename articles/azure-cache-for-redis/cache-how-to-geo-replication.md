@@ -20,7 +20,7 @@ Geo-replication provides a mechanism for linking two Premium tier Azure Cache fo
 
 To configure geo-replication between two caches, the following prerequisites must be met:
 
-- Both caches are [Premium tier](cache-premium-tier-intro.md) caches.
+- Both caches are [Premium tier](cache-overview.md#service-tiers) caches.
 - Both caches are in the same Azure subscription.
 - The secondary linked cache is either the same cache size or a larger cache size than the primary linked cache.
 - Both caches are created and in a running state.
@@ -141,8 +141,8 @@ Yes, geo-replication of caches in VNETs is supported with caveats:
 - Geo-replication between caches in the same VNET is supported.
 - Geo-replication between caches in different VNETs is also supported.
   - If the VNETs are in the same region, you can connect them using [VNET peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) or a [VPN Gateway VNET-to-VNET connection](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways#V2V).
-  - If the VNETs are in different regions, geo-replication using VNET peering isn't supported because of a constraint with Basic internal load balancers. For more information about VNET peering constraints, see [Virtual Network - Peering - Requirements and constraints](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints). The recommended solution is to use a VPN Gateway VNET-to-VNET connection.
-
+  - If the VNETs are in different regions, geo-replication using VNET peering is supported, but a client VM in VNET 1 (region 1) will not be able to access the cache in VNET 2 (region 2) via it's DNS name because of a constraint with Basic internal load balancers. For more information about VNET peering constraints, see [Virtual Network - Peering - Requirements and constraints](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints). The recommended solution is to use a VPN Gateway VNET-to-VNET connection.
+  
 Using [this Azure template](https://azure.microsoft.com/resources/templates/201-redis-vnet-geo-replication/), you can quickly deploy two geo-replicated caches into a VNET connected with a VPN Gateway VNET-to-VNET connection.
 
 ### What is the replication schedule for Redis geo-replication?
@@ -182,5 +182,6 @@ Automatic failover across Azure regions isn't supported for geo-replicated cache
 To start a customer-initiated failover, first unlink the caches. Then, change your Redis client to use the connection endpoint of the (formerly linked) secondary cache. When the two caches are unlinked, the secondary cache becomes a regular read-write cache again and accepts requests directly from Redis clients.
 
 ## Next steps
+Learn more about Azure Cache for Redis features.
 
-Learn more about the [Azure Cache for Redis Premium tier](cache-premium-tier-intro.md).
+* [Azure Cache for Redis service tiers](cache-overview.md#service-tiers)

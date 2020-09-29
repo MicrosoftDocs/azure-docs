@@ -4,8 +4,8 @@ description: Technical resource and guidelines to help you configure a container
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: anbene
-ms.author: mingshen
+author: keferna
+ms.author: keferna
 ms.date: 04/09/2020
 ---
 

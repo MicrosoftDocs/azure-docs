@@ -10,13 +10,15 @@ ms.date: 03/04/2019
 #Customer intent: As an cluster operator, I want to define the egress IP address to control the flow of traffic from a known, defined address.
 ---
 
-# Use a static public IP address for egress traffic in Azure Kubernetes Service (AKS)
+# Use a static public IP address for egress traffic with a *Basic* SKU load balancer in Azure Kubernetes Service (AKS)
 
-By default, the egress IP address from an Azure Kubernetes Service (AKS) cluster is randomly assigned. This configuration is not ideal when you need to identify an IP address for access to external services, for example. Instead, you may need to assign a static IP address that can be whitelisted for service access.
+By default, the egress IP address from an Azure Kubernetes Service (AKS) cluster is randomly assigned. This configuration is not ideal when you need to identify an IP address for access to external services, for example. Instead, you may need to assign a static IP address to be added to an allow list for service access.
 
 This article shows you how to create and use a static public IP address for use with egress traffic in an AKS cluster.
 
 ## Before you begin
+
+This article assumes you are using the Azure Basic Load Balancer.  We recommend using the [Azure Standard Load Balancer](../load-balancer/load-balancer-overview.md), and you can use more advanced features for [controlling AKS egress traffic](./limit-egress-traffic.md).
 
 This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
 
@@ -94,7 +96,7 @@ Create the service and deployment with the `kubectl apply` command.
 kubectl apply -f egress-service.yaml
 ```
 
-This service configures a new frontend IP on the Azure Load Balancer. If you do not have any other IPs configured, then **all** egress traffic should now use this address. When multiple addresses are configured on the Azure Load Balancer, egress uses the first IP on that load balancer.
+This service configures a new frontend IP on the Azure Load Balancer. If you do not have any other IPs configured, then **all** egress traffic should now use this address. When multiple addresses are configured on the Azure Load Balancer, any of these public IP addresses are a candidate for outbound flows, and one is selected at random.
 
 ## Verify egress address
 
@@ -103,7 +105,7 @@ To verify that the static public IP address is being used, you can use DNS look-
 Start and attach to a basic *Debian* pod:
 
 ```console
-kubectl run -it --rm aks-ip --image=debian --generator=run-pod/v1
+kubectl run -it --rm aks-ip --image=debian
 ```
 
 To access a web site from within the container, use `apt-get` to install `curl` into the container.

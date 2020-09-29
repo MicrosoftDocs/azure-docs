@@ -2,12 +2,12 @@
 title: 'About upgrading circuit bandwidth| Azure ExpressRoute'
 description: In this article, learn the best practices for upgrading the ExpressRoute circuit bandwidth
 services: expressroute
-author: cherylmc
+author: duongau
 
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.author: cherylmc
+ms.author: duau
 
 
 ---
@@ -31,7 +31,7 @@ If capacity is available, you can upgrade the circuit using the following method
 
 If the ExpressRoute partner does not have sufficient capacity, you need to create a new circuit, configured to the desired bandwidth. In order to maintain connectivity, do not delete the old circuit until the newly created circuit is provisioned, peering has been configured, and (regarding private peering) the connection object to the ExpressRoute virtual network gateway has been provisioned.
 
-If your ExpressRoute partner does not have sufficient available capacity, you need to request additional capacity at the desired peering location. Once the new capacity is provisioned, you can use the steps contained in the articles in the [Upgrade circuit bandwidth](#upgrade) section to create a new circuit, configure connectivity, and delete the old circuit:
+If your ExpressRoute partner does not have sufficient available capacity, you need to request additional capacity at the desired peering location. Once the new capacity is provisioned, you can use the steps contained in the articles in the [Upgrade circuit bandwidth](#upgrade) section to create a new circuit, configure connectivity, and delete the old circuit.
 
 
 ### <a name="bandwidth"></a>Insufficient ExpressRoute Direct bandwidth

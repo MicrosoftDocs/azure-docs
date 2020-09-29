@@ -66,6 +66,10 @@ Configure disaster recovery [across subscriptions](https://azure.microsoft.com/b
 
 Yes, you can [replicate zone-pinned VMs](https://azure.microsoft.com/blog/disaster-recovery-of-zone-pinned-azure-virtual-machines-to-another-region) to another region.
 
+### Can I replicate VMs in a region that has zones from non-zone to zonal configuration?
+
+No, this is not supported today. As a workaround, you can replicate the VM using ASR to a zonal configuration in another region, then disable replication. Next, re-enable replication from that region to the original region, and choose a zonal configuration for failover.
+
 ### Can I exclude disks?
 
 Yes, you can exclude disks at the time of protection by using PowerShell. For more information, see [how to exclude disks from replication](azure-to-azure-exclude-disks.md).
@@ -115,7 +119,7 @@ No, this is an unsupported scenario. However, if you accidentally move storage a
 A replication policy defines the settings for the retention history of recovery points. The policy also defines the frequency of app-consistent snapshots. By default, Azure Site Recovery creates a new replication policy with default settings of:
 
 - 24 hours for the retention history of recovery points.
-- 60 minutes for the frequency of app-consistent snapshots.
+- 4 hours for the frequency of app-consistent snapshots.
 
 [Learn more about replication settings](./azure-to-azure-tutorial-enable-replication.md#configure-replication-settings).
 

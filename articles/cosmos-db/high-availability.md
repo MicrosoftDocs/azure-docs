@@ -10,7 +10,7 @@ ms.reviewer: sngun
 
 ---
 
-# High availability with Azure Cosmos DB
+# How does Azure Cosmos DB provide high availability? 
 
 Azure Cosmos DB transparently replicates your data across all the Azure regions associated with your Azure Cosmos account. Azure Cosmos DB employs multiple layers of redundancy for your data as shown in the following image:
 
@@ -58,7 +58,7 @@ For the rare cases of regional outage, Azure Cosmos DB makes sure your database 
 ### Multi-region accounts with a single-write region (read region outage)
 
 - During a read region outage, Azure Cosmos accounts using any consistency level or strong consistency with three or more read regions will remain highly available for reads and writes.
-- Azure Cosmos accounts using strong consistency with two or fewer read regions (which includes the read & write region) will lose write availability during a read region outage but will maintain read availability for remaining regions.
+- Azure Cosmos accounts using strong consistency with two or fewer read regions (which includes the read & write region) will lose read write availability during a read region outage.
 - The impacted region is automatically disconnected and will be marked offline. The [Azure Cosmos DB SDKs](sql-api-sdk-dotnet.md) will redirect read calls to the next available region in the preferred region list.
 - If none of the regions in the preferred region list is available, calls automatically fall back to the current write region.
 - No changes are required in your application code to handle read region outage. When the impacted read region is back online it will automatically sync with the current write region and will be available again to serve read requests.
@@ -75,7 +75,7 @@ Zone redundancy is a *supplemental capability* to the [replication in multi-regi
 
 When configuring multi-region writes for your Azure Cosmos account, you can opt into zone redundancy at no extra cost. Otherwise, please see the note below regarding the pricing for zone redundancy support. You can enable zone redundancy on an existing region of your Azure Cosmos account by removing the region and adding it back with the zone redundancy enabled.
 
-This feature is available in: *UK South, Southeast Asia, East US, East US 2, Central US, West Europe, West US 2, Japan East, North Europe, France Central* regions.
+This feature is available in: *UK South, Southeast Asia, East US, East US 2, Central US, West Europe, West US 2, Japan East, North Europe, France Central,Australia East, East US 2 EUAP* regions.
 
 > [!NOTE]
 > Enabling Availability Zones for a single region Azure Cosmos account will result in charges that are equivalent to adding an additional region to your account. For details on pricing, see the [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) and the [multi-region cost in Azure Cosmos DB](optimize-cost-regions.md) articles.
@@ -125,6 +125,8 @@ You can enable Availability Zones by using Azure portal when creating an Azure C
 
 ## Building highly available applications
 
+- Review the expected [behavior of the Azure Cosmos SDKs](troubleshoot-sdk-availability.md) during these events and which are the configurations that affect it.
+
 - To ensure high write and read availability, configure your Azure Cosmos account to span at least two regions with multiple-write regions. This configuration will provide the highest availability, lowest latency, and best scalability for both reads and writes backed by SLAs. To learn more, see how to [configure your Azure Cosmos account with multiple write-regions](tutorial-global-distribution-sql-api.md).
 
 - For multi-region Azure Cosmos accounts that are configured with a single-write region, [enable automatic-failover by using Azure CLI or Azure portal](how-to-manage-database-account.md#automatic-failover). After you enable automatic failover, whenever there is a regional disaster, Cosmos DB will automatically failover your account.  
@@ -142,3 +144,4 @@ Next you can read the following articles:
 - [Global distribution - under the hood](global-dist-under-the-hood.md)
 - [Consistency levels in Azure Cosmos DB](consistency-levels.md)
 - [How to configure your Cosmos account with multiple write regions](how-to-multi-master.md)
+- [SDK behavior on multiregional environments](troubleshoot-sdk-availability.md)

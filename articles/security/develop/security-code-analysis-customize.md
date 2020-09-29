@@ -60,9 +60,11 @@ Details of task configuration are shown in the following screenshot and list.
     - Directory specifications must always end with \\*.
     - Examples:
 
+```binskim-targets
            *.dll;*.exe
            $(BUILD_STAGINGDIRECTORY)\*
            $(BUILD_STAGINGDIRECTORY)\*.dll;$(BUILD_STAGINGDIRECTORY)\*.exe;
+```
 
 - If you select **Command Line** in the **Type** list, you need to run binskim.exe:
      - Make sure the first arguments to binskim.exe are the verb **analyze** followed by one or more path specifications. Each path can be either a full path or a path relative to the source directory.
@@ -70,11 +72,13 @@ Details of task configuration are shown in the following screenshot and list.
      - You can omit the **/o** or **/output** option. The output value is added for you or replaced.
      - Standard command-line configurations are shown as follows.
 
+```binskim-line-args
            analyze $(Build.StagingDirectory)\* --recurse --verbose
            analyze *.dll *.exe --recurse --verbose
+```
 
-          > [!NOTE]
-          > The trailing \\* is important if you specify directories for the target.
+> [!NOTE]
+> The trailing \\* is important if you specify directories for the target.
 
 For more information on BinSkim command-line arguments, rules by ID, or exit codes, see the [BinSkim User Guide](https://github.com/Microsoft/binskim/blob/master/docs/UserGuide.md).
 
@@ -135,7 +139,7 @@ Available options include:
 >
 >   If the new task runs on the same agent as the original task, the new task's output overwrites the original task's output in the *s* sources folder. Although the build output is the same, we advise that you run MSBuild, copy output to the the artifacts staging directory, and then run Roslyn Analyzers.
 
-For additional resources for the Roslyn Analyzers task, check out [The Roslyn-based Analyzers](https://docs.microsoft.com/dotnet/standard/analyzers/) on Microsoft Docs.
+For additional resources for the Roslyn Analyzers task, check out [The Roslyn-based Analyzers](https://docs.microsoft.com/dotnet/standard/analyzers/api-analyzer) on Microsoft Docs.
 
 You can find the analyzer package installed and used by this build task on the NuGet page [Microsoft.CodeAnalysis.FxCopAnalyzers](https://www.nuget.org/packages/Microsoft.CodeAnalysis.FxCopAnalyzers).
 

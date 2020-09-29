@@ -2,6 +2,7 @@
 title: Profile ASP.NET Core Azure Linux web apps with Application Insights Profiler | Microsoft Docs
 description: A conceptual overview and step-by-step tutorial on how to use Application Insights Profiler.
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 author: cweining
 ms.author: cweining
 ms.date: 02/23/2018
@@ -13,7 +14,7 @@ ms.reviewer: mbullwin
 
 This feature is currently in preview.
 
-Find out how much time is spent in each method of your live web application when using [Application Insights](../../azure-monitor/app/app-insights-overview.md). Application Insights Profiler is now available for ASP.NET Core web apps that are hosted in Linux on Azure App Service. This guide provides step-by-step instructions on how the Profiler traces can be collected for ASP.NET Core Linux web apps.
+Find out how much time is spent in each method of your live web application when using [Application Insights](./app-insights-overview.md). Application Insights Profiler is now available for ASP.NET Core web apps that are hosted in Linux on Azure App Service. This guide provides step-by-step instructions on how the Profiler traces can be collected for ASP.NET Core Linux web apps.
 
 After you complete this walkthrough, your app can collect Profiler traces like the traces that are shown in the image. In this example, the Profiler trace indicates that a particular web request is slow because of time spent waiting. The *hot path* in the code that's slowing the app is marked by a flame icon. The **About** method in the **HomeController** section is slowing the web app because the method is calling the **Thread.Sleep** function.
 
@@ -102,7 +103,7 @@ The following instructions apply to all Windows, Linux, and Mac development envi
 
     ![Set up the Git repository](./media/profiler-aspnetcore-linux/setup-git-repo.png)
 
-For more deployment options, see [this article](https://docs.microsoft.com/azure/app-service/containers/choose-deployment-type).
+For more deployment options, see [App Service documentation](https://docs.microsoft.com/azure/app-service).
 
 ## Deploy your project
 
@@ -145,7 +146,7 @@ For more deployment options, see [this article](https://docs.microsoft.com/azure
 
 ## Add Application Insights to monitor your web apps
 
-1. [Create an Application Insights resource](./../../azure-monitor/app/create-new-resource.md ).
+1. [Create an Application Insights resource](./create-new-resource.md).
 
 2. Copy the **iKey** value of the Application Insights resource and set the following settings in your web apps:
 
@@ -169,3 +170,4 @@ Enable Service Profiler for a containerized ASP.NET Core application](https://gi
 
 Report any issues or suggestions to the Application Insights GitHub repository:
 [ApplicationInsights-Profiler-AspNetCore: Issues](https://github.com/Microsoft/ApplicationInsights-Profiler-AspNetCore/issues).
+

@@ -38,5 +38,5 @@ To follow the steps in this article, you must have:
 
 ## Next steps
 
-* Learn more about [TLS (Transport Layer Security)](https://docs.microsoft.com/dotnet/framework/network-programming/tls).
+* Learn more about [TLS (Transport Layer Security)](/dotnet/framework/network-programming/tls).
 * Check out more [videos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) about API Management.

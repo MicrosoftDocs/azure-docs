@@ -1,6 +1,6 @@
 ---
 title: Create Azure Advisor alerts for new recommendations using Resource Manager template
-description: Create Azure Advisor alerts for new recommendation
+description: Learn how to set up an alert for new recommendations from Azure Advisor using an Azure Resource Manager template (ARM template).
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 06/29/2020
@@ -12,7 +12,7 @@ This article shows you how to set up an alert for new recommendations from Azure
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Whenever Azure Advisor detects a new recommendation for one of your resources, an event is stored in [Azure Activity log](/azure/azure-monitor/platform/activity-logs-overview). You can set up alerts for these events from Azure Advisor using a recommendation-specific alerts creation experience. You can select a subscription and optionally a resource group to specify the resources that you want to receive alerts on.
+Whenever Azure Advisor detects a new recommendation for one of your resources, an event is stored in [Azure Activity log](../azure-monitor/platform/platform-logs-overview.md). You can set up alerts for these events from Azure Advisor using a recommendation-specific alerts creation experience. You can select a subscription and optionally a resource group to specify the resources that you want to receive alerts on.
 
 You can also determine the types of recommendations by using these properties:
 

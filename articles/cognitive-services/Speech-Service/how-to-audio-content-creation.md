@@ -24,7 +24,7 @@ See the [video tutorial](https://www.youtube.com/watch?v=O1wIJ7mts_w) for Audio 
 
 This diagram shows the steps it takes to fine-tune text-to-speech outputs. Use the links below to learn more about each step.
 
-![](media/audio-content-creation/audio-content-creation-diagram.jpg)
+![A diagram of the steps it takes to fine-tune text-to-speech outputs.](media/audio-content-creation/audio-content-creation-diagram.jpg)
 
 1. [Set up your Azure account and Speech resource](#set-up-your-azure-account-and-speech-resource) to get started.
 2. [Create an audio tuning file](#create-an-audio-tuning-file) using plain text or SSML scripts.

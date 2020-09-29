@@ -10,11 +10,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/1/2020
+ms.date: 08/31/2020
 ms.author: inhenkel
+ms.custom: devx-track-js
 ---
 
 # Tutorial: End-to-End content protection using Azure AD
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 With this tutorial and the provided player sample, you can set up an end-to-end media content protection subsystem on Azure Media Services (AMS) and Azure Active Directory (AAD) to stream media content with all AMS supported DRM/AES-128, streaming protocols, codec, and container formats. The sample is generic enough for secure access to any REST API protected by OAuth 2 through Authorization Code Flow with Proof Key for Code Exchange (PKCE). (Azure Media Services license delivery service is just one of them.) It also works for Microsoft Graph API or any custom developed REST API secured with OAuth 2 Authorization Code Flow. This is the companion document to the [sample code](https://github.com/Azure-Samples/media-services-content-protection-azure-ad).
 
@@ -43,13 +46,13 @@ The following latest technology versions and concepts are used. It's recommended
 It is optional but recommended that you are familiar with the following concepts before beginning this tutorial:
 
 * Digital Rights Management (DRM)
-* [Azure Media Services (AMS) v3](https://docs.microsoft.com/azure/media-services/latest/media-services-overview)
+* [Azure Media Services (AMS) v3](./media-services-overview.md)
 * AMS [content key policies](content-key-policy-concept.md) using the AMS API v3, Azure portal, or the [Azure Media Services Explorer (AMSE) tool](https://github.com/Azure/Azure-Media-Services-Explorer)
-* Azure AD v2 endpoints on the [Microsoft Identity Platform](https://docs.microsoft.com/azure/active-directory/develop/)
-* Modern cloud authentication such as [OAuth 2.0 and OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols)
-  * [Authorization code flow in OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow) and why PKCE is needed
-  * [Delegated permission vs application permission](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#permissions)
-* [JWT token](https://docs.microsoft.com/azure/active-directory/develop/access-tokens), its claims, and signing key rollover (included in sample.)
+* Azure AD v2 endpoints on the [Microsoft Identity Platform](../../active-directory/develop/index.yml)
+* Modern cloud authentication such as [OAuth 2.0 and OpenID Connect](../../active-directory/develop/active-directory-v2-protocols.md)
+  * [Authorization code flow in OAuth 2.0](../../active-directory/develop/v2-oauth2-auth-code-flow.md) and why PKCE is needed
+  * [Delegated permission vs application permission](../../active-directory/develop/developer-glossary.md#permissions)
+* [JWT token](../../active-directory/develop/access-tokens.md), its claims, and signing key rollover (included in sample.)
 
 ### Prerequisite code and installations
 
@@ -58,7 +61,7 @@ It is optional but recommended that you are familiar with the following concepts
 * An installation of Node.js. Download Node.js here [https://nodejs.org](https://nodejs.org). NPM comes with the install.
 * An [Azure subscription](https://azure.microsoft.com/free/).
 * An Azure Media Services (AMS) account.
-* @azure/msal-browser v2.0, one of the members in [Microsoft Authentication Library (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview) SDK family for different client platforms
+* @azure/msal-browser v2.0, one of the members in [Microsoft Authentication Library (MSAL)](../../active-directory/develop/msal-overview.md) SDK family for different client platforms
 * The latest version of [Azure Media Player](https://github.com/Azure-Samples/azure-media-player-samples)(included in sample.)
 * FPS credentials from Apple if you want to include FairPlay DRM and the application certificate hosted with CORS that is accessible via client-side JavaScript.
 
@@ -93,7 +96,7 @@ The design of the subsystem is shown in the following diagram.  It has three lay
 
 ![screen for parsing JWT tokens](media/aad-ams-content-protection/subsystem.svg)
 
-Read [Design of a multi-DRM content protection system with access control](https://docs.microsoft.com/azure/media-services/latest/design-multi-drm-system-with-access-control) for more details about the subsystem.
+Read [Design of a multi-DRM content protection system with access control](./design-multi-drm-system-with-access-control.md) for more details about the subsystem.
 
 ## Understand the Single-page app
 
@@ -115,18 +118,17 @@ The SPA player app completes the following actions:
 * Decryption, decode, and display.
 * Microsoft Graph API calls for troubleshooting purposes. <!--See more details in the subsection Shortest path: testing my protected asset in my subscription with your hosted player app and underlying tenant. -->
 
-<!--
 The screen for sign-in, token acquisition, token renewal, and token display:
 
- ![Screen for sign in, token acquisition, token renewal, and token display](media/aad-ams-content-protection/token-acquisition2.png)
+ ![Screen for sign in, token acquisition, token renewal, and token display](media/aad-ams-content-protection/token-acquisition.png)
 
 The screen for parsing JWT tokens (access_token or id_token):
 
-![screen for parsing JWT tokens](media/aad-ams-content-protection/parsing-jwt-tokens2.png)
+![screen for parsing JWT tokens](media/aad-ams-content-protection/parsing-jwt-tokens.png)
 
 The screen for testing protected content with different combinations of DRM/AES vs Streaming Protocols vs Container Format:
 
-![screen for parsing JWT tokens](media/aad-ams-content-protection/testing-protected-content2.png)
+![screen for parsing JWT tokens](media/aad-ams-content-protection/testing-protected-content.png)
 -->
 
 <!-- You can see a hosted version of the sample at [https://aka.ms/ott](https://aka.ms/ott)-->
@@ -335,7 +337,7 @@ if (tokenClaims != null && tokenClaims.Length > 0)
 }
 ```
 
-The *groups* claim is a member of a [Restricted Claim Set](https://docs.microsoft.com/azure/active-directory/develop/active-directory-claims-mapping#claim-sets) in Azure AD.
+The *groups* claim is a member of a [Restricted Claim Set](../../active-directory/develop/active-directory-claims-mapping.md#claim-sets) in Azure AD.
 
 #### Test
 

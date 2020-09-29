@@ -36,7 +36,7 @@ This article contains a step by step walkthrough of how to connect to Azure Bloc
 
 6.  Once connected to the database, the **Navigator** dialog displays the tables and views available within the database. The views are designed for reporting and are all prefixed **vw**.
 
-    ![Navigator](./media/data-powerbi/navigator.png)
+    ![Screen capture of Power BI desktop with the Navigator dialog box with vwContractAction selected.](./media/data-powerbi/navigator.png)
 
 7.  Select the views you wish to include. For demonstration purposes, we include **vwContractAction**, which provides details on the actions that have taken place on a contract.
 

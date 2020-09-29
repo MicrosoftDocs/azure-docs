@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Initialize hardware - Azure FXT Edge Filer'
-description: How to set an initial password on Azure FXT Edge Filer nodes 
+description: Learn how to connect to the hardware node and set an initial password on Azure FXT Edge Filer nodes. 
 author: ekpgh
 ms.author: rohogue
 ms.service: fxt-edge-filer

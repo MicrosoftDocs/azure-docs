@@ -60,8 +60,6 @@ The output of this cmdlet shows properties of the newly created key vault. Take 
 
 After vault creation your Azure account is the only account allowed to do anything on this new vault.
 
-![Output after Key Vault creation command completes](../media/quick-create-powershell/output-after-creating-keyvault.png)
-
 ## Give your user account permissions to manage secrets in Key Vault
 
 Use the Azure PowerShell Set-AzKeyVaultAccessPolicy cmdlet to update the Key Vault access policy and grant secret permissions to your user account.

@@ -17,7 +17,7 @@ ms.date: 10/31/2018
 ms.author: genli
 
 ---
-# How to use PerfInsights
+# How to use PerfInsights in Azure
 
 [PerfInsights](https://aka.ms/perfinsightsdownload) is a self-help diagnostics tool that collects and analyzes the diagnostic data, and provides a report to help troubleshoot Windows virtual machine performance problems in Azure. PerfInsights can be run on virtual machines as a standalone tool, directly from the portal by using [Performance Diagnostics for Azure virtual machines](performance-diagnostics.md), or by installing [Azure Performance Diagnostics VM Extension](performance-diagnostics-vm-extension.md).
 
@@ -63,7 +63,7 @@ This scenario runs the [Diskspd](https://github.com/Microsoft/diskspd) benchmark
 
 ### Performance analysis
 
-This scenario runs a [performance counter](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) trace by using the counters that are specified in the RuleEngineConfig.json file. If the VM is identified as a server that is running SQL Server, a performance counter trace is run. It does so by using the counters that are found in the RuleEngineConfig.json file. This scenario also includes performance diagnostics data.
+This scenario runs a [performance counter](/windows/win32/perfctrs/performance-counters-portal) trace by using the counters that are specified in the RuleEngineConfig.json file. If the VM is identified as a server that is running SQL Server, a performance counter trace is run. It does so by using the counters that are found in the RuleEngineConfig.json file. This scenario also includes performance diagnostics data.
 
 ### Azure Files analysis
 
@@ -99,9 +99,8 @@ When you run an advanced performance analysis, you select traces to run in paral
 
 Information about Windows VM, disks or storage pools configuration, performance counters, logs, and various traces are collected. It depends on the performance scenario you are using. The following table provides details:
 
-|Data collected                              |  |  | Performance scenarios |  |  | |
-|----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|----------------------|
-|                               | Quick performance analysis | Benchmarking | Performance analysis | Azure Files analysis | Advanced performance analysis |
+| Data collected | Quick performance analysis | Benchmarking | Performance analysis | Azure Files analysis | Advanced performance analysis |
+|----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|
 | Information from event logs       | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
 | System information                | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
 | Volume map                        | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
@@ -164,7 +163,15 @@ Diskspd I/O workload tests (OS Disk [write] and pool drives [read/write])
 
 -  This tool must be run on the VM that has the performance issue. 
 
--  The following operating systems are supported: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2, and Windows Server 2016; Windows 8.1 and Windows 10.
+-  The following operating systems are supported:
+   * Windows Server 2019
+   * Windows Server 2016
+   * Windows Server 2012 R2
+   * Windows Server 2012
+   * Windows Server 2008 R2
+   * Windows 10
+   * Windows 8.1
+   * Windows 8
 
 #### Possible problems when you run the tool on production VMs
 
@@ -250,8 +257,8 @@ Within the **PerformanceDiagnostics\_yyyy-MM-dd\_hh-mm-ss-fff.zip** file, you ca
 
 Select the **Findings** tab.
 
-![Screenshot of PerfInsights Report](media/how-to-use-perfInsights/pi-finding-tab.png)
-![Screenshot of PerfInsights Report](media/how-to-use-perfInsights/pi-findings.png)
+![Screenshot of Overview tab of the PerfInsights Report.](media/how-to-use-perfInsights/pi-finding-tab.png)
+![Screenshot of Storage tab of the PerfInsights Report.](media/how-to-use-perfInsights/pi-findings.png)
 
 > [!NOTE] 
 > Findings categorized as high are known issues that might cause performance issues. Findings categorized as medium represent non-optimal configurations that do not necessarily cause performance issues. Findings categorized as low are informative statements only.
@@ -299,7 +306,7 @@ Diskspd is a storage load generator and performance test tool from Microsoft. Fo
 
 ### Xperf
 
-Xperf is a command-line tool to capture traces from the Windows Performance Toolkit. For more information, see [Windows Performance Toolkit – Xperf](https://blogs.msdn.microsoft.com/ntdebugging/2008/04/03/windows-performance-toolkit-xperf/).
+Xperf is a command-line tool to capture traces from the Windows Performance Toolkit. For more information, see [Windows Performance Toolkit – Xperf](/archive/blogs/ntdebugging/windows-performance-toolkit-xperf).
 
 ## Next steps
 
@@ -312,4 +319,3 @@ The following screenshot shows a message similar to what you might receive:
 Follow the instructions in the message to access the file transfer workspace. For additional security, you have to change your password on first use.
 
 After you sign in, you will find a dialog box to upload the **PerformanceDiagnostics\_yyyy-MM-dd\_hh-mm-ss-fff.zip** file that was collected by PerfInsights.
-

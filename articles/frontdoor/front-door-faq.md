@@ -3,14 +3,14 @@ title: Azure Front Door - Frequently Asked Questions
 description: This page provides answers to frequently asked questions about Azure Front Door
 services: frontdoor
 documentationcenter: ''
-author: sohamnchatterjee
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/13/2020
-ms.author: sohamnc
+ms.date: 09/18/2020
+ms.author: duau
 ---
 
 # Frequently asked questions for Azure Front Door
@@ -95,6 +95,31 @@ To lock down your application to accept traffic only from your specific Front Do
 
 -    Perform a GET operation on your Front Door with the API version `2020-01-01` or higher. In the API call, look for `frontdoorID` field. Filter on the incoming header '**X-Azure-FDID**' sent by Front Door to your backend with the value as that of the field `frontdoorID`. You can also find `Front Door ID` value under the Overview section from Front Door portal page. 
 
+- Apply rule filtering in your backend web server to restrict traffic based on the resulting 'X-Azure-FDID' header value.
+
+  Here's an example for [Microsoft Internet Information Services (IIS)](https://www.iis.net/):
+
+	``` xml
+	<?xml version="1.0" encoding="UTF-8"?>
+	<configuration>
+		<system.webServer>
+			<rewrite>
+				<rules>
+					<rule name="Filter_X-Azure-FDID" patternSyntax="Wildcard" stopProcessing="true">
+						<match url="*" />
+						<conditions>
+							<add input="{HTTP_X_AZURE_FDID}" pattern="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" negate="true" />
+						</conditions>
+						<action type="AbortRequest" />
+					</rule>
+				</rules>
+			</rewrite>
+		</system.webServer>
+	</configuration>
+	```
+
+
+
 ### Can the anycast IP change over the lifetime of my Front Door?
 
 The frontend anycast IP for your Front Door should typically not change and may remain static for the lifetime of the Front Door. However, there are **no guarantees** for the same. Kindly do not take any direct dependencies on the IP.
@@ -128,6 +153,10 @@ Azure Front Door (AFD) requires a public IP or publicly resolvable DNS name to r
 
 Learn about all the documented [timeouts and limits for Azure Front Door](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-front-door-service-limits).
 
+### How long does it take for a rule to take effect after being added to the Front Door Rules Engine?
+
+The Rules Engine configuration takes about 10 to 15 minutes to complete an update. You can expect the rule to take effect as soon as the update is completed. 
+
 ## Performance
 
 ### How does Azure Front Door support high availability and scalability?
@@ -154,12 +183,12 @@ For the Front Door managed certificate option, the certificates are autorotated 
 
 ### What are the current cipher suites supported by Azure Front Door?
 
-For TLS1.2 the following cipher suites are supported
+For TLS1.2 the following cipher suites are supported: 
 
-TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
-TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
+- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+- TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+- TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
+- TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
 
 When using custom domains with TLS1.0/1.1 enabled the following cipher suites are supported:
 

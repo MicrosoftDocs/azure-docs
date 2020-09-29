@@ -1,5 +1,5 @@
 ---
-title: "Getting started"
+title: "Get started with Cognitive Services for Big Data"
 description: Set up your MMLSpark pipeline with Cognitive Services in Azure Databricks and run a sample.
 services: cognitive-services
 author: mhamilton723

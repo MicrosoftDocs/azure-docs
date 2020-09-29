@@ -100,29 +100,35 @@ In our example, since Disk3, the SQL tempdb disk, was excluded from replication 
 1. Open a command prompt.
 2. Run SQL Server in recovery mode from the command prompt.
 
-		Net start MSSQLSERVER /f / T3608
+    ```console
+    Net start MSSQLSERVER /f / T3608
+    ```
 
 3. Run the following sqlcmd to change the tempdb path to the new path.
 
-		sqlcmd -A -S SalesDB		**Use your SQL DBname**
-		USE master;		
-		GO		
-		ALTER DATABASE tempdb		
-		MODIFY FILE (NAME = tempdev, FILENAME = 'E:\MSSQL\tempdata\tempdb.mdf');
-		GO		
-		ALTER DATABASE tempdb		
-		MODIFY FILE (NAME = templog, FILENAME = 'E:\MSSQL\tempdata\templog.ldf');		
-		GO
-
+    ```sql
+    sqlcmd -A -S SalesDB		**Use your SQL DBname**
+    USE master;		
+    GO		
+    ALTER DATABASE tempdb		
+    MODIFY FILE (NAME = tempdev, FILENAME = 'E:\MSSQL\tempdata\tempdb.mdf');
+    GO		
+    ALTER DATABASE tempdb		
+    MODIFY FILE (NAME = templog, FILENAME = 'E:\MSSQL\tempdata\templog.ldf');		
+    GO
+    ```
 
 4. Stop the Microsoft SQL Server service.
 
-		Net stop MSSQLSERVER
+    ```console
+    Net stop MSSQLSERVER
+    ```
+
 5. Start the Microsoft SQL Server service.
 
-		Net start MSSQLSERVER
-
-
+    ```console
+    Net start MSSQLSERVER
+    ```
 
 ### VMware VMs: Disks during failback to original location
 
@@ -196,7 +202,7 @@ DB-Disk3 | Disk3 | F:\ | User data 2
 
 Our paging file settings on the source VM are as follows:
 
-![Paging file settings on source virtual machine](./media/exclude-disks-replication/pagefile-d-drive-source-vm.png)
+![Screenshot of the Virtual Memory dialog with the D: Drive [Pagefile volume] line highlighted showing a Paging File Size (MB) of 3000-7000.](./media/exclude-disks-replication/pagefile-d-drive-source-vm.png)
 
 1. We enable replication for the VM.
 2. We exclude DB-Disk1 from replication.
@@ -249,7 +255,7 @@ DB-Disk3 | Disk3 | F:\ | User data 2
 
 Our paging file settings on the Azure VM are as follows:
 
-![Paging file settings on Azure virtual machine](./media/exclude-disks-replication/pagefile-azure-vm-after-failover-2.png)
+![Screenshot of the Virtual Memory dialog with the C: Drive line highlighted showing a Paging File Size setting of "System managed".](./media/exclude-disks-replication/pagefile-azure-vm-after-failover-2.png)
 
 
 ## Next steps

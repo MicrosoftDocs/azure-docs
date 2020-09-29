@@ -7,7 +7,7 @@ ms.devlang: java
 ms.topic: how-to
 ms.date: 07/08/2020
 ms.author: anfeldma
-
+ms.custom: devx-track-java
 ---
 
 # Performance tips for Azure Cosmos DB Java SDK v4
@@ -314,7 +314,7 @@ Please see the [Windows](https://docs.microsoft.com/azure/virtual-network/create
 
     ### <a id="java4-indexing"></a>Java SDK V4 (Maven com.azure::azure-cosmos)
 
-    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/sync/SampleDocumentationSnippets.java?name=MigrateIndexingAsync)]
+    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=MigrateIndexingAsync)]
 
     For more information, see [Azure Cosmos DB indexing policies](indexing-policies.md).
 

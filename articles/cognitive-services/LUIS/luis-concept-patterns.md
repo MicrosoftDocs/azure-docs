@@ -3,14 +3,14 @@ title: Patterns help prediction - LUIS
 titleSuffix: Azure Cognitive Services
 description: A pattern allows you to gain more accuracy for an intent without providing many more utterances.
 services: cognitive-services
-author: diberry
+
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/11/2019
-ms.author: diberry
+
 ---
 # Patterns improve prediction accuracy
 Patterns are designed to improve accuracy when several utterances are very similar.  A pattern allows you to gain more accuracy for an intent without providing many more utterances.
@@ -35,7 +35,7 @@ Patterns solve the following situations:
 ## Patterns are not a guarantee of intent
 Patterns use a mix of prediction technologies. Setting an intent for a template utterance in a pattern is not a guarantee of the intent prediction but it is a strong signal.
 
-<a name="patterns-do-not-improve-entity-detection"/></a>
+<a name="patterns-do-not-improve-entity-detection"></a>
 
 ## Patterns do not improve machine-learning entity detection
 

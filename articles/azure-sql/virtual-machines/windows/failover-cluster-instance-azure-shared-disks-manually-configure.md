@@ -10,7 +10,7 @@ tags: azure-service-management
 ms.service: virtual-machines-sql
 
 ms.custom: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/26/2020
@@ -30,13 +30,13 @@ To learn more, see an overview of [FCI with SQL Server on Azure VMs](failover-cl
 Before you complete the instructions in this article, you should already have:
 
 - An Azure subscription. Get started for [free](https://azure.microsoft.com/free/). 
-- [Two or more West Central US-prepared Windows Azure virtual machines](failover-cluster-instance-prepare-vm.md) in the same [availability set](../../../virtual-machines/linux/tutorial-availability-sets.md) and a [proximity placement group](../../../virtual-machines/windows/co-location.md#proximity-placement-groups), with the availability set that's created with Fault Domain and Update Domain set to **1**. 
+- [Two or more Windows Azure virtual machines](failover-cluster-instance-prepare-vm.md). [Availability sets](../../../virtual-machines/windows/tutorial-availability-sets.md) and [proximity placement groups](../../../virtual-machines/windows/co-location.md#proximity-placement-groups) (PPGs) are both supported. If you use a PPG, all nodes must exist in the same group.
 - An account that has permissions to create objects on both Azure virtual machines and in Active Directory.
 - The latest version of [PowerShell](/powershell/azure/install-az-ps?view=azps-4.2.0). 
 
 
 ## Add Azure shared disk
-Deploy a managed Premium SSD disk with the shared disk feature enabled. Set `maxShares` to **2** to make the disk shareable across both FCI nodes. 
+Deploy a managed Premium SSD disk with the shared disk feature enabled. Set `maxShares` to **align with the number of cluster nodes** to make the disk shareable across all FCI nodes. 
 
 Add an Azure shared disk by doing the following: 
 
@@ -154,7 +154,7 @@ To validate the cluster by using the UI, do the following on one of the virtual 
 1. Under **Select Servers or a Cluster**, enter the names of both virtual machines.
 1. Under **Testing options**, select **Run only tests I select**. 
 1. Select **Next**.
-1. Under **Test Selection**, select all tests *except* **Storage Spaces Direct**.
+1. Under **Test Selection**, select all tests *except* **Storage**
 
 ## Test cluster failover
 
@@ -178,9 +178,7 @@ After you've configured the failover cluster and all cluster components, includi
 
 1. Select **New SQL Server failover cluster installation**. Follow the instructions in the wizard to install the SQL Server FCI.
 
-   The FCI data directories need to be on clustered storage. With Storage Spaces Direct, it's not a shared disk, but a mount point to a volume on each server. Storage Spaces Direct synchronizes the volume between both nodes. The volume is presented to the cluster as a Cluster Shared Volume (CSV). Use the CSV mount point for the data directories.
-
-   ![Data directories](./media/failover-cluster-instance-storage-spaces-direct-manually-configure/20-data-dicrectories.png)
+The FCI data directories need to be on the Azure Shared Disks. 
 
 1. After you complete the instructions in the wizard, Setup will install a SQL Server FCI on the first node.
 
@@ -212,11 +210,10 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 
 ## Configure connectivity 
 
-To route traffic appropriately to the current primary node, configure the connectivity option that's suitable for your environment. You can create an [Azure load balancer](hadr-vnn-azure-load-balancer-configure.md) or, if you're using SQL Server 2019 and Windows Server 2019, you can preview the [distributed network name](hadr-distributed-network-name-dnn-configure.md) feature instead. 
+To route traffic appropriately to the current primary node, configure the connectivity option that's suitable for your environment. You can create an [Azure load balancer](hadr-vnn-azure-load-balancer-configure.md) or, if you're using SQL Server 2019 CU2+ and Windows Server 2016 (or later) you can preview the [distributed network name](hadr-distributed-network-name-dnn-configure.md) feature instead. 
 
 ## Limitations
 
-- Only SQL Server 2019 on Windows Server 2019 is supported. 
 - Only registering with the SQL VM resource provider in [lightweight management mode](sql-vm-resource-provider-register.md#management-modes) is supported.
 
 ## Next steps

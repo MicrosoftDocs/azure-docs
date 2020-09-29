@@ -12,6 +12,9 @@ manager: philmea
 
 # Use the OPC Vault certificate management service
 
+> [!IMPORTANT]
+> While we update this article, see [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/) for the most up to date content.
+
 This article explains how to register applications, and how to issue signed application certificates for your OPC UA devices.
 
 ## Prerequisites
@@ -33,7 +36,7 @@ If you haven't done so yet, create the Issuer CA certificate. For details, see [
 
 1. Open your certificate service at `https://myResourceGroup-app.azurewebsites.net`, and sign in.
 2. Go to **Register New**. For an application registration, a user needs to have at least the Writer role assigned.
-2. The entry form follows naming conventions in OPC UA. For example, in the following screenshot, the settings for the [OPC UA Reference Server](https://github.com/OPCFoundation/UA-.NETStandard/tree/master/SampleApplications/Workshop/Reference) sample in the OPC UA .NET Standard stack is shown:
+2. The entry form follows naming conventions in OPC UA. For example, in the following screenshot, the settings for the [OPC UA Reference Server](https://github.com/OPCFoundation/UA-.NETStandard/tree/master/Applications/ReferenceServer) sample in the OPC UA .NET Standard stack is shown:
 
    ![Screenshot of UA Reference Server Registration](media/howto-opc-vault-secure/reference-server-registration.png "UA Reference Server Registration")
 

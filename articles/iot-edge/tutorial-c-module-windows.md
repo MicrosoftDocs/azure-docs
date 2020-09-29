@@ -3,10 +3,10 @@
 title: Tutorial develop C module for Windows - Azure IoT Edge | Microsoft Docs 
 description: This tutorial shows you how to create an IoT Edge module with C code and deploy it to a Windows device running IoT Edge
 services: iot-edge
-author: shizn
+author: kgremban
 manager: philmea
 
-ms.author: xshi
+ms.author: kgremban
 ms.date: 05/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
@@ -87,7 +87,7 @@ Create a C solution template that you can customize with your own code.
    | ----- | ----- |
    | Select a template | Select **C Module**. |
    | Module project name | Name your module **CModule**. |
-   | Docker image repository | An image repository includes the name of your container registry and the name of your container image. Your container image is prepopulated from the module project name value. Replace **localhost:5000** with the login server value from your Azure container registry. You can retrieve the login server from the Overview page of your container registry in the Azure portal. <br><br> The final image repository looks like \<registry name\>.azurecr.io/cmodule. |
+   | Docker image repository | An image repository includes the name of your container registry and the name of your container image. Your container image is prepopulated from the module project name value. Replace **localhost:5000** with the **Login server** value from your Azure container registry. You can retrieve the Login server from the Overview page of your container registry in the Azure portal. <br><br> The final image repository looks like \<registry name\>.azurecr.io/cmodule. |
 
    ![Configure your project for target device, module type, and container registry](./media/tutorial-c-module-windows/add-application-and-module.png)
 
@@ -314,7 +314,13 @@ The default module code receives messages on an input queue and passes them alon
 
 In the previous section, you created an IoT Edge solution and added code to the **CModule** to filter out messages where the reported machine temperature is below the acceptable threshold. Now you need to build the solution as a container image and push it to your container registry.
 
-1. Use the following command to sign in to Docker on your development machine. Sign in with the username, password, and login server from your Azure container registry. You can retrieve these values from the **Access keys** section of your registry in the Azure portal.
+### Sign in to Docker
+
+Provide your container registry credentials to Docker on your development machine so that it can push your container image to be stored in the registry.
+
+1. Open PowerShell or a command prompt.
+
+2. Sign in to Docker with the Azure container registry credentials that you saved after creating the registry.
 
    ```cmd
    docker login -u <ACR username> -p <ACR password> <ACR login server>
@@ -322,15 +328,21 @@ In the previous section, you created an IoT Edge solution and added code to the 
 
    You may receive a security warning recommending the use of `--password-stdin`. While that best practice is recommended for production scenarios, it's outside the scope of this tutorial. For more information, see the [docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) reference.
 
-2. In the Visual Studio solution explorer, right-click the project name that you want to build. The default name is **AzureIotEdgeApp1** and since you're building a Windows module, the extension should be **Windows.Amd64**.
+### Build and push
 
-3. Select **Build and Push IoT Edge Modules**.
+Your development machine now has access to your container registry, and your IoT Edge devices will too. It's time to turn the project code into a container image.
+
+1. In the Visual Studio solution explorer, right-click the project name that you want to build. The default name is **AzureIotEdgeApp1**. For this tutorial, the name **CTutorialApp** was chosen. Since you're building a Windows module, the extension should be **Windows.Amd64**.
+
+2. Select **Build and Push IoT Edge Modules**.
 
    The build and push command starts three operations. First, it creates a new folder in the solution called **config** that holds the full deployment manifest, built out of information in the deployment template, and other solution files. Second, it runs `docker build` to build the container image based on the appropriate dockerfile for your target architecture. Then, it runs `docker push` to push the image repository to your container registry.
 
+   This process may take several minutes the first time, but is faster the next time that you run the commands.
+
 ## Deploy modules to device
 
-Use the Visual Studio cloud explorer and the Azure IoT Edge Tools extension to deploy the module project to your IoT Edge device. You already have a deployment manifest prepared for your scenario, the **deployment.json** file in the config folder. All you need to do now is select a device to receive the deployment.
+Use the Visual Studio cloud explorer and the Azure IoT Edge Tools extension to deploy the module project to your IoT Edge device. You already have a deployment manifest prepared for your scenario, the **deployment.windows-amd64.json** file in the config folder. All you need to do now is select a device to receive the deployment.
 
 Make sure that your IoT Edge device is up and running.
 

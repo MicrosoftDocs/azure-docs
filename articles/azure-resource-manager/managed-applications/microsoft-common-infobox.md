@@ -15,7 +15,7 @@ A control that adds an information box. The box contains important text or warni
 
 ## UI sample
 
-![Microsoft.Common.InfoBox](./media/managed-application-elements/microsoft.common.infobox.png)
+![Microsoft.Common.InfoBox](./media/managed-application-elements/microsoft-common-infobox.png)
 
 
 ## Schema

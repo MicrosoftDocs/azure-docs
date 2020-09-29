@@ -15,7 +15,7 @@ Azure Monitor for containers provides a rich monitoring experience for Azure Kub
 
 You can enable Azure Monitor for containers for one or more existing deployments of Azure Red Hat OpenShift v4.x by using the supported methods described in this article.
 
-For an existing cluster, run this [Bash script in the Azure CLI](https://docs.microsoft.com/cli/azure/openshift?view=azure-cli-latest#az-openshift-create).
+For an existing cluster, run this [Bash script in the Azure CLI](/cli/azure/openshift?view=azure-cli-latest#az-openshift-create).
 
 ## Supported and unsupported features
 
@@ -167,4 +167,4 @@ The multi-cluster view in Azure Monitor for containers highlights your Azure Red
 
 - To scrape and analyze Prometheus metrics from your cluster, review [Configure Prometheus metrics scraping](container-insights-prometheus-integration.md).
 
-- To learn how to stop monitoring your cluster by using Azure Monitor for containers, see [How to stop monitoring your Azure Red Hat OpenShift cluster](container-insights-optout-openshift.md).
+- To learn how to stop monitoring your cluster by using Azure Monitor for containers, see [How to stop monitoring your Azure Red Hat OpenShift cluster](./container-insights-optout-openshift-v3.md).

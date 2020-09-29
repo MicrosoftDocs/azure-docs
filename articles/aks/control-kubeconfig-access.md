@@ -7,9 +7,9 @@ ms.date: 05/06/2020
 
 ---
 
-# Use Azure role-based access controls to define access to the Kubernetes configuration file in Azure Kubernetes Service (AKS)
+# Use Azure role-based access control to define access to the Kubernetes configuration file in Azure Kubernetes Service (AKS)
 
-You can interact with Kubernetes clusters using the `kubectl` tool. The Azure CLI provides an easy way to get the access credentials and configuration information to connect to your AKS clusters using `kubectl`. To limit who can get that Kubernetes configuration (*kubeconfig*) information and to limit the permissions they then have, you can use Azure role-based access controls (RBAC).
+You can interact with Kubernetes clusters using the `kubectl` tool. The Azure CLI provides an easy way to get the access credentials and configuration information to connect to your AKS clusters using `kubectl`. To limit who can get that Kubernetes configuration (*kubeconfig*) information and to limit the permissions they then have, you can use Azure role-based access control (Azure RBAC).
 
 This article shows you how to assign RBAC roles that limit who can get the configuration information for an AKS cluster.
 
@@ -23,7 +23,7 @@ This article also requires that you are running the Azure CLI version 2.0.65 or 
 
 When you interact with an AKS cluster using the `kubectl` tool, a configuration file is used that defines cluster connection information. This configuration file is typically stored in *~/.kube/config*. Multiple clusters can be defined in this *kubeconfig* file. You switch between clusters using the [kubectl config use-context][kubectl-config-use-context] command.
 
-The [az aks get-credentials][az-aks-get-credentials] command lets you get the access credentials for an AKS cluster and merges them into the *kubeconfig* file. You can use Azure role-based access controls (RBAC) to control access to these credentials. These Azure RBAC roles let you define who can retrieve the *kubeconfig* file, and what permissions they then have within the cluster.
+The [az aks get-credentials][az-aks-get-credentials] command lets you get the access credentials for an AKS cluster and merges them into the *kubeconfig* file. You can use Azure role-based access control (Azure RBAC) to control access to these credentials. These Azure roles let you define who can retrieve the *kubeconfig* file, and what permissions they then have within the cluster.
 
 The two built-in roles are:
 
@@ -150,5 +150,5 @@ For enhanced security on access to AKS clusters, [integrate Azure Active Directo
 [az-ad-user-show]: /cli/azure/ad/user#az-ad-user-show
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [az-role-assignment-delete]: /cli/azure/role/assignment#az-role-assignment-delete
-[aad-integration]: azure-ad-integration.md
+[aad-integration]: ./azure-ad-integration-cli.md
 [az-ad-group-show]: /cli/azure/ad/group#az-ad-group-show

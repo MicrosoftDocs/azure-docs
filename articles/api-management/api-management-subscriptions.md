@@ -1,6 +1,6 @@
 ---
 title: Subscriptions in Azure API Management | Microsoft Docs
-description: Learn about the concept of subscriptions in Azure API Management.
+description: Learn about the concept of subscriptions in Azure API Management. Consumers get access to APIs by using subscriptions in Azure API Management.
 services: api-management
 documentationcenter: ''
 author: miaojiang
@@ -28,7 +28,7 @@ To get a subscription key for accessing APIs, a subscription is required. A subs
 > API Management also supports other mechanisms for securing access to APIs, including the following examples:
 > - [OAuth2.0](api-management-howto-protect-backend-with-aad.md)
 > - [Client certificates](api-management-howto-mutual-certificates-for-clients.md)
-> - [IP whitelisting](https://docs.microsoft.com/azure/api-management/api-management-access-restriction-policies#RestrictCallerIPs)
+> - [IP whitelisting](./api-management-access-restriction-policies.md#RestrictCallerIPs)
 
 ## Scope of subscriptions
 
@@ -36,7 +36,7 @@ Subscriptions can be associated with various scopes: product, all APIs, or an in
 
 ### Subscriptions for a product
 
-Traditionally, subscriptions in API Management were always associated with a single [API product](api-management-terminology.md) scope. Developers found the list of products on the Developer Portal. Then they'd submit subscription requests for the products they wanted to use. After a subscription request is approved, either automatically or by API publishers, the developer can use the keys in it to access all APIs in the product.At present, developer portal only shows the product-scope subscriptions under user profile section. 
+Traditionally, subscriptions in API Management were always associated with a single [API product](api-management-terminology.md) scope. Developers found the list of products on the Developer Portal. Then they'd submit subscription requests for the products they wanted to use. After a subscription request is approved, either automatically or by API publishers, the developer can use the keys in it to access all APIs in the product. At present, developer portal only shows the product-scope subscriptions under user profile section. 
 
 ![Product subscriptions](./media/api-management-subscriptions/product-subscription.png)
 

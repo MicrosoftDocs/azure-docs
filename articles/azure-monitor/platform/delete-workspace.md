@@ -38,7 +38,7 @@ The workspace delete operation removes the workspace Resource Manager resource, 
 > [!NOTE] 
 > Installed solutions and linked services like your Azure Automation account are permanently removed from the workspace at deletion time and can't be recovered. These should be reconfigured after the recovery operation to bring the workspace to its previously configured state.
 
-You can delete a workspace using [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/remove-azurermoperationalinsightsworkspace?view=azurermps-6.13.0), [REST API](https://docs.microsoft.com/rest/api/loganalytics/workspaces/delete), or in the [Azure portal](https://portal.azure.com).
+You can delete a workspace using [PowerShell](/powershell/module/azurerm.operationalinsights/remove-azurermoperationalinsightsworkspace?view=azurermps-6.13.0), [REST API](/rest/api/loganalytics/workspaces/delete), or in the [Azure portal](https://portal.azure.com).
 
 ### Azure portal
 
@@ -61,10 +61,10 @@ The soft-delete method may not fit in some scenarios such as development and tes
 > [!IMPORTANT]
 > Use permanent workspace delete operation with caution since its irreversible and you won't be able to recover your workspace and its data.
 
-Add '-force' tag to permanently delete your workspace:
+Add '-ForceDelete' tag to permanently delete your workspace. The '-ForceDelete' option is currently available with Az.OperationalInsights 2.3.0 or higher. 
 
 ```powershell
-PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Name "workspace-name" -Force
+PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Name "workspace-name" -ForceDelete
 ```
 
 ## Recover workspace
@@ -83,11 +83,11 @@ You can recover your workspace during the soft-delete period including its data,
 2. In the Azure portal, select **All services**. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics workspaces**. You see the list of workspaces you have in the selected scope.
 3. Click **Recover** on the top left menu to open a page with workspaces in soft-delete state that can be recovered.
 
-   ![Recover workspace](media/delete-workspace/recover-menu.png)
+   ![Screenshot of the Log Analytics workspaces screen in Azure portal with Recover highlighted on the menu bar.](media/delete-workspace/recover-menu.png)
 
 4. Select the workspace and click **Recover** to recover that workspace.
 
-   ![Recover workspace](media/delete-workspace/recover-workspace.png)
+   ![Screenshot of the Recover deleted Log Analytics workspaces dialog in Azure portal with a workspace highlighted and the Recover button selected.](media/delete-workspace/recover-workspace.png)
 
 
 ### PowerShell
@@ -109,6 +109,6 @@ You must have at least *Log Analytics Contributor* permissions to delete a works
 * If you get an error message *This workspace name is already in use* or *conflict* when creating a workspace, it could be since:
   * The workspace name isn't available and being used by someone in your organization, or by other customer.
   * The workspace was deleted in the last 14 days and its name kept reserved for the soft-delete period. To override the soft-delete and permanently delete your workspace to create a new workspace with the same name, follow these steps to recover the workspace first and perform permanent delete:<br>
-     1. [Recover](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#recover-workspace) your workspace.
-     2. [Permanently delete](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#permanent-workspace-delete) your workspace.
+     1. [Recover](#recover-workspace) your workspace.
+     2. [Permanently delete](#permanent-workspace-delete) your workspace.
      3. Create a new workspace using the same workspace name.

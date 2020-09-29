@@ -1,4 +1,4 @@
-﻿---
+---
 title: Security controls
 description: Learn about the security controls used in the Azure Backup service. These controls help the service prevent, detect, and respond to security vulnerabilities.
 ms.topic: conceptual
@@ -16,14 +16,15 @@ This article documents the security controls built into Azure Backup.
 |---|---|--|--|
 | Service endpoint support| No |  |  |
 | VNet injection support| No |  |  |
-| Network isolation and firewalling support| Yes | Forced tunneling is supported for VM backup. Forced tunneling is not supported for workloads running inside VMs. |  |
-| Forced tunneling support| No |  |  |
+| Network isolation and firewalling support| Yes | |  |
+| Forced tunneling support for Azure VMs | Yes  |  |  |
+| Forced tunneling support for applications running inside Azure VMs| No  |  |  |
 
 ## Monitoring & logging
 
 | Security control | Yes/No | Notes| Documentation
 |---|---|--|--|
-| Azure monitoring support (Log analytics, App insights, etc.)| Yes | Log Analytics is supported via resource logs. For more information, see [Monitor Azure Backup protected workloads using Log Analytics](https://azure.microsoft.com/blog/monitor-all-azure-backup-protected-workloads-using-log-analytics/). |  |
+| Azure monitoring support (such as Log analytics, App insights)| Yes | Log Analytics is supported via resource logs. For more information, see [Monitor Azure Backup protected workloads using Log Analytics](https://azure.microsoft.com/blog/monitor-all-azure-backup-protected-workloads-using-log-analytics/). |  |
 | Control and management plane logging and audit| Yes | All customer triggered actions from the Azure portal are logged to activity logs. |  |
 | Data plane logging and audit| No | Azure Backup data plane can't be reached directly.  |  |
 
@@ -32,7 +33,7 @@ This article documents the security controls built into Azure Backup.
 | Security control | Yes/No | Notes| Documentation
 |---|---|--|--|
 | Authentication| Yes | Authentication is through Azure Active Directory. |  |
-| Authorization| Yes | Customer created and built-in RBAC roles are used. For more information, see [Use Role-Based Access Control to manage Azure Backup recovery points](/azure/backup/backup-rbac-rs-vault). |  |
+| Authorization| Yes | Customer created and Azure built-in roles are used. For more information, see [Use Role-Based Access Control to manage Azure Backup recovery points](./backup-rbac-rs-vault.md). |  |
 
 ## Data protection
 
@@ -48,7 +49,7 @@ This article documents the security controls built into Azure Backup.
 
 | Security control | Yes/No | Notes| Documentation
 |---|---|--|--|
-| Configuration management support (versioning of configuration, etc.)| Yes|  |  |
+| Configuration management support (versioning of configuration, and so on)| Yes|  |  |
 
 ## Next steps
 

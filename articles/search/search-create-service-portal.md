@@ -8,7 +8,7 @@ author: tchristiani
 ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 06/24/2020
+ms.date: 09/16/2020
 ---
 
 # Quickstart: Create an Azure Cognitive Search service in the portal
@@ -23,11 +23,11 @@ Prefer PowerShell? Use the Azure Resource Manager [service template](https://azu
 
 ## Before you start
 
-The following service properties are fixed for the lifetime of the service and changing them requires a new service. As you create a service, think about how you will use it:
+The following service properties are fixed for the lifetime of the service - changing any of them requires a new service. Because they are fixed, consider the usage implications as you fill in each property:
 
-* name (review [these suggestions](#name-the-service) for service names)
-* tier (Free, Basic, Standard [affects billing](search-sku-tier.md) and sets an upward limit on capacity)
-* region (choose a location that has related services. For integration with Cognitive Services or Azure Machine Learning, co-locating services in the same region is a requirement)
+* Service name becomes part of the URL endpoint ([review tips](#name-the-service) for helpful service names).
+* Service tier [affects billing](search-sku-tier.md) and sets an upward limit on capacity. Some features are not available on the free tier.
+* Service region can determine the availability of certain scenarios. If you need [high security features](search-security-overview.md) or [AI enrichment](cognitive-search-concept-intro.md), you will need to place Azure Cognitive Search in the same region as other services, or in regions that provide the feature in question. 
 
 ## Subscribe (free or paid)
 
@@ -47,7 +47,7 @@ Alternatively, [activate MSDN subscriber benefits](https://azure.microsoft.com/p
 
 ## Choose a subscription
 
-If you have more than one subscription, choose one for your search service.
+If you have more than one subscription, choose one for your search service. If you are implementing [double encryption](search-security-overview.md#double-encryption) or other features that depend on managed service identities, choose the same subscription as the one used for Azure Key Vault or other services for which managed identities are used.
 
 ## Set a resource group
 
@@ -85,12 +85,14 @@ Azure Cognitive Search is available in most regions. The list of supported regio
 
 > [!Note]
 > Central India and UAE North are currently unavailable for new services. For services already in those regions, you can scale up with no restrictions, and your service is fully supported in that region. The restrictions are temporary and limited to new services only. We will remove this note when the restrictions no longer apply.
+>
+> Double encryption is only available in certain regions. For more information, see [double encryption](search-security-overview.md#double-encryption).
 
 ### Requirements
 
  If you are using AI enrichment, create your search service in the same region as Cognitive Services. *Co-location of Azure Cognitive Search and Cognitive Services in the same region is a requirement for AI enrichment*.
 
- Customers with business continuity and disaster recovery (BCDR) requirements should create their services in [regional pairs](https://docs.microsoft.com/azure/best-practices-availability-paired-regions#azure-regional-pairs). For example, if you are operating in North America, you might choose East US and West US, or North Central US and South Centra US, for each service.
+ Customers with business continuity and disaster recovery (BCDR) requirements should create their services in [regional pairs](../best-practices-availability-paired-regions.md#azure-regional-pairs). For example, if you are operating in North America, you might choose East US and West US, or North Central US and South Centra US, for each service.
 
 ### Recommendations
 
@@ -154,7 +156,7 @@ Most customers use just one service provisioned at a tier providing the [right b
 
 Although most customers use just one service, service redundancy might be necessary if operational requirements include the following:
 
-+ [Business continuity and disaster recovery (BCDR)](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). Azure Cognitive Search does not provide instant failover in the event of an outage.
++ [Business continuity and disaster recovery (BCDR)](../best-practices-availability-paired-regions.md). Azure Cognitive Search does not provide instant failover in the event of an outage.
 
 + [Multi-tenant architectures](search-modeling-multitenant-saas-applications.md) sometimes call for two or more services.
 
@@ -171,3 +173,8 @@ After provisioning a service, you can continue in the portal to create your firs
 
 > [!div class="nextstepaction"]
 > [Quickstart: Create an Azure Cognitive Search index in the portal](search-get-started-portal.md)
+
+Want to optimize and save on your cloud spending?
+
+> [!div class="nextstepaction"]
+> [Start analyzing costs with Cost Management](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

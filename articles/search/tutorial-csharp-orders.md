@@ -9,6 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/20/2020
+ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
 # Tutorial: Order search results using the .NET SDK
@@ -457,8 +458,8 @@ To display results based on geographical distance, several steps are required.
 
 4. Now you have to tie these concepts together. However, these code snippets are as far as our tutorial goes, building a map-based app is left as an exercise for the reader. To take this example further, consider either entering a city name with a radius, or locating a point on a map, and selecting a radius. To investigate these options further, see the following resources:
 
-* [Azure Maps Documentation](https://docs.microsoft.com/azure/azure-maps/)
-* [Find an address using the Azure Maps search service](https://docs.microsoft.com/azure/azure-maps/how-to-search-for-address)
+* [Azure Maps Documentation](../azure-maps/index.yml)
+* [Find an address using the Azure Maps search service](../azure-maps/how-to-search-for-address.md)
 
 ## Order results based on a scoring profile
 
@@ -954,7 +955,7 @@ Let's look at three examples of scoring profiles, and consider how each _should_
 
 ### Resources
 
-For more information, see the following [Add scoring profiles to an Azure Cognitive Search index](https://docs.microsoft.com/azure/search/index-add-scoring-profiles).
+For more information, see the following [Add scoring profiles to an Azure Cognitive Search index](/azure/search/index-add-scoring-profiles).
 
 ## Takeaways
 
@@ -970,4 +971,4 @@ Consider the following takeaways from this project:
 
 You have completed this series of C# tutorials - you should have gained valuable knowledge of the Azure Cognitive Search APIs.
 
-For further reference and tutorials, consider browsing [Microsoft Learn](https://docs.microsoft.com/learn/browse/?products=azure), or the other tutorials in the [Azure Cognitive Search Documentation](https://docs.microsoft.com/azure/search/).
+For further reference and tutorials, consider browsing [Microsoft Learn](/learn/browse/?products=azure), or the other tutorials in the [Azure Cognitive Search Documentation](./index.yml).

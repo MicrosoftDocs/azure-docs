@@ -47,6 +47,10 @@ To create a Recovery Services vault, follow these steps.
       >
       >
 
+1. After providing the values, select **Review + create**.
+
+    ![Screenshot that shows the Review + create button in the create a Recovery Services vault process.](./media/backup-create-rs-vault/review-and-create.png)
+
 1. When you're ready to create the Recovery Services vault, select **Create**.
 
     ![Create the Recovery Services vault](./media/backup-create-rs-vault/click-create-button.png)

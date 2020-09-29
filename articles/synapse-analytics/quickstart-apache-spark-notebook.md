@@ -1,17 +1,17 @@
 ---
-title: 'Quickstart: Create an Apache Spark for Azure Synapse Analytics notebook'
-description: This quickstart shows how to use the web tools to create an Apache Spark pool (preview) in Azure Synapse Analytics, and run a Spark SQL query.
+title: 'Quickstart: Create an Apache Spark pool in Azure Synapse Analytics using web tools'
+description: This quickstart shows how to use the web tools to create an Apache Spark pool in Azure Synapse Analytics, and run a Spark SQL query.
 services: synapse-analytics
 author: euangMS
 ms.author: euang 
-ms.reviewer: jrasnick, carlrab
+ms.reviewer: jrasnick 
 ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: quickstart
 ms.date: 04/15/2020
 ---
 
-# Quickstart: Create an Apache Spark pool (preview) in Azure Synapse Analytics using web tools
+# Quickstart: Create an Apache Spark pool in Azure Synapse Analytics using web tools
 
 In this quickstart, you learn how to create an Apache Spark pool (preview) in Azure Synapse using web tools. You then learn to connect to the Apache Spark pool and run Spark SQL queries against files and tables. Apache Spark enables fast data analytics and cluster computing using in-memory processing. For information on Spark in Azure Synapse, see [Overview: Apache Spark on Azure Synapse](./spark/apache-spark-overview.md).
 
@@ -44,7 +44,7 @@ A notebook is an interactive environment that supports various programming langu
 4. In the **Properties** window, provide a name for the notebook.
 5. On the toolbar, click **Publish**.
 6. If there is only one Apache Spark pool in your workspace, then it's selected by default. Use the drop-down to select the correct Apache Spark pool if none is selected.
-7. Click **Add code**. The default language is `Pyspark`. You are going to use a mix of Pyspark and Spark SQL, so the default choice is fine.
+7. Click **Add code**. The default language is `Pyspark`. You are going to use a mix of Pyspark and Spark SQL, so the default choice is fine. Other supported languages are Scala and .NET for Spark.
 8. Next you create a simple Spark DataFrame object to manipulate. In this case, you create it from code. There are three rows and three columns:
 
    ```python

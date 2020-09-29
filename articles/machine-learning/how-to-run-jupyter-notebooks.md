@@ -8,13 +8,14 @@ ms.author: osomorog
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 ms.date: 06/27/2020
 # As a data scientist, I want to run Jupyter notebooks in my workspace in Azure Machine Learning studio
 ---
 
 # How to run Jupyter Notebooks in your workspace
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Learn how to run your Jupyter Notebooks directly in your workspace in Azure Machine Learning studio. While you can launch [Jupyter](https://jupyter.org/) or [JupyterLab](https://jupyterlab.readthedocs.io), you can also edit and run your notebooks without leaving the workspace.
 
@@ -43,7 +44,7 @@ To create a new notebook:
     :::image type="content" source="media/how-to-run-jupyter-notebooks/create-new-file.png" alt-text="Create new file":::
 
 1. Name the file. 
-1. For Jupyter Notebook Files, select **Python Notebook** as the file type.
+1. For Jupyter Notebook Files, select **Notebook** as the file type.
 1. Select a file directory.
 1. Select **Create**.
 
@@ -72,22 +73,27 @@ To access the terminal:
 1. Open your workspace in [Azure Machine Learning studio](https://ml.azure.com).
 1. On the left side, select **Notebooks**.
 1. Select any notebook located in the **User files** section on the left-hand side.  If you don't have any notebooks there, first [create a notebook](#create)
-1. Select a **Compute** target or create a new one and wait until it is running.
+1. Select a **Compute** target or create a new one and wait until it's running.
 1. Select the **Open terminal** icon.
 
     :::image type="content" source="media/how-to-run-jupyter-notebooks/open-terminal.png" alt-text="Open terminal":::
 
-1. If you don't see the icon, select the **...** to the right of the compute target and then select **Open terminal** .
+1. If you don't see the icon, select the **...** to the right of the compute target and then select **Open terminal**.
 
     :::image type="content" source="media/how-to-run-jupyter-notebooks/alt-open-terminal.png" alt-text="Open terminal from ...":::
 
 
 Learn more about [cloning Git repositories into your workspace file system](concept-train-model-git-integration.md#clone-git-repositories-into-your-workspace-file-system).
 
+### Copy and Paste in Terminal
+
+> * Windows: `Ctrl-Insert` to copy and use `Ctrl-Shift-v` or `Shift-Insert` to paste.
+> * Mac OS: `Cmd-c` to copy and `Cmd-v` to paste.
+> * FireFox/IE may not support clipboard permissions properly.
 
 ### Share notebooks and other files
 
-Copy and paste the URL to share a notebook or file.  Only other users of the workspace will be able to access this URL.  Learn more about [granting access to your workspace](how-to-assign-roles.md).
+Copy and paste the URL to share a notebook or file.  Only other users of the workspace can access this URL.  Learn more about [granting access to your workspace](how-to-assign-roles.md).
 
 ## Edit a notebook
 
@@ -104,6 +110,23 @@ You can also launch Jupyter or JupyterLab from the Notebook toolbar.  Azure Mach
 [IntelliSense](https://code.visualstudio.com/docs/editor/intellisense) is a code-completion aid that includes a number of features: List Members, Parameter Info, Quick Info, and Complete Word. These features help you to learn more about the code you're using, keep track of the parameters you're typing, and add calls to properties and methods with only a few keystrokes.  
 
 When typing code, use Ctrl+Space to trigger IntelliSense.
+
+### Clean your notebook (preview)
+
+> [!IMPORTANT]
+> The gather feature is currently in public preview.
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Over the course of creating a notebook, you typically end up with cells you used for data exploration or debugging. The *gather* feature will help you produce a clean notebook without these extraneous cells.
+
+1. Run all of your notebook cells.
+1. Select the cell containing the code you wish the new notebook to run. For example, the code that submits an experiment, or perhaps the code that registers a model.
+1. Select the **Gather** icon that appears on the cell toolbar.
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/gather.png" alt-text="Screenshot: select the Gather icon":::
+1. Enter the name for your new "gathered" notebook.  
+
+The new notebook contains only code cells, with all cells required to produce the same results as the cell you selected for gathering.
 
 ### Save and checkpoint a notebook
 
@@ -152,7 +175,7 @@ Only you can see and use the compute instances you create.  Your **User files** 
 
 ### View logs and output
 
-Use [Notebook widgets](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py) to view the progress of the run and logs. A widget is asynchronous and provides updates until training finishes. Azure Machine Learning widgets are also supported in Jupyter and JupterLab.
+Use [Notebook widgets](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true) to view the progress of the run and logs. A widget is asynchronous and provides updates until training finishes. Azure Machine Learning widgets are also supported in Jupyter and JupterLab.
 
 ## Change the notebook environment
 
@@ -180,11 +203,20 @@ These actions will reset the notebook state and will reset all variables in the 
 The Notebook will automatically find all Jupyter kernels installed on the connected compute instance.  To add a kernel to the compute instance:
 
 1. Select [**Open terminal**](#terminal) in the Notebook toolbar.
-1. Use the terminal window to create a new environment.
+1. Use the terminal window to create a new environment.  For example, the code below creates `newenv`:
+    ```shell
+    conda create --name newenv
+    ```
 1. Activate the environment.  For example, after creating `newenv`:
 
     ```shell
-    source activate newenv
+    conda activate newenv
+    ```
+1. Install pip and ipykernel package to the new environment and create a kernel for that conda env
+
+    ```shell
+    conda install pip
+    conda install ipykernel
     python -m ipykernel install --user --name newenv --display-name "Python (newenv)"
     ```
 

@@ -27,18 +27,18 @@ Business One supports two different databases:
 - SQL Server - see [SAP Note #928839 - Release Planning for Microsoft SQL Server](https://launchpad.support.sap.com/#/notes/928839)
 - SAP HANA - for exact SAP Business One support matrix for SAP HANA, checkout  the [SAP Product Availability Matrix](https://support.sap.com/pam)
 
-Regarding SQL Server, the basic deployment considerations as documented in the [Azure Virtual Machines DBMS deployment for SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms-guide) applies. for SAP HANA, considerations are mentioned in this document.
+Regarding SQL Server, the basic deployment considerations as documented in the [Azure Virtual Machines DBMS deployment for SAP NetWeaver](./dbms_guide_general.md) applies. for SAP HANA, considerations are mentioned in this document.
 
 ## Prerequisites
 To use this guide, you need basic knowledge of the following Azure components:
 
-- [Azure virtual machines on Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
-- [Azure virtual machines on Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
-- [Azure networking and virtual networks management with PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-virtual-network)
-- [Azure networking and virtual networks with CLI](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-virtual-network)
-- [Manage Azure disks with the Azure CLI](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-disks)
+- [Azure virtual machines on Windows](../../windows/tutorial-manage-vm.md)
+- [Azure virtual machines on Linux](../../linux/tutorial-manage-vm.md)
+- [Azure networking and virtual networks management with PowerShell](../../windows/tutorial-virtual-network.md)
+- [Azure networking and virtual networks with CLI](../../linux/tutorial-virtual-network.md)
+- [Manage Azure disks with the Azure CLI](../../linux/tutorial-manage-disks.md)
 
-Even if you are interested in business One only, the document [Azure Virtual Machines planning and implementation for SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide) can be a good source of information.
+Even if you are interested in business One only, the document [Azure Virtual Machines planning and implementation for SAP NetWeaver](./planning-guide.md) can be a good source of information.
 
 The assumption is that you as the instance deploying SAP Business One are:
 
@@ -86,44 +86,44 @@ In principle, it is always best to use the most recent operating system releases
 In the next few chapters, the infrastructure pieces that matter for deploying SAP.
 
 ### Azure network infrastructure
-The network infrastructure you need to deploy in Azure depends on whether you deploy a single Business One system for yourself. Or whether you are a hoster who hosts dozens of Business One systems for customers. There also might be slight changes in the design on whether how you connect to Azure. Going through different possibilities, one design where you have a VPN connectivity into Azure and where you extend your Active Directory through [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-plan-design) or [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) into Azure.
+The network infrastructure you need to deploy in Azure depends on whether you deploy a single Business One system for yourself. Or whether you are a hoster who hosts dozens of Business One systems for customers. There also might be slight changes in the design on whether how you connect to Azure. Going through different possibilities, one design where you have a VPN connectivity into Azure and where you extend your Active Directory through [VPN](../../../vpn-gateway/vpn-gateway-about-vpngateways.md) or [ExpressRoute](../../../expressroute/expressroute-introduction.md) into Azure.
 
 ![Simple network configuration with Business One](./media/business-one-azure/simple-network-with-VPN.PNG)
 
 The simplified configuration presented introduces several security instances that allow to control and limit routing. It starts with 
 
 - The router/firewall on the customer on-premises side.
-- The next instance is the [Azure Network Security Group](https://docs.microsoft.com/azure/virtual-network/security-overview) that you can use to introduce routing and security rules for the Azure VNet that you run your SAP Business one configuration in.
+- The next instance is the [Azure Network Security Group](../../../virtual-network/security-overview.md) that you can use to introduce routing and security rules for the Azure VNet that you run your SAP Business one configuration in.
 - In order to avoid that users of Business One client can as well see the server that runs the Business One server, which runs the database, you should separate the VM hosting the Business one client and the business one server in two different subnets within the VNet.
 - You would use Azure NSG assigned to the two different subnets again in order to limit access to the Business one server.
 
-A more sophisticated version of an Azure network configuration is based on the Azure [documented best practices of hub and spoke architecture](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke). The architecture pattern of hub and spoke would change the first simplified configuration to one like this:
+A more sophisticated version of an Azure network configuration is based on the Azure [documented best practices of hub and spoke architecture](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke). The architecture pattern of hub and spoke would change the first simplified configuration to one like this:
 
 
 ![Hub and spoke configuration with Business One](./media/business-one-azure/hub-spoke-network-with-VPN.PNG)
 
-For cases where the users are connecting through the internet without any private connectivity into Azure, the design of the network in Azure should be aligned with the principles documented in the Azure reference architecture for [DMZ between Azure and the Internet](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-dmz).
+For cases where the users are connecting through the internet without any private connectivity into Azure, the design of the network in Azure should be aligned with the principles documented in the Azure reference architecture for [DMZ between Azure and the Internet](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz).
 
 ### Business One database server
-For the database type, SQL Server and SAP HANA are available. Independent of the DBMS, you should read the document [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general) to get a general understanding of DBMS deployments in Azure VMs and the related networking and storage topics.
+For the database type, SQL Server and SAP HANA are available. Independent of the DBMS, you should read the document [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](./dbms_guide_general.md) to get a general understanding of DBMS deployments in Azure VMs and the related networking and storage topics.
 
 Though emphasized in the specific and generic database documents already, you should make yourself familiar with:
 
-- [Manage the availability of Windows virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability) and [Manage the availability of Linux virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/manage-availability)
+- [Manage the availability of Windows virtual machines in Azure](../../windows/manage-availability.md) and [Manage the availability of Linux virtual machines in Azure](../../linux/manage-availability.md)
 - [SLA for Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/)
 
 These documents should help you to decide on the selection of storage types and high availability configuration.
 
 In principle you should:
 
-- Use Premium SSDs over Standard HDDs. To learn more about the available disk types, see our article [Select a disk type](../../windows/disks-types.md)
+- Use Premium SSDs over Standard HDDs. To learn more about the available disk types, see our article [Select a disk type](../../disks-types.md)
 - Use Azure Managed disks over unmanaged disks
 - Make sure that you have sufficient IOPS and I/O throughput configured with your disk configuration
 - Combine /hana/data and /hana/log volume in order to have a cost efficient storage configuration
 
 
 #### SQL Server as DBMS
-For deploying SQL Server as DBMS for Business One, go along the document [SQL Server Azure Virtual Machines DBMS deployment for SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_sqlserver). 
+For deploying SQL Server as DBMS for Business One, go along the document [SQL Server Azure Virtual Machines DBMS deployment for SAP NetWeaver](./dbms_guide_sqlserver.md). 
 
 Rough sizing estimates for the DBMS side for SQL Server are:
 
@@ -137,25 +137,17 @@ Rough sizing estimates for the DBMS side for SQL Server are:
 The sizing listed above should give an idea where to start with. It may be that you need less  or more resources, in which case an adaption on Azure is easy. A change between VM types is possible with just a restart of the VM.
 
 #### SAP HANA as DBMS
-Using SAP HANA as DBMS the following sections you should follow the considerations of the document [SAP HANA on Azure operations guide](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations).
+Using SAP HANA as DBMS the following sections you should follow the considerations of the document [SAP HANA on Azure operations guide](./hana-vm-operations.md).
 
-For high availability and disaster recovery configurations around SAP HANA as database for Business One in Azure, you should read the documentation [SAP HANA high availability for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-overview) and the documentation pointed to from that document.
+For high availability and disaster recovery configurations around SAP HANA as database for Business One in Azure, you should read the documentation [SAP HANA high availability for Azure virtual machines](./sap-hana-availability-overview.md) and the documentation pointed to from that document.
 
-For SAP HANA backup and restore strategies, you should read the document [Backup guide for SAP HANA on Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-guide) and the documentation pointed to from that document.
+For SAP HANA backup and restore strategies, you should read the document [Backup guide for SAP HANA on Azure Virtual Machines](./sap-hana-backup-guide.md) and the documentation pointed to from that document.
 
  
 ### Business One client server
 For these components storage considerations are not the primary concern. nevertheless, you want to have a reliable platform. Therefore, you should use Azure Premium Storage for this VM, even for the base VHD. Sizing the VM, with the data given in [SAP Business One Hardware Requirements Guide](https://help.sap.com/http.svc/rc/011000358700000244612011e/9.3/en-US/B1_Hardware_Requirements_Guide.pdf). For Azure, you need to focus and calculate with the requirements stated in chapter 2.4 of the document. As you calculate the requirements, you need to compare them against the following documents to find the ideal VM for you:
 
-- [Sizes for Windows virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)
+- [Sizes for Windows virtual machines in Azure](../../sizes.md)
 - [SAP Note #1928533](https://launchpad.support.sap.com/#/notes/1928533)
 
 Compare number of CPUs and memory needed to what is documented by Microsoft. Also keep network throughput in mind when choosing the VMs.
-
-
-
-
-
-
-
-

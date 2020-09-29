@@ -1,6 +1,8 @@
 ---
 title: "Quickstart: Deploy an app with the LUIS portal"
 description: This quickstart shows how to deploy an app by creating a prediction endpoint resource, assigning the resource, training, and publishing the app.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 05/06/2020
 ---
@@ -14,7 +16,7 @@ In this quickstart, you learn to deploy an application. You create a prediction 
 ## Prerequisites
 
 * Get an [Azure subscription](https://azure.microsoft.com/free).
-* Complete the [previous portal quickstart](get-started-portal-build-app.md) or [download and import the app](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/in-portal/build-portal-app.json).
+* Complete the [previous portal quickstart](get-started-portal-build-app.md) or [download and import the app](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/apps/portal-build-app.json).
 * If you have apps that pre-date Azure resource authentication, [migrate to an Azure resource](luis-migration-authoring.md). Some portal pages look different when email authentication is in effect.
 
 <a name="create-the-endpoint-resource"></a>

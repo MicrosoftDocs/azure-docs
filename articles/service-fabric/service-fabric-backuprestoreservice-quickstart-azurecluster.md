@@ -1,11 +1,9 @@
 ---
 title: Periodic backup and restore in Azure Service Fabric
 description: Use Service Fabric's periodic backup and restore feature for enabling periodic data backup of your application data.
-author: hrushib
 
 ms.topic: conceptual
 ms.date: 5/24/2019
-ms.author: hrushib
 ---
 # Periodic backup and restore in an Azure Service Fabric cluster
 > [!div class="op_single_selector"]
@@ -299,7 +297,7 @@ To view backups in Service Fabric Explorer, navigate to a partition and select t
 
 ## Next steps
 - [Understanding periodic backup configuration](./service-fabric-backuprestoreservice-configure-periodic-backup.md)
-- [Backup restore REST API reference](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
+- [Backup restore REST API reference](/rest/api/servicefabric/sfclient-index-backuprestore)
 
 [0]: ./media/service-fabric-backuprestoreservice/partition-backedup-health-event-azure.png
 [1]: ./media/service-fabric-backuprestoreservice/enable-backup-restore-service-with-portal.png

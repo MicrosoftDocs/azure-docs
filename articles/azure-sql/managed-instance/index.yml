@@ -12,7 +12,7 @@ metadata:
   ms.topic: landing-page
   author: MashaMSFT
   ms.author: mathoma
-  ms.reviewer: carlrab
+  ms.reviewer: sstein
   ms.date: 05/27/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
@@ -28,6 +28,10 @@ landingContent:
         links:
           - text: Create SQL Managed Instance
             url: instance-create-quickstart.md
+      - linkListType: video
+        links:
+          - text: Azure SQL Managed Instance overview
+            url: https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/Azure-SQL-Managed-Instance-Overview-6-of-61
       - linkListType: concept
         links:
           - text: What's new? 
@@ -70,20 +74,32 @@ landingContent:
 
 
   # Card 
-  - title: Reference 
+  - title: Learn Azure SQL 
     linkLists:
       - linkListType: learn
         links:
+        - text: Azure SQL for beginners
+          url: https://aka.ms/azuresql4beginners
+        - text: Azure SQL fundamentals 
+          url: https://docs.microsoft.com/learn/paths/azure-sql-fundamentals/
+        - text: Azure SQL hands-on labs
+          url: https://aka.ms/asqlworkshop
+        - text: Azure SQL bootcamp 
+          url: https://aka.ms/azuresqlbootcamp
         - text: Educational SQL resources
           url: /sql/sql-server/educational-sql-resources
+
+  # Card 
+  - title: Reference 
+    linkLists:
       - linkListType: deploy
         links:
         - text: Azure CLI samples
-          url: /sql/ssms/download-sql-server-management-studio-ssms
+          url: ../database/az-cli-script-samples-content-guide.md
         - text: PowerShell samples
-          url: /sql/ssms/download-sql-server-management-studio-ssms
+          url: ../database/powershell-script-content-guide.md
         - text: ARM template samples 
-          url: /sql/ssms/download-sql-server-management-studio-ssms
+          url: ../database/arm-templates-content-guide.md
       - linkListType: download
         links:
         - text: SQL Server Management Studio (SSMS)

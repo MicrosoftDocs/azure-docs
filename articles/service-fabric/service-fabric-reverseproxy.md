@@ -6,6 +6,7 @@ author: BharatNarasimman
 ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: bharatn
+ms.custom: devx-track-csharp
 ---
 # Reverse proxy in Azure Service Fabric
 Reverse proxy built into Azure Service Fabric helps microservices running in a Service Fabric cluster discover and communicate with other services that have http endpoints.
@@ -112,7 +113,7 @@ The Service Fabric reverse proxy attempts to resolve a service address again and
 
 However, replicas or service instances can share a host process and might also share a port when hosted by an http.sys-based web server, including:
 
-* [System.Net.HttpListener](https://msdn.microsoft.com/library/system.net.httplistener%28v=vs.110%29.aspx)
+* [System.Net.HttpListener](/dotnet/api/system.net.httplistener?view=netcore-3.1)
 * [ASP.NET Core WebListener](https://docs.asp.net/latest/fundamentals/servers.html#weblistener)
 * [Katana](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.OwinSelfHost/)
 
@@ -150,7 +151,7 @@ Service Fabric services that run within Docker Compose containers require a spec
 * [Diagnose reverse proxy events](service-fabric-reverse-proxy-diagnostics.md)
 * See an example of HTTP communication between services in a [sample project on GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started).
 * [Remote procedure calls with Reliable Services remoting](service-fabric-reliable-services-communication-remoting.md)
-* [Web API that uses OWIN in Reliable Services](service-fabric-reliable-services-communication-webapi.md)
+* [Web API that uses OWIN in Reliable Services](./service-fabric-reliable-services-communication-aspnetcore.md)
 * [WCF communication by using Reliable Services](service-fabric-reliable-services-communication-wcf.md)
 
 [0]: ./media/service-fabric-reverseproxy/external-communication.png

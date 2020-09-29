@@ -1,6 +1,6 @@
 ---
 title: Azure Key Vault logging | Microsoft Docs
-description: Use this tutorial to help you get started with Azure Key Vault logging.
+description: Learn how to monitor access to your key vaults by enabling logging for Azure Key Vault, which saves information in an Azure storage account that you provide.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -8,7 +8,7 @@ tags: azure-resource-manager
 
 ms.service: key-vault
 ms.subservice: general
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 08/12/2019
 ms.author: mbaldwin
 #Customer intent: As an Azure Key Vault administrator, I want to enable logging so I can monitor how my key vaults are accessed.
@@ -32,14 +32,14 @@ Use this tutorial to help you get started with Azure Key Vault logging. You'll c
 > This article provides Azure PowerShell instructions for updating diagnostic logging. You can also update diagnostic logging by using Azure Monitor in the **Diagnostic logs** section of the Azure portal. 
 >
 
-For overview information about Key Vault, see [What is Azure Key Vault?](overview.md)). For information about where Key Vault is available, see the [pricing page](https://azure.microsoft.com/pricing/details/key-vault/).
+For overview information about Key Vault, see [What is Azure Key Vault?](overview.md)). For information about where Key Vault is available, see the [pricing page](https://azure.microsoft.com/pricing/details/key-vault/). For information about using [Azure Monitor for Key Vault](https://docs.microsoft.com/azure/azure-monitor/insights/key-vault-insights-overview).
 
 ## Prerequisites
 
 To complete this tutorial, you must have the following:
 
 * An existing key vault that you have been using.  
-* Azure PowerShell, minimum version of 1.0.0. To install Azure PowerShell and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](/powershell/azure/overview). If you have already installed Azure PowerShell and don't know the version, from the Azure PowerShell console, enter `$PSVersionTable.PSVersion`.  
+* Azure PowerShell, minimum version of 1.0.0. To install Azure PowerShell and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](/powershell/azure/). If you have already installed Azure PowerShell and don't know the version, from the Azure PowerShell console, enter `$PSVersionTable.PSVersion`.  
 * Sufficient storage on Azure for your Key Vault logs.
 
 ## <a id="connect"></a>Connect to your key vault subscription
@@ -66,7 +66,7 @@ Then, to specify the subscription that's associated with the key vault you'll be
 Set-AzContext -SubscriptionId <subscription ID>
 ```
 
-Pointing PowerShell to the right subscription is an important step, especially if you have multiple subscriptions associated with your account. For more information about configuring Azure PowerShell, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
+Pointing PowerShell to the right subscription is an important step, especially if you have multiple subscriptions associated with your account. For more information about configuring Azure PowerShell, see [How to install and configure Azure PowerShell](/powershell/azure/).
 
 ## <a id="storage"></a>Create a storage account for your logs
 
@@ -93,7 +93,7 @@ $kv = Get-AzKeyVault -VaultName 'ContosoKeyVault'
 
 ## <a id="enable"></a>Enable logging using Azure PowerShell
 
-To enable logging for Key Vault, we'll use the **Set-AzDiagnosticSetting** cmdlet, together with the variables that we created for the new storage account and the key vault. We'll also set the **-Enabled** flag to **$true** and set the category to **AuditEvent** (the only category for Key Vault logging):
+To enable logging for Key Vault, we'll use the **Set-AzDiagnosticSetting** cmdlet, together with the variables that we created for the new storage account and the key vault. We'll also set the **-Enabled** flag to **$true** and set the category to `AuditEvent` (the only category for Key Vault logging):
 
 ```powershell
 Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Category AuditEvent
@@ -129,6 +129,7 @@ What's logged:
   * Creating, modifying, or deleting these keys or secrets.
   * Signing, verifying, encrypting, decrypting, wrapping and unwrapping keys, getting secrets, and listing keys and secrets (and their versions).
 * Unauthenticated requests that result in a 401 response. Examples are requests that don't have a bearer token, that are malformed or expired, or that have an invalid token.  
+* Event Grid notification events for near expiry, expired and vault access policy changed (new version event is not logged). Events are logged regardless if there is event subscription created on key vault. For more information see, [Event Grid event schema for Key Vault](https://docs.microsoft.com/azure/event-grid/event-schema-key-vault)
 
 ## Enable logging using Azure CLI
 
@@ -267,7 +268,7 @@ The following table lists the field names and descriptions:
 | **resourceId** |Azure Resource Manager resource ID. For Key Vault logs, this is always the Key Vault resource ID. |
 | **operationName** |Name of the operation, as documented in the next table. |
 | **operationVersion** |REST API version requested by the client. |
-| **category** |Type of result. For Key Vault logs, **AuditEvent** is the single, available value. |
+| **category** |Type of result. For Key Vault logs, `AuditEvent` is the single, available value. |
 | **resultType** |Result of the REST API request. |
 | **resultSignature** |HTTP status. |
 | **resultDescription** |Additional description about the result, when available. |
@@ -275,7 +276,7 @@ The following table lists the field names and descriptions:
 | **callerIpAddress** |IP address of the client that made the request. |
 | **correlationId** |An optional GUID that the client can pass to correlate client-side logs with service-side (Key Vault) logs. |
 | **identity** |Identity from the token that was presented in the REST API request. This is usually a "user," a "service principal," or the combination "user+appId," as in the case of a request that results from an Azure PowerShell cmdlet. |
-| **properties** |Information that varies based on the operation (**operationName**). In most cases, this field contains client information (the user agent string passed by the client), the exact REST API request URI, and the HTTP status code. In addition, when an object is returned as a result of a request (for example, **KeyCreate** or **VaultGet**), it also contains the key URI (as "id"), vault URI, or secret URI. |
+| **properties** |Information that varies based on the operation (**operationName**). In most cases, this field contains client information (the user agent string passed by the client), the exact REST API request URI, and the HTTP status code. In addition, when an object is returned as a result of a request (for example, **KeyCreate** or **VaultGet**), it also contains the key URI (as `id`), vault URI, or secret URI. |
 
 The **operationName** field values are in *ObjectVerb* format. For example:
 
@@ -284,6 +285,8 @@ The **operationName** field values are in *ObjectVerb* format. For example:
 * All secret operations have the `Secret<action>` format, such as `SecretGet` and `SecretListVersions`.
 
 The following table lists the **operationName** values and corresponding REST API commands:
+
+### Operation names table
 
 | operationName | REST API command |
 | --- | --- |
@@ -314,12 +317,19 @@ The following table lists the **operationName** values and corresponding REST AP
 | **SecretDelete** |[Delete a secret](https://msdn.microsoft.com/library/azure/dn903613.aspx) |
 | **SecretList** |[List secrets in a vault](https://msdn.microsoft.com/library/azure/dn903614.aspx) |
 | **SecretListVersions** |[List versions of a secret](https://msdn.microsoft.com/library/azure/dn986824.aspx) |
+| **VaultAccessPolicyChangedEventGridNotification** | Vault access policy changed event published |
+| **SecretNearExpiryEventGridNotification** |Secret near expiry event published |
+| **SecretExpiredEventGridNotification** |Secret expired event published |
+| **KeyNearExpiryEventGridNotification** |Key near expiry event published |
+| **KeyExpiredEventGridNotification** |Key expired event published |
+| **CertificateNearExpiryEventGridNotification** |Certificate near expiry event published |
+| **CertificateExpiredEventGridNotification** |Certificate expired event published |
 
 ## <a id="loganalytics"></a>Use Azure Monitor logs
 
-You can use the Key Vault solution in Azure Monitor logs to review Key Vault **AuditEvent** logs. In Azure Monitor logs, you use log queries to analyze data and get the information you need. 
+You can use the Key Vault solution in Azure Monitor logs to review Key Vault `AuditEvent` logs. In Azure Monitor logs, you use log queries to analyze data and get the information you need. 
 
-For more information, including how to set this up, see [Azure Key Vault solution in Azure Monitor logs](../../azure-monitor/insights/azure-key-vault.md). This article also contains instructions if you need to migrate from the old Key Vault solution that was offered during the Azure Monitor logs preview, where you first routed your logs to an Azure storage account and configured Azure Monitor logs to read from there.
+For more information, including how to set this up, see [Azure Key Vault in Azure Monitor](../../azure-monitor/insights/key-vault-insights-overview.md).
 
 ## <a id="next"></a>Next steps
 

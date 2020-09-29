@@ -88,9 +88,6 @@ To enable Boot diagnostics on an existing virtual machine, follow these steps:
 
     ![Update Existing VM](./media/virtual-machines-common-boot-diagnostics/enable-for-existing-vm.png)
 
-You must restart the virtual machine for the change to take effect.
-
 ### Enable boot diagnostics using the Azure CLI
 
-You can use the Azure CLI to enable boot diagnostics on an existing Azure virtual machine. For more information, see [az vm boot-diagnostics](
-https://docs.microsoft.com/cli/azure/vm/boot-diagnostics?view=azure-cli-latest).
+You can use the Azure CLI to enable boot diagnostics on an existing Azure virtual machine. For more information, see [az vm boot-diagnostics](/cli/azure/vm/boot-diagnostics?view=azure-cli-latest).

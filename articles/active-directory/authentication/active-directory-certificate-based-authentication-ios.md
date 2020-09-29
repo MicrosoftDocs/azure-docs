@@ -66,7 +66,7 @@ As a best practice, you also should update your organization's ADFS error pages 
 * The requirement for installing the Microsoft Authenticator on iOS.
 * Instructions on how to get a user certificate.
 
-For more information, see [Customizing the AD FS sign in page](https://technet.microsoft.com/library/dn280950.aspx).
+For more information, see [Customizing the AD FS sign in page](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn280950(v=ws.11)).
 
 ## Use modern authentication with Office apps
 

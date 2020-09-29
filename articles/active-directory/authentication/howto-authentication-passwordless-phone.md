@@ -42,7 +42,7 @@ Registration features for passwordless authentication methods rely on the combin
 
 ### Enable passwordless phone sign-in authentication methods
 
-1. Sign in to the [Azure portal](https://portal.azure.com)
+1. Sign in to the [Azure portal](https://portal.azure.com) with a **global admin** account.
 1. Search for and select *Azure Active Directory*. Select **Security** > **Authentication methods** > **Authentication method policy (Preview)**
 1. Under **Passwordless phone sign-in**, choose the following options
    1. **Enable** - Yes or No
@@ -59,7 +59,7 @@ Registration features for passwordless authentication methods rely on the combin
 1. In **Microsoft Authenticator**, choose **Enable phone sign-in** from the account drop-down menu
 1. Follow the instructions in the app to finish registering for passwordless phone sign-in. 
 
-Organizations can point their users to the article [Sign in with your phone, not your password](../user-help/microsoft-authenticator-app-phone-signin-faq.md) for further assistance setting up in the Microsoft Authenticator app and enabling phone sign-in. In order to apply these settings, you may need to log out and log back into the tenant. 
+Organizations can point their users to the article [Sign in with your phone, not your password](../user-help/user-help-auth-app-sign-in.md) for further assistance setting up in the Microsoft Authenticator app and enabling phone sign-in. In order to apply these settings, you may need to log out and log back into the tenant. 
 
 ## Sign in with passwordless credential
 

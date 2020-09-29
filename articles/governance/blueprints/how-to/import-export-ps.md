@@ -1,7 +1,7 @@
 ---
 title: Import and export blueprints with PowerShell
 description: Learn how to work with your blueprint definitions as code. Share, source control, and manage them using the export and import commands.
-ms.date: 05/06/2020
+ms.date: 08/27/2020
 ms.topic: how-to
 ---
 # Import and export blueprint definitions with PowerShell
@@ -141,4 +141,5 @@ For information about creating advanced blueprint definitions, see the following
 - Understand how to use [static and dynamic parameters](../concepts/parameters.md).
 - Learn to customize the [blueprint sequencing order](../concepts/sequencing-order.md).
 - Find out how to make use of [blueprint resource locking](../concepts/resource-locking.md).
-- Resolve issues during the assignment of a blueprint with [general troubleshooting](../troubleshoot/general.md).
+- Resolve issues during the assignment of a blueprint with
+  [general troubleshooting](../troubleshoot/general.md).

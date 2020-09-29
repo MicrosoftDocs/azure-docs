@@ -7,7 +7,7 @@ ms.service: sql-database
 ms.subservice: security
 ms.custom: sqldbrb=1
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: how-to
 author: VanMSFT
 ms.author: vanto
 ms.reviewer:
@@ -39,7 +39,7 @@ Follow the steps in this article and learn how to set up Always Encrypted for yo
 - [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) version 13.0.700.242 or later.
 - [.NET Framework 4.6](https://msdn.microsoft.com/library/w0x726c2.aspx) or later (on the client computer).
 - [Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
-- [Azure PowerShell](/powershell/azure/overview) or [Azure CLI](/cli/azure/install-azure-cli)
+- [Azure PowerShell](/powershell/azure/) or [Azure CLI](/cli/azure/install-azure-cli)
 
 ## Enable client application access
 
@@ -177,7 +177,7 @@ You can encrypt the columns now or save a PowerShell script to run later. For th
 
 Verify that the settings are all correct and click **Finish** to complete the setup for Always Encrypted.
 
-![Summary](./media/always-encrypted-azure-key-vault-configure/summary.png)
+![Screenshot shows the results page with tasks marked as passed.](./media/always-encrypted-azure-key-vault-configure/summary.png)
 
 ### Verify the wizard's actions
 

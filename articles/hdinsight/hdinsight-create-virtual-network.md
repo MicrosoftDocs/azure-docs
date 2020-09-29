@@ -22,7 +22,7 @@ Before executing any of the code samples in this article, have an understanding 
 
 Other prerequisites for the samples in this article include the following items:
 
-* If you're using PowerShell, you'll need to install the [AZ Module](https://docs.microsoft.com/powershell/azure/overview).
+* If you're using PowerShell, you'll need to install the [AZ Module](https://docs.microsoft.com/powershell/azure/).
 * If you want to use Azure CLI and haven't yet installed it, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 > [!IMPORTANT]  

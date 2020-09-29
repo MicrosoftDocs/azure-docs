@@ -10,11 +10,11 @@ ms.date: 06/26/2020
 
 # Monitoring Azure Functions with Azure Monitor Application Insights
 
-[Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) offers built-in integration with Azure Application Insights to monitor functions. 
+[Azure Functions](../../azure-functions/functions-overview.md) offers built-in integration with Azure Application Insights to monitor functions. 
 
 Application Insights collects log, performance, and error data, and automatically detects performance anomalies. Application Insights includes powerful analytics tools to help you diagnose issues and to understand how your functions are used. When you have the visibility into your application data, you can continuously improve performance and usability. You can even use Application Insights during local function app project development. 
 
-The required Application Insights instrumentation is built into Azure Functions. The only thing you need is a valid instrumentation key to connect your function app to an Application Insights resource. The instrumentation key should be added to your application settings when your function app resource is created in Azure. If your function app doesn't already have this key, you can set it manually. For more information read more about [monitoring Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-monitoring?tabs=cmd).
+The required Application Insights instrumentation is built into Azure Functions. The only thing you need is a valid instrumentation key to connect your function app to an Application Insights resource. The instrumentation key should be added to your application settings when your function app resource is created in Azure. If your function app doesn't already have this key, you can set it manually. For more information read more about [monitoring Azure Functions](../../azure-functions/functions-monitoring.md?tabs=cmd).
 
 ## Distributed tracing for Java applications on Windows (public preview)
 
@@ -37,8 +37,8 @@ ApplicationInsightsAgent_EXTENSION_VERSION -> ~2
 
 ## Next Steps
 
-* Read more instructions and information about monitoring [Monitoring Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-monitoring)
-* Get an overview of [Distributed Tracing](https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing)
-* See what [Application Map](https://docs.microsoft.com/azure/azure-monitor/app/app-map?tabs=net) can do for your business
-* Read about [requests and dependencies for Java apps](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent)
-* Learn more about [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) and [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview)
+* Read more instructions and information about monitoring [Monitoring Azure Functions](../../azure-functions/functions-monitoring.md)
+* Get an overview of [Distributed Tracing](./distributed-tracing.md)
+* See what [Application Map](./app-map.md?tabs=net) can do for your business
+* Read about [requests and dependencies for Java apps](./java-in-process-agent.md)
+* Learn more about [Azure Monitor](../overview.md) and [Application Insights](./app-insights-overview.md)

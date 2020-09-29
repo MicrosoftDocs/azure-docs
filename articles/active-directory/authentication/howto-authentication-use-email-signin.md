@@ -35,9 +35,9 @@ To sign in to Azure AD, users enter a name that uniquely identifies their accoun
 
 For organizations where the on-premises UPN is the user's preferred sign-in email, this approach was great. Those organizations would set the Azure AD UPN to the exact same value as the on-premises UPN, and users would have a consistent sign-in experience.
 
-However, in some organizations the on-premises UPN isn't used as a sign-in name. In the on-premise environments, you would configure the local AD DS to allow sign in with an alternate login ID. Setting the Azure AD UPN to the same value as the on-premises UPN isn't an option as Azure AD would then require users sign in with that value.
+However, in some organizations the on-premises UPN isn't used as a sign-in name. In the on-premises environments, you would configure the local AD DS to allow sign in with an alternate login ID. Setting the Azure AD UPN to the same value as the on-premises UPN isn't an option as Azure AD would then require users sign in with that value.
 
-The typical workaround to this issue was to set the Azure AD UPN to the email address the user expects to sign in with. This approach works, though results in different UPNs between the on-premise AD and in Azure AD, and this configuration isn't compatible with all Microsoft 365 workloads.
+The typical workaround to this issue was to set the Azure AD UPN to the email address the user expects to sign in with. This approach works, though results in different UPNs between the on-premises AD and in Azure AD, and this configuration isn't compatible with all Microsoft 365 workloads.
 
 A different approach is to synchronize the Azure AD and on-premises UPNs to the same value and then configure Azure AD to allow users to sign in to Azure AD with a verified email. To provide this ability, you define one or more email addresses in the user's *ProxyAddresses* attribute in the on-premises directory. *ProxyAddresses* are then synchronized to Azure AD automatically using Azure AD Connect.
 
@@ -155,6 +155,8 @@ During preview, you can currently only enable the sign-in with email as an alter
     ```powershell
     Get-AzureADPolicy | where-object {$_.Type -eq "HomeRealmDiscoveryPolicy"} | fl *
     ```
+
+With the policy applied, it can take up to an hour to propagate and for users to be able to sign in using their alternate login ID.
 
 ## Test user sign-in with email
 

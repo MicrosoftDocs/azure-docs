@@ -38,13 +38,13 @@ All data collected by Azure Monitor fits into one of two fundamental types, [met
 
 For many Azure resources, you'll see data collected by Azure Monitor right in their Overview page in the Azure portal. Have a look at any virtual machine for example, and you'll see several charts displaying performance metrics. Click on any of the graphs to open the data in [metrics explorer](platform/metrics-charts.md) in the Azure portal, which allows you to chart the values of multiple metrics over time.  You can view the charts interactively or pin them to a dashboard to view them with other visualizations.
 
-![Metrics](media/overview/metrics.png)
+![Diagram shows Metrics data flowing into the Metrics Explorer to use in visualizations.](media/overview/metrics.png)
 
-Log data collected by Azure Monitor can be analyzed with [queries](log-query/log-query-overview.md) to quickly retrieve, consolidate, and analyze collected data.  You can create and test queries using [Log Analytics](log-query/portals.md) in the Azure portal and then either directly analyze the data using these tools or save queries for use with [visualizations](visualizations.md) or [alert rules](platform/alerts-overview.md).
+Log data collected by Azure Monitor can be analyzed with [queries](log-query/log-query-overview.md) to quickly retrieve, consolidate, and analyze collected data.  You can create and test queries using [Log Analytics](./log-query/log-query-overview.md) in the Azure portal and then either directly analyze the data using different tools or save queries for use with [visualizations](visualizations.md) or [alert rules](platform/alerts-overview.md).
 
 Azure Monitor uses a version of the [Kusto query language](/azure/kusto/query/) used by Azure Data Explorer that is suitable for simple log queries but also includes advanced functionality such as aggregations, joins, and smart analytics. You can quickly learn the query language using [multiple lessons](log-query/get-started-queries.md).  Particular guidance is provided to users who are already familiar with [SQL](log-query/sql-cheatsheet.md) and [Splunk](log-query/splunk-cheatsheet.md).
 
-![Logs](media/overview/logs.png)
+![Diagram shows Logs data flowing into Log Analytics for analysis.](media/overview/logs.png)
 
 ## What data does Azure Monitor collect?
 
@@ -86,7 +86,7 @@ Monitoring data is only useful if it can increase your visibility into the opera
 ![VM Insights](media/overview/vm-insights.png)
 
 ### Monitoring solutions
-[Monitoring solutions](insights/solutions.md) in Azure Monitor are packaged sets of logic that provide insights for a particular application or service. They include logic for collecting monitoring data for the application or service, [queries](log-query/log-query-overview.md) to analyze that data, and [views](../log-analytics/log-analytics-view-designer.md) for visualization. Monitoring solutions are [available from Microsoft](insights/solutions-inventory.md) and partners to provide monitoring for various Azure services and other applications.
+[Monitoring solutions](insights/solutions.md) in Azure Monitor are packaged sets of logic that provide insights for a particular application or service. They include logic for collecting monitoring data for the application or service, [queries](log-query/log-query-overview.md) to analyze that data, and [views](./platform/view-designer.md) for visualization. Monitoring solutions are [available from Microsoft](./monitor-reference.md) and partners to provide monitoring for various Azure services and other applications.
 
 ![Monitoring solutions](media/overview/solutions-overview.png)
 
@@ -99,12 +99,12 @@ In addition to allowing you to interactively analyze monitoring data, an effecti
 
 Alert rules in Azure Monitor use [action groups](platform/action-groups.md), which contain unique sets of recipients and actions that can be shared across multiple rules. Based on your requirements, action groups can perform such actions as using webhooks to have alerts start external actions or to integrate with your ITSM tools.
 
-![Alerts](media/overview/alerts.png)
+![Screenshot shows alerts in Azure Monitor with severity, total alerts, and other information.](media/overview/alerts.png)
 
 ### Autoscale
 Autoscale allows you to have the right amount of resources running to handle the load on your application. It allows you to create rules that use metrics collected by Azure Monitor to determine when to automatically add resources to handle increases in load and also save money by removing resources that are sitting idle. You specify a minimum and maximum number of instances and the logic for when to increase or decrease resources.
 
-![Autoscale](media/overview/autoscale.png)
+![Diagram shows autoscale, with several servers on a line labeled Processor Time > 80% and two servers marked as minimum, three servers as current capacity, and five as maximum.](media/overview/autoscale.png)
 
 ## Visualizing monitoring data
 [Visualizations](visualizations.md) such as charts and tables are effective tools for summarizing monitoring data and presenting it to different audiences. Azure Monitor has its own features for visualizing monitoring data and leverages other Azure services for publishing it to different audiences.
@@ -112,15 +112,15 @@ Autoscale allows you to have the right amount of resources running to handle the
 ### Dashboards
 [Azure dashboards](../azure-portal/azure-portal-dashboards.md) allow you to combine different kinds of data, including both metrics and logs, into a single pane in the [Azure portal](https://portal.azure.com). You can optionally share the dashboard with other Azure users. Elements throughout Azure Monitor can be added to an Azure dashboard in addition to the output of any log query or metrics chart. For example, you could create a dashboard that combines tiles that show a graph of metrics, a table of activity logs, a usage chart from Application Insights, and the output of a log query.
 
-![Dashboard](media/overview/dashboard.png)
+![Screenshot shows an Azure Dashboard, which includes Application and Security tiles, along with other customizable information.](media/overview/dashboard.png)
 
 ### Views
-[Views](../log-analytics/log-analytics-view-designer.md) visually present log data in Azure Monitor.  Each view includes a single tile that drills down to a combination of visualizations such as bar and line charts in addition to lists summarizing critical data.  Monitoring solutions include views that summarize data for a particular application, and you can create your own views to present data from any log query. Like other elements in Azure Monitor, views can be added to Azure dashboards.
+[Views](./platform/view-designer.md) visually present log data in Azure Monitor.  Each view includes a single tile that drills down to a combination of visualizations such as bar and line charts in addition to lists summarizing critical data.  Monitoring solutions include views that summarize data for a particular application, and you can create your own views to present data from any log query. Like other elements in Azure Monitor, views can be added to Azure dashboards.
 
-![View](media/overview/view.png)
+![Screenshot shows a tile for Container Monitoring Solution and the detailed view that opens if you select the tile.](media/overview/view.png)
 
 ### Power BI
-[Power BI](https://powerbi.microsoft.com) is a business analytics service that provides interactive visualizations across a variety of data sources and is an effective means of making data available to others within and outside your organization. You can configure Power BI to [automatically import log data from Azure Monitor](../log-analytics/log-analytics-powerbi.md) to take advantage of these additional visualizations.
+[Power BI](https://powerbi.microsoft.com) is a business analytics service that provides interactive visualizations across a variety of data sources and is an effective means of making data available to others within and outside your organization. You can configure Power BI to [automatically import log data from Azure Monitor](./platform/powerbi.md) to take advantage of these additional visualizations.
 
 
 ![Power BI](media/overview/power-bi.png)
@@ -130,7 +130,7 @@ Autoscale allows you to have the right amount of resources running to handle the
 You'll often have the requirement to integrate Azure Monitor with other systems and to build custom solutions that use your monitoring data. Other Azure services work with Azure Monitor to provide this integration.
 
 ### Event Hub
-[Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs) is a streaming platform and event ingestion service that can transform and store data using any real-time analytics provider or batching/storage adapters. Use Event Hubs to [stream Azure Monitor data](platform/stream-monitoring-data-event-hubs.md) to partner SIEM and monitoring tools.
+[Azure Event Hubs](../event-hubs/index.yml) is a streaming platform and event ingestion service that can transform and store data using any real-time analytics provider or batching/storage adapters. Use Event Hubs to [stream Azure Monitor data](platform/stream-monitoring-data-event-hubs.md) to partner SIEM and monitoring tools.
 
 
 ### Logic Apps
@@ -146,4 +146,4 @@ Learn more about:
 * [Metrics and logs](platform/data-platform.md) for the data collected by Azure Monitor.
 * [Data sources](platform/data-sources.md) for how the different components of your application send telemetry.
 * [Log queries](log-query/log-query-overview.md) for analyzing collected data.
-* [Best practices](https://docs.microsoft.com/azure/architecture/best-practices/monitoring) for monitoring cloud applications and services.
+* [Best practices](/azure/architecture/best-practices/monitoring) for monitoring cloud applications and services.

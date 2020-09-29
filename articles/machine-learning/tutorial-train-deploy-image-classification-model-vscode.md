@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Train & deploy models: VS Code"
+title: "Tutorial: Train & deploy models: VS Code (preview)"
 titleSuffix: Azure Machine Learning
 description: Learn how to train and deploy an image classification model using TensorFlow and the Azure Machine Learning Visual Studio Code Extension
 services: machine-learning
@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: tutorial
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 07/08/2020
+ms.date: 07/09/2020
 ms.custom: contperfq4 
 
 #Customer intent: As a professional data scientist, I want to learn how to train and deploy an image classification model using TensorFlow and the Azure Machine Learning Visual Studio Code Extension.
 ---
 
-# Train and deploy an image classification TensorFlow model using the Azure Machine Learning Visual Studio Code Extension
+# Train and deploy an image classification TensorFlow model using the Azure Machine Learning Visual Studio Code Extension (preview)
 
 Learn how to train and deploy an image classification model to recognize hand-written numbers using TensorFlow and the Azure Machine Learning Visual Studio Code Extension.
 
@@ -58,7 +58,7 @@ The first thing you have to do to build an application in Azure Machine Learning
 1. Select **Create a new resource group**. 
 1. Name your resource group "TeamWorkspace-rg" and press **Enter**. 
 1. Choose a location for your workspace. It's recommended to choose a location that is closest to the location you plan to deploy your model. For example, "West US 2".
-1. When prompted to select the type of workspace, select **Basic** to create a basic workspace. For more information on different workspace offerings, see [Azure Machine Learning overview](./overview-what-is-azure-ml.md#sku).
+1. When prompted to select the type of workspace, choose **basic**.
 
 At this point, a request to Azure is made to create a new workspace in your account. After a few minutes, the new workspace appears in your subscription node. 
 
