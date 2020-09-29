@@ -32,7 +32,7 @@ After you create an Azure Database for MySQL server, you can use the first serve
 > [!NOTE]
 > The SUPER privilege and DBA role aren't supported. Review the [privileges](concepts-limits.md#privilege-support) in the limitations article to understand what's not supported in the service.
 
-## How to create a database with a non-admin user in Azure Database for MySQL
+## To create a database with a non-admin user in Azure Database for MySQL
 
 1. Get the connection information and admin user name.
    To connect to your database server, you need the full server name and admin sign-in credentials. You can easily find the server name and sign-in information on the server **Overview** page or on the **Properties** page in the Azure portal.
@@ -77,15 +77,16 @@ After you create an Azure Database for MySQL server, you can use the first serve
    ```
  ---
 
-## How to create additional admin users in Azure Database for MySQL
+## To create additional admin users in Azure Database for MySQL
 
 1. Get the connection information and admin user name.
-   To connect to your database server, you need the full server name and admin sign-in credentials. You can easily find the server name and sign-in information from the server **Overview** page or the **Properties** page in the Azure portal.
+   To connect to your database server, you need the full server name and admin sign-in credentials. You can easily find the server name and sign-in information on the server **Overview** page or on the **Properties** page in the Azure portal.
 
-2. Use the admin account and password to connect to your database server. Use your preferred client tool, such as MySQL Workbench, mysql.exe, HeidiSQL, or others.
-   If you are unsure of how to connect, see [Use MySQL Workbench to connect and query data](./connect-workbench.md)
+2. Use the admin account and password to connect to your database server. Use your preferred client tool, such as MySQL Workbench, mysql.exe, HeidiSQL.
+   
+If you're not sure how to connect, see [Use MySQL Workbench to connect and query data](./connect-workbench.md).
 
-3. Edit and run the following SQL code. Replace your new user name for the placeholder value `new_master_user`. This syntax grants the listed privileges on all the database schemas (*.*) to the user name (new_master_user in this example).
+3. Edit and run the following SQL code. Replace the placeholder value `new_master_user` with your new user name. This syntax grants the listed privileges on all the database schemas (*.*) to the user (`new_master_user` in this example).
 
    ```sql
    CREATE USER 'new_master_user'@'%' IDENTIFIED BY 'StrongPassword!';
@@ -95,7 +96,7 @@ After you create an Azure Database for MySQL server, you can use the first serve
    FLUSH PRIVILEGES;
    ```
 
-4. Verify the grants
+4. Verify the grants:
 
    ```sql
    USE sys;
@@ -109,4 +110,4 @@ Open the firewall for the IP addresses of the new users' machines to enable them
 - [Create and manage firewall rules on Single Server](howto-manage-firewall-using-portal.md) 
 - [ Create and manage firewall rules on Flexible Server](flexible-server/how-to-connect-tls-ssl.md)
 
-For more information regarding user account management, see MySQL product documentation for [User account management](https://dev.mysql.com/doc/refman/5.7/en/access-control.html), [GRANT Syntax](https://dev.mysql.com/doc/refman/5.7/en/grant.html), and [Privileges](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html).
+For more information about user account management, see the MySQL product documentation for [User account management](https://dev.mysql.com/doc/refman/5.7/en/access-control.html), [GRANT syntax](https://dev.mysql.com/doc/refman/5.7/en/grant.html), and [Privileges](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html).
