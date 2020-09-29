@@ -17,9 +17,12 @@
   - name: Assign a policy - Azure PowerShell
     displayName: assign, compliance
     href: ./assign-policy-powershell.md
+  - name: Assign a policy - .NET
+    displayName: assign, compliance
+    href: ./assign-policy-dotnet.md  
   - name: Assign a policy - JavaScript
     displayName: assign, compliance
-    href: ./assign-policy-javascript.md  
+    href: ./assign-policy-javascript.md
   - name: Assign a policy - Python
     displayName: assign, compliance
     href: ./assign-policy-python.md
