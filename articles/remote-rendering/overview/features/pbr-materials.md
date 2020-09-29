@@ -36,6 +36,8 @@ These properties are common to all materials:
 
 * **isDoubleSided:** If double-sidedness is set to true, triangles with this material are rendered even if the camera is looking at their back faces. For PBR materials lighting is also computed properly for back faces. By default this option is disabled. See also [:::no-loc text="Single-sided"::: rendering](single-sided-rendering.md).
 
+* **transparencyWritesDepth:** If transparencyWritesDepth is set to true and the material is transparent, objects using this material will also contribute to the final depth buffer. See the PBR material property *transparent* in the next section. This feature is especially useful if your use case needs a more plausible [late stage reprojection](late-stage-reprojection.md) of fully transparent scenes. The depth values written are the per-pixel-minimum values over every visible depth layer of the object. Depending on the scene however, implausible opaque reprojections are possible, such as for opaque geometry behind transparent objects. Occlusion with local geometry will also happen, such as local menus disappearing inside depth writing transparent geometry.
+
 ## PBR material properties
 
 The core idea of physically based rendering is to use *BaseColor*, *Metalness*, and *Roughness* properties to emulate a wide range of real-world materials. A detailed description of PBR is beyond the scope of this article. For more information about PBR, see [other sources](http://www.pbr-book.org). The following properties are specific to PBR materials:
