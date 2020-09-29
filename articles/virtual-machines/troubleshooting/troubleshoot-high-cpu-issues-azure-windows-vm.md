@@ -231,7 +231,7 @@ To start, select the **Add Counters** category.
 
 After the counters are loaded, you'll see line trend charts in the collection time frame. You can select or clear the counters. So far, you have added only one counter.
 
-  ![Performance Monitor](./media/troubleshoot-high-cpu-issues-azure-windows-vm/12-performance-monitor-1.png)
+  ![Performance Monitor settings](./media/troubleshoot-high-cpu-issues-azure-windows-vm/12-performance-monitor-1.png)
 
 Every counter will have **Average**, **Minimum**, and **Maximum** values. Focus on both **Average** and **Maximum** values, as the average value can vary depending on the duration of the data collection. If the high-CPU activity was seen for 10 minutes while the overall collection was 40 minutes, the average values will be much lower.
 
@@ -255,11 +255,11 @@ To accelerate this process, use the **Histogram** view, and change the view type
 
 Because there will always be a bar for **Total**, focus on bars that are showing a high exhaustion rate. You can delete the other bars to clean the view. Now, shift back to **Line** view.
 
-  ![Performance monitor](./media/troubleshoot-high-cpu-issues-azure-windows-vm/14-performance-monitor-2.png)
+  ![Performance monitor indicators](./media/troubleshoot-high-cpu-issues-azure-windows-vm/14-performance-monitor-2.png)
 
 It's now easier to catch the culprit process. By default, the **Max** and **Min** values are multiples of the number of either the cores on the server, or threads of the process.
 
-  ![Performance monitor](./media/troubleshoot-high-cpu-issues-azure-windows-vm/15-performance-monitor-3.png)
+  ![Performance monitor results](./media/troubleshoot-high-cpu-issues-azure-windows-vm/15-performance-monitor-3.png)
 
 The list of available tools doesn't end at PerfInsights for Perfmon. You have access to other tools, such as **ProcessMonitor** (ProcMon) or **Xperf**. There are many third-party tools available to use as necessary.
 
