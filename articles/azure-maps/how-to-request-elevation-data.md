@@ -191,11 +191,11 @@ Then, we'll use the Get Data for Polyline to request three equally spaced sample
 
 ### Request elevation data by Bounding Box
 
-Now we'll use the [Get Data for Bounding Box](https://docs.microsoft.com/rest/api/maps/elevation/getdataforboundingbox) to request elevation data near Mt. Rainier, WA. The elevation data will be returned at equally spaced locations within a bounding box. A bounding box is defined by the coordinates for two corners (southwest, northeast) and then divided into rows and columns. Elevations are returned for the vertices of the grid created by the rows and columns. Up to 2000 elevations can be returned in a single request.
+Now we'll use the [Get Data for Bounding Box](https://docs.microsoft.com/rest/api/maps/elevation/getdataforboundingbox) to request elevation data near Mt. Rainier, WA. The elevation data will be returned at equally spaced locations within a bounding box. The bounding area defined by (2) sets of lat/long coordinates (south latitude, west longitude | north latitude, east longitude) is divided into rows and columns. The edges of the bounding box account for two (2) of the rows and two (2) of the columns. Elevations are returned for the vertices of the grid created at the intersections of the rows and columns. Up to 2000 elevations can be returned in a single request.
 
-In this example, we'll request two rows and three columns for the Bounding Box. The returned elevation values are ordered, starting at the southwest corner, and then proceeding west to east along the row. At the end of the row, it moves north to the next row, and repeats the process until it reaches the far northeast corner. The image below illustrates the six samples that will be collected at the vertices of the grid.
+In this example, we'll specify rows=3 and columns=6. Fifteen elevation values are returned in the response. The elevation values are ordered starting with the southwest corner, and then proceed west to east and south to north. This is illustrated in the following diagram. The elevation points are numbered in the order that they are returned.
 
-:::image type="content" source="./media/how-to-request-elevation-data/bounding-box.png" alt-text="Bounding box coordinates at NE and SE corners.":::
+:::image type="content" source="./media/how-to-request-elevation-data/bounding-box.png" border="false" alt-text="Bounding box coordinates at NE and SE corners.":::
 
 1. Select **New**. In the **Create New** window, select **Request**. Enter a **Request name** and select a collection. Click **Save**.
 
@@ -205,13 +205,13 @@ In this example, we'll request two rows and three columns for the Bounding Box. 
     https://atlas.microsoft.com/elevation/lattice?subscription-key=DsPCGIGfua7ti-MljBYsItsT1u9mCjjeloOLKMHrBpo&api-version=1.0&bounds=-121.66853362143818, 46.84646479863713,-121.65853362143818, 46.85646479863713&rows=2&columns=3
     ```
 
-3. Click the blue **Send** button. You'll receive the following JSON response. Notice that there are six elevation data samples, one for each vertex of the grid.
+3. Click the blue **Send** button. You'll receive the following JSON response. Notice that there are 18 elevation data samples, one for each vertex of the grid.
 
     ```json
     {
     "data": [
         {
-            "coordinate": { //southwest corner
+            "coordinate": {
                 "latitude": 46.846464798637129,
                 "longitude": -121.66853362143819
             },
@@ -220,9 +220,30 @@ In this example, we'll request two rows and three columns for the Bounding Box. 
         {
             "coordinate": {
                 "latitude": 46.846464798637129,
-                "longitude": -121.66353362143818
+                "longitude": -121.66653362143819
             },
-            "elevationInMeter": 2257.6278392402046
+            "elevationInMeter": 2306.3980756609963
+        },
+        {
+            "coordinate": {
+                "latitude": 46.846464798637129,
+                "longitude": -121.66453362143818
+            },
+            "elevationInMeter": 2279.3385479564113
+        },
+        {
+            "coordinate": {
+                "latitude": 46.846464798637129,
+                "longitude": -121.66253362143819
+            },
+            "elevationInMeter": 2233.1549264690366
+        },
+        {
+            "coordinate": {
+                "latitude": 46.846464798637129,
+                "longitude": -121.66053362143818
+            },
+            "elevationInMeter": 2196.4485923541492
         },
         {
             "coordinate": {
@@ -233,26 +254,131 @@ In this example, we'll request two rows and three columns for the Bounding Box. 
         },
         {
             "coordinate": {
+                "latitude": 46.849798131970459,
+                "longitude": -121.66853362143819
+            },
+            "elevationInMeter": 2345.3227848228803
+        },
+        {
+            "coordinate": {
+                "latitude": 46.849798131970459,
+                "longitude": -121.66653362143819
+            },
+            "elevationInMeter": 2292.2449195443587
+        },
+        {
+            "coordinate": {
+                "latitude": 46.849798131970459,
+                "longitude": -121.66453362143818
+            },
+            "elevationInMeter": 2270.5867788258074
+        },
+        {
+            "coordinate": {
+                "latitude": 46.849798131970459,
+                "longitude": -121.66253362143819
+            },
+            "elevationInMeter": 2296.8311427390604
+        },
+        {
+            "coordinate": {
+                "latitude": 46.849798131970459,
+                "longitude": -121.66053362143818
+            },
+            "elevationInMeter": 2266.0729430891065
+        },
+        {
+            "coordinate": {
+                "latitude": 46.849798131970459,
+                "longitude": -121.65853362143818
+            },
+            "elevationInMeter": 2242.216346631234
+        },
+        {
+            "coordinate": {
+                "latitude": 46.8531314653038,
+                "longitude": -121.66853362143819
+            },
+            "elevationInMeter": 2378.460838833359
+        },
+        {
+            "coordinate": {
+                "latitude": 46.8531314653038,
+                "longitude": -121.66653362143819
+            },
+            "elevationInMeter": 2327.6761137260387
+        },
+        {
+            "coordinate": {
+                "latitude": 46.8531314653038,
+                "longitude": -121.66453362143818
+            },
+            "elevationInMeter": 2208.3782743402949
+        },
+        {
+            "coordinate": {
+                "latitude": 46.8531314653038,
+                "longitude": -121.66253362143819
+            },
+            "elevationInMeter": 2106.9526472760981
+        },
+        {
+            "coordinate": {
+                "latitude": 46.8531314653038,
+                "longitude": -121.66053362143818
+            },
+            "elevationInMeter": 2054.3270174034078
+        },
+        {
+            "coordinate": {
+                "latitude": 46.8531314653038,
+                "longitude": -121.65853362143818
+            },
+            "elevationInMeter": 2030.6438331110671
+        },
+        {
+            "coordinate": {
                 "latitude": 46.856464798637127,
                 "longitude": -121.66853362143819
             },
             "elevationInMeter": 2318.753153399402
         },
         {
-            "coordinate": { 
+            "coordinate": {
                 "latitude": 46.856464798637127,
-                "longitude": -121.66353362143818
+                "longitude": -121.66653362143819
             },
-            "elevationInMeter": 2100.2079523153739
+            "elevationInMeter": 2253.88875188271
         },
         {
-            "coordinate": { //northeast corner
+            "coordinate": {
+                "latitude": 46.856464798637127,
+                "longitude": -121.66453362143818
+            },
+            "elevationInMeter": 2136.6145845357587
+        },
+        {
+            "coordinate": {
+                "latitude": 46.856464798637127,
+                "longitude": -121.66253362143819
+            },
+            "elevationInMeter": 2073.6734467948486
+        },
+        {
+            "coordinate": {
+                "latitude": 46.856464798637127,
+                "longitude": -121.66053362143818
+            },
+            "elevationInMeter": 2042.994055784251
+        },
+        {
+            "coordinate": {
                 "latitude": 46.856464798637127,
                 "longitude": -121.65853362143818
             },
             "elevationInMeter": 1988.3631481900356
         }
-     ]
+    ]
     }
     ```
 
