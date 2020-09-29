@@ -72,7 +72,8 @@ The site resource is the same as the non-ExpressRoute VPN sites for a virtual WA
 >
 
 1. Go to the Azure portal in your browser. 
-1. Select the WAN that you created. On the WAN page, under **Connectivity**, select **VPN sites**.
+1. Select the virtual WAN Hub that you created from the Virtual WAN Resource overview. 
+1. On the virtual WAN Hub page, under **Connectivity**, select **VPN sites**.
 1. On the **VPN sites** page, select **+Create site**.
 1. On the **Create site** page, fill in the following fields:
    * **Subscription**: Verify the subscription.
@@ -100,8 +101,17 @@ The site resource is the same as the non-ExpressRoute VPN sites for a virtual WA
 After you create the VPN site and connect to the hub, use the following steps to configure the connection to use ExpressRoute private peering:
 
 1. Go back to the virtual WAN resource page, and select the hub resource. Or navigate from the VPN site to the connected hub.
+
+ ![Select virtualWAN Hub](./media/vpn-over-expressroute/hub-selction.png)
+
 1. Under **Connectivity**, select **VPN (Site-to-Site)**.
+
+ ![Select VPN (Site-to-Site)](./media/vpn-over-expressroute/vpn-select.png)
+
 1. Select the ellipsis (**...**) on the VPN site over ExpressRoute, and select **Edit VPN connection to this hub**.
+
+ ![Enter configuration menu](./media/vpn-over-expressroute/config-menu.png)
+
 1. For **Use Azure Private IP Address**, select **Yes**. The setting configures the hub VPN gateway to use private IP addresses within the hub address range on the gateway for this connection, instead of the public IP addresses. This will ensure that the traffic from the on-premises network traverses the ExpressRoute private peering paths rather than using the public internet for this VPN connection. The following screenshot shows the setting.
 
    ![Setting for using a private IP address for the VPN connection](./media/vpn-over-expressroute/vpn-link-configuration.png)
