@@ -6,7 +6,7 @@ ms.service: sql-db-mi
 ms.subservice: backup-restore
 ms.custom: 
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: how-to
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
