@@ -46,16 +46,16 @@ The table below show the features brought by Microsoft Identity web on top of th
 
 | Feature                   | ASP.NET Core 3.1                       | with Microsoft.Identity.Web |
 | ------------------------- | -------------------------------------- | --------------------------- |
-| Sign in users in web apps | yes: Work or school accounts and B2C   | yes: Work or school accounts, personal accounts, and B2C   |
-| Protected web APIs        | yes: Work or school accounts and B2C   | yes: Work or school accounts, personal accounts, and B2C |
-| Issuer validation         | no                                     | yes for all clouds          |
-| web app/API calls Microsoft graph   | no                           | yes                         |
-| web app/API calls web API   | no                                   | yes                         |
-| Supports certificate credentials   | no                            | yes, many means of describing the certificate source, including Azure Key Vault                        |
-| Incremental consent in web apps   | no                             | yes in MVC, Razor pages and Blazor pages |
-| Supports token encryption certificates in web APIs | no            | yes, many means of describing the certificate source |
-| Scopes/app role validation in web APIs | no                        | yes |
-| www-Authenticate headers generation in web APIs | no               | yes |
+| [Sign in users](scenario-web-app-sign-user-app-configuration.md) in web apps | yes: Work or school accounts and B2C   | yes: Work or school accounts, personal accounts, and B2C   |
+| [Protected web APIs](scenario-protected-web-api-app-configuration.md#microsoftidentityweb)        | yes: Work or school accounts and B2C   | yes: Work or school accounts, personal accounts, and B2C |
+| Issuer validation in multi-tenant apps        | no                                     | yes for all clouds          |
+| web app/API [calls Microsoft graph](scenario-web-api-call-api-call-api.md#option-1-call-microsoft-graph-with-the-sdk)   | no                           | yes                         |
+| web app/API [calls web API](scenario-web-api-call-api-call-api.md#option-1-call-microsoft-graph-with-the-sdk)   | no                                   | yes                         |
+| Supports [certificate credentials](ms-id-web-using-certificates.md#client-certificates)   | no                            | yes, many means of describing the certificate source, including Azure Key Vault                        |
+| [Incremental consent and conditional access](ms-id-web-handling-incremental-consent-conditional-access.md) support in web apps   | no                             | yes in MVC, Razor pages and Blazor pages |
+| Supports [token encryption certificates](ms-id-web-using-certificates.md#decryption-certificates) in web APIs | no            | yes, many means of describing the certificate source |
+| [Scopes/app role validation](scenario-protected-web-api-verification-scope-app-roles.md) in web APIs | no                        | yes |
+| [www-Authenticate headers generation](ms-id-web-handling-incremental-consent-conditional-access.md#handling-incremental-consent-or-conditional-access-in-web-apis) in web APIs | no               | yes |
 
 ## Microsoft.Identity.Web provides project templates for ASP.NET Core 3.1
 
