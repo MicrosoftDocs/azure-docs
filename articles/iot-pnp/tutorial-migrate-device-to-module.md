@@ -81,17 +81,17 @@ Add a module called **my-module** to the **my-module-device**:
 
 If you haven't already done so, clone the Azure IoT Hub Device C# SDK GitHub repository to your local machine:
 
-Open a command prompt in a folder of your choice. Use the following command to clone the [Azure IoT C# SDKs and Libraries](https://github.com/Azure/azure-iot-sdk-csharp) GitHub repository into this location:
+Open a command prompt in a folder of your choice. Use the following command to clone the [Azure IoT C# Samples](https://github.com/Azure-Samples/azure-iot-samples-csharp) GitHub repository into this location:
 
 ```cmd
-git clone https://github.com/Azure/azure-iot-sdk-csharp.git
+git clone https://github.com/Azure-Samples/azure-iot-samples-csharp.git
 ```
 
 ## Prepare the project
 
 To open and prepare the sample project:
 
-1. Open the *azure-iot-sdk-csharp\iothub\device\samples\DigitalTwinDeviceSamples\Thermostat\Thermostat.csproj"* project file in Visual Studio 2019.
+1. Open the *azure-iot-sdk-csharp\iot-hub\Samples\device\PnpDeviceSamples\Thermostat\Thermostat.csproj* project file in Visual Studio 2019.
 
 1. In Visual Studio, navigate to **Project > Thermostat Properties > Debug**. Then add the following environment variables to the project:
 
@@ -166,7 +166,7 @@ If you run the code and then use the Azure IoT explorer to view the updated modu
 
 The service SDKs let you retrieve the model ID of connected IoT Plug and Play devices and modules. You can use the service SDKs to set writable properties and call commands:
 
-1. In another instance of Visual Studio, open the *azure-iot-sdk-csharp\iothub\service\samples\PnpServiceSamples\Thermostat\Thermostat.csproj* project.
+1. In another instance of Visual Studio, open the *azure-iot-sdk-csharp\iot-hub\Samples\service\PnpServiceSamples\Thermostat\Thermostat.csproj* project.
 
 1. In Visual Studio, navigate to **Project > Thermostat Properties > Debug**. Then add the following environment variables to the project:
 
