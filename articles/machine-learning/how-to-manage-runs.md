@@ -16,7 +16,6 @@ ms.custom: how-to, devx-track-python
 
 # Start, monitor, and cancel training runs in Python
 
-
 The [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true), [Machine Learning CLI](reference-azure-machine-learning-cli.md), and [Azure Machine Learning studio](https://ml.azure.com) provide various methods to monitor, organize, and manage your runs for training and experimentation.
 
 This article shows examples of the following tasks:
@@ -46,7 +45,7 @@ You'll need the following items:
 
 ## Start a run and its logging process
 
-### Using the SDK
+# [Python](#tab/python)
 
 Set up your experiment by importing the [Workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true), [Experiment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py&preserve-view=true), [Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true), and [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) classes from the [azureml.core](https://docs.microsoft.com/python/api/azureml-core/azureml.core?view=azure-ml-py&preserve-view=true) package.
 
@@ -66,7 +65,7 @@ notebook_run = exp.start_logging()
 notebook_run.log(name="message", value="Hello from run!")
 ```
 
-### Using the CLI
+# [Azure CLI](#tab/azure-cli)
 
 To start a run of your experiment, use the following steps:
 
@@ -103,7 +102,7 @@ To start a run of your experiment, use the following steps:
 
     For more information, see [az ml run submit-script](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-run-submit-script).
 
-### Using Azure Machine Learning studio
+# [Studio](#tab/azure-studio)
 
 To start a submit a pipeline run in the designer, use the following steps:
 
@@ -113,9 +112,12 @@ To start a submit a pipeline run in the designer, use the following steps:
 
 1. Select an Experiment to group your pipeline runs.
 
+---
+
 ## Monitor the status of a run
 
-### Using the SDK
+
+# [Python](#tab/python)
 
 Get the status of a run with the [`get_status()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-status--) method.
 
@@ -146,7 +148,7 @@ with exp.start_logging() as notebook_run:
 print(notebook_run.get_status())
 ```
 
-### Using the CLI
+# [Azure CLI](#tab/azure-cli)
 
 1. To view a list of runs for your experiment, use the following command. Replace `experiment` with the name of your experiment:
 
@@ -169,7 +171,7 @@ print(notebook_run.get_status())
     For more information, see [az ml run show](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-run-show).
 
 
-### Using Azure Machine Learning studio
+# [Studio](#tab/azure-studio)
 
 To view the number of active runs for your experiment in the studio.
 
@@ -181,17 +183,19 @@ To view the number of active runs for your experiment in the studio.
 
 1. Make customizations to the Experiment by selecting runs to compare, adding charts or applying filters. These changes can be saved as a **Custom View** so you can easily return to your work. Users with workspace permissions can edit or view the custom view. Also, share the custom view with others by copying and pasting the URL in the browser.  
 
-  :::image type="content" source="media/how-to-manage-runs/custom-views.gif" alt-text="Screenshot: create a custom view":::
+    :::image type="content" source="media/how-to-manage-runs/custom-views.gif" alt-text="Screenshot: create a custom view":::
 
 1. Select a specific run number.
 
 1. In the **Logs** tab, you can find diagnostic and error logs for your pipeline run.
 
+---
+
 ## Cancel or fail runs
 
 If you notice a mistake or if your run is taking too long to finish, you can cancel the run.
 
-### Using the SDK
+# [Python](#tab/python)
 
 To cancel a run using the SDK, use the [`cancel()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truecancel--) method:
 
@@ -212,7 +216,7 @@ local_run.fail()
 print(local_run.get_status())
 ```
 
-### Using the CLI
+# [Azure CLI](#tab/azure-cli)
 
 To cancel a run using the CLI, use the following command. Replace `runid` with the ID of the run
 
@@ -222,7 +226,7 @@ az ml run cancel -r runid -w workspace_name -e experiment_name
 
 For more information, see [az ml run cancel](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-run-cancel).
 
-### Using Azure Machine Learning studio
+# [Studio](#tab/azure-studio)
 
 To cancel a run in the studio, using the following steps:
 
@@ -232,6 +236,7 @@ To cancel a run in the studio, using the following steps:
 
 1. In the toolbar, select **Cancel**
 
+---
 
 ## Create child runs
 
@@ -321,7 +326,7 @@ In Azure Machine Learning, you can use properties and tags to help organize and 
 
 ### Add properties and tags
 
-#### Using the SDK
+# [Python](#tab/python)
 
 To add searchable metadata to your runs, use the [`add_properties()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=trueadd-properties-properties-) method. For example, the following code adds the `"author"` property to the run:
 
@@ -356,7 +361,7 @@ local_run.tag("worth another look")
 print(local_run.get_tags())
 ```
 
-#### Using the CLI
+# [Azure CLI](#tab/azure-cli)
 
 > [!NOTE]
 > Using the CLI, you can only add or update tags.
@@ -369,18 +374,24 @@ az ml run update -r runid --add-tag quality='fantastic run'
 
 For more information, see [az ml run update](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-run-update).
 
+# [Studio](#tab/azure-studio)
+
+You can view the properties and tags in studio but cannot modify them there.
+
+---
+
 ### Query properties and tags
 
 You can query runs within an experiment to return a list of runs that match specific properties and tags.
 
-#### Using the SDK
+# [Python](#tab/python)
 
 ```Python
 list(exp.get_runs(properties={"author":"azureml-user"},tags={"quality":"fantastic run"}))
 list(exp.get_runs(properties={"author":"azureml-user"},tags="worth another look"))
 ```
 
-#### Using the CLI
+# [Azure CLI](#tab/azure-cli)
 
 The Azure CLI supports [JMESPath](http://jmespath.org) queries, which can be used to filter runs based on properties and tags. To use a JMESPath query with the Azure CLI, specify it with the `--query` parameter. The following examples show some queries using properties and tags:
 
@@ -395,11 +406,13 @@ az ml run list --experiment-name experiment [?properties.author=='azureml-user' 
 
 For more information on querying Azure CLI results, see [Query Azure CLI command output](https://docs.microsoft.com/cli/azure/query-azure-cli?view=azure-cli-latest&preserve-view=true).
 
-### Using Azure Machine Learning studio
+# [Studio](#tab/azure-studio)
 
 1. Navigate to the **Pipelines** section.
 
 1. Use the search bar to filter pipelines using tags, descriptions, experiment names, and submitter name.
+
+---
 
 ## Example notebooks
 
