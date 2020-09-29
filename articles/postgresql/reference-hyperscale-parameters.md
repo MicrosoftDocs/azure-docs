@@ -505,7 +505,7 @@ all tasks may cause the EXPLAIN to take longer.
 * [min_wal_size](https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-MIN-WAL-SIZE) - Sets the minimum size to shrink the WAL to
 * [operator_precedence_warning](https://www.postgresql.org/docs/current/runtime-config-compatible.html#GUC-OPERATOR-PRECEDENCE-WARNING) - Emits a warning for constructs that changed meaning since PostgreSQL 9.4
 * [parallel_setup_cost](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-PARALLEL-SETUP-COST) - Sets the planner's estimate of the cost of starting up worker processes for parallel query
-* [parallel_tuple_cost](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-PARALLEL-TUPLE-COST) - Sets the planner's estimate of the cost of passing each tuple (row) from worker to primary backend
+* [parallel_tuple_cost](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-PARALLEL-TUPLE-COST) - Sets the planner's estimate of the cost of passing each tuple (row) from worker to master backend
 * [pg_stat_statements.save](https://www.postgresql.org/docs/current/pgstatstatements.html#id-1.11.7.38.8) - Saves pg_stat_statements statistics across server shutdowns
 * [pg_stat_statements.track](https://www.postgresql.org/docs/current/pgstatstatements.html#id-1.11.7.38.8) - Selects which statements are tracked by pg_stat_statements
 * [pg_stat_statements.track_utility](https://www.postgresql.org/docs/current/pgstatstatements.html#id-1.11.7.38.8) - Selects whether utility commands are tracked by pg_stat_statements
