@@ -79,9 +79,9 @@ The following sections describe how you can use the blades shown in the Applicat
 
 Click the **Application Insights** tile to open the **Application Insights** dashboard to see the following blades.
 
-![Application Insights dashboard](./media/app-insights-connector/app-insights-dash01.png)
+![Screenshot of the Application Insights dashboard showing the blades for Applications, Data Volume, and Availability.](./media/app-insights-connector/app-insights-dash01.png)
 
-![Application Insights dashboard](./media/app-insights-connector/app-insights-dash02.png)
+![Screenshot of the Application Insights dashboard showing the blades for Server Requests, Failures, and Exceptions.](./media/app-insights-connector/app-insights-dash02.png)
 
 The dashboard includes the blades shown in the table. Each blade lists up to 10 items matching that blade's criteria for the specified scope and time range. You can run a log search that returns all records when you click **See all** at the bottom of the blade or when you click the blade header.
 

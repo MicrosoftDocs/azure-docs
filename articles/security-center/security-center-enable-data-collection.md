@@ -67,7 +67,7 @@ Security center can automatically create a default workspace in which to store t
 To select a workspace created by Security Center:
 
 1. Under **Default workspace configuration**, select Use workspace(s) created by Security center.
-   ![Select pricing tier][10] 
+    :::image type="content" source="./media/security-center-enable-data-collection/workspace-selection.png" alt-text="Using the default workspace in data collection options"::: 
 
 1. Click **Save**.<br>
 	Security Center creates a new resource group and default workspace in that geolocation, and connects the agent to that workspace. The naming convention for the workspace and resource group is:<br>
@@ -96,8 +96,7 @@ To use your existing Log Analytics workspace, you must have read and write permi
 To select an existing Log Analytics workspace:
 
 1. Under **Default workspace configuration**, select **Use another workspace**.
-
-   ![Use another workspace][2]
+    :::image type="content" source="./media/security-center-enable-data-collection/use-another-workspace.png" alt-text="Setting a custom workspace in data collection options"::: 
 
 2. From the pull-down menu, select a workspace to store collected data.
 
@@ -188,10 +187,10 @@ Here is a complete breakdown of the Security and App Locker event IDs for each s
 >
 
 To choose your filtering policy:
-1. On the **Data Collection** page, select your filtering policy under **Security Events**.
-2. Select **Save**.
-
-   ![Choose filtering policy][5]
+1. On the **Data Collection** page, select your filtering policy under **Store additional raw data - Windows security events**.
+ 
+1. Select **Save**.
+    :::image type="content" source="./media/security-center-enable-data-collection/data-collection-tiers.png" alt-text="Select the Windows security events to collect":::
 
 ### Automatic provisioning in cases of a pre-existing agent installation <a name="preexisting"></a> 
 
@@ -221,7 +220,7 @@ To turn off automatic provisioning of the Log Analytics agent:
 1. From Security Center's menu in the portal, select **Pricing & settings**.
 2. Select the relevant subscription.
 
-   ![Select subscription][7]
+    :::image type="content" source="./media/security-center-enable-data-collection/select-subscription.png" alt-text="Select a subscription from pricing and settings page":::
 
 3. Select **Data Collection**.
 4. Under **Auto Provisioning**, select **Off** to disable automatic provisioning.
@@ -306,13 +305,7 @@ This article showed you how data collection and automatic provisioning in Securi
 
 
 <!--Image references-->
-[1]: ./media/security-center-enable-data-collection/enable-automatic-provisioning.png
-[2]: ./media/security-center-enable-data-collection/use-another-workspace.png
 [3]: ./media/security-center-enable-data-collection/reconfigure-monitored-vm.png
-[5]: ./media/security-center-enable-data-collection/data-collection-tiers.png
-[7]: ./media/security-center-enable-data-collection/select-subscription.png
-[8]: ./media/security-center-enable-data-collection/manual-provision.png
 [9]: ./media/security-center-enable-data-collection/pricing-tier.png
-[10]: ./media/security-center-enable-data-collection/workspace-selection.png
 [11]: ./media/security-center-enable-data-collection/log-analytics.png
 [12]: ./media/security-center-enable-data-collection/log-analytics2.png
