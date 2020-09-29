@@ -12,7 +12,7 @@ ms.subservice: pim
 ms.topic: overview
 ms.date: 09/29/2020
 ms.author: curtand
-ms.custom: pim 
+ms.custom: pim ; azuread-video-2020
 ms.collection: M365-identity-device-management
 ---
 
