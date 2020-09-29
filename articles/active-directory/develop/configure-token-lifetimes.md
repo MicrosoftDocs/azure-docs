@@ -65,13 +65,13 @@ In this example, you create a policy that lets your users' sign in less frequent
         }')
         ```
 
-    1. To create the policy, run the following command:
+    1. To create the policy, run the [New-AzureADPolicy](/powershell/module/azuread/new-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) cmdlet:
 
         ```powershell
         $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1, "MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "OrganizationDefaultPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
         ```
 
-    1. To remove any whitespace, run the following command:
+    1. To remove any whitespace, run the [Get-AzureADPolicy](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) cmdlet:
 
         ```powershell
         Get-AzureADPolicy -id | set-azureadpolicy -Definition @($((Get-AzureADPolicy -id ).Replace(" ","")))
@@ -99,13 +99,13 @@ In this example, you create a policy that requires users to authenticate more fr
 
     This policy, for web sign-in, sets the access/ID token lifetime and the max single-factor session token age to two hours.
 
-    1. To create the policy, run this command:
+    1. To create the policy, run the [New-AzureADPolicy](/powershell/module/azuread/new-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) cmdlet:
 
         ```powershell
         $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"AccessTokenLifetime":"02:00:00","MaxAgeSessionSingleFactor":"02:00:00"}}') -DisplayName "WebPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
         ```
 
-    1. To see your new policy, and to get the policy **ObjectId**, run the following command:
+    1. To see your new policy, and to get the policy **ObjectId**, run the [Get-AzureADPolicy](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) cmdlet:
 
         ```powershell
         Get-AzureADPolicy -Id $policy.Id
@@ -119,7 +119,7 @@ In this example, you create a policy that requires users to authenticate more fr
         $sp = Get-AzureADServicePrincipal -Filter "DisplayName eq '<service principal display name>'"
         ```
 
-    1. When you have the service principal, run the following command:
+    1. When you have the service principal, run the [Add-AzureADServicePrincipalPolicy](/powershell/module/azuread/add-azureadserviceprincipalpolicy?view=azureadps-2.0-preview&preserve-view=true) cmdlet:
         ```powershell
         # Assign policy to a service principal
         Add-AzureADServicePrincipalPolicy -Id $sp.ObjectId -RefObjectId $policy.Id
@@ -130,7 +130,7 @@ In this example, you create a policy that requires users to authenticate less fr
 
 1. Create a token lifetime policy.
 
-    1. To create a strict policy for a web API, run the following command:
+    1. To create a strict policy for a web API, run the [New-AzureADPolicy](/powershell/module/azuread/new-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) cmdlet:
 
         ```powershell
         $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"30.00:00:00","MaxAgeMultiFactor":"until-revoked","MaxAgeSingleFactor":"180.00:00:00"}}') -DisplayName "WebApiDefaultPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
@@ -159,13 +159,13 @@ In this example, you create a few policies to learn how the priority system work
 
 1. Create a token lifetime policy.
 
-    1. To create an organization default policy that sets the single-factor refresh token lifetime to 30 days, run the following command:
+    1. To create an organization default policy that sets the single-factor refresh token lifetime to 30 days, run the [New-AzureADPolicy](/powershell/module/azuread/new-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) cmdlet:
 
         ```powershell
         $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"30.00:00:00"}}') -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
         ```
 
-    1. To see your new policy, run the following command:
+    1. To see your new policy, run the [Get-AzureADPolicy](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) cmdlet:
 
         ```powershell
         Get-AzureADPolicy -Id $policy.Id
@@ -177,7 +177,7 @@ In this example, you create a few policies to learn how the priority system work
 
     1. To see all your organization's service principals, you use the [Get-AzureADServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal) cmdlet.
 
-    1. When you have the service principal, run the following command:
+    1. When you have the service principal, run the [Add-AzureADServicePrincipalPolicy](/powershell/module/azuread/add-azureadserviceprincipalpolicy?view=azureadps-2.0-preview&preserve-view=true) cmdlet:
 
         ```powershell
         # Get ID of the service principal
