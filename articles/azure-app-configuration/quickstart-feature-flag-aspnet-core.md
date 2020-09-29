@@ -6,7 +6,7 @@ author: lisaguthrie
 ms.service: azure-app-configuration
 ms.custom: devx-track-csharp
 ms.topic: quickstart
-ms.date: 09/25/2020
+ms.date: 09/28/2020
 ms.author: lcozzens
 
 #Customer intent: As an ASP.NET Core developer, I want to use feature flags to control feature availability quickly and confidently.
@@ -21,13 +21,13 @@ The .NET Core Feature Management libraries extend the framework with comprehensi
 ## Prerequisites
 
 * Azure subscription - [create one for free](https://azure.microsoft.com/free/dotnet)
-* [.NET Core SDK](https://dotnet.microsoft.com/download).
+* [.NET Core SDK](https://dotnet.microsoft.com/download)
 
 ## Create an App Configuration store
 
 [!INCLUDE[Azure App Configuration resource creation steps](../../includes/azure-app-configuration-create.md)]
 
-7. Select **Operations** > **Feature manager** > **Add** to add a feature flag called `Beta`.
+7. Select **Operations** > **Feature manager** > **Add** to add a feature flag called *Beta*.
 
     > [!div class="mx-imgBorder"]
     > ![Enable feature flag named Beta](media/add-beta-feature-flag.png)
@@ -48,10 +48,13 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
 ## Connect to an App Configuration store
 
-1. Install the `Microsoft.Azure.AppConfiguration.AspNetCore` and `Microsoft.FeatureManagement.AspNetCore` NuGet packages by running the following commands:
+1. Install the [Microsoft.Azure.AppConfiguration.AspNetCore](https://www.nuget.org/packages/Microsoft.Azure.AppConfiguration.AspNetCore) and [Microsoft.FeatureManagement.AspNetCore](https://www.nuget.org/packages/Microsoft.FeatureManagement.AspNetCore) NuGet packages by running the following commands:
 
     ```dotnetcli
     dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore
+    ```
+
+    ```dotnetcli
     dotnet add package Microsoft.FeatureManagement.AspNetCore
     ```
 
@@ -127,7 +130,7 @@ dotnet new mvc --no-https --output TestFeatureFlags
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddMvc()
-            .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);        
+            .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         services.AddFeatureManagement();
     }
     ```
@@ -190,7 +193,7 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
     ---
 
-1. Add a *MyFeatureFlags.cs* file with the following code:
+1. Add a *MyFeatureFlags.cs* file to the root project directory with the following code:
 
     ```csharp
     namespace TestFeatureFlags
@@ -215,10 +218,8 @@ dotnet new mvc --no-https --output TestFeatureFlags
         {
             private readonly IFeatureManager _featureManager;
 
-            public BetaController(IFeatureManagerSnapshot featureManager)
-            {
+            public BetaController(IFeatureManagerSnapshot featureManager) =>
                 _featureManager = featureManager;
-            }
 
             [FeatureGate(MyFeatureFlags.Beta)]
             public IActionResult Index() => View();
@@ -226,13 +227,15 @@ dotnet new mvc --no-https --output TestFeatureFlags
     }
     ```
 
-1. In *Views/_ViewImports.cshtml*, add the feature manager Tag Helper:
+1. In *Views/_ViewImports.cshtml*, register the feature manager Tag Helper using an `@addTagHelper` directive:
 
     ```cshtml
     @addTagHelper *, Microsoft.FeatureManagement.AspNetCore
     ```
 
-1. In *Views/Shared/_Layout.cshtml*, replace the `<nav>` bar code under `<body>` > `<header>` with the following code:
+    The preceding code allows the `<feature>` Tag Helper to be used in the project's *.cshtml* files.
+
+1. In *Views/Shared/_Layout.cshtml*, replace the `<nav>` bar code under `<body>` > `<header>` with the following markup:
 
     ```cshtml
     <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
@@ -261,16 +264,16 @@ dotnet new mvc --no-https --output TestFeatureFlags
     </nav>
     ```
 
-1. Create a *Views/Beta* directory and an *Index.cshtml* file within it. Add the following markup to *Index.cshtml*:
+    In the preceding markup, notice the `<feature>` Tag Helper surrounding the *Beta* list item.
+
+1. Create a *Views/Beta* directory and an *Index.cshtml* file containing the following markup:
 
     ```cshtml
     @{
         ViewData["Title"] = "Beta Home Page";
     }
 
-    <h1>
-        This is the beta website.
-    </h1>
+    <h1>This is the beta website.</h1>
     ```
 
 ## Build and run the app locally
@@ -297,7 +300,7 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Select **All resources**, and select the App Configuration store instance that you created in the quickstart.
 
-1. Select **Feature Manager**, and change the state of the **Beta** key to **On**.
+1. Select **Feature manager**, and change the state of the **Beta** key to **On**.
 
 1. Return to the command shell. Cancel the running `dotnet` process by pressing <kbd>Ctrl+C</kbd>. Restart your app using `dotnet run`.
 

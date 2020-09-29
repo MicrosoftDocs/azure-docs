@@ -4,7 +4,7 @@ A tool called Secret Manager stores sensitive data for development work outside 
 
 #### [.NET Core 3.x](#tab/core3x)
 
-Run the following command to enable secrets storage in the project:
+Navigate to the project's root directory, and run the following command to enable secrets storage in the project:
 
 ```dotnetcli
 dotnet user-secrets init
