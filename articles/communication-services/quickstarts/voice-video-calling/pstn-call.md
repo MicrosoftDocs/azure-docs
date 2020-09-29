@@ -11,7 +11,7 @@ zone_pivot_groups: acs-plat-web-ios-android
 ---
 
 # Quickstart: Call To Phone
-[!INCLUDE [Emergency Calling Notice](../../../includes/emergency-calling-notice-include.md)]
+[!INCLUDE [Emergency Calling Notice](../../includes/emergency-calling-notice-include.md)]
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
@@ -35,7 +35,7 @@ Get started with Azure Communication Services by using the Communication Service
 
 ## Clean up resources
 
-If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources](./create-communication-resource.md#clean-up-resources).
+If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources](../create-communication-resource.md#clean-up-resources).
 
 ## Next steps
 
