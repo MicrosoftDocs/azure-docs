@@ -32,7 +32,7 @@ Refer to [this paper](https://pytorch.org/docs/stable/torchvision/models.html?hi
 
 2.  For **Model name**, specify name of a certain ResNet structure and you can select from supported resnet: 'resnet18', 'resnet34', 'resnet50', 'resnet101', 'resnet152', 'resnet152', 'resnext50\_32x4d', 'resnext101\_32x8d', 'wide_resnet50\_2', 'wide_resnet101\_2'.
 
-3.  For **Pretrained**, specify whether to use a model pre-trained on ImageNet. If selected, you can fine tune model based on selected pre-trained model; if deselected, you can train from scratch.
+3.  For **Pretrained**, specify whether to use a model pre-trained on ImageNet. If selected, you can fine-tune model based on selected pre-trained model; if deselected, you can train from scratch.
 
 4.  Connect the output of **DenseNet** module, training and validation image dataset module to the [Train Pytorch Model](train-pytorch-model.md). 
 
