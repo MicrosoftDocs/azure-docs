@@ -50,7 +50,7 @@ When you first set up Privileged Identity Management for Azure resources, you ne
    You can search for and select management group or subscription resources to manage only by using Privileged Identity Management. When you manage a management group or a subscription in Privileged Identity Management, you can also manage its child resources.
 
    > [!Note]
-   > When you add a new child Azure resource to a already Pim-managed management group, you can bring the child resource under management by searching for it in PIM.
+   > When you add a new child Azure resource to a PIM-managed management group, you can bring the child resource under management by searching for it in PIM.
 
 1. Select any unmanaged resources that you want to manage.
 
