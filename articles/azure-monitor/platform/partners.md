@@ -15,7 +15,7 @@ Listed in alphabetical order.
 
 ![AIMS AIOps logo](./media/partners/aims.jpg)
 
-AIMS AIOps (Artificial Intelligence for IT Operations) automates analysis of Azure performance metrics (for infrastructure and services) to provide actionable insight to drive efficiency, scale appropriately, control costs and provide business insights.  AIMS use machine learning to alleviate IT Ops teams from tedious manual work.  AIMS also supports on premise technologies for seamless hybrid control.  AIMS is available in the Azure Marketplace and as a fully functional Free Community Edition.
+AIMS AIOps (Artificial Intelligence for IT Operations) automates analysis of Azure performance metrics (for infrastructure and services) to provide actionable insight to drive efficiency, scale appropriately, control costs and provide business insights.  AIMS use machine learning to alleviate IT Ops teams from tedious manual work.  AIMS also supports on-premise technologies for seamless hybrid control.  AIMS is available in the Azure Marketplace and as a fully functional Free Community Edition.
 
 [AIMS AIOps documentation for Azure](https://www.aims.ai/platform/azure)
 
@@ -76,12 +76,12 @@ CloudMonix offers monitoring, automation, and self-healing services for Microsof
 
 ![DataDog Logo](./media/partners/datadog.png)
 
-Azure enables customers to migrate and modernize their applications to run in the cloud, in coordination with many partner solutions. One such partner is Datadog, which provides observability and security tools for users to understand the health and performance of their applications across hybrid and multi-cloud environments.  But configuring the necessary integrations often requires navigating between the Azure portal and Datadog.  This adds complexity, takes time, and makes it difficult to troubleshoot if things aren’t working.  To reduce the burden of managing across multiple portals, Microsoft has worked with Datadog to create an integrated Datadog solution on the Azure cloud platform.  Available via the Azure Marketplace, this solution provides a seamless experience for using the Datadog’s cloud monitoring solution in Azure.  
+Azure enables customers to migrate and modernize their applications to run in the cloud, in coordination with many partner solutions. One such partner is Datadog, which provides observability and security tools for users to understand the health and performance of their applications across hybrid and multi-cloud environments.  But configuring the necessary integrations often requires navigating between the Azure portal and Datadog.  This process adds complexity, takes time, and makes it difficult to troubleshoot if things aren’t working.  To reduce the burden of managing across multiple portals, Microsoft has worked with Datadog to create an integrated Datadog solution on the Azure cloud platform.  Available via the Azure Marketplace, this solution provides a seamless experience for using the Datadog’s cloud monitoring solution in Azure.  
 
 With the new Azure-Datadog integration, organizations can now fully map their legacy and cloud-based systems, monitoring real-time data during every phase of the cloud transition, and ensure that migrated applications meet performance targets. This integration combines Azure’s global presence, flexibility, security, and compliance with Datadog's logging and monitoring capabilities to create the best experience for enterprises. 
 Through this unified experience, you will be able to: 
 
-- Provision a new Datadog organization and configure their Azure resources to send logs and metrics to Datadog—a fully managed setup with no infrastructure for customers to setup and operate.  
+- Provision a new Datadog organization and configure their Azure resources to send logs and metrics to Datadog—a fully managed setup with no infrastructure for customers to set up and operate.  
 - Seamlessly send logs and metrics to Datadog. The log-forwarding process has been completely automated; rather than building out a log-forwarding pipeline with Diagnostic Settings, Event Hubs, and Functions, you can configure everything with just a few clicks.
 -	Easily install the Datadog agent on VM hosts through a single-click.
 -	Streamline single-sign on (SSO) to Datadog—a separate sign-on from the Datadog portal is no longer required. 
@@ -89,7 +89,7 @@ Through this unified experience, you will be able to:
 
 Sign up for the [Public Preview](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4z3T2aGXUZPslUNJ3YpcapURFBHSUJIMVJTWDM5VUFPMVkyTVhMVlYzMS4u) of the new Datadog integration with Azure.  Public preview will be available on Azure Marketplace starting October 2020.
 
-If you are still using the previous manually-configured integration, see the [documentation on the DataDog website][datadog-doc](https://docs.datadoghq.com/integrations/azure/).
+If you are still using the previous manually configured integration, see the [documentation on the DataDog website](https://docs.datadoghq.com/integrations/azure/).
 
 ## Dynatrace
 
@@ -120,9 +120,7 @@ Grafana is an open-source application that enables you to visualize time series 
 
 ![InfluxData Logo](./media/partners/Influxdata.png)
 
-InfluxData is the creator of InfluxDB, the open source time series database. Our technology is purpose-built to handle the massive volumes of time-stamped data produced by IoT devices, applications, networks, containers and computers. We are on a mission to help developers and organizations, such as IBM, Visa, Siemens, Tesla and NASA, store and analyze real-time data, empowering them to build transformative monitoring, analytics, and IoT applications quicker and to scale. Microsoft Azure Monitor's metrics and events collection capabilities can be expanded with InfluxData's Telegraf Agent enabling Microsoft users to benefit from a leading time series database solution and leverage the growing open source contributions to Telegraf.
-
-[Go to the documentation.][influxdata-doc]
+InfluxData is the creator of InfluxDB, the open-source time series database. Our technology is purpose-built to handle the massive volumes of time-stamped data produced by IoT devices, applications, networks, containers, and computers. We are on a mission to help developers and organizations, such as IBM, Visa, Siemens, Tesla and NASA, store and analyze real-time data, empowering them to build transformative monitoring, analytics, and IoT applications quicker and to scale. Microsoft Azure Monitor's metrics and events collection capabilities can be expanded with InfluxData's Telegraf Agent enabling Microsoft users to benefit from a leading time series database solution and leverage the growing open-source contributions to Telegraf.
 
 [Azure Monitor Influx data Telegraf integration](./collect-custom-metrics-linux-telegraf.md) 
 
@@ -130,7 +128,7 @@ InfluxData is the creator of InfluxDB, the open source time series database. Our
 
 ![Logic Monitor Logo](./media/partners/logicmonitor.png)
 
-LogicMonitor&reg; is the leading SaaS-based, performance monitoring platform for complex IT infrastructure. With coverage for thousands of technologies, LogicMonitor provides granular visibility into infrastructure and application performance. LM Cloud's comprehensive Azure monitoring enables users to correlate the performance of Azure cloud, on-premises, and hybrid cloud resources -- all from a single platform. Automated resource discovery, built in monitoring templates, preconfigured alert thresholds, and customizable dashboards combine to give IT the speed, flexibility, and visibility required to succeed.
+LogicMonitor&reg; is the leading SaaS-based, performance monitoring platform for complex IT infrastructure. With coverage for thousands of technologies, LogicMonitor provides granular visibility into infrastructure and application performance. LM Cloud's comprehensive Azure monitoring enables users to correlate the performance of Azure cloud, on-premises, and hybrid cloud resources--all from a single platform. Automated resource discovery, built in monitoring templates, preconfigured alert thresholds, and customizable dashboards combine to give IT the speed, flexibility, and visibility required to succeed.
 
 [Logic Monitor documentation](https://www.logicmonitor.com/lp/azure-monitoring/)
 
@@ -138,17 +136,17 @@ LogicMonitor&reg; is the leading SaaS-based, performance monitoring platform for
 
 ![LogRhythm Logo](./media/partners/logrhythm.png)
 
-LogRhythm, a leader in NextGen SIEM, empowers organizations on six continents to measurably reduce risk by rapidly detecting, responding to, and neutralizing cyberthreats. LogRhythm's Threat Lifecycle Management (TLM) workflow is the foundation for security operations centers, helping customers secure their cloud, physical, and virtual infrastructures for IT and OT environments. If you're a LogRhythm customer and are ready to start your Azure journey, you'll need to install and configure the LogRhythm Open Collector and EventHub integration. More details, including documentation of both configuring Azure Monitor and the Open Collector, can be found [here](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/). 
+LogRhythm, a leader in NextGen SIEM, empowers organizations on six continents to measurably reduce risk by rapidly detecting, responding to, and neutralizing cyberthreats. LogRhythm's Threat Lifecycle Management (TLM) workflow is the foundation for security operations centers, helping customers secure their cloud, physical, and virtual infrastructures for IT and OT environments. If you're a LogRhythm customer and are ready to start your Azure journey, you'll need to install and configure the LogRhythm Open Collector and EventHub integration. For more information, see [documentation on both configuring Azure Monitor and the Open Collector](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/). 
 
 ## Microfocus
 
-![Microfocus Logo](./media/partners/microfocus.png)     
+![Microfocus Logo](./media/partners/microfocus.png)
 
 Microfocus **ArcSight** has a smart connector for Azure Monitor event hubs.
 
-[Learn more](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852 "ArcSight documentation.")
+[See the ArcSight documentation](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852)
 
-Microfocus **Operations Bridge** automatically monitors all Hybrid IT resources – any device, operating system, database, application, or service, regardless of where it runs and applies AIOps to all data types – events, metrics, logs and dependencies. It provides a unique combination of quality of service monitoring, coupled with deep application health analytics, and includes comprehensive performance and availability monitoring of Microsoft Azure services. Operations Bridge enables customers to provide a single pane of glass, available on any device with a browser, in ways both business and IT stakeholders can understand.
+Microfocus **Operations Bridge** automatically monitors all Hybrid IT resources – any device, operating system, database, application, or service, regardless of where it runs and applies AIOps to all data types – events, metrics, logs, and dependencies. It provides a unique combination of quality-of-service monitoring, coupled with deep application health analytics, and includes comprehensive performance and availability monitoring of Microsoft Azure services. Operations Bridge enables customers to provide a single pane of glass, available on any device with a browser, in ways both business and IT stakeholders can understand.
 
 Learn more
 - [OB Suite overview](https://www.microfocus.com/products/operations-bridge-suite/overview)
@@ -209,9 +207,8 @@ Push all metrics to Azure Monitor and consume them where you need them.
 
 ![QRadar Logo](./media/partners/qradar.png)
 
-The Microsoft Azure DSM and Microsoft Azure Event Hub Protocol are available for download from [the IBM support website](https://www.ibm.com/support). You can [learn more about the integration with Azure here][qradar-doc].
+The Microsoft Azure DSM and Microsoft Azure Event Hub Protocol are available for download from [the IBM support website](https://www.ibm.com/support). You can learn more about the integration with Azure in the [QRadar documentation](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0).
 
-[qradar-doc]: https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0 "QRadar documentation."
 
 ## ScienceLogic
 
@@ -219,8 +216,7 @@ The Microsoft Azure DSM and Microsoft Azure Event Hub Protocol are available for
 
 ScienceLogic delivers the next generation IT service assurance platform for managing any technology, anywhere. ScienceLogic delivers the scale, security, automation, and resiliency necessary to simplify the tasks of managing IT resources, services, and applications. The ScienceLogic platform uses Azure APIs to interface with Microsoft Azure. ScienceLogic gives you real-time visibility into your Azure services and resources. So you know when something's not working and you can fix it faster. You can also manage Azure alongside your other clouds and data center systems and services.
 
-[Learn more.][sciencelogic-doc]
-[sciencelogic-doc]: https://www.sciencelogic.com/product/technologies/microsoft/azure "ScienceLogic documentation."
+[ScienceLogic documentation](https://www.sciencelogic.com/product/technologies/microsoft/azure)
 
 
 ## Serverless360
@@ -229,8 +225,7 @@ ScienceLogic delivers the next generation IT service assurance platform for mana
 
 Serverless360 is a one platform tool to operate, manage, and monitor Azure serverless components. Manageability is one of the key challenges with serverless implementations. Hundreds of small, discrete serverless services are scattered in various places – managing and operating such solutions is complex. Serverless360 solves these challenges with rich set of sophisticated tools. It can monitor serverless services like Azure Functions, Logic Apps, Event Grids, Service Bus Queues, Topics, Relays, Event Hubs, Storage queues, files, blob, and tables. Serverless360 is available in the Azure Marketplace. These capabilities are available on both SaaS and private hosting (hosted on your own environment).  
 
-[Learn more.][serverless360-doc]
-[serverless360-doc]: https://docs.serverless360.com/docs/ "Serverless360 documentation."
+[Serverless360 documentation](https://docs.serverless360.com/docs/)
 
 ## ServiceNow
 
@@ -272,7 +267,7 @@ The Azure Monitor Add-on for Splunk is [available in the Splunkbase here](https:
 
 ![SquaredUp Logo](./media/partners/squaredup.png)
 
-SquaredUp for Azure makes visualizing your Azure applications beautifully simple. It gives you real time, interactive dashboards. You can drill down into subscriptions, resource groups, tags and individual resources to see metrics such as CPU, most inbound connections, Application Insights response time, total cost, and summary health status, and drill across to see related data such as alerts, Log Analytics events, more detailed metrics, or to see related data from the other tools you use – such as ServiceNow, Dynatrace, PagerDuty or Pingdom for example.  You can customize your own dashboards, publish, and share them with individuals or on intranet pages. 
+SquaredUp for Azure makes visualizing your Azure applications beautifully simple. It gives you real time, interactive dashboards. You can drill down into subscriptions, resource groups, tags, and individual resources to see metrics such as CPU, most inbound connections, Application Insights response time, total cost, and summary health status, and drill across to see related data such as alerts, Log Analytics events, more detailed metrics, or to see related data from the other tools you use – such as ServiceNow, Dynatrace, PagerDuty, or Pingdom for example.  You can customize your own dashboards, publish, and share them with individuals or on intranet pages. 
 
 [SquaredUp website](https://squaredup.com/)
 
