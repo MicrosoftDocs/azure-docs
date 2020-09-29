@@ -137,7 +137,7 @@
         - name: Data processing
           href: concept-optimize-data-processing.md
     - name: Model training
-      displayName: run config, estimator, machine learning pipeline, ml pipeline, train model
+      displayName: run config, machine learning pipeline, ml pipeline, train model
       href: concept-train-machine-learning-model.md
     - name: Distributed training
       displayName: parallellization, deep learning, deep neural network, dnn
