@@ -14,7 +14,7 @@ ms.author: metan
 
 # How to store user preferences
 
-This article demonstrates how to store the user's UI settings, formally known as **user preferences**, via the [-preferences](./reference.md) and [-onPreferencesChanged](./reference.md#-onPreferencesChanged) Immersive Reader SDK options.
+This article demonstrates how to store the user's UI settings, formally known as **user preferences**, via the [-preferences](./reference.md) and [-onPreferencesChanged](./reference.md#onPreferencesChanged) Immersive Reader SDK options.
 
 When the [CookiePolicy](./reference.md#cookiepolicy-options) SDK option is set to *Enabled*, the Immersive Reader application stores the **user preferences** (text size, theme color, font, and so on) in cookies, which are local to a specific browser and device. Each time the user launches the Immersive Reader on the same browser and device, it will open with the user's preferences from their last session on that device. However, if the user opens the Immersive Reader on a different browser or device, the settings will initially be configured with the Immersive Reader's default settings, and the user will have to set their preferences again, and so on for each device they use. The `-preferences` and `-onPreferencesChanged` Immersive Reader SDK options provide a way for applications to roam a user's preferences across various browsers and devices, so that the user has a consistent experience wherever they use the application.
 
