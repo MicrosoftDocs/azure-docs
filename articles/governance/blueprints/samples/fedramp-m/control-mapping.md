@@ -45,18 +45,18 @@ appropriate action to ensure account management requirements are met.
 
 ## AC-2 (7) Account Management | Role-Based Schemes
 
-Azure implements [Azure role-based access control (Azure RBAC)](../../../../role-based-access-control/overview.md)
-to help you manage who has access to resources in Azure. Using the Azure portal, you can
+[Azure role-based access control (Azure RBAC)](../../../../role-based-access-control/overview.md)
+helps you manage who has access to resources in Azure. Using the Azure portal, you can
 review who has access to Azure resources and their permissions. This blueprint also assigns [Azure Policy](../../../policy/overview.md)
 definitions to audit use of Azure Active Directory authentication for SQL Servers and Service
 Fabric. Using Azure Active Directory authentication enables simplified permission management and
 centralized identity management of database users and other Microsoft services. Additionally, this 
-blueprint assigns an Azure Policy definition to audit the use of custom RBAC rules. Understanding 
-where custom RBAC rules are implement can help you verify need and proper implementation, as custom 
-RBAC rules are error prone.
+blueprint assigns an Azure Policy definition to audit the use of custom Azure RBAC rules. Understanding 
+where custom Azure RBAC rules are implement can help you verify need and proper implementation, as custom 
+Azure RBAC rules are error prone.
 
 - An Azure Active Directory administrator should be provisioned for SQL servers
-- Audit usage of custom RBAC rules
+- Audit usage of custom Azure RBAC rules
 - Service Fabric clusters should only use Azure Active Directory for client authentication
 
 ## AC-2 (12) Account Management | Account Monitoring / Atypical Usage

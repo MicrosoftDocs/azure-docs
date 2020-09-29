@@ -76,7 +76,7 @@ To delete a management group, the following requirements must be met:
 1. You need write permissions on the management group ("Owner", "Contributor", or "Management Group
    Contributor"). To see what permissions you have, select the management group and then select
    **IAM**. To learn more on Azure roles, see  
-   [Manage access and permissions with RBAC](../../role-based-access-control/overview.md).
+   [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md).
 
 ### Delete in the portal
 
@@ -243,7 +243,7 @@ group where you're a contributor.
 
 To see what permissions you have in the Azure portal, select the management group and then select
 **IAM**. To learn more on Azure roles, see
-[Manage access and permissions with RBAC](../../role-based-access-control/overview.md).
+[Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md).
 
 ## Move subscriptions 
 

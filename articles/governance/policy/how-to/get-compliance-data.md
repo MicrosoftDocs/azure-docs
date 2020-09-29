@@ -25,8 +25,8 @@ updated and the frequency and events that trigger an evaluation cycle.
 > [!WARNING]
 > If compliance state is being reported as **Not registered**, verify that the
 > **Microsoft.PolicyInsights** Resource Provider is registered and that the user has the appropriate
-> role-based access control (RBAC) permissions as described in
-> [RBAC in Azure Policy](../overview.md#rbac-permissions-in-azure-policy).
+> Azure role-based access control (Azure RBAC) permissions as described in
+> [Azure RBAC in Azure Policy](../overview.md#rbac-permissions-in-azure-policy).
 
 ## Evaluation triggers
 

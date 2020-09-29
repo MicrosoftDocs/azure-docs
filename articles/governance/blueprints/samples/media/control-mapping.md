@@ -56,7 +56,7 @@ built-in policy initiative.
 
 ### AC-1-21 - Separation of duties must be enforced through appropriate assignment of role.
 
-- [Preview\]: Role-Based Access Control (RBAC) should be used on Kubernetes Services
+- [Preview\]: Azure role-based access control (Azure RBAC) should be used on Kubernetes Services
 
 ### AC-1.40- Ensure that systems are not connecting trusted network and untrusted networks at the same time.
 

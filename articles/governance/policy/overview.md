@@ -83,23 +83,23 @@ on Channel 9.
 
 ## Getting started
 
-### Azure Policy and RBAC
+### Azure Policy and Azure RBAC
 
-There are a few key differences between Azure Policy and role-based access control (RBAC). Azure
+There are a few key differences between Azure Policy and Azure role-based access control (Azure RBAC). Azure
 Policy evaluates state by examining properties on resources that are represented in Resource
 Manager and properties of some Resource Providers. Azure Policy doesn't restrict actions (also
 called _operations_). Azure Policy ensures that resource state is compliant to your business rules
 without concern for who made the change or who has permission to make a change.
 
-RBAC focuses on managing user
+Azure RBAC focuses on managing user
 [actions](../../role-based-access-control/resource-provider-operations.md) at different scopes. If
-control of an action is required, then RBAC is the correct tool to use. Even if an individual has
+control of an action is required, then Azure RBAC is the correct tool to use. Even if an individual has
 access to perform an action, if the result is a non-compliant resource, Azure Policy still blocks
 the create or update.
 
-The combination of RBAC and Azure Policy provide full scope control in Azure.
+The combination of Azure RBAC and Azure Policy provide full scope control in Azure.
 
-### RBAC Permissions in Azure Policy
+### Azure RBAC Permissions in Azure Policy
 
 Azure Policy has several permissions, known as operations, in two Resource Providers:
 
