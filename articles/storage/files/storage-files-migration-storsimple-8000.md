@@ -166,7 +166,7 @@ There are several replication settings available. Learn more about the different
 
 Only choose from either of these two:
 * *Locally-redundant storage (LRS)*
-* *Zone-redundant (ZRS)* - which is not available in all Azure regions.
+* *Zone-redundant storage (ZRS)* - which is not available in all Azure regions.
 
 > [!IMPORTANT]
 > Only LRS and ZRS redundancy types are compatible with the the large, 100TiB-capacity Azure file shares.
@@ -503,7 +503,7 @@ Once you are satisfied and have observed your AFS deployment for at least a few 
 Your migration is complete.
 
 > [!NOTE]
-> Still having questions or encountered any issues?
+> Still having questions or encountered any issues?</br>
 > We are here to help: AzureFilesMigration@microsoft .com
 
 
