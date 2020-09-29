@@ -2,7 +2,7 @@
 title: Encryption-at-rest with a customer-managed key
 description: Learn about encryption-at-rest of your Azure container registry, and how to encrypt your Premium registry with a customer-managed key stored in Azure Key Vault
 ms.topic: article
-ms.date: 08/26/2020
+ms.date: 09/29/2020
 ms.custom:
 ---
 
@@ -79,7 +79,7 @@ identityPrincipalID=$(az identity show --resource-group <resource-group-name> --
 
 Create a key vault with [az keyvault create][az-keyvault-create] to store a customer-managed key for registry encryption.
 
-To prevent data loss caused by accidental key or key vault deletions, you must enable the following settings: **Soft delete** and **Purge protection**. The following example includes parameters for these settings:
+To prevent data loss caused by accidental key or key vault deletions, enable the following settings: **Soft delete** and **Purge protection**. The following example includes parameters for these settings:
 
 ```azurecli
 az keyvault create --name <key-vault-name> \
@@ -88,7 +88,16 @@ az keyvault create --name <key-vault-name> \
   --enable-purge-protection
 ```
 
-### Add key vault access policy
+> [!NOTE]
+> As of Azure CLI version 2.2, `az keyvault create` enables soft delete by default.
+
+For use in later steps, get the resource Id of the key vault:
+
+```azurecli
+keyvaultID=$(az keyvault show --resource-group <resource-group-name> --name <key-vault-name> --query 'id' --output tsv)
+```
+
+### Enable key vault access
 
 Configure a policy for the key vault so that the identity can access it. In the following [az keyvault set-policy][az-keyvault-set-policy] command, you pass the principal ID of the managed identity that you created, stored previously in an environment variable. Set key permissions to **get**, **unwrapKey**, and **wrapKey**.  
 
@@ -98,6 +107,14 @@ az keyvault set-policy \
   --name <key-vault-name> \
   --object-id $identityPrincipalID \
   --key-permissions get unwrapKey wrapKey
+```
+
+Alternatively, use [Azure RBAC for Key Vault](../key-vault/general/rbac-guide.md) (preview) to assign permissions to the identity to access the key vault. For example, assign the Key Vault Crypto Service Encryption role to the identity using the [az role assignment create](/cli/azure/az/role/assigment#az-role-assignment-create) command:
+
+```azurecli 
+az role assignment create --assignee $identityPrincipalID \
+  --role "Key Vault Crypto Service Encryption (preview)" \
+  --scope $keyvaultID
 ```
 
 ### Create key and get key ID
@@ -194,7 +211,7 @@ When creating a key vault for a customer-managed key, in the **Basics** tab, ena
 
 ![Create key vault in the Azure portal](./media/container-registry-customer-managed-keys/create-key-vault.png)
 
-### Add key vault access policy
+### Enable key vault access
 
 Configure a policy for the key vault so that the identity can access it.
 
@@ -205,6 +222,15 @@ Configure a policy for the key vault so that the identity can access it.
 1. Select **Add**, then select **Save**.
 
 ![Create key vault access policy](./media/container-registry-customer-managed-keys/add-key-vault-access-policy.png)
+
+ Alternatively, use [Azure RBAC for Key Vault](../key-vault/general/rbac-guide.md) (preview) to assign permissions to the identity to access the key vault. For example, assign the Key Vault Crypto Service Encryption role to the identity.
+
+1. Navigate to your key vault.
+1. Select **Access control (IAM)** > **+Add** > **Add role assignment**.
+1. In the **Add role assignment** window:
+    1. Select **Key Vault Cryto Service Encryption (preview)** role. 
+    1. Assign access to **User assigned managed identity**.
+    1. Select the select the resource name of your user-assigned managed identity, and select **Save
 
 ### Create key
 
@@ -376,7 +402,7 @@ Rotate a customer-managed key used for registry encryption according to your com
 When rotating a key, typically you specify the same identity used when creating the registry. Optionally, configure a new user-assigned identity for key access, or enable and specify the registry's system-assigned identity.
 
 > [!NOTE]
-> Ensure that the required [key vault access policy](#add-key-vault-access-policy) is set for the identity you configure for key access.
+> Ensure that the required [key vault access](#enable-key-vault-access) is set for the identity you configure for key access.
 
 ### Azure CLI
 
@@ -427,7 +453,7 @@ For example, to generate and configure a new key version:
 
 ## Revoke key
 
-Revoke the customer-managed encryption key by changing the access policy on the key vault or by deleting the key. For example, use the [az keyvault delete-policy][az-keyvault-delete-policy] command to change the access policy of the managed identity used by your registry:
+Revoke the customer-managed encryption key by changing the access policy or permissions on the key vault or by deleting the key. For example, use the [az keyvault delete-policy][az-keyvault-delete-policy] command to change the access policy of the managed identity used by your registry:
 
 ```azurecli
 az keyvault delete-policy \
