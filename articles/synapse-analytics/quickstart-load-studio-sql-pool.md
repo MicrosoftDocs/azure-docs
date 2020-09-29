@@ -4,14 +4,14 @@ description: Use the Synapse Studio to bulk load data in Synapse SQL
 services: synapse-analytics
 author: kevinvngo
 ms.service: synapse-analytics
-ms.topic: overview
+ms.topic: quickstart
 ms.subservice: sql
 ms.date: 05/06/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ---
 
-# Bulk loading with Synapse SQL
+# Quickstart: Bulk loading with Synapse SQL
 
 Loading data has never been easier when using the Bulk Load wizard in the Synapse Studio. This wizard will guide you through creating a T-SQL script with the [COPY statement](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) to bulk load data. 
 

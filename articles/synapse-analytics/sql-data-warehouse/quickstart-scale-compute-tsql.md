@@ -1,5 +1,5 @@
 ---
-title: Scale compute in Azure Synapse Analytics - T-SQL
+title: 'Quickstart: Scale compute in Azure Synapse Analytics - T-SQL'
 description: Scale compute in Azure Synapse Analytics using T-SQL and SQL Server Management Studio (SSMS). Scale out compute for better performance, or scale back compute to save costs.
 services: synapse-analytics
 author: Antvgski

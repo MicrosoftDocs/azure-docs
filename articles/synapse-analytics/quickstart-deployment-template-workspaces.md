@@ -1,5 +1,5 @@
 ---
-title: Create an Azure Synapse workspace Azure Resource Manager template
+title: 'Quickstart: Create an Azure Synapse workspace Azure Resource Manager template'
 description: Learn how to create a Synapse workspace by using Azure Resource Manager template.
 services: azure-resource-manager
 author: julieMSFT
