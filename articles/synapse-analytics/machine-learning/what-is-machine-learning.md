@@ -49,7 +49,7 @@ Depending on where the data is stored, Synapse offers a set of different tools t
 
 * [Apache Spark for Azure Synapse](../spark/apache-spark-overview.md) offers capabilities to transform, prepare and explore your data at scale. These spark pools offer tools like PySpark/Python, Scala, and .NET for data processing at scale. Using powerful visualization libraries, the data exploration experience can be enhanced to help understand the data better. [Learn more about how to explore and visualize data in Synapse using Spark](../get-started-analyze-spark.md).
 
-* [Synapse SQL serverless pools](../sql/on-demand-workspace-overview) offer a way to explore data using TSQL directly over the data lake. Synapse SQL serverless pools also offer some built-in visualizations in Synapse Studio. [Learn more about how to explore data with Synapse SQL serverless pools](../get-started-analyze-sql-on-demand).
+* [Synapse SQL serverless pools](../sql/on-demand-workspace-overview.md) offer a way to explore data using TSQL directly over the data lake. Synapse SQL serverless pools also offer some built-in visualizations in Synapse Studio. [Learn more about how to explore data with Synapse SQL serverless pools](../get-started-analyze-sql-on-demand.md).
 
 ### Modeling
 
