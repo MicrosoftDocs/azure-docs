@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/23/2020
+ms.date: 09/29/2020
 ms.author: jeedes
 
 ---
@@ -70,7 +70,16 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, the application is pre-configured and the necessary URLs are already pre-populated with Azure. The user needs to save the configuration by clicking the **Save** button.
+1. On the **Basic SAML Configuration** section, enter the values for the following fields:
+
+    a. In the **Identifier** text box, type a URL using the following pattern:
+    `https://rpt.orgvitality.com/<COMPANY_NAME>/`
+
+    b. In the **Reply URL** text box, type a URL using the following pattern:
+    `https://rpt.orgvitality.com/<COMPANY_NAME>Auth/default.aspx`
+
+    > [!NOTE]
+    > These values are not real. Update these values with the actual Identifier and Reply URL. Contact [OrgVitality SSO support team](https://orgvitality.com/contact-us/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. Your OrgVitality SSO application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, where as **nameidentifier** is mapped with **user.userprincipalname**. OrgVitality SSO application expects **nameidentifier** to be mapped with **user.employeeid**, so you need to edit the attribute mapping by clicking on **Edit** icon and change the attribute mapping.
 
@@ -109,11 +118,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure OrgVitality SSO SSO
 
-To configure single sign-on on **OrgVitality SSO** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [OrgVitality SSO support team](mailto:nlerner@orgvitality.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **OrgVitality SSO** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [OrgVitality SSO support team](https://orgvitality.com/contact-us/). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create OrgVitality SSO test user
 
-In this section, you create a user called Britta Simon in OrgVitality SSO. Work with [OrgVitality SSO support team](mailto:nlerner@orgvitality.com) to add the users in the OrgVitality SSO platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in OrgVitality SSO. Work with [OrgVitality SSO support team](https://orgvitality.com/contact-us/) to add the users in the OrgVitality SSO platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 
@@ -126,5 +135,3 @@ In this section, you test your Azure AD single sign-on configuration with follow
 ## Next steps
 
 Once you configure OrgVitality SSO you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
