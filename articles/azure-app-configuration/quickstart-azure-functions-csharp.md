@@ -6,7 +6,7 @@ author: lisaguthrie
 ms.service: azure-app-configuration
 ms.custom: devx-track-csharp
 ms.topic: quickstart
-ms.date: 28/9/2020
+ms.date: 09/28/2020
 ms.author: lcozzens
 
 #Customer intent: As an Azure Functions developer, I want to manage all my app settings in one place using Azure App Configuration.
