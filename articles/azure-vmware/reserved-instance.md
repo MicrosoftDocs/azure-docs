@@ -16,7 +16,7 @@ Reserved instances are available with some exceptions.
 
 -   **Clouds** - Reservations are available only in the regions listed on the [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-vmware) page.
 
--   **Insufficient quota** - A reservation that is scoped to a single subscription must have hosts quota available in the subscription for the new reserved instance. You can [create quota increase request](enable-azure-vmware-solution.md) to resolve this issue.
+-   **Insufficient quota** - A reservation that is scoped to a single/shared subscription must have hosts quota available in the subscription for the new reserved instance. You can [create quota increase request](enable-azure-vmware-solution.md) to resolve this issue.
 
 -   **Offer Eligibility**- You'll need an [Azure Enterprise Agreement (EA)](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-agreements) with Microsoft.
 
@@ -57,7 +57,7 @@ To buy an instance:
 
 ## Usage data and reservation utilization
 
-Your usage data has an effective price of zero for the usage that gets a reservation discount. You can see which VM instance received the reservation discount for each reservation.
+Your usage data has an effective price of zero for the usage that gets a reservation discount. You can see which Azure VMware Solution instance received the reservation discount for each reservation.
 
 For more information about how reservation discounts appear in usage data, and you are an EA customer, see [Understand Azure reservation usage for your Enterprise enrollment](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md). If you have an individual subscription, see [Understand Azure reservation usage for your Pay-As-You-Go subscription](../cost-management-billing/reservations/understand-reserved-instance-usage.md).
 
@@ -71,7 +71,7 @@ You can make the following types of changes to a reservation after purchase:
 
 -   Ownership
 
-You can also split a reservation into smaller chunks and merge already split reservations. None of the changes cause a new commercial transaction or change the end date of the reservation.
+You can also split a reservation into smaller chunks or merge reservations. None of the changes cause a new commercial transaction or change the end date of the reservation.
 
 >[!NOTE]
 >Once you've purchased your reservation, you will not be able to make the following types of changes, directly:
