@@ -1,7 +1,7 @@
 ---
 title: Learn Azure Policy for Kubernetes
 description: Learn how Azure Policy uses Rego and Open Policy Agent to manage clusters running Kubernetes in Azure or on-premises.
-ms.date: 09/22/2020
+ms.date: 09/29/2020
 ms.topic: conceptual
 ---
 # Understand Azure Policy for Kubernetes clusters
@@ -65,7 +65,8 @@ The following general limitations apply to the Azure Policy Add-on for Kubernete
   Add-on.
 - [Reasons for non-compliance](../how-to/determine-non-compliance.md#compliance-reasons) aren't
   available for the `Microsoft.Kubernetes.Data`
-  [Resource Provider mode](./definition-structure.md#resource-provider-modes)
+  [Resource Provider mode](./definition-structure.md#resource-provider-modes). Use
+  [Component details](../how-to/determine-non-compliance.md#component-details-for-resource-provider-modes).
 
 The following limitations apply only to the Azure Policy Add-on for AKS:
 
@@ -559,7 +560,7 @@ add-on reports the results back to Azure Policy for inclusion in
 results for active policy assignments are returned during the audit cycle. Audit results can also be
 seen as [violations](https://github.com/open-policy-agent/gatekeeper#audit) listed in the status
 field of the failed constraint. For details on _Non-compliant_ resources, see
-[Compliance details for Resource Provider modes](../how-to/determine-non-compliance.md#compliance-details-for-resource-provider-modes).
+[Component details for Resource Provider modes](../how-to/determine-non-compliance.md#component-details-for-resource-provider-modes).
 
 > [!NOTE]
 > Each compliance report in Azure Policy for your Kubernetes clusters include all violations within
