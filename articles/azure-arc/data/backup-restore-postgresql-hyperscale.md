@@ -18,6 +18,9 @@ To take a backup and restore it, you need to make sure that a backup storage cla
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
+> [!CAUTION]
+> Preview does not support backup/restore for the version 11 of the Postgres engine. It only supports backup/restore for Postgres version 12.
+
 ## Verify configuration
 
 First, verify if your existing server group has been configured to use backup storage class.
@@ -46,7 +49,8 @@ Look at the storage section of the output:
 ```
 If you see  a section "backups", it means your server group has been configured to use a backup storage class and is ready for you to take backups and do restores. If you do not see a section "backups", you need to delete and recreate your server group to configure backup storage class. At this point, it is not yet possible to configure a backup storage class after the server group has been created.
 
-If your server group is already configured to use a backup storage class, skip Step 2 and go directly to Step 3.
+>[!IMPORTANT]
+>If your server group is already configured to use a backup storage class, skip the next step and go directly to step "Take manual full backup".
 
 ## Create a server group 
 
@@ -66,7 +70,7 @@ kubectl get sc
 azdata arc postgres server create -n <name> --workers 2 --storage-class-backups <storage class name> [--storage-class-data <storage class name>] [--storage-class-logs <storage class name>]
 ```
 
-For example if you have deployed a simple environment based on kubeadm:
+For example if you have created a simple environment based on kubeadm:
 ```console
 azdata arc postgres server create -n postgres01 --workers 2 --storage-class-backups local-storage
 ```
@@ -160,9 +164,51 @@ When the restore operation is complete, it will return an output like this to th
 > - Restore a server group under a different name or on a different server group
 > - Show the progress of a restore operation
 
-## Deleting backups
-Backups retention cannot be set in Preview.
-Backups cannot be deleted in Preview. If you are blocked on reclaiming space on the storage you are using, reach out to us.
+## Delete backups
+Backup retention cannot be set in Preview. However you can manually delete backups that you do not need.
+The general command to delete backups is:
+```console
+azdata arc postgres backup delete  [--server-name, -sn] {[--name, -n], -id}
+```
+where:
+- `--server-name` is the name of the server group from which the user wants to delete a backup
+- `--name` is the name of the backup to delete
+- `-id`is the ID of the backup to delete
+
+> [!NOTE]
+> `--name` and `-id` are mutually exclusive.
+
+You can retrieve the name and the ID of your backups by running the list backup command as explained in the previous paragraph.
+
+For example, consider you have the following backups listed:
+```console
+azdata arc postgres backup list -sn postgres01
+ID                                Name                    State
+--------------------------------  ----------------------  -------
+5b0481dfc1c94b4cac79dd56a1bb21f4  MyBackup091720200110am  Done
+0cf39f1e92344e6db4cfa285d36c7b14  MyBackup091720200111am  Done
+```
+and you want to delete the first of them, you would run the following command:
+```console
+azdata arc postgres backup delete -sn postgres01 -n MyBackup091720200110am
+{
+  "ID": "5b0481dfc1c94b4cac79dd56a1bb21f4",
+  "name": "MyBackup091720200110am",
+  "state": "Done"
+}
+```
+If you were to list the backups at that point, you would get the following output:
+```console
+azdata arc postgres backup list -sn postgres01
+ID                                Name                    State
+--------------------------------  ----------------------  -------
+0cf39f1e92344e6db4cfa285d36c7b14  MyBackup091720200111am  Done
+```
+
+For more details about the delete command, run:
+```console
+azdata arc postgres backup delete --help
+```
 
 ## Next steps
 - Read about [scaling out (adding worker nodes)](scale-out-postgresql-hyperscale-server-group.md) your server group

@@ -1,6 +1,6 @@
 --- 
-title: List the Azure Arc enabled PostgreSQL Hyperscale server groups deployed in an Azure Arc Data Controller
-description: List the Azure Arc enabled PostgreSQL Hyperscale server groups deployed in an Azure Arc Data Controller
+title: List the Azure Arc enabled PostgreSQL Hyperscale server groups created in an Azure Arc Data Controller
+description: List the Azure Arc enabled PostgreSQL Hyperscale server groups created in an Azure Arc Data Controller
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -11,9 +11,9 @@ ms.date: 09/22/2020
 ms.topic: how-to
 ---
 
-# List the Azure Arc enabled PostgreSQL Hyperscale server groups deployed in an Azure Arc Data Controller
+# List the Azure Arc enabled PostgreSQL Hyperscale server groups created in an Azure Arc Data Controller
 
-This article explains how you can retrieve the list of server groups deployed in your Arc Data Controller.
+This article explains how you can retrieve the list of server groups created in your Arc Data Controller.
 
 To retrieve this list, use either of the following methods once you are connected to the Arc Data Controller:
 

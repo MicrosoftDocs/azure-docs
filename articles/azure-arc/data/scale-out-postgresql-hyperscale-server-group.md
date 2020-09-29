@@ -26,10 +26,10 @@ If you are already familiar with the scaling model of Azure Arc enabled PostgreS
 - [Design a multi-tenant database](../../postgresql/tutorial-design-database-hyperscale-multi-tenant.md)*
 - [Design a real-time analytics dashboard](../../postgresql/tutorial-design-database-hyperscale-realtime.md)*
 
-> \* In the documents above, skip the sections **Sign in to the Azure portal**, & **Create an Azure Database for Postgres - Hyperscale (Citus)**. Implement the remaining steps in your Azure Arc deployment. Those sections are specific to the Azure Database for Postgres Hyperscale (Citus) offered as a PaaS service in the Azure cloud but the other parts of the documents are directly applicable to your Azure Arc enabled Postgres Hyperscale.
+> \* In the documents above, skip the sections **Sign in to the Azure portal**, & **Create an Azure Database for PostgreSQL - Hyperscale (Citus)**. Implement the remaining steps in your Azure Arc deployment. Those sections are specific to the Azure Database for PostgreSQL Hyperscale (Citus) offered as a PaaS service in the Azure cloud but the other parts of the documents are directly applicable to your Azure Arc enabled PostgreSQL Hyperscale.
 
 ## Scenario
-This scenario refers to the PostgreSQL Hyperscale server group that was deployed as an example in the [Create an Azure Arc enabled PostgreSQL Hyperscale server group](create-postgresql-hyperscale-server-group.md) documentation.
+This scenario refers to the PostgreSQL Hyperscale server group that was created as an example in the [Create an Azure Arc enabled PostgreSQL Hyperscale server group](create-postgresql-hyperscale-server-group.md) documentation.
 
 ### Load test data
 The scenario uses a sample of publicly available GitHub data, available from the [Citus Data website](https://www.citusdata.com/) (Citus Data is part of Microsoft).
@@ -40,21 +40,30 @@ The scenario uses a sample of publicly available GitHub data, available from the
 Connect to your Azure Arc enabled PostgreSQL Hyperscale server group by first getting the connection information:
 The general format of this command is
 ```console
-azdata arc postgres server endpoint list -n <server name>
+azdata arc postgres endpoint list -n <server name>
 ```
 For example:
 ```console
-azdata arc postgres server endpoint list -n postgres01
+azdata arc postgres endpoint list -n postgres01
 ```
 
 Example output:
 
 ```console
-Description           Endpoint
---------------------  ----------------------------------------------------------------------------------------------------------------------------
-PostgreSQL Instance   postgresql://postgres:<replace with password>@10.240.0.6:31787
-Log Search Dashboard  https://12.23.45.678:30777/kibana/app/kibana#/discover?_a=(query:(language:kuery,query:'kubernetes_pod_name:"postgres01"'))
-Metrics Dashboard     https://12.23.45.678:30777/grafana/d/postgres-metrics?var-Namespace=arc&var-Name=postgres01
+[
+  {
+    "Description": "PostgreSQL Instance",
+    "Endpoint": "postgresql://postgres:<replace with password>@12.345.123.456:1234"
+  },
+  {
+    "Description": "Log Search Dashboard",
+    "Endpoint": "https://12.345.123.456:12345/kibana/app/kibana#/discover?_a=(query:(language:kuery,query:'custom_resource_name:\"postgres01\"'))"
+  },
+  {
+    "Description": "Metrics Dashboard",
+    "Endpoint": "https://12.345.123.456:12345/grafana/d/postgres-metrics?var-Namespace=arc3&var-Name=postgres01"
+  }
+]
 ```
 
 ##### Connect with the client tool of your choice.
@@ -138,7 +147,11 @@ The general format of the scale-out command is:
 azdata arc postgres server edit -n <server group name> -w <target number of worker nodes>
 ```
 
-For example, increase the number of worker nodes from 2 to 4, by running the following command:
+> [!CAUTION]
+> The preview release does not support scale back in. For example it is not yet possible to reduce the number of worker nodes. If you need to do so, you need to extract/backup the data, drop the server group, create a new server group with less worker nodes and then import the data.
+
+In this example, we increase the number of worker nodes from 2 to 4, by running the following command:
+
 ```console
 azdata arc postgres server edit -n postgres01 -w 4
 ```
@@ -165,7 +178,7 @@ Run the command:
 azdata arc postgres server list
 ```
 
-It returns the list of server groups deployed in your namespace and indicates their number of worker nodes. For example:
+It returns the list of server groups created in your namespace and indicates their number of worker nodes. For example:
 ```console
 Name        State    Workers
 ----------  -------  ---------
@@ -178,12 +191,13 @@ Run the command:
 kubectl get postgresql-12
 ```
 
-It returns the list of server groups deployed in your namespace and indicates their number of worker nodes. For example:
+It returns the list of server groups created in your namespace and indicates their number of worker nodes. For example:
 ```console
 NAME         STATE   READY-PODS   EXTERNAL-ENDPOINT   AGE
 postgres01   Ready   4/4          10.0.0.4:31066      4d20h
 ```
-> **Note:** If you deployed a server group of the version 11 PostgreSQL instead of 12, run the following command instead: _kubectl get postgresql-11_
+> [!NOTE]
+> If you created a server group of the version 11 PostgreSQL instead of 12, run the following command instead: _kubectl get postgresql-11_
 
 #### With a SQL query:
 Connect to your server group with the client tool of your choice and run the following query:
@@ -204,7 +218,7 @@ SELECT * FROM pg_dist_node;
 
 ## Return to the scenario
 
-If you would like to compare the execution time of the select count query against the samepl data set, use the same count query. It can be used across the four worker nodes, without any changes in the SQL statement.
+If you would like to compare the execution time of the select count query against the sample data set, use the same count query. It can be used across the four worker nodes, without any changes in the SQL statement.
 
 ```sql
 SELECT COUNT(*) FROM github_events;
@@ -217,7 +231,6 @@ Note the execution time.
 >* [High performance HTAP with Azure PostgreSQL Hyperscale (Citus)](https://www.youtube.com/watch?v=W_3e07nGFxY)
 >* [Building HTAP applications with Python & Azure PostgreSQL Hyperscale (Citus)](https://www.youtube.com/watch?v=YDT8_riLLs0)
 
-> The preview release does not support scale back in. For example it is not yet possible to reduce the number of worker nodes. If you need to do so, you need to extract/backup the data, drop the server group, create a new server group with less worker nodes and then import the data.
 
 ## Next steps
 
@@ -232,7 +245,7 @@ Note the execution time.
     * [Design a multi-tenant database](../../postgresql/tutorial-design-database-hyperscale-multi-tenant.md)*
     * [Design a real-time analytics dashboard](../../postgresql/tutorial-design-database-hyperscale-realtime.md)*
 
- > \* In the documents above, skip the sections **Sign in to the Azure portal**, & **Create an Azure Database for Postgres - Hyperscale (Citus)**. Implement the remaining steps in your Azure Arc deployment. Those sections are specific to the Azure Database for Postgres Hyperscale (Citus) offered as a PaaS service in the Azure cloud but the other parts of the documents are directly applicable to your Azure Arc enabled Postgres Hyperscale.
+ > \* In the documents above, skip the sections **Sign in to the Azure portal**, & **Create an Azure Database for PostgreSQL - Hyperscale (Citus)**. Implement the remaining steps in your Azure Arc deployment. Those sections are specific to the Azure Database for PostgreSQL Hyperscale (Citus) offered as a PaaS service in the Azure cloud but the other parts of the documents are directly applicable to your Azure Arc enabled PostgreSQL Hyperscale.
 
 - [Storage configuration and Kubernetes storage concepts](storage-configuration.md)
 - [Expanding Persistent volume claims](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#expanding-persistent-volumes-claims)

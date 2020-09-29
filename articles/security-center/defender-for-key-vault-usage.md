@@ -3,8 +3,8 @@ title: How to respond to Azure Defender for Key Vault alerts
 description: Learn about the steps necessary for responding to alerts from Azure Defender for Key Vault.
 author: memildin
 ms.author: memildin
-ms.date: 9/12/2020
-ms.topic: conceptual
+ms.date: 9/22/2020
+ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
 

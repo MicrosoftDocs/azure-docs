@@ -5,7 +5,7 @@ services: security-center
 author: memildin
 manager: rkarlin
 ms.service: security-center
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/12/2020
 ms.author: memildin
 ---
@@ -91,11 +91,15 @@ Azure Security Center includes a bundle of recommendations that are available wh
     1. Select **Save**.
 
 
-1. To enforce any of the recommendations, set it **Deny** in Security Center's Security Policy **Parameters** tab:
+1. To enforce any of the recommendations, 
 
-    :::image type="content" source="./media/defender-for-kubernetes-usage/enforce-workload-protection-example.png" alt-text="Deny option for Azure Policy parameter":::
+    1. Open the recommendation details page and select **Deny**:
 
-    This will deny any non-compliant request to your AKS clusters
+        :::image type="content" source="./media/defender-for-kubernetes-usage/enforce-workload-protection-example.png" alt-text="Deny option for Azure Policy parameter":::
+
+        This will open the pane where you set the scope. 
+
+    1. When you've set the scope, select **Change to deny**.
 
 1. To see which recommendations apply to your clusters:
 

@@ -20,9 +20,9 @@ This document walks you through the steps for installing the Azure Data CLI (azd
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## Tools for deploying and managing Azure Arc enabled data services 
+## Tools for creating and managing Azure Arc enabled data services 
 
-The following table lists common tools required for deploying and managing Azure Arc enabled data services, and how to install those tools:
+The following table lists common tools required for creating and managing Azure Arc enabled data services, and how to install those tools:
 
 | Tool | Required | Description | Installation |
 |---|---|---|---|
@@ -46,4 +46,4 @@ The following table lists common tools required for deploying and managing Azure
 
 ## Next steps
 
-[Deploy the Azure Arc data controller](create-data-controller.md)
+[Create the Azure Arc data controller](create-data-controller.md)

@@ -44,7 +44,7 @@ NAME                      TYPE           CLUSTER-IP     EXTERNAL-IP      PORT(S)
 controller-svc-external   LoadBalancer   10.0.175.137   52.154.152.24    30080:32192/TCP                               22h
 ```
 
-If you are using a LoadBalancer type, you'll want to copy the external IP address and port number 300080.  If you are using NodePort, you'll want to use the IP address of your Kubernetes API server and the port number listed under the PORT(S) column.
+If you are using a LoadBalancer type, you'll want to copy the external IP address and port number. If you are using NodePort, you'll want to use the IP address of your Kubernetes API server and the port number listed under the PORT(S) column.
 
 Now, you'll want to construct a URL to your endpoint by combining this information like so:
 
@@ -87,7 +87,7 @@ You can also open the Azure portal in context to this data controller by clickin
 
 ## View the SQL managed instance dashboards
 
-If you have deployed some SQL managed instances, you can see them listed in the Connections panel in the Azure Data Controllers expandable panel underneath the data controller that is managing them.
+If you have created some SQL managed instances, you can see them listed in the Connections panel in the Azure Data Controllers expandable panel underneath the data controller that is managing them.
 
 To view the SQL managed instance dashboard for a given instance, right-click on the instance and choose Manage.
 
@@ -103,7 +103,7 @@ If you click on the Connection Strings tab on the left, you can see a list of pr
 
 ## View the PostgreSQL Hyperscale server group dashboards
 
-If you have deployed some PostgreSQL Hyperscale server groups, you can see them listed in the Connections panel in the Azure Data Controllers expandable panel underneath the data controller that is managing them.
+If you have created some PostgreSQL Hyperscale server groups, you can see them listed in the Connections panel in the Azure Data Controllers expandable panel underneath the data controller that is managing them.
 
 To view the PostgreSQL Hyperscale server group dashboard for a given server group, right-click on the server group and choose Manage.
 
@@ -119,4 +119,4 @@ If you click on the Resource health tab on the left you can see the current high
 
 If you click on the Diagnose and solve problems tab on the left, you can launch the PostgreSQL troubleshooting notebook.
 
-If you click on the New support request tab on the left, you can launch the Azure portal in context to the server group and create an Azure support request from there.  Please keep in mind that during the private preview support is provided directly by the engineering team through Teams, GitHub, and your PM contact.
+If you click on the New support request tab on the left, you can launch the Azure portal in context to the server group and create an Azure support request from there.

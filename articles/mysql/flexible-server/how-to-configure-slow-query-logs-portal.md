@@ -1,6 +1,6 @@
 ---
 title: Configure slow query logs - Azure portal - Azure Database for MySQL - Flexible Server
-description: This article describes how to configure and access the slow logs in Azure Database for MySQL Flexible Server from the Azure portal.
+description: This article describes how to configure and access the slow query logs in Azure Database for MySQL Flexible Server from the Azure portal.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
@@ -58,7 +58,7 @@ Slow query logs are integrated with Azure Monitor diagnostic settings to allow y
 
 1. Access the slow query logs by exploring them in the data sinks you configured. It can take up to 10 minutes for the logs to appear.
 
-If you piped your audit logs to Azure Monitor Logs (Log Analytics), refer to some [sample queries](concepts-audit-logs.md#analyze-logs-in-azure-monitor-logs) you can use for analysis. 
+If you piped your logs to Azure Monitor Logs (Log Analytics), refer to some [sample queries](concepts-slow-query-logs.md#analyze-logs-in-azure-monitor-logs) you can use for analysis. 
 
 ## Next steps
 <!-- - See [Access slow query Logs in CLI](howto-configure-server-logs-in-cli.md) to learn how to download slow query logs programmatically.-->
