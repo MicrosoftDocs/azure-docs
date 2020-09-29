@@ -29,7 +29,7 @@ This article discusses high-CPU usage issues that occur on Azure Virtual Machine
 
 Aside from the I/O and network latency issues, the CPU and Memory troubleshooting require the same tools and steps as the on-premises servers do. One of the tools that Microsoft typically supports is PerfInsights (available for both Windows and Linux). PerfInsights can provide an Azure VM best practices diagnosis in a user-friendly report. PerfInsights is also a wrapper tool that can help collect Perfmon, Xperf, and Netmon data, depending on the flags that are selected within the tool.
 
-Most of your existing performance troubleshooting tools, such as Perfmon or Procmon, that are used for on-premises servers will work on Azure Windows VMs. However, PerfInsights is explicitly designed for Azure VMs to provide more insights, including Azure Best Practices, SQL Best Practices, High resolution IO latency graphs, CPU and Memory tabs, and so on.
+Most of your existing performance troubleshooting tools, such as Perfmon or Procmon, that are used for on-premises servers will work on Azure Windows VMs. However, PerfInsights is explicitly designed for Azure VMs to provide more insights, including Azure Best Practices, SQL Best Practices, high-resolution I/O latency graphs, CPU and Memory tabs, and so on.
 
 Whether it runs as User-Mode or Kernel-Mode, any thread of an active process requires CPU cycles to run the code that it's built from. Many issues are directly related to the workload. The kind of workload that exists on the server drives resource consumption, including CPU.
 
@@ -43,19 +43,19 @@ The following factors are common in a high-CPU situation:
 
 - A query change or outdated indexes. SQL Server and Oracle data tier applications also have a query plan optimization as another factor. Data changes or a lack of appropriate indexes can cause several queries to become more compute-intensive.
 
-- Azure VM-specific. There are certain processes such as RDAgent, and extension-specific processes such as Monitoring Agent, MMA agent, or Security client, that can cause high-CPU consumption. These processes have to be viewed from either a configuration or known issues perspective.
+- Azure VM-specific. There are certain processes such as RDAgent, and extension-specific processes such as Monitoring Agent, MMA agent, or Security client, that can cause high-CPU consumption. These processes must be viewed from either a configuration or known issues perspective.
 
 ## Troubleshoot the issue
 
 This article focuses on isolating the problematic process. Further analysis will be specific to the process that's driving high-CPU consumption.
 
-For example, if the process is SQL Server (sqlservr.exe), , the next steps will be to analyze which query was using the most CPU cycles in a specific time period.
+For example, if the process is SQL Server (sqlservr.exe), the next steps will be to analyze which query was using the most CPU cycles in a specific time period.
 
 ### Scope the issue
 
 Here are a few questions to ask when you troubleshoot the issue:
 
-- Is there a pattern to the issue? For example, does the high-CPU issue occur at a certain time every day, week, or month? If so, can you correlate this to a job, report, or user login?
+- Is there a pattern to the issue? For example, does the high-CPU issue occur at a certain time every day, week, or month? If so, can you correlate this issue to a job, report, or user login?
 
 - Did the high-CPU issue start after a recent code change? Did you apply an update in Windows or in an application?
 
@@ -72,7 +72,7 @@ Here are a few questions to ask when you troubleshoot the issue:
 
 Understand your workload. When you select a VM, you may underestimate the virtual CPU (vCPU) counts when you look at overall monthly hosting cost. If your workload is compute-intensive, selecting a smaller VM SKU that has one or two vCPUs may cause workload issues. Test different configurations for your workload to determine the best computing capability that's required.
 
-There are certain VM series, such as B (Burst Mode) Series, that are recommended for quality assurance (QA) and testing. Using these in the production environment limits the computing capability after the CPU credits are exhausted.
+There are certain VM series, such as B (Burst Mode) Series, that are recommended for quality assurance (QA) and testing. Using these series in the production environment limits the computing capability after the CPU credits are exhausted.
 
 For known applications such as SQL server, Oracle, RDS (Remote Desktop Services), Windows Virtual Desktop, IIS, or SharePoint, there are Azure Best Practices articles that include recommendations about which minimal configuration is best for these workloads.
 
@@ -82,11 +82,11 @@ If the issue is occurring right now, this is the best opportunity to capture the
 
 ### PerfInsights
 
-This is the recommended tool from Azure support for VM performance issues. It's designed to cover best practices and dedicated analysis tabs for CPU, Memory, and High Resolution I/O graphs. You can run it OnDemand through the Azure portal, or from within the VM. You can share the data with the Azure support team.
+PerfInsights is the recommended tool from Azure support for VM performance issues. It's designed to cover best practices and dedicated analysis tabs for CPU, Memory, and high-resolution I/O graphs. You can run it OnDemand through the Azure portal, or from within the VM. You can share the data with the Azure support team.
 
 #### Run PerfInsights
 
-PerfInsights is available for both the [Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights) and [Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux) OS. For Windows, these are the options.
+PerfInsights is available for both the [Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights) and [Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux) OS. For Windows, here are the options.
 
 #### Run and analyze reports through Azure portal
 
@@ -114,7 +114,7 @@ The numbered options in the screenshot relate to the following comments:
 
 1. For the option of **High-CPU**, select **Performance Analysis** or **Advanced**.
 
-2. When you add symptoms here, they will be added to the report. This helps you to share information with Azure Support.
+2. When you add symptoms here, they will be added to the report, which helps you to share information with Azure Support.
 
 3. Select the duration of data collection. For the High-CPU option, select at least 15 minutes or more. In Azure Portal mode, you can collect up to 15 minutes of data. For longer periods of collection, you must run the program as an executable within the VM.
 
@@ -128,7 +128,7 @@ The report is stored on one of the Storage Accounts under your subscription. It'
 
 #### Run PerfInsights from within the VM
 
-This method can be used if you intend to run PerfInsights for longer durations. The [PerfInsights article](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights#how-do-i-run-perfinsights) gives a very detailed walkthrough of the different commands and flags that are required to run PerfInsights as an executable. For the purpose of high-CPU usage, you'll need either of the following modes:
+This method can be used if you intend to run PerfInsights for longer durations. The [PerfInsights article](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights#how-do-i-run-perfinsights) gives a detailed walkthrough of the different commands and flags that are required to run PerfInsights as an executable. For the purpose of high-CPU usage, you'll need either of the following modes:
 
 - Advanced Scenario
 
@@ -152,7 +152,7 @@ After you run the report, the location of the contents depends on whether it was
 
 #### Run from within VM
 
-Your folder structure should resemble the following:
+Your folder structure should resemble the following images:
 
   ![Select output](./media/troubleshoot-high-cpu-issues-azure-windows-vm/6-select-output.png)
 
@@ -164,7 +164,7 @@ Your folder structure should resemble the following:
 
 1. For both Performance (VMslow) and Advanced, the report collects **perfmon** information for the duration of the PerfInsights run.
 
-1. The event logs shows a quick view of helpful system-level or process crash details.
+1. The event logs show a quick view of helpful system-level or process crash details.
 
 #### Where to start
 
@@ -184,7 +184,7 @@ The **Top CPU Consumers** tab has two separate sections of interest, and you can
 
   ![high-CPU usage](./media/troubleshoot-high-cpu-issues-azure-windows-vm/9-high-cpu-usage.png)
 
-The second section (equally important), is **Top Long Running CPU Consumers**. This shows both the process details and their CPU usage pattern. The list is sorted by having high average CPU consumers at the top.
+The second section (equally important), is **Top Long Running CPU Consumers**. This section shows both the process details and their CPU usage pattern. The list is sorted by having high average CPU consumers at the top.
 
   ![Tom long running CPU Consumers](./media/troubleshoot-high-cpu-issues-azure-windows-vm/10-top-long-running-cpu-consumers.png)
 
@@ -204,7 +204,7 @@ PerfInsights collects Perfmon as an extra log for VMSlow and advanced scenarios.
 
 - It can be collected for longer durations or in continuous mode by using the roll-over feature.
 
-Consider the same example that's shown in PerfInsights to see how Perfmon shows this data. The required counter categories are the following:
+Consider the same example that's shown in PerfInsights to see how Perfmon shows this data. The required counter categories are as follows:
 
 - Processor Information > %Processor Time > _Total
 
@@ -212,7 +212,7 @@ Consider the same example that's shown in PerfInsights to see how Perfmon shows 
 
 #### Where to start
 
-The output file names of Perfmon have a `.blg` extension. You can collect these independently or by using PerfInsights. For this discussion, you'll be using the Perfmon `.blg` that is included in PerfInsights data and that were collected per the previous example.
+The output file names of Perfmon have a `.blg` extension. You can collect these files independently or by using PerfInsights. For this discussion, you'll be using the Perfmon `.blg` that is included in PerfInsights data and that were collected per the previous example.
 
 There are no default user-ready reports available in Perfmon. There are different views that change the graph type, but the process filtration (or the work that's required to identify culprit processes) is manual.
 
@@ -223,7 +223,7 @@ To start, select the **Add Counters** category.
 
 1. Under **Available counters**, select the **%ProcessorTime** counter in the **Processor Information** Category.
 
-1. Select **_Total**. This gives you the statistics of all combined cores.
+1. Select **_Total**, which gives you the statistics of all combined cores.
 
 1. Select **Add**. The window shows **%ProcessorTime** under  **Added counters**.
 
@@ -233,7 +233,7 @@ After the counters are loaded, you'll see line trend charts in the collection ti
 
   ![Performance Monitor](./media/troubleshoot-high-cpu-issues-azure-windows-vm/12-performance-monitor-1.png)
 
-Every counter will have **Average**, **Minimum**, and **Maximum** values. Focus on both **Average** and **Maximum** values. This is because the average value can vary depending on the duration of the data collection. If the high-CPU activity was seen for 10 minutes while the overall collection was 40 minutes, the average values will be much lower.
+Every counter will have **Average**, **Minimum**, and **Maximum** values. Focus on both **Average** and **Maximum** values, as the average value can vary depending on the duration of the data collection. If the high-CPU activity was seen for 10 minutes while the overall collection was 40 minutes, the average values will be much lower.
 
 The previous trend graph shows that the **Total Processor** was ranging near 80 percent for approximately 15 minutes.
 
@@ -251,7 +251,7 @@ This category will load counters for all the processes running at that time.
 
 On a typical production computer, hundreds or processes can be running. Therefore, it may take a while to clear every counter that seems to have a low or flat trend graph.
 
-To accelerate this process, use the **Histogram** view, and change the view type from **Line** to **Histogram**. This will give you a bar graph. You'll find it is easier to choose the processes that experience high-CPU usage during collection time.
+To accelerate this process, use the **Histogram** view, and change the view type from **Line** to **Histogram**, which will give you a bar graph. You'll find it is easier to choose the processes that experience high-CPU usage during collection time.
 
 Because there will always be a bar for **Total**, focus on bars that are showing a high exhaustion rate. You can delete the other bars to clean the view. Now, shift back to **Line** view.
 
@@ -273,7 +273,7 @@ Azure VMs have reliable metrics that include basic information such as CPU, Netw
 
 #### Enabling Azure Monitor
 
-After you enable Azure Monitor metrics, the software installs an extension on the VM, and then starts collecting very granular metrics. This includes Perfmon counters.
+After you enable Azure Monitor metrics, the software installs an extension on the VM, and then starts collecting granular metrics, which includes Perfmon counters.
 
   ![Diagnostics storage account](./media/troubleshoot-high-cpu-issues-azure-windows-vm/17-diagnostics-storage-account.png)
 
@@ -313,8 +313,8 @@ After the Perfmon data is collected while the issue is occurring, the remaining 
 
 ## Conclusion
 
-For any performance issue, understanding your workload is key to solving the problem. The options on different VM SKUs and different disk storage options have to be evaluated by keeping the focus on production workload. The process of testing solutions on different VMs can help you make the best decision.
+For any performance issue, understanding your workload is key to solving the problem. The options on different VM SKUs and different disk storage options must be evaluated by keeping the focus on production workload. The process of testing solutions on different VMs can help you make the best decision.
 
-Because the user operations and amount of data varies, always keep a buffer in the computing, networking, and I/O capabilities of the VM. This way, any sudden change in workload doesn't have as great an effect.
+Because the user operations and amount of data varies, always keep a buffer in the computing, networking, and I/O capabilities of the VM. Now, any sudden change in workload doesn't have as great an effect.
 
 If you foresee the workload increasing soon, move to a higher SKU that has more computing power. If the workload will be compute-intensive, choose the VM SKUs wisely.
