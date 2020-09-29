@@ -4,7 +4,7 @@ description: Read about hot, cool, and archive access tiers for Azure Blob stora
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 08/27/2020
+ms.date: 09/28/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
@@ -244,6 +244,10 @@ No. Only hot and cool access tiers may be set as the default account access tier
 **In which regions are the hot, cool, and archive access tiers available in?**
 
 The hot and cool access tiers along with blob-level tiering are available in all regions. Archive storage will initially only be available in select regions. For a complete list, see [Azure products available by region](https://azure.microsoft.com/regions/services/).
+
+**Which redundancy options are supported for the hot, cool, and archive access tiers?**
+
+The hot and cool tiers support all redundancy options. The archive tier supports only LRS, GRS, and RA-GRS. ZRS, GZRS, and RA-GZRS are not supported for the archive tier.
 
 **Do the blobs in the cool access tier behave differently than the ones in the hot access tier?**
 
