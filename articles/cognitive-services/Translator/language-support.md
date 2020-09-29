@@ -65,7 +65,6 @@ Translator supports the following languages for text to text translation.
 |Japanese|	`ja`	|
 |Kannada|`kn`|
 |Kazakh|`kk`|
-|Kiswahili|	`sw`	|
 |Klingon|	`tlh-Latn`	|
 |Klingon (plqaD)|	`tlh-Piqd`	|
 |Korean	|`ko`	|
@@ -96,6 +95,7 @@ Translator supports the following languages for text to text translation.
 |Slovak|	`sk`	|
 |Slovenian|	`sl`	|
 |Spanish|	`es`	|
+|Swahili|	`sw`	|
 |Swedish|	`sv`	|
 |Tahitian|	`ty`	|
 |Tamil|	`ta`	|
@@ -146,7 +146,6 @@ Translator detects the following languages for translation and transliteration.
 |Irish | `ga`|
 |Italian|	`it`	|
 |Japanese|	`ja`	|
-|Kiswahili|	`sw`	|
 |Klingon|	`tlh-Latn`	|
 |Korean	|`ko`	|
 |Kurdish (Central)	|`ku-Arab`	|
@@ -167,6 +166,7 @@ Translator detects the following languages for translation and transliteration.
 |Slovak|	`sk`	|
 |Slovenian|	`sl`	|
 |Spanish|	`es`	|
+|Swahili|	`sw`	|
 |Swedish|	`sv`	|
 |Tahitian|	`ty`	|
 |Thai|	`th`	|
@@ -240,7 +240,6 @@ View reference documentation for the [Dictionary Lookup](reference/v3-0-dictiona
 | Indonesian      | `id`          |
 | Italian      | `it`          |
 | Japanese      | `ja`          |
-| Kiswahili      | `sw`          |
 | Klingon      | `tlh`          |
 | Korean      | `ko`          |
 | Latvian      | `lv`          |
@@ -257,6 +256,7 @@ View reference documentation for the [Dictionary Lookup](reference/v3-0-dictiona
 | Slovak     | `sk`          |
 | Slovenian      | `sl`          |
 | Spanish      | `es`          |
+| Swahili      | `sw`          |
 | Swedish      | `sv`          |
 | Tamil      | `ta`          |
 | Thai      | `th`          |
@@ -308,7 +308,6 @@ The following languages are available for customization to or from English using
 | Italian      | `it`          |
 | Japanese      | `ja`          |
 |Kannada|`kn`|
-| Kiswahili|	`sw`	|
 | Korean      | `ko`          |
 | Latvian      | `lv`          |
 | Lithuanian      | `lt`          |
@@ -329,6 +328,7 @@ The following languages are available for customization to or from English using
 | Slovak     | `sk`          |
 | Slovenian      | `sl`          |
 | Spanish      | `es`          |
+| Swahili|	`sw`	|
 | Swedish      | `sv`          |
 |Tahitian|	`ty`	|
 | Thai      | `th`          |
