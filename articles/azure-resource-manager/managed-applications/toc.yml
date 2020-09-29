@@ -116,6 +116,8 @@
         href: microsoft-common-passwordbox.md
       - name: Section
         href: microsoft-common-section.md
+      - name: ServicePrincipalSelector
+        href: microsoft-common-serviceprincipalselector.md
       - name: Slider
         href: microsoft-common-slider.md
       - name: TagsByResource
