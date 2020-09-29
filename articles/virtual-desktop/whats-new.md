@@ -20,6 +20,37 @@ Windows Virtual Desktop updates on a regular basis. This article is where you'll
 
 This article is updated monthly. Make sure to check back here often to keep up with new updates.
 
+## September 2020
+
+Here's what changed in September 2020:
+
+- We've optimized performance by reducing connection latency in the following Azure geographies:
+    - Germany.
+	- South Africa – for validation environments.
+
+To estimate the quality of user experience you can refer to the [Experience Estimator](https://azure.microsoft.com/services/virtual-desktop/assessment/)
+
+- Client Updates.
+    We released version 1.2.1364 of the Windows Desktop client for Windows Virtual Desktop. The update included:
+    - Fixed an issue where single sign-on (SSO) didn't work on Windows 7.
+    - Fixed the connection failure that happened when calling or joining a Teams call while another app has an audio stream opened in exclusive mode and when media optimization        for Teams is enabled.
+    - Fixed a failure to enumerate audio or video devices in Teams when media optimization for Teams is enabled.
+    - Added a "Need help with settings?" link to the desktop settings page.
+    - Fixed an issue with the "Subscribe" button that happened when using high-contrast dark themes.
+    
+- Microsoft Store Remote Desktop Client. Thanks to the tremendous help from our users, we've fixed two critical issues. We will continue to review feedback and implement hotfixes along the way as we broaden the phased rollout to more users worldwide.
+    
+- Improvements of adding Session Hosts to Host Pools. We have added a new feature where we allow changing VM location, image, resource group, prefix name, network config as part of the Add VM workflow in the Azure Portal.
+
+- Microsoft Endpoint Manager (MEM) Support.
+IT Pros can manage hybrid Azure Active Directory joined Windows 10 Enterprise VMs as part of Windows Virtual Desktop with Microsoft Endpoint Manager (MEM)
+Further information is available [here:](https://techcommunity.microsoft.com/t5/microsoft-endpoint-manager-blog/microsoft-endpoint-manager-announces-support-for-windows-virtual/ba-p/1681048)
+
+
+- Azure Government Cloud support.
+Windows Virtual Desktop is now generally available in the Azure US Government cloud
+
+
 ## August 2020
 
 Here's what changed in August 2020:
