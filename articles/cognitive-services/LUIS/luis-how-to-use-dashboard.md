@@ -125,11 +125,11 @@ The following chart shows a well-balanced app with almost no issues to fix.
 
 The following chart shows a poorly balanced app with many issues to fix.
 
-![The following chart shows a well-balanced app with almost no issues to fix.](./media/luis-how-to-use-dashboard/utterance-per-intent-shows-data-imbalance.png)
+![Screenshot shows Predictions per intent with several Unclear or Incorrectly predicted results.](./media/luis-how-to-use-dashboard/utterance-per-intent-shows-data-imbalance.png)
 
 Hover over each intent's bar to get information about the intent.
 
-![The following chart shows a well-balanced app with almost no issues to fix.](./media/luis-how-to-use-dashboard/utterances-per-intent-with-details-of-errors.png)
+![Screenshot shows Predictions per intent with details of Unclear or Incorrectly predicted results.](./media/luis-how-to-use-dashboard/utterances-per-intent-with-details-of-errors.png)
 
 Use the **Sort by** feature to arrange the intents by issue type so you can focus on the most problematic intents with that issue.
 

@@ -146,7 +146,7 @@ Below the output plugin, uncomment the following section by removing the `#` in 
 
 ### Probable causes
 * The proxy specified during onboarding was incorrect
-* The Azure Monitor and Azure Automation Service Endpoints are not whitelisted in your datacenter 
+* The Azure Monitor and Azure Automation Service Endpoints are not included in the approved list in your datacenter 
 
 ### Resolution
 1. Reonboard to Azure Monitor with the Log Analytics agent for Linux by using the following command with the option `-v` enabled. It allows verbose output of the agent connecting through the proxy to Azure Monitor. 
@@ -440,4 +440,3 @@ Perform the following steps to correct the issue.
     ```
 
 3. Upgrade packages by executing `sudo sh ./omsagent-*.universal.x64.sh --upgrade`.
-
