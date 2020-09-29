@@ -46,7 +46,7 @@ A [skillset](cognitive-search-defining-skillset.md) that's assembled using built
 
 + Unstructured or semi-structured documents containing content that has inherent meaning or context that is hidden in the larger document. 
 
-  Blobs in particular often contain a large body of content that is packed into a singled "field". By attaching image and natural language processing skills to an indexer, you can create new information that is extant in the raw content, but not otherwise surfaced as distinct fields. Some ready-to-use built-in cognitive skills that can help: key phrase extraction, sentiment analysis, and entity recognition (people, organizations, and locations).
+  Blobs in particular often contain a large body of content that is packed into a single "field". By attaching image and natural language processing skills to an indexer, you can create new information that is extant in the raw content, but not otherwise surfaced as distinct fields. Some ready-to-use built-in cognitive skills that can help: key phrase extraction, sentiment analysis, and entity recognition (people, organizations, and locations).
 
   Additionally, built-in skills can also be used restructure content through text split, merge, and shape operations.
 
