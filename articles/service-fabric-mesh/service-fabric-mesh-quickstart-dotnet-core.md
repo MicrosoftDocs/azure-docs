@@ -29,7 +29,7 @@ In the **Name** box, type **ServiceFabricMesh1** and in the **Location** box, se
 
 Make sure that **Create directory for solution** is checked, and click **OK** to create the Service Fabric Mesh project.
 
-![Visual studio new Service Fabric Mesh project dialog](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-new-project.png)
+![Screenshot that shows how to create a Service Fabric Mesh project.](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-new-project.png)
 
 ### Create a service
 

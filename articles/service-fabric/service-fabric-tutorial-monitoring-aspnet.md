@@ -186,7 +186,7 @@ You can click on one of the traces to view more details about it. There is usefu
 
 Additionally, you can click *Application map* on the left menu on the Overview page, or click on the **App map** icon to take you to the App Map showing your two services connected.
 
-![AI trace details](./media/service-fabric-tutorial-monitoring-aspnet/app-map-new.png)
+![Screenshot that highlights Application map in the left menu.](./media/service-fabric-tutorial-monitoring-aspnet/app-map-new.png)
 
 The App map can help you understand your application topology better, especially as you start adding multiple different services that work together. It also gives you basic data on request success rates, and can help you diagnose failed request to understand where things may have gone wrong. To learn more about using the App map, see [Application Map in Application Insights](../azure-monitor/app/app-map.md).
 
