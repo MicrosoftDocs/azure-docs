@@ -316,21 +316,21 @@ Now, add an action that sends you email when the travel time exceeds your limit.
 
    1. Under **Variables**, select **travelTime**.
 
-      ![Select "travelTime" property to use in expression](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings-4.png)
+      ![Screenshot that shows the dynamic content list with "travelTime" variable selected.](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings-4.png)
 
    1. After the property resolves inside the expression, select **OK**.
 
-      ![After "Body" property resolves, select "OK"](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings-5.png)
+      ![Screenshot that shows the dynamic content list and "OK" selected.](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings-5.png)
 
       The **Body** property now appears as shown here:
 
-      ![Resolved "Body" property in expression](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings-6.png)
+      ![Screenshot that shows the dynamic content list with the expression resolved in the email action's "Body" property.](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings-6.png)
 
 1. Save your logic app.
 
-Next, test your logic app, which now looks similar to this example:
+Next, test and run your logic app, which now looks similar to this example:
 
-![Finished example logic app workflow](./media/tutorial-build-scheduled-recurring-logic-app-workflow/check-travel-time-finished.png)
+![Screenshot that shows the finished example logic app workflow](./media/tutorial-build-scheduled-recurring-logic-app-workflow/check-travel-time-finished.png)
 
 ## Run your logic app
 
@@ -340,9 +340,12 @@ To manually start your logic app, on the designer toolbar bar, select **Run**.
 
 * If the current travel time exceeds your limit, you get an email with the current travel time and the number of minutes above your limit. Here is an example email that your logic app sends:
 
-![Example sent email that shows the travel time](./media/tutorial-build-scheduled-recurring-logic-app-workflow/received-example-email-notification.png)
+  ![Screenshot that shows an example email that reports the current travel time and the extra travel time that exceeds your specified limit.](./media/tutorial-build-scheduled-recurring-logic-app-workflow/received-example-email-notification.png)
 
-If you don't get any emails, check your email's junk folder. Your email junk filter might redirect these kinds of mails. Otherwise, if you're unsure that your logic app ran correctly, see [Troubleshoot your logic app](../logic-apps/logic-apps-diagnosing-failures.md).
+  > [!TIP]
+  > If you don't get any emails, check your email's junk folder. Your email junk filter might 
+  > redirect these kinds of mails. Otherwise, if you're unsure that your logic app ran correctly, 
+  > see [Troubleshoot your logic app](../logic-apps/logic-apps-diagnosing-failures.md).
 
 Congratulations, you've now created and run a schedule-based recurring logic app. 
 
@@ -354,19 +357,27 @@ To create other logic apps that use the **Recurrence** trigger, check out these 
 
 ## Clean up resources
 
-When you no longer need the sample logic app, delete the resource group that contains your logic app and related resources. 
+Your logic app continues running until you disable or delete the app. When you no longer need the sample logic app, delete the resource group that contains your logic app and related resources.
 
-1. On the main Azure menu, go to **Resource groups**, and select the resource group for your logic app.
+1. In the Azure portal's search box, enter the name for the resource group that you created. From the results, under **Resource Groups**, select the resource group.
 
-1. On the resource group menu, select **Overview** > **Delete resource group**. 
+   This example created the resource group named `LA-TravelTime-RG`. 
 
-   !["Overview" > "Delete resource group"](./media/tutorial-build-scheduled-recurring-logic-app-workflow/delete-resource-group.png)
+   ![Screenshot that shows the Azure search box with "la-travel-time-rg" entered and **LA-TravelTime-RG** selected.](./media/tutorial-build-scheduled-recurring-logic-app-workflow/find-resource-group.png)
 
-1. Enter the resource group name as confirmation, and select **Delete**.
+   > [!TIP]
+   > If the Azure home page shows the resource group under **Recent resources**,
+   > you can select the group from the home page.
+
+1. On the resource group menu, check that **Overview** is selected. On the **Overview** pane's toolbar, select **Delete resource group**. 
+
+   ![Screenshot that shows the resource group's "Overview" pane and on the pane's toolbar, "Delete resource group" is selected.](./media/tutorial-build-scheduled-recurring-logic-app-workflow/delete-resource-group.png)
+
+1. In the confirmation pane, enter the resource group name, and select **Delete**.
 
 ## Next steps
 
-In this tutorial, you created a logic app that checks traffic based on a specified schedule (on weekday mornings), and takes action (sends email) when the travel time exceeds a specified limit. Now, learn how to build a logic app that sends mailing list requests for approval by integrating Azure services, Microsoft services, and other SaaS apps.
+In this tutorial, you created a logic app that checks traffic based on a specified schedule (on weekday mornings), and takes action (sends an email) when the travel time exceeds a specified limit. Now, learn how to build a logic app that sends mailing list requests for approval by integrating Azure services, Microsoft services, and other Software-as-a-Service (SaaS) apps.
 
 > [!div class="nextstepaction"]
 > [Manage mailing list requests](../logic-apps/tutorial-process-mailing-list-subscriptions-workflow.md)
