@@ -105,7 +105,7 @@ Write-Host "Server name is $servername"
 
 ## Update the web config
 
-Back in the **FabrikamFiber.Web** project, update the connection string in the **web.config** file, to point to the SQL Server in the container.  Update the *Server* part of the connection string to be the server name created by the previous script. It should be something like "fab-fiber-751718376.database.windows.net".
+Back in the **FabrikamFiber.Web** project, update the connection string in the **web.config** file, to point to the SQL Server in the container.  Update the *Server* part of the connection string to be the server name created by the previous script. It should be something like "fab-fiber-751718376.database.windows.net". In the following XML, you need to update only the `connectionString` attribute; the `providerName` and `name` attributes don't need to be changed.
 
 ```xml
 <add name="FabrikamFiber-Express" connectionString="Server=<server name>,1433;Initial Catalog=call-center-db;Persist Security Info=False;User ID=ServerAdmin;Password=Password@123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" providerName="System.Data.SqlClient" />
