@@ -30,13 +30,11 @@ Azure Machine Learning has varying support across different compute targets. A t
 
 Learn more about how to [submit a training run to a compute target](how-to-set-up-training-targets.md).
 
-## <a name="deploy"></a>Deployment targets
+## <a name="deploy"></a> Compute targets for inference
 
 The following compute resources can be used to host your model deployment.
 
 [!INCLUDE [aml-compute-target-deploy](../../includes/aml-compute-target-deploy.md)]
-
-## Compute targets for inference
 
 When performing inference, Azure Machine Learning creates a Docker container that hosts the model and associated resources needed to use it. This container is then used in one of the following deployment scenarios:
 
