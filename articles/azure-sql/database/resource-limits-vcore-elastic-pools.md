@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
-ms.reviewer: carlrab, sstein
+ms.reviewer: sstein
 ms.date: 07/21/2020
 ---
 # Resource limits for elastic pools using the vCore purchasing model

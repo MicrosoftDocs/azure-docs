@@ -115,11 +115,14 @@ For servers created after October 26, 2020 (10/26/2020), you can use the newly i
 ###	10. How often does Microsoft update their certificates or what is the expiry policy?
 These certificates used by Azure Database for PostgreSQL are provided by trusted Certificate Authorities (CA). So the support of these certificates on Azure Database for PostgreSQL is tied to the support of these certificates by CA. However, as in this case, there can be unforeseen bugs in these predefined certificates, which need to be fixed at the earliest.
 
-###	11. If I am using read replicas, do I need to perform this update only on master server or the read replicas?
+###	11. If I am using read replicas, do I need to perform this update only on the primary server or the read replicas?
 Since this update is a client-side change, if the client used to read data from the replica server, you will need to apply the changes for those clients as well. 
 
 ### 12. Do we have server-side query to verify if SSL is being used?
 To verify if you are using SSL connection to connect to the server refer [SSL verification](concepts-ssl-connection-security.md#applications-that-require-certificate-verification-for-tls-connectivity).
 
-###	13. What if I have further questions?
+### 13. Is there an action needed if I already have the DigiCertGlobalRootG2 in my certificate file?
+No. There is no action needed if your certificate file already has the **DigiCertGlobalRootG2**.
+
+###	14. What if I have further questions?
 If you have questions, get answers from community experts in [Microsoft Q&A](mailto:AzureDatabaseforPostgreSQL@service.microsoft.com). If you have a support plan and you need technical help,  [contact us](mailto:AzureDatabaseforPostgreSQL@service.microsoft.com)

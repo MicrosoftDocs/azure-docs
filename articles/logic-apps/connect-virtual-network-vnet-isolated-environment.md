@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 09/10/2020
+ms.date: 09/25/2020
 ---
 
 # Connect to Azure virtual networks from Azure Logic Apps by using an integration service environment (ISE)
@@ -169,6 +169,8 @@ If you don't permit access for these dependencies, your ISE deployment fails and
 
 * [Logic Apps inbound and outbound addresses for the ISE region](../logic-apps/logic-apps-limits-and-config.md#firewall-configuration-ip-addresses-and-service-tags)
 
+* [Azure IP addresses for connectors in the ISE region, which are in this download file](https://www.microsoft.com/download/details.aspx?id=56519)
+
 * You need to enable service endpoints for Azure SQL, Storage, Service Bus, and Event Hub because you can't send traffic through a firewall to these services.
 
 <a name="create-environment"></a>
@@ -290,6 +292,21 @@ If you don't permit access for these dependencies, your ISE deployment fails and
    > connector picker on the Logic App Designer. Before you can use these ISE connectors, you have to manually 
    > [add those connectors to your ISE](../logic-apps/add-artifacts-integration-service-environment-ise.md#add-ise-connectors-environment) 
    > so that they appear in the Logic App Designer.
+
+   > [!IMPORTANT]
+   > Managed ISE connectors currently do not support [tags](../azure-resource-manager/management/tag-support.md). If you set up a policy that enforces tagging, trying to add ISE connectors  
+   > might fail with an error similar to this example: 
+   > 
+   > ```json
+   > {
+   >    "error": { 
+   >       "code": "IntergrationServiceEnvironmentManagedApiDefinitionTagsNotSupported", 
+   >       "message": "The tags are not supported in the managed API 'azureblob'."
+   >    }
+   > }
+   > ```
+   > To add ISE connectors, you have to either disable or remove your policy.
+   > 
 
 ## Next steps
 

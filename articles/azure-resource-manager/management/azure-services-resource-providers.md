@@ -93,7 +93,7 @@ This article shows how resource provider namespaces map to Azure services.
 | Microsoft.HealthcareApis | [Azure API for FHIR](../../healthcare-apis/index.yml) |
 | Microsoft.HybridCompute | [Azure Arc](../../azure-arc/index.yml) |
 | Microsoft.HybridData | [StorSimple](../../storsimple/index.yml) |
-| Microsoft.HybridNetwork  | Stack Edge support |
+| Microsoft.HybridNetwork  | [Private Edge Zones](../../networking/edge-zones-overview.md) |
 | Microsoft.ImportExport | [Azure Import/Export](../../storage/common/storage-import-export-service.md) |
 | microsoft.insights | [Azure Monitor](../../azure-monitor/index.yml) |
 | Microsoft.IoTCentral | [Azure IoT Central](../../iot-central/index.yml) |
@@ -183,4 +183,4 @@ This article shows how resource provider namespaces map to Azure services.
 
 ## Next steps
 
-For more information about resource providers, including how to register a resource provider, see [Azure resource providers and types](resource-providers-and-types.md)
+For more information about resource providers, including how to register a resource provider, see [Azure resource providers and types](resource-providers-and-types.md).

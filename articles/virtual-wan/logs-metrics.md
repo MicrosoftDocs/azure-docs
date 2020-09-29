@@ -59,11 +59,11 @@ The following steps help you locate and view metrics:
 
 3. Select **Metrics**.
 
-   :::image type="content" source="./media/logs-metrics/metrics.png" alt-text="metrics":::
+   :::image type="content" source="./media/logs-metrics/metrics.png" alt-text="Screenshot shows a site to site V P N pane with View in Azure Monitor selected.":::
 
 4. On the **Metrics** page, you can view the metrics that you are interested in.
 
-   :::image type="content" source="./media/logs-metrics/metrics-page.png" alt-text="metrics page":::
+   :::image type="content" source="./media/logs-metrics/metrics-page.png" alt-text="Screenshot that shows the 'Metrics' page with the categories highlighted.":::
 
 ## <a name="diagnostic"></a>Diagnostic logs
 
@@ -90,11 +90,11 @@ The following steps help you locate and view diagnostics:
 
 1. In the portal, navigate to your Virtual WAN resource. In the **Overview** section of the Virtual WAN page in the portal, select **Essentials** to expand the view and obtain resource group information. Copy the resource group information.
 
-   :::image type="content" source="./media/logs-metrics/3.png" alt-text="metrics page":::
+   :::image type="content" source="./media/logs-metrics/3.png" alt-text="Screenshot that shows the 'Overview' section with an arrow pointing to the 'Copy' button.":::
 
 2. In the Monitoring section, navigate to the resource group. Select **Diagnostic settings**, then input the resource information. This is the resource information that you copied in Step 2 from the [View gateway metrics](#metrics-steps) section, earlier in this article.
 
-   :::image type="content" source="./media/logs-metrics/4.png" alt-text="metrics page":::
+   :::image type="content" source="./media/logs-metrics/4.png" alt-text="Screenshot that shows the 'Monitoring' section with an arrow pointing to the 'Resource' drop-down.":::
 
 3. On the results page, select **+Add diagnostic setting**, then select an option. You can choose to send to Log Analytics, stream to an event hub, or to simply archive to a storage account.
 

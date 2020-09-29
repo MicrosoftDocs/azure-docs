@@ -1,6 +1,6 @@
 ---
 title: Azure Front Door - caching | Microsoft Docs
-description: This article helps you understand how Azure Front Door monitors the health of your backends
+description: This article helps you understand behavior for Front Door with routing rules that have enabled caching.
 services: frontdoor
 documentationcenter: ''
 author: duongau
@@ -9,7 +9,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/10/2018
+ms.date: 09/16/2020
 ms.author: duau
 ---
 
@@ -78,7 +78,7 @@ When a request for an asset specifies compression and the request results in a c
 
 ## Query string behavior
 With Front Door, you can control how files are cached for a web request that contains a query string. In a web request with a query string, the query string is that portion of the request that occurs after a question mark (?). A query string can contain one or more key-value pairs, in which the field name and its value are separated by an equals sign (=). Each key-value pair is separated by an ampersand (&). For example, `http://www.contoso.com/content.mov?field1=value1&field2=value2`. If there is more than one key-value pair in a query string of a request, their order does not matter.
-- **Ignore query strings**: Default mode. In this mode, Front Door passes the query strings from the requestor to the backend on the first request and caches the asset. All subsequent requests for the asset that are served from the Front Door environment ignore the query strings until the cached asset expires.
+- **Ignore query strings**: In this mode, Front Door passes the query strings from the requestor to the backend on the first request and caches the asset. All subsequent requests for the asset that are served from the Front Door environment ignore the query strings until the cached asset expires.
 
 - **Cache every unique URL**: In this mode, each request with a unique URL, including the query string, is treated as a unique asset with its own cache. For example, the response from the backend for a request for `www.example.ashx?q=test1` is cached at the Front Door environment and returned for subsequent caches with the same query string. A request for `www.example.ashx?q=test2` is cached as a separate asset with its own time-to-live setting.
 
@@ -108,7 +108,7 @@ The following order of headers is used in order to determine how long an item wi
 2. Cache-Control: max-age=\<seconds>
 3. Expires: \<http-date>
 
-Cache-Control response headers that indicate that the response won't be cached such as Cache-Control: private, Cache-Control: no-cache, and Cache-Control: no-store are honored. However, if there are multiple requests in-flight at a POP for the same URL, they may share the response. If no Cache-Control is present the default behavior is that AFD will cache the resource for X amount of time where X is randomly picked between 1 to 3 days.
+Cache-Control response headers that indicate that the response won't be cached such as Cache-Control: private, Cache-Control: no-cache, and Cache-Control: no-store are honored.  If no Cache-Control is present the default behavior is that AFD will cache the resource for X amount of time where X is randomly picked between 1 to 3 days.
 
 ## Request headers
 

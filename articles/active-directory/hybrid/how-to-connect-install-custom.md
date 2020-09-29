@@ -41,7 +41,7 @@ When you install the synchronization services, you can leave the optional config
 ### User sign-in
 After installing the required components, you are asked to select your users single sign-on method. The following table provides a brief description of the available options. For a full description of the sign-in methods, see [User sign-in](plan-connect-user-signin.md).
 
-![User Sign in](./media/how-to-connect-install-custom/usersignin4.png)
+![Screenshot that shows the "User Sign-in" page with "Password Hash Synchronization" selected.](./media/how-to-connect-install-custom/usersignin4.png)
 
 | Single Sign On option | Description |
 | --- | --- |
@@ -70,7 +70,7 @@ If you receive an error and have problems with connectivity, then see [Troublesh
 ### Connect your directories
 To connect to your Active Directory Domain Service, Azure AD Connect needs the forest name and credentials of an account with sufficient permissions.
 
-![Connect Directory](./media/how-to-connect-install-custom/connectdir01.png)
+![Screenshot that shows the "Connect your directories" page.](./media/how-to-connect-install-custom/connectdir01.png)
 
 After entering the forest name and clicking  **Add Directory**, a pop-up dialog appears and prompts you with the following options:
 
@@ -296,7 +296,7 @@ If you selected Group Managed Service Account and this feature has never been us
 ### Select the Azure AD domain that you wish to federate
 This configuration is used to setup the federation relationship between AD FS and Azure AD. It configures AD FS to issue security tokens to Azure AD and configures Azure AD to trust the tokens from this specific AD FS instance. This page only allows you to configure a single domain in the initial installation. You can configure more domains later by running Azure AD Connect again.
 
-![Azure AD Domain](./media/how-to-connect-install-custom/adfs6.png)
+![Screenshot that shows the "Azure AD Domain" page.](./media/how-to-connect-install-custom/adfs6.png)
 
 ### Verify the Azure AD domain selected for federation
 When you select the domain to be federated, Azure AD Connect provides you with necessary information to verify an unverified domain. See [Add and verify the domain](../fundamentals/add-custom-domain.md) for how to use this information.
@@ -316,7 +316,7 @@ Configuring PingFederate with Azure AD Connect is simple and only requires a few
 ### Verify the domain
 After selecting Federation with PingFederate, you will be asked to verify the domain you want to federate.  Select the domain from the drop-down box.
 
-![Verify Domain](./media/how-to-connect-install-custom/ping1.png)
+![Screenshot that shows the "Azure AD Domain" with the example domain "contoso.com" selected.](./media/how-to-connect-install-custom/ping1.png)
 
 ### Export the PingFederate settings
 
@@ -390,7 +390,7 @@ The following section contains troubleshooting and information that you can use 
 ### “The ADSync database already contains data and cannot be overwritten”
 When you custom install Azure AD Connect and select the option **Use an existing SQL server** on the **Install required components** page, you might encounter an error that states **The ADSync database already contains data and cannot be overwritten. Please remove the existing database and try again.**
 
-![Error](./media/how-to-connect-install-custom/error1.png)
+![Screenshot that shows the "Install required components" page.](./media/how-to-connect-install-custom/error1.png)
 
 This is because there is already an existing database named **ADSync** on the SQL instance of the SQL server, which you specified in the above textboxes.
 
