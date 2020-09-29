@@ -23,7 +23,7 @@ This article provides an overview of the workflow processes that occur when you 
 
 The following diagram presents the architecture of Azure resources.
 
-![Azure workflow](./media/cloud-services-workflow-process/workflow.jpg)
+:::image type="content" source="./media/cloud-services-workflow-process/workflow.jpg" alt-text="<alt The image about Azure workflow>":::
 
 ## Workflow basics
    
