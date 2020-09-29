@@ -92,6 +92,13 @@ Only SSIS packages in SSISDB starting with SQL Server 2012 are supported for mig
 
 SQL Server Reporting Services (SSRS) reports can be migrated to paginated reports in Power BI. Use the [RDL Migration Tool](https://github.com/microsoft/RdlMigration) to help prepare, and migrate your reports. This tool was developed by Microsoft to help customers migrate RDL reports from their SSRS servers to Power BI. It is available on GitHub, and it documents an end-to-end walkthrough of the migration scenario. 
 
+### SQL Server Analysis Services
+SQL Server Analysis Services Tabular models from SQL Server 2012 and above can be migrated to Azure Analysis Services which is a PaaS deployment model for Analysis Services Tabular model in Azure. You can learn more about migrating on-prem models to Azure Analysis Services in this [video tutorial](https://azure.microsoft.com/resources/videos/azure-analysis-services-moving-models/).
+
+Alternatively, you can also consider migrating your on-premises Analysis Services Tabular models to [Power BI Premium using the new XMLA read/write endpoints](https://docs.microsoft.com/power-bi/admin/service-premium-connect-tools). 
+>[!NOTE]
+    >Power BI XMLA read/write endpoints functionality is currently in Public Preview and should not be considered for Production workloads until the functionality becomes Generally Available.
+
 ### High availability
 
 The SQL Server high availability features Always On failover cluster instances and Always On availability groups become obsolete on the target Azure SQL Managed Instance as high availability architecture is already built into both [General Purpose (standard availability model)](../../database/high-availability-sla.md#basic-standard-and-general-purpose-service-tier-availability) and [Business Critical (premium availability model)](../../database/high-availability-sla.md#premium-and-business-critical-service-tier-availability) SQL Managed Instance. The premium availability model also provides read scale-out that allows connecting into one of the secondary nodes for read-only purposes. 
@@ -107,16 +114,24 @@ Use the offline Azure Database Migration Service (DMS) option to migrate [SQL Ag
 
 ### Logins and groups 
 
-SQL logins from the source SQL Server can be moved to Azure SQL Managed Instance using Database Migration Service (DMS) in offline mode.  Use the **Selected logins** blade in the **Migration Wizard** to migrate logins to your target SQL Managed Instance. 
+SQL logins from the source SQL Server can be moved to Azure SQL Managed Instance using Database Migration Service (DMS) in offline mode.  Use the **[Select logins](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-managed-instance#select-logins)** blade in the **Migration Wizard** to migrate logins to your target SQL Managed Instance. 
 
-Windows users and groups can also be migrated using DMS by enabling the corresponding toggle button in the DMS Configuration page. 
+  >[!NOTE]
+    >By default, Azure Database Migration Service only supports migrating SQL logins. However, you can enable the ability to migrate Windows logins by:
+    >
+    >- Ensuring that the target SQL Managed Instance has AAD read access, which can be configured via the Azure portal by a user with the **Company Administrator**or a **Global Administrator**" role.
+    >- Configuring your Azure Database Migration Service instance to enable Windows user/group login migrations, which is set up via the Azure portal, on the Configuration page. After enabling this setting, restart the service for the changes to take effect.
+    >
+    > After restarting the service, Windows user/group logins appear in the list of logins available for migration. For any Windows user/group logins you migrate, you are prompted to provide the associated domain name. Service user accounts (account with domain name NT AUTHORITY) and virtual user accounts (account name with domain name NT SERVICE) are not supported.
+
+You can learn more about [how to migrate windows users and groups in a SQL Server instance to Azure SQL Managed Instance using T-SQL](https://docs.microsoft.com/azure/azure-sql/managed-instance/migrate-sql-server-users-to-instance-transact-sql-tsql-tutorial).
 
 Alternatively, you can use the [PowerShell utility tool](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/MoveLogins) specially designed by the Microsoft Data Migration Architects. The utility uses PowerShell to create a T-SQL script to recreate logins and select database users from the source to the target. The tool automatically maps Windows AD accounts to Azure AD accounts, and can do a UPN lookup for each login against the source Active Directory. The tool scripts custom server and database roles, as well as role membership, database role, and user permissions. Contained databases are not yet supported and only a subset of possible SQL Server permissions are scripted. 
 
 
 ### Encryption 
 
-When migrating databases protected by [Transparent Data Encryption](/../../database/transparent-data-encryption-tde-overview.md) to a managed instance using native restore option, migrate the corresponding certificate from the source SQL Server to the target SQL Managed Instance *before* database restore. 
+When migrating databases protected by [Transparent Data Encryption](/../../database/transparent-data-encryption-tde-overview.md) to a managed instance using native restore option, [migrate the corresponding certificate](https://docs.microsoft.com/azure/azure-sql/managed-instance/tde-certificate-migrate?tabs=azure-powershell) from the source SQL Server to the target SQL Managed Instance *before* database restore. 
 
 ### System databases
 
