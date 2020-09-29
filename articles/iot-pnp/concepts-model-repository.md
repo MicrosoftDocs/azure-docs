@@ -189,6 +189,9 @@ To publish a model using the REST API, see the [Publish a model](https://docs.mi
 
 To publish a model using the CLI, see the Azure CLI [Publish a Model](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp/model?view=azure-cli-latest#ext-azure-iot-az-iot-pnp-model-publish&preserve-view=true) command.
 
+> [!NOTE]
+> Models must be published in the model repository before you run the certification tests. To learn more, see [How to certify IoT Plug and Play devices](howto-certify-device.md).
+
 ### Share a model
 
 You can share company models that you've created with users of external organizations. In this way, you can allow collaborators to view and develop solutions with your private company models.

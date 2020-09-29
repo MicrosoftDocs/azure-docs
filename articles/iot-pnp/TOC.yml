@@ -63,6 +63,8 @@
     href: concepts-iot-pnp-bridge.md
   - name: Digital twins
     href: concepts-digital-twin.md
+  - name: Device certification
+    href: concepts-certification-program.md
   - name: Model repository
     href: concepts-model-repository.md
   - name: Use models in a solution
