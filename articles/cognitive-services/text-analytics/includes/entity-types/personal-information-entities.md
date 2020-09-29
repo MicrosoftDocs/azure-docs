@@ -13,9 +13,9 @@ ms.author: aahi
 > [!NOTE]
 > To detect protected health information (PHI), use the `domain=phi` parameter and model version `2020-04-01` or later.
 >
-> For example: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/recognition/pii?domain=phi&model-version=2020-04-01`
+> For example: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/recognition/pii?domain=phi&model-version=2020-07-01`
  
-The following entity categories are returned when you're sending requests to the `/v3.1-preview.1/entities/recognition/pii` endpoint.
+The following entity categories are returned when you're sending requests to the `/v3.1-preview.2/entities/recognition/pii` endpoint.
 
 | Category   | Subcategory | Description                          | Starting model version | Notes |
 |------------|-------------|--------------------------------------|------------------------|---|
