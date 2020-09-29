@@ -166,7 +166,7 @@ Certain processes serve particular roles on machines: web servers, application s
 
 Failed connections are shown in Service Map maps for processes and computers, with a dashed red line indicating that a client system is failing to reach a process or port. Failed connections are reported from any system with a deployed Service Map agent if that system is the one attempting the failed connection. Service Map measures this process by observing TCP sockets that fail to establish a connection. This failure could result from a firewall, a misconfiguration in the client or server, or a remote service being unavailable.
 
-![Failed connections](media/service-map/failed-connections.png)
+![Screenshot of one part of a Service Map highlighting a dashed red line that indicates a failed connection between the backup.pl process and Port 4475.](media/service-map/failed-connections.png)
 
 Understanding failed connections can help with troubleshooting, migration validation, security analysis, and overall architectural understanding. Failed connections are sometimes harmless, but they often point directly to a problem, such as a failover environment suddenly becoming unreachable, or two application tiers being unable to talk after a cloud migration.
 
@@ -190,7 +190,7 @@ Server Port Groups are boxes that represent server ports on servers that do not 
 
 Clicking the ellipsis (...) at the top right of any server displays the context menu for that server.
 
-![Failed connections](media/service-map/context-menu.png)
+![Screenshot showing the opened context menu for a server in Service Map. The menu has the options Load Server Map and Show Self-Links.](media/service-map/context-menu.png)
 
 ### Load server map
 
@@ -255,7 +255,7 @@ Service Map integration with Change Tracking is automatic when both solutions ar
 
 The **Machine Change Tracking** pane lists all changes, with the most recent first, along with a link to drill down to Log Search for additional details.
 
-![Machine Change Tracking pane](media/service-map/change-tracking.png)
+![Screenshot of the Machine Change Tracking pane in Service Map.](media/service-map/change-tracking.png)
 
 The following image is a detailed view of a ConfigurationChange event that you might see after you select **Show in Log Analytics**.
 
@@ -297,7 +297,7 @@ Service Map integration with Update Management is automatic when both solutions 
 
 The **Machine Updates** pane displays data from the Update Management solution for the selected server. The pane lists a summary of any missing updates for the server during the selected time range.
 
-![Machine Change Tracking pane](media/service-map/machine-updates.png)
+![Screenshot of the Machine Updates pane in Service Map.](media/service-map/machine-updates.png)
 
 ## Log Analytics records
 
