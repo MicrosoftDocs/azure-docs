@@ -40,7 +40,7 @@ git clone https://github.com/Azure-Samples/azure-iot-samples-csharp.git
 
 In this quickstart, you use a sample temperature controller device that's written in C# as the IoT Plug and Play device. To run the sample device:
 
-1. Open the *azure-iot-samples-csharp/iot-hub/Samples/device/PnpDeviceSamples/TemperatureController/TemperatureController.csproj"* project file in Visual Studio 2019.
+1. Open the *azure-iot-samples-csharp/iot-hub/Samples/device/PnpDeviceSamples/TemperatureController/TemperatureController.csproj* project file in Visual Studio 2019.
 
 1. In Visual Studio, navigate to **Project > TemperatureController Properties > Debug**. Then add the following environment variables to the project:
 
