@@ -102,7 +102,7 @@ landingContent:
         links:
           - text: Guidance for developers
             url: developer-guidance-for-integrating-applications.md
-          - text: Understand the Microsoft Identity Platform
+          - text: Understand the platform
             url: ../develop/v2-overview.md
   - title: New in docs
     linkLists:
