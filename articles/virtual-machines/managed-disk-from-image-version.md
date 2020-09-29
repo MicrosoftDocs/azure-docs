@@ -60,7 +60,7 @@ Create a disk configuration and then the disk, using the source image version ID
 ```azurepowershell-interactive
 $diskConfig = New-AzDiskConfig -Location $location -CreateOption Copy -SourceResourceId $sourceImgVer.Id
  
-New-AzDisk -Disk $diskConfig -ResourceGroupName $resourceGroupName -DiskName $diskName
+New-AzDisk -Disk $diskConfig -ResourceGroupName $resourceGroup -DiskName $diskName
 ```
 
 ## Next steps
