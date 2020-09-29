@@ -1,6 +1,6 @@
 ---
-title: Build schedule-based automation workflows
-description: Tutorial - Create a schedule-based, recurring, automated workflows with Azure Logic Apps
+title: Build schedule-based automation workflows with Azure
+description: Tutorial - Create a schedule-based, recurring automation workflow that integrates across cloud services by using Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
@@ -58,7 +58,7 @@ When you're done, your logic app looks like this workflow at a high level:
    | **Subscription** | <*Azure-subscription-name*> | Your Azure subscription name. This example uses `Pay-As-You-Go`. |
    | **Resource group** | LA-TravelTime-RG | The name for the [Azure resource group](../azure-resource-manager/management/overview.md), which is used to organize related resources. This example creates a new resource group named `LA-TravelTime-RG`. |
    | **Name** | LA-TravelTime | Your logic app's name, which can contain only letters, numbers, hyphens (`-`), underscores (`_`), parentheses (`(`, `)`), and periods (`.`). This example uses `LA-TravelTime`. |
-   | **Location** | West US | TThe region where to store your logic app information. This example uses `West US`. |
+   | **Location** | West US | The region where to store your logic app information. This example uses `West US`. |
    | **Log Analytics** | Off | Keep the **Off** setting for diagnostic logging. |
    ||||
 
