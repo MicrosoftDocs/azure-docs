@@ -3,7 +3,7 @@ title: ServicePrincipalSelector UI element
 description: Describes the Microsoft.Common.ServicePrincipalSelector UI element for Azure portal. Provides a dropdown to choose an application identifier and a textbox to input a password or certificate thumbprint.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 09/29/2020
 ms.author: tomfitz
 ---
 
