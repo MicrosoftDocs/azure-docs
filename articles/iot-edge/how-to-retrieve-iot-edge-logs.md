@@ -21,7 +21,7 @@ The names of these direct methods are handled case-sensitive.
 
 ## Recommended logging format
 
-For best compatibility with this feature, the recommended logging format is:
+While not required, for best compatibility with this feature, the recommended logging format is:
 
 ```
 <{Log Level}> {Timestamp} {Message Text}
@@ -117,9 +117,23 @@ In the Azure portal, invoke the method with the method name `GetModuleLogs` and 
 
 ![Invoke direct method 'GetModuleLogs' in Azure portal](./media/how-to-retrieve-iot-edge-logs/invoke-get-module-logs.png)
 
+You can also pipe the CLI output to Linux utilities, like [gzip](https://en.wikipedia.org/wiki/Gzip), to process a compressed response. For example:
+
+```azurecli
+az iot hub invoke-module-method \
+  --method-name 'GetModuleLogs' \
+  -n <hub name> \
+  -d <device id> \
+  -m '$edgeAgent' \
+  --method-payload '{"contentType": "text","schemaVersion": "1.0","encoding": "gzip","items": [{"id": "edgeHub","filter": {"since": "2d","tail": 1000}}],}' \
+  -o tsv --query 'payload[0].payloadBytes' \
+  | base64 --decode \
+  | gzip -d
+```
+
 ## Upload module logs
 
-Use the **UploadModuleLogs** direct method to write the logs of an IoT Edge module to an available Azure Blob Storage container.
+Use the **UploadModuleLogs** direct method to send the requested logs to a specified Azure Blob Storage container.
 
 This method accepts a JSON payload similar to **GetModuleLogs**, with the addition of the "sasUrl" key:
 
@@ -166,7 +180,7 @@ A successful request to upload logs returns a **"status": 200** followed by a pa
 
 For example:
 
-This invocation uploads the last 100 log lines from all modules, in compressed JSON format:
+The following invocation uploads the last 100 log lines from all modules, in compressed JSON format:
 
 ```azurecli
 az iot hub invoke-module-method --method-name UploadModuleLogs -n <hub name> -d <device id> -m \$edgeAgent --method-payload \
@@ -188,7 +202,7 @@ az iot hub invoke-module-method --method-name UploadModuleLogs -n <hub name> -d 
 '
 ```
 
-This invocation uploads the last 100 log lines from edgeAgent and edgeHub with the last 1000 log lines from tempSensor module in uncompressed text format:
+The following invocation uploads the last 100 log lines from edgeAgent and edgeHub with the last 1000 log lines from tempSensor module in uncompressed text format:
 
 ```azurecli
 az iot hub invoke-module-method --method-name UploadModuleLogs -n <hub name> -d <device id> -m \$edgeAgent --method-payload \
@@ -237,45 +251,7 @@ In the Azure portal, invoke the method with the method name `UploadModuleLogs` a
 
 ![Invoke direct method 'UploadModuleLogs' in Azure portal](./media/how-to-retrieve-iot-edge-logs/invoke-upload-module-logs.png)
 
-## Get module logs upload request status
-
-Use the **GetTaskStatus** direct method to query the status of an upload logs request. The **GetTaskStatus** request payload uses the `correlationId` of the upload logs request to get the task's status. The `correlationId` is returned in response to the **UploadModuleLogs** direct method call.
-
-This method accepts a JSON payload with the following schema:
-
-```json
-    {
-      "schemaVersion": "1.0",
-      "correlationId": "<GUID>"
-    }
-```
-
-A successful request to upload logs returns a **"status": 200** followed by a payload with the same schema as the **UploadModuleLogs** response.
-
-For example:
-
-```azurecli
-az iot hub invoke-module-method --method-name 'GetTaskStatus' -n <hub name> -d <device id> -m '$edgeAgent' --method-payload \
-'
-    {
-      "schemaVersion": "1.0",
-      "correlationId": "<GUID>"
-    }
-'
-```
-
-In the Azure portal, invoke the method with the method name `UploadModuleLogs` and the following JSON payload after populating the GUID with your information:
-
-```json
-    {
-      "schemaVersion": "1.0",
-      "correlationId": "<GUID>"
-    }
-```
-
-![Invoke direct method 'GetTaskStatus' in Azure portal](./media/how-to-retrieve-iot-edge-logs/invoke-get-task-status.png)
-
-## Use support bundle to upload logs
+## Upload support bundle diagnostics
 
 Use the **UploadSupportBundle** direct method to bundle and upload a zip file of IoT Edge module logs to an available Azure Blob Storage container. This direct method runs the [`iotedge support-bundle`](https://docs.microsoft.com/azure/iot-edge/troubleshoot#gather-debug-information-with-support-bundle-command) command on your IoT Edge device to obtain the logs.
 
@@ -300,9 +276,23 @@ This method accepts a JSON payload with the following schema:
 | edgeRuntimeOnly | boolean | If true, only return logs from Edge Agent, Edge Hub, and the Edge Security Daemon. Default: false.  OPTIONAL. |
 
 > [!IMPORTANT]
-> IoT Edge Hub logs may contain Personally Identifiable Information.
+> IoT Edge support bundle may contain Personally Identifiable Information.
 
-A successful request to upload logs returns a **"status": 200** followed by a payload with the same schema as the **UploadModuleLogs** response.
+A successful request to upload logs returns a **"status": 200** followed by a payload with the same schema as the **UploadModuleLogs** response:
+
+```json
+    {
+        "status": "string",
+        "message": "string",
+        "correlationId": "GUID"
+    }
+```
+
+| Name | Type | Description |
+|-|-|-|
+| status | string | One of `NotStarted`, `Running`, `Completed`, `Failed`, or `Unknown`. |
+| message | string | Message if error, empty string otherwise. |
+| correlationId | string   | ID to query to status of the upload request. |
 
 For example:
 
@@ -332,6 +322,58 @@ In the Azure portal, invoke the method with the method name `UploadSupportBundle
 ```
 
 ![Invoke direct method 'UploadSupportBundle' in Azure portal](./media/how-to-retrieve-iot-edge-logs/invoke-upload-support-bundle.png)
+
+## Get upload request status
+
+Use the **GetTaskStatus** direct method to query the status of an upload logs request. The **GetTaskStatus** request payload uses the `correlationId` of the upload logs request to get the task's status. The `correlationId` is returned in response to the **UploadModuleLogs** direct method call.
+
+This method accepts a JSON payload with the following schema:
+
+```json
+    {
+      "schemaVersion": "1.0",
+      "correlationId": "<GUID>"
+    }
+```
+
+A successful request to upload logs returns a **"status": 200** followed by a payload with the same schema as the **UploadModuleLogs** response:
+
+```json
+    {
+        "status": "string",
+        "message": "string",
+        "correlationId": "GUID"
+    }
+```
+
+| Name | Type | Description |
+|-|-|-|
+| status | string | One of `NotStarted`, `Running`, `Completed`, `Failed`, or `Unknown`. |
+| message | string | Message if error, empty string otherwise. |
+| correlationId | string   | ID to query to status of the upload request. |
+
+For example:
+
+```azurecli
+az iot hub invoke-module-method --method-name 'GetTaskStatus' -n <hub name> -d <device id> -m '$edgeAgent' --method-payload \
+'
+    {
+      "schemaVersion": "1.0",
+      "correlationId": "<GUID>"
+    }
+'
+```
+
+In the Azure portal, invoke the method with the method name `UploadModuleLogs` and the following JSON payload after populating the GUID with your information:
+
+```json
+    {
+      "schemaVersion": "1.0",
+      "correlationId": "<GUID>"
+    }
+```
+
+![Invoke direct method 'GetTaskStatus' in Azure portal](./media/how-to-retrieve-iot-edge-logs/invoke-get-task-status.png)
 
 ## Next steps
 
