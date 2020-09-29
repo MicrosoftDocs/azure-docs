@@ -24,7 +24,7 @@ Examples of experiences that this linking to an Azure Machine Learning workspace
 ## Prerequisites
 
 - Azure subscription - [Create one for free](https://azure.microsoft.com/free/).
-- [Synapse Analytics workspace](quickstart-create-workspace.md) with an ADLS Gen2 storage account configured as the default storage. You need to be the **Storage Blob Data Contributor** of the ADLS Gen2 filesystem that you work with.
+- [Synapse Analytics workspace](../get-started-create-workspace.md) with an ADLS Gen2 storage account configured as the default storage. You need to be the **Storage Blob Data Contributor** of the ADLS Gen2 filesystem that you work with.
 - [Azure Machine Learning Workspace](/azure/machine-learning/how-to-manage-workspace.md).
 - You need permissions (or request from someone who has permissions) to create a service principal and secret which you can use to create the linked service. Note that this service principal needs to be assigned the contributor role in the Azure Machine Learning Workspace.
 
@@ -74,4 +74,4 @@ This step will create a new Service Principal. If you want to use an existing Se
 
 ## Next steps
 
-- See [Tutorial: Machine learning model scoring wizard - SQL pool](tutorial-sql-scoring-wizard.md).
+- See [Tutorial: Machine learning model scoring wizard - SQL pool](tutorial-sql-pool-model-scoring-wizard.md).
