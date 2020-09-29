@@ -72,9 +72,7 @@ From
                         "settings": {
                             ...
                             "certificate": {
-                                "commonNames": [
-                                    "thumbprint": "[parameters('certificateThumbprint')]",
-                                ],
+                                "thumbprint": "[parameters('certificateThumbprint')]",
                                 "x509StoreName": "[parameters('certificateStoreValue')]"
                             }
                         },
