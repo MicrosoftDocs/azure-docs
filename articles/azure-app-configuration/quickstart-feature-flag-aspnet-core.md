@@ -137,62 +137,6 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
     ---
 
-1. Update the `Startup.Configure` method to add a middleware to allow the feature flag values to be refreshed at a recurring interval while the ASP.NET Core web app receives requests.
-
-    #### [.NET Core 3.x](#tab/core3x)
-
-    ```csharp
-    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
-    {
-        if (env.IsDevelopment())
-        {
-            app.UseDeveloperExceptionPage();
-        }
-        else
-        {
-            app.UseExceptionHandler("/Home/Error");
-        }
-        app.UseStaticFiles();
-        app.UseRouting();
-        app.UseAuthorization();
-        app.UseEndpoints(endpoints =>
-        {
-            endpoints.MapControllerRoute(
-                name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
-        });
-        app.UseAzureAppConfiguration();
-    }
-    ```
-
-    #### [.NET Core 2.x](#tab/core2x)
-
-    ```csharp
-    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
-    {
-        if (env.IsDevelopment())
-        {
-            app.UseDeveloperExceptionPage();
-        }
-        else
-        {
-            app.UseExceptionHandler("/Home/Error");
-        }
-
-        app.UseStaticFiles();
-        app.UseCookiePolicy();
-        app.UseAzureAppConfiguration();
-        app.UseMvc(routes =>
-        {
-            routes.MapRoute(
-                name: "default",
-                template: "{controller=Home}/{action=Index}/{id?}");
-        });
-    }
-    ```
-
-    ---
-
 1. Add a *MyFeatureFlags.cs* file to the root project directory with the following code:
 
     ```csharp
@@ -296,17 +240,17 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
     Your browser should display a page similar to the image below.
 
-    ![Quickstart app launch local](./media/quickstarts/aspnet-core-feature-flag-local-before.png)
+    :::image type="content" source="media/quickstarts/aspnet-core-feature-flag-local-before.png" alt-text="Local quickstart app after change" border="true":::
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Select **All resources**, and select the App Configuration store instance that you created in the quickstart.
 
-1. Select **Feature manager**, and change the state of the **Beta** key to **On**.
+1. Select **Feature manager**, and change the state of the *Beta* key to **On**.
 
 1. Return to the command shell. Cancel the running `dotnet` process by pressing <kbd>Ctrl+C</kbd>. Restart your app using `dotnet run`.
 
 1. Refresh the browser page to see the new configuration settings.
 
-    ![Quickstart app launch local](./media/quickstarts/aspnet-core-feature-flag-local-after.png)
+    :::image type="content" source="media/quickstarts/aspnet-core-feature-flag-local-after.png" alt-text="Local quickstart app after change" border="true":::
 
 ## Clean up resources
 
