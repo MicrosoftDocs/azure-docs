@@ -134,7 +134,7 @@ If you are using [Data-in replication](concepts-data-in-replication.md) to conne
     If you do see the certificate is provided for the CA_file, SSL_Cert and SSL_Key, you will need to update the file by adding the [new certificate](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem).
 
 *   If the data-replication is between two Azure Database for MySQL, then you will need to reset the replica by executing 
-**CALL mysql.az_replication_change_master** and provide the new dual root certificate as last parameter [master_ssl_ca](howto-data-in-replication.md#link-master-and-replica-servers-to-start-data-in-replication)
+**CALL mysql.az_replication_change_master** and provide the new dual root certificate as last parameter [master_ssl_ca](howto-data-in-replication.md#link-source-and-replica-servers-to-start-data-in-replication)
 
 ### 13. Do we have server-side query to verify if SSL is being used?
 To verify if you are using SSL connection to connect to the server refer [SSL verification](howto-configure-ssl.md#step-4-verify-the-ssl-connection).
