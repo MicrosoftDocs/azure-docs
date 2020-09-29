@@ -41,7 +41,7 @@ To use Automated Backup, consider the following prerequisites:
 - SQL Server 2014 Enterprise
 
 > [!NOTE]
-> For SQL 2016 and greater, see [Automated Backup for SQL Server 2016](automated-backup.md)
+> For SQL 2016 and greater, see [Automated Backup for SQL Server 2016](automated-backup.md).
 
 **Database configuration**:
 
