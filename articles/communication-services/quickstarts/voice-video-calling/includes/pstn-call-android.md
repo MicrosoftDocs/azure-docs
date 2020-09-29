@@ -11,7 +11,7 @@ ms.author: nikuklic
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - A deployed Communication Services resource. [Create a Communication Services resource](../../create-communication-resource.md).
 - A phone number acquired in Communication Services resource. [how to get a phone number](../../telephony-sms/get-phone-number.md).
-- A `User Access Token` to enable the call client. For more information on [how to get a `User Access Token`](../../user-access-tokens.md)
+- A `User Access Token` to enable the call client. For more information on [how to get a `User Access Token`](../../user-tokens.md)
 - Complete the quickstart for [getting started with adding calling to your application](../getting-started-with-calling.md)
 
 ### Prerequisite check
@@ -37,12 +37,12 @@ The following classes and interfaces handle some of the major features of the Az
 
 | Name                                           | Description                                                                                          |
 | ---------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| [PhoneNumber](../../../references/overview.md) | This class is needed to initialize a phone number you would like to use for telephony functionality. |
+| [PhoneNumber](../../../overview.md) | This class is needed to initialize a phone number you would like to use for telephony functionality. |
 
 
 ## Start a call to phone
 
-Specify phone number you aquired in Communication Services resource, that will be used to start the call:
+Specify phone number you acquired in Communication Services resource, that will be used to start the call:
 > [!WARNING]
 > Note that phone numbers shold be provided in E.164 international standard format. (e.g.: +12223334444)
 
