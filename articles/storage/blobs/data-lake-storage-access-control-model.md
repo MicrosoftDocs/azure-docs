@@ -11,7 +11,16 @@ ms.author: normesta
 
 # Access control model in Azure Data Lake Storage Gen2
 
-You can control access to the data in your account by using Azure role-based access control (RBAC) and access control lists (ACLs). This article describes both mechanisms, and how the system evaluates them together to make authorization decisions.  
+Data Lake Storage Gen2 supports the following authorization mechanisms:
+
+- Shared Key authorization
+- Shared access signature (SAS) authorization
+- Role-based access control (RBAC)
+- Access control lists (ACL)
+
+[Shared Key and SAS authorization](#shared-key-and-shared-access-signature-sas-authentication) gives a user (or application) access to storage account resources without requiring the user (or application) to have an identity in Azure Active Directory (Azure AD). The RBAC and ACL mechanisms authorize access by using identities in Azure AD. RBAC lets you grant "coarse-grain" access, such as read or write access to **all** of the data in a storage account. ACLs let you grant "fine-grained" access such, as write access to a specific directory or file.  
+
+This article focuses on RBAC and ACLs, and how the system evaluates them together to make authorization decisions for storage account resources.
 
 <a id="role-based-access-control"></a>
 
@@ -27,7 +36,7 @@ The following roles permit a security principal to access data in a storage acco
 | [Storage Blob Data Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) | Read, write, and delete access to Blob storage containers and blobs. This access does not permit the security principal to set the ownership of an item, but it can modify the ACL of items that are owned by the security principal. |
 | [Storage Blob Data Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) | Read and list Blob storage containers and blobs. |
 
-Roles such as [Owner](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner), [Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor), [Reader, and [Storage Account Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor) permit a security principal to manage a storage account, but do not provide access to the data within that account. However, these roles (excluding **Reader**) can obtain access to the storage keys, which can be used in various client tools to access the data.
+Roles such as [Owner](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner), [Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor), [Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader), and [Storage Account Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor) permit a security principal to manage a storage account, but do not provide access to the data within that account. However, these roles (excluding **Reader**) can obtain access to the storage keys, which can be used in various client tools to access the data.
 
 ## Access control lists (ACLs)
 
@@ -95,15 +104,39 @@ This table shows a column that represents each level of a fictitious directory h
 
 ### Security groups
 
-In general, you should assign permissions to [groups](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups) and not individual users or service principals. That way, you're less likely to exceed the maximum number of role assignments per subscription and the maximum number of ACl entries per file or directory. Currently, the maximum number of role assignments is 2000 and the maximum number of ACLs per item is **32**. After the four default ACL entries, that leaves only **28** remaining for permission assignments. It's also easier to add and remove users and service principals because you only have to remove them from a group instead of having to remove an ACL entry from all ACLs in a directory structure.
+Always use [Azure AD security groups](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups) as the assigned principal in ACLs. Resist the opportunity to directly assign individual users or service principals. Using this structure will allow you to add and remove users or service principals without the need to reapply ACLs to an entire directory structure. Instead, you can just add or remove them from the appropriate Azure AD security group. By using groups, you're also less likely to exceed the maximum number of role assignments per subscription and the maximum number of ACl entries per file or directory. The next section describes those limits.
+
+### Groups example
+
+Imagine that you have a directory named **/logs** which holds log data that is generated by your server. You might need to grant permissions for the following activities:
+
+- Grant Azure Data Factory (ADF) the ability to ingest data into that folder. 
+- Grant specific users from the service engineering team the ability to upload logs and manage other users to this folder. 
+- Give various Databricks clusters the ability to analyze logs. 
+
+To enable these activities, you could create a `LogsWriter` group and a `LogsReader` group. Then, you could assign permissions as follows:
+
+- Add the `LogsWriter` group to the ACL of the **/logs** directory with `rwx` permissions.
+- Add the `LogsReader` group to the ACL of the **/logs** directory with `r-x` permissions.
+- Add the service principal object or Managed Service Identity (MSI) for ADF to the `LogsWriters` group.
+- Add the service engineering team (and any users) to the `LogsWriter` group.
+- Add the service principal object or MSI for Databricks to the `LogsReader` group.
 
 To create a group and add members, see [Create a basic group and add members using Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal).
 
-## Shared Key and Shared Access Signature (SAS) authentication
+### RBAC role assignment and ACL limits
 
-Azure Data Lake Storage Gen2 also supports Shared Key and SAS methods for authentication. A characteristic of these authentication methods is that no identity is associated with the caller and therefore security principal permission-based authorization cannot be performed.
+|Authorization mechanism|RBAC role assignments|ACL|
+|---|---|---|
+|Scope|Storage accounts, containers. Cross resource RBAC role assignments at subscription or resource group level.|Files, directories|
+|Limits|2000 RBAC role assignments in a subscription|32 ACL entries (effectively 28 ACL entries) per file, 32 ACL entries (effectively 28 ACL entries) per directory, default and access ACL entries each.|
+|Supported level of permission|Built-in RBAC roles or custom RBAC roles|ACL permission|
 
-In the case of Shared Key, the caller effectively gains 'super-user' access, meaning full access to all operations on all resources, including setting owner and changing ACLs.
+## Shared Key and Shared Access Signature (SAS) authorization
+
+Azure Data Lake Storage Gen2 also supports [Shared Key](https://docs.microsoft.com/rest/api/storageservices/authorize-with-shared-key) and [SAS](https://docs.microsoft.com/azure/storage/common/storage-sas-overview?toc=/azure/storage/blobs/toc.json) methods for authentication. A characteristic of these authentication methods is that no identity is associated with the caller and therefore security principal permission-based authorization cannot be performed.
+
+In the case of Shared Key, the caller effectively gains 'super-user' access, meaning full access to all operations on all resources including data, setting owner, and changing ACLs.
 
 SAS tokens include allowed permissions as part of the token. The permissions included in the SAS token are effectively applied to all authorization decisions, but no additional ACL checks are performed.
 
