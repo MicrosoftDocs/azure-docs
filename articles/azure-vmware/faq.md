@@ -63,7 +63,7 @@ Microsoft and Red Hat share an integrated, co-located support team that provides
 
 VMware HCX Enterprise Edition (EE) is available with Azure VMware Solution as a *Preview* function/service. While VMware HCX EE for Azure VMware Solution is in Preview, it is a free function/service and subject to Preview service terms and conditions. Once the VMware HCX EE service goes GA, you'll get a 30-day notice that billing will switch over. You'll also have the option to switch off/opt-out of the service.
 
-## Compute, network, and storage
+## Compute, network, storage, and backup
 
 #### Is there more than one type of host available?
 
@@ -88,6 +88,14 @@ Each ESXi host is Azure VMware Solution is configured with four 25-Gbps NICs, wi
 #### Is data stored on the vSAN datastores encrypted at rest?
 
 Yes, all vSAN data is encrypted by default using keys stored in Azure Key Vault.
+
+#### You document that Commvault, Veritas, and Veeam have extended their backup solutions to work with Azure VMware Solution. What about other independent software vendor (ISV) backup solutions?
+
+As far as we know, any backup solution that uses VMware VADP with the HotAdd transport mode should work right out of the box on Azure VMware Solution.
+
+#### What about support for ISV backup solutions?
+
+As these backup solutions are installed and managed by customers, they can reach out to the respective ISV for support. 
 
 ## Hosts, clusters, and private clouds
 
