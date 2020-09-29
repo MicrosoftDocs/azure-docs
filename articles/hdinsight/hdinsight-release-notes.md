@@ -7,7 +7,7 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 09/27/2020
 ---
 # Azure HDInsight release notes
 
