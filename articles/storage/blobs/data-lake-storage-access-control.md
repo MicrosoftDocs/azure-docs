@@ -243,7 +243,7 @@ def set_default_acls_for_new_child(parent, child):
         child_acls.add( new_entry )
 ```
 
-## Common questions about ACLs in Data Lake Storage Gen2
+## FAQ
 
 ### Do I have to enable support for ACLs?
 
@@ -253,7 +253,25 @@ If HNS is turned OFF, the Azure RBAC authorization rules still apply.
 
 ### What is the best way to apply ACLs?
 
-Always use Azure AD security groups as the assigned principal in ACLs. Resist the opportunity to directly assign individual users or service principals. Using this structure will allow you to add and remove users or service principals without the need to reapply ACLs to an entire directory structure. Instead, you simply need to add or remove them from the appropriate Azure AD security group. Keep in mind that ACLs are not inherited and so reapplying ACLs requires updating the ACL on every file and subdirectory. 
+[!INCLUDE [Security groups](../../../includes/azure-storage-data-lake-groups.md)] 
+
+### How are RBAC and ACL permissions evaluated?
+
+To learn how the system evaluates RBAC and ACLs together to make authorization decisions for storage account resources, see [How permissions are evaluated](data-lake-storage-access-control-model.md#how-permissions-are-evaluated).
+
+### What are the limits for RBAC role assignments and ACL entries?
+
+The following table provides a summary view of the limits to consider while using RBAC to manage "coarse-grained" permissions (permissions that apply to storage accounts or containers) and using ACLs to manage "fine-grained" permissions (permissions that apply to files and directories).
+
+[!INCLUDE [Security groups](../../../includes/azure-storage-data-lake-rbac-acl-limits.md)] 
+
+### Does Data Lake Storage Gen2 support inheritance of RBAC?
+
+Azure role assignments do inherit. Assignments flow from subscription, resource group, and storage account resources down to the container resource.
+
+### Does Data Lake Storage Gen2 support inheritance of ACLs?
+
+ACLs do not inherit. However, default ACLs can be used to set ACLs for new child subdirectories and files created under the parent directory. To update ACLs for existing child items, you will need to add, update, or remove ACLs recursively for the desired directory hierarchy. For more information, see [Set access control lists (ACLs) recursively for Azure Data Lake Storage Gen2](recursive-access-control-lists.md). 
 
 ### Which permissions are required to recursively delete a directory and its contents?
 
@@ -297,11 +315,6 @@ OID will be displayed.
 
 When you have the correct OID for the service principal, go to the Storage Explorer **Manage Access** page to add the OID and assign appropriate permissions for the OID. Make sure you select **Save**.
 
-### Does Data Lake Storage Gen2 support inheritance of ACLs?
-
-Azure role assignments do inherit. Assignments flow from subscription, resource group, and storage account resources down to the container resource.
-
-ACLs do not inherit. However, default ACLs can be used to set ACLs for child subdirectories and files created under the parent directory. 
 
 ### Where can I learn more about POSIX access control model?
 
