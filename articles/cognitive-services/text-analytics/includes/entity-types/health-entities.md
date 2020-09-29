@@ -10,63 +10,37 @@ ms.date: 07/28/2020
 ms.author: aahi
 ---
 
-## Health entity categories:
+## Text Analytics for health categories, entities and attributes
 
-The following entity categories are returned by [Text Analytics for health](../../how-tos/text-analytics-for-health.md).  Please note that only English text is supported in this container preview and only a single model-version is provided in each container image.
+[Text Analytics for health](../../how-tos/text-analytics-for-health.md) detects medical concepts in the following categories.  (Please note that only English text is supported in this container preview and only a single model-version is provided in each container image.)
 
-### Named Entity Recognition
+  + **HEALTHCARE** - concepts that capture information about administrative events, care environments and healthcare professions.
+  + **DEMOGRAPHICS** - concepts that capture information about gender and age.
+  + **ANATOMY** - concepts that capture information about body and anatomic systems, sites, locations or regions.
+  + **MEDICAL CONDITION** - concepts that capture information about diagnoses, symptoms or signs.
+  + **EXAMINATION** - concepts that capture information about diagnostic procedures and tests.
+  + **TREATMENT** - concepts that capture information about therapeutic procedures.
+  + **MEDICATION** - concepts that capture information about medication including medication names, classes, dosage and route of administration.
+  + **GENOMICS** - concepts that capture information about genes and variants.
+  + **SOCIAL** - concepts that capture information about medically relevant social aspects such as family relation.
+  
+Each category may include two concept groups:
 
-|Category  |Description   |
-|----------|--------------|
-| Age | Ages. For example *30 years old*. |
-| AdministrativeEvent | An administrative event. |
-| BodyStructure | Parts of the human body including organs and other structures. For example *arm*, or *heart*. | 
-| CareEnvironment | The environment where care or treatment is administered. For example *emergency room* | 
-| ConditionQualifier | Condition levels. For example *mild*, *extended*, or *diffuse*. | 
-| Diagnosis | Medical conditions. For example *hypertension*. | 
-| Direction | Directions. For example *left* or *anterior*. | 
-| Dosage | Size or quantity of a medication. For example *25mg*.  | 
-| ExaminationName | A method or procedure of examination. For example *X-ray*. | 
-| RelationalOperator | An operator that defines a relation between two entities. For example *less than*, or `>=`.  | 
-| MeasurementUnit | A measurement unit (like a percentage). | 
-| MeasurementValue | The numerical value of a measurement unit. | 
-| FamilyRelation | A familial relationship. For example *sister*.  | 
-| Frequency | Frequencies.   | 
-| Gender | Genders. | 
-| Gene | A gene entity such as *TP53*.   | 
-| HealthcareProfession | Method of administering medication. For example *oral administration*. | 
-| MedicationClass | Medication classes. For example *antibiotics*.  | 
-| MedicationForm | A Form of medication. For example *capsule*. | 
-| MedicationName  | Generic and brand named medications. For example *ibuprofen*. | 
-| MedicationRoute | Method of administering medication. For example *oral administration*. | 
-| SymptomOrSign  | Illness symptoms. For example *sore throat*. | 
-| Time | Times. For example *8 years* or *2:30AM this morning* |
-| TreatmentName  | Treatment names. For example *therapy*. | 
-| Variant | A genetic variant of the gene entity. | 
+1. **Entities** - terms that capture medical concepts such as diagnosis, medication name, or treatment name.  For example, *bronchitis* is a diagnosis and *aspirin* is a medication name.  Mentions in this group may be linked to a UMLS concept ID.
+2. **Attributes** - phrases that provide more information about the detected entity, for example, *severe* is a condition qualifier for *bronchitis* or *81 mg* is a dosage for *aspirin*.  Mentions in this category will NOT be linked to a UMLS concept ID.
 
-### Relation extraction
+Additionally, the service recognizes relations between the different concepts including relations between attributes and entities for example, *direction* to *body structure* or *dosage* to *medication name* and relations between entities for example in abbreviation detection.
 
-Relation extraction identifies meaningful connections between concepts mentioned in text. For example, a "time of condition" relation is found by associating a condition name with a time. Text Analytics for health can identify the following relations:
+## ANATOMY
+### Entities
+  + **BODY_STRUCTURE** - Body systems, anatomic locations or regions, and body sites. For example, arm, knee, abdomen, nose, liver, head, respiratory system, lymphocytes.
 
-|Category  |Description   |
-|----------|--------------|
-| DirectionOfBodyStructure | Direction of a body structure. |
-| DirectionOfCondition | Direction of a condition. |
-| DirectionOfExamination | Direction of an examination. |
-| DirectionOfTreatment | Direction of a treatment. |
-| TimeOfCondition | The time associated with the onset of a condition. |
-| QualifierOfCondition | The associated qualifier for a condition. |
-| DosageOfMedication | A dosage of medication. |
-| FormOfMedication | A form of medication. |
-| RouteOfMedication | A route or mode of consuming a medicine. For example *oral*. |
-| FrequencyOfMedication | The frequency at which a medication is consumed. | 
-| ValueOfCondition | A numerical value associated with a condition. |
-| UnitOfCondition | A unit (such as time) associated with a condition. |
-| TimeOfMedication | The time at which a medication was consumed. |
-| TimeOfTreatment | The time at which a treatment was administered. | 
-| FrequencyOfTreatment | The frequency at which a treatment is administered. |
-| ValueOfExamination | A numerical value associated with an examination. | 
-| UnitOfExamination | A unit (such as a percentage) associated with an examination. |
-| RelationOfExamination | A relation between an entity and an examination. | 
-| TimeOfExamination | The time associated with an examination. |
-| Abbreviation | An abbreviation.  | 
+### Attributes
+  + **DIRECTION** - Directional terms, such as: left, lateral, upper, posterior, that characterizes a body structure.
+  
+### Supported Relations
+  + **DIRECTION_OF_BODY_STRUCTURE**
+  
+
+
+
