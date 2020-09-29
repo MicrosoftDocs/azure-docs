@@ -166,7 +166,7 @@ Azure Cosmos DB maintains system metadata for each account. This metadata allows
 
 | Resource | Default limit |
 | --- | --- |
-|Maximum collection create rate rer minute|	5|
+|Maximum collection create rate per minute|	5|
 |Maximum Database create rate per minute|	5|
 |Maximum provisioned throughput update rate per minute|	5|
 
