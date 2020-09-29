@@ -403,7 +403,7 @@
 - name: Reference
   items:
   - name: Azure CLI
-    href: /cli/azure/search?view=azure-cli-latest
+    href: /cli/azure/search
   - name: Azure PowerShell
     href: /powershell/module/az.search 
   - name: Resource Manager template
