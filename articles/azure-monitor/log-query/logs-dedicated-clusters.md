@@ -33,15 +33,21 @@ Once the cluster is created, it can be configured and workspaces linked to it. W
 
 All operations on the cluster level require the `Microsoft.OperationalInsights/clusters/write` action permission on the cluster. This permission could be granted via the Owner or Contributor that contains the `*/write` action or via the Log Analytics Contributor role that contains the `Microsoft.OperationalInsights/*` action. For more information on Log Analytics permissions, see [Manage access to log data and workspaces in Azure Monitor](../platform/manage-access.md). 
 
-## Billing
 
-Dedicated clusters are supported only for workspaces that use per-GB plans with or without capacity reservation tiers. Dedicated clusters have no additional charge for customers that commit to ingest more than 1 TB for such cluster. "Commit to ingest" means they have assigned a capacity reservation tier of at least 1 TB/day on the cluster level. 
-While the capacity reservation is attached at the cluster level, there are two options for the actual charging for the data:
+## Cluster pricing model
 
-- *Cluster* (default) - The capacity reservation costs for your cluster are attributed to the *cluster* resource.
-- *Workspaces* - The capacity reservation costs for your cluster are attributed proportionately to the workspaces in the cluster. The *cluster* resource is billed some of the usage if the total ingested data for the day is under the capacity reservation. See [Log Analytics Dedicated Clusters](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters) to learn more about the Cluster pricing model.
+Log Analytics Dedicated Clusters use a Capacity Reservation pricing model which of at least 1000 GB/day. Any usage above the reservation level will be billed at the Pay-As-You-Go rate.  Capacity Reservation pricing information is available at the [Azure Monitor pricing page]( https://azure.microsoft.com/pricing/details/monitor/).  
 
-For more information on dedicated clusters billing, see [Log Analytics Dedicated Cluster Billing](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters).
+The cluster capacity reservation level is configured via programmatically with Azure Resource Manager using the `Capacity` parameter under `Sku`. The `Capacity` is specified in units of GB and can have values of 1000 GB/day or more in increments of 100 GB/day.
+
+There are two modes of billing for usage on a cluster. These can be specified by the `billingType` parameter when configuring your cluster. 
+
+1. **Cluster**: in this case (which is the default), billing for ingested data is done at the cluster level. The ingested data quantities from each workspace associated to a cluster is aggregated to calculate the daily bill for the cluster. 
+
+2. **Workspaces**: the Capacity Reservation costs for your Cluster are attributed proportionately to the workspaces in the Cluster (after accounting for per-node allocations from [Azure Security Center](https://docs.microsoft.com/azure/security-center/) for each workspace.)
+
+More details are billing for Log Analytics dedicated clusters are available [here]( https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-dedicated-clusters).
+
 
 ## Creating a cluster
 
