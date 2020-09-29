@@ -69,7 +69,7 @@ In the Azure portal, invoke the method with the method name `RestartModule` and 
 * [GetModuleLogs](how-to-retrieve-iot-edge-logs.md#retrieve-module-logs): Retrieve module logs inline in the response of the direct method.
 * [UploadModuleLogs](how-to-retrieve-iot-edge-logs.md#upload-module-logs): Retrieve module logs and upload them to Azure Blob Storage.
 * [UploadSupportBundle](how-to-retrieve-iot-edge-logs.md#upload-support-bundle-diagnostics): Retrieve module logs using a support bundle and upload a zip file to Azure Blob Storage.
-* [GetTaskStatus](how-to-retrieve-iot-edge-logs.md#get-upload-request-status): Check on the status of an upload logs or support-bundle request.
+* [GetTaskStatus](how-to-retrieve-iot-edge-logs.md#get-upload-request-status): Check on the status of an upload logs or support bundle request.
 
 These diagnostic direct methods are available as of the 1.0.10 release.
 
