@@ -1,20 +1,20 @@
 ---
-title: Consume web service
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (classic): Consume web services - Azure'
 description: Once a machine learning service is deployed from Azure Machine Learning Studio (classic), the RESTFul Web service can be consumed either as real-time request-response service or as a batch execution service.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 
 author: likebupt
 ms.author: keli19
-ms.custom: seodec18
-ms.date: 06/02/2017
+ms.custom: "seodec18, devx-track-python, devx-track-js, devx-track-csharp"
+ms.date: 05/29/2020
 ---
-# How to consume an Azure Machine Learning Studio (classic) web service
+# How to consume a Machine Learning Studio (classic) web service
 
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+**APPLIES TO:**  ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+
 
 Once you deploy an Azure Machine Learning Studio (classic) predictive model as a Web service, you can use a REST API to send it data and get predictions. You can send the data in real-time or in batch mode.
 
@@ -250,54 +250,46 @@ To connect to a Machine Learning Web Service, use the **RCurl** and **rjson** li
 
 **Here is what a complete request will look like.**
 ```r
-library("RCurl")
+library("curl")
+library("httr")
 library("rjson")
 
-# Accept TLS/SSL certificates issued by public Certificate Authorities
-options(RCurlOptions = list(cainfo = system.file("CurlSSL", "cacert.pem", package = "RCurl")))
+requestFailed = function(response) {
+    return (response$status_code >= 400)
+}
 
-h = basicTextGatherer()
-hdr = basicHeaderGatherer()
+printHttpResult = function(response, result) {
+    if (requestFailed(response)) {
+        print(paste("The request failed with status code:", response$status_code, sep=" "))
+    
+        # Print the headers - they include the request ID and the timestamp, which are useful for debugging the failure
+        print(response$headers)
+    }
+    
+    print("Result:") 
+    print(fromJSON(result))  
+}
 
 req = list(
-    Inputs = list(
+        Inputs = list( 
             "input1" = list(
-                list(
-                        'column1' = "value1",
-                        'column2' = "value2",
-                        'column3' = "value3"
-                    )
-            )
-        ),
+                "ColumnNames" = list("Col1", "Col2", "Col3"),
+                "Values" = list( list( "0", "value", "0" ),  list( "0", "value", "0" )  )
+            )                ),
         GlobalParameters = setNames(fromJSON('{}'), character(0))
 )
 
 body = enc2utf8(toJSON(req))
-api_key = "<your-api-key>" # Replace this with the API key for the web service
+api_key = "abc123" # Replace this with the API key for the web service
 authz_hdr = paste('Bearer', api_key, sep=' ')
 
-h$reset()
-curlPerform(url = "<your-api-uri>",
-httpheader=c('Content-Type' = "application/json", 'Authorization' = authz_hdr),
-postfields=body,
-writefunction = h$update,
-headerfunction = hdr$update,
-verbose = TRUE
-)
+response = POST(url= "<your-api-uri>",
+        add_headers("Content-Type" = "application/json", "Authorization" = authz_hdr),
+        body = body)
 
-headers = hdr$value()
-httpStatus = headers["status"]
-if (httpStatus >= 400)
-{
-print(paste("The request failed with status code:", httpStatus, sep=" "))
+result = content(response, type="text", encoding="UTF-8")
 
-# Print the headers - they include the request ID and the timestamp, which are useful for debugging the failure
-print(headers)
-}
-
-print("Result:")
-result = h$value()
-print(fromJSON(result))
+printHttpResult(response, result)
 ```
 
 ### JavaScript Sample

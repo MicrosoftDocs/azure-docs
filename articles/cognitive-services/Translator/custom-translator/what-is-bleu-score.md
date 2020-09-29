@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 02/21/2019
+ms.date: 08/17/2020
 ms.author: swmachan
 #Customer intent: As a Custom Translator user, I want to understand how BLEU score works so that I understand system test outcome better.
 ---

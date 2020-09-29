@@ -1,6 +1,6 @@
 ---
 title: Azure Data Lake Storage Gen2 Introduction
-description: Provides an overview of Azure Data Lake Storage Gen2 
+description: Read an introduction to Azure Data Lake Storage Gen2. Learn key features. Review supported Blob storage features, Azure service integrations, and platforms.
 author: normesta
 ms.service: storage
 ms.topic: overview
@@ -33,7 +33,7 @@ Also, Data Lake Storage Gen2 is very cost effective because it is built on top o
 
 ## Key features of Data Lake Storage Gen2
 
--   **Hadoop compatible access**: Data Lake Storage Gen2 allows you to manage and access data just as you would with a [Hadoop Distributed File System (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). The new [ABFS driver](data-lake-storage-abfs-driver.md) is available within all Apache Hadoop environments, including [Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/index)*,* [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/index), and [SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/) to access data stored in Data Lake Storage Gen2.
+-   **Hadoop compatible access**: Data Lake Storage Gen2 allows you to manage and access data just as you would with a [Hadoop Distributed File System (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). The new [ABFS driver](data-lake-storage-abfs-driver.md) is available within all Apache Hadoop environments, including [Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/index)*,* [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/index), and [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics) to access data stored in Data Lake Storage Gen2.
 
 -   **A superset of POSIX permissions**: The security model for Data Lake Gen2 supports ACL and POSIX permissions along with some extra granularity specific to Data Lake Storage Gen2. Settings may be configured through Storage Explorer or through frameworks like Hive and Spark.
 

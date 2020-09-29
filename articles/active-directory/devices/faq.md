@@ -60,7 +60,7 @@ For more information, see [Require managed devices for cloud app access with Con
 - User disables the device from the My Apps portal. 
 - An administrator (or user) deletes or disables the device in the Azure portal or by using PowerShell
 - Hybrid Azure AD joined only: An administrator removes the devices OU out of sync scope resulting in the devices being deleted from Azure AD
-- Upgrading Azure AD connect to the version 1.4.xx.x. [Understanding Azure AD Connect 1.4.xx.x and device disappearance](/azure/active-directory/hybrid/reference-connect-device-disappearance).
+- Upgrading Azure AD connect to the version 1.4.xx.x. [Understanding Azure AD Connect 1.4.xx.x and device disappearance](../hybrid/reference-connect-device-disappearance.md).
 
 
 See below on how these actions can be rectified.
@@ -174,6 +174,8 @@ Deleted or disabled users who didn't sign in previously can't access a device. T
 
 **A:** Currently, UPN changes are not fully supported on Azure AD joined devices. So their authentication with Azure AD fails after their UPN changes. As a result, users have SSO and Conditional Access issues on their devices. At this time, users need to sign in to Windows through the "Other user" tile using their new UPN to resolve this issue. We are currently working on addressing this issue. However, users signing in with Windows Hello for Business do not face this issue. 
 
+UPN changes are supported with Windows 10 2004 update. Users on devices with this update will not have any issues after changing their UPNs
+
 ---
 
 ### Q: My users can't search printers from Azure AD joined devices. How can I enable printing from those devices?
@@ -267,6 +269,8 @@ Hybrid Azure AD join takes precedence over the Azure AD registered state. So you
 
 **A:** Currently UPN changes are not fully supported with hybrid Azure AD joined devices. While users can sign in to the device and access their on-premises applications, authentication with Azure AD fails after a UPN change. As a result, users have SSO and Conditional Access issues on their devices. At this time, you need to unjoin the device from Azure AD (run "dsregcmd /leave" with elevated privileges) and rejoin (happens automatically) to resolve the issue. We are currently working on addressing this issue. However, users signing in with Windows Hello for Business do not face this issue. 
 
+UPN changes are supported with Windows 10 2004 update. Users on devices with this update will not have any issues after changing their UPNs
+
 ---
 
 ### Q: Do Windows 10 hybrid Azure AD joined devices require line of sight to the domain controller to get access to cloud resources?
@@ -310,7 +314,7 @@ Enable the following registry to block your users from adding additional work ac
 **A:** Take the following steps:
 
 1.    [Create a compliance policy](/intune/compliance-policy-create-mac-os)
-1.    [Define a Conditional Access policy for macOS devices](../active-directory-conditional-access-azure-portal.md) 
+1.    [Define a Conditional Access policy for macOS devices](../conditional-access/overview.md) 
 
 **Remarks:**
 

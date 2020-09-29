@@ -6,6 +6,7 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
+ms.custom: "devx-track-csharp, devx-track-python"
 ---
 
 # Azure Functions HTTP trigger
@@ -32,7 +33,7 @@ The following example shows a [C# function](functions-dotnet-class-library.md) t
 ```cs
 [FunctionName("HttpTriggerCSharp")]
 public static async Task<IActionResult> Run(
-    [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] 
+    [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)]
     HttpRequest req, ILogger log)
 {
     log.LogInformation("C# HTTP trigger function processed a request.");
@@ -123,111 +124,6 @@ public static string Run(Person person, ILogger log)
 public class Person {
      public string Name {get; set;}
 }
-```
-
-# [JavaScript](#tab/javascript)
-
-The following example shows a trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function looks for a `name` parameter either in the query string or the body of the HTTP request.
-
-Here's the *function.json* file:
-
-```json
-{
-    "disabled": false,    
-    "bindings": [
-        {
-            "authLevel": "function",
-            "type": "httpTrigger",
-            "direction": "in",
-            "name": "req"
-        },
-        {
-            "type": "http",
-            "direction": "out",
-            "name": "res"
-        }
-    ]
-}
-```
-
-The [configuration](#configuration) section explains these properties.
-
-Here's the JavaScript code:
-
-```javascript
-module.exports = function(context, req) {
-    context.log('Node.js HTTP trigger function processed a request. RequestUri=%s', req.originalUrl);
-
-    if (req.query.name || (req.body && req.body.name)) {
-        context.res = {
-            // status defaults to 200 */
-            body: "Hello " + (req.query.name || req.body.name)
-        };
-    }
-    else {
-        context.res = {
-            status: 400,
-            body: "Please pass a name on the query string or in the request body"
-        };
-    }
-    context.done();
-};
-```
-
-# [Python](#tab/python)
-
-The following example shows a trigger binding in a *function.json* file and a [Python function](functions-reference-python.md) that uses the binding. The function looks for a `name` parameter either in the query string or the body of the HTTP request.
-
-Here's the *function.json* file:
-
-```json
-{
-    "scriptFile": "__init__.py",
-    "disabled": false,    
-    "bindings": [
-        {
-            "authLevel": "function",
-            "type": "httpTrigger",
-            "direction": "in",
-            "name": "req"
-        },
-        {
-            "type": "http",
-            "direction": "out",
-            "name": "res"
-        }
-    ]
-}
-```
-
-The [configuration](#configuration) section explains these properties.
-
-Here's the Python code:
-
-```python
-import logging
-import azure.functions as func
-
-
-def main(req: func.HttpRequest) -> func.HttpResponse:
-    logging.info('Python HTTP trigger function processed a request.')
-
-    name = req.params.get('name')
-    if not name:
-        try:
-            req_body = req.get_json()
-        except ValueError:
-            pass
-        else:
-            name = req_body.get('name')
-
-    if name:
-        return func.HttpResponse(f"Hello {name}!")
-    else:
-        return func.HttpResponse(
-            "Please pass a name on the query string or in the request body",
-            status_code=400
-        )
 ```
 
 # [Java](#tab/java)
@@ -416,6 +312,166 @@ public HttpResponseMessage run(
 }
 ```
 
+# [JavaScript](#tab/javascript)
+
+The following example shows a trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function looks for a `name` parameter either in the query string or the body of the HTTP request.
+
+Here's the *function.json* file:
+
+```json
+{
+    "disabled": false,    
+    "bindings": [
+        {
+            "authLevel": "function",
+            "type": "httpTrigger",
+            "direction": "in",
+            "name": "req"
+        },
+        {
+            "type": "http",
+            "direction": "out",
+            "name": "res"
+        }
+    ]
+}
+```
+
+The [configuration](#configuration) section explains these properties.
+
+Here's the JavaScript code:
+
+```javascript
+module.exports = function(context, req) {
+    context.log('Node.js HTTP trigger function processed a request. RequestUri=%s', req.originalUrl);
+
+    if (req.query.name || (req.body && req.body.name)) {
+        context.res = {
+            // status defaults to 200 */
+            body: "Hello " + (req.query.name || req.body.name)
+        };
+    }
+    else {
+        context.res = {
+            status: 400,
+            body: "Please pass a name on the query string or in the request body"
+        };
+    }
+    context.done();
+};
+```
+
+# [PowerShell](#tab/powershell)
+
+The following example shows a trigger binding in a *function.json* file and a [PowerShell function](functions-reference-node.md). The function looks for a `name` parameter either in the query string or the body of the HTTP request.
+
+```json
+{
+  "bindings": [
+    {
+      "authLevel": "function",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "Request",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "Response"
+    }
+  ]
+}
+```
+
+```powershell
+using namespace System.Net
+
+# Input bindings are passed in via param block.
+param($Request, $TriggerMetadata)
+
+# Write to the Azure Functions log stream.
+Write-Host "PowerShell HTTP trigger function processed a request."
+
+# Interact with query parameters or the body of the request.
+$name = $Request.Query.Name
+if (-not $name) {
+    $name = $Request.Body.Name
+}
+
+$body = "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response."
+
+if ($name) {
+    $body = "Hello, $name. This HTTP triggered function executed successfully."
+}
+
+# Associate values to output bindings by calling 'Push-OutputBinding'.
+Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
+    StatusCode = [HttpStatusCode]::OK
+    Body       = $body
+})
+```
+
+
+# [Python](#tab/python)
+
+The following example shows a trigger binding in a *function.json* file and a [Python function](functions-reference-python.md) that uses the binding. The function looks for a `name` parameter either in the query string or the body of the HTTP request.
+
+Here's the *function.json* file:
+
+```json
+{
+    "scriptFile": "__init__.py",
+    "disabled": false,    
+    "bindings": [
+        {
+            "authLevel": "function",
+            "type": "httpTrigger",
+            "direction": "in",
+            "name": "req"
+        },
+        {
+            "type": "http",
+            "direction": "out",
+            "name": "res"
+        }
+    ]
+}
+```
+
+The [configuration](#configuration) section explains these properties.
+
+Here's the Python code:
+
+```python
+import logging
+import azure.functions as func
+
+
+def main(req: func.HttpRequest) -> func.HttpResponse:
+    logging.info('Python HTTP trigger function processed a request.')
+
+    name = req.params.get('name')
+    if not name:
+        try:
+            req_body = req.get_json()
+        except ValueError:
+            pass
+        else:
+            name = req_body.get('name')
+
+    if name:
+        return func.HttpResponse(f"Hello {name}!")
+    else:
+        return func.HttpResponse(
+            "Please pass a name on the query string or in the request body",
+            status_code=400
+        )
+```
+
 ---
 
 ## Attributes and annotations
@@ -443,14 +499,6 @@ For a complete example, see the [trigger example](#example).
 
 Attributes are not supported by C# Script.
 
-# [JavaScript](#tab/javascript)
-
-Attributes are not supported by JavaScript.
-
-# [Python](#tab/python)
-
-Attributes are not supported by Python.
-
 # [Java](#tab/java)
 
 This example demonstrates how to use the [HttpTrigger](https://github.com/Azure/azure-functions-java-library/blob/dev/src/main/java/com/microsoft/azure/functions/annotation/HttpTrigger.java) attribute.
@@ -468,6 +516,18 @@ public HttpResponseMessage<String> HttpTrigger(
 ```
 
 For a complete example, see the [trigger example](#example).
+
+# [JavaScript](#tab/javascript)
+
+Attributes are not supported by JavaScript.
+
+# [PowerShell](#tab/powershell)
+
+Attributes are not supported by PowerShell.
+
+# [Python](#tab/python)
+
+Attributes are not supported by Python.
 
 ---
 
@@ -493,7 +553,9 @@ The trigger input type is declared as either `HttpRequest` or a custom type. If 
 
 By default when you create a function for an HTTP trigger, the function is addressable with a route of the form:
 
-    http://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>
+```http
+http://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>
+```
 
 You can customize this route using the optional `route` property on the HTTP trigger's input binding. As an example, the following *function.json* file defines a `route` property for an HTTP trigger:
 
@@ -558,47 +620,6 @@ public static IActionResult Run(HttpRequest req, string category, int? id, ILogg
 }
 ```
 
-# [JavaScript](#tab/javascript)
-
-In Node, the Functions runtime provides the request body from the `context` object. For more information, see the [JavaScript trigger example](#example).
-
-The following example shows how to read route parameters from `context.bindingData`.
-
-```javascript
-module.exports = function (context, req) {
-
-    var category = context.bindingData.category;
-    var id = context.bindingData.id;
-    var message = `Category: ${category}, ID: ${id}`;
-
-    context.res = {
-        body: message;
-    }
-
-    context.done();
-}
-```
-
-# [Python](#tab/python)
-
-The function execution context is exposed via a parameter declared as `func.HttpRequest`. This instance allows a function to access data route parameters, query string values and methods that allow you to return HTTP responses.
-
-Once defined, the route parameters are available to the function by calling the `route_params` method.
-
-```python
-import logging
-
-import azure.functions as func
-
-def main(req: func.HttpRequest) -> func.HttpResponse:
-
-    category = req.route_params.get('category')
-    id = req.route_params.get('id')
-    message = f"Category: {category}, ID: {id}"
-
-    return func.HttpResponse(message)
-```
-
 # [Java](#tab/java)
 
 The function execution context is properties as declared in the `HttpTrigger` attribute. The attribute allows you to define route parameters, authorization levels, HTTP verbs and the incoming request instance.
@@ -628,14 +649,73 @@ public class HttpTriggerJava {
 }
 ```
 
+# [JavaScript](#tab/javascript)
+
+In Node, the Functions runtime provides the request body from the `context` object. For more information, see the [JavaScript trigger example](#example).
+
+The following example shows how to read route parameters from `context.bindingData`.
+
+```javascript
+module.exports = function (context, req) {
+
+    var category = context.bindingData.category;
+    var id = context.bindingData.id;
+    var message = `Category: ${category}, ID: ${id}`;
+
+    context.res = {
+        body: message;
+    }
+
+    context.done();
+}
+```
+
+# [PowerShell](#tab/powershell)
+
+Route parameters declared in the *function.json* file are accessible as a property of the `$Request.Params` object.
+
+```powershell
+$Category = $Request.Params.category
+$Id = $Request.Params.id
+
+$Message = "Category:" + $Category + ", ID: " + $Id
+
+Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
+    StatusCode = [HttpStatusCode]::OK
+    Body = $Message
+})
+```
+
+# [Python](#tab/python)
+
+The function execution context is exposed via a parameter declared as `func.HttpRequest`. This instance allows a function to access data route parameters, query string values and methods that allow you to return HTTP responses.
+
+Once defined, the route parameters are available to the function by calling the `route_params` method.
+
+```python
+import logging
+
+import azure.functions as func
+
+def main(req: func.HttpRequest) -> func.HttpResponse:
+
+    category = req.route_params.get('category')
+    id = req.route_params.get('id')
+    message = f"Category: {category}, ID: {id}"
+
+    return func.HttpResponse(message)
+```
+
 ---
 
-By default, all function routes are prefixed with *api*. You can also customize or remove the prefix using the `http.routePrefix` property in your [host.json](functions-host-json.md) file. The following example removes the *api* route prefix by using an empty string for the prefix in the *host.json* file.
+By default, all function routes are prefixed with *api*. You can also customize or remove the prefix using the `extensions.http.routePrefix` property in your [host.json](functions-host-json.md) file. The following example removes the *api* route prefix by using an empty string for the prefix in the *host.json* file.
 
 ```json
 {
-    "http": {
-    "routePrefix": ""
+    "extensions": {
+        "http": {
+            "routePrefix": ""
+        }
     }
 }
 ```
@@ -659,13 +739,13 @@ The following configuration shows how the `{id}` parameter is passed to the bind
 
 ## Working with client identities
 
-If your function app is using [App Service Authentication / Authorization](../app-service/overview-authentication-authorization.md), you can view information about authenticated clients from your code. This information is available as [request headers injected by the platform](../app-service/app-service-authentication-how-to.md#access-user-claims). 
+If your function app is using [App Service Authentication / Authorization](../app-service/overview-authentication-authorization.md), you can view information about authenticated clients from your code. This information is available as [request headers injected by the platform](../app-service/app-service-authentication-how-to.md#access-user-claims).
 
 You can also read this information from binding data. This capability is only available to the Functions runtime in 2.x and higher. It is also currently only available for .NET languages.
 
 # [C#](#tab/csharp)
 
-Information regarding authenticated clients is available as a [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal). The ClaimsPrincipal is available as part of the request context as shown in the following example:
+Information regarding authenticated clients is available as a [ClaimsPrincipal](/dotnet/api/system.security.claims.claimsprincipal). The ClaimsPrincipal is available as part of the request context as shown in the following example:
 
 ```csharp
 using System.Net;
@@ -697,7 +777,7 @@ public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
 
 # [C# Script](#tab/csharp-script)
 
-Information regarding authenticated clients is available as a [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal). The ClaimsPrincipal is available as part of the request context as shown in the following example:
+Information regarding authenticated clients is available as a [ClaimsPrincipal](/dotnet/api/system.security.claims.claimsprincipal). The ClaimsPrincipal is available as part of the request context as shown in the following example:
 
 ```csharp
 using System.Net;
@@ -729,7 +809,15 @@ public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
 }
 ```
 
+# [Java](#tab/java)
+
+The authenticated user is available via [HTTP Headers](../app-service/app-service-authentication-how-to.md#access-user-claims).
+
 # [JavaScript](#tab/javascript)
+
+The authenticated user is available via [HTTP Headers](../app-service/app-service-authentication-how-to.md#access-user-claims).
+
+# [PowerShell](#tab/powershell)
 
 The authenticated user is available via [HTTP Headers](../app-service/app-service-authentication-how-to.md#access-user-claims).
 
@@ -737,38 +825,12 @@ The authenticated user is available via [HTTP Headers](../app-service/app-servic
 
 The authenticated user is available via [HTTP Headers](../app-service/app-service-authentication-how-to.md#access-user-claims).
 
-# [Java](#tab/java)
-
-The authenticated user is available via [HTTP Headers](../app-service/app-service-authentication-how-to.md#access-user-claims).
 
 ---
 
-## Authorization keys
+## <a name="authorization-keys"></a>Function access keys
 
-Functions lets you use keys to make it harder to access your HTTP function endpoints during development.  Unless the HTTP authorization level on an HTTP triggered function is set to `anonymous`, requests must include an API key in the request. 
-
-> [!IMPORTANT]
-> While keys may help obfuscate your HTTP endpoints during development, they are not intended as a way to secure an HTTP trigger in production. To learn more, see [Secure an HTTP endpoint in production](#secure-an-http-endpoint-in-production).
-
-> [!NOTE]
-> In the Functions 1.x runtime, webhook providers may use keys to authorize requests in a variety of ways, depending on what the provider supports. This is covered in [Webhooks and keys](#webhooks-and-keys). The Functions runtime in version 2.x and higher does not include built-in support for webhook providers.
-
-#### Authorization scopes (function-level)
-
-There are two authorization scopes for function-level keys:
-
-* **Function**: These keys apply only to the specific functions under which they are defined. When used as an API key, these only allow access to that function.
-
-* **Host**: Keys with a host scope can be used to access all functions within the function app. When used as an API key, these allow access to any function within the function app. 
-
-Each key is named for reference, and there is a default key (named "default") at the function and host level. Function keys take precedence over host keys. When two keys are defined with the same name, the function key is always used.
-
-#### Master key (admin-level) 
-
-Each function app also has an admin-level host key named `_master`. In addition to providing host-level access to all functions in the app, the master key also provides administrative access to the runtime REST APIs. This key cannot be revoked. When you set an authorization level of `admin`, requests must use the master key; any other key results in authorization failure.
-
-> [!CAUTION]  
-> Due to the elevated permissions in your function app granted by the master key, you should not share this key with third parties or distribute it in native client applications. Use caution when choosing the admin authorization level.
+[!INCLUDE [functions-authorization-keys](../../includes/functions-authorization-keys.md)]
 
 ## Obtaining keys
 
@@ -782,7 +844,9 @@ You may obtain function keys programmatically by using [Key management APIs](htt
 
 Most HTTP trigger templates require an API key in the request. So your HTTP request normally looks like the following URL:
 
-    https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?code=<API_KEY>
+```http
+https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?code=<API_KEY>
+```
 
 The key can be included in a query string variable named `code`, as above. It can also be included in an `x-functions-key` HTTP header. The value of the key can be any function key defined for the function, or any host key.
 
@@ -794,15 +858,13 @@ You can allow anonymous requests, which do not require keys. You can also requir
 
 ## Secure an HTTP endpoint in production
 
-To fully secure your function endpoints in production, you should consider implementing one of the following function app-level security options:
+To fully secure your function endpoints in production, you should consider implementing one of the following function app-level security options. When using one of these function app-level security methods, you should set the HTTP-triggered function authorization level to `anonymous`.
 
-* Turn on App Service Authentication / Authorization for your function app. The App Service platform lets you use Azure Active Directory (AAD) and several third-party identity providers to authenticate clients. You can use this strategy to implement custom authorization rules for your functions, and you can work with user information from your function code. To learn more, see [Authentication and authorization in Azure App Service](../app-service/overview-authentication-authorization.md) and [Working with client identities](#working-with-client-identities).
+[!INCLUDE [functions-enable-auth](../../includes/functions-enable-auth.md)]
 
-* Use Azure API Management (APIM) to authenticate requests. APIM provides a variety of API security options for incoming requests. To learn more, see [API Management authentication policies](../api-management/api-management-authentication-policies.md). With APIM in place, you can configure your function app to accept requests only from the IP address of your APIM instance. To learn more, see [IP address restrictions](ip-addresses.md#ip-address-restrictions).
+#### Deploy your function app in isolation
 
-* Deploy your function app to an Azure App Service Environment (ASE). ASE provides a dedicated hosting environment in which to run your functions. ASE lets you configure a single front-end gateway that you can use to authenticate all incoming requests. For more information, see [Configuring a Web Application Firewall (WAF) for App Service Environment](../app-service/environment/app-service-app-service-environment-web-application-firewall.md).
-
-When using one of these function app-level security methods, you should set the HTTP-triggered function authorization level to `anonymous`.
+[!INCLUDE [functions-deploy-isolation](../../includes/functions-deploy-isolation.md)]
 
 ## Webhooks
 
@@ -815,7 +877,7 @@ In version 1.x, webhook templates provide additional validation for webhook payl
 
 To respond to GitHub webhooks, first create your function with an HTTP Trigger, and set the **webHookType** property to `github`. Then copy its URL and API key into the **Add webhook** page of your GitHub repository. 
 
-![](./media/functions-bindings-http-webhook/github-add-webhook.png)
+![Screenshot that shows how to add a webhook for your function.](./media/functions-bindings-http-webhook/github-add-webhook.png)
 
 ### Slack webhooks
 
@@ -828,9 +890,17 @@ Webhook authorization is handled by the webhook receiver component, part of the 
 * **Query string**: The provider passes the key name in the `clientid` query string parameter, such as `https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?clientid=<KEY_NAME>`.
 * **Request header**: The provider passes the key name in the `x-functions-clientid` header.
 
+## Content types
+
+Passing binary and form data to a non-C# function requires that you use the appropriate content-type header. Supported content types include `octet-stream` for binary data and [multipart types](https://www.iana.org/assignments/media-types/media-types.xhtml#multipart).
+
+### Known issues
+
+In non-C# functions, requests sent with the content-type `image/jpeg` results in a `string` value passed to the function. In cases like these, you can manually convert the `string` value to a byte array to access the raw binary data.
+
 ## Limits
 
-The HTTP request length is limited to 100 MB (104,857,600 bytes), and the URL length is limited to 4 KB (4,096 bytes). These limits are specified by the `httpRuntime` element of the runtime's [Web.config file](https://github.com/Azure/azure-functions-host/blob/3.x/src/WebJobs.Script.WebHost/web.config).
+The HTTP request length is limited to 100 MB (104,857,600 bytes), and the URL length is limited to 4 KB (4,096 bytes). These limits are specified by the `httpRuntime` element of the runtime's [Web.config file](https://github.com/Azure/azure-functions-host/blob/v3.x/src/WebJobs.Script.WebHost/web.config).
 
 If a function that uses the HTTP trigger doesn't complete within 230 seconds, the [Azure Load Balancer](../app-service/faq-availability-performance-application-issues.md#why-does-my-request-time-out-after-230-seconds) will time out and return an HTTP 502 error. The function will continue running but will be unable to return an HTTP response. For long-running functions, we recommend that you follow async patterns and return a location where you can ping the status of the request. For information about how long a function can run, see [Scale and hosting - Consumption plan](functions-scale.md#timeout).
 

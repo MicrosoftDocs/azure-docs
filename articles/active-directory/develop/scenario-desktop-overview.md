@@ -1,5 +1,6 @@
 ---
-title: Build a desktop app that calls web APIs - Microsoft identity platform | Azure
+title: Build a desktop app that calls web APIs | Azure
+titleSuffix: Microsoft identity platform
 description: Learn how to build a desktop app that calls web APIs (overview)
 services: active-directory
 author: jmprieur
@@ -9,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 05/18/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 #Customer intent: As an application developer, I want to know how to write a desktop app that calls web APIs by using the Microsoft identity platform for developers.
@@ -47,7 +48,7 @@ You write a desktop application, and you want to sign in users to your applicati
   - Or, if it's a .NET Core application and you agree to have the authentication interaction with Azure Active Directory (Azure AD) happen in the system browser.
 
 - For Windows hosted applications, it's also possible for applications running on computers joined to a Windows domain or Azure AD joined to acquire a token silently by using Integrated Windows Authentication.
-- Finally, and although it's not recommended, you can use a username and a password in public client applications. It's still needed in some scenarios like DevOps. Using it imposes constraints on your application. For instance, it can't sign in a user who needs to perform multifactor authentication (conditional access). Also, your application won't benefit from single sign-on (SSO).
+- Finally, and although it's not recommended, you can use a username and a password in public client applications. It's still needed in some scenarios like DevOps. Using it imposes constraints on your application. For instance, it can't sign in a user who needs to perform [multi-factor authentication](../authentication/concept-mfa-howitworks.md) (conditional access). Also, your application won't benefit from single sign-on (SSO).
 
   It's also against the principles of modern authentication and is only provided for legacy reasons.
 

@@ -23,17 +23,13 @@
   - name: Use browser
     href: luis-get-started-get-intent-from-browser.md
   - name: Use SDK
-    items:
-    - name: Authoring app
-      href: sdk-authoring.md
-    - name: Query prediction endpoint
-      href: sdk-query-prediction-endpoint.md
+    href: azure-sdk-quickstart.md
   - name: Use REST APIs
     items:
     - name: Get intent
-      href: luis-get-started-get-intent-from-rest.md
+      href: luis-get-started-rest-get-intent.md
     - name: Change model
-      href: get-started-get-model-rest-apis.md
+      href: luis-get-started-rest-get-model.md
 - name: Tutorials
   items:
   - name: Build decomposable app
@@ -42,21 +38,7 @@
       href: tutorial-intents-only.md
     - name: 2. Extract user data
       href: tutorial-machine-learned-entity.md
-      displayName: n-depth, constraint, descriptor, phrase list, entity
-    - name: 3. Get sentiment from user utterances
-      href: tutorial-publish-settings.md
-  - name: Create and use entities
-    items:
-    - name: Regular expression entities
-      href: tutorial-regex-entity.md
-    - name: List entities
-      href: tutorial-list-entity.md
-    - name: Entity roles
-      href: tutorial-entity-roles.md
-      displayName: roles, geographyV2, context
-    - name: Group and extract related data with composite entities
-      href: luis-tutorial-composite-entity.md
-      displayName: roles
+      displayName: n-depth, constraint, descriptor, phrase list, entity, feature
   - name: Improve app
     items:
     - name: Fix unsure predictions
@@ -75,22 +57,26 @@
       href: luis-nodejs-tutorial-bf-v4.md
 - name: Concepts
   items:
+  - name: Artificial intelligence
+    href: artificial-intelligence.md
   - name: Development lifecycle
     href: luis-concept-app-iteration.md
   - name: Plan your app
     displayName: simple, composite, prebuilt, list, regex, regular expression
     href: luis-how-plan-your-app.md
+  - name: Data collection
+    href: data-collection.md
   - name: App models
     items:
     - name: Types
       href: luis-concept-model.md
-    - name: Intents
+    - name: Intents classify utterances
       href: luis-concept-intent.md
-    - name: Utterances
-      href: luis-concept-utterance.md
-    - name: Entities
+    - name: Entities extract data
       displayName: prebuilt, custom, regular expression, regex, simple, list, pattern.any, composite, machine-learn, exact, mixed, roles
       href: luis-concept-entity-types.md
+    - name: Example utterances
+      href: luis-concept-utterance.md
     - name: Prebuilt models
       href: luis-concept-prebuilt-model.md
     - name: Patterns
@@ -98,7 +84,7 @@
       displayName: roles
     - name: Features
       href: luis-concept-feature.md
-      displayName: descriptor, phrase list
+      displayName: descriptor, phrase list, feature
     - name: Extend app at runtime
       href: schema-change-prediction-runtime.md
   - name: Prediction score
@@ -116,9 +102,6 @@
       href: luis-concept-test.md
     - name: Batch testing
       href: luis-concept-batch-test.md
-  - name: Authoring and runtime keys
-    displayName: shared, transfer, ownership, author, access, import
-    href: luis-concept-keys.md
   - name: Data management
     items:
     - name: Altering data
@@ -138,8 +121,18 @@
     - name: Design strategies
       href: luis-concept-enterprise.md
       displayName: import
+  - name: Applying DevOps practices with LUIS
+    items:
+    - name: Source control and branch strategies for LUIS
+      href: luis-concept-devops-sourcecontrol.md
+    - name: Testing for DevOps
+      href: luis-concept-devops-testing.md
+    - name: CI/CD workflows
+      href: luis-concept-devops-automation.md
 - name: How-to guides
   items:
+  - name: Sign in to LUIS portal
+    href: sign-in-luis-portal.md
   - name: Start a new app
     href: luis-how-to-start-new-app.md
     displayName: import, export, container
@@ -154,15 +147,13 @@
       href: howto-add-prebuilt-models.md
     - name: Label entity in utterance
       href: label-entity-example-utterance.md
-    - name: Add Descriptor
-      displayName: synonym, interchange, phrase list, descriptor
+    - name: Add Feature
+      displayName: synonym, interchange, phrase list, descriptor, feature
       href: luis-how-to-add-features.md
     - name: With REST APIs
       items:
       - name: Build app programmatically using Node.js
         href: luis-tutorial-node-import-utterances-csv.md
-      - name: Use list entity to match exact text using Node.js
-        href: luis-tutorial-list-entity.md
   - name: Integrate
     items:
     - name: With Bing Spell Check v7
@@ -194,17 +185,25 @@
     href: luis-how-to-publish-app.md
   - name: Query prediction runtime
     href: luis-get-started-get-intent-from-browser.md
+  - name: Migrate
+    items:
+    - name: Overview
+      href: migration.md
+    - name: Migrate from composite entity
+      href: migrate-from-composite-entity.md
+    - name: Migrate to authoring resource
+      href: luis-migration-authoring.md
+    - name: Migrate to V3 API
+      href: luis-migration-api-v3.md
   - name: Manage app
     items:
     - name: Azure resources
       displayName: azure portal, resource, assign key, add key, out of quota, 403, 429, luis portal, key assignment, subscription, authoring, endpoint, prediction
       href: luis-how-to-azure-subscription.md
+    - name: App and version settings
+      href: how-to-application-settings-portal.md
     - name: Migrate to authoring resource
-      items:
-        - name: Overview
-          href: luis-migration-authoring.md
-        - name: How to Migrate
-          href: luis-migration-authoring-steps.md
+      href: luis-migration-authoring.md
     - name: Authors and collaborators
       displayName: access, transfer, AAD, tenant, Azure AD, consent, RBAC, admin, role-based access control, ownership, import
       href: luis-how-to-collaborate.md
@@ -217,12 +216,20 @@
     items:
     - name: For Developers
       href: developer-reference-resource.md
+    - name: App schema
+      href: app-schema-definition.md
     - name: Migrate to V3 Authoring APIs
       href: luis-migration-authoring-entities.md
     - name: Migrate to V3 Prediction APIs
       href: luis-migration-api-v3.md
     - name: Migrate to V2 API
       href: luis-migration-api-v1-to-v2.md
+  - name: Use REST APIs
+    items:
+    - name: Get intent
+      href: luis-get-started-get-intent-from-rest.md
+    - name: Change model
+      href: get-started-get-model-rest-apis.md
   - name: Use containers
     items:
     - name: Install and run containers
@@ -235,6 +242,8 @@
     - name: Container limitations
       href: luis-container-limitations.md
       displayName: phrase list recommendations, multi-language, translator, locale, language, English, Chinese, French, German, Italian, Korean, Portuguese, Spanish, Turkish, Keigo, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens
+  - name: Use DevOps
+    href: luis-how-to-devops-with-github.md
   - name: Related services
     items:
     - name: Azure Bot Service
@@ -260,6 +269,8 @@
     - name: Overview
       href: developer-reference-resource.md
       displayName: SDK, API, quickstart, REST, cli, powershell, azure, rm, resource manager, samples, package, module, tool, dispatch, bot
+    - name: App schema
+      href: app-schema-definition.md
     - name: Azure CLI
       href: https://go.microsoft.com/fwlink/?linkid=2092156
     - name: Azure RM PowerShell
@@ -330,7 +341,7 @@
     displayName: failover, fail-over, fail over, Europe, EU, Australia, business continuity, bcdr
   - name: Limits
     href: luis-limits.md
-  - name: Application settings
+  - name: App and version settings
     href: luis-reference-application-settings.md
   - name: Prebuilt entity reference
     items:
@@ -374,7 +385,7 @@
     displayName: Calendar, Communication,Email,HomeAutomation,Note,Places, RestaurantReservation,ToDo,Utilities,Weather,Web
   - name: Custom entity reference
     items:
-    - name: Machine-learned entity
+    - name: Machine-learning entity
       href: reference-entity-machine-learned-entity.md
     - name: Composite entity
       href: reference-entity-composite.md
@@ -388,7 +399,7 @@
       href: reference-entity-simple.md
   - name: Pattern syntax
     href: reference-pattern-syntax.md
-  - name: Sentiment
+  - name: Sentiment reference
     href: luis-reference-prebuilt-sentiment.md
 - name: Resources
   items:
@@ -420,7 +431,5 @@
     href: https://docs.microsoft.com/search/index?search=LUIS
   - name: Blog
     href: https://blog.botframework.com/category/luis/
-  - name: Knowledge Base
-    href: https://cognitive.uservoice.com/knowledgebase/topics/127872-luis-language-understanding-intelligent-service
 - name: LUIS portal
   href: https://www.luis.ai

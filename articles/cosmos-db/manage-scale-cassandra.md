@@ -4,7 +4,7 @@ description: Learn about the options available to scale an Azure Cosmos DB Cassa
 author: TheovanKraay
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 01/13/2020
+ms.date: 07/29/2020
 ms.author: thvankra
 ---
 
@@ -14,7 +14,7 @@ There are a variety of options to explore the elastic nature of the Azure Cosmos
 
 For the Cassandra API, you can retrieve the Request Unit charge for individual queries using the [.NET and Java SDKs](https://docs.microsoft.com/azure/cosmos-db/find-request-unit-charge#cassandra-api). This is helpful in determining the amount of RU/s you will need to provision in the service.
 
-![Database operations consume Request Units](./media/request-units/request-units.png)
+:::image type="content" source="./media/request-units/request-units.png" alt-text="Database operations consume Request Units" border="false":::
 
 ## Handling rate limiting (429 errors)
 
@@ -41,7 +41,7 @@ The advantage of this method is that it is a straightforward turnkey way to mana
 
 ## <a id="use-control-plane"></a>Use the control plane
 
-The Azure Cosmos DB's API for Cassandra provides the capability to adjust throughput programmatically by using our various control-plane features. See the [Azure Resource Manager](manage-cassandra-with-resource-manager.md), [PowerShell](powershell-samples-cassandra.md), and [Azure CLI](cli-samples-cassandra.md) articles for guidance and samples.
+The Azure Cosmos DB's API for Cassandra provides the capability to adjust throughput programmatically by using our various control-plane features. See the [Azure Resource Manager](manage-cassandra-with-resource-manager.md), [PowerShell](powershell-samples.md), and [Azure CLI](cli-samples.md) articles for guidance and samples.
 
 The advantage of this method is that you can automate the scaling up or down of resources based on a timer to account for peak activity, or periods of low activity. Take a look at our sample [here](https://github.com/Azure-Samples/azure-cosmos-throughput-scheduler) for how to accomplish this using Azure Functions and PowerShell.
 
@@ -53,11 +53,27 @@ You can scale the system dynamically with code by executing the [CQL ALTER comma
 
 The advantage of this approach is that it allows you to respond to scale needs dynamically and in a custom way that suits your application. With this approach, you can still leverage the standard RU/s charges and rates. If your system's scale needs are mostly predictable (around 70% or more), using SDK with CQL may be a more cost-effective method of auto-scaling than using autoscale. The disadvantage of this approach is that it can be quite complex to implement retries while rate limiting may increase latency.
 
-## <a id="use-autoscale"></a>Use autoscale
+## <a id="use-autoscale"></a>Use autoscale provisioned throughput
 
-In addition to manual or programmatic way of provisioning throughput, you can also configure Azure cosmos containers in autoscale mode. Autoscale mode will automatically and instantly scale to your consumption needs within specified RU ranges without compromising SLAs. To learn more, see the [Create Azure Cosmos containers and databases in autoscale mode](provision-throughput-autoscale.md) article.
+In addition to standard (manual) or programmatic way of provisioning throughput, you can also configure Azure cosmos containers in autoscale provisioned throughput. Autoscale will automatically and instantly scale to your consumption needs within specified RU ranges without compromising SLAs. To learn more, see the [Create Azure Cosmos containers and databases in autoscale](provision-throughput-autoscale.md) article.
 
 The advantage of this approach is that it is the easiest way to manage the scaling needs in your system. It guarantees not to apply rate-limiting **within the configured RU ranges**. The disadvantage is that, if the scaling needs in your system are predictable, autoscale may be a less cost-effective way of handling your scaling needs than using the bespoke control plane or SDK level approaches mentioned above.
+
+To set or alter max throughput (RUs) for autoscale using CQL, use the following (replacing keyspace/table name accordingly):
+
+```Bash
+# to set max throughput (RUs) for autoscale at keyspace level:
+create keyspace <keyspace name> WITH cosmosdb_autoscale_max_throughput=5000;
+
+# to alter max throughput (RUs) for autoscale at keyspace level:
+alter keyspace <keyspace name> WITH cosmosdb_autoscale_max_throughput=4000;
+
+# to set max throughput (RUs) for autoscale at table level:
+create table <keyspace name>.<table name> (pk int PRIMARY KEY, ck int) WITH cosmosdb_autoscale_max_throughput=5000;
+
+# to alter max throughput (RUs) for autoscale at table level:
+alter table <keyspace name>.<table name> WITH cosmosdb_autoscale_max_throughput=4000;
+```
 
 ## Next steps
 

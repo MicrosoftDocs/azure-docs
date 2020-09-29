@@ -1,5 +1,5 @@
 ---
-title: Upgrade to Azure Cognitive Search .NET SDK version 10
+title: Upgrade to .NET SDK version 10
 titleSuffix: Azure Cognitive Search
 description: Migrate code to the Azure Cognitive Search .NET SDK version 10 from older versions. Learn what is new and which code changes are required.
 
@@ -10,15 +10,16 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
+ms.custom: devx-track-csharp
 ---
 
 # Upgrade to Azure Cognitive Search .NET SDK version 10
 
-If you're using version 9.0 or older of the [Azure Search .NET SDK](https://aka.ms/search-sdk), this article will help you upgrade your application to use version 10.
+If you're using version 9.0 or older of the [.NET SDK](/dotnet/api/overview/azure/search), this article will help you upgrade your application to use version 10.
 
 Azure Search is renamed to Azure Cognitive Search in version 10, but namespaces and package names are unchanged. Previous versions of the SDK (9.0 and earlier) continue to use the former name. For more information about using the SDK, including examples, see [How to use Azure Cognitive Search from a .NET Application](search-howto-dotnet-sdk.md).
 
-Version 10 adds several features and bug fixes, bringing it to the same functional level as the most recent release of the REST API version `2019-05-06`. In cases where a change breaks existing code, we'll walk you through the [steps required to resolve the issue](#UpgradeSteps).
+Version 10 adds several features and bug fixes, bringing it to the same functional level as the REST API version `2019-05-06`. In cases where a change breaks existing code, we'll walk you through the [steps required to resolve the issue](#UpgradeSteps).
 
 > [!NOTE]
 > If you're using version 8.0-preview or older, you should upgrade to version 9 first, and then upgrade to version 10. See [Upgrading to the Azure Search .NET SDK version 9](search-dotnet-sdk-migration-version-9.md) for instructions.
@@ -28,16 +29,16 @@ Version 10 adds several features and bug fixes, bringing it to the same function
 <a name="WhatsNew"></a>
 
 ## What's new in version 10
-Version 10 of the Azure Cognitive Search .NET SDK targets the latest generally available version of the REST API (`2019-05-06`) with these updates:
+Version 10 of the Azure Cognitive Search .NET SDK targets REST API `2019-05-06` with these updates:
 
 * Introduction of two new skills - [Conditional skill](cognitive-search-skill-conditional.md) and [Text Translation skill](cognitive-search-skill-text-translation.md).
-* [Shaper skill](cognitive-search-skill-shaper.md) inputs have been restructured to accommodate consolidation from nested contexts. For more information, see this [example JSON definition](https://docs.microsoft.com/azure/search/cognitive-search-skill-shaper#scenario-3-input-consolidation-from-nested-contexts).
+* [Shaper skill](cognitive-search-skill-shaper.md) inputs have been restructured to accommodate consolidation from nested contexts. For more information, see this [example JSON definition](./cognitive-search-skill-shaper.md#scenario-3-input-consolidation-from-nested-contexts).
 * Addition of two new [field mapping functions](search-indexer-field-mappings.md):
-    - [urlEncode](https://docs.microsoft.com/azure/search/search-indexer-field-mappings#urlencode-function)
-    - [urlDecode](https://docs.microsoft.com/azure/search/search-indexer-field-mappings#urldecode-function)
-* On certain occasions, errors and warnings that show up in [indexer execution status](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status) can have additional details that help in debugging. `IndexerExecutionResult` has been updated to reflect this behavior.
+    - [urlEncode](./search-indexer-field-mappings.md#urlencode-function)
+    - [urlDecode](./search-indexer-field-mappings.md#urldecode-function)
+* On certain occasions, errors and warnings that show up in [indexer execution status](/rest/api/searchservice/get-indexer-status) can have additional details that help in debugging. `IndexerExecutionResult` has been updated to reflect this behavior.
 * Individual skills defined within a [skillset](cognitive-search-defining-skillset.md) can optionally be identified by specifying a `name` property.
-* `ServiceLimits` shows limits for [complex types](https://docs.microsoft.com/azure/search/search-howto-complex-data-types) and `IndexerExecutionInfo` shows pertinent indexer limits/quotas.
+* `ServiceLimits` shows limits for [complex types](./search-howto-complex-data-types.md) and `IndexerExecutionInfo` shows pertinent indexer limits/quotas.
 
 <a name="UpgradeSteps"></a>
 
@@ -155,4 +156,3 @@ If you choose to identify skills by a custom name, make sure to update all insta
 - Changes to the Shaper skill have the most potential impact on new or existing code. As a next step, be sure to revisit this example illustrating the input structure: [Shaper skill JSON definition example](cognitive-search-skill-shaper.md)
 - Go through the [AI enrichment overview](cognitive-search-concept-intro.md).
 - We welcome your feedback on the SDK. If you encounter problems, feel free to ask us for help on [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-search). If you find a bug, you can file an issue in the [Azure .NET SDK GitHub repository](https://github.com/Azure/azure-sdk-for-net/issues). Make sure to prefix your issue title with "[Azure Cognitive Search]".
-

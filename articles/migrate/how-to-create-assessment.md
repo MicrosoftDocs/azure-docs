@@ -1,6 +1,6 @@
 ---
-title: Create an assessment with Azure Migrate Server Assessment | Microsoft Docs
-description: Describes how to create an assessment with the Azure Migrate Server Assessment tool
+title: Create an Azure VM assessment with Azure Migrate Server Assessment | Microsoft Docs
+description: Describes how to create an Azure VM assessment with the Azure Migrate Server Assessment tool
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
@@ -10,9 +10,9 @@ ms.author: raynew
 
 
 
-# Create an assessment
+# Create an Azure VM assessment
 
-This article describes how to create an assessment for on-premises VMware VMs or Hyper-V VMs with Azure Migrate: Server Assessment.
+This article describes how to create an Azure VM assessment for on-premises VMware VMs or Hyper-V VMs with Azure Migrate: Server Assessment.
 
 [Azure Migrate](migrate-services-overview.md) helps you to migrate to Azure. Azure Migrate provides a centralized hub to track discovery, assessment, and migration of on-premises infrastructure, applications, and data to Azure. The hub provides Azure tools for assessment and migration, as well as third-party independent software vendor (ISV) offerings. 
 
@@ -23,8 +23,8 @@ This article describes how to create an assessment for on-premises VMware VMs or
 - To create an assessment, you need to set up an Azure Migrate appliance for [VMware](how-to-set-up-appliance-vmware.md) or [Hyper-V](how-to-set-up-appliance-hyper-v.md). The appliance discovers on-premises machines, and sends metadata and performance data to Azure Migrate: Server Assessment. [Learn more](migrate-appliance.md).
 
 
-## Assessment overview
-There are two types of assessments you can create using Azure Migrate: Server Assessment.
+## Azure VM Assessment overview
+There are two types of sizing criteria you can use to create an Azure VM assessment using Azure Migrate: Server Assessment.
 
 **Assessment** | **Details** | **Data**
 --- | --- | ---
@@ -42,31 +42,35 @@ Run an assessment as follows:
 
     ![Assess](./media/how-to-create-assessment/assess.png)
 
-2. In **Assess servers**, specify a name for the assessment.
-3. Click **View all** to review the assessment properties.
+3. In **Assess servers**, select the assessment type as "Azure VM", select the discovery source and specify the assessment name.
+
+    ![Assessment Basics](./media/how-to-create-assessment/assess-servers-azurevm.png)
+
+4. Click **View all** to review the assessment properties.
 
     ![Assessment properties](./media/how-to-create-assessment//view-all.png)
 
-3. In **Select or create a group**, select **Create New**, and specify a group name. A group gathers one or more VMs together for assessment.
-4. In **Add machines to the group**, select VMs to add to the group.
-5. Click **Create Assessment** to create the group, and run the assessment.
+5. Click **next** to **Select machines to assess**. In **Select or create a group**, select **Create New**, and specify a group name. A group gathers one or more VMs together for assessment.
+6. In **Add machines to the group**, select VMs to add to the group.
+7. Click **next** to **Review + create assessment** to review the assessment details.
+8. Click **Create Assessment** to create the group, and run the assessment.
 
     ![Create an assessment](./media/how-to-create-assessment//assessment-create.png)
 
-6. After the assessment is created, view it in **Servers** > **Azure Migrate: Server Assessment** > **Assessments**.
-7. Click **Export assessment**, to download it as an Excel file.
+9. After the assessment is created, view it in **Servers** > **Azure Migrate: Server Assessment** > **Assessments**.
+10. Click **Export assessment**, to download it as an Excel file.
 
 
 
-## Review an assessment
+## Review an Azure VM assessment
 
-An assessment describes:
+An Azure VM assessment describes:
 
 - **Azure readiness**: Whether VMs are suitable for migration to Azure.
 - **Monthly cost estimation**: The estimated monthly compute and storage costs for running the VMs in Azure.
 - **Monthly storage cost estimation**: Estimated costs for disk storage after migration.
 
-### View an assessment
+### View an Azure VM assessment
 
 1. In **Migration goals** >  **Servers**, click **Assessments** in **Azure Migrate: Server Assessment**.
 2. In **Assessments**, click on an assessment to open it.
@@ -82,7 +86,7 @@ An assessment describes:
     - **Not ready for Azure**: Shows issues and suggested remediation.
     - **Readiness unknown**: Used when Azure Migrate can't assess readiness, due to data availability issues.
 
-2. Click on an **Azure readiness** status. You can view VM readiness details, and drill down to see VM details, including compute, storage, and network settings.
+3. Click on an **Azure readiness** status. You can view VM readiness details, and drill down to see VM details, including compute, storage, and network settings.
 
 
 

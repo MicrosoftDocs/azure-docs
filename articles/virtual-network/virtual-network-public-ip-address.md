@@ -1,6 +1,7 @@
 ---
-title: Create, change, or delete an Azure public IP address | Microsoft Docs
-description: Learn how to create, change, or delete a public IP address.
+title: Manage public IP addresses | Microsoft Docs
+titleSuffix: Azure Virtual Network
+description:  Manage public IP addresses.  Also learn how a public IP address is a resource with its own configurable settings.
 services: virtual-network
 documentationcenter: na
 author: asudbring
@@ -12,14 +13,14 @@ ms.assetid: bb71abaf-b2d9-4147-b607-38067a10caf6
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/06/2019
 ms.author: kumud
 ---
 
-# Create, change, or delete a public IP address
+# Manage public IP addresses
 
 Learn about a public IP address and how to create, change, and delete one. A public IP address is a resource with its own configurable settings. Assigning a public IP address to an Azure resource that supports public IP addresses enables:
 - Inbound communication from the Internet to the resource, such as Azure Virtual Machines (VM), Azure Application Gateways, Azure Load Balancers, Azure VPN Gateways, and others. You can still communicate with some resources, such as VMs, from the Internet, if a VM doesn't have a public IP address assigned to it, as long as the VM is part of a load balancer back-end pool, and the load balancer is assigned a public IP address. To determine whether a resource for a specific Azure service can be assigned a public IP address, or whether it can be communicated with through the public IP address of a different Azure resource, see the documentation for the service.
@@ -94,7 +95,7 @@ Though the portal provides the option to create two public IP address resources 
 
 Learn how to assign a public IP address to the following resources:
 
-- A [Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) VM (when creating), or to an [existing VM](virtual-network-network-interface-addresses.md#add-ip-addresses)
+- A [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) VM (when creating), or to an [existing VM](virtual-network-network-interface-addresses.md#add-ip-addresses)
 - [Internet-facing Load Balancer](../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Azure Application Gateway](../application-gateway/application-gateway-create-gateway-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Site-to-site connection using an Azure VPN Gateway](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

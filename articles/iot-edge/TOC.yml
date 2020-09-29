@@ -101,6 +101,8 @@
       href: iot-edge-security-manager.md
     - name: IoT Edge certificates
       href: iot-edge-certs.md
+    - name: Confidential computing
+      href: deploy-trusted-applications.md
   - name: Platform support
     href: support.md
   - name: Production deployment checklist
@@ -177,6 +179,8 @@
     items:
       - name: Monitor IoT Edge deployments
         href: how-to-monitor-iot-edge-deployments.md
+      - name: Monitor module twins
+        href: how-to-monitor-module-twins.md  
       - name: EdgeAgent direct methods
         href: how-to-edgeagent-direct-method.md
   - name: Use IoT Edge devices as gateways
@@ -197,16 +201,32 @@
       href: how-to-store-data-blob.md
     - name: Deploy blob storage modules
       href: how-to-deploy-blob.md
+  - name: Azure SQL Edge on IoT Edge
+    items:
+    - name: Understand Azure SQL at the edge
+      href: ../azure-sql-edge/overview.md?toc=/azure/iot-edge/toc.json&bc=/azure/iot-edge/breadcrumb/toc.json
+    - name: Deploy Azure SQL Edge modules
+      href: ../azure-sql-edge/deploy-portal.md?toc=/azure/iot-edge/toc.json&bc=/azure/iot-edge/breadcrumb/toc.json
   - name: Manage with DevOps tools
     items:
-    - name: Azure DevOps Projects
-      href: how-to-devops-project.md
+    - name: Azure DevOps Starter
+      href: how-to-devops-starter.md
     - name: Azure DevOps
-      href: how-to-ci-cd.md
-    - name: IoT Edge plugin for Jenkins
-      href: how-to-devops-plugins.md
+      items:
+      - name: YAML
+        href: how-to-continuous-integration-continuous-deployment.md
+      - name: Classic editor
+        href: how-to-continuous-integration-continuous-deployment-classic.md
   - name: Troubleshoot
-    href: troubleshoot.md
+    items:
+    - name: Standard diagnostic steps
+      href: troubleshoot.md
+    - name: Common error resolutions
+      href: troubleshoot-common-errors.md
+- name: Reference
+  items:
+  - name: Azure CLI
+    href: /cli/azure/azure-cli-reference-for-IoT
 - name: Resources
   items:
   - name: Support and help options
@@ -259,16 +279,12 @@
     href: https://github.com/Azure/azure-iot-explorer
   - name: iothub-diagnostics tool
     href: https://github.com/Azure/iothub-diagnostics
-  - name: MSDN forum
-    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=iotedge
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/iot-edge/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=iot-edge
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-iot-edge
   - name: Technical case studies
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
   - name: Videos

@@ -1,6 +1,6 @@
 ---
-title: Incrementally copy data using Change Tracking
-description: In this tutorial, you create an Azure Data Factory pipeline that copies delta data incrementally from multiple tables in an on-premises SQL Server database to an Azure SQL database.
+title: Incrementally copy data using Change Tracking using Azure portal
+description: In this tutorial, you create an Azure data factory with a pipeline that loads delta data based on change tracking information in the source database in Azure SQL Database to an Azure blob storage.
 services: data-factory
 ms.author: yexu
 author: dearandyxu
@@ -13,11 +13,11 @@ ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/12/2018
 ---
 
-# Incrementally load data from Azure SQL Database to Azure Blob Storage using change tracking information
+# Incrementally load data from Azure SQL Database to Azure Blob Storage using change tracking information using the Azure portal
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-In this tutorial, you create an Azure data factory with a pipeline that loads delta data based on **change tracking** information in the source Azure SQL database to an Azure blob storage.  
+In this tutorial, you create an Azure data factory with a pipeline that loads delta data based on **change tracking** information in the source database in Azure SQL Database to an Azure blob storage.  
 
 You perform the following steps in this tutorial:
 
@@ -37,12 +37,12 @@ In a data integration solution, incrementally loading data after initial data lo
 Here are the typical end-to-end workflow steps to incrementally load data using the Change Tracking technology.
 
 > [!NOTE]
-> Both Azure SQL Database and SQL Server support the Change Tracking technology. This tutorial uses Azure SQL Database as the source data store. You can also use an on-premises SQL Server.
+> Both Azure SQL Database and SQL Server support the Change Tracking technology. This tutorial uses Azure SQL Database as the source data store. You can also use a SQL Server instance.
 
 1. **Initial loading of historical data** (run once):
-    1. Enable Change Tracking technology in the source Azure SQL database.
-    2. Get the initial value of SYS_CHANGE_VERSION in the Azure SQL database as the baseline to capture changed data.
-    3. Load full data from the Azure SQL database into an Azure blob storage.
+    1. Enable Change Tracking technology in the source database in Azure SQL Database.
+    2. Get the initial value of SYS_CHANGE_VERSION in the database as the baseline to capture changed data.
+    3. Load full data from the source database into an Azure blob storage.
 2. **Incremental loading of delta data on a schedule** (run periodically after the initial loading of data):
     1. Get the old and new SYS_CHANGE_VERSION values.
     3. Load the delta data by joining the primary keys of changed rows (between two SYS_CHANGE_VERSION values) from **sys.change_tracking_tables** with data in the **source table**, and then move the delta data to destination.
@@ -65,13 +65,14 @@ In this tutorial, you create two pipelines that perform the following two operat
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 ## Prerequisites
-* **Azure SQL Database**. You use the database as the **source** data store. If you don't have an Azure SQL Database, see the [Create an Azure SQL database](../sql-database/sql-database-get-started-portal.md) article for steps to create one.
+* **Azure SQL Database**. You use the database as the **source** data store. If you don't have a database in Azure SQL Database, see the [Create a database in Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) article for steps to create one.
 * **Azure Storage account**. You use the blob storage as the **sink** data store. If you don't have an Azure storage account, see the [Create a storage account](../storage/common/storage-account-create.md) article for steps to create one. Create a container named **adftutorial**. 
 
-### Create a data source table in your Azure SQL database
-1. Launch **SQL Server Management Studio**, and connect to your Azure SQL server.
+### Create a data source table in Azure SQL Database
+
+1. Launch **SQL Server Management Studio**, and connect to SQL Database.
 2. In **Server Explorer**, right-click your **database** and choose the **New Query**.
-3. Run the following SQL command against your Azure SQL database to create a table named `data_source_table` as data source store.  
+3. Run the following SQL command against your database to create a table named `data_source_table` as data source store.  
 
     ```sql
     create table data_source_table
@@ -92,10 +93,11 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
         (5, 'eeee', 22);
 
     ```
+
 4. Enable **Change Tracking** mechanism on your database and the source table (data_source_table) by running the following SQL query:
 
     > [!NOTE]
-    > - Replace &lt;your database name&gt; with the name of your Azure SQL database that has the data_source_table.
+    > - Replace &lt;your database name&gt; with the name of the database in Azure SQL Database that has the data_source_table.
     > - The changed data is kept for two days in the current example. If you load the changed data for every three days or more, some changed data is not included.  You need to either change the value of CHANGE_RETENTION to a bigger number. Alternatively, ensure that your period to load the changed data is within two days. For more information, see [Enable change tracking for a database](/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server#enable-change-tracking-for-a-database)
 
     ```sql
@@ -125,7 +127,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
     > [!NOTE]
     > If the data is not changed after you enabled the change tracking for SQL Database, the value of the change tracking version is 0.
-6. Run the following query to create a stored procedure in your Azure SQL database. The pipeline invokes this stored procedure to update the change tracking version in the table you created in the previous step.
+6. Run the following query to create a stored procedure in your database. The pipeline invokes this stored procedure to update the change tracking version in the table you created in the previous step.
 
     ```sql
     CREATE PROCEDURE Update_ChangeTracking_Version @CurrentTrackingVersion BIGINT, @TableName varchar(50)
@@ -159,7 +161,7 @@ Install the latest Azure PowerShell modules by following  instructions in [How t
 
    The name of the Azure data factory must be **globally unique**. If you receive the following error, change the name of the data factory (for example, yournameADFTutorialDataFactory) and try creating again. See [Data Factory - Naming Rules](naming-rules.md) article for naming rules for Data Factory artifacts.
 
-       `Data factory name “ADFTutorialDataFactory” is not available`
+   *Data factory name “ADFTutorialDataFactory” is not available*
 3. Select your Azure **subscription** in which you want to create the data factory.
 4. For the **Resource Group**, do one of the following steps:
 
@@ -183,7 +185,7 @@ Install the latest Azure PowerShell modules by following  instructions in [How t
     ![Create pipeline button](./media/tutorial-incremental-copy-change-tracking-feature-portal/get-started-page.png)
 
 ## Create linked services
-You create linked services in a data factory to link your data stores and compute services to the data factory. In this section, you create linked services to your Azure Storage account and Azure SQL database.
+You create linked services in a data factory to link your data stores and compute services to the data factory. In this section, you create linked services to your Azure Storage account and your database in Azure SQL Database.
 
 ### Create Azure Storage linked service.
 In this step, you link your Azure Storage Account to the data factory.
@@ -204,19 +206,19 @@ In this step, you link your Azure Storage Account to the data factory.
 
 
 ### Create Azure SQL Database linked service.
-In this step, you link your Azure SQL database to the data factory.
+In this step, you link your database to the data factory.
 
 1. Click **Connections**, and click **+ New**.
 2. In the **New Linked Service** window, select **Azure SQL Database**, and click **Continue**.
 3. In the **New Linked Service** window, do the following steps:
 
     1. Enter **AzureSqlDatabaseLinkedService** for the **Name** field.
-    2. Select your Azure SQL server for the **Server name** field.
-    4. Select your Azure SQL database for the **Database name** field.
-    5. Enter name of the user for the **User name** field.
-    6. Enter password for the user for the **Password** field.
-    7. Click **Test connection** to test the connection.
-    8. Click **Save** to save the linked service.
+    2. Select your server for the **Server name** field.
+    3. Select your database for the **Database name** field.
+    4. Enter name of the user for the **User name** field.
+    5. Enter password for the user for the **Password** field.
+    6. Click **Test connection** to test the connection.
+    7. Click **Save** to save the linked service.
 
        ![Azure SQL Database linked service settings](./media/tutorial-incremental-copy-change-tracking-feature-portal/azure-sql-database-linked-service-settings.png)
 
@@ -324,7 +326,7 @@ You see a file named `incremental-<GUID>.txt` in the `incchgtracking` folder of 
 
 ![Output file from full copy](media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-output-file.png)
 
-The file should have the data from the Azure SQL database:
+The file should have the data from your database:
 
 ```
 1,aaaa,21
@@ -336,7 +338,7 @@ The file should have the data from the Azure SQL database:
 
 ## Add more data to the source table
 
-Run the following query against the Azure SQL database to add a row and update a row.
+Run the following query against your database to add a row and update a row.
 
 ```sql
 INSERT INTO data_source_table
@@ -447,7 +449,7 @@ You see the second file in the `incchgtracking` folder of the `adftutorial` cont
 
 ![Output file from incremental copy](media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-copy-output-file.png)
 
-The file should have only the delta data from the Azure SQL database. The record with `U` is the updated row in the database and `I` is the one added row.
+The file should have only the delta data from your database. The record with `U` is the updated row in the database and `I` is the one added row.
 
 ```
 1,update,10,2,U

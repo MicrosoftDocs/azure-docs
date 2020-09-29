@@ -1,17 +1,17 @@
 ---
-title: React to map events by using Event Grid | Microsoft Azure Maps
-description: In this article, you will learn how to react to Microsoft Azure Maps events by using Event Grid.
-author: philmea
-ms.author: philmea
-ms.date: 02/08/2019
+title: React to Azure Maps events by using Event Grid 
+description: Find out how to react to Azure Maps events involving geofences. See how to listen to map events and how to use Event Grid to reroute events to event handlers.
+author: anastasia-ms
+ms.author: v-stharr
+ms.date: 07/16/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: timlt
+manager: philmea
 ms.custom: mvc
 ---
 
-# React to Azure Maps events by using Event Grid 
+# React to Azure Maps events by using Event Grid
 
 Azure Maps integrates with Azure Event Grid, so that users can send event notifications to other services and trigger downstream processes. The purpose of this article is to help you configure your business applications to listen to Azure Maps events. This allows users to react to critical events in a reliable, scalable, and secure manner. For example, users can build an application to update a database, create a ticket, and deliver an email notification, every time a device enters a geofence.
 
@@ -36,39 +36,32 @@ Event grid uses [event subscriptions](https://docs.microsoft.com/azure/event-gri
 The following example shows the schema for GeofenceResult:
 
 ```JSON
-{   
-   "id":"451675de-a67d-4929-876c-5c2bf0b2c000", 
-   "topic":"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Maps/accounts/{accountName}", 
-   "subject":"/spatial/geofence/udid/{udid}/id/{eventId}", 
-   "data":{   
-      "geometries":[   
-         {   
-            "deviceId":"device_1", 
-            "udId":"1a13b444-4acf-32ab-ce4e-9ca4af20b169", 
-            "geometryId":"1", 
-            "distance":999.0, 
-            "nearestLat":47.609833, 
-            "nearestLon":-122.148274 
-         }, 
-         {   
-            "deviceId":"device_1", 
-            "udId":"1a13b444-4acf-32ab-ce4e-9ca4af20b169", 
-            "geometryId":"2", 
-            "distance":999.0, 
-            "nearestLat":47.621954, 
-            "nearestLon":-122.131841 
-         } 
-      ], 
-      "expiredGeofenceGeometryId":[   
-      ], 
-      "invalidPeriodGeofenceGeometryId":[   
-      ] 
-   }, 
-   "eventType":"Microsoft.Maps.GeofenceResult", 
-   "eventTime":"2018-11-08T00:52:08.0954283Z", 
-   "metadataVersion":"1", 
-   "dataVersion":"1.0" 
+{
+    "id":"451675de-a67d-4929-876c-5c2bf0b2c000",
+    "topic":"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Maps/accounts/{accountName}",
+    "subject":"/spatial/geofence/udid/{udid}/id/{eventId}",
+    "data":{
+        "geometries":[
+            {
+                "deviceId":"device_1",
+                "udId":"1a13b444-4acf-32ab-ce4e-9ca4af20b169",
+                "geometryId":"1",
+                "distance":999.0,
+                "nearestLat":47.609833,
+                "nearestLon":-122.148274
+            }
+        ],
+        "expiredGeofenceGeometryId":[
+        ],
+        "invalidPeriodGeofenceGeometryId":[
+        ]
+    },
+    "eventType":"Microsoft.Maps.GeofenceResult",
+    "eventTime":"2018-11-08T00:52:08.0954283Z",
+    "metadataVersion":"1",
+    "dataVersion":"1.0"
 }
+
 ```
 
 ## Tips for consuming events

@@ -11,7 +11,7 @@ ms.reviewer: mbullwin
 
 # User retention analysis for web applications with Application Insights
 
-The retention feature in [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) helps you analyze how many users return to your app, and how often they perform particular tasks or achieve goals. For example, if you run a game site, you could compare the numbers of users who return to the site after losing a game with the number who return after winning. This knowledge can help you improve both your user experience and your business strategy.
+The retention feature in [Azure Application Insights](./app-insights-overview.md) helps you analyze how many users return to your app, and how often they perform particular tasks or achieve goals. For example, if you run a game site, you could compare the numbers of users who return to the site after losing a game with the number who return after winning. This knowledge can help you improve both your user experience and your business strategy.
 
 ## Get started
 
@@ -50,16 +50,15 @@ Or in ASP.NET server code:
    telemetry.TrackEvent("won game");
 ```
 
-[Learn more about writing custom events](../../azure-monitor/app/api-custom-events-metrics.md#trackevent).
+[Learn more about writing custom events](./api-custom-events-metrics.md#trackevent).
 
 
 ## Next steps
-- To enable usage experiences, start sending [custom events](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) or [page views](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
+- To enable usage experiences, start sending [custom events](./api-custom-events-metrics.md#trackevent) or [page views](./api-custom-events-metrics.md#page-views).
 - If you already send custom events or page views, explore the Usage tools to learn how users use your service.
     - [Users, Sessions, Events](usage-segmentation.md)
     - [Funnels](usage-funnels.md)
     - [User Flows](usage-flows.md)
-    - [Workbooks](../../azure-monitor/app/usage-workbooks.md)
+    - [Workbooks](../platform/workbooks-overview.md)
     - [Add user context](usage-send-user-context.md)
-
 

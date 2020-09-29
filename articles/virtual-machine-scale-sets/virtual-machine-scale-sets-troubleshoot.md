@@ -1,17 +1,16 @@
 ---
 title: Troubleshoot autoscale with Virtual Machine Scale Sets
 description: Troubleshoot autoscale with Virtual Machine Scale Sets. Understand typical problems encountered and how to resolve them.
-author: mimckitt
-tags: azure-resource-manager
-
-ms.assetid: c7d87b72-ee24-4e52-9377-a42f337f76fa
+author: avirishuv
+ms.author: avverma
+ms.topic: troubleshooting
 ms.service: virtual-machine-scale-sets
-ms.tgt_pltfrm: windows
-ms.topic: conceptual
-ms.date: 11/16/2017
-ms.author: mimckitt
-
+ms.subservice: autoscale
+ms.date: 06/25/2020
+ms.reviwer: jushiman
+ms.custom: avverma
 ---
+
 # Troubleshooting autoscale with Virtual Machine Scale Sets
 **Problem** – you’ve created an autoscaling infrastructure in Azure Resource Manager using virtual machine scale sets –  for example, by deploying a template like this one: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale  – you have your scale rules defined and it works great, except no matter how much load you put on the VMs, it doesn't autoscale.
 
@@ -19,7 +18,7 @@ ms.author: mimckitt
 Some things to consider include:
 
 * How many vCPUs does each VM have, and are you loading each vCPU?
-  The preceding sample Azure Quickstart template has a do_work.php script, which loads a single vCPU. If you’re using a VM bigger than a single-vCPU VM size like Standard_A1 or D1, you’d need to run this load multiple times. Check how many vCPUs for your VMs by reviewing [Sizes for Windows virtual machines in Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+  The preceding sample Azure Quickstart template has a do_work.php script, which loads a single vCPU. If you’re using a VM bigger than a single-vCPU VM size like Standard_A1 or D1, you’d need to run this load multiple times. Check how many vCPUs for your VMs by reviewing [Sizes for Windows virtual machines in Azure](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * How many VMs in the virtual machine scale set, are you doing work on each one?
   
     A scale-out event only takes place when the average CPU across **all** the VMs in a scale set exceeds the threshold value, over the time internal defined in the autoscale rules.
@@ -69,7 +68,7 @@ Some things to consider include:
     If the data is not there, it implies the problem is with the diagnostic extension running in the VMs. If the data is there, it implies there is either a problem with your scale rules, or with the Insights service. Check [Azure Status](https://azure.microsoft.com/status/).
     
     Once you’ve been through these steps, if you're still having autoscale problems, you can try the following resources: 
-    * Read the forums on [MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=WAVirtualMachinesforWindows), or [Stack overflow](https://stackoverflow.com/questions/tagged/azure) 
+    * Read the forums on [Microsoft Q&A question page](/answers/topics/azure-virtual-machines.html), or [Stack overflow](https://stackoverflow.com/questions/tagged/azure) 
     * Log a support call. Be prepared to share the template and a view of your performance data.
 
 [audit]: ./media/virtual-machine-scale-sets-troubleshoot/image3.png

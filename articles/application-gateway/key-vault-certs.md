@@ -4,8 +4,8 @@ description: Learn how you can integrate Azure Application Gateway with Key Vaul
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
-ms.date: 4/25/2019
+ms.topic: conceptual
+ms.date: 07/27/2020
 ms.author: victorh
 ---
 
@@ -38,14 +38,28 @@ Application Gateway integration with Key Vault requires a three-step configurati
 
 1. **Create a user-assigned managed identity**
 
-   You create or reuse an existing user-assigned managed identity, which Application Gateway uses to retrieve certificates from Key Vault on your behalf. For more information, see [What is managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md). This step creates a new identity in the Azure Active Directory tenant. The identity is trusted by the subscription that's used to create the identity.
+   You create or reuse an existing user-assigned managed identity, which Application Gateway uses to retrieve certificates from Key Vault on your behalf. For more information, see [Create, list, delete or assign a role to a user-assigned managed identity using the Azure portal](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md). This step creates a new identity in the Azure Active Directory tenant. The identity is trusted by the subscription that's used to create the identity.
 
 1. **Configure your key vault**
 
    You then either import an existing certificate or create a new one in your key vault. The certificate will be used by applications that run through the application gateway. In this step, you can also use a key vault secret that's stored as a password-less, base-64 encoded PFX file. We recommend using a certificate type because of the autorenewal capability that's available with certificate type objects in the key vault. After you've created a certificate or a secret, you define access policies in the key vault to allow the identity to be granted *get* access to the secret.
    
    > [!NOTE]
-   > If you deploy the application gateway via an ARM template, either by using the Azure CLI or PowerShell, or via an Azure Application deployed from the Azure portal, the SSL certificate that's stored in the key vault as a base-64-encoded PFX file **must be passwordless**. Also, you must complete the steps in [Use Azure Key Vault to pass secure parameter value during deployment](../azure-resource-manager/templates/key-vault-parameter.md). It's particularly important to set `enabledForTemplateDeployment` to `true`.
+   > If you deploy the application gateway via an ARM template, either by using the Azure CLI or PowerShell, or via an Azure application deployed from the Azure portal, the SSL certificate is stored in the key vault as a base64-encoded PFX file. You must complete the steps in [Use Azure Key Vault to pass secure parameter value during deployment](../azure-resource-manager/templates/key-vault-parameter.md). 
+   >
+   > It's particularly important to set `enabledForTemplateDeployment` to `true`. The certificate may be passwordless or it may have a password. In the case of a certificate with a password, the following example shows a possible configuration for the `sslCertificates` entry in the `properties` for the ARM template configuration for an app gateway. The values of `appGatewaySSLCertificateData` and `appGatewaySSLCertificatePassword` are looked up from the key vault as described in the section [Reference secrets with dynamic ID](../azure-resource-manager/templates/key-vault-parameter.md#reference-secrets-with-dynamic-id). Follow the references backward from `parameters('secretName')` to see how the lookup happens. If the certificate is passwordless, omit the `password` entry.
+   >   
+   > ```
+   > "sslCertificates": [
+   >     {
+   >         "name": "appGwSslCertificate",
+   >         "properties": {
+   >             "data": "[parameters('appGatewaySSLCertificateData')]",
+   >             "password": "[parameters('appGatewaySSLCertificatePassword')]"
+   >         }
+   >     }
+   > ]
+   > ```
 
 1. **Configure the application gateway**
 

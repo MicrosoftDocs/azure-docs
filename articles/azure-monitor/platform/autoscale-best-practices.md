@@ -6,7 +6,7 @@ ms.date: 07/07/2017
 ms.subservice: autoscale
 ---
 # Best practices for Autoscale
-Azure Monitor autoscale applies only to [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/), and [API Management services](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
+Azure Monitor autoscale applies only to [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/), and [API Management services](../../api-management/api-management-key-concepts.md).
 
 ## Autoscale concepts
 
@@ -16,7 +16,7 @@ Azure Monitor autoscale applies only to [Virtual Machine Scale Sets](https://azu
   An autoscale setting has a maximum, minimum, and default value of instances.
 * An autoscale job always reads the associated metric to scale by, checking if it has crossed the configured threshold for scale-out or scale-in. You can view a list of metrics that autoscale can scale by at [Azure Monitor autoscaling common metrics](autoscale-common-metrics.md).
 * All thresholds are calculated at an instance level. For example, "scale out by one instance when average CPU > 80% when instance count is 2", means scale-out when the average CPU across all instances is greater than 80%.
-* All autoscale failures are logged to the Activity Log. You can then configure an [activity log alert](./../../azure-monitor/platform/activity-log-alerts.md) so that you can be notified via email, SMS, or webhooks whenever there is an autoscale failure.
+* All autoscale failures are logged to the Activity Log. You can then configure an [activity log alert](./activity-log-alerts.md) so that you can be notified via email, SMS, or webhooks whenever there is an autoscale failure.
 * Similarly, all successful scale actions are posted to the Activity Log. You can then configure an activity log alert so that you can be notified via email, SMS, or webhooks whenever there is a successful autoscale action. You can also configure email or webhook notifications to get notified for successful scale actions via the notifications tab on the autoscale setting.
 
 ## Autoscale best practices

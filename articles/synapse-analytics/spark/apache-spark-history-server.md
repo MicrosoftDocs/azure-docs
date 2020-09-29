@@ -1,11 +1,11 @@
 ---
-title: Use the extended Spark history server to debug apps - Apache Spark in Azure Synapse 
+title: Use the extended Spark history server to debug apps 
 description: Use the extended Spark history server to debug and diagnose Spark applications in Azure Synapse Analytics.
 services: synapse-analytics 
 author: euangMS 
 ms.service: synapse-analytics 
 ms.topic: conceptual
-ms.subservice: 
+ms.subservice: spark
 ms.date: 04/15/2020 
 ms.author: euang 
 ms.reviewer: euang
@@ -25,11 +25,11 @@ Apache Spark history server is the web user interface for completed and running 
 
 1. Open [Azure Synapse Analytics](https://web.azuresynapse.net/).
 
-2. Click **Monitor**, then select **Apache Spark Applications**.
+2. Select **Monitor**, then select **Apache Spark Applications**.
 
-    ![Click monitor then select spark application.](./media/apache-spark-history-server/click-monitor-spark-application.png)
+    ![Select monitor then select spark application.](./media/apache-spark-history-server/click-monitor-spark-application.png)
 
-3. Select an application, then open **Log query** by clicking it.
+3. Select an application, then open **Log query** by selecting it.
 
     ![Open log query window.](./media/apache-spark-history-server/open-application-window.png)
 
@@ -41,11 +41,11 @@ Apache Spark history server is the web user interface for completed and running 
 
 1. From your Azure Synapse Studio notebook, select **Spark history server** from the job execution output cell or from the status panel at the bottom of the notebook document. Select **Session details**.
 
-   ![Launch Spark history server](./media/apache-spark-history-server/launch-history-server2.png "Launch Spark history server")
+   ![Launch Spark history server 1](./media/apache-spark-history-server/launch-history-server2.png "Launch Spark history server")
 
 2. Select **Spark history server** from the slide out panel.
 
-   ![Launch Spark history server](./media/apache-spark-history-server/launch-history-server.png "Launch Spark history server")
+   ![Launch Spark history server 2](./media/apache-spark-history-server/launch-history-server.png "Launch Spark history server")
 
 ## Explore the Data tab in Spark history server
 
@@ -75,7 +75,7 @@ Select the Job ID for the job you want to view. Then select **Data** on the tool
 
     ![Data for Spark application download row](./media/apache-spark-history-server/sparkui-data-download-row.png)
 
-* To copy a full path or relative path, select the **Copy Full Path** or **Copy Relative Path** options that expand from the drop down menu. For Azure Data Lake Storage files, **Open in Azure Storage Explorer** launches Azure Storage Explorer and locates the folder when your are signed in.
+* To copy a full path or relative path, select the **Copy Full Path** or **Copy Relative Path** options that expand from the drop-down menu. For Azure Data Lake Storage files, **Open in Azure Storage Explorer** launches Azure Storage Explorer and locates the folder when you are signed in.
 
     ![Data for Spark application copy path](./media/apache-spark-history-server/sparkui-data-copy-path.png)
 
@@ -107,7 +107,7 @@ By default, the **Progress** display is selected. You can check the data flow by
 
 ![Spark application and job graph display](./media/apache-spark-history-server/sparkui-graph-display.png)
 
-The graph node display the colors shown in the heatmap legend.
+The graph node displays the colors shown in the heatmap legend.
 
 ![Spark application and job graph heatmap](./media/apache-spark-history-server/sparkui-graph-heatmap.png)
 
@@ -195,7 +195,7 @@ Check the **Data Skew**, **Time Skew**, and **Executor Usage Analysis** by selec
 
 When you select the **Data Skew** tab, the corresponding skewed tasks are displayed based on the specified parameters.
 
-* **Specify Parameters** - The first section displays the parameters, which are used to detect Data Skew. The default rule is: Task Data Read is greater than three times of the average task data read, and the task data read is more than 10 MB. If you want to define your own rule for skewed tasks, you can choose your parameters, the **Skewed Stage** and **Skew Char** sections are refreshed accordingly.
+* **Specify Parameters** - The first section displays the parameters, which are used to detect Data Skew. The default rule is: Task Data Read is greater than three times of the average task data read, and the task data read is more than 10 MB. If you want to define your own rule for skewed tasks, you can choose your parameters. The **Skewed Stage** and **Skew Char** sections are refreshed accordingly.
 
 * **Skewed Stage** - The second section displays stages, which have skewed tasks meeting the criteria specified above. If there is more than one skewed task in a stage, the skewed stage table only displays the most skewed task (for example, the largest data for data skew).
 
@@ -219,7 +219,7 @@ The **Time Skew** tab displays skewed tasks based on task execution time.
 
 The Executor Usage Graph visualizes the Spark job executor's allocation and running status.  
 
-1. Select **Executor Usage Analysis**, then four types curves about executor usage are drafted, including **Allocated Executors**, **Running Executors**, **Idle Executors**, and **Max Executor Instances**. Regarding allocated executors, each "Executor added" or "Executor removed" event increases or decreases the allocated executors. You can check "Event Timeline" in the "Jobs" tab for more comparison.
+1. Select **Executor Usage Analysis**, then four types curves about executor usage are drafted, including **Allocated Executors**, **Running Executors**, **Idle Executors**, and **Max Executor Instances**. For allocated executors, each "Executor added" or "Executor removed" event increases or decreases the allocated executors. You can check "Event Timeline" in the "Jobs" tab for more comparison.
 
    ![sparkui diagnosis executors tab](./media/apache-spark-history-server/sparkui-diagnosis-executors.png)
 
@@ -229,7 +229,7 @@ The Executor Usage Graph visualizes the Spark job executor's allocation and runn
 
 ## Known issues
 
-Input/output data using Resilient Distributed Datasets (RDDs) does not show in data tab.
+Input/output data using Resilient Distributed Datasets (RDDs) doesn't show in the data tab.
 
 ## Next steps
 

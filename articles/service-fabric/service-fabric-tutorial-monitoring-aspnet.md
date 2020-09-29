@@ -6,7 +6,7 @@ author: dkkapur
 ms.topic: tutorial
 ms.date: 07/10/2019
 ms.author: dekapur
-ms.custom: mvc
+ms.custom: "mvc, devx-track-csharp"
 ---
 # Tutorial: Monitor and diagnose an ASP.NET Core application on Service Fabric using Application Insights
 
@@ -265,4 +265,4 @@ Now that you have completed setting up monitoring and diagnostics for your ASP.N
 
 * [Further explore monitoring and diagnostics in Service Fabric](service-fabric-diagnostics-overview.md)
 * [Service Fabric event analysis with Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
-* To learn more about Application Insights, see [Application Insights Documentation](https://docs.microsoft.com/azure/application-insights/)
+* To learn more about Application Insights, see [Application Insights Documentation](/azure/application-insights/)

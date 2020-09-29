@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create a skillset in the Azure portal'
+title: 'Create a skillset in the Azure portal'
 titleSuffix: Azure Cognitive Search
 description: In this portal quickstart, learn how to use the Import data wizard to add cognitive skills to an indexing pipeline in Azure Cognitive Search. Skills include Optical Character Recognition (OCR) and natural language processing.
 
@@ -8,29 +8,38 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 12/20/2019
+ms.date: 06/07/2020
 ---
 # Quickstart: Create an Azure Cognitive Search cognitive skillset in the Azure portal
 
-A skillset is an AI feature that extracts information and structure from large undifferentiated text or image files, and makes it indexable and searchable for full text search queries in Azure Cognitive Search. 
+A skillset is an AI-based feature that extracts information and structure from large undifferentiated text or image files, and makes the content both indexable and searchable in Azure Cognitive Search. 
 
-In this quickstart, you'll combine services and data in the Azure cloud to create the skillset. Once everything is in place, you'll run the **Import data** wizard in the portal to pull it all together. The end result is a searchable index populated with data created by AI processing that you can query in the portal ([Search explorer](search-explorer.md)).
+In this quickstart, you'll combine services and data in the Azure cloud to create the skillset. Once everything is in place, you'll run the **Import data** wizard in the Azure portal to pull it all together. The end result is a searchable index populated with data created by AI processing that you can query in the portal ([Search explorer](search-explorer.md)).
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+## Prerequisites
 
-## Create services and load data
+Before you begin, you must have the following:
 
-This quickstart uses Azure Cognitive Search, [Azure Blob storage](https://docs.microsoft.com/azure/storage/blobs/), and [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) for the AI. 
++ An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
 
-Because the workload is so small, Cognitive Services is tapped behind the scenes to provide free processing for up to 20 transactions. For such a small data set, you can skip creating or attaching a Cognitive Services resource.
++ An Azure Cognitive Search service. [Create a service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
+
++ An Azure Storage account with [Blob storage](../storage/blobs/index.yml).
+
+> [!NOTE]
+> This quickstart also uses [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) for the AI. Because the workload is so small, Cognitive Services is tapped behind the scenes for free processing for up to 20 transactions. This means that you can complete this exercise without having to create an additional Cognitive Services resource.
+
+## Set up your data
+
+In the following steps, set up a blob container in Azure Storage to store heterogeneous content files.
 
 1. [Download sample data](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) consisting of a small file set of different types. Unzip the files.
 
-1. [Create an Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) or [find an existing account](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). 
+1. [Create an Azure storage account](../storage/common/storage-account-create.md?tabs=azure-portal) or [find an existing account](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). 
 
-   Choose the same region as Azure Cognitive Search to avoid bandwidth charges. 
-   
-   Choose the StorageV2 (general purpose V2) account type if you want to try out the knowledge store feature later, in another walkthrough. Otherwise, choose any type.
+   + Choose the same region as Azure Cognitive Search to avoid bandwidth charges. 
+
+   + Choose the StorageV2 (general purpose V2) account type if you want to try out the knowledge store feature later, in another walkthrough. Otherwise, choose any type.
 
 1. Open the Blob services pages and create a container. You can use the default public access level. 
 
@@ -38,15 +47,15 @@ Because the workload is so small, Cognitive Services is tapped behind the scenes
 
    ![Source files in Azure blob storage](./media/cognitive-search-quickstart-blob/sample-data.png)
 
-1. [Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). You can use a free service for this quickstart.
-
 You are now ready to move on the Import data wizard.
 
 ## Run the Import data wizard
 
-In the search service Overview page, click **Import data** on the command bar to set up cognitive enrichment in four steps.
+1. Sign in to the [Azure portal](https://portal.azure.com/) with your Azure account.
 
-  ![Import data command](media/cognitive-search-quickstart-blob/import-data-cmd2.png)
+1. [Find your search service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) and on the Overview page, click **Import data** on the command bar to set up cognitive enrichment in four steps.
+
+   ![Import data command](media/cognitive-search-quickstart-blob/import-data-cmd2.png)
 
 ### Step 1 - Create a data source
 
@@ -62,7 +71,7 @@ Next, configure AI enrichment to invoke OCR, image analysis, and natural languag
 
 1. For this quickstart, we are using the **Free** Cognitive Services resource. The sample data consists of 14 files, so the free allotment of 20 transaction on Cognitive Services is sufficient for this quickstart. 
 
-   ![Attach Cognitive Services](media/cognitive-search-quickstart-blob/cog-search-attach.png)
+   ![Attach Cognitive Services attach base service](media/cognitive-search-quickstart-blob/cog-search-attach.png)
 
 1. Expand **Add enrichments** and make four selections. 
 
@@ -72,7 +81,7 @@ Next, configure AI enrichment to invoke OCR, image analysis, and natural languag
 
    Choose entity recognition (people, organizations, locations) and image analysis skills.
 
-   ![Attach Cognitive Services](media/cognitive-search-quickstart-blob/skillset.png)
+   ![Attach Cognitive Services select services for skillset](media/cognitive-search-quickstart-blob/skillset.png)
 
    Continue to the next page.
 
@@ -115,7 +124,7 @@ Cognitive skills indexing takes longer to complete than typical text-based index
 
   ![Azure Cognitive Search notification](./media/cognitive-search-quickstart-blob/indexer-notification.png)
 
-Warnings are normal given the wide range of content types. Some content types aren't valid for certain skills and on lower tiers its common to encounter [indexer limits](search-limits-quotas-capacity.md#indexer-limits). For example, truncation notifications of 32,000 characters are an indexer limit on the Free tier. If you ran this demo on a higher tier, many truncation warnings would go away.
+Warnings are normal given the wide range of content types. Some content types aren't valid for certain skills and on lower tiers it's common to encounter [indexer limits](search-limits-quotas-capacity.md#indexer-limits). For example, truncation notifications of 32,000 characters are an indexer limit on the Free tier. If you ran this demo on a higher tier, many truncation warnings would go away.
 
 To check warnings or errors, click on the Warning status on the Indexers list to open the Execution History page.
 
@@ -156,7 +165,7 @@ Another important concept is that skills operate over content types, and when wo
 
 Output is directed to a search index, and there is a mapping between name-value pairs created during indexing and individual fields in your index. Internally, the portal sets up [annotations](cognitive-search-concept-annotations-syntax.md) and defines a [skillset](cognitive-search-defining-skillset.md), establishing the order of operations and general flow. These steps are hidden in the portal, but when you start writing code, these concepts become important.
 
-Finally, you learned that can verify content by querying the index. In the end, what Azure Cognitive Search provides is a searchable index, which you can query using either the [simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) or [fully extended query syntax](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search). An index containing enriched fields is like any other. If you want to incorporate standard or [custom analyzers](search-analyzers.md), [scoring profiles](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [synonyms](search-synonyms.md), [faceted filters](search-filters-facets.md), geo-search, or any other Azure Cognitive Search feature, you can certainly do so.
+Finally, you learned that can verify content by querying the index. In the end, what Azure Cognitive Search provides is a searchable index, which you can query using either the [simple](/rest/api/searchservice/simple-query-syntax-in-azure-search) or [fully extended query syntax](/rest/api/searchservice/lucene-query-syntax-in-azure-search). An index containing enriched fields is like any other. If you want to incorporate standard or [custom analyzers](search-analyzers.md), [scoring profiles](/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [synonyms](search-synonyms.md), [faceted filters](search-filters-facets.md), geo-search, or any other Azure Cognitive Search feature, you can certainly do so.
 
 ## Clean up resources
 

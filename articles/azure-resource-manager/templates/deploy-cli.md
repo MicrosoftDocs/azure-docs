@@ -2,11 +2,11 @@
 title: Deploy resources with Azure CLI and template
 description: Use Azure Resource Manager and Azure CLI to deploy resources to Azure. The resources are defined in a Resource Manager template.
 ms.topic: conceptual
-ms.date: 04/20/2020
+ms.date: 09/08/2020
 ---
 # Deploy resources with ARM templates and Azure CLI
 
-This article explains how to use Azure CLI with Azure Resource Manager (ARM) templates to deploy your resources to Azure. If you aren't familiar with the concepts of deploying and managing your Azure solutions, see [template deployment overview](overview.md).
+This article explains how to use Azure CLI with Azure Resource Manager templates (ARM templates) to deploy your resources to Azure. If you aren't familiar with the concepts of deploying and managing your Azure solutions, see [template deployment overview](overview.md).
 
 The deployment commands changed in Azure CLI version 2.2.0. The examples in this article require Azure CLI version 2.2.0 or later.
 
@@ -20,35 +20,35 @@ You can target your deployment to a resource group, subscription, management gro
 
 Depending on the scope of the deployment, you use different commands.
 
-To deploy to a **resource group**, use [az deployment group create](/cli/azure/deployment/group?view=azure-cli-latest#az-deployment-group-create):
+* To deploy to a **resource group**, use [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create):
 
-```azurecli-interactive
-az deployment group create --resource-group <resource-group-name> --template-file <path-to-template>
-```
+  ```azurecli-interactive
+  az deployment group create --resource-group <resource-group-name> --template-file <path-to-template>
+  ```
 
-To deploy to a **subscription**, use [az deployment sub create](/cli/azure/deployment/sub?view=azure-cli-latest#az-deployment-sub-create):
+* To deploy to a **subscription**, use [az deployment sub create](/cli/azure/deployment/sub#az-deployment-sub-create):
 
-```azurecli-interactive
-az deployment sub create --location <location> --template-file <path-to-template>
-```
+  ```azurecli-interactive
+  az deployment sub create --location <location> --template-file <path-to-template>
+  ```
 
-For more information about subscription level deployments, see [Create resource groups and resources at the subscription level](deploy-to-subscription.md).
+  For more information about subscription level deployments, see [Create resource groups and resources at the subscription level](deploy-to-subscription.md).
 
-To deploy to a **management group**, use [az deployment mg create](/cli/azure/deployment/mg?view=azure-cli-latest#az-deployment-mg-create):
+* To deploy to a **management group**, use [az deployment mg create](/cli/azure/deployment/mg#az-deployment-mg-create):
 
-```azurecli-interactive
-az deployment mg create --location <location> --template-file <path-to-template>
-```
+  ```azurecli-interactive
+  az deployment mg create --location <location> --template-file <path-to-template>
+  ```
 
-For more information about management group level deployments, see [Create resources at the management group level](deploy-to-management-group.md).
+  For more information about management group level deployments, see [Create resources at the management group level](deploy-to-management-group.md).
 
-To deploy to a **tenant**, use [az deployment tenant create](/cli/azure/deployment/tenant?view=azure-cli-latest#az-deployment-tenant-create):
+* To deploy to a **tenant**, use [az deployment tenant create](/cli/azure/deployment/tenant#az-deployment-tenant-create):
 
-```azurecli-interactive
-az deployment tenant create --location <location> --template-file <path-to-template>
-```
+  ```azurecli-interactive
+  az deployment tenant create --location <location> --template-file <path-to-template>
+  ```
 
-For more information about tenant level deployments, see [Create resources at the tenant level](deploy-to-tenant.md).
+  For more information about tenant level deployments, see [Create resources at the tenant level](deploy-to-tenant.md).
 
 The examples in this article use resource group deployments.
 
@@ -58,7 +58,7 @@ When deploying resources to Azure, you:
 
 1. Sign in to your Azure account
 2. Create a resource group that serves as the container for the deployed resources. The name of the resource group can only include alphanumeric characters, periods, underscores, hyphens, and parenthesis. It can be up to 90 characters. It can't end in a period.
-3. Deploy to the resource group the template that defines the resources to create
+3. Deploy to the resource group the template that defines the resources to create.
 
 A template can include parameters that enable you to customize the deployment. For example, you can provide values that are tailored for a particular environment (such as dev, test, and production). The sample template defines a parameter for the storage account SKU.
 
@@ -79,6 +79,32 @@ The deployment can take a few minutes to complete. When it finishes, you see a m
 "provisioningState": "Succeeded",
 ```
 
+## Deployment name
+
+In the preceding example, you named the deployment `ExampleDeployment`. If you don't provide a name for the deployment, the name of the template file is used. For example, if you deploy a template named `azuredeploy.json` and don't specify a deployment name, the deployment is named `azuredeploy`.
+
+Every time you run a deployment, an entry is added to the resource group's deployment history with the deployment name. If you run another deployment and give it the same name, the earlier entry is replaced with the current deployment. If you want to maintain unique entries in the deployment history, give each deployment a unique name.
+
+To create a unique name, you can assign a random number.
+
+```azurecli-interactive
+deploymentName='ExampleDeployment'$RANDOM
+```
+
+Or, add a date value.
+
+```azurecli-interactive
+deploymentName='ExampleDeployment'$(date +"%d-%b-%Y")
+```
+
+If you run concurrent deployments to the same resource group with the same deployment name, only the last deployment is completed. Any deployments with the same name that haven't finished are replaced by the last deployment. For example, if you run a deployment named `newStorage` that deploys a storage account named `storage1`, and at the same time run another deployment named `newStorage` that deploys a storage account named `storage2`, you deploy only one storage account. The resulting storage account is named `storage2`.
+
+However, if you run a deployment named `newStorage` that deploys a storage account named `storage1`, and immediately after it completes you run another deployment named `newStorage` that deploys a storage account named `storage2`, then you have two storage accounts. One is named `storage1`, and the other is named `storage2`. But, you only have one entry in the deployment history.
+
+When you specify a unique name for each deployment, you can run them concurrently without conflict. If you run a deployment named `newStorage1` that deploys a storage account named `storage1`, and at the same time run another deployment named `newStorage2` that deploys a storage account named `storage2`, then you have two storage accounts and two entries in the deployment history.
+
+To avoid conflicts with concurrent deployments and to ensure unique entries in the deployment history, give each deployment a unique name.
+
 ## Deploy remote template
 
 Instead of storing ARM templates on your local machine, you may prefer to store them in an external location. You can store templates in a source control repository (such as GitHub). Or, you can store them in an Azure storage account for shared access in your organization.
@@ -95,6 +121,39 @@ az deployment group create \
 ```
 
 The preceding example requires a publicly accessible URI for the template, which works for most scenarios because your template shouldn't include sensitive data. If you need to specify sensitive data (like an admin password), pass that value as a secure parameter. However, if you don't want your template to be publicly accessible, you can protect it by storing it in a private storage container. For information about deploying a template that requires a shared access signature (SAS) token, see [Deploy private template with SAS token](secure-template-with-sas-token.md).
+
+## Deploy template spec
+
+Instead of deploying a local or remote template, you can create a [template spec](template-specs.md). The template spec is a resource in your Azure subscription that contains an ARM template. It makes it easy to securely share the template with users in your organization. You use role-based access control (RBAC) to grant access to the template spec. This feature is currently in preview.
+
+The following examples show how to create and deploy a template spec. These commands are only available if you've [signed up for the preview](https://aka.ms/templateSpecOnboarding).
+
+First, you create the template spec by providing the ARM template.
+
+```azurecli
+az ts create \
+  --name storageSpec \
+  --version "1.0" \
+  --resource-group templateSpecRG \
+  --location "westus2" \
+  --template-file "./mainTemplate.json"
+```
+
+Then, you get the ID for template spec and deploy it.
+
+```azurecli
+id = $(az ts show --name storageSpec --resource-group templateSpecRG --version "1.0" --query "id")
+
+az deployment group create \
+  --resource-group demoRG \
+  --template-spec $id
+```
+
+For more information, see [Azure Resource Manager template specs (Preview)](template-specs.md).
+
+## Preview changes
+
+Before deploying your template, you can preview the changes the template will make to your environment. Use the [what-if operation](template-deploy-what-if.md) to verify that the template makes the changes that you expect. What-if also validates the template for errors.
 
 [!INCLUDE [resource-manager-cloud-shell-deploy.md](../../../includes/resource-manager-cloud-shell-deploy.md)]
 
@@ -144,6 +203,28 @@ The arrayContent.json format is:
 ]
 ```
 
+To pass in an object, for example, to set tags, use JSON. For example, your template might include a parameter like this one:
+
+```json
+    "resourceTags": {
+      "type": "object",
+      "defaultValue": {
+        "Cost Center": "IT Department"
+      }
+    }
+```
+
+In this case, you can pass in a JSON string to set the parameter as shown in the following Bash script:
+
+```bash
+tags='{"Owner":"Contoso","Cost Center":"2345-324"}'
+az deployment group create --name addstorage  --resource-group myResourceGroup \
+--template-file $templateFile \
+--parameters resourceName=abcdef4556 resourceTags="$tags"
+```
+
+Use double quotes around the JSON that you want to pass into the object.
+
 ### Parameter files
 
 Rather than passing parameters as inline values in your script, you may find it easier to use a JSON file that contains the parameter values. The parameter file must be a local file. External parameter files aren't supported with Azure CLI.
@@ -182,57 +263,6 @@ To deploy a template with multi-line strings or comments using Azure CLI with ve
   ],
 ```
 
-## Test a template deployment
-
-To test your template and parameter values without actually deploying any resources, use [az deployment group validate](/cli/azure/group/deployment).
-
-```azurecli-interactive
-az deployment group validate \
-  --resource-group ExampleGroup \
-  --template-file storage.json \
-  --parameters @storage.parameters.json
-```
-
-If no errors are detected, the command returns information about the test deployment. In particular, notice that the **error** value is null.
-
-```output
-{
-  "error": null,
-  "properties": {
-      ...
-```
-
-If an error is detected, the command returns an error message. For example, passing an incorrect value for the storage account SKU, returns the following error:
-
-```output
-{
-  "error": {
-    "code": "InvalidTemplate",
-    "details": null,
-    "message": "Deployment template validation failed: 'The provided value 'badSKU' for the template parameter
-      'storageAccountType' at line '13' and column '20' is not valid. The parameter value is not part of the allowed
-      value(s): 'Standard_LRS,Standard_ZRS,Standard_GRS,Standard_RAGRS,Premium_LRS'.'.",
-    "target": null
-  },
-  "properties": null
-}
-```
-
-If your template has a syntax error, the command returns an error indicating it couldn't parse the template. The message indicates the line number and position of the parsing error.
-
-```output
-{
-  "error": {
-    "code": "InvalidTemplate",
-    "details": null,
-    "message": "Deployment template parse failed: 'After parsing a value an unexpected character was encountered:
-      \". Path 'variables', line 31, position 3.'.",
-    "target": null
-  },
-  "properties": null
-}
-```
-
 ## Next steps
 
 - To roll back to a successful deployment when you get an error, see [Rollback on error to successful deployment](rollback-on-error.md).
@@ -240,4 +270,3 @@ If your template has a syntax error, the command returns an error indicating it 
 - To understand how to define parameters in your template, see [Understand the structure and syntax of ARM templates](template-syntax.md).
 - For tips on resolving common deployment errors, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](common-deployment-errors.md).
 - For information about deploying a template that requires a SAS token, see [Deploy private template with SAS token](secure-template-with-sas-token.md).
-- To safely roll out your service to more than one region, see [Azure Deployment Manager](deployment-manager-overview.md).

@@ -1,22 +1,15 @@
 ---
 title: Configure private endpoints for Azure Event Grid topics or domains
 description: This article describes how to configure private endpoints for Azure Event Grid topics or domain. 
-services: event-grid
-author: spelluru
-
-ms.service: event-grid
 ms.topic: how-to
-ms.date: 04/22/2020
-ms.author: spelluru
+ms.date: 07/07/2020 
+ms.custom: devx-track-azurecli
 ---
 
-# Configure private endpoints for Azure Event Grid topics or domains (Preview)
+# Configure private endpoints for Azure Event Grid topics or domains
 You can use [private endpoints](../private-link/private-endpoint-overview.md) to allow ingress of events directly from your virtual network to your topics and domains securely over a [private link](../private-link/private-link-overview.md) without going through the public internet. The private endpoint uses an IP address from the VNet address space for your topic or domain. For more conceptual information, see [Network security](network-security.md).
 
 This article describes how to configure private endpoints for topics or domains.
-
-> [!IMPORTANT]
-> Private endpoints feature is available for topics and domains only in premium tier. To upgrade from basic tier to premium tier, see the [Update pricing tier](update-tier.md) article. 
 
 ## Use Azure portal 
 This section shows you how to use the Azure portal to create a private endpoint for a topic or a domain.
@@ -44,7 +37,7 @@ This section shows you how to use the Azure portal to create a private endpoint 
         3. Confirm that the **Target subresource** is set to **topic** or **domain** (based on the resource type you selected).    
         4. Select **Next: Configuration >** button at the bottom of the page. 
 
-            ![Private endpoint - resource page](./media/configure-private-endpoints/resource-page.png)
+            ![Screenshot that shows the "Create a private endpoint - Resource" page.](./media/configure-private-endpoints/resource-page.png)
     2. If you select **Connect to a resource using a resource ID or an alias**, follow these steps:
         1. Enter the ID of the resource. For example: `/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>`.  
         2. For **Resource**, enter **topic** or **domain**. 
@@ -110,7 +103,7 @@ You can reject a private endpoint that's in the pending state or approved state.
 
 1. Select the **private endpoint** you wish to reject, and select **Reject** on the toolbar.
 
-    ![Private endpoint - reject](./media/configure-private-endpoints/reject-button.png)
+    ![Screenshot that shows the "Networking - Private endpoint connections (preview)" with "Reject" selected.](./media/configure-private-endpoints/reject-button.png)
 1. On the **Reject connection** dialog box, enter a comment (optional), and select **Yes**. 
 
     ![Private endpoint - reject](./media/configure-private-endpoints/reject.png)
@@ -201,7 +194,7 @@ Here's a sample script that creates the following Azure resources:
 - Resource group
 - Virtual network
 - Subnet in the virtual network
-- Azure Event Grid topic (premium tier)
+- Azure Event Grid topic
 - Private endpoint for the topic
 
 > [!NOTE]
@@ -250,8 +243,7 @@ az network vnet subnet update \
 az eventgrid topic create \
     --resource-group $resourceGroupName \
     --name $topicName \
-    --location $location \
-    --sku "Premium" 
+    --location $location
 
 # verify that the topic was created.
 az eventgrid topic show \
@@ -365,17 +357,17 @@ $virtualNetwork | Set-AzVirtualNetwork
 
 
 ```azurepowershell-interactive
-$body = @{"location"="<LOCATION>"; "sku"= @{"name"="premium"}; "properties"=@{"publicNetworkAccess"="disabled"}} | ConvertTo-Json
+$body = @{"location"="<LOCATION>"; "properties"=@{"publicNetworkAccess"="disabled"}} | ConvertTo-Json
 
 # create topic
 Invoke-RestMethod -Method 'Put'  `
-    -Uri "https://management.azure.com/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>?api-version=2020-04-01-preview"  `
+    -Uri "https://management.azure.com/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>?api-version=2020-06-01"  `
     -Headers $Headers  `
     -Body $body
 
 # verify that the topic was created
 $topic=Invoke-RestMethod -Method 'Get'  `
-    -Uri "https://management.azure.com/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>?api-version=2020-04-01-preview"   `
+    -Uri "https://management.azure.com/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>?api-version=2020-06-01"   `
     -Headers $Headers  
 
 # create private link service connection
@@ -402,7 +394,7 @@ $privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName <RESOURCE GROUP NAME
 
 # verify that the endpoint was created
 Invoke-RestMethod -Method 'Get'  `
-    -Uri "https://management.azure.com/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>/privateEndpointConnections?api-version=2020-04-01-preview"   `
+    -Uri "https://management.azure.com/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>/privateEndpointConnections?api-version=2020-06-01"   `
     -Headers $Headers   `
     | ConvertTo-Json -Depth 5
 
@@ -448,13 +440,13 @@ $approvedBody = @{"properties"=@{"privateLinkServiceConnectionState"=@{"status"=
 
 # approve endpoint connection
 Invoke-RestMethod -Method 'Put'  `
-    -Uri "https://management.azure.com/subscriptions/<AzuRE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>/privateEndpointConnections/<PRIVATE ENDPOINT NAME>.<GUID>?api-version=2020-04-01-preview"  `
+    -Uri "https://management.azure.com/subscriptions/<AzuRE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>/privateEndpointConnections/<PRIVATE ENDPOINT NAME>.<GUID>?api-version=2020-06-01"  `
     -Headers $Headers  `
     -Body $approvedBody
 
 # confirm that the endpoint connection was approved
 Invoke-RestMethod -Method 'Get'  `
-    -Uri "https://management.azure.com/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>/privateEndpointConnections/<PRIVATE ENDPOINT NAME>.<GUID>?api-version=2020-04-01-preview"  `
+    -Uri "https://management.azure.com/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>/privateEndpointConnections/<PRIVATE ENDPOINT NAME>.<GUID>?api-version=2020-06-01"  `
     -Headers $Headers
 
 ```
@@ -471,17 +463,18 @@ $rejectedBody = @{"properties"=@{"privateLinkServiceConnectionState"=@{"status"=
 
 # reject private endpoint
 Invoke-RestMethod -Method 'Put'  `
-    -Uri "https://management.azure.com/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>/privateEndpointConnections/<PRIVATE ENDPOINT NAME>.<GUID>?api-version=2020-04-01-preview"  `
+    -Uri "https://management.azure.com/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>/privateEndpointConnections/<PRIVATE ENDPOINT NAME>.<GUID>?api-version=2020-06-01"  `
     -Headers $Headers  `
     -Body $rejectedBody
 
 # confirm that endpoint was rejected
 Invoke-RestMethod -Method 'Get' 
-    -Uri "https://management.azure.com/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>/privateEndpointConnections/<PRIVATE ENDPOINT NAME>.<GUID>?api-version=2020-04-01-preview" ` 
+    -Uri "https://management.azure.com/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>/privateEndpointConnections/<PRIVATE ENDPOINT NAME>.<GUID>?api-version=2020-06-01" ` 
     -Headers $Headers
 ```
 
 You can approve the connection even after it's rejected via API. If you use Azure portal, you can't approve an endpoint that has been rejected. 
 
 ## Next steps
-To learn about how to configure IP firewall settings, see [Configure IP firewall for Azure Event Grid topics or domains](configure-firewall.md).
+* To learn about how to configure IP firewall settings, see [Configure IP firewall for Azure Event Grid topics or domains](configure-firewall.md).
+* To troubleshoot network connectivity issues, see [Troubleshoot network connectivity issues](troubleshoot-network-connectivity.md)

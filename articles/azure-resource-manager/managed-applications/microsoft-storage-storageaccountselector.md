@@ -16,11 +16,11 @@ A control for selecting a new or existing storage account.
 
 The control shows the default value.
 
-![Microsoft.Storage.StorageAccountSelector](./media/managed-application-elements/microsoft.storage.storageaccountselector.png)
+![Microsoft.Storage.StorageAccountSelector](./media/managed-application-elements/microsoft-storage-storageaccountselector.png)
 
 The control enables the user to create a new storage account or select an existing storage account.
 
-![Microsoft.Storage.StorageAccountSelector new](./media/managed-application-elements/microsoft.storage.storageaccountselector-new.png)
+![Microsoft.Storage.StorageAccountSelector new](./media/managed-application-elements/microsoft-storage-storageaccountselector-new.png)
 
 ## Schema
 

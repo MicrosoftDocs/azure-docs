@@ -71,7 +71,15 @@ Non-default tags include the bounding box that identifies the area of interest i
 
 ## Next steps
 
-To get started with your first request, see the quickstarts: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md)
+To get started with your first request, see the quickstarts:
+
+* [C#](quickstarts/csharp.md)
+
+* [Java](quickstarts/java.md)
+
+* [node.js](quickstarts/nodejs.md)
+
+* [Python](quickstarts/python.md)
 
 
 

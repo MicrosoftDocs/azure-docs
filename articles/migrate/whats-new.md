@@ -9,6 +9,25 @@ ms.custom: mvc
 # What's new in Azure Migrate
 
 [Azure Migrate](migrate-services-overview.md) helps you to discover, assess, and migrate on-premises servers, apps, and data to the Microsoft Azure cloud. This article summarizes new releases and features in Azure Migrate.
+## Update (September 2020)
+- Azure Migrate now lets you migrate servers to Availability Zones.
+- Azure Migrate now lets you migrate UEFI-based VMs and physical servers to Azure generation 2 VMs. 
+
+## Update (August 2020)
+
+- Improved onboarding experience where an Azure Migrate project key is generated from the portal and is used to complete the appliance registration.
+- Option to download either OVA/VHD files or the installer scripts from the portal to set up the VMware and Hyper-V appliances respectively.
+- Refreshed appliance configuration manager with enhanced user experience.
+- Multiple credentials support for Hyper-V VMs discovery.
+- Improved search, sort and filter capabilities for added credentials and discovery sources.
+- Single item input, multiple items input and import CSV options for user to add discovery sources for Hyper-V hosts/clusters & physical servers.
+- Enhanced error experience with status updates for validation and discovery operations against each added source in the table. 
+
+## Update (June 2020)
+
+- Assessments for migrating on-premises VMware VMs to [Azure VMware Solution (AVS)](https://go.microsoft.com/fwlink/?linkid=2132637) is now supported. [Learn more](how-to-create-azure-vmware-solution-assessment.md)
+- Support for multiple credentials on appliance for physical server discovery.
+- Support to allow Azure login from appliance for tenant where tenant restriction has been configured.
 
 
 ## Update (April 2020)
@@ -21,6 +40,7 @@ Azure Migrate supports deployments in Azure Government.
 - [Review](migrate-support-matrix.md#supported-geographies-azure-government) supported geographies and regions for Azure Government.
 - [Agent-based dependency analysis](concepts-dependency-visualization.md#agent-based-analysis) isn't supported in Azure Government.
 - Features in preview are supported in Azure Government, specifically [agentless dependency analysis](concepts-dependency-visualization.md#agentless-analysis), and [application discovery](how-to-discover-applications.md).
+
 
 ## Update (March 2020)
 

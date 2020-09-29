@@ -5,8 +5,8 @@ services: bastion
 author: charwen
 
 ms.service: bastion
-ms.topic: conceptual
-ms.date: 02/03/2020
+ms.topic: how-to
+ms.date: 05/04/2020
 ms.author: charwen
 # Customer intent: I want to copy and paste to and from VMs using Azure Bastion.
 
@@ -17,6 +17,10 @@ ms.author: charwen
 This article helps you copy and paste text to and from virtual machines when using Azure Bastion. Before you work with a VM, make sure you have followed the steps to [Create a Bastion host](bastion-create-host-portal.md). Then, connect to the VM that you want to work with using either [RDP](bastion-connect-vm-rdp.md) or [SSH](bastion-connect-vm-ssh.md).
 
 For browsers that support the advanced Clipboard API access, you can copy and paste text between your local device and the remote session in the same way you copy and paste between applications on your local device. For other browsers, you can use the Bastion clipboard access tool palette.
+
+>[!NOTE]
+>Only text copy/paste is currently supported.
+>
 
    ![Allow clipboard](./media/bastion-vm-manage/allow.png)
 
@@ -31,7 +35,7 @@ After you connect to the virtual machine using the [Azure portal ](https://porta
 
    ![tool palette](./media/bastion-vm-manage/left.png)
 
-   ![clipboard](./media/bastion-vm-manage/clipboard.png)
+   ![Screenshot shows a clipboard for text copied in Bastion.](./media/bastion-vm-manage/clipboard.png)
 1. Typically, the copied text automatically shows on the Bastion copy paste palette. If your text is not there, then paste the text in the text area on the palette.
 1. Once the text is in the text area, you can paste it to the remote session.
 

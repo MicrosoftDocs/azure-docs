@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/01/2019
+ms.date: 05/27/2020
 ms.author: b-juche
 ---
 # Cost model for Azure NetApp Files 
@@ -45,6 +45,8 @@ The diagram below illustrates these concepts.
 ## Overage in capacity consumption  
 
 When the total used capacity of a pool exceeds its provisioned capacity, data writes are still permitted.  After the grace period (one hour), if the used capacity of the pool still exceeds its provisioned capacity, then the pool size will be automatically increased in increments of 1 TiB until the provisioned capacity is greater than the total used capacity.  For example, in the illustration above, if Volume 3 continues to grow and the actual consumption reaches 1.2 TiB, then after the grace period, the pool will automatically be resized to 5 TiB.  The result is that the provisioned pool capacity (5 TiB) exceeds the used capacity (4.2 TiB).  
+
+Although the capacity pool size automatically grows to meet the demand of the volume, it isn’t automatically reduced when the volume size decreases. If you want to down-size the capacity pool after a volume size decrease (for example, after data cleanup of a volume), you need to _manually_ reduce the capacity pool size.
 
 ## Manual changes of the pool size  
 

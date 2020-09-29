@@ -12,9 +12,10 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/17/2020
+ms.date: 07/23/2020
 ms.author: rolyon
 ms.reviewer: bagovind
+ms.custom: azuread-video-2020
 
 #Customer intent: As a dev, devops, or it admin, I want to learn how permissions and roles work in Azure, so that I can better understand how to grant access to resources.
 ---
@@ -24,6 +25,10 @@ ms.reviewer: bagovind
 Access management for cloud resources is a critical function for any organization that is using the cloud. Azure role-based access control (Azure RBAC) helps you manage who has access to Azure resources, what they can do with those resources, and what areas they have access to.
 
 Azure RBAC is an authorization system built on [Azure Resource Manager](../azure-resource-manager/management/overview.md) that provides fine-grained access management of Azure resources.
+
+This video provides a quick overview of Azure RBAC.
+
+>[!VIDEO https://www.youtube.com/embed/Dzhm-garKBM]
 
 ## What can I do with Azure RBAC?
 
@@ -64,6 +69,10 @@ Azure includes several [built-in roles](built-in-roles.md) that you can use. The
 
 The rest of the built-in roles allow management of specific Azure resources. For example, the [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) role allows a user to create and manage virtual machines. If the built-in roles don't meet the specific needs of your organization, you can create your own [Azure custom roles](custom-roles.md).
 
+This video provides a quick overview of built-in roles and custom roles.
+
+>[!VIDEO https://www.youtube.com/embed/I1mefHptRgo]
+
 Azure has data operations that enable you to grant access to data within an object. For example, if a user has read data access to a storage account, then they can read the blobs or messages within that storage account. For more information, see [Understand Azure role definitions](role-definitions.md).
 
 ### Scope
@@ -88,7 +97,7 @@ The following diagram shows an example of a role assignment. In this example, th
 
 ![Role assignment to control access](./media/overview/rbac-overview.png)
 
-You can create role assignments using the Azure portal, Azure CLI, Azure PowerShell, Azure SDKs, or REST APIs. You can have up to **2000** role assignments in each subscription and **500** role assignments in each management group. To create and remove role assignments, you must have `Microsoft.Authorization/roleAssignments/*` permission. This permission is granted through the [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator) roles.
+You can create role assignments using the Azure portal, Azure CLI, Azure PowerShell, Azure SDKs, or REST APIs. You can have up to **2000** role assignments in each subscription. This limit includes role assignments at the subscription, resource group, and resource scopes. You can have up to **500** role assignments in each management group. To create and remove role assignments, you must have `Microsoft.Authorization/roleAssignments/*` permission. This permission is granted through the [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator) roles.
 
 ## Multiple role assignments
 
@@ -126,7 +135,6 @@ The following are the high-level steps that Azure RBAC uses to determine if you 
 
 ## Next steps
 
-- [Quickstart: View the access a user has to Azure resources](check-access.md)
 - [Add or remove Azure role assignments using the Azure portal](role-assignments-portal.md)
 - [Understand the different roles](rbac-and-directory-admin-roles.md)
 - [Cloud Adoption Framework: Resource access management in Azure](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management)

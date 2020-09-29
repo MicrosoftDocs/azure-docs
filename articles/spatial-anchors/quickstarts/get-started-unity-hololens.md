@@ -6,7 +6,7 @@ manager: vriveras
 services: azure-spatial-anchors
 
 ms.author: crtreasu
-ms.date: 02/24/2019
+ms.date: 07/31/2020
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
 ---
@@ -28,7 +28,7 @@ You'll learn how to:
 
 To complete this quickstart:
 
-- You need a Windows computer with <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019.1 or 2019.2</a> and <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> or later are installed. Your Visual Studio installation must include the **Universal Windows Platform development** workload and the **Windows 10 SDK (10.0.18362.0 or newer)** component. You must also install <a href="https://git-scm.com/download/win" target="_blank">Git for Windows</a> and <a href="https://git-lfs.github.com/">Git LFS</a>.
+- You need a Windows computer with <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019.4 (LTS)</a> and <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> or later are installed. Your Visual Studio installation must include the **Universal Windows Platform development** workload and the **Windows 10 SDK (10.0.18362.0 or newer)** component. You must also install <a href="https://git-scm.com/download/win" target="_blank">Git for Windows</a> and <a href="https://git-lfs.github.com/">Git LFS</a>.
 - You need a HoloLens device on which [developer mode](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio) enabled. [Windows 10 October 2018 Update](https://docs.microsoft.com/windows/mixed-reality/release-notes-october-2018) (also known as RS5) must be installed on the device. To update to the latest release on HoloLens, open the **Settings** app, go to **Update & Security**, and then select **Check for updates**.
 - On your app, you need to enable the **SpatialPerception** capability. This setting is in **Build Settings** > **Player Settings** > **Publishing Settings** > **Capabilities**.
 - On your app, you need to enable **Virtual Reality Supported** with **Windows Mixed Reality SDK**. This setting is in **Build Settings** > **Player Settings** > **XR Settings**.
@@ -51,13 +51,7 @@ Select **Switch Platform** to change the platform to **Universal Windows Platfor
 
 Close the **Build Settings** window.
 
-## Configure the account identifier and key
-
-In the **Project** pane, go to `Assets/AzureSpatialAnchors.Examples/Scenes` and open the `AzureSpatialAnchorsBasicDemo.unity` scene file.
-
 [!INCLUDE [Configure Unity Scene](../../../includes/spatial-anchors-unity-configure-scene.md)]
-
-Save the scene by selecting **File** > **Save**.
 
 ## Export the HoloLens Visual Studio project
 
@@ -85,15 +79,12 @@ Follow the instructions in the app to place and recall an anchor.
 
 In Visual Studio, stop the app by selecting either **Stop Debugging** or Shift+F5.
 
-## Troubleshooting
-
-### Unity 2019.3
-
-Due to breaking changes, Unity 2019.3 is not currently supported. Please use Unity 2019.1 or 2019.2.
-
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 
 [!INCLUDE [Next steps](../../../includes/spatial-anchors-quickstarts-nextsteps.md)]
 
 > [!div class="nextstepaction"]
 > [Tutorial: Share spatial anchors across devices](../tutorials/tutorial-share-anchors-across-devices.md)
+
+> [!div class="nextstepaction"]
+> [How To: Configure Azure Spatial Anchors in a Unity project](../how-tos/setup-unity-project.md)

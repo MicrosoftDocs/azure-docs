@@ -4,15 +4,21 @@ description: This article describes how to set up Data-in Replication for Azure 
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.topic: conceptual
-ms.date: 3/27/2020
+ms.topic: how-to
+ms.date: 8/7/2020
 ---
 
 # How to configure Azure Database for MySQL Data-in Replication
 
-This article describes how to set up Data-in Replication in Azure Database for MySQL by configuring the master and replica servers. This article assumes that you have some prior experience with MySQL servers and databases.
+This article describes how to set up [Data-in Replication](concepts-data-in-replication.md) in Azure Database for MySQL by configuring the master and replica servers. This article assumes that you have some prior experience with MySQL servers and databases.
 
-To create a replica in the Azure Database for MySQL service, Data-in Replication synchronizes data from a master MySQL server on-premises, in virtual machines (VMs), or in cloud database services.
+> [!NOTE]
+> Bias-free communication
+>
+> Microsoft supports a diverse and inclusionary environment. This article contains references to the word _slave_. The Microsoft [style guide for bias-free communication](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) recognizes this as an exclusionary word. The word is used in this article for consistency because it's currently the word that appears in the software. When the software is updated to remove the word, this article will be updated to be in alignment.
+>
+
+To create a replica in the Azure Database for MySQL service, [Data-in Replication](concepts-data-in-replication.md)  synchronizes data from a master MySQL server on-premises, in virtual machines (VMs), or in cloud database services. Data-in Replication is based on the binary log (binlog) file position-based replication native to MySQL. To learn more about binlog replication, see the [MySQL binlog replication overview](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
 
 Review the [limitations and requirements](concepts-data-in-replication.md#limitations-and-considerations) of Data-in replication before performing the steps in this article.
 
@@ -26,11 +32,11 @@ Review the [limitations and requirements](concepts-data-in-replication.md#limita
    > The Azure Database for MySQL server must be created in the General Purpose or Memory Optimized pricing tiers.
    > 
 
-2. Create same user accounts and corresponding privileges
+1. Create same user accounts and corresponding privileges
 
    User accounts are not replicated from the master server to the replica server. If you plan on providing users with access to the replica server, you need to manually create all accounts and corresponding privileges on this newly created Azure Database for MySQL server.
 
-3. Add the master server's IP address to the replica's firewall rules. 
+1. Add the master server's IP address to the replica's firewall rules. 
 
    Update firewall rules using the [Azure portal](howto-manage-firewall-using-portal.md) or [Azure CLI](howto-manage-firewall-using-cli.md).
 
@@ -44,7 +50,7 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
    
    Test connectivity to the master server by attempting to connect from a tool such as the MySQL command-line hosted on another machine or from the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) available in the Azure portal.
 
-2. Turn on binary logging
+1. Turn on binary logging
 
    Check to see if binary logging has been enabled on the master by running the following command: 
 
@@ -56,7 +62,7 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
 
    If `log_bin` is returned with the value "OFF", turn on binary logging by editing your my.cnf file so that `log_bin=ON` and restart your server for the change to take effect.
 
-3. Master server settings
+1. Master server settings
 
    Data-in Replication requires parameter `lower_case_table_names` to be consistent between the master and replica servers. This parameter is 1 by default in Azure Database for MySQL. 
 
@@ -64,7 +70,7 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
    SET GLOBAL lower_case_table_names = 1;
    ```
 
-4. Create a new replication role and set up permission
+1. Create a new replication role and set up permission
 
    Create a user account on the master server that is configured with replication privileges. This can be done through SQL commands or a tool like MySQL Workbench. Consider whether you plan on replicating with SSL as this will need to be specified when creating the user. Refer to the MySQL documentation to understand how to [add user accounts](https://dev.mysql.com/doc/refman/5.7/en/user-names.html) on your master server. 
 
@@ -94,18 +100,17 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
 
    To create the replication role in MySQL Workbench, open the **Users and Privileges** panel from the **Management** panel. Then click on **Add Account**. 
  
-   ![Users and Privileges](./media/howto-data-in-replication/users_privileges.png)
+   :::image type="content" source="./media/howto-data-in-replication/users_privileges.png" alt-text="Users and Privileges":::
 
    Type in the username into the **Login Name** field. 
 
-   ![Sync user](./media/howto-data-in-replication/syncuser.png)
+   :::image type="content" source="./media/howto-data-in-replication/syncuser.png" alt-text="Sync user":::
  
    Click on the **Administrative Roles** panel and then select **Replication Slave** from the list of **Global Privileges**. Then click on **Apply** to create the replication role.
 
-   ![Replication Slave](./media/howto-data-in-replication/replicationslave.png)
+   :::image type="content" source="./media/howto-data-in-replication/replicationslave.png" alt-text="Replication Slave":::
 
-
-5. Set the master server to read-only mode
+1. Set the master server to read-only mode
 
    Before starting to dump out the database, the server needs to be placed in read-only mode. While in read-only mode, the master will be unable to process any write transactions. Evaluate the impact to your business and schedule the read-only window in an off-peak time if necessary.
 
@@ -114,7 +119,7 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
    SET GLOBAL read_only = ON;
    ```
 
-6. Get binary log file name and offset
+1. Get binary log file name and offset
 
    Run the [`show master status`](https://dev.mysql.com/doc/refman/5.7/en/show-master-status.html) command to determine the current binary log file name and offset.
     
@@ -123,15 +128,15 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
    ```
    The results should be like following. Make sure to note the binary file name as it will be used in later steps.
 
-   ![Master Status Results](./media/howto-data-in-replication/masterstatus.png)
+   :::image type="content" source="./media/howto-data-in-replication/masterstatus.png" alt-text="Master Status Results":::
  
 ## Dump and restore master server
 
-1. Dump all databases from master server
+1. Determine which databases and tables you want to replicate into Azure Database for MySQL and perform the dump from the master server.
+ 
+    You can use mysqldump to dump databases from your master. For details, refer to [Dump & Restore](concepts-migrate-dump-restore.md). It is unnecessary to dump MySQL library and test library.
 
-   You can use mysqldump to dump databases from your master. For details, refer to [Dump & Restore](concepts-migrate-dump-restore.md). It is unnecessary to dump MySQL library and test library.
-
-2. Set master server to read/write mode
+1. Set master server to read/write mode
 
    Once the database has been dumped, change the master MySQL server back to read/write mode.
 
@@ -140,7 +145,7 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
    UNLOCK TABLES;
    ```
 
-3. Restore dump file to new server
+1. Restore dump file to new server
 
    Restore the dump file to the server created in the Azure Database for MySQL service. Refer to [Dump & Restore](concepts-migrate-dump-restore.md) for how to restore a dump file to a MySQL server. If the dump file is large, upload it to a virtual machine in Azure within the same region as your replica server. Restore it to the Azure Database for MySQL server from the virtual machine.
 
@@ -164,33 +169,41 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
    - master_ssl_ca: CA certificate's context. If not using SSL, pass in empty string.
        - It is recommended to pass this parameter in as a variable. See the following examples for more information.
 
-> [!NOTE]
-> If the master server is hosted in an Azure VM, set "Allow access to Azure services" to "ON" to allow the master and replica servers to communicate with each other. This setting can be changed from the **Connection security** options. Refer to [manage firewall rules using portal](howto-manage-firewall-using-portal.md) for more information.
-
+   > [!NOTE]
+   > If the master server is hosted in an Azure VM, set "Allow access to Azure services" to "ON" to allow the master and replica servers to communicate with each other. This setting can be changed from the **Connection security** options. Refer to [manage firewall rules using portal](howto-manage-firewall-using-portal.md) for more information.
+      
    **Examples**
-
+   
    *Replication with SSL*
-
+   
    The variable `@cert` is created by running the following MySQL commands: 
-
-   ```sql
-   SET @cert = '-----BEGIN CERTIFICATE-----
-   PLACE YOUR PUBLIC KEY CERTIFICATE'`S CONTEXT HERE
-   -----END CERTIFICATE-----'
-   ```
-
+   
+      ```sql
+      SET @cert = '-----BEGIN CERTIFICATE-----
+      PLACE YOUR PUBLIC KEY CERTIFICATE'`S CONTEXT HERE
+      -----END CERTIFICATE-----'
+      ```
+   
    Replication with SSL is set up between a master server hosted in the domain "companya.com" and a replica server hosted in Azure Database for MySQL. This stored procedure is run on the replica. 
-
-   ```sql
-   CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mysql-bin.000002', 120, @cert);
-   ```
+   
+      ```sql
+      CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mysql-bin.000002', 120, @cert);
+      ```
    *Replication without SSL*
-
+   
    Replication without SSL is set up between a master server hosted in the domain "companya.com" and a replica server hosted in Azure Database for MySQL. This stored procedure is run on the replica.
+   
+      ```sql
+      CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mysql-bin.000002', 120, '');
+      ```
 
-   ```sql
-   CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mysql-bin.000002', 120, '');
-   ```
+1. Filtering 
+ 
+   If you want to skip replicating some tables from your master, update the `replicate_wild_ignore_table` server parameter on your replica server. You can provide more than one table pattern using a comma-separated list.
+
+   Review the [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#option_mysqld_replicate-wild-ignore-table) to learn more about this parameter. 
+    
+   To update the parameter, you can use the [Azure portal](howto-server-parameters.md) or [Azure CLI](howto-configure-server-parameters-using-cli.md).
 
 1. Start replication
 

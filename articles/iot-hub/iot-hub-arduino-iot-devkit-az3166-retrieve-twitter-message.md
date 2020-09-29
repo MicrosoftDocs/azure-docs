@@ -9,6 +9,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 03/07/2018
 ms.author: liydu
+ms.custom: devx-track-csharp
 ---
 
 # Shake, Shake for a Tweet -- Retrieve a Twitter message with Azure Functions
@@ -192,8 +193,6 @@ Or, when running the code, there are some blips that cause a restarting of the a
 2. In the [Azure portal](https://portal.azure.com/), find the Azure Functions app you created and restart it:
 
    ![azure-function-restart](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/azure-function-restart.png)
-
-### Feedback
 
 If you experience other problems, refer to the [IoT DevKit FAQ](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) or contact us using the following channels:
 

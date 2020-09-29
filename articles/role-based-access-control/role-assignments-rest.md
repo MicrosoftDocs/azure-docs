@@ -12,8 +12,8 @@ ms.service: role-based-access-control
 ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 03/19/2020
+ms.topic: how-to
+ms.date: 05/06/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 
@@ -39,7 +39,7 @@ In Azure RBAC, to grant access, you add a role assignment. To add a role assignm
 1. Start with the following request and body:
 
     ```http
-    PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentName}?api-version=2015-07-01
+    PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId}?api-version=2015-07-01
     ```
 
     ```json
@@ -63,7 +63,7 @@ In Azure RBAC, to grant access, you add a role assignment. To add a role assignm
 
     In the previous example, microsoft.web is a resource provider that refers to an App Service instance. Similarly, you can use any other resource providers and specify the scope. For more information, see [Azure Resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md) and supported [Azure Resource Manager resource provider operations](resource-provider-operations.md).  
 
-1. Replace *{roleAssignmentName}* with the GUID identifier of the role assignment.
+1. Replace *{roleAssignmentId}* with the GUID identifier of the role assignment.
 
 1. Within the request body, replace *{scope}* with the scope for the role assignment.
 
@@ -79,6 +79,40 @@ In Azure RBAC, to grant access, you add a role assignment. To add a role assignm
 
 1. Replace *{principalId}* with the object identifier of the user, group, or service principal that will be assigned the role.
 
+The following request and body assigns the [Backup Reader](built-in-roles.md#backup-reader) role to a user at subscription scope:
+
+```http
+PUT https://management.azure.com/subscriptions/{subscriptionId1}/providers/microsoft.authorization/roleassignments/{roleAssignmentId1}?api-version=2015-07-01
+```
+
+```json
+{
+  "properties": {
+    "roleDefinitionId": "/subscriptions/{subscriptionId1}/providers/Microsoft.Authorization/roleDefinitions/a795c7a0-d4a2-40c1-ae25-d81f01202912",
+    "principalId": "{objectId1}"
+  }
+}
+```
+
+The following shows an example of the output:
+
+```json
+{
+    "properties": {
+        "roleDefinitionId": "/subscriptions/{subscriptionId1}/providers/Microsoft.Authorization/roleDefinitions/a795c7a0-d4a2-40c1-ae25-d81f01202912",
+        "principalId": "{objectId1}",
+        "scope": "/subscriptions/{subscriptionId1}",
+        "createdOn": "2020-05-06T23:55:23.7679147Z",
+        "updatedOn": "2020-05-06T23:55:23.7679147Z",
+        "createdBy": null,
+        "updatedBy": "{updatedByObjectId1}"
+    },
+    "id": "/subscriptions/{subscriptionId1}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId1}",
+    "type": "Microsoft.Authorization/roleAssignments",
+    "name": "{roleAssignmentId1}"
+}
+```
+
 ## Remove a role assignment
 
 In Azure RBAC, to remove access, you remove a role assignment. To remove a role assignment, use the [Role Assignments - Delete](/rest/api/authorization/roleassignments/delete) REST API. To call this API, you must have access to the `Microsoft.Authorization/roleAssignments/delete` operation. Of the built-in roles, only [Owner](built-in-roles.md#owner) and [User Access Administrator](built-in-roles.md#user-access-administrator) are granted access to this operation.
@@ -88,7 +122,7 @@ In Azure RBAC, to remove access, you remove a role assignment. To remove a role 
 1. Start with the following request:
 
     ```http
-    DELETE https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentName}?api-version=2015-07-01
+    DELETE https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId}?api-version=2015-07-01
     ```
 
 1. Within the URI, replace *{scope}* with the scope for removing the role assignment.
@@ -101,7 +135,32 @@ In Azure RBAC, to remove access, you remove a role assignment. To remove a role 
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/providers/microsoft.web/sites/mysite1` | Resource |
 
-1. Replace *{roleAssignmentName}* with the GUID identifier of the role assignment.
+1. Replace *{roleAssignmentId}* with the GUID identifier of the role assignment.
+
+The following request removes the specified role assignment at subscription scope:
+
+```http
+DELETE https://management.azure.com/subscriptions/{subscriptionId1}/providers/microsoft.authorization/roleassignments/{roleAssignmentId1}?api-version=2015-07-01
+```
+
+The following shows an example of the output:
+
+```json
+{
+    "properties": {
+        "roleDefinitionId": "/subscriptions/{subscriptionId1}/providers/Microsoft.Authorization/roleDefinitions/a795c7a0-d4a2-40c1-ae25-d81f01202912",
+        "principalId": "{objectId1}",
+        "scope": "/subscriptions/{subscriptionId1}",
+        "createdOn": "2020-05-06T23:55:24.5379478Z",
+        "updatedOn": "2020-05-06T23:55:24.5379478Z",
+        "createdBy": "{createdByObjectId1}",
+        "updatedBy": "{updatedByObjectId1}"
+    },
+    "id": "/subscriptions/{subscriptionId1}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId1}",
+    "type": "Microsoft.Authorization/roleAssignments",
+    "name": "{roleAssignmentId1}"
+}
+```
 
 ## Next steps
 

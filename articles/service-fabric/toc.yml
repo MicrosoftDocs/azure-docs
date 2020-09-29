@@ -111,8 +111,7 @@
 - name: Samples
   items:
   - name: Code samples
-    href: https://docs.microsoft.com/samples/browse/
-
+    href: /samples/browse/
   - name: Azure PowerShell
     href: service-fabric-powershell-samples.md
   - name: Service Fabric CLI
@@ -141,6 +140,11 @@
       href: cluster-security-certificates.md
     - name: Certificate management in Service Fabric
       href: cluster-security-certificate-management.md
+    - name: Security controls by Azure Policy
+      displayName: regulatory, compliance, standards, domains
+      href: ./security-controls-policy.md
+    - name: Security baseline for Azure Security Benchmark
+      href: security-baseline.md
   - name: Terminology
     href: service-fabric-technical-overview.md
   - name: Building applications
@@ -220,6 +224,8 @@
         href: service-fabric-manifest-example-container-app.md
     - name: Hosting model
       href: service-fabric-hosting-model.md
+    - name: Hosting activation and deactivation lifecycle advanced topics
+      href: service-fabric-hosting-lifecycle.md
     - name: Application security
       href: service-fabric-application-and-service-security.md
     - name: Service state
@@ -274,6 +280,8 @@
         href: service-fabric-backup-restore-service-trigger-restore.md
       - name: On-demand backup of partition
         href: service-fabric-backup-restore-service-ondemand-backup.md
+      - name: View and edit a Reliable Collections backup offline
+        href: backup-explorer.md
     - name: Initializer CodePackages
       href: initializer-codepackages.md
     - name: RunToCompletion
@@ -463,7 +471,7 @@
         href: service-fabric-reliable-services-configuration.md
       - name: Send notifications
         href: service-fabric-reliable-services-notifications.md
-      - name: Backup and restore
+      - name: Back up and restore
         href: service-fabric-reliable-services-backup-restore.md
     - name: Build a Reliable Actors service
       items:
@@ -473,7 +481,7 @@
         href: service-fabric-reliable-actors-enumerate.md
       - name: Delete actors and their state
         href: service-fabric-reliable-actors-delete-actors.md
-      - name: Backup and restore actors
+      - name: Back up and restore actors
         href: service-fabric-reliable-actors-backup-and-restore.md
       - name: Send actor notifications
         href: service-fabric-reliable-actors-events.md
@@ -486,7 +494,7 @@
       - name: Configure ReliableDictionaryActorStateProvider
         href: service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md    
     - name: Build an ASP.NET Core service
-      href: service-fabric-add-a-web-frontend.md
+      href: ./service-fabric-reliable-services-communication-aspnetcore.md
     - name: Build an Apache Tomcat server container on Linux
       href: service-fabric-get-started-tomcat.md
     - name: Configure security
@@ -623,10 +631,10 @@
     - name: Set up continuous integration
       items:
       - name: Set up continuous integration with Azure Pipelines
-        href: service-fabric-set-up-continuous-integration.md
+        href: ./service-fabric-tutorial-deploy-app-with-cicd-vsts.md
       - name: Deploy your Linux applications using Jenkins
-        href: service-fabric-cicd-your-linux-applications-with-jenkins.md
-  - name: Setup and configure reverse proxy
+        href: /azure/developer/jenkins/deploy-to-service-fabric-cluster
+  - name: Set up and configure reverse proxy
     items:
     - name: Set up and configure reverse proxy 
       href: service-fabric-reverseproxy-setup.md
@@ -657,11 +665,11 @@
       - name: Scale
         items:
         - name: Manually scale out
-          href: service-fabric-cluster-scale-up-down.md
+          href: service-fabric-cluster-scale-in-out.md
         - name: Programmatically scale out
           href: service-fabric-cluster-programmatic-scaling.md
         - name: Scale up primary node type
-          href: service-fabric-scale-up-node-type.md
+          href: service-fabric-scale-up-primary-node-type.md
         - name: Add a node type
           href: virtual-machine-scale-set-scale-node-type-scale-out.md        
         - name: Remove a node type
@@ -886,14 +894,17 @@
       href: service-fabric-service-model-schema-element-groups.md
   - name: Environment variables
     href: service-fabric-environment-variables-reference.md
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
 - name: Resources
   items:
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Common questions
     href: service-fabric-common-questions.md
-  - name: MSDN Forum
-    href: https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric
+  - name: Microsoft Q&A question page
+    href: /answers/topics/azure-service-fabric.html
   - name: Azure Resource Manager Deployment Guardrails
     href: service-fabric-azure-resource-manager-guardrails.md
   - name: Pricing

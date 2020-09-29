@@ -3,8 +3,9 @@ title: Use GitHub Actions to make code updates in Azure Functions
 description: Learn how to use GitHub Actions to define a workflow to build and deploy Azure Functions projects in GitHub.
 author: craigshoemaker
 ms.topic: conceptual
-ms.date: 09/16/2019
+ms.date: 04/16/2020
 ms.author: cshoe
+ms.custom: "devx-track-csharp, devx-track-python"
 ---
 
 # Continuous delivery by using GitHub Action
@@ -34,29 +35,31 @@ You can create a [service principal](../active-directory/develop/app-objects-and
 az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.Web/sites/<APP_NAME> --sdk-auth
 ```
 
-In this example, replace the placeholders in the resource with your subscription ID, resource group, and function app name. The output is the role assignment credentials that provides access to your function app. Copy this JSON object, which you can use to authenticate from GitHub.
+In this example, replace the placeholders in the resource with your subscription ID, resource group, and function app name. The output is the role assignment credentials that provide access to your function app. Copy this JSON object, which you can use to authenticate from GitHub.
 
 > [!IMPORTANT]
 > It is always a good practice to grant minimum access. This is why the scope in the previous example is limited to the specific function app and not the entire resource group.
 
 ## Download the publishing profile
 
-You can download the publishing profile of your function app, by going to the **Overview** page of your app and clicking **Get publish profile**.
+To download the publishing profile of your function app:
 
-   ![Download publish profile](media/functions-how-to-github-actions/get-publish-profile.png)
+1. Select the function app's **Overview** page, and then select **Get publish profile**.
 
-Copy the content of the file.
+   :::image type="content" source="media/functions-how-to-github-actions/get-publish-profile.png" alt-text="Download publish profile":::
+
+1. Save and copy the contents of the publish settings file.
 
 ## Configure the GitHub secret
 
 1. In [GitHub](https://github.com), browse to your repository, select **Settings** > **Secrets** > **Add a new secret**.
 
-   ![Add Secret](media/functions-how-to-github-actions/add-secret.png)
+   :::image type="content" source="media/functions-how-to-github-actions/add-secret.png" alt-text="Add Secret":::
 
 1. Add a new secret.
 
-   * If you're using the service principal that you created by using the Azure CLI, use `AZURE_CREDENTIALS` for the **Name**. Then paste the copied JSON object output for **Value**, and select **Add secret**.
-   * If you're using a publishing profile, use `SCM_CREDENTIALS` for the **Name**. Then use the publishing profile's file content for **Value**, and select **Add secret**.
+   * If you're using the service principal that you created by using the Azure CLI, use `AZURE_CREDENTIALS` for the **Name**. Then, paste the copied JSON object output for **Value**, and select **Add secret**.
+   * If you're using a publishing profile, use `SCM_CREDENTIALS` for the **Name**. Then, use the publishing profile's file content for **Value**, and select **Add secret**.
 
 GitHub can now authenticate to your function app in Azure.
 
@@ -212,7 +215,7 @@ The following example uses version 1 of the `functions-action`:
 
 ## Next steps
 
-To view a complete workflow .yaml, see one of the files in the [Azure GitHub Actions workflow samples repo](https://aka.ms/functions-actions-samples) that have `functionapp` in the name. You can use these samples a starting point for your workflow.
+To view a complete workflow .yaml file, see one of the files in the [Azure GitHub Actions workflow samples repo](https://aka.ms/functions-actions-samples) that have `functionapp` in the name. You can use these samples a starting point for your workflow.
 
 > [!div class="nextstepaction"]
 > [Learn more about GitHub Actions](https://help.github.com/en/articles/about-github-actions)

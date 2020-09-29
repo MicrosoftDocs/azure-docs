@@ -3,11 +3,12 @@ title: Monitor, diagnose, and troubleshoot Azure Storage | Microsoft Docs
 description: Use features like storage analytics, client-side logging, and other third-party tools to identify, diagnose, and troubleshoot Azure Storage-related issues.
 author: normesta
 ms.service: storage
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 09/23/2019
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
+ms.custom: "monitoring, devx-track-csharp"
 ---
 # Monitor, diagnose, and troubleshoot Microsoft Azure Storage
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -16,10 +17,6 @@ ms.subservice: common
 Diagnosing and troubleshooting issues in a distributed application hosted in a cloud environment can be more complex than in traditional environments. Applications can be deployed in a PaaS or IaaS infrastructure, on premises, on a mobile device, or in some combination of these environments. Typically, your application's network traffic may traverse public and private networks and your application may use multiple storage technologies such as Microsoft Azure Storage Tables, Blobs, Queues, or Files in addition to other data stores such as relational and document databases.
 
 To manage such applications successfully you should monitor them proactively and understand how to diagnose and troubleshoot all aspects of them and their dependent technologies. As a user of Azure Storage services, you should continuously monitor the Storage services your application uses for any unexpected changes in behavior (such as slower than usual response times), and use logging to collect more detailed data and to analyze a problem in depth. The diagnostics information you obtain from both monitoring and logging will help you to determine the root cause of the issue your application encountered. Then you can troubleshoot the issue and determine the appropriate steps you can take to remediate it. Azure Storage is a core Azure service, and forms an important part of the majority of solutions that customers deploy to the Azure infrastructure. Azure Storage includes capabilities to simplify monitoring, diagnosing, and troubleshooting storage issues in your cloud-based applications.
-
-> [!NOTE]
-> Azure Files does not support logging at this time.
->
 
 For a hands-on guide to end-to-end troubleshooting in Azure Storage applications, see [End-to-End Troubleshooting using Azure Storage Metrics and Logging, AzCopy, and Message Analyzer](../storage-e2e-troubleshooting.md).
 
@@ -72,7 +69,7 @@ For a hands-on guide to end-to-end troubleshooting in Azure Storage applications
 ## <a name="introduction"></a>Introduction
 This guide shows you how to use features such as Azure Storage Analytics, client-side logging in the Azure Storage Client Library, and other third-party tools to identify, diagnose, and troubleshoot Azure Storage related issues.
 
-![][1]
+![Diagram that shows the flow of information between client applications and Azure storage services.][1]
 
 This guide is intended to be read primarily by developers of online services that use Azure Storage Services and IT Pros responsible for managing such online services. The goals of this guide are:
 
@@ -111,7 +108,7 @@ You should continuously monitor your Azure applications to ensure they are healt
 
 The charts in the following image illustrate how the averaging that occurs for hourly metrics can hide spikes in activity. The hourly metrics appear to show a steady rate of requests, while the minute metrics reveal the fluctuations that are really taking place.
 
-![][3]
+![Charts that show how the averaging that occurs for hourly metrics can hide spikes in activity.][3]
 
 The remainder of this section describes what metrics you should monitor and why.
 
@@ -131,7 +128,7 @@ Storage Metrics only stores capacity metrics for the blob service because blobs 
 >
 >
 
-For help estimating the size of various storage objects such as blobs, see the blog post [Understanding Azure Storage Billing – Bandwidth, Transactions, and Capacity](https://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx).
+For help estimating the size of various storage objects such as blobs, see the blog post [Understanding Azure Storage Billing – Bandwidth, Transactions, and Capacity](https://docs.microsoft.com/archive/blogs/patrick_butler_monterde/azure-storage-understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity).
 
 ### <a name="monitoring-availability"></a>Monitoring availability
 You should monitor the availability of the storage services in your storage account by monitoring the value in the **Availability** column in the hourly or minute metrics tables — **$MetricsHourPrimaryTransactionsBlob**, **$MetricsHourPrimaryTransactionsTable**, **$MetricsHourPrimaryTransactionsQueue**, **$MetricsMinutePrimaryTransactionsBlob**, **$MetricsMinutePrimaryTransactionsTable**, **$MetricsMinutePrimaryTransactionsQueue**, **$MetricsCapacityBlob**. The **Availability** column contains a percentage value that indicates the availability of the service or the API operation represented by the row (the **RowKey** shows if the row contains metrics for the service as a whole or for a specific API operation).
@@ -217,7 +214,7 @@ The Storage Client Library for .NET enables you to collect client-side log data 
 You can capture the traffic between the client and server to provide detailed information about the data the client and server are exchanging and the underlying network conditions. Useful network logging tools include:
 
 * [Fiddler](https://www.telerik.com/fiddler) is a free web debugging proxy that enables you to examine the headers and payload data of HTTP and HTTPS request and response messages. For more information, see [Appendix 1: Using Fiddler to capture HTTP and HTTPS traffic](#appendix-1).
-* [Microsoft Network Monitor (Netmon)](https://www.microsoft.com/download/details.aspx?id=4865) and [Wireshark](https://www.wireshark.org/) are free network protocol analyzers that enable you to view detailed packet information for a wide range of network protocols. For more information about Wireshark, see "[Appendix 2: Using Wireshark to capture network traffic](#appendix-2)".
+* [Microsoft Network Monitor (Netmon)](https://cnet-downloads.com/network-monitor) and [Wireshark](https://www.wireshark.org/) are free network protocol analyzers that enable you to view detailed packet information for a wide range of network protocols. For more information about Wireshark, see "[Appendix 2: Using Wireshark to capture network traffic](#appendix-2)".
 * Microsoft Message Analyzer is a tool from Microsoft that supersedes Netmon and that in addition to capturing network packet data, helps you to view and analyze the log data captured from other tools. For more information, see "[Appendix 3: Using Microsoft Message Analyzer to capture network traffic](#appendix-3)".
 * If you want to perform a basic connectivity test to check that your client machine can connect to the Azure storage service over the network, you cannot do this using the standard **ping** tool on the client. However, you can use the [**tcping** tool](https://www.elifulkerson.com/projects/tcping.php) to check connectivity.
 
@@ -342,9 +339,9 @@ Does your issue relate to the availability of one of the storage services?
 ### <a name="metrics-show-high-AverageE2ELatency-and-low-AverageServerLatency"></a>Metrics show high AverageE2ELatency and low AverageServerLatency
 The illustration below from the [Azure portal](https://portal.azure.com) monitoring tool shows an example where the **AverageE2ELatency** is significantly higher than the **AverageServerLatency**.
 
-![][4]
+![Illustration from the Azure portal that shows an example where the AverageE2ELatency is significantly higher than the AverageServerLatency.][4]
 
-The storage service only calculates the metric **AverageE2ELatency** for successful requests and, unlike **AverageServerLatency**, includes the time the client takes to send the data and receive acknowledgement from the storage service. Therefore, a difference between **AverageE2ELatency** and **AverageServerLatency** could be either due to the client application being slow to respond, or due to conditions on the network.
+The storage service only calculates the metric **AverageE2ELatency** for successful requests and, unlike **AverageServerLatency**, includes the time the client takes to send the data and receive acknowledgment from the storage service. Therefore, a difference between **AverageE2ELatency** and **AverageServerLatency** could be either due to the client application being slow to respond, or due to conditions on the network.
 
 > [!NOTE]
 > You can also view **E2ELatency** and **ServerLatency** for individual storage operations in the Storage Logging log data.
@@ -354,7 +351,7 @@ The storage service only calculates the metric **AverageE2ELatency** for success
 #### Investigating client performance issues
 Possible reasons for the client responding slowly include having a limited number of available connections or threads, or being low on resources such as CPU, memory or network bandwidth. You may be able to resolve the issue by modifying the client code to be more efficient (for example by using asynchronous calls to the storage service), or by using a larger Virtual Machine (with more cores and more memory).
 
-For the table and queue services, the Nagle algorithm can also cause high **AverageE2ELatency** as compared to **AverageServerLatency**: for more information, see the post [Nagle's Algorithm is Not Friendly towards Small Requests](https://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx). You can disable the Nagle algorithm in code by using the **ServicePointManager** class in the **System.Net** namespace. You should do this before you make any calls to the table or queue services in your application since this does not affect connections that are already open. The following example comes from the **Application_Start** method in a worker role.
+For the table and queue services, the Nagle algorithm can also cause high **AverageE2ELatency** as compared to **AverageServerLatency**: for more information, see the post [Nagle's Algorithm is Not Friendly towards Small Requests](https://docs.microsoft.com/archive/blogs/windowsazurestorage/nagles-algorithm-is-not-friendly-towards-small-requests). You can disable the Nagle algorithm in code by using the **ServicePointManager** class in the **System.Net** namespace. You should do this before you make any calls to the table or queue services in your application since this does not affect connections that are already open. The following example comes from the **Application_Start** method in a worker role.
 
 ```csharp
 var storageAccount = CloudStorageAccount.Parse(connStr);
@@ -407,7 +404,7 @@ If you are experiencing a delay between the time an application adds a message t
 
 * Verify the application is successfully adding the messages to the queue. Check that the application is not retrying the **AddMessage** method several times before succeeding. The Storage Client Library logs will show any repeated retries of storage operations.
 * Verify there is no clock skew between the worker role that adds the message to the queue and the worker role that reads the message from the queue that makes it appear as if there is a delay in processing.
-* Check if the worker role that reads the messages from the queue is failing. If a queue client calls the **GetMessage** method but fails to respond with an acknowledgement, the message will remain invisible on the queue until the **invisibilityTimeout** period expires. At this point, the message becomes available for processing again.
+* Check if the worker role that reads the messages from the queue is failing. If a queue client calls the **GetMessage** method but fails to respond with an acknowledgment, the message will remain invisible on the queue until the **invisibilityTimeout** period expires. At this point, the message becomes available for processing again.
 * Check if the queue length is growing over time. This can occur if you do not have sufficient workers available to process all of the messages that other workers are placing on the queue. Also check the metrics to see if delete requests are failing and the dequeue count on messages, which might indicate repeated failed attempts to delete the message.
 * Examine the Storage Logging logs for any queue operations that have higher than expected **E2ELatency** and **ServerLatency** values over a longer period of time than usual.
 
@@ -466,7 +463,7 @@ If your client application is throwing HTTP 403 (Forbidden) errors, a likely cau
 | Source | Verbosity | Verbosity | Client request ID | Operation text |
 | --- | --- | --- | --- | --- |
 | Microsoft.Azure.Storage |Information |3 |85d077ab-… |Starting operation with location Primary per location mode PrimaryOnly. |
-| Microsoft.Azure.Storage |Information |3 |85d077ab -… |Starting synchronous request to <https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&sr=c&si=mypolicy&sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&api-version=2014-02-14> |
+| Microsoft.Azure.Storage |Information |3 |85d077ab -… |Starting synchronous request to <https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/Synchronous_and_Asynchronous_Requests#Synchronous_request> |
 | Microsoft.Azure.Storage |Information |3 |85d077ab -… |Waiting for response. |
 | Microsoft.Azure.Storage |Warning |2 |85d077ab -… |Exception thrown while waiting for response: The remote server returned an error: (403) Forbidden. |
 | Microsoft.Azure.Storage |Information |3 |85d077ab -… |Response received. Status code = 403, Request ID = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, Content-MD5 = , ETag = . |
@@ -615,9 +612,9 @@ The exception details in the client include the request ID (7e84f12d…) assigne
 
 The server-side log also includes another entry with the same **client-request-id** value (813ea74f…) for a successful delete operation for the same entity, and from the same client. This successful delete operation took place very shortly before the failed delete request.
 
-The most likely cause of this scenario is that the client sent a delete request for the entity to the table service, which succeeded, but did not receive an acknowledgement from the server (perhaps due to a temporary network issue). The client then automatically retried the operation (using the same **client-request-id**), and this retry failed because the entity had already been deleted.
+The most likely cause of this scenario is that the client sent a delete request for the entity to the table service, which succeeded, but did not receive an acknowledgment from the server (perhaps due to a temporary network issue). The client then automatically retried the operation (using the same **client-request-id**), and this retry failed because the entity had already been deleted.
 
-If this problem occurs frequently, you should investigate why the client is failing to receive acknowledgements from the table service. If the problem is intermittent, you should trap the "HTTP (404) Not Found" error and log it in the client, but allow the client to continue.
+If this problem occurs frequently, you should investigate why the client is failing to receive acknowledgments from the table service. If the problem is intermittent, you should trap the "HTTP (404) Not Found" error and log it in the client, but allow the client to continue.
 
 ### <a name="the-client-is-receiving-409-messages"></a>The client is receiving HTTP 409 (Conflict) messages
 The following table shows an extract from the server-side log for two client operations: **DeleteIfExists** followed immediately by **CreateIfNotExists** using the same blob container name. Each client operation results in two requests sent to the server, first a **GetContainerProperties** request to check if the container exists, followed by the **DeleteContainer** or **CreateContainer** request.
@@ -721,7 +718,7 @@ After you have launched Fiddler, it will begin capturing HTTP and HTTPS traffic 
 
 To limit the amount of traffic that Fiddler captures, you can use filters that you configure in the **Filters** tab. The following screenshot shows a filter that captures only traffic sent to the **contosoemaildist.table.core.windows.net** storage endpoint:
 
-![][5]
+![Screenshot that shows a filter that captures only traffic sent to the contosoemaildist.table.core.windows.net storage endpoint.][5]
 
 ### <a name="appendix-2"></a>Appendix 2: Using Wireshark to capture network traffic
 [Wireshark](https://www.wireshark.org/) is a network protocol analyzer that enables you to view detailed packet information for a wide range of network protocols.
@@ -733,18 +730,18 @@ The following procedure shows you how to capture detailed packet information for
 3. Click **Capture Options**.
 4. Add a filter to the **Capture Filter** textbox. For example, **host contosoemaildist.table.core.windows.net** will configure Wireshark to capture only packets sent to or from the table service endpoint in the **contosoemaildist** storage account. Check out the [complete list of Capture Filters](https://wiki.wireshark.org/CaptureFilters).
 
-   ![][6]
+   ![Screenshot that shows how to add a filter to the Capture Filter textbox.][6]
 5. Click **Start**. Wireshark will now capture all the packets send to or from the table service endpoint as you use your client application on your local machine.
 6. When you have finished, on the main menu click **Capture** and then **Stop**.
 7. To save the captured data in a Wireshark Capture File, on the main menu click **File** and then **Save**.
 
 WireShark will highlight any errors that exist in the **packetlist** window. You can also use the **Expert Info** window (click **Analyze**, then **Expert Info**) to view a summary of errors and warnings.
 
-![][7]
+![Screenshot that shows the Expert Info window where you can view a summary of errors and warnings.][7]
 
 You can also choose to view the TCP data as the application layer sees it by right-clicking on the TCP data and selecting **Follow TCP Stream**. This is useful if you captured your dump without a capture filter. For more information, see [Following TCP Streams](https://www.wireshark.org/docs/wsug_html_chunked/ChAdvFollowTCPSection.html).
 
-![][8]
+![Screenshot that shows how to view the TCP data as the application layer sees it.][8]
 
 > [!NOTE]
 > For more information about using Wireshark, see the [Wireshark Users Guide](https://www.wireshark.org/docs/wsug_html_chunked).
@@ -775,13 +772,13 @@ The built-in **Web Proxy** trace in Microsoft Message Analyzer is based on Fiddl
 #### Diagnosing network issues using Microsoft Message Analyzer
 In addition to using the Microsoft Message Analyzer **Web Proxy** trace to capture details of the HTTP/HTTPs traffic between the client application and the storage service, you can also use the built-in **Local Link Layer** trace to capture network packet information. This enables you to capture data similar to that which you can capture with Wireshark, and diagnose network issues such as dropped packets.
 
-The following screenshot shows an example **Local Link Layer** trace with some **informational** messages in the **DiagnosisTypes** column. Clicking on an icon in the **DiagnosisTypes** column shows the details of the message. In this example, the server retransmitted message #305 because it did not receive an acknowledgement from the client:
+The following screenshot shows an example **Local Link Layer** trace with some **informational** messages in the **DiagnosisTypes** column. Clicking on an icon in the **DiagnosisTypes** column shows the details of the message. In this example, the server retransmitted message #305 because it did not receive an acknowledgment from the client:
 
-![][9]
+![Screenshot that shows an example Local Link Layer trace with some informational messages in the DiagnosisTypes column][9]
 
 When you create the trace session in Microsoft Message Analyzer, you can specify filters to reduce the amount of noise in the trace. On the **Capture / Trace** page where you define the trace, click on the **Configure** link next to **Microsoft-Windows-NDIS-PacketCapture**. The following screenshot shows a configuration that filters TCP traffic for the IP addresses of three storage services:
 
-![][10]
+![Screenshot that shows a configuration that filters TCP traffic for the IP addresses of three storage services.][10]
 
 For more information about the Microsoft Message Analyzer Local Link Layer trace, see [Microsoft-PEF-NDIS-PacketCapture Provider](https://technet.microsoft.com/library/jj659264.aspx).
 

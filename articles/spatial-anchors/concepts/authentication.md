@@ -1,15 +1,15 @@
 ---
 title: Authentication and authorization
 description: Learn about the various ways an app or service can authenticate to Azure Spatial Anchors, and the levels of control that you have to gate access to Azure Spatial Anchors.
-author: julianparismorgan
+author: craigktreasure
 manager: vriveras
 services: azure-spatial-anchors
 
-ms.author: pmorgan
+ms.author: crtreasu
 ms.date: 05/28/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.custom: has-adal-ref
+ms.custom: devx-track-csharp
 ---
 # Authentication and authorization to Azure Spatial Anchors
 
@@ -35,7 +35,6 @@ Azure AD authentication tokens can be obtained two ways:
 Using account keys for access to your Azure Spatial Anchors account is the simplest way to get started. You will find your account keys on the Azure portal. Navigate to your account, and select the “Keys” tab.
 
 ![An overview of authentication to Azure Spatial Anchors](../../../includes/media/spatial-anchors-get-started-create-resource/view-account-key.png)
-
 
 Two keys are made available, which are both simultaneously valid for access to the Spatial Anchors account. It is recommended that you regularly update the key you use to access the account; having two separate valid keys enable such updates without downtime; you only have to update  alternatively the primary key and the secondary key.
 
@@ -94,7 +93,7 @@ For applications targeting Azure Active Directory users, the recommended approac
     1.	Register your application in Azure AD as **Native application**. As part of registering, you will need to determine whether your application should be multi-tenant or not, and provide the redirect URLs allowed for your application.
         1.  Switch to the **API permissions** tab
         2.  Select **Add a permission**
-            1.  Select **Mixed Reality Resource Provider** under **APIs my organization uses** tab
+            1.  Select **Microsoft Mixed Reality** under **APIs my organization uses** tab
             2.  Select **Delegated permissions**
             3.  Check the box for **mixedreality.signin** under **mixedreality**
             4.  Select **Add permissions**
@@ -107,12 +106,12 @@ For applications targeting Azure Active Directory users, the recommended approac
             2.	In the **Select** field, enter the name of the user(s), group(s), and/or application(s) to which you want to assign access.
             3.	Hit **Save**.
 2. In your code:
-    1.	Make sure to use the **application ID** and **redirect Uri** of your own Azure AD application as the **client ID** and **RedirectUri** parameters in ADAL
+    1.	Make sure to use the **application ID** and **redirect Uri** of your own Azure AD application as the **client ID** and **RedirectUri** parameters in MSAL
     2.	Set the tenant information:
         1.	If your application supports **My organization only**, replace this value with your **Tenant ID** or **Tenant name** (for example, contoso.microsoft.com)
         2.	If your application supports **Accounts in any organizational directory**, replace this value with **Organizations**
         3.	If your application supports **All Microsoft account users**, replace this value with **Common**
-    3.	On your token request, set the **resource** to "https://sts.mixedreality.azure.com". This "resource" will indicate to Azure AD that your application is requesting a token for the Azure Spatial Anchors service.
+    3.	On your token request, set the **scope** to "https://sts.mixedreality.azure.com//.default". This scope will indicate to Azure AD that your application is requesting a token for the Mixed Reality Security Token Service (STS).
 
 With that, your application should be able to obtain from MSAL an Azure AD token; you can set that Azure AD token as the **authenticationToken** on your cloud session config object.
 
@@ -171,25 +170,26 @@ The Azure AD access token is retrieved using the [MSAL library](../../active-dir
         1.	In Azure portal, navigate to **Azure Active Directory**, and select **app registrations**
         2.	Select **new application registration**
         3.	Enter the name of your application, select **Web app / API** as the application type, and enter the auth URL for your service. Then hit **Create**.
-        4.	On that application, hit **Settings**, then select the **Keys** tab. Enter the name of your key, select a duration, and hit **Save**. Make sure to save the key value that is displayed at that time, as you will need to include it in your web service’s code.
+        4.	On that application, hit **Settings**, then select the **Certificates and secrets** tab. Create a new client secret, select a duration, and hit **Add**. Make sure to save the secret value, as you will need to include it in your web service’s code.
     2.	Grant your application and/or users access to your resource:
         1.	Navigate to your Spatial Anchors resource in Azure portal
         2.	Switch to the **Access control (IAM)** tab
         3.	Hit **Add role assignment**
         1.	[Select a role](#role-based-access-control)
         2.	In the **select** field, enter the name of the application(s) you created and to which you want to assign access. If you want your app’s users to have different roles against the Spatial Anchors account, you should register multiple applications in Azure AD, and assign to each a separate role. Then implement your authorization logic to use the right role for your users.
+        3.	Note - In the **Add role assignment** selection you want the **Assign access to** to be set to "Azure AD user, group, or service principal".
     3.	Hit **Save**.
 2.	In your code (note: you can use the service sample included on GitHub):
-    1.	Make sure to use the application ID, application secret, and redirect Uri of your own Azure AD application as the client ID, secret, and RedirectUri parameters in ADAL
-    2.	Set the tenant ID to your own AAAzure ADD tenant ID in the authority parameter in ADAL
-    3.	On your token request, set the **resource** to "https://sts.mixedreality.azure.com"
+    1.	Make sure to use the application ID, application secret, and redirect Uri of your own Azure AD application as the client ID, secret, and RedirectUri parameters in MSAL
+    2.	Set the tenant ID to your own Azure ADD tenant ID in the authority parameter in MSAL.
+    3.	On your token request, set the **scope** to "https://sts.mixedreality.azure.com//.default"
 
 With that, your backend service can retrieve an Azure AD token. It can then exchange it for an MR token that it will return back to the client. Using an Azure AD token to retrieve an MR token is done via a REST call. Here is a sample call:
 
 ```
-GET https://mrc-auth-prod.trafficmanager.net/Accounts/35d830cb-f062-4062-9792-d6316039df56/token HTTP/1.1
+GET https://sts.mixedreality.azure.com/Accounts/35d830cb-f062-4062-9792-d6316039df56/token HTTP/1.1
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1Ni<truncated>FL8Hq5aaOqZQnJr1koaQ
-Host: mrc-auth-prod.trafficmanager.net
+Host: sts.mixedreality.azure.com
 Connection: Keep-Alive
 
 HTTP/1.1 200 OK
@@ -201,7 +201,7 @@ MS-CV: 05JLqWeKFkWpbdY944yl7A.0
 {"AccessToken":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjI2MzYyMTk5ZTI2NjQxOGU4ZjE3MThlM2IyMThjZTIxIiwidHlwIjoiSldUIn0.eyJqdGkiOiJmMGFiNWIyMy0wMmUxLTQ1MTQtOWEzNC0xNzkzMTA1NTc4NzAiLCJjYWkiOiIzNWQ4MzBjYi1mMDYyLTQwNjItOTc5Mi1kNjMxNjAzOWRmNTYiLCJ0aWQiOiIwMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAiLCJhaWQiOiIzNWQ4MzBjYi1mMDYyLTQwNjItOTc5Mi1kNjMxNjAzOWRmNTYiLCJhYW8iOi0xLCJhcHIiOiJlYXN0dXMyIiwicmlkIjoiL3N1YnNjcmlwdGlvbnMvNzIzOTdlN2EtNzA4NC00ODJhLTg3MzktNjM5Y2RmNTMxNTI0L3Jlc291cmNlR3JvdXBzL3NhbXBsZV9yZXNvdXJjZV9ncm91cC9wcm92aWRlcnMvTWljcm9zb2Z0Lk1peGVkUmVhbGl0eS9TcGF0aWFsQW5jaG9yc0FjY291bnRzL2RlbW9fYWNjb3VudCIsIm5iZiI6MTU0NDU0NzkwMywiZXhwIjoxNTQ0NjM0MzAzLCJpYXQiOjE1NDQ1NDc5MDMsImlzcyI6Imh0dHBzOi8vbXJjLWF1dGgtcHJvZC50cmFmZmljbWFuYWdlci5uZXQvIiwiYXVkIjoiaHR0cHM6Ly9tcmMtYW5jaG9yLXByb2QudHJhZmZpY21hbmFnZXIubmV0LyJ9.BFdyCX9UJj0i4W3OudmNUiuaGgVrlPasNM-5VqXdNAExD8acFJnHdvSf6uLiVvPiQwY1atYyPbOnLYhEbIcxNX-YAfZ-xyxCKYb3g_dbxU2w8nX3zDz_X3XqLL8Uha-rkapKbnNgxq4GjM-EBMCill2Svluf9crDmO-SmJbxqIaWzLmlUufQMWg_r8JG7RLseK6ntUDRyDgkF4ex515l2RWqQx7cw874raKgUO4qlx0cpBAB8cRtGHC-3fA7rZPM7UQQpm-BC3suXqRgROTzrKqfn_g-qTW4jAKBIXYG7iDefV2rGMRgem06YH_bDnpkgUa1UgJRRTckkBuLkO2FvA"}
 ```
 
-Where the Authorization header is formatted as follows: `Bearer <accoundId>:<accountKey>`
+Where the Authorization header is formatted as follows: `Bearer <Azure_AD_token>`
 
 And the response contains the MR token in plain text.
 

@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Form.com | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Form.com.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: f1bc0112-315c-4e6f-8c69-7c6873007bcf
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Form.com
 
@@ -109,10 +103,10 @@ To configure Azure AD single sign-on with Form.com, perform the following steps:
 
     c. In the **Reply URL** text box, type a URL using the following pattern:
     
-    | |
-	|--|
-	| `https://<subdomain>.wa-form.com/Member/UserAccount/SAML2.action` |
-	| `https://<subdomain>.form.com/Member/UserAccount/SAML2.action` |
+    ```http
+    https://<subdomain>.wa-form.com/Member/UserAccount/SAML2.action
+    https://<subdomain>.form.com/Member/UserAccount/SAML2.action
+    ```
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign-On URL, Identifier and Reply URL. Contact [Form.com Client support team](https://form.com/about/company/contact-us/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.

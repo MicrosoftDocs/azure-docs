@@ -1,14 +1,8 @@
 ---
 title: Security controls for Azure Event Hubs
 description: This article provides a checklist of security controls for evaluating Azure Event Hubs (network, identity, data protection, etc.).
-services: event-hubs
-ms.service: event-hubs
-author: spelluru
-
 ms.topic: conceptual
-ms.date: 09/23/2019
-ms.author: spelluru
-
+ms.date: 06/23/2020
 ---
 # Security controls for Azure Event Hubs
 

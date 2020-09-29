@@ -8,12 +8,13 @@ documentationcenter: na
 author: asudbring
 manager: KumudD
 ms.service: virtual-network
+ms.subservice: nat
 Customer intent: As an IT administrator, I want to learn more about how to design virtual networks with NAT gateway resources.
 ms.devlang: na
-ms.topic: overview
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/27/2020
+ms.date: 08/11/2020
 ms.author: allensu
 ---
 
@@ -23,7 +24,7 @@ NAT gateway resources are part of [Virtual Network NAT](nat-overview.md) and pro
 
 
 <p align="center">
-  <img src="media/nat-overview/flow-direction1.svg" width="256" title="Virtual Network NAT for outbound to Internet">
+  <img src="media/nat-overview/flow-direction1.svg" alt="Figure depicts a NAT gateway resource that consumes all IP addresses for a public IP prefix and directs that traffic to and from two subnets of virtual machines and a virtual machine scale set." width="256" title="Virtual Network NAT for outbound to Internet">
 </p>
 
 *Figure: Virtual Network NAT for outbound to Internet*
@@ -49,7 +50,7 @@ The resource is designed to be simple as you can see from the following Azure Re
 The following diagram shows the writeable references between the different Azure Resource Manager resources.  The arrow indicates the direction of the reference, originating from where it's writeable. Review 
 
 <p align="center">
-  <img src="media/nat-overview/flow-map.svg" width="256" title="Virtual Network NAT object model">
+  <img src="media/nat-overview/flow-map.svg" alt="Figure depicts a NAT receiving traffic from internal subnets and directing it to a public IP and an IP prefix." width="256" title="Virtual Network NAT object model">
 </p>
 
 *Figure: Virtual Network NAT object model*
@@ -114,7 +115,7 @@ NAT gateway is compatible with:
 When developing a new deployment, start with standard SKUs.
 
 <p align="center">
-  <img src="media/nat-overview/flow-direction1.svg" width="256" title="Virtual Network NAT for outbound to Internet">
+  <img src="media/nat-overview/flow-direction1.svg" alt="Figure depicts a NAT gateway that supports outbound traffic to the internet from a virtual network." width="256" title="Virtual Network NAT for outbound to Internet">
 </p>
 
 *Figure: Virtual Network NAT for outbound to Internet*
@@ -124,7 +125,7 @@ The Internet outbound only scenario provided by NAT gateway can be expanded with
 #### NAT and VM with instance-level Public IP
 
 <p align="center">
-  <img src="media/nat-overview/flow-direction2.svg" width="300" title="Virtual Network NAT and VM with instance-level Public IP">
+  <img src="media/nat-overview/flow-direction2.svg" alt="Figure depicts a NAT gateway that supports outbound traffic to the internet from a virtual network and inbound traffic with an instance-level public IP." width="300" title="Virtual Network NAT and VM with instance-level Public IP">
 </p>
 
 *Figure: Virtual Network NAT and VM with instance-level Public IP*
@@ -139,7 +140,7 @@ VM will use NAT gateway for outbound.  Inbound originated isn't affected.
 #### NAT and VM with public Load Balancer
 
 <p align="center">
-  <img src="media/nat-overview/flow-direction3.svg" width="350" title="Virtual Network NAT and VM with public Load Balancer">
+  <img src="media/nat-overview/flow-direction3.svg" alt="Figure depicts a NAT gateway that supports outbound traffic to the internet from a virtual network and inbound traffic with a public load balancer." width="350" title="Virtual Network NAT and VM with public Load Balancer">
 </p>
 
 *Figure: Virtual Network NAT and VM with public Load Balancer*
@@ -154,7 +155,7 @@ Any outbound configuration from a load-balancing rule or outbound rules is super
 #### NAT and VM with instance-level public IP and public Load Balancer
 
 <p align="center">
-  <img src="media/nat-overview/flow-direction4.svg" width="425" title="Virtual Network NAT and VM with instance-level public IP and public Load Balancer">
+  <img src="media/nat-overview/flow-direction4.svg" alt="Figure depicts a NAT gateway that supports outbound traffic to the internet from a virtual network and inbound traffic with an instance-level public IP and a public load balancer." width="425" title="Virtual Network NAT and VM with instance-level public IP and public Load Balancer">
 </p>
 
 *Figure: Virtual Network NAT and VM with instance-level public IP and public Load Balancer*
@@ -177,7 +178,7 @@ NAT gateways take precedence over outbound scenarios of the subnet. Basic load b
 #### Zone isolation with zonal stacks
 
 <p align="center">
-  <img src="media/nat-overview/az-directions.svg" width="425" title="Virtual Network NAT with zone isolation, creating multiple "zonal stacks"">
+  <img src="media/nat-overview/az-directions.svg" alt="Figure depicts three zonal stacks, each of which contains a NAT gateway and a subnet." width="425" title="Virtual Network NAT with zone isolation, creating multiple "zonal stacks"">
 </p>
 
 *Figure: Virtual Network NAT with zone isolation, creating multiple "zonal stacks"*
@@ -205,7 +206,7 @@ If your scenario requires inbound endpoints, you have two options:
 #### Cross-zone outbound scenarios not supported
 
 <p align="center">
-  <img src="media/nat-overview/az-directions2.svg" width="425" title="Virtual Network NAT not compatible with zone-spanning subnet">
+  <img src="media/nat-overview/az-directions2.svg" alt="Figure depicts three zonal stacks, each of which contains a NAT gateway and a subnet, with the connections between to of the gateways and their subnets broken." width="425" title="Virtual Network NAT not compatible with zone-spanning subnet">
 </p>
 
 *Figure: Virtual Network NAT not compatible with zone-spanning subnet*
@@ -213,7 +214,7 @@ If your scenario requires inbound endpoints, you have two options:
 You can't achieve a zonal promise with NAT gateway resources when virtual machine instances are deployed in multiple zones within the same subnet.   And even if there were multiple zonal NAT gateways attached to a subnet, the virtual machine instance wouldn't know which NAT gateway resource to select.
 
 A zonal promise does't exist when 
-a) the zone of a virtual machine instance and the zones of a zonal NAT gateway are not aligned, or
+a) the zone of a virtual machine instance and the zone of a zonal NAT gateway are not aligned, or
 b) a regional NAT gateway resource is used with zonal virtual machine instances.
 
 While the scenario will appear to work, its health model and failure mode is undefined from an availability zone point of view. Consider going with zonal stacks or all regional instead.
@@ -265,7 +266,7 @@ SNAT provided by NAT is different from [Load Balancer](../load-balancer/load-bal
 NAT provides on-demand SNAT ports for new outbound traffic flows. All available SNAT ports in inventory are used by any virtual machine on subnets configured with NAT. 
 
 <p align="center">
-  <img src="media/nat-overview/lb-vnnat-chart.svg" width="550" title="Virtual Network NAT on-demand outbound SNAT">
+  <img src="media/nat-overview/lb-vnnat-chart.svg" alt="Figure depicts inventory of all available SNAT ports used by any virtual machine on subnets configured with N A T." width="550" title="Virtual Network NAT on-demand outbound SNAT">
 </p>
 
 *Figure: Virtual Network NAT on-demand outbound SNAT*
@@ -273,7 +274,7 @@ NAT provides on-demand SNAT ports for new outbound traffic flows. All available 
 Any IP configuration of a virtual machine can create outbound flows on-demand as needed.  Pre-allocation, per instance planning including per instance worst case overprovisioning, isn't required.  
 
 <p align="center">
-  <img src="media/nat-overview/exhaustion-threshold.svg" width="550" title="Differences in exhaustion scenarios">
+  <img src="media/nat-overview/exhaustion-threshold.svg" alt="Figure depicts inventory of all available SNAT ports used by any virtual machine on subnets configured with N A T with exhaustion threshold." width="550" title="Differences in exhaustion scenarios">
 </p>
 
 *Figure: Differences in exhaustion scenarios*
@@ -319,11 +320,9 @@ A SNAT port is available for reuse to the same destination IP address and destin
 
 - NAT is compatible with standard SKU public IP, public IP prefix, and load balancer resources.   Basic resources (for example basic load balancer) and any products derived from them aren't compatible with NAT.  Basic resources must be placed on a subnet not configured with NAT.
 - IPv4 address family is supported.  NAT doesn't interact with IPv6 address family.  NAT can't be deployed on a subnet with an IPv6 prefix.
-- NSG flow logging isn't supported when using NAT.
 - NAT can't span multiple virtual networks.
 
-
-## Feedback
+## Suggestions
 
 We want to know how we can improve the service. Are missing a capability? Make your case for what we should build next at [UserVoice for NAT](https://aka.ms/natuservoice).
 

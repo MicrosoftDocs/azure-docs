@@ -5,7 +5,7 @@ services: synapse-analytics
 author: matt1883 
 ms.service: synapse-analytics 
 ms.topic: how-to 
-ms.subservice:  
+ms.subservice: security 
 ms.date: 04/15/2020 
 ms.author: mahi
 ms.reviewer: jrasnick
@@ -22,7 +22,7 @@ To secure a Synapse workspace (preview), you'll follow a pattern of configuring 
 - Synapse roles – these roles are unique to Synapse and aren't based on Azure roles. There are three of these roles:
   - Synapse workspace admin
   - Synapse SQL admin
-  - Synapse Spark admin
+  - Apache Spark for Azure Synapse Analytics admin
 - Access control for data in Azure Data Lake Storage Gen 2 (ADLSGEN2).
 - Access control for Synapse SQL and Spark databases
 
@@ -76,14 +76,14 @@ In the Azure portal, create a Synapse workspace:
   - Assign **WS1\_SparkAdmins** to Synapse Spark admins
   - Assign **WS1\_SQLAdmins** to Synapse SQL admins
 
-## STEP 4: Configuring Data Lake Storage Gen2 for use by Synapse workspace
+## STEP 4: Configure Data Lake Storage Gen2 for use by Synapse workspace
 
 The Synapse workspace needs access to STG1 and CNT1 so it can run pipelines and perform system tasks.
 
 - Open the Azure portal
 - Locate STG1
 - Navigate to CNT1
-- Ensure that the MSI (Managed Service Identity) for WS1 is assigned to the **Azure Blob Data Contributor** role on CNT1
+- Ensure that the MSI (Managed Service Identity) for WS1 is assigned to the **Storage Blob Data Contributor** role on CNT1
   - If you don't see it assigned, assign it.
   - The MSI has the same name as the workspace. In this case, it would be &quot;WS1&quot;.
 
@@ -91,10 +91,10 @@ The Synapse workspace needs access to STG1 and CNT1 so it can run pipelines and 
 
 - Open the Azure portal
 - Navigate to WS1
-- Under **Settings**, click **SQL Active Directory admin**
-- Click **Set admin** and choose WS1\_SQLAdmins
+- Under **Settings**, select **SQL Active Directory admin**
+- Select **Set admin** and choose WS1\_SQLAdmins
 
-## STEP 6: Maintaining access control
+## STEP 6: Maintain access control
 
 The configuration is finished.
 
@@ -106,25 +106,26 @@ Although you can manually assign users to Synapse roles, if you do, it won't con
 
 Users in each role need to complete the following steps:
 
-|   | Step | Workspace admins | Spark admins | SQL admins |
+| Number | Step | Workspace admins | Spark admins | SQL admins |
 | --- | --- | --- | --- | --- |
 | 1 | Upload a parquet file into CNT1 | YES | YES | YES |
-| 2 | Read the parquet file using SQL on demand | YES | NO | YES |
+| 2 | Read the parquet file using SQL on-demand | YES | NO | YES |
 | 3 | Create a Spark pool | YES [1] | YES [1] | NO  |
 | 4 | Reads the parquet file with a Notebook | YES | YES | NO |
 | 5 | Create a pipeline from the Notebook and Trigger the pipeline to run now | YES | NO | NO |
-| 6 | Create a SQL Pool and run a SQL script such as &quot;SELECT 1&quot; | YES [1] | NO | YES[1] |
+| 6 | Create a SQL pool and run a SQL script such as &quot;SELECT 1&quot; | YES [1] | NO | YES[1] |
 
 > [!NOTE]
 > [1] To create SQL or Spark pools the user must have at least Contributor role on the Synapse workspace.
-> [!TIP]
 >
+ 
+>[!TIP]
 > - Some steps will deliberately not be allowed depending on the role.
 > - Keep in mind that some tasks may fail if the security was not fully configured. These tasks are noted in the table.
 
 ## STEP 8: Network Security
 
-To configure the workspace firewall, virtual network, and [Private Link](../../sql-database/sql-database-private-endpoint-overview.md).
+To configure the workspace firewall, virtual network, and [Private Link](../../azure-sql/database/private-endpoint-overview.md).
 
 ## STEP 9: Completion
 
@@ -139,7 +140,7 @@ Synapse Studio will behave differently based on user roles. Some items may be hi
 | Open Synapse Studio | YES | YES | YES |
 | View Home hub | YES | YES | YES |
 | View Data Hub | YES | YES | YES |
-| Data Hub / See linked ADLSGen2 accounts and containers | YES [1] | YES[1] | YES[1] |
+| Data Hub / See linked ADLS Gen2 accounts and containers | YES [1] | YES[1] | YES[1] |
 | Data Hub / See Databases | YES | YES | YES |
 | Data Hub / See objects in databases | YES | YES | YES |
 | Data Hub / Access data in SQL pool databases | YES   | NO   | YES   |
@@ -173,8 +174,8 @@ Synapse Studio will behave differently based on user roles. Some items may be hi
 
 
 > [!NOTE]
-> [1] Access to data in containers depends on the access control in ADLSGen2. </br>
-> [2] SQL OD tables and Spark tables store their data in ADLSGen2 and access requires the appropriate permissions on ADLSGen2.
+> [1] Access to data in containers depends on the access control in ADLS Gen2. </br>
+> [2] SQL OD tables and Spark tables store their data in ADLS Gen2 and access requires the appropriate permissions on ADLS Gen2.
 
 ## Next steps
 

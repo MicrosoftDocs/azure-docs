@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Build policies to enforce compliance"
 description: In this tutorial, you use policies to enforce standards, control costs, maintain security, and impose enterprise wide design principles.
-ms.date: 03/24/2020
+ms.date: 06/15/2020
 ms.topic: tutorial
 ---
 # Tutorial: Create and manage policies to enforce compliance
@@ -35,16 +35,16 @@ resources missing the tag.
 
 1. Go to the Azure portal to assign policies. Search for and select **Policy**.
 
-   :::image type="content" source="../media/create-and-manage/search-policy.png" alt-text="Search for Policy in the search bar" border="false":::
+   :::image type="content" source="../media/create-and-manage/search-policy.png" alt-text="Screenshot of searching for Policy in the search bar." border="false":::
 
 1. Select **Assignments** on the left side of the Azure Policy page. An assignment is a policy that
    has been assigned to take place within a specific scope.
 
-   :::image type="content" source="../media/create-and-manage/select-assignments.png" alt-text="Select Assignments from Policy Overview page" border="false":::
+   :::image type="content" source="../media/create-and-manage/select-assignments.png" alt-text="Screenshot of selecting the Assignments node from the Policy Overview page." border="false":::
 
 1. Select **Assign Policy** from the top of the **Policy - Assignments** page.
 
-   :::image type="content" source="../media/create-and-manage/select-assign-policy.png" alt-text="Assign a policy definition from Assignments page" border="false":::
+   :::image type="content" source="../media/create-and-manage/select-assign-policy.png" alt-text="Screenshot of selecting the 'Assign policy' button on the Assignments page." border="false":::
 
 1. On the **Assign Policy** page and **Basics** tab, select the **Scope** by selecting the ellipsis
    and selecting either a management group or subscription. Optionally, select a resource group. A
@@ -64,7 +64,7 @@ resources missing the tag.
    Select **Select** at the bottom of the **Available Definitions** page once you have found and
    selected the policy definition.
 
-   :::image type="content" source="../media/create-and-manage/select-available-definition.png" alt-text="Use search filter to locate a policy":::
+   :::image type="content" source="../media/create-and-manage/select-available-definition.png" alt-text="Screenshot of the search filter while selecting a policy definition.":::
 
 1. The **Assignment name** is automatically populated with the policy name you selected, but you can
    change it. For this example, leave _Inherit a tag from the resource group if missing_. You can
@@ -102,13 +102,13 @@ resources missing the tag.
 ## Implement a new custom policy
 
 Now that you've assigned a built-in policy definition, you can do more with Azure Policy. Next,
-create a new custom policy to save costs by validating that VMs created in your environment can't be
-in the G series. This way, every time a user in your organization tries to create VM in the G
-series, the request is denied.
+create a new custom policy to save costs by validating that virtual machines created in your
+environment can't be in the G series. This way, every time a user in your organization tries to
+create a virtual machine in the G series, the request is denied.
 
 1. Select **Definitions** under **Authoring** in the left side of the Azure Policy page.
 
-   :::image type="content" source="../media/create-and-manage/definition-under-authoring.png" alt-text="Definition page under Authoring group" border="false":::
+   :::image type="content" source="../media/create-and-manage/definition-under-authoring.png" alt-text="Screenshot of the Definitions page under Authoring group." border="false":::
 
 1. Select **+ Policy definition** at the top of the page. This button opens to the **Policy
    definition** page.
@@ -123,10 +123,10 @@ series, the request is denied.
      > management group that contains the subscriptions you assign the policy to. The same is true
      > for an initiative definition.
 
-   - The name of the policy definition - _*_Require VM SKUs smaller than the G series_
+   - The name of the policy definition - _Require VM SKUs not in the G series_
    - The description of what the policy definition is intended to do – _This policy definition
-     enforces that all VMs created in this scope have SKUs smaller than the G series to reduce
-     cost._
+     enforces that all virtual machines created in this scope have SKUs other than the G series to
+     reduce cost._
    - Choose from existing options (such as _Compute_), or create a new category for this policy
      definition.
    - Copy the following JSON code and then update it for your needs with:
@@ -388,12 +388,12 @@ overview](../overview.md).
 
 1. Select **Definitions** under **Authoring** in the left side of the Azure Policy page.
 
-   :::image type="content" source="../media/create-and-manage/definition-under-authoring.png" alt-text="Select definition from the Definitions page" border="false":::
+   :::image type="content" source="../media/create-and-manage/definition-under-authoring.png" alt-text="Screenshot of the Definitions page under the Authoring group." border="false":::
 
 1. Select **+ Initiative Definition** at the top of the page to open the **Initiative definition**
    page.
 
-   :::image type="content" source="../media/create-and-manage/initiative-definition.png" alt-text="Review initiative definition page" border="false":::
+   :::image type="content" source="../media/create-and-manage/initiative-definition.png" alt-text="Screenshot of the initiative definition page and properties to set." border="false":::
 
 1. Use the **Definition location** ellipsis to select a management group or subscription to store
    the definition. If the previous page was scoped to a single management group or subscription,
@@ -422,7 +422,7 @@ overview](../overview.md).
 
    After selecting the policy definition from the list, each is added below **Category**.
 
-   :::image type="content" source="../media/create-and-manage/initiative-definition-2.png" alt-text="Review initiative definition parameters" border="false":::
+   :::image type="content" source="../media/create-and-manage/initiative-definition-2.png" alt-text="Screenshot of the parameters and value definitions on the initiative definition page." border="false":::
 
 1. If a policy definition being added to the initiative has parameters, they're shown under the
    policy name in the area under **Category** area. The _value_ can be set to either 'Set value'
@@ -433,7 +433,7 @@ overview](../overview.md).
    during initiative assignment. The allowed values on this initiative parameter can further
    restrict what may be set during initiative assignment.
 
-   :::image type="content" source="../media/create-and-manage/initiative-definition-3.png" alt-text="Change initiative definition parameters from allowed values" border="false":::
+   :::image type="content" source="../media/create-and-manage/initiative-definition-3.png" alt-text="Screenshot of the options for allowed values for an effect parameter on the initiative definition page." border="false":::
 
    > [!NOTE]
    > In the case of some `strongType` parameters, the list of values cannot be automatically
@@ -500,12 +500,12 @@ New-AzPolicySetDefinition -Name 'VMPolicySetDefinition' -Metadata '{"category":"
 1. Locate the **Get Secure** initiative definition you previously created and select it. Select
    **Assign** at the top of the page to open to the **Get Secure: Assign initiative** page.
 
-   :::image type="content" source="../media/create-and-manage/assign-definition.png" alt-text="Assign a definition from Initiative definition page" border="false":::
+   :::image type="content" source="../media/create-and-manage/assign-definition.png" alt-text="Screenshot of the 'Assign' button on the initiative definition page." border="false":::
 
    You can also right-click on the selected row or select the ellipsis at the end of the row for a
    contextual menu. Then select **Assign**.
 
-   :::image type="content" source="../media/create-and-manage/select-right-click.png" alt-text="Alternative options for an initiative" border="false":::
+   :::image type="content" source="../media/create-and-manage/select-right-click.png" alt-text="Screenshot of the context menu for an initiative to select the Assign functionality." border="false":::
 
 1. Fill out the **Get Secure: Assign Initiative** page by entering the following example
    information. You can use your own information.
@@ -546,12 +546,12 @@ New-AzPolicySetDefinition -Name 'VMPolicySetDefinition' -Metadata '{"category":"
 1. Locate the **Get Secure** initiative. It's likely still in _Compliance state_ of **Not started**.
    Select the initiative to get full details on the progress of the assignment.
 
-   :::image type="content" source="../media/create-and-manage/compliance-status-not-started.png" alt-text="Initiative compliance page - evaluations not started" border="false":::
+   :::image type="content" source="../media/create-and-manage/compliance-status-not-started.png" alt-text="Screenshot of the Initiative compliance page showing assignment evaluations in a Not started state." border="false":::
 
 1. Once the initiative assignment has been completed, the compliance page is updated with the
    _Compliance state_ of **Compliant**.
 
-   :::image type="content" source="../media/create-and-manage/compliance-status-compliant.png" alt-text="Initiative compliance page- resources compliant" border="false":::
+   :::image type="content" source="../media/create-and-manage/compliance-status-compliant.png" alt-text="Screenshot of the Initiative compliance page showing assignment evaluations complete and in a Compliant state." border="false":::
 
 1. Selecting any policy on the initiative compliance page opens the compliance details page for that
    policy. This page provides details at the resource level for compliance.
@@ -573,14 +573,14 @@ select **Failed. Click here for details ->** on the Deployment Overview page. A 
 right side of the page with the error information. Under **Error Details** are the GUIDs of the
 related policy objects.
 
-:::image type="content" source="../media/create-and-manage/rg-deployment-denied.png" alt-text="Deployment denied by policy assignment" border="false":::
+:::image type="content" source="../media/create-and-manage/rg-deployment-denied.png" alt-text="Screenshot of a failed deployment that was denied by a policy assignment." border="false":::
 
 On the Azure Policy page: Select **Compliance** in the left side of the page and select the **Get
 Secure** policy initiative. On this page, there is an increase in the **Deny** count for blocked
 resources. Under the **Events** tab are details about who tried to create or deploy the resource
 that was denied by the policy definition.
 
-:::image type="content" source="../media/create-and-manage/compliance-overview.png" alt-text="Compliance overview of an assigned policy" border="false":::
+:::image type="content" source="../media/create-and-manage/compliance-overview.png" alt-text="Screenshot of the Events tab and policy event details on the Initiative compliance page." border="false":::
 
 In this example, Trent Baker, one of Contoso's Sr. Virtualization specialists, was doing required
 work. We need to grant Trent a space for an exception. Created a new resource group,
@@ -595,7 +595,7 @@ work. We need to grant Trent a space for an exception. Created a new resource gr
 1. Set the **Exclusion** by selecting the ellipsis and selecting the resource group to exclude,
    _LocationsExcluded_ in this example. Select **Add to Selected Scope** and then select **Save**.
 
-   :::image type="content" source="../media/create-and-manage/request-exclusion.png" alt-text="Add an excluded resource group to the policy assignment" border="false":::
+   :::image type="content" source="../media/create-and-manage/request-exclusion.png" alt-text="Screenshot of the Exclusions option on the Initiative Assignment page to add an excluded resource group to the policy assignment." border="false":::
 
    > [!NOTE]
    > Depending on the policy definition and its effect, the exclusion could also be granted to

@@ -5,11 +5,11 @@ description: In this quickstart, you detect faces from an image using the Face A
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-
+ms.custom: devx-track-js
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 04/14/2020
+ms.date: 08/05/2020
 ms.author: pafarley
 ---
 # Quickstart: Detect faces in an image using the REST API and JavaScript
@@ -18,8 +18,11 @@ In this quickstart, you'll use the Azure Face REST API with JavaScript to detect
 
 ## Prerequisites
 
-- A Face subscription key. You can get a free trial subscription key from [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Or, follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to the Face service and get your key.
-- A code editor such as [Visual Studio Code](https://code.visualstudio.com/download)
+* Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="Create a Face resource"  target="_blank">create a Face resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
+    * You will need the key and endpoint from the resource you create to connect your application to the Face API. You'll paste your key and endpoint into the code below later in the quickstart.
+    * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+* A code editor such as [Visual Studio Code](https://code.visualstudio.com/download)
 
 ## Initialize the HTML file
 

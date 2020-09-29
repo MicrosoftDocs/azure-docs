@@ -36,6 +36,9 @@
       href: tutorial-desktop-app.md
     - name: Single page
       href: tutorial-single-page-app.md
+    - name: Python
+      href: tutorial-web-app-python.md
+      displayName: flask
   - name: Grant API access
     items:
     - name: ASP.NET
@@ -48,6 +51,18 @@
   href: code-samples.md
 - name: Concepts
   items:
+  - name: Compare solutions for External Identities
+    href: https://docs.microsoft.com/azure/active-directory/b2b/compare-with-b2c?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json
+  - name: Learn the basics
+    items:
+    - name: Authentication and authorization
+      href: https://docs.microsoft.com/azure/active-directory/develop/authentication-vs-authorization?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json
+    - name: Tokens
+      href: https://docs.microsoft.com/azure/active-directory/develop/security-tokens?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json
+    - name: Protocols
+      href: https://docs.microsoft.com/azure/active-directory/develop/v2-app-types?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json
+    - name: Authentication library
+      href: https://docs.microsoft.com/azure/active-directory/develop/msal-overview?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json
   - name: Azure AD B2C best practices
     href: best-practices.md
   - name: Application types
@@ -66,6 +81,8 @@
         href: tokens-overview.md
       - name: Request access token
         href: access-tokens.md
+  - name: Policy keys
+    href: policy-keys-overview.md
   - name: User flow and policy
     items:
     - name: User flows
@@ -78,6 +95,8 @@
     href: user-profile-attributes.md
   - name: SSO sessions
     href: session-overview.md
+  - name: Identity Protection and Conditional Access
+    href: conditional-access-identity-protection-overview.md
 - name: How-to guides
   items:
   - name: App integration
@@ -87,11 +106,11 @@
     - name: Register a SAML service provider
       href: connect-with-saml-service-providers.md
       displayName: SP, RP, service provider, connect
-    - name: Register a Graph application
+    - name: Register a Microsoft Graph application
       href: microsoft-graph-get-started.md
       displayName: migrate, migration, microsoft graph
     - name: Add a web API application
-      href: add-web-application.md
+      href: add-web-api-application.md
     - name: Add a native client application
       href: add-native-application.md
     - name: iOS ObjC using App Auth
@@ -108,6 +127,8 @@
         href: configure-ropc.md
       - name: Set up self-serve password reset
         href: user-flow-self-service-password-reset.md
+    - name: Add Conditional Access
+      href: conditional-access-user-flow.md
     - name: UX customization
       items:
       - name: Customize the UI
@@ -161,6 +182,8 @@
       href: user-flow-custom-attributes.md
     - name: Pass through external IdP token
       href: idp-pass-through-user-flow.md
+  - name: Identity Protection and Conditional Access
+    href: conditional-access-identity-protection-setup.md
   - name: Custom policy
     items:
     - name: Create a policy
@@ -188,8 +211,12 @@
         displayName: ux, input, cors, html, css
       - name: Customize language
         href: custom-policy-localization.md
-      - name: Custom email
-        href: custom-email.md
+      - name: Custom email verification
+        items:
+        - name: Mailjet
+          href: custom-email-mailjet.md
+        - name: SendGrid
+          href: custom-email-sendgrid.md
         displayName: verification
       - name: Disable email verification
         href: custom-policy-disable-email-verification.md
@@ -226,7 +253,9 @@
     - name: Tokens and session management
       items:
       - name: Customize tokens
-        href: custom-policy-manage-sso-and-token-config.md
+        href: configure-tokens-custom-policy.md
+      - name: Configure session behavior
+        href: session-behavior-custom-policy.md
     - name: Pass through external IdP token
       href: idp-pass-through-custom.md
     - name: Adaptive experience
@@ -320,8 +349,15 @@
           - name: Azure Multi-Factor Authentication
             href: multi-factor-auth-technical-profile.md
             displayName: mfa
+          - name: Azure AD SSPR
+            href: aad-sspr-technical-profile.md
           - name: Claims transformation
             href: claims-transformation-technical-profile.md
+          - name: Conditional Access 
+            href: conditional-access-technical-profile.md
+            displayName: ca
+          - name: ID token hint
+            href: id-token-hint.md
           - name: JWT token issuer
             href: jwt-issuer-technical-profile.md
           - name: OAuth1
@@ -334,10 +370,10 @@
           - name: OpenID Connect
             href: openid-connect-technical-profile.md
           - name: Phone factor
-            href: phone-factor-technical-profile.md 
+            href: phone-factor-technical-profile.md
           - name: REST
             href: restful-technical-profile.md
-          - name: SAML identity provider 
+          - name: SAML identity provider
             href: saml-identity-provider-technical-profile.md
           - name: SAML token issuer
             href: saml-issuer-technical-profile.md
@@ -352,6 +388,36 @@
         href: relyingparty.md
       - name: Claim resolvers
         href: claim-resolver-overview.md
+  - name: Partner integration
+    items:
+    - name: Azure AD B2C partner gallery
+      href: partner-gallery.md
+    - name: Arkose Labs
+      href: partner-arkose-labs.md
+    - name: Experian
+      href: partner-experian.md
+    - name: HYPR
+      href: partner-hypr.md
+    - name: IDology
+      href: partner-idology.md
+    - name: itsme
+      href: partner-itsme.md
+    - name: Jumio
+      href: partner-jumio.md
+    - name: LexisNexis
+      href: partner-lexisnexis.md
+    - name: Onfido
+      href: partner-onfido.md
+    - name: Saviynt
+      href: partner-saviynt.md
+    - name: Trusona
+      href: partner-trusona.md
+    - name: Twilio
+      href: partner-twilio.md
+    - name: TypingDNA
+      href: partner-typingdna.md
+    - name: WhoIAM
+      href: partner-whoiam.md
   - name: Use b2clogin.com
     items:
     - name: b2clogin.com overview
@@ -395,6 +461,8 @@
       href: user-migration.md
 - name: Reference
   items:
+  - name: App registrations
+    href: app-registrations-training-guide.md
   - name: Billing model
     href: billing.md
   - name: Code samples
@@ -406,7 +474,7 @@
     href: error-codes.md
   - name: Extensions app
     href: extensions-app.md
-  - name: IEF release notes
+  - name: Custom policy (IEF) release notes
     href: custom-policy-developer-notes.md
   - name: Microsoft Graph API operations
     href: microsoft-graph-operations.md
@@ -419,6 +487,8 @@
     displayName: security
   - name: User flow versions
     href: user-flow-versions.md
+  - name: Legacy user flow versions
+    href: user-flow-versions-legacy.md
 - name: Resources
   items:
   - name: Azure Roadmap

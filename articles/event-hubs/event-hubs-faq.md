@@ -1,17 +1,8 @@
 ---
 title: Frequently asked questions - Azure Event Hubs | Microsoft Docs
 description: This article provides a list of frequently asked questions (FAQ) for Azure Event Hubs and their answers. 
-services: event-hubs
-documentationcenter: na
-author: ShubhaVijayasarathy
-manager: timlt
-
-ms.service: event-hubs
 ms.topic: article
-ms.custom: seodec18
-ms.date: 12/02/2019
-ms.author: shvija
-
+ms.date: 09/16/2020
 ---
 
 # Event Hubs frequently asked questions
@@ -59,6 +50,9 @@ You can configure the retention period for the captured data on your storage acc
 ### How do I monitor my Event Hubs?
 Event Hubs emits exhaustive metrics that provide the state of your resources to [Azure Monitor](../azure-monitor/overview.md). They also let you assess the overall health of the Event Hubs service not only at the namespace level but also at the entity level. Learn about what monitoring is offered for [Azure Event Hubs](event-hubs-metrics-azure-monitor.md).
 
+### <a name="in-region-data-residency"></a>Where does Azure Event Hubs store customer data?
+Azure Event Hubs stores customer data. This data is automatically stored by Event Hubs in a single region, so this service automatically satisfies in region data residency requirements including those specified in the [Trust Center](https://azuredatacentermap.azurewebsites.net/).
+
 ### What ports do I need to open on the firewall? 
 You can use the following protocols with Azure Service Bus to send and receive messages:
 
@@ -74,17 +68,17 @@ See the following table for the outbound ports you need to open to use these pro
 | HTTP, HTTPS | 80, 443 |  |
 | Kafka | 9093 | See [Use Event Hubs from Kafka applications](event-hubs-for-kafka-ecosystem-overview.md)
 
-### What IP addresses do I need to whitelist?
-To find the right IP addresses to white list for your connections, follow these steps:
+### What IP addresses do I need to allow?
+To find the right IP addresses to add to the allowed list for your connections, follow these steps:
 
 1. Run the following command from a command prompt: 
 
     ```
     nslookup <YourNamespaceName>.servicebus.windows.net
     ```
-2. Note down the IP address returned in `Non-authoritative answer`. The only time it would change is if you restore the namespace on to a different cluster.
+2. Note down the IP address returned in `Non-authoritative answer`. 
 
-If you use the zone redundancy for your namespace, you need to do a few additional steps: 
+If you use the **zone redundancy** for your namespace, you need to do a few additional steps: 
 
 1. First, you run nslookup on the namespace.
 
@@ -94,11 +88,32 @@ If you use the zone redundancy for your namespace, you need to do a few addition
 2. Note down the name in the **non-authoritative answer** section, which is in one of the following formats: 
 
     ```
-    <name>-s1.servicebus.windows.net
-    <name>-s2.servicebus.windows.net
-    <name>-s3.servicebus.windows.net
+    <name>-s1.cloudapp.net
+    <name>-s2.cloudapp.net
+    <name>-s3.cloudapp.net
     ```
 3. Run nslookup for each one with suffixes s1, s2, and s3 to get the IP addresses of all three instances running in three availability zones, 
+
+    > [!NOTE]
+    > The IP address returned by the `nslookup` command isn't a static IP address. However, it remains constant until the underlying deployment is deleted or moved to a different cluster.
+
+### Where can I find client IP sending or receiving messages to my namespace?
+First, enable [IP filtering](event-hubs-ip-filtering.md) on the namespace. 
+
+Then, Enable diagnostic logs for [Event Hubs virtual network connection events](event-hubs-diagnostic-logs.md#event-hubs-virtual-network-connection-event-schema) by following instructions in the [Enable diagnostic logs](event-hubs-diagnostic-logs.md#enable-diagnostic-logs). You will see the IP address for which connection is denied.
+
+```json
+{
+    "SubscriptionId": "0000000-0000-0000-0000-000000000000",
+    "NamespaceName": "namespace-name",
+    "IPAddress": "1.2.3.4",
+    "Action": "Deny Connection",
+    "Reason": "IPAddress doesn't belong to a subnet with Service Endpoint enabled.",
+    "Count": "65",
+    "ResourceId": "/subscriptions/0000000-0000-0000-0000-000000000000/resourcegroups/testrg/providers/microsoft.eventhub/namespaces/namespace-name",
+    "Category": "EventHubVNetConnectionEvent"
+}
+```
 
 ## Apache Kafka integration
 
@@ -155,9 +170,11 @@ You may want to start with low throughput units (TUs), for example, 2 TUs. If yo
 There's **no cost** associated with this feature. 
 
 ### How are throughput limits enforced?
-If the total ingress throughput or the total ingress event rate across all event hubs in a namespace exceeds the aggregate throughput unit allowances, senders are throttled and receive errors indicating that the ingress quota has been exceeded.
+If the total **ingress** throughput or the total ingress event rate across all event hubs in a namespace exceeds the aggregate throughput unit allowances, senders are throttled and receive errors indicating that the ingress quota has been exceeded.
 
-If the total egress throughput or the total event egress rate across all event hubs in a namespace exceeds the aggregate throughput unit allowances, receivers are throttled and receive errors indicating that the egress quota has been exceeded. Ingress and egress quotas are enforced separately, so that no sender can cause event consumption to slow down, nor can a receiver prevent events from being sent into an event hub.
+If the total **egress** throughput or the total event egress rate across all event hubs in a namespace exceeds the aggregate throughput unit allowances, receivers are throttled but no throttling errors are generated. 
+
+Ingress and egress quotas are enforced separately, so that no sender can cause event consumption to slow down, nor can a receiver prevent events from being sent into an event hub.
 
 ### Is there a limit on the number of throughput units (TUs) that can be reserved/selected?
 On a multi-tenant offering, throughput units can grow up to 40 TUs (you can select up to 20 TUs in the portal, and raise a support ticket to raise it to 40 TUs on the same namespace). Beyond 40 TUs, Event Hubs offers the resource/capacity-based model called the **Event Hubs Dedicated clusters**. Dedicated clusters are sold in Capacity Units (CUs).
@@ -253,7 +270,7 @@ Event Hubs supports two types of [diagnostics logs](event-hubs-diagnostic-logs.m
 
 ### Support and SLA
 
-Technical support for Event Hubs is available through the [community forums](https://social.msdn.microsoft.com/forums/azure/home?forum=servbus). Billing and subscription management support is provided at no cost.
+Technical support for Event Hubs is available through the [Microsoft Q&A question page for Azure Service Bus](/answers/topics/azure-service-bus.html). Billing and subscription management support is provided at no cost.
 
 To learn more about our SLA, see the [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/) page.
 
@@ -261,6 +278,6 @@ To learn more about our SLA, see the [Service Level Agreements](https://azure.mi
 
 You can learn more about Event Hubs by visiting the following links:
 
-* [Event Hubs overview](event-hubs-what-is-event-hubs.md)
+* [Event Hubs overview](./event-hubs-about.md)
 * [Create an Event Hub](event-hubs-create.md)
 * [Event Hubs Auto-inflate](event-hubs-auto-inflate.md)

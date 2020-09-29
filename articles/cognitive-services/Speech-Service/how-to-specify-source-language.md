@@ -8,9 +8,10 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/07/2020
+ms.date: 05/19/2020
 ms.author: qiohu
 zone_pivot_groups: programming-languages-set-two
+ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
 # Specify source language for speech to text
@@ -161,23 +162,35 @@ speechConfig.endpointId = "The Endpoint ID for your custom model.";
 
 ## How to specify source language in Objective-C
 
-The first step is to create a `speechConfig`:
+In this example, the source language is provided explicitly as a parameter using `SPXSpeechRecognizer` construct.
 
 ```Objective-C
-SPXSpeechConfiguration *speechConfig = [[SPXSpeechConfiguration alloc] initWithSubscription:@"YourSubscriptionkey" region:@"YourRegion"];
+SPXSpeechRecognizer* speechRecognizer = \
+    [[SPXSpeechRecognizer alloc] initWithSpeechConfiguration:speechConfig language:@"de-DE" audioConfiguration:audioConfig];
 ```
 
-Next, specify the source language of your audio with `speechRecognitionLanguage`:
+In this example, the source language is provided using `SPXSourceLanguageConfiguration`. Then, the `SPXSourceLanguageConfiguration` is passed as a parameter to `SPXSpeechRecognizer` construct.
 
 ```Objective-C
-speechConfig.speechRecognitionLanguage = @"de-DE";
+SPXSourceLanguageConfiguration* sourceLanguageConfig = [[SPXSourceLanguageConfiguration alloc]init:@"de-DE"];
+SPXSpeechRecognizer* speechRecognizer = [[SPXSpeechRecognizer alloc] initWithSpeechConfiguration:speechConfig
+                                                                     sourceLanguageConfiguration:sourceLanguageConfig
+                                                                              audioConfiguration:audioConfig];
 ```
 
-If you're using a custom model for recognition, you can specify the endpoint with `endpointId`:
+In this example, the source language and custom endpoint are provided using `SPXSourceLanguageConfiguration`. Then, the `SPXSourceLanguageConfiguration` is passed as a parameter to `SPXSpeechRecognizer` construct.
 
 ```Objective-C
-speechConfig.endpointId = @"The Endpoint ID for your custom model.";
+SPXSourceLanguageConfiguration* sourceLanguageConfig = \
+        [[SPXSourceLanguageConfiguration alloc]initWithLanguage:@"de-DE"
+                                                     endpointId:@"The Endpoint ID for your custom model."];
+SPXSpeechRecognizer* speechRecognizer = [[SPXSpeechRecognizer alloc] initWithSpeechConfiguration:speechConfig
+                                                                     sourceLanguageConfiguration:sourceLanguageConfig
+                                                                              audioConfiguration:audioConfig];
 ```
+
+>[!Note]
+> `speechRecognitionLanguage` and `endpointId` properties are deprecated from the `SPXSpeechConfiguration` class in Objective-C. The use of these properties are discouraged, and shouldn't be used when constructing a `SPXSpeechRecognizer`.
 
 ::: zone-end
 

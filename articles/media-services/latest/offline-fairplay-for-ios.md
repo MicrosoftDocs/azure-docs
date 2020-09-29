@@ -1,6 +1,6 @@
 ---
 title: Offline FairPlay Streaming for iOS with Azure Media Services v3
-description: This topic gives an overview and shows how to use Azure Media Services to dynamically encrypt your HTTP Live Streaming (HLS) content with Apple FairPlay in offline mode.
+description: This topic gives an overview and shows how to use Azure Media Services v3 to dynamically encrypt your HTTP Live Streaming (HLS) content with Apple FairPlay in offline mode.
 services: media-services
 keywords: HLS, DRM, FairPlay Streaming (FPS), Offline, iOS 10
 documentationcenter: ''
@@ -13,12 +13,15 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/08/2019
+ms.topic: how-to
+ms.date: 08/31/2020
 ms.author: willzhan
+ms.custom: devx-track-csharp
 
 ---
 # Offline FairPlay Streaming for iOS with Media Services v3
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
  Azure Media Services provides a set of well-designed [content protection services](https://azure.microsoft.com/services/media-services/content-protection/) that cover:
 
@@ -83,7 +86,7 @@ options.Add(
 
 ## Enable offline mode
 
-To enable offline mode, create a custom StreamingPolicy and use its name when creating a StreamingLocator in [CreateStreamingLocatorAsync](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L563).
+To enable offline mode, create a custom StreamingPolicy and use its name when creating a StreamingLocator in [CreateStreamingLocatorAsync](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L561).
  
 ```csharp
 CommonEncryptionCbcs objStreamingPolicyInput= new CommonEncryptionCbcs()
@@ -92,23 +95,24 @@ CommonEncryptionCbcs objStreamingPolicyInput= new CommonEncryptionCbcs()
     {
         FairPlay = new StreamingPolicyFairPlayConfiguration()
         {
-            AllowPersistentLicense = true  //this enables offline mode
+            AllowPersistentLicense = true // This enables offline mode
         }
     },
     EnabledProtocols = new EnabledProtocols()
     {
         Hls = true,
-        Dash = true //Even though DASH under CBCS is not supported for either CSF or CMAF, HLS-CMAF-CBCS uses DASH-CBCS fragments in its HLS playlist
+        Dash = true // Even though DASH under CBCS is not supported for either CSF or CMAF, HLS-CMAF-CBCS uses DASH-CBCS fragments in its HLS playlist
     },
 
     ContentKeys = new StreamingPolicyContentKeys()
     {
-        //Default key must be specified if keyToTrackMappings is present
+        // Default key must be specified if keyToTrackMappings is present
         DefaultKey = new DefaultKey()
         {
             Label = "CBCS_DefaultKeyLabel"
         }
     }
+}
 
 ```
 

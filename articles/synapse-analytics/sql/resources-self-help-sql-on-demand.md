@@ -1,13 +1,13 @@
 ---
-title: SQL on-demand Preview) self-help
+title: SQL on-demand (preview) self-help
 description: This section contains information that can help you troubleshoot problems with SQL on-demand (preview).
 services: synapse analytics
-author: vvasic-msft
+author: azaricstefan
 ms.service: synapse-analytics 
 ms.topic: overview
-ms.subservice:
-ms.date: 04/15/2020
-ms.author: vvasic
+ms.subservice: sql
+ms.date: 05/15/2020
+ms.author: v-stazar
 ms.reviewer: jrasnick
 ---
 
@@ -28,13 +28,43 @@ If your query fails with the error saying 'File cannot be opened because it does
 
 ## Query fails because it cannot be executed due to current resource constraints 
 
-If your query fails with the error message 'This query cannot be executed due to current resource constraints', it means that SQL OD is not able to execute it at this moment due to resource constraints: 
+If your query fails with the error message 'This query cannot be executed due to current resource constraints', it means that SQL on-demand is not able to execute it at this moment due to resource constraints: 
 
 - Please make sure data types of reasonable sizes are used. Also, specify schema for Parquet files for string columns as they will be VARCHAR(8000) by default. 
 
 - If your query targets CSV files, consider [creating statistics](develop-tables-statistics.md#statistics-in-sql-on-demand-preview). 
 
 - Visit [performance best practices for SQL on-demand](best-practices-sql-on-demand.md) to optimize query.  
+
+## CREATE 'STATEMENT' is not supported in master database
+
+If your query fails with the error message:
+
+> 'Failed to execute query. Error: CREATE EXTERNAL TABLE/DATA SOURCE/DATABASE SCOPED CREDENTIAL/FILE FORMAT is not supported in master database.' 
+
+it means that master database in SQL on-demand does not support creation of:
+  - External tables
+  - External data sources
+  - Database scoped credentials
+  - External file formats
+
+Solution:
+
+  1. Create a user database:
+
+```sql
+CREATE DATABASE <DATABASE_NAME>
+```
+
+  2. Execute create statement in the context of <DATABASE_NAME> which failed earlier for master database. 
+  
+  Example for creation of External file format:
+    
+```sql
+USE <DATABASE_NAME>
+CREATE EXTERNAL FILE FORMAT [SynapseParquetFormat] 
+WITH ( FORMAT_TYPE = PARQUET)
+```
 
 ## Next steps
 

@@ -1,55 +1,44 @@
 ---
-title: Deploy an Azure Firewall Manager trusted security partner
-description: Learn how to deploy an Azure Firewall Manager trusted security using the Azure portal. 
+title: Deploy an Azure Firewall Manager security partner provider
+description: Learn how to deploy an Azure Firewall Manager security partner provider using the Azure portal. 
 services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
-ms.topic: conceptual
-ms.date: 10/25/2019
+ms.topic: how-to
+ms.date: 06/30/2020
 ms.author: victorh
 ---
 
-# Deploy a trusted security partner (preview)
+# Deploy a security partner provider
 
-[!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
+*Security partner providers* in Azure Firewall Manager allow you to use your familiar, best-in-breed third-party security-as-a-service (SECaaS) offerings to protect Internet access for your users.
 
-*Trusted security partners* in Azure Firewall Manager allows you to use your familiar, best-in-breed third-party security-as-a-service (SECaaS) offerings to protect Internet access for your users.
+To learn more about supported scenarios and best practice guidelines, see [What are security partner providers?](trusted-security-partners.md)
 
-To learn more about supported scenarios and best practice guidelines, see [What are trusted security partners (preview)?](trusted-security-partners.md).
 
-The supported security partners are **ZScaler** and **iboss** for this preview. Supported regions are WestCentralUS, NorthCentralUS, WestUS, WestUS2, and EastUS.
-
-## Prerequisites
-
-> [!IMPORTANT]
-> Azure Firewall Manager Preview must be explicitly enabled using the `Register-AzProviderFeature` PowerShell command.
-
-From a PowerShell command prompt, run the following commands:
-
-```azure-powershell
-connect-azaccount
-Register-AzProviderFeature -FeatureName AllowCortexSecurity -ProviderNamespace Microsoft.Network
-```
-It takes up to 30 minutes for the feature registration to complete. Run the following command to check your registration status:
-
-`Get-AzProviderFeature -FeatureName AllowCortexSecurity -ProviderNamespace Microsoft.Network`
+Integrated third-party Security as a service (SECaaS) partners are now available in all Azure public cloud regions. **Zscaler** integration will be generally available July 3, 2020. **Check Point** is a supported SECaaS partner and will be in preview on July 3, 2020. **iboss** integration will be generally available on July 31, 2020.
 
 ## Deploy a third-party security provider in a new hub
 
+Skip this section if you are deploying a third-party provider into an existing hub.
+
 1. Sign in to the Azure portal at https://portal.azure.com.
 2. In **Search**, type **Firewall Manager** and select it under **Services**.
-3. Navigate to **Getting Started**. Select **Create a Secured Virtual Hub**. 
-4. Enter you subscription and resource group, select a supported region, and add your hub and virtual WAN information. 
-5. **Deploy VPN gateway** is enabled by default. A VPN Gateway is required to deploy a Trusted security partner in the hub. 
-6. Select **Next: Azure Firewall**
+3. Navigate to **Getting Started**. Select **View secured virtual hubs**.
+4. Select **Create new secured virtual hub**.
+5. Enter you subscription and resource group, select a supported region, and add your hub and virtual WAN information. 
+6. Select **Include VPN gateway to enable Security Partner Providers**.
+7. Select the **Gateway scale units** appropriate for your requirements.
+8. Select **Next: Azure Firewall**
    > [!NOTE]
-   > Trusted security partners connect to your hub using VPN Gateway tunnels. If you delete the VPN Gateway, the connections to your Trusted security partners are lost.
-7. If you want to deploy Azure Firewall to filter private traffic along with third-party service provider to  filter Internet traffic, select a policy for Azure Firewall. See the [supported scenarios](trusted-security-partners.md#key-scenarios).
-8. If you want to only deploy a third-party security provider in the hub, select **Azure Firewall: Enabled/Disabled** to set it to **Disabled**. 
-9. Select  **Next: Trusted Security Partners**.
-10. Select **Trusted Security Partner** to set it to **Enabled**. Select a partner. 
-11. Select **Next**. 
-12. Review the content and then select **Create**.
+   > Security partner providers connect to your hub using VPN Gateway tunnels. If you delete the VPN Gateway, the connections to your security partner providers are lost.
+9. If you want to deploy Azure Firewall to filter private traffic along with third-party service provider to  filter Internet traffic, select a policy for Azure Firewall. See the [supported scenarios](trusted-security-partners.md#key-scenarios).
+10. If you want to only deploy a third-party security provider in the hub, select **Azure Firewall: Enabled/Disabled** to set it to **Disabled**. 
+11. Select  **Next: Security Partner Provider**.
+12. Set **Security Partner Provider** to **Enabled**. 
+13. Select a partner. 
+14. Select **Next: Review + create**. 
+15. Review the content and then select **Create**.
 
 The VPN gateway deployment can take more than 30 minutes.
 
@@ -61,8 +50,9 @@ Once the hub is created and the security partner is set up, continue on to conne
 
 You can also select an existing hub in a Virtual WAN and convert that to a *secured virtual hub*.
 
-1. In **Getting Started**, select **Convert Existing Hubs**.
-2. Select a subscription and an existing hub. Follow rest of the steps to deploy a third-party provider in a new hub.
+1. In **Getting Started**, select **View secured virtual hubs**.
+2. Select **Convert existing hubs**.
+3. Select a subscription and an existing hub. Follow rest of the steps to deploy a third-party provider in a new hub.
 
 Remember that a VPN gateway must be deployed to convert an existing hub to secured hub with third-party providers.
 
@@ -70,20 +60,26 @@ Remember that a VPN gateway must be deployed to convert an existing hub to secur
 
 To set up tunnels to your virtual hub’s VPN Gateway, third-party providers need access rights to your hub. To do this, associate a service principal with your subscription or resource group, and grant access rights. You then must give these credentials to the third-party using their portal.
 
+### Create and authorize a service principal
+
 1. Create Azure Active Directory (AD) service principal: You can skip the redirect URL. 
 
-   [How to: Use the portal to create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)
+   [How to: Use the portal to create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal)
 2. Add access rights and scope for the service principal.
-   [How to: Use the portal to create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)
+   [How to: Use the portal to create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal)
 
    > [!NOTE]
    > You can limit access to only your resource group for more granular control.
-3. Follow the [ZScaler: Configuring a Microsoft Azure Virtual WAN Integration](https://help.zscaler.com/zia/configuring-microsoft-azure-virtual-wan-integration) instructions to:
 
-   - Sign in to the partner portal and add your credentials to give the trusted partner access to your secured hub.
-   - Sync the virtual hubs in the partner portal, and set up the tunnel to the virtual hub. You can do so once your Azure AD authentication credentials are validated.
+### Visit partner portal
+
+1. Follow your partner provided instructions to complete the setup. This includes submitting AAD information to detect and connect to the hub, update the egress policies, and check connectivity status and logs.
+
+   - [Zscaler: Configure Microsoft Azure Virtual WAN integration](https://help.zscaler.com/zia/configuring-microsoft-azure-virtual-wan-integration).
+   - [Check Point (preview): Configure Microsoft Azure Virtual WAN integration](https://sc1.checkpoint.com/documents/Infinity_Portal/WebAdminGuides/EN/CloudGuard-Connect-Azure-Virtual-WAN/Default.htm).
+   - [iboss (preview): Configure Microsoft Azure Virtual WAN integration](https://www.iboss.com/blog/securing-microsoft-azure-with-iboss-saas-network-security). 
    
-4. You can look at the tunnel creation status on the Azure Virtual WAN portal in Azure. Once the tunnels show **connected** on both Azure and the partner portal, continue with the next steps to set up routes to select which branches and VNets should send Internet traffic to the partner.
+2. You can look at the tunnel creation status on the Azure Virtual WAN portal in Azure. Once the tunnels show **connected** on both Azure and the partner portal, continue with the next steps to set up routes to select which branches and VNets should send Internet traffic to the partner.
 
 ## Configure route settings
 
@@ -100,7 +96,7 @@ To set up tunnels to your virtual hub’s VPN Gateway, third-party providers nee
 5. You must select **secure connections** and select the connections on which these routes should be set. This indicates which VNets/branches can start sending Internet traffic to the third-party provider.
 6. From **Route settings**, select **Secure connections** under Internet traffic, then select the VNet or branches (*sites* in Virtual WAN) to be secured. Select **Secure Internet traffic**.
    ![Secure Internet traffic](media/deploy-trusted-security-partner/secure-internet-traffic.png)
-7. Navigate back to the hubs page. The hub’s **Trusted security partner** status should now be  **Secured**.
+7. Navigate back to the hubs page. The hub’s **security partner provider** status should now be  **Secured**.
 
 ## Branch or VNet Internet traffic via third-party service
 
@@ -110,8 +106,4 @@ After finishing the route setting steps, the VNet virtual machines as well as th
 
 ## Next steps
 
-- [Tutorial: Secure your cloud network with Azure Firewall Manager Preview using the Azure portal](secure-cloud-network.md)
-
-
-
-
+- [Tutorial: Secure your cloud network with Azure Firewall Manager using the Azure portal](secure-cloud-network.md)

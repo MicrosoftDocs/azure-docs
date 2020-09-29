@@ -1,5 +1,5 @@
 ---
-title: Connect to Synapse SQL using sqlcmd
+title: Connect to Synapse SQL with sqlcmd
 description: Use the sqlcmd command-line utility to connect to and query SQL on-demand (preview) and SQL pool.
 services: synapse analytics
 author: azaricstefan 
@@ -14,7 +14,6 @@ ms.reviewer: jrasnick
 # Connect to Synapse SQL with sqlcmd
 
 > [!div class="op_single_selector"]
->
 > * [Azure Data Studio (preview)](get-started-azure-data-studio.md)
 > * [Power BI](get-started-power-bi-professional.md)
 > * [Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)

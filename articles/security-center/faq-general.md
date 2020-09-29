@@ -33,14 +33,8 @@ Azure Security Center monitors the following Azure resources:
 
 * Virtual machines (VMs) (including [Cloud Services](../cloud-services/cloud-services-choose-me.md))
 * Virtual machine scale sets
-* Azure Virtual Networks
-* Containers
-* Azure SQL service
-* Azure Storage account
-* Azure Web Apps (in [App Service Environment](../app-service/environment/intro.md))
 * Partner solutions integrated with your Azure subscription such as a web application firewall on VMs and on App Service Environment
-
-In addition, non-Azure (including on-premises) machines can also be monitored by Azure Security Center. Both [Windows machines](./quick-onboard-windows-computer.md) and [Linux machines](./quick-onboard-linux-computer.md) are supported.
+* [The many Azure PaaS services listed in the product overview](features-paas.md)
 
 
 ## How can I see the current security state of my Azure resources?
@@ -55,7 +49,7 @@ The security policies enabled in Azure Security Center drive security recommenda
 
 
 ## Who can modify a security policy?
-To modify a security policy, you must be a Security Admin or an Owner or Contributor of that subscription.
+To modify a security policy, you must be a **Security Administrator** or an **Owner** of that subscription.
 
 To learn how to configure a security policy, see [Setting security policies in Azure Security Center](tutorial-security-policy.md).
 
@@ -72,7 +66,6 @@ Azure Security Center analyzes the security state of your Azure resources. When 
 Only recommendations that are enabled in Security Policies are shown here.
 
 
-
 ## What triggers a security alert?
 Azure Security Center automatically collects, analyzes, and fuses log data from your Azure resources, the network, and partner solutions like antimalware and firewalls. When threats are detected, a security alert is created. Examples include detection of:
 
@@ -80,10 +73,6 @@ Azure Security Center automatically collects, analyzes, and fuses log data from 
 * Advanced malware detected using Windows error reporting
 * Brute force attacks against virtual machines
 * Security alerts from integrated partner security solutions such as Anti-Malware or Web Application Firewalls
-
-
-## Why did Secure Score values change? <a name="secure-score-faq"></a>
-As of February 2019, Security Center adjusted the score of a few recommendations, in order to better fit their severity. As a result of this adjustment, there may be changes in overall Secure Score values.  For more information about Secure Score, see [Secure Score calculation](security-center-secure-score.md).
 
 
 ## What's the difference between threats detected and alerted on by Microsoft Security Response Center versus Azure Security Center?

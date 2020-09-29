@@ -7,7 +7,7 @@ metadata:
   description: Azure Synapse is a limitless analytics service that brings together enterprise data warehousing and Big Data analytics. It gives you the freedom to query data on your terms, using either serverless on-demand or provisioned resources—at scale. # Required; article description that is displayed in search results. < 160 chars.
   services: synapse-analytics
   ms.service: synapse-analytics #Required; service per approved list. service slug assigned to your service by ACOM.
-  ms.subservice: 
+  ms.subservice: sql-dw 
   ms.topic: landing-page # Required
   ms.collection: collection
   author: julieMSFT #Required; your GitHub user alias, with correct capitalization.
@@ -36,11 +36,11 @@ landingContent:
             url: https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/data/enterprise-bi-synapse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
 
   # Card (optional)
-  - title: About Azure Synapse Analytics (workspace preview) 
+  - title: About Azure Synapse Analytics (workspaces preview) 
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure Synapse (workspace preview)
+          - text: What is Azure Synapse (workspaces preview)
             url: ../overview-what-is.md
           - text: Tips and best practices
             url: ../overview-cheat-sheet.md
@@ -66,6 +66,8 @@ landingContent:
         links:
           - text: Fast data ingestion with the COPY statement
             url: quickstart-bulk-load-copy-tsql.md
+          - text: COPY statement examples
+            url: quickstart-bulk-load-copy-tsql-examples.md
       - linkListType: concept
         links:
           - text: Design data loading strategy

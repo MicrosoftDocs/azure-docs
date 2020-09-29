@@ -1,6 +1,6 @@
 ---
 title: Azure AD Connect Multiple Domains
-description: This document describes setting up and configuring multiple top level domains with O365 and Azure AD.
+description: This document describes setting up and configuring multiple top level domains with Microsoft 365 and Azure AD.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -12,7 +12,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/31/2017
 ms.subservice: hybrid
 ms.author: billmath
@@ -20,7 +20,7 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 # Multiple Domain Support for Federating with Azure AD
-The following documentation provides guidance on how to use multiple top-level domains and subdomains when federating with Office 365 or Azure AD domains.
+The following documentation provides guidance on how to use multiple top-level domains and subdomains when federating with Microsoft 365 or Azure AD domains.
 
 ## Multiple top-level domain support
 Federating multiple, top-level domains with Azure AD requires some additional configuration that is not required when federating with one top-level domain.
@@ -38,7 +38,7 @@ You can view the IssuerUri by using the PowerShell command `Get-MsolDomainFedera
 
 A problem arises when you add more than one top-level domain.  For example, let's say you have set up federation between Azure AD and your on-premises environment.  For this document, the domain, bmcontoso.com is being used.  Now a second, top-level domain, bmfabrikam.com has been added.
 
-![Domains](./media/how-to-connect-install-multiple-domains/domains.png)
+![An screenshot showing multiple top-level domains](./media/how-to-connect-install-multiple-domains/domains.png)
 
 When you attempt to convert the bmfabrikam.com domain to be federated, an error occurs.  The reason is, Azure AD has a constraint that does not allow the IssuerUri property to have the same value for more than one domain.  
 
@@ -63,13 +63,15 @@ Looking at the settings for the bmfabrikam.com domain you can see the following:
 
 Another thing that `-SupportMultipleDomain` does is that it ensures that the AD FS system includes the proper Issuer value in tokens issued for Azure AD. This value is set by taking the domain portion of the users UPN and setting it as the domain in the IssuerUri, i.e. https://{upn suffix}/adfs/services/trust.
 
-Thus during authentication to Azure AD or Office 365, the IssuerUri element in the user’s token is used to locate the domain in Azure AD.  If, a match cannot be found, the authentication will fail.
+Thus during authentication to Azure AD or Microsoft 365, the IssuerUri element in the user’s token is used to locate the domain in Azure AD. If, a match cannot be found, the authentication will fail.
 
 For example, if a user’s UPN is bsimon@bmcontoso.com, the IssuerUri element in the token, AD FS issues, will be set to `http://bmcontoso.com/adfs/services/trust`. This element will match the Azure AD configuration, and authentication will succeed.
 
 The following is the customized claim rule that implements this logic:
 
-    c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)", "http://${domain}/adfs/services/trust/"));
+```
+c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)", "http://${domain}/adfs/services/trust/"));
+```
 
 
 > [!IMPORTANT]
@@ -100,14 +102,14 @@ Use the following steps to remove the Microsoft Online trust and update your ori
 2. On the left, expand **Trust Relationships** and **Relying Party Trusts**
 3. On the right, delete the **Microsoft Office 365 Identity Platform** entry.
    ![Remove Microsoft Online](./media/how-to-connect-install-multiple-domains/trust4.png)
-4. On a machine that has [Azure Active Directory Module for Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx) installed on it run the following: `$cred=Get-Credential`.  
+4. On a machine that has [Azure Active Directory Module for Windows PowerShell](/previous-versions/azure/jj151815(v=azure.100)) installed on it run the following: `$cred=Get-Credential`.  
 5. Enter the username and password of a global administrator for the Azure AD domain you are federating with.
 6. In PowerShell, enter `Connect-MsolService -Credential $cred`
 7. In PowerShell, enter `Update-MSOLFederatedDomain -DomainName <Federated Domain Name> -SupportMultipleDomain`.  This update is for the original domain.  So using the above domains it would be:  `Update-MsolFederatedDomain -DomainName bmcontoso.com -SupportMultipleDomain`
 
 Use the following steps to add the new top-level domain using PowerShell
 
-1. On a machine that has [Azure Active Directory Module for Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx) installed on it run the following: `$cred=Get-Credential`.  
+1. On a machine that has [Azure Active Directory Module for Windows PowerShell](/previous-versions/azure/jj151815(v=azure.100)) installed on it run the following: `$cred=Get-Credential`.  
 2. Enter the username and password of a global administrator for the Azure AD domain you are federating with
 3. In PowerShell, enter `Connect-MsolService -Credential $cred`
 4. In PowerShell, enter `New-MsolFederatedDomain –SupportMultipleDomain –DomainName`
@@ -141,7 +143,9 @@ In order to work around this behavior, the AD FS relying party trust for Microso
 
 The following claim will do this:
 
-    c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, "^.*@([^.]+\.)*?(?<domain>([^.]+\.?){2})$", "http://${domain}/adfs/services/trust/"));
+```    
+c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, "^.*@([^.]+\.)*?(?<domain>([^.]+\.?){2})$", "http://${domain}/adfs/services/trust/"));
+```
 
 [!NOTE]
 The last number in the regular expression set is how many parent domains there are in your root domain. Here bmcontoso.com is used, so two parent domains are necessary. If three parent domains were to be kept (i.e.: corp.bmcontoso.com), then the number would have been three. Eventually a range can be indicated, the match will always be made to match the maximum of domains. "{2,3}" will match two to three domains (i.e.: bmfabrikam.com and corp.bmcontoso.com).
@@ -154,11 +158,14 @@ Use the following steps to add a custom claim to support subdomains.
    ![Edit claim](./media/how-to-connect-install-multiple-domains/sub1.png)
 4. Replace the current claim:
 
-        c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)","http://${domain}/adfs/services/trust/"));
+   ```
+   c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)","http://${domain}/adfs/services/trust/"));
+   ```
+    with
 
-       with
-
-        c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, "^.*@([^.]+\.)*?(?<domain>([^.]+\.?){2})$", "http://${domain}/adfs/services/trust/"));
+   ```
+   c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, "^.*@([^.]+\.)*?(?<domain>([^.]+\.?){2})$", "http://${domain}/adfs/services/trust/"));
+   ```
 
     ![Replace claim](./media/how-to-connect-install-multiple-domains/sub2.png)
 

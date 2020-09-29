@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Vtiger CRM (SAML) | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Vtiger CRM (SAML).
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: f14e34a6-f51f-4cd1-a6ad-f04df551303d
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Integrate Vtiger CRM (SAML) with Azure Active Directory
@@ -82,11 +75,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	a. In the **Sign on URL** text box, type a URL using the following pattern:
 
-    | | |
-    | - |- |
-    | `https://<customer_instance>.od1.vtiger.com` |
-    | `https://<customer_instance>.od2.vtiger.com` |
-    | `https://<customer_instance>.od1.vtiger.ws` |
+   - `https://<customer_instance>.od1.vtiger.com`
+   - `https://<customer_instance>.od2.vtiger.com`
+   - `https://<customer_instance>.od1.vtiger.ws`
 
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
     `https://<customer_instance>.od1.vtiger.com/sso/saml?acs`

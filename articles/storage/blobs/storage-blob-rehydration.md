@@ -1,6 +1,6 @@
 ---
 title: Rehydrate blob data from the archive tier
-description: Rehydrate your blobs from archive storage so you can access the data.
+description: Rehydrate your blobs from archive storage so you can access the blob data. Copy an archived blob to an online tier.
 services: storage
 author: mhopkins-msft
 
@@ -30,6 +30,9 @@ While a blob is in the archive access tier, it's considered offline and can't be
 If you don't want to rehydrate your archive blob, you can choose to do a [Copy Blob](https://docs.microsoft.com/rest/api/storageservices/copy-blob) operation. Your original blob will remain unmodified in archive while a new blob is created in the online hot or cool tier for you to work on. In the Copy Blob operation, you may also set the optional *x-ms-rehydrate-priority* property to Standard or High to specify the priority at which you want your blob copy created.
 
 Copying a blob from archive can take hours to complete depending on the rehydrate priority selected. Behind the scenes, the **Copy Blob** operation reads your archive source blob to create a new online blob in the selected destination tier. The new blob may be visible when you list blobs but the data is not available until the read from the source archive blob is complete and data is written to the new online destination blob. The new blob is as an independent copy and any modification or deletion to it does not affect the source archive blob.
+
+> [!IMPORTANT]
+> Do not delete the the source blob until the copy is completed successfully at the destination. If the source blob is deleted then the destination blob may not complete copying and will be empty. You may check the *x-ms-copy-status* to determine the state of the copy operation.
 
 Archive blobs can only be copied to online destination tiers within the same storage account. Copying an archive blob to another archive blob is not supported. The following table indicates CopyBlob's capabilities.
 
@@ -87,10 +90,10 @@ $storageAccount =Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountN
 $ctx = $storageAccount.Context
 
 #Select the blob from a container
-$blobs = Get-AzStorageBlob -Container $containerName -Blob $blobName -Context $context
+$blob = Get-AzStorageBlob -Container $containerName -Blob $blobName -Context $ctx
 
 #Change the blob’s access tier to Hot using Standard priority rehydrate
-$blob.ICloudBlob.SetStandardBlobTier("Hot", “Standard”)
+$blob.ICloudBlob.SetStandardBlobTier("Hot", "Standard")
 ```
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: Manage connections in Azure Automation
-description: Connection assets in Azure Automation contain the information required to connect to an external service or application from a runbook or DSC configuration. This article explains the details of connections and how to work with them in both textual and graphical authoring.
+description: This article tells how to manage Azure Automation connections to external services or applications and how to work with them in runbooks.
 services: automation
 ms.subservice: shared-capabilities
 ms.date: 01/13/2020
@@ -22,9 +22,6 @@ When you create a connection, you must specify a connection type. The connection
 >[!NOTE]
 >Secure assets in Azure Automation include credentials, certificates, connections, and encrypted variables. These assets are encrypted and stored in Azure Automation using a unique key that is generated for each Automation account. Azure Automation stores the key in the system-managed Key Vault. Before storing a secure asset, Automation loads the key from Key Vault and then uses it to encrypt the asset. 
 
->[!NOTE]
->This article has been updated to use the new Azure PowerShell Az module. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020. To learn more about the new Az module and AzureRM compatibility, see [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). For Az module installation instructions on your Hybrid Runbook Worker, see [Install the Azure PowerShell Module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). For your Automation account, you can update your modules to the latest version using [How to update Azure PowerShell modules in Azure Automation](automation-update-azure-modules.md).
-
 ## Connection types
 
 Azure Automation makes the following built-in connection types available:
@@ -41,10 +38,10 @@ The cmdlets in the following table create and manage Automation connections with
 
 |Cmdlet|Description|
 |---|---|
-|[Get-AzAutomationConnection](https://docs.microsoft.com/powershell/module/az.automation/get-azautomationconnection?view=azps-3.7.0)|Retrieves information about a connection.|
-|[New-AzAutomationConnection](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationconnection?view=azps-3.7.0)|Creates a new connection.|
-|[Remove-AzAutomationConnection](https://docs.microsoft.com/powershell/module/Az.Automation/Remove-AzAutomationConnection?view=azps-3.7.0)|Removes an existing connection.|
-|[Set-AzAutomationConnectionFieldValue](https://docs.microsoft.com/powershell/module/Az.Automation/Set-AzAutomationConnectionFieldValue?view=azps-3.7.0)|Sets the value of a particular field for an existing connection.|
+|[Get-AzAutomationConnection](/powershell/module/az.automation/get-azautomationconnection?view=azps-3.7.0)|Retrieves information about a connection.|
+|[New-AzAutomationConnection](/powershell/module/az.automation/new-azautomationconnection?view=azps-3.7.0)|Creates a new connection.|
+|[Remove-AzAutomationConnection](/powershell/module/Az.Automation/Remove-AzAutomationConnection?view=azps-3.7.0)|Removes an existing connection.|
+|[Set-AzAutomationConnectionFieldValue](/powershell/module/Az.Automation/Set-AzAutomationConnectionFieldValue?view=azps-3.7.0)|Sets the value of a particular field for an existing connection.|
 
 ## Internal cmdlets to access connections
 
@@ -139,7 +136,7 @@ You can add an activity for the internal `Get-AutomationConnection` cmdlet to a 
 
 ![add to canvas](media/automation-connections/connection-add-canvas.png)
 
-The following image shows an example of using a connection object in a graphical runbook. This example uses the `Constant value` data set for the `Get RunAs Connection` activity, which uses a connection object for authentication. A [pipeline link](automation-graphical-authoring-intro.md#links-and-workflow) is used here since the `ServicePrincipalCertificate` parameter set is expecting a single object.
+The following image shows an example of using a connection object in a graphical runbook. This example uses the `Constant value` data set for the `Get RunAs Connection` activity, which uses a connection object for authentication. A [pipeline link](automation-graphical-authoring-intro.md#use-links-for-workflow) is used here since the `ServicePrincipalCertificate` parameter set is expecting a single object.
 
 ![get connections](media/automation-connections/automation-get-connection-object.png)
 

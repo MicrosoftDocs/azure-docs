@@ -1,8 +1,8 @@
 ﻿---
 title:  Supported data format details | Microsoft Azure Maps
 description: Learn how delimited spatial data is parsed in the spatial IO module.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 03/03/2020
 ms.topic: conceptual
 ms.service: azure-maps

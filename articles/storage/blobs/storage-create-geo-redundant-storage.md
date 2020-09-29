@@ -1,16 +1,16 @@
 ---
 title: Tutorial - Build a highly available application with Blob storage
 titleSuffix: Azure Storage
-description: Use read-access geo-redundant storage to make your application data highly available.
+description: Use read-access geo-zone-redundant (RA-GZRS) storage to make your application data highly available.
 services: storage
 author: tamram
 
 ms.service: storage
 ms.topic: tutorial
-ms.date: 02/10/2020
+ms.date: 04/16/2020
 ms.author: tamram
 ms.reviewer: artek
-ms.custom: mvc
+ms.custom: "mvc, devx-track-python, devx-track-js, devx-track-csharp"
 ms.subservice: blobs
 #Customer intent: As a developer, I want to have my data be highly available, so that in the event of a disaster I may retrieve it.
 ---
@@ -19,9 +19,9 @@ ms.subservice: blobs
 
 This tutorial is part one of a series. In it, you learn how to make your application data highly available in Azure.
 
-When you've completed this tutorial, you will have a console application that uploads and retrieves a blob from a [read-access geo-redundant](../common/storage-redundancy.md) (RA-GRS) storage account.
+When you've completed this tutorial, you will have a console application that uploads and retrieves a blob from a [read-access geo-zone-redundant](../common/storage-redundancy.md) (RA-GZRS) storage account.
 
-RA-GRS works by replicating transactions from a primary region to a secondary region. This replication process guarantees that the data in the secondary region is eventually consistent. The application uses the [Circuit Breaker](/azure/architecture/patterns/circuit-breaker) pattern to determine which endpoint to connect to, automatically switching between endpoints as failures and recoveries are simulated.
+Geo-redundancy in Azure Storage replicates transactions asynchronously from a primary region to a secondary region that is hundreds of miles away. This replication process guarantees that the data in the secondary region is eventually consistent. The console application uses the [circuit breaker](/azure/architecture/patterns/circuit-breaker) pattern to determine which endpoint to connect to, automatically switching between endpoints as failures and recoveries are simulated.
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -61,25 +61,24 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 A storage account provides a unique namespace to store and access your Azure Storage data objects.
 
-Follow these steps to create a read-access geo-redundant storage account:
+Follow these steps to create a read-access geo-zone-redundant (RA-GZRS) storage account:
 
-1. Select the **Create a resource** button found on the upper left-hand corner of the Azure portal.
-2. Select **Storage** from the **New** page.
-3. Select **Storage account - blob, file, table, queue** under **Featured**.
+1. Select the **Create a resource** button in the Azure portal.
+2. Select **Storage account - blob, file, table, queue** from the **New** page.
 4. Fill out the storage account form with the following information, as shown in the following image and select **Create**:
 
-   | Setting       | Suggested value | Description |
+   | Setting       | Sample value | Description |
    | ------------ | ------------------ | ------------------------------------------------- |
-   | **Name** | mystorageaccount | A unique value for your storage account |
-   | **Deployment model** | Resource Manager  | Resource Manager contains the latest features.|
-   | **Account kind** | StorageV2 | For details on the types of accounts, see [types of storage accounts](../common/storage-introduction.md#types-of-storage-accounts) |
-   | **Performance** | Standard | Standard is sufficient for the example scenario. |
-   | **Replication**| Read-access geo-redundant storage (RA-GRS) | This is necessary for the sample to work. |
-   |**Subscription** | your subscription |For details about your subscriptions, see [Subscriptions](https://account.azure.com/Subscriptions). |
-   |**ResourceGroup** | myResourceGroup |For valid resource group names, see [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming). |
-   |**Location** | East US | Choose a location. |
+   | **Subscription** | *My subscription* | For details about your subscriptions, see [Subscriptions](https://account.azure.com/Subscriptions). |
+   | **ResourceGroup** | *myResourceGroup* | For valid resource group names, see [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming). |
+   | **Name** | *mystorageaccount* | A unique name for your storage account. |
+   | **Location** | *East US* | Choose a location. |
+   | **Performance** | *Standard* | Standard performance is a good option for the example scenario. |
+   | **Account kind** | *StorageV2* | Using a general-purpose v2 storage account is recommended. For more information on types of Azure storage accounts, see [Storage account overview](../common/storage-account-overview.md). |
+   | **Replication**| *Read-access geo-zone-redundant storage (RA-GZRS)* | The primary region is zone-redundant and is replicated to a secondary region, with read access to the secondary region enabled. |
+   | **Access tier**| *Hot* | Use the hot tier for frequently-accessed data. |
 
-![create storage account](media/storage-create-geo-redundant-storage/createragrsstracct.png)
+    ![create storage account](media/storage-create-geo-redundant-storage/createragrsstracct.png)
 
 ## Download the sample
 
@@ -170,7 +169,7 @@ Install the required dependencies. To do this, open a command prompt, navigate t
 
 In Visual Studio, press **F5** or select **Start** to begin debugging the application. Visual studio automatically restores missing NuGet packages if configured, visit [Installing and reinstalling packages with package restore](https://docs.microsoft.com/nuget/consume-packages/package-restore#package-restore-overview) to learn more.
 
-A console window launches and the application begins running. The application uploads the **HelloWorld.png** image from the solution to the storage account. The application checks to ensure the image has replicated to the secondary RA-GRS endpoint. It then begins downloading the image up to 999 times. Each read is represented by a **P** or an **S**. Where **P** represents the primary endpoint and **S** represents the secondary endpoint.
+A console window launches and the application begins running. The application uploads the **HelloWorld.png** image from the solution to the storage account. The application checks to ensure the image has replicated to the secondary RA-GZRS endpoint. It then begins downloading the image up to 999 times. Each read is represented by a **P** or an **S**. Where **P** represents the primary endpoint and **S** represents the secondary endpoint.
 
 ![Console app running](media/storage-create-geo-redundant-storage/figure3.png)
 
@@ -178,7 +177,7 @@ In the sample code, the `RunCircuitBreakerAsync` task in the `Program.cs` file i
 
 # [Python](#tab/python)
 
-To run the application on a terminal or command prompt, go to the **circuitbreaker.py** directory, then enter `python circuitbreaker.py`. The application uploads the **HelloWorld.png** image from the solution to the storage account. The application checks to ensure the image has replicated to the secondary RA-GRS endpoint. It then begins downloading the image up to 999 times. Each read is represented by a **P** or an **S**. Where **P** represents the primary endpoint and **S** represents the secondary endpoint.
+To run the application on a terminal or command prompt, go to the **circuitbreaker.py** directory, then enter `python circuitbreaker.py`. The application uploads the **HelloWorld.png** image from the solution to the storage account. The application checks to ensure the image has replicated to the secondary RA-GZRS endpoint. It then begins downloading the image up to 999 times. Each read is represented by a **P** or an **S**. Where **P** represents the primary endpoint and **S** represents the secondary endpoint.
 
 ![Console app running](media/storage-create-geo-redundant-storage/figure3.png)
 
@@ -340,9 +339,9 @@ const pipeline = StorageURL.newPipeline(sharedKeyCredential, {
 
 ## Next steps
 
-In part one of the series, you learned about making an application highly available with RA-GRS storage accounts.
+In part one of the series, you learned about making an application highly available with RA-GZRS storage accounts.
 
-Advance to part two of the series to learn how to simulate a failure and force your application to use the secondary RA-GRS endpoint.
+Advance to part two of the series to learn how to simulate a failure and force your application to use the secondary RA-GZRS endpoint.
 
 > [!div class="nextstepaction"]
-> [Simulate a failure in reading from the primary region](storage-simulate-failure-ragrs-account-app.md)
+> [Simulate a failure in reading from the primary region](simulate-primary-region-failure.md)

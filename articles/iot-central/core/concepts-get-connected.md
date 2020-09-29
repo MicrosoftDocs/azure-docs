@@ -3,12 +3,12 @@ title: Device connectivity in Azure IoT Central | Microsoft Docs
 description: This article introduces key concepts relating to device connectivity in Azure IoT Central
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/09/2019
+ms.date: 06/26/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.custom:  [amqp, mqtt]
+ms.custom:  [amqp, mqtt, device-developer]
 
 ---
 
@@ -67,27 +67,56 @@ Use the connection information from the export file in your device code to enabl
 
 In a production environment, using X.509 certificates is the recommended device authentication mechanism for IoT Central. To learn more, see [Device Authentication using X.509 CA Certificates](../../iot-hub/iot-hub-x509ca-overview.md).
 
-Before you connect a device with an X.509 certificate, add and verify an intermediate or root X.509 certificate in your application. Devices must use leaf X.509 certificates generated from the root or intermediate certificate.
+To connect a device with an X.509 certificate to your application:
 
-### Add and verify a root or intermediate certificate
+1. Create an *enrollment group* that uses the **Certificates (X.509)** attestation type.
+2. Add and verify an intermediate or root X.509 certificate in the enrollment group.
+3. Register and connect devices that use leaf X.509 certificates generated from the root or intermediate certificate in the enrollment group.
 
-Navigate to **Administration > Device Connection > Manage primary certificate** and add the X.509 root or intermediate certificate you're using to generate the device certificates.
+### Create an enrollment group
 
-![Connection settings](media/concepts-get-connected/manage-x509-certificate.png)
+An [enrollment group](../../iot-dps/concepts-service.md#enrollment) is a group of devices that share the same attestation type. The two supported attestation types are X.509 certificates and SAS:
 
-Verifying certificate ownership ensures that the person uploading the certificate has the certificate's private key. To verify the certificate:
+- In an X.509 enrollment group, all the devices that connect to IoT Central use leaf X.509 certificates generated from the root or intermediate certificate in the enrollment group.
+- In a SAS enrollment group, all the devices that connect to IoT Central use a SAS token generated from the SAS token in the enrollment group.
 
-  1. Select the button next to **Verification Code** to generate a code.
-  1. Create an X.509 verification certificate with the verification code you generated in the previous step. Save the certificate as a .cer file.
-  1. Upload the signed verification certificate and select **Verify**. The certificate is marked as **Verified** when the verification is successful.
+The two default enrollment groups in every IoT Central application are SAS enrollment groups - one for IoT devices, and one for Azure IoT Edge devices. To create an X.509 enrollment group, navigate to the **Device connection** page and select **+ Add enrollment group**:
+
+:::image type="content" source="media/concepts-get-connected/add-enrollment-group.png" alt-text="Add an X.509 enrollment group screenshot":::
+
+### Add and verify a root or intermediate X.509 certificate
+
+To add and verify a root or intermediate certificate to your enrollment group:
+
+1. Navigate to the X.509 enrollment group you just created. You have the option to add both primary and secondary X.509 certificates. Select **+ Manage primary**.
+
+1. On the **Primary certificate page**, upload your primary X.509 certificate. This is your root or intermediate certificate:
+
+    :::image type="content" source="media/concepts-get-connected/upload-primary-certificate.png" alt-text="Primary certificate screenshot":::
+
+1. Use the **Verification code** to generate a verification code in the tool you're using. Then select **Verify** to upload the verification certificate.
+
+1. When the verification is successful, you see the following confirmation:
+
+    :::image type="content" source="media/concepts-get-connected/verified-primary-certificate.png" alt-text="Verified primary certificate screenshot":::
+
+Verifying certificate ownership ensures that the person uploading the certificate has the certificate's private key.
 
 If you have a security breach or your primary certificate is set to expire, use the secondary certificate to reduce downtime. You can continue to provision devices using the secondary certificate while you update the primary certificate.
 
 ### Register and connect devices
 
-To bulk connect devices using X.509 certificates, first register the devices in your application, by using a CSV file to [import the device IDs and device names](howto-manage-devices.md#import-devices). The device IDs should all be in lower case.
+To bulk connect devices using X.509 certificates, first register the devices in your application by using a CSV file to [import the device IDs and device names](howto-manage-devices.md#import-devices). The device IDs should all be in lower case.
 
-Generate X.509 leaf certificates for your devices using the uploaded root or intermediate certificate. Use the **Device ID** as the `CNAME` value in the leaf certificates. Your device code needs the **ID scope** value for your application, the **device ID**, and the corresponding device certificate.
+Generate X.509 leaf certificates for your devices using the root or intermediate certificate you uploaded to your X.509 enrollment group. Use the **Device ID** as the `CNAME` value in the leaf certificates. Your device code needs the **ID scope** value for your application, the **device ID**, and the corresponding device certificate.
+
+#### Sample device code
+
+The following sample from the [Azure IoT Node.JS SDK](https://github.com/Azure/azure-iot-sdk-node/blob/master/provisioning/device/samples/register_x509.js) shows how a Node.js device client uses an X.509 leaf certificate and DPS to register with an IoT Central application:
+
+:::code language="nodejs" source="~/azure-iot-sdk-node/provisioning/device/samples/register_x509.js":::
+
+For an equivalent C sample, see [prov_dev_client_sample.c](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample.c) in the [Azure IoT C Provisioning Device Client SDK](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md).
 
 ### For testing purposes only
 
@@ -101,11 +130,6 @@ For testing only, you can use the following utilities to generate root, intermed
   - Use the verification code from the IoT Central application to generate the verification certificate.
   - Create leaf certificates for your devices using your device IDs as a parameter to the tool.
 
-### Further reference
-
-- [Sample implementation for RaspberryPi](https://aka.ms/iotcentral-docs-Raspi-releases)
-- [Sample device client in C](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md)
-
 ## Connect without registering devices
 
 The previously described scenarios all require you to register devices in your application before they connect. IoT Central also enables OEMs to mass manufacture devices that can connect without first being registered. An OEM generates suitable device credentials, and configures the devices in the factory. When a customer turns on a device for the first time, it connects to DPS, which then automatically connects the device to the correct IoT Central application. An IoT Central operator must approve the device before it starts sending data to the application.
@@ -114,14 +138,14 @@ The flow is slightly different depending on whether the devices use SAS tokens o
 
 ### Connect devices that use SAS tokens without registering
 
-1. Copy the IoT Central application's group primary key:
+1. Copy the group primary key from the **SAS-IoT-Devices** enrollment group:
 
-    ![Application group primary SAS key](media/concepts-get-connected/group-sas-keys.png)
+    :::image type="content" source="media/concepts-get-connected/group-primary-key.png" alt-text="Group primary key from SAS-IoT-Devices enrollment group":::
 
-1. Use the [dps-keygen](https://www.npmjs.com/package/dps-keygen) tool to generate the device SAS keys. Use the group primary key from the previous step. The device IDs must be lower-case:
+1. Use the `az iot central device compute-device-key` command to generate the device SAS keys. Use the group primary key from the previous step. The device IDs must be lower-case:
 
-    ```cmd
-    dps-keygen -mk:<group primary key> -di:<device ID>
+    ```azurecli
+    az iot central device compute-device-key --primary-key <enrollment group primary key> --device-id <device ID>
     ```
 
 1. The OEM flashes each device with a device ID, a generated device SAS key, and the application **ID scope** value.
@@ -137,11 +161,11 @@ The flow is slightly different depending on whether the devices use SAS tokens o
 
 ### Connect devices that use X.509 certificates without registering
 
-1. [Add and verify a root or intermediate X.509 certificate](#connect-devices-using-x509-certificates) to your IoT Central application.(#connect-devices-using-x509-certificates)
+1. [Create an enrollment group](#create-an-enrollment-group) and then [Add and verify a root or intermediate X.509 certificate](#add-and-verify-a-root-or-intermediate-x509-certificate) to your IoT Central application.
 
 1. Generate the leaf-certificates for your devices using the root or intermediate certificate you added to your IoT Central application. Use lower-case device IDs as the `CNAME` in the leaf certificates.
 
-1. The OEM flashes each device with a device ID, a generated left X.509 certificate, and the application **ID scope** value.
+1. The OEM flashes each device with a device ID, a generated leaf X.509 certificate, and the application **ID scope** value.
 
 1. When you switch on a device, it first connects to DPS to retrieve its IoT Central registration information.
 
@@ -184,13 +208,13 @@ One of the key features of IoT Central is the ability to associate device templa
 
 The following snippets show the format of the additional payload the device must send during the DPS registration call for automatic association to work.
 
-This is the format for devices that use the generally available device SDK that doesn't support IoT Plug and Play:
+This is the format for devices that use the generally available device SDK:
 
 ```javascript
     iotcModelId: '< this is the URN for the capability model>';
 ```
 
-This is the format for devices using public preview device SDK that does support IoT Plug and Play:
+This is the format for devices using public preview device SDK:
 
 ```javascript
 '__iot:interfaces': {
@@ -251,8 +275,6 @@ The following table summarizes how Azure IoT Central device features map on to I
 | Property | Device twin reported properties |
 | Property (writeable) | Device twin desired and reported properties |
 | Command | Direct methods |
-
-To learn more about using the Device SDKs, see [Connect a DevDiv kit device to your Azure IoT Central application](howto-connect-devkit.md) for example code.
 
 ### Protocols
 

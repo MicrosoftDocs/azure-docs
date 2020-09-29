@@ -1,6 +1,6 @@
 ---
 title: Upload files into an Azure Media Services account using REST  | Microsoft Docs
-description: Learn how to get media content into Media Services by creating and uploading assets.
+description: Learn how to get media content into Media Services by creating and uploading assets using REST.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -16,14 +16,17 @@ ms.date: 03/20/2019
 ms.author: juliako
 
 ---
-# Upload files into a Media Services account using REST  
+# Upload files into a Media Services account using REST
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-upload-files.md)
 > * [REST](media-services-rest-upload-files.md)
 > * [Portal](media-services-portal-upload-files.md)
 > 
 
-In Media Services, you upload your digital files into an asset. The [Asset](https://docs.microsoft.com/rest/api/media/operations/asset) entity can contain video, audio, images, thumbnail collections, text tracks and closed caption files (and the metadata about these files.)  Once the files are uploaded into the asset, your content is stored securely in the cloud for further processing and streaming. 
+In Media Services, you upload your digital files into an asset. The [Asset](/rest/api/media/operations/asset) entity can contain video, audio, images, thumbnail collections, text tracks and closed caption files (and the metadata about these files.)  Once the files are uploaded into the asset, your content is stored securely in the cloud for further processing and streaming. 
 
 In this tutorial, you learn how to upload a file and other operation associated with it:
 
@@ -41,7 +44,7 @@ In this tutorial, you learn how to upload a file and other operation associated 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 - [Create an Azure Media Services account using the Azure portal](media-services-portal-create-account.md).
 - Review the [Accessing Azure Media Services API with AAD authentication overview](media-services-use-aad-auth-to-access-ams-api.md) article.
-- Also for more information Review the [Use Azure AD authentication to access the Media Services API with REST](https://docs.microsoft.com/azure/media-services/previous/media-services-rest-connect-with-aad) article.
+- Also for more information Review the [Use Azure AD authentication to access the Media Services API with REST](./media-services-rest-connect-with-aad.md) article.
 - Configure **Postman** as described in [Configure Postman for Media Services REST API calls](media-rest-apis-with-postman.md).
 
 ## Considerations
@@ -102,7 +105,7 @@ For steps on how to set up Postman for this tutorial, see [Configure Postman](me
 >[!NOTE]
 >There is a limit of 1,000,000 policies for different AMS policies (for example, for Locator policy or ContentKeyAuthorizationPolicy). You should use the same policy ID if you are always using the same days / access permissions, for example, policies for locators that are intended to remain in place for a long time (non-upload policies). For more information, see [this](media-services-dotnet-manage-entities.md#limit-access-policies) article.
 
-Before uploading any files into blob storage, set the access policy rights for writing to an asset. To do that, POST an HTTP request to the AccessPolicies entity set. Define a DurationInMinutes value upon creation or you receive a 500 Internal Server error message back in response. For more information on AccessPolicies, see [AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy).
+Before uploading any files into blob storage, set the access policy rights for writing to an asset. To do that, POST an HTTP request to the AccessPolicies entity set. Define a DurationInMinutes value upon creation or you receive a 500 Internal Server error message back in response. For more information on AccessPolicies, see [AccessPolicy](/rest/api/media/operations/accesspolicy).
 
 ### Create an access policy
 
@@ -117,7 +120,7 @@ Before uploading any files into blob storage, set the access policy rights for w
 
 ### Overview
 
-An [asset](https://docs.microsoft.com/rest/api/media/operations/asset) is a container for multiple types or sets of objects in Media Services, including video, audio, images, thumbnail collections, text tracks, and closed caption files. In the REST API, creating an Asset requires sending POST request to Media Services and placing any property information about your asset in the request body.
+An [asset](/rest/api/media/operations/asset) is a container for multiple types or sets of objects in Media Services, including video, audio, images, thumbnail collections, text tracks, and closed caption files. In the REST API, creating an Asset requires sending POST request to Media Services and placing any property information about your asset in the request body.
 
 One of the properties that you can add when creating an asset is **Options**. You can specify one of the following encryption options: **None** (default, no encryption is used), **StorageEncrypted** (for content that has been pre-encrypted with client-side storage encryption), **CommonEncryptionProtected**, or **EnvelopeEncryptionProtected**. When you have an encrypted asset, you need to configure a delivery policy. For more information, see [Configuring asset delivery policies](media-services-rest-configure-asset-delivery-policy.md).
 
@@ -140,13 +143,13 @@ In this example, we are creating an unencrypted asset.
 
 Once you have the AccessPolicy and Locator set, the actual file is uploaded to an Azure Blob Storage container using the Azure Storage REST APIs. You must upload the files as block blobs. Page blobs are not supported by Azure Media Services.  
 
-For more information on working with Azure storage blobs, see [Blob Service REST API](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API).
+For more information on working with Azure storage blobs, see [Blob Service REST API](/rest/api/storageservices/blob-service-rest-api).
 
-To receive the actual upload URL, create a SAS Locator (shown below). Locators define the start time and type of connection endpoint for clients that want to access Files in an Asset. You can create multiple Locator entities for a given AccessPolicy and Asset pair to handle different client requests and needs. Each of these Locators uses the StartTime value plus the DurationInMinutes value of the AccessPolicy to determine the length of time a URL can be used. For more information, see [Locator](https://docs.microsoft.com/rest/api/media/operations/locator).
+To receive the actual upload URL, create a SAS Locator (shown below). Locators define the start time and type of connection endpoint for clients that want to access Files in an Asset. You can create multiple Locator entities for a given AccessPolicy and Asset pair to handle different client requests and needs. Each of these Locators uses the StartTime value plus the DurationInMinutes value of the AccessPolicy to determine the length of time a URL can be used. For more information, see [Locator](/rest/api/media/operations/locator).
 
 A SAS URL has the following format:
 
-    {https://myaccount.blob.core.windows.net}/{asset name}/{video file name}?{SAS signature}
+`{https://myaccount.blob.core.windows.net}/{asset name}/{video file name}?{SAS signature}`
 
 ### Considerations
 
@@ -171,9 +174,9 @@ Some considerations apply:
 
 Now that you have the upload URL, you need to write some code using the Azure Blob APIs directly to upload your file to the SAS container. For more information, see the following articles:
 
-- [Using the Azure Storage REST API](https://docs.microsoft.com/azure/storage/common/storage-rest-api-auth?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-- [PUT Blob](https://docs.microsoft.com/rest/api/storageservices/put-blob)
-- [Upload blobs to Blob storage](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy#upload-blobs-to-blob-storage)
+- [Using the Azure Storage REST API](../../storage/common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- [PUT Blob](/rest/api/storageservices/put-blob)
+- [Upload blobs to Blob storage](/previous-versions/azure/storage/storage-use-azcopy#upload-blobs-to-blob-storage)
 
 ### Upload a file with Postman
 
@@ -205,22 +208,23 @@ The file should be uploaded and its metadata set.
 
 ## Validate
 
-To validate that the file has been uploaded successfully, you might want to query the [AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) and compare the **ContentFileSize** (or other details) to what you expect to see in the new asset. 
+To validate that the file has been uploaded successfully, you might want to query the [AssetFile](/rest/api/media/operations/assetfile) and compare the **ContentFileSize** (or other details) to what you expect to see in the new asset. 
 
 For example, the following **GET** operation brings file data for your asset file (in or case, the BigBuckBunny.mp4 file). The query is using the [environment variables](postman-environment.md) that you set earlier.
 
-    {{RESTAPIEndpoint}}/Assets('{{LastAssetId}}')/Files
+`{{RESTAPIEndpoint}}/Assets('{{LastAssetId}}')/Files`
 
 Response will contain size, name, and other information.
 
-    "Id": "nb:cid:UUID:69e72ede-2886-4f2a-8d36-80a59da09913",
-    "Name": "BigBuckBunny.mp4",
-    "ContentFileSize": "3186542",
-    "ParentAssetId": "nb:cid:UUID:0b8f3b04-72fb-4f38-8e7b-d7dd78888938",
-            
+```console
+"Id": "nb:cid:UUID:69e72ede-2886-4f2a-8d36-80a59da09913",
+"Name": "BigBuckBunny.mp4",
+"ContentFileSize": "3186542",
+"ParentAssetId": "nb:cid:UUID:0b8f3b04-72fb-4f38-8e7b-d7dd78888938",
+```
+  
 ## Next steps
 
 You can now encode your uploaded assets. For more information, see [Encode assets](media-services-portal-encode.md).
 
 You can also use Azure Functions to trigger an encoding job based on a file arriving in the configured container. For more information, see [this sample](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/ ).
-

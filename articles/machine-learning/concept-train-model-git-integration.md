@@ -64,12 +64,10 @@ The git information is stored in the properties for a training run. You can view
 
 ### Azure portal
 
-1. From the [Azure portal](https://portal.azure.com), select your workspace.
+1. From the [studio portal](https://ml.azure.com), select your workspace.
 1. Select __Experiments__, and then select one of your experiments.
 1. Select one of the runs from the __RUN NUMBER__ column.
-1. Select __Logs__, and then expand the __logs__ and __azureml__ entries. Select the link that begins with __###\_azure__.
-
-    ![The ###_azure entry in the portal](./media/concept-train-model-git-integration/azure-machine-learning-logs.png)
+1. Select __Outputs + logs__, and then expand the __logs__ and __azureml__ entries. Select the link that begins with __###\_azure__.
 
 The logged information contains text similar to the following JSON:
 
@@ -92,7 +90,7 @@ The logged information contains text similar to the following JSON:
 
 ### Python SDK
 
-After submitting a training run, a [Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py) object is returned. The `properties` attribute of this object contains the logged git information. For example, the following code retrieves the commit hash:
+After submitting a training run, a [Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true) object is returned. The `properties` attribute of this object contains the logged git information. For example, the following code retrieves the commit hash:
 
 ```python
 run.properties['azureml.git.commit']
@@ -106,8 +104,8 @@ The `az ml run` CLI command can be used to retrieve the properties from a run. F
 az ml run list -e train-on-amlcompute --last 1 -w myworkspace -g myresourcegroup --query '[].properties'
 ```
 
-For more information, see the [az ml run](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest) reference documentation.
+For more information, see the [az ml run](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest&preserve-view=true) reference documentation.
 
 ## Next steps
 
-* [Set up and use compute targets for model training](how-to-set-up-training-targets.md)
+* [Use compute targets for model training](how-to-set-up-training-targets.md)

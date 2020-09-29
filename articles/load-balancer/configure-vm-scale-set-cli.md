@@ -1,10 +1,10 @@
 ---
 title: Configure virtual machine scale set with an existing Azure Load Balancer - Azure CLI
-description: Learn how to configure a virtual machine scale set with an existing Azure Load Balancer.
+description: Learn how to configure a virtual machine scale set with an existing Azure Load Balancer by using the Azure CLI.
 author: asudbring
 ms.author: allensu
 ms.service: load-balancer
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/25/2020
 ---
 

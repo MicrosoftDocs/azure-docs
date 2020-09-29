@@ -5,11 +5,10 @@ summary: Azure Batch runs large-scale applications efficiently in the cloud. Sch
 metadata:
   title: Azure Batch documentation
   description: Azure Batch runs large-scale applications efficiently in the cloud. Schedule compute-intensive tasks and dynamically adjust resources for your solution without managing infrastructure.
-  services: batch
   ms.service: batch 
   ms.topic: landing-page 
-  author: LauraBrenner 
-  ms.author: labrenne 
+  author: JnHs 
+  ms.author: jenhayes 
   ms.date: 09/23/2019 
 
 landingContent:
@@ -38,8 +37,8 @@ landingContent:
             url: quick-run-python.md
       - linkListType: concept
         links:
-            - text: Developer features
-              url: batch-api-basics.md
+            - text: Workflow and feature overview for developers
+              url: batch-service-workflow-features.md
 
   - title: Step-by-step guides
     linkLists:
@@ -84,16 +83,16 @@ landingContent:
       - linkListType: reference
         links:
           - text: Azure CLI
-            url: https://docs.microsoft.com/cli/azure/batch?view=azure-cli-latest
+            url: /cli/azure/batch
           - text: Azure PowerShell
-            url: https://docs.microsoft.com/powershell/module/az.batch/?view=azps-2.6.0
+            url: /powershell/module/az.batch/
           - text: .NET
-            url: https://docs.microsoft.com/dotnet/api/overview/azure/batch?view=azure-dotnet
+            url: /dotnet/api/overview/azure/batch
           - text: Java
-            url: https://docs.microsoft.com/java/api/overview/azure/batch?view=azure-java-stable
+            url: /java/api/overview/azure/batch
           - text: Node.js
-            url: https://docs.microsoft.com/javascript/api/overview/azure/batch?view=azure-node-latest
+            url: /javascript/api/overview/azure/batch
           - text: Python
-            url: https://docs.microsoft.com/python/api/overview/azure/batch?view=azure-python
+            url: /python/api/overview/azure/batch
           - text: REST
-            url: https://docs.microsoft.com/rest/api/batchservice/
+            url: /rest/api/batchservice/

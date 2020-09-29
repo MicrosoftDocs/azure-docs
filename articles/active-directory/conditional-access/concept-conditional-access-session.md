@@ -45,7 +45,7 @@ Conditional Access App Control enables user app access and sessions to be monito
 
 For more information, see the article [Deploy Conditional Access App Control for featured apps](/cloud-app-security/proxy-deployment-aad).
 
-## Sign-in frequency (Preview)
+## Sign-in frequency
 
 Sign-in frequency defines the time period before a user is asked to sign in again when attempting to access a resource.
 
@@ -54,7 +54,7 @@ Sign-in frequency setting works with apps that have implemented OAUTH2 or OIDC p
 - Word, Excel, PowerPoint Online
 - OneNote Online
 - Office.com
-- O365 Admin portal
+- Microsoft 365 Admin portal
 - Exchange Online
 - SharePoint and OneDrive
 - Teams web client
@@ -63,7 +63,7 @@ Sign-in frequency setting works with apps that have implemented OAUTH2 or OIDC p
 
 For more information, see the article [Configure authentication session management with Conditional Access](howto-conditional-access-session-lifetime.md#user-sign-in-frequency).
 
-## Persistent browser session (Preview)
+## Persistent browser session
 
 A persistent browser session allows users to remain signed in after closing and reopening their browser window.
 

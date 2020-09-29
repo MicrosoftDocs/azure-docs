@@ -4,9 +4,9 @@ description: In this article, you learn how to deploy and configure Azure Firewa
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.date: 4/10/2019
+ms.date: 08/28/2020
 ms.author: victorh
-ms.topic: conceptual
+ms.topic: how-to
 #Customer intent: As an administrator new to this service, I want to control outbound network access from resources located in an Azure subnet.
 ---
 
@@ -31,13 +31,13 @@ For this article, you create a simplified single VNet with three subnets for eas
 
 In this article, you learn how to:
 
-> [!div class="checklist"]
-> * Set up a test network environment
-> * Deploy a firewall
-> * Create a default route
-> * Configure an application rule to allow access to www.google.com
-> * Configure a network rule to allow access to external DNS servers
-> * Test the firewall
+
+* Set up a test network environment
+* Deploy a firewall
+* Create a default route
+* Configure an application rule to allow access to www.google.com
+* Configure a network rule to allow access to external DNS servers
+* Test the firewall
 
 If you prefer, you can complete this procedure using the [Azure portal](tutorial-firewall-deploy-portal.md).
 
@@ -173,7 +173,7 @@ $AppRule1 = New-AzFirewallApplicationRule -Name Allow-Google -SourceAddress 10.0
 $AppRuleCollection = New-AzFirewallApplicationRuleCollection -Name App-Coll01 `
   -Priority 200 -ActionType Allow -Rule $AppRule1
 
-$Azfw.ApplicationRuleCollections = $AppRuleCollection
+$Azfw.ApplicationRuleCollections.Add($AppRuleCollection)
 
 Set-AzFirewall -AzureFirewall $Azfw
 ```
@@ -191,7 +191,7 @@ $NetRule1 = New-AzFirewallNetworkRule -Name "Allow-DNS" -Protocol UDP -SourceAdd
 $NetRuleCollection = New-AzFirewallNetworkRuleCollection -Name RCNet01 -Priority 200 `
    -Rule $NetRule1 -ActionType "Allow"
 
-$Azfw.NetworkRuleCollections = $NetRuleCollection
+$Azfw.NetworkRuleCollections.Add($NetRuleCollection)
 
 Set-AzFirewall -AzureFirewall $Azfw
 ```

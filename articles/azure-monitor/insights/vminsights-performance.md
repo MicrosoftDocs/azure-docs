@@ -5,13 +5,19 @@ ms.subservice:
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/15/2019
+ms.date: 05/31/2020
 
 ---
 
 # How to chart performance with Azure Monitor for VMs
 
 Azure Monitor for VMs includes a set of performance charts that target several key performance indicators (KPIs) to help you determine how well a virtual machine is performing. The charts show resource utilization over a period of time so you can identify bottlenecks, anomalies, or switch to a perspective listing each machine to view resource utilization based on the metric selected. While there are numerous elements to consider when dealing with performance, Azure Monitor for VMs monitors key operating system performance indicators related to processor, memory, network adapter, and disk utilization. Performance complements the health monitoring feature and helps expose issues that indicate a possible system component failure, support tuning and optimization to achieve efficiency, or support capacity planning.  
+
+## Limitations
+Following are limitations in performance collection with Azure Monitor for VMs.
+
+- **Available memory** is not available for virtual machines running Red Hat Linux (RHEL) 6. This metric is calculated from **MemAvailable** which was introduced in [kernel version 3.14](http://www.man7.org/linux/man-pages/man1/free.1.html).
+- Metrics are only available for data disks on Linux virtual machines using XFS filesystem or EXT filesystem family (EXT2, EXT3, EXT4).
 
 ## Multi-VM perspective from Azure Monitor
 

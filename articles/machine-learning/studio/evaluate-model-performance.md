@@ -1,32 +1,36 @@
 ---
-title: Evaluate model performance
-titleSuffix: ML Studio (classic) - Azure
-description: Learn how to evaluate model performance in Azure Machine Learning Studio (classic) and about the metrics available for this task.
+title: 'ML Studio (classic): Evaluate & cross-validate models - Azure'
+description: Learn about the metrics you can use to monitor model performance in Azure Machine Learning Studio (classic).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
 ---
-# How to evaluate model performance in Azure Machine Learning Studio (classic)
+# Evaluate model performance in Azure Machine Learning Studio (classic)
 
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+**APPLIES TO:**  ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
 
-This article demonstrates how to evaluate the performance of a model in Azure Machine Learning Studio (classic) and provides a brief explanation of the metrics available for this task. Three common supervised learning scenarios are presented: 
 
+In this article, you can learn about the metrics you can use to monitor model performance in Azure Machine Learning Studio (classic).  Evaluating the performance of a model is one of the core stages in the data science process. It indicates how successful the scoring (predictions) of a dataset has been by a trained model. Azure Machine Learning Studio (classic) supports model evaluation through two of its main machine learning modules: 
++ [Evaluate Model][evaluate-model] 
++ [Cross-Validate Model][cross-validate-model]
+
+These modules allow you to see how your model performs in terms of a number of metrics that are commonly used in machine learning and statistics.
+
+Evaluating models should be considered along with:
++ [Parameters optimization for algorithms](algorithm-parameters-optimize.md)
++ [Model interpretability](interpret-model-results.md)
+
+Three common supervised learning scenarios are presented: 
 * regression
 * binary classification 
 * multiclass classification
 
-
-
-Evaluating the performance of a model is one of the core stages in the data science process. It indicates how successful the scoring (predictions) of a dataset has been by a trained model. 
-
-Azure Machine Learning Studio (classic) supports model evaluation through two of its main machine learning modules: [Evaluate Model][evaluate-model] and [Cross-Validate Model][cross-validate-model]. These modules allow you to see how your model performs in terms of a number of metrics that are commonly used in machine learning and statistics.
 
 ## Evaluation vs. Cross Validation
 Evaluation and cross validation are standard ways to measure the performance of your model. They both generate evaluation metrics that you can inspect or compare against those of other models.

@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: spelluru #Required; your GitHub user alias, with correct capitalization.
   ms.author: spelluru #Required; microsoft alias of author; optional team alias.
-  ms.date: 03/13/2020 #Required; mm/dd/yyyy format.
+  ms.date: 06/23/2020 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -94,13 +94,13 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: .NET Core
-            url: get-started-dotnet-standard-send-v2.md
+            url: event-hubs-dotnet-standard-getstarted-send.md
           - text: Java
             url: event-hubs-java-get-started-send.md
           - text: Python
-            url: get-started-python-send-v2.md
+            url: event-hubs-python-get-started-send.md
           - text: JavaScript
-            url: get-started-node-send-v2.md
+            url: event-hubs-node-get-started-send.md
           - text: Apache Kafka
             url: event-hubs-quickstart-kafka-enabled-event-hubs.md#send-and-receive-messages-with-kafka-in-event-hubs
           - text: Apache Storm (receive only)
@@ -146,7 +146,7 @@ landingContent:
           - text: Use Resource Manager template
             url: event-hubs-resource-manager-namespace-event-hub-enable-capture.md
           - text: Enable capturing from a Python application
-            url: get-started-capture-python-v2.md
+            url: event-hubs-capture-python.md
 
   # Card
   - title: Process events
@@ -158,7 +158,7 @@ landingContent:
           - text: Process Event Hubs for Apache Kafka events using Stream Analytics
             url: event-hubs-kafka-stream-analytics.md
           - text: Stream data into Azure Databricks using Event Hubs
-            url: ../azure-databricks/databricks-stream-from-eventhubs.md            
+            url: /azure/databricks/scenarios/databricks-stream-from-eventhubs
 
 
   # Card

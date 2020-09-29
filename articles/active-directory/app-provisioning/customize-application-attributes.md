@@ -2,15 +2,16 @@
 title: Customizing Azure AD attribute mappings | Microsoft Docs
 description: Learn what attribute mappings for SaaS apps in Azure Active Directory are how you can modify them to address your business needs.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 04/03/2019
-ms.author: mimart
+ms.topic: how-to
+ms.date: 09/16/2020
+ms.author: kenwith
 ---
+
 # Customizing user provisioning attribute-mappings for SaaS applications in Azure Active Directory
 
 Microsoft Azure AD provides support for user provisioning to third-party SaaS applications such as Salesforce, G Suite and others. If you enable user provisioning for a third-party SaaS application, the Azure portal controls its attribute values through attribute-mappings.
@@ -102,7 +103,7 @@ Applications and systems that support customization of the attribute list includ
 - Salesforce
 - ServiceNow
 - Workday
-- Azure Active Directory ([Microsoft Graph REST API v1.0 reference](https://docs.microsoft.com/graph/api/overview?view=graph-rest-1.0) and custom directory extensions are supported)
+- Azure Active Directory ([Azure AD Graph API default attributes](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#user-entity) and custom directory extensions are supported)
 - Apps that support [SCIM 2.0](https://tools.ietf.org/html/rfc7643), where attributes defined in the [core schema](https://tools.ietf.org/html/rfc7643) need to be added
 
 > [!NOTE]
@@ -310,6 +311,7 @@ Selecting this option will effectively force a resynchronization of all users wh
 - The Azure AD provisioning service does not support provisioning null values.
 - They primary key, typically "ID", should not be included as a target attribute in your attribute mappings. 
 - The role attribute typically needs to be mapped using an expression, rather than a direct mapping. See section above for more details on role mapping. 
+- While you can disable groups from your mappings, disabling users is not supported. 
 
 ## Next steps
 

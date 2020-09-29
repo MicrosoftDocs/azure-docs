@@ -6,7 +6,7 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
+ms.custom: subject-security-benchmark
 
 ---
 
@@ -78,7 +78,7 @@ Note that if you have Private Endpoints attached to your storage account, you ca
 
 **Guidance**: Network Watcher packet capture allows you to create capture sessions to track traffic between Storage account and a virtual machine. Filters are provided for the capture session to ensure you capture only the traffic you want. Packet capture helps to diagnose network anomalies, both reactively, and proactively. Other uses include gathering network statistics, gaining information on network intrusions, to debug client-server communication, and much more. Being able to remotely trigger packet captures, eases the burden of running a packet capture manually on a desired virtual machine, which saves valuable time. 
 
-- [Manage packet captures with Azure Network Watcher using the portal](https://docs.microsoft.comazure/network-watcher/network-watcher-packet-capture-manage-portal)
+- [Manage packet captures with Azure Network Watcher using the portal](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-manage-portal)
 
 **Azure Security Center monitoring**: Yes
 
@@ -289,7 +289,7 @@ Also, Enable Advanced Threat Protection for your Azure Storage account. Advanced
 
 ### 3.2: Change Default Passwords where Applicable
 
-**Guidance**: Azure Storage accounts nor Azure Active Directory have the concept of default or blank passwords. Azure Storage implements an access control model that supports Azure role-based access control (RBAC) as well as Shared Key and Shared Access Signatures (SAS). A characteristic of Shared Key and SAS authentication is that no identity is associated with the caller and therefore security principal permission-based authorization cannot be performed. 
+**Guidance**: Azure Storage accounts nor Azure Active Directory have the concept of default or blank passwords. Azure Storage implements an access control model that supports Azure role-based access control (Azure RBAC) as well as Shared Key and Shared Access Signatures (SAS). A characteristic of Shared Key and SAS authentication is that no identity is associated with the caller and therefore security principal permission-based authorization cannot be performed. 
 
 - [Authorizing access to data in Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-auth)
 
@@ -531,9 +531,9 @@ Additionally, use Virtual network service endpoint policies to filter egress vir
 
 ### 4.6: Use Azure RBAC to control access to resources
 
-**Guidance**: Azure Active Directory (Azure AD) authorizes access rights to secured resources through role-based access control (RBAC). Azure Storage defines a set of built-in RBAC roles that encompass common sets of permissions used to access blob or queue data. 
+**Guidance**: Azure Active Directory (Azure AD) authorizes access rights to secured resources through role-based access control (RBAC). Azure Storage defines a set of Azure built-in roles that encompass common sets of permissions used to access blob or queue data. 
 
-- [How to assign RBAC roles for Azure Storage account](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal#assign-rbac-roles-using-the-azure-portal)
+- [How to assign Azure roles for Azure Storage account](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal#assign-azure-roles-using-the-azure-portal)
 
 - [Use the Azure Storage resource provider to access management resources](https://docs.microsoft.com/azure/storage/common/authorization-resource-provider)
 
@@ -782,10 +782,10 @@ In addition, use the Azure Resource Graph to query/discover resources within the
 
 **Guidance**: Use Azure Policy aliases in the "Microsoft.Storage" namespace to create custom policies to audit or enforce the configuration of your Storage account instances. You may also use built-in Azure Policy definitions for Azure Storage account such as: 
 
-Audit unrestricted network access to storage accounts 
-Deploy Advanced Threat Protection on Storage Accounts 
-Storage accounts should be migrated to new Azure Resource Manager resources 
-Secure transfer to storage accounts should be enabled 
+Audit unrestricted network access to storage accounts  
+Deploy Advanced Threat Protection on Storage Accounts  
+Storage accounts should be migrated to new Azure Resource Manager resources  
+Secure transfer to storage accounts should be enabled  
 
 Use recommendations from Azure Security Center as a secure configuration baseline for your Storage accounts. 
 

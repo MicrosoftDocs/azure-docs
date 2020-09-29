@@ -5,8 +5,8 @@ description: This article provides guidance on how to configure Azure App servic
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
-ms.topic: article
-ms.date: 11/14/2019
+ms.topic: how-to
+ms.date: 06/09/2020
 ms.author: absha
 ---
 
@@ -18,10 +18,8 @@ Application Gateway provides a switch called `Pick host name from backend addres
 
 In this article, you learn how to:
 
-> [!div class="checklist"]
->
-> - Create a backend pool and add an App Service to it
-> - Create HTTP Settings and Custom Probe with “Pick Hostname” switches enabled
+- Create a backend pool and add an App Service to it
+- Create HTTP Settings and Custom Probe with “Pick Hostname” switches enabled
 
 ## Prerequisites
 
@@ -54,7 +52,7 @@ In this article, you learn how to:
 3. Choose the protocol as HTTP or HTTPS as per your use case. 
 
    > [!NOTE]
-   > If you select HTTPS, you do not need to upload any authentication certificate or trusted root certificate to whitelist the app service backend since app service is a trusted Azure service.
+   > If you select HTTPS, you do not need to upload any authentication certificate or trusted root certificate to allow the app service backend since app service is a trusted Azure service.
 
 4. Check the box for **Use for App Service** . Note that the switches  `Create a probe with pick host name from backend address` and `Pick host name from backend address` will automatically get enabled.`Pick host name from backend address` will override the  host header in the request with the host name of the back-end when the request is routed from the Application Gateway to the backend.  
 
@@ -64,9 +62,9 @@ In this article, you learn how to:
 
 5. Click **OK** to create the HTTP setting.
 
-   ![HTTP-setting1](./media/configure-web-app-portal/http-setting1.png)
+   ![Screenshot shows the Add H T T P setting pane with Use for App service and OK selected.](./media/configure-web-app-portal/http-setting1.png)
 
-   ![HTTP-setting2](./media/configure-web-app-portal/http-setting2.png)
+   ![Screenshot shows a health probe with Pick host name form backend http settings selected.](./media/configure-web-app-portal/http-setting2.png)
 
 
 
@@ -82,7 +80,7 @@ In this article, you learn how to:
 
 5. Click **OK** to save this rule.
 
-   ![Rule](./media/configure-web-app-portal/rule.png)
+   ![Screenshot shows the Add basic rule pane with Listener, Backend pool and H T T P setting highlighted.](./media/configure-web-app-portal/rule.png)
 
 ## Additional configuration in case of redirection to app service's relative path
 

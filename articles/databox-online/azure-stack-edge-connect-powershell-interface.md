@@ -1,18 +1,18 @@
 ---
-title: Connect to and manage Microsoft Azure Stack Edge device via the Windows PowerShell interface | Microsoft Docs
-description: Describes how to connect to and then manage Azure Stack Edge via the Windows PowerShell interface.
+title: Connect to and manage Microsoft Azure Stack Edge Pro device via the Windows PowerShell interface | Microsoft Docs
+description: Describes how to connect to and then manage Azure Stack Edge Pro via the Windows PowerShell interface.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/25/2019
 ms.author: alkohli
 ---
-# Manage an Azure Stack Edge device via Windows PowerShell
+# Manage an Azure Stack Edge Pro device via Windows PowerShell
 
-Azure Stack Edge solution lets you process data and send it over the network to Azure. This article describes some of the configuration and management tasks for your Azure Stack Edge device. You can use the Azure portal, local web UI, or the Windows PowerShell interface to manage your device.
+Azure Stack Edge Pro solution lets you process data and send it over the network to Azure. This article describes some of the configuration and management tasks for your Azure Stack Edge Pro device. You can use the Azure portal, local web UI, or the Windows PowerShell interface to manage your device.
 
 This article focuses on the tasks you do using the PowerShell interface. 
 
@@ -81,7 +81,7 @@ If the compute role is configured on your device, you can also get the compute l
 
 ## Monitor and troubleshoot compute modules
 
-[!INCLUDE [Monitor and troubleshoot compute modules](../../includes/data-box-edge-monitor-troubleshoot-compute.md)]
+[!INCLUDE [Monitor and troubleshoot compute modules](../../includes/azure-stack-edge-monitor-troubleshoot-compute.md)]
 
 ## Exit the remote session
 
@@ -89,4 +89,4 @@ To exit the remote PowerShell session, close the PowerShell window.
 
 ## Next steps
 
-- Deploy [Azure Stack Edge](azure-stack-edge-deploy-prep.md) in Azure portal.
+- Deploy [Azure Stack Edge Pro](azure-stack-edge-deploy-prep.md) in Azure portal.

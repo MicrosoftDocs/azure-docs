@@ -4,8 +4,8 @@ description: Learn how to use Azure Diagnostic settings to monitor the performan
 author: SnehaGunda
 services: cosmos-db
 ms.service: cosmos-db
-ms.topic: conceptual
-ms.date: 12/09/2019
+ms.topic: how-to
+ms.date: 05/05/2020
 ms.author: sngun
 ---
 
@@ -141,6 +141,21 @@ For detailed information about how to create a diagnostic setting by using the A
    | limit 100
    ```
 
+1. How to get the request charges and the execution duration of a query?
+
+   ```kusto
+   AzureDiagnostics
+   | where TimeGenerated >= ago(24hr)
+   | where Category == "QueryRuntimeStatistics"
+   | join (
+   AzureDiagnostics
+   | where TimeGenerated >= ago(24hr)
+   | where Category == "DataPlaneRequests"
+   ) on $left.activityId_g == $right.activityId_g
+   | project databasename_s, collectionname_s, OperationName1 , querytext_s,requestCharge_s1, duration_s1, bin(TimeGenerated, 1min)
+   ```
+
+
 1. How to get the distribution for different operations?
 
    ```Kusto
@@ -215,6 +230,17 @@ For detailed information about how to create a diagnostic setting by using the A
    count()
    by OperationName, requestResourceType_s, userAgent_s, collectionRid_s, bin(TimeGenerated, 1h)
    ```
+ 
+1. How to get Controlplane logs?
+ 
+   remember to switch on flag as described in the [disable key-based metadata write access](audit-control-plane-logs.md#disable-key-based-metadata-write-access) articleand execute the operations via Azure PowerShell, CLI or ARM.
+ 
+   ```Kusto  
+   AzureDiagnostics 
+   | where Category =="ControlPlaneRequests"
+   | summarize by OperationName 
+   ```
+
 
 ## Next steps
 

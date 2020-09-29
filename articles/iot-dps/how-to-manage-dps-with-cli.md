@@ -1,17 +1,18 @@
-﻿---
+---
 title: Manage IoT Hub Device Provisioning Service using Azure CLI & IoT extension
 description: Learn how to use Azure CLI and the IoT extension to manage the IoT Hub Device Provisioning Service (DPS)
 author: chrissie926
 ms.author: menchi
 ms.date: 01/17/2018
 ms.topic: conceptual
-ms.service: iot-dps
+ms.service: iot-dps 
+ms.custom: devx-track-azurecli
 services: iot-dps 
 ---
 
 # How to use Azure CLI and the IoT extension to manage the IoT Hub Device Provisioning Service
 
-[Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) is an open-source cross platform command-line tool for managing Azure resources such as IoT Edge. Azure CLI is available on Windows, Linux, and MacOS. Azure CLI enables you to manage Azure IoT Hub resources, Device Provisioning service instances, and linked-hubs out of the box.
+[Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) is an open-source cross platform command-line tool for managing Azure resources such as IoT Edge. Azure CLI is available on Windows, Linux, and macOS. Azure CLI enables you to manage Azure IoT Hub resources, Device Provisioning service instances, and linked-hubs out of the box.
 
 The IoT extension enriches Azure CLI with features such as device management and full IoT Edge capability.
 
@@ -43,41 +44,55 @@ Complete the installation steps described previously before you begin. If you do
 
 ### 1. Log in to the Azure account
   
-    az login
+```azurecli
+az login
+```
 
-![login](./media/how-to-manage-dps-with-cli/login.jpg)
+![Screenshot shows a command prompt window that runs the command az login.](./media/how-to-manage-dps-with-cli/login.jpg)
 
 ### 2. Create a resource group IoTHubBlogDemo in eastus
 
-    az group create -l eastus -n IoTHubBlogDemo
+```azurecli
+az group create -l eastus -n IoTHubBlogDemo
+```
 
 ![Create resource group](./media/how-to-manage-dps-with-cli/create-resource-group.jpg)
 
 
 ### 3. Create two Device Provisioning services
 
-    az iot dps create --resource-group IoTHubBlogDemo --name demodps
+```azurecli
+az iot dps create --resource-group IoTHubBlogDemo --name demodps
+```
 
 ![Create Device Provisioning Service](./media/how-to-manage-dps-with-cli/create-dps.jpg)
 
-    az iot dps create --resource-group IoTHubBlogDemo --name demodps2
+```azurecli
+az iot dps create --resource-group IoTHubBlogDemo --name demodps2
+```
 
 ### 4. List all the existing Device Provisioning services under this resource group
 
-    az iot dps list --resource-group IoTHubBlogDemo
+```azurecli
+az iot dps list --resource-group IoTHubBlogDemo
+```
 
 ![List Device Provisioning Services](./media/how-to-manage-dps-with-cli/list-dps.jpg)
 
 
 ### 5. Create an IoT Hub blogDemoHub under the newly created resource group
 
-    az iot hub create --name blogDemoHub --resource-group IoTHubBlogDemo
+```azurecli
+az iot hub create --name blogDemoHub --resource-group IoTHubBlogDemo
+```
 
 ![Create IoT Hub](./media/how-to-manage-dps-with-cli/create-hub.jpg)
 
 ### 6. Link one existing IoT Hub to a Device Provisioning service
 
-    az iot dps linked-hub create --resource-group IoTHubBlogDemo --dps-name demodps --connection-string <connection string> -l westus
+```azurecli
+az iot dps linked-hub create --resource-group IoTHubBlogDemo --dps-name demodps --connection-string <connection string> -l westus
+```
 
 ![Link Hub](./media/how-to-manage-dps-with-cli/create-hub.jpg)
 

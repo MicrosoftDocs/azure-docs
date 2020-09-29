@@ -1,23 +1,20 @@
 ---
-title: Query acceleration SQL language reference (preview)
+title: Query acceleration SQL language reference
 titleSuffix: Azure Storage
 description: Learn how to use query acceleration sql syntax.
 services: storage
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/21/2020
+ms.date: 09/09/2020
 ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: ereilebr
 ---
 
-# Query acceleration SQL language reference (preview)
+# Query acceleration SQL language reference
 
 Query acceleration supports an ANSI SQL-like language for expressing queries over blob contents.  The query acceleration SQL dialect is a subset of ANSI SQL, with a limited set of supported data types, operators, etc., but it also expands on ANSI SQL to support queries over hierarchical semi-structured data formats such as JSON. 
-
-> [!NOTE]
-> The query acceleration feature is in public preview, and is available in the Canada Central and France Central regions. To review limitations, see the [Known issues](data-lake-storage-known-issues.md) article. To enroll in the preview, see [this form](https://aka.ms/adls/qa-preview-signup). 
 
 ## SELECT Syntax
 
@@ -49,7 +46,7 @@ The following example returns suitable offsets for splitting a CSV-formatted blo
 SELECT sys.split(split_size)FROM BlobStorage
 ```
 
-<a id="data-types" />
+<a id="data-types"></a>
 
 ## Data Types
 
@@ -61,7 +58,7 @@ SELECT sys.split(split_size)FROM BlobStorage
 |TIMESTAMP|A point in time.                           |
 |BOOLEAN  |True or false.                             |
 
-When reading values from CSV-formatted data, all values are read as strings.  String values may be converted to other types using CAST expressions.  Values may be implicitly cast to other types depending on context. for more info, see [Data type precedence (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/data-types/data-type-precedence-transact-sql?view=sql-server-2017).
+When reading values from CSV-formatted data, all values are read as strings.  String values may be converted to other types using CAST expressions.  Values may be implicitly cast to other types depending on context. for more info, see [Data type precedence (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/data-types/data-type-precedence-transact-sql).
 
 ## Expressions
 
@@ -75,15 +72,36 @@ In CSV-formatted data, fields may also be referenced by ordinal, prefixed with a
 
 The following standard SQL operators are supported:
 
-``=``, ``!=``, ``<>``, ``<``, ``<=``, ``>``, ``>=``, ``+``, ``-``, ``/``, ``*``, ``%``, ``AND``, ``OR``, ``NOT``, ``CAST``, ``BETWEEN``, ``IN``, ``NULLIF``, ``COALESCE``
+|Operator|Description|
+|--|--|
+|[=](https://docs.microsoft.com/sql/t-sql/language-elements/equals-transact-sql)    |Compares the equality of two expressions (a comparison operator).|
+|[!=](https://docs.microsoft.com/sql/t-sql/language-elements/not-equal-to-transact-sql-exclamation)    |Tests whether one expression is not equal to another expression (a comparison operator).|
+|[<>](https://docs.microsoft.com/sql/t-sql/language-elements/not-equal-to-transact-sql-traditional)    |Compares two expressions for not equal to (a comparison operator).|
+|[<](https://docs.microsoft.com/sql/t-sql/language-elements/less-than-transact-sql)    |Compares two expressions for lesser than (a comparison operator).|
+|[<=](https://docs.microsoft.com/sql/t-sql/language-elements/less-than-or-equal-to-transact-sql)    |Compares two expressions for lesser than or equal (a comparison operator).|
+|[>](https://docs.microsoft.com/sql/t-sql/language-elements/greater-than-transact-sql)    |Compares two expressions for greater than (a comparison operator). |
+|[>=](https://docs.microsoft.com/sql/t-sql/language-elements/greater-than-or-equal-to-transact-sql)    |Compares two expressions for greater than or equal (a comparison operator).|
+|[+](https://docs.microsoft.com/sql/t-sql/language-elements/add-transact-sql)    |Adds two numbers. This addition arithmetic operator can also add a number, in days, to a date.|
+|[-](https://docs.microsoft.com/sql/t-sql/language-elements/subtract-transact-sql)    |Subtracts two numbers (an arithmetic subtraction operator). |
+|[/](https://docs.microsoft.com/sql/t-sql/language-elements/divide-transact-sql)    |Divides one number by another (an arithmetic division operator).|
+|[*](https://docs.microsoft.com/sql/t-sql/language-elements/multiply-transact-sql)    |Multiplies two expressions (an arithmetic multiplication operator).|
+|[%](https://docs.microsoft.com/sql/t-sql/language-elements/modulo-transact-sql)    |Returns the remainder of one number divided by another.|
+|[AND](https://docs.microsoft.com/sql/t-sql/language-elements/bitwise-and-transact-sql)    |Performs a bitwise logical AND operation between two integer values.|
+|[OR](https://docs.microsoft.com/sql/t-sql/language-elements/bitwise-or-transact-sql)    |Performs a bitwise logical OR operation between two specified integer values as translated to binary expressions within Transact-SQL statements.|
+|[NOT](https://docs.microsoft.com/sql/t-sql/language-elements/not-transact-sql)    |Negates a Boolean input.|
+|[CAST](https://docs.microsoft.com/sql/t-sql/functions/cast-and-convert-transact-sql)    |Converts an expression of one data type to another.|
+|[BETWEEN](https://docs.microsoft.com/sql/t-sql/language-elements/between-transact-sql)    |Specifies a range to test.|
+|[IN](https://docs.microsoft.com/sql/t-sql/language-elements/in-transact-sql)    |Determines whether a specified value matches any value in a subquery or a list.|
+|[NULLIF](https://docs.microsoft.com/sql/t-sql/language-elements/nullif-transact-sql)    |Returns a null value if the two specified expressions are equal.|
+|[COALESCE](https://docs.microsoft.com/sql/t-sql/language-elements/coalesce-transact-sql)    |Evaluates the arguments in order and returns the current value of the first expression that initially doesn't evaluate to NULL.|
 
-If data types on the left and right of an operator are different, then automatic conversion will be performed according to the rules specified here: [Data type precedence (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/data-types/data-type-precedence-transact-sql?view=sql-server-2017).
+If data types on the left and right of an operator are different, then automatic conversion will be performed according to the rules specified here: [Data type precedence (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/data-types/data-type-precedence-transact-sql).
 
 The query acceleration SQL language supports only a very small subset of the data types discussed in that article.  See the [Data Types](#data-types) section of this article.
 
 ### Casts
 
-The query acceleration SQL language supports the CAST operator, according to the rules here: [Data type conversion (Database Engine)](https://docs.microsoft.com/sql/t-sql/data-types/data-type-conversion-database-engine?view=sql-server-2017).  
+The query acceleration SQL language supports the CAST operator, according to the rules here: [Data type conversion (Database Engine)](https://docs.microsoft.com/sql/t-sql/data-types/data-type-conversion-database-engine).  
 
 The query acceleration SQL language supports only a tiny subset of the data types discussed in that article.  See the [Data Types](#data-types) section of this article.
 
@@ -91,7 +109,16 @@ The query acceleration SQL language supports only a tiny subset of the data type
 
 The query acceleration SQL language supports the following standard SQL string functions:
 
-``LIKE``, ``CHAR_LENGTH``, ``CHARACTER_LENGTH``, ``LOWER``, ``UPPER``, ``SUBSTRING``, ``TRIM``, ``LEADING``, ``TRAILING``.
+|Function|Description|
+|--|--|
+|CHAR_LENGTH    | Returns the length in characters of the string expression, if the string expression is of a character data type; otherwise, returns the length in bytes of the string expression (the smallest integer not less than the number of bits divided by 8). (This function is the same as the CHARACTER_LENGTH function.)|
+|CHARACTER_LENGTH    |Returns the length in characters of the string expression, if the string expression is of a character data type; otherwise, returns the length in bytes of the string expression (the smallest integer not less than the number of bits divided by 8). (This function is the same as the CHAR_LENGTH function|
+|[LOWER](https://docs.microsoft.com/sql/t-sql/functions/lower-transact-sql)    |Returns a character expression after converting uppercase character data to lowercase.|
+|[UPPER](https://docs.microsoft.com/sql/t-sql/functions/upper-transact-sql)    |Returns a character expression with lowercase character data converted to uppercase.|
+|[SUBSTRING](https://docs.microsoft.com/sql/t-sql/functions/substring-transact-sql)    |Returns part of a character, binary, text, or image expression in SQL Server.|
+|[TRIM](https://docs.microsoft.com/sql/t-sql/functions/trim-transact-sql)    |Removes the space character char(32) or other specified characters from the start and end of a string.|
+|LEADING    |Description|
+|TRAILING    |Description|
 
 Here's a few examples:
 
@@ -103,16 +130,6 @@ Here's a few examples:
 |UPPER|``SELECT UPPER('AbCdEfG') from BlobStorage``|``ABCDEFG``|
 |SUBSTRING|``SUBSTRING('123456789', 1, 5)``|``23456``|
 |TRIM|``TRIM(BOTH '123' FROM '1112211Microsoft22211122')``|``Microsoft``|
-
-The [LIKE](https://docs.microsoft.com/sql/t-sql/language-elements/like-transact-sql?view=sql-server-ver15) function helps you to search for a pattern. Here's a few examples that use the [LIKE](https://docs.microsoft.com/sql/t-sql/language-elements/like-transact-sql?view=sql-server-ver15) function to search the data string ``abc,abd,cd\ntest,test2,test3\na_bc,xc%d^e,gh[i ``.
-
-|Query|Example|
-|--|--|
-|``SELECT _1, _2, _3 from BlobStorage where _2 LIKE 'a%'``|``abc,abd,cd\n``|
-|``SELECT * from BlobStorage where _1 LIKE 'a[bcd]c``|``abc,abd,cd\n``|
-|``SELECT _1 from BlobStorage where _2 LIKE '[^xyz]%'``|``abc\ntest\n``|
-|``SELECT * from BlobStorage where _1 LIKE 'a_``|``abc,abd,cd\n``|
-|``SELECT _2,_3 from BlobStorage where _3 LIKE '[g-h]_![[a-j]' Escape '!'``|``xc%d^e,gh[i\n``|
 
 ### Date functions
 
@@ -128,7 +145,7 @@ The query acceleration SQL language supports year, month, day, hour, minute, sec
 
 Examples:
 
-```sql
+``sql
 DATE_ADD(datepart, quantity, timestamp)
 DATE_ADD('minute', 1, CAST('2017-01-02T03:04:05.006Z' AS TIMESTAMP)
 ```
@@ -215,18 +232,18 @@ A SELECT statement may contain either one or more projection expressions or a si
 
 |Expression|Description|
 |--|--|
-|[COUNT(\*)](https://docs.microsoft.com/sql/t-sql/functions/count-transact-sql?view=sql-server-ver15)    |Returns the number of records which matched the predicate expression.|
-|[COUNT(expression)](https://docs.microsoft.com/sql/t-sql/functions/count-transact-sql?view=sql-server-ver15)    |Returns the number of records for which expression is non-null.|
-|[AVERAGE(expression)](https://docs.microsoft.com/sql/t-sql/functions/avg-transact-sql?view=sql-server-ver15)    |Returns the average of the non-null values of expression.|
-|[MIN(expression)](https://docs.microsoft.com/sql/t-sql/functions/min-transact-sql?view=sql-server-ver15)    |Returns the minimum non-null value of expression.|
-|[MAX(expression](https://docs.microsoft.com/sql/t-sql/functions/max-transact-sql?view=sql-server-ver15))    |Returns the maximum non-null value of expression.|
-|[SUM(expression)](https://docs.microsoft.com/sql/t-sql/functions/sum-transact-sql?view=sql-server-ver15)    |Returns the sum of all non-null values of expression.|
+|[COUNT(\*)](https://docs.microsoft.com/sql/t-sql/functions/count-transact-sql)    |Returns the number of records which matched the predicate expression.|
+|[COUNT(expression)](https://docs.microsoft.com/sql/t-sql/functions/count-transact-sql)    |Returns the number of records for which expression is non-null.|
+|[AVERAGE(expression)](https://docs.microsoft.com/sql/t-sql/functions/avg-transact-sql)    |Returns the average of the non-null values of expression.|
+|[MIN(expression)](https://docs.microsoft.com/sql/t-sql/functions/min-transact-sql)    |Returns the minimum non-null value of expression.|
+|[MAX(expression](https://docs.microsoft.com/sql/t-sql/functions/max-transact-sql)    |Returns the maximum non-null value of expression.|
+|[SUM(expression)](https://docs.microsoft.com/sql/t-sql/functions/sum-transact-sql)    |Returns the sum of all non-null values of expression.|
 
 ### MISSING
 
 The ``IS MISSING`` operator is the only non-standard that the query acceleration SQL language supports.  For JSON data, if a field is missing from a particular input record, the expression field ``IS MISSING`` will evaluate to the Boolean value true.
 
-<a id="table-descriptors" />
+<a id="table-descriptors"></a>
 
 ## Table Descriptors
 
@@ -297,7 +314,7 @@ SELECT weight,warehouses[0].longitude,id,tags[1] FROM BlobStorage[*]
 > [!NOTE]
 > BlobStorage and BlobStorage[\*] both refer to the whole object. However, if you have a path in the FROM clause, then you'll need to use BlobStorage[\*].path
 
-<a id="sys-split" />
+<a id="sys-split"></a>
 
 ## Sys.Split
 
@@ -318,6 +335,6 @@ In most cases, the size of each batch will be slightly higher than the number th
 
 ## See also
 
-- [Azure Data Lake Storage query acceleration (preview)](data-lake-storage-query-acceleration.md)
-- [Filter data by using Azure Data Lake Storage query acceleration (preview)](data-lake-storage-query-acceleration-how-to.md)
+- [Azure Data Lake Storage query acceleration](data-lake-storage-query-acceleration.md)
+- [Filter data by using Azure Data Lake Storage query acceleration](data-lake-storage-query-acceleration-how-to.md)
 

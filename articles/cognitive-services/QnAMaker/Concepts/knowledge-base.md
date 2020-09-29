@@ -1,13 +1,13 @@
 ---
 title: Importing from data sources - QnA Maker
-description: A QnA Maker knowledge base consists of a set of question-and-answer (QnA) sets and optional metadata associated with each QnA pair.
+description: Learn how to import question and answer pairs from data sources - QnA Maker.
 ms.topic: conceptual
 ms.date: 03/16/2020
 ---
 
 # Importing from data sources
 
-A knowledge base consists of question and answer sets brought in by public URLs and files.
+A knowledge base consists of question and answer pairs brought in by public URLs and files.
 
 ## Data source locations
 
@@ -21,7 +21,7 @@ The Chit chat QnA content set is offered as a complete content data source in se
 
 ## Structured data format through import
 
-Importing a knowledge base replaces the content of the existing knowledge base. Import requires a structured `.tsv` file that contains questions and answer. This information helps QnA Maker group the question-answer sets and attribute them to a particular data source.
+Importing a knowledge base replaces the content of the existing knowledge base. Import requires a structured `.tsv` file that contains questions and answer. This information helps QnA Maker group the question-answer pairs and attribute them to a particular data source.
 
 | Question  | Answer  | Source| Metadata (1 key: 1 value) |
 |-----------|---------|----|---------------------|
@@ -53,7 +53,7 @@ The **displayOrder** is numeric and the **displayText** is text that shouldn't i
 
 If you are unsure how to represent your QnA pair in the `.tsv` file:
 * Use this [downloadable example from GitHub](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Structured-multi-turn-format.xlsx?raw=true)
-* Or create the set in the QnA Maker portal, save, then export the knowledge base for an example of how to represent the set.
+* Or create the pair in the QnA Maker portal, save, then export the knowledge base for an example of how to represent the pair.
 
 ## Next steps
 

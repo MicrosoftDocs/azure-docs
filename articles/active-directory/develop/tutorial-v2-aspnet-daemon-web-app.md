@@ -38,7 +38,7 @@ The "daemon" component in this sample is an API controller, `SyncController.cs`.
 
 Because the app is a multitenant app for Microsoft business customers, it must provide a way for customers to "sign up" or "connect" the application to their company data. During the connection flow, a company administrator first grants *application permissions* directly to the app so that it can access company data in a non-interactive fashion, without the presence of a signed-in user. The majority of the logic in this sample shows how to achieve this connection flow by using the identity platform's [admin consent](v2-permissions-and-consent.md#using-the-admin-consent-endpoint) endpoint.
 
-![Topology](./media/tutorial-v2-aspnet-daemon-webapp/topology.png)
+![Diagram shows UserSync App with three local items connecting to Azure, with Start dot Auth acquiring a token interactively to connect to Azure A D, AccountController getting admin consent to connect to Azure A D, and SyncController reading user to connect to Microsoft Graph.](./media/tutorial-v2-aspnet-daemon-webapp/topology.png)
 
 For more information on the concepts used in this sample, read the [client credentials protocol documentation for the identity platform endpoint](v2-oauth2-client-creds-grant-flow.md).
 
@@ -232,8 +232,8 @@ Visual Studio will publish the project and automatically open a browser to the p
 1. Go back to the [Azure portal](https://portal.azure.com).
 1. In the left pane, select the **Azure Active Directory** service, and then select **App registrations**.
 1. Select the **dotnet-web-daemon-v2** application.
-1. On the **Authentication** page for your application, update the **Logout URL** fields with the address of your service. For example, use [https://dotnet-web-daemon-v2-contoso.azurewebsites.net](https://dotnet-web-daemon-v2-contoso.azurewebsites.net).
-1. From the **Branding** menu, update the **Home page URL** to the address of your service. For example, use [https://dotnet-web-daemon-v2-contoso.azurewebsites.net](https://dotnet-web-daemon-v2-contoso.azurewebsites.net).
+1. On the **Authentication** page for your application, update the **Logout URL** fields with the address of your service. For example, use `https://dotnet-web-daemon-v2-contoso.azurewebsites.net`.
+1. From the **Branding** menu, update the **Home page URL** to the address of your service. For example, use `https://dotnet-web-daemon-v2-contoso.azurewebsites.net`.
 1. Save the configuration.
 1. Add the same URL in the list of values of the **Authentication** > **Redirect URIs** menu. If you have multiple redirect URLs, make sure that there's a new entry that uses the app service's URI for each redirect URL.
 

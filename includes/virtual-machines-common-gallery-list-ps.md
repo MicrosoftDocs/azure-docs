@@ -5,14 +5,12 @@
  author: cynthn
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 11/07/2018
+ ms.date: 04/28/2020
  ms.author: cynthn
  ms.custom: include file
 ---
 
-## Shared image management 
-
-Here are some examples of common management tasks and how to complete them using PowerShell.
+## List information
 
 List all galleries by name.
 

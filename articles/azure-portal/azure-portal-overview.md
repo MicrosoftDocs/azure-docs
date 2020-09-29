@@ -6,7 +6,7 @@ keywords: portal
 author: mgblythe
 ms.author: mblythe
 ms.date: 12/20/2019
-ms.topic: conceptual
+ms.topic: overview
 
 ms.service: azure-portal
 manager:  mtillman

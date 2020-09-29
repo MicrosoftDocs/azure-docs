@@ -4,7 +4,7 @@ description: This article describes how you can create new user accounts to inte
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/22/2019
 ---
 
@@ -12,7 +12,7 @@ ms.date: 09/22/2019
 
 This article describes how you can create users within an Azure Database for PostgreSQL server.
 
-If you would like to learn about how to create and manage Azure subscription users and their privileges, you can visit the [Azure role based access control (RBAC) article](../role-based-access-control/built-in-roles.md) or review [how to customize roles](../role-based-access-control/custom-roles.md).
+If you would like to learn about how to create and manage Azure subscription users and their privileges, you can visit the [Azure role-based access control (Azure RBAC) article](../role-based-access-control/built-in-roles.md) or review [how to customize roles](../role-based-access-control/custom-roles.md).
 
 ## The server admin account
 

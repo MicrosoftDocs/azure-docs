@@ -6,7 +6,7 @@ ms.author: nimoolen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 04/13/2020
+ms.date: 07/29/2020
 ---
 
 # Data flow script (DFS)
@@ -172,6 +172,39 @@ Use this code in your data flow script to create a new derived column called ```
 
 ```
 derive(DWhash = sha1(Name,ProductNumber,Color))
+```
+
+You can also use this script below to generate a row hash using all columns that are present in your stream, without needing to name each column:
+
+```
+derive(DWhash = sha1(columns()))
+```
+
+### String_agg equivalent
+This code will act like the T-SQL ```string_agg()``` function and will aggregate string values into an array. You can then cast that array into a string to use with SQL destinations.
+
+```
+source1 aggregate(groupBy(year),
+	string_agg = collect(title)) ~> Aggregate1
+Aggregate1 derive(string_agg = toString(string_agg)) ~> DerivedColumn2
+```
+
+### Count number of updates, upserts, inserts, deletes
+When using an Alter Row transformation, you may want to count the number of updates, upserts, inserts, deletes that result from your Alter Row policies. Add an Aggregate transformation after your alter row and paste this Data Flow Script into the aggregate definition for those counts.
+
+```
+aggregate(updates = countIf(isUpdate(), 1),
+		inserts = countIf(isInsert(), 1),
+		upserts = countIf(isUpsert(), 1),
+		deletes = countIf(isDelete(),1)) ~> RowCount
+```
+
+### Distinct row using all columns
+This snippet will add a new Aggregate transformation to your data flow which will take all incoming columns, generate a hash that is used for grouping to eliminate duplicates, then provide the first occurrence of each duplicate as output. You do not need to explicitly name the columns, they will be automatically generated from your incoming data stream.
+
+```
+aggregate(groupBy(mycols = sha2(256,columns())),
+    each(match(true()), $$ = first($$))) ~> DistinctRows
 ```
 
 ## Next steps

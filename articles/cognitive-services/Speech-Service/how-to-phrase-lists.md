@@ -10,7 +10,8 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/04/2020
 ms.author: trbye
-zone_pivot_groups: programming-languages-set-two
+zone_pivot_groups: programming-languages-speech-services-one-nomore-no-go
+ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
 # Phrase Lists for speech-to-text
@@ -72,7 +73,7 @@ phrase_list_grammar.addPhrase("Move to Ted")
 
 ::: zone-end
 
-::: zone pivot="programming-language-more"
+::: zone pivot="programming-language-javascript"
 
 ```JavaScript
 var phraseListGrammar = SpeechSDK.PhraseListGrammar.fromRecognizer(reco);
@@ -120,7 +121,7 @@ phrase_list_grammar.clear()
 
 ::: zone-end
 
-::: zone pivot="programming-language-more"
+::: zone pivot="programming-language-javascript"
 
 ```JavaScript
 phraseListGrammar.clear();

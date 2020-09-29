@@ -19,7 +19,9 @@ ms.reviewer: anilmur
 
 ---
 
-# Comparison of Azure on demand media encoders  
+# Comparison of Azure on demand media encoders
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]  
 
 This topic compares the encoding capabilities of **Media Encoder Standard** and **Media Encoder Premium Workflow**.
 
@@ -31,7 +33,7 @@ The following table compares the functionality between Media Encoder Standard (M
 |---|---|---|
 |Apply conditional logic while encoding<br/>(for example, if the input is HD, then encode 5.1 audio)|No|Yes|
 |Closed captioning|No|[Yes](media-services-premium-workflow-encoder-formats.md#closed_captioning)|
-|[Dolby® Professional Loudness Correction](https://www.dolby.com/us/en/technologies/dolby-professional-loudness-solutions.pdf)<br/> with Dialogue Intelligence™|No|Yes|
+|[Dolby&reg; Professional Loudness Correction](https://professional.dolby.com/product/broadcast/vm600/)<br/> with Dialogue Intelligence&trade;|No|Yes|
 |De-interlacing, inverse telecine|Basic|Broadcast quality|
 |Detect and remove black borders <br/>(pillarboxes, letterboxes)|No|Yes|
 |Thumbnail generation|[Yes](media-services-dotnet-generate-thumbnail-with-mes.md)|[Yes](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4)|
@@ -49,7 +51,7 @@ The following table compares the functionality between Media Encoder Standard (M
 ## Input container/file formats
 | Input Container/File Formats | Media Encoder Standard | Media Encoder Premium Workflow |
 | --- | --- | --- |
-| Adobe® Flash® F4V |Yes |Yes |
+| Adobe&reg; Flash&reg; F4V |Yes |Yes |
 | MXF/SMPTE 377M |Yes |Yes |
 | GXF |Yes |Yes |
 | MPEG-2 Transport Streams |Yes |Yes |
@@ -59,7 +61,7 @@ The following table compares the functionality between Media Encoder Standard (M
 | AVI (Uncompressed 8bit/10bit) |Yes |Yes |
 | 3GPP/3GPP2 |Yes |No |
 | Smooth Streaming File Format (PIFF 1.3) |Yes |No |
-| [Microsoft Digital Video Recording(DVR-MS)](https://msdn.microsoft.com/library/windows/desktop/dd692984) |Yes |No |
+| [Microsoft Digital Video Recording(DVR-MS)](/previous-versions/windows/desktop/mstv/about-the-dvr-ms-file-format) |Yes |No |
 | Matroska/WebM |Yes |No |
 | QuickTime (.mov) |Yes |No |
 
@@ -70,7 +72,7 @@ The following table compares the functionality between Media Encoder Standard (M
 | Avid DNxHD (in MXF) |Yes |Yes |
 | DVCPro/DVCProHD (in MXF) |Yes |Yes |
 | JPEG2000 |Yes |Yes |
-| MPEG-2 (up to 422 Profile and High Level; including variants such as XDCAM, XDCAM HD, XDCAM IMX, CableLabs® and D10) |Up to 422 Profile |Yes |
+| MPEG-2 (up to 422 Profile and High Level; including variants such as XDCAM, XDCAM HD, XDCAM IMX, CableLabs&reg; and D10) |Up to 422 Profile |Yes |
 | MPEG-1 |Yes |Yes |
 | Windows Media Video/VC-1 |Yes |Yes |
 | Canopus HQ/HQX |No |No |
@@ -88,9 +90,9 @@ The following table compares the functionality between Media Encoder Standard (M
 | Input Audio Codecs | Media Encoder Standard | Media Encoder Premium Workflow |
 | --- | --- | --- |
 | AES (SMPTE 331M and 302M, AES3-2003) |No |Yes |
-| Dolby® E |No |Yes |
-| Dolby® Digital (AC3) |No |Yes |
-| Dolby® Digital Plus (E-AC3) |No |Yes |
+| Dolby&reg; E |No |Yes |
+| Dolby&reg; Digital (AC3) |No |Yes |
+| Dolby&reg; Digital Plus (E-AC3) |No |Yes |
 | AAC (AAC-LC, AAC-HE, and AAC-HEv2; up to 5.1) |Yes |Yes |
 | MPEG Layer 2 |Yes |Yes |
 | MP3 (MPEG-1 Audio Layer 3) |Yes |Yes |
@@ -103,7 +105,7 @@ The following table compares the functionality between Media Encoder Standard (M
 ## Output container/file formats
 | Output Container/File Formats | Media Encoder Standard | Media Encoder Premium Workflow |
 | --- | --- | --- |
-| Adobe® Flash® F4V |No |Yes |
+| Adobe&reg; Flash&reg; F4V |No |Yes |
 | MXF (OP1a, XDCAM and AS02) |No |Yes |
 | DPP (including AS11) |No |Yes |
 | GXF |No |Yes |
@@ -119,7 +121,7 @@ The following table compares the functionality between Media Encoder Standard (M
 | AVC (H.264; 8-bit; up to High Profile, Level 5.2; 4K Ultra HD; AVC Intra) |Only 8 bit 4:2:0 |Yes |
 | HEVC (H.265; 8-bit and 10-bit;)  |No |Yes |
 | Avid DNxHD (in MXF) |No |Yes |
-| MPEG-2 (up to 422 Profile and High Level; including variants such as XDCAM, XDCAM HD, XDCAM IMX, CableLabs® and D10) |No |Yes |
+| MPEG-2 (up to 422 Profile and High Level; including variants such as XDCAM, XDCAM HD, XDCAM IMX, CableLabs&reg; and D10) |No |Yes |
 | MPEG-1 |No |Yes |
 | Windows Media Video/VC-1 |No |Yes |
 | JPEG thumbnail creation |Yes |Yes |
@@ -130,15 +132,15 @@ The following table compares the functionality between Media Encoder Standard (M
 | Output Audio Codecs | Media Encoder Standard | Media Encoder Premium Workflow |
 | --- | --- | --- |
 | AES (SMPTE 331M and 302M, AES3-2003) |No |Yes |
-| Dolby® Digital (AC3) |No |Yes |
-| Dolby® Digital Plus (E-AC3) up to 7.1 |No |Yes |
+| Dolby&reg; Digital (AC3) |No |Yes |
+| Dolby&reg; Digital Plus (E-AC3) up to 7.1 |No |Yes |
 | AAC (AAC-LC, AAC-HE, and AAC-HEv2; up to 5.1) |Yes |Yes |
 | MPEG Layer 2 |No |Yes |
 | MP3 (MPEG-1 Audio Layer 3) |No |Yes |
 | Windows Media Audio |No |Yes |
 
 >[!NOTE]
->If you encode to Dolby® Digital (AC3), the output can only be written into an ISO MP4 file.
+>If you encode to Dolby&reg; Digital (AC3), the output can only be written into an ISO MP4 file.
 
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

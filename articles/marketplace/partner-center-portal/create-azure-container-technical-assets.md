@@ -1,24 +1,21 @@
 ---
-title: Create an Azure VM technical asset
-description: This article describes the steps and requirements for configuring a container offer on Azure Marketplace.
-author: anbene
-ms.author: mingshen
+title: Technical concepts for Azure container offers - Microsoft commercial marketplace
+description: Technical resource and guidelines to help you configure a container offer on Azure Marketplace.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 04/09/2020
 ---
 
-# Create an Azure VM technical asset
+# Create an Azure container offer
 
-> [!IMPORTANT]
-> We're moving the management of your Azure Container offers from Cloud Partner Portal to Partner Center. Until your offers are migrated, please follow the instructions in [Prepare your Container technical assets](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/containers/cpp-create-technical-assets) for Cloud Partner Portal to manage your offers.
-
-This article describes the steps and requirements for configuring a Container offer on Azure Marketplace.
+This article gives technical resources and recommendations to help you create a container offer on Azure Marketplace.
 
 ## Before you begin
 
-For Quickstarts, Tutorials, and Samples, see [Azure Container Instances](https://docs.microsoft.com/azure/container-instances).
+For Quickstarts, Tutorials, and Samples, see the [Azure Container Instances documentation](../../container-instances/index.yml).
 
 ## Fundamental technical knowledge
 
@@ -41,7 +38,7 @@ Choose one or both of the following scripting environments to help manage your C
 
 We recommend adding these tools to your development environment:
 
-- [Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows)
+- [Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows)
 - [Visual Studio Code](https://code.visualstudio.com/)
   - Extension: [Azure Resource Manager Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
   - Extension: [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
@@ -53,9 +50,9 @@ Review the available tools on the [Azure Developer Tools](https://azure.microsof
 
 For more information, see the following tutorials:
 
-- [Tutorial: Create a container image for deployment to Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-tutorial-prepare-app)
-- [Tutorial: Build and deploy container images in the cloud with Azure Container Registry Tasks](https://docs.microsoft.com/azure/container-registry/container-registry-tutorial-quick-task).
+- [Tutorial: Create a container image for deployment to Azure Container Instances](../../container-instances/container-instances-tutorial-prepare-app.md)
+- [Tutorial: Build and deploy container images in the cloud with Azure Container Registry Tasks](../../container-registry/container-registry-tutorial-quick-task.md).
 
-## Next step
+## Next steps
 
-- [Create your Container offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-container-offer).
+- [Create your container offer](create-azure-container-offer.md).

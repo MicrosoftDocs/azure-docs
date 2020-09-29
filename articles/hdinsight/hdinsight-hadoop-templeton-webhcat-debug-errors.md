@@ -5,9 +5,9 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.custom: hdinsightactive
-ms.date: 01/01/2020
+ms.date: 04/14/2020
 ---
 
 # Understand and resolve errors received from WebHCat on HDInsight
@@ -55,7 +55,7 @@ If the following default values are exceeded, it can degrade WebHCat performance
 | Cause | Resolution |
 | --- | --- |
 | Job details have been cleaned up by the job history cleaner |The default retention period for job history is 7 days. The default retention period can be changed by modifying `mapreduce.jobhistory.max-age-ms`. For more information, see [Modifying configuration](#modifying-configuration) |
-| Job has been killed due to a failover |Retry job submission for up to two minutes |
+| Job has been killed because of a failover |Retry job submission for up to two minutes |
 | An Invalid job ID was used |Check if the job ID is correct |
 
 ## Bad gateway
@@ -69,6 +69,16 @@ If the following default values are exceeded, it can degrade WebHCat performance
 | Attempting to retrieve all jobs through the [GET /jobs](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference+Jobs) call while `Fields` is set to `*` |Don't retrieve *all* job details. Instead use `jobid` to retrieve details for jobs only greater than certain job ID. Or, don't use `Fields` |
 | The WebHCat service is down during HeadNode failover |Wait for two minutes and retry the operation |
 | There are more than 500 pending jobs submitted through WebHCat |Wait until currently pending jobs have completed before submitting more jobs |
+
+## Next steps
+
+If you didn't see your problem or are unable to solve your issue, visit one of the following channels for more support:
+
+* Get answers from Azure experts through [Azure Community Support](https://azure.microsoft.com/support/community/).
+
+* Connect with [@AzureSupport](https://twitter.com/azuresupport) - the official Microsoft Azure account for improving customer experience. Connecting the Azure community to the right resources: answers, support, and experts.
+
+* If you need more help, you can submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Select **Support** from the menu bar or open the **Help + support** hub. For more detailed information, review [How to create an Azure support request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Access to Subscription Management and billing support is included with your Microsoft Azure subscription, and Technical Support is provided through one of the [Azure Support Plans](https://azure.microsoft.com/support/plans/).
 
 [maximum-applications]: https://docs.cloudera.com/HDPDocuments/HDP2/HDP-2.1.3/bk_system-admin-guide/content/setting_application_limits.html
 [max-procs]: https://cwiki.apache.org/confluence/display/Hive/WebHCat+Configure#WebHCatConfigure-WebHCatConfiguration

@@ -1,18 +1,8 @@
 ---
 title: What is Azure Event Hubs? - a Big Data ingestion service | Microsoft Docs
 description: Learn about Azure Event Hubs, a Big Data streaming service that ingests millions of events per second.
-services: event-hubs
-documentationcenter: na
-author: ShubhaVijayasarathy
-manager: timlt
-
-ms.service: event-hubs
 ms.topic: overview
-ms.custom: seodec18
-ms.date: 12/06/2018
-ms.author: shvija
-#Customer intent: As a developer, I want to understand how Event Hubs can help me load and stream large volumes of data into Azure for real-time and batch business scenarios.
-
+ms.date: 06/23/2020
 ---
 
 # Azure Event Hubs — A big data streaming platform and event ingestion service
@@ -49,7 +39,7 @@ Ingest, buffer, store, and process your stream in real time to get actionable in
 
 [Capture](event-hubs-capture-overview.md) your data in near-real time in an [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/) or [Azure Data Lake Storage](https://azure.microsoft.com/services/data-lake-store/) for long-term retention or micro-batch processing. You can achieve this behavior on the same stream you use for deriving real-time analytics. Setting up capture of event data is fast. There are no administrative costs to run it, and it scales automatically with Event Hubs [throughput units](event-hubs-scalability.md#throughput-units). Event Hubs enables you to focus on data processing rather than on data capture.
 
-Azure Event Hubs also integrates with [Azure Functions](/azure/azure-functions/) for a serverless architecture.
+Azure Event Hubs also integrates with [Azure Functions](../azure-functions/index.yml) for a serverless architecture.
 
 ## Scalable
 
@@ -79,17 +69,17 @@ Event Hubs on Azure Stack Hub allows you to realize hybrid cloud scenarios. Stre
 
 The Event Hubs editions (on Azure Stack Hub and on Azure) offer a high degree of feature parity. This parity means SDKs, samples, PowerShell, CLI, and portals offer a similar experience, with few differences. 
 
-Event Hubs on Stack is free during public preview. For more information, see [Event Hubs on Azure Stack Hub overview](https://docs.microsoft.com/azure-stack/user/event-hubs-overview).
+Event Hubs on Stack is free during public preview. For more information, see [Event Hubs on Azure Stack Hub overview](/azure-stack/user/event-hubs-overview).
 
 
 ## Next steps
 
 To get started using Event Hubs, see the **Send and receive events** tutorials:
 
-- [.NET Core](get-started-dotnet-standard-send-v2.md)
-- [Java](get-started-java-send-v2.md)
-- [Python](get-started-python-send-v2.md)
-- [JavaScript](get-started-node-send-v2.md)
+- [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
+- [Java](event-hubs-java-get-started-send.md)
+- [Python](event-hubs-python-get-started-send.md)
+- [JavaScript](event-hubs-node-get-started-send.md)
 - [Go](event-hubs-go-get-started-send.md)
 - [C (send only)](event-hubs-c-getstarted-send.md)
 - [Apache Storm (receive only)](event-hubs-storm-getstarted-receive.md)
@@ -99,5 +89,3 @@ To learn more about Event Hubs, see the following articles:
 
 - [Event Hubs features overview](event-hubs-features.md)
 - [Frequently asked questions](event-hubs-faq.md).
-
-

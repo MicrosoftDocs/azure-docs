@@ -5,17 +5,16 @@ description: Learn how to enable HTTPS in order to secure a web service that's d
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-
 ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 03/05/2020
-ms.custom: seodec18
+ms.topic: conceptual
+ms.custom: how-to
 ---
 
 # Use TLS to secure a web service through Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 This article shows you how to secure a web service that's deployed through Azure Machine Learning.
 
@@ -24,7 +23,7 @@ You use [HTTPS](https://en.wikipedia.org/wiki/HTTPS) to restrict access to web s
 > [!TIP]
 > The Azure Machine Learning SDK uses the term "SSL" for properties that are related to secure communications. This doesn't mean that your web service doesn't use *TLS*. SSL is just a more commonly recognized term.
 >
-> Specifically, web services deployed through Azure Machine Learning only support TLS version 1.2.
+> Specifically, web services deployed through Azure Machine Learning only support TLS version 1.1
 
 TLS and SSL both rely on *digital certificates*, which help with encryption and identity verification. For more information on how digital certificates work, see the Wikipedia topic [Public key infrastructure](https://en.wikipedia.org/wiki/Public_key_infrastructure).
 
@@ -74,12 +73,12 @@ To deploy (or redeploy) the service with TLS enabled, set the *ssl_enabled* para
 ### Deploy on AKS and field-programmable gate array (FPGA)
 
   > [!NOTE]
-  > The information in this section also applies when you deploy a secure web service for the designer. If you aren't familiar with using the Python SDK, see [What is the Azure Machine Learning SDK for Python?](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
+  > The information in this section also applies when you deploy a secure web service for the designer. If you aren't familiar with using the Python SDK, see [What is the Azure Machine Learning SDK for Python?](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true).
 
 When you deploy to AKS, you can create a new AKS cluster or attach an existing one. For more information on creating or attaching a cluster, see [Deploy a model to an Azure Kubernetes Service cluster](how-to-deploy-azure-kubernetes-service.md).
   
--  If you create a new cluster, you use **[AksCompute.provisioning_configuration()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#provisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none--cluster-purpose-none--load-balancer-type-none--load-balancer-subnet-none-)**.
-- If you attach an existing cluster, you use **[AksCompute.attach_configuration()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)**. Both return a configuration object that has an **enable_ssl** method.
+-  If you create a new cluster, you use **[AksCompute.provisioning_configuration()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#&preserve-view=trueprovisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none--cluster-purpose-none--load-balancer-type-none--load-balancer-subnet-none-)**.
+- If you attach an existing cluster, you use **[AksCompute.attach_configuration()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#&preserve-view=trueattach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)**. Both return a configuration object that has an **enable_ssl** method.
 
 The **enable_ssl** method can use a certificate that's provided by Microsoft or a certificate that you purchase.
 
@@ -126,7 +125,7 @@ The **enable_ssl** method can use a certificate that's provided by Microsoft or 
                                         ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
     ```
 
-For more information about *enable_ssl*, see [AksProvisioningConfiguration.enable_ssl()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.aksprovisioningconfiguration?view=azure-ml-py#enable-ssl-ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--leaf-domain-label-none--overwrite-existing-domain-false-) and [AksAttachConfiguration.enable_ssl()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.aksattachconfiguration?view=azure-ml-py#enable-ssl-ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--leaf-domain-label-none--overwrite-existing-domain-false-).
+For more information about *enable_ssl*, see [AksProvisioningConfiguration.enable_ssl()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.aksprovisioningconfiguration?view=azure-ml-py&preserve-view=true#&preserve-view=trueenable-ssl-ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--leaf-domain-label-none--overwrite-existing-domain-false-) and [AksAttachConfiguration.enable_ssl()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.aksattachconfiguration?view=azure-ml-py&preserve-view=true#&preserve-view=trueenable-ssl-ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--leaf-domain-label-none--overwrite-existing-domain-false-).
 
 ### Deploy on Azure Container Instances
 
@@ -168,6 +167,10 @@ TLS/SSL certificates expire and must be renewed. Typically this happens every ye
 
 If the certificate was originally generated by Microsoft (when using the *leaf_domain_label* to create the service), use one of the following examples to update the certificate:
 
+> [!IMPORTANT]
+> * If the existing certificate is still valid, use `renew=True` (SDK) or `--ssl-renew` (CLI) to force the configuration to renew it. For example, if the existing certificate is still valid for 10 days and you don't use `renew=True`, the certificate may not be renewed.
+> * When the service was originally deployed, the `leaf_domain_label` is used to create a DNS name using the pattern `<leaf-domain-label>######.<azure-region>.cloudapp.azure.net`. To preserve the existing name (including the 6 digits originally generated), use the original `leaf_domain_label` value. Do not include the 6 digits that were generated.
+
 **Use the SDK**
 
 ```python
@@ -179,7 +182,7 @@ from azureml.core.compute.aks import SslConfiguration
 aks_target = AksCompute(ws, clustername)
 
 # Update the existing certificate by referencing the leaf domain label
-ssl_configuration = SslConfiguration(leaf_domain_label="myaks", overwrite_existing_domain=True)
+ssl_configuration = SslConfiguration(leaf_domain_label="myaks", overwrite_existing_domain=True, renew=True)
 update_config = AksUpdateConfiguration(ssl_configuration)
 aks_target.update(update_config)
 ```
@@ -187,13 +190,13 @@ aks_target.update(update_config)
 **Use the CLI**
 
 ```azurecli
-az ml computetarget update aks -g "myresourcegroup" -w "myresourceworkspace" -n "myaks" --ssl-leaf-domain-label "myaks" --ssl-overwrite-domain True
+az ml computetarget update aks -g "myresourcegroup" -w "myresourceworkspace" -n "myaks" --ssl-leaf-domain-label "myaks" --ssl-overwrite-domain True --ssl-renew
 ```
 
 For more information, see the following reference docs:
 
-* [SslConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.sslconfiguration?view=azure-ml-py)
-* [AksUpdateConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.aksupdateconfiguration?view=azure-ml-py)
+* [SslConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.sslconfiguration?view=azure-ml-py&preserve-view=true)
+* [AksUpdateConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.aksupdateconfiguration?view=azure-ml-py&preserve-view=true)
 
 ### Update custom certificate
 
@@ -232,8 +235,8 @@ If the certificate was originally generated by a certificate authority, use the 
 
 For more information, see the following reference docs:
 
-* [SslConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.sslconfiguration?view=azure-ml-py)
-* [AksUpdateConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.aksupdateconfiguration?view=azure-ml-py)
+* [SslConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.sslconfiguration?view=azure-ml-py&preserve-view=true)
+* [AksUpdateConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.aksupdateconfiguration?view=azure-ml-py&preserve-view=true)
 
 ## Disable TLS
 
@@ -256,4 +259,4 @@ aks_target.update(update_config)
 ## Next steps
 Learn how to:
 + [Consume a machine learning model deployed as a web service](how-to-consume-web-service.md)
-+ [Securely run experiments and inference inside an Azure virtual network](how-to-enable-virtual-network.md)
++ [Virtual network isolation and privacy overview](how-to-network-security-overview.md)

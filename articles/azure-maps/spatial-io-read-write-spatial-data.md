@@ -1,13 +1,14 @@
 ---
 title:  Read and write spatial data | Microsoft Azure Maps
 description: Learn how to read and write data using the Spatial IO module, provided by Azure Maps Web SDK.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 03/01/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
+ms.custom: devx-track-js
 #Customer intent: As an Azure Maps web sdk user, I want to read and write spatial data so that I can use data for map rendering.
 ---
 
@@ -149,6 +150,12 @@ GML is a spatial XML file specification that's often used as an extension to oth
 
 The `atlas.io.read` function will default to the `atlas.io.core.GmlReader.read` function when it detects that the input data is XML, but the data isn't one of the other support spatial XML formats.
 
+The `GmlReader` will parse coordinates that has one of the following SRIDs:
+
+- EPSG:4326 (Preferred)
+- EPSG:4269, EPSG:4283, EPSG:4258, EPSG:4308, EPSG:4230, EPSG:4272, EPSG:4271, EPSG:4267, EPSG:4608, EPSG:4674 possibly with a small margin of error.
+- EPSG:3857, EPSG:102100, EPSG:3785, EPSG:900913, EPSG:102113, EPSG:41001, EPSG:54004
+
 ## Next steps
 
 Learn more about the classes and methods used in this article:
@@ -163,10 +170,10 @@ Learn more about the classes and methods used in this article:
 > [SpatialDataSetStats](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.spatialdatasetstats)
 
 > [!div class="nextstepaction"]
-> [GmlReader](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.core.gmlreader?view=azure-maps-typescript-latest)
+> [GmlReader](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.core.gmlreader)
 
 > [!div class="nextstepaction"]
-> [GmlWriter](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.core.gmlwriter?view=azure-maps-typescript-latest)
+> [GmlWriter](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.core.gmlwriter)
 
 > [!div class="nextstepaction"]
 > [atlas.io.ogc.WKT functions](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.ogc.wkt)

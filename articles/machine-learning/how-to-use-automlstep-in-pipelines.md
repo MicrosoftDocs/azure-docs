@@ -5,16 +5,17 @@ description: The AutoMLStep allows you to use automated machine learning in your
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
 ms.author: laobri
 author: lobrien
 manager: cgronlun
-ms.date: 04/28/2020
+ms.date: 08/26/2020
+ms.topic: conceptual
+ms.custom: how-to, devx-track-python
 
 ---
 
 # Use automated ML in an Azure Machine Learning pipeline in Python
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Azure Machine Learning's automated ML capability helps you discover high-performing models without you reimplementing every possible approach. Combined with Azure Machine Learning pipelines, you can create deployable workflows that can quickly discover the algorithm that works best for your data. This article will show you how to efficiently join a data preparation step to an automated ML step. Automated ML can quickly discover the algorithm that works best for your data, while putting you on the road to MLOps and model lifecycle operationalization with pipelines.
 
@@ -24,7 +25,7 @@ Azure Machine Learning's automated ML capability helps you discover high-perform
 
 * An Azure Machine Learning workspace. See [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).  
 
-* Basic familiarity with Azure's [automated machine learning](concept-automated-ml.md) and [machine learning pipelines](concept-ml-pipelines.md) facilities and SDK.
+* Familiarity with Azure's [automated machine learning](concept-automated-ml.md) and [machine learning pipelines](concept-ml-pipelines.md) facilities and SDK.
 
 ## Review automated ML's central classes
 
@@ -33,6 +34,10 @@ Automated ML in a pipeline is represented by an `AutoMLStep` object. The `AutoML
 There are several subclasses of `PipelineStep`. In addition to the `AutoMLStep`, this article will show a `PythonScriptStep` for data preparation and another for registering the model.
 
 The preferred way to initially move data _into_ an ML pipeline is with `Dataset` objects. To move data _between_ steps, the preferred way is with `PipelineData` objects. To be used with `AutoMLStep`, the `PipelineData` object must be transformed into a `PipelineOutputTabularDataset` object. For more information, see [Input and output data from ML pipelines](how-to-move-data-in-out-of-pipelines.md).
+
+
+> [!TIP]
+> An improved experience for passing temporary data between pipeline steps is available in the public preview classes,  [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true) and [`OutputTabularDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.output_dataset_config.outputtabulardatasetconfig?view=azure-ml-py&preserve-view=true).  These classes are [experimental](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true#&preserve-view=truestable-vs-experimental) preview features, and may change at any time.
 
 The `AutoMLStep` is configured via an `AutoMLConfig` object. `AutoMLConfig` is a flexible class, as discussed in [Configure automated ML experiments in Python](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#configure-your-experiment-settings). 
 
@@ -93,6 +98,8 @@ if not compute_name in ws.compute_targets :
 compute_target = ws.compute_targets[compute_name]
 ```
 
+[!INCLUDE [low-pri-note](../../includes/machine-learning-low-pri-vm.md)]
+
 The intermediate data between the data preparation and the automated ML step can be stored in the workspace's default datastore, so we don't need to do more than call `get_default_datastore()` on the `Workspace` object. 
 
 After that, the code checks if the AML compute target `'cpu-cluster'` already exists. If not, we specify that we want a small CPU-based compute target. If you plan to use automated ML's deep learning features (for instance, text featurization with DNN support) you should choose a compute with strong GPU support, as described in [GPU optimized virtual machine sizes](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu). 
@@ -106,18 +113,27 @@ The next step is making sure that the remote training run has all the dependenci
 ```python
 from azureml.core.runconfig import RunConfiguration
 from azureml.core.conda_dependencies import CondaDependencies
+from azureml.core import Environment 
 
 aml_run_config = RunConfiguration()
 # Use just-specified compute target ("cpu-cluster")
 aml_run_config.target = compute_target
-aml_run_config.environment.python.user_managed_dependencies = False
 
-# Add some packages relied on by data prep step
-aml_run_config.environment.python.conda_dependencies = CondaDependencies.create(
-    conda_packages=['pandas','scikit-learn'], 
-    pip_packages=['azureml-sdk[automl,explain]', 'azureml-dataprep[fuse,pandas]'], 
-    pin_sdk_version=False)
+USE_CURATED_ENV = True
+if USE_CURATED_ENV :
+    curated_environment = Environment.get(workspace=ws, name="AzureML-Tutorial")
+    aml_run_config.environment = curated_environment
+else:
+    aml_run_config.environment.python.user_managed_dependencies = False
+    
+    # Add some packages relied on by data prep step
+    aml_run_config.environment.python.conda_dependencies = CondaDependencies.create(
+        conda_packages=['pandas','scikit-learn'], 
+        pip_packages=['azureml-sdk[automl,explain]', 'azureml-dataprep[fuse,pandas]'], 
+        pin_sdk_version=False)
 ```
+
+The code above shows two options for handling dependencies. As presented, with `USE_CURATED_ENV = True`, the configuration is based on a curated environment. Curated environments are "prebaked" with common inter-dependent libraries and can be significantly faster to bring online. Curated environments have prebuilt Docker images in the [Microsoft Container Registry](https://hub.docker.com/publishers/microsoftowner). The path taken if you change `USE_CURATED_ENV` to `False` shows the pattern for explicitly setting your dependencies. In that scenario, a new custom Docker image will be created and registered in an Azure Container Registry within your resource group (see [Introduction to private Docker container registries in Azure](https://docs.microsoft.com/azure/container-registry/container-registry-intro)). Building and registering this image can take quite a few minutes. 
 
 ## Prepare data for automated machine learning
 
@@ -129,7 +145,8 @@ The baseline Titanic dataset consists of mixed numerical and text data, with som
 - Transform categorical data to integers
 - Drop columns that we don't intend to use
 - Split the data into training and testing sets
-- Write the transformed data to the `PipelineData` output paths
+- Write the transformed data to either
+    - `PipelineData` output paths
 
 ```python
 %%writefile dataprep.py
@@ -209,11 +226,11 @@ Parquet files are natively supported by the automated ML step discussed below, s
 
 The data preparation code described above must be associated with a `PythonScripStep` object to be used with a pipeline. The path to which the Parquet data-preparation output is written is generated by a `PipelineData` object. The resources prepared earlier, such as the `ComputeTarget`, the `RunConfig`, and the `'titanic_ds' Dataset` are used to complete the specification.
 
+PipelineData users
 ```python
 from azureml.pipeline.core import PipelineData
-from azureml.pipeline.steps import PythonScriptStep
 
-prepped_data_path = PipelineData("titanic_train", datastore).as_dataset()
+from azureml.pipeline.steps import PythonScriptStep
 prepped_data_path = PipelineData("titanic_train", datastore).as_dataset()
 
 dataprep_step = PythonScriptStep(
@@ -227,8 +244,10 @@ dataprep_step = PythonScriptStep(
     allow_reuse=True
 )
 ```
-
 The `prepped_data_path` object is of type `PipelineOutputFileDataset`. Notice that it's specified in both the `arguments` and `outputs` arguments. If you review the previous step, you'll see that within the data preparation code, the value of the argument `'--output_path'` is the file path to which the Parquet file was written. 
+
+> [!TIP]
+> An improved experience for passing intermediate data between pipeline steps is available with the public preview class, [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true). For a code example using the `OutputFileDatasetConfig` class, see how to [build a two step ML pipeline](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/pipeline-with-datasets/pipeline-for-image-classification.ipynb).
 
 ## Train with AutoMLStep
 
@@ -246,6 +265,9 @@ prepped_data = prepped_data_path.parse_parquet_files(file_extension=None)
 
 The snippet above creates a high-performing `PipelineOutputTabularDataset` from the `PipelineOutputFileDataset` output of the data preparation step.
 
+> [!TIP]
+> The public preview class, [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true), contains the [read_delimited_files()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true#&preserve-view=trueread-delimited-files-include-path-false--separator------header--promoteheadersbehavior-all-files-have-same-headers--3---partition-format-none--path-glob-none--set-column-types-none-) method that converts an `OutputFileDatasetConfig` into an [`OutputTabularDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.output_dataset_config.outputtabulardatasetconfig?view=azure-ml-py&preserve-view=true) for consumption in AutoML runs.
+
 Another option is to use `Dataset` objects registered in the workspace:
 
 ```python
@@ -254,7 +276,7 @@ prepped_data = Dataset.get_by_name(ws, 'Data_prepared')
 
 Comparing the two techniques:
 
-| Technique |  | 
+| Technique | Benefits and drawbacks | 
 |-|-|
 |`PipelineOutputTabularDataset`| Higher performance | 
 || Natural route from `PipelineData` | 
@@ -265,28 +287,31 @@ Comparing the two techniques:
 | | Data persists and is visible throughout workspace |
 | | [Notebook showing registered `Dataset` technique](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/continuous-retraining/auto-ml-continuous-retraining.ipynb)
 
+
 ### Specify automated ML outputs
 
 The outputs of the `AutoMLStep` are the final metric scores of the higher-performing model and that model itself. To use these outputs in further pipeline steps, prepare `PipelineData` objects to receive them.
 
 ```python
+
 from azureml.pipeline.core import TrainingOutput
 
 metrics_data = PipelineData(name='metrics_data',
-                           datastore=datastore,
-                           pipeline_output_name='metrics_output',
-                           training_output=TrainingOutput(type='Metrics'))
+                            datastore=datastore,
+                            pipeline_output_name='metrics_output',
+                            training_output=TrainingOutput(type='Metrics'))
+
 model_data = PipelineData(name='best_model_data',
-                           datastore=datastore,
-                           pipeline_output_name='model_output',
-                           training_output=TrainingOutput(type='Model'))
+                          datastore=datastore,
+                          pipeline_output_name='model_output',
+                          training_output=TrainingOutput(type='Model'))
 ```
 
 The snippet above creates the two `PipelineData` objects for the metrics and model output. Each is named, assigned to the default datastore retrieved earlier, and associated with the particular `type` of `TrainingOutput` from the `AutoMLStep`. Because we assign `pipeline_output_name` on these `PipelineData` objects, their values will be available not just from the individual pipeline step, but from the pipeline as a whole, as will be discussed below in the section "Examine pipeline results." 
 
 ### Configure and create the automated ML pipeline step
 
-Once the inputs and outputs are defined, it's time to create the `AutoMLConfig` and `AutoMLStep`. The details of the configuration will depend on your task, as described in [Configure automated ML experiments in Python](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train]). For the Titanic survival classification task, the following snippet demonstrates a simple configuration.
+Once the inputs and outputs are defined, it's time to create the `AutoMLConfig` and `AutoMLStep`. The details of the configuration will depend on your task, as described in [Configure automated ML experiments in Python](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train). For the Titanic survival classification task, the following snippet demonstrates a simple configuration.
 
 ```python
 from azureml.train.automl import AutoMLConfig
@@ -312,8 +337,9 @@ automl_config = AutoMLConfig(task = 'classification',
 
 train_step = AutoMLStep(name='AutoML_Classification',
     automl_config=automl_config,
-    passthru_automl_config=False,
     outputs=[metrics_data,model_data],
+    enable_default_model_output=False,
+    enable_default_metrics_output=False,
     allow_reuse=True)
 ```
 The snippet shows an idiom commonly used with `AutoMLConfig`. Arguments that are more fluid (hyperparameter-ish) are specified in a separate dictionary while the values less likely to change are specified directly in the `AutoMLConfig` constructor. In this case, the `automl_settings` specify a brief run: the run will stop after only 2 iterations or 15 minutes, whichever comes first.
@@ -324,13 +350,13 @@ The `automl_settings` dictionary is passed to the `AutoMLConfig` constructor as 
 - `path` and `debug_log` describe the path to the project and a local file to which debug information will be written 
 - `compute_target` is the previously defined `compute_target` that, in this example, is an inexpensive CPU-based machine. If you're using AutoML's Deep Learning facilities, you would want to change the compute target to be GPU-based
 - `featurization` is set to `auto`. More details can be found in the [Data Featurization](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#data-featurization) section of the automated ML configuration document 
-- `training_data` is set to the `PipelineOutputTabularDataset` objects made from the outputs of the data preparation step 
 - `label_column_name` indicates which column we are interested in predicting 
+- `training_data` is set to the `PipelineOutputTabularDataset` objects made from the outputs of the data preparation step 
 
 The `AutoMLStep` itself takes the `AutoMLConfig` and has, as outputs, the `PipelineData` objects created to hold the metrics and model data. 
 
 >[!Important]
-> You must set `passthru_automl_config` to `False` if your `AutoMLStep` is using `PipelineOutputTabularDataset` objects for input.
+> You must set `enable_default_model_output` and `enable_default_metrics_output`  to `True` only if you are using  `AutoMLStepRun`.
 
 In this example, the automated ML process will perform cross-validations on the `training_data`. You can control the number of cross-validations with the `n_cross_validations` argument. If you've already split your training data as part of your data preparation steps, you can set `validation_data` to its own `Dataset`.
 
@@ -338,7 +364,7 @@ You might occasionally see the use `X` for data features and `y` for data labels
 
 ## Register the model generated by automated ML 
 
-The last step in a basic ML pipeline is registering the created model. By adding the model to the workspace's model registry, it will be available in the portal and can be versioned. To register the model, write another `PythonScriptStep` that takes the `model_data` output of the `AutoMLStep`.
+The last step in a simple ML pipeline is registering the created model. By adding the model to the workspace's model registry, it will be available in the portal and can be versioned. To register the model, write another `PythonScriptStep` that takes the `model_data` output of the `AutoMLStep`.
 
 ### Write the code to register the model
 
@@ -419,7 +445,7 @@ metrics_output_port.download('.', show_progress=True)
 model_output_port.download('.', show_progress=True)
 ```
 
-Downloaded files are written to the sub-directory `azureml/{run.id}/`. The metrics file is JSON-formatted and can be converted into a Pandas dataframe for examination.
+Downloaded files are written to the subdirectory `azureml/{run.id}/`. The metrics file is JSON-formatted and can be converted into a Pandas dataframe for examination.
 
 For local processing, you may need to install relevant packages, such as Pandas, Pickle, the AzureML SDK, and so forth. For this example, it's likely that the best model found by automated ML will depend on XGBoost.
 
@@ -441,7 +467,7 @@ df = pd.DataFrame(deserialized_metrics_output)
 df
 ```
 
-The code snippet above shows the metrics file being loaded from it's location on the Azure datastore. You can also load it from the downloaded file, as shown in the comment. Once you've deserialized it and converted it to a Pandas DataFrame, you can see detailed metrics for each of the iterations of the automated ML step.
+The code snippet above shows the metrics file being loaded from its location on the Azure datastore. You can also load it from the downloaded file, as shown in the comment. Once you've deserialized it and converted it to a Pandas DataFrame, you can see detailed metrics for each of the iterations of the automated ML step.
 
 The model file can be deserialized into a `Model` object that you can use for inferencing, further metrics analysis, and so forth. 
 
@@ -463,7 +489,7 @@ For more information on loading and working with existing models, see [Use an ex
 
 If you've been following along with the article, you'll have an instantiated `run` object. But you can also retrieve completed `Run` objects from the `Workspace` by way of an `Experiment` object.
 
-The workspace contains a complete record of all your experiments and runs. You can either use the portal to find and download the outputs of experiments or use code. To access the records from a historic run, use Azure Machine Learning to find the ID of the run in which you are interested. With that, you can choose the specific `run` by way of the `Workspace` and `Experiment`.
+The workspace contains a complete record of all your experiments and runs. You can either use the portal to find and download the outputs of experiments or use code. To access the records from a historic run, use Azure Machine Learning to find the ID of the run in which you are interested. With that ID, you can choose the specific `run` by way of the `Workspace` and `Experiment`.
 
 ```python
 # Retrieved from Azure Machine Learning web UI

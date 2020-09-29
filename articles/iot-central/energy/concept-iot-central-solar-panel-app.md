@@ -1,6 +1,6 @@
 ---
-title: Architectural concepts in Azure IoT Central - Energy | Microsoft Docs
-description: This article introduces key concepts relating the architecture of Azure IoT Central
+title: Architectural concepts in Azure IoT Central - solar panel | Microsoft Docs
+description: This article introduces key concepts relating the architecture of Azure IoT Central solar panel monitoring app.
 author: op-ravi
 ms.author: omravi
 ms.date: 10/23/2019

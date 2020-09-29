@@ -11,7 +11,7 @@ ms.date: 09/20/2019
 
 # Designing your Azure Monitor Logs deployment
 
-Azure Monitor stores [log](data-platform-logs.md) data in a Log Analytics workspace, which is an Azure resource and a container where data is collected, aggregated, and serves as an administrative boundary. While you can deploy one or more workspaces in your Azure subscription, there are several considerations you should understand in order to ensure your initial deployment is following our guidelines to provide you with a cost effective, manageable, and scalable deployment meeting your organizations needs.
+Azure Monitor stores [log](data-platform-logs.md) data in a Log Analytics workspace, which is an Azure resource and a container where data is collected, aggregated, and serves as an administrative boundary. While you can deploy one or more workspaces in your Azure subscription, there are several considerations you should understand in order to ensure your initial deployment is following our guidelines to provide you with a cost effective, manageable, and scalable deployment meeting your organization's needs.
 
 Data in a workspace is organized into tables, each of which stores different kinds of data and has its own unique set of properties based on the resource generating the data. Most data sources will write to their own tables in a Log Analytics workspace.
 
@@ -21,7 +21,7 @@ A Log Analytics workspace provides:
 
 * A geographic location for data storage.
 * Data isolation by granting different users access rights following one of our recommended design strategies.
-* Scope for configuration of settings like [pricing tier](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#changing-pricing-tier), [retention](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period), and [data capping](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#manage-your-maximum-daily-data-volume).
+* Scope for configuration of settings like [pricing tier](./manage-cost-storage.md#changing-pricing-tier), [retention](./manage-cost-storage.md#change-the-data-retention-period), and [data capping](./manage-cost-storage.md#manage-your-maximum-daily-data-volume).
 
 This article provides a detailed overview of the design and migration considerations, access control overview, and an understanding of the design implementations we recommend for your IT organization.
 
@@ -43,12 +43,12 @@ IT organizations today are modeled following either a centralized, decentralized
 
 When using the Log Analytics agents to collect data, you need to understand the following in order to plan your agent deployment:
 
-* To collect data from Windows agents, you can [configure each agent to report to one or more workspaces](../../azure-monitor/platform/agent-windows.md), even while it is reporting to a System Center Operations Manager management group. The Windows agent can report up to four workspaces.
+* To collect data from Windows agents, you can [configure each agent to report to one or more workspaces](./agent-windows.md), even while it is reporting to a System Center Operations Manager management group. The Windows agent can report up to four workspaces.
 * The Linux agent does not support multi-homing and can only report to a single workspace.
 
 If you are using System Center Operations Manager 2012 R2 or later:
 
-* Each Operations Manager management group can be [connected to only one workspace](../platform/om-agents.md). 
+* Each Operations Manager management group can be [connected to only one workspace](./om-agents.md). 
 * Linux computers reporting to a management group must be configured to report directly to a Log Analytics workspace. If your Linux computers are already reporting directly to a workspace and you want to monitor them with Operations Manager, follow these steps to [report to an Operations Manager management group](agent-manage.md#configure-agent-to-report-to-an-operations-manager-management-group). 
 * You can install the Log Analytics Windows agent on the Windows computer and have it report to both Operations Manager integrated with a workspace, and a different workspace.
 
@@ -93,7 +93,7 @@ Azure Monitor automatically determines the right mode depending on the context y
 
 The following table summarizes the access modes:
 
-| | Workspace-context | Resource-context |
+| Issue | Workspace-context | Resource-context |
 |:---|:---|:---|
 | Who is each model intended for? | Central administration. Administrators who need to configure data collection and users who need access to a wide variety of resources. Also currently required for users who need to access logs for resources outside of Azure. | Application teams. Administrators of Azure resources being monitored. |
 | What does a user require to view logs? | Permissions to the workspace. See **Workspace permissions** in [Manage access using workspace permissions](manage-access.md#manage-access-using-workspace-permissions). | Read access to the resource. See **Resource permissions** in [Manage access using Azure permissions](manage-access.md#manage-access-using-azure-permissions). Permissions can be inherited (such as from the containing resource group) or directly assigned to the resource. Permission to the logs for the resource will be automatically assigned. |
@@ -123,26 +123,43 @@ To learn how to change the access control mode in the portal, with PowerShell, o
 
 ## Ingestion volume rate limit
 
-Azure Monitor is a high scale data service that serves thousands of customers sending terabytes of data each month at a growing pace. The default ingestion rate threshold is set to **6 GB/min** per workspace. This is an approximate value since the actual size can vary between data types depending on the log length and its compression ratio. This limit does not apply to data that is sent from agents or [Data Collector API](data-collector-api.md).
+Azure Monitor is a high scale data service that serves thousands of customers sending terabytes of data each month at a growing pace. The volume rate limit intends to isolate Azure Monitor customers from sudden ingestion spikes in multitenancy environment. A default ingestion volume rate threshold of 500 MB (compressed) is defined in workspaces, this is translated to approximately **6 GB/min** uncompressed -- the actual size can vary between data types depending on the log length and its compression ratio. The volume rate limit applies to all ingested data whether sent from Azure resources using [Diagnostic settings](diagnostic-settings.md), [Data Collector API](data-collector-api.md) or agents.
 
-If you send data at a higher rate to a single workspace, some data is dropped, and an event is sent to the *Operation* table in your workspace every 6 hours while the threshold continues to be exceeded. If your ingestion volume continues to exceed the rate limit or you are expecting to reach it sometime soon, you can request an increase to your workspace by sending an email to LAIngestionRate@microsoft.com or opening a support request.
- 
-To be notified on such an event in your workspace, create a [log alert rule](alerts-log.md) using the following query with alert logic base on number of results grater than zero.
+When you send data to a workspace at a volume rate higher than 80% of the threshold configured in your workspace, an event is sent to the *Operation* table in your workspace every 6 hours while the threshold continues to be exceeded. When ingested volume rate is higher than threshold, some data is dropped and an event is sent to the *Operation* table in your workspace every 6 hours while the threshold continues to be exceeded. If your ingestion volume rate continues to exceed the threshold or you are expecting to reach it sometime soon, you can request to increase it in by opening a support request. 
 
-``` Kusto
+To be notified on approaching or reaching ingestion volume rate limit in your workspace, create a [log alert rule](alerts-log.md) using the following query with alert logic base on number of results greater than zero, evaluation period of 5 minutes and frequency of 5 minutes.
+
+Ingestion volume rate crossed the threshold
+```Kusto
 Operation
-|where OperationCategory == "Ingestion"
-|where Detail startswith "The rate of data crossed the threshold"
-``` 
+| where Category == "Ingestion"
+| where OperationKey == "Ingestion rate limit"
+| where Level == "Error"
+```
 
+Ingestion volume rate crossed 80% of the threshold
+```Kusto
+Operation
+| where Category == "Ingestion"
+| where OperationKey == "Ingestion rate limit"
+| where Level == "Warning"
+```
+
+Ingestion volume rate crossed 70% of the threshold
+```Kusto
+Operation
+| where Category == "Ingestion"
+| where OperationKey == "Ingestion rate limit"
+| where Level == "Info"
+```
 
 ## Recommendations
 
 ![Resource-context design example](./media/design-logs-deployment/workspace-design-resource-context-01.png)
 
-This scenario covers a single workspace design in your IT organizations subscription that is not constrained by data sovereignty or regulatory compliance, or needs to map to the regions your resources are deployed within. It allows your organizations security and IT admin teams the ability to leverage the improved integration with Azure access management and more secure access control.
+This scenario covers a single workspace design in your IT organization's subscription that is not constrained by data sovereignty or regulatory compliance, or needs to map to the regions your resources are deployed within. It allows your organization's security and IT admin teams the ability to leverage the improved integration with Azure access management and more secure access control.
 
-All resources, monitoring solutions, and Insights such as Application Insights and Azure Monitor for VMs, supporting infrastructure and applications maintained by the different teams are configured to forward their collected log data to the IT organizations centralized shared workspace. Users on each team are granted access to logs for resources they have been given access to.
+All resources, monitoring solutions, and Insights such as Application Insights and Azure Monitor for VMs, supporting infrastructure and applications maintained by the different teams are configured to forward their collected log data to the IT organization's centralized shared workspace. Users on each team are granted access to logs for resources they have been given access to.
 
 Once you have deployed your workspace architecture, you can enforce this on Azure resources with [Azure Policy](../../governance/policy/overview.md). It provides a way to define policies and ensure compliance with your Azure resources so they send all their resource logs to a particular workspace. For example, with Azure virtual machines or virtual machine scale sets, you can use existing policies that evaluate workspace compliance and report results, or customize to remediate if non-compliant.  
 
@@ -162,3 +179,4 @@ While planning your migration to this model, consider the following:
 ## Next steps
 
 To implement the security permissions and controls recommended in this guide, review [manage access to logs](manage-access.md).
+

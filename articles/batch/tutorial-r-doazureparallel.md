@@ -188,7 +188,7 @@ hist(closingPrices_s)
 
 Output is similar to the following:
 
-![Distribution of closing prices](media/tutorial-r-doazureparallel/closing-prices-local.png)
+![Screenshot shows a histogram of closing prices](media/tutorial-r-doazureparallel/closing-prices-local.png)
   
 A local simulation completes in a few seconds or less:
 
@@ -215,7 +215,7 @@ closingPrices_p <- foreach(i = 1:100, .combine='c', .options.azure = opt) %dopar
 end_p <- Sys.time() 
 ```
 
-The simulation distributes tasks to the nodes in the Batch pool. You can see the activity in the heat map for the pool in the Azure portal]. Go to **Batch accounts** > *myBatchAccount*. Click **Pools** > *myPoolName*. 
+The simulation distributes tasks to the nodes in the Batch pool. You can see the activity in the heat map for the pool in the Azure portal. Go to **Batch accounts** > *myBatchAccount*. Click **Pools** > *myPoolName*. 
 
 ![Heat map of pool running parallel R tasks](media/tutorial-r-doazureparallel/pool.png)
 

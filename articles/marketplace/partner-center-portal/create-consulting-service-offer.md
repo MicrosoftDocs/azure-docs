@@ -1,22 +1,19 @@
 ---
-title: Create a Consulting service offer in Partner Center - Azure Marketplace
-description: Learn how to publish a Consulting service offer to either Azure Marketplace or AppSource using Partner Center.
-author: anbene
-ms.author: mingshen
+title: Create a consulting service offer - Microsoft commercial marketplace
+description: Learn how to publish a consulting service offer to either Microsoft AppSource or Azure Marketplace using Partner Center.
+author: Microsoft-BradleyWright
+ms.author: brwrigh
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 04/06/2020
+ms.topic: how-to
+ms.date: 06/17/2020
 ---
 
-# Create a Consulting service offer
+# Create a consulting service offer
 
-> [!IMPORTANT]
-> We're moving the management of your Consulting service offers from Cloud Partner Portal to Partner Center. Until your offers are migrated, please follow the instructions in [Azure and Dynamics 365 consulting service offer](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer) for Cloud Partner Portal to manage your offers.
+This article describes how to publish a consulting service offer to either [Microsoft AppSource](https://appsource.microsoft.com/) or [Azure Marketplace](https://azuremarketplace.microsoft.com/). List consulting service offers based on Microsoft [Dynamics 365](https://dynamics.microsoft.com/) and Power Platform on AppSource. List Consulting service offers based on Microsoft Azure on Azure Marketplace. Before starting, [Create a commercial marketplace account in Partner Center](create-account.md) if you haven't done so yet. Ensure your account is enrolled in the commercial marketplace program.
 
-This article describes how to publish a Consulting service offer to either [Azure Marketplace](https://azuremarketplace.microsoft.com/) or [AppSource](https://appsource.microsoft.com/). List Consulting service offers based on Microsoft [Dynamics 365](https://dynamics.microsoft.com/) and Power Platform on AppSource. List Consulting service offers based on Microsoft Azure on Azure Marketplace. Before starting, [Create a Commercial Marketplace account in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) if you haven't done so yet. Ensure your account is enrolled in the commercial marketplace program.
-
-Before you create your offer, review the prerequisites in [Consulting service prerequisites](https://docs.microsoft.com/azure/marketplace/partner-center-portal/consulting-service-prerequisites).
+Before you create your offer, review the prerequisites in [Consulting service prerequisites](consulting-service-prerequisites.md).
 
 ## Publishing benefits
 
@@ -36,7 +33,7 @@ Benefits of publishing to the commercial marketplace:
     ![Illustrates the left-navigation menu.](./media/new-offer-consulting-service.png)
 
 >[!NOTE]
->After an offer is published, edits made to it in Partner Center only appear in storefronts after republishing the offer. Make sure you always republish after making changes.
+>After an offer is published, edits made to it in Partner Center only appear in online stores after republishing the offer. Make sure you always republish after making changes.
 
 ## New offer
 
@@ -57,16 +54,16 @@ Select **Create** to generate the offer and continue.
 
 ### Connect lead management
 
-When publishing your offer to the marketplace with Partner Center, you _must_ connect it to a Customer Relationship Management (CRM) or marketing automation system. This let you receive customer contact information as soon as someone expresses interest in or uses your product.
+When publishing your offer to the marketplace with Partner Center, you _must_ connect it to a Customer Relationship Management (CRM) or marketing automation system. This lets you receive customer contact information as soon as someone expresses interest in or uses your product.
 
 1. Select **Connect** to specify where you want us to send customer leads. Partner Center supports the following systems:
 
-    - [Dynamics 365](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics) for Customer Engagement
-    - [Marketo](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-marketo)
-    - [Salesforce](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce)
+    - [Dynamics 365](commercial-marketplace-lead-management-instructions-dynamics.md) for Customer Engagement
+    - [Marketo](commercial-marketplace-lead-management-instructions-marketo.md)
+    - [Salesforce](commercial-marketplace-lead-management-instructions-salesforce.md)
 
     > [!NOTE]
-    > If your CRM system isn't listed above, use [Azure Table](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table) or [Https Endpoint](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-https) to store customer lead data, then export the data to your CRM system.
+    > If your CRM system isn't listed above, use [Azure Table](commercial-marketplace-lead-management-instructions-azure-table.md) or [Https Endpoint](commercial-marketplace-lead-management-instructions-https.md) to store customer lead data, then export the data to your CRM system.
 
 2. Connect your offer to the lead destination when publishing in Partner Center.
 3. Confirm that the connection to the lead destination is configured properly. After you publish it in Partner Center, we'll validate the connection and send you a test lead. While you preview the offer before it goes live, you can also test your lead connection by trying to purchase the offer yourself in the preview environment.
@@ -74,39 +71,89 @@ When publishing your offer to the marketplace with Partner Center, you _must_ co
 
 Here are some additional lead management resources:
 
-- [Lead management overview](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-get-customer-leads)
-- [Lead management FAQs](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
-- [Common lead configuration errors](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
+- [Lead management overview](commercial-marketplace-get-customer-leads.md)
+- [Lead management FAQs](../lead-management-for-cloud-marketplace.md#frequently-asked-questions))
+- [Common lead configuration errors](../lead-management-for-cloud-marketplace.md#publishing-config-errors))
 - [Lead Management Overview](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (Make sure your pop-up blocker is turned off)
 
 Select **Save draft** before continuing.
 
 ### Properties
 
-This page lets you set the primary product that your Consulting service offer best covers, set a Consulting service type, and choose applicable products.
+This page lets you set the primary product that your consulting service offer best covers, set a consulting service type, and choose applicable products.
 
 1. Select a **Primary product** from the drop-down list.
 2. Select a **Consulting service type** from the drop-down list:
 
-    - **Assessment** : An evaluation of a customer's environment to determine the applicability of a solution and provide an estimate of cost and timing.
-    - **Briefing** : An introduction to a solution or a Consulting service to draw customer interest by using frameworks, demos, and customer examples.
-    - **Implementation** : A complete installation that results in a fully working solution. Limit to solutions that can be implemented in two weeks or less.
-    - **Proof of concept** : A limited-scope implementation to determine whether a solution meets customer requirements.
-    - **Workshop** : An interactive engagement conducted on a customer's premises. It can involve training, briefings, assessments, or demos built on the customer's data or environment.
+    - **Assessment**: An evaluation of a customer's environment to determine the applicability of a solution and provide an estimate of cost and timing.
+    - **Briefing**: An introduction to a solution or a Consulting service to draw customer interest by using frameworks, demos, and customer examples.
+    - **Implementation**: A complete installation that results in a fully working solution. Limit to solutions that can be implemented in two weeks or less.
+    - **Proof of concept**: A limited-scope implementation to determine whether a solution meets customer requirements.
+    - **Workshop**: An interactive engagement conducted on a customer's premises. It can involve training, briefings, assessments, or demos built on the customer's data or environment.
 
-1. If you selected a primary product of **Azure**, select up to three **Solution Areas**. These make it easier for customers in Azure Marketplace to find your offer. If you didn't choose Azure, skip this step.
-2. If you selected a primary product _other_ than Azure, select up to three **Applicable products**. These make it easier for customers in AppSource to find your offer. For details, see [Microsoft AppSource Consulting Service Listing Guidelines](https://go.microsoft.com/fwlink/?LinkId=828734&amp;clcid=0x409) (PDF).
-3. Select up to six **Industries** that your offer applies to. This will make it easier for customers to find your offer.
-4. Add up to three **Competencies** that your company has earned to display on your Consulting service offer listing. At least one competency is required except for Azure Expert MSP's and Azure Networking MSP's.
+3. If you selected **Azure** as primary product, select up to three **Solution Areas**. These make it easier for customers in Azure Marketplace to find your offer. If you didn't choose Azure, skip this step.
+
+    - Analytics
+    - App Modernization
+    - Archive
+    - AI + Machine Learning
+    - Backup
+    - Big Data
+    - Data Platform
+    - Datacenter Management
+    - DevOps
+    - Disaster Recovery
+    - Identity
+    - Internet of Things
+    - Migration
+    - Networking
+    - Security
+    - Storage
+
+1. If you selected **Azure** as primary product, you have the option to select up to six **Industries**. These make it easier for customers in Azure Marketplace to find your offer. See the full list of industries in [Offer Listing Best Practices](../gtm-offer-listing-best-practices.md). If you didn’t choose Azure, skip this step.
+1. If you selected a primary product *other* than Azure, select up to three **Applicable products**. These make it easier for customers in AppSource to find your offer. For details, see [Microsoft AppSource Consulting Service Listing Guidelines](https://go.microsoft.com/fwlink/?LinkId=828734&amp;clcid=0x409) (PDF).
+1. If you selected a primary product *other* than Azure, you have the option to select up to two **Industries** and two **Verticals** for each industry. These make it easier for customers in AppSource to find your offer. See the full list of industries and verticals in [Offer Listing Best Practices](../gtm-offer-listing-best-practices.md).
+1. Add up to three **Competencies** that your company has earned to display on your consulting service offer listing. At least one competency is required except for Azure Expert MSPs and Azure Networking MSPs.
 
 Select **Save draft** before continuing.
 
 ## Offer listing
 
-Here you'll define the offer details that are displayed in the marketplace. This includes the offer name, description, images, and so on. Be sure to follow the policies detailed on [Microsoft's policy page](https://docs.microsoft.com/legal/marketplace/certification-policies#800-consulting-services) while configuring this offer.
+Here you'll define the offer details that are displayed in the marketplace. This includes the offer name, description, images, and so on. Be sure to follow the policies detailed on the [commercial marketplace certification policies page](https://docs.microsoft.com/legal/marketplace/certification-policies#800-consulting-services) while configuring this offer.
 
 > [!NOTE]
 > Offer details aren't required to be in English if the offer description begins with the phrase, &quot;This application is available only in [non-English language].&quot; It's also okay to provide a Useful Link to offer content in a language that's different from the one used in the Offer listing details.
+
+Here's an example of how offer information appears in Azure Marketplace (any listed prices are for example purposes only and not intended to reflect actual costs):
+
+:::image type="content" source="media/example-consulting-service-offer.png" alt-text="Illustrates how this offer appears in Azure Marketplace.":::
+
+#### Call-out descriptions
+
+1. Logo
+2. Price
+3. Solution areas
+4. Industries
+5. Offer name
+6. Summary
+7. Description
+8. Screenshots/videos
+
+<br>Here's an example of how offer information appears in Microsoft AppSource (any listed prices are for example purposes only and not intended to reflect actual costs):
+
+:::image type="content" source="media/example-consulting-service-offer-appsource.png" alt-text="Illustrates how this offer appears in Microsoft AppSource.":::
+
+#### Call-out descriptions
+
+1. Logo
+2. Price
+3. Products
+4. Industries
+5. Offer name
+6. Summary
+7. Description
+8. Screenshots/videos
+9. Documents
 
 ### Name
 
@@ -124,36 +171,15 @@ Provide a short description of your offer. This can be up to 100 characters long
 
 ### Description
 
-Provide a longer description of your offer, up to 3,000 characters. This is displayed to customers in the marketplace listing overview.
+[!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
-Include one or more of the following in your description:
+[!INCLUDE [Long description-2](./includes/long-description-2.md)]
 
-- The value and key benefits your offer provides
-- Category or industry associations, or both
-- In-app purchase opportunities
-- Any required disclosures
-
-Here are some tips for writing your description:
-
-- Clearly describe the value of your offer in the first few sentences of your description. Include the following items:
-  - Description of the offer.
-  - The type of user that benefits from the offer.
-  - Customer needs or issues the offer addresses.
-- Remember that the first few sentences might be displayed in search results.
-- Don't rely on features and functionality to sell your product. Instead, focus on the value your offer provides.
-- Try to use industry-specific vocabulary or benefit-based wording.
-
-To make your offer description more engaging, use the rich text editor to apply formatting.
-
-![Using the rich text editor](./media/rich-text-editor.png)
-
-| <center>Change text format | <center>Add bullets or numbering | <center>Add or remove text indent |
-| --- | --- | --- |
-| <center>![Using the rich text editor to change text format](./media/text-editor3.png) |  <center>![Using the rich text editor to add lists](./media/text-editor4.png) |  <center>![Using the rich text editor to indent](./media/text-editor5.png) |
+[!INCLUDE [Long description-3](./includes/long-description-3.md)]
 
 ### Keywords
 
-Enter up to three search keywords that are relevant to your primary product and Consulting service. These will make it easier to find your offer.
+Enter up to three search keywords that are relevant to your primary product and consulting service. These will make it easier to find your offer.
 
 ### Duration
 
@@ -171,17 +197,21 @@ Add up to three (but at least one) supporting PDF documents for your offer.
 
 Provide logos and images to use with your offer. All images must be in .png format. Blurry images will be rejected.
 
+[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+
 >[!Note]
 >If you have an issue uploading files, make sure your local network does not block the https://upload.xboxlive.com service used by Partner Center.
 
 #### Store logos
 
-Provide PNG files of your offer's logo in each of the following pixel sizes:
+Provide a PNG file for the **Large** size logo. Partner Center will use this to create a **Small** logo. You can optionally replace this with a different image later.
 
-- **Small (48 x 48)**
-- **Large (216 x 216)**
+- **Large** (from 216 x 216 to 350 x 350 px, required)
+- **Small** (48 x 48 px, optional)
 
-All logos are required and are used in different places in the marketplace listing.
+These logos are used in different places in the listing.
+
+[!INCLUDE [Logo tips](../includes/graphics-suggestions.md)]
 
 #### Screenshots (optional)
 
@@ -212,14 +242,14 @@ Here you'll define elements such as pricing, market, and a private key.
 
 After you've completed all the required sections of the offer, you can submit your offer to review and publish.
 
-1. When you're ready to publish your Consulting service offer, click **Review and publish**.
+1. When you're ready to publish your consulting service offer, click **Review and publish**.
 2. Review the details on the final submission page.
 3. If necessary, write a note to the certification team if you believe any of the details of your offer require explanation.
 4. When you're ready, select **Submit**.
 5. The **Offer overview** page shows what publishing stage your offer is in.
 
-For more information about how long you can expect your offer to be in each publishing stage, see [Check the publishing status of your Commercial Marketplace offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/publishing-status).
+For more information about how long you can expect your offer to be in each publishing stage, see [Check the publishing status of your Commercial Marketplace offer](publishing-status.md).
 
-## Update your existing Consulting service offers
+## Update your existing consulting service offers
 
-- [Update an existing offer in the commercial marketplace](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer)
+- [Update an existing offer in the commercial marketplace](update-existing-offer.md)

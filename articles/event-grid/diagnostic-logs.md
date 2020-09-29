@@ -1,13 +1,8 @@
 ---
 title: Azure Event Grid - Diagnostic logs for topics or domains
 description: This article provides conceptual information about diagnostic logs for an Azure event grid topic or a domain.
-services: event-grid
-author: spelluru
-
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/29/2020
-ms.author: spelluru
+ms.date: 07/07/2020
 ---
 
 #  Diagnostic logs for Azure Event Grid topics/domains

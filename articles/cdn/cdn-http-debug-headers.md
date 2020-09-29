@@ -23,7 +23,7 @@ The debug cache request header, `X-EC-Debug`, provides additional information ab
 ## Usage
 The response sent from the POP servers to a user includes the `X-EC-Debug` header only when the following conditions are met:
 
-- The [Debug Cache Response Headers feature](cdn-verizon-premium-rules-engine-reference-features.md#debug-cache-response-headers) has been enabled on the rules engine for the specified request.
+- The [Debug Cache Response Headers feature](https://docs.vdms.com/cdn/Content/HRE/F/Debug-Cache-Response-Headers.htm) has been enabled on the rules engine for the specified request.
 - The specified request defines the set of debug cache response headers that will be included in the response.
 
 ## Requesting debug cache information

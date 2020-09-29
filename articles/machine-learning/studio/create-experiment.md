@@ -1,6 +1,5 @@
 ---
-title: 'Quickstart: Create a data science experiment'
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (classic): Quickstart: Create a data science experiment - Azure'
 description: This machine learning quickstart walks you through an easy data science experiment. We'll predict the price of a car using a regression algorithm.
 services: machine-learning
 ms.service: machine-learning
@@ -14,9 +13,10 @@ ms.date: 02/06/2019
 #Customer intent: As a citizen data scientist, I want to learn how to create a data science experiment so that I can do the same process to answer my own data science questions.
 ---
 
-# Quickstart: Create your first data science experiment in Azure Machine Learning Studio (classic)
+# Quickstart: Create your first data science experiment in Machine Learning Studio (classic)
 
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+**APPLIES TO:**  ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
 
@@ -136,7 +136,7 @@ Finding a good set of features for creating a predictive model requires experime
 
 Let's build a model that uses a subset of the features in our dataset. You can come back later and select different features, run the experiment again, and see if you get better results. But to start, let's try the following features:
 
-    make, body-style, wheel-base, engine-size, horsepower, peak-rpm, highway-mpg, price
+> make, body-style, wheel-base, engine-size, horsepower, peak-rpm, highway-mpg, price
 
 1. Drag another [Select Columns in Dataset][select-columns] module to the experiment canvas. Connect the left output port of the [Clean Missing Data][clean-missing-data] module to the input of the [Select Columns in Dataset][select-columns] module.
 

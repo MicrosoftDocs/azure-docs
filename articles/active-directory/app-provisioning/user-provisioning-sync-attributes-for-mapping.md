@@ -2,14 +2,14 @@
 title: Synchronize attributes to Azure AD for mapping
 description: Learn how to synchronize attributes from your on-premises Active Directory to Azure AD. When configuring user provisioning to SaaS apps, use the directory extension feature to add source attributes that aren't synchronized by default.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/13/2019
-ms.author: mimart
+ms.author: kenwith
 ---
 
 # Sync an attribute from your on-premises Active Directory to Azure AD for provisioning to an application

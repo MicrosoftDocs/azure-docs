@@ -6,6 +6,7 @@ author: peterpogorski
 ms.topic: article
 ms.date: 06/29/2018
 ms.author: pepogors
+ms.custom: devx-track-js
 ---
 
 # Service Fabric for Visual Studio Code
@@ -24,7 +25,7 @@ The following prerequisites must be installed on all environments.
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [Node.js](https://nodejs.org/)
 * [Git](https://git-scm.com/)
-* [Service Fabric SDK](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started)
+* [Service Fabric SDK](./service-fabric-get-started.md)
 * Yeoman Generators -- install the appropriate generators for your application
 
    ```sh

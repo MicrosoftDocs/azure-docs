@@ -1,7 +1,7 @@
 ---
 title: Azure Blockchain Service overview
 description: Overview of Azure Blockchain Service
-ms.date: 03/30/2020
+ms.date: 05/22/2020
 ms.topic: overview
 ms.reviewer: ravastra
 #Customer intent: As a network operator or developer, I want to understand how I can use Azure Blockchain Service to build and manage consortium blockchain networks on Azure
@@ -41,7 +41,7 @@ As a managed service, Azure Blockchain Service ensures that your blockchain memb
 
 In addition, Azure Blockchain Service provides rich metrics through Azure Monitor Service providing insights into nodes' CPU, memory, and storage usage.  Azure Monitor also provides helpful insights into blockchain network activity such as transactions and blocks mined, transaction queue depth, and active connections.  Metrics can be customized to provide views into the insights that are important to your blockchain application.  In addition, thresholds can be defined through alerts enabling users to trigger actions such as sending an email or text message, running a Logic App, Azure Function or sending to a custom-defined webhook.
 
-![Metrics](./media/overview/metrics.png)
+![Screen capture shows monitoring, with values for blocks, transactions, pending transactions, and handled requests.](./media/overview/metrics.png)
 
 Through Azure Log Analytics, users can view logs related to the Quorum ledger, or other important information such as attempted connections to the transaction nodes.
 
@@ -55,7 +55,7 @@ Consortium management actions such as adding and removing members from a consort
 
 ## Develop using familiar development tools
 
-Based on the open-sourced Quorum Ethereum ledger, you can develop applications for Azure Blockchain Service the same way as you do for existing Ethereum applications. Working with leading industry partners, the Azure Blockchain Development Kit Visual Studio Code extension allows developers to leverage familiar tools like Truffle Suite to build smart contracts. Using the Azure Blockchain Development Kit extension, developers can create, or connect to and existing consortium so that you can build and deploy your smart contracts all from one IDE. Using the Azure Blockchain Visual Studio Code extension, you can create or connect to an existing consortium so that you can build and deploy your smart contracts all from one IDE. For more information, see [Azure Blockchain Development Kit in the VS Code marketplace](https://aka.ms/vscodebcextension) and the [Azure Blockchain Development Kit user guide](https://aka.ms/vscodebcextensionwiki).
+Based on the open-sourced Quorum Ethereum ledger, you can develop applications for Azure Blockchain Service the same way as you do for existing Ethereum applications. Working with leading industry partners, the Azure Blockchain Development Kit Visual Studio Code extension allows developers to leverage familiar tools like Truffle Suite to build smart contracts. Using the Azure Blockchain Visual Studio Code extension, you can create or connect to an existing consortium so that you can build and deploy your smart contracts all from one IDE. For more information, see [Azure Blockchain Development Kit in the VS Code marketplace](https://aka.ms/vscodebcextension) and the [Azure Blockchain Development Kit user guide](https://aka.ms/vscodebcextensionwiki).
 
 ## Publish blockchain data
 
@@ -65,15 +65,15 @@ Blockchain Data Manager for Azure Blockchain Service captures, transforms, and d
 
 For Azure Blockchain news, visit the [Azure Blockchain blog](https://azure.microsoft.com/blog/topics/blockchain/) to stay up to date on blockchain service offerings and information from the Azure Blockchain engineering team.
 
-To provide product feedback or to request new features, post of vote for an idea via the [Azure feedback forum for blockchain](https://aka.ms/blockchainuservoice).
+To provide product feedback or to request new features, post or vote for an idea via the [Azure feedback forum for blockchain](https://aka.ms/blockchainuservoice).
 
 ### Community support
 
 Engage with Microsoft engineers and Azure Blockchain community experts.
 
-* [Azure Blockchain MSDN forum](https://social.msdn.microsoft.com/Forums/home?forum=azureblockchain)
+* [Microsoft Q&A question page for Azure Blockchain Service](/answers/topics/azure-blockchain-service.html)
 * [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
-* [Stack Overflow](https://stackoverflow.com/questions/tagged/AzureBlockchainService)
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-blockchain-service)
 
 ## Next steps
 

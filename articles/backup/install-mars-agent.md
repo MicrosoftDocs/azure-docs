@@ -38,10 +38,10 @@ The data that's available for backup depends on where the agent is installed.
 
 ## Modify storage replication
 
-By default, vaults use [geo-redundant storage (GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs).
+By default, vaults use [geo-redundant storage (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage).
 
 * If the vault is your primary backup mechanism, we recommend that you use GRS.
-* You can use [locally redundant storage (LRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) to reduce Azure storage costs.
+* You can use [locally redundant storage (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) to reduce Azure storage costs.
 
 To modify the storage replication type:
 
@@ -62,11 +62,12 @@ To modify the storage replication type:
 If your machine has limited internet access, ensure that firewall settings on the machine or proxy allow the following URLs and IP addresses:
 
 * URLs
-  * `www\.msftncsi.com`
+  * `www.msftncsi.com`
   * `*.Microsoft.com`
   * `*.WindowsAzure.com`
   * `*.microsoftonline.com`
   * `*.windows.net`
+  * `www.msftconnecttest.com`
 * IP addresses
   * 20.190.128.0/18
   * 40.126.0.0/18
@@ -78,6 +79,7 @@ You can back up your data over Azure ExpressRoute by using public peering (avail
 To use public peering, first ensure access to the following domains and addresses:
 
 * `http://www.msftncsi.com/ncsi.txt`
+* `http://www.msftconnecttest.com/connecttest.txt`
 * `microsoft.com`
 * `.WindowsAzure.com`
 * `.microsoftonline.com`
@@ -89,7 +91,7 @@ To use Microsoft peering, select the following services, regions, and relevant c
 * Azure region, according to the location of your Recovery Services vault
 * Azure Storage, according to the location of your Recovery Services vault
 
-For more information, see [ExpressRoute routing requirements](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
+For more information, see [ExpressRoute routing requirements](../expressroute/expressroute-routing.md).
 
 > [!NOTE]
 > Public peering is deprecated for new circuits.
@@ -149,7 +151,7 @@ If you've already installed the agent on any machines, make sure that you're run
 
     ![Add vault credentials by using the Register Server Wizard](./media/backup-configure-vault/register1.png)
 
-1. On the **Encryption Setting** page, specify a passphrase that will be used to encrypt and decrypt backups for the machine.
+1. On the **Encryption Setting** page, specify a passphrase that will be used to encrypt and decrypt backups for the machine. [See here](backup-azure-file-folder-backup-faq.md#what-characters-are-allowed-for-the-passphrase) for more information on allowed passphrase characters.
 
     * Save the passphrase in a secure location. You need it to restore a backup.
     * If you lose or forget the passphrase, Microsoft can't help you recover the backup data.

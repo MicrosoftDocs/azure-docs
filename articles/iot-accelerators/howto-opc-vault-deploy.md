@@ -12,6 +12,9 @@ manager: philmea
 
 # Build and deploy the OPC Vault certificate management service
 
+> [!IMPORTANT]
+> While we update this article, see [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/) for the most up to date content.
+
 This article explains how to deploy the OPC Vault certificate management service in Azure.
 
 > [!NOTE]
@@ -71,7 +74,7 @@ A PowerShell script provides an easy way to deploy the OPC Vault microservice an
    > In case of problems, see the "Troubleshooting deployment failures" section later in the article.
 
 8. Open your favorite browser, and open the application page: `https://myResourceGroup.azurewebsites.net`
-8. Give the web app and the OPC Vault microservice a few minutes to warm up after deployment. The web home page might hang on first use, for up to a minute, until you get the first responses.
+8. Give the web app and the OPC Vault microservice a few minutes to warm up after deployment. The web home page might stop responding on first use, for up to a minute, until you get the first responses.
 11. To take a look at the Swagger API, open: `https://myResourceGroup-service.azurewebsites.net`
 13. To start a local GDS server with dotnet, start `.\myResourceGroup-gds.cmd`. With Docker, start `.\myResourceGroup-dockergds.cmd`.
 

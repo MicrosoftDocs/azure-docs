@@ -5,6 +5,7 @@ ms.date: "12/03/2019"
 ms.topic: "conceptual"
 description: "Learn how to use Kubernetes secrets at run or build time when developing applications with Azure Dev Spaces"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Container Service, containers"
+ms.custom: devx-track-js
 ---
 # How to manage secrets when working with an Azure Dev Space
 

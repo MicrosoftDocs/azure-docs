@@ -26,7 +26,6 @@ The following attributes can be added to exclusion lists by name. The values of 
 * Request attribute name (args) can be added as an exclusion element, such as:
 
    * Form field name
-   * XML entity
    * JSON entity
    * URL query string args
 

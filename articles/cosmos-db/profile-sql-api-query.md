@@ -4,9 +4,10 @@ description: Learn how to retrieve SQL query execution metrics and profile SQL q
 author: ginamr
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/17/2019
 ms.author: girobins
+ms.custom: devx-track-csharp
 
 ---
 # Get SQL query execution metrics and analyze query performance using .NET SDK

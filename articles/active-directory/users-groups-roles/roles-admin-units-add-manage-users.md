@@ -1,15 +1,15 @@
 ---
-title: Add, remove, and list users in an administrative unit (preview) - Azure Active Directory | Microsoft Docs
+title: Add, remove, and list users in an administrative unit - Azure Active Directory | Microsoft Docs
 description: Manage users and their role permissions in an administrative unit in Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
 manager: daveba
 ms.service: active-directory
-ms.topic: article
+ms.topic: how-to
 ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 04/16/2020
+ms.date: 09/22/2020
 ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
@@ -30,11 +30,11 @@ You can assign users to administrative units in two ways.
 
 1. Individual assignment
 
-    1. You can go to the Azure AD in the portal and select Users and select the user to be assigned to an administrative unit. You can then select Administrative units in the left panel. The user can be assigned to one or more administrative units by clicking on Assign to administrative unit and selecting the administrative units where the user is to be assigned.
+    1. You can go to the Azure AD in the portal and select Users and select the user to be assigned to an administrative unit. You can then select Administrative units in the left panel. The user can be assigned to one or more administrative units by clicking on **Assign to administrative unit and selecting the administrative units where the user is to be assigned.
 
        ![select Add and then enter a name for the administrative unit](./media/roles-admin-units-add-manage-users/assign-users-individually.png)
 
-    1. You can go to Azure AD in the portal and select Administrative units in the left pane and then select the administrative unit where the users is to be assigned. Select All users on the left pane and then select Add member. You can then go ahead and select one or more users to be assigned to the administrative unit from the right pane.
+    1. You can go to Azure AD in the portal and select Administrative units in the left pane and then select the administrative unit where the users are to be assigned. Select **All users** and then select **Add member**. You can then go ahead and select one or more users to be assigned to the administrative unit from the right pane.
 
         ![select an administrative unit and then select Add member](./media/roles-admin-units-add-manage-users/assign-to-admin-unit.png)
 
@@ -46,46 +46,58 @@ You can assign users to administrative units in two ways.
 
 ### PowerShell
 
-    $administrativeunitObj = Get-AzureADAdministrativeUnit -Filter "displayname eq 'Test administrative unit 2'"
-    $UserObj = Get-AzureADUser -Filter "UserPrincipalName eq 'billjohn@fabidentity.onmicrosoft.com'"
-    Add-AzureADAdministrativeUnitMember -ObjectId $administrativeunitObj.ObjectId -RefObjectId $UserObj.ObjectId
+```powershell
+$administrativeunitObj = Get-AzureADAdministrativeUnit -Filter "displayname eq 'Test administrative unit 2'"
+$UserObj = Get-AzureADUser -Filter "UserPrincipalName eq 'billjohn@fabidentity.onmicrosoft.com'"
+Add-AzureADAdministrativeUnitMember -ObjectId $administrativeunitObj.ObjectId -RefObjectId $UserObj.ObjectId
+```
 
 In the above example, the cmdlet Add-AzureADAdministrativeUnitMember is used to add the user to the administrative unit. The object ID of the administrative unit where user is to be added and the object ID of the user who is to be added are taken as argument. The highlighted section may be changed as required for the specific environment.
 
 ### Microsoft Graph
 
-    Http request
-    POST /administrativeUnits/{Admin Unit id}/members/$ref
-    Request body
-    {
-      "@odata.id":"https://graph.microsoft.com/beta/users/{id}"
-    }
+```http
+Http request
+POST /administrativeUnits/{Admin Unit id}/members/$ref
+Request body
+{
+  "@odata.id":"https://graph.microsoft.com/beta/users/{id}"
+}
+```
 
 Example:
 
-    {
-      "@odata.id":"https://graph.microsoft.com/beta/users/johndoe@fabidentity.com"
-    }
+```http
+{
+  "@odata.id":"https://graph.microsoft.com/beta/users/johndoe@fabidentity.com"
+}
+```
 
 ## List administrative units for a user
 
 ### Azure portal
 
-In the Azure portal you can open a user's profile by going to Azure AD > Users. Click on the user to open the user's profile.
+In the Azure portal you can open a user's profile by:
 
-![Open a user's profile in Azure Active Directory](./media/roles-admin-units-add-manage-users/user-profile-admin-units.png)
+1. Opening **Azure AD** > **Users**.
 
-Select **Administrative units** on the left panel to see the list of administrative units where the user has been assigned.
+1. Select the user to open the user's profile.
 
-![List the administrative units for a user](./media/roles-admin-units-add-manage-users/list-user-admin-units.png)
+1. Select **Administrative units** to see the list of administrative units where the user has been assigned.
+
+   ![List the administrative units for a user](./media/roles-admin-units-add-manage-users/list-user-admin-units.png)
 
 ### PowerShell
 
-    Get-AzureADAdministrativeUnit | where { Get-AzureADAdministrativeUnitMember -ObjectId $_.ObjectId | where {$_.ObjectId -eq $userObjId} }
+```powershell
+Get-AzureADAdministrativeUnit | where { Get-AzureADAdministrativeUnitMember -ObjectId $_.ObjectId | where {$_.ObjectId -eq $userObjId} }
+```
 
 ### Microsoft Graph
 
-    https://graph.microsoft.com/beta/users//memberOf/$/Microsoft.Graph.AdministrativeUnit
+```http
+https://graph.microsoft.com/beta/users//memberOf/$/Microsoft.Graph.AdministrativeUnit
+```
 
 ## Remove a single user from an AU
 
@@ -101,7 +113,9 @@ You can also remove a user in **Azure AD** > **Administrative units** by selecti
 
 ### PowerShell
 
-    Remove-AzureADAdministrativeUnitMember -ObjectId $auId -MemberId $memberUserObjId
+```powershell
+Remove-AzureADAdministrativeUnitMember -ObjectId $auId -MemberId $memberUserObjId
+```
 
 ### Microsoft Graph
 

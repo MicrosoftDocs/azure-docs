@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 04/13/2020
+ms.date: 05/26/2020
 
 ms.author: iainfou
 author: iainfoulds
@@ -22,10 +22,8 @@ To reduce the complexity and security risks for users to sign in to applications
 
 This article shows you how to enable SMS-based authentication for select users or groups in Azure AD.
 
-|     |
-| --- |
-| SMS-based authentication for users is a public preview feature of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
+> [!NOTE]
+> SMS-based authentication for users is a public preview feature of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Before you begin
 
@@ -36,7 +34,7 @@ To complete this article, you need the following resources and privileges:
 * An Azure Active Directory tenant associated with your subscription.
     * If needed, [create an Azure Active Directory tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
 * You need *global administrator* privileges in your Azure AD tenant to enable SMS-based authentication.
-* Each user that's enabled in the text message authentication method policy must be licensed, even if they don't use it. Each enabled user must have one of the following Azure AD or Microsoft 365 licenses:
+* Each user that's enabled in the text message authentication method policy must be licensed, even if they don't use it. Each enabled user must have one of the following Azure AD, EMS, Microsoft 365 licenses:
     * [Azure AD Premium P1 or P2][azuread-licensing]
     * [Microsoft 365 (M365) F1 or F3][m365-firstline-workers-licensing]
     * [Enterprise Mobility + Security (EMS) E3 or E5][ems-licensing] or [Microsoft 365 (M365) E3 or E5][m365-licensing]
@@ -65,7 +63,7 @@ First, let's enable SMS-based authentication for your Azure AD tenant.
 1. Search for and select **Azure Active Directory**.
 1. From the navigation menu on the left-hand side of the Azure Active Directory window, select **Security > Authentication methods > Authentication method policy (preview)**.
 
-    [![](media/howto-authentication-sms-signin/authentication-method-policy-cropped.png "Browse to and select the Authentication method policy (preview) window in the Azure portal")](media/howto-authentication-sms-signin/authentication-method-policy.png#lightbox)
+    [![Browse to and select the Authentication method policy (preview) window in the Azure portal.](media/howto-authentication-sms-signin/authentication-method-policy-cropped.png)](media/howto-authentication-sms-signin/authentication-method-policy.png#lightbox)
 
 1. From the list of available authentication methods, select **Text message**.
 1. Set **Enable** to *Yes*.
@@ -81,7 +79,7 @@ With SMS-based authentication enabled in your Azure AD tenant, now select some u
 1. In the text message authentication policy window, set **Target** to *Select users*.
 1. Choose to **Add users or groups**, then select a test user or group, such as *Contoso User* or *Contoso SMS Users*.
 
-    [![](media/howto-authentication-sms-signin/add-users-or-groups-cropped.png "Choose users or groups to enable for SMS-based authentication in the Azure portal")](media/howto-authentication-sms-signin/add-users-or-groups.png#lightbox)
+    [![Choose users or groups to enable for SMS-based authentication in the Azure portal.](media/howto-authentication-sms-signin/add-users-or-groups-cropped.png)](media/howto-authentication-sms-signin/add-users-or-groups.png#lightbox)
 
 1. When you've selected your users or groups, choose **Select**, then **Save** the updated authentication method policy.
 
@@ -148,12 +146,16 @@ If you receive an error when you try to set a phone number for a user account in
 
 For additional ways to sign in to Azure AD without a password, such as the Microsoft Authenticator App or FIDO2 security keys, see [Passwordless authentication options for Azure AD][concepts-passwordless].
 
+You can also use the Microsoft Graph REST API beta to [enable][rest-enable] or [disable][rest-disable] SMS-based sign-in.
+
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../fundamentals/sign-up-organization.md
 [associate-azure-ad-tenant]: ../fundamentals/active-directory-how-subscriptions-associated-directory.md
 [concepts-passwordless]: concept-authentication-passwordless.md
 [tutorial-azure-mfa]: tutorial-enable-azure-mfa.md
 [tutorial-sspr]: tutorial-enable-sspr.md
+[rest-enable]: /graph/api/phoneauthenticationmethod-enablesmssignin?view=graph-rest-beta&tabs=http
+[rest-disable]: /graph/api/phoneauthenticationmethod-disablesmssignin?view=graph-rest-beta&tabs=http
 
 <!-- EXTERNAL LINKS -->
 [azure-portal]: https://portal.azure.com
@@ -162,3 +164,5 @@ For additional ways to sign in to Azure AD without a password, such as the Micro
 [azuread-licensing]: https://azure.microsoft.com/pricing/details/active-directory/
 [ems-licensing]: https://www.microsoft.com/microsoft-365/enterprise-mobility-security/compare-plans-and-pricing
 [m365-licensing]: https://www.microsoft.com/microsoft-365/compare-microsoft-365-enterprise-plans
+[o365-f1]: https://www.microsoft.com/microsoft-365/business/office-365-f1?market=af
+[o365-f3]: https://www.microsoft.com/microsoft-365/business/office-365-f3?activetab=pivot%3aoverviewtab

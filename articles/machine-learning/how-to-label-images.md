@@ -2,15 +2,16 @@
 title: Tag images in a labeling project
 title.suffix: Azure Machine Learning
 description: Learn how to use the data tagging tools in an Azure Machine Learning labeling project.
-author: lobrien
-ms.author: laobri
+author: sdgilley
+ms.author: sgilley
 ms.service: machine-learning
+ms.subservice: core
 ms.topic: tutorial
-ms.date: 04/09/2020
+ms.date: 07/27/2020
 
 ---
 
-# Tag images in a labeling project
+# Tag images in a labeling project 
 
 After your project administrator [creates a labeling project](https://docs.microsoft.com/azure/machine-learning/how-to-create-labeling-projects#create-a-labeling-project) in Azure Machine Learning, you can use the labeling tool (public preview) to rapidly prepare data for a Machine Learning project. This article describes:
 
@@ -32,11 +33,9 @@ After your project administrator [creates a labeling project](https://docs.micro
 
 1. Select **Data labeling** on the left-hand side to find the project.  
 
-1. Select the project name in the list.
-
 ## Understand the labeling task
 
-Once you've selected the project, at the top of the page, select **Label data**.
+In the table of data labeling projects, select **Label link** for your project.
 
 You see instructions that are specific to your project. They explain the type of data that you're facing, how you should make your decisions, and other relevant information. After you read this information, at the top of the page select **Tasks**.  Or at the bottom of the page, select **Start labeling**.
 
@@ -59,13 +58,20 @@ Azure enables the **Submit** button when you've tagged all the images on the pag
 
 After you submit tags for the data at hand, Azure refreshes the page with a new set of images from the work queue.
 
-### Assisted machine learning 
+### Assisted machine learning (preview) 
 
-Machine learning algorithms may be triggered during a multi-class or multi-label classification task. If these algorithms are enabled in your project, you may see the following:
+> [!IMPORTANT]
+> Assisted machine learning is currently in public preview.
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Machine learning algorithms may be triggered. If these algorithms are enabled in your project, you may see the following:
 
 * After some amount of images have been labeled, you may see **Tasks clustered** at the top of your screen next to the project name.  This means that images are grouped together to present similar images on the same page.  If so, switch to one of the multiple image views to take advantage of the grouping.  
 
 * At a later point, you may see **Tasks prelabeled** next to the project name.  Images will then appear with a suggested label that comes from a machine learning classification model. No machine learning model has 100% accuracy. While we only use images for which the model is confident, these images might still be incorrectly prelabeled.  When you see these labels, correct any wrong labels before submitting the page.  
+
+* For object detection models, you may see bounding boxes and labels already present.  Correct any that are incorrect before submitting the page.
 
 Especially early in a labeling project, the machine learning model may only be accurate enough to prelabel a small subset of images. Once these images are labeled, the labeling project will return to manual labeling to gather more data for the next round of model training. Over time, the model will become more confident about a higher proportion of images, resulting in more prelabel tasks later in the project.
 
@@ -102,7 +108,7 @@ If your project is of type "Object Identification (Bounding Boxes)," you'll spec
 1. Select the **Rectangular box** tool ![Rectangular box tool](./media/how-to-label-images/rectangular-box-tool.png) or select "R."
 3. Click and drag diagonally across your target to create a rough bounding box. To adjust the bounding box, drag the edges or corners.
 
-![A screenshot shows basic bounding box creation.](./media/how-to-label-images/bounding-box-sequence.png)
+![Bounding box creation](./media/how-to-label-images/bounding-box-sequence.png)
 
 To delete a bounding box, click the X-shaped target that appears next to the bounding box after creation.
 

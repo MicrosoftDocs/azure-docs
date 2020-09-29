@@ -27,8 +27,8 @@ failover to Azure using recovery plans, the supported configurations and prerequ
 
 Before you start, make sure you understand the following:
 
-1. [Replicating a virtual machine to Azure](site-recovery-vmware-to-azure.md)
-1. How to [design a recovery network](site-recovery-network-design.md)
+1. [Replicating a virtual machine to Azure](./vmware-azure-tutorial.md)
+1. How to [design a recovery network](./concepts-on-premises-to-azure-networking.md)
 1. [Doing a test failover to Azure](site-recovery-test-failover-to-azure.md)
 1. [Doing a failover to Azure](site-recovery-failover.md)
 1. How to [replicate a domain controller](site-recovery-active-directory.md)
@@ -94,7 +94,7 @@ Please refer to [Protect Active Directory and DNS with Azure Site Recovery](site
 
 Please refer to [Protect SQL Server with SQL Server disaster recovery and Azure Site Recovery](site-recovery-sql.md) for detailed technical guidance on the recommended options for protecting SQL servers.
 
-Follow [this guidance](site-recovery-vmware-to-azure.md) to start replicating the other component virtual machines to Azure.
+Follow [this guidance](./vmware-azure-tutorial.md) to start replicating the other component virtual machines to Azure.
 
 ![Protection of XenApp Components](./media/site-recovery-citrix-xenapp-and-xendesktop/citrix-enablereplication.png)
 

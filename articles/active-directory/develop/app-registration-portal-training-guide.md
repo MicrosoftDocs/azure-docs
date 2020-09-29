@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/8/2019
 ms.author: marsma
 ms.reviewer: lenalepa, alamaral
@@ -18,7 +18,7 @@ ms.custom: aaddev
 
 # The new Azure portal app registration experience
 
-There are many improvements in the new [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience in the Azure portal. If you're more familiar with the Application registration portal (apps.dev.microsoft.com) experience for registering or managing converged applications, referred to as the old experience, this training guide will get you started using the new experience.
+There are many improvements in the new [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience in the Azure portal. If you're more familiar with the Application registration portal (apps.dev.microsoft.com) for registering or managing applications, referred to here as the "old experience," this guide will get you started using the new experience.
 
 ## What's not changing?
 
@@ -41,8 +41,8 @@ There are many improvements in the new [App registrations](https://go.microsoft.
 
 ## Key changes
 
--   In the old experience, apps were by default registered as converged
-    apps supporting all organizational accounts (multitenant) as well as
+-   In the old experience, apps were by default registered as *converged*
+    apps - apps that support all organizational accounts (multitenant) as well as
     personal Microsoft accounts. This could not be modified through the
     old experience, making it difficult to create apps that supported
     only organizational accounts (either multitenant or single tenant).
@@ -75,10 +75,10 @@ There are many improvements in the new [App registrations](https://go.microsoft.
 
 ## New app registration
 
-In the old experience, to register a converged app you were only
+In the old experience, to register an app you were only
 required to provide a Name. The apps that were created were registered
-as converged apps supporting all organizational directory (multitenant)
-as well as personal Microsoft accounts.  This could not be modified through the old experience, making it difficult to create apps that supported only organizational accounts (either multitenant or single tenant). [Learn more about supported account types](v2-supported-account-types.md)
+as *converged* apps - apps supporting all organizational directories (multitenant)
+as well as personal Microsoft accounts.  This could not be modified through the old experience, making it difficult to create apps that supported only organizational accounts (either single- or multi-tenant). [Learn more about supported account types](v2-supported-account-types.md)
 
 In the new experience, you must provide a Name for the app and choose
 the Supported account types. You can optionally provide a redirect URI.
@@ -89,25 +89,19 @@ quickstart](quickstart-register-app.md).
 
 ## App management page
 
-The old experience had a single app management page for converged apps
+The old experience had a single app management page for apps
 with the following sections: Properties, Application secrets, Platforms,
 Owners, Microsoft Graph Permissions, Profile, and Advanced Options.
 
-The new experience in the Azure portal represents these features into
+The new experience in the Azure portal presents these features in
 separate pages. Here's where you can find the equivalent functionality:
 
--   Properties - Name and Application ID is on the Overview page.
-
--   Application Secrets is on the Certificates & secrets page
-
--   Platforms configuration is on the Authentication page
-
--   Microsoft Graph permissions is on the API permissions page along
-    with other permissions
-
--   Profile is on Branding page
-
--   Advanced option - Live SDK support is on the Authentication page.
+- Properties - Name and Application ID is on the Overview page.
+- Application Secrets is on the Certificates & secrets page
+- Platforms configuration is on the Authentication page
+- Microsoft Graph permissions is on the API permissions page along with other permissions
+- Profile is on Branding page
+- Advanced option - Live SDK support is on the Authentication page.
 
 ## Application secrets/Certificates & secrets
 
@@ -125,14 +119,14 @@ In the new experience, Reply URLs can be found on an app\'s
 Authentication section. In addition, they are referred to as redirect
 URIs and the format for redirect URIs has changed. They are required to
 be associated with an app type (web or public client - mobile and
-desktop). [Learn more](quickstart-configure-app-access-web-apis.md#add-redirect-uris-to-your-application)
+desktop). [Learn more](quickstart-register-app.md#add-a-redirect-uri)
 
 Web APIs are configured in Expose an API page.
 
 > [!NOTE]
 > Try out the new Authentication settings experience where you can
 configure settings for your application based on the platform or device
-that you want to target. [Learn more](quickstart-configure-app-access-web-apis.md#configure-platform-settings-for-your-application)
+that you want to target. [Learn more](quickstart-register-app.md#configure-platform-settings)
 
 ## Microsoft Graph permissions/API permissions
 
@@ -179,7 +173,7 @@ the manifest editor or the API, or didn't exist.
 -   Publisher domain (which is displayed to users on the [application\'s
     consent
     prompt](application-consent-experience.md))
-    can be found on the Branding blade page. For more info on how to
+    can be found on the Branding page. For more info on how to
     configure a publisher domain, see [this
     how-to](howto-configure-publisher-domain.md).
 
@@ -199,3 +193,7 @@ The new experience has the following limitations:
 
    > [!NOTE]
    > If you're a personal Microsoft account user in Azure AD tenant, and the tenant admin has restricted access to Azure portal, you may get an access denied. However, if you come through the shortcut by typing App registrations in the search bar or pinning it, you'll be able to access the new experience.
+
+## Next steps
+
+To get started with the new app registration experience, see [Quickstart: Register an application with the Microsoft identity platform](quickstart-register-app.md).

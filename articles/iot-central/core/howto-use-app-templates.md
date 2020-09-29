@@ -13,8 +13,6 @@ manager: philmea
 
 # Export your application
 
-
-
 This article describes how, as a solution manager, to export an IoT Central application to be able to reuse it.
 
 You have two options:
@@ -57,7 +55,6 @@ When you create an application template, it doesn't include the following items:
 
 - Devices
 - Users
-- Job definitions
 - Continuous data export definitions
 
 Add these items manually to any applications created from an application template.
@@ -89,4 +86,4 @@ To update your application template, change the template name or description on 
 
 ## Next steps
 
-Now that you've learned how to use application templates, the suggested next step is to learn how to [Manage IoT Central from the Azure portal](howto-manage-iot-central-from-portal.md)
+Now that you've learned how to use application templates, the suggested next step is to learn how to [Monitor the overall health of the devices connected to an IoT Central application](howto-monitor-application-health.md)

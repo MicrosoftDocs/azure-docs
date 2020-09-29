@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 3/18/2020
+ms.date: 6/10/2020
 ---
 
 # Incrementally copy new and changed files based on LastModifiedDate by using the Copy Data tool
@@ -145,7 +145,7 @@ Prepare your Blob storage for the tutorial by completing these steps:
 
 10. Notice that the **Monitor** tab on the left is automatically selected. The application switches to the **Monitor** tab. You see the status of the pipeline. Select **Refresh** to refresh the list. Select the link under **PIPELINE NAME** to view activity run details or to run the pipeline again.
 
-    ![Refresh the list and view activity run details](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs1.png)
+    ![Refresh the list and view activity run details](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs-1.png)
 
 11. There's only one activity (the copy activity) in the pipeline, so you see only one entry. For details about the copy operation, select the **Details** link (the eyeglasses icon) in the **ACTIVITY NAME** column. For details about the properties, see [Copy activity overview](copy-activity-overview.md).
 
@@ -160,8 +160,6 @@ Prepare your Blob storage for the tutorial by completing these steps:
     ![Create file1.txt and upload it to the source container](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs3-1.png)
 
 13. To go back to the **Pipeline runs** view, select **All pipeline runs**, and wait for the same pipeline to be automatically triggered again.  
-
-    ![Select All pipeline runs](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs4.png)
 
 14. When the second pipeline run completes, follow the same steps mentioned previously to review the activity run details.  
 

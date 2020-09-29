@@ -9,18 +9,19 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
-ms.date: 02/10/2020
+ms.date: 08/17/2020 
+ms.custom: devx-track-azurepowershell
 ---
 # Quickstart: Create an Azure Cognitive Search index in PowerShell using REST APIs
 > [!div class="op_single_selector"]
-> * [PowerShell (REST)](search-create-index-rest-api.md)
-> * [C#](search-create-index-dotnet.md)
+> * [PowerShell (REST)]()
+> * [C#](./search-get-started-dotnet.md)
 > * [Postman (REST)](search-get-started-postman.md)
 > * [Python](search-get-started-python.md)
-> * [Portal](search-create-index-portal.md)
+> * [Portal](search-get-started-portal.md)
 > 
 
-This article walks you through the process of creating, loading, and querying an Azure Cognitive Search index using PowerShell and the [Azure Cognitive Search REST APIs](https://docs.microsoft.com/rest/api/searchservice/). This article explains how to run PowerShell commands interactively. Alternatively, you can [download and run a Powershell script](https://github.com/Azure-Samples/azure-search-powershell-samples/tree/master/Quickstart) that performs the same operations.
+This article walks you through the process of creating, loading, and querying an Azure Cognitive Search index using PowerShell and the [Azure Cognitive Search REST APIs](/rest/api/searchservice/). This article explains how to run PowerShell commands interactively. Alternatively, you can [download and run a PowerShell script](https://github.com/Azure-Samples/azure-search-powershell-samples/tree/master/Quickstart) that performs the same operations.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -28,7 +29,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 The following services and tools are required for this quickstart. 
 
-+ [PowerShell 5.1 or later](https://github.com/PowerShell/PowerShell), using [Invoke-RestMethod](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Invoke-RestMethod) for sequential and interactive steps.
++ [PowerShell 5.1 or later](https://github.com/PowerShell/PowerShell), using [Invoke-RestMethod](/powershell/module/Microsoft.PowerShell.Utility/Invoke-RestMethod) for sequential and interactive steps.
 
 + [Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
 
@@ -58,7 +59,7 @@ All requests require an api-key on every request sent to your service. Having a 
 2. Create a **$url** object that specifies the service's indexes collection. Replace the service name (YOUR-SEARCH-SERVICE-NAME) with a valid search service.
 
     ```powershell
-    $url = "https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes?api-version=2019-05-06&$select=name"
+    $url = "https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes?api-version=2020-06-30&$select=name"
     ```
 
 3. Run **Invoke-RestMethod** to send a GET request to the service and verify the connection. Add **ConvertTo-Json** so that you can view the responses sent back from the service.
@@ -80,11 +81,11 @@ All requests require an api-key on every request sent to your service. Having a 
 
 ## 1 - Create an index
 
-Unless you are using the portal, an index must exist on the service before you can load data. This step defines the index and pushes it to the service. The [Create Index REST API](https://docs.microsoft.com/rest/api/searchservice/create-index) is used for this step.
+Unless you are using the portal, an index must exist on the service before you can load data. This step defines the index and pushes it to the service. The [Create Index REST API](/rest/api/searchservice/create-index) is used for this step.
 
 Required elements of an index include a name and a fields collection. The fields collection defines the structure of a *document*. Each field has a name, type, and attributes that determine how it's used (for example, whether it is full-text searchable, filterable, or retrievable in search results). Within an index, one of the fields of type `Edm.String` must be designated as the *key* for document identity.
 
-This index is named "hotels-quickstart" and has the field definitions you see below. It's a subset of a larger [Hotels index](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON) used in other walkthroughs. We trimmed it in this quickstart for brevity.
+This index is named "hotels-quickstart" and has the field definitions you see below. It's a subset of a larger [Hotels index](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON) used in other walk through articles. The field definitions have been trimmed in this quickstart for brevity.
 
 1. Paste this example into PowerShell to create a **$body** object containing the index schema.
 
@@ -118,7 +119,7 @@ This index is named "hotels-quickstart" and has the field definitions you see be
 2. Set the URI to the indexes collection on your service and the *hotels-quickstart* index.
 
     ```powershell
-    $url = "https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart?api-version=2019-05-06"
+    $url = "https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart?api-version=2020-06-30"
     ```
 
 3. Run the command with **$url**, **$headers**, and **$body** to create the index on the service. 
@@ -174,7 +175,7 @@ This index is named "hotels-quickstart" and has the field definitions you see be
 
 ## 2 - Load documents
 
-To push documents, use an HTTP POST request to your index's URL endpoint. The REST API for this task is [Add, Update, or Delete Documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
+To push documents, use a HTTP POST request to your index's URL endpoint. The REST API for this task is [Add, Update, or Delete Documents](/rest/api/searchservice/addupdate-or-delete-documents).
 
 1. Paste this example into PowerShell to create a **$body** object containing the documents you want to upload. 
 
@@ -268,7 +269,7 @@ To push documents, use an HTTP POST request to your index's URL endpoint. The RE
 1. Set the endpoint to the *hotels-quickstart* docs collection and include the index operation (indexes/hotels-quickstart/docs/index).
 
     ```powershell
-    $url = "https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs/index?api-version=2019-05-06"
+    $url = "https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs/index?api-version=2020-06-30"
     ```
 
 1. Run the command with **$url**, **$headers**, and **$body** to load documents into the hotels-quickstart index.
@@ -276,7 +277,7 @@ To push documents, use an HTTP POST request to your index's URL endpoint. The RE
     ```powershell
     Invoke-RestMethod -Uri $url -Headers $headers -Method Post -Body $body | ConvertTo-Json
     ```
-    Results should look similar to the following example. You should see a [status code of 201](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes).
+    Results should look similar to the following example. You should see a [status code of 201](/rest/api/searchservice/HTTP-status-codes).
 
     ```
     {
@@ -312,16 +313,16 @@ To push documents, use an HTTP POST request to your index's URL endpoint. The RE
 
 ## 3 - Search an index
 
-This step shows you how to query an index using the [Search Documents API](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+This step shows you how to query an index using the [Search Documents API](/rest/api/searchservice/search-documents).
 
-Be sure to use single quotes on search $urls. Query strings include **$** characters, and you can omit having to escape them if the entire string is enclosed in single quotes..
+Be sure to use single quotes on search $urls. Query strings include **$** characters, and you can omit having to escape them if the entire string is enclosed in single quotes.
 
 1. Set the endpoint to the *hotels-quickstart* docs collection and add a **search** parameter to pass in a query string. 
   
    This string executes an empty search (search=*), returning an unranked list (search score  = 1.0) of arbitrary documents. By default, Azure Cognitive Search returns 50 matches at a time. As structured, this query returns an entire document structure and values. Add **$count=true** to get a count of all documents in the results.
 
     ```powershell
-    $url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=*&$count=true'
+    $url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2020-06-30&search=*&$count=true'
     ```
 
 1. Run the command to send the **$url** to the service.
@@ -370,21 +371,21 @@ Try a few other query examples to get a feel for the syntax. You can do a string
 # Query example 1
 # Search the entire index for the terms 'restaurant' and 'wifi'
 # Return only the HotelName, Description, and Tags fields
-$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=restaurant wifi&$count=true&$select=HotelName,Description,Tags'
+$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2020-06-30&search=restaurant wifi&$count=true&$select=HotelName,Description,Tags'
 
 # Query example 2 
-# Apply a filter to the index to find hotels rated 4 or highter
+# Apply a filter to the index to find hotels rated 4 or higher
 # Returns the HotelName and Rating. Two documents match.
-$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=*&$filter=Rating gt 4&$select=HotelName,Rating'
+$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2020-06-30&search=*&$filter=Rating gt 4&$select=HotelName,Rating'
 
 # Query example 3
 # Take the top two results, and show only HotelName and Category in the results
-$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=boutique&$top=2&$select=HotelName,Category'
+$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2020-06-30&search=boutique&$top=2&$select=HotelName,Category'
 
 # Query example 4
 # Sort by a specific field (Address/City) in ascending order
 
-$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=pool&$orderby=Address/City asc&$select=HotelName, Address/City, Tags, Rating'
+$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2020-06-30&search=pool&$orderby=Address/City asc&$select=HotelName, Address/City, Tags, Rating'
 ```
 ## Clean up resources
 
