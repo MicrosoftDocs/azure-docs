@@ -23,7 +23,7 @@ A new user to LUIS needs to follow this procedure:
 
 1. Fill in the details for the resource.
 
-    ![Create authoring resource](../media/migrate-authoring-key/choose-authoring-resource-form.png)
+    ![Screenshot shows the Create a new resource for authoring pane.](../media/migrate-authoring-key/choose-authoring-resource-form.png)
 
     When **creating a new authoring resource**, provide the following information:
 
@@ -36,8 +36,8 @@ A new user to LUIS needs to follow this procedure:
 
 1. A summary of the resource to be created is displayed. Select **Next**.
 
-    ![Create authoring resource](../media/sign-in/sign-in-confirm-key-selection.png)
+    ![Screenshot shows the Welcome page with the option to link to your Azure account.](../media/sign-in/sign-in-confirm-key-selection.png)
 
 1. Confirm by selecting **Continue**.
 
-    ![Create authoring resource](../media/sign-in/sign-in-confirm-continue.png)
+    ![Screenshot shows the Welcome page after you have linked to your Azure account.](../media/sign-in/sign-in-confirm-continue.png)
