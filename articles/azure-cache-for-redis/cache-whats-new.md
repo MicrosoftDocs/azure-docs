@@ -49,7 +49,7 @@ If your application uses the operating system certificate store or pins the Balt
 >
 >
 
-o continue to pin intermediate certificates, add the following to the pinned intermediate certificates list, which includes few additional ones to minimize future changes:
+To continue to pin intermediate certificates, add the following to the pinned intermediate certificates list, which includes few additional ones to minimize future changes:
 
 | Common name of the CA | Thumbprint |
 | ----- | ----- |
