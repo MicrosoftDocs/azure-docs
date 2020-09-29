@@ -84,7 +84,7 @@ This error means that the registry login server did not respond with an access t
 
 This error means that the client was unable to establish a secure connection to the container registry. This error generally occurs if you're running or using a proxy server.
 
-*Potential solutions*: More information on working behind a proxy can be [found here](https://github.com/Azure/azure-cli/blob/master/doc/use_cli_effectively.md#working-behind-a-proxy).
+*Potential solutions*: More information on working behind a proxy can be [found here](https://docs.microsoft.com/cli/azure/use-cli-effectively?view=azure-cli-latest).
 
 ## LOGIN_SERVER_ERROR
 
