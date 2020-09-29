@@ -5,13 +5,12 @@ description: Use the Docker container for the Face API to detect and identify hu
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.custom: seodec18
+ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 07/16/2020
 ms.author: aahi
-ms.custom: cog-serv-seo-aug-2020
 keywords: on-premises, Docker, container, identify
 ---
 

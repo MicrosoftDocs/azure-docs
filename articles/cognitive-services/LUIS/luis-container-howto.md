@@ -5,13 +5,12 @@ description: Use the LUIS container to load your trained or published app, and g
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.custom: seodec18
+ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 09/28/2020
 ms.author: aahi
-ms.custom: cog-serv-seo-aug-2020
 keywords: on-premises, Docker, container
 ---
 

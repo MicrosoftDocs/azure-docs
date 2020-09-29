@@ -5,13 +5,12 @@ description: Use the Docker containers for the Text Analytics API to perform nat
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.custom: seodec18
+ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 09/28/2020
 ms.author: aahi
-ms.custom: cog-serv-seo-aug-2020
 keywords: on-premises, Docker, container, sentiment analysis, natural language processing
 ---
 
