@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 0/29/2020
+ms.date: 9/29/2020
 ms.author: b-juche
 ---
 # Configure NFSv4.1 Kerberos encryption for Azure NetApp Files
