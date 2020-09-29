@@ -47,8 +47,8 @@ The table below show the features brought by Microsoft Identity web on top of th
 | Feature                   | ASP.NET Core 3.1                       | with Microsoft.Identity.Web |
 | ------------------------- | -------------------------------------- | --------------------------- |
 | [Sign in users](scenario-web-app-sign-user-app-configuration.md) in web apps | yes: Work or school accounts and B2C   | yes: Work or school accounts, personal accounts, and B2C   |
-| [Protected web APIs](scenario-protected-web-api-app-configuration.md#microsoftidentityweb)        | yes: Work or school accounts and B2C   | yes: Work or school accounts, personal accounts, and B2C |
-| Issuer validation in multi-tenant apps        | no                                     | yes for all clouds          |
+| [Protect web APIs](scenario-protected-web-api-app-configuration.md#microsoftidentityweb)        | yes: Work or school accounts and B2C   | yes: Work or school accounts, personal accounts, and B2C |
+| Issuer validation in multi-tenant apps        | no                                     | yes for [all clouds](authentication-national-cloud.md) and [Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c)         |
 | web app/API [calls Microsoft graph](scenario-web-api-call-api-call-api.md#option-1-call-microsoft-graph-with-the-sdk)   | no                           | yes                         |
 | web app/API [calls web API](scenario-web-api-call-api-call-api.md#option-1-call-microsoft-graph-with-the-sdk)   | no                                   | yes                         |
 | Supports [certificate credentials](ms-id-web-using-certificates.md#client-certificates)   | no                            | yes, many means of describing the certificate source, including Azure Key Vault                        |
