@@ -17,7 +17,7 @@ zone_pivot_groups: acs-plat-web-ios-android
 
 Get started with Azure Communication Services by using the Communication Services calling client library to add voice and video calling to your app. 
 
-[!INCLUDE [Emergency Calling Notice](../../includes/emergency-calling-include.md)]
+[!INCLUDE [Emergency Calling Notice](../../includes/emergency-calling-notice-include.md)]
 
 ::: zone pivot="platform-web"
 [!INCLUDE [Calling with JavaScript](./includes/get-started-javascript.md)]
