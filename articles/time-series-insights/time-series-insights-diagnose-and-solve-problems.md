@@ -69,7 +69,7 @@ If you have old events in your event source, you can approach throttling in one 
 
 The enforced throttling limit is based on the environment's SKU type and capacity. All event sources in the environment share this capacity. If the event source for your IoT hub or event hub pushes data beyond the enforced limits, you'll experience throttling and a lag.
 
-The following figure shows a Azure Time Series Insights environment that has an SKU of S1 and a capacity of 3. It can ingress 3 million events per day.
+The following figure shows an Azure Time Series Insights environment that has an SKU of S1 and a capacity of 3. It can ingress 3 million events per day.
 
 [![Environment capacity](media/diagnose-and-solve-problems/environment-sku-current-capacity.png)](media/diagnose-and-solve-problems/environment-sku-current-capacity.png#lightbox)
 
