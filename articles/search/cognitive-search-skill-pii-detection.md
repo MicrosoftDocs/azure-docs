@@ -1,7 +1,7 @@
 ---
 title: PII Detection cognitive skill (preview)
 titleSuffix: Azure Cognitive Search
-description: Extract and mask personally identifiable information from text in an enrichment pipeline in Azure Cognitive Search. This skill is currently in public preview.
+description: Extract and mask personal information from text in an enrichment pipeline in Azure Cognitive Search. This skill is currently in public preview.
 
 manager: nitinme
 author: careyjmac
@@ -16,7 +16,7 @@ ms.date: 06/17/2020
 > [!IMPORTANT] 
 > This skill is currently in public preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). There is currently no portal or .NET SDK support.
 
-The **PII Detection** skill extracts personally identifiable information from an input text and gives you the option to mask it from that text in various ways. This skill uses the machine learning models provided by [Text Analytics](../cognitive-services/text-analytics/overview.md) in Cognitive Services.
+The **PII Detection** skill extracts personal information from an input text and gives you the option to mask it from that text in various ways. This skill uses the machine learning models provided by [Text Analytics](../cognitive-services/text-analytics/overview.md) in Cognitive Services.
 
 > [!NOTE]
 > As you expand scope by increasing the frequency of processing, adding more documents, or adding more AI algorithms, you will need to [attach a billable Cognitive Services resource](cognitive-search-attach-cognitive-services.md). Charges accrue when calling APIs in Cognitive Services, and for image extraction as part of the document-cracking stage in Azure Cognitive Search. There are no charges for text extraction from documents.
