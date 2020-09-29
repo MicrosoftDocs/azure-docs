@@ -258,10 +258,7 @@ Image quarantine is currently a preview feature of ACR. You can enable the quara
 Setting up an Azure container registry for anonymous (public) pull access is currently a preview feature. If you have any [scope map (user) or token resources](https://aka.ms/acr/repo-permissions) in your registry, please delete them before raising a support ticket (system scope maps can be ignored). To enable public access, please open a support ticket at https://aka.ms/acr/support/create-ticket. For details, see the [Azure Feedback Forum](https://feedback.azure.com/forums/903958-azure-container-registry/suggestions/32517127-enable-anonymous-access-to-registries).
 
 > [!NOTE]
-> Anonymous pull access is allowed with the Docker client but can't currently be used with the Docker Registry HTTP API V2.
-
-
-
+> Only the APIs required to pull a known image can be accessed anonymously. No other APIs for operations like tag list or repository list are accessible anonymously.
 
 ## Diagnostics and health checks
 
