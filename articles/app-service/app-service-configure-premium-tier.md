@@ -11,7 +11,7 @@ ms.custom: seodec18
 
 # Configure PremiumV3 tier for Azure App Service
 
-The new **PremiumV3** pricing tier gives you faster processors, SSD storage, and doubles the memory-to-core ratio of the existing pricing tiers. With the performance advantage, you could save money by running your apps on fewer instances. In this article, you learn how to create an app in **PremiumV3** tier or scale up an app to **PremiumV3** tier.
+The new **PremiumV3** pricing tier gives you faster processors, SSD storage, and quadruple the memory-to-core ratio of the existing pricing tiers (double the **PremiumV2** tier). With the performance advantage, you could save money by running your apps on fewer instances. In this article, you learn how to create an app in **PremiumV3** tier or scale up an app to **PremiumV3** tier.
 
 ## Prerequisites
 

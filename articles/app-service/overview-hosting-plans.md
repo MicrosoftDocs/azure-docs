@@ -4,7 +4,7 @@ description: Learn how App Service plans work in Azure App Service, how they're 
 keywords: app service, azure app service, scale, scalable, scalability, app service plan, app service cost
 ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.topic: article
-ms.date: 08/12/2020
+ms.date: 10/01/2020
 ms.custom: seodec18
 
 ---
@@ -32,13 +32,13 @@ Each tier also provides a specific subset of App Service features. These feature
 <a name="new-pricing-tier-premiumv3"></a>
 
 > [!NOTE]
-> The new **PremiumV3** pricing tier provides [Dv2-series VMs](../virtual-machines/dv2-dsv2-series.md) with faster processors, SSD storage, and double memory-to-core ratio compared to **Standard** tier. **PremiumV3** also supports higher scale via increased instance count while still providing all the advanced capabilities found in the Standard plan. All features available in the existing **PremiumV2** tier are included in **PremiumV3**.
+> The new **PremiumV3** pricing tier guarantees [Dv3-series VMs](../virtual-machines/dv3-dsv3-series.md) with faster processors, SSD storage, and quadruple memory-to-core ratio compared to **Standard** tier. **PremiumV3** also supports higher scale via increased instance count while still providing all the advanced capabilities found in **Standard** tier. All features available in the existing **PremiumV2** tier are included in **PremiumV3**.
 >
 > Similar to other dedicated tiers, three VM sizes are available for this tier:
 >
-> - Small (one CPU core, 3.5 GiB of memory) 
-> - Medium (two CPU cores, 7 GiB of memory) 
-> - Large (four CPU cores, 14 GiB of memory)  
+> - Small (2 CPU core, 8 GiB of memory) 
+> - Medium (4 CPU cores, 16 GiB of memory) 
+> - Large (8 CPU cores, 32 GiB of memory)  
 >
 > For **PremiumV3** pricing information, see [App Service Pricing](https://azure.microsoft.com/pricing/details/app-service/).
 >
