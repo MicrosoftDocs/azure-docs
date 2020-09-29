@@ -97,7 +97,7 @@ SQL Server Analysis Services Tabular models from SQL Server 2012 and above can b
 
 Alternatively, you can also consider migrating your on-premises Analysis Services Tabular models to [Power BI Premium using the new XMLA read/write endpoints](https://docs.microsoft.com/power-bi/admin/service-premium-connect-tools). 
 >[!NOTE]
-    >Power BI XMLA read/write endpoints functionality is currently in Public Preview and should not be considered for Production workloads until the functionality becomes Generally Available.
+> Power BI XMLA read/write endpoints functionality is currently in Public Preview and should not be considered for Production workloads until the functionality becomes Generally Available.
 
 ### High availability
 
@@ -116,13 +116,13 @@ Use the offline Azure Database Migration Service (DMS) option to migrate [SQL Ag
 
 SQL logins from the source SQL Server can be moved to Azure SQL Managed Instance using Database Migration Service (DMS) in offline mode.  Use the **[Select logins](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-managed-instance#select-logins)** blade in the **Migration Wizard** to migrate logins to your target SQL Managed Instance. 
 
-  >[!NOTE]
-    >By default, Azure Database Migration Service only supports migrating SQL logins. However, you can enable the ability to migrate Windows logins by:
-    >
-    >- Ensuring that the target SQL Managed Instance has AAD read access, which can be configured via the Azure portal by a user with the **Company Administrator**or a **Global Administrator**" role.
-    >- Configuring your Azure Database Migration Service instance to enable Windows user/group login migrations, which is set up via the Azure portal, on the Configuration page. After enabling this setting, restart the service for the changes to take effect.
-    >
-    > After restarting the service, Windows user/group logins appear in the list of logins available for migration. For any Windows user/group logins you migrate, you are prompted to provide the associated domain name. Service user accounts (account with domain name NT AUTHORITY) and virtual user accounts (account name with domain name NT SERVICE) are not supported.
+    >[!NOTE]
+  > By default, Azure Database Migration Service only supports migrating SQL logins. However, you can enable the ability to migrate Windows logins by:
+  > 
+  > - Ensuring that the target SQL Managed Instance has AAD read access, which can be configured via the Azure portal by a user with the **Company Administrator**or a **Global Administrator**" role.
+  > - Configuring your Azure Database Migration Service instance to enable Windows user/group login migrations, which is set up via the Azure portal, on the Configuration page. After enabling this setting, restart the service for the changes to take effect.
+  >
+  > After restarting the service, Windows user/group logins appear in the list of logins available for migration. For any Windows user/group logins you migrate, you are prompted to provide the associated domain name. Service user accounts (account with domain name NT AUTHORITY) and virtual user accounts (account name with domain name NT SERVICE) are not supported.
 
 You can learn more about [how to migrate windows users and groups in a SQL Server instance to Azure SQL Managed Instance using T-SQL](https://docs.microsoft.com/azure/azure-sql/managed-instance/migrate-sql-server-users-to-instance-transact-sql-tsql-tutorial).
 
