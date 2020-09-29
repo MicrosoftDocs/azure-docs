@@ -19,8 +19,8 @@ Synonyms expand a query by matching on terms considered semantically equivalent 
 In Azure Cognitive Search, synonyms are defined in a *synonym map*, through *mapping rules* that associate equivalent terms. This example covers essential steps for adding and using synonyms with an existing index. You learn how to:
 
 > [!div class="checklist"]
-> * Create a synonym map using the  [SynonymMap](/dotnet/api/microsoft.azure.search.models.synonymmap?view=azure-dotnet) class. 
-> * Set the [SynonymMaps](/dotnet/api/microsoft.azure.search.models.field.synonymmaps?view=azure-dotnet) property on fields that should support query expansion via synonyms.
+> * Create a synonym map using the  [SynonymMap](/dotnet/api/microsoft.azure.search.models.synonymmap) class. 
+> * Set the [SynonymMaps](/dotnet/api/microsoft.azure.search.models.field.synonymmaps) property on fields that should support query expansion via synonyms.
 
 You can query a synonym-enabled field as you would normally. There is no additional query syntax required to access synonyms.
 
