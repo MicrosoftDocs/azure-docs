@@ -1966,7 +1966,7 @@
       - name: Code42
         href: code42-provisioning-tutorial.md
       - name: Cofense Recipient Sync
-        href: cofense-provision-tutorial.m
+        href: cofense-provision-tutorial.md
       - name: Comeet Recruiting Software
         href: comeet-recruiting-software-provisioning-tutorial.md
       - name: Concur
