@@ -188,7 +188,7 @@ The message includes some useful information, including these items:
 
 > [!CAUTION]
 > The Az.HPCCache PowerShell module is currently in public preview. This preview version is provided
-> without a service level agreement. It's not recommended for production workloads. Certain features
+> without a service level agreement. It's not recommended for production workloads. Some features
 > might not be supported or might have constrained capabilities. For more information, see
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -204,7 +204,7 @@ more information.
 
 > [!IMPORTANT]
 > While the **Az.HPCCache** PowerShell module is in preview, you must install it separately using
-> the `Install-Module` cmdlet. Once this PowerShell module becomes generally available, it becomes
+> the `Install-Module` cmdlet. After this PowerShell module becomes generally available, it will be
 > part of future Az PowerShell module releases and available natively from within Azure Cloud Shell.
 
 ```azurepowershell-interactive
