@@ -96,7 +96,7 @@ SQL Server Reporting Services (SSRS) reports can be migrated to paginated report
 SQL Server Analysis Services Tabular models from SQL Server 2012 and above can be migrated to Azure Analysis Services which is a PaaS deployment model for Analysis Services Tabular model in Azure. You can learn more about migrating on-prem models to Azure Analysis Services in this [video tutorial](https://azure.microsoft.com/resources/videos/azure-analysis-services-moving-models/).
 
 Alternatively, you can also consider migrating your on-premises Analysis Services Tabular models to [Power BI Premium using the new XMLA read/write endpoints](https://docs.microsoft.com/power-bi/admin/service-premium-connect-tools). 
->[!NOTE]
+> [!NOTE]
 > Power BI XMLA read/write endpoints functionality is currently in Public Preview and should not be considered for Production workloads until the functionality becomes Generally Available.
 
 ### High availability
@@ -116,7 +116,7 @@ Use the offline Azure Database Migration Service (DMS) option to migrate [SQL Ag
 
 SQL logins from the source SQL Server can be moved to Azure SQL Managed Instance using Database Migration Service (DMS) in offline mode.  Use the **[Select logins](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-managed-instance#select-logins)** blade in the **Migration Wizard** to migrate logins to your target SQL Managed Instance. 
 
-    >[!NOTE]
+  > [!NOTE]
   > By default, Azure Database Migration Service only supports migrating SQL logins. However, you can enable the ability to migrate Windows logins by:
   > 
   > - Ensuring that the target SQL Managed Instance has AAD read access, which can be configured via the Azure portal by a user with the **Company Administrator**or a **Global Administrator**" role.
