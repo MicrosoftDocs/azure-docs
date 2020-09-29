@@ -100,7 +100,7 @@ To open and prepare the sample project:
     | IOTHUB_DEVICE_SECURITY_TYPE | connectionString |
     | IOTHUB_MODULE_CONNECTION_STRING | The module connection string you made a note of previously |
 
-    To learn more about the sample configuration, see the [sample readme](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/iothub/device/samples/readme.md).
+    To learn more about the sample configuration, see the [sample readme](https://github.com/Azure-Samples/azure-iot-samples-csharp/blob/master/iot-hub/Samples/device/PnpDeviceSamples/readme.md).
 
 ## Modify the code
 

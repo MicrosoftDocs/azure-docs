@@ -25,14 +25,14 @@ For a complete end-to-end tutorial using the SDK for Embedded C, the Device Prov
 
 ### Introductory samples
 
-The SDK for Embedded C repository contains [several samples](https://github.com/Azure/azure-sdk-for-c/tree/1.0.0-preview.4/sdk/samples/iot#iot-hub-plug-and-play-sample) that show you how to use IoT Plug and Play:
+The SDK for Embedded C repository contains [several samples](https://github.com/Azure/azure-sdk-for-c/tree/master/sdk/samples/iot#iot-hub-plug-and-play-sample) that show you how to use IoT Plug and Play:
 
 > [!NOTE]
 > These samples are shown running on Windows and Linux for educational and debugging purposes. In a production scenario, the samples are intended for constrained devices only.
 
 - [Thermostat example with SDK for Embedded C](https://github.com/Azure/azure-sdk-for-c/blob/master/sdk/samples/iot/paho_iot_hub_pnp_sample.c)
 
-- [Temperature Controller example with the SDK for Embedded C](https://github.com/Azure/azure-sdk-for-c/blob/1.0.0-preview.4/sdk/samples/iot/paho_iot_hub_pnp_component_sample.c)
+- [Temperature Controller example with the SDK for Embedded C](https://github.com/Azure/azure-sdk-for-c/blob/master/sdk/samples/iot/paho_iot_hub_pnp_component_sample.c)
 
 ## Using Azure RTOS
 
