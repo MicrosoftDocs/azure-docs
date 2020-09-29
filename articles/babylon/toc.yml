@@ -18,8 +18,8 @@
   items:
   - name: 1 - Scan data
     href: starter-kit-tutorial-1.md
-    # - name: 2 - Home page and search
-#   href: starter-kit-tutorial-2.md
+  - name: 2 - Home page and search
+    href: starter-kit-tutorial-2.md
 # - name: 3 - Browse and lineage
 #   href: starter-kit-tutorial-3.md
 # - name: 4 - Resource set, asset details, schema, and classification

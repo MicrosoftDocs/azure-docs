@@ -30,17 +30,15 @@ landingContent:
             url: create-catalog-portal.md
           - text: Add a security principal
             url: add-security-principal.md
-#         - text: Scan data into the catalog
-#           url: scan-data-into-the-catalog.md
   # Card
-# - title: Top scenarios
-#   linkLists:
-#     - linkListType: tutorial
-#       links:
-#         - text: Scan data
-#         - url: starter-kit-tutorial-1.md   
-#         - text: Home page and search
-#           url: starter-kit-tutorial-2.md
+  - title: Top scenarios
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: 1 - Scan data
+            url: starter-kit-tutorial-1.md
+          - text: 2 - Home page and search
+            url: starter-kit-tutorial-2.md
 #         - text: Home page and search
 #           url: starter-kit-tutorial-3.md
 #         - text: Browse and lineage
