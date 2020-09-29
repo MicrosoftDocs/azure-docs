@@ -38,11 +38,12 @@ After you create an Azure Database for MySQL server, you can use the first serve
    To connect to your database server, you need the full server name and admin sign-in credentials. You can easily find the server name and sign-in information on the server **Overview** page or on the **Properties** page in the Azure portal.
 
 2. Use the admin account and password to connect to your database server. Use your preferred client tool, such as MySQL Workbench, mysql.exe, or HeidiSQL.
-   If you are unsure of how to connect, see how to use MySQL Workbench to [connect and query data for Single Server](./connect-workbench.md) or [connect and query data for Flexible Server](./flexible-server/connect-workbench.md)
+   
+   If you're not sure how to connect, see [connect and query data for Single Server](./connect-workbench.md) or [connect and query data for Flexible Server](./flexible-server/connect-workbench.md).
 
-3. Edit and run the following SQL code. Replace the placeholder value `db_user` with your intended new user name, and placeholder value `testdb` with your own database name.
+3. Edit and run the following SQL code. Replace the placeholder value `db_user` with your intended new user name. Replace the placeholder value `testdb` with your database name.
 
-   This sql code syntax creates a new database named testdb for example purposes. Then it creates a new user in the MySQL service, and grants all privileges to the new database schema (testdb.\*) for that user.
+   This SQL code creates a new database named testdb. It then creates a new user in the MySQL service and grants all privileges for the new database schema (testdb.\*) to that user.
 
    ```sql
    CREATE DATABASE testdb;
@@ -54,7 +55,7 @@ After you create an Azure Database for MySQL server, you can use the first serve
    FLUSH PRIVILEGES;
    ```
 
-4. Verify the grants within the database.
+4. Verify the grants in the database:
 
    ```sql
    USE testdb;
@@ -62,14 +63,14 @@ After you create an Azure Database for MySQL server, you can use the first serve
    SHOW GRANTS FOR 'db_user'@'%';
    ```
 
-5. Log in to the server, specifying the designated database, using the new user name and password. This example shows the mysql command line. With this command, you are prompted for the password for the user name. Replace your own server name, database name, and user name.
+5. Sign in to the server, specifying the designated database and using the new user name and password. This example shows the mysql command line. When you use this command, you'll be prompted for the user's password. Use your own server name, database name, and user name.
 
-# [Single server](#tab/single-server)
+   # [Single Server](#tab/single-server)
 
    ```azurecli-interactive
    mysql --host mydemoserver.mysql.database.azure.com --database testdb --user db_user@mydemoserver -p
    ```
-# [Flexible server](#tab/flexible-server)
+   # [Flexible Server](#tab/flexible-server)
 
    ```azurecli-interactive
    mysql --host mydemoserver.mysql.database.azure.com --database testdb --user db_user -p
