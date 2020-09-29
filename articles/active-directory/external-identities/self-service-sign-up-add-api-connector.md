@@ -312,7 +312,7 @@ Ensure that:
 * The **Endpoint URL** of the API connector points to the correct API endpoint.
 * Your API explicitly checks for null values of received claims.
 * Your API responds as quickly as possible to ensure a fluid user experience.
-    * If using a serverless functions or scalable web service, use a hosting plan that keeps the API 'awake' or 'warm'. For Azure Functions, its recommended to use the [Premium plan](../../azure-functions/functions-scale.md#premium-plan). 
+    * If using a serverless function or scalable web service, use a hosting plan that keeps the API "awake" or "warm." For Azure Functions, its recommended to use the [Premium plan](../../azure-functions/functions-scale.md#premium-plan). 
 
 
 ### Use logging
