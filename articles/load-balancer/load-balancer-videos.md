@@ -16,8 +16,10 @@ ms.author: anavin
 
 # Azure Load Balancer videos
 
-Learn more about Azure Load Balancer through videos.
+Learn more about Azure Load Balancer through videos from Microsoft.
+
+## Videos
 
 - [Build and monitor highly available apps with Azure Load Balancer](https://techcommunity.microsoft.com/t5/video-hub/build-monitor-highly-available-apps-w-azure-load-balancer/m-p/1693668/thread-id/339)
 
-- [Azure Portal How to Series](https://www.youtube.com/watch?v=-VMPzVoo5Nk&list=PLLasX02E8BPBKgXP4oflOL29TtqTzwhxR&index=33&t=0s)
+- [Create Load Balancer: Azure portal How to Series](https://www.youtube.com/watch?v=-VMPzVoo5Nk&list=PLLasX02E8BPBKgXP4oflOL29TtqTzwhxR&index=33&t=0s)
