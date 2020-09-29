@@ -8,11 +8,14 @@ ms.author: dpalled
 manager: diviso
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 09/29/2020
 ms.custom: seodec18
 ---
 
 # Configuring retention in Azure Time Series Insights Gen1
+
+> [!CAUTION]
+> This is a Gen1 article.
 
 This article describes how to configure **Data retention time** and **Storage limit exceeded behavior** in Azure Time Series Insights.
 
