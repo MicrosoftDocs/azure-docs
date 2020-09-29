@@ -91,7 +91,7 @@ landingContent:
               url: /azure/architecture/reference-architectures/containers/aks/secure-baseline-aks/
             - text: AKS solutions
               url: /azure/architecture/reference-architectures/containers/aks-start-here?bc=%2fazure%2faks%2fbreadcrumb%2ftoc.json&toc=%2fazure%2faks%2ftoc.json
-            - text: Overview
+            - text: Best practices for cluster operators and developers
               url: best-practices.md
             - text: Checking for best practices
               url: kube-advisor-tool.md
