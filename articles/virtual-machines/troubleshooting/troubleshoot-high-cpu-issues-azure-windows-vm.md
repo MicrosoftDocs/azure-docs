@@ -74,7 +74,7 @@ Understand your workload. When you select a VM, you may underestimate the virtua
 
 There are certain VM series, such as B (Burst Mode) Series, that are recommended for quality assurance (QA) and testing. Using these series in the production environment limits the computing capability after the CPU credits are exhausted.
 
-For known applications such as SQL server, Oracle, RDS (Remote Desktop Services), Windows Virtual Desktop, IIS, or SharePoint, there are Azure Best Practices articles that include recommendations about which minimal configuration is best for these workloads.
+For known applications such as SQL Server, Oracle, RDS (Remote Desktop Services), Windows Virtual Desktop, IIS, or SharePoint, there are Azure Best Practices articles that include recommendations for minimal configuration for these workloads.
 
 ### Ongoing high-CPU issues
 
@@ -90,7 +90,7 @@ PerfInsights is available for both the [Windows](https://docs.microsoft.com/azur
 
 #### Run and analyze reports through Azure portal
 
-When it is [installed through the Azure portal](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/performance-diagnostics), PerfInsights actually installs an extension on the VM. Users can also install PerfInsights as an extension that goes directly to [Extensions in VM blade](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/performance-diagnostics-vm-extension), and then choose a performance diagnostics option.
+When it is [installed through the Azure portal](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/performance-diagnostics), actually installs an extension on the VM. Users can also install PerfInsights as an extension by going directly to [Extensions in VM blade](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/performance-diagnostics-vm-extension), and then choosing a performance diagnostics option.
 
 #### Azure portal Option 1
 
@@ -158,7 +158,7 @@ Your folder structure should resemble the following images:
 
   ![Folder structure](./media/troubleshoot-high-cpu-issues-azure-windows-vm/7-folder-structure.png)
 
-1. Any additional collections such as Perfmon, Xperf, Netmon, SMB logs, Event logs, and so on, can be found in Output folder.
+1. Any additional collections such as Perfmon, Xperf, Netmon, SMB logs, event logs, and so on, can be found in Output folder.
 
 1. The actual report together with analysis and recommendations.
 
@@ -180,7 +180,7 @@ If you expand the **Findings** event, you'll see several key details. The tab li
 
 There is a dedicated subtab under **CPU** that can be used for detailed pattern analysis, per core, or per process.
 
-The **Top CPU Consumers** tab has two separate sections of interest, and you can observe per processor statistics here. Often, the application design is either Single-Threaded or pins itself to a single processor. In this scenario, one or a few cores are seen running at 100 percent, while other cores run at standard levels. These scenarios are more complex because the average CPU on the server appears to run as expected, but the processes pinned on cores that have high usage will be slower than expected.
+The **Top CPU Consumers** tab has two separate sections of interest, and you can view per processor statistics here. The application design is frequently either Single-Threaded or pins itself to a single processor. In this scenario, one or a few cores run at 100 percent, while other cores run at expected levels. These scenarios are more complex because the average CPU on the server appears to run as expected, but the processes that are pinned on cores that have high usage will be slower than expected.
 
   ![high-CPU usage](./media/troubleshoot-high-cpu-issues-azure-windows-vm/9-high-cpu-usage.png)
 
@@ -289,7 +289,7 @@ For more information about how to use Azure monitor to manage Azure VMs, see [Mo
 
 ### Reactive troubleshooting
 
-If the issue has already occurred, you must discover what caused the high-CPU issue in the first place. The reactive stance can be tricky because the data collection mode won't be as useful, since the issue has already occurred.
+If the issue has already occurred, you must discover what caused the high-CPU issue in the first place. The reactive stance can be tricky. The data collection mode won't be as useful because the issue has already occurred.
 
 If this issue was a one-time occurrence, it may be difficult to determine which app caused it. If the Azure VM was configured to use OMS or other diagnostics tracking, you can still get insights about what caused the issue.
 
