@@ -183,6 +183,8 @@
         href: how-to-monitor-module-twins.md  
       - name: EdgeAgent direct methods
         href: how-to-edgeagent-direct-method.md
+      - name: Retrieve IoT Edge logs
+        href: how-to-retrieve-iot-edge-logs.md
   - name: Use IoT Edge devices as gateways
     items:
     - name: Configure a transparent gateway
