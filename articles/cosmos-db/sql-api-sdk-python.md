@@ -120,7 +120,7 @@ ms.custom: devx-track-python
 
 * The constructor of `CosmosClient` has been updated:
 
-  * The `auth` parameter has been renamed to `credential` and will now take an authentication type directly. This means the master key value, a dictionary of resource tokens, or a list of permissions can be passed in. However the old dictionary format is still supported.
+  * The `auth` parameter has been renamed to `credential` and will now take an authentication type directly. This means the primary key value, a dictionary of resource tokens, or a list of permissions can be passed in. However the old dictionary format is still supported.
 
   * The `connection_policy` parameter has been made a keyword only parameter, and while it is still supported, each of the individual attributes of the policy can now be passed in as explicit keyword arguments:
 

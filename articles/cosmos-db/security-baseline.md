@@ -286,7 +286,7 @@ Azure Cosmos DB provides built-in RBAC for common management scenarios in Azure 
 
 You can also use the Azure AD PowerShell module to perform adhoc queries to discover accounts that are members of administrative groups. 
 
-Additionally, some actions in Azure Cosmos DB can be controlled with Azure Active Directory and account-specific master keys.  Use the 'disableKeyBasedMetadataWriteAccess' account setting to control key access.
+Additionally, some actions in Azure Cosmos DB can be controlled with Azure Active Directory and account-specific primary keys.  Use the 'disableKeyBasedMetadataWriteAccess' account setting to control key access.
 
 Understand role-based access control in Azure Cosmos DB: https://docs.microsoft.com/azure/cosmos-db/role-based-access-control
 
@@ -306,7 +306,7 @@ Restrict user access to data operations only: https://docs.microsoft.com/azure/c
 
 ### 3.2: Change default passwords where applicable
 
-**Guidance**: The concept of default or blank passwords does not exist in relation to Azure AD or Azure Cosmos DB. Instead, Azure Cosmos DB uses two types of keys to authenticate users and provide access to its data and resources; master keys and resource tokens. The keys can be regenerated at any time.
+**Guidance**: The concept of default or blank passwords does not exist in relation to Azure AD or Azure Cosmos DB. Instead, Azure Cosmos DB uses two types of keys to authenticate users and provide access to its data and resources; primary keys and resource tokens. The keys can be regenerated at any time.
 
 Understanding secure access to data in Azure Cosmos DB: https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data
 

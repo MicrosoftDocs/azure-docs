@@ -165,7 +165,7 @@ You can use Spring Data Azure Cosmos DB in your [Azure Spring Cloud](https://azu
 
 ### 2.1.1 (March 7, 2019)
 #### New features
-* Updates master version to 2.1.1.
+* Updates main version to 2.1.1.
 
 ### 2.0.6 (March 7, 2019)
 #### New features

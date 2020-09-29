@@ -85,7 +85,7 @@ You will retrieve the volcano data from the Azure Cosmos DB account and visualiz
    
 7. If you are connecting to this endpoint for the first time, you are prompted for the account key. For your own account, retrieve the key from the **Primary Key** box in the **Read-only Keys** blade of the Azure portal. Enter the appropriate key and then click **Connect**.
    
-   We recommend that you use the read-only key when building reports. This prevents unnecessary exposure of the master key to potential security risks. The read-only key is available from the **Keys** blade of the Azure portal. 
+   We recommend that you use the read-only key when building reports. This prevents unnecessary exposure of the primary key to potential security risks. The read-only key is available from the **Keys** blade of the Azure portal. 
     
 8. When the account is successfully connected, the **Navigator** pane appears. The **Navigator** shows a list of databases under the account.
 

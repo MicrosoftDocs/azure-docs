@@ -10,7 +10,7 @@ ms.author: sngun
 
 # How to use Azure Kubernetes with Azure Cosmos DB (preview)
 
-The etcd API in Azure Cosmos DB allows you to use Azure Cosmos DB as the backend store for Azure Kubernetes. Azure Cosmos DB implements the etcd wire protocol, which allows the master node’s API servers to use Azure Cosmos DB just like it would access a locally installed etcd. etcd API in Azure Cosmos DB is currently in preview. When you use Azure Cosmos etcd API as the backing store for Kubernetes, you get the following benefits: 
+The etcd API in Azure Cosmos DB allows you to use Azure Cosmos DB as the backend store for Azure Kubernetes. Azure Cosmos DB implements the etcd wire protocol, which allows the primary node’s API servers to use Azure Cosmos DB just like it would access a locally installed etcd. etcd API in Azure Cosmos DB is currently in preview. When you use Azure Cosmos etcd API as the backing store for Kubernetes, you get the following benefits: 
 
 * No need to manually configure and manage etcd.
 * High availability of etcd, guaranteed by Cosmos (99.99% in single region, 99.999% in multiple regions).

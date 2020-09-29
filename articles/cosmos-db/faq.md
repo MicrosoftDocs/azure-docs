@@ -96,9 +96,9 @@ The following conditions apply to Try Azure Cosmos DB subscriptions:
 
 Azure Cosmos DB is available in the Azure portal. First, sign up for an Azure subscription. After you've signed up, you can add an Azure Cosmos DB account to your Azure subscription.
 
-### What is a master key?
+### What is a primary key?
 
-A master key is a security token to access all resources for an account. Individuals with the key have read and write access to all resources in the database account. Use caution when you distribute master keys. The primary master key and secondary master key are available on the **Keys** blade of the [Azure portal][azure-portal]. For more information about keys, see [View, copy, and regenerate access keys](manage-with-cli.md#list-account-keys).
+A primary key is a security token to access all resources for an account. Individuals with the key have read and write access to all resources in the database account. Use caution when you distribute primary keys. The primary primary key and secondary primary key are available on the **Keys** blade of the [Azure portal][azure-portal]. For more information about keys, see [View, copy, and regenerate access keys](manage-with-cli.md#list-account-keys).
 
 ### What are the regions that PreferredLocations can be set to?
 

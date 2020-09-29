@@ -135,7 +135,7 @@ In the `App.config` file, the following are the configuration values that can be
 Setting|Description
 ---|---
 `EndPointUrl`|This is **your .NET SDK endpoint** found in the Overview blade of your Azure Cosmos DB Gremlin API database account. This has the format of `https://your-graph-database-account.documents.azure.com:443/`
-`AuthorizationKey`|This is the Primary or Secondary key listed under your Azure Cosmos DB account. Learn more about [Securing Access to Azure Cosmos DB data](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data#master-keys)
+`AuthorizationKey`|This is the Primary or Secondary key listed under your Azure Cosmos DB account. Learn more about [Securing Access to Azure Cosmos DB data](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data#primary-keys)
 `DatabaseName`, `CollectionName`|These are the **target database and collection names**. When `ShouldCleanupOnStart` is set to `true` these values, along with `CollectionThroughput`, will be used to drop them and create a new database and collection. Similarly, if `ShouldCleanupOnFinish` is set to `true`, they will be used to delete the database as soon as the ingestion is over. Note that the target collection must be **an unlimited collection**.
 `CollectionThroughput`|This is used to create a new collection if the `ShouldCleanupOnStart` option is set to `true`.
 `ShouldCleanupOnStart`|This will drop the database account and collections before the program is run, and then create new ones with the `DatabaseName`, `CollectionName` and `CollectionThroughput` values.
