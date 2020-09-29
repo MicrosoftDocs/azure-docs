@@ -56,7 +56,7 @@ landingContent:
             url: what-is-single-sign-on.md
           - text: Single sign-on options
             url: sso-options.md
-  - title: App consent and permissions
+  - title: App consent
     linkLists:
       - linkListType: learn
         links:
@@ -78,7 +78,7 @@ landingContent:
         links:
           - text: What is App Proxy?
             url: what-is-application-proxy.md
-          - text: Plan an Application Proxy deployment
+          - text: App Proxy deployment
             url: application-proxy-deployment-plan.md
   - title: Secure apps
     linkLists:
