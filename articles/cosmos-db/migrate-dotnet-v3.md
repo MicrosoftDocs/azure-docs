@@ -31,7 +31,7 @@ The v3 SDK contains numerous usability and performance improvements, including:
 * Fluent hierarchy that replaces the need for URI factory
 * Support for stream APIs
 * Built-in support for change feed processor library
-* Built-in support for bulk executor library
+* Built-in support for bulk operations
 * The ability to scale non-partitioned and auto scale containers
 
 The SDK targets .NET Standard 2.0 and in doing so unifies the existing Azure Cosmos DB .NET Framework and .NET Core SDKs into a single .NET SDK. You can use the .NET SDK in any platform that implements .NET Standard 2.0, including your .NET Framework 4.6.1+ and .NET Core 2.0+ applications.
