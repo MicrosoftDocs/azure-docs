@@ -34,7 +34,7 @@ groups:
   title: Azure interface
   prompt: Choose an interface
   pivots:
-  - id: CLI
+  - id: azurecli
     title: Azure CLI
   - id: portal
     title: Azure portal

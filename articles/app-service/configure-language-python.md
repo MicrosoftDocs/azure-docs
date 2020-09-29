@@ -19,12 +19,12 @@ This guide provides key concepts and instructions for Python developers who use 
 > [!NOTE]
 > Linux is currently the recommended option for running Python apps in App Service. For information on the Windows option, see [Python on the Windows flavor of App Service](/visualstudio/python/managing-python-on-azure-app-service).
 
-::: zone pivot="CLI"
+::: zone pivot="azurecli"
 ## Configure through CLI commands
 
 To configure your app through CLI commands, you have two options:
 
-- Run commands in the [Azure Cloud Shell](../../cloud-shell/overview.md), which you can open using the **Try It** button on the top right corner of code blocks.
+- Run commands in the [Azure Cloud Shell](../cloud-shell/overview.md), which you can open using the **Try It** button on the top right corner of code blocks.
 - Run commands locally by installing the latest version of the [Azure CLI](/cli/azure/install-azure-cli), then sign in to Azure using [az login](/cli/azure/reference-index#az-login).
 ::: zone-end
 
@@ -46,7 +46,7 @@ Once you reach your app's **Overview** page, scroll down the left side menu to f
 
 ## Configure Python version
 
-::: zone pivot="CLI"
+::: zone pivot="azurecli"
 The following command shows the current Python version:
 
 ```azurecli-interactive
@@ -73,7 +73,7 @@ On the app's configuration page, select **General settings**.
 
 The supported Python versions are bounded by those shown in the **Major version** and **Minor version** controls:
 
-![Python versions shown on the Azure portal](media/configure-language-python/portal-python-version.png)
+![Python versions shown on the Azure portal](media/configure-language-python/portal-python-versions.png)
 
 By selecting a major version you can then see what minor versions are supported.
 
@@ -81,6 +81,9 @@ To change the version of Python used for your app, select the desired major and 
 ::: zone-end
 
 You can run an unsupported version of Python by building your own container image instead. For more information, see [use a custom Docker image](tutorial-custom-container.md?pivots=container-linux).
+
+<!-- <a> element here to preserve external links-->
+<a name="access-environment-variables"></a>
 
 ## Set and access app settings/environment variables
 
@@ -92,7 +95,7 @@ For example, use the following code to access an app setting called `DATABASE_SE
 os.environ['DATABASE_SERVER']
 ```
 
-::: zone pivot="CLI"
+::: zone pivot="azurecli"
 Use the [az webapp config app settings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) command to assign a value to a setting:
 
 ```azurecli-interactive
@@ -218,7 +221,7 @@ A startup command file can use whatever name you choose, such as *startup.sh*, *
 
 All commands must use relative paths to the project root folder.
 
-::: zone pivot="CLI"
+::: zone pivot="azurecli"
 Use the [az webapp config set]() command with the `--startup-file` parameter to set the startup command or file:
 
 ```azurecli-interactive
@@ -291,11 +294,11 @@ Popular web frameworks let you access the `X-Forwarded-*` information in your st
 
 ## Access diagnostic logs
 
-::: zone pivot="CLI"
+::: zone pivot="azurecli"
 [!INCLUDE [Access diagnostic logs](../../includes/app-service-web-logs-access-linux-no-h.md)]
 ::: zone-end
 
-::: zone pivot="portal
+::: zone pivot="portal"
 You can access the console logs generated from inside the container.
 
 On the Azure portal for your web app, select **Monitoring** > **Log stream** on the left side menu.
