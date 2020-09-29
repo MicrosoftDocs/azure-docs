@@ -60,7 +60,7 @@ Before configuring device identities in Azure AD for your VDI environment, famil
 | Azure AD registered | Federated/Managed | Windows current/Windows down-level | Persistent/Non-Persistent | Not Applicable |
 
 <sup>1</sup> **Windows current** devices represent Windows 10, Windows Server 2016, and Windows Server 2019.
-
+</sup> Note: You may not have latest features and product improvement. if you are on Server 2016 Version 1607. We did recommend to use Windows Server 2016 v1803 or future versions of windows server
 <sup>2</sup> **Windows down-level** devices represent Windows 7, Windows 8.1, Windows Server 2008 R2, Windows Server 2012, and Windows Server 2012 R2. For support information on Windows 7, see [Support for Windows 7 is ending](https://www.microsoft.com/microsoft-365/windows/end-of-windows-7-support). For support information on Windows Server 2008 R2, see [Prepare for Windows Server 2008 end of support](https://www.microsoft.com/cloud-platform/windows-server-2008).
 
 <sup>3</sup> A **Federated** identity infrastructure environment represents an environment with an identity provider such as AD FS or other third-party IDP.
