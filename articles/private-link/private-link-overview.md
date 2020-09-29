@@ -64,7 +64,7 @@ Azure Private Link provides the following benefits:
 | Azure IoT Hub | All public regions    |  | GA   <br/> [Learn more](https://docs.microsoft.com/azure/iot-hub/virtual-network-support ) |
 | Azure SignalR | EAST US, SOUTH CENTRAL US,<br/>WEST US 2, All China regions      |  | Preview   <br/> [Learn more](https://aka.ms/asrs/privatelink)   |
 | Azure Monitor <br/>(Log Analytics & Application Insights) | All public regions      |  | GA   <br/> [Learn more](https://docs.microsoft.com/azure/azure-monitor/platform/private-link-security)   | 
-| Azure Batch | All public regions except: GERMANY CENTRAL, GERMANY NORTHEAST, CHINA EAST, CHINA EAST 2, CHINA NORTH, and CHINA NORTH 2 <br/> All Government regions  | | GA <br/> [Learn more](https://docs.microsoft.com/azure/batch/private-connectivity) |
+| Azure Batch | All public regions except: GERMANY CENTRAL, GERMANY NORTHEAST <br/> All Government regions  | | GA <br/> [Learn more](https://docs.microsoft.com/azure/batch/private-connectivity) |
 |Azure Data Factory | All public regions<br/> All Government regions<br/>All China regions    | Credentials need to be stored in an Azure key vault| GA   <br/> [Learn more](https://docs.microsoft.com/azure/data-factory/data-factory-private-link)   |
 
 
