@@ -38,7 +38,7 @@ In this tutorial, you learn how to:
 
 ## Transform an API to strip response headers
 
-This section shows how to hide the HTTP headers that you don't want to show to your users. This example shows how to delete the following headers gin the HTTP response:
+This section shows how to hide the HTTP headers that you don't want to show to your users. This example shows how to delete the following headers in the HTTP response:
 
 -   **X-Powered-By**
 -   **X-AspNet-Version**
@@ -52,10 +52,11 @@ To see the original response:
 1. Select the **Test** tab, on the top of the screen.
 1. Select the **GetSpeakers** operation and select **Send**.
 
-The original response should look like similar to the following:
+The original response should look similar to the following:
 
 :::image type="content" source="media/transform-api/original-response.png" alt-text="Original API response":::
 
+As you can see the response includes the **X-Powered-By** and **X-AspNet-Version** headers.
 ### Set the transformation policy
 
 1. Select **Demo Conference API** > **Design** > **All operations**.
@@ -64,7 +65,7 @@ The original response should look like similar to the following:
    :::image type="content" source="media/transform-api/04-ProtectYourAPI-01-SetPolicy-Outbound.png" alt-text="Navigate to outbound policy":::
 
 1. Position the cursor inside the **&lt;outbound&gt;** element and select **Show snippets** at the top right corner.
-1. In the right window, under **Transformation policies**, select **+ Set HTTP header** twice (to insert two policy snippets).
+1. In the right window, under **Transformation policies**, select ** Set HTTP header** twice (to insert two policy snippets).
 
    :::image type="content" source="media/transform-api/transform-api.png" alt-text="Set HTTP header policy":::
 
@@ -170,7 +171,7 @@ The rest of this section tests policy transformations that you set in this artic
 1. Select **Demo Conference API** > **Test**.
 1. Select the **GetSpeakers** operation. Select **Send** three times in a row.
 
-    After sending the request 3 times, you get the `429 Too many requests` response.
+    After sending the request 3 times, you get the **429 Too many requests** response.
 
     :::image type="content" source="media/transform-api/test-throttling.png" alt-text="Too many requests":::
 
