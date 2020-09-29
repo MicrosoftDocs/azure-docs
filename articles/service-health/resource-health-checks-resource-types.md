@@ -204,6 +204,11 @@ Below is a complete list of all the checks executed through resource health by r
 |---|
 |<ul><li>Is the capacity resource up and running?</li><li>Are all the workloads up and running?</li></ul>|
 
+## Microsoft.RecoveryServices/vaults
+|Executed Checks|
+|---|
+|<ul><li>Are any backup or restore operations on Backup Items configured in this vault failing due to user errors?</li><li>Are any backup or restore operations on Backup Items configured in this vault failing due to causes beyond user control?</li></ul>|
+
 ## Microsoft.search/searchServices
 |Executed Checks|
 |---|
