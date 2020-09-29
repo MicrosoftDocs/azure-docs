@@ -20798,6 +20798,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/load-balancer/load-balancer-security-controls.md",
+      "redirect_url": "/azure/load-balancer/security-baseline",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/load-balancer/load-balancer-configure-sqlao.md",
       "redirect_url": "/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener",
       "redirect_document_id": false
