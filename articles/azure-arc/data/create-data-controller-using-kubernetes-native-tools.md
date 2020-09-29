@@ -33,9 +33,9 @@ If you installed Azure Arc data controller in the past on the same cluster and d
 ```
 # Cleanup azure arc data service artifacts
 kubectl delete crd datacontrollers.arcdata.microsoft.com 
-kubectl delete sqlmanagedinstances.sql.arcdata.microsoft.com 
-kubectl delete postgresql-11s.arcdata.microsoft.com 
-kubectl delete postgresql-12s.arcdata.microsoft.com
+kubectl delete crd sqlmanagedinstances.sql.arcdata.microsoft.com 
+kubectl delete crd postgresql-11s.arcdata.microsoft.com 
+kubectl delete crd postgresql-12s.arcdata.microsoft.com
 kubectl delete clusterroles azure-arc-data:cr-arc-metricsdc-reader
 kubectl delete clusterrolebindings azure-arc-data:crb-arc-metricsdc-reader
 ```
