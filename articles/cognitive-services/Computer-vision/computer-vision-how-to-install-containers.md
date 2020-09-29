@@ -1,5 +1,5 @@
 ---
-title: Install and run Read OCR Docker containers from Computer Vision
+title: Install Read OCR Docker containers from Computer Vision
 titleSuffix: Azure Cognitive Services
 description: Use the Read OCR Docker containers from Computer Vision to extract text from images and douments, on-premises.
 services: cognitive-services
@@ -14,13 +14,13 @@ ms.custom: seodec18, cog-serv-seo-aug-2020
 keywords: on-premises, OCR, Docker, container
 ---
 
-# Install and run Read OCR Docker containers (Preview) 
+# Install Read OCR Docker containers (Preview) 
 
 [!INCLUDE [container hosting on the Microsoft Container Registry](../containers/includes/gated-container-hosting.md)]
 
 Containers enable you to run the Computer Vision APIs in your own environment. Containers are great for specific security and data governance requirements. In this article you'll learn how to download, install, and run Computer Vision containers.
 
-The *Read* container allows you to extract printed and handwritten text from images and documents with support for PNG, JPG, BMP, PDF, and TIFF file formats. For more information, see the [Read API documentation](concept-recognizing-text.md#read-api).
+The *Read* OCR container allows you to extract printed and handwritten text from images and documents with support for JPEG, PNG, BMP, PDF, and TIFF file formats. For more information, see the [Read API documentation](concept-recognizing-text.md#read-api).
 
 ## Read 3.x containers
 There are two versions of the 3.x containers available in preview. Both versions provide additional accuracy and features over the previous container.
