@@ -43,7 +43,9 @@ You'll need the following items:
 
 * The [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest&preserve-view=true) and [CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md).
 
-## Start a run and its logging process
+## Manage runs
+
+* Start a run and its logging process
 
 # [Python](#tab/python)
 
@@ -114,7 +116,7 @@ To start a submit a pipeline run in the designer, use the following steps:
 
 ---
 
-## Monitor the status of a run
+* Monitor the status of a run
 
 
 # [Python](#tab/python)
@@ -191,7 +193,7 @@ To view the number of active runs for your experiment in the studio.
 
 ---
 
-## Cancel or fail runs
+* Cancel or fail runs
 
 If you notice a mistake or if your run is taking too long to finish, you can cancel the run.
 
@@ -324,7 +326,7 @@ print(parent_run.get_children())
 
 In Azure Machine Learning, you can use properties and tags to help organize and query your runs for important information.
 
-### Add properties and tags
+* Add properties and tags
 
 # [Python](#tab/python)
 
@@ -380,7 +382,7 @@ You can view the properties and tags in studio but cannot modify them there.
 
 ---
 
-### Query properties and tags
+* Query properties and tags
 
 You can query runs within an experiment to return a list of runs that match specific properties and tags.
 
