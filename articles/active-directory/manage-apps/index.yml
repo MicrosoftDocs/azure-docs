@@ -60,8 +60,10 @@ landingContent:
     linkLists:
       - linkListType: learn
         links:
-          - text: S
-            url: s
+          - text: Configure user consent
+            url: configure-user-consent.md
+          - text: Configure admin consent
+            url: configure-admin-consent-workflow.md
   - title: Migrate apps
     linkLists:
       - linkListType: learn
