@@ -484,7 +484,7 @@ Reconcile inventory on a regular basis and ensure unauthorized resources are del
 
 ### 6.4: Define and maintain an inventory of approved Azure resources
 
-**Guidance**: Create a list of approved Azure resources per your organizational needs which you can leverage as a whitelist mechanism. This will allow your organization to onboard any newly available Azure services after they are formally reviewed and approved by your organization's typical security evaluation processes.
+**Guidance**: Create a list of approved Azure resources per your organizational needs which you can leverage as a allow list mechanism. This will allow your organization to onboard any newly available Azure services after they are formally reviewed and approved by your organization's typical security evaluation processes.
 
 **Azure Security Center monitoring**: Not applicable
 
