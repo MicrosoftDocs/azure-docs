@@ -109,30 +109,30 @@ To configure a local development environment (which might also be a remote virtu
 
 Now that you have your local environment set up, you can interact with Azure Machine Learning in several ways.
 
-* Jupyter Notebooks
+### Jupyter Notebooks
 
-    When running a local Jupyter notebook server, it's recommended that you create an IPython kernel for your Python virtual environment. This helps ensure the expected kernel and package import behavior.
+When running a local Jupyter notebook server, it's recommended that you create an IPython kernel for your Python virtual environment. This helps ensure the expected kernel and package import behavior.
 
-    1. Enable environment-specific IPython kernels
+1. Enable environment-specific IPython kernels
 
-        ```bash
-        conda install notebook ipykernel
-        ```
+    ```bash
+    conda install notebook ipykernel
+    ```
 
-    1. Create a kernel for your Python virtual environment. Make sure to replace `<myenv>` with the name of your Python virtual environment.
+1. Create a kernel for your Python virtual environment. Make sure to replace `<myenv>` with the name of your Python virtual environment.
 
-        ```bash
-        ipython kernel install --user --name <myenv> --display-name "Python (myenv)"
-        ```
+    ```bash
+    ipython kernel install --user --name <myenv> --display-name "Python (myenv)"
+    ```
 
-* Visual Studio Code
+### Visual Studio Code
 
-    To use Visual Studio Code for development:
+To use Visual Studio Code for development:
 
-    1. Install [Visual Studio Code](https://code.visualstudio.com/Download).
-    1. Install the [Azure Machine Learning Visual Studio Code extension](tutorial-setup-vscode-extension.md) (preview).
+1. Install [Visual Studio Code](https://code.visualstudio.com/Download).
+1. Install the [Azure Machine Learning Visual Studio Code extension](tutorial-setup-vscode-extension.md) (preview).
 
-    Once you have the Visual Studio Code extension installed, you can manage your [Azure Machine Learning resources](how-to-manage-resources-vscode.md), [run and debug experiments](how-to-debug-visual-studio-code.md), and [deploy trained models](tutorial-train-deploy-image-classification-model-vscode.md).
+Once you have the Visual Studio Code extension installed, you can manage your [Azure Machine Learning resources](how-to-manage-resources-vscode.md), [run and debug experiments](how-to-debug-visual-studio-code.md), and [deploy trained models](tutorial-train-deploy-image-classification-model-vscode.md).
 
 <!-- 1. Download and install [Anaconda](https://www.anaconda.com/distribution/#download-section) (Python 3.7 version) if you don't already have it.
 
