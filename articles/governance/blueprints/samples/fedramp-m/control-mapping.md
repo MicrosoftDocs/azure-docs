@@ -56,7 +56,7 @@ where custom Azure RBAC rules are implement can help you verify need and proper 
 Azure RBAC rules are error prone.
 
 - An Azure Active Directory administrator should be provisioned for SQL servers
-- Audit usage of custom Azure RBAC rules
+- Audit usage of custom RBAC rules
 - Service Fabric clusters should only use Azure Active Directory for client authentication
 
 ## AC-2 (12) Account Management | Account Monitoring / Atypical Usage

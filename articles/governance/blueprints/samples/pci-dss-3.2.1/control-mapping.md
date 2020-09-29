@@ -112,7 +112,7 @@ services.
 - MFA should be enabled accounts with write permissions on your subscription
 - MFA should be enabled on accounts with read permissions on your subscription
 - An Azure Active Directory administrator should be provisioned for SQL servers
-- Audit usage of custom Azure RBAC rules
+- Audit usage of custom RBAC rules
 
 ## 8.1.2 and 8.1.5 Least Privilege and Review of User Access Rights
 

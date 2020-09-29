@@ -84,7 +84,7 @@ you verify need and proper implementation, as custom Azure RBAC rules are error 
 - External accounts with write permissions should be removed from your subscription
 - An Azure Active Directory administrator should be provisioned for SQL servers
 - Service Fabric clusters should only use Azure Active Directory for client authentication
-- Audit usage of custom Azure RBAC rules
+- Audit usage of custom RBAC rules
 
 ## A.9.2.4 Management of secret authentication information of users
 
