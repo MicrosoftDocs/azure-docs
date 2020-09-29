@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
-ms.date: 8/7/2020
+ms.date: 9/29/2020
 ---
 
 # How to configure Azure Database for MySQL Data-in Replication
@@ -49,6 +49,44 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
    For example, ensure the source server allows both inbound and outbound traffic on port 3306 and that the source server has a **public IP address**, the DNS is publicly accessible, or has a fully qualified domain name (FQDN). 
    
    Test connectivity to the source server by attempting to connect from a tool such as the MySQL command-line hosted on another machine or from the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) available in the Azure portal.
+
+   If your organization has strict security policies and will not allow all IP addresses on the source server to enable communication from Azure to your source server, you can potentially use the below command to determine the IP address of your MySQL server.
+    
+   ```bash
+   mysql> show global variables like '%redirect%';
+   ```
+
+   Below is sample output for an existing MySQL server.
+
+   ```bash
+   +----------------------+----------------------------------------------------------+
+   | Variable_name        | Value                                                    |
+   +----------------------+----------------------------------------------------------+
+   | redirect_enabled     | OFF                                                      |
+   | redirect_flag        | cae3462817ca                                             |
+   | redirect_server_host | cae3462817ca.tr200.eastus1-a.worker.database.windows.net |
+   | redirect_server_port | 16002                                                    |
+   | redirect_server_ttl  | 0                                                        |
+   +----------------------+----------------------------------------------------------+
+   5 rows in set (0.25 sec)
+   ```
+    
+   Using the ping utility in your terminal, you can directly ping the value of `redirect_server_host`, which returns an IP address. Configure your source server's firewall rules to allow this returned IP address on port 3306.
+
+   > [!NOTE]
+   > This IP address may change due to maintenance/deployment operations. This method of connectivity is only for customers who cannot afford to allow all IP address on 3306 port.
+   
+   Below is some sample output of running the ping utility.    
+ 
+   ```bash
+   C:\Users\testuser>ping cae3462817ca.tr200.eastus1-a.worker.database.windows.net
+    
+   Pinging tr200.eastus1-a.worker.database.windows.net [11.11.111.1] with 32 bytes of data:
+   Request timed out.
+    
+   Ping statistics for 11.11.111.1:
+   Packets: Sent = 4, Received = 0, Lost = 4 (100% loss)
+   ```
 
 1. Turn on binary logging
 
