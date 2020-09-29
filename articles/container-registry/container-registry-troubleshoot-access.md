@@ -27,7 +27,7 @@ May include one or more of the following:
 * A client firewall or proxy prevents access - [solution](#configure-client-firewall-access)
 * Public network access rules on the registry prevent access - [solution](#configure-public-access-to-registry)
 * Virtual network configuration prevents access - [solution](#configure-vnet-access)
-* You attempt to integrate Azure Security Center with a registry that has a private endpoint or service endpoint - [solution](#configure-image-scanning-solution)
+* You attempt to integrate Azure Security Center or certain other Azure services with a registry that has a private endpoint, service endpoint, or public IP access rules - [solution](#configure-service-access)
 
 ## Further diagnosis 
 
@@ -91,17 +91,22 @@ Related links:
 * [Kubernetes: Debugging DNS resolution](https://kubernetes.io/docs/tasks/administer-cluster/dns-debugging-resolution/)
 * [Virtual network service tags](../virtual-network/service-tags-overview.md)
 
-### Configure image scanning solution
+### Configure service access
 
-If your registry is configured with a private endpoint or service endpoint, you can't currently integrate with Azure Security Center for image scanning. Optionally, configure other image scanning solutions available in Azure Marketplace including:
+Currently, Azure Security Center can't perform [image vulnerability scanning](../security-center/azure-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json) in a registry that restricts access to private endpoints, selected subnets, or IP addresses. Also, resources of the following services are unable to access a container registry with network restrictions:
 
-* [Aqua Cloud Native Security Platform](https://azuremarketplace.microsoft.com/marketplace/apps/aqua-security.aqua-security)
-* [Twistlock Enterprise Edition](https://azuremarketplace.microsoft.com/marketplace/apps/twistlock.twistlock)
+* Azure DevOps Services 
+* Azure Container Instances
+* Azure Container Registry Tasks
+
+If access or integration of these Azure services with your container registry is required, remove the network restriction. For example, remove the registry's private endpoints, or remove or modify the registry's public access rules.
 
 Related links:
 
 * [Azure Container Registry image scanning by Security Center](../security-center/azure-container-registry-integration.md)
 * Provide [feedback](https://feedback.azure.com/forums/347535-azure-security-center/suggestions/41091577-enable-vulnerability-scanning-for-images-that-are)
+* [Configure public IP network rules](container-registry-access-selected-networks.md)
+* [Connect privately to an Azure container registry using Azure Private Link](container-registry-private-link.md)
 
 
 ## Advanced troubleshooting

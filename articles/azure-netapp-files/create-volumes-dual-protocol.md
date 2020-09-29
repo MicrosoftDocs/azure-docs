@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/24/2020
+ms.date: 09/28/2020
 ms.author: b-juche
 ---
 # Create a dual-protocol (NFSv3 and SMB) volume for Azure NetApp Files
@@ -33,6 +33,8 @@ Azure NetApp Files supports creating volumes using NFS (NFSv3 and NFSv4.1), SMBv
 * Ensure that you meet the [Requirements for Active Directory connections](azure-netapp-files-create-volumes-smb.md#requirements-for-active-directory-connections). 
 * Create a reverse lookup zone on the DNS server and then add a pointer (PTR) record of the AD host machine in that reverse lookup zone. Otherwise, the dual-protocol volume creation will fail.
 * Ensure that the NFS client is up to date and running the latest updates for the operating system.
+* Ensure that the Active Directory (AD) LDAP server is up and running on the AD. This is done by installing and configuring the [Active Directory Lightweight Directory Services (AD LDS)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831593(v=ws.11)) role on the AD machine.
+* Ensure that a certificate authority (CA)  is created on the AD using the [Active Directory Certificate Services (AD CS)](https://docs.microsoft.com/windows-server/networking/core-network-guide/cncg/server-certs/install-the-certification-authority) role to generate and export the self-signed root CA certificate.   
 
 ## Create a dual-protocol volume
 
@@ -131,6 +133,11 @@ You can manage POSIX attributes such as UID, Home Directory, and other values by
 
 ![Active Directory Attribute Editor](../media/azure-netapp-files/active-directory-attribute-editor.png) 
 
+You need to set the following attributes for LDAP users and LDAP groups: 
+* Required attributes for LDAP users:   
+    `uid`: Alice, `uidNumber`: 139, `gidNumber`: 555, `objectClass`: posixAccount
+* Required attributes for LDAP groups:   
+    `objectClass`: "posixGroup", `gidNumber`: 555
 
 ## Configure the NFS client 
 
