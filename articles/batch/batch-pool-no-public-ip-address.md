@@ -3,7 +3,7 @@ title: Create an Azure Batch pool without public IP addresses
 description: Learn how to create a pool without public IP addresses
 author: pkshultz
 ms.topic: how-to
-ms.date: 09/25/2020
+ms.date: 09/28/2020
 ms.author: peshultz
 ms.custom: references_regions
 
@@ -20,7 +20,7 @@ By default, all the compute nodes in an Azure Batch virtual machine configuratio
 To restrict access to these nodes and reduce the discoverability of these nodes from the internet, you can provision the pool without public IP addresses.
 
 > [!IMPORTANT]
-> Support for pools without public IP addresses in Azure Batch is currently public preview for all regions except China East, China East 2, China North, and China North 2.
+> Support for pools without public IP addresses in Azure Batch is currently in public preview for the following regions: France Central, East Asia, West Central US, South Central US, West US 2, East US, North Europe, East US 2, Central US, West Europe.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
