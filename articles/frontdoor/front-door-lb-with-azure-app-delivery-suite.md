@@ -50,7 +50,6 @@ Front Door terminates HTTP requests at the edge of Microsoft’s network and act
 Application Gateway provides application delivery controller (ADC) as a service, offering various Layer 7 load-balancing capabilities for your application. It allows customers to optimize web farm productivity by offloading CPU-intensive TLS termination to the application gateway. Other Layer 7 routing capabilities include round-robin distribution of incoming traffic, cookie-based session affinity, URL path-based routing, and the ability to host multiple websites behind a single application gateway. Application Gateway can be configured as an Internet-facing gateway, an internal-only gateway, or a combination of both. Application Gateway is fully Azure managed, scalable, and highly available. It provides a rich set of diagnostics and logging capabilities for better manageability.
 Load Balancer is an integral part of the Azure SDN stack, providing high-performance, low-latency Layer 4 load-balancing services for all UDP and TCP protocols. It manages inbound and outbound connections. You can configure public and internal load-balanced endpoints and define rules to map inbound connections to back-end pool destinations by using TCP and HTTP health-probing options to manage service availability.
 
-
 ## Choosing a global load balancer
 When choosing a global load balancer between Traffic Manager and Azure Front Door for global routing, you should consider what’s similar and what’s different about the two services.   Both services provide
 - **Multi-geo redundancy:** If one region goes down, traffic seamlessly routes to the closest region without any intervention from the application owner.
@@ -81,7 +80,6 @@ The following diagram shows the architecture of this scenario:
 
 > [!NOTE]
 > This example is only one of many possible configurations of the load-balancing services that Azure offers. Traffic Manager, Front Door, Application Gateway, and Load Balancer can be mixed and matched to best suit your load-balancing needs. For example, if TLS/SSL offload or Layer 7 processing is not necessary, Load Balancer can be used in place of Application Gateway.
-
 
 ## Next Steps
 
