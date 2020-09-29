@@ -102,8 +102,7 @@ The following example creates a subscription named *Dev Team Subscription* in th
 
 ### [REST](#tab/rest)
 
-Call the PUT API to create a subscription creation 
-request/alias.
+Call the PUT API to create a subscription creation request/alias.
 
 ```json
 PUT  https://management.azure.com/providers/Microsoft.Subscription/aliases/sampleAlias?api-version=2020-09-01 
@@ -157,6 +156,7 @@ An in-progress status will be returned as an `Accepted` state under `provisionin
 If you'd like to specify owners, learn [how to get user object IDs](grant-access-to-create-subscription.md#userObjectId).
 
 ### [PowerShell](#tab/azure-powershell)
+
 TODO: this whole section
 
 To install the latest version of the module that contains the `New-AzSubscription` cmdlet, run `Install-Module Az.Subscription`. To install a recent version of PowerShellGet, see [Get PowerShellGet Module](/powershell/scripting/gallery/installing-psget).
@@ -174,11 +174,12 @@ New-AzSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -Enroll
 | `EnrollmentAccountObjectId`      | Yes       | String | The Object ID of the enrollment account that the subscription is created under and billed to. This value is a GUID that you get from `Get-AzEnrollmentAccount`. |
 | `OwnerObjectId`      | No       | String | The Object ID of any user that you'd like to add as an Azure RBAC Owner on the subscription when it's created.  |
 | `OwnerSignInName`    | No       | String | The email address of any user that you'd like to add as an Azure RBAC Owner on the subscription when it's created. You can use this parameter instead of `OwnerObjectId`.|
-| `OwnerApplicationId` | No       | String | The application ID of any service principal that you'd like to add as an Azure RBAC Owner on the subscription when it's created. You can use this parameter instead of `OwnerObjectId`. When using this parameter, the service principal must have [read access to the directory](/powershell/azure/active-directory/signing-in-service-principal?view=azureadps-2.0#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole).|
+| `OwnerApplicationId` | No       | String | The application ID of any service principal that you'd like to add as an Azure RBAC Owner on the subscription when it's created. You can use this parameter instead of `OwnerObjectId`. When using this parameter, the service principal must have [read access to the directory](/powershell/azure/active-directory/signing-in-service-principal?view=azureadps-2.0#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole&preserve-view=true).|
 
 To see a full list of all parameters, see [New-AzSubscription](/powershell/module/az.subscription/New-AzSubscription).
 
 ### [Azure CLI](#tab/azure-cli)
+
 First, install this extension by running `az extension add --name account` and `az extension add --name alias`
 
 Run the [az account alias create](/cli/azure/ext/account/account/alias?view=azure-cli-latest#ext_account_az_account_alias_create&preserve-view=true) command below, provide as the `billing-scope` the `id` from one of your `enrollmentAccounts`. 
@@ -339,6 +340,7 @@ Use the `id` property to identify the invoice section for which you want to crea
 The following example creates a subscription named *Dev Team subscription* for the *Development* invoice section. The subscription will be billed to the *Contoso Billing Profile* billing profile and appear on the *Development* section of its invoice. You will be using the copied billing scope from previous step - `/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx`. 
 
 ### [REST](#tab/rest)
+
 ```json
 PUT  https://management.azure.com/providers/Microsoft.Subscription/aliases/sampleAlias?api-version=2020-09-01
 ```
@@ -387,9 +389,11 @@ GET https://management.azure.com/providers/Microsoft.Subscription/aliases/sample
 An in-progress status will be returned as an `Accepted` state under `provisioningState`
 
 ### [PowerShell](#tab/azure-powershell)
+
 TODO: this whole section
 
 ### [Azure CLI](#tab/azure-cli)
+
 First, install this extension by running `az extension add --name account` and `az extension add --name alias`
 
 Run the [az account alias create](/cli/azure/ext/account/account/alias?view=azure-cli-latest#ext_account_az_account_alias_create&preserve-view=true) command below 
@@ -413,6 +417,7 @@ You will get back the subscriptionId as part of the response from this command
 ```
 
 ---
+
 ## Create subscriptions for an MPA billing account
 
 ### Prerequisites
@@ -531,6 +536,7 @@ Use the `description` property to identify the reseller who will be associated w
 The following example creates a subscription named *Dev Team subscription*  for *Fabrikam toys* and associate *Wingtip* reseller to the subscription. You will be using the copied billing scope from previous step - `/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx`. 
 
 ### [REST](#tab/rest)
+
 ```json
 PUT  https://management.azure.com/providers/Microsoft.Subscription/aliases/sampleAlias?api-version=2020-09-01
 ```
@@ -582,9 +588,11 @@ TODO:
 Pass the optional *resellerId* copied from the second step in the request parameters of the API.
 
 ### [PowerShell](#tab/azure-powershell)
+
 TODO: this whole section
 
 ### [Azure CLI](#tab/azure-cli)
+
 First, install this extension by running `az extension add --name account` and `az extension add --name alias`
 
 Run the [az account alias create](/cli/azure/ext/account/account/alias?view=azure-cli-latest#ext_account_az_account_alias_create&preserve-view=true) command below. 
@@ -606,7 +614,9 @@ You will get back the subscriptionId as part of the response from this command
   "type": "Microsoft.Subscription/aliases"
 }
 ```
+
 ---
+
 ## Next steps
 
 *TODO: For an example on creating an Enterprise Agreement (EA) subscription using .NET, see [sample code on GitHub](https://github.com/Azure-Samples/create-azure-subscription-dotnet-core).
