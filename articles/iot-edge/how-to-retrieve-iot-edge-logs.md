@@ -72,7 +72,7 @@ This method accepts a JSON payload with the following schema:
 | contentType | string | Either `json` or `text`. Default is `text`. |
 
 > [!NOTE]
-> The logs content is truncated to the response size limit of direct methods, which is currently 128 KB.
+> If the logs content exceeds the response size limit of direct methods, which is currently 128 KB, the response returns an error.
 
 A successful retrieval of logs returns a **"status": 200** followed by a payload containing the logs retrieved from the module, filtered by the settings you specify in your request.
 
