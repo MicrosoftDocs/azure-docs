@@ -40,7 +40,7 @@ landingContent:
     - linkListType: concept
       links:
         - text: Developer guide
-          url: concepts-developer-guide.md
+          url: concepts-developer-guide-device-csharp.md
         - text: Components
           url: concepts-components.md
         - text: IoT Plug and Play conventions

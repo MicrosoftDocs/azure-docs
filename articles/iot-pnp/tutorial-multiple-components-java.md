@@ -147,4 +147,4 @@ You can also use the Azure IoT explorer tool to call commands in either of the t
 In this tutorial, you've learned how to connect an IoT Plug and Play device with components to an IoT hub. To learn more about IoT Plug and Play device models, see:
 
 > [!div class="nextstepaction"]
-> [IoT Plug and Play modeling developer guide](concepts-developer-guide.md)
+> [IoT Plug and Play modeling developer guide](concepts-developer-guide-device-csharp.md)
