@@ -84,7 +84,7 @@ After you create an Azure Database for MySQL server, you can use the first serve
 
 2. Use the admin account and password to connect to your database server. Use your preferred client tool, such as MySQL Workbench, mysql.exe, or HeidiSQL.
    
-If you're not sure how to connect, see [Use MySQL Workbench to connect and query data](./connect-workbench.md).
+   If you're not sure how to connect, see [Use MySQL Workbench to connect and query data](./connect-workbench.md).
 
 3. Edit and run the following SQL code. Replace the placeholder value `new_master_user` with your new user name. This syntax grants the listed privileges on all the database schemas (*.*) to the user (`new_master_user` in this example).
 
