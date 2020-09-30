@@ -235,7 +235,6 @@
         href: how-to-use-perfinsights.md
       - name: Performance diagnostics extension
         href: performance-diagnostics-vm-extension.md
-
     - name: Linux
       items:
       - name: How to use PerfInsights
