@@ -11,7 +11,7 @@ ms.date: 09/29/2020
 ms.author: rolyon
 ---
 
-# Steps to add role assignment
+# Steps to add a role assignment
 
 A role assignment consists of three elements: security principal, role definition, and scope. To add a role assignment, follow these high-level overview steps.
 

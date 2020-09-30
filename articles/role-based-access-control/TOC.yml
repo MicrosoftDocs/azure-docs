@@ -57,7 +57,7 @@
       href: role-assignments-list-rest.md
   - name: Add or remove role assignments
     items:
-    - name: Steps to add role assignment
+    - name: Steps to add a role assignment
       href: role-assignments-steps.md
     - name: Portal
       href: role-assignments-portal.md

@@ -2,20 +2,14 @@
 title: What is Azure role-based access control (Azure RBAC)?
 description: Get an overview of Azure role-based access control (Azure RBAC). Use role assignments to control access to Azure resources.
 services: active-directory
-documentationcenter: ''
 author: rolyon
 manager: mtillman
-
-ms.assetid: 8f8aadeb-45c9-4d0e-af87-f1f79373e039
 ms.service: role-based-access-control
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/23/2020
+ms.date: 09/29/2020
 ms.author: rolyon
-ms.reviewer: bagovind
-ms.custom: azuread-video-2020
+ms.custom: contperfq1, azuread-video-2020
 
 #Customer intent: As a dev, devops, or it admin, I want to learn how permissions and roles work in Azure, so that I can better understand how to grant access to resources.
 ---
@@ -73,13 +67,15 @@ This video provides a quick overview of built-in roles and custom roles.
 
 >[!VIDEO https://www.youtube.com/embed/I1mefHptRgo]
 
-Azure has data operations that enable you to grant access to data within an object. For example, if a user has read data access to a storage account, then they can read the blobs or messages within that storage account. For more information, see [Understand Azure role definitions](role-definitions.md).
+Azure has data operations that enable you to grant access to data within an object. For example, if a user has read data access to a storage account, then they can read the blobs or messages within that storage account.
+
+For more information, see [Understand Azure role definitions](role-definitions.md).
 
 ### Scope
 
 *Scope* is the set of resources that the access applies to. When you assign a role, you can further limit the actions allowed by defining a scope. This is helpful if you want to make someone a [Website Contributor](built-in-roles.md#website-contributor), but only for one resource group.
 
-In Azure, you can specify a scope at multiple levels: [management group](../governance/management-groups/overview.md), subscription, resource group, or resource. Scopes are structured in a parent-child relationship.
+In Azure, you can specify a scope at multiple levels: [management group](../governance/management-groups/overview.md), subscription, [resource group](../azure-resource-manager/management/overview.md#resource-groups.md), or resource. Scopes are structured in a parent-child relationship.
 
 ![Scope for a role assignment](./media/shared/rbac-scope.png)
 
@@ -88,6 +84,8 @@ When you grant access at a parent scope, those permissions are inherited to the 
 - If you assign the [Owner](built-in-roles.md#owner) role to a user at the management group scope, that user can manage everything in all subscriptions in the management group.
 - If you assign the [Reader](built-in-roles.md#reader) role to a group at the subscription scope, the members of that group can view every resource group and resource in the subscription.
 - If you assign the [Contributor](built-in-roles.md#contributor) role to an application at the resource group scope, it can manage resources of all types in that resource group, but not other resource groups in the subscription.
+
+For more information about scope, see [Understand scope](scope-overview.md).
 
 ### Role assignments
 
@@ -99,6 +97,8 @@ The following diagram shows an example of a role assignment. In this example, th
 
 You can create role assignments using the Azure portal, Azure CLI, Azure PowerShell, Azure SDKs, or REST APIs. You can have up to **2000** role assignments in each subscription. This limit includes role assignments at the subscription, resource group, and resource scopes. You can have up to **500** role assignments in each management group. To create and remove role assignments, you must have `Microsoft.Authorization/roleAssignments/*` permission. This permission is granted through the [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator) roles.
 
+For more information, see [Steps to add a role assignment](role-assignments-steps.md).
+
 ## Multiple role assignments
 
 So what happens if you have multiple overlapping role assignments? Azure RBAC is an additive model, so your effective permissions are the sum of your role assignments. Consider the following example where a user is granted the Contributor role at the subscription scope and the Reader role on a resource group. The sum of the Contributor permissions and the Reader permissions is effectively the Contributor role for the resource group. Therefore, in this case, the Reader role assignment has no impact.
@@ -107,7 +107,9 @@ So what happens if you have multiple overlapping role assignments? Azure RBAC is
 
 ## Deny assignments
 
-Previously, Azure RBAC was an allow-only model with no deny, but now Azure RBAC supports deny assignments in a limited way. Similar to a role assignment, a *deny assignment* attaches a set of deny actions to a user, group, service principal, or managed identity at a particular scope for the purpose of denying access. A role assignment defines a set of actions that are *allowed*, while a deny assignment defines a set of actions that are *not allowed*. In other words, deny assignments block users from performing specified actions even if a role assignment grants them access. Deny assignments take precedence over role assignments. For more information, see [Understand Azure deny assignments](deny-assignments.md).
+Previously, Azure RBAC was an allow-only model with no deny, but now Azure RBAC supports deny assignments in a limited way. Similar to a role assignment, a *deny assignment* attaches a set of deny actions to a user, group, service principal, or managed identity at a particular scope for the purpose of denying access. A role assignment defines a set of actions that are *allowed*, while a deny assignment defines a set of actions that are *not allowed*. In other words, deny assignments block users from performing specified actions even if a role assignment grants them access. Deny assignments take precedence over role assignments.
+
+For more information, see [Understand Azure deny assignments](deny-assignments.md).
 
 ## How Azure RBAC determines if a user has access to a resource
 
