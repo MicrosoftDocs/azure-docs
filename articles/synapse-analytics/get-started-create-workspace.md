@@ -11,15 +11,15 @@ ms.topic: tutorial
 ms.date: 09/30/2020 
 ---
 
-## Overview
+# Creating a Synapse workspace
 
 In this tutorial, you'll learn how to create a Synapse workspace, a SQL pool, and an Apache Spark pool. 
 
-# Prerequisites
+## Prerequisites
 
 To complete this all of this tutorial's steps, you need to have access to a resource group for which you are assigned the **Owner** role. Create the Synapse workspace in this resource group.
 
-## Create a Synapse workspace
+## Create a Synapse workspace in the Azure Portal
 
 1. Open the [Azure portal](https://portal.azure.com), and at the top search for **Synapse**.
 1. In the search results, under **Services**, select **Azure Synapse Analytics (workspaces preview)**.
