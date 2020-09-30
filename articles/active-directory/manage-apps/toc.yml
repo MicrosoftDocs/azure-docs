@@ -63,11 +63,11 @@
         href: plan-sso-deployment.md
       - name: One-click SSO
         href: one-click-sso-tutorial.md
-      - name: Understand SAML-based single sign-on
+      - name: Understand SAML-based SSO
         href: configure-saml-single-sign-on.md
-      - name: Understand password-based sign-on
+      - name: Understand password-based SSO
         href: configure-password-single-sign-on-non-gallery-applications.md
-      - name: Understand linked sign-on
+      - name: Understand linked-based SSO
         href: configure-linked-sign-on.md
     - name: Application security
       items:
