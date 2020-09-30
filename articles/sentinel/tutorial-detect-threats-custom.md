@@ -141,37 +141,36 @@ You can create custom analytics rules to help you search for the types of threat
 
 ### A scheduled rule failed to execute, or appears with AUTO DISABLED added to the name
 
-An analytics rule can fail to run for any number of reasons. In general, rule execution failures fall into two categories: transient failures and permanent failures. Azure Sentinel classifies failures up front as either transient or permanent, based on the specific type of the failure and the circumstances that led to it.
+It's a rare occurrence that a scheduled query rule fails to run, but it can happen. Azure Sentinel classifies failures up front as either transient or permanent, based on the specific type of the failure and the circumstances that led to it.
 
 #### Transient failure
 
-A transient failure occurs due to a circumstance which is temporary and will soon return to normal, at which point the rule execution will succeed. Azure Sentinel continues trying to execute the rule again after predetermined and ever-increasing intervals, ranging from seconds to hours, up to ten times. After that, the rule will run again only at its next scheduled time. A rule will never be auto-disabled due to a transient failure.
+A transient failure occurs due to a circumstance which is temporary and will soon return to normal, at which point the rule execution will succeed. Some examples of failures that Azure Sentinel classifies as transient are:
 
-Some examples of failures that Azure Sentinel classifies as transient are:
-
-- Throttling of the data stream from Log Analytics.
 - A rule query takes too long to run and times out.
-- Connectivity issues between data sources and Log Analytics.
-- Any other new and unknown failure is considered transient, until it's classified otherwise, in order to avoid the rule being automatically disabled.
+- Connectivity issues between data sources and Log Analytics, or between Log Analytics and Azure Sentinel.
+- Any other new and unknown failure is considered transient.
+
+In the event of a transient failure, Azure Sentinel continues trying to execute the rule again after predetermined and ever-increasing intervals, up to a point. After that, the rule will run again only at its next scheduled time. A rule will never be auto-disabled due to a transient failure.
 
 #### Permanent failure - rule auto-disabled
 
-A permanent failure is a sequence of twelve or more individual failures, or four days' worth of failures, of a scheduled rule - whichever takes longer.* Azure Sentinel will no longer try to execute the rule, and in addition it will:
-- disable the rule.
-- add the words **"AUTO DISABLED"** to the beginning of the rule's name.
-
-\* In other words, if a rule is scheduled to run every 5 minutes, then the rule will be disabled after four days (since twelve failures would occur after just one hour). But if it's scheduled to run once a week, it will be disabled after eleven weeks (after the twelfth attempt).
-
-You can easily determine the presence of any auto-disabled rules, by sorting the rule list by name. The auto-disabled rules will be at or near the top of the list.
-
-The following are some examples of failures that are classified as permanent:
+A permanent failure occurs due to a change in the conditions that allow the rule to run, which without human intervention will not return to their former status. The following are some examples of failures that are classified as permanent:
 
 - The target workspace (on which the rule query operated) has been deleted.
 - The target table (on which the rule query operated) has been deleted.
 - Azure Sentinel had been removed from the target workspace.
-- A function used by the rule query is no longer valid; it has been either modified or corrupted.
-- Permissions to one of the data sources of the rule query were lost.
-- One of the data sources of the rule query was lost.
+- A function used by the rule query is no longer valid; it has been either modified or removed.
+- Permissions to one of the data sources of the rule query were changed.
+- One of the data sources of the rule query was deleted or disconnected.
+
+**In the event of a permanent failure,** Azure Sentinel stops trying to execute the rule, and also takes the following steps:
+
+- Disables the rule.
+- Adds the words **"AUTO DISABLED"** to the beginning of the rule's name.
+- Adds the reason for the failure (and the disabling) to the rule's description.
+
+You can easily determine the presence of any auto-disabled rules, by sorting the rule list by name. The auto-disabled rules will be at or near the top of the list.
 
 SOC managers should be sure to check the rule list regularly for the presence of auto-disabled rules.
 
