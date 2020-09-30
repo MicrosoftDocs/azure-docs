@@ -28,7 +28,7 @@ Here's what changed in September 2020:
     - Germany
     - South Africa (for validation environments only)
 
-To estimate the quality of user experience you can refer to the [Experience Estimator](https://azure.microsoft.com/services/virtual-desktop/assessment/)
+You can now use the [Experience Estimator](https://azure.microsoft.com/services/virtual-desktop/assessment/) to estimate the user experience quality in these areas.
 
 - Client Updates.
 - We released version 1.2.1364 of the Windows Desktop client for Windows Virtual Desktop. In this update, we made the following changes:
