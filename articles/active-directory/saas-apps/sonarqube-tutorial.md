@@ -120,7 +120,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Open a new web browser window and sign into your Sonarqube company site as an administrator.
 
-1. On the top left of the page, click on **ADMIN** and then navigate to **SAML**.
+1. Go to the **Administration > Configuration > Security** and then navigate to **SAML**.
 
 1. On the **SAML** page, perform the following steps:
 
