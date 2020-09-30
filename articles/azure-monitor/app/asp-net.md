@@ -1,20 +1,20 @@
 ---
-title: Set up web app analytics for ASP.NET with Azure Application Insights | Microsoft Docs
+title: Configure monitoring for ASP.NET with Azure Application Insights | Microsoft Docs
 description: Configure performance, availability, and user behavior analytics tools for your ASP.NET website, hosted on-premises or in Azure.
 ms.topic: conceptual
 ms.date: 09/30/2020
 
 ---
 
-# Set up Application Insights for your ASP.NET website
+# Configure Application Insights for your ASP.NET website
 
-This procedure configures your ASP.NET web app to send telemetry to the [Azure Application Insights](./app-insights-overview.md) service. It works for ASP.NET apps that are hosted either in your own IIS server on-premises or in the Cloud. You get charts and a powerful query language that help you understand the performance of your app and how people are using it, plus automatic alerts on failures or performance issues. Many developers find these features great as they are, but you can also extend and customize the telemetry if you need to.
+This procedure configures your ASP.NET web app to send telemetry to the [Azure Application Insights](./app-insights-overview.md) service. It works for ASP.NET apps that are hosted either in your own IIS servers on-premises or in the Cloud. 
 
 ## Prerequisites
 To add Application Insights to your ASP.NET website, you need to:
 
 - Install the latest version of [Visual Studio 2019 for Windows](https://www.visualstudio.com/downloads/) with the following workloads:
-	- ASP.NET and web development (Do not uncheck the optional components)
+	- ASP.NET and web development.
 	- Azure development
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
@@ -53,7 +53,7 @@ This section will guide you through manually adding Application Insights to a te
     - [`Microsoft.ApplicationInsights.Web`](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web)
     - [`Microsoft.AspNet.TelemetryCorrelation`](https://www.nuget.org/packages/Microsoft.AspNet.TelemetryCorrelation)
 
-2. In some cases the `ApplicationInsights.config` file will be created for you automatically. If the file is already present skip to step #4. If it is not created automatically then you will need to create it yourself. At the same level in your project as the `Global.asax` file create a new file called `ApplicationInsights.config`
+2. In some cases, the `ApplicationInsights.config` file will be created for you automatically. If the file is already present, skip to step #4. If it is not created automatically, then you will need to create it yourself. At the same level in your project as the `Global.asax` file, create a new file called `ApplicationInsights.config`
 
 3. Copy the following XML configuration into your newly created file:
 
@@ -199,13 +199,13 @@ This section will guide you through manually adding Application Insights to a te
 </ApplicationInsights>
  ```
 
-4. Before the closing `</ApplicationInsights>` tag add your instrumentation key for your Application Insights resource.  Your instrumentation key can be found on the overview pane of your newly created Application Insights resource that you created as part of the prerequisites for this article.
+4. Before the closing `</ApplicationInsights>` tag, add your instrumentation key for your Application Insights resource.  Your instrumentation key can be found on the overview pane of your newly created Application Insights resource that you created as part of the prerequisites for this article.
 
     ```xml
 	<InstrumentationKey>your-instrumentation-key-goes-here</InstrumentationKey>
 	```
 
-5. At the same level of your project as the newly created config file create a folder called `ErrorHandler` with a new C# file called `AiHandleErrorAttribute.cs`. The contents of the file will look as follows:
+5. At the same level of your project as the applicationinsights.config file, create a folder called `ErrorHandler` with a new C# file called `AiHandleErrorAttribute.cs`. The contents of the file will look as follows:
 
 ```csharp
 using System;
@@ -235,7 +235,7 @@ namespace WebApplication10.ErrorHandler //namespace will vary based on your proj
 
 ```
 
-6. In the `App_Start` folder open the `FilterConfig.cs` file and change it to match the sample below:
+6. In the `App_Start` folder, open the `FilterConfig.cs` file and change it to match the sample:
 
 ```csharp
 using System.Web;
@@ -331,19 +331,19 @@ namespace WebApplication10 //Namespace will vary based on project name
 
 ```
 
-You have now successfully configured server-side application monitoring. If you run your web app you will be able to see telemetry begin to show within Application Insights.
+You have now successfully configured server-side application monitoring. If you run your web app, you will be able to see telemetry begin to show within Application Insights.
 
 ## Add client-side monitoring
 
-The previous sections provided guidance on methods to automatically and manually configure server-side monitoring. To add client-side monitoring you will need to use our [client-side JavaScript SDK](javascript.md). You can monitor any web page's client-side transactions by adding a [JavaScript snippet](javascript.md#snippet-based-setup) before the closing `</head>` tag of the page's HTML. 
+The previous sections provided guidance on methods to automatically and manually configure server-side monitoring. To add client-side monitoring, you will need to use our [client-side JavaScript SDK](javascript.md). You can monitor any web page's client-side transactions by adding a [JavaScript snippet](javascript.md#snippet-based-setup) before the closing `</head>` tag of the page's HTML. 
 
-While is possible to manually add the snippet to the header of each HTML page it is recommended to instead add the snippet to a master page which will inject the snippet into all pages of a site. In the case of the template-based ASP.NET MVC app from this article the file you need to edit is called `_Layout.cshtml` and it is found under **Views** > **Shared**.
+While is possible to manually add the snippet to the header of each HTML page, it is recommended to instead add the snippet to a primary page, which will inject the snippet into all pages of a site. For the template-based ASP.NET MVC app from this article, the file you need to edit is called `_Layout.cshtml` and it is found under **Views** > **Shared**.
 
-To add client-side monitoring open the `_Layout.cshtml` file add follow the [snippet-based setup instructions](javascript.md#snippet-based-setup) from the client-side JavaScript SDK configuration article.
+To add client-side monitoring, open the `_Layout.cshtml` file and follow the [snippet-based setup instructions](javascript.md#snippet-based-setup) from the client-side JavaScript SDK configuration article.
 
 ## Troubleshooting
 
-There is a known issue in the current version of Visual Studio 2019 where storing the instrumentation key in a User Secret is broken for .NET Framework based apps and the key ultimately has to be hardcoded into the applicationinsights.config file to workaround this bug. This article is designed to avoid this issue entirely, by not using User Secrets.  
+There is a known issue in the current version of Visual Studio 2019 that when storing the instrumentation key in a User Secret is broken for .NET Framework-based apps and the key ultimately has to be hardcoded into the applicationinsights.config file to work around this bug. This article is designed to avoid this issue entirely, by not using User Secrets.  
 
 ## Next steps
 
