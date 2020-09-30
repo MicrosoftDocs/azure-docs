@@ -53,6 +53,8 @@
           href: quickstart-blobs-javascript-browser.md
         - name: JavaScript (v10 SDK for browser)
           href: storage-quickstart-blobs-javascript-client-libraries-legacy.md
+      - name: C++ (v12 SDK)
+        href: quickstart-blobs-c-plus-plus.md
       - name: Go
         href: storage-quickstart-blobs-go.md
       - name: PHP
