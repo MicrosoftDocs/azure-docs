@@ -154,7 +154,8 @@ At this stage, Contoso has mostly completed their migrations of business applica
 To leverage the full functionality of Azure Virtual WAN, Contoso decides to decommission their legacy on-premises VPN connections. Any branches continuing to access HQ or DC networks are able to transit the Microsoft global network using the built-in transit routing of Azure Virtual WAN.
 
 > [!NOTE]
-> ExpressRoute Global Reach is an alternative choice for customers wishing to leverage the Microsoft backbone to complement their existing private WANs.
+> ExpressRoute Global Reach is required for customers that want to leverage the Microsoft backbone to provide ExpressRoute to ExpressRoute transit (not shown Figure 7.).
+>
 
 ## End-state architecture and traffic paths
 
