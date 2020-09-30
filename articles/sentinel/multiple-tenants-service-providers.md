@@ -1,6 +1,6 @@
 ---
-title: Work with multiple tenants to Azure Sentinel for MSSP service providers | Microsoft Docs
-description:  How to work with multiple tenants to Azure Sentinel for MSSP service providers.
+title: Manage multiple tenants in Azure Sentinel as a Managed Security Service Provider | Microsoft Docs
+description:  How to onboard and manage multiple tenants in Azure Sentinel as a Managed Security Service Provider (MSSP) using Azure Lighthouse.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -25,7 +25,7 @@ If you're a managed security service provider (MSSP) and you're using [Azure Lig
 
 - [Onboard Azure Lighthouse](../lighthouse/how-to/onboard-customer.md)
 
-- For this to work properly, your tenant (the MSSP tenant) must have the Azure Sentinel resource providers registered on at least one subscription. In addition, each of your customers' tenants must have the resource providers registered. If you and your customers have registered Azure Sentinel in your tenant, you are ready to get started. To verify registration, take the following steps:
+- For this to work properly, your tenant (the MSSP tenant) must have the Azure Sentinel resource providers registered on at least one subscription. In addition, each of your customers' tenants must have the resource providers registered. If you have registered Azure Sentinel in your tenant, and your customers in theirs, you are ready to get started. To verify registration, take the following steps:
 
     1. Select **Subscriptions** from the Azure portal, and then select a relevant subscription from the menu.
 
@@ -35,9 +35,9 @@ If you're a managed security service provider (MSSP) and you're using [Azure Lig
     
         :::image type="content" source="media/multiple-tenants-service-providers/check-resource-provider.png" alt-text="Check resource providers":::
 
-## How to access Azure Sentinel from other tenants
+## How to access Azure Sentinel in managed tenants
 
-1. Under **Directory + subscription**, select the delegated directories, and the subscriptions where your customer's Azure Sentinel workspaces are located.
+1. Under **Directory + subscription**, select the delegated directories (directory = tenant), and the subscriptions where your customer's Azure Sentinel workspaces are located.
 
     :::image type="content" source="media/multiple-tenants-service-providers/directory-subscription.png" alt-text="Choose tenants and subscriptions":::
 
