@@ -154,46 +154,46 @@ The following partners can provide alternative methods for migration as well:
 
 :::row:::
    :::column span="":::
-      [:::image type="content" source="media/db2-to-managed-instance-guide/blitzz-logo.png" alt-text="Blitzz":::](https://www.blitzz.io/product)
+      [:::image type="content" source="media/db2-to-database-guide/blitzz-logo.png" alt-text="Blitzz":::](https://www.blitzz.io/product)
    :::column-end:::
    :::column span="":::
-      [:::image type="content" source="media/db2-to-managed-instance-guide/blueprint-logo.png" alt-text="Blueprint":::](https://bpcs.com/what-we-do)
+      [:::image type="content" source="media/db2-to-database-guide/blueprint-logo.png" alt-text="Blueprint":::](https://bpcs.com/what-we-do)
    :::column-end:::
    :::column span="":::
-      [:::image type="content" source="media/db2-to-managed-instance-guide/cognizant-logo.png" alt-text="Cognizant":::](https://www.cognizant.com/partners/microsoft)
+      [:::image type="content" source="media/db2-to-database-guide/cognizant-logo.png" alt-text="Cognizant":::](https://www.cognizant.com/partners/microsoft)
    :::column-end:::   
 :::row-end:::
 :::row:::
    :::column span="":::
-      [:::image type="content" source="media/db2-to-managed-instance-guide/datasunrise-logo.png" alt-text="DataSunrise":::](https://www.datasunrise.com/)
+      [:::image type="content" source="media/db2-to-database-guide/datasunrise-logo.png" alt-text="DataSunrise":::](https://www.datasunrise.com/)
    :::column-end:::
    :::column span="":::
-      [:::image type="content" source="media/db2-to-managed-instance-guide/dbbest-logo.png" alt-text="dbbtest":::](https://www.dbbest.com/)
+      [:::image type="content" source="media/db2-to-database-guide/dbbest-logo.png" alt-text="dbbtest":::](https://www.dbbest.com/)
    :::column-end:::
    :::column span="":::
-      [:::image type="content" source="media/db2-to-managed-instance-guide/dxc-logo.png" alt-text="DXC":::](https://www.dxc.technology/application_services/offerings/139843/142343-application_services_for_microsoft_azure)
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="":::
-      [:::image type="content" source="media/db2-to-managed-instance-guide/hvr-logo.png" alt-text="HVR":::](https://www.hvr-software.com/solutions/azure-data-integration/)
-   :::column-end:::
-   :::column span="":::
-      [:::image type="content" source="media/db2-to-managed-instance-guide/infosys-logo.png" alt-text="Infosys":::](https://www.infosys.com/services/)
-   :::column-end:::   
-   :::column span="":::
-     [:::image type="content" source="media/db2-to-managed-instance-guide/ispirer-logo.png" alt-text="Ispirer":::](https://www.ispirer.com/blog/migration-to-the-microsoft-technology-stack)
+      [:::image type="content" source="media/db2-to-database-guide/dxc-logo.png" alt-text="DXC":::](https://www.dxc.technology/application_services/offerings/139843/142343-application_services_for_microsoft_azure)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="":::
-      [:::image type="content" source="media/db2-to-managed-instance-guide/querysurge-logo.png" alt-text="Querysurge":::](https://www.querysurge.com/company/partners/microsoft)
+      [:::image type="content" source="media/db2-to-database-guide/hvr-logo.png" alt-text="HVR":::](https://www.hvr-software.com/solutions/azure-data-integration/)
    :::column-end:::
    :::column span="":::
-     [:::image type="content" source="media/db2-to-managed-instance-guide/scalability-experts-logo.png" alt-text="Scalability Experts":::](http://www.scalabilityexperts.com/products/index.html)
+      [:::image type="content" source="media/db2-to-database-guide/infosys-logo.png" alt-text="Infosys":::](https://www.infosys.com/services/)
    :::column-end:::   
    :::column span="":::
-     [:::image type="content" source="media/db2-to-managed-instance-guide/wipro-logo.png" alt-text="Wipro":::](https://www.wipro.com/analytics/)
+     [:::image type="content" source="media/db2-to-database-guide/ispirer-logo.png" alt-text="Ispirer":::](https://www.ispirer.com/blog/migration-to-the-microsoft-technology-stack)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      [:::image type="content" source="media/db2-to-database-guide/querysurge-logo.png" alt-text="Querysurge":::](https://www.querysurge.com/company/partners/microsoft)
+   :::column-end:::
+   :::column span="":::
+     [:::image type="content" source="media/db2-to-database-guide/scalability-experts-logo.png" alt-text="Scalability Experts":::](http://www.scalabilityexperts.com/products/index.html)
+   :::column-end:::   
+   :::column span="":::
+     [:::image type="content" source="media/db2-to-database-guide/wipro-logo.png" alt-text="Wipro":::](https://www.wipro.com/analytics/)
    :::column-end:::
 :::row-end:::   
 
