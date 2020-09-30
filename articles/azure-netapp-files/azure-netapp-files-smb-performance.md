@@ -56,7 +56,7 @@ The SMB Multichannel feature enables an SMB3 client to establish a pool of conne
 
 No. The SMB client will match the NIC count returned by the SMB server.  Each storage volume is accessible from one and only one storage endpoint.  That means that only one NIC will be used for any given SMB relationship.  
 
-As the output of `Get-SmbClientNetworkInterace` below shows, the virtual machine has two network interfaces--15 and 12.  As shown under the following command `Get-SmbMultichannelConnection`, even though there are two RSS-capable NICS, only interface 12 is used in connection with the SMB share; interface 15 is not in use.
+As the output of `Get-SmbClientNetworkInterace` below shows, the virtual machine has 2 network interfaces--15 and 12.  As shown under the following command `Get-SmbMultichannelConnection`, even though there are two RSS-capable NICS, only interface 12 is used in connection with the SMB share; interface 15 is not in use.
 
 ![Screeshot that shows output for RSS-capable NICS](../media/azure-netapp-files/azure-netapp-files-rss-capable-nics.png)
 
@@ -70,7 +70,7 @@ The following tests and graphs demonstrate the power of SMB Multichannel on sing
 
 ### Random I/O  
 
-With SMB Multichannel disabled on the client, pure 4-KiB read and write tests were performed using FIO and a 40-GiB working set.  The SMB share was detached between each test, with increments of the SMB client connection count per RSS network interface settings of `1`,`4`,`8`,`16`, `set-SmbClientConfiguration -ConnectionCountPerRSSNetworkInterface <count>`. The tests show that the default setting of `4` is sufficient for I/O intensive workloads; incrementing to `8` and `16` had negligible effect. 
+With SMB Multichannel disabled on the client, pure 4 KiB read and write tests were performed using FIO and a 40 GiB working set.  The SMB share was detached between each test, with increments of the SMB client connection count per RSS network interface settings of `1`,`4`,`8`,`16`, `set-SmbClientConfiguration -ConnectionCountPerRSSNetworkInterface <count>`. The tests show that the default setting of `4` is sufficient for I/O intensive workloads; incrementing to `8` and `16` had negligible effect. 
 
 The command `netstat -na | findstr 445` proved that additional connections were established with increments from `1` to `4` to `8` and to `16`.  Four CPU cores were fully utilized for SMB during each test, as confirmed by the perfmon `Per Processor Network Activity Cycles` statistic (not included in this article.)
 
@@ -82,7 +82,7 @@ The Azure virtual machine does not affect SMB (nor NFS) storage I/O limits.  As 
 
 ### Sequential IO 
 
-Tests similar to the random I/O tests described above were performed with 64-KiB sequential I/O. Although the increases in client connection count per RSS network interface beyond 4’ had no noticeable effect on random I/O, the same does not apply to sequential I/O. As the following graph shows, each increase is associated with a corresponding increase in read throughput. Write throughput remained flat due to network bandwidth restrictions placed by Azure for each instance type/size. 
+Tests similar to the random I/O tests described previously were performed with 64-KiB sequential I/O. Although the increases in client connection count per RSS network interface beyond 4’ had no noticeable effect on random I/O, the same does not apply to sequential I/O. As the following graph shows, each increase is associated with a corresponding increase in read throughput. Write throughput remained flat due to network bandwidth restrictions placed by Azure for each instance type/size. 
 
 ![Chart that shows throughput test comparison](../media/azure-netapp-files/azure-netapp-files-sequential-io-tests.png)
 
@@ -90,9 +90,9 @@ Azure places network rate limits on each virtual machine type/size. The rate lim
 
 ![Chart that shows sequential I/O comparison test](../media/azure-netapp-files/azure-netapp-files-sequential-io-tests-list.png)
 
-## What performance is expected with a single instance with a 1 TB dataset?
+## What performance is expected with a single instance with a 1-TB dataset?
 
-To provide more detailed insight into workloads with read/write mixes, the following two charts show the performance of a single, Ultra service-level cloud volume of 50 TB with a 1 TB dataset and with SMB multichannel of 4. An optimal IODepth of 16 was used, and Flexible IO (FIO) parameters were used to ensure the full use of the network bandwidth (`numjobs=16`).
+To provide more detailed insight into workloads with read/write mixes, the following two charts show the performance of a single, Ultra service-level cloud volume of 50 TB with a 1-TB dataset and with SMB multichannel of 4. An optimal IODepth of 16 was used, and Flexible IO (FIO) parameters were used to ensure the full use of the network bandwidth (`numjobs=16`).
 
 The following chart shows the results for 4k random I/O, with a single VM instance and a read/write mix at 10% intervals:
 
