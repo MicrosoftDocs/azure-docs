@@ -8,13 +8,13 @@ ms.subservice: core
 ms.reviewer: jmartens
 author: nishankgu
 ms.author: nigup
-ms.date: 05/08/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4 
 ---
 
 # Manage & increase quotas for resources with Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 In this article, you will learn about preconfigured limits on Azure resources for your [Azure Machine Learning](overview-what-is-azure-ml.md) subscription and what quotas you can manage. These limits are put in place to prevent budget over-runs due to fraud, and to honor Azure capacity constraints. 
 
@@ -94,8 +94,6 @@ To set quotas at the workspace level, go to any workspace in your subscription, 
 
 
 > [!NOTE]
-> This is an Enterprise edition feature only. If you have both a [Basic and an Enterprise edition](overview-what-is-azure-ml.md#sku) workspace in your subscription, you can use this to only set quotas on your Enterprise workspaces. Your Basic workspaces will continue to have the subscription level quota which is the default behavior.
->
 > You need subscription level permissions to set quota at the workspace level. This is enforced so that individual workspace owners do not edit or increase their quotas and start encroaching onto resources set aside for another workspace. Thus a subscription admin is best suited to allocate and distribute these quotas across workspaces.
 
 
@@ -153,7 +151,7 @@ To request an allowance for these scenarios, use the following steps:
     | Problem type | Workspace setup, SDK and CLI |
     | Problem subtype | Problem provisioning or managing workspace |
 
-2. From the __Details__ section, provide the Azure region you want to use and the scenario that you plan to use.
+2. From the __Details__ section, use the __Description__ field to provide the Azure region you want to use and the scenario that you plan to use. If you need to request quota increases for multiple subscriptions, list the subscription IDs in this field also.
 
 3. Use __Create__ to create the request.
 

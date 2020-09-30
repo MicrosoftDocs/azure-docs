@@ -10,7 +10,7 @@ ms.custom: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 09/03/2020
+ms.date: 09/30/2020
 ---
 
 # Configure Azure Private Link for an Azure Machine Learning workspace
@@ -31,6 +31,10 @@ If you plan on using a private link enabled workspace with a customer-managed ke
 ## Limitations
 
 Using an Azure Machine Learning workspace with private link is not available in the Azure Government regions or Azure China 21Vianet regions.
+
+## Prerequisites
+
+If you plan on using a private link enabled workspace with a customer-managed key, you must request this feature using a support ticket. For more information, see [Manage and increase quotas](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
 
 ## Create a workspace that uses a private endpoint
 

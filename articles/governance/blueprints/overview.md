@@ -119,9 +119,11 @@ then the parameters are defined during the assignment process.
 
 ## Permissions in Azure Blueprints
 
-To use blueprints, you must be granted permissions through [Role-based access
-control](../../role-based-access-control/overview.md) (RBAC). To create blueprints, your account
-needs the following permissions:
+To use blueprints, you must be granted permissions through [Azure role-based access
+control (Azure RBAC)](../../role-based-access-control/overview.md). To read or view a blueprint in Azure
+portal, your account must have read access to the scope where the blueprint definition is located.
+
+To create blueprints, your account needs the following permissions:
 
 - `Microsoft.Blueprint/blueprints/write` - Create a blueprint definition
 - `Microsoft.Blueprint/blueprints/artifacts/write` - Create artifacts on a blueprint definition
