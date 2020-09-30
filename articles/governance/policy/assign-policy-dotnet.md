@@ -88,7 +88,7 @@ required packages.
                        PolicyDefinitionId = strPolicyDefID,
                        Description = strDescription
                    };
-                   var response = client.PolicyAssignments.Create(strScope, strName, policyAssignment);
+                   var response = await client.PolicyAssignments.CreateAsync(strScope, strName, policyAssignment);
                }
            }
        }
@@ -194,17 +194,23 @@ Now that your policy assignment is created, you can identify resources that aren
                string strSubscriptionId = args[3];
                string strName = args[4];
    
-               AuthenticationContext authContext = new AuthenticationContext("https://login.microsoftonline.com/" + strTenant);
-               AuthenticationResult authResult = await authContext.AcquireTokenAsync("https://management.core.windows.net", new ClientCredential(strClientId, strClientSecret));
-               ServiceClientCredentials serviceClientCreds = new TokenCredentials(authResult.AccessToken);
+               var authContext = new AuthenticationContext($"https://login.microsoftonline.com/{strTenant}");
+               var authResult = await authContext.AcquireTokenAsync(
+                   "https://management.core.windows.net",
+                   new ClientCredential(strClientId, strClientSecret));
    
-               PolicyInsightsClient policyInsightsClient = new PolicyInsightsClient(serviceClientCreds);
-               QueryOptions policyQueryOptions = new QueryOptions();
-               policyQueryOptions.Filter = "IsCompliant eq false and PolicyAssignmentId eq '" + strName + "'";
-               policyQueryOptions.Apply = "groupby((ResourceId))";
+               using (var client = new PolicyInsightsClient(new TokenCredentials(authResult.AccessToken)))
+               {
+                   var policyQueryOptions = new QueryOptions
+                   {
+                       Filter = $"IsCompliant eq false and PolicyAssignmentId eq '{strName}'",
+                       Apply = "groupby(ResourceId)"
+                   };
    
-               PolicyStatesQueryResults response = policyInsightsClient.PolicyStates.ListQueryResultsForSubscription("latest", strSubscriptionId, policyQueryOptions);
-               Console.WriteLine(response.Odatacount);
+                   var response = await client.PolicyStates.ListQueryResultsForSubscriptionAsync(
+                       "latest", strSubscriptionId, policyQueryOptions);
+                   Console.WriteLine(response.Odatacount);
+               }
            }
        }
    }
