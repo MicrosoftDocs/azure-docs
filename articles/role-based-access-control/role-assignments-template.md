@@ -35,18 +35,6 @@ $objectid = (Get-AzADUser -DisplayName "{name}").id
 objectid=$(az ad user show --id "{email}" --query objectId --output tsv)
 ```
 
-### Managed identities
-
-To get the ID of a managed identity, you can use [Get-AzAdServiceprincipal](/powershell/module/az.resources/get-azadserviceprincipal) or [az ad sp](/cli/azure/ad/sp) commands.
-
-```azurepowershell
-$objectid = (Get-AzADServicePrincipal -DisplayName <VM or application name>).id
-```
-
-```azurecli
-objectid=$(az ad sp list --display-name <VM or application name> --query [].objectId --output tsv)
-```
-
 ### Group
 
 To get the ID of a group, you can use the [Get-AzADGroup](/powershell/module/az.resources/get-azadgroup) or [az ad group show](/cli/azure/ad/group#az-ad-group-show) commands.
@@ -57,6 +45,18 @@ $objectid = (Get-AzADGroup -DisplayName "{name}").id
 
 ```azurecli
 objectid=$(az ad group show --group "{name}" --query objectId --output tsv)
+```
+
+### Managed identities
+
+To get the ID of a managed identity, you can use [Get-AzAdServiceprincipal](/powershell/module/az.resources/get-azadserviceprincipal) or [az ad sp](/cli/azure/ad/sp) commands.
+
+```azurepowershell
+$objectid = (Get-AzADServicePrincipal -DisplayName <VM or application name>).id
+```
+
+```azurecli
+objectid=$(az ad sp list --display-name <VM or application name> --query [].objectId --output tsv)
 ```
 
 ### Application
@@ -84,7 +84,7 @@ The following template shows a basic way to add a role assignment. Some values a
 To use the template, you must do the following:
 
 - Create a new JSON file and copy the template
-- Replace `<your-principal-id>` with the ID of a user, managed identity, group, or application to assign the role to
+- Replace `<your-principal-id>` with the ID of a user, group, managed identity, or application to assign the role to
 
 ```json
 {
@@ -127,7 +127,7 @@ The previous template isn't very flexible. The following template uses parameter
 
 To use the template, you must specify the following inputs:
 
-- The ID of a user, managed identity, group, or application to assign the role to
+- The ID of a user, group, managed identity, or application to assign the role to
 - A unique ID that will be used for the role assignment, or you can use the default ID
 
 ```json
@@ -221,7 +221,7 @@ The following template demonstrates:
 
 To use the template, you must specify the following inputs:
 
-- The ID of a user, managed identity, group, or application to assign the role to
+- The ID of a user, group, managed identity, or application to assign the role to
 
 ```json
 {
