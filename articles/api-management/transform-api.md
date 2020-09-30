@@ -107,7 +107,7 @@ To see the original response:
 
 ## Protect an API by adding rate limit policy (throttling)
 
-This section shows how to add protection for your backend API by configuring rate limits. For example, you may want to limit the rate of API calls so that the API isn't overused by developers. In this example, the limit is set to 3 calls per 15 seconds for each subscription Id. After 15 seconds, a developer can retry calling the API.
+This section shows how to add protection for your backend API by configuring rate limits. For example, you may want to limit the rate of API calls so that the API isn't overused by developers. In this example, the limit is set to 3 calls per 15 seconds for each subscription ID. After 15 seconds, a developer can retry calling the API.
 
 1.  Select **Demo Conference API** > **All operations** > **Design**.
 1.  In the **Inbound processing** section, select the code editor (**</>**) icon.

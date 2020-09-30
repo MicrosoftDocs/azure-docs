@@ -48,7 +48,8 @@ The steps in this section show how to create a blank API with no backend.
 1. Select **Unlimited** for **Products**.
 1. Ensure **Managed** is selected in **Gateways**.
 1. Select **Create**.
-    :::image type="content" source="media/mock-api-responses/03-MockAPIResponses-01-CreateTestAPI.png" alt-text="Create blank API":::
+
+    :::image type="content" source="media/mock-api-responses/03-mock-api-responses-01-create-test-api.png" alt-text="Create blank API":::
 
 ## Add an operation to the test API
 
@@ -72,7 +73,7 @@ An API exposes one or more operations. In this section, add an operation to the 
 1. In the **Sample** text box, enter  `{ "sampleField" : "test" }`.
 1. Select **Save**.
 
-:::image type="content" source="media/mock-api-responses/03-MockAPIResponses-02-AddOperation.png" alt-text="Add API operation" border="false":::
+:::image type="content" source="media/mock-api-responses/03-mock-api-responses-02-add-operation.png" alt-text="Add API operation" border="false":::
 
 Although not required for this example, additional settings for an API operation can be configured on other tabs, including:
 
@@ -88,7 +89,9 @@ Although not required for this example, additional settings for an API operation
 1. Select the test operation that you added.
 1. In the window on the right, ensure that the **Design** tab is selected.
 1. In the **Inbound processing** window, select **+ Add policy**.
-   :::image type="content" source="media/mock-api-responses/03-MockAPIResponses-03-EnableMocking.png" alt-text="Add processing policy" border="false":::
+
+   :::image type="content" source="media/mock-api-responses/03-
+mock-api-responses-03-enable-mocking.png" alt-text="Add processing policy" border="false":::
 1. Select **Mock responses**  from the gallery.
 
     :::image type="content" source="media/mock-api-responses/mock-responses-policy-tile.png" alt-text="Mock responses policy tile" border="false":::
@@ -100,14 +103,15 @@ Although not required for this example, additional settings for an API operation
 1. Select **Save**.
 
     > [!TIP]
-    > A yellow bar with the text **Mocking is enabled** for your API indicates that responses returned from API Managemen send a mocking policy and not an actual backend response.
+    > A yellow bar with the text **Mocking is enabled** for your API indicates that responses returned from API Management send a mocking policy and not an actual backend response.
 
 ## Test the mocked API
 
 1. Select the API you created in [Create a test API](#create-a-test-api).
 1. Select the **Test** tab.
 1. Ensure the **Test call** API is selected. Select **Send** to make a test call.
-   :::image type="content" source="media/mock-api-responses/03-MockAPIResponses-04-TestMocking.png" alt-text="Test the mocked API":::
+
+   :::image type="content" source="media/mock-api-responses/03-mock-api-responses-04-test-mocking.png" alt-text="Test the mocked API":::
 
 1. The **HTTP response** displays the JSON provided as a sample in the first section of the tutorial.
 
