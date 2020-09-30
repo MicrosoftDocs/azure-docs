@@ -161,7 +161,7 @@ Always try to reset a password using the [Azure portal or Azure PowerShell](/pre
      
      ![Create gpt.ini - Classic](./media/reset-local-password-without-agent/create-gpt-ini-classic.png)
 
-5. Create `scripts.ini` in `\Windows\System32\GroupPolicy\Machines\Scripts\`. Make sure hidden folders are shown. If needed, create the `Machine` or `Scripts` folders.
+5. Create `scripts.ini` in `\Windows\System32\GroupPolicy\Machine\Scripts\`. Make sure hidden folders are shown. If needed, create the `Machine` or `Scripts` folders.
    
    * Add the following lines the `scripts.ini` file you created:
 
