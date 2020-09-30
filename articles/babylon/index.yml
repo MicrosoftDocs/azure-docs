@@ -31,19 +31,55 @@ landingContent:
           - text: Add a security principal
             url: add-security-principal.md
   # Card
-  - title: Top scenarios
+  - title: Scan Azure data sources
     linkLists:
       - linkListType: tutorial
         links:
-          - text: 1 - Scan data
+          - text: Run the starter kit and scan data 
             url: starter-kit-tutorial-1.md
-          - text: 2 - Home page and search
-            url: starter-kit-tutorial-2.md
-          - text: 3 - Browse and lineage
-            url: starter-kit-tutorial-3.md
-#         - text: 4 - Resource set, asset details, schema, and classification
-#           url: starter-kit-tutorial-4.md
-#         - text: 5 - Glossary, terms, and import
-#           url: starter-kit-tutorial-5.md
-
-
+      - linkListType: how-to-guide
+        links:
+          - text: Scan Azure SQL Database
+            url: starter-kit-tutorial-1.md # update link
+          - text: Scan Azure Data Lake Storage Gen 2
+            url: starter-kit-tutorial-1.md # update link
+          - text: Scan Azure Cosmos DB
+            url: starter-kit-tutorial-1.md # update link
+          - text: Power BI Tenant
+            url: starter-kit-tutorial-1.md # update link
+  - title: Scan non-Azure data sources
+    linkLists:
+    - linkListType: how-to-guide
+      links:
+        - text: Scan SQL server on-premises
+          url: starter-kit-tutorial-1.md # update link
+        - text: Scan Teradata
+          url: starter-kit-tutorial-1.md # update link
+        - text: Scan SAP S/4 HANA
+          url: starter-kit-tutorial-1.md # update link
+        - text: Scan SAP ECC
+          url: starter-kit-tutorial-1.md # update link
+        - text: Scan AWS S3
+          url: starter-kit-tutorial-1.md # update link
+  - title: Curate data 
+    linkLists:
+    - linkListType: how-to-guide
+      links:
+        - text: Create, edit, & delete custom classifications and rules
+          url: starter-kit-tutorial-1.md # update link
+        - text: Create, import, & export a glossary
+          url: starter-kit-tutorial-1.md # update link
+  - title: Discover data 
+    linkLists:
+    - linkListType: how-to-guide
+      links:
+        - text: Browse by asset type
+          url: starter-kit-tutorial-1.md # update link
+        - text: Search for assets, terms, annotations, and contacts
+          url: starter-kit-tutorial-1.md # update link
+  - title: Understand your data estate 
+    linkLists:
+    - linkListType: how-to-guide
+      links:
+        - text: Create labels in M365 and scan with Babylon
+          url: starter-kit-tutorial-1.md # update link
