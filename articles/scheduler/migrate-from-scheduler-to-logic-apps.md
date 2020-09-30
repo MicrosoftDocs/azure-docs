@@ -95,7 +95,7 @@ You can run multiple one-time jobs by creating just a single logic app.
 
    For example, you can include an HTTP action that sends a request to a URL, or actions that work with Storage Queues, Service Bus queues, or Service Bus topics:
 
-   ![HTTP action](./media/migrate-from-scheduler-to-logic-apps/request-http-action.png)
+   ![Screenshot shows a Delay until action followed by an H T T P action with a POST method.](./media/migrate-from-scheduler-to-logic-apps/request-http-action.png)
 
 1. When you're done, save your logic app.
 
@@ -158,7 +158,7 @@ In Logic Apps, each one-time job executes as a single logic app run instance. To
 
    For example, you can include an HTTP action that sends a request to a URL, or actions that work with Storage Queues, Service Bus queues, or Service Bus topics:
 
-   ![HTTP action](./media/migrate-from-scheduler-to-logic-apps/recurrence-http-action.png)
+   ![Screenshot shows an H T T P action with a POST method.](./media/migrate-from-scheduler-to-logic-apps/recurrence-http-action.png)
 
 1. When you're done, save your logic app.
 
