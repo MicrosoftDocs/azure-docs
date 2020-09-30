@@ -32,7 +32,7 @@ By using code snippets in mapping data flows, you can very easily perform common
 
 5. Go to the Data Flow Script documentation page and copy the code snippet for Distinct Rows.
 
-6. https://docs.microsoft.com/en-us/azure/data-factory/data-flow-script#distinct-row-using-all-columns
+6. https://docs.microsoft.com/azure/data-factory/data-flow-script#distinct-row-using-all-columns
 
 7. In your data flow designer UI, click the Script button on the top right to open the script editor behind the data flow graph.
 
@@ -50,7 +50,7 @@ By using code snippets in mapping data flows, you can very easily perform common
 
 12. Next, we'll add a code snippet for splitting your data into a stream that contains rows with NULLs and a stream that does not have any NULLs.
 
-13. Go back to the Snippet library and this time copy the code for the NULL checks: https://docs.microsoft.com/en-us/azure/data-factory/data-flow-script#check-for-nulls-in-all-columns.
+13. Go back to the Snippet library and this time copy the code for the NULL checks: https://docs.microsoft.com/azure/data-factory/data-flow-script#check-for-nulls-in-all-columns.
 
 14. In your data flow designer, again click Script and paste this new transformation code at the bottom, connecting it to your previous transformation by typing the name of that transformation in front of the pasted snippet.
 
