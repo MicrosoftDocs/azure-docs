@@ -1,5 +1,5 @@
 ---
-title: "Build a classifier with the Custom Vision website"
+title: "Quickstart: Build a classifier with the Custom Vision website"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll learn how to use the Custom Vision website to create, train, and test an image classification model.
 services: cognitive-services
