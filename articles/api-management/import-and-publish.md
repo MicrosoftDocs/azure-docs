@@ -6,13 +6,13 @@ author: mikebudzynski
 ms.service: api-management
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 09/23/2020
+ms.date: 09/30/2020
 ms.author: apimpm
 
 ---
 # Tutorial: Import and publish your first API
 
-This tutorial shows how to import an OpenAPI Specification backend API in JSON format into Azure API Management. Microsoft provides the backend API shown in this example, and hosts it on Azure at [https://conferenceapi.azurewebsites.net?format=json](https://conferenceapi.azurewebsites.net?format=json).
+This tutorial shows how to import an OpenAPI Specification backend API in JSON format into Azure API Management. Microsoft provides the backend API used in this example, and hosts it on Azure at [https://conferenceapi.azurewebsites.net?format=json](https://conferenceapi.azurewebsites.net?format=json).
 
 Once you import the backend API into API Management, your API Management API becomes a façade for the backend API. You can customize the façade to your needs in API Management without touching the backend API. For more information, see [Transform and protect your API](transform-api.md).
 
@@ -38,8 +38,9 @@ After import, you can manage the API in the Azure portal.
 This section shows how to import and publish an OpenAPI Specification backend API.
 
 1. In the left navigation of your API Management instance, select **APIs**.
-1. Select the **OpenAPI** tile, and then select **Full** on the pop-up screen.
-1. In the **Create from OpenAPI specification** window, enter the values from the following table. Then select **Create** to create your API.
+1. Select the **OpenAPI** tile.
+1. In the **Create from OpenAPI specification** window, select **Full**.
+1. Enter the values from the following table. Then select **Create** to create your API.
 
    You can set API values during creation or later by going to the **Settings** tab.
 

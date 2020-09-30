@@ -56,14 +56,14 @@ The original response should look similar to the following:
 
 :::image type="content" source="media/transform-api/original-response.png" alt-text="Original API response":::
 
-As you can see the response includes the **X-Powered-By** and **X-AspNet-Version** headers.
+As you can see, the response includes the **X-AspNet-Version**and **X-Powered-By** headers.
 
 ### Set the transformation policy
 
 1. Select **Demo Conference API** > **Design** > **All operations**.
 4. In the **Outbound processing** section, select the code editor (**</>**) icon.
 
-   :::image type="content" source="media/transform-api/04-ProtectYourAPI-01-SetPolicy-Outbound.png" alt-text="Navigate to outbound policy":::
+   :::image type="content" source="media/transform-api/04-ProtectYourAPI-01-SetPolicy-Outbound.png" alt-text="Navigate to outbound policy" border="false":::
 
 1. Position the cursor inside the **&lt;outbound&gt;** element and select **Show snippets** at the top right corner.
 1. In the right window, under **Transformation policies**, select ** Set HTTP header** twice (to insert two policy snippets).
@@ -92,7 +92,7 @@ To see the original response:
 1. Select **Demo Conference API** > **Test**.
 1. Select the **GetSpeakers** operation and select **Send**.
 
-    As you can see the response includes the original backend URLs:
+    As you can see, the response includes the original backend URLs:
 
     :::image type="content" source="media/transform-api/original-response2.png" alt-text="Original URLs in response":::
 
@@ -113,7 +113,7 @@ This section shows how to add protection for your backend API by configuring rat
 1.  In the **Inbound processing** section, select the code editor (**</>**) icon.
 1.  Position the cursor inside the **&lt;inbound&gt;** element.
 
-    :::image type="content" source="media/transform-api/04-ProtectYourAPI-01-SetPolicy-Inbound.png" alt-text="Set inbound policy":::
+    :::image type="content" source="media/transform-api/04-ProtectYourAPI-01-SetPolicy-Inbound.png" alt-text="Set inbound policy" border="false":::
 
 1.  In the right window, under **Access restriction policies**, select **+ Limit call rate per key**.
 1.  Modify your **rate-limit-by-key** code (in the **\<inbound\>** element) to the following code:
@@ -154,7 +154,7 @@ The rest of this section tests policy transformations that you set in this artic
 1. Select **Demo Conference API** > **Test**.
 1. Select the **GetSpeakers** operation and select **Send**.
 
-    As you can see the headers have been stripped:
+    As you can see, the headers have been stripped:
 
     :::image type="content" source="media/transform-api/final-response1.png" alt-text="Stripped response headers":::
 
@@ -163,7 +163,7 @@ The rest of this section tests policy transformations that you set in this artic
 1. Select **Demo Conference API** > **Test**.
 1. Select the **GetSpeakers** operation and select **Send**.
 
-    As you can see the URL has been replaced.
+    As you can see, the URL has been replaced.
 
     :::image type="content" source="media/transform-api/final-response2.png" alt-text="Replaced URL":::
 
