@@ -12,7 +12,7 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/16/2019
+ms.date: 09/30/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 
@@ -397,6 +397,127 @@ To restore from a snapshot backup, see [Manual recovery guide for SAP HANA on Az
 
 ### Recover to another point in time
 To restore to a certain point in time, see "Recover the database to the following point in time" in [Manual recovery guide for SAP HANA on Azure from a storage snapshot](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md). 
+
+
+
+
+
+## SnapCenter integration in SAP HANA large instances
+
+This section describes how customers can use NetApp SnapCenter software to snapshot, backup, and maintain SAP HANA in-memory databases hosted on Microsoft Azure HANA Large Instances (HLI). SnapCenter offers solutions for scenarios including backup/recovery, disaster recovery (DR) with asynchronous storage replication, system replication, and system cloning. Integrated with SAP HANA Large Instances on Azure, a customer’s user role has permissions for SnapCenter operations consisting of Snapshot, SnapMirror, SnapVault, and Cloning.
+
+### System Requirements and Prerequisites
+
+To run SnapCenter on Azure HLI, system requirements include:
+* SnapCenter Server on Azure Windows 2016 or newer with 4-vCPU, 16 GB RAM and a minimum of 650 GB managed premium SSD storage.
+* A minimum of two SAP HANA Large Instances systems with 1.5 TB – 24 TB RAM.
+
+The steps to integrate SnapCenter in SAP HANA are: 
+
+1. Raise a support ticket request to communicate the user-generated public key to the MS Ops team. 
+1. Create a VM in your VNET that has access to HLI, this VM will be used for SnapCenter. 
+1. Download and install SnapCenter. 
+
+### Create a support case for user-role storage setup
+
+1. Open the Azure portal and navigate to the **Subscriptions** page. Once on the “Subscriptions” page, select your SAP HANA subscription, outlined in red below.
+
+   :::image type="content" source="./media/snapcenter/create-support-case-for-user-role-storage-setup.png" alt-text="Create support case for user role storage setup":::
+
+1. On your SAP HANA subscription page, select the **Resource Groups** subpage.
+
+   :::image type="content" source="./media/snapcenter/solution-lab-subscription-resource-groups.png" alt-text="Solution lab subscription resource group" lightbox="./media/snapcenter/solution-lab-subscription-resource-groups.png":::
+
+1. Select on an appropriate resource group in a region.
+
+   :::image type="content" source="./media/snapcenter/select-appropriate-resource-group-in-region.png" alt-text="Select appropriate resource group in region" lightbox="./media/snapcenter/select-appropriate-resource-group-in-region.png":::
+
+1. Select a SKU entry corresponding to SAP HANA on Azure storage.
+
+   :::image type="content" source="./media/snapcenter/select-sku-entry-corresponding-to-sap-hana.png" alt-text="Select SKU entry corresponding to SAP HANA" lightbox="./media/snapcenter/select-sku-entry-corresponding-to-sap-hana.png":::
+
+1. Open a **New support ticket** request, outlined in red.
+
+   :::image type="content" source="./media/snapcenter/open-new-support-ticket-request.png" alt-text="Open new support ticket request":::
+
+1. Provide the following information for the ticket:
+
+   * **Issue type:** Technical
+   * **Subscription:** Your subscription
+   * **Service:** SAP HANA Large Instance
+   * **Resource:** Your resource group
+   * **Summary:** Provide the user-generated public key
+   * **Problem type:** Configuration and Setup
+   * **Problem subtype:** My problem is not listed above
+
+   :::image type="content" source="./media/snapcenter/new-support-request-basics.png" alt-text="New support request - Basics tab" lightbox="./media/snapcenter/new-support-request-basics.png":::
+
+1. In the **Description** of the support ticket, on the **Details** tab, provide: Continue with the support request prompts on screen and on the Details tab, again indicate
+   
+   * Set up SnapCenter for HLI
+   * Your public key 
+
+   :::image type="content" source="./media/snapcenter/new-support-request-details.png" alt-text="New support request - Details tab" lightbox="./media/snapcenter/new-support-request-details.png":::
+
+1. Select **Review + create** to review your support ticket and then select **Create** 
+
+   :::image type="content" source="./media/snapcenter/new-support-request-review-create.png" alt-text="New support request review and create" lightbox="./media/snapcenter/new-support-request-review-create.png":::
+
+### Download and Install SnapCenter
+
+1. Sign in to NetApp to [download SnapCenter version 4.3](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fmysupport.netapp.com%2Fsite%2Fproducts%2Fall%2Fdetails%2Fsnapcenter%2Fdownloads-tab&data=02%7C01%7Cmadhukan%40microsoft.com%7Ca53f5e2f245a4e36933008d816efbb54%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637284566603265503&sdata=TOANWNYoAr1q5z1opu70%2FUDPHjluvovqR9AKplYpcpk%3D&reserved=0).
+
+1. Install SnapCenter 4.3 on the Windows Azure VM.
+
+   The installer checks the prerequisites of the VM. 
+
+   >[!IMPORTANT]
+   >Pay attention to the size of the VM, especially in larger environments.
+
+   :::image type="content" source="./media/snapcenter/prerequisites-validation.png" alt-text="Prerequisites validation":::
+
+1. Clear the **Enable and configure NLB** checkbox to disable NLB and select **Next**. We don't install a cluster for the SnapCenter server.
+
+   :::image type="content" source="./media/snapcenter/network-load-balancing.png" alt-text="Network load balancing":::
+
+1. Create a new user for the SnapCenter, select **Add**, specify the user as *snapcenter* and enter a password, and then select **Next**.
+
+1. Enter the ports to use for communicating with the components and then select **Next**.
+
+1. Define the MySQL password and then select **Next**.
+
+1. On the InstallSheild Wizard Complete dialog, select **Finish**.
+
+   :::image type="content" source="./media/snapcenter/snapcenter-installation-complete.png" alt-text="SnapCenter installation complete window":::
+
+1. Restart your system for the configuration to take effect. 
+
+1. When you start the session, save the security exemption and the GUI starts up.
+1. Sign in as the *snapcenter* user.
+
+1. Once you're in SnapCenter, select **Storage System**, and then select **+New**. 
+
+   :::image type="content" source="./media/snapcenter/snapcenter-storage-connections-window.png" alt-text="SnapCenter storage connections" lightbox="./media/snapcenter/snapcenter-storage-connections-window.png":::
+
+   The default is one SVM per tenant. If a customer has multiple tenants or HLIs in multiple regions, the recommendation is to configure all SVMs in SnapCenter
+
+1. Provide the information for the Storage System that you want to add and then select **OK**.
+
+   :::image type="content" source="./media/snapcenter/new-storage-connection.png" alt-text="New storage connection":::
+
+1. Add the SnapCenter host and install the SnapCenter SAP HANA plug-in.
+
+   :::image type="content" source="./media/snapcenter/provide-host-information.png" alt-text="Provide the host information":::
+
+   :::image type="content" source="./media/snapcenter/plug-ins-installed-on-host.png" alt-text="Plug-ins installed on host":::
+
+   :::image type="content" source="./media/snapcenter/select-snapcenter-plug-ins-to-install.png" alt-text="Select SnapCenter plug-ins to install":::
+
+   :::image type="content" source="./media/snapcenter/running-preinstall-checks.png" alt-text="Running pre-install checks":::
+
+1. Create the policy and select the SAP HANA plug-in.
+
+   :::image type="content" source="./media/snapcenter/snapcenter-policies.png" alt-text="SnapCenter policies":::
 
 
 ## Next steps
