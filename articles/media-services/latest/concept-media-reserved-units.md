@@ -32,7 +32,7 @@ The following table helps you make a decision when choosing between different en
 | **S2**|Single bitrate and multiple bitrate encoding.<br/>Normal usage for both SD and HD encoding.|Encoding with "H264 Single Bitrate 720p" preset takes around 6 minutes.<br/><br/>Encoding with "H264 Multiple Bitrate 720p" preset takes around 12 minutes.|
 | **S3**|Single bitrate and multiple bitrate encoding.<br/>Full HD and 4K resolution videos. Time sensitive, faster turnaround encoding.|Encoding with "H264 Single Bitrate 1080p" preset takes approximately 3 minutes.<br/><br/>Encoding with "H264 Multiple Bitrate 1080p" preset takes approximately 8 minutes.|
 
-> [!NOTE] 
+> [!NOTE]
 > If you do not provision MRU’s for your account, your media tasks will be processed with the performance of an S1 MRU and tasks will be picked up sequentially. No processing capacity is reserved so the wait time between one task finishing and the next one starting will depend on the availability of resources in the system.
 
 ## Considerations
