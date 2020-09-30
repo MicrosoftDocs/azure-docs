@@ -45,7 +45,7 @@ Updating or rotating keys to your storage account is not possible using the Stre
 ### Configure storage account for private data 
 
 
-Encrypt your storage account to secure all of your data. 
+Encrypt your storage account to secure all of your data and explicitly choose the location of your private data. 
 
 To help you meet your compliance obligations in any regulated industry or environment, you can read more about [Microsoft's compliance offerings](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942). 
 
