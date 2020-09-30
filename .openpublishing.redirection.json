@@ -301,16 +301,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/storage/common/monitor-storage.md",
-      "redirect_url": "/azure/storage/blobs/monitor-blob-storage",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/storage/common/monitor-storage-reference.md",
-      "redirect_url": "/azure/storage/blobs/monitor-blob-storage-reference",
-      "redirect_document_id": true
-    },
-    {
       "source_path": "articles/container-service/index.yml",
       "redirect_url": "/previous-versions/azure/container-service/dcos-swarm/container-service-intro",
       "redirect_document_id": false
@@ -43029,13 +43019,23 @@
     },
     {
       "source_path": "articles/storage/common/storage-enable-and-view-metrics.md",
-      "redirect_url": "/azure/storage/blobs/monitor-blob-storage",
+      "redirect_url": "/azure/storage/common/monitor-storage",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/storage/common/storage-metrics-in-azure-monitor.md",
-      "redirect_url": "/azure/storage/blobs/monitor-blob-storage",
+      "redirect_url": "/azure/storage/common/monitor-storage",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/common/monitor-storage.md",
+      "redirect_url": "/azure/storage/blobs/monitor-blob-storage",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/storage/common/monitor-storage-reference.md",
+      "redirect_url": "/azure/storage/blobs/monitor-blob-storage-reference",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/azure-stack/partner/azure-stack-vaas-set-up-account.md",
