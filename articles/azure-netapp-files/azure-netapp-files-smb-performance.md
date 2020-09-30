@@ -70,25 +70,61 @@ The following tests and graphs demonstrate the power of SMB Multichannel on sing
 
 ### Random I/O  
 
-With SMB Multichannel disabled on the client, pure 8-KiB read and write tests were performed using FIO and a 40-GiB working set.  The SMB share was detached between each test, with increments of the SMB client connection count per RSS network interface settings of `1`,`4`,`8`,`16`, `set-SmbClientConfiguration -ConnectionCountPerRSSNetworkInterface <count>`. The tests show that the default setting of `4` is sufficient for I/O intensive workloads; incrementing to `8` and `16` had no effect. 
+With SMB Multichannel disabled on the client, pure 4-KiB read and write tests were performed using FIO and a 40-GiB working set.  The SMB share was detached between each test, with increments of the SMB client connection count per RSS network interface settings of `1`,`4`,`8`,`16`, `set-SmbClientConfiguration -ConnectionCountPerRSSNetworkInterface <count>`. The tests show that the default setting of `4` is sufficient for I/O intensive workloads; incrementing to `8` and `16` had negligible effect. 
 
 The command `netstat -na | findstr 445` proved that additional connections were established with increments from `1` to `4` to `8` and to `16`.  Four CPU cores were fully utilized for SMB during each test, as confirmed by the perfmon `Per Processor Network Activity Cycles` statistic (not included in this article.)
 
-![Random I/O tests](../media/azure-netapp-files/azure-netapp-files-random-io-tests.png)
+![Chart that shows random I/O comparison of SMB Mltichannel](../media/azure-netapp-files/azure-netapp-files-random-io-tests.png)
 
-The Azure virtual machine does not affect SMB (nor NFS) storage I/O limits.  As shown below, the D16 instance type has a limited rate of 32,000 for cached storage IOPS and 25,600 for uncached storage IOPS.  However, the graph above shows significantly more I/O over SMB.
+The Azure virtual machine does not affect SMB (nor NFS) storage I/O limits.  As shown below, the D32ds instance type has a limited rate of 308,000 for cached storage IOPS and 51,200 for uncached storage IOPS.  However, the graph above shows significantly more I/O over SMB.
 
-![Random I/O comparison](../media/azure-netapp-files/azure-netapp-files-random-io-tests-list.png)
+![Chart that shows random I/O comparison test](../media/azure-netapp-files/azure-netapp-files-random-io-tests-list.png)
 
 ### Sequential IO 
 
 Tests similar to the random I/O tests described above were performed with 64-KiB sequential I/O. Although the increases in client connection count per RSS network interface beyond 4’ had no noticeable effect on random I/O, the same does not apply to sequential I/O. As the following graph shows, each increase is associated with a corresponding increase in read throughput. Write throughput remained flat due to network bandwidth restrictions placed by Azure for each instance type/size. 
 
-![Sequential I/O tests](../media/azure-netapp-files/azure-netapp-files-sequential-io-tests.png)
+![Chart that shows throughput test comparison](../media/azure-netapp-files/azure-netapp-files-sequential-io-tests.png)
 
-Azure places network rate limits on each virtual machine type/size. The rate limit is imposed on outbound traffic only. The number of NICs present on a virtual machine has no bearing on the total amount of bandwidth available to the machine.  For example, the D16 instance type has an imposed network limit of 8000 Mbps (1,000 MiB/s).  As the sequential graph above shows, the limit affects the outbound traffic (writes) but not multichannel reads.
+Azure places network rate limits on each virtual machine type/size. The rate limit is imposed on outbound traffic only. The number of NICs present on a virtual machine has no bearing on the total amount of bandwidth available to the machine.  For example, the D32ds instance type has an imposed network limit of 16,000 Mbps (2,000 MiB/s).  As the sequential graph above shows, the limit affects the outbound traffic (writes) but not multichannel reads.
 
-![Sequential I/O comparison](../media/azure-netapp-files/azure-netapp-files-sequential-io-tests-list.png)
+![Chart that shows sequential I/O comparison test](../media/azure-netapp-files/azure-netapp-files-sequential-io-tests-list.png)
+
+## What performance is expected with a single instance with a 1 TB dataset?
+
+To provide more detailed insight into workloads with read/write mixes, the following two charts show the performance of a single, Ultra service-level cloud volume of 50 TB with a 1 TB dataset and with SMB multichannel of 4. An optimal IODepth of 16 was used, and Flexible IO (fio) parameters were used to ensure the full use of the network bandwidth (`numjobs=16`).
+
+The following chart shows the results for 4k random I/O, with a single VM instance and a read/write mix at 10% intervals:
+
+![Chart that shows Windows 2019 standard _D32ds_v4 4K random IO test](../media/azure-netapp-files/smb-performance-standard-4k-random-io.png)
+
+The following chart shows the results for sequential I/O:
+
+![Chart that shows Windows 2019 standard _D32ds_v4 64K sequential throughput](../media/azure-netapp-files/smb-performance-standard-64k-throughput.png)
+
+## What performance is expected when scaling out using 5 VMs with a 1 TB dataset?
+
+These tests with 5 VMs use the same testing environment as the single VM, with each process writing to its own file.
+
+The following chart shows the results for random I/O:
+
+![Chart that shows Windows 2019 standard _D32ds_v4 4K 5-instance randio IO test](../media/azure-netapp-files/smb-performance-standard-4k-random-io-5-instances.png)
+
+The following chart shows the results for sequential I/O:
+
+![Chart that shows Windows 2019 standard _D32ds_v4 64K 5-instance sequential throughput](../media/azure-netapp-files/smb-performance-standard-64k-throughput-5-instances.png)
+
+## How do you monitor Hyper-V ethernet adapters and ensure that you maximize network capacity?  
+
+One strategy used in testing with fio is to set `numjobs=16`. Doing so forks each job into 16 specific instances to maximize the Microsoft Hyper-V Network Adapter.
+
+You can check for activity on each of the adapters in Windows Performance Monitor by selecting **Performance Monitor > Add Counters > Network Interface > Microsoft Hyper-V Network Adapter**.
+
+![Screenshot that shows Performance Monitor Add Counter interface](../media/azure-netapp-files/smb-performance-performance-monitor-add-counter.png)
+
+After you have data traffic running in your volumes, you can monitor your adapters in Windows Performance Monitor. If you do not use all of these 16 virtual adapters, you might not be maximizing your network bandwidth capacity.
+
+![Screenshot that shows Performance Monitor output](../media/azure-netapp-files/smb-performance-performance-monitor-output.png)
 
 ## Is Accelerated Networking recommended?
 
