@@ -82,6 +82,8 @@
       href: deploy-traffic-manager-balance-workloads.md
     - name: NetApp Files
       href: net-app-files.md
+    - name: Public IP usage
+      href: public-ip-usage.md
   - name: VMware solutions
     items:
     - name: Set up vRealize Operations
