@@ -30,7 +30,7 @@ You must create at least one namespace path before clients can access the storag
 
 An Azure Blob storage target can have only one namespace path.
 
-Follow the instructions below to set or change the path with the Azure Portal or Azure CLI.
+Follow the instructions below to set or change the path with the Azure portal or Azure CLI.
 
 ### [Portal](#tab/azure-portal)
 
