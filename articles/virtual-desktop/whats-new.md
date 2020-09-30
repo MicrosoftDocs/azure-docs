@@ -47,10 +47,6 @@ IT Pros can manage hybrid Azure Active Directory joined Windows 10 Enterprise VM
 Further information is available [here:](https://techcommunity.microsoft.com/t5/microsoft-endpoint-manager-blog/microsoft-endpoint-manager-announces-support-for-windows-virtual/ba-p/1681048)
 
 
-- Azure Government Cloud support.
-Windows Virtual Desktop is now generally available in the Azure US Government cloud
-
-
 ## August 2020
 
 Here's what changed in August 2020:
