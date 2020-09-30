@@ -66,7 +66,7 @@ In this context, the ephemeral ports used for SNAT are called SNAT ports. SNAT p
 
 #### Description
 
-When the VM creates an outbound flow, Azure translates the source IP address of the outbound flow to a public source IP address. This public IP address **isn't configurable** and can't be reserved. This address doesn't count against the subscription's public IP resource limit. 
+When the VM creates an outbound flow, Azure translates the source IP address to a public source IP address. This public IP address **isn't configurable** and can't be reserved. This address doesn't count against the subscription's public IP resource limit. 
 
 The public IP address will be released and a new public IP requested if you redeploy the: 
 
@@ -120,7 +120,7 @@ Changing the size of your backend pool might affect some of your established flo
 > [!NOTE]
 > **Azure Virtual Network NAT** can provide outbound connectivity for virtual machines in a virtual network.  See [What is Azure Virtual Network NAT?](../virtual-network/nat-overview.md) for more information.
 
-You have full declarative control over outbound connectivity to scale and tune this ability to your needs. This section expands scenario 2 as described above.
+You have full declarative control over outbound connectivity to scale and tune this ability to your needs.
 
 ![Load balancer outbound rules](media/load-balancer-outbound-rules-overview/load-balancer-outbound-rules.png)
 
@@ -181,7 +181,7 @@ Sometimes it's undesirable for a VM to create an outbound flow. There might be a
 
 When you apply an NSG to a load-balanced VM, pay attention to the [service tags](../virtual-network/security-overview.md#service-tags) and [default security rules](../virtual-network/security-overview.md#default-security-rules). Ensure that the VM can receive health probe requests from Azure Load Balancer.
 
-If an NSG blocks health probe requests from the AZURE_LOADBALANCER default tag, your VM health probe fails and the VM is marked down. Load Balancer stops sending new flows to that VM.
+If an NSG blocks health probe requests from the AZURE_LOADBALANCER default tag, your VM health probe fails and the VM is marked unavailable. Load Balancer stops sending new flows to that VM.
 
 ## Scenarios with outbound rules
 
@@ -228,13 +228,13 @@ If you attempt to give more [SNAT](#snat) ports than are available based on the 
 
 If you give 10,000 ports per VM and seven VMs in a backend pool share a single public IP, the configuration is rejected. Seven multiplied by 10,000 exceeds the 64,000 port limit. Add more public IP addresses to the frontend of the outbound rule to enable the scenario. 
 
-Revert to the [default port allocation](load-balancer-outbound-connections.md#preallocatedports) by specifying 0 for the number of ports. The first 50 VM instances will get 1024 ports, 51-100 VM instances will get 512 up to the maximum instances.  For more information on default SNAT port allocation, see [above](#snatporttable).
+Revert to the [default port allocation](load-balancer-outbound-connections.md#preallocatedports) by specifying 0 for the number of ports. The first 50 VM instances will get 1024 ports, 51-100 VM instances will get 512 up to the maximum instances.  For more information on default SNAT port allocation, see [SNAT ports allocation table](#snatporttable).
 
 ### <a name="scenario3out"></a>Enable outbound only
 
 #### Details
 
-You can use a public standard load balancer to provide outbound NAT for a group of VMs. In this scenario, use an outbound rule by itself, without the need for any additional rules.
+Use a public standard load balancer to provide outbound NAT for a group of VMs. In this scenario, use an outbound rule by itself, without the need for any additional rules.
 
 > [!NOTE]
 > **Azure Virtual Network NAT** can provide outbound connectivity for virtual machines without the need for a load balancer.  See [What is Azure Virtual Network NAT?](../virtual-network/nat-overview.md) for more information.
@@ -321,7 +321,7 @@ When a public load balancer is associated with VMs without public IPs, each outb
 
 The source is rewritten from the virtual network private IP address to the frontend public IP address of the load balancer. 
 
-In the public IP address space, the five-tuple of the flow below must be unique:
+In the public IP address space, the five-tuple of the flow must be unique:
 
 * Source IP address
 * Source port
