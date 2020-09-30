@@ -17,11 +17,9 @@ ms.author: rolyon
 
 ## Scope levels
 
-Azure provides four levels of scope for resource management: [management group](../governance/management-groups/overview.md), subscription, [resource groups](../azure-resource-manager/management/overview.md#resource-groups), and resource. Each level of hierarchy makes the scope more specific.
+In Azure, you can specify a scope at four levels: [management group](../governance/management-groups/overview.md), subscription, [resource group](../azure-resource-manager/management/overview.md#resource-groups), and resource. Scopes are structured in a parent-child relationship. Each level of hierarchy makes the scope more specific. You can assign roles at any of these levels of scope. The level you select determines how widely the role is applied. Lower levels inherit role permissions from higher levels. 
 
 ![Scope for a role assignment](./media/scope-overview/rbac-scope-no-label.png)
-
-You can assign roles at any of these levels of scope. The level you select determines how widely the role is applied. Lower levels inherit role permissions from higher levels. For example, when you assign a role at a subscription scope, the role is applied to all resource groups and resources in your subscription. When you assign a role at a resource group scope, the role is applied to the resource group and all its resources.
 
 ## Scope format
 
@@ -115,6 +113,6 @@ It's fairly simple to determine the scope for a management group, subscription, 
 
 ## Next steps
 
-- [Add or remove Azure role assignments using the Azure portal](role-assignments-portal.md)
+- [Steps to add a role assignment](role-assignments-steps.md)
 - [Resource providers for Azure services](../azure-resource-manager/management/azure-services-resource-providers.md)
 - [Organize your resources with Azure management groups](../governance/management-groups/overview.md)

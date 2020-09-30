@@ -7,7 +7,7 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: overview
 ms.workload: identity
-ms.date: 09/29/2020
+ms.date: 09/30/2020
 ms.author: rolyon
 ms.custom: contperfq1, azuread-video-2020
 
@@ -39,14 +39,9 @@ The way you control access to resources using Azure RBAC is to create role assig
 
 ### Security principal
 
-A *security principal* is an object that represents a user, group, service principal, or managed identity that is requesting access to Azure resources.
+A *security principal* is an object that represents a user, group, service principal, or managed identity that is requesting access to Azure resources. You can assign a role to any of these security principals.
 
 ![Security principal for a role assignment](./media/shared/rbac-security-principal.png)
-
-- User - An individual who has a profile in Azure Active Directory. You can also assign roles to users in other tenants. For information about users in other organizations, see [Azure Active Directory B2B](../active-directory/b2b/what-is-b2b.md).
-- Group - A set of users created in Azure Active Directory. When you assign a role to a group, all users within that group have that role. 
-- Service principal - A security identity used by applications or services to access specific Azure resources. You can think of it as a *user identity* (username and password or certificate) for an application.
-- Managed identity - An identity in Azure Active Directory that is automatically managed by Azure. You typically use [managed identities](../active-directory/managed-identities-azure-resources/overview.md) when developing cloud applications to manage the credentials for authenticating to Azure services.
 
 ### Role definition
 
@@ -54,14 +49,7 @@ A *role definition* is a collection of permissions. It's typically just called a
 
 ![Role definition for a role assignment](./media/shared/rbac-role-definition.png)
 
-Azure includes several [built-in roles](built-in-roles.md) that you can use. The following lists four fundamental built-in roles. The first three apply to all resource types.
-
-- [Owner](built-in-roles.md#owner) - Has full access to all resources including the right to delegate access to others.
-- [Contributor](built-in-roles.md#contributor) - Can create and manage all types of Azure resources but can't grant access to others.
-- [Reader](built-in-roles.md#reader) - Can view existing Azure resources.
-- [User Access Administrator](built-in-roles.md#user-access-administrator) - Lets you manage user access to Azure resources.
-
-The rest of the built-in roles allow management of specific Azure resources. For example, the [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) role allows a user to create and manage virtual machines. If the built-in roles don't meet the specific needs of your organization, you can create your own [Azure custom roles](custom-roles.md).
+Azure includes several [built-in roles](built-in-roles.md) that you can use. For example, the [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) role allows a user to create and manage virtual machines. If the built-in roles don't meet the specific needs of your organization, you can create your own [Azure custom roles](custom-roles.md).
 
 This video provides a quick overview of built-in roles and custom roles.
 
@@ -75,15 +63,9 @@ For more information, see [Understand Azure role definitions](role-definitions.m
 
 *Scope* is the set of resources that the access applies to. When you assign a role, you can further limit the actions allowed by defining a scope. This is helpful if you want to make someone a [Website Contributor](built-in-roles.md#website-contributor), but only for one resource group.
 
-In Azure, you can specify a scope at multiple levels: [management group](../governance/management-groups/overview.md), subscription, [resource group](../azure-resource-manager/management/overview.md#resource-groups), or resource. Scopes are structured in a parent-child relationship.
+In Azure, you can specify a scope at four levels: [management group](../governance/management-groups/overview.md), subscription, [resource group](../azure-resource-manager/management/overview.md#resource-groups), or resource. Scopes are structured in a parent-child relationship. You can assign roles at any of these levels of scope.
 
 ![Scope for a role assignment](./media/shared/rbac-scope.png)
-
-When you grant access at a parent scope, those permissions are inherited to the child scopes. For example:
-
-- If you assign the [Owner](built-in-roles.md#owner) role to a user at the management group scope, that user can manage everything in all subscriptions in the management group.
-- If you assign the [Reader](built-in-roles.md#reader) role to a group at the subscription scope, the members of that group can view every resource group and resource in the subscription.
-- If you assign the [Contributor](built-in-roles.md#contributor) role to an application at the resource group scope, it can manage resources of all types in that resource group, but not other resource groups in the subscription.
 
 For more information about scope, see [Understand scope](scope-overview.md).
 
@@ -95,7 +77,7 @@ The following diagram shows an example of a role assignment. In this example, th
 
 ![Role assignment to control access](./media/overview/rbac-overview.png)
 
-You can create role assignments using the Azure portal, Azure CLI, Azure PowerShell, Azure SDKs, or REST APIs. You can have up to **2000** role assignments in each subscription. This limit includes role assignments at the subscription, resource group, and resource scopes. You can have up to **500** role assignments in each management group. To create and remove role assignments, you must have `Microsoft.Authorization/roleAssignments/*` permission. This permission is granted through the [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator) roles.
+You can create role assignments using the Azure portal, Azure CLI, Azure PowerShell, Azure SDKs, or REST APIs.
 
 For more information, see [Steps to add a role assignment](role-assignments-steps.md).
 
