@@ -38,7 +38,7 @@ Follow these steps to troubleshoot the VM issue:
 1. Launch Azure Cloud Shell
 2. Run az extension add/update
 3. Run az vm repair create
-4. Run az vm repair run, or perform mitigation steps
+4. Run az vm repair run, or perform mitigation steps.
 5. Run az vm repair restore
 
 For additional documentation and instructions, see [az vm repair](/cli/azure/ext/vm-repair/vm/repair).
@@ -81,7 +81,7 @@ For additional documentation and instructions, see [az vm repair](/cli/azure/ext
    az vm repair run -g MyResourceGroup -n MyVM --run-on-repair --run-id lin-hello-world --verbose
    ```
 
-Optionally you can perform any needed manual mitigation steps via the created repair VM, then proceed to step 5.
+   Optionally you can perform any needed manual mitigation steps via the created repair VM, then proceed to step 5.
 
 5. Run `az vm repair restore`. This command will swap the repaired OS disk with the original OS disk of the VM. The Resource Group and VM name used here are for the non-functional VM used in step 3.
 
