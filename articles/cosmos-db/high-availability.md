@@ -77,9 +77,6 @@ When configuring multi-region writes for your Azure Cosmos account, you can opt 
 
 This feature is available in: *UK South, Southeast Asia, East US, East US 2, Central US, West Europe, West US 2, Japan East, North Europe, France Central,Australia East, East US 2 EUAP* regions.
 
-> [!NOTE]
-> Enabling Availability Zones for a single region Azure Cosmos account will result in charges that are equivalent to adding an additional region to your account. For details on pricing, see the [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) and the [multi-region cost in Azure Cosmos DB](optimize-cost-regions.md) articles.
-
 The following table summarizes the high availability capability of various account configurations:
 
 |KPI  |Single region without Availability Zones (Non-AZ)  |Single region with Availability Zones (AZ)  |Multi-region writes with Availability Zones (AZ, 2 regions) – Most recommended setting |
