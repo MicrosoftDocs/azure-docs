@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 08/28/2020
+ms.date: 09/29/2020
 ms.author: alkohli
 ---
 # Use certificates with Azure Stack Edge Pro GPU device
@@ -56,7 +56,7 @@ These certificates could be root certificates or the intermediate certificates. 
 - The root certificates should be signing chain certificates.
 - The root certificates can be uploaded on your device in the following format: 
     - **DER** – These are available as a `.cer` file extension.
-    - **Base-64 encoded or PEM** – These are available as `.cer` extension also.
+    - **Base-64 encoded** – These are available as `.cer` file extension.
     - **P7b** – This format is used only for signing chain certificates that includes the root and intermediate certificates.
 - Signing chain certificates are always uploaded before you upload any other certificates.
 
@@ -405,11 +405,11 @@ The .pfx file backup is now saved in the location you selected and is ready to b
 
 If you bring in your own certificates, the certificates will expire typically in 1 year or 6 months. To view the expiration date on your certificate, go to the **Certificates** page in the local web UI of your device. If you select a specific certificate, you can view the expiration date on your certificate.
 
-## Rotate certificates
+<!--## Rotate certificates
 
 Rotation of certificates is not implemented in this release. You are also not notified of the pending expiration date on your certificate. 
 
-View the certificate expiration date on the **Certificates** page in the local web UI of your device. Once the certificate expiration is approaching, create and upload new certificates as per the detailed instructions in [Create and upload certificates](azure-stack-edge-j-series-manage-certificates.md).
+View the certificate expiration date on the **Certificates** page in the local web UI of your device. Once the certificate expiration is approaching, create and upload new certificates as per the detailed instructions in [Create and upload certificates](azure-stack-edge-j-series-manage-certificates.md).-->
 
 ## Next steps
 
