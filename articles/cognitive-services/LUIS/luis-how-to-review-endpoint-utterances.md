@@ -29,7 +29,7 @@ Use the LUIS portal to construct the correct endpoint query.
 1. For the assigned prediction resource, select **Change query parameters**.
 
     > [!div class="mx-imgBorder"]
-    > ![Use LUIS portal to save logs, which is required for active learning.](./media/luis-tutorial-review-endpoint-utterances/azure-portal-change-query-url-settings.png)
+    > ![Screenshot shows the Change query parameters link.](./media/luis-tutorial-review-endpoint-utterances/azure-portal-change-query-url-settings.png)
 
 1. Toggle **Save logs** then save by selecting **Done**.
 

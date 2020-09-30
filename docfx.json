@@ -753,8 +753,6 @@
         "articles/devtest-labs/**/*.md": "Azure DevTest Labs",
         "articles/lab-services/**/*.md": "Azure Lab Services",
         "articles/service-bus-messaging/*.md": "Azure Service Bus",
-        "articles/sql-data-warehouse/**/*.md": "Azure SQL Data Warehouse",
-        "articles/sql-data-warehouse/**/*.yml": "Azure SQL Data Warehouse",
         "articles/data-factory/**/*.md": "Azure Data Factory",
         "articles/data-factory/**/*.yml": "Azure Data Factory",
         "articles/virtual-machines/windows/sql/**/*.md": "SQL Server on Azure VM",

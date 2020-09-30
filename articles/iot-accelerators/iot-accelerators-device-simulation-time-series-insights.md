@@ -132,7 +132,7 @@ The Time Series Insights explorer is a web app you can use to visualize your tel
 
 1. In the terms panel on the left, select **temperature** as the **Measure** and **iothub-connection-device-id** as the **Split By** value:
 
-    ![Time Series Insights explorer query](./media/iot-accelerators-device-simulation-time-series-insights/time-series-insights-query1.png)
+    ![Screenshot that shows the Time Series Insights "terms" panel, with the "Measure" and "Split by" values highlighted.](./media/iot-accelerators-device-simulation-time-series-insights/time-series-insights-query1.png)
 
 1. Right-click on the chart and select **Explore events**:
 
