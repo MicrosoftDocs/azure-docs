@@ -39,7 +39,7 @@ In this guide the following replication scenarios are covered:
 
 1. Enter the **Disaster Recovery** area and select **PROTECT VMS**.
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines/protect-virtual-machine.png" alt-text="select protect vms" border="true":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/protect-virtual-machine.png" alt-text="select protect vms" border="true" lightbox="./media/disaster-recovery-virtual-machines/protect-virtual-machine.png":::
 
 1. Select the Source and the Remote sites. The Remote site in this case should be the Azure VMware Solution private cloud.
 
@@ -63,21 +63,21 @@ In this guide the following replication scenarios are covered:
 
    - **Number of Snapshots:** Total number of snapshots within the configured snapshot interval.
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines/protect-virtual-machine-options.png" alt-text="protect VMs options" border="true":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/protect-virtual-machine-options.png" alt-text="protect VMs options" border="true" lightbox="./media/disaster-recovery-virtual-machines/protect-virtual-machine-options.png":::
 
 1. Select one or more VMs from the list and configure the replication options as needed.
 
    By default, the VMs inherit the Global Settings Policy configured in the Default replication options. For each network interface in the selected VM, configure the remote **Network Port Group** and select **Finish** to start the protection process.
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines/network-interface-options.png" alt-text="network interface options" border="true":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/network-interface-options.png" alt-text="network interface options" border="true" lightbox="./media/disaster-recovery-virtual-machines/network-interface-options.png":::
 
 1. Monitor the process for each of the selected VMs in the same disaster recovery area.
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines/protect-monitor-progress.png" alt-text="monitor progress of protection" border="true":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/protect-monitor-progress.png" alt-text="monitor progress of protection" border="true" lightbox="protect-monitor-progress.png":::
 
 1. After the VM has been protected, you can view the different snapshots in the **Snapshots** tab.
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines/list-of-snapshots.png" alt-text="list of snapshots" border="true":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/list-of-snapshots.png" alt-text="list of snapshots" border="true" lightbox="./media/disaster-recovery-virtual-machines/list-of-snapshots.png":::
 
    The yellow triangle means the snapshots and the virtual haven't been tested in a Test Recovery operation.
 
@@ -98,11 +98,11 @@ In this guide the following replication scenarios are covered:
 
 1. When finished, you can check the new VM in the Azure VMware Solution private cloud vCenter.
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines/verify-test-recovery.png" alt-text="check recovery operation" border="true":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/verify-test-recovery.png" alt-text="check recovery operation" border="true" lightbox="./media/disaster-recovery-virtual-machines/verify-test-recovery.png":::
 
 1. After testing has been done on the VM or any application running on it, do a cleanup to delete the test instance.
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines/cleanup-test-instance.png" alt-text="cleanup test instance" border="true":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/cleanup-test-instance.png" alt-text="cleanup test instance" border="true" lightbox="./media/disaster-recovery-virtual-machines/cleanup-test-instance.png":::
 
 ## Recover VMs
 
@@ -134,7 +134,7 @@ In this guide the following replication scenarios are covered:
 
 1. Monitor on the details section of each VM.
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines/review-reverse-operation.png" alt-text="review the results of reverse action" border="true":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/review-reverse-operation.png" alt-text="review the results of reverse action" border="true" lightbox="./media/disaster-recovery-virtual-machines/review-reverse-operation.png":::
 
 ## Disaster recovery plan automation
 
