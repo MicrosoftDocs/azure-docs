@@ -56,6 +56,8 @@ Learn best practices for managing HDInsight clusters.
 | Manual scaling | [Scale Azure HDInsight clusters](./hdinsight-scaling-best-practices.md) |
 | Monitoring with Ambari| [Monitor cluster performance in Azure HDInsight](./hdinsight-key-scenarios-to-monitor.md) |
 | Monitoring with Azure Monitor logs | [Use Azure Monitor logs to monitor HDInsight clusters](./hdinsight-hadoop-oms-log-analytics-tutorial.md) |
+| Service issues, planned maintenance, health & security advisories | [Subscribe to subscription specific service health alerts](https://docs.microsoft.com/azure/service-health/alerts-activity-log-service-notifications-portal) |
+
 
 ## How do I check on deleted HDInsight clusters?
 

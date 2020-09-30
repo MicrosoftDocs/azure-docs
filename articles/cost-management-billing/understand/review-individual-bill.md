@@ -5,8 +5,9 @@ author: bandersmsft
 ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: tutorial
-ms.date: 06/16/2020
+ms.date: 08/20/2020
 ms.author: banders
 ---
 
@@ -16,7 +17,7 @@ This article helps you understand and review your Azure bill. For each billing p
 
 This tutorial applies only to Azure customers with an individual subscription. Common individual subscriptions are those with pay-as-you-go rates purchased directly from the Azure website.
 
-If you need help understanding unexpected charges, see [Analyze unexpected charges](https://docs.microsoft.com/azure/cost-management-billing/manage/getting-started#analyze-unexpected-charges). Or, if you need to cancel your Azure subscription, see [Cancel your Azure subscription](../manage/cancel-azure-subscription.md).
+If you need help understanding unexpected charges, see [Analyze unexpected charges](analyze-unexpected-charges.md). Or, if you need to cancel your Azure subscription, see [Cancel your Azure subscription](../manage/cancel-azure-subscription.md).
 
 In this tutorial, you learn how to:
 

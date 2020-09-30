@@ -38,8 +38,10 @@ Azure Dev Spaces is supported only by AKS clusters in [some regions][supported-r
 
 ## Next steps
 
-Learn more about rapid, iterative development for teams with Azure Dev Spaces with the [team development quickstart][team-development-quickstart].
+Learn more about how Azure Dev Spaces works.
+
+> [!div class="nextstepaction"]
+> [How Azure Dev Spaces works](how-dev-spaces-works.md)
 
 [how-dev-spaces-works]: how-dev-spaces-works.md
 [supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
-[team-development-quickstart]: quickstart-team-development.md

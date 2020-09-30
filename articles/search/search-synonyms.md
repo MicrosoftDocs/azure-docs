@@ -8,7 +8,7 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/12/2020
+ms.date: 08/26/2020
 ---
 # Synonyms in Azure Cognitive Search
 
@@ -18,7 +18,7 @@ In Azure Cognitive Search, synonym expansion is done at query time. You can add 
 
 ## Create synonyms
 
-There is no portal support for creating synonyms but you can use the REST API or .NET SDK. To get started with REST, we recommend [using Postman](search-get-started-postman.md) and formulation of requests using this API: [Create Synonym Maps](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map). For C# developers, you can get started with [Add Synonyms in Azure Cognitive Searching using C#](search-synonyms-tutorial-sdk.md).
+There is no portal support for creating synonyms but you can use the REST API or .NET SDK. To get started with REST, we recommend [using Postman](search-get-started-postman.md) and formulation of requests using this API: [Create Synonym Maps](/rest/api/searchservice/create-synonym-map). For C# developers, you can get started with [Add Synonyms in Azure Cognitive Searching using C#](search-synonyms-tutorial-sdk.md).
 
 Optionally, if you are using [customer-managed keys](search-security-manage-encryption-keys.md) for service-side encryption-at-rest, you can apply that protection to the contents of your synonym map.
 
@@ -87,6 +87,21 @@ Explicit mapping is denoted by an arrow "=>". When specified, a term sequence of
 
 ```
 Washington, Wash., WA => WA
+```
+
+If you need to define synonyms that contain commas, you can escape them with a backslash, like in this example:
+
+```
+WA\, USA, WA, Washington
+```
+
+Since backslash is itself a special character in other languages like JSON and C#, you will probably need to double-escape it. For example, the JSON sent to the REST API for the above synonym map would look like this:
+
+```json
+    {
+       "format":"solr",
+       "synonyms": "WA\\, USA, WA, Washington"
+    }
 ```
 
 #### List synonym maps under your service.
@@ -168,4 +183,4 @@ If you have an existing index in a development (non-production) environment, exp
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create a synonym map](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map)
+> [Create a synonym map](/rest/api/searchservice/create-synonym-map)

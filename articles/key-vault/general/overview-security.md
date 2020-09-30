@@ -1,5 +1,5 @@
 ---
-title: Azure Key Vault security | Microsoft Docs
+title: Azure Key Vault security
 description: Manage access permissions for Azure Key Vault, keys, and secrets. Covers the authentication and authorization model for Key Vault, and how to secure your key vault.
 services: key-vault
 author: msmbaldwin
@@ -11,12 +11,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: mbaldwin
-Customer intent: As a key vault administrator, I want to learn the options available to secure my vaults
+#Customer intent: As a key vault administrator, I want to learn the options available to secure my vaults
 ---
 
 # Azure Key Vault security
 
-You need to protect encryption keys and secrets like certificates, connection strings, and passwords in the cloud so you are using Azure Key Vault. Since you are storing sensitive and business critical data, you need to take steps to maximize the security of your vaults and the data stored in them. This article will cover some of the concepts that you should consider when designing your Azure Key Vault security.
+You use Azure Key Vault to protect encryption keys and secrets like certificates, connection strings, and passwords in the cloud. When storing sensitive and business critical data, you need to take steps to maximize the security of your vaults and the data stored in them.
 
 ## Identity and access management
 
@@ -61,7 +61,7 @@ Key Vault access policies grant permissions separately to keys, secrets, or cert
 > [!IMPORTANT]
 > Key Vault access policies don't support granular, object-level permissions like a specific key, secret, or certificate. When a user is granted permission to create and delete keys, they can perform those operations on all keys in that key vault.
 
-To set access policies for a key vault, use the [Azure portal](https://portal.azure.com/), the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest), [Azure PowerShell](/powershell/azure/), or the [Key Vault Management REST APIs](/rest/api/keyvault/).
+You can set access policies for a key vault use the [Azure portal](assign-access-policy-portal.md), the [Azure CLI](assign-access-policy-cli.md), [Azure PowerShell](assign-access-policy-powershell.md), or the [Key Vault Management REST APIs](/rest/api/keyvault/).
 
 You can restrict data plane access by using [virtual network service endpoints for Azure Key Vault](overview-vnet-service-endpoints.md)). You can configure [firewalls and virtual network rules](network-security.md) for an additional layer of security.
 
@@ -72,6 +72,14 @@ You can reduce the exposure of your vaults by specifying which IP addresses have
 After firewall rules are in effect, users can only read data from Key Vault when their requests originate from allowed virtual networks or IPv4 address ranges. This also applies to accessing Key Vault from the Azure portal. Although users can browse to a key vault from the Azure portal, they might not be able to list keys, secrets, or certificates if their client machine is not in the allowed list. This also affects the Key Vault Picker by other Azure services. Users might be able to see list of key vaults, but not list keys, if firewall rules prevent their client machine.
 
 For more information on Azure Key Vault network address review [Virtual network service endpoints for Azure Key Vault](overview-vnet-service-endpoints.md))
+
+### TLS and HTTPS
+
+*	The Key Vault front end (data plane) is a multi-tenant server. This means that key vaults from different customers can share the same public IP address. In order to achieve isolation, each HTTP request is authenticated and authorized independently of other requests.
+*	You may identify older versions of TLS to report vulnerabilities but because the public IP address is shared, it is not possible for key vault service team to disable old versions of TLS for individual key vaults at transport level.
+*	The HTTPS protocol allows the client to participate in TLS negotiation. **Clients can enforce the most recent version of TLS**, and whenever a client does so, the entire connection will use the corresponding level protection. The fact that Key Vault still supports older TLS versions won’t impair the security of connections using newer TLS versions.
+*	Despite known vulnerabilities in TLS protocol, there is no known attack that would allow a malicious agent to extract any information from your key vault when the attacker initiates a connection with a TLS version that has vulnerabilities. The attacker would still need to authenticate and authorize itself, and as long as legitimate clients always connect with recent TLS versions, there is no way that credentials could have been leaked from vulnerabilities at old TLS versions.
+
 
 ## Monitoring
 
@@ -89,10 +97,10 @@ Logging information can be accessed within 10 minutes after the key vault operat
 - Use standard Azure access control methods to secure your logs by restricting who can access them.
 - Delete logs that you no longer want to keep in your storage account.
 
-For recommendation on securely managing storage accounts review the [Azure Storage security guide](../../storage/blobs/security-recommendations.md)
+For recommendation on securely managing storage accounts, review the [Azure Storage security guide](../../storage/blobs/security-recommendations.md)
 
 ## Next Steps
 
 - [Virtual network service endpoints for Azure Key Vault](overview-vnet-service-endpoints.md)
 - [RBAC: Built-in roles](../../role-based-access-control/built-in-roles.md)
-- [virtual network service endpoints for Azure Key Vault](overview-vnet-service-endpoints.md)
+

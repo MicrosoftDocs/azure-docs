@@ -31,7 +31,10 @@ Because attacks often occur across different tenants, Security Center can combin
 
 During an investigation of an incident, analysts often need extra context to reach a verdict about the nature of the threat and how to mitigate it. For example, even when a network anomaly is detected, without understanding what else is happening on the network or with regard to the targeted resource, it's difficult to understand what actions to take next. To help, a security incident can include artifacts, related events, and information. The additional information available for security incidents varies, depending on the type of threat detected and the configuration of your environment. 
 
+> [!TIP]
+> For a list of security incident alerts that can be produced by the fusion analytics, see the [Reference table of alerts](alerts-reference.md#alerts-fusion).
+
 ![Screenshot of Security incident detected report](./media/security-center-alerts-cloud-smart/security-incident.png)
 
-To better understand security incidents, see [How to handle security incidents in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-incident).
+To better understand security incidents, see [How to handle security incidents in Azure Security Center](security-center-incident.md).
 

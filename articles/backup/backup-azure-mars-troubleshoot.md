@@ -78,7 +78,7 @@ We recommend that you check the following before you start troubleshooting Micro
 
 ## Backup jobs completed with warning
 
-- When the MARS agent iterates over files and folders during backup, it might encounter various conditions that can cause the backup to be marked as completed with warnings. During these conditions, a job shows as completed with warnings. That is fine, but it means that at least one file wasn't able to be backed up. So the job skipped that file, but backed up all other files in question on the data source.
+- When the MARS agent iterates over files and folders during backup, it might encounter various conditions that can cause the backup to be marked as completed with warnings. During these conditions, a job shows as completed with warnings. That's fine, but it means that at least one file wasn't able to be backed up. So the job skipped that file, but backed up all other files in question on the data source.
 
   ![Backup job completed with warnings](./media/backup-azure-mars-troubleshoot/backup-completed-with-warning.png)
 
@@ -219,7 +219,7 @@ Backup operation may fail if the cache folder (also referred as scratch folder) 
 
 ### Prerequisites
 
-For MARS agent operations to succeed the cache folder needs to adhere to the below requirements:
+For MARS agent operations to succeed the cache folder needs to adhere to the following requirements:
 
 - [Ensure 5% to 10% free volume space is available in the scratch folder location](backup-azure-file-folder-backup-faq.md#whats-the-minimum-size-requirement-for-the-cache-folder)
 - [Ensure scratch folder location is valid and accessible](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
@@ -233,7 +233,7 @@ Backup operations could fail if there isn't sufficient shadow copy storage space
 
 - Check the current shadow storage space from the elevated command prompt:<br/>
   `vssadmin List ShadowStorage /For=[Volume letter]:`
-- Increase the shadow storage space using the below command:<br/>
+- Increase the shadow storage space using the following command:<br/>
   `vssadmin Resize ShadowStorage /On=[Volume letter]: /For=[Volume letter]: /Maxsize=[size]`
 
 ### Another process or antivirus software blocking access to cache folder
@@ -253,25 +253,25 @@ This section covers the common errors that you encounter while using MARS agent.
 
 Error message | Recommended action
 --|--
-Microsoft Azure Recovery Services Agent was unable to access backup checksum stored in scratch location | To resolve this issue, perform the below and restart the server <br/> - [Check if there is an antivirus or other processes locking the scratch location files](#another-process-or-antivirus-software-blocking-access-to-cache-folder)<br/> - [Check if the scratch location is valid and accessible to the MARS agent.](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
+Microsoft Azure Recovery Services Agent was unable to access backup checksum stored in scratch location | To resolve this issue, perform the following steps and restart the server <br/> - [Check if there is an antivirus or other processes locking the scratch location files](#another-process-or-antivirus-software-blocking-access-to-cache-folder)<br/> - [Check if the scratch location is valid and accessible to the MARS agent.](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
 
 ### SalVhdInitializationError
 
 Error message | Recommended action
 --|--
-Microsoft Azure Recovery Services Agent was unable to access the scratch location to initialize VHD | To resolve this issue, perform the below and restart the server <br/> - [Check if antivirus or other processes are locking the scratch location files](#another-process-or-antivirus-software-blocking-access-to-cache-folder)<br/> - [Check if the scratch location is valid and accessible to the MARS agent.](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
+Microsoft Azure Recovery Services Agent was unable to access the scratch location to initialize VHD | To resolve this issue, perform the following steps and restart the server <br/> - [Check if antivirus or other processes are locking the scratch location files](#another-process-or-antivirus-software-blocking-access-to-cache-folder)<br/> - [Check if the scratch location is valid and accessible to the MARS agent.](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
 
 ### SalLowDiskSpace
 
 Error message | Recommended action
 --|--
-Backup failed due to insufficient storage in volume  where the scratch folder is located | To resolve this issue, verify the below steps and retry the operation:<br/>- [Ensure the MARS agent is latest](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)<br/> - [Verify and resolve storage issues that impact backup scratch space](#prerequisites)
+Backup failed due to insufficient storage in volume  where the scratch folder is located | To resolve this issue, verify the following steps and retry the operation:<br/>- [Ensure the MARS agent is latest](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)<br/> - [Verify and resolve storage issues that impact backup scratch space](#prerequisites)
 
 ### SalBitmapError
 
 Error message | Recommended action
 --|--
-Unable to find changes in a file. This could be due to various reasons. Please retry the operation | To resolve this issue, verify the below steps and retry the operation:<br/> - [Ensure the MARS agent is latest](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409) <br/> - [Verify and resolve storage issues that impact backup scratch space](#prerequisites)
+Unable to find changes in a file. This could be due to various reasons. Please retry the operation | To resolve this issue, verify the following steps and retry the operation:<br/> - [Ensure the MARS agent is latest](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409) <br/> - [Verify and resolve storage issues that impact backup scratch space](#prerequisites)
 
 ## Next steps
 

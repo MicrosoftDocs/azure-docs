@@ -17,7 +17,8 @@ ms.reviewer: azmetadatadev
 
 The Azure Instance Metadata Service (IMDS) provides information about currently running virtual machine instances and can be used to manage and configure your virtual machines.
 This information includes the SKU, storage, network configurations, and upcoming maintenance events. For a complete list of the data that is available, see [metadata APIs](#metadata-apis).
-Instance Metadata Service is available for both the VM and virtual machine scale set Instances. It is only available for running VMs created/managed using [Azure Resource Manager](/rest/api/resources/).
+Instance Metadata Service is available for running virtual machine and virtual machine scale set instances. All APIs support VMs created/managed using [Azure Resource Manager](/rest/api/resources/). Only
+the Attested and Network endpoints support Classic (non-ARM) VMs, and Attested does so only to a limited extent.
 
 Azure's IMDS is a REST Endpoint that is available at a well-known non-routable IP address (`169.254.169.254`), it can be accessed only from within the VM. Communication between the VM and IMDS never leaves the Host.
 It is best practice to have your HTTP clients bypass web proxies within the VM when querying IMDS and treat `169.254.169.254` the same as [`168.63.129.16`](../../virtual-network/what-is-ip-address-168-63-129-16.md).
@@ -514,10 +515,11 @@ caching | Caching requirements
 createOption | Information about how the VM was created
 diffDiskSettings | Ephemeral disk settings
 diskSizeGB | Size of the disk in GB
+encryptionSettings | Encryption settings for the disk
 image   | Source user image virtual hard disk
-lun     | Logical unit number of the disk
 managedDisk | Managed disk parameters
 name    | Disk name
+osType  | Type of OS included in the disk
 vhd     | Virtual hard disk
 writeAcceleratorEnabled | Whether or not writeAccelerator is enabled on the disk
 
@@ -529,11 +531,10 @@ caching | Caching requirements
 createOption | Information about how the VM was created
 diffDiskSettings | Ephemeral disk settings
 diskSizeGB | Size of the disk in GB
-encryptionSettings | Encryption settings for the disk
 image   | Source user image virtual hard disk
+lun     | Logical unit number of the disk
 managedDisk | Managed disk parameters
 name    | Disk name
-osType  | Type of OS included in the disk
 vhd     | Virtual hard disk
 writeAcceleratorEnabled | Whether or not writeAccelerator is enabled on the disk
 
@@ -682,7 +683,7 @@ Nonce is an optional 10-digit string. If not provided, IMDS returns the current 
 }
 ```
 
-The signature blob is a [pkcs7](https://aka.ms/pkcs7) signed version of document. It contains the certificate used for signing along with the VM details like vmId, sku, nonce, subscriptionId, timeStamp for creation and expiry of the document and the plan information about the image. The plan information is only populated for Azure Marketplace images. The certificate can be extracted from the response and used to validate that the response is valid and is coming from Azure.
+The signature blob is a [pkcs7](https://aka.ms/pkcs7) signed version of document. It contains the certificate used for signing along with certain VM-specific details. For ARM VMs, this includes vmId, sku, nonce, subscriptionId, timeStamp for creation and expiry of the document and the plan information about the image. The plan information is only populated for Azure Marketplace images. For Classic (non-ARM) VMs, only the vmId is guaranteed to be populated. The certificate can be extracted from the response and used to validate that the response is valid and is coming from Azure.
 The document contains the following fields:
 
 Data | Description
@@ -694,6 +695,9 @@ timestamp/expiresOn | The UTC timestamp for when the signed document expires
 vmId |  [Unique identifier](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) for the VM
 subscriptionId | Azure subscription for the Virtual Machine, introduced in `2019-04-30`
 sku | Specific SKU for the VM image, introduced in `2019-11-01`
+
+> [!NOTE]
+> For Classic (non-ARM) VMs, only the vmId is guaranteed to be populated.
 
 ### Sample 2: Validating that the VM is running in Azure
 

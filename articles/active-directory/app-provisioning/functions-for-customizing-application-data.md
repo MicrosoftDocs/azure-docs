@@ -208,7 +208,7 @@ Takes a date string from one format and converts it into a different format.
 | Name | Required/ Repeating | Type | Notes |
 | --- | --- | --- | --- |
 | **source** |Required |String |Usually name of the attribute from the source object. |
-| **inputFormat** |Required |String |Expected format of the source value. For supported formats, see [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
+| **inputFormat** |Required |String |Expected format of the source value. For supported formats, see [/dotnet/standard/base-types/custom-date-and-time-format-strings](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
 | **outputFormat** |Required |String |Format of the output date. |
 
 ---
@@ -438,7 +438,7 @@ Flips the boolean value of the **source**. If **source** value is "*True*", retu
 NumFromDate(value)
 
 **Description:**<br> 
-The NumFromDate function converts a DateTime value to Active Directory format that is required to set attributes like [accountExpires](https://docs.microsoft.com/windows/win32/adschema/a-accountexpires). Use this function to convert DateTime values received from cloud HR apps like Workday and SuccessFactors to their equivalent AD representation. 
+The NumFromDate function converts a DateTime value to Active Directory format that is required to set attributes like [accountExpires](/windows/win32/adschema/a-accountexpires). Use this function to convert DateTime values received from cloud HR apps like Workday and SuccessFactors to their equivalent AD representation. 
 
 **Parameters:**<br> 
 

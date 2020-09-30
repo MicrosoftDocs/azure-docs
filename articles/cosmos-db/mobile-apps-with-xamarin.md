@@ -7,6 +7,7 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
+ms.custom: devx-track-csharp
 
 ---
 # Tutorial: Build mobile applications with Xamarin and Azure Cosmos DB
@@ -66,7 +67,7 @@ In your Xamarin projects, you can use language-integrated queries over schemales
     }
 ```
 ### Add users
-Like many get started samples, the Azure Cosmos DB sample you downloaded authenticates to the service by using a master key hardcoded in the app's code. This default is not a good practice for an app you intend to run anywhere except on your local emulator. If an unauthorized user obtained the master key, all the data across your Azure Cosmos DB account could be compromised. Instead, you want your app to access only the records for the signed-in user. Azure Cosmos DB allows developers to grant application read or read/write permission to a collection, a set of documents grouped by a partition key, or a specific document. 
+Like many get started samples, the Azure Cosmos DB sample you downloaded authenticates to the service by using a primary key hardcoded in the app's code. This default is not a good practice for an app you intend to run anywhere except on your local emulator. If an unauthorized user obtained the primary key, all the data across your Azure Cosmos DB account could be compromised. Instead, you want your app to access only the records for the signed-in user. Azure Cosmos DB allows developers to grant application read or read/write permission to a collection, a set of documents grouped by a partition key, or a specific document. 
 
 Follow these steps to modify the to-do list app to a multiuser to-do list app: 
 

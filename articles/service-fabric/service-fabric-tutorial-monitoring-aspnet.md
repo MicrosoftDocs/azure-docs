@@ -6,7 +6,7 @@ author: dkkapur
 ms.topic: tutorial
 ms.date: 07/10/2019
 ms.author: dekapur
-ms.custom: mvc
+ms.custom: "mvc, devx-track-csharp"
 ---
 # Tutorial: Monitor and diagnose an ASP.NET Core application on Service Fabric using Application Insights
 

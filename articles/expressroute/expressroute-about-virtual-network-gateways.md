@@ -2,12 +2,12 @@
 title: About ExpressRoute virtual network gateways - Azure| Microsoft Docs
 description: Learn about virtual network gateways for ExpressRoute. This article includes information about gateway SKUs and types.
 services: expressroute
-author: cherylmc
+author: duongau
 
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/14/2019
-ms.author: mialdrid
+ms.author: duau
 
 ---
 # About ExpressRoute virtual network gateways

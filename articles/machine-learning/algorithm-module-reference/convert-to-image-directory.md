@@ -9,17 +9,18 @@ ms.topic: reference
 
 author: likebupt
 ms.author: keli19
-ms.date: 05/26/2020
+ms.date: 09/28/2020
 ---
 # Convert to Image Directory
 
-This article describes how to use the Convert to Image Directory module to help convert image dataset to 'Image Directory' data type, which is standardized data format in image related tasks like image classification in Azure Machine Learning designer (preview).
+This article describes how to use the Convert to Image Directory module to help convert image dataset to 'Image Directory' data type, which is standardized data format in image related tasks like image classification in Azure Machine Learning designer.
 
 ## How to use Convert to Image Directory  
 
-1.  Add the **Convert to Image Directory** module to your experiment. You can find this module in the 'Computer Vision/Image Data Transformation' category in the module list. 
+1.  Add the **Convert to Image Directory** module to the canvas. You can find this module in the 'Computer Vision/Image Data Transformation' category in the module list. 
 
-2.  [Register an image dataset](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets) and connect it to the module input port. Please make sure there is image in input dataset. 
+2.  The input of **Convert to Image Directory** module must be a file dataset. [Register an image dataset](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets) and connect it to the module input port. Please make sure there is image in input dataset. Currently Designer does not support visualize image dataset.
+ 
     Following dataset formats are supported:
 
     - Compressed file in these extensions: '.zip', '.tar', '.gz', '.bz2'.
@@ -30,20 +31,24 @@ This article describes how to use the Convert to Image Directory module to help 
     
 
     > [!NOTE]
-    > If use image dataset in supervised learning, label is required.
-    > For image classification task, label can be generated as image 'category' in module output if this image dataset is organized in torchvision ImageFolder format. Otherwise, only images are saved without label. Here is an example of how you could organize image dataset to get label, use image category as subfolder name. Please refer to [torchvision datasets](https://pytorch.org/docs/stable/torchvision/datasets.html#imagefolder) for more information.
+    > - If use image dataset in supervised learning, you need to specify the label of training dataset.
+    > - For image classification task, label can be generated as image 'category' in module output if this image dataset is organized in torchvision ImageFolder format. Otherwise, only images are saved without label. Following is an example of how you could organize image dataset to get label, use image category as subfolder name. 
+    > - You don't need to upload the same count of images in each category folder.
+    > - Images with these extensions (in lowercase) are supported: '.jpg', '.jpeg', '.png', '.ppm', '.bmp', '.pgm', '.tif', '.tiff', '.webp'. You can also have multiple types of images in one folder.    
+    > - Please refer to [torchvision datasets](https://pytorch.org/docs/stable/torchvision/datasets.html#imagefolder) for more information.
     >
     > ```
-    > root/dog/xxx.png
-    > root/dog/xxy.png
-    > root/dog/xxz.png
+    > Your_image_folder_name/Category_1/xxx.png
+    > Your_image_folder_name/Category_1/xxy.jpg
+    > Your_image_folder_name/Category_1/xxz.jpeg
     >
-    > root/cat/123.png
-    > root/cat/nsdf3.png
-    > root/cat/asd932_.png
+    > Your_image_folder_name/Category_2/123.png
+    > Your_image_folder_name/Category_2/nsdf3.png
+    > Your_image_folder_name/Category_2/asd932_.png
     > ```
-
-3.  Submit the pipeline.
+    > - If use image dataset for scoring, the input file dataset of this module should contain un-classified images.
+    
+3.  Submit the pipeline. This module could be run on either GPU or CPU.
 
 ## Results
 

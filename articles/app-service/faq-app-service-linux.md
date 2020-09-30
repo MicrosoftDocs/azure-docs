@@ -117,7 +117,7 @@ Provide the full registry URL, including `http://` or `https://`.
 
 **What is the format for the image name in the private registry option?**
 
-Add the full image name, including the private registry URL (for example, myacr.azurecr.io/dotnet:latest). Image names that use a custom port [cannot be entered through the portal](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650). To set `docker-custom-image-name`, use the [`az` command-line tool](https://docs.microsoft.com/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set).
+Add the full image name, including the private registry URL (for example, myacr.azurecr.io/dotnet:latest). Image names that use a custom port [cannot be entered through the portal](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650). To set `docker-custom-image-name`, use the [`az` command-line tool](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set).
 
 **Can I expose more than one port on my custom container image?**
 
@@ -125,7 +125,7 @@ We don't support exposing more than one port.
 
 **Can I bring my own storage?**
 
-Yes, [bring your own storage](https://docs.microsoft.com/azure/app-service/configure-connect-to-azure-storage) is in preview.
+Yes, [bring your own storage](./configure-connect-to-azure-storage.md) is in preview.
 
 **Why can't I browse my custom container's file system or running processes from the SCM site?**
 

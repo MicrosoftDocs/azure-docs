@@ -36,9 +36,9 @@ The benefits of a connected logistics solution include:
 
 The following screenshots show the out-of-the-box dashboard in the application template. The dashboard is fully customizable to meet your specific solution requirements:
 
-:::image type="content" source="media/overview-iot-central-retail/connected-logistics-dashboard1.png" alt-text="Connected Logistics Dashboard":::
+:::image type="content" source="media/overview-iot-central-retail/connected-logistics-dashboard1.png" alt-text="Screenshot that shows the top half of the connected logistics operations dashboard.":::
 
-:::image type="content" source="media/overview-iot-central-retail/connected-logistics-dashboard2.png" alt-text="Connected Logistics Dashboard":::
+:::image type="content" source="media/overview-iot-central-retail/connected-logistics-dashboard2.png" alt-text="Screenshot that shows the bottom half of the connected logistics operations dashboard.":::
 
 To learn more, see the [Deploy and walk through a connected logistics application template](./tutorial-iot-central-connected-logistics.md) tutorial.
 
@@ -155,20 +155,20 @@ The video analytics application uses a [live video analytics (LVA)](#live-video-
 
 The application template includes four application dashboards:
 
-* **Setup** provides information about the application design and lets you add and delete cameras.
-* **Manage** lets you manage your cameras. For example, you can configure the cameras, view status information, and start cameras running.
-* **Real Cameras** lets you view information from your real cameras such as detection counts and camera events.
-* **Monitor** lets you view detailed information from all of your cameras.
+* **Getting Started** provides links to resources to help you get started using the application template.
+* **Demo Dashboard** provides an illustration of the types of information you can display from your connected cameras.
+* **(Sample) Real Camera Management** uses simulated cameras to show how you can manage your cameras from the application.
+* **(Sample) Real Camera Monitor** uses simulated cameras to show how you can monitor your cameras from the application.
 
 :::image type="content" source="media/overview-iot-central-retail/live-video-analytics.png" alt-text="Video analytics - object and motion detection":::
 
 To learn more about the architecture of the solution, see [Video analytics application architecture](architecture-video-analytics.md).
 
-To learn how to deploy the solution, see the [Create a video analytics application in Azure IoT Central](tutorial-video-analytics-create-app.md) tutorial.
+To learn how to deploy the solution, see the [Create a video analytics application in Azure IoT Central](tutorial-video-analytics-deploy.md) tutorial.
 
 ### Live video analytics
 
-Live video analytics provides a platform for you to build intelligent video applications that span the edge and the cloud. The platform offers the capability to capture, record, analyze live video, and publish the results, which could be video or video analytics, to Azure services. The Azure services could be running in the cloud or the edge. You can use the platform to enhance IoT solutions with video analytics.
+[Live video analytics](https://github.com/Azure/live-video-analytics) provides a platform for you to build intelligent video applications that span the edge and the cloud. The platform offers the capability to capture, record, analyze live video, and publish the results, which could be video or video analytics, to Azure services. The Azure services could be running in the cloud or the edge. You can use the platform to enhance IoT solutions with video analytics.
 
 ## Next steps
 
@@ -179,4 +179,5 @@ To get started building a retail solution:
 * [Deploy and walk through a digital distribution center application template](./tutorial-iot-central-digital-distribution-center.md).
 * [Deploy and walk through a smart inventory management application template](./tutorial-iot-central-smart-inventory-management.md).
 * [Deploy and walk through the micro-fulfillment center application template](./tutorial-micro-fulfillment-center.md).
+* [Deploy and walk through the video analytics application template](./tutorial-video-analytics-deploy.md).
 * Learn more about IoT Central in the [IoT Central overview](../preview/overview-iot-central.md).

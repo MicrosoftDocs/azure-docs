@@ -109,6 +109,7 @@ Any parameter name included as part of an OIDC or OAuth2 request can be mapped t
 | Claim | Description | Example |
 | ----- | ----------------------- | --------|
 | {oauth2:access_token} | The access token. | N/A |
+| {oauth2:refresh_token} | The refresh token. | N/A |
 
 
 ### SAML

@@ -29,7 +29,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Wire protocol compatibility with MongoDB
-            url: mongodb-feature-support.md
+            url: mongodb-feature-support-36.md
           - text: Wire protocol compatibility with Apache Cassandra
             url: cassandra-support.md
           - text: Wire protocol compatibility with Tinkerpop’s Gremlin
@@ -64,7 +64,7 @@ landingContent:
             url: regional-presence.md   
       - linkListType: how-to-guide
         links:
-          - text: Configure multi-master
+          - text: Configure multi-region writes
             url: how-to-multi-master.md
           - text: Configure consistency levels
             url: how-to-manage-consistency.md
@@ -330,17 +330,17 @@ landingContent:
             url: migrate-cosmosdb-data.md 
 
   # Card
-  - title: Built-in analytics with Apache Spark
+  - title: Analytics with Azure Synapse Link
     linkLists:
       - linkListType: concept
         links:
-          - text: Analytics use cases
-            url: analytics-usecases.md
-          - text: Lambda architecture
-            url: lambda-architecture.md
+          - text: Synapse Link for Azure Cosmos DB
+            url: synapse-link.md
+          - text: Azure Cosmos DB Analytical Store 
+            url: analytical-store-introduction.md
+          - text: Synapse Link use cases 
+            url: synapse-link-use-cases.md
       - linkListType: how-to-guide
         links:
-          - text: Use Cosmos DB to Spark connector
-            url: spark-connector.md
-          - text: Use Cosmos DB with Apache Kafka
-            url: /azure/hdinsight/apache-kafka-spark-structured-streaming-cosmosdb
+          - text: Configure Azure Synapse Link
+            url: configure-synapse-link.md

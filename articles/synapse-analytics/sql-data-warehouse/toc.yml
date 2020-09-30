@@ -122,7 +122,7 @@
         href: /azure/sql-database/transparent-data-encryption-azure-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
       - name: TDE with Bring Your Own Key
         href: /azure/sql-database/transparent-data-encryption-byok-azure-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
-  - name: Data loading
+  - name: Data ingestion and preparation
     items:
     - name: Overview
       href: design-elt-data-loading.md
@@ -222,8 +222,6 @@
         href: sql-data-warehouse-develop-user-defined-schemas.md
       - name: Variable assignment
         href: sql-data-warehouse-develop-variable-assignment.md
-      - name: Views
-        href: sql-data-warehouse-develop-views.md
   - name: Querying
     items:
     - name: Dynamic SQL
@@ -284,7 +282,7 @@
       href: sql-data-warehouse-encryption-tde.md
     - name: Enable encryption - T-SQL
       href: sql-data-warehouse-encryption-tde-tsql.md
-  - name: Load data
+  - name: Load and prepare data
     items:
     - name: From Azure Data Lake Storage (ADLS)
       href: sql-data-warehouse-load-from-azure-data-lake-store.md

@@ -40,15 +40,15 @@ In this tutorial, you learn how to:
 
 Familiarize yourself with these articles:
 
-- [Tutorial: Collect and analyze resource logs from an Azure resource](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-resource-logs)
+- [Tutorial: Collect and analyze resource logs from an Azure resource](../../azure-monitor/learn/tutorial-resource-logs.md)
 
-- [How to integrate activity logs with Log Analytics](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [How to integrate activity logs with Log Analytics](./howto-integrate-activity-logs-with-log-analytics.md)
 
-- [Manage emergency access account in Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access)
+- [Manage emergency access account in Azure AD](../users-groups-roles/directory-emergency-access.md)
 
-- [KQL quick reference](https://docs.microsoft.com/azure/data-explorer/kql-quick-reference)
+- [KQL quick reference](/azure/data-explorer/kql-quick-reference)
 
-- [Azure Monitor Workbooks](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview)
+- [Azure Monitor Workbooks](../../azure-monitor/platform/workbooks-overview.md)
 
 
 
@@ -71,7 +71,7 @@ Configuring a log analytics workspace consists of two main steps:
 
 3. On the log analytics workspaces page, click **Add**.
 
-    ![Add](./media/tutorial-log-analytics-wizard/add.png)
+    ![Screenshot shows the Add button in the log analytics workspaces page.](./media/tutorial-log-analytics-wizard/add.png)
 
 4.  On the **Create Log Analytics workspace** page, perform the following steps:
 
@@ -151,7 +151,7 @@ Look at the sign-ins where the Conditional Access was a success
 
 Count how many successes there have been
 
-`SigninLogs | where ConditionalAccessStatus == "success" | project UserDisplayName, ConditionalAccessStatus | count'
+`SigninLogs | where ConditionalAccessStatus == "success" | project UserDisplayName, ConditionalAccessStatus | count`
 
 
 Aggregate count of successful sign-ins by user by day:
@@ -304,7 +304,7 @@ This procedure shows how to create a new workbook using the quickstart template.
 
 3. In the **Monitoring** section, click **Workbooks**.
 
-    ![Workbooks](./media/tutorial-log-analytics-wizard/workbooks.png)
+    ![Screenshot shows Monitoring in the Azure portal menu with Workbooks selected.](./media/tutorial-log-analytics-wizard/workbooks.png)
 
 4. In the **Quickstart** section, click **Empty**.
 
@@ -356,7 +356,7 @@ This procedure shows how to add a query to an existing workbook template. The ex
 
 3. In the **Monitoring** section, click **Workbooks**.
 
-    ![Workbooks](./media/tutorial-log-analytics-wizard/workbooks.png)
+    ![Screenshot shows Monitoring in the menu with Workbooks selected.](./media/tutorial-log-analytics-wizard/workbooks.png)
 
 4. In the **conditional access** section, click **Conditional Access Insights and Reporting**.
 

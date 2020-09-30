@@ -39,6 +39,6 @@ ms.custom: include file
 <sup>5</sup>This limit applies to the Basic, Standard, and Premium tiers. In the Consumption tier, policy document size is limited to 4 KiB.<br/>
 <sup>6</sup>Multiple custom domains are supported in the Developer and Premium tiers only.<br/>
 <sup>7</sup>CA certificates are not supported in the Consumption tier.<br/>
-<sup>8</sup>This resource applies to the Consumption tier only.<br/>
+<sup>8</sup>This limit applies to the Consumption tier only. There are no limits in these categories for other tiers.<br/>
 <sup>9</sup>Applies to the Consumption tier only. Includes an up to 2048 bytes long query string.<br/>
 <sup>10</sup>Self-hosted gateways are supported in the Developer and Premium tiers only. The limit applies to the number of [self-hosted gateway resources](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/gateway). To raise this limit please contact [support](https://azure.microsoft.com/support/options/). Note, that the number of nodes (or replicas) associated with a self-hosted gateway resource is unlimited in the Premium tier and capped at a single node in the Developer tier.

@@ -8,7 +8,7 @@ services: iot-hub
 ms.topic: tutorial
 ms.date: 03/25/2018
 ms.author: robinsh
-ms.custom: mvc
+ms.custom: "mvc, devx-track-csharp"
 #Customer intent: As a developer, I want to be able to route messages sent to my IoT hub to different destinations based on properties stored in the message.
 ---
 # Tutorial: Part 2 - View the routed messages
@@ -77,7 +77,7 @@ The Service Bus queue is to be used for receiving messages designated as critica
 
    ![The Office365 options](./media/tutorial-routing-view-message-routing-results/logic-app-select-outlook.png)
 
-8. Sign in to your Office 365 account to set up the connection. If this times out, just try again. Specify the e-mail addresses for the recipient(s) of the e-mails. Also specify the subject, and type what message you'd like the recipient to see in the body. For testing, fill in your own e-mail address as the recipient.
+8. Sign in to your work or school account to set up the connection. If this times out, just try again. Specify the e-mail addresses for the recipient(s) of the e-mails. Also specify the subject, and type what message you'd like the recipient to see in the body. For testing, fill in your own e-mail address as the recipient.
 
    Select **Add dynamic content** to show the content from the message that you can include. Select **Content** -- it will include the message in the e-mail.
 

@@ -5,6 +5,7 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ---
 
 # Materials
@@ -60,22 +61,32 @@ void SetMaterialColorToGreen(Material material)
 ```cpp
 void SetMaterialColorToGreen(ApiHandle<Material> material)
 {
-    if (*material->MaterialSubType() == MaterialType::Color)
+    if (material->GetMaterialSubType() == MaterialType::Color)
     {
         ApiHandle<ColorMaterial> colorMaterial = material.as<ColorMaterial>();
-        colorMaterial->AlbedoColor({ 0, 1, 0, 1 });
+        colorMaterial->SetAlbedoColor({ 0, 1, 0, 1 });
         return;
     }
 
-    if (*material->MaterialSubType() == MaterialType::Pbr)
+    if (material->GetMaterialSubType() == MaterialType::Pbr)
     {
         ApiHandle<PbrMaterial> pbrMat = material.as<PbrMaterial>();
-        pbrMat->AlbedoColor({ 0, 1, 0, 1 });
+        pbrMat->SetAlbedoColor({ 0, 1, 0, 1 });
         return;
     }
 }
 ```
 
+## API documentation
+
+* [C# Material class](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.material)
+* [C# ColorMaterial class](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.colormaterial)
+* [C# PbrMaterial class](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.pbrmaterial)
+* [C# RemoteManager.CreateMaterial()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.creatematerial)
+* [C++ Material class](https://docs.microsoft.com/cpp/api/remote-rendering/material)
+* [C++ ColorMaterial class](https://docs.microsoft.com/cpp/api/remote-rendering/colormaterial)
+* [C++ PbrMaterial class](https://docs.microsoft.com/cpp/api/remote-rendering/pbrmaterial)
+* [C++ RemoteManager::CreateMaterial()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#creatematerial)
 
 ## Next steps
 

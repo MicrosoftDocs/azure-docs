@@ -42,15 +42,16 @@ If there are other offer types you'd like to see supported in Azure Government, 
 > [!NOTE]
 > These steps assume you have already published a solution in Azure Global. If you haven't, please check out the [Azure Marketplace Publisher Guide](../marketplace/marketplace-publishers-guide.md) documentation before proceeding.
 
-1. **Sign in to the [Azure Cloud Partner Portal](https://cloudpartner.azure.com)**.
+1. **Sign in to the [Partner Center Portal](https://partner.microsoft.com/)**.
+1. Navigate to the **Commercial Marketplace** program.
 1. **Open the offer** you want to publish to the Azure Government Marketplace.
-1. The Editor tab is opened by default, click on the **SKUs** entry in the left menu of the editor.
-1. **Click on the sku**. 
-1. In the **SKU Details section**, **Cloud Availability option**, check the **Azure Government Cloud** box. Remember that this option [isn't available for all offers](#marketplace-offer-support).
+1. Go to the **Plan overview** page using the left menu.  
+1. **Click on the plan you want to update** to be available in Azure Government. 
+1. In the **Plan setup** page, under **Azure regions**, check the **Azure Government** box. Remember that this option [isn't available for all offers](#marketplace-offer-support).
 1. ***Optionally***, click the **+ Add Certification** link to add links to any certifications that are relevant for your product and that you want to make available to customers.
 1. ***Optionally***, add your Azure Government subscription to preview your marketplace offering before it is broadly available. 
-    1. Click on **Marketplace** entry in the left menu
-    1. In the **Preview Subscription Ids section**, click on **Add subscription** and add your [Azure Government subscription ID](#testing).
+    1. Click on **Preview audience** entry in the offer-level left menu.
+    1. Add your [Azure Government subscription ID](#testing).
 1. **Publish** your solution once again.
 
 ## Testing

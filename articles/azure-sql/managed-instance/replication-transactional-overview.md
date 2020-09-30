@@ -1,7 +1,7 @@
 ---
 title: Transactional replication
 titleSuffix: Azure SQL Managed Instance
-description: Learn about using SQL Server transactional replication with Azure SQL Managed Instance. 
+description: Learn about using SQL Server transactional replication with Azure SQL Managed Instance (Preview). 
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: data-movement
@@ -10,10 +10,10 @@ ms.devlang:
 ms.topic: conceptual
 author: MashaMSFT
 ms.author:  mathoma
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 04/20/2020
 ---
-# Transactional replication with Azure SQL Managed Instance
+# Transactional replication with Azure SQL Managed Instance (Preview)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 Transactional replication is a feature of Azure SQL Managed Instance and SQL Server that enables you to replicate data from a table in Azure SQL Managed Instance or a SQL Server instance to tables placed on remote databases. This feature allows you to synchronize multiple tables in different databases. 

@@ -7,7 +7,7 @@ ms.service: static-web-apps
 ms.topic:  tutorial
 ms.date: 05/08/2020
 ms.author: chnwamba
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 
@@ -53,7 +53,7 @@ To begin, create a new repository under your GitHub account from a template repo
     npm run dev
     ```
 
-Navigate to <http://localhost:3000> to open the app, where you should see the following website open in your preferred browser:
+Navigate to `http://localhost:3000` to open the app, where you should see the following website open in your preferred browser:
 
 :::image type="content" source="media/deploy-nextjs/start-nextjs-app.png" alt-text="Start Next.js app":::
 

@@ -5,7 +5,7 @@ author: vhorne
 ms.service: web-application-firewall
 services: web-application-firewall
 ms.topic: tutorial
-ms.date: 03/18/2020
+ms.date: 09/16/2020
 ms.author: victorh
 ---
 
@@ -67,17 +67,22 @@ To create a custom rule, select **Add custom rule** under the **Custom rules** s
 
 The following screenshot shows a custom match rule to block a request if the query string contains the value **blockme**.
 
-![Change WAF policy mode](../media/waf-cdn-create-portal/custommatch.png)
+![Add custom match rule](../media/waf-cdn-create-portal/custommatch.png)
 
 Rate limit rules require two additional fields: **Rate limit duration** and **Rate limit threshold (requests)** as shown in the following example:
 
-![Change WAF policy mode](../media/waf-cdn-create-portal/customrate.png)
+![Add rate limit rule](../media/waf-cdn-create-portal/customrate.png)
 
 ### Default Rule Set (DRS)
 
 The Azure managed Default Rule Set is enabled by default. To disable an individual rule within a rule group, expand the rules within that rule group,  select the check box in front of the rule number, and select **Disable** on the tab above. To change actions types for individual rules within the rule set, select the check box in front of the rule number, and then select the **Change action** tab above.
 
  ![Change WAF Rule Set](../media/waf-cdn-create-portal/managed2.png)
+
+## Clean up resources
+
+When no longer needed, remove the resource group and all related resources.
+
 
 ## Next steps
 

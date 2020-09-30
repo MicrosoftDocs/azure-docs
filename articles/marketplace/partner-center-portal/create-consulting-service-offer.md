@@ -5,7 +5,7 @@ author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/17/2020
 ---
 
@@ -20,7 +20,7 @@ Before you create your offer, review the prerequisites in [Consulting service pr
 Benefits of publishing to the commercial marketplace:
 
 - Promote your company by using the Microsoft brand.
-- Potentially reach more than 100 million Office 365 and Dynamics 365 users on AppSource and more than 200,000 organizations through Azure Marketplace.
+- Potentially reach more than 100 million Microsoft 365 and Dynamics 365 users on AppSource and more than 200,000 organizations through Azure Marketplace.
 - Receive high-quality leads from these marketplaces.
 - Have your services promoted by the Microsoft field and telesales teams
 
@@ -33,7 +33,7 @@ Benefits of publishing to the commercial marketplace:
     ![Illustrates the left-navigation menu.](./media/new-offer-consulting-service.png)
 
 >[!NOTE]
->After an offer is published, edits made to it in Partner Center only appear in storefronts after republishing the offer. Make sure you always republish after making changes.
+>After an offer is published, edits made to it in Partner Center only appear in online stores after republishing the offer. Make sure you always republish after making changes.
 
 ## New offer
 
@@ -204,15 +204,14 @@ Provide logos and images to use with your offer. All images must be in .png form
 
 #### Store logos
 
-Provide PNG files of your offer's logo in each of the following pixel sizes:
+Provide a PNG file for the **Large** size logo. Partner Center will use this to create a **Small** logo. You can optionally replace this with a different image later.
 
-- **Small (48 x 48)**
-- **Large (216 x 216)**
+- **Large** (from 216 x 216 to 350 x 350 px, required)
+- **Small** (48 x 48 px, optional)
 
-All logos are required and are used in different places in the marketplace listing.
+These logos are used in different places in the listing.
 
--   The Small logo (48 x 48 pixels) appears in Azure Marketplace search results and on the Microsoft AppSource main page and search results page. 
--   The Large logo (between 216 x 216 and 350 x 350 pixels) appears on your offer listing page in Azure Marketplace and Microsoft AppSource.
+[!INCLUDE [Logo tips](../includes/graphics-suggestions.md)]
 
 #### Screenshots (optional)
 

@@ -5,20 +5,22 @@ titleSuffix: Azure Media Services
 description: Learn about rules that apply to entities and APIs when developing with Media Services v3. 
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 
 ms.service: media-services
 ms.workload: 
-ms.topic: article
-ms.date: 10/21/2019
-ms.author: juliako
+ms.topic: conceptual
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: seodec18
 
 ---
 
 # Develop with Media Services v3 APIs
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 As a developer, you can use Media Services [REST API](/rest/api/media/) or client libraries that allow you to interact with the REST API to easily create, manage, and maintain custom media workflows. The [Media Services v3](https://aka.ms/ams-v3-rest-sdk) API is based on the OpenAPI specification (formerly known as a Swagger).
 
@@ -37,7 +39,7 @@ Instead of creating a service principal, consider using managed identities for A
 
 ### Azure AD service principal
 
-If you're creating an Azure AD app and service principal, the app has to be in its own tenant. After you create the app, give the app **Contributor** or **Owner** role access to the Media Services account.
+The Azure AD app and service principal should be in the same tenant. After you create the app, give the app **Contributor** or **Owner** role access to the Media Services account.
 
 If you're not sure whether you have permissions to create an Azure AD app, see [Required permissions](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
@@ -85,7 +87,7 @@ The names of files/blobs within an asset must follow both the [blob name require
 
 The operations marked with `x-ms-long-running-operation` in the Azure Media Services [swagger files](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/streamingservice.json) are long running operations. 
 
-For details about how to track asynchronous Azure operations, see [Async operations](../../azure-resource-manager/management/async-operations.md#monitor-status-of-operation).
+For details about how to track asynchronous Azure operations, see [Async operations](../../azure-resource-manager/management/async-operations.md).
 
 Media Services has the following long-running operations:
 

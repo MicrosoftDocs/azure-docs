@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Route electric vehicles by using Azure Notebooks (Python) | Microsoft Azure Maps'
-description: Route electric vehicles by using Microsoft Azure Maps routing APIs and Azure Notebooks.
+description: Tutorial on how to route electric vehicles by using Microsoft Azure Maps routing APIs and Azure Notebooks
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 11/12/2019
@@ -22,7 +22,7 @@ In this tutorial, you walk help a driver whose electric vehicle battery is low. 
 In this tutorial, you will:
 
 > [!div class="checklist"]
-> *	Create and run a Jupyter notebook on [Azure Notebooks](https://docs.microsoft.com/azure/notebooks) in the cloud.
+> *	Create and run a Jupyter Notebook file on [Azure Notebooks](https://docs.microsoft.com/azure/notebooks) in the cloud.
 > *	Call Azure Maps REST APIs in Python.
 > *	Search for a reachable range based on the electric vehicle's consumption model.
 > *	Search for electric vehicle charging stations within the reachable range, or isochrone.
@@ -40,9 +40,9 @@ To get the primary subscription key for your account, follow the instructions in
 
 For more information on authentication in Azure Maps, see [manage authentication in Azure Maps](./how-to-manage-authentication.md).
 
-## Create an Azure notebook
+## Create an Azure Notebooks project
 
-To follow along with this tutorial, you need to create an Azure notebook project and download and run the Jupyter notebook file. The notebook file contains Python code, which implements the scenario in this tutorial. To create an Azure notebook project and upload the Jupyter notebook document to it, do the following steps:
+To follow along with this tutorial, you need to create an Azure Notebooks project and download and run the Jupyter Notebook file. The Jupyter Notebook file contains Python code, which implements the scenario in this tutorial. To create an Azure Notebooks project and upload the Jupyter Notebook document to it, do the following steps:
 
 1. Go to [Azure Notebooks](https://notebooks.azure.com) and sign in. For more information, see [Quickstart: Sign in and set a user ID](https://docs.microsoft.com/azure/notebooks/quickstart-sign-in-azure-notebooks).
 1. At the top of your public profile page, select **My Projects**.
@@ -59,25 +59,25 @@ To follow along with this tutorial, you need to create an Azure notebook project
 
 1. Select **Create**.
 
-1. After your project is created, download this [Jupyter notebook document file](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/EVrouting.ipynb) from the [Azure Maps Jupyter notebook repository](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook).
+1. After your project is created, download this [Jupyter Notebook document file](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/EVrouting.ipynb) from the [Azure Maps Jupyter Notebook repository](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook).
 
-1. In the projects list on the **My Projects** page, select your project, and then select **Upload** to upload the Jupyter notebook document file. 
+1. In the projects list on the **My Projects** page, select your project, and then select **Upload** to upload the Jupyter Notebook document file. 
 
-    ![upload notebook](./media/tutorial-ev-routing/upload-notebook.png)
+    ![upload Jupyter Notebook](./media/tutorial-ev-routing/upload-notebook.png)
 
 1. Upload the file from your computer, and then select **Done**.
 
-1. After the upload has finished successfully, your file is displayed on your project page. Double-click on the file to open it as a Jupyter notebook.
+1. After the upload has finished successfully, your file is displayed on your project page. Double-click on the file to open it as a Jupyter Notebook.
 
-Try to understand the functionality that's implemented in the notebook file. Run the code, in the notebook file, one cell at a time. You can run the code in each cell by selecting the **Run** button at the top of the notebook app.
+Try to understand the functionality that's implemented in the Jupyter Notebook file. Run the code, in the Jupyter Notebook file, one cell at a time. You can run the code in each cell by selecting the **Run** button at the top of the Jupyter Notebook app.
 
   ![The Run button](./media/tutorial-ev-routing/run.png)
 
 ## Install project level packages
 
-To run the code in the notebook, install packages at the project level by doing the following steps:
+To run the code in Jupyter Notebook, install packages at the project level by doing the following steps:
 
-1. Download the [*requirements.txt*](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/requirements.txt) file from the [Azure Maps Jupyter notebook repository](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook), and then upload it to your project.
+1. Download the [*requirements.txt*](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/requirements.txt) file from the [Azure Maps Jupyter Notebook repository](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook), and then upload it to your project.
 1. On the project dashboard, select **Project Settings**. 
 1. In the **Project Settings** pane, select the **Environment** tab, and then select **Add**.
 1. Under **Environment Setup Steps**, do the following:   
@@ -382,8 +382,6 @@ display(Image(staticMapImage))
 
 ![A map showing the route](./media/tutorial-ev-routing/route.png)
 
-## Next steps
-
 In this tutorial, you learned how to call Azure Maps REST APIs directly and visualize Azure Maps data by using Python.
 
 To explore the Azure Maps APIs that are used in this tutorial, see:
@@ -394,7 +392,11 @@ To explore the Azure Maps APIs that are used in this tutorial, see:
 * [Render - Get Map Image](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
 * [Post Route Matrix](https://docs.microsoft.com/rest/api/maps/route/postroutematrix)
 * [Get Route Directions](https://docs.microsoft.com/rest/api/maps/route/getroutedirections)
+* [Azure Maps REST APIs](https://docs.microsoft.com/azure/azure-maps/consumption-model)
 
-For a complete list of Azure Maps REST APIs, see [Azure Maps REST APIs](https://docs.microsoft.com/azure/azure-maps/consumption-model).
+## Next steps
 
-To learn more about Azure Notebooks, see [Azure Notebooks](https://docs.microsoft.com/azure/notebooks).
+To learn more about Azure Notebooks, see
+
+> [!div class="nextstepaction"]
+> [Azure Notebooks](https://docs.microsoft.com/azure/notebooks)

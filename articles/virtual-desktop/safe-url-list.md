@@ -55,7 +55,7 @@ The following table lists optional URLs that your Azure virtual machines can hav
 >
 >1. Register your virtual machines to the Windows Virtual Desktop host pool.
 >2. Open **Event viewer**, then go to **Windows logs** > **Application** > **WVD-Agent** and look for Event ID 3701.
->3. Whitelist the URLs that you find under Event ID 3701. The URLs under Event ID 3701 are region-specific. You'll need to repeat the unblocking process with the relevant URLs for each region you want to deploy your virtual machines in.
+>3. Unblock the URLs that you find under Event ID 3701. The URLs under Event ID 3701 are region-specific. You'll need to repeat the unblocking process with the relevant URLs for each region you want to deploy your virtual machines in.
 
 ## Remote Desktop clients
 

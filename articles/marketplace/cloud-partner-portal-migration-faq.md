@@ -15,17 +15,17 @@ The Cloud Partner Portal has transitioned to Partner Center. Partner Center offe
 
 ## What does the transition to Partner Center mean for me?
 
-You can continue doing business as usual in Partner Center:
+You can continue doing business in Partner Center:
 
 | Area<img src="" width=200px> | Changes |
 | --- | --- |
 | Account | No need to create a new Partner Center account; you can use your existing Cloud Partner Portal credentials to log into Partner Center where you will now manage your account, users, permissions, and billing. The publishing agreement and company profile information are migrated to your new Partner Center account, along with any payout profile information, user accounts and permissions, and active offers. Learn more at [Manage your commercial marketplace account in Partner Center](partner-center-portal/manage-account.md). |
 | Offer publishing and offer management experience | We've moved your offer data from the Cloud Partner Portal to Partner Center. You will now access your offers in Partner Center, which offers an improved user experience and intuitive interface. Learn how to [Update an existing offer in the commercial marketplace](partner-center-portal/update-existing-offer.md). |
-| Availability of your offers in the commercial marketplace | No changes. If your offer is live in the commercial marketplace it will continue to be live. |
+| Availability of your offers in the commercial marketplace | No changes. If your offer is live in the commercial marketplace, it will continue to be live. |
 | New purchases and deployments | No changes. Your customers can continue purchasing and deploying your offers with no interruptions. |
-| Payouts | Any purchases and deployments will continue to be paid out to you as normal. Learn more about [Getting paid in the commercial marketplace](partner-center-portal/get-paid.md). |
+| Payouts | Any purchases and deployments will continue to be paid out to you as normal. Learn more about [Getting paid in the commercial marketplace](/partner-center/marketplace-get-paid?context=/azure/marketplace/context/context). |
 | API integrations with existing [Cloud Partner Portal APIs](cloud-partner-portal-api-overview.md) | Existing Cloud Partner Portal APIs are still supported and your existing integrations still work. Learn more at [Will the Cloud Partner Portal REST APIs be supported?](#are-the-cloud-partner-portal-rest-apis-still-supported) |
-| Analytics | You can continue to monitor sales, evaluate performance, and optimize your offers in the commercial marketplace by viewing analytics in Partner Center. There are differences between how analytics reports display in CPP and Partner Center. For example, **Seller Insights** in CPP has an **Orders & Usage** tab which displays data for usage-based offers and non-usage-based offers, while in Partner Center the **Orders** page has a separate tab for SaaS Offers. Learn more at [Access analytic reports for the commercial marketplace in Partner Center](partner-center-portal/analytics.md). |
+| Analytics | You can continue to monitor sales, evaluate performance, and optimize your offers in the commercial marketplace by viewing analytics in Partner Center. There are differences between how analytics reports display in CPP and Partner Center. For example, **Seller Insights** in CPP has an **Orders & Usage** tab that displays data for usage-based offers and non-usage-based offers, while in Partner Center the **Orders** page has a separate tab for SaaS Offers. Learn more at [Access analytic reports for the commercial marketplace in Partner Center](partner-center-portal/analytics.md). |
 |||
 
 ## Do I need to create a new account to manage my offers in Partner Center?
@@ -158,6 +158,7 @@ The information you previously provided for SKUs in a single page in the Cloud P
 - Plan listing page
 - Plan availability page
 - Plan technical configuration page, as shown here:
+
 ![![Screenshot shows the Partner Center technical configuration page.](media/cpp-pc-faq/technical-configuration.png "Shows the Partner Center technical configuration page")](media/cpp-pc-faq/technical-configuration.png#lightbox)
 
 Your offer ID is now shown on the left-navigation bar of the offer:

@@ -1,6 +1,6 @@
 ---
-title: Guidance for mitigating speculative execution in Azure 
-description: Guidance for mitigating speculative execution side-channel vulnerabilities in Azure.
+title: Guidance for mitigating speculative execution
+description: Learn more about mitigating speculative execution side-channel vulnerabilities in Azure.
 services: virtual-machines
 author: cynthn
 keywords: spectre,meltdown,specter
@@ -15,6 +15,6 @@ ms.author: cynthn
 
 
 
-# Guidance for mitigating speculative execution side-channel vulnerabilities in Azure
+# Guidance for mitigating speculative execution side-channel vulnerabilities
 
 [!INCLUDE [virtual-machines-common-mitigate-se](../../../includes/virtual-machines-common-mitigate-se.md)]

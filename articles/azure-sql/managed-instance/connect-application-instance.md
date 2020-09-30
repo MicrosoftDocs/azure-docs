@@ -10,7 +10,7 @@ ms.devlang:
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: sstein, bonova, carlrab, vanto
+ms.reviewer: sstein, bonova, vanto
 ms.date: 11/09/2018
 ---
 
@@ -37,7 +37,7 @@ Connecting an application when it resides within a different virtual network fro
 
 There are two options for connecting virtual networks:
 
-- [Azure VPN peering](../../virtual-network/virtual-network-peering-overview.md)
+- [Azure VNet peering](../../virtual-network/virtual-network-peering-overview.md)
 - VNet-to-VNet VPN gateway ([Azure portal](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md), [PowerShell](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md), [Azure CLI](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-cli.md))
 
 Peering is preferable because it uses the Microsoft backbone network, so from the connectivity perspective, there is no noticeable difference in latency between virtual machines in a peered virtual network and in the same virtual network. Virtual network peering is limited to the networks in the same region.  

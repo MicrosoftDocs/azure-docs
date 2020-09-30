@@ -10,7 +10,7 @@ ms.devlang:
 ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
-ms.reviewer: carlrab, vanto
+ms.reviewer: sstein, vanto
 ms.date: 06/26/2020
 ---
 # Azure SQL Database and Azure Synapse Analytics connectivity architecture
@@ -73,10 +73,10 @@ Details of how traffic shall be migrated to new Gateways in specific regions are
 | Australia Central    | 20.36.105.0 |
 | Australia Central2   | 20.36.113.0 |
 | Australia East       | 13.75.149.87, 40.79.161.1, 13.70.112.9 |
-| Australia South East | 191.239.192.109, 13.73.109.251 |
+| Australia South East | 191.239.192.109, 13.73.109.251, 13.77.48.10 |
 | Brazil South         | 104.41.11.5, 191.233.200.14 |
 | Canada Central       | 40.85.224.249, 52.246.152.0, 20.38.144.1 |
-| Canada East          | 40.86.226.166      |
+| Canada East          | 40.86.226.166, 52.242.30.154 |
 | Central US           | 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96, 104.208.21.1 |
 | China East           | 139.219.130.35     |
 | China East 2         | 40.73.82.1         |
@@ -88,6 +88,7 @@ Details of how traffic shall be migrated to new Gateways in specific regions are
 | France Central       | 40.79.137.0, 40.79.129.1 |
 | Germany Central      | 51.4.144.100       |
 | Germany North East   | 51.5.144.179       |
+| Germany West Central | 51.116.240.0, 51.116.248.0, 51.116.152.0 |
 | India Central        | 104.211.96.159     |
 | India South          | 104.211.224.146    |
 | India West           | 104.211.160.80     |
@@ -107,7 +108,7 @@ Details of how traffic shall be migrated to new Gateways in specific regions are
 | Switzerland West     | 51.107.152.0, 51.107.153.0 |
 | UAE Central          | 20.37.72.64        |
 | UAE North            | 65.52.248.0        |
-| UK South             | 51.140.184.11      |
+| UK South             | 51.140.184.11, 51.105.64.0 |
 | UK West              | 51.141.8.11        |
 | West Central US      | 13.78.145.25, 13.78.248.43        |
 | West Europe          | 40.68.37.158, 191.237.232.75, 104.40.168.105, 52.236.184.163  |
