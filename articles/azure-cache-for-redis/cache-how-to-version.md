@@ -1,21 +1,15 @@
 ---
-title: Add replicas to Azure Cache for Redis (Preview)
-description: Learn how to add more replicas to your Premium tier Azure Cache for Redis instances
+title: Set Redis version for Azure Cache for Redis (Preview)
+description: Learn how to configure Redis version
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
-ms.date: 08/11/2020
+ms.date: 09/30/2020
 ---
 
-# Add replicas to Azure Cache for Redis (Preview)
-In this article, you'll learn how to set up an Azure Cache instance with additional replicas using the Azure portal.
-
-Azure Cache for Redis Standard and Premium tiers offer redundancy by hosting each cache on two dedicated virtual machines (VMs). These VMs are configured as primary and replica. When the primary VM becomes unavailable, the replica detects that and takes over as the new primary automatically. You can now increase the number of replicas in a Premium cache up to three, giving you a total of four VMs backing a cache. Having multiple replicas results in higher resilience than what a single replica can provide.
-
-> [!IMPORTANT]
-> This preview is provided without a service level agreement, and it's not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews.](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) 
-> 
+# Set Redis version for Azure Cache for Redis (Preview)
+In this article, you'll learn how to configure the Redis software version to be used with your cache instance. Azure Cache for Redis offers the latest major version of Redis and at least one previous version. It will update these versions regularly as newer Redis software is released. You can choose between the two available versions. Keep in mind that your cache will be upgraded to the next version automatically if the  version it's using currently is no longer supported.
 
 ## Prerequisites
 * Azure subscription - [create one for free](https://azure.microsoft.com/free/)
@@ -41,24 +35,18 @@ To create a cache, follow these steps:
     | **Resource group** | Select a resource group, or select **Create new** and enter a new resource group name. | Name for the resource group in which to create your cache and other resources. By putting all your app resources in one resource group, you can easily manage or delete them together. | 
     | **DNS name** | Enter a globally unique name. | The cache name must be a string between 1 and 63 characters that contains only numbers, letters, or hyphens. The name must start and end with a number or letter, and can't contain consecutive hyphens. Your cache instance's *host name* will be *\<DNS name>.redis.cache.windows.net*. | 
     | **Location** | Select a location. | Select a [region](https://azure.microsoft.com/regions/) near other services that will use your cache. |
-    | **Cache type** | Select a [Premium tier](https://azure.microsoft.com/pricing/details/cache/) cache. |  The pricing tier determines the size, performance, and features that are available for the cache. For more information, see [Azure Cache for Redis Overview](cache-overview.md). |
+    | **Cache type** | Select a [cache tier and size](https://azure.microsoft.com/pricing/details/cache/). |  The pricing tier determines the size, performance, and features that are available for the cache. For more information, see [Azure Cache for Redis Overview](cache-overview.md). |
    
-1. On the **Advanced** page, choose **Replica count**.
+1. On the **Advanced** page, choose a Redis version to use.
    
-    :::image type="content" source="media/cache-how-to-multi-replicas/create-multi-replicas.png" alt-text="Replica count.":::
+    :::image type="content" source="media/cache-how-to-version/select-redis-version.png" alt-text="Redis version.":::
 
-1. Leave other options in their default settings. 
-
-    > [!NOTE]
-    > Multi-replica support only works with non-clustered caches currently.
-    >
-
-1. Click **Create**.
+1. Click **Create**. 
    
     It takes a while for the cache to create. You can monitor progress on the Azure Cache for Redis **Overview** page. When **Status** shows as **Running**, the cache is ready to use.
 
     > [!NOTE]
-    > The number of replicas in a cache can't be changed after it's created.
+    > At this time, the Redis version can't be changed once a cache is created.
     >
 
 ## Next Steps
