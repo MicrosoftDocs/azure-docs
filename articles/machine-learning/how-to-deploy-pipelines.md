@@ -16,7 +16,7 @@ ms.custom: how-to, contperfq1
 
 # Publish and track machine learning pipelines
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 This article will show you how to share a machine learning pipeline with your colleagues or customers.
 
@@ -34,7 +34,7 @@ Machine learning pipelines are reusable workflows for machine learning tasks. On
 
 Once you have a pipeline up and running, you can publish a pipeline so that it runs with different inputs. For the REST endpoint of an already published pipeline to accept parameters, you must configure your pipeline to use `PipelineParameter` objects for the arguments that will vary.
 
-1. To create a pipeline parameter, use a [PipelineParameter](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?view=azure-ml-py) object with a default value.
+1. To create a pipeline parameter, use a [PipelineParameter](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?view=azure-ml-py&preserve-view=true) object with a default value.
 
    ```python
    from azureml.pipeline.core.graph import PipelineParameter
@@ -69,7 +69,7 @@ Once you have a pipeline up and running, you can publish a pipeline so that it r
 
 All published pipelines have a REST endpoint. With the pipeline endpoint, you can trigger a run of the pipeline from any external systems, including non-Python clients. This endpoint enables "managed repeatability" in batch scoring and retraining scenarios.
 
-To invoke the run of the preceding pipeline, you need an Azure Active Directory authentication header token. Getting such a token is described in the [AzureCliAuthentication class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.azurecliauthentication?view=azure-ml-py) reference and in the [Authentication in Azure Machine Learning](https://aka.ms/pl-restep-auth) notebook.
+To invoke the run of the preceding pipeline, you need an Azure Active Directory authentication header token. Getting such a token is described in the [AzureCliAuthentication class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.azurecliauthentication?view=azure-ml-py&preserve-view=true) reference and in the [Authentication in Azure Machine Learning](https://aka.ms/pl-restep-auth) notebook.
 
 ```python
 from azureml.pipeline.core import PublishedPipeline
@@ -80,6 +80,74 @@ response = requests.post(published_pipeline1.endpoint,
                          json={"ExperimentName": "My_Pipeline",
                                "ParameterAssignments": {"pipeline_arg": 20}})
 ```
+
+The `json` argument to the POST request must contain, for the `ParameterAssignments` key, a dictionary containing the pipeline parameters and their values. In addition, the `json` argument may contain the following keys:
+
+| Key | Description |
+| --- | --- | 
+| `ExperimentName` | The name of the experiment associated with this endpoint |
+| `Description` | Freeform text describing the endpoint | 
+| `Tags` | Freeform key-value pairs that can be used to label and annotate requests  |
+| `DataSetDefinitionValueAssignments` | Dictionary used for changing datasets without retraining (see discussion below) | 
+| `DataPathAssignments` | Dictionary used for changing datapaths without retraining (see discussion below) | 
+
+### Changing datasets and datapaths without retraining
+
+You may want to train and inference on different datasets and datapaths. For instance, you may wish to train on a smaller, sparser dataset but inference on the complete dataset. You switch datasets with the `DataSetDefinitionValueAssignments` key in the request's `json` argument. You switch datapaths with `DataPathAssignments`. The technique for both is similar:
+
+1. In your pipeline definition script, create a `PipelineParameter` for the dataset. Create a `DatasetConsumptionConfig` or `DataPath` from the `PipelineParameter`:
+
+    ```python
+    tabular_dataset = Dataset.Tabular.from_delimited_files('https://dprepdata.blob.core.windows.net/demo/Titanic.csv')
+    tabular_pipeline_param = PipelineParameter(name="tabular_ds_param", default_value=tabular_dataset)
+    tabular_ds_consumption = DatasetConsumptionConfig("tabular_dataset", tabular_pipeline_param)
+    ```
+
+1. In your ML script, access the dynamically specified dataset using `Run.get_context().input_datasets`:
+
+    ```python
+    from azureml.core import Run
+    
+    input_tabular_ds = Run.get_context().input_datasets['tabular_dataset']
+    dataframe = input_tabular_ds.to_pandas_dataframe()
+    # ... etc ...
+    ```
+
+    Notice that the ML script accesses the value specified for the `DatasetConsumptionConfig` (`tabular_dataset`) and not the value of the `PipelineParameter` (`tabular_ds_param`).
+
+1. In your pipeline definition script, set the `DatasetConsumptionConfig` as a parameter to the `PipelineScriptStep`:
+
+    ```python
+    train_step = PythonScriptStep(
+        name="train_step",
+        script_name="train_with_dataset.py",
+        arguments=["--param1", tabular_ds_consumption],
+        inputs=[tabular_ds_consumption],
+        compute_target=compute_target,
+        source_directory=source_directory)
+    
+    pipeline = Pipeline(workspace=ws, steps=[train_step])
+    ```
+
+1. To switch datasets dynamically in your inferencing REST call, use `DataSetDefinitionValueAssignments`:
+    
+    ```python
+    tabular_ds1 = Dataset.Tabular.from_delimited_files('path_to_training_dataset')
+    tabular_ds2 = Dataset.Tabular.from_delimited_files('path_to_inference_dataset')
+    ds1_id = tabular_ds1.id
+    d22_id = tabular_ds2.id
+    
+    response = requests.post(rest_endpoint, 
+                             headers=aad_token, 
+                             json={
+                                "ExperimentName": "MyRestPipeline",
+                               "DataSetDefinitionValueAssignments": {
+                                    "tabular_ds_param": {
+                                        "SavedDataSetReference": {"Id": ds1_id #or ds2_id
+                                    }}}})
+    ```
+
+The notebooks [Showcasing Dataset and PipelineParameter](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-showcasing-dataset-and-pipelineparameter.ipynb) and [Showcasing DataPath and PipelineParameter](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-showcasing-datapath-and-pipelineparameter.ipynb) have complete examples of this technique.
 
 ## Create a versioned pipeline endpoint
 
@@ -146,10 +214,10 @@ p = PublishedPipeline.get(ws, id="068f4885-7088-424b-8ce2-eeb9ba5381a6")
 p.disable()
 ```
 
-You can enable it again with `p.enable()`. For more information, see [PublishedPipeline class](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.publishedpipeline?view=azure-ml-py) reference.
+You can enable it again with `p.enable()`. For more information, see [PublishedPipeline class](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.publishedpipeline?view=azure-ml-py&preserve-view=true) reference.
 
 ## Next steps
 
 - Use [these Jupyter notebooks on GitHub](https://aka.ms/aml-pipeline-readme) to explore machine learning pipelines further.
-- See the SDK reference help for the [azureml-pipelines-core](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) package and the [azureml-pipelines-steps](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py) package.
+- See the SDK reference help for the [azureml-pipelines-core](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py&preserve-view=true) package and the [azureml-pipelines-steps](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py&preserve-view=true) package.
 - See the [how-to](how-to-debug-pipelines.md) for tips on debugging and troubleshooting pipelines.

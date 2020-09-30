@@ -6,8 +6,6 @@
     href: overview.md
   - name: About keys, secrets, and certificates
     href: about-keys-secrets-certificates.md
-  - name: What's new
-    href: whats-new.md    
 
 - name: Quickstarts
   expanded: true
@@ -49,6 +47,8 @@
     href: basic-concepts.md
   - name: Security
     items:
+    - name: Key Vault Authentication Fundamentals
+      href: authentication-fundamentals.md
     - name: Azure Key Vault security
       href: overview-security.md
     - name: Best Practices to use Key Vault - Azure Key Vault
@@ -66,9 +66,9 @@
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: ../security-controls-policy.md?toc=/azure/key-vault/general/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
-  - name: Notifications (preview)
+  - name: Notifications
     items:
-    - name: Monitor with Azure Event Grid (preview)
+    - name: Monitor with Azure Event Grid
       href: event-grid-overview.md
   - name: Soft-delete
     items:
@@ -101,6 +101,8 @@
         href: assign-access-policy-portal.md
     - name: Use an Azure RBAC for managing access to keys, secrets, and certificates (preview)
       href: rbac-guide.md
+    - name: Vault access policies to Azure RBAC migration guide
+      href: rbac-migration.md  
     - name: Troubleshoot access issues
       href: troubleshooting-access-issues.md
   - name: Develop
@@ -135,6 +137,8 @@
       href: access-behind-firewall.md
   - name: Soft-delete
     items:
+    - name: Key Vault Recovery (Soft Delete & Purge Protection)
+      href: key-vault-recovery.md
     - name: Use soft-delete with CLI
       href: soft-delete-cli.md
     - name: Use soft-delete with PowerShell
@@ -150,6 +154,8 @@
 
 - name: Reference
   items:
+  - name: What's new
+    href: whats-new.md
   - name: Client libraries
     href: client-libraries.md
   - name: REST API error codes - Azure Key Vault

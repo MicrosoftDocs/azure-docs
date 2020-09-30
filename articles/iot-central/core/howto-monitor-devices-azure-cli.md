@@ -6,7 +6,7 @@ ms.author: viviali
 ms.date: 03/27/2020
 ms.topic: how-to
 ms.service: iot-central 
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, device-developer
 services: iot-central
 manager: corywink
 ---

@@ -5,7 +5,7 @@ author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/17/2020
 ---
 
@@ -20,7 +20,7 @@ Before you create your offer, review the prerequisites in [Consulting service pr
 Benefits of publishing to the commercial marketplace:
 
 - Promote your company by using the Microsoft brand.
-- Potentially reach more than 100 million Office 365 and Dynamics 365 users on AppSource and more than 200,000 organizations through Azure Marketplace.
+- Potentially reach more than 100 million Microsoft 365 and Dynamics 365 users on AppSource and more than 200,000 organizations through Azure Marketplace.
 - Receive high-quality leads from these marketplaces.
 - Have your services promoted by the Microsoft field and telesales teams
 

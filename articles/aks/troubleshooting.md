@@ -445,3 +445,15 @@ On Kubernetes versions **older than 1.15.0**, you may receive an error such as *
 <!-- LINKS - internal -->
 [view-master-logs]: view-master-logs.md
 [cluster-autoscaler]: cluster-autoscaler.md
+
+### Why do upgrades to Kubernetes 1.16 fail when using node labels with a kubernetes.io prefix
+
+As of Kubernetes [1.16](https://v1-16.docs.kubernetes.io/docs/setup/release/notes/) [only a defined subset of labels with the kubernetes.io prefix](https://github.com/kubernetes/enhancements/blob/master/keps/sig-auth/0000-20170814-bounding-self-labeling-kubelets.md#proposal) can be applied by the kubelet to nodes. AKS cannot remove active labels on your behalf without consent, as it may cause downtime to impacted workloads.
+
+As a result, to mitigate this you can:
+
+1. Upgrade your cluster control plane to 1.16 or higher
+2. Add a new nodepoool on 1.16 or higher without the unsupported kubernetes.io labels
+3. Delete the older nodepool
+
+AKS is investigating the capability to mutate active labels on a nodepool to improve this mitigation.

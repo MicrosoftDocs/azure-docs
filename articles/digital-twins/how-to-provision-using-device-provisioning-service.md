@@ -72,7 +72,7 @@ Create a Device Provisioning Service instance, which will be used to provision I
 
 The following Azure CLI command will create a Device Provisioning Service. You will need to specify a name, resource group, and region. The command can be run in [Cloud Shell](https://shell.azure.com), or locally if you have the Azure CLI [installed on your machine](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-```azurecli-interactive
+```azurecli
 az iot dps create --name <Device Provisioning Service name> --resource-group <resource group name> --location <region; for example, eastus>
 ```
 
@@ -238,7 +238,7 @@ Next, you'll need to set environment variables in your function app from earlier
 
 Add the setting with this Azure CLI command:
 
-```azurecli-interactive
+```azurecli
 az functionapp config appsettings set --settings "ADT_SERVICE_URL=https://<Azure Digital Twins instance _host name_>" -g <resource group> -n <your App Service (function app) name>
 ```
 
@@ -247,7 +247,7 @@ Ensure that the permissions and Managed Identity role assignment are configured 
 <!-- 
 * Azure AD app registration **_Application (client) ID_** ([find in portal](../articles/digital-twins/how-to-set-up-instance-portal.md#collect-important-values))
 
-```azurecli-interactive
+```azurecli
 az functionapp config appsettings set --settings "AdtAppId=<Application (client)" ID> -g <resource group> -n <your App Service (function app) name> 
 ``` -->
 
@@ -294,7 +294,7 @@ You should see the device being registered and connected to IoT Hub, and then st
 
 As a result of the flow you've set up in this article, the device will be automatically registered in Azure Digital Twins. Using the following [Azure Digital Twins CLI](how-to-use-cli.md) command to find the twin of the device in the Azure Digital Twins instance you created.
 
-```azurecli-interactive
+```azurecli
 az dt twin show -n <Digital Twins instance name> --twin-id <Device Registration ID>"
 ```
 
@@ -450,13 +450,13 @@ Next, you'll need to set environment variables in your function app from earlier
 
 Add the setting with this Azure CLI command. The command can be run in [Cloud Shell](https://shell.azure.com), or locally if you have the Azure CLI [installed on your machine](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-```azurecli-interactive
+```azurecli
 az functionapp config appsettings set --settings "ADT_SERVICE_URL=https://<Azure Digital Twins instance _host name_>" -g <resource group> -n <your App Service (function app) name>
 ```
 
 Next, you will need to configure the function environment variable for connecting to the newly created event hub.
 
-```azurecli-interactive
+```azurecli
 az functionapp config appsettings set --settings "EVENTHUB_CONNECTIONSTRING=<Event Hubs SAS connection string Listen>" -g <resource group> -n <your App Service (function app) name>
 ```
 
@@ -487,7 +487,7 @@ The device will be automatically removed from Azure Digital Twins.
 
 Use the following [Azure Digital Twins CLI](how-to-use-cli.md) command to verify the twin of the device in the Azure Digital Twins instance was deleted.
 
-```azurecli-interactive
+```azurecli
 az dt twin show -n <Digital Twins instance name> --twin-id <Device Registration ID>"
 ```
 
@@ -503,7 +503,7 @@ Using the Azure Cloud Shell or local Azure CLI, you can delete all Azure resourc
 > [!IMPORTANT]
 > Deleting a resource group is irreversible. The resource group and all the resources contained in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. 
 
-```azurecli-interactive
+```azurecli
 az group delete --name <your-resource-group>
 ```
 <!-- 

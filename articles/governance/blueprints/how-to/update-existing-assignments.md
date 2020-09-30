@@ -22,7 +22,7 @@ an existing assignment, including:
 1. In the list of blueprints, select the blueprint assignment. Then use the **Update assignment**
    button OR right-click the blueprint assignment and select **Update assignment**.
 
-   :::image type="content" source="../media/update-existing-assignments/update-assignment.png" alt-text="Update an existing blueprint assignment" border="false":::
+   :::image type="content" source="../media/update-existing-assignments/update-assignment.png" alt-text="Screenshot of the Blueprint assignment page with the 'Update assignment' button highlighted." border="false":::
 
 1. The **Assign blueprint** page loads pre-filled with all values from the original assignment. You
    can change the **blueprint definition version**, the **Lock Assignment** state, and any of the
@@ -32,12 +32,12 @@ an existing assignment, including:
 1. On the updated assignment details page, see the new status. In this example, we added **Locking**
    to the assignment.
 
-   :::image type="content" source="../media/update-existing-assignments/updated-assignment.png" alt-text="Updated an existing blueprint assignment - lock mode changed" border="false":::
+   :::image type="content" source="../media/update-existing-assignments/updated-assignment.png" alt-text="Screenshot of an updated blueprint assignment showing the lock mode changed." border="false":::
 
 1. Explore details about other **Assignment operations** using the drop-down. The table of **Managed
    resources** updates by selected assignment operation.
 
-   :::image type="content" source="../media/update-existing-assignments/assignment-operations.png" alt-text="Assignment operations of a blueprint assignment" border="false":::
+   :::image type="content" source="../media/update-existing-assignments/assignment-operations.png" alt-text="Screenshot of an updated blueprint assignment showing the assignment operations and their status." border="false":::
 
 ## Rules for updating assignments
 

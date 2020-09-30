@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial - Create a video analytics IoT Edge instance in Azure IoT Central (Linux VM)'
-description: This tutorial shows how to create a video analytics IoT Edge instance to use with the video analytics - object and motion detection application template.
+description: This tutorial shows how to create a video analytics IoT Edge instance on a Linux VM to use with the video analytics - object and motion detection application template.
 services: iot-central
 ms.service: iot-central
 ms.subservice: iot-central-retail

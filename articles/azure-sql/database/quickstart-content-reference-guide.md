@@ -6,10 +6,10 @@ ms.service: sql-database
 ms.subservice: single-database
 ms.custom: sqldbrb=1
 ms.devlang: 
-ms.topic: quickstart
-author: jovanpop-msft
-ms.author: jovanpop
-ms.reviewer: carlr
+ms.topic: guide
+author: stevestein
+ms.author: sstein
+ms.reviewer:
 ms.date: 07/29/2019
 ---
 # Getting started with single databases in Azure SQL Database

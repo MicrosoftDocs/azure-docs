@@ -84,15 +84,15 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 3. Select the **Provisioning** tab.
 
-	![Provisioning tab](common/provisioning.png)
+	![Screenshot of the Manage options with the Provisioning option called out.](common/provisioning.png)
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-	![Provisioning tab](common/provisioning-automatic.png)
+	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
 5. Under the **Admin Credentials** section, input `https://scim-provisioning.service.newrelic.com/scim/v2` in Tenant URL. Input the SCIM authentication token value retrieved earlier in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to New Relic. If the connection fails, ensure your New Relic account has admin permissions and try again.
 
- 	![provisioning](./media/new-relic-by-organization-provisioning-tutorial/provisioning.png)
+ 	![Screenshot shows the Admin Credentials dialog box, where you can enter your Tenant U R L and Secret Token.](./media/new-relic-by-organization-provisioning-tutorial/provisioning.png)
 
 6. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.
 
