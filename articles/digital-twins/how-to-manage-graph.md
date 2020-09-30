@@ -166,7 +166,7 @@ You can now call this method to see the incoming relationships of the twins like
 
 `await FindIncomingRelationshipsAsync(client, twin_id);`
 
-You can now fetch and print the properties of twins with their relationships using FetchAndPrintTwinAsync(string twin_id, DigitalTwinsClient client) method.
+You can now fetch and print the properties of twins with their relationships using FetchAndPrintTwinAsync(DigitalTwinsClient client, string twin_id) method.
 
 ```csharp  
 private static async Task FetchAndPrintTwinAsync(DigitalTwinsClient client, string twin_id)
