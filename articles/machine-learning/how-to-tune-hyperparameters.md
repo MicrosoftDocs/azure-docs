@@ -25,7 +25,7 @@ Automate efficient hyperparameter tuning by using Azure Machine Learning [HyperD
 1. Allocate resources
 1. Launch an experiment with the defined configuration
 1. Visualize the training runs
-1. Select the best-performing configuration for your model
+1. Select the best configuration for your model
 
 ## What are hyperparameters?
 
@@ -224,7 +224,9 @@ In this example, the early termination policy is applied at every interval when 
 
 ### Median stopping policy
 
-[Median stopping](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.medianstoppingpolicy?view=azure-ml-py&preserve-view=true) is an early termination policy based on running averages of primary metrics reported by the runs. This policy computes running averages across all training runs and terminates runs whose performance is worse than the median of the running averages. This policy takes the following configuration parameters:
+[Median stopping](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.medianstoppingpolicy?view=azure-ml-py&preserve-view=true) is an early termination policy based on running averages of primary metrics reported by the runs. This policy computes running averages across all training runs and terminates runs with primary metric values worse than the median of averages.
+
+This policy takes the following configuration parameters:
 * `evaluation_interval`: the frequency for applying the policy (optional parameter).
 * `delay_evaluation`: delays the first policy evaluation for a specified number of intervals (optional parameter).
 
@@ -238,7 +240,9 @@ In this example, the early termination policy is applied at every interval start
 
 ### Truncation selection policy
 
-[Truncation selection](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.truncationselectionpolicy?view=azure-ml-py&preserve-view=true) cancels a given percentage of lowest performing runs at each evaluation interval. Runs are compared based on their performance on the primary metric and the lowest X% are terminated. It takes the following configuration parameters:
+[Truncation selection](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.truncationselectionpolicy?view=azure-ml-py&preserve-view=true) cancels a percentage of lowest performing runs at each evaluation interval. Runs are compared using the primary metric. 
+
+This policy takes the following configuration parameters:
 
 * `truncation_percentage`: the percentage of lowest performing runs to terminate at each evaluation interval. An integer value between 1 and 99.
 * `evaluation_interval`: (optional) the frequency for applying the policy
@@ -277,7 +281,7 @@ Control your resource budget by specifying the maximum number of training runs.
 
 Additionally, specify the maximum number of training runs to run concurrently during your hyperparameter tuning search.
 
-* `max_concurrent_runs`: (optional) Maximum number of runs that can run concurrently. If not specified, all `max_total_runs` are launched in parallel. If specified, must be a number between 1 and 100.
+* `max_concurrent_runs`: (optional) Maximum number of runs that can run concurrently. If not specified, all runs launch in parallel. If specified, must be an integer between 1 and 100.
 
 >[!NOTE] 
 >The number of concurrent runs is gated on the resources available in the specified compute target. Ensure that the compute target has the available resources for the desired concurrency.
