@@ -72,7 +72,7 @@ To configure the integration of Amazon Web Services (AWS) into Azure AD, you nee
 
 1. Once the application is added, go to **Properties** page and copy the **Object ID**.
 
-	![Amazon Web Services (AWS) in the results list](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-properties.png)
+	![Object ID](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-properties.png)
 
 ## Configure and test Azure AD SSO
 
@@ -199,7 +199,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 1. On the **Add tags (optional)** section, perform the following steps:
 
-	![Select Administrator Access](./media/aws-multi-accounts-tutorial/config2.png)
+	![Add tags](./media/aws-multi-accounts-tutorial/config2.png)
 
 	a. In the **Key** textbox, enter the key name for ex: Azureadtest.
 
@@ -230,7 +230,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 1. Create new groups with the same name as that of IAM Roles created earlier and note down the **Object IDs** of these new groups.
 
-	![Select Administrator Access](./media/aws-multi-accounts-tutorial/copy-objectids.png)
+	![Select Administrator Access1](./media/aws-multi-accounts-tutorial/copy-objectids.png)
 
 1. Sign out from current AWS account and login with other account where you want to configure single sign on with Azure AD.
 
@@ -242,7 +242,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 1. Click on the roles to copy **Role ARN** and **Trusted Entities** values. You need these values for all the roles that you need to create in Azure AD.
 
-	![Roles setup](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-role-summary.png)
+	![Roles setup2](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-role-summary.png)
 
 1. Perform the above step for all the roles in all the accounts and store all of them in format **Role ARN,Trusted entities** in a notepad.
 
@@ -252,11 +252,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	b. You need to have sufficient permissions to create the roles. Click on **modify permissions** to get the required permissions.
 
-	![Microsoft Graph Explorer dialog box](./media/aws-multi-accounts-tutorial/graph-explorer-new9.png)
+	![Microsoft Graph Explorer dialog box1](./media/aws-multi-accounts-tutorial/graph-explorer-new9.png)
 
 	c. Select following permissions from the list (if you don't have these already) and click "Modify Permissions" 
 
-	![Microsoft Graph Explorer dialog box](./media/aws-multi-accounts-tutorial/graph-explorer-new10.png)
+	![Microsoft Graph Explorer dialog box2](./media/aws-multi-accounts-tutorial/graph-explorer-new10.png)
 
 	d. This will ask you to login again and accept the consent. After accepting the consent, you are logged into the Microsoft Graph Explorer again.
 
@@ -267,17 +267,17 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	If you are using multiple directories, then you can use following pattern, which has your primary domain in it
 	`https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
 
-	![Microsoft Graph Explorer dialog box](./media/aws-multi-accounts-tutorial/graph-explorer-new1.png)
+	![Microsoft Graph Explorer dialog box3](./media/aws-multi-accounts-tutorial/graph-explorer-new1.png)
 
 	f. From the list of Service Principals fetched, get the one you need to modify. You can also use the Ctrl+F to search the application from all the listed ServicePrincipals. You can use following query by using the **Service Principal Object ID** which you have copied from Azure AD Properties page to get to the respective Service Principal.
 
 	`https://graph.microsoft.com/beta/servicePrincipals/<objectID>`.
 
-	![Microsoft Graph Explorer dialog box](./media/aws-multi-accounts-tutorial/graph-explorer-new2.png)
+	![Microsoft Graph Explorer dialog box4](./media/aws-multi-accounts-tutorial/graph-explorer-new2.png)
 
 	g. Extract the appRoles property from the service principal object.
 
-	![Microsoft Graph Explorer dialog box](./media/aws-multi-accounts-tutorial/graph-explorer-new3.png)
+	![Microsoft Graph Explorer dialog box5](./media/aws-multi-accounts-tutorial/graph-explorer-new3.png)
 
 	h. You now need to generate new roles for your application. 
 
@@ -327,7 +327,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	j. Go back to your Microsoft Graph Explorer and change the method from **GET** to **PATCH**. Patch the Service Principal object to have desired roles by updating appRoles property similar to the one shown above in the example. Click **Run Query** to execute the patch operation. A success message confirms the creation of the role for your Amazon Web Services application.
 
-	![Microsoft Graph Explorer dialog box](./media/aws-multi-accounts-tutorial/graph-explorer-new11.png)
+	![Microsoft Graph Explorer dialog box6](./media/aws-multi-accounts-tutorial/graph-explorer-new11.png)
 
 1. After the Service Principal is patched with more roles, you can assign Users/Groups to the respective roles. This can be done by going to portal and navigating to the Amazon Web Services application. Click on the **Users and Groups** tab on the top.
 
@@ -335,14 +335,14 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 1. Once the Groups are created, select the group and assign to the application.
 
-	![Configure Single Sign-On Add](./media/aws-multi-accounts-tutorial/graph-explorer-new5.png)
+	![Configure Single Sign-On Add1](./media/aws-multi-accounts-tutorial/graph-explorer-new5.png)
 
 	> [!Note]
 	> Nested groups are not supported when assigning groups.
 
 1. To assign the role to the group, select the role and click on **Assign** button in the bottom of the page.
 
-	![Configure Single Sign-On Add](./media/aws-multi-accounts-tutorial/graph-explorer-new6.png)
+	![Configure Single Sign-On Add2](./media/aws-multi-accounts-tutorial/graph-explorer-new6.png)
 
 	> [!Note]
 	> Please note that you need to refresh your session in Azure portal to see new roles.
@@ -353,11 +353,11 @@ In this section, you test your Azure AD single sign-on configuration using the A
 
 When you click the Amazon Web Services (AWS) tile in the Access Panel, you should get Amazon Web Services (AWS) application page with option to select the role.
 
-![Configure Single Sign-On Add](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-test-screen.png)
+![Test single sign-on1](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-test-screen.png)
 
 You can also verify the SAML response to see the roles being passed as claims.
 
-![Configure Single Sign-On Add](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-test-saml.png)
+![Test single sign-on2](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-test-saml.png)
 
 For more information about the Access Panel, see [Introduction to the Access Panel](../active-directory-saas-access-panel-introduction.md).
 
