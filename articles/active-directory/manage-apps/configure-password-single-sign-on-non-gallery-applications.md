@@ -1,6 +1,6 @@
 ---
-title: Understand password-based single sign-on for Azure AD apps
-description: Understand password-based single sign-on (SSO) for your Azure AD applications in Microsoft identity platform (Azure AD)
+title: Understand password-based single sign-on (SSO) for apps in Azure Active Directory
+description: Understand password-based single sign-on (SSO) for apps in Azure Active Directory
 services: active-directory
 author: kenwith
 manager: celestedg

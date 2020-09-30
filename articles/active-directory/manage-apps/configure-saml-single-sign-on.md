@@ -1,6 +1,6 @@
 ---
-title: Understand SAML-based single sign-on (SSO) for apps in Azure AD
-description: Understand SAML-based single sign-on (SSO) for apps in Azure AD
+title: Understand SAML-based single sign-on (SSO) for apps in Azure Active Directory
+description: Understand SAML-based single sign-on (SSO) for apps in Azure Active Directory
 services: active-directory
 author: kenwith
 manager: celestedg
