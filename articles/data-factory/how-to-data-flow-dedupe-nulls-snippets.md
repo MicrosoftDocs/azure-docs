@@ -24,11 +24,9 @@ By using code snippets in mapping data flows, you can very easily perform common
 
 2. Add a data flow activity.
 
-3. In the data flow activity, select **New mapping data flow**.
+3. Add a Source transformation and connect it to one of your datasets
 
-4. Add a Source, Derived Column, Select, and Sink transformation:
-
-    ![Fixed Width Data Flow](media/data-flow/fw2.png)
+    ![Source Snippet 1](media/data-flow/snippet1.png)
 
 5. Configure the Source transformation to use a new dataset, which will be of the Delimited Text type.
 
