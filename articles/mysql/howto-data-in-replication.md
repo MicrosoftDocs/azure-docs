@@ -68,7 +68,7 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
    3. Exit from the MySQL command-line.
    4. Execute the below in the ping utility to get the IP address.
       ```bash
-      ping <output of step b>
+      ping <output of step 2b>
       ``` 
       For example: 
       ```bash      
@@ -152,7 +152,7 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
 
 1. Get binary log file name and offset
 
-   Run the [` show master status`](https://dev.mysql.com/doc/refman/5.7/en/show-master-status.html) command to determine the current binary log file name and offset.
+   Run the [`show master status`](https://dev.mysql.com/doc/refman/5.7/en/show-master-status.html) command to determine the current binary log file name and offset.
     
    ```sql
     show master status;

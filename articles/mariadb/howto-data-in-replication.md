@@ -71,7 +71,7 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
    3. Exit from the MySQL command-line.
    4. Execute the below in the ping utility to get the IP address.
       ```bash
-      ping <output of step b>
+      ping <output of step 2b>
       ``` 
       For example: 
       ```bash      
