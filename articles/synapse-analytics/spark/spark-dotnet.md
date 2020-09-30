@@ -29,10 +29,30 @@ Visit the tutorial to learn how to use Azure Synapse Analytics to [create Apache
 
    ```dotnetcli
    cd mySparkApp
+   dotnet publish -c Release -f netcoreapp3.1 -r win-x64
+   ```
+   
+   **On Linux:**
+
+   ```dotnetcli
+   cd mySparkApp
    dotnet publish -c Release -f netcoreapp3.1 -r ubuntu.16.04-x64
    ```
 
+2. Zip up the contents of the publish folder (say `publish.zip`) created as a result of Step 1 such that all the assemblies are in the first layer of the ZIP file and there is no intermediate folder layer. This means when unzipping `publish.zip` all assemblies should be extracted into the current working directory.
+
+  **On Windows:**
+  
+  1. Download 7-Zip from [here](https://www.7-zip.org/) and add path to `7z.exe` to the `PATH` environment variable.
+  2. Open command prompt window and cd into the bin directory with all the published binaries and run the following command.
+  
+  ```cmd
+  7z a -tzip <ZIP file name> .
+  ```
+  
    **On Linux:**
+   
+   1. Open a bash shell and cd into the bin directory with all the published binaries and run the following command.
 
    ```bash
    zip -r publish.zip
