@@ -45,7 +45,7 @@ For more information, see [Determine what reservation to purchase](determine-r
 
 You can purchase reservations from the Azure portal, APIs, PowerShell, and CLI. 
 
-Go to the Azure portal to make a purchase [https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/Docs](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/Docs).
+Go to the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/Docs) to make a purchase.
 
 For more information, see [Buy a reservation](prepare-buy-reservation.md).
 
