@@ -31,9 +31,9 @@ The table below shows the availability of Azure Security Center features for the
 |Azure Container Registry|-|-|✔|
 |Azure Cosmos DB*|-|✔|-|
 |Azure Data Lake Analytics|✔|-|-|
-|Azure Data Lake Storage|✔|-|-|
-|Azure Database for MySQL*|✔|✔|-|
-|Azure Database for PostgreSQL*|✔|✔|-|
+|Azure Data Lake Storage|✔|✔|-|
+|Azure Database for MySQL*|-|✔|-|
+|Azure Database for PostgreSQL*|-|✔|-|
 |Azure Event Hubs namespace|✔|-|-|
 |Azure Functions app|✔|-|-|
 |Azure Key Vault|✔|✔|-|
@@ -44,7 +44,7 @@ The table below shows the availability of Azure Security Center features for the
 |Azure SQL Managed Instance|✔|✔|✔|
 |Azure Service Bus namespace|✔|-|-|
 |Azure Service Fabric account|✔|-|-|
-|Azure Storage accounts|✔|-|-|
+|Azure Storage accounts|✔|✔|-|
 |Azure Stream Analytics|✔|-|-|
 |Azure Subscription|✔ **|✔|-|
 |Azure Virtual Network</br> (incl. subnets, NICs, and network security groups)|✔|-|-|
