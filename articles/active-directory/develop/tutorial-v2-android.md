@@ -18,10 +18,9 @@ ms.custom: aaddev, identityplatformtop40
 
 # Tutorial: Sign in users and call the Microsoft Graph from an Android application
 
->[!NOTE]
->This tutorial demonstrates simplified examples of how to work with MSAL for Android. For simplicity, this tutorial only uses Single Account Mode. You can also view the repo and clone [the preconfigured sample app](https://github.com/Azure-Samples/ms-identity-android-java/) to explore more complex scenarios. View the [Quickstart](./quickstart-v2-android.md) for more on the sample app, configuration, and registration.
+In this tutorial, you learn how to integrate your Android app with the Microsoft identity platform using the Microsoft Authentication Library (MSAL) for Android. You'll learn how to sign in and sign out a user, get an access token, and make a request to the Microsoft Graph API.
 
-In this tutorial, you'll learn how to integrate your android app with the Microsoft identity platform using the Microsoft Authentication Library for Android. You'll learn how to sign in and sign out a user, get an access token to call the Microsoft Graph API, and make a request to the Graph API.
+When you've completed this tutorial, your application will accept sign-ins of personal Microsoft accounts (including outlook.com, live.com, and others) as well as work or school accounts from any company or organization that uses Azure Active Directory.
 
 > [!div class="checklist"]
 > * Integrate your Android App with the Microsoft Identity Platform
@@ -30,7 +29,8 @@ In this tutorial, you'll learn how to integrate your android app with the Micros
 > * Call the Microsoft Graph API
 > * Sign out a user
 
-When you've completed this tutorial, your application will accept sign-ins of personal Microsoft accounts (including outlook.com, live.com, and others) as well as work or school accounts from any company or organization that uses Azure Active Directory.
+> [!NOTE]
+> This tutorial demonstrates simplified examples of working with MSAL for Android. For simplicity, it uses Single Account Mode only. To explore more complex scenarios, see a completed [working code sample](https://github.com/Azure-Samples/ms-identity-android-java/) on GitHub.
 
 ## Prerequisites
 
@@ -52,7 +52,7 @@ More specifically:
 
 This sample uses the Microsoft Authentication library for Android (MSAL) to implement Authentication: [com.microsoft.identity.client](https://javadoc.io/doc/com.microsoft.identity.client/msal).
 
- MSAL will automatically renew tokens, deliver single sign-on (SSO) between other apps on the device, and manage the Account(s).
+MSAL will automatically renew tokens, deliver single sign-on (SSO) between other apps on the device, and manage the Account(s).
 
 ## Create a Project
 If you do not already have an Android application, follow these steps to set up a new project.
@@ -568,7 +568,7 @@ Sample `activity_main.xml` file to display buttons and text boxes.
 Build and deploy the app to a test device or emulator. You should be able to sign in and get tokens for Azure AD or personal Microsoft accounts.
 
 After you sign in, the app will display the data returned from the Microsoft Graph `/me` endpoint.
-
+PR 4
 ### Consent
 
 The first time any user signs into your app, they will be prompted by Microsoft identity to consent to the permissions requested. Some Azure AD tenants have disabled user consent which requires admins to consent on behalf of all users. To support this scenario, you will either need to create your own tenant or receive admin consent.
