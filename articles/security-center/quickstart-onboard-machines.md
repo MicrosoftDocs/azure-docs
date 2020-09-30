@@ -113,7 +113,7 @@ For further information on installing and configuring the agent, see [Connect Wi
 
 
 ## Verifying
-Congratulations! Now you can see your Azure and non-Azure machines together in one place. Open the [asset inventory page](asset-inventory.md) and filter to the relevant resource types. These two icons distinguish the types:
+Congratulations! Now you can see your Azure and non-Azure machines together in one place. Open the [asset inventory page](asset-inventory.md) and filter to the relevant resource types. These icons distinguish the types:
 
   ![ASC icon for non-Azure machine](./media/quick-onboard-linux-computer/security-center-monitoring-icon1.png) Non-Azure machine
 
