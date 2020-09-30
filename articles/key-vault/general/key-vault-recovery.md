@@ -7,7 +7,7 @@ ms.topic: conceptual
 author: ShaneBala-keyvault
 ms.author: sudbalas
 manager: ravijan
-ms.date: 09/25/2020
+ms.date: 09/30/2020
 ---
 
 # Azure Key Vault Recovery Overview
