@@ -7,21 +7,21 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 09/29/2020
+ms.date: 09/30/2020
 ms.author: rolyon
 ---
 
 # Understand scope for Azure RBAC
 
-*Scope* is the set of resources that access applies to. When you assign a role, it's important to understand scope so that you can grant a security principal just the access that it really needs. By limiting the scope you limit what resources are at risk if the security principal is ever compromised.
+*Scope* is the set of resources that access applies to. When you assign a role, it's important to understand scope so that you can grant a security principal just the access that it really needs. By limiting the scope, you limit what resources are at risk if the security principal is ever compromised.
 
 ## Scope levels
 
-Azure provides four levels of scope for resource management: [management group](../governance/management-groups/overview.md), subscription, [resource groups](../azure-resource-manager/management/overview.md#resource-groups) and resource. Each additional level of hierarchy makes the scope more specific. The following image shows an example of these levels from broadest to more specific.
+Azure provides four levels of scope for resource management: [management group](../governance/management-groups/overview.md), subscription, [resource groups](../azure-resource-manager/management/overview.md#resource-groups), and resource. Each level of hierarchy makes the scope more specific.
 
 ![Scope for a role assignment](./media/scope-overview/rbac-scope-no-label.png)
 
-You can assign roles at any of these levels of scope. The level you select determines how widely the role is applied. Lower levels inherit role permissions from higher levels. For example, when you assign a role at a subscription scope, the role is applied to all resource groups and resources in your subscription. When you assign a role at a resource group scope, the role is applied to the resource group and all its resources. However, another resource group doesn't have that role assignment.
+You can assign roles at any of these levels of scope. The level you select determines how widely the role is applied. Lower levels inherit role permissions from higher levels. For example, when you assign a role at a subscription scope, the role is applied to all resource groups and resources in your subscription. When you assign a role at a resource group scope, the role is applied to the resource group and all its resources.
 
 ## Scope format
 
@@ -47,7 +47,7 @@ The scope consists of a series of identifiers separated by the slash (/) charact
 - `{providerName}` is the name of the [resource provider](../azure-resource-manager/management/azure-services-resource-providers.md) that handles the resource, then `{resourceType}` and `{resourceSubType*}` identify further levels within that resource provider.
 - `{resourceName}` is the last part of the string that identifies a specific resource.
 
-Management groups are a level above subscriptions and have the broadest (least specific) scope. Role assignments at this level apply to a subscriptions within the management group. The scope for a management group has the following format:
+Management groups are a level above subscriptions and have the broadest (least specific) scope. Role assignments at this level apply to subscriptions within the management group. The scope for a management group has the following format:
 
 ```
 /providers
@@ -72,11 +72,11 @@ Management groups are a level above subscriptions and have the broadest (least s
 
 It's fairly simple to determine the scope for a management group, subscription, or resource group. You just need to know the name and the subscription ID. However, determining the scope for a resource is a little more complicated. Here are a couple ways that you can determine the scope for a resource.
 
-- In the Azure portal, open the resource and then look at the properties. The resource should list the **Resource ID** where you can determine the scope. Here's the resource ID for storage account.
+- In the Azure portal, open the resource and then look at the properties. The resource should list the **Resource ID** where you can determine the scope. For example, here are the resource IDs for a storage account.
 
-    ![Resource ID for a storage account in Azure portal](./media/scope-overview/scope-resource-id.png)
+    ![Resource IDs for a storage account in Azure portal](./media/scope-overview/scope-resource-id.png)
 
-- Assign a role at the resource scope using the Azure portal and then use [Azure PowerShell](role-assignments-list-powershell.md) or [Azure CLI](role-assignments-list-cli.md) to list the role assignment. In the output, the scope will be listed as a property.
+- Use the Azure portal, to assign a role at the resource scope and then use [Azure PowerShell](role-assignments-list-powershell.md) or [Azure CLI](role-assignments-list-cli.md) to list the role assignment. In the output, the scope will be listed as a property.
 
     ```azurepowershell
     RoleAssignmentId   : /subscriptions/<subscriptionId>/resourceGroups/test-rg/providers/Microsoft.Storage/storageAccounts/azurestorage12345/blobServices/default/containers/blob-container-01/pro
