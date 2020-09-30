@@ -44,7 +44,7 @@ $objectid = (Get-AzADServicePrincipal -DisplayName <VM or application name>).id
 ```
 
 ```azurecli
-az ad sp list --display-name <VM or application name>
+objectid=$(az ad sp list --display-name <VM or application name> --query [].objectId --output tsv)
 ```
 
 ### Group
