@@ -2,11 +2,11 @@
   tocHref: /azure/
   topicHref: /azure/index
   items:  
-  - name: Active Directory B2C
+  - name: Active Directory
     tocHref: /azure/active-directory/
-    topicHref: /azure/active-directory-b2c/index
+    topicHref: /azure/active-directory/index
     items:  
-    - name: Active Directory B2C
+    - name: B2C
       tocHref: /azure/active-directory/develop/
       topicHref: /azure/active-directory-b2c/index
 
@@ -14,10 +14,10 @@
   tocHref: /azure/
   topicHref: /azure/index
   items:  
-  - name: Active Directory B2C
+  - name: Active Directory
     tocHref: /azure/active-directory/
-    topicHref: /azure/active-directory-b2c/index
+    topicHref: /azure/active-directory/index
     items:  
-    - name: Active Directory B2C
+    - name: B2C
       tocHref: /azure/active-directory/external-identities/
       topicHref: /azure/active-directory-b2c/index

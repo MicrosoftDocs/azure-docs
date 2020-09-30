@@ -8,7 +8,7 @@ ms.subservice: features
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: sashan, moslake, carlrab
+ms.reviewer: sashan, moslake
 ms.date: 08/14/2020
 ---
 # vCore model overview - Azure SQL Database and Azure SQL Managed Instance 

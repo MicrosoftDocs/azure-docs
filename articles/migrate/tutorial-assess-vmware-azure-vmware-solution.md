@@ -109,28 +109,37 @@ Run an assessment as follows:
 
 ## Review an assessment
 
-An assessment describes:
+An AVS assessment describes:
 
-- **Ready for AVS**: The machine can be migrated as-is to Azure AVS, without any changes. The machine will start in AVS, with full AVS support.
-- **Ready with conditions**: The machine might have compatibility issues with the current vSphere version. It might need VMware tools installed, or other settings, before it has full functionality in AVS.
-- **Not ready for AVS**: The VM won't start in AVS. For example, if an on-premises VMware VM has an external device (like a CD-ROM) attached to it and you're using VMware VMotion, the VMotion operation fails.
-- **Readiness unknown**: Azure Migrate couldn't determine machine readiness, due to insufficient metadata collected from the on-premises environment.
+- AVS readiness: Whether the on-premises VMs are suitable for migration to Azure VMware Solution (AVS).
+- Number of AVS nodes: Estimated number of AVS nodes required to run the VMs.
+- Utilization across AVS nodes: Projected CPU, memory, and storage utilization across all nodes.
+- Monthly cost estimation: The estimated monthly costs for all Azure VMware Solution (AVS) nodes running the on-premises VMs.
+
+## View an assessment
 
 To view an assessment:
 
 1. In **Servers** > **Azure Migrate: Server Assessment**, click the number next to **Assessments**.
-2. In **Assessments**, select an assessment to open it. As an example (estimations and costs for example only): 
-
-    ![Assessment summary](./media/tutorial-assess-vmware-azure-vm/assessment-summary.png)
-
+2. In **Assessments**, select an assessment to open it. 
 3. Review the assessment summary. You can also edit the assessment properties, or recalculate the assessment.
  
- 
+
 ### Review readiness
 
 1. Click **Azure readiness**.
 2. In **Azure readiness**, review the VM status.
-3. Select an **Azure readiness** status. You can view VM readiness details. You can also drill down to see VM details, including compute, storage, and network settings.
+
+    - **Ready for AVS**: The machine can be migrated as-is to Azure AVS, without any changes. The machine will start in AVS, with full AVS support.
+    - **Ready with conditions**: The machine might have compatibility issues with the current vSphere version. It might need VMware tools installed, or other settings, before it has full functionality in AVS.
+    - **Not ready for AVS**: The VM won't start in AVS. For example, if an on-premises VMware VM has an external device (like a CD-ROM) attached to it and you're using VMware VMotion, the VMotion operation fails.
+ - **Readiness unknown**: Azure Migrate couldn't determine machine readiness, due to insufficient metadata collected from the on-premises environment.
+
+3. Review the suggested tool.
+
+    - VMware HCX or Enterprise: For VMware machines, VMWare Hybrid Cloud Extension (HCX) solution is the suggested migration tool to migrate your on-premises workload to your Azure VMware Solution (AVS) private cloud. Learn More.
+    - Unknown: For machines imported via a CSV file, the default migration tool is unknown. Though for VMware machines, it is suggested to use the VMware Hybrid Cloud Extension (HCX) solution.
+4. Click on an AVS readiness status. You can view VM readiness details, and drill down to see VM details, including compute, storage, and network settings.
 
 ### Review cost estimates
 
@@ -138,11 +147,11 @@ The assessment summary shows the estimated compute and storage cost of running V
 
 1. Review the monthly total costs. Costs are aggregated for all VMs in the assessed group.
 
-    - Cost estimates are based on the size recommendations for a machine, its disks, and its properties.
-    - Estimated monthly costs for compute and storage are shown.
-    - The cost estimation is for running the on-premises VMs on Azure VMs. The estimation doesn't consider PaaS or SaaS costs.
+    - Cost estimates are based on the number of AVS nodes required considering the resource requirements of all the VMs in total.
+    - As the pricing for AVS is per node, the total cost does not have compute cost and storage cost distribution.
+    - The cost estimation is for running the on-premises VMs in AVS. Azure Migrate Server Assessment doesn't consider PaaS or SaaS costs.
 
-2. Review monthly storage costs. The view shows the aggregated storage costs for the assessed group, split over different types of storage disks. 
+2. Review monthly storage estimates. The view shows the aggregated storage costs for the assessed group, split over different types of storage disks. 
 3. You can drill down to see cost details for specific VMs.
 
 ### Review confidence rating

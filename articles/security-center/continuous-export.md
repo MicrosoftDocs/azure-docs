@@ -5,8 +5,8 @@ services: security-center
 author: memildin
 manager: rkarlin
 ms.service: security-center
-ms.topic: conceptual
-ms.date: 03/13/2020
+ms.topic: how-to
+ms.date: 09/13/2020
 ms.author: memildin
 
 ---
@@ -28,8 +28,8 @@ Using these tools you can:
 
 |Aspect|Details|
 |----|:----|
-|Release state:|Generally Available|
-|Pricing:|Free tier|
+|Release state:|Generally available (GA)|
+|Pricing:|Free|
 |Required roles and permissions:|**Security admin role** on the resource group (or **Owner**)<br>Must also have write permissions for the target resource|
 |Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![Yes](./media/icons/yes-icon.png) China Gov (to Event Hub), Other Gov|
 |||
@@ -85,7 +85,7 @@ The API provides additional functionality not available from the Azure portal, f
 * **More focused scope** - The API provides a more granular level for the scope of your export configurations. When defining an export with the API, you can do so at the resource group level. If you're using the **Continuous Export** page in Security Center's portal UI, you have to define it at the subscription level.
 
     > [!TIP]
-    > If you've setup multiple export configurations using the API, or if you've used API-only parameters, those extra features will not be displayed in the Security Center UI. Instead, there'll be a banner informing you that other configurations exist.
+    > If you've set up multiple export configurations using the API, or if you've used API-only parameters, those extra features will not be displayed in the Security Center UI. Instead, there'll be a banner informing you that other configurations exist.
 
 Learn more about the automations API in the [REST API documentation](https://docs.microsoft.com/rest/api/securitycenter/automations).
 
@@ -119,13 +119,13 @@ Also, if you'd like to move the continuously exported data automatically from yo
 
 ## Continuous export to a Log Analytics workspace
 
-If you want to analyze Azure Security Center data inside a Log Analytics workspace or use Azure alerts together with Security Center, setup continuous export to your Log Analytics workspace.
+If you want to analyze Azure Security Center data inside a Log Analytics workspace or use Azure alerts together with Security Center, set up continuous export to your Log Analytics workspace.
 
-To export to a Log Analytics workspace, you must have Security Center's Log Analytics solutions enabled on your workspace. If you're using the Azure portal, Security Center's free tier solution is automatically enabled when you enable continuous export. However, if you're configuring your continuous export settings programmatically, you must manually select the free or standard pricing tier for the required workspace from within **Pricing & settings**.  
+To export to a Log Analytics workspace, you must have Security Center's Log Analytics solutions enabled on your workspace. If you're using the Azure portal, Security Center's free solution is automatically enabled when you enable continuous export. However, if you're configuring your continuous export settings programmatically, you must manually turn Azure Defender on or off from within the **Pricing & settings** page.
 
 ### Log Analytics tables and schemas
 
-Security alerts and recommendations are stored in the *SecurityAlert* and *SecurityRecommendations* tables respectively. The name of the Log Analytics solution containing these tables depends on whether you are on the free or standard tier (see [pricing](security-center-pricing.md)): Security('Security and Audit') or SecurityCenterFree.
+Security alerts and recommendations are stored in the *SecurityAlert* and *SecurityRecommendations* tables respectively. The name of the Log Analytics solution containing these tables depends on whether you have Azure Defender enabled: Security ('Security and Audit') or SecurityCenterFree.
 
 ![The *SecurityAlert* table in Log Analytics](./media/continuous-export/log-analytics-securityalert-solution.png)
 

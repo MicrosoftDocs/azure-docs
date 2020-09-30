@@ -15,27 +15,26 @@ ms.author: pafarley
 
 # Build a training data set for a custom model
 
-When you use the Form Recognizer custom model, you provide your own training data so the model can train to your industry-specific forms. 
+When you use the Form Recognizer custom model, you provide your own training data to the [Train Custom Model](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync) operation, so that the model can train to your industry-specific forms. Follow this guide to learn how to collect and prepare data to train the model effectively.
 
 If you're training without manual labels, you can use five filled-in forms, or an empty form (you must include the word "empty" in the file name) plus two filled-in forms. Even if you have enough filled-in forms, adding an empty form to your training data set can improve the accuracy of the model.
 
 If you want to use manually labeled training data, you must start with at least five filled-in forms of the same type. You can still use unlabeled forms and an empty form in addition to the required data set.
 
+## Custom model input requirements
+
+First, make sure your training data set follows the input requirements for Form Recognizer.
+
+[!INCLUDE [input requirements](./includes/input-requirements.md)]
+
 ## Training data tips
 
-It's important to use a data set that's optimized for training. Use the following tips to ensure you get the best results from the [Train Custom Model](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync) operation:
+Follow these additional tips to further optimize your data set for training.
 
 * If possible, use text-based PDF documents instead of image-based documents. Scanned PDFs are handled as images.
 * For filled-in forms, use examples that have all of their fields filled in.
 * Use forms with different values in each field.
 * If your form images are of lower quality, use a larger data set (10-15 images, for example).
-* The total size of the training data set can be up to 500 pages.
-
-## General input requirements
-
-Make sure your training data set also follows the input requirements for all Form Recognizer content. 
-
-[!INCLUDE [input requirements](./includes/input-requirements.md)]
 
 ## Upload your training data
 
@@ -70,7 +69,12 @@ If you add the following content to the request body, the API will train with do
 
 Now that you've learned how to build a training data set, follow a quickstart to train a custom Form Recognizer model and start using it on your forms.
 
+* [Train a model and extract form data using the client library](./quickstarts/client-library.md)
 * [Train a model and extract form data using cURL](./quickstarts/curl-train-extract.md)
 * [Train a model and extract form data using the REST API and Python](./quickstarts/python-train-extract.md)
 * [Train with labels using the sample labeling tool](./quickstarts/label-tool.md)
 * [Train with labels using the REST API and Python](./quickstarts/python-labeled-data.md)
+
+## See also
+
+* [What is Form Recognizer?](./overview.md)

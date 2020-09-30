@@ -6,7 +6,7 @@ ms.author: nimoolen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 07/29/2020
+ms.date: 09/29/2020
 ---
 
 # Data flow script (DFS)
@@ -205,6 +205,14 @@ This snippet will add a new Aggregate transformation to your data flow which wil
 ```
 aggregate(groupBy(mycols = sha2(256,columns())),
     each(match(true()), $$ = first($$))) ~> DistinctRows
+```
+
+### Check for NULLs in all columns
+This is a snippet that you can paste into your data flow to generically check all of your columns for NULL values. This technique leverages schema drift to look through all columns in all rows and uses a Conditional Split to separate the rows with NULLs from the rows with no NULLs. 
+
+```
+CreateColumnArray split(contains(array(columns()),isNull(#item)),
+	disjoint: false) ~> LookForNULLs@(hasNULLs, noNULLs)
 ```
 
 ## Next steps
