@@ -26,7 +26,7 @@ This article uses the [Postman](https://www.postman.com/) application, but you m
 
 ## Request elevation data in raster tiled format
 
-To request elevation data in raster tile format, use the [Render V2 - Get Map Tile API](https://docs.microsoft.com/rest/api/maps/renderv2). The API returns the tile as a GeoTIFF. All raster DEM tiles are using the geoid (sea level) Earth mode. In this example, we'll request elevation data for Mt. Everest.
+To request elevation data in raster tile format, use the [Render V2 - Get Map Tile API](https://docs.microsoft.com/rest/api/maps/renderv2). If the tile can be found, the API returns the tile as a GeoTIFF. Otherwise, the API returns 0. All raster DEM tiles are using the geoid (sea level) Earth mode. In this example, we'll request elevation data for Mt. Everest.
 
 >[!TIP]
 >To retrieve a tile at a specific area on the world map, you'll need to find the correct tile at the appropriate zoom level. Note also that, WorldDEM covers the entire global landmass but does not cover oceans.  For more information, see [Zoom levels and tile grid](zoom-levels-and-tile-grid.md).
@@ -51,6 +51,9 @@ Use the Elevation service APIs to request elevation data in GeoJSON format. This
 * [Get Data for Polyline](https://docs.microsoft.com/rest/api/maps/elevation/getdataforpolyline)
 * [Get Data for Bounding Box](https://docs.microsoft.com/rest/api/maps/elevation/getdataforboundingbox)
 
+>[!IMPORTANT]
+> When no data can be returned, all APIs return `0`.
+
 ### Request elevation data for points
 
 In this example, we'll use the [Get Data For Points API](https://docs.microsoft.com/rest/api/maps/elevation/getdataforlatlongcoordinates) to request elevation data at Mt. Everest and Chamlang mountains. Latitudes and longitudes in the URL are expected to be in WGS84 (World Geodetic System) decimal degree.
@@ -62,7 +65,7 @@ In this example, we'll use the [Get Data For Points API](https://docs.microsoft.
 3. Select the **GET** HTTP method in the builder tab and enter the following URL. For this request, and other requests mentioned in this article, replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key.
 
     ```http
-    https://atlas.microsoft.com/elevation/point?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0&points=-73.998672, 40.714728|150.644,-34.397
+    https://atlas.microsoft.com/elevation/point?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0&points=-73.998672, 40.714728|150.644,-34.397&format=JSON
     ```
 
 4. Click the **Send** button.  You'll receive the following JSON response:
@@ -102,7 +105,7 @@ Then, we'll use the Get Data for Polyline to request three equally spaced sample
 2. Select the **GET** HTTP method in the builder tab and enter the following URL. For this request, and other requests mentioned in this article, replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key.
 
     ```http
-    https://atlas.microsoft.com/elevation/line?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}&lines=40.714728,-73.998672|-34.397,150.644&samples=5
+    https://atlas.microsoft.com/elevation/line?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}&lines=40.714728,-73.998672|-34.397,150.644&samples=5&format=JSON
     ```
 
 3. Click the **Send** button.  You'll receive the following JSON response:
@@ -202,7 +205,7 @@ In this example, we'll specify rows=3 and columns=6. Eighteen elevation values a
 2. Select the **GET** HTTP method in the builder tab and enter the following URL. For this request, and other requests mentioned in this article, replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key.
 
     ```http
-    https://atlas.microsoft.com/elevation/lattice?subscription-key=DsPCGIGfua7ti-MljBYsItsT1u9mCjjeloOLKMHrBpo&api-version=1.0&bounds=-121.66853362143818, 46.84646479863713,-121.65853362143818, 46.85646479863713&rows=2&columns=3
+    https://atlas.microsoft.com/elevation/lattice?subscription-key=DsPCGIGfua7ti-MljBYsItsT1u9mCjjeloOLKMHrBpo&api-version=1.0&bounds=-121.66853362143818, 46.84646479863713,-121.65853362143818, 46.85646479863713&rows=2&columns=3&format=JSON
     ```
 
 3. Click the blue **Send** button. You'll receive the following JSON response. Notice that there are 18 elevation data samples, one for each vertex of the grid.
