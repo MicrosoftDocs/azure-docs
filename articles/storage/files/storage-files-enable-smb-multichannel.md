@@ -4,7 +4,7 @@ description: Learn how to enable SMB Multichannel on Azure premium file shares.
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/04/2020
+ms.date: 09/30/2020
 ms.author: rogarana
 ms.subservice: files
 ---

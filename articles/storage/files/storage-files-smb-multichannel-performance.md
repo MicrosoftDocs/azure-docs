@@ -4,7 +4,7 @@ description: Learn about SMB Multichannel performance.
 author: gunjanj
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 09/30/2020
 ms.author: gunjanj
 ms.subservice: files
 ---
