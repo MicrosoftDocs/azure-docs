@@ -23,6 +23,7 @@ When you've completed the guide, your application will accept sign-ins of person
 
 ## Prerequisites
 
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Python 2.7+](https://www.python.org/downloads/release/python-2713) or [Python 3+](https://www.python.org/downloads/release/python-364/)
 - [Flask](http://flask.pocoo.org/), [Flask-Session](https://pypi.org/project/Flask-Session/), [requests](https://requests.kennethreitz.org/en/master/)
 - [MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python)
@@ -161,7 +162,7 @@ import msal
 
 ## Next steps
 
-Learn more about web apps that sign in users and then call a protected web API.
+Learn more about web apps that sign in users in our multi-part scenario series.
 
 > [!div class="nextstepaction"]
-> [Scenario: A web app that calls web APIs](scenario-web-app-call-api-overview.md)
+> [Scenario: Web app that signs in users](scenario-web-app-sign-user-overview.md)

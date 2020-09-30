@@ -16,21 +16,18 @@ ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
 ---
 
-# Tutorial: Sign in users and call the Microsoft Graph from an Android application
+# Tutorial: Sign in users and call the Microsoft Graph API from an Android application
 
 In this tutorial, you learn how to integrate your Android app with the Microsoft identity platform using the Microsoft Authentication Library (MSAL) for Android. You'll learn how to sign in and sign out a user, get an access token, and make a request to the Microsoft Graph API.
 
 When you've completed this tutorial, your application will accept sign-ins of personal Microsoft accounts (including outlook.com, live.com, and others) as well as work or school accounts from any company or organization that uses Azure Active Directory.
 
 > [!div class="checklist"]
-> * Integrate your Android App with the Microsoft Identity Platform
-> * Sign in a user
-> * Get an access token to call the Microsoft Graph API
-> * Call the Microsoft Graph API
-> * Sign out a user
-
-> [!NOTE]
-> This tutorial demonstrates simplified examples of working with MSAL for Android. For simplicity, it uses Single Account Mode only. To explore more complex scenarios, see a completed [working code sample](https://github.com/Azure-Samples/ms-identity-android-java/) on GitHub.
+> * Create an Android aoo project in *Android Studio*
+> * Register the app in the Azure portal
+> * Add code to support user sign-in and sign-out
+> * Add code to call the Microsoft Graph API
+> * Test the app
 
 ## Prerequisites
 
@@ -54,7 +51,10 @@ This sample uses the Microsoft Authentication library for Android (MSAL) to impl
 
 MSAL will automatically renew tokens, deliver single sign-on (SSO) between other apps on the device, and manage the Account(s).
 
-## Create a Project
+> [!NOTE]
+> This tutorial demonstrates simplified examples of working with MSAL for Android. For simplicity, it uses Single Account Mode only. To explore more complex scenarios, see a completed [working code sample](https://github.com/Azure-Samples/ms-identity-android-java/) on GitHub.
+
+## Create a project
 If you do not already have an Android application, follow these steps to set up a new project.
 
 1. Open Android Studio, and select **Start a new Android Studio project**.
