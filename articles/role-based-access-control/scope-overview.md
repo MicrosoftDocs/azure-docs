@@ -17,22 +17,15 @@ ms.author: rolyon
 
 ## Scope levels
 
-Azure provides four levels of scope for resource management. The following image shows an example of these levels from broadest to most restrictive.
+Azure provides four levels of scope for resource management: [management group](../governance/management-groups/overview.md), subscription, [resource groups](../azure-resource-manager/management/overview.md#resource-groups) and resource. Each additional level of hierarchy makes the scope more specific. The following image shows an example of these levels from broadest to more specific.
 
 ![Scope for a role assignment](./media/scope-overview/rbac-scope-no-label.png)
-
-| Scope | Resource type |
-| --- | --- |
-| [Management group](../governance/management-groups/overview.md) | [Microsoft.Management/managementGroups](/rest/api/resources/managementgroups) |
-| Subscription | [Microsoft.Resources/subscriptions](/rest/api/resources/subscriptions) |
-| [Resource groups](../azure-resource-manager/management/overview.md#resource-groups) | [Microsoft.Resources/subscriptions/resourceGroups](/rest/api/resources/resourcegroups)
-| Resource | &lt;varies&gt; |
 
 You can assign roles at any of these levels of scope. The level you select determines how widely the role is applied. Lower levels inherit role permissions from higher levels. For example, when you assign a role at a subscription scope, the role is applied to all resource groups and resources in your subscription. When you assign a role at a resource group scope, the role is applied to the resource group and all its resources. However, another resource group doesn't have that role assignment.
 
 ## Scope format
 
-If you add role assignments using the command line, you'll need to specify the scope. For command-line tools, scope is a potentially long string that identifies the exact scope of the role assignment. In the Azure portal, this scope is also listed as the *resource ID*.
+If you add role assignments using the command line, you'll need to specify the scope. For command-line tools, scope is a potentially long string that identifies the exact scope of the role assignment. In the Azure portal, this scope is typically listed as the *resource ID*.
 
 The scope consists of a series of identifiers separated by the slash (/) character. You can think of this string as expressing the following hierarchy, where text without placeholders (`{}`) are fixed identifiers:
 
@@ -51,14 +44,14 @@ The scope consists of a series of identifiers separated by the slash (/) charact
 
 - `{subscriptionId}` is the ID of the subscription to use (a GUID).
 - `{resourcesGroupName}` is the name of the containing resource group.
-- `{providerName}` is the name of the resource provider that handles the resource, then `{resourceType}` and `{resourceSubType*}` identify further levels within that resource provider.
+- `{providerName}` is the name of the [resource provider](../azure-resource-manager/management/azure-services-resource-providers.md) that handles the resource, then `{resourceType}` and `{resourceSubType*}` identify further levels within that resource provider.
 - `{resourceName}` is the last part of the string that identifies a specific resource.
 
-Management groups are a level above subscriptions and have the broadest (least specific) scope. Role assignments at this level apply to a subscriptions within the management group. Each additional level of hierarchy makes the scope more specific. The scope for a management group has the following format:
+Management groups are a level above subscriptions and have the broadest (least specific) scope. Role assignments at this level apply to a subscriptions within the management group. The scope for a management group has the following format:
 
 ```
 /providers
-    /{providerName}
+    /Microsoft.Management
         /managementGroups
             /{managmentGroupName}
 ```
