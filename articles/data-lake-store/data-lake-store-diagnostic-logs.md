@@ -22,7 +22,7 @@ Organizations can enable diagnostic logging for their Azure Data Lake Storage Ge
 
 ## Prerequisites
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-* **Azure Data Lake Storage Gen1 account**. Follow the instructions at [Get started with Azure Data Lake Storage Gen1 using the Azure Portal](data-lake-store-get-started-portal.md).
+* **Azure Data Lake Storage Gen1 account**. Follow the instructions at [Get started with Azure Data Lake Storage Gen1 using the Azure portal](data-lake-store-get-started-portal.md).
 
 ## Enable diagnostic logging for your Data Lake Storage Gen1 account
 1. Sign on to the new [Azure portal](https://portal.azure.com).
