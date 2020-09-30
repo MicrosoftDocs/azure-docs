@@ -30,7 +30,6 @@ Here's what changed in September 2020:
 
 You can now use the [Experience Estimator](https://azure.microsoft.com/services/virtual-desktop/assessment/) to estimate the user experience quality in these areas.
 
-- Client Updates.
 - We released version 1.2.1364 of the Windows Desktop client for Windows Virtual Desktop. In this update, we made the following changes:
     - Fixed an issue where single sign-on (SSO) didn't work on Windows 7.
     - Fixed an issue that caused the client to disconnect when a user who enabled media optimization for Teams tried to call or join a Teams meeting while another app had an audio stream open in exclusive mode.
@@ -42,10 +41,7 @@ You can now use the [Experience Estimator](https://azure.microsoft.com/services/
     
 - We've added a new feature that lets you change VM location, image, resource group, prefix name, network config as part of the workflow for adding a VM to your deployment in the Azure portal.
 
-- Microsoft Endpoint Manager (MEM) Support.
-IT Pros can manage hybrid Azure Active Directory joined Windows 10 Enterprise VMs as part of Windows Virtual Desktop with Microsoft Endpoint Manager (MEM)
-Further information is available [here:](https://techcommunity.microsoft.com/t5/microsoft-endpoint-manager-blog/microsoft-endpoint-manager-announces-support-for-windows-virtual/ba-p/1681048)
-
+- IT Pros can now manage hybrid Azure Active Directory-joined Windows 10 Enterprise VMs using Microsoft Endpoint Manager. To learn more, see [our blog post](https://techcommunity.microsoft.com/t5/microsoft-endpoint-manager-blog/microsoft-endpoint-manager-announces-support-for-windows-virtual/ba-p/1681048)
 
 ## August 2020
 
