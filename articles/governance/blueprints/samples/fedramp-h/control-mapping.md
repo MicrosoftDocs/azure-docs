@@ -53,8 +53,8 @@ review who has access to Azure resources and their permissions. This blueprint a
 authentication for SQL Servers and Service Fabric. Using Azure Active Directory authentication
 enables simplified permission management and centralized identity management of database users and
 other Microsoft services. Additionally, this blueprint assigns an Azure Policy definition to audit
-the use of custom RBAC rules. Understanding where custom RBAC rules are implement can help you
-verify need and proper implementation, as custom RBAC rules are error prone.
+the use of custom Azure RBAC rules. Understanding where custom Azure RBAC rules are implement can help you
+verify need and proper implementation, as custom Azure RBAC rules are error prone.
 
 - An Azure Active Directory administrator should be provisioned for SQL servers
 - Audit usage of custom RBAC rules
