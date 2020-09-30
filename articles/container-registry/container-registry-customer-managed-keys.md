@@ -1,14 +1,14 @@
 ---
-title: Encryption-at-rest with a customer-managed key
+title: Encrypt registry with a customer-managed key
 description: Learn about encryption-at-rest of your Azure container registry, and how to encrypt your Premium registry with a customer-managed key stored in Azure Key Vault
 ms.topic: article
-ms.date: 09/29/2020
+ms.date: 09/30/2020
 ms.custom:
 ---
 
 # Encrypt registry using a customer-managed key
 
-When you store images and other artifacts in an Azure container registry, Azure automatically encrypts the registry content at rest with [service-managed keys](../security/fundamentals/encryption-models.md). You can supplement default encryption with an additional encryption layer using a key that you create and manage in Azure Key Vault. This article walks you through the steps using the Azure CLI and the Azure portal.
+When you store images and other artifacts in an Azure container registry, Azure automatically encrypts the registry content at rest with [service-managed keys](../security/fundamentals/encryption-models.md). You can supplement default encryption with an additional encryption layer using a key that you create and manage in Azure Key Vault (a customer-managed key). This article walks you through the steps using the Azure CLI and the Azure portal.
 
 Server-side encryption with customer-managed keys is supported through integration with [Azure Key Vault](../key-vault/general/overview.md). You can create your own encryption keys and store them in a key vault, or use Azure Key Vault's APIs to generate keys. With Azure Key Vault, you can also audit key usage.
 
@@ -228,7 +228,7 @@ Configure a policy for the key vault so that the identity can access it.
 1. Navigate to your key vault.
 1. Select **Access control (IAM)** > **+Add** > **Add role assignment**.
 1. In the **Add role assignment** window:
-    1. Select **Key Vault Cryto Service Encryption (preview)** role. 
+    1. Select **Key Vault Crypto Service Encryption (preview)** role. 
     1. Assign access to **User assigned managed identity**.
     1. Select the select the resource name of your user-assigned managed identity, and select **Save
 
