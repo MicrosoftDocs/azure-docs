@@ -120,19 +120,19 @@ You can put a self-service sign-up product like Microsoft Power BI or Azure Righ
 
 2. Select **Licenses**, and then select **Self-service sign-up products**. You can see all the self-service sign-up products separately from the seat-based subscriptions. Choose the product you want to permanently delete. Here's an example in Microsoft Power BI:
 
-    ![the username is mistyped or not found](./media/directory-delete-howto/licenses-page.png)
+    ![Screenshot that shows the "Licenses - Self-service sign-up products" page.](./media/directory-delete-howto/licenses-page.png)
 
 3. Select **Delete** to delete the product and accept the terms that data is deleted immediately and irrevocably. This delete action will remove all users and remove organization access to the product. Click Yes to move forward with the deletion.  
 
-    ![the username is mistyped or not found](./media/directory-delete-howto/delete-product.png)
+    ![Screenshot that shows the "Licenses - Self-service sign-up products" page with the "Delete self-service sign-up product" window open.](./media/directory-delete-howto/delete-product.png)
 
 4. When you select **Yes**, the deletion of the self-service product will be initiated. There is a notification that will tell you of the deletion in progress.  
 
-    ![the username is mistyped or not found](./media/directory-delete-howto/progress-message.png)
+    ![Screenshot that shows the "Licenses - Self-service sign-up products" page with the "deletion in progress" notification displayed.](./media/directory-delete-howto/progress-message.png)
 
 5. Now the self-service sign-up product state has changed to **Deleted**. When you refresh the page, the product should be removed from the **Self-service sign-up products** page.  
 
-    ![the username is mistyped or not found](./media/directory-delete-howto/product-deleted.png)
+    ![Screenshot that shows the "Licenses - Self-service sign-up products" page with the "Self-service sign-up product deleted" pane on the right-side.](./media/directory-delete-howto/product-deleted.png)
 
 6. Once you have deleted all the products, you can sign back into the Azure AD admin center again and there should be no required action and no products blocking your organization deletion. You should be able to successfully delete your Azure AD organization.
 

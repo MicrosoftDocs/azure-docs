@@ -376,7 +376,7 @@
       - name: PowerShell
         href: dedicated-hosts-powershell.md
       - name: Portal
-        href: dedicated-hosts-portal.md
+        href: ../dedicated-hosts-portal.md
     - name: Deploy spot VMs
       items:
       - name: Portal
@@ -407,7 +407,7 @@
       href: ps-template.md
     - name: Connect to a VM
       href: connect-logon.md
-    - name: Connect to Linux VMs
+    - name: SSH to Linux VMs
       displayName: ssh keygen ssk-key putty
       items:
       - name: In the portal
@@ -595,7 +595,7 @@
         href: disk-encryption-troubleshooting.md
       - name: Disk encryption FAQ
         href: disk-encryption-faq.md
-      - name: Disk encryption - previous version (Azure AD)
+      - name: Disk encryption - previous version
         items:
         - name: Overview
           href: disk-encryption-overview-aad.md
@@ -823,6 +823,7 @@
     - name: High availability
       href: ../manage-availability.md
     - name: Create a proximity placement group
+      displayName: ppg aligned colocation co-location
       items:
       - name: Portal
         href: proximity-placement-groups-portal.md

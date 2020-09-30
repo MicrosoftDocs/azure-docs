@@ -65,14 +65,14 @@ Create an identity for a search service in Azure Active Directory, then use RBAC
 
 |Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Description | Availability  |
 |---------|------------------|-------------|---------------|
-| [**Native blob soft delete (preview)**](search-howto-indexing-azure-blob-storage.md#incremental-indexing-and-deletion-detection) | Indexers | An Azure Blob Storage indexer in Azure Cognitive Search will recognize blobs that are in a soft deleted state, and remove the corresponding search document during indexing. | Public preview. </br> Use the [Search REST API 2020-06-30-Preview](/rest/api/searchservice/index-preview) and REST API 2019-05-06-Preview, with Run Indexer against an Azure Blob data source that has native "soft delete" enabled. |
+| [**Native blob soft delete (preview)**](search-howto-index-changed-deleted-blobs.md) | Indexers | An Azure Blob Storage indexer in Azure Cognitive Search will recognize blobs that are in a soft deleted state, and remove the corresponding search document during indexing. | Public preview. </br> Use the [Search REST API 2020-06-30-Preview](/rest/api/searchservice/index-preview) and REST API 2019-05-06-Preview, with Run Indexer against an Azure Blob data source that has native "soft delete" enabled. |
 | [**Management REST API (2020-03-13)**](/rest/api/searchmanagement/management-api-versions) | REST | New stable REST API for creating and managing a search service. Adds IP firewall and Private Link support | Generally available. |
 
 ## February 2020
 
 |Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Description | Availability  |
 |---------|------------------|-------------|---------------|
-| [**PII Detection (preview)**](cognitive-search-skill-pii-detection.md) | AI enrichment | A new cognitive skill used during indexing that extracts personally identifiable information from an input text and gives you the option to mask it from that text in various ways. | Public preview. </br> Use the portal or [Search REST API 2020-06-30-Preview](/rest/api/searchservice/index-preview) or REST API 2019-05-06-Preview. |
+| [**PII Detection (preview)**](cognitive-search-skill-pii-detection.md) | AI enrichment | A new cognitive skill used during indexing that extracts personal information from an input text and gives you the option to mask it from that text in various ways. | Public preview. </br> Use the portal or [Search REST API 2020-06-30-Preview](/rest/api/searchservice/index-preview) or REST API 2019-05-06-Preview. |
 | [**Custom Entity Lookup (preview)**](cognitive-search-skill-custom-entity-lookup.md )| AI enrichment | A new cognitive skill that looks for text from a custom, user-defined list of words and phrases. Using this list, it labels all documents with any matching entities. The skill also supports a degree of fuzzy matching that can be applied to find matches that are similar but not exact. | Public preview. </br> Use the portal or [Search REST API 2020-06-30-Preview](/rest/api/searchservice/index-preview) or REST API 2019-05-06-Preview. |
 
 ## January 2020
