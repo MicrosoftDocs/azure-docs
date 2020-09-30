@@ -2,7 +2,7 @@
 title: Overview of Backup Center
 description: This article provides an overview of Backup Center for Azure.
 ms.topic: conceptual
-ms.date: 09/01/2020
+ms.date: 09/30/2020
 ---
 
 # Overview of Backup Center
@@ -33,6 +33,10 @@ The first screen that you see is the **Overview**. It contains two tiles – **J
 In the **Jobs** tile, you get a summarized view of all backup and restore related jobs that were triggered across your backup estate in the last 24 hours. You can view information on the number of jobs that have completed, failed, and are in-progress. Selecting any of the numbers in this tile allows you to view more information on jobs for a particular datasource type, operation type, and status.
 
 In the **Backup Instances** tile, you get a summarized view of all backup instances across your backup estate. For example, you can see the number of backup instances that are in soft-deleted state compared to the number of instances that are still configured for protection. Selecting any of the numbers in this tile allows you to view more information on backup instances for a particular datasource type and protection state.
+
+Watch the video below to understand the capabilities of Backup Center:
+
+[!VIDEO https://youtu.be/pFRMBSXZcUk?t=497]
 
 Follow the steps below to understand the different capabilities that Backup Center provides, and how you can use these capabilities to manage your backup estate efficiently.
 
