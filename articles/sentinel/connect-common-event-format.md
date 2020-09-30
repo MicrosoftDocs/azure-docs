@@ -53,10 +53,10 @@ To use TLS communication between the Syslog source and the Syslog Forwarder, you
 Make sure the Linux machine you use as a proxy is running one of the following operating systems:
 
 - 64-bit
-  - CentOS 6 and 7
+  - CentOS 7 and sub-versions, and higher (not 6)
   - Amazon Linux 2017.09
   - Oracle Linux 6 and 7
-  - Red Hat Enterprise Linux Server 6 and 7
+  - Red Hat Enterprise Linux Server 7 and sub-versions, and higher (not 6)
   - Debian GNU/Linux 8 and 9
   - Ubuntu Linux 14.04 LTS, 16.04 LTS and 18.04 LTS
   - SUSE Linux Enterprise Server 12
@@ -79,7 +79,7 @@ Make sure your machine also meets the following requirements:
 - Permissions
     - You must have elevated permissions (sudo) on your machine. 
 - Software requirements
-    - Make sure you have Python running on your machine
+    - Make sure you have Python (2.7 or higher) running on your machine
 
 
 
