@@ -425,8 +425,6 @@
         - name: Azure Functions
           displayName: functions app
           href: how-to-deploy-functions.md
-        - name: NVIDIA Triton
-          href: how-to-deploy-triton.md
         - name: Azure Cognitive Search
           href: how-to-deploy-model-cognitive-search.md
         - name: Use custom Docker image
@@ -453,7 +451,7 @@
           href: how-to-enable-data-collection.md
         - name: Monitor with Application Insights
           href: how-to-enable-app-insights.md
-      - name: (Preview) High-performance serving with Triton
+      - name: High-performance serving with Triton
         href: how-to-deploy-with-triton.md
       - name: Continuously deploy models
         displayName: ci cd azure devops models
