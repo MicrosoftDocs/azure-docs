@@ -42,9 +42,9 @@ Follow these steps to explore the home page:
 
 1. To navigate to other areas, select: **Browse by asset type**, **View insights**, or **Manage your data**.
 
-1. Select **Manage your data** > **Data sources**. Two of the data sources are the Azure Blob storage and Azure Data Lake Storage Gen2 accounts that you created in [Tutorial: Run the starter kit and scan data](starter-kit-tutorial-1.md).
+1. Select **Manage your data** > **Data sources**. Two of the data sources are the Azure Blob storage and Azure Data Lake Storage Gen2 accounts that you configured in [Tutorial: Run the starter kit and scan data](starter-kit-tutorial-1.md).
 
-1. Select **Browse by asset type**. The assets include all of your files in the data sources you created previously.
+1. Select **Browse by asset type**. The assets include all of your files in the data sources you configured previously.
 
 ## Search for an asset
 
@@ -54,7 +54,11 @@ Before you begin, here's a quick refresher on some fundamental terminology:
   
 * **Schema**: Also known as a column or attribute, a schema represents the structure of an asset or a resource set.
 
-* **Resource set**: A single object in the catalog that represents many physical objects in storage. These objects usually share a common schema, and in most cases, a naming convention or folder structure. For example, the date format is *yyyy/mm/dd*. To learn more, see [Resource sets in Azure Babylon](./concept-resource-sets.md).
+* **Resource set**: A single object in the catalog that represents many physical objects in storage. These objects usually share a common schema, and in most cases, a naming convention or folder structure. For example, the date format is *yyyy/mm/dd*.
+
+<!---  Temporarily comment out until linked file is in upstream release branch.
+To learn more, see [Resource sets in Azure Babylon](./concept-resource-sets.md).
+--->
 
 * **Asset type**: A grouping of assets and resource sets under a logical name, which usually maps to the name of the data platform.
 

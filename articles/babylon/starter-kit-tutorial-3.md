@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Browse and Lineage'
+title: 'Tutorial: Browse assets and view their lineage'
 description: This tutorial describes how to browse for assets in the catalog and view data lineage. 
 author: hophan
 ms.author: hophan

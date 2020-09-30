@@ -12,7 +12,7 @@ ms.date: 09/23/2020
 
 # Tutorial: Run the starter kit and scan data
 
-The starter kit gives you a quick tour of how Azure Babylon works and what it can do. To make it easy for you to experiment and explore, the starter kit client-side code follows these steps to create a simulated *data estate*, which is the state of all the data that a company owns:
+The starter kit in this tutorial gives you a quick tour of how Azure Babylon works and what it can do. To make it easy for you to experiment and explore, the starter kit client-side code follows these steps to create a simulated *data estate*, which is the state of all the data that a company owns:
 
 * Creates an Azure Blob storage account.
 * Populates the account with test data.
@@ -24,22 +24,28 @@ The starter kit gives you a quick tour of how Azure Babylon works and what it ca
 
 After the starter kit creates this infrastructure, it walks you through setting up scans on the Azure Blob storage and Azure Data Lake Storage Gen2 accounts. This environment is then reused throughout the next tutorials in the series.
 
+> [!NOTE]
+> If you're blocked at any point, send an email to BabylonDiscussion\@microsoft.com.
+
 :::image type="content" source="./media/starter-kit-tutorial-1/azure-resources-created-by-starter-kit.png" alt-text="Diagram showing the Azure resources created by the starter kit.":::
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
 >
-> * Set up an evironment to use to complete this tutorial and the next tutorials in the series.
-> * Scan data into a catalog.
+> * Run the starter kit script to set up an evironment to use to complete this tutorial and the next tutorials in the series.
+> * Scan data into the catalog.
 
-> [!NOTE]
-> If you're blocked at any point, send an email to BabylonDiscussion\@microsoft.com.
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 
 ## Prerequisites
 
 * [Prepare your Windows machine by running a series of scripts](#prepare-your-machine-to-run-the-starter-kit). These scripts work only on Windows. If this requirement prevents you from running the starter kit, contact BabylonDiscussion\@microsoft.com.
 
 * [Create an Azure Babylon account](create-catalog-portal.md).
+
+## Sign in to Azure
+
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## What the starter kit client software does
 
@@ -63,7 +69,7 @@ When you run the starter kit script, it does the following steps on your behalf:
 
 Follow these steps to set up the starter kit client software on your Windows machine:
 
-1. <!--- [Download the .zip file](./assets/starter-kit-v2.zip)---> Download the .zip file that contains the starter kit to your computer. Extract its contents to the location of your choice.
+1. Download to your computer the .zip file that contains the starter kit. Extract its contents to the location of your choice.
 
 1. On your computer, enter **PowerShell** in the search box on the Windows taskbar. In the search list, right-click **Windows PowerShell**, and then select **Run as administrator**.
 
@@ -249,11 +255,13 @@ To verify that your scans have succeeded:
 
 ## Next steps
 
-In this tutorial, you used a client-side tool to create a sample environment with Azure Blob storage, Azure Data Lake Storage Gen2, and Azure Data Factory instances. The tool then used Azure Data Factory to move data between Azure Blob storage and Azure Data Lake Storage Gen2. Finally, you set up two scans. The generated lineage will be used in later parts of the starter kit.
+In this tutorial, you learned how to:
+> [!div class="checklist"]
+>
+> * Run the starter kit script to set up an evironment to use to complete this tutorial and the next tutorials in the series.
+> * Scan data into the catalog.
 
-Advance to the next article to learn how to navigate the home page and search for an asset.
+Advance to the next tutorial to learn how to navigate the home page and search for an asset.
 
-<!---
 > [!div class="nextstepaction"]
-> [Tutorial: Starter Kit #2 - Home page and search](starter-kit-tutorial-2.md)
---->
+> [Navigate the home page and search for an asset](starter-kit-tutorial-2.md)
