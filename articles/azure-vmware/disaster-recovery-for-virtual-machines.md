@@ -73,7 +73,7 @@ In this guide the following replication scenarios are covered:
 
 1. Monitor the process for each of the selected VMs in the same disaster recovery area.
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines/protect-monitor-progress.png" alt-text="monitor progress of protection" border="true" lightbox="protect-monitor-progress.png":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/protect-monitor-progress.png" alt-text="monitor progress of protection" border="true" lightbox="./media/disaster-recovery-virtual-machines/protect-monitor-progress.png":::
 
 1. After the VM has been protected, you can view the different snapshots in the **Snapshots** tab.
 
