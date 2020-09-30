@@ -1,5 +1,5 @@
 ---
-title: Scale and protect a web app by using Azure Front Door and WAF 
+title: 'Tutorial: Scale and protect a web app by using Azure Front Door and WAF' 
 description: This tutorial will show you how to use Azure Web Application Firewall with the Azure Front Door service.
 services: frontdoor
 documentationcenter: ''
@@ -9,7 +9,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/14/2020
+ms.date: 09/30/2020
 ms.author: duau
 ---
 
@@ -153,6 +153,3 @@ To learn how to troubleshoot your Front Door, see the troubleshooting guides:
 
 > [!div class="nextstepaction"]
 > [Troubleshooting common routing issues](front-door-troubleshoot-routing.md)
-
-> [!div class="nextstepaction"]
-> [Allowed certificate authorities](https://docs.microsoft.com/azure/frontdoor/front-door-troubleshoot-allowed-ca)
