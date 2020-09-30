@@ -26,7 +26,7 @@ If your Azure Cosmos account is distributed across *N* Azure regions, there will
 
 ## SLAs for availability
 
-As a globally distributed database, Azure Cosmos DB provides comprehensive SLAs that encompass throughput, latency at the 99th percentile, consistency, and high availability. The table below shows the guarantees for high availability provided by Azure Cosmos DB for single and multi-region accounts. For high availability, always configure your Azure Cosmos accounts to have multiple write regions(also called multi-master).
+As a globally distributed database, Azure Cosmos DB provides comprehensive SLAs that encompass throughput, latency at the 99th percentile, consistency, and high availability. The table below shows the guarantees for high availability provided by Azure Cosmos DB for single and multi-region accounts. For high availability, always configure your Azure Cosmos accounts to have multiple write regions.
 
 |Operation type  | Single region |Multi-region (single region writes)|Multi-region (multi-region writes) |
 |---------|---------|---------|-------|
@@ -42,7 +42,7 @@ For the rare cases of regional outage, Azure Cosmos DB makes sure your database 
 
 - With Azure Cosmos DB, before a write operation is acknowledged to the client, the data is durably committed by a quorum of replicas within the region that accepts the write operations.
 
-- Multi-region accounts configured with multiple-write regions/multi-master will be highly available for both writes and reads. Regional failovers are instantaneous and don't require any changes from the application.
+- Multi-region accounts configured with multiple-write regions will be highly available for both writes and reads. Regional failovers are instantaneous and don't require any changes from the application.
 
 - Single-region accounts may lose availability following a regional outage. It's always recommended to set up **at least two regions** (preferably, at least two write regions) with your Azure Cosmos account to ensure high availability at all times.
 

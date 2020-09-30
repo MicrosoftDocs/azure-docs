@@ -54,7 +54,7 @@ As a delegated approver, you'll receive an email notification when an Azure AD r
 
 1. Find and select the request that you want to approve. An approve or deny page appears.
 
-    ![Approve requests - approve or deny pane with details and Justification box](./media/azure-ad-pim-approval-workflow/resources-approve-pane.png)
+    ![Screenshot that shows the "Approve requests - Azure AD roles" page.](./media/azure-ad-pim-approval-workflow/resources-approve-pane.png)
 
 1. In the **Justification** box, enter the business justification.
 

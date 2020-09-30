@@ -1522,6 +1522,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/machine-learning/how-to-train-ml-models.md",
+      "redirect_url": "/azure/machine-learning/how-to-set-up-training-targets",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/open-datasets/tutorial-opendatasets-automl.md",
       "redirect_url": "/azure/machine-learning/tutorial-auto-train-models",
       "redirect_document_id": false
@@ -14605,6 +14610,51 @@
     {
       "source_path": "articles/azure-vmware/tutorial-deploy-vm-content-library.md",
       "redirect_url": "/azure/azure-vmware/deploy-vm-content-library",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-vmware/hybrid-cloud-extension-installation.md",
+      "redirect_url": "/azure/azure-vmware/tutorial-deploy-vmware-hcx",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-vmware/disaster-recovery.md",
+      "redirect_url": "/azure/azure-vmware/disaster-recovery-for-virtual-machines",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-vmware/set-up-mabs-for-avs.md",
+      "redirect_url": "/azure/azure-vmware/set-up-backup-server-for-azure-vmware-solution",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-vmware/protect-avs-web-apps-with-app-gateway.md",
+      "redirect_url": "/azure/azure-vmware/protect-azure-vmware-solution-with-application-gateway",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-vmware/deploy-traffic-manager-to-balance-avs-workloads.md",
+      "redirect_url": "/azure/azure-vmware/deploy-traffic-manager-balance-workloads",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-vmware/concepts-rbac.md",
+      "redirect_url": "/azure/azure-vmware/concepts-role-based-access-control",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-vmware/concepts-avs-hub-and-spoke-integration.md",
+      "redirect_url": "/azure/azure-vmware/concepts-hub-and-spoke",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-vmware/backup-avs-vms-with-mabs.md",
+      "redirect_url": "/azure/azure-vmware/backup-azure-vmware-solution-virtual-machines",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-vmware/vrealize-operations-for-avs.md",
+      "redirect_url": "/azure/azure-vmware/vrealize-operations-for-azure-vmware-solution",
       "redirect_document_id": false
     },
     {
