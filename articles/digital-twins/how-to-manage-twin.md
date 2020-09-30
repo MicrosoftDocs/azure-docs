@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: See how to retrieve, update, and delete individual twins and relationships.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 4/10/2020
+ms.date: 09/28/2020
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -29,7 +29,7 @@ This article focuses on managing digital twins; to work with relationships and t
 To create a twin, you use the `CreateDigitalTwin` method on the service client like this:
 
 ```csharp
-await client.CreateDigitalTwinAsync("myNewTwinID", initData);
+await client.CreateDigitalTwinAsync("myTwinID", initData);
 ```
 
 To create a digital twin, you need to provide:
@@ -59,7 +59,7 @@ Without the use of any custom helper classes, you can represent a twin's propert
 // Define the model type for the twin to be created
 Dictionary<string, object> meta = new Dictionary<string, object>()
 {
-    { "$model", "dtmi:com:contoso:Room;1" }
+    { "$model", "dtmi:com:contoso:Room;10" }
 };
 // Initialize the twin properties
 Dictionary<string, object> twin = new Dictionary<string, object>()
@@ -68,7 +68,7 @@ Dictionary<string, object> twin = new Dictionary<string, object>()
     { "Temperature", temperature},
     { "Humidity", humidity},
 };
-client.CreateDigitalTwin("myNewRoomID", JsonSerializer.Serialize<Dictionary<string, object>>(twin));
+client.CreateDigitalTwin("myRoomID", JsonSerializer.Serialize<Dictionary<string, object>>(twin));
 ```
 
 #### Create twins with the helper class
@@ -78,21 +78,21 @@ The helper class of `BasicDigitalTwin` allows you to store property fields in a 
 ```csharp
 BasicDigitalTwin twin = new BasicDigitalTwin();
 twin.Metadata = new DigitalTwinMetadata();
-twin.Metadata.ModelId = "dtmi:example:Room;1";
+twin.Metadata.ModelId = "dtmi:example:Room;10";
 // Initialize properties
 Dictionary<string, object> props = new Dictionary<string, object>();
 props.Add("Temperature", 25.0);
 props.Add("Humidity", 50.0);
 twin.CustomProperties = props;
 
-client.CreateDigitalTwin("myNewRoomID", JsonSerializer.Serialize<BasicDigitalTwin>(twin));
+client.CreateDigitalTwin("myRoomID", JsonSerializer.Serialize<BasicDigitalTwin>(twin));
 ```
 
 >[!NOTE]
 > `BasicDigitalTwin` objects come with an `Id` field. You can leave this field empty, but if you do add an ID value, it needs to match the ID parameter passed to the `CreateDigitalTwin` call. For the example above, this would look like:
 >
 >```csharp
->twin.Id = "myNewRoomID";
+>twin.Id = "myRoomID";
 >```
 
 ## Get data for a digital twin
@@ -102,6 +102,69 @@ You can access the full data of any digital twin by calling:
 ```csharp
 object result = await client.GetDigitalTwin(id);
 ```
+Following is the runnable source code to print twin details.
+
+```csharp
+using System;
+using Azure.DigitalTwins.Core;
+using Azure.Identity;
+using System.Threading.Tasks;
+using System.IO;
+using System.Collections.Generic;
+using Azure;
+using Azure.DigitalTwins.Core.Serialization;
+using System.Text.Json;
+
+namespace minimal
+{
+    class Program
+    {
+
+        static async Task Main(string[] args)
+        {
+            Console.WriteLine("Hello World!");
+
+            string clientId = "<your-client-id";
+            string tenantId = "<your-tenant-id>";
+            string adtInstanceUrl = "https://<your-instance-hostname>";
+            var credentials = new InteractiveBrowserCredential(tenantId, clientId);
+            Console.WriteLine();
+            Console.WriteLine($"Upload a model");
+            BasicDigitalTwin twin = new BasicDigitalTwin();
+            var typeList = new List<string>();
+            string dtdl = File.ReadAllText("Room.json");
+            typeList.Add(dtdl);
+            // Upload the model to the service
+            DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credentials);
+            Console.WriteLine($"Service client created – ready to go");
+            // await client.CreateModelsAsync(typeList);
+            twin.Metadata = new DigitalTwinMetadata();
+            twin.Metadata.ModelId = "dtmi:com:contoso:room;10";
+            // Initialize properties
+            Dictionary<string, object> props = new Dictionary<string, object>();
+            props.Add("Temperature", 25.0);
+            props.Add("Humidity", 50.0);
+            twin.CustomProperties = props;
+            await client.CreateDigitalTwinAsync("myRoomID", JsonSerializer.Serialize<BasicDigitalTwin>(twin));
+            Console.WriteLine("Twin created successfully");
+            Response<string> res = client.GetDigitalTwin("myRoomID");
+            twin = JsonSerializer.Deserialize<BasicDigitalTwin>(res.Value);
+            Console.WriteLine($"Model id: {twin.Metadata.ModelId}");
+            foreach (string prop in twin.CustomProperties.Keys)
+            {
+                if (twin.CustomProperties.TryGetValue(prop, out object value))
+                    Console.WriteLine($"Property '{prop}': {value}");
+            }
+
+        }
+    }
+}
+
+```
+
+Output of this program looks like this:
+
+:::image type="content" source="media/how-to-manage-twin/twin-data.png" alt-text="Console output showing the twin details.":::
 
 This call returns twin data as a JSON string. 
 
@@ -136,7 +199,7 @@ Consider the following model (written in [Digital Twins Definition Language (DTD
 }
 ```
 
-The result of calling `object result = await client.DigitalTwins.GetByIdAsync("my-moon");` on a *Moon*-type twin might look like this:
+The result of calling `object result = await client.GetDigitalTwinAsync("my-moon");` on a *Moon*-type twin might look like this:
 
 ```json
 {
@@ -177,7 +240,7 @@ You can parse the returned JSON for the twin using a JSON parsing library of you
 You can also use the serialization helper class `BasicDigitalTwin` that is included with the SDK, which will return the core twin metadata and properties in pre-parsed form. Here is an example:
 
 ```csharp
-Response<string> res = client.GetDigitalTwin(twin_id);
+Response<string> res = client.GetDigitalTwin("twin_id");
 BasicDigitalTwin twin = JsonSerializer.Deserialize<BasicDigitalTwin>(res.Value);
 Console.WriteLine($"Model id: {twin.Metadata.ModelId}");
 foreach (string prop in twin.CustomProperties.Keys)
@@ -191,7 +254,7 @@ You can read more about the serialization helper classes in [*How-to: Use the Az
 
 ## Update a digital twin
 
-To update properties a digital twin, you write the information you want to replace in [JSON Patch](http://jsonpatch.com/) format. In this way, you can replace multiple properties at once. You then pass the JSON Patch document into an `Update` method:
+To update properties of a digital twin, you write the information you want to replace in [JSON Patch](http://jsonpatch.com/) format. In this way, you can replace multiple properties at once. You then pass the JSON Patch document into an `Update` method:
 
 ```csharp
 await client.UpdateDigitalTwin(id, patch);
@@ -229,9 +292,12 @@ twinData.Add(new Dictionary<string, object>() {
     { "op", "add"},
     { "path", "/Temperature"},
     { "value", 25.0}
-});
+);
 
-await client.UpdateDigitalTwinAsync(twinId, JsonConvert.SerializeObject(twinData));
+await client.UpdateDigitalTwinAsync(twin_Id, JsonSerializer.Serialize(twinData));
+Console.WriteLine("Updated Twin Properties");
+FetchAndPrintTwin(twin_id, client);
+}
 ```
 
 #### Create patches using the helper class
@@ -239,7 +305,7 @@ await client.UpdateDigitalTwinAsync(twinId, JsonConvert.SerializeObject(twinData
 ```csharp
 UpdateOperationsUtility uou = new UpdateOperationsUtility();
 uou.AppendAddOp("/Temperature", 25.0);
-await client.UpdateDigitalTwinAsync(twinId, uou.Serialize());
+await client.UpdateDigitalTwinAsync(twin_Id, uou.Serialize());
 ```
 
 ### Update properties in digital twin components
