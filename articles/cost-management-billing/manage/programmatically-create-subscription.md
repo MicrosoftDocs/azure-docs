@@ -165,6 +165,20 @@ Run the [New-AzSubscriptionAlias](/powershell/module/az.subscription/New-AzSubsc
 New-AzSubscriptionAlias -AliasName "sampleAlias" -SubscriptionName "Dev Team Subscription" -BillingScope "/providers/Microsoft.Billing/illingAccounts/1234567/enrollmentAccounts/7654321" -Workload 'Production"
 ```
 
+You will get back the subscriptionId as part of the response from this command 
+
+```azurepowershell
+{
+  "id": "/providers/Microsoft.Subscription/aliases/sampleAlias",
+  "name": "sampleAlias",
+  "properties": {
+    "provisioningState": "Succeeded",
+    "subscriptionId": "4921139b-ef1e-4370-a331-dd2229f4f510"
+  },
+  "type": "Microsoft.Subscription/aliases"
+}
+```
+
 ### [Azure CLI](#tab/azure-cli)
 
 First, install this extension by running `az extension add --name account` and `az extension add --name alias`
@@ -385,6 +399,20 @@ Run the [New-AzSubscriptionAlias](/powershell/module/az.subscription/New-AzSubsc
 New-AzSubscriptionAlias -AliasName "sampleAlias" -SubscriptionName "Dev Team Subscription" -BillingScope "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx" -Workload 'Production"
 ```
 
+You will get back the subscriptionId as part of the response from this command 
+
+```azurepowershell
+{
+  "id": "/providers/Microsoft.Subscription/aliases/sampleAlias",
+  "name": "sampleAlias",
+  "properties": {
+    "provisioningState": "Succeeded",
+    "subscriptionId": "4921139b-ef1e-4370-a331-dd2229f4f510"
+  },
+  "type": "Microsoft.Subscription/aliases"
+}
+```
+
 ### [Azure CLI](#tab/azure-cli)
 
 First, install this extension by running `az extension add --name account` and `az extension add --name alias`
@@ -588,6 +616,20 @@ Run the [New-AzSubscriptionAlias](/powershell/module/az.subscription/New-AzSubsc
 
 ```azurepowershell-interactive
 New-AzSubscriptionAlias -AliasName "sampleAlias" -SubscriptionName "Dev Team Subscription" -BillingScope "/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx" -Workload 'Production"
+```
+
+You will get back the subscriptionId as part of the response from this command 
+
+```azurepowershell
+{
+  "id": "/providers/Microsoft.Subscription/aliases/sampleAlias",
+  "name": "sampleAlias",
+  "properties": {
+    "provisioningState": "Succeeded",
+    "subscriptionId": "4921139b-ef1e-4370-a331-dd2229f4f510"
+  },
+  "type": "Microsoft.Subscription/aliases"
+}
 ```
 
 ### [Azure CLI](#tab/azure-cli)
