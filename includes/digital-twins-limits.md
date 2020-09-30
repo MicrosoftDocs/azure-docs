@@ -36,6 +36,8 @@ This table reflects the rate limits of different APIs.
 | --- | --- | --- | --- |
 | Models API | Number of requests per second | 100 | Yes |
 | Digital Twins API | Number of requests per second | 2,000 | Yes |
+| Digital Twins API | Number of create/update/delete operations per second on a **single twin** | 10 | No |
+| Digital Twins API | Number of create/delete operations per second across **all twins and edges** | 50 | Yes |
 | Query API | Number of requests per second | 500 | Yes |
 | Query API | [Query Units](../articles/digital-twins/concepts-query-units.md) per second | 4,000 | Yes |
 | Event Routes API | Number of requests per second | 100 | Yes |
