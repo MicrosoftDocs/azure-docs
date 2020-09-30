@@ -134,7 +134,7 @@ HLS/CMAF + FairPlay (including HEVC/H.265) is supported on the following devices
 
 * iOS 11 or later.
 * iPhone 8 or later.
-* MacOS High Sierra with Intel 7th Generation CPU.
+* macOS High Sierra with Intel 7th Generation CPU.
 
 ### MPEG-DASH
 
