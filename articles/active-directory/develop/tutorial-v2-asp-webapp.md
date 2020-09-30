@@ -268,7 +268,7 @@ In Visual Studio, create a new view to add the sign-in button and to display use
     ```
 
 ### More information
-This page adds a sign-in button in SVG format with a black background:<br/>![Sign in with Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> For more sign-in buttons, go to the [Branding guidelines](./howto-add-branding-in-azure-ad-apps.md "Branding guidelines").
+This page adds a sign-in button in SVG format with a black background:<br/>![Sign in with Microsoft button](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> For more sign-in buttons, go to the [Branding guidelines](./howto-add-branding-in-azure-ad-apps.md "Branding guidelines").
 
 ## Add a controller to display user's claims
 This controller demonstrates the uses of the `[Authorize]` attribute to protect a controller. This attribute restricts access to the controller by allowing only authenticated users. The following code makes use of the attribute to display user claims that were retrieved as part of sign-in:
@@ -396,7 +396,7 @@ To test your application in Visual Studio, press F5 to run your project. The bro
 
 When you're ready to run your test, use an Azure AD account (work or school account) or a personal Microsoft account (<span>live.</span>com or <span>outlook.</span>com) to sign in.
 
-![Sign in with Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin.png)
+![Sign in with Microsoft button shown on browser logon page in browser](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin.png)
 <br/><br/>
 ![Sign in to your Microsoft account](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin2.png)
 

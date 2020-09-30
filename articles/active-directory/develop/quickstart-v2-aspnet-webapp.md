@@ -21,6 +21,7 @@ In this quickstart, you use a code sample to learn how an ASP.NET web app to sig
 > [!div renderon="docs"]
 > ## Prerequisites
 >
+> * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 > * [Visual Studio 2019](https://visualstudio.microsoft.com/vs/)
 > * [.NET Framework 4.7.2+](https://dotnet.microsoft.com/download/visual-studio-sdks)
 >
