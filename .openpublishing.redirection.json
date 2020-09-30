@@ -43503,7 +43503,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/azure-monitor/platform/log-query/useful-operators.md",
+      "source_path": "articles/azure-monitor/log-query/useful-operators.md",
       "redirect_url": "/azure/azure-monitor/data-explorer/kusto/query/",
       "redirect_document_id": false
     },
@@ -43513,7 +43513,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/azure-monitor/platform/log-query/query-language.md",
+      "source_path": "articles/azure-monitor/log-query/query-language.md",
       "redirect_url": "/azure/azure-monitor/data-explorer/kusto/query/",
       "redirect_document_id": false
     },
