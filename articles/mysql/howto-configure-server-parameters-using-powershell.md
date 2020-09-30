@@ -16,7 +16,7 @@ You can list, show, and update configuration parameters for an Azure Database fo
 PowerShell. A subset of engine configurations is exposed at the server-level and can be modified.
 
 >[!Note]
-> If you want to update the server parameter globally at a server level then it can be updated either using [Azure CLI](./howto-configure-server-parameters-using-cli.md), [PowerShell](./howto-configure-server-parameters-using-powershell.md) and [Azure portal](./howto-server-parameters.md).
+> Server parameters can be updated globally at the server-level, use the [Azure CLI](https://docs.microsoft.com/azure/mysql/howto-configure-server-parameters-using-cli), [PowerShell](https://docs.microsoft.com/azure/mysql/howto-configure-server-parameters-using-powershell), or [Azure portal]([./howto-server-parameters.md](https://docs.microsoft.com/azure/mysql/howto-server-parameters).
 
 ## Prerequisites
 

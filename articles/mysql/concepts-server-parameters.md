@@ -214,7 +214,7 @@ If you receive an error similar to "Row size too large (> 8126)" then you may wa
 This parameter can be set at a session level using `init_connect`. To set **innodb_strict_mode** at session level, refer to [setting parameter not listed](https://docs.microsoft.com/azure/mysql/howto-server-parameters#setting-parameters-not-listed).
 
 > [!NOTE]
-> If you have a read replica server, setting **innodb_strict_mode** to OFF at the session-level on a master server will break the replication. We suggest keeping the parameter set to OFF if you have read replicas
+> If you have a read replica server, setting **innodb_strict_mode** to OFF at the session-level on a master server will break the replication. We suggest keeping the parameter set to OFF if you have read replicas.
 
 ### sort_buffer_size
 

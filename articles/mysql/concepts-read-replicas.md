@@ -33,7 +33,7 @@ Because replicas are read-only, they don't directly reduce write-capacity burden
 The read replica feature uses MySQL asynchronous replication. The feature isn't meant for synchronous replication scenarios. There will be a measurable delay between the master and the replica. The data on the replica eventually becomes consistent with the data on the master. Use this feature for workloads that can accommodate this delay.
 
 > [!IMPORTANT]
-> In Azure Database for MySQL, binary logging format is always **ROW**. If your table is missing primary key then all rows in the table is scanned for DML and this causes large amount of replication lag. To ensure that the replica is able to keep up with changes to the source, we generally recommend adding the primary key for the tables in master server before creating the replica server or re-creating the replica server if you already have one.
+> Azure Database for MySQL uses **ROW** based binary logging. If your table is missing a primary key, all rows in the table are scanned for DML operations. This causes increased replication lag. To ensure that the replica is able to keep up with changes on the source, we generally recommend adding a primary key on tables in the source server before creating the replica server or re-creating the replica server if you already have one.
 
 ## Cross-region replication
 You can create a read replica in a different region from your master server. Cross-region replication can be helpful for scenarios like disaster recovery planning or bringing data closer to your users.
