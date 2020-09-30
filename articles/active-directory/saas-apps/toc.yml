@@ -1026,6 +1026,8 @@
         href: lr-tutorial.md
       - name: Logz.io - Azure AD Integration
         href: logzio-cloud-observability-for-engineers-tutorial.md
+      - name: Loop Flow CRM
+        href: loop-flow-crm-tutorial.md
       - name: Lucidchart
         href: lucidchart-tutorial.md
       - name: Lynda.com
@@ -1216,6 +1218,8 @@
         href: oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial.md
       - name: OrgChart Now
         href: orgchartnow-tutorial.md
+      - name: OrgVitality SSO
+        href: orgvitality-sso-tutorial.md
       - name: Origami
         href: origami-tutorial.md
       - name: Otsuka Shokai
@@ -1614,6 +1618,8 @@
         href: sprinklr-tutorial.md
       - name: SSOGEN Azure AD SSO Gateway for Oracle E Business Suite EBS, PeopleSoft, and JDE
         href: ssogen-tutorial.md
+      - name: Starmind
+        href: starmind-tutorial.md
       - name: StatusPage
         href: statuspage-tutorial.md
       - name: Stormboard
@@ -1720,6 +1726,8 @@
         href: trakopolis-tutorial.md
       - name: Trakstar
         href: trakstar-tutorial.md
+      - name: TravelPerk
+        href: travelperk-tutorial.md
       - name: Trelica
         href: trelica-tutorial.md
       - name: Trello
@@ -1806,6 +1814,8 @@
         href: waywedo-tutorial.md
       - name: Wdesk
         href: wdesk-tutorial.md
+      - name: Web Cargo Air
+        href: web-cargo-air-tutorial.md
       - name: webMethods Integration Suite
         href: webmethods-integration-cloud-tutorial.md
       - name: Wedo
@@ -1961,6 +1971,8 @@
         href: brivo-onair-identity-connector-provisioning-tutorial.md       
       - name: Cerner Central
         href: cernercentral-provisioning-tutorial.md
+      - name: Cinode
+        href: cinode-provisioning-tutorial.md
       - name: Cisco Webex
         href: cisco-webex-provisioning-tutorial.md
       - name: Coda
