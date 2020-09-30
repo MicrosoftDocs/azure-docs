@@ -70,6 +70,7 @@ In the example above, replace the placeholders with your subscription ID, resour
 
 > [!IMPORTANT]
 > It is always a good practice to grant minimum access. The scope in the previous example is limited to the specific App Service app and not the entire resource group.
+
 ---
 
 ## Configure the GitHub secret
