@@ -46,31 +46,19 @@ By using code snippets in mapping data flows, you can very easily perform common
 
     ![Source Snippet 4](media/data-flow/snippet4.png)
 
-10. In the expression builder, type the following:
+11. Now your data flow will remove duplicate rows from your source using the Aggregate transformation that groups by all rows using a general hash across all column values.
 
-    ```substring(Column_1,1,4)```
+12. Next, we'll add a code snippet for splitting your data into a stream that contains rows with NULLs and a stream that does not have any NULLs.
 
-    ![derived column](media/data-flow/fwderivedcol1.png)
+13. Go back to the Snippet library and this time copy the code for the NULL checks: https://docs.microsoft.com/en-us/azure/data-factory/data-flow-script#check-for-nulls-in-all-columns.
 
-11. Repeat step 10 for all the columns you need to parse.
+14. In your data flow designer, again click Script and paste this new transformation code at the bottom, connecting it to your previous transformation by typing the name of that transformation in front of the pasted snippet.
 
-12. Select the **Inspect** tab to see the new columns that will be generated:
+15. You data flow graph should now look similar to this:
 
-    ![inspect](media/data-flow/fwinspect.png)
+    ![Source Snippet 1](media/data-flow/snippet1.png)
 
-13. Use the Select transform to remove any of the columns that you don't need for transformation:
-
-    ![select transformation](media/data-flow/fwselect.png)
-
-14. Use Sink to output the data to a folder:
-
-    ![fixed width sink](media/data-flow/fwsink.png)
-
-    Here's what the output looks like:
-
-    ![fixed width output](media/data-flow/fxdoutput.png)
-
-  The fixed-width data is now split, with four characters each and assigned to Col1, Col2, Col3, Col4, and so on. Based on the preceding example, the data is split into four columns.
+  You now have a working data flow with generic deduping and NULL checks by taking existing code snippets from the Data Flow Script library and adding them into your existing design.
 
 ## Next steps
 
