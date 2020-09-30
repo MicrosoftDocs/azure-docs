@@ -24,7 +24,7 @@ This article addresses the following topics about Oracle in the cloud. These top
 * What is the difference in performance between the regular Linux kernel NFS (kNFS) client and Oracle’s own Direct NFS client?
 * As far as bandwidth is concerned, is the performance of a single Azure NetApp Files volume enough?
 
-## Testing environment and its components
+## Testing environment and components
 
 The following diagram illustrates the environment used for testing. For consistency and simplicity, Ansible playbooks were used to deploy all elements of the test bed.
 
