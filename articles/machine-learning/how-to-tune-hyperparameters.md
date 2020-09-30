@@ -17,7 +17,7 @@ ms.custom: how-to, devx-track-python
 # Tune hyperparameters for your model with Azure Machine Learning
 
 
-Automate efficient hyperparameter tuning by using Azure Machine Learning [HyperDrive package](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive?view=azure-ml-py). Learn how to complete the steps required to tune hyperparameters with the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py):
+Automate efficient hyperparameter tuning by using Azure Machine Learning [HyperDrive package](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive?view=azure-ml-py&preserve-view=true). Learn how to complete the steps required to tune hyperparameters with the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true):
 
 1. Define the parameter search space
 1. Specify a primary metric to optimize  
@@ -196,7 +196,7 @@ Azure Machine Learning supports the following early termination policies:
 * [Bandit policy](#bandit-policy)
 * [Median stopping policy](#median-stopping-policy)
 * [Truncation selection policy](#truncation-selection-policy)
-* [No termination policy](#no)
+* [No termination policy](#no-termination-policy-default)
 
 
 ### Bandit policy
