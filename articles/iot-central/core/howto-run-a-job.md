@@ -5,7 +5,7 @@ ms.service: iot-central
 services: iot-central
 author: sarahhubbard
 ms.author: sahubbar
-ms.date: 09/10/2020
+ms.date: 09/30/2020
 ms.topic: how-to
 ---
 
@@ -27,17 +27,17 @@ The following example shows you how to create and run a job to set the light thr
 
 1. Choose **Cloud property**, **Property**, or **Command** as the **Job type**:
 
-    To set up a **Property** job configuration, select a property and set its new value. To set up a **Command** job configuration, choose the command to run. A property job can set multiple properties.
+    To configure a **Property** job, select a property and set its new value. To configure a **Command** job, choose the command to run. A property job can set multiple properties.
 
     :::image type="content" source="media/howto-run-a-job/configure-job.png" alt-text="Screenshot that shows selections for creating a property job called Set Light Threshold":::
 
     Select **Save and exit** to add the job to the list of saved jobs on the **Jobs** page. You can later return to a job from the list of saved jobs.
 
-    Select **Next** to move to the **Delivery Options** page. The **Delivery Options** page helps create advanced delivery options for this job. Page has two toggles, Batches and Cancellation Threshold. 
-    
-    When you enable Batches toggle you are choosing to stagger how and when you run jobs for large numbers of devices. Each batch will complete before the next queued batch starts. 
-    
-    When you enable Cancellation Threshold toggle you are choosing for job to be automatically cancelled if the number of errors exceeds a limit you set. You can apply the threshold to all of your devices, or make it specific to each batch. 
+    Select **Next** to move to the **Delivery Options** page. The **Delivery Options** page lets you set the delivery options for this job: **Batches** and **Cancellation threshold**.
+
+    Batches let you stagger jobs for large numbers of devices. The job is divided into multiple batches and each batch contains a subset of the devices. The batches are queued and run in sequence.
+
+    The cancellation threshold lets you automatically cancel a job if the number of errors exceeds your set limit. The threshold can apply to all the devices in the job, or to individual batches.
 
     :::image type="content" source="media/howto-run-a-job/job-wizard-delivery-options.png" alt-text="Screenshot of job wizard delivery options page":::
 
@@ -54,7 +54,7 @@ The following example shows you how to create and run a job to set the light thr
 1. The job now appears in **Last 30 days** list on the **Jobs** page. This page shows currently running jobs and the history of any previously run or saved jobs.
 
     > [!NOTE]
-    > You can view up 30 days of history for your previously run jobs.
+    > You can view 30 days of history for your previously run jobs.
 
 ## Manage jobs
 
@@ -85,7 +85,7 @@ After a job is created, the **Status** column updates with the latest job status
 | Pending              | This job hasn't yet begun running on devices.         |
 | Running              | This job is currently running on devices.             |
 | Stopped              | A user has manually stopped this job.           |
-| Canceled             | This job has been cancelled due to threshold exceeded, which was set in delivery options by the user |
+| Canceled             | This job was canceled because the threshold set on the **Delivery options** page was exceeded. |
 
 The status message is followed by an overview of the devices in the job. The following table lists the possible *device status* values:
 
