@@ -12,6 +12,9 @@ ms.custom: devx-track-azurecli
 # Configure server parameters in Azure Database for MySQL using the Azure CLI
 You can list, show, and update configuration parameters for an Azure Database for MySQL server by using Azure CLI, the Azure command-line utility. A subset of engine configurations is exposed at the server-level and can be modified. 
 
+>[!Note]
+> If you want to update the server parameter globally at a server level then it can be updated either using [Azure CLI](./howto-configure-server-parameters-using-cli.md), [PowerShell](./howto-configure-server-parameters-using-powershell.md) and [Azure portal](./howto-server-parameters.md).
+
 ## Prerequisites
 To step through this how-to guide, you need:
 - [An Azure Database for MySQL server](quickstart-create-mysql-server-database-using-azure-cli.md)

@@ -53,7 +53,7 @@ To improve performance issues of short queries on the thread pool, Azure Databas
 
 In Azure Database for MySQL, binary logs are always enabled (i.e. log_bin is set to ON). In case you want to use triggers you will get error similar to *you do not have the SUPER privilege and binary logging is enabled (you might want to use the less safe log_bin_trust_function_creators variable)*. 
 
-In Azure Database for MySQL, binary logging format is always **ROW** and all connections to the server **ALWAYS** use row-based binary logging. Using row-based binary logging, the security issues do not exist and binary logging cannot break, so you can safely set *log_bin_trust_function_creators* to **TRUE**.
+In Azure Database for MySQL, binary logging format is always **ROW** and all connections to the server **ALWAYS** use row-based binary logging. Using row-based binary logging, the security issues do not exist and binary logging cannot break, so you can safely set [log_bin_trust_function_creators](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) to **TRUE**.
 
 ### innodb_buffer_pool_size
 
