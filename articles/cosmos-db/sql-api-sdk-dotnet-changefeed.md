@@ -95,7 +95,7 @@ ms.author: anfeldma
 * This release fixes an issue that occurs during processing a split in monitored collection and using a partitioned lease collection. When processing a lease for split partition, the lease corresponding to that partition may not be deleted. The issue is fixed in this release.
 
 ### <a name="2.2.1"></a>2.2.1
-* Fixed Estimator calculation for Multi Master accounts and new Session Token format.
+* Fixed Estimator calculation for accounts witl multiple write regions and new Session Token format.
 
 ### <a name="2.2.0"></a>2.2.0
 * Added support for partitioned lease collections. The partition key must be defined as /id.
