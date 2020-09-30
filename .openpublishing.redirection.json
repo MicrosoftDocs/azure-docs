@@ -303,12 +303,12 @@
     {
       "source_path": "articles/storage/common/monitor-storage.md",
       "redirect_url": "/azure/storage/blobs/monitor-blob-storage",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/storage/common/monitor-storage-reference.md",
       "redirect_url": "/azure/storage/blobs/monitor-blob-storage-reference",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/container-service/index.yml",
