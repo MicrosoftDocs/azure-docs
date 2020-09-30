@@ -30,7 +30,7 @@ The states that can be set for a queue are:
     :::image type="content" source="./media/entity-suspend/select-state.png" alt-text="Select state of the queue":::
 4. Select the new status for the queue, and select **OK**. 
 
-    :::image type="content" source="./media/entity-suspend/entity-state-change.png" alt-text="Select state of the queue":::
+    :::image type="content" source="./media/entity-suspend/entity-state-change.png" alt-text="Set state of the queue":::
     
 The portal only permits completely disabling queues. You can also disable the send and receive operations separately using the Service Bus [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) APIs in the .NET Framework SDK, or with an Azure Resource Manager template through Azure CLI or Azure PowerShell.
 
@@ -58,7 +58,7 @@ The states that can be set for a topic are:
 ## Subscription status
 Changing the subscription status in the Azure portal is similar to changing status of a topic or a queue. When you select the current status of the subscription, you see the following page that lets you change the status. 
 
-:::image type="content" source="./media/entity-suspend/subscription-state-change.png" alt-text="Change topic status":::
+:::image type="content" source="./media/entity-suspend/subscription-state-change.png" alt-text="Change subscription status":::
 
 The states that can be set for a topic are:
 - **Active**: The topic is active.
