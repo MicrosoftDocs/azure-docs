@@ -13,11 +13,12 @@ ms.custom: include file
 1. In **Solution Explorer**, right-click the project and select **Publish**.
 
 1. In **Target**, select **Azure**
-::image type="content" source="media/functions-vstools-publish/functions-visual-studio-publish-profile-step-1.png" alt-text="Select Azure target":::
+
+:::image type="content" source="media/functions-vstools-publish/functions-visual-studio-publish-profile-step-1.png" alt-text="Select Azure target":::
 
 1. In **Specific target**, select **Azure Function App (Windows)**
 
-::image type="content" source="media/functions-vstools-publish/functions-visual-studio-publish-profile-step-2.png" alt-text="Select Azure Function App":::
+:::image type="content" source="media/functions-vstools-publish/functions-visual-studio-publish-profile-step-2.png" alt-text="Select Azure Function App":::
 
 1. In **Function Instance**, click on **Create a new Azure Function...** link, and then use the values specified in the following table:
 
