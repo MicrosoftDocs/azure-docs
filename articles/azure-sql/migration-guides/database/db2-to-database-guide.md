@@ -39,7 +39,7 @@ To create an assessment, follow these steps:
 
 1. Open SQL Server Migration Assistant (SSMA) for DB2. 
 1. Select **File** and then choose **New Project**. 
-1. Provide a project name, a location to save your project, and then select an Azure SQL Database migration target from the drop-down. Select **OK**. 
+1. Provide a project name, a location to save your project, and then select Azure SQL Database as the migration target from the drop-down. Select **OK**. 
 
    :::image type="content" source="media/db2-to-database-guide/new-project.png" alt-text="Provide project details and select OK to save.":::
 
@@ -82,7 +82,7 @@ To convert the schema, follow these steps:
     1. Choose your target SQL Database from the drop-down. 
     1. Select **Connect**. 
 
-:::image type="content" source="media/db2-to-database-guide/connect-to-sql-database.png" alt-text="Fill in details to connect to the logical server in Azure":::
+   :::image type="content" source="media/db2-to-database-guide/connect-to-sql-database.png" alt-text="Fill in details to connect to the logical server in Azure":::
 
 
 1. Right-click the schema and then choose **Convert Schema**. Alternatively, you can choose **Convert Schema** from the top navigation bar after selecting your schema. 
@@ -147,6 +147,57 @@ Be sure to take advantage of the advanced cloud-based features offered by SQL Da
 
 
 Some SQL Server features are only available once the [database compatibility level](/sql/relational-databases/databases/view-or-change-the-compatibility-level-of-a-database) is changed to the latest compatibility level (150). 
+
+## Partners
+
+The following partners can provide alternative methods for migration as well: 
+
+:::row:::
+   :::column span="":::
+      [:::image type="content" source="media/db2-to-managed-instance-guide/blitzz-logo.png" alt-text="Blitzz":::](https://www.blitzz.io/product)
+   :::column-end:::
+   :::column span="":::
+      [:::image type="content" source="media/db2-to-managed-instance-guide/blueprint-logo.png" alt-text="Blueprint":::](https://bpcs.com/what-we-do)
+   :::column-end:::
+   :::column span="":::
+      [:::image type="content" source="media/db2-to-managed-instance-guide/cognizant-logo.png" alt-text="Cognizant":::](https://www.cognizant.com/partners/microsoft)
+   :::column-end:::   
+:::row-end:::
+:::row:::
+   :::column span="":::
+      [:::image type="content" source="media/db2-to-managed-instance-guide/datasunrise-logo.png" alt-text="DataSunrise":::](https://www.datasunrise.com/)
+   :::column-end:::
+   :::column span="":::
+      [:::image type="content" source="media/db2-to-managed-instance-guide/dbbest-logo.png" alt-text="dbbtest":::](https://www.dbbest.com/)
+   :::column-end:::
+   :::column span="":::
+      [:::image type="content" source="media/db2-to-managed-instance-guide/dxc-logo.png" alt-text="DXC":::](https://www.dxc.technology/application_services/offerings/139843/142343-application_services_for_microsoft_azure)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      [:::image type="content" source="media/db2-to-managed-instance-guide/hvr-logo.png" alt-text="HVR":::](https://www.hvr-software.com/solutions/azure-data-integration/)
+   :::column-end:::
+   :::column span="":::
+      [:::image type="content" source="media/db2-to-managed-instance-guide/infosys-logo.png" alt-text="Infosys":::](https://www.infosys.com/services/)
+   :::column-end:::   
+   :::column span="":::
+     [:::image type="content" source="media/db2-to-managed-instance-guide/ispirer-logo.png" alt-text="Ispirer":::](https://www.ispirer.com/blog/migration-to-the-microsoft-technology-stack)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      [:::image type="content" source="media/db2-to-managed-instance-guide/querysurge-logo.png" alt-text="Querysurge":::](https://www.querysurge.com/company/partners/microsoft)
+   :::column-end:::
+   :::column span="":::
+     [:::image type="content" source="media/db2-to-managed-instance-guide/scalability-experts-logo.png" alt-text="Scalability Experts":::](http://www.scalabilityexperts.com/products/index.html)
+   :::column-end:::   
+   :::column span="":::
+     [:::image type="content" source="media/db2-to-managed-instance-guide/wipro-logo.png" alt-text="Wipro":::](https://www.wipro.com/analytics/)
+   :::column-end:::
+:::row-end:::   
+
+
 
 
 ## Next steps
