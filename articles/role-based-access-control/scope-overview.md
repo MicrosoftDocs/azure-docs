@@ -7,7 +7,7 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 09/24/2020
+ms.date: 09/29/2020
 ms.author: rolyon
 ---
 
@@ -17,9 +17,9 @@ ms.author: rolyon
 
 ## Scope levels
 
-Azure provides four levels of scope for resource management. The following image shows an example of these levels.
+Azure provides four levels of scope for resource management. The following image shows an example of these levels from broadest to most restrictive.
 
-![Scope for a role assignment](./media/shared/rbac-scope.png)
+![Scope for a role assignment](./media/scope-overview/rbac-scope-no-label.png)
 
 | Scope | Resource type |
 | --- | --- |
@@ -32,35 +32,35 @@ You can assign roles at any of these levels of scope. The level you select deter
 
 ## Scope format
 
-If you add role assignments using the command line, you'll need to specify the scope. For command-line tools, scope is a potentially long string that identifies the exact scope of the role assignment.
+If you add role assignments using the command line, you'll need to specify the scope. For command-line tools, scope is a potentially long string that identifies the exact scope of the role assignment. In the Azure portal, this scope is also listed as the *resource ID*.
 
-The scope consists of a series of identifiers separated by the slash (/) character. You can think of this string as expressing the following hierarchy, where text without placeholders (`<>`) are fixed identifiers:
+The scope consists of a series of identifiers separated by the slash (/) character. You can think of this string as expressing the following hierarchy, where text without placeholders (`{}`) are fixed identifiers:
 
 ```
 /subscriptions
-    /<subscription_id>
+    /{subscriptionId}
         /resourcegroups
-            /<resource_group_name>
+            /{resourceGroupName}
                 /providers
-                    /<provider_ame>
-                        /<resource_type>
-                            /<resource_sub_type_1>
-                                /<resource_sub_type_2>
-                                    /<resource_name>
+                    /{providerName}
+                        /{resourceType}
+                            /{resourceSubType1}
+                                /{resourceSubType2}
+                                    /{resourceName}
 ```
 
-- `<subscription_id>` is the ID of the subscription to use (a GUID).
-- `<resources_group_name>` is the name of the containing resource group.
-- `<provider_name>` is the name of the resource provider that handles the resource, then `<resource_type>` and `<resource_sub_type_*>` identify further levels within that resource provider.
-- `<resource_name>` is the last part of the string that identifies a specific resource.
+- `{subscriptionId}` is the ID of the subscription to use (a GUID).
+- `{resourcesGroupName}` is the name of the containing resource group.
+- `{providerName}` is the name of the resource provider that handles the resource, then `{resourceType}` and `{resourceSubType*}` identify further levels within that resource provider.
+- `{resourceName}` is the last part of the string that identifies a specific resource.
 
 Management groups are a level above subscriptions and have the broadest (least specific) scope. Role assignments at this level apply to a subscriptions within the management group. Each additional level of hierarchy makes the scope more specific. The scope for a management group has the following format:
 
 ```
 /providers
-    /<provider_name>
+    /{providerName}
         /managementGroups
-            /<managment_group_name>
+            /{managmentGroupName}
 ```
 
 ## Scope examples
@@ -78,6 +78,10 @@ Management groups are a level above subscriptions and have the broadest (least s
 ## How to determine the scope for a resource
 
 It's fairly simple to determine the scope for a management group, subscription, or resource group. You just need to know the name and the subscription ID. However, determining the scope for a resource is a little more complicated. Here are a couple ways that you can determine the scope for a resource.
+
+- In the Azure portal, open the resource and then look at the properties. The resource should list the **Resource ID** where you can determine the scope. Here's the resource ID for storage account.
+
+    ![Resource ID for a storage account in Azure portal](./media/scope-overview/scope-resource-id.png)
 
 - Assign a role at the resource scope using the Azure portal and then use [Azure PowerShell](role-assignments-list-powershell.md) or [Azure CLI](role-assignments-list-cli.md) to list the role assignment. In the output, the scope will be listed as a property.
 
@@ -116,12 +120,8 @@ It's fairly simple to determine the scope for a management group, subscription, 
       }
     ```
 
-- In the Azure portal, open the resource and then look at the properties. The resource might list the resource ID where you can determine the scope.
-
-- View the [list of resource providers for services](../azure-resource-manager/management/azure-services-resource-providers.md) and [get information about the resource types](../azure-resource-manager/management/resource-providers-and-types.md). Based on this information, you can piece together some of the scope.
-
 ## Next steps
 
-- [List Azure role assignments using the Azure portal](role-assignments-list-portal.md)
 - [Add or remove Azure role assignments using the Azure portal](role-assignments-portal.md)
+- [Resource providers for Azure services](../azure-resource-manager/management/azure-services-resource-providers.md)
 - [Organize your resources with Azure management groups](../governance/management-groups/overview.md)
