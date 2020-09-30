@@ -30,7 +30,7 @@ The following diagram illustrates the environment used for testing. For consiste
 
 ![Oracle testing environment](../media/azure-netapp-files/performance-oracle-test-environment.png)  
 
-### Virtual machine
+### Virtual machine configuration
 
 The tests used the following setup for the virtual machine:
 * Operating system:   
@@ -106,13 +106,13 @@ The following diagram shows the tablespace named PERFIO with 600 GB in size (20 
 
 The goal was to report the IO performance as experienced by the application. Therefore, all diagrams in this article use metrics reported by the Oracle database via its Automatic Workload Repository (AWR) reports. The metrics used in the diagrams are as follows:   
 
-* **Average IO Requests/sec** 
+* **Average IO Requests/sec**   
     Corresponds to the sum of average Read IO Requests/sec and average Write IO Requests/sec from the load profile section
-* **Average IO MB/sec**
+* **Average IO MB/sec**   
     Corresponds to the sum of average Read IO MB/sec and average Write IO MB/sec from the load profile section
-* **Average Read latency**
+* **Average Read latency**   
     Corresponds to the average latency of the Oracle Wait Event “db file sequential read” in microseconds
-* **Number of threads/schema** 
+* **Number of threads/schema**   
     Corresponds to the number of SLOB threads per user schema
 
 ## Performance measurement results  
