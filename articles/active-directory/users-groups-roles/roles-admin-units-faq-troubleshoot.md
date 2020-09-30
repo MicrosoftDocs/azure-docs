@@ -63,9 +63,9 @@ To prevent an elevation of privilege, an administrative unit-scoped administrato
 
 **Q: Are administrative units supported in PowerShell and the Graph API?**
 
-**A:** Yes. You'll find support for administrative units in [PowerShell cmdlet documentation](/powershell/module/Azuread/?view=azureadps-2.0-preview&preserve-view=true) and [sample scripts](/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0-preview&preserve-view=true).
+**A:** Yes. You'll find support for administrative units in [PowerShell cmdlet documentation](/powershell/module/Azuread/?view=azureadps-2.0&preserve-view=true) and [sample scripts](/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0&preserve-view=true).
 
-Find support for the [administrativeUnit resource type](/graph/api/resources/administrativeunit?view=graph-rest-beta&preserve-view=true) in Microsoft Graph.
+Find support for the [administrativeUnit resource type](/graph/api/resources/administrativeunit?view=graph-rest-1.0&preserve-view=true) in Microsoft Graph.
 
 ## Next steps
 

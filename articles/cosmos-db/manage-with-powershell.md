@@ -104,7 +104,7 @@ This command allows you to update your Azure Cosmos DB database account properti
 * Changing default consistency policy
 * Changing IP Range Filter
 * Changing Virtual Network configurations
-* Enabling Multi-master
+* Enabling multi-region writes
 
 > [!NOTE]
 > You cannot simultaneously add or remove regions (`locations`) and change other properties for an Azure Cosmos account. Modifying regions must be performed as a separate operation from any other change to the account.
@@ -161,7 +161,7 @@ Update-AzCosmosDBAccountRegion `
 Write-Host "Update-AzCosmosDBAccountRegion returns before the region update is complete."
 Write-Host "Check account in Azure portal or using Get-AzCosmosDBAccount for region status."
 ```
-### <a id="multi-master"></a> Enable multiple write regions for an Azure Cosmos account
+### <a id="multi-region-writes"></a> Enable multiple write regions for an Azure Cosmos account
 
 ```azurepowershell-interactive
 $resourceGroupName = "myResourceGroup"
@@ -170,13 +170,13 @@ $enableAutomaticFailover = $false
 $enableMultiMaster = $true
 
 # First disable automatic failover - cannot have both automatic
-# failover and multi-master on an account
+# failover and multi-region writes on an account
 Update-AzCosmosDBAccount `
     -ResourceGroupName $resourceGroupName `
     -Name $accountName `
     -EnableAutomaticFailover:$enableAutomaticFailover
 
-# Now enable multi-master
+# Now enable multi-region writes
 Update-AzCosmosDBAccount `
     -ResourceGroupName $resourceGroupName `
     -Name $accountName `
@@ -214,7 +214,7 @@ Update-AzCosmosDBAccount `
 
 ### <a id="list-keys"></a> List Account Keys
 
-When you create an Azure Cosmos account, the service generates two master access keys that can be used for authentication when the Azure Cosmos account is accessed. Read-only keys for authenticating read-only operations are also generated.
+When you create an Azure Cosmos account, the service generates two primary access keys that can be used for authentication when the Azure Cosmos account is accessed. Read-only keys for authenticating read-only operations are also generated.
 By providing two access keys, Azure Cosmos DB enables you to regenerate and rotate one key at a time with no interruption to your Azure Cosmos account.
 Cosmos DB accounts have two read-write keys (primary and secondary) and two read-only keys (primary and secondary).
 
@@ -268,8 +268,8 @@ $accountName = "mycosmosaccount"
 $enableAutomaticFailover = $true
 $enableMultiMaster = $false
 
-# First disable multi-master - cannot have both automatic
-# failover and multi-master on an account
+# First disable multi-region writes - cannot have both automatic
+# failover and multi-region writes on an account
 Update-AzCosmosDBAccount `
     -ResourceGroupName $resourceGroupName `
     -Name $accountName `

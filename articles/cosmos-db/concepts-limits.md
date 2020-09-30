@@ -149,11 +149,11 @@ Azure Cosmos DB supports [CRUD and query operations](/rest/api/cosmos-db/) again
 
 Once an operation like query reaches the execution timeout or response size limit, it returns a page of results and a continuation token to the client to resume execution. There is no practical limit on the duration a single query can run across pages/continuations.
 
-Cosmos DB uses HMAC for authorization. You can use either a master key, or a [resource tokens](secure-access-to-data.md) for fine-grained access control to resources like containers, partition keys, or items. The following table lists limits for authorization tokens in Cosmos DB.
+Cosmos DB uses HMAC for authorization. You can use either a primary key, or a [resource tokens](secure-access-to-data.md) for fine-grained access control to resources like containers, partition keys, or items. The following table lists limits for authorization tokens in Cosmos DB.
 
 | Resource | Default limit |
 | --- | --- |
-| Maximum master token expiry time | 15 min  |
+| Maximum primary token expiry time | 15 min  |
 | Minimum resource token expiry time | 10 min  |
 | Maximum resource token expiry time | 24 h by default. You can increase it by [filing an Azure support ticket](create-support-request-quota-increase.md)|
 | Maximum clock skew for token authorization| 15 min |
@@ -166,7 +166,7 @@ Azure Cosmos DB maintains system metadata for each account. This metadata allows
 
 | Resource | Default limit |
 | --- | --- |
-|Maximum collection create rate rer minute|	5|
+|Maximum collection create rate per minute|	5|
 |Maximum Database create rate per minute|	5|
 |Maximum provisioned throughput update rate per minute|	5|
 
@@ -197,7 +197,7 @@ Cosmos DB supports querying items using [SQL](how-to-sql-query.md). The followin
 | Maximum excluded paths per container| 500 |
 | Maximum properties in a composite index| 8 |
 
-<sup>*</sup> You can increase these SQL query limits by contacting Azure Support.
+<sup>*</sup> You can increase any of these SQL query limits by creating an [Azure Support request](create-support-request-quota-increase.md).
 
 ## MongoDB API-specific limits
 
