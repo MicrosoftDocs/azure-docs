@@ -27,24 +27,24 @@ The time spent on the network to send such a query from the application tier to 
 
 In many Azure regions, the number of datacenters has grown. At the same time, customers, especially for high-end SAP systems, are using more special VM SKUs of the M or Mv2  family, or HANA Large Instances. These Azure virtual machine types aren't always available in all the datacenters that complement an  Azure region. These facts can create opportunities to optimize network latency between the SAP application layer and the SAP DBMS layer.
 
-To give you a possibility to optimize network latency, Azure offers [proximity placement groups](../../linux/co-location.md). Proximity placement groups can be used to force grouping of different VM types into a single Azure datacenter to optimize the network latency between these very different VM types to the best possible. In the process of deploying the first VM into such a proximity placement group, the VM gets bound to a specific datacenter. As appealing as this sounds, the usage of the construct introduces some restrictions as well:
+To give you a possibility to optimize network latency, Azure offers [proximity placement groups](../../linux/co-location.md). Proximity placement groups can be used to force grouping of different VM types into a single Azure datacenter to optimize the network latency between these different VM types to the best possible. In the process of deploying the first VM into such a proximity placement group, the VM gets bound to a specific datacenter. As appealing as this prospect sounds, the usage of the construct introduces some restrictions as well:
 
-- You can not assume that all Azure VM types are available in every and all Azure datacenters. As a result, the combination of different VM types within one proximity placement group can be restricted. These restrictions occur because the host hardware that’s needed to run a certain VM type might not be present in the datacenter to which the placement group was deployed
-- As you resize part of the VMs that are within one proximity placement group, you can not automatically assume that in all cases the new VM type is available in the same datacenter as the other VMs that are part of the proximity placement group
-- As Azure decommissions hardware it might force certain VMs of a a proximity placement group into another Azure datacenter. For details covering this case, read the document [Co-locate resources for improved latency](https://docs.microsoft.com/azure/virtual-machines/linux/co-location#planned-maintenance-and-proximity-placement-groups)  
+- You cannot assume that all Azure VM types are available in every and all Azure datacenters. As a result, the combination of different VM types within one proximity placement group can be restricted. These restrictions occur because the host hardware that’s needed to run a certain VM type might not be present in the datacenter to which the placement group was deployed
+- As you resize parts of the VMs that are within one proximity placement group, you cannot automatically assume that in all cases the new VM type is available in the same datacenter as the other VMs that are part of the proximity placement group
+- As Azure decommissions hardware it might force certain VMs of a proximity placement group into another Azure datacenter. For details covering this case, read the document [Co-locate resources for improved latency](https://docs.microsoft.com/azure/virtual-machines/linux/co-location#planned-maintenance-and-proximity-placement-groups)  
 
 > [!IMPORTANT]
 > As a result of the potential restrictions, proximity placement groups should be used:
 >
 > - Only when necessary
-> - Only on on granularity of a single SAP system and not for a whole system landscape or a complete SAP landscape
+> - Only on granularity of a single SAP system and not for a whole system landscape or a complete SAP landscape
 > - In a way to keep the different VM types and the number of VMs within a proximity placement group to a minimum
 
 
 ## What are proximity placement groups? 
 An Azure proximity placement group is a logical construct. When a proximity placement group is defined, it's bound to an Azure region and an Azure resource group. When VMs are deployed, a proximity placement group is referenced by:
 
-- The first Azure VM deployed in the datacenter. You can think of the first virtual machine as an "scope VM" that's deployed in a datacenter based on Azure allocation algorithms that are eventually combined with user definitions for a specific Availability Zone.
+- The first Azure VM deployed in the datacenter. You can think of the first virtual machine as a "scope VM" that's deployed in a datacenter based on Azure allocation algorithms that are eventually combined with user definitions for a specific Availability Zone.
 - All subsequent VMs deployed that reference the proximity placement group, to place all subsequently deployed Azure VMs in the same datacenter as the first virtual machine.
 
 > [!NOTE]
@@ -58,7 +58,7 @@ Most SAP NetWeaver and S/4HANA system deployments on Azure don't use [HANA Large
 
 In most customer deployments, customers build a single [Azure resource group](../../../azure-resource-manager/management/manage-resources-portal.md) for SAP systems. In that case, there's a one-to-one relationship between, for example, the production ERP system resource group and its proximity placement group. In other cases, customers organize their resource groups horizontally and collect all production systems in a single resource group. In this case, you'd have a one-to-many relationship between your resource group for production SAP systems and several proximity placement groups for your production SAP ERP, SAP BW, and so on.
 
-Avoid bundling several SAP production or non-production systems in a single proximity placement group. When a small number of SAP systems or an SAP system and some surrounding applications need to have low latency network communication, you might consider moving these systems into one proximity placement group. You should avoid bundles of systems because the more systems you group in a proximity placement group, the higher the chances:
+Avoid bundling several SAP production or non-production systems in a single proximity placement group. When a small number of SAP systems or an SAP system and some surrounding applications need to have low latency network communication, you might consider moving these systems into one proximity placement group. Avoid bundles of systems because the more systems you group in a proximity placement group, the higher the chances:
 
 - That you require a VM type that can't be run in the specific datacenter into which the proximity placement group was scoped to.
 - That resources of non-mainstream VMs, like M-Series VMs, could eventually be unfulfilled when you need more because you're adding software to a proximity placement group over time.
@@ -113,7 +113,7 @@ Deploy your first VM into the proximity placement group by using a command like 
 New-AzVm -ResourceGroupName "myfirstppgexercise" -Name "myppganchorvm" -Location "westus2" -OpenPorts 80,3389 -ProximityPlacementGroup "letsgetclose" -Size "Standard_DS11_v2"
 </code></pre>
 
-The preceding command deploys a Windows-based VM. After this VM deployment succeeds, the datacenter scope of the proximity placement group is defined within the Azure region. All subsequent VM deployments that reference the proximity placement group, as shown in the preceding command, will be deployed in the same Azure datacenter, as long as the VM type can be hosted on hardware placed in that datacenter and capacity for that VM type is available.
+The preceding command deploys a Windows-based VM. After this VM deployment succeeds, the datacenter scope of the proximity placement group is defined within the Azure region. All subsequent VM deployments that reference the proximity placement group, as shown in the preceding command, will be deployed in the same Azure datacenter, as long as the VM type can be hosted on hardware placed in that datacenter, and capacity for that VM type is available.
 
 ## Combine availability sets and Availability Zones with proximity placement groups
 One of the disadvantages to using Availability Zones for SAP system deployments is that you can’t deploy the SAP application layer by using availability sets within the specific zone. You want the SAP application layer to be deployed in the same zones as the DBMS layer. Referencing an Availability Zone and an availability set when deploying a single VM isn't supported. So, previously, you were forced to deploy your application layer by referencing a zone. You lost the ability to make sure the application layer VMs were spread across different update and failure domains.
@@ -135,7 +135,7 @@ A successful deployment of this virtual machine would host the database instance
 
 Assume you deploy the Central Services VMs in the same way as the DBMS VMs, referencing the same zone or zones and the same proximity placement groups. In the next step, you need to create the availability sets you want to use for the application layer of your SAP system.
 
-You need to define and create the proximity placement group. The command for creating the availability set requires an additional reference to the proximity placement group ID (not the name). You can get the ID of the proximity placement group by using this command:
+Define and create the proximity placement group. The command for creating the availability set requires an additional reference to the proximity placement group ID (not the name). You can get the ID of the proximity placement group by using this command:
 
 <pre><code>
 Get-AzProximityPlacementGroup -ResourceGroupName "myfirstppgexercise" -Name "letsgetclose"
@@ -161,7 +161,7 @@ The result of this deployment is:
 > Because you deploy one DBMS VM into one zone and the second DBMS VM into another zone to create a high availability configuration, you'll need a different proximity placement group for each of the zones. The same is true for any availability set that you use.
 
 ## Move an existing system into proximity placement groups
-If you already have SAP systems deployed, you might want to optimize the network latency of some of your critical systems and locate the application layer and the DBMS layer in the same datacenter. To move the VMs of a complete Azure availability set to an existing proximity placement group that is scoped already, you need to shutdown all VMs of the availability set and assign the availability set to the existing proximity placement group through Azure portal, PowerShell or CLI. If you want to move a VM that is not part of an availability set into an existing proximity placement group, you just need to shutdown the VM and assign it to an existing proximity placement group. 
+If you already have SAP systems deployed, you might want to optimize the network latency of some of your critical systems and locate the application layer and the DBMS layer in the same datacenter. To move the VMs of a complete Azure availability set to an existing proximity placement group that is scoped already, you need to shut down all VMs of the availability set and assign the availability set to the existing proximity placement group through Azure portal, PowerShell, or CLI. If you want to move a VM that is not part of an availability set into an existing proximity placement group, you just need to shut down the VM and assign it to an existing proximity placement group. 
 
 
 ## Next steps
