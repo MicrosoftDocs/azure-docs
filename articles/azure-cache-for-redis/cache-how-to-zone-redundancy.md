@@ -33,7 +33,7 @@ To create a cache, follow these steps:
 
     :::image type="content" source="media/cache-create/new-cache-menu.png" alt-text="Select Azure Cache for Redis.":::
    
-1. On the **New Redis Cache** page, configure the settings for your new cache.
+1. On the **Basics** page, configure the settings for your new cache.
    
     | Setting      | Suggested value  | Description |
     | ------------ |  ------- | -------------------------------------------------- |
@@ -43,9 +43,15 @@ To create a cache, follow these steps:
     | **Location** | Select a location. | Select a [region](https://azure.microsoft.com/regions/) near other services that will use your cache. |
     | **Cache type** | Select a [Premium tier](https://azure.microsoft.com/pricing/details/cache/) cache. |  The pricing tier determines the size, performance, and features that are available for the cache. For more information, see [Azure Cache for Redis Overview](cache-overview.md). |
    
-1. On the **Advanced** page, you'll be asked whether to enable Redis clustering or not. Leave **Clustering** as *Disabled*. 
+1. On the **Advanced** page, choose **Replica count**.
    
-    :::image type="content" source="media/cache-how-to-premium-clustering/redis-clustering-disabled.png" alt-text="Configure Redis cluster.":::
+    :::image type="content" source="media/cache-how-to-multi-replicas/create-multi-replicas.png" alt-text="Create Azure Cache for Redis.":::
+
+1. Select **Availability zones**. 
+   
+    :::image type="content" source="media/cache-how-to-zone-redundancy/create-zones.png" alt-text="Create Azure Cache for Redis.":::
+
+1. Leave other options in their default settings. 
 
     > [!NOTE]
     > Zone redundancy support only works with non-clustered and non-geo-replicated caches currently. In addition, it doesn't support private link, scaling, data persistence, or import/export.
@@ -53,10 +59,8 @@ To create a cache, follow these steps:
 
 1. Click **Create**. 
    
-    :::image type="content" source="media/cache-how-to-zone-redundancy/create-zones.png" alt-text="Create Azure Cache for Redis.":::
-   
     It takes a while for the cache to create. You can monitor progress on the Azure Cache for Redis **Overview** page. When **Status** shows as **Running**, the cache is ready to use.
-
+   
     > [!NOTE]
     > Availability zones can't be changed after a cache is created.
     >
