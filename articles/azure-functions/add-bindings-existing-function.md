@@ -8,7 +8,7 @@ ms.date: 04/29/2020
 
 # Add bindings to an existing function in Azure Functions
 
-When you create a function, language-specific trigger code is added in your project from a set of trigger templates. If you want to connect your function to other services by using input or output bindings, you have to add specific binding definitions in your function.  
+When you create a function, language-specific trigger code is added in your project from a set of trigger templates. If you want to connect your function to other services by using input or output bindings, you have to add specific binding definitions in your function. To learn more about bindings, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
 
 ## Local development       
 
