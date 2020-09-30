@@ -75,17 +75,21 @@ required packages.
                string strDescription = args[7];
                string strScope = args[8];
    
-               AuthenticationContext authContext = new AuthenticationContext("https://login.microsoftonline.com/" + strTenant);
-               AuthenticationResult authResult = await authContext.AcquireTokenAsync("https://management.core.windows.net", new ClientCredential(strClientId, strClientSecret));
-               ServiceClientCredentials serviceClientCreds = new TokenCredentials(authResult.AccessToken);
-   
-               PolicyClient policyClient = new PolicyClient(serviceClientCreds);
-               PolicyAssignment policyAssignment = new PolicyAssignment();
-               policyAssignment.DisplayName = strDisplayName;
-               policyAssignment.PolicyDefinitionId = strPolicyDefID;
-               policyAssignment.Description = strDescription;
-   
-               PolicyAssignment response = policyClient.PolicyAssignments.Create(strScope, strName, policyAssignment);
+               var authContext = new AuthenticationContext($"https://login.microsoftonline.com/{strTenant}");
+               var authResult = await authContext.AcquireTokenAsync(
+                   "https://management.core.windows.net",
+                   new ClientCredential(strClientId, strClientSecret));
+
+               using (var client = new PolicyClient(new TokenCredentials(authResult.AccessToken)))
+               {
+                   var policyAssignment = new PolicyAssignment
+                   {
+                       DisplayName = strDisplayName,
+                       PolicyDefinitionId = strPolicyDefID,
+                       Description = strDescription
+                   };
+                   var response = client.PolicyAssignments.Create(strScope, strName, policyAssignment);
+               }
            }
        }
    }
