@@ -98,7 +98,7 @@ Deploy a Virtual WAN hub in each region. Set up the Virtual WAN hub with VPN and
 > [!NOTE]
 > Azure Virtual WAN must be using the Standard SKU to enable some of the traffic paths shown in this article.
 
-![Deploy Virtual WAN hubs](./media/migrate-from-hub-spoke-topology/figure2.png)
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure2.png" alt-text="Deploy Virtual WAN hubs":::
 **Figure 2: Customer-managed hub-and-spoke to Virtual WAN migration**
 
 ### Step 3: Connect remote sites (ExpressRoute and VPN) to Virtual WAN
@@ -108,7 +108,7 @@ Connect the Virtual WAN hub to the existing ExpressRoute circuits and set up Sit
 > [!NOTE]
 > Express Routes Circuits must be upgraded to Premium SKU type to connect to Virtual WAN hub.
 
-![Connect remote sites to Virtual WAN](./media/migrate-from-hub-spoke-topology/figure3.png)
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure3.png" alt-text="Connect remote sites to Virtual WAN":::
 **Figure 3: Customer-managed hub-and-spoke to Virtual WAN migration**
 
 At this point, on-premises network equipment will begin to receive routes reflecting the IP address space assigned to the Virtual WAN-managed hub VNet. Remote VPN-connected branches at this stage will see two paths to any existing applications in the spoke virtual networks. These devices should be configured to continue to use the tunnel to the customer-managed hub to ensure symmetrical routing during the transition phase.
@@ -117,14 +117,14 @@ At this point, on-premises network equipment will begin to receive routes reflec
 
 Prior to using the managed Virtual WAN hub for production connectivity, we recommend that you set up a test spoke virtual network and Virtual WAN VNet connection. Validate that connections to this test environment work via ExpressRoute and Site to Site VPN before continuing with the next steps.
 
-![Test hybrid connectivity via Virtual WAN](./media/migrate-from-hub-spoke-topology/figure4.png)
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure4.png" alt-text="Test hybrid connectivity via Virtual WAN":::
 **Figure 4: Customer-managed hub-and-spoke to Virtual WAN migration**
 
 At this stage, it is important to recognize that both the original customer-managed hub virtual network and the new Virtual WAN Hub are both connected to the same ExpressRoute circuit. Due to this, we have a traffic path that can be used to enable spokes in both environments to communicate. For example, traffic from a spoke that is attached to the customer-managed hub virtual network will traverse the MSEE devices used for the ExpressRoute circuit to reach any spoke connected via a VNet connection to the new Virtual WAN hub. This allows a staged migration of spokes in Step 5.
 
 ### Step 5: Transition connectivity to virtual WAN hub
 
-![Transition connectivity to Virtual WAN hub](./media/migrate-from-hub-spoke-topology/figure5.png)
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure5.png" alt-text="Transition connectivity to Virtual WAN hub":::
 **Figure 5: Customer-managed hub-and-spoke to Virtual WAN migration**
 
 **a**. Delete the existing peering connections from Spoke virtual networks to the old customer-managed hub. Access to applications in spoke virtual networks is unavailable until steps a-c are complete.
@@ -141,7 +141,7 @@ At this stage, it is important to recognize that both the original customer-mana
 
 We have now redesigned our Azure network to make the Virtual WAN hub the central point in our new topology.
 
-![Old hub becomes Shared Services spoke](./media/migrate-from-hub-spoke-topology/figure6.png)
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure6.png" alt-text="Old hub becomes Shared Services spoke":::
 **Figure 6: Customer-managed hub-and-spoke to Virtual WAN migration**
 
 Because the Virtual WAN hub is a managed entity and does not allow deployment of custom resources such as virtual machines, the shared services block now exists as a spoke virtual network and hosts functions such as internet ingress via Azure Application Gateway or network virtualized appliance. Traffic between the shared services environment and backend virtual machines now transits the Virtual WAN-managed hub.
@@ -150,7 +150,7 @@ Because the Virtual WAN hub is a managed entity and does not allow deployment of
 
 At this stage, Contoso has mostly completed their migrations of business applications in into the Microsoft Cloud, with only a few legacy applications remaining within the on-premises DC.
 
-![Optimize on-premises connectivity to fully utilize Virtual WAN](./media/migrate-from-hub-spoke-topology/figure7.png)
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure7.png" alt-text="Optimize on-premises connectivity to fully utilize Virtual WAN":::
 **Figure 7: Customer-managed hub-and-spoke to Virtual WAN migration**
 
 To leverage the full functionality of Azure Virtual WAN, Contoso decides to decommission their legacy on-premises VPN connections. Any branches continuing to access HQ or DC networks are able to transit the Microsoft global network using the built-in transit routing of Azure Virtual WAN.
@@ -161,7 +161,7 @@ To leverage the full functionality of Azure Virtual WAN, Contoso decides to deco
 
 ## End-state architecture and traffic paths
 
-![End-state architecture and traffic paths](./media/migrate-from-hub-spoke-topology/figure8.png)
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure8.png" alt-text="End-state architecture and traffic paths":::
 **Figure: Dual region Virtual WAN**
 
 This section provides a summary of how this topology meets the original requirements by looking at some example traffic flows.
