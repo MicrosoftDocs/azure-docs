@@ -26,17 +26,25 @@ By using code snippets in mapping data flows, you can very easily perform common
 
 3. Add a Source transformation and connect it to one of your datasets
 
-    ![Source Snippet 1](media/data-flow/snippet1.png)
+    ![Source Snippet 2](media/data-flow/snippet2.png)
 
-5. Configure the Source transformation to use a new dataset, which will be of the Delimited Text type.
+4. The dedupe and NULL check snippets use generic patterns that leverage data flow schema drift so they will work with any schema from your dataset, or with datasets that do not have any pre-defined schema.
 
-6. Don't set any column delimiter or headers.
+5. Go to the Data Flow Script documentation page and copy the code snippet for Distinct Rows.
 
-7. On the **Projection** tab of your Source transformation, you should see a string column that's named *Column_1*.
+6. https://docs.microsoft.com/en-us/azure/data-factory/data-flow-script#distinct-row-using-all-columns
 
-8. In the Derived column, create a new column.
+7. In your data flow designer UI, click the Script button on the top right to open the script editor behind the data flow graph.
 
-9. We'll give the columns simple names like *col1*.
+    ![Source Snippet 3](media/data-flow/snippet3.png)
+
+8. After the definition for ```source1``` in your script, hit Enter and then paste in the code snippet.
+
+9. You will connect this pasted code snippet to the previous Source transformation that you created in the graph by typing "source1" in front of the pasted code.
+
+10. Alternatively, you can connect the new tranformation in the designer by selecting the incoming stream from the new transformation node in the graph.
+
+    ![Source Snippet 4](media/data-flow/snippet4.png)
 
 10. In the expression builder, type the following:
 
