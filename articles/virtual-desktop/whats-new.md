@@ -25,7 +25,7 @@ This article is updated monthly. Make sure to check back here often to keep up w
 Here's what changed in September 2020:
 
 - We've optimized performance by reducing connection latency in the following Azure geographies:
-    - Germany.
+    - Germany
 	- South Africa – for validation environments.
 
 To estimate the quality of user experience you can refer to the [Experience Estimator](https://azure.microsoft.com/services/virtual-desktop/assessment/)
@@ -165,4 +165,3 @@ Check out these articles to learn about updates for our clients for Windows Virt
 ## Next steps
 
 Learn about future plans at the [Microsoft 365 Windows Virtual Desktop roadmap](https://www.microsoft.com/microsoft-365/roadmap?filters=Windows%20Virtual%20Desktop).
-
