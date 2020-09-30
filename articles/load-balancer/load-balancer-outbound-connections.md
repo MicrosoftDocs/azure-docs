@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2020
+ms.date: 09/30/2020
 ms.author: allensu
 ---
 
@@ -19,29 +19,18 @@ ms.author: allensu
 
 Azure Load Balancer provides outbound connectivity through different mechanisms. This article describes the scenarios and how to manage them. 
 
-## <a name="scenarios"></a>Outbound connections scenario overview
 
-Terms used in these scenarios. For more information, see [Terminology](#terms):
+## Scenarios
 
-* [Source Network Address Translation (SNAT)](#snat)
-* [Port Masquerading (PAT)](#pat)
-* Transmission Control Protocol (TCP)
-* User Datagram Protocol (UDP)
-* Network Address Translation
-* Internet Control Message Protocol
-* Encapsulating Security Protocol
+* Virtual machine with public IP.
+* Virtual machine without public IP.
+* Virtual machine without public IP and without standard load balancer.
 
-### Scenarios
-
-* [Scenario 1](#scenario1) - Virtual machine with public IP.
-* [Scenario 2](#scenario2) - Virtual machine without public IP.
-* [Scenario 3](#scenario3) - Virtual machine without public IP and without standard load balancer.
-
-### <a name="scenario1"></a>Scenario 1 - Virtual machine with public IP
+### <a name="scenario1"></a>Virtual machine with public IP
 
 | Associations | Method | IP protocols |
 | ---------- | ------ | ------------ |
-| Public load balancer or stand-alone | [SNAT](#snat) </br> [Port masquerading](#pat) not used. | TCP </br> UDP </br> ICMP </br> ESP |
+| Public load balancer or stand-alone | [SNAT (Source Network Address Translation)](#snat) </br> [PAT (Port masquerading)](#pat) not used. | TCP (Transmission Control Protocol) </br> UDP (User Datagram Protocol) </br> ICMP (Internet Control Message Protocol) </br> ESP (Encapsulating Security Payload) |
 
 #### Description
 
@@ -49,11 +38,11 @@ Azure uses the public IP assigned to the IP configuration of the instance's NIC 
 
 A public IP assigned to a VM is a 1:1 relationship (rather than 1: many) and implemented as a stateless 1:1 NAT.
 
-### <a name="scenario2"></a>Scenario 2 - Virtual machine without public IP
+### <a name="scenario2"></a>Virtual machine without public IP
 
 | Associations | Method | IP protocols |
 | ------------ | ------ | ------------ |
-| Public load balancer | Use of load balancer frontend for [SNAT](#snat) with [port masquerading (PAT)](#pat).| TCP </br> UDP |
+| Public load balancer | Use of load balancer frontend for [SNAT](#snat) with [PAT (Port masquerading)](#pat).| TCP </br> UDP |
 
 #### Description
 
@@ -69,7 +58,7 @@ Ephemeral ports of the load balancer frontend public IP address are used to dist
 
 In this context, the ephemeral ports used for SNAT are called SNAT ports. SNAT ports are pre-allocated as described in the [Default SNAT ports allocation table](#snatporttable).
 
-### <a name="scenario3"></a> Scenario 3 - Virtual machine without public IP and without standard load balancer
+### <a name="scenario3"></a>Virtual machine without public IP and without standard load balancer
 
 | Associations | Method | IP protocols |
 | ------------ | ------ | ------------ |
@@ -198,18 +187,14 @@ If an NSG blocks health probe requests from the AZURE_LOADBALANCER default tag, 
 
 ### Outbound rules scenarios
 
-* [Scenario 1](#scenario1out) - Configure outbound connections to a specific set of public IPs or prefix.
-* [Scenario 2](#scenario2out) - Modify [SNAT](#snat) port allocation.
-* [Scenario 3](#scenario3out) - Enable outbound only.
-* [Scenario 4](#scenario4out) - Outbound NAT for VMs only (no inbound).
-* [Scenario 5](#scenario5out) - Outbound NAT for internal standard load balancer.
-* [Scenario 6](#scenario6out) - Enable both TCP & UDP protocols for outbound NAT with a public standard load balancer.
+* Configure outbound connections to a specific set of public IPs or prefix.
+* Modify [SNAT](#snat) port allocation.
+* Enable outbound only.
+* Outbound NAT for VMs only (no inbound).
+* Outbound NAT for internal standard load balancer.
+* Enable both TCP & UDP protocols for outbound NAT with a public standard load balancer.
 
-### <a name="scenario1out"></a>Scenario 1
-
-| Scenario |
-| -------- |
-| Configure outbound connections to a specific set of public IPs or prefix|
+### <a name="scenario1out"></a>Configure outbound connections to a specific set of public IPs or prefix
 
 #### Details
 
@@ -225,11 +210,7 @@ To use a different public IP or prefix than used by a load-balancing rule:
 4. Reuse a backend pool or create a backend pool and place the VMs into a backend pool of the public load balancer
 5. Configure an outbound rule on the public load balancer to enable outbound NAT for the VMs using the frontend. If you don't wish for the load-balancing rule to be used for outbound, disable outbound SNAT on the load-balancing rule.
 
-### <a name="scenario2out"></a>Scenario 2
-
-| Scenario |
-| -------- |
-| Modify [SNAT](#snat) port allocation |
+### <a name="scenario2out"></a>Modify [SNAT](#snat) port allocation
 
 #### Details
 
@@ -249,11 +230,7 @@ If you give 10,000 ports per VM and seven VMs in a backend pool share a single p
 
 Revert to the [default port allocation](load-balancer-outbound-connections.md#preallocatedports) by specifying 0 for the number of ports. The first 50 VM instances will get 1024 ports, 51-100 VM instances will get 512 up to the maximum instances.  For more information on default SNAT port allocation, see [above](#snatporttable).
 
-### <a name="scenario3out"></a>Scenario 3
-
-| Scenario |
-| -------- |
-| Enable outbound only |
+### <a name="scenario3out"></a>Enable outbound only
 
 #### Details
 
@@ -262,11 +239,7 @@ You can use a public standard load balancer to provide outbound NAT for a group 
 > [!NOTE]
 > **Azure Virtual Network NAT** can provide outbound connectivity for virtual machines without the need for a load balancer.  See [What is Azure Virtual Network NAT?](../virtual-network/nat-overview.md) for more information.
 
-### <a name="scenario4out"></a>Scenario 4
-
-| Scenario |
-| -------- |
-| Outbound NAT for VMs only (no inbound) |
+### <a name="scenario4out"></a>Outbound NAT for VMs only (no inbound)
 
 > [!NOTE]
 > **Azure Virtual Network NAT** can provide outbound connectivity for virtual machines without the need for a load balancer.  See [What is Azure Virtual Network NAT?](../virtual-network/nat-overview.md) for more information.
@@ -284,11 +257,7 @@ For this scenario:
 
 Use a prefix or public IP to scale [SNAT](#snat) ports. Add the source of outbound connections to an allow or deny list.
 
-### <a name="scenario5out"></a>Scenario 5
-
-| Scenario |
-| -------- |
-| Outbound NAT for internal standard load balancer |
+### <a name="scenario5out"></a>Outbound NAT for internal standard load balancer
 
 > [!NOTE]
 > **Azure Virtual Network NAT** can provide outbound connectivity for virtual machines utilizing an internal standard load balancer.  See [What is Azure Virtual Network NAT?](../virtual-network/nat-overview.md) for more information.
@@ -300,11 +269,7 @@ Outbound connectivity isn't available for an internal standard load balancer unt
 For more information, see [Outbound-only load balancer configuration](https://docs.microsoft.com/azure/load-balancer/egress-only).
 
 
-### <a name="scenario6out"></a>Scenario 6
-
-| Scenario |
-| -------- |
-| Enable both TCP & UDP protocols for outbound NAT with a public standard load balancer |
+### <a name="scenario6out"></a>Enable both TCP & UDP protocols for outbound NAT with a public standard load balancer
 
 #### Details
 
