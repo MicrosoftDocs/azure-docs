@@ -110,7 +110,7 @@ You can find account key, SAS token, and service principal information on your [
 
 ### Permissions
 
-For Azure blob container and Azure Data Lake Gen 2 storage, make sure your authentication credentials  has **Storage Blob Data Reader** access. Learn more about [Storage Blob Data Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader). 
+For Azure blob container and Azure Data Lake Gen 2 storage, make sure your authentication credentials has **Storage Blob Data Reader** access. Learn more about [Storage Blob Data Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader). An account SAS token defaults to no permissions. For data read access, your authentication credentials must have a minimum of list and read permissions for containers and objects. For data write access, write and add permissions also are required.
 
 <a name="python"></a>
 
@@ -264,5 +264,5 @@ Azure Data Factory provides efficient and resilient data transfer with more than
 ## Next steps
 
 * [Create an Azure machine learning dataset](how-to-create-register-datasets.md)
-* [Train a model](how-to-train-ml-models.md)
+* [Train a model](how-to-set-up-training-targets.md)
 * [Deploy a model](how-to-deploy-and-where.md)

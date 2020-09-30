@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Find and display routes for specific travel modes with Microsoft Azure Maps'
-description: Learn how to use Azure Maps to find and display routes for specific travel modes. 
+title: 'Tutorial: Find multiple routes by mode of travel | Microsoft Azure Maps'
+description: Tutorial on how to use Azure Maps to find routes for specific travel modes to points of interest. See how to display multiple routes on maps.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 09/10/2020
@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.custom: mvc, devx-track-javascript
+ms.custom: mvc, devx-track-js
 ---
 
 # Tutorial: Find and display routes for different modes of travel using Azure Maps
@@ -276,7 +276,10 @@ This section shows you how to use the Azure Maps Route service to get directions
 
     The truck route is displayed using a thick blue line. The car route is displayed using a thin purple line. The car route goes across Lake Washington via I-90, passing through tunnels beneath residential areas. Because the tunnels are close to residential areas, hazardous waste cargo is restricted. The truck route, which specifies a `USHazmatClass2` cargo type, is directed to use a different highway.
 
-    You can obtain the full source code for the sample [here](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/truckRoute.html). A live sample can be found [here](https://azuremapscodesamples.azurewebsites.net/?sample=Multiple%20routes%20by%20mode%20of%20travel).
+You can obtain the full source code for the sample [here](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/truckRoute.html). A live sample can be found [here](https://azuremapscodesamples.azurewebsites.net/?sample=Multiple%20routes%20by%20mode%20of%20travel).
+
+You can also [Use data-driven style expressions](data-driven-style-expressions-web-sdk.md)
+
 
 
 ## Next steps
