@@ -135,9 +135,6 @@ param_sampling = GridParameterSampling( {
 
 Bayesian sampling is recommended if you have enough budget to explore the hyperparameter space. For best results, we recommend a maximum number of runs greater than or equal to 20 times the number of hyperparameters being tuned. 
 
-> [!NOTE]
-> Bayesian sampling does not support any early termination policy (See [Specify an early termination policy](#early-termination)). When using Bayesian parameter sampling, set `early_termination_policy = None`, or leave off the `early_termination_policy` parameter.
-
 The number of concurrent runs has an impact on the effectiveness of the tuning process. A smaller number of concurrent runs may lead to better sampling convergence, since the smaller degree of parallelism increases the number of runs that benefit from previously completed runs.
 
 Bayesian sampling only supports `choice`, `uniform`, and `quniform` distributions over the search space.
@@ -160,7 +157,7 @@ Specify the [primary metric](https://docs.microsoft.com/python/api/azureml-train
 
 Specify the following attributes for your primary metric:
 
-* `primary_metric_name`: The name of the primary metric needs to exactly match the name of the metric logged by the training script. See [Log metrics for hyperparameter tuning](#log-metrics-for-hyperparameter-tuning).
+* `primary_metric_name`: The name of the primary metric needs to exactly match the name of the metric logged by the training script
 * `primary_metric_goal`: It can be either `PrimaryMetricGoal.MAXIMIZE` or `PrimaryMetricGoal.MINIMIZE` and determines whether the primary metric will be maximized or minimized when evaluating the runs. 
 
 ```Python
@@ -172,7 +169,7 @@ This sample maximizes "accuracy".
 
 ### <a name="log-metrics-for-hyperparameter-tuning"></a>Log metrics for hyperparameter tuning
 
-The training script for your model **must** log the primary metric during model training so that HyperDrive can access it.
+The training script for your model **must** log the primary metric during model training so that HyperDrive can access it for hyperparameter tuning.
 
 Log the primary metric in your training script with the following sample snippet:
 
@@ -183,6 +180,8 @@ run_logger.log("accuracy", float(val_accuracy))
 ```
 
 The training script calculates the `val_accuracy` and logs it as the primary metric "accuracy". Each time the metric is logged, it's received by the hyperparameter tuning service. It's up to you to determine the frequency of reporting.
+
+For more information on logging values in model training runs, see [Enable logging in Azure ML training runs](how-to-track-experiments.md).
 
 ## <a name="early-termination"></a> Specify early termination policy
 
@@ -203,6 +202,9 @@ Azure Machine Learning supports the following early termination policies:
 ### Bandit policy
 
 [Bandit policy](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.banditpolicy?view=azure-ml-py&preserve-view=true#&preserve-view=truedefinition) is based on slack factor/slack amount and evaluation interval. Bandit terminates runs where the primary metric is not within the specified slack factor/slack amount compared to the best performing run.
+
+> [!NOTE]
+> Bayesian sampling does not support early termination. When using Bayesian sampling, set `early_termination_policy = None`.
 
 Specify the following configuration parameters:
 
