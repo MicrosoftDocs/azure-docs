@@ -22,6 +22,7 @@ Each request must include your access key and an HTTP endpoint. The endpoint spe
 Recall that Text Analytics is stateless so there are no data assets to manage. Your text is uploaded, analyzed upon receipt, and results are returned immediately to the calling application.
 
 [!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
+[!INCLUDE [v3 region availability](includes/v3-region-availability.md)]
 
 ## Prerequisites
 
