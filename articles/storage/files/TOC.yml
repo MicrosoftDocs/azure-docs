@@ -205,6 +205,8 @@
         href: ../../backup/manage-azure-file-share-rest-api.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
   - name: Monitor
     items:
+    - name: Monitor Azure Files
+      href: storage-files-monitoring.md
     - name: Monitor Azure File Sync
       href: storage-sync-files-monitoring.md
   - name: Migrate
@@ -291,6 +293,8 @@
   items:
   - name: Azure Files reference
     href: ../files/reference.md
+  - name: Monitoring Azure Files reference
+    href: storage-files-monitoring-reference.md
   - name: Resource Manager template
     displayName: arm
     href: /azure/templates/microsoft.storage/allversions
