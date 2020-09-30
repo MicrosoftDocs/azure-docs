@@ -44,6 +44,8 @@ ms.author: anfeldma
 
 ## Release notes
 
+### v2 builds
+
 ### <a id="2.3.2"></a>2.3.2
 * Added lease store compatibility with [V3 SDK that enables hot migration paths. An application can migrate to V3 SDK and migrate back to the Change Feed processor library without losing any state.
 
