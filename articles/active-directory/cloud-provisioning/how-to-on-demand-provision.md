@@ -17,6 +17,10 @@ ms.collection: M365-identity-device-management
 
 Azure AD Connect cloud provisioning has introduced a new feature, that will allow you to test configuration changes, by applying these changes to a single user.  You can use this to validate and verify that the changes made to the configuration were applied properly and are being correctly synchronized to Azure AD.  
 
+> [!IMPORTANT] 
+> When you use on-demand provisioning, the scoping filters are not applied to the user you selected.  This means that you can use on-demand provisioning on users that are outside the OUs you have specified.
+
+
 ## Using on-demand provisioning
 To use the new feature, follow the steps below.
 
