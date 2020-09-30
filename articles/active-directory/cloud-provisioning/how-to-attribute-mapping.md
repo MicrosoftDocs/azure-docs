@@ -58,22 +58,24 @@ To use the new feature, follow the steps below.
  4. Under **Configuration**, select your configuration.
  5. Select **Click to edit mappings**.  This will open the attribute mapping screen.
 
- ![Mapping attributes](media/how-to-attribute-mapping/mapping6.png)
+ ![Adding attributes](media/how-to-attribute-mapping/mapping6.png)
  6.  Click **Add Attribute**.
 
- ![Mapping attributes](media/how-to-attribute-mapping/mapping1.png)
- 8. Select the **Mapping type**.  In this example we use Expression.
- 9.  Enter the expression in the box.  For this example we are using: `Replace([mail], "@contoso.com", , ,"", ,).`
- 10.  Enter the target attribute.  In this example we use ExtensionAttribute15.
- 11. Select when to apply this and then click **Apply**
+ ![Mapping type](media/how-to-attribute-mapping/mapping1.png)
+ 
+ 7. Select the **Mapping type**.  In this example we use Expression.
+ 8.  Enter the expression in the box.  For this example we are using: `Replace([mail], "@contoso.com", , ,"", ,).`
+ 9.  Enter the target attribute.  In this example we use ExtensionAttribute15.
+ 10. Select when to apply this and then click **Apply**
    
-   ![Manage provisioning](media/how-to-attribute-mapping/mapping2.png)
- 11. Back on the attribute mapping screen you should see your new attribute mapping.  Click **Save Schema**.
+   ![Edit mappings](media/how-to-attribute-mapping/mapping2.png)
+ 11. Back on the attribute mapping screen you should see your new attribute mapping.  
+ 12. Click **Save Schema**.
 
- ![Manage provisioning](media/how-to-attribute-mapping/mapping3.png)
+ ![Save Schema](media/how-to-attribute-mapping/mapping3.png)
 
 ## Test your attribute mapping
-To test your attribute mapping, you can use [on-demand provisioning](how-to-on-demand-provisioning).  From the 
+To test your attribute mapping, you can use [on-demand provisioning](how-to-on-demand-provisioning.md).  From the 
 
 1.  In the Azure portal, select **Azure Active Directory**.
 2.  Select **Azure AD Connect**.
@@ -82,10 +84,10 @@ To test your attribute mapping, you can use [on-demand provisioning](how-to-on-d
 5. Under **Validate** click the **Provision a user** button. 
 6. On the on-demand provisioning screen.  Enter the **distinguished name** of a user or group and click the **Provision** button.  
 7. Once it completes, you should see a success screen and 4 green check boxes indicating it was successfully provisioned.  
-  ![Manage provisioning](media/how-to-attribute-mapping/mapping4.png)
+  ![Success for provisioning](media/how-to-attribute-mapping/mapping4.png)
 1. Under **Perform Action** click **View details**.  On the right, you should see the new attribute syncrhonized and the expression applied.
 
-  ![Manage provisioning](media/how-to-attribute-mapping/mapping5.png)
+  ![Perform action](media/how-to-attribute-mapping/mapping5.png)
 
 ## Next Steps
 
