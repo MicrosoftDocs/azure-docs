@@ -23,7 +23,7 @@ In this tutorial, you learn how to integrate your Android app with the Microsoft
 When you've completed this tutorial, your application will accept sign-ins of personal Microsoft accounts (including outlook.com, live.com, and others) as well as work or school accounts from any company or organization that uses Azure Active Directory.
 
 > [!div class="checklist"]
-> * Create an Android aoo project in *Android Studio*
+> * Create an Android app project in *Android Studio*
 > * Register the app in the Azure portal
 > * Add code to support user sign-in and sign-out
 > * Add code to call the Microsoft Graph API
@@ -47,7 +47,7 @@ More specifically:
 * The access token will be included in the HTTP request to the web API.
 * Process the Microsoft Graph response.
 
-This sample uses the Microsoft Authentication library for Android (MSAL) to implement Authentication: [com.microsoft.identity.client](https://javadoc.io/doc/com.microsoft.identity.client/msal).
+This sample uses the Microsoft Authentication Library for Android (MSAL) to implement Authentication: [com.microsoft.identity.client](https://javadoc.io/doc/com.microsoft.identity.client/msal).
 
 MSAL will automatically renew tokens, deliver single sign-on (SSO) between other apps on the device, and manage the Account(s).
 
