@@ -11,38 +11,36 @@ ms.topic: conceptual
 ---
 # Key Vault Authentication Fundamentals
 
-## Overview
-
 Azure Key Vault allows you to securely store and manage application credentials such as secrets, keys, and certificates in a central and secure cloud repository. Key Vault eliminates the need to store credentials in your applications. Your applications can authenticate to Key Vault at run time to retrieve credentials.
 
 As an administrator, you can tightly control which users and applications can access your key vault and you can limit and audit the operations they perform. This document explains the fundamental concepts of the key vault access model. It will and provide you with an introductory level of knowledge and show you how you can authenticate a user or application to key vault from start to finish.
 
 ## Required Knowledge
 
-This document assumes you are familiar with the following concepts. If you are not familiar with any of these concepts, please follow the help links before proceeding.
+This document assumes you are familiar with the following concepts. If you are not familiar with any of these concepts, follow the help links before proceeding.
 
-* Azure Active Directory (AAD) [link](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)
+* Azure Active Directory [link](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)
 * Security Principals [link](https://docs.microsoft.com/azure/key-vault/general/authentication#app-identity-and-security-principals)
 
 ## Key Vault Configuration Steps Summary
 
-1. Register your user or application in Azure Active Directory (AAD) as a security principal.
-1. Configure a role assignment for your security principal in AAD.
+1. Register your user or application in Azure Active Directory as a security principal.
+1. Configure a role assignment for your security principal in Azure Active Directory.
 1. Configure key vault access policies for your security principal.
 1. Configure Key Vault firewall access to your key vault (optional).
 1. Test your security principal's ability to access key vault.
 
-## Register a user or application in AAD as a security principal
+## Register a user or application in Azure Active Directory as a security principal
 
-When a user or application makes a request to key vault, the request must first be authenticated by Azure Active Directory (AAD). For this to work, the user or application needs to be registered in AAD as a security principal.
+When a user or application makes a request to key vault, the request must first be authenticated by Azure Active Directory. For this to work, the user or application needs to be registered in Azure Active Directory as a security principal.
 
-Follow the documentation links below to understand how to register a user or application in AAD.
+Follow the documentation links below to understand how to register a user or application in Azure Active Directory.
 **Make sure you create a password for user registration and a client secret or client certificate credential for applications.**
 
-* Registering a user in AAD [link](https://docs.microsoft.com/azure/active-directory/fundamentals/add-users-azure-active-directory)
-* Registering an application in AAD [link](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app)
+* Registering a user in Azure Active Directory [link](https://docs.microsoft.com/azure/active-directory/fundamentals/add-users-azure-active-directory)
+* Registering an application in Azure Active Directory [link](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app)
 
-## Assign your security principal a role in AAD
+## Assign your security principal a role in Azure Active Directory
 
 Azure Active Directory uses role-based access control (RBAC) to assign permissions to security principals. These permissions are called role-assignments.
 
@@ -52,16 +50,16 @@ In the context of key vault, these role assignments determine a security princip
 > Although users with the Contributor or Owner role do not have access to perform operations on secrets stored in key vault by default, the Contributor and Owner roles, provide permissions to add or remove access policies to secrets stored in key vault. Therefore a user with these role assignments can grant themselves access to access secrets in the key vault. For this reason, it is recommended that only administrators have access to the Contributor or Owner roles. Users and applications that only need to retrieve secrets from key vault should be granted the Reader role. **More details in the next section.**
 
 >[!NOTE]
-> When you assign a role assignment to a user at the AAD (tenant) level, this set of permissions will trickle down to all subscriptions, resource-groups, and resources within the scope of the assignment. To follow the principal of least-privilege you can make this role assignment at a more granular scope. For example you can assign a user a Reader role at the subscription level, and an Owner role for a single key vault. Go to the Identity Access Management (IAM) settings of a subscription, resource-group, or key vault to make a role assignment at a more granular scope.
+> When you assign a role assignment to a user at the Azure Active Directory tenant level, this set of permissions will trickle down to all subscriptions, resource-groups, and resources within the scope of the assignment. To follow the principal of least-privilege you can make this role assignment at a more granular scope. For example you can assign a user a Reader role at the subscription level, and an Owner role for a single key vault. Go to the Identity Access Management (IAM) settings of a subscription, resource-group, or key vault to make a role assignment at a more granular scope.
 
-* To learn more about AAD roles [link](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)
+* To learn more about Azure Active Directory roles [link](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)
 * To learn more about assigning or removing role assignments [link](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 
 ## Configure key vault access policies for your security principal
 
 Before you grant access for your users and applications to access key vault, it is important to understand the different types of operations that can be performed on a key vault. There are two main types of key vault operations, management plane (also referred to as control plane) operations, and data plane Operations.
 
-This table shows several examples of the different operations that are controled by the management plane vs the data plane. Operations that change the properties of the key vault are management plane operations. Operations that change or retrieve the value of secrets stored in key vault are data plane operations.
+This table shows several examples of the different operations that are controlled by the management plane vs the data plane. Operations that change the properties of the key vault are management plane operations. Operations that change or retrieve the value of secrets stored in key vault are data plane operations.
 
 |Management Plane Operations (Examples)|Data Plane Operations (Examples)|
 | --- | --- |
@@ -73,9 +71,9 @@ This table shows several examples of the different operations that are controled
 | Modify Key Vault Recovery Settings | Purge or Recover soft-deleted Keys, Secrets, Certificates
 | Modify Key Vault Diagnostic Logs Settings
 
-### Management Plane Access & AAD Role Assignments
+### Management Plane Access & Azure Active Directory Role Assignments
 
-AAD role assignments grant access to perform management plane operations on a key vault. This access is typically granted to users, not to applications. You can restrict what management plane operations a user can perform by changing a user’s role assignment.
+Azure Active Directory role assignments grant access to perform management plane operations on a key vault. This access is typically granted to users, not to applications. You can restrict what management plane operations a user can perform by changing a user’s role assignment.
 
 For example, assigning a user a Key Vault Reader Role to a user will allow them to see the properties of your key vault such as access policies, but will not allow them to make any changes. Assigning a user, an Owner role will allow them full access to change key vault management plane settings.
 
@@ -99,7 +97,7 @@ Classic access policies are granular, which means you can allow or deny the abil
 However, classic access policies do not allow per-object level permissions, and assigned permissions are applied to the scope of an individual key vault. For example, if you grant the “Secret Get” access policy permission to a security principal in a particular key vault, the security principal has the ability to get all secrets within that particular key vault. However, this “Get Secret” permission will not automatically extend to other key vaults and must be assigned explicitly.
 
 > [!IMPORTANT]
-> Classic key vault access policies and AAD role assignments are independent of each other. Assigning a security principal a ‘Contributor’ role at a subscription level will not automatically allow the security principal the ability to perform data-plane operations on every key vault within the scope of the subscription. The security principal must still must be granted, or grant themselves access policy permissions to perform data plane operations.
+> Classic key vault access policies and Azure Active Directory role assignments are independent of each other. Assigning a security principal a ‘Contributor’ role at a subscription level will not automatically allow the security principal the ability to perform data-plane operations on every key vault within the scope of the subscription. The security principal must still must be granted, or grant themselves access policy permissions to perform data plane operations.
 
 ### Data Plane Access Option 2:  Key Vault RBAC (Preview)
 
@@ -116,7 +114,7 @@ Key Vault role assignments are a set of Azure built-in role assignments that enc
 
 3. RBAC permissions are compatible with per-object granular permissions, so you can restrict a user from only performing operations on some of your key vault objects. This allows multiple applications to share a single key vault while still isolating access between applications.
 
-To learn more about Key Vault RBAC, please see the following documents:
+To learn more about Key Vault RBAC, see the following documents:
 
 * Azure Key Vault RBAC [link](https://docs.microsoft.com/azure/key-vault/general/secure-your-key-vault#management-plane-and-azure-rbac)
 * Azure Key Vault RBAC Roles (Preview) [link](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-administrator-preview)
@@ -131,7 +129,7 @@ To enable key vault firewall, click on the Networking tab in the key vault porta
 
 2. Add a virtual network to the key vault firewall. This option works best for Azure resources that have dynamic IP addresses such as Virtual Machines. You can add Azure resources to a virtual network and add the virtual network to the key vault firewall allow list. This option uses a service endpoint which is a private IP address within the virtual network. This provides an additional layer of protection so no traffic between key vault and your virtual network are routed over the public internet. To learn more about service endpoint see the following documentation. [link](https://docs.microsoft.com/azure/key-vault/general/network-security)
 
-3. Add a private link connection to the key vault. This option connects your virtual network directly to a particular instance of key vault, effectively bringing your key vault inside your virtual network. To learn more about configuring a private endpoint connection to key vault, please see the following [link](https://docs.microsoft.com/azure/key-vault/general/private-link-service)
+3. Add a private link connection to the key vault. This option connects your virtual network directly to a particular instance of key vault, effectively bringing your key vault inside your virtual network. To learn more about configuring a private endpoint connection to key vault, see the following [link](https://docs.microsoft.com/azure/key-vault/general/private-link-service)
 
 ## Test your service principal's ability to access key vault
 
@@ -139,19 +137,19 @@ Once you have followed all of the steps above, you will be able to set and retri
 
 ### Authentication process for users (examples)
 
-* Users can log in to the Azure portal to use key vault. [Key Vault Portal Quickstart](https://docs.microsoft.com/azure/key-vault/general/quick-create-portal)
+* Users can log in to the Azure portal to use key vault. [Key Vault portal Quickstart](https://docs.microsoft.com/azure/key-vault/general/quick-create-portal)
 
 * User can use Azure CLI to use key vault. [Key Vault Azure CLI Quickstart](https://docs.microsoft.com/azure/key-vault/general/quick-create-cli)
 
 * User can use Azure PowerShell to use key vault. [Key Vault Azure PowerShell Quickstart](https://docs.microsoft.com/azure/key-vault/general/quick-create-powershell)
 
-### AAD authentication process for applications or services (examples)
+### Azure Active Directory authentication process for applications or services (examples)
 
-* An application provides a client secret and client id in a function to get an AAD token. 
+* An application provides a client secret and client id in a function to get an Azure Active Directory token. 
 
-* An application provides a certificate to get an AAD token. 
+* An application provides a certificate to get an Azure Active Directory token. 
 
-* An azure resource uses MSI authentication to get an AAD token. 
+* An Azure resource uses MSI authentication to get an Azure Active Directory token. 
 
 * Learn more about MSI authentication [link](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
 
@@ -173,10 +171,10 @@ cert_path = "{ENTER YOUR CLIEND SECRET HERE}"                      ##ENTER THE C
 
 def main():
 
-    #AUTHENTICATION TO AAD USING CLIENT ID AND CLIENT CERTIFICATE (GET AAD TOKEN)
+    #AUTHENTICATION TO Azure Active Directory USING CLIENT ID AND CLIENT CERTIFICATE (GET Azure Active Directory TOKEN)
     token = ClientSecretCredential(tenant_id=tenant_id, client_id=client_id, client_secret=client_secret)
 
-    #AUTHENTICATION TO KEY VAULT PRESENTING AAD TOKEN
+    #AUTHENTICATION TO KEY VAULT PRESENTING Azure Active Directory TOKEN
     client = SecretClient(vault_url=vault_url, credential=token)
 
     #CALL TO KEY VAULT TO GET SECRET
@@ -193,4 +191,4 @@ if __name__ == "__main__":
 
 ## Next Steps
 
-To learn about key vault authentication in more detail please see the following document. [Key Vault Authentication](https://docs.microsoft.com/azure/key-vault/general/authentication)
+To learn about key vault authentication in more detail, see the following document. [Key Vault Authentication](https://docs.microsoft.com/azure/key-vault/general/authentication)
