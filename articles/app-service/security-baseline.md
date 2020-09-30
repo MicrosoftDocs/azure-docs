@@ -35,7 +35,7 @@ For more information, see [Azure Security Baselines overview](https://docs.micro
 **Guidance**: 
 An App Service Environment (ASE) refers to a deployment of Microsoft Azure App Service into a subnet within an Azure Virtual Network. Network security groups are used to secure an ASE by blocking inbound and outbound traffic to resources in the virtual network, or to restrict access to apps on an ASE. 
 
-Any allow rules need to be built, as network security groups include an implicit deny rule at the lowest priority to deny everything at the Azure portal. No access is available to the VMs being used to host the ASE as they're in a Microsoft-managed subscription.
+Any allow rules need to be built, as network security groups include an implicit deny rule at the lowest priority to deny everything at the Azure portal. No access is available to the Virtual Machines being used to host the ASE as they're in a Microsoft-managed subscription.
 
 ASEs can additionally be protected with an Azure Application Gateway enabled Web Application Firewall (WAF) which operates at Layer 7 with OWASP Top 10 vulnerabilities protection.  
 
@@ -49,7 +49,7 @@ Secure Inbound traffic to your app with:
 
 - Private Endpoints - expose your app on an address in your Virtual Network. With these enabled on your app, it is no longer internet accessible
 
-Use network security groups and route tables with user-defined routes, when using Virtual Network integration with virtual networks in the same region. User-defined routes can be placed on the integration subnet to send outbound traffic where intended.  
+Use network security groups and route tables with user defined routes, when using Virtual Network integration with virtual networks in the same region. User-defined routes can be placed on the integration subnet to send outbound traffic where intended.  
 
 Implement an Azure Firewall to centrally create, enforce, and log application and network connectivity policies across your subscriptions and virtual networks. Azure Firewall uses a static public IP address for virtual network resources, which allows outside firewalls to identify traffic originating from your virtual network. 
 
@@ -106,7 +106,7 @@ Azure Firewall uses a static public IP address for your virtual network resource
 
 - Drive all application traffic outbound through an Azure Firewall device and monitor the logs. 
 
-Follow recommendations in the Locking down an App Service Environment guidance
+Follow recommendations in the Locking down an App Service Environment document.
 
 To secure an internet accessible app in the multi-tenant App Service:
 
@@ -352,8 +352,7 @@ Review Security Center's detailed security alerts and recommendations in the por
 
 **Guidance**: Integrate your App Service Environment (ASE) with Azure Monitor to send logs about the ASE to Azure Storage, Azure Event Hubs, or Log Analytics which can be forwarded to an SIEM.
 
-Enable Azure Activity Log diagnostic settings for control plane audit logging. Security alerts produced by Security Center are published to the Azure Activity log. Audit Azure Activity Log data which let’s you determine the "what, who, and when" for any write operations (PUT, POST, DELETE) performed at the control plane level for Azure App Service and other Azure resources. 
-Save your queries for future use, pin query results to Azure Dashboards, and create log alerts. Also, use the Data access REST API in Application Insights to access your telemetry programmatically.
+Enable Azure Activity Log diagnostic settings for control plane audit logging. Security alerts produced by Security Center are published to the Azure Activity log. Audit Azure Activity Log data which let’s you determine the "what, who, and when" for any write operations (PUT, POST, DELETE) performed at the control plane level for Azure App Service and other Azure resources. Save your queries for future use, pin query results to Azure Dashboards, and create log alerts. Also, use the Data access REST API in Application Insights to access your telemetry programmatically.
 
 Use Microsoft Azure Sentinel, a scalable, cloud-native, security information event management (SIEM) available to connect to various data sources and connectors, as based on business requirements. Optionally, you may enable and on-board data a third-party SIEM like Barracuda in Azure Marketplace.
 
@@ -419,7 +418,7 @@ Additionally, Azure Key Vault provides centralized secret management with access
 
 **Guidance**: Enable Azure Activity Log diagnostic settings as well as the diagnostic settings for your App Service resources and send the logs to a Log Analytics workspace. Perform queries in Log Analytics to search terms, identify trends, analyze patterns, and provide many other insights based on the collected data.
 
-Enable Application Insights for your App Service Web Apps and to collect log, performance, and error data. You can view the telemetry data collected by Application Insights within the Azure Portal.
+Enable Application Insights for your App Service Web Apps and to collect log, performance, and error data. You can view the telemetry data collected by Application Insights within the Azure portal.
 
 If you have deployed an Azure Web Application Firewall (WAF), you can monitor attacks against your web applications by using a real-time WAF log. The log is integrated with Azure Monitor to track WAF alerts and easily monitor trends.
 
@@ -498,7 +497,7 @@ Optionally, you may enable and on-board data to Azure Sentinel or a third-party 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4458).
 
-**Guidance**: Azure Active Directory (Azure AD) has built-in roles that must be explicitly assigned and are queryable. Use the Azure AD PowerShell module to perform ad hoc queries to discover accounts which are members of administrative groups.
+**Guidance**: Azure Active Directory (Azure AD) has built-in roles that must be explicitly assigned and query-able. Use the Azure AD PowerShell module to perform ad hoc queries to discover accounts which are members of administrative groups.
 
 - [How to get members of a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
@@ -534,7 +533,7 @@ Disable anonymous access, unless you support anonymous requests.
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4460).
 
-**Guidance**: Create standard operating procedures around the use of dedicated administrative accounts. Use Security Center's Identity and Access Management to monitor the number of administrative accounts.
+**Guidance**: Create standard operating procedures around the use of dedicated administrative accounts. Use Security Center's Identity and Access Management features to monitor the number of administrative accounts.
 
 Keep track of dedicated administrative accounts. Use recommendations from Security Center or built-in Azure policies, such as:
 - There should be more than one owner assigned to your subscription. Deprecated accounts with owner permissions should be removed from your subscription
@@ -639,7 +638,7 @@ Security Center's threat protection provides comprehensive defenses for your env
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4465).
 
-**Guidance**: Use Conditional Access Named Locations to allow access to the Azure Portal from only specific logical groupings of IP address ranges or countries/regions.
+**Guidance**: Use Conditional Access Named Locations to allow access to the Azure portal from only specific logical groupings of IP address ranges or countries/regions.
 
 - [How to configure Named Locations in Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
 
@@ -705,7 +704,7 @@ Streamline this process by creating diagnostic settings for Azure AD user accoun
 
 **Guidance**: Use Azure Active Directory (Azure AD) as the central authentication and authorization system for your App Service Web Apps. 
 
-Use Azure AD's Identity's Protection and risk detection features to configure automated responses to detected suspicious actions related to user identities, such as account login behavior deviation on the control plane (the Azure Portal). You can also ingest data into Azure Sentinel for further investigation. 
+Use Azure AD's Identity's Protection and risk detection features to configure automated responses to detected suspicious actions related to user identities, such as account login behavior deviation on the control plane (the Azure portal). You can also ingest data into Azure Sentinel for further investigation. 
 
 - [How to configure your Azure App Service app to use Azure AD login](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad)
 
@@ -739,7 +738,7 @@ Use Azure AD's Identity's Protection and risk detection features to configure au
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4471).
 
-**Guidance**: Use tags to assist in tracking App Service resources, which store or process sensitive information.
+**Guidance**: Use tags to assist in tracking App Service resources which store or process sensitive information.
 
 - [How to create and use tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
@@ -757,7 +756,7 @@ Use Azure AD's Identity's Protection and risk detection features to configure au
 For the multi-tenant App Service, Virtual Network Integration gives your app access to resources in your Virtual network. It does not grant inbound private access to your app from the Virtual network. Private site access refers to making an app accessible only from a private network, such as from within an Azure Virtual network. 
 
 Virtual Network Integration is used only to make outbound calls from your app into your Virtual Network. The Virtual Network. Integration feature behaves differently when it's used with Virtual network in the same region and with Virtual network  in other regions. The Virtual network. Integration feature has two variations:
-- Regional Virtual Network Integration: When you connect to Azure Resource Manager virtual networks in the same region, you must have a dedicated subnet in the Virtual network. you're integrating with.
+- Regional Virtual Network Integration: When you connect to Azure Resource Manager virtual networks in the same region, you must have a dedicated subnet in the Virtual network you are integrating with.
 
 - Gateway-required Virtual Network. Integration: When you connect to Virtual Network in other regions or to a classic virtual network in the same region, you need an Azure Virtual Network Gateway provisioned in the target Virtual Network.
 
@@ -806,7 +805,7 @@ Ensure that redirects occur from HTTP connection requests to HTTPS.
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4475).
 
-**Guidance**: Currently not available; data identification, classification, and loss prevention features are not yet available for App Service. 
+**Guidance**: Currently not available. Data identification, classification, and loss prevention features are not yet available for App Service. 
 
 Tag App Service apps that may be processing sensitive information. Implement third-party solution if required for compliance purposes.
 
@@ -823,7 +822,7 @@ Microsoft manages the underlying platform and treats all customer content as sen
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4476).
 
-**Guidance**: Use Azure Active Directory (Azure AD) role-based access control (Azure RBAC) to control access to the App Service control plane (the Azure portal).
+**Guidance**: Use Azure Active Directory's (Azure AD) role-based access control (Azure RBAC) to control access to the App Service control plane (the Azure portal).
 
 - [How to configure RBAC in Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 
@@ -933,7 +932,7 @@ Follow recommendations from Security Center to secure your App Service apps.
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4484).
 
-**Guidance**: Microsoft performs vulnerability management on the underlying systems that support App Service, however you may use the severity of the recommendations within Security Center as well as the Secure Score to measure risk within your environment. Your Secure Score is based on how many Security Center recommendations you have mitigated. To prioritize the recommendations to resolve first, consider the severity of each.
+**Guidance**: Microsoft performs vulnerability management on the underlying systems that support App Service. However you may use the severity of the recommendations within Security Center as well as the Secure Score to measure risk within your environment. Your Secure Score is based on how many Security Center recommendations you have mitigated. To prioritize the recommendations to resolve first, consider the severity of each.
 
 - [Security recommendations reference guide](https://docs.microsoft.com/azure/security-center/recommendations-reference)
 
