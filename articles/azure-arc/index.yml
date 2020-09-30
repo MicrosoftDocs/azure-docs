@@ -12,7 +12,7 @@ metadata:
   ms.topic: hub-page
   author: MGoedtel
   ms.author: magoedte
-  ms.date: 08/21/2020
+  ms.date: 09/23/2020
 
 # highlightedContent section (optional)
 # Maximum of 8 items
@@ -24,7 +24,7 @@ highlightedContent:
       itemType: overview
       url:  overview.md
     # Card
-    - title: Azure Arc enabled servers (preview)
+    - title: Azure Arc enabled servers
       itemType: overview
       url: ./servers/overview.md
     # Card
@@ -36,9 +36,9 @@ highlightedContent:
       itemType: overview
       url: ./data/overview.md
     # Card
-    - title: Azure arc enabled SQL Server (preview)
+    - title: Azure Arc enabled SQL Server (preview)
       itemType: overview
-      url: https://docs.microsoft.com/en-us/sql/sql-server/
+      url: /sql/sql-server/azure-arc/overview
 
 # productDirectory section (optional)
 productDirectory:
@@ -59,7 +59,7 @@ productDirectory:
         - url: ./servers/index.yml
           text: See more...
     # Card
-    - title: Azure Arc enabled Kubernetes
+    - title: Azure Arc enabled Kubernetes (preview)
       imageSrc: ./media/01088-icon-arc-kubernetes-menu.svg
       links:
         - url: ./kubernetes/connect-cluster.md
@@ -84,9 +84,9 @@ productDirectory:
     - title: Azure Arc enabled SQL Server (preview)
       imageSrc: ./media/01850-icon-arc-sql-server-menu.svg
       links:
-        - url: https://docs.microsoft.com/sql/sql-server/azure-arc/assess
+        - url: /sql/sql-server/azure-arc/assess
           text: Assess your SQL instances
-        - url: https://docs.microsoft.com/sql/sql-server/azure-arc/overview
+        - url: /sql/sql-server/azure-arc/overview
           text: See more...
 
 # conceptualContent section (optional)
@@ -96,7 +96,7 @@ conceptualContent:
   # summary: # < 160 chars (optional)
   items:
     # Card
-    - title: Azure Arc enabled servers (preview)
+    - title: Azure Arc enabled servers
       links:
         - url: ./servers/learn/quick-enable-hybrid-vm.md
           itemType: get-started

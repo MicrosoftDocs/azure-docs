@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2020
+ms.date: 09/22/2020
 ms.author: memildin
 ---
 
@@ -44,7 +44,7 @@ Both of these are described below.
 
 ### Step 1. Provision the Log Analytics agent on your SQL server's host:
 
-- **SQL Server on Azure VM** - If your SQL machine is hosted on an Azure VM, you can [auto provision the Log Analytics agent](security-center-enable-data-collection.md#workspace-configuration). Alternatively, you can follow the manual procedure for [Add Azure Stack machines](quickstart-onboard-machines.md#add-non-azure-computers).
+- **SQL Server on Azure VM** - If your SQL machine is hosted on an Azure VM, you can [auto provision the Log Analytics agent](security-center-enable-data-collection.md#workspace-configuration). Alternatively, you can follow the manual procedure for [Onboard your Azure Stack VMs](quickstart-onboard-machines.md#onboard-your-azure-stack-vms).
 - **SQL Server on Azure Arc** - If your SQL Server is hosted on an [Azure Arc](https://docs.microsoft.com/azure/azure-arc/) machine, you can deploy the Log Analytics agent using the Security Center recommendation “Log Analytics agent should be installed on your Windows-based Azure Arc machines (Preview)”. Alternatively, you can follow the manual procedure in the [Azure Arc documentation](https://docs.microsoft.com/azure/azure-arc/servers/manage-vm-extensions#enable-extensions-from-the-portal).
 
 - **SQL Server on-prem** - If your SQL Server is hosted on an on-premises Windows machine without Azure Arc, you have two options for connecting it to Azure:
@@ -75,7 +75,7 @@ Both of these are described below.
 
 
 1. Optionally, configure email notification for security alerts. 
-    You can set a list of recipients to receive an email notification when Security Center alerts are generated. The email contains a direct link to the alert in Azure Security Center with all the relevant details. For more information, see [Set up email notifications for security alerts](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details).
+    You can set a list of recipients to receive an email notification when Security Center alerts are generated. The email contains a direct link to the alert in Azure Security Center with all the relevant details. For more information, see [Set up email notifications for security alerts](security-center-provide-security-contact-details.md).
 
 
 
@@ -117,7 +117,7 @@ Azure Defender alerts are available in Security Center's alerts page, the resour
     * Enable SQL Server's auditing feature for further investigations. If you're an Azure Sentinel user, you can upload the SQL auditing logs from the Windows Security Log events to Sentinel and enjoy a rich investigation experience. [Learn more about SQL Server Auditing](https://docs.microsoft.com/sql/relational-databases/security/auditing/create-a-server-audit-and-server-audit-specification?view=sql-server-ver15).
     * To improve your security posture, use Security Center's recommendations for the host machine indicated in each alert. This will reduce the risks of future attacks. 
 
-    [Learn more about managing and responding to alerts](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts).
+    [Learn more about managing and responding to alerts](security-center-managing-and-responding-alerts.md).
 
 
 ## Next steps

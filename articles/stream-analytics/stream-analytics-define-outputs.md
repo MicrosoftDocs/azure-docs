@@ -6,6 +6,7 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
+ms.custom: contperfq1
 ms.date: 08/25/2020
 ---
 

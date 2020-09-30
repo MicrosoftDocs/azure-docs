@@ -762,6 +762,8 @@
         href: hosted-heritage-online-sso-tutorial.md
       - name: Hosted MyCirqa
         href: hosted-mycirqa-sso-tutorial.md
+      - name: Hoxhunt
+        href: hoxhunt-tutorial.md
       - name: HPE SaaS
         href: hpesaas-tutorial.md
       - name: HR2day by Merces
@@ -1024,6 +1026,8 @@
         href: lr-tutorial.md
       - name: Logz.io - Azure AD Integration
         href: logzio-cloud-observability-for-engineers-tutorial.md
+      - name: Loop Flow CRM
+        href: loop-flow-crm-tutorial.md
       - name: Lucidchart
         href: lucidchart-tutorial.md
       - name: Lynda.com
@@ -1062,6 +1066,8 @@
         href: meta4-global-hr-tutorial.md
       - name: Meta Networks Connector
         href: metanetworksconnector-tutorial.md
+      - name: MEVISIO
+        href: mevisio-tutorial.md
       - name: Michigan Data Hub Single Sign-On
         href: michigan-data-hub-single-sign-on-tutorial.md
       - name: Mimecast Admin Console
@@ -1160,6 +1166,8 @@
         href: nexonia-tutorial.md
       - name: Nimblex
         href: nimblex-tutorial.md
+      - name: Nimbus
+        href: nimbus-tutorial.md
       - name: Nintex Promapp
         href: promapp-tutorial.md
       - name: Nitro Productivity Suite
@@ -1328,6 +1336,8 @@
         href: proxyclick-tutorial.md
       - name: Pulse Secure PCS
         href: pulse-secure-pcs-tutorial.md
+      - name: Pulse Secure Virtual Traffic Manager
+        href: pulse-secure-virtual-traffic-manager-tutorial.md        
       - name: PureCloud by Genesys
         href: purecloud-by-genesys-tutorial.md
       - name: PurelyHR
@@ -1374,6 +1384,8 @@
         href: replicon-tutorial.md
       - name: Reprints Desk - Article Galaxy
         href: reprints-desk-article-galaxy-tutorial.md
+      - name: Retail Zipline
+        href: retail-zipline-tutorial.md
       - name: Reviewsnap
         href: reviewsnap-tutorial.md
       - name: Reward Gateway
@@ -1428,6 +1440,8 @@
         href: samlssojira-tutorial.md
       - name: Azure AD SAML Toolkit
         href: saml-toolkit-tutorial.md
+      - name: Samsara
+        href: samsara-tutorial.md
       - name: Sansan
         href: sansan-tutorial.md
       - name: SAP Business ByDesign
@@ -1602,6 +1616,8 @@
         href: sprinklr-tutorial.md
       - name: SSOGEN Azure AD SSO Gateway for Oracle E Business Suite EBS, PeopleSoft, and JDE
         href: ssogen-tutorial.md
+      - name: Starmind
+        href: starmind-tutorial.md
       - name: StatusPage
         href: statuspage-tutorial.md
       - name: Stormboard
@@ -1708,6 +1724,8 @@
         href: trakopolis-tutorial.md
       - name: Trakstar
         href: trakstar-tutorial.md
+      - name: TravelPerk
+        href: travelperk-tutorial.md
       - name: Trelica
         href: trelica-tutorial.md
       - name: Trello
@@ -1794,6 +1812,8 @@
         href: waywedo-tutorial.md
       - name: Wdesk
         href: wdesk-tutorial.md
+      - name: Web Cargo Air
+        href: web-cargo-air-tutorial.md
       - name: webMethods Integration Suite
         href: webmethods-integration-cloud-tutorial.md
       - name: Wedo
@@ -1949,8 +1969,14 @@
         href: brivo-onair-identity-connector-provisioning-tutorial.md       
       - name: Cerner Central
         href: cernercentral-provisioning-tutorial.md
+      - name: Cinode
+        href: cinode-provisioning-tutorial.md
       - name: Cisco Webex
         href: cisco-webex-provisioning-tutorial.md
+      - name: Coda
+        href: coda-provisioning-tutorial.md
+      - name: Code42
+        href: code42-provisioning-tutorial.md
       - name: Cofense Recipient Sync
         href: cofense-provision-tutorial.md
       - name: Comeet Recruiting Software

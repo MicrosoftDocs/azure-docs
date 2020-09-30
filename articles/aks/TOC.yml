@@ -4,6 +4,8 @@
   items:
   - name: About AKS
     href: intro-kubernetes.md
+  - name: Solution architectures
+    href: /azure/architecture/reference-architectures/containers/aks-start-here?bc=%2fazure%2faks%2fbreadcrumb%2ftoc.json&toc=%2fazure%2faks%2ftoc.json
 - name: Quickstarts
   expanded: true
   items:
@@ -250,7 +252,7 @@
       href: control-kubeconfig-access.md
     - name: Secure pod traffic with network policies
       href: use-network-policies.md
-    - name: Secure pods with Azure Policy (preview)
+    - name: Secure pods with Azure Policy
       href: use-pod-security-on-azure-policy.md
     - name: Use pod security policies (preview)
       href: use-pod-security-policies.md

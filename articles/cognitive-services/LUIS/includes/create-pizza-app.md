@@ -4,7 +4,7 @@ description: Steps to create a LUIS pizza app.
 ms.date: 05/05/2020
 ms.topic: include
 ms.custom: include file
-ms.author: diberry
+
 ---
 
 1. Sign in to the LUIS portal with the URL of [https://www.luis.ai](https://www.luis.ai).

@@ -4,7 +4,7 @@ description: This quickstart shows how to use the web tools to create an Apache 
 services: synapse-analytics
 author: euangMS
 ms.author: euang 
-ms.reviewer: jrasnick, carlrab
+ms.reviewer: jrasnick 
 ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: quickstart
@@ -44,7 +44,7 @@ A notebook is an interactive environment that supports various programming langu
 4. In the **Properties** window, provide a name for the notebook.
 5. On the toolbar, click **Publish**.
 6. If there is only one Apache Spark pool in your workspace, then it's selected by default. Use the drop-down to select the correct Apache Spark pool if none is selected.
-7. Click **Add code**. The default language is `Pyspark`. You are going to use a mix of Pyspark and Spark SQL, so the default choice is fine.
+7. Click **Add code**. The default language is `Pyspark`. You are going to use a mix of Pyspark and Spark SQL, so the default choice is fine. Other supported languages are Scala and .NET for Spark.
 8. Next you create a simple Spark DataFrame object to manipulate. In this case, you create it from code. There are three rows and three columns:
 
    ```python

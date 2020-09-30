@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure AD SSO integration with FortiGate SSL VPN'
-description: In this tutorial, you'll Learn how to configure single sign-on between Azure Active Directory and FortiGate SSL VPN.
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with FortiGate SSL VPN | Microsoft Docs'
+description: Learn the steps you need to perform to integrate FortiGate SSL VPN with Azure Active Directory (Azure AD).
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -95,16 +95,29 @@ Follow these steps to enable Azure AD SSO in the Azure portal:
 	> [!NOTE]
 	> These values are just patterns. You need to use the actual **Sign on URL**, **Identifier**, **Reply URL**, and **Logout URL**. Contact the [FortiGate SSL VPN client support team](mailto:tac_amer@fortinet.com) to get the actual values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-1. FortiGate SSL VPN expects the SAML assertions to be in a specific format. So you need to add custom attribute mappings to your SAML token attributes configuration. This screenshot shows the default attributes:
+1. The FortiGate SSL VPN application expects SAML assertions in a specific format, which requires you to add custom attribute mappings to the configuration. The following screenshot shows the list of default attributes.
 
 	![Screenshot that shows the default attributes.](common/default-attributes.png)
 
-1. FortiGate SSL VPN also expects few more attributes to be passed back in the SAML response. These attributes are shown in the following table. They're also pre-populated, but you can review them, taking your requirements into account.
-	
-	| Name |  Source attribute|
-	| ------------ | --------- |
-	| username | user.userprincipalname |
-	| group | user.groups |
+1. The two additional claims required by FortiGate SSL VPN are shown in the following table. The names of these claims must match the names used in the **Perform FortiGate command-line configuration** section of this tutorial. 
+
+   | Name |  Source attribute|
+   | ------------ | --------- |
+   | username | user.userprincipalname |
+   | group | user.groups |
+   
+   To create these additional claims:
+   
+   1. Next to **User Attributes & Claims**, select **Edit**.
+   1. Select **Add new claim**.
+   1. For **Name**, enter **username**.
+   1. For **Source attribute**, select **user.userprincipalname**.
+   1. Select **Save**.
+   1. Select **Add a group claim**.
+   1. Select **All groups**.
+   1. Seect the **Customize the name of the group claim** check box.
+   1. For **Name**, enter **group**.
+   1. Select **Save**.   
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section,  select the **Download** link next to **Certificate (Base64)** to download the certificate and save it on your computer:
 
