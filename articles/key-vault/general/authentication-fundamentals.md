@@ -1,5 +1,5 @@
 ---
-title: Azure Key Vault Authentication Fundamentals
+title: Azure Key Vault authentication fundamentals
 description: Learn about how key vault's authentication model works
 author: ShaneBala-keyvault
 ms.author: sudbalas
@@ -108,11 +108,11 @@ A new way to grant access to the key vault data plane is through key-vault role-
 
 Key Vault role assignments are a set of Azure built-in role assignments that encompass common sets of permissions used to access keys, secrets, and certificates. This permission model also enables additional capabilities that are not available in the classic key vault access policy model.
 
-1. RBAC permissions can be managed at scale by allowing users to have these roles assigned at a subscription, resource group, or individual key vault level. A user will have the data plane permissions to all key vaults within the scope of the RBAC assignment. This eliminates the need to assign individual access policy permissions per user/application per key vault.
+* RBAC permissions can be managed at scale by allowing users to have these roles assigned at a subscription, resource group, or individual key vault level. A user will have the data plane permissions to all key vaults within the scope of the RBAC assignment. This eliminates the need to assign individual access policy permissions per user/application per key vault.
 
-2. RBAC permissions are compatible with Privileged Identity Management or PIM. This allows you to configure just-in-time access controls for privileged roles like Key Vault Administrator. This is a best-security practice and follows the principal of least-privilege by eliminating standing access to your key vaults.
+* RBAC permissions are compatible with Privileged Identity Management or PIM. This allows you to configure just-in-time access controls for privileged roles like Key Vault Administrator. This is a best-security practice and follows the principal of least-privilege by eliminating standing access to your key vaults.
 
-3. RBAC permissions are compatible with per-object granular permissions, so you can restrict a user from only performing operations on some of your key vault objects. This allows multiple applications to share a single key vault while still isolating access between applications.
+* RBAC permissions are compatible with per-object granular permissions, so you can restrict a user from only performing operations on some of your key vault objects. This allows multiple applications to share a single key vault while still isolating access between applications.
 
 To learn more about Key Vault RBAC, see the following documents:
 
@@ -125,11 +125,11 @@ By default, key vault allows traffic from the public internet to send reach your
 
 To enable key vault firewall, click on the Networking tab in the key vault portal and select the radio button to Allow Access From: “Private Endpoint and Selected Networks”. If you choose to enable the key vault firewall, these are the ways you can allow traffic through the key vault firewall.
 
-1. Add IPv4 addresses to the key vault firewall allow list. This option works best for applications that have static IP addresses.
+* Add IPv4 addresses to the key vault firewall allow list. This option works best for applications that have static IP addresses.
 
-2. Add a virtual network to the key vault firewall. This option works best for Azure resources that have dynamic IP addresses such as Virtual Machines. You can add Azure resources to a virtual network and add the virtual network to the key vault firewall allow list. This option uses a service endpoint which is a private IP address within the virtual network. This provides an additional layer of protection so no traffic between key vault and your virtual network are routed over the public internet. To learn more about service endpoint see the following documentation. [link](https://docs.microsoft.com/azure/key-vault/general/network-security)
+* Add a virtual network to the key vault firewall. This option works best for Azure resources that have dynamic IP addresses such as Virtual Machines. You can add Azure resources to a virtual network and add the virtual network to the key vault firewall allow list. This option uses a service endpoint which is a private IP address within the virtual network. This provides an additional layer of protection so no traffic between key vault and your virtual network are routed over the public internet. To learn more about service endpoint see the following documentation. [link](https://docs.microsoft.com/azure/key-vault/general/network-security)
 
-3. Add a private link connection to the key vault. This option connects your virtual network directly to a particular instance of key vault, effectively bringing your key vault inside your virtual network. To learn more about configuring a private endpoint connection to key vault, see the following [link](https://docs.microsoft.com/azure/key-vault/general/private-link-service)
+* Add a private link connection to the key vault. This option connects your virtual network directly to a particular instance of key vault, effectively bringing your key vault inside your virtual network. To learn more about configuring a private endpoint connection to key vault, see the following [link](https://docs.microsoft.com/azure/key-vault/general/private-link-service)
 
 ## Test your service principal's ability to access key vault
 
@@ -145,7 +145,7 @@ Once you have followed all of the steps above, you will be able to set and retri
 
 ### Azure Active Directory authentication process for applications or services (examples)
 
-* An application provides a client secret and client id in a function to get an Azure Active Directory token. 
+* An application provides a client secret and client ID in a function to get an Azure Active Directory token. 
 
 * An application provides a certificate to get an Azure Active Directory token. 
 
