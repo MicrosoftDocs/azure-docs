@@ -85,11 +85,11 @@ Fsv2-series in only supported in the General Purpose tier. For regions where Fsv
 - M-series is a memory optimized hardware option for workloads demanding more memory and higher compute limits than provided by Gen5.
 - M-series provides 29 GB per vCore and up to 128 vCores, which increases the memory limit relative to Gen5 by 8x to nearly 4 TB.
 
-M-series is only supported in the Business Critical tier and does not support zone redundancy.  The subscription must be a paid offer type including Pay-As-You-Go or Enterprise Agreement (EA). For regions where M-series is available, see [M-series availability](#m-series-1).
+M-series is only supported in the Business Critical tier and does not support zone redundancy.  For regions where M-series is available, see [M-series availability](#m-series-1).
 
-#### Azure offer types supported
+#### Azure offer types supported by M-series
 
-To access M-series, the subscription must be a paid offer type including Pay-As-You-Go or Enterprise Agreement (EA).  For a complete list of Azure offer types supported, see [current offers without spending limits](https://azure.microsoft.com/support/legal/offer-details).
+To access M-series, the subscription must be a paid offer type including Pay-As-You-Go or Enterprise Agreement (EA).  For a complete list of Azure offer types supported by M-series, see [current offers without spending limits](https://azure.microsoft.com/support/legal/offer-details).
 
 <!--
 To enable M-series hardware for a subscription and region, a support request must be opened. The subscription must be a paid offer type including Pay-As-You-Go or Enterprise Agreement (EA).  If the support request is approved, then the selection and provisioning experience of M-series follows the same pattern as for other hardware generations. For regions where M-series is available, see [M-series availability](#m-series).
