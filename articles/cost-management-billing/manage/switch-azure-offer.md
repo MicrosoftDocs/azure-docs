@@ -32,6 +32,12 @@ You can switch from an individual subscription with pay-as-you-go rates to:
 > For other offer changes, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 >
 >
+The switch to another offer feature has been migrated from the Azure Account Center to the Azure portal (portal.azure.com) long time ago. So these steps are out of date. Customer should be provided with the current steps . 
+
+For more information, the following people can be contacted 
+tahuan@microsoft.com
+caixiaw@microsoft.com
+sasrin@microsoft.com
 
 ## Switch subscription offer
 
