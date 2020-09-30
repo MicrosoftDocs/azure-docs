@@ -8,10 +8,11 @@ ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
-ms.date: 08/07/2020
+ms.topic: tutorial
+ms.date: 09/30/2020
 ms.author: jeedes
 ---
+
 # Tutorial: Azure Active Directory integration with Amazon Web Services (AWS) (Legacy Tutorial)
 
 In this tutorial, you learn how to integrate Azure Active Directory (Azure AD) with Amazon Web Services (AWS) (Legacy Tutorial).
@@ -21,8 +22,6 @@ Integrating Amazon Web Services (AWS) with Azure AD provides you with the follow
 - You can control in Azure AD who has access to Amazon Web Services (AWS).
 - You can enable your users to automatically get signed-on to Amazon Web Services (AWS) (Single Sign-On) with their Azure AD accounts.
 - You can manage your accounts in one central location - the Azure portal.
-
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ![Amazon Web Services (AWS) in the results list](./media/aws-multi-accounts-tutorial/amazonwebservice.png)
 
@@ -59,13 +58,12 @@ To test the steps in this tutorial, you should follow these recommendations:
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
 * Amazon Web Services (AWS) supports **SP and IDP** initiated SSO
-* Once you configure Amazon Web Services (AWS) you can enforce Session Control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session Control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## Adding Amazon Web Services (AWS) from the gallery
 
 To configure the integration of Amazon Web Services (AWS) into Azure AD, you need to add Amazon Web Services (AWS) from the gallery to your list of managed SaaS apps.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
+1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
 1. On the left navigation pane, select the **Azure Active Directory** service.
 1. Navigate to **Enterprise Applications** and then select **All Applications**.
 1. To add new application, select **New application**.
@@ -84,7 +82,7 @@ For single sign-on to work, Azure AD needs to know what the counterpart user in 
 
 In Amazon Web Services (AWS), assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
 
-To configure and test Azure AD single sign-on with Amazon Web Services (AWS), you need to complete the following building blocks:
+To configure and test Azure AD single sign-on with Amazon Web Services (AWS), perform the following steps:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Configure Amazon Web Services (AWS) Single Sign-On](#configure-amazon-web-services-aws-single-sign-on)** - to configure the Single Sign-On settings on application side.
@@ -96,7 +94,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 **To configure Azure AD single sign-on with Amazon Web Services (AWS), perform the following steps:**
 
-1. In the [Azure portal](https://portal.azure.com/), on the **Amazon Web Services (AWS)** application integration page, select **Single sign-on**.
+1. In the Azure portal, on the **Amazon Web Services (AWS)** application integration page, select **Single sign-on**.
 
     ![Configure single sign-on link](common/select-sso.png)
 
@@ -179,6 +177,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 1. Click **Roles**, and then click **Create role**.
 
     ![Configure Single Sign-On Roles][16]
+
+	> [!NOTE]
+	> The combined length of the Role ARN and the SAML provider ARN for a role being imported must be 240 characters or less.
 
 1. On the **Create role** page, perform the following steps:  
 
@@ -360,13 +361,9 @@ You can also verify the SAML response to see the roles being passed as claims.
 
 For more information about the Access Panel, see [Introduction to the Access Panel](../active-directory-saas-access-panel-introduction.md).
 
-## Additional resources
+## Next steps
 
-* [How to configure provisioning using MS Graph APIs](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-configure-api)
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-* [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-* [How to protect Amazon Web Services (AWS) with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/protect-aws)
+Once you configure Amazon Web Services (AWS) you can enforce Session Control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session Control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 <!--Image references-->
 
