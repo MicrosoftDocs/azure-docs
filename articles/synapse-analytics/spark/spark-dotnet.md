@@ -43,12 +43,7 @@ Visit the tutorial to learn how to use Azure Synapse Analytics to [create Apache
 
     **On Windows:**
 
-    1. Download 7-Zip from [here](https://www.7-zip.org/) and add path to `7z.exe` to the `PATH` environment variable.
-    2. Open command prompt window and cd into the bin directory with all the published binaries and run the following command.
-
-      ```cmd
-      7z a -tzip <ZIP file name> .
-      ```
+Use an extraction program, like [7-Zip](https://www.7-zip.org/) or [WinZip](https://www.winzip.com/), to extract the file into the bin directory with all the published binaries.
 
      **On Linux:**
 
