@@ -1,7 +1,7 @@
 ---
 title:  Overview of the Connected Machine Windows agent
 description: This article provides a detailed overview of the Azure Arc enabled servers agent available, which supports monitoring virtual machines hosted in hybrid environments.
-ms.date: 09/24/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ---
 
@@ -39,7 +39,7 @@ The Azure Connected Machine agent for Windows and Linux can be upgraded to the l
 
 ### Supported operating systems
 
-The following versions of the Windows and Linux operating system are officially supported for the Azure Connected Machine agent: 
+The following versions of the Windows and Linux operating system are officially supported for the Azure Connected Machine agent:
 
 - Windows Server 2012 R2 and higher (including Windows Server Core)
 - Ubuntu 16.04 and 18.04 LTS (x64)
@@ -47,6 +47,9 @@ The following versions of the Windows and Linux operating system are officially 
 - SUSE Linux Enterprise Server (SLES) 15 (x64)
 - Red Hat Enterprise Linux (RHEL) 7 (x64)
 - Amazon Linux 2 (x64)
+
+>[!NOTE]
+>Starting with the general release of Azure Arc enabled servers in September 2020, all pre-release versions of the Azure Connected Machine agent (agents with versions less than 1.0) are being **deprecated** by **February 2, 2021**.  This time frame allows you to upgrade to version 1.0 or higher before the pre-released agents are no longer able to communicate with the Azure Arc enabled servers service.
 
 ### Required permissions
 
