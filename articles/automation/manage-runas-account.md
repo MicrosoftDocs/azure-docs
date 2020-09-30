@@ -13,11 +13,9 @@ Run As accounts in Azure Automation provide authentication for managing resource
 
 To learn more about Azure Automation account authentication and guidance related to process automation scenarios, see [Automation Account authentication overview](automation-security-overview.md).
 
-## <a name="permissions"></a>Obtain Run As account permissions
+## <a name="permissions"></a>Run As account permissions
 
 This section defines permissions for both regular Run As accounts and Classic Run As accounts.
-
-### Get permissions to configure Run As accounts
 
 To create or update a Run As account, you must have specific privileges and permissions. An Application administrator in Azure Active Directory and an Owner in a subscription can complete all the tasks. In a situation where you have separation of duties, the following table shows a listing of the tasks, the equivalent cmdlet, and permissions needed:
 
@@ -43,7 +41,7 @@ To verify that the situation producing the error message has been remedied:
 3. Choose your name, then select **Profile**.
 4. Ensure that the value of the **User type** attribute under your user's profile is not set to **Guest**.
 
-### <a name="permissions-classic"></a>Get permissions to configure Classic Run As accounts
+### <a name="permissions-classic"></a>Permissions required to create or manage Classic Run As accounts
 
 To configure or renew Classic Run As accounts, you must have the Co-administrator role at the subscription level. To learn more about classic subscription permissions, see [Azure classic subscription administrators](../role-based-access-control/classic-administrators.md#add-a-co-administrator).
 
