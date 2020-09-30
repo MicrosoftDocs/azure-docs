@@ -1,7 +1,7 @@
 ---
 title: DoD Impact Level 5 blueprint sample controls
 description: Control mapping of the DoD Impact Level 5 blueprint sample. Each control is mapped to one or more Azure Policies that assist with assessment.
-ms.date: 06/30/2020
+ms.date: 09/17/2020
 ms.topic: sample
 ---
 # Control mapping of the DoD Impact Level 5 blueprint sample
@@ -53,8 +53,8 @@ review who has access to Azure resources and their permissions. This blueprint a
 authentication for SQL Servers and Service Fabric. Using Azure Active Directory authentication
 enables simplified permission management and centralized identity management of database users and
 other Microsoft services. Additionally, this blueprint assigns an Azure Policy definition to audit
-the use of custom RBAC rules. Understanding where custom RBAC rules are implement can help you
-verify need and proper implementation, as custom RBAC rules are error prone.
+the use of custom Azure RBAC rules. Understanding where custom Azure RBAC rules are implement can help you
+verify need and proper implementation, as custom Azure RBAC rules are error prone.
 
 - An Azure Active Directory administrator should be provisioned for SQL servers
 - Audit usage of custom RBAC rules
@@ -460,12 +460,9 @@ of the operating system for virtual machine scale sets.
 ## SI-02 (06) Flaw Remediation | Removal of Previous Versions of Software / Firmware
 
 This blueprint assigns policy definitions that help you ensure applications are using the latest
-version of the .NET Framework, HTTP, Java, PHP, Python, and TLS. This blueprint also assigns
+version of HTTP, Java, PHP, Python, and TLS. This blueprint also assigns
 a policy definition that ensures that Kubernetes Services is upgraded to its non-vulnerable version.
 
-- Ensure that '.NET Framework' version is the latest, if used as a part of the API app
-- Ensure that '.NET Framework' version is the latest, if used as a part of the Function App
-- Ensure that '.NET Framework' version is the latest, if used as a part of the Web app
 - Ensure that 'HTTP Version' is the latest, if used to run the Api app
 - Ensure that 'HTTP Version' is the latest, if used to run the Function app
 - Ensure that 'HTTP Version' is the latest, if used to run the Web app
@@ -473,7 +470,6 @@ a policy definition that ensures that Kubernetes Services is upgraded to its non
 - Ensure that 'Java version' is the latest, if used as a part of the Function app
 - Ensure that 'Java version' is the latest, if used as a part of the Web app
 - Ensure that 'PHP version' is the latest, if used as a part of the Api app
-- Ensure that 'PHP version' is the latest, if used as a part of the Function app
 - Ensure that 'PHP version' is the latest, if used as a part of the WEB app
 - Ensure that 'Python version' is the latest, if used as a part of the Api app
 - Ensure that 'Python version' is the latest, if used as a part of the Function app

@@ -15,7 +15,7 @@ ms.date: 04/27/2020
 
 In this quickstart, learn how to on-board Azure Sentinel. 
 
-To on-board Azure Sentinel, you first need to enable Azure Sentinel, and then connect your data sources. Azure Sentinel comes with a number of connectors for Microsoft solutions, available out of the box and providing real-time integration, including Microsoft Threat Protection solutions, Microsoft 365 sources (including Office 365), Azure AD, Azure ATP, Microsoft Cloud App Security, and more. In addition, there are built-in connectors to the broader security ecosystem for non-Microsoft solutions. You can also use Common Event Format (CEF), Syslog or REST-API to connect your data sources with Azure Sentinel.  
+To on-board Azure Sentinel, you first need to enable Azure Sentinel, and then connect your data sources. Azure Sentinel comes with a number of connectors for Microsoft solutions, available out of the box and providing real-time integration, including Microsoft 365 Defender (formerly Microsoft Threat Protection) solutions, Microsoft 365 sources (including Office 365), Azure AD, Microsoft Defender for Identity (formerly Azure ATP), Microsoft Cloud App Security, Azure Defender alerts from Azure Security Center, and more. In addition, there are built-in connectors to the broader security ecosystem for non-Microsoft solutions. You can also use Common Event Format (CEF), Syslog or REST-API to connect your data sources with Azure Sentinel. 
 
 After you connect your data sources, choose from a gallery of expertly created workbooks that surface insights based on your data. These workbooks can be easily customized to your needs.
 
@@ -40,13 +40,13 @@ After you connect your data sources, choose from a gallery of expertly created w
 
 1. Search for and select **Azure Sentinel**.
 
-   ![search](./media/quickstart-onboard/search-product.png)
+   ![Services search](./media/quickstart-onboard/search-product.png)
 
 1. Select **Add**.
 
 1. Select the workspace you want to use or create a new one. You can run Azure Sentinel on more than one workspace, but the data is isolated to a single workspace.
 
-   ![search](./media/quickstart-onboard/choose-workspace.png)
+   ![Choose a workspace](./media/quickstart-onboard/choose-workspace.png)
 
    >[!NOTE] 
    > - Default workspaces created by Azure Security Center will not appear in the list; you can't install Azure Sentinel on them.
@@ -59,7 +59,6 @@ After you connect your data sources, choose from a gallery of expertly created w
    >   If you have already moved the workspace, disable all active rules under **Analytics** and re-enable them after five minutes. This should be effective in most cases, though, to reiterate, it is unsupported and undertaken at your own risk.
 
 1. Select **Add Azure Sentinel**.
-  
 
 ## Connect data sources
 

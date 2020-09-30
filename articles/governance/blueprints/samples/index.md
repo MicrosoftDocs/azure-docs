@@ -1,7 +1,7 @@
 ---
 title: Index of blueprint samples
 description: Index of compliance and standard samples for deploying environments, policies, and Cloud Adoptions Framework foundations with Azure Blueprints.
-ms.date: 09/11/2020
+ms.date: 09/14/2020
 ms.topic: sample
 ---
 # Azure Blueprints samples
@@ -37,7 +37,9 @@ quality and ready to deploy today to assist you in meeting your various complian
 
 ## Samples strategy
 
-:::image type="content" source="../media/blueprint-samples-strategy.png" alt-text="Blueprint samples strategy" border="false":::
+:::image type="complex" source="../media/blueprint-samples-strategy.png" alt-text="Diagram of where the Blueprint samples fit in for architectural complexity vs compliance requirements." border="false":::
+   Describes a coordinate system where architectural complexity is on the X axis and compliance requirements are on the Y axis.  As architectural complexity and compliance requirements increase, adopt standard Blueprint samples from the portal designated in region E.  For customers getting started with Azure leverage Cloud Adoption Framework (C A F) based Foundation and Landing Zone blueprints designated by region A and B.  The remaining space is attributed to custom blueprints created by customers are partners for regions C, D and F.
+:::image-end:::
 
 The CAF foundation and the CAF Migrate landing zone blueprints assume that the customer is preparing
 an existing clean single subscription for migrating on-premises assets and workloads in to Azure.

@@ -25,7 +25,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Custom Vision?
-            url: home.md
+            url: overview.md
       - linkListType: whats-new
         links:
           - text: What's new

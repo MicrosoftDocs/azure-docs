@@ -10,6 +10,7 @@ ms.topic: how-to
 ms.date: 08/02/2020
 ms.author: tamram
 ms.reviewer: fryu
+ms.subservice: blobs
 ---
 
 # Prevent anonymous public read access to containers and blobs
