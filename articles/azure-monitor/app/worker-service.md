@@ -222,7 +222,7 @@ As mentioned in the beginning of this article, the new package can be used to en
 
 Full example is shared [here](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/ConsoleAppWithApplicationInsights)
 
-1. Install the Microsoft.ApplicationInsights.WorkerService(https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) package to the application.
+1. Install the [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) package to the application.
 
 2. Modify Program.cs as below example.
 
