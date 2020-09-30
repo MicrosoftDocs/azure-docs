@@ -20,14 +20,14 @@ Before you start, confirm the following:
 
 * Custom metrics are only available in a subset of Azure regions. A list of supported regions is documented in [Supported regions](../platform/metrics-custom-overview.md#supported-regions).
 
-* To support metric alerts and the introduction of additional metrics, the minimum agent version required is **microsoft/oms:ciprod05262020** for AKS and **microsoft/oms:ciprod09162020** for Azure Arc enabled Kubernetes cluster.
+* To support metric alerts and the introduction of additional metrics, the minimum agent version required is **microsoft/oms:ciprod05262020** for AKS and **microsoft/oms:ciprod09252020** for Azure Arc enabled Kubernetes cluster.
 
     To verify your cluster is running the newer version of the agent, you can either:
 
     * Run the command: `kubectl describe <omsagent-pod-name> --namespace=kube-system`. In the status returned, note the value under **Image** for omsagent in the *Containers* section of the output. 
     * On the **Nodes** tab, select the cluster node and on the **Properties** pane to the right, note the value under **Agent Image Tag**.
 
-    The value shown for AKS should be version **ciprod05262020** or later. The value shown for Azure Arc enabled Kubernetes cluster should be version **ciprod09162020** or later. If your cluster has an older version, see [How to upgrade the Azure Monitor for containers agent](container-insights-manage-agent.md#upgrade-agent-on-aks-cluster) for steps to get the latest version.
+    The value shown for AKS should be version **ciprod05262020** or later. The value shown for Azure Arc enabled Kubernetes cluster should be version **ciprod09252020** or later. If your cluster has an older version, see [How to upgrade the Azure Monitor for containers agent](container-insights-manage-agent.md#upgrade-agent-on-aks-cluster) for steps to get the latest version.
 
     For more information related to the agent release, see [agent release history](https://github.com/microsoft/docker-provider/tree/ci_feature_prod). To verify metrics are being collected, you can use Azure Monitor metrics explorer and verify from the **Metric namespace** that **insights** is listed. If it is, you can go ahead and start setting up the alerts. If you don't see any metrics collected, the cluster Service Principal or MSI is missing the necessary permissions. To verify the SPN or MSI is a member of the **Monitoring Metrics Publisher** role, follow the steps described in the section [Upgrade per cluster using Azure CLI](container-insights-update-metrics.md#upgrade-per-cluster-using-azure-cli) to confirm and set role assignment.
 
