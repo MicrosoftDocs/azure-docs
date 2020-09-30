@@ -3,7 +3,7 @@ title: Overview of Azure Defender and the available plans
 description: Learn about Azure Defender's plans, protections, and alerts. Then enable Azure Defender on your subscriptions for advanced security. 
 author: memildin
 ms.author: memildin
-ms.date: 9/22/2020
+ms.date: 9/30/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
@@ -50,15 +50,11 @@ As well as defending your Azure environment, you can add Azure Defender capabili
 
 You'll get customized threat intelligence and prioritized alerts according to your specific environment so that you can focus on what matters the most​.
 
-Security Center includes native connectors for Amazon Web Services (AWS) and Google Cloud Platform (GCP). Connect your AWS accounts and GCP projects using the wizards from the Azure portal pages as described in:
-
-- [Connect your AWS accounts to Azure Security Center](quickstart-onboard-aws.md)
-- [Connect your GCP accounts to Azure Security Center](quickstart-onboard-gcp.md)
-
-To extend protection to virtual machines and SQL databases that are in other clouds or on-premises, deploy [Azure Arc](https://azure.microsoft.com/services/azure-arc/) and enable Azure Defender. Azure Arc for servers is a free service, but services that are used on Arc enabled servers, for example Azure Defender, will be charged as per the pricing for that service. [Learn more about Azure Arc](https://docs.microsoft.com/azure/azure-arc/overview).
+To extend protection to virtual machines and SQL databases that are in other clouds or on-premises, deploy [Azure Arc](https://azure.microsoft.com/services/azure-arc/) and enable Azure Defender. Azure Arc for servers is a free service, but services that are used on Arc enabled servers, for example Azure Defender, will be charged as per the pricing for that service. Learn more in [Add non-Azure machines with Azure Arc](quickstart-onboard-machines.md#add-non-azure-machines-with-azure-arc).
 
 > [!TIP]
-> The native connectors for AWS and GCP transparently handle the Azure Arc deployment for you. 
+> The native connector for AWS transparently handles the Azure Arc deployment for you. Learn more in [Connect your AWS accounts to Azure Security Center](quickstart-onboard-aws.md).
+
 
 
 ## Azure Defender alerts 
