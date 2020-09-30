@@ -128,7 +128,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 11. Review the user attributes that are synchronized from Azure AD to Tableau Online in the **Attribute Mappings** section. The attributes selected as **Matching** properties are used to match the user accounts in Tableau Online for update operations. To save any changes, select **Save**.
 
-	![Tableau Online matching user attributes](./media/tableau-online-provisioning-tutorial/attributes.png)
+	![Tableau Online matching user attributes](./media/tableau-online-provisioning-tutorial/attribute.png)
 
 12. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Tableau**.
 
