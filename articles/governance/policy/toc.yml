@@ -139,6 +139,9 @@
   - name: Author policies for array properties
     displayName: array property, alias, aliases, in, notIn, type, defaultValue
     href: ./how-to/author-policies-for-arrays.md
+  - name: Export Azure Policy resources
+    displayName: github, json, definition
+    href: ./how-to/export-resources.md
   - name: Guest Configuration
     items:
     - name: Create a Guest Configuration policy on Windows
