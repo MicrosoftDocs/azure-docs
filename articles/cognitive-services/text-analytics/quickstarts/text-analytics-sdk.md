@@ -33,6 +33,8 @@ Use the Text Analytics client library to perform:
 >    * Be sure to only follow the instructions for the version you are using.
 > * The code in this article uses synchronous methods and un-secured credentials storage for simplicity reasons. For production scenarios, we recommend using the batched asynchronous methods for performance and scalability. See the reference documentation below.
 
+[!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
+
 [!INCLUDE [C# quickstart](../includes/quickstarts/csharp-sdk.md)]
 
 ::: zone-end
