@@ -26,7 +26,7 @@ Here's what changed in September 2020:
 
 - We've optimized performance by reducing connection latency in the following Azure geographies:
     - Germany
-	- South Africa – for validation environments.
+    - South Africa (for validation environments only)
 
 To estimate the quality of user experience you can refer to the [Experience Estimator](https://azure.microsoft.com/services/virtual-desktop/assessment/)
 
