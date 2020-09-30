@@ -57,18 +57,18 @@
         href: developer-guidance-for-integrating-applications.md
     - name: Single sign-on
       items:
-      - name: Single sign-on options 
-        href: sso-options.md
       - name: Plan a single sign-on deployment
         href: plan-sso-deployment.md
+      - name: Single sign-on options 
+        href: sso-options.md
+      - name: SAML-based SSO
+        href: configure-saml-single-sign-on.md
+      - name: Password-based SSO
+        href: configure-password-single-sign-on-non-gallery-applications.md
+      - name: Linked-based SSO
+        href: configure-linked-sign-on.md
       - name: One-click SSO
         href: one-click-sso-tutorial.md
-      - name: Understand SAML-based SSO
-        href: configure-saml-single-sign-on.md
-      - name: Understand password-based SSO
-        href: configure-password-single-sign-on-non-gallery-applications.md
-      - name: Understand linked-based SSO
-        href: configure-linked-sign-on.md
     - name: Application security
       items:
       - name: App access options
