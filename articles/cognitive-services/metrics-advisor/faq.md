@@ -88,7 +88,7 @@ Be sure to use the correct granularity for your time series. For an hourly metri
 
 Note that these queries only return data at a single timestamp, and contain all of the dimension combinations to be ingested by Metrics Advisor. 
 
-:::image type="content" source="../media/query-result.png" alt-text="A query result with one timestamp" lightbox="../media/query-result.png":::
+:::image type="content" source="media/query-result.png" alt-text="A query result with one timestamp" lightbox="media/query-result.png":::
 
 ### How do I detect spikes & dips as anomalies?
 
