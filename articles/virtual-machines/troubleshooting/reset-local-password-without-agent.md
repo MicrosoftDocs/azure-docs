@@ -77,7 +77,7 @@ Always try to reset a password using the [Azure portal or Azure PowerShell](rese
     net localgroup "remote desktop users" <username> /add
     ```
 
-    :::image type="content" source="./media/reset-local-password-without-agent/create-fixazure-cmd-2.png" alt-text="Create FixAzureVM.cmd":::
+    :::image type="content" source="./media/reset-local-password-without-agent/create-fixazure-cmd-1.png" alt-text="Create FixAzureVM.cmd":::
    
     You must meet the configured password complexity requirements for your VM when defining the new password.
 
@@ -181,7 +181,7 @@ Always try to reset a password using the [Azure portal or Azure PowerShell](/pre
     net localgroup "remote desktop users" <username> /add
     ```
 
-    :::image type="content" source="./media/reset-local-password-without-agent/create-fixazure-cmd-2.png" alt-text="Create FixAzureVM.cmd - Classic":::
+    :::image type="content" source="./media/reset-local-password-without-agent/create-fixazure-cmd-1.png" alt-text="Create FixAzureVM.cmd - Classic":::
    
     You must meet the configured password complexity requirements for your VM when defining the new password.
 
