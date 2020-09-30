@@ -1,6 +1,6 @@
 ---
-title: Azure AD Connect Health instructions for EUII data retrieval | Microsoft Docs
-description: This is the Azure AD Connect Health page that describes how to retrieve all email addresses for users that are configured as email recipients for health alerts.
+title: Azure AD Connect Health instructions data retrieval | Microsoft Docs
+description: This page describes how to retrieve data from Azure AD Connect Health.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -17,17 +17,15 @@ ms.collection: M365-identity-device-management
 ---
 
 
-# Azure AD Connect Health instructions for EUII data retrieval
+# Azure AD Connect Health instructions for data retrieval
 
-The [European Union General Data Protection Regulation (GDPR)](https://ec.europa.eu/info/law/law-topic/data-protection_en) gives rights to people (known in the regulation as data subjects) to manage the personal data that has been collected by an employer or other type of agency or organization (known as the data controller or just controller). Personal data is defined broadly under the GDPR as any data that relates to an identified or identifiable natural person. The GDPR gives data subjects specific rights to their personal data; these rights include obtaining copies of it, requesting changes to it, restricting the processing of it, deleting it, or receiving it in an electronic format so it can be moved to another controller. 
+This document describes how to use Azure AD Connect to retrieve data from Azure AD Connect Health.
 
-Similarly, the [California Consumer Privacy Act (CCPA)](https://docs.microsoft.com/microsoft-365/compliance/offering-ccpa?view=o365-worldwide), provides privacy rights and obligations to California consumers, including rights similar to GDPR's Data Subject Rights, such as the right to delete, access and receive (portability) their personal information. 
-
-This document describes how to use Azure AD Connect to retrieve data to assist you in the type of requests outlined above.
+[!INCLUDE [active-directory-app-provisioning.md](../../../includes/gdpr-intro-sentence.md)]
 
 ## Retrieve all email addresses for users configured for health alerts.
 
-To retrieve the email addresses for all of your users that are configured in Azure AD Connect Health to receive alerts, do the following:
+To retrieve the email addresses for all of your users that are configured in Azure AD Connect Health to receive alerts, use the following steps.
 
 1.	Start at the Azure Active Directory Connect health blade and select **Sync Services** from the left-hand navigation bar.
  ![Sync Services](./media/how-to-connect-health-data-retrieval/retrieve1.png)
@@ -35,17 +33,17 @@ To retrieve the email addresses for all of your users that are configured in Azu
 2.	Click on the **Alerts** tile.</br>
  ![Alert](./media/how-to-connect-health-data-retrieval/retrieve3.png)
 
-3.	Click on **Notification Settings**
+3.	Click on **Notification Settings**.
  ![Notification](./media/how-to-connect-health-data-retrieval/retrieve4.png)
 
-4.	On the **Notification Setting** blade you will find the list of email addresses that have been enabled as recipients for health Alert notifications.
+4.	On the **Notification Setting** blade, you will find the list of email addresses that have been enabled as recipients for health Alert notifications.
  ![Emails](./media/how-to-connect-health-data-retrieval/retrieve5a.png)
  
 ## Retrieve accounts that were flagged with AD FS Bad Password attempts
 
-To retrieve accounts that were flagged with AD FS Bad Password attempts, do the following:
+To retrieve accounts that were flagged with AD FS Bad Password attempts, use the following steps.
 
-1.	Starting on the Azure Active Directory Health blade, in the left-hand navigation bar, select **Sync Errors**.
+1.	Starting on the Azure Active Directory Health blade, select **Sync Errors**.
  ![Sync errors](./media/how-to-connect-health-data-retrieval/retrieve6.png)
 
 2.	In the **Sync Errors** blade, click on **Export**. This will export a list of the recorded sync errors.
