@@ -30,31 +30,29 @@ By using code snippets in mapping data flows, you can very easily perform common
 
 4. The dedupe and NULL check snippets use generic patterns that leverage data flow schema drift so they will work with any schema from your dataset, or with datasets that do not have any pre-defined schema.
 
-5. Go to the Data Flow Script documentation page and copy the code snippet for Distinct Rows.
+5. [Go to the Data Flow Script documentation page and copy the code snippet for Distinct Rows.](https://docs.microsoft.com/azure/data-factory/data-flow-script#distinct-row-using-all-columns)
 
-6. https://docs.microsoft.com/azure/data-factory/data-flow-script#distinct-row-using-all-columns
-
-7. In your data flow designer UI, click the Script button on the top right to open the script editor behind the data flow graph.
+6. In your data flow designer UI, click the Script button on the top right to open the script editor behind the data flow graph.
 
     ![Source Snippet 3](media/data-flow/snippet3.png)
 
-8. After the definition for ```source1``` in your script, hit Enter and then paste in the code snippet.
+7. After the definition for ```source1``` in your script, hit Enter and then paste in the code snippet.
 
-9. You will connect this pasted code snippet to the previous Source transformation that you created in the graph by typing "source1" in front of the pasted code.
+8. You will connect this pasted code snippet to the previous Source transformation that you created in the graph by typing "source1" in front of the pasted code.
 
-10. Alternatively, you can connect the new transformation in the designer by selecting the incoming stream from the new transformation node in the graph.
+9. Alternatively, you can connect the new transformation in the designer by selecting the incoming stream from the new transformation node in the graph.
 
     ![Source Snippet 4](media/data-flow/snippet4.png)
 
-11. Now your data flow will remove duplicate rows from your source using the Aggregate transformation that groups by all rows using a general hash across all column values.
+10. Now your data flow will remove duplicate rows from your source using the Aggregate transformation that groups by all rows using a general hash across all column values.
+    
+11. Next, we'll add a code snippet for splitting your data into a stream that contains rows with NULLs and a stream that does not have any NULLs.
 
-12. Next, we'll add a code snippet for splitting your data into a stream that contains rows with NULLs and a stream that does not have any NULLs.
+12. [Go back to the Snippet library and this time copy the code for the NULL checks.](https://docs.microsoft.com/azure/data-factory/data-flow-script#check-for-nulls-in-all-columns)
 
-13. Go back to the Snippet library and this time copy the code for the NULL checks: https://docs.microsoft.com/azure/data-factory/data-flow-script#check-for-nulls-in-all-columns.
+13. In your data flow designer, again click Script and paste this new transformation code at the bottom, connecting it to your previous transformation by typing the name of that transformation in front of the pasted snippet.
 
-14. In your data flow designer, again click Script and paste this new transformation code at the bottom, connecting it to your previous transformation by typing the name of that transformation in front of the pasted snippet.
-
-15. You data flow graph should now look similar to this:
+14. Your data flow graph should now look similar to this:
 
     ![Source Snippet 1](media/data-flow/snippet1.png)
 
