@@ -1,7 +1,7 @@
 ---
 title: Author policies for array properties on resources
 description: Learn to work with array parameters and array language expressions, evaluate the [*] alias, and to append elements with Azure Policy definition rules.
-ms.date: 08/17/2020
+ms.date: 09/30/2020
 ms.topic: how-to
 ---
 # Author policies for array properties on Azure resources
@@ -226,7 +226,7 @@ rule and array of existing values above:
 The [append](../concepts/effects.md#append) and [modify](../concepts/effects.md#modify) alter properties on a resource during creation or update. When working with array properties, the behavior of these effects depends on whether the operation is trying to modify the  **\[\*\]** alias or not:
 
 > [!NOTE]
-> Using the `modify` effect with aliases is in currently in preview.
+> Using the `modify` effect with aliases is currently in **preview**.
 
 |Alias |Effect | Outcome |
 |-|-|-|
