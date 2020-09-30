@@ -185,4 +185,4 @@ For more details about status codes and indexer monitoring information, see [Get
 
 Details about document-specific errors or warnings can be retrieved by enumerating the lists `IndexerExecutionResult.Errors` and `IndexerExecutionResult.Warnings`.
 
-For more information about the .NET SDK classes used to monitor indexers, see [IndexerExecutionInfo](/dotnet/api/microsoft.azure.search.models.indexerexecutioninfo?view=azure-dotnet) and [IndexerExecutionResult](/dotnet/api/microsoft.azure.search.models.indexerexecutionresult?view=azure-dotnet).
+For more information about the .NET SDK classes used to monitor indexers, see [IndexerExecutionInfo](/dotnet/api/microsoft.azure.search.models.indexerexecutioninfo) and [IndexerExecutionResult](/dotnet/api/microsoft.azure.search.models.indexerexecutionresult).
