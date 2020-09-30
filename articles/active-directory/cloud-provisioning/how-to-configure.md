@@ -22,19 +22,19 @@ To configure provisioning, follow these steps.
 
  1. In the Azure portal, select **Azure Active Directory**
  2. Select **Azure AD Connect**.
- 3. Select **Manage provisioning (Preview)**.
+ 3. Select **Manage provisioning**.
 
- ![Manage provisioning (Preview)](media/how-to-configure/manage1.png)
+ ![Manage provisioning](media/how-to-configure/manage1.png)
  
  4. Select **New configuration**.
  5. On the configuration screen, select your domain and whether to enable password hash sync.  Click **Create**.  
  
-![Manage provisioning (Preview)](media/how-to-configure/configure1.png)
+ ![Create new configuration](media/how-to-configure/configure1.png)
 
 
  6.  The Edit provisioning configuration screen will open.
 
-   ![Azure AD provisioning (Preview)](media/how-to-configure/configure2.png)
+   ![Edit configuration](media/how-to-configure/configure2.png)
 
  7. Enter a **Notification email**. This email will be notified when provisioning isn't healthy.
  8. Move the selector to Enable, and select Save.
@@ -50,7 +50,7 @@ You can scope the agent to synchronize specific users and groups by using on-pre
  ![Configuration section](media/how-to-configure/scope1.png)
  
  5. Under **Configure**, select **Edit scoping filters** to change the scope of the configuration rule.
- ![Configuration section](media/how-to-configure/scope3.png)
+ ![Edit scope](media/how-to-configure/scope3.png)
  7. On the right, you can change the scope.  Click **Done**  and **Save** when you have finished.
  8. Once you have changed the scope, you should [restart provisioning](#restart-provisioning) to initiate an immediate synchronization of the changes.
 

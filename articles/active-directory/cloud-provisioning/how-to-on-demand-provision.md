@@ -63,11 +63,11 @@ Using this information, you can see additional information about the scope of yo
 
 ## Match user between source and target system details
 This section provides information on whether the user already exists in Azure AD and should a join occur instead of provisioning a new user.  Click the **View details** link to display this information.
-![User scope](media/how-to-on-demand-provision/on-demand8.png)
+![View details](media/how-to-on-demand-provision/on-demand8.png)
 
 Using this information, you can see whether a match was found or if a new user is going to be created.
 
-![User scope details](media/how-to-on-demand-provision/on-demand11.png)
+![User information](media/how-to-on-demand-provision/on-demand11.png)
 
 The Matching details will show a message with one of the three following operations.  They are:
 - Create - a user is created in Azure AD
@@ -78,13 +78,13 @@ Depending on the type of operation you have performed, the message will vary.
 
 ## Perform action details
 This section provides information on the user that was provisioned or exported into Azure AD after the configuration is applied.  This is what the user  looks like once it is provisioned into Azure AD.  Click the **View details** link to display this information.
-![User scope](media/how-to-on-demand-provision/on-demand9.png)
+![Perform action details](media/how-to-on-demand-provision/on-demand9.png)
 
 Using this information, you can see the values of the attributes after the configuration is applied.  Do they look similar to what was imported or are the different?  Does the configuration apply successful?  
 
 This will process allow you to trace the attribute transformation as it moves through the cloud and into your Azure AD tenant.
 
-![User scope details](media/how-to-on-demand-provision/on-demand12.png)
+![trace attribute](media/how-to-on-demand-provision/on-demand12.png)
 
 ## Next steps 
 

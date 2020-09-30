@@ -75,7 +75,7 @@ To use the new feature, follow the steps below.
  ![Save Schema](media/how-to-attribute-mapping/mapping3.png)
 
 ## Test your attribute mapping
-To test your attribute mapping, you can use [on-demand provisioning](how-to-on-demand-provisioning.md).  From the 
+To test your attribute mapping, you can use [on-demand provisioning](how-to-on-demand-provision.md).  From the 
 
 1.  In the Azure portal, select **Azure Active Directory**.
 2.  Select **Azure AD Connect**.
