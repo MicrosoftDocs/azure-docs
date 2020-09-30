@@ -39,7 +39,7 @@ To create an assessment, follow these steps:
 
 1. Open SQL Server Migration Assistant (SSMA) for DB2. 
 1. Select **File** and then choose **New Project**. 
-1. Provide a project name, a location to save your project, and then select Azure SQL Database as the migration target from the drop-down. Select **OK**. 
+1. Provide a project name, a location to save your project, and then select Azure SQL Database as the migration target from the drop-down. Select **OK**.  
 
    :::image type="content" source="media/db2-to-database-guide/new-project.png" alt-text="Provide project details and select OK to save.":::
 
