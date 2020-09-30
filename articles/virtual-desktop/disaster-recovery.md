@@ -17,41 +17,24 @@ To keep your organization's data safe, you may need to adopt a business continui
 
 Windows Virtual Desktop offers BCDR for the Windows Virtual Desktop service to preserve customer metadata during outages. When an outage occurs in a region, the service infrastructure components will fail over to the secondary location and continue functioning as normal. You can still access service-related metadata, and users can still connect to available hosts. End-user connections will stay online as long as the tenant environment or hosts remain accessible.
 
-To make sure users can still connect during a region outage, you need to replicate their virtual machines (VMs) to a different location. During outages, the primary site fails over to the replicated VMs in the secondary location. Users can continue to access apps from the secondary location without interruption. If you're using profile containers, on top of VM replication, you'll need to keep user identities accessible at the secondary location. Finally, make sure your business apps that rely on data in the primary location can fail over with the rest of the data.
+To make sure users can still connect during a region outage, you need to replicate their virtual machines (VMs) in a different location. During outages, the primary site fails over to the replicated VMs in the secondary location. Users can continue to access apps from the secondary location without interruption. If you're using profile containers, on top of VM replication, you'll need to keep user identities accessible at the secondary location. Finally, make sure your business apps that rely on data in the primary location can fail over with the rest of the data.
 
-The following sections will explain how to configure important components for your BCDR plan.
-
-
-
-As an organization you might need to adopt a business continuity and disaster recovery (BCDR) strategy to keep your data safe and your apps and workload running during planned and unplanned service or Azure outages.
-
-Windows Virtual Desktop offers BCDR as a service to keep customer applications up and running during outages. When an outage occurs in a region, the service infrastructure components will failover to a secondary location, then continue functioning as normal. The customer can still access their application, and end-users can connect to available hosts. End-user connections are preserved as long as the tenant environment or hosts are still accessible.
-
-For a successful end-user connection during a region outage, you'll need to replicate the VMs in a different location. On an outage, you fail over the primary site to a secondary location (where the replication has been enabled) and the user can continue to access apps from there. Additionally, if you are using Profile Containers, you would have setup replication of this data also in the secondary location. You would also have to ensure that the user identities are available at the secondary location. Finally, you need to make sure that any line of business applications that rely on data located in the primary region have been failed over together with the data.
-
-To successfully keep your users connected during a region outage, you'll need to do the following things, in order:
+To summarize, to keep your users connected during an outage, you'll need to do the following things in this order:
 
 - Replicate the VMs in a secondary location.
-- If you're using profile containers, set up replication of date in the secondary location.
+- If you're using profile containers, set up data replication in the secondary location.
 - Make sure user identities you set up in the primary location are available in the secondary location.
-- Make sure any line of business applications relying on data in your primary location are failed over to the secondary location along with your data.
+- Make sure any line of business applications relying on data in your primary location are failed over to the secondary location.
 
 ## VM replication
 
-First, you'll need to replicate your VMs. We recommend you use [Azure Site Recovery](../site-recovery/site-recovery-overview.md) to manage replication for [Azure VMs replicating between Azure regions](../site-recovery/azure-to-azure-architecture.md). Site Recovery supports both [Server-based and Client-based SKUs](../site-recovery/azure-to-azure-support-matrix.md#replicated-machine-operating-systems). 
-
-Azure Site Recovery automatically registers VMs for you. The Windows Virtual Desktop agent in the secondary VM automatically uses the latest security token to connect to the closest service instance. The VM session host in the secondary location then automatically joins the host pool. The only manual operation involved is that the user might have to reconnect to the session after the process is done.
-
-To learn how to replicate VMs, see [Replicate Azure VMs to another Azure region](../site-recovery/azure-to-azure-how-to-enable-replication.md).
-
-
-If you want to set up disaster recovery on your VM, you have many options:
+First, you'll need to replicate your VMs to the secondary location. Your options for doing so depend on how your VMs are configured:
 
 - If all your VMs are configured with Azure Site Recovery (ASR) for both pooled and personal host pools, you'll only need to set up one host pool and its related app groups and workspaces.
 - You can create a new host pool in the failover region while keeping all resources in your primary location turned off. In this case, you'd only need to set up a new app group or workspace in the failover region. You can use an ASR Recovery Plan to power on host pools with this method.
 - You can create a host pool that's populated by VMs built in both the primary and failover regions while keeping the VMs in the failover region turned off. In this case, you only need to set up one host pool and its related app groups and workspaces. You can use an ASR Recovery Plan to power on host pools with this method.
 
-We recommend using [Azure Site Recovery](../site-recovery/site-recovery-overview.md) to manage replicating VMs in other Azure locations, as described in [Azure-to-Azure disaster recovery architecture](../site-recovery/azure-to-azure-architecture.md). We especially recommend using ASR for personal host pools. ASR supports both [server-based and client-based SKUs](../site-recovery/azure-to-azure-support-matrix.md#replicated-machine-operating-systems).
+We recommend you use [Azure Site Recovery](../site-recovery/site-recovery-overview.md) to manage replicating VMs in other Azure locations, as described in [Azure-to-Azure disaster recovery architecture](../site-recovery/azure-to-azure-architecture.md). We especially recommend using ASR for personal host pools, because ASR supports both [server-based and client-based SKUs](../site-recovery/azure-to-azure-support-matrix.md#replicated-machine-operating-systems).
 
 If you use ASR, you won't need to register these VMs manually. The Windows Virtual Desktop agent in the secondary VM will automatically use the latest security token to connect to the service instance closest to it. The VM (session host) in the secondary location will automatically become part of the host pool. The end-user might have to reconnect during the process, but apart from that, there are no other manual operations.
 
@@ -73,10 +56,7 @@ Once you've signed out all users in the primary region, you can fail over the VM
 
 ## Virtual network
 
-Next, create a virtual network (VNET) in the failover region. If there are any on-prem resources that need to be accessed, then you also need to configure the VNET to access those resources.
-
-
-Start planning for disaster recovery by considering network connectivity. You'll need to make sure you've set up a virtual network (VNET) in your secondary region. If your users need to access on-prem resources, you'll need to configure this VNET to access them. You can establish on-prem connections with a VPN, ExpressRoute, or virtual WAN.
+Next, consider your network connectivity during the outage. You'll need to make sure you've set up a virtual network (VNET) in your secondary region. If your users need to access on-premises resources, you'll need to configure this VNET to access them. You can establish on-premises connections with a VPN, ExpressRoute, or virtual WAN.
 
 If you use ASR to set up the VNET in the failover region, it preserves your primary network's settings and doesn't need peering.
 
@@ -107,10 +87,10 @@ If you're setting up disaster recovery for profiles, these are your options:
    - Set up Native Azure Replication (for example, Azure Files Standard storage account replication, Azure NetApp Files replication, or Azure Files Sync for file servers).
     
      >[!NOTE]
-     >NetApp replication is automatic after you first set it up. With ASR recovery plans, you can add pre-scripts and post-scripts to failover non-VM resources and can be used for Azure Storage replication.
+     >NetApp replication is automatic after you first set it up. With ASR recovery plans, you can add pre-scripts and post-scripts to fail over non-VM resources replicate Azure Storage resources.
 
    - FSLogix Cloud Cache (automatic).
-   - Only setup disaster recovery for app data, not user data. This option ensures business-critical data can be accessed at all times but not necessarily user’s data, which can be retrieved once the disaster is mitigated.
+   - Only set up disaster recovery for app data, not user data. This option ensures business-critical data can be accessed at all times. However, it doesn't ensure access to user data, but you can retrive it after the outage is over.
 
 Let’s take a look at how to configure FSLogix to set up disaster recovery for each option.
 
@@ -181,5 +161,4 @@ Here are some suggestions for how to test your plan:
 
 ## Next steps
 
-
-
+If you have questions about how to keep your data secure in addition to planning for outages, check out our [security guide](security-guide.md).
