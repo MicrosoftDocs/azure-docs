@@ -41705,7 +41705,7 @@
     {
       "source_path": "articles/log-analytics/query-language/useful-operators.md",
       "redirect_url": "/azure/azure-monitor/data-explorer/kusto/query/",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/log-analytics/query-language/advanced-aggregations.md",
@@ -41760,7 +41760,7 @@
     {
       "source_path": "articles/log-analytics/query-language/query-language.md",
       "redirect_url": "/azure/azure-monitor/data-explorer/kusto/query/",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/log-analytics/query-language/workspace-expression.md",
