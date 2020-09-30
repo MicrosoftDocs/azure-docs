@@ -202,16 +202,16 @@
       href: platform/diagnostic-settings.md
   - name: Log Analytics
     items:
-      - name: Overview
-        displayname: Log Analytics, log query, log queries, query, queries
-        href: log-query/log-query-overview.md
-      - name: Tutorial
-        displayname: Log Analytics workspace, log query, log queries, query, queries
-        href: log-query/get-started-portal.md
-      - name: Query scope
-        href: log-query/scope.md
-      - name: Simple logs experience
-        href: log-query/simple-logs.md
+    - name: Overview
+      displayname: Log Analytics, log query, log queries, query, queries
+      href: log-query/log-query-overview.md
+    - name: Tutorial
+      displayname: Log Analytics workspace, log query, log queries, query, queries
+      href: log-query/get-started-portal.md
+    - name: Query scope
+      href: log-query/scope.md
+    - name: Simple logs experience
+      href: log-query/simple-logs.md
     - name: Log queries
       items:
       - name: Standard columns
