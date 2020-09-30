@@ -1,6 +1,6 @@
 ---
-title: How to configure password-based single sign-on for Azure AD apps
-description: How to configure password-based single sign-on (SSO) for your Azure AD applications in Microsoft identity platform (Azure AD)
+title: Understand password-based single sign-on for Azure AD apps
+description: Understand password-based single sign-on (SSO) for your Azure AD applications in Microsoft identity platform (Azure AD)
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -12,7 +12,7 @@ ms.date: 07/29/2020
 ms.author: kenwith
 ---
 
-# Configure password-based single sign-on
+# Understand password-based single sign-on
 
 In the [quickstart series](view-applications-portal.md) on application management, you learned how to use Azure AD as the Identity Provider (IdP) for an application. In the quickstart guide, you set up SAML-based SSO. Another option is password-based SSO. This article goes into more detail about the password-based SSO option. 
 

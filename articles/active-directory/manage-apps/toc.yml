@@ -63,6 +63,12 @@
         href: plan-sso-deployment.md
       - name: One-click SSO
         href: one-click-sso-tutorial.md
+      - name: Understand SAML-based single sign-on
+        href: configure-saml-single-sign-on.md
+      - name: Understand password-based sign-on
+        href: configure-password-single-sign-on-non-gallery-applications.md
+      - name: Understand linked sign-on
+        href: configure-linked-sign-on.md
     - name: Application security
       items:
       - name: App access options
@@ -102,14 +108,6 @@
   - name: How-to guides
     expanded: false
     items:
-    - name: Configure single sign-on
-      items:
-      - name: Configure SAML-based single sign-on
-        href: configure-saml-single-sign-on.md
-      - name: Configure password-based sign-on
-        href: configure-password-single-sign-on-non-gallery-applications.md
-      - name: Configure linked sign-on
-        href: configure-linked-sign-on.md
     - name: Assign users and manage access to apps
       items:
       - name: Configure user consent

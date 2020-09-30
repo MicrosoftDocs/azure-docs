@@ -1,6 +1,6 @@
 ---
-title: Configure linked sign-on in Azure Active Directory
-description: Configure linked sign-on in Azure AD.
+title: Understand linked sign-on in Azure Active Directory
+description: Understand linked sign-on in Azure Active Directory.
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -13,7 +13,7 @@ ms.author: kenwith
 ms.reviewer: arvinh,luleon
 ---
 
-# Configure linked sign-on
+# Understand linked sign-on
 
 In the [quickstart series](view-applications-portal.md) on application management, you learned how to use Azure AD as the Identity Provider (IdP) for an application. In the quickstart guide, you set up SAML-based SSO. Another option is **Linked**. This article goes into more detail about the linked option.
 

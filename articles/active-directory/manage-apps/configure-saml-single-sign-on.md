@@ -1,6 +1,6 @@
 ---
-title: Configure SAML-based single sign-on (SSO) for apps in Azure AD
-description: Configure SAML-based single sign-on (SSO) for apps in Azure AD
+title: Understand SAML-based single sign-on (SSO) for apps in Azure AD
+description: Understand SAML-based single sign-on (SSO) for apps in Azure AD
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -13,7 +13,7 @@ ms.author: kenwith
 ms.reviewer: arvinh,luleon
 ---
 
-# Configure SAML-based single sign-on
+# Understand SAML-based single sign-on
 
 In the [quickstart series](view-applications-portal.md) on application management, you learned how to use Azure AD as the Identity Provider (IdP) for an application. This article goes into more detail about the SAML-based option for single sign-on. 
 
