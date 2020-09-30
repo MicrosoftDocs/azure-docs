@@ -16,7 +16,7 @@ ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: b-juche
 ---
-# Oracle database performance on Azure NetApp Files single volume
+# Oracle database performance on Azure NetApp Files single volumes
 
 This article addresses the following topics about Oracle in the cloud. These topics might be of particular interest to a database administrator, cloud architect, or storage architect:   
 
