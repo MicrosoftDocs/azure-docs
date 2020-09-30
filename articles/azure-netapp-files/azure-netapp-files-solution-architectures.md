@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 09/30/2020
 ms.author: b-juche
 ---
 # Solution architectures using Azure NetApp Files
@@ -29,6 +29,7 @@ This section provides references for solutions for Linux OSS applications and da
 
 ### Oracle
 
+* [Oracle database performance on Azure NetApp Files single volumes](performance-oracle-single-volumes.md)
 * [Oracle on Azure deployment best practice guide using Azure NetApp Files](https://www.netapp.com/us/media/tr-4780.pdf)
 * [Oracle VM images and their deployment on Microsoft Azure: Shared storage configuration options](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-vm-solutions#shared-storage-configuration-options)
 * [Benefits of using Azure NetApp Files with Oracle Database](solutions-benefits-azure-netapp-files-oracle-database.md)
