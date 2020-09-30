@@ -75,13 +75,14 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 4. On the **Basic SAML Configuration** section, if you have **Service Provider metadata file**, perform the following steps:
 
-	>[!NOTE]
-	>1. Get the Service Provider metadata for [Alibaba Cloud International Site](https://signin.alibabacloud.com/saml-role/sp-metadata.xml)
-	> 1. For [Alibaba Cloud Service(CN) Site](https://signin.aliyun.com/saml-role/sp-metadata.xml)
-
 	a. Click **Upload metadata file**.
 
 	b. Click on **folder logo** to select the metadata file and click **Upload**.
+
+	
+	>[!NOTE]
+	>1. For Alibaba Cloud International Site, please download the Service Provider metadata from [this](https://signin.alibabacloud.com/saml-role/sp-metadata.xml) link.
+	> 1. For Alibaba Cloud Service(CN) Site, please download the Service Provider metadata from [this](https://signin.aliyun.com/saml-role/sp-metadata.xml) link.
 
 	c. Once the metadata file is successfully uploaded, the **Identifier** and **Reply URL** values get auto populated in Alibaba Cloud Service (Role-based SSO) section textbox:
 
@@ -241,4 +242,3 @@ After the preceding configurations are completed, test Alibaba Cloud Service (Ro
 ## Next steps
 
 Once you configure Alibaba Cloud Service (Role-based SSO) you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
