@@ -9,7 +9,7 @@ manager: diviso
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
-ms.date: 06/30/2020
+ms.date: 09/30/2020
 # Customer intent: As a data analyst or developer, I want to quickly learn about the Azure Time Series Insights visualization Explorer.
 ---
 
