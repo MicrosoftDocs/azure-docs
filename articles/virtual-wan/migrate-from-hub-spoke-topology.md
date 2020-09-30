@@ -5,7 +5,7 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 09/30/2020
 ms.author: cherylmc
 
 ---
@@ -16,48 +16,48 @@ Azure Virtual WAN lets companies simplify their global connectivity in order to 
 
 For information about the benefits that Azure Virtual WAN enables for enterprises adopting a cloud-centric modern enterprise global network, see [Global transit network architecture and Virtual WAN](virtual-wan-global-transit-network-architecture.md).
 
-![hub and spoke](./media/migrate-from-hub-spoke-topology/hub-spoke.png)
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/hub-spoke.png" alt-text="hub and spoke":::
 **Figure: Azure Virtual WAN**
 
 The Azure hub-and-spoke connectivity model has been adopted by thousands of our customers to leverage the default transitive routing behavior of Azure Networking in order to build simple and scalable cloud networks. Azure Virtual WAN builds on these concepts and introduces new capabilities that allow global connectivity topologies, not only between on-premises locations and Azure, but also allowing customers to leverage the scale of the Microsoft network to augment their existing global networks.
 
-This article shows how to migrate an existing hybrid environment to Virtual WAN.
+This article shows how to migrate an existing customer-managed hub-and-spoke environment, to a topology that is based on Azure Virtual WAN.
 
 ## Scenario
 
-Contoso is a global financial organization with offices in both Europe and Asia. They are planning to move their existing applications from an on-premises data center in to Azure and have built out a foundation design based on the manual hub-and-spoke architecture, including regional customer-managed hub virtual networks for hybrid connectivity. As part of the move to cloud-based technologies, the network team have been tasked with ensuring that their connectivity is optimized for the business moving forward.
+Contoso is a global financial organization with offices in both Europe and Asia. They are planning to move their existing applications from an on-premises data center in to Azure and have built out a foundation design based on the customer-managed hub-and-spoke architecture, including regional hub virtual networks for hybrid connectivity. As part of the move to cloud-based technologies, the network team have been tasked with ensuring that their connectivity is optimized for the business moving forward.
 
 The following figure shows a high-level view of the existing global network including connectivity to multiple Azure regions.
 
-![Contoso existing network topology](./media/migrate-from-hub-spoke-topology/contoso-pre-migration.png)
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/contoso-pre-migration.png" alt-text="Contoso existing network topology":::
 **Figure: Contoso existing network topology**
 
 The following points can be understood from the existing network topology:
 
-- A hub-and-spoke topology is used in multiple regions including ExpressRoute Premium circuits for connectivity back to a common private WAN.
+* A hub-and-spoke topology is used in multiple regions including ExpressRoute circuits for connectivity back to a common private Wide Area Network (WAN).
 
-- Some of these sites also have VPN tunnels directly in to Azure to reach applications hosted within the Microsoft cloud.
+* Some of these sites also have VPN tunnels directly in to Azure to reach applications hosted within the cloud.
 
 ## Requirements
 
 The networking team have been tasked with delivering a global network model that can support the Contoso migration to the cloud and must optimize in the areas of cost, scale, and performance. In summary, the following requirements are to be met:
 
-- Provide both head quarter (HQ) and branch offices with optimized path to cloud hosted applications.
-- Remove the reliance on existing on-premises data centers (DC) for VPN termination while retaining the following connectivity paths:
-  - **Branch -to- VNet**: VPN connected offices must be able to access applications migrated to the cloud in the local Azure region.
-  - **Branch -to- Hub -to- Hub -to- VNet**: VPN connected offices must be able to access applications migrated to the cloud in the remote Azure region.
-  - **Branch -to- branch**: Regional VPN connected offices must be able to communicate with each other and ExpressRoute connected HQ/DC sites.
-  - **Branch -to- Hub -to- Hub -to- branch**: Globally separated VPN connected offices must be able to communicate with each other and any ExpressRoute connected HQ/DC sites.
-  - **Branch -to- Internet**: Connected sites must be able to communicate with the Internet. This traffic must be filtered and logged.
-  - **VNet -to- VNet**: Spoke virtual networks in the same region must be able to communicate with each other.
-  - **VNet -to- Hub -to- Hub -to- VNet**: Spoke virtual networks in the different regions must be able to communicate with each other.
-- Provide the ability for Contoso roaming users (laptop and phone) to access company resources while not on the corporate network.
+* Provide both head quarter (HQ) and branch offices with optimized path to cloud hosted applications.
+* Remove the reliance on existing on-premises data centers (DC) for VPN termination while retaining the following connectivity paths:
+  * **Branch-to-VNet**: VPN connected offices must be able to access applications migrated to the cloud in the local Azure region.
+  * **Branch-to-Hub to Hub-to-VNet**: VPN connected offices must be able to access applications migrated to the cloud in the remote Azure region.
+  * **Branch-to-branch**: Regional VPN connected offices must be able to communicate with each other and ExpressRoute connected HQ/DC sites.
+  * **Branch-to-Hub to Hub-to-branch**: Globally separated VPN connected offices must be able to communicate with each other and any ExpressRoute connected HQ/DC sites.
+  * **Branch-to-Internet**: Connected sites must be able to communicate with the Internet. This traffic must be filtered and logged.
+  * **VNet-to-VNet**: Spoke virtual networks in the same region must be able to communicate with each other.
+  * **VNet-to-Hub to Hub-to-VNet**: Spoke virtual networks in the different regions must be able to communicate with each other.
+* Provide the ability for Contoso roaming users (laptop and phone) to access company resources while not on the corporate network.
 
 ## <a name="architecture"></a>Azure Virtual WAN architecture
 
 The following figure shows a high-level view of the updated target topology using Azure Virtual WAN to meet the requirements detailed in the previous section.
 
-![Contoso virtual WAN architecture](./media/migrate-from-hub-spoke-topology/vwan-architecture.png)
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/vwan-architecture.png" alt-text="Contoso virtual WAN architecture":::
 **Figure: Azure Virtual WAN architecture**
 
 Summary:
@@ -78,7 +78,7 @@ This section shows the various steps for migrating to Azure Virtual WAN.
 
 The following figure shows a single region topology for Contoso prior to the rollout of Azure Virtual WAN:
 
-![Single region topology](./media/migrate-from-hub-spoke-topology/figure1.png)
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure1.png" alt-text="Single region topology":::
 **Figure 1: Single region manual hub-and-spoke**
 
 In keeping with the hub-and-spoke approach, the customer-managed hub virtual network contains several function blocks:
@@ -90,7 +90,7 @@ In keeping with the hub-and-spoke approach, the customer-managed hub virtual net
 
 ### Step 2: Deploy Virtual WAN hubs
 
-Deploy a Virtual WAN hub in each region. Set up the Virtual WAN hub with VPN Gateway and ExpressRoute Gateway as described in the following articles:
+Deploy a Virtual WAN hub in each region. Set up the Virtual WAN hub with VPN and ExpressRoute functionality as described in the following articles:
 
 - [Tutorial: Create a Site-to-Site connection using Azure Virtual WAN](virtual-wan-site-to-site-portal.md)
 - [Tutorial: Create an ExpressRoute association using Azure Virtual WAN](virtual-wan-expressroute-portal.md)
@@ -119,6 +119,8 @@ Prior to using the managed Virtual WAN hub for production connectivity, we recom
 
 ![Test hybrid connectivity via Virtual WAN](./media/migrate-from-hub-spoke-topology/figure4.png)
 **Figure 4: Customer-managed hub-and-spoke to Virtual WAN migration**
+
+At this stage, it is important to recognize that both the original customer-managed hub virtual network and the new Virtual WAN Hub are both connected to the same ExpressRoute circuit. Due to this, we have a traffic path that can be used to enable spokes in both environments to communicate. For example, traffic from a spoke that is attached to the customer-managed hub virtual network will traverse the MSEE devices used for the ExpressRoute circuit to reach any spoke connected via a VNet connection to the new Virtual WAN hub. This allows a staged migration of spokes in Step 5.
 
 ### Step 5: Transition connectivity to virtual WAN hub
 
@@ -154,7 +156,8 @@ At this stage, Contoso has mostly completed their migrations of business applica
 To leverage the full functionality of Azure Virtual WAN, Contoso decides to decommission their legacy on-premises VPN connections. Any branches continuing to access HQ or DC networks are able to transit the Microsoft global network using the built-in transit routing of Azure Virtual WAN.
 
 > [!NOTE]
-> ExpressRoute Global Reach is an alternative choice for customers wishing to leverage the Microsoft backbone to complement their existing private WANs.
+> ExpressRoute Global Reach is required for customers that want to leverage the Microsoft backbone to provide ExpressRoute to ExpressRoute transit (not shown Figure 7.).
+>
 
 ## End-state architecture and traffic paths
 
@@ -236,7 +239,8 @@ The following high-level steps are required to introduce Azure Firewall into the
 2. Link firewall policy to Azure Virtual WAN hub. This step allows the existing Virtual WAN hub to function as a secured virtual hub, and deploys the required Azure Firewall resources.
 
 > [!NOTE]
-> If the Azure Firewall is deployed in a Standard Virtual WAN hub (SKU : Standard): V2V, B2V, V2I and B2I FW policies are only enforced on the traffic originating from the VNets and Branches connected to the specific hub where the Azure FW is deployed (Secured Hub). Traffic originating from remote VNets and Branches that are attached to other Virtual WAN hubs in the same Virtual WAN will not be "firewalled", even though the remote Branches and VNet are interconnected via Virtual WAN hub to hub links. Cross-hub firewalling support is on the Azure Virtual WAN and Firewall Manager roadmap.
+> There are constraints relating to use of secured virtual hubs, including inter-region traffic. For more information, see [Firewall Manager - known issues](../firewall-manager/overview.md#known-issues).
+>
 
 The following paths show the connectivity paths enabled by using Azure secured virtual hubs:
 
