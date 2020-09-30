@@ -310,5 +310,5 @@ In this quickstart, you've learned how to use the Form Recognizer sample labelin
 > [!div class="nextstepaction"]
 > [Train with labels using Python](./python-labeled-data.md)
 
-* [What is Form Recognizer?](../../overview.md)
+* [What is Form Recognizer?](../overview.md)
 * [Form Recognizer client library quickstarts](client-library.md)
