@@ -268,8 +268,6 @@ As any cluster operation, linking a workspace can be performed only after the co
 > Linking a workspace to a cluster requires syncing multiple backend components and assuring cache hydration. This operation may take up to two hours to complete. We recommended you run it asynchronously.
 
 
-### Link operations
-
 **PowerShell**
 
 Use the following PowerShell command to link to a cluster:
@@ -377,9 +375,17 @@ A *Cluster* resource that was deleted in the last 14 days is in soft-delete stat
 
 Within the 14 days after deletion, the cluster resource name is reserved and cannot be used by other resources.
 
+**PowerShell**
+
+Use the following PowerShell command to delete a cluster:
+
   ```powershell
   Remove-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name"
   ```
+
+**REST**
+
+Use the following REST call to delete a cluster:
 
   ```rst
   DELETE https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
