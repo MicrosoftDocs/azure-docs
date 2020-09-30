@@ -1,6 +1,7 @@
 ---
-title: Add sign-in with Microsoft to a Microsoft identity platform Python web app | Azure
-description: Learn how to implement Microsoft Sign-In on a Python web app using OAuth2
+title: "Quickstart: Add sign-in with Microsoft to a Python web app | Azure"
+titleSuffix: Microsoft identity platform
+description: In this quickstart, learn how a Python web app can sign in users, get an access token from the Microsoft identity platform, and call the Microsoft Graph API.
 services: active-directory
 author: abhidnya13
 manager: CelesteDG
@@ -21,8 +22,6 @@ In this quickstart, you'll learn how to integrate a Python web application with 
 When you've completed the guide, your application will accept sign-ins of personal Microsoft accounts (including outlook.com, live.com, and others) and work or school accounts from any company or organization that uses Azure Active Directory. (See [How the sample works](#how-the-sample-works) for an illustration.)
 
 ## Prerequisites
-
-To run this sample, you will need:
 
 - [Python 2.7+](https://www.python.org/downloads/release/python-2713) or [Python 3+](https://www.python.org/downloads/release/python-364/)
 - [Flask](http://flask.pocoo.org/), [Flask-Session](https://pypi.org/project/Flask-Session/), [requests](https://requests.kennethreitz.org/en/master/)
@@ -93,7 +92,7 @@ To run this sample, you will need:
 
 > [!div class="sxs-lookup" renderon="portal"]
 > Download the project and extract the zip file to a local folder closer to the root folder - for example, **C:\Azure-Samples**
-> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [!div class="sxs-lookup" renderon="portal" id="autoupdate" class="nextstepaction"]
 > [Download the code sample](https://github.com/Azure-Samples/ms-identity-python-webapp/archive/master.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]
@@ -158,11 +157,11 @@ You can add the reference to MSAL Python by adding the following code to the top
 import msal
 ```
 
+[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
 ## Next steps
 
-Learn more about web apps that sign in users, and then that calls web APIs:
+Learn more about web apps that sign in users and then call a protected web API.
 
 > [!div class="nextstepaction"]
-> [Scenario: Web apps that sign in users](scenario-web-app-sign-user-overview.md)
-
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+> [Scenario: A web app that calls web APIs](scenario-web-app-call-api-overview.md)
