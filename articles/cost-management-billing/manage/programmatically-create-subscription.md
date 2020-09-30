@@ -157,26 +157,13 @@ If you'd like to specify owners, learn [how to get user object IDs](grant-access
 
 ### [PowerShell](#tab/azure-powershell)
 
-TODO: this whole section
-
 To install the latest version of the module that contains the `New-AzSubscription` cmdlet, run `Install-Module Az.Subscription`. To install a recent version of PowerShellGet, see [Get PowerShellGet Module](/powershell/scripting/gallery/installing-psget).
 
-Run the [New-AzSubscription](/powershell/module/az.subscription) command below, replacing `<enrollmentAccountObjectId>` with the `ObjectId` collected in the first step (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). If you'd like to specify owners, learn [how to get user object IDs](grant-access-to-create-subscription.md#userObjectId).
+Run the [New-AzSubscriptionAlias](/powershell/module/az.subscription/New-AzSubscriptionAlias) command below, using the billing scope `"/providers/Microsoft.Billing/illingAccounts/1234567/enrollmentAccounts/7654321"`. 
 
 ```azurepowershell-interactive
-New-AzSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -EnrollmentAccountObjectId <enrollmentAccountObjectId> -OwnerObjectId <userObjectId1>,<servicePrincipalObjectId>
+New-AzSubscriptionAlias -AliasName "sampleAlias" -SubscriptionName "Dev Team Subscription" -BillingScope "/providers/Microsoft.Billing/illingAccounts/1234567/enrollmentAccounts/7654321" -Workload 'Production"
 ```
-
-| Element Name  | Required | Type   | Description                                                                                               |
-|---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
-| `Name` | No      | String | The display name of the subscription. If not specified, it's set to the name of the offer, like "Microsoft Azure Enterprise."                                 |
-| `OfferType`   | Yes      | String | The offer of the subscription. The two options for EA are [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (production use) and [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (dev/test, needs to be [turned on using the EA portal](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
-| `EnrollmentAccountObjectId`      | Yes       | String | The Object ID of the enrollment account that the subscription is created under and billed to. This value is a GUID that you get from `Get-AzEnrollmentAccount`. |
-| `OwnerObjectId`      | No       | String | The Object ID of any user that you'd like to add as an Azure RBAC Owner on the subscription when it's created.  |
-| `OwnerSignInName`    | No       | String | The email address of any user that you'd like to add as an Azure RBAC Owner on the subscription when it's created. You can use this parameter instead of `OwnerObjectId`.|
-| `OwnerApplicationId` | No       | String | The application ID of any service principal that you'd like to add as an Azure RBAC Owner on the subscription when it's created. You can use this parameter instead of `OwnerObjectId`. When using this parameter, the service principal must have [read access to the directory](/powershell/azure/active-directory/signing-in-service-principal?view=azureadps-2.0#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole&preserve-view=true).|
-
-To see a full list of all parameters, see [New-AzSubscription](/powershell/module/az.subscription/New-AzSubscription).
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -390,7 +377,13 @@ An in-progress status will be returned as an `Accepted` state under `provisionin
 
 ### [PowerShell](#tab/azure-powershell)
 
-TODO: this whole section
+To install the latest version of the module that contains the `New-AzSubscription` cmdlet, run `Install-Module Az.Subscription`. To install a recent version of PowerShellGet, see [Get PowerShellGet Module](/powershell/scripting/gallery/installing-psget).
+
+Run the [New-AzSubscriptionAlias](/powershell/module/az.subscription/New-AzSubscriptionAlias) command below, using the billing scope `"/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx"`. 
+
+```azurepowershell-interactive
+New-AzSubscriptionAlias -AliasName "sampleAlias" -SubscriptionName "Dev Team Subscription" -BillingScope "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx" -Workload 'Production"
+```
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -589,7 +582,13 @@ Pass the optional *resellerId* copied from the second step in the request parame
 
 ### [PowerShell](#tab/azure-powershell)
 
-TODO: this whole section
+To install the latest version of the module that contains the `New-AzSubscription` cmdlet, run `Install-Module Az.Subscription`. To install a recent version of PowerShellGet, see [Get PowerShellGet Module](/powershell/scripting/gallery/installing-psget).
+
+Run the [New-AzSubscriptionAlias](/powershell/module/az.subscription/New-AzSubscriptionAlias) command below, using the billing scope `"/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx"`. 
+
+```azurepowershell-interactive
+New-AzSubscriptionAlias -AliasName "sampleAlias" -SubscriptionName "Dev Team Subscription" -BillingScope "/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx" -Workload 'Production"
+```
 
 ### [Azure CLI](#tab/azure-cli)
 
