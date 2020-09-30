@@ -76,7 +76,7 @@ If your user account doesn't have permission to assign a role within your subscr
 
 ## Step 5. Add role assignment
 
-Once you know the security principal, role, and scope, you can assign the role. You can add role assignments using the Azure portal, Azure CLI, Azure PowerShell, Azure SDKs, or REST APIs. You can have up to **2000** role assignments in each subscription. This limit includes role assignments at the subscription, resource group, and resource scopes. You can have up to **500** role assignments in each management group.
+Once you know the security principal, role, and scope, you can assign the role. You can add role assignments using the Azure portal, Azure PowerShell, Azure CLI, Azure SDKs, or REST APIs. You can have up to **2000** role assignments in each subscription. This limit includes role assignments at the subscription, resource group, and resource scopes. You can have up to **500** role assignments in each management group.
 
 Check out the following articles for detailed steps for how to add role assignments.
 

@@ -68,13 +68,13 @@ Management groups are a level above subscriptions and have the broadest (least s
 
 ## How to determine the scope for a resource
 
-It's fairly simple to determine the scope for a management group, subscription, or resource group. You just need to know the name and the subscription ID. However, determining the scope for a resource is a little more complicated. Here are a couple ways that you can determine the scope for a resource.
+It's fairly simple to determine the scope for a management group, subscription, or resource group. You just need to know the name and the subscription ID. However, determining the scope for a resource takes a little more work. Here are a couple ways that you can determine the scope for a resource.
 
 - In the Azure portal, open the resource and then look at the properties. The resource should list the **Resource ID** where you can determine the scope. For example, here are the resource IDs for a storage account.
 
     ![Resource IDs for a storage account in Azure portal](./media/scope-overview/scope-resource-id.png)
 
-- Use the Azure portal, to assign a role at the resource scope and then use [Azure PowerShell](role-assignments-list-powershell.md) or [Azure CLI](role-assignments-list-cli.md) to list the role assignment. In the output, the scope will be listed as a property.
+- Another way is to use the Azure portal to assign a role temporarily at the resource scope and then use [Azure PowerShell](role-assignments-list-powershell.md) or [Azure CLI](role-assignments-list-cli.md) to list the role assignment. In the output, the scope will be listed as a property.
 
     ```azurepowershell
     RoleAssignmentId   : /subscriptions/<subscriptionId>/resourceGroups/test-rg/providers/Microsoft.Storage/storageAccounts/azurestorage12345/blobServices/default/containers/blob-container-01/pro
