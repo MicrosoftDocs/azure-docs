@@ -40,7 +40,7 @@ To estimate the quality of user experience you can refer to the [Experience Esti
     
 - Microsoft Store Remote Desktop Client. Thanks to the tremendous help from our users, we've fixed two critical issues. We will continue to review feedback and implement hotfixes along the way as we broaden the phased rollout to more users worldwide.
     
-- Improvements of adding Session Hosts to Host Pools. We have added a new feature where we allow changing VM location, image, resource group, prefix name, network config as part of the Add VM workflow in the Azure Portal.
+- We've added a new feature that lets you change VM location, image, resource group, prefix name, network config as part of the workflow for adding a VM to your deployment in the Azure portal.
 
 - Microsoft Endpoint Manager (MEM) Support.
 IT Pros can manage hybrid Azure Active Directory joined Windows 10 Enterprise VMs as part of Windows Virtual Desktop with Microsoft Endpoint Manager (MEM)
