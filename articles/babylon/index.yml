@@ -30,6 +30,10 @@ landingContent:
             url: create-catalog-portal.md
           - text: Add a security principal
             url: add-security-principal.md
+      - linkListType: tutorial
+        links:
+          - text: Homepage and Search
+            url: starter-kit-tutorial-1.md # update link
   # Card
   - title: Scan Azure data sources
     linkLists:
@@ -63,6 +67,12 @@ landingContent:
           url: starter-kit-tutorial-1.md # update link
   - title: Curate data 
     linkLists:
+    - linkListType: tutorial
+      links:
+        - text: Resource set, asset details, schema, and classification
+          url: starter-kit-tutorial-1.md # update link
+        - text: Glossary, terms, and import
+          url: starter-kit-tutorial-1.md # update link
     - linkListType: how-to-guide
       links:
         - text: Create, edit, & delete custom classifications and rules
@@ -71,6 +81,10 @@ landingContent:
           url: starter-kit-tutorial-1.md # update link
   - title: Discover data 
     linkLists:
+    - linkListType: tutorial
+      links:
+        - text: Browse and Lineage
+          url: starter-kit-tutorial-1.md # update link
     - linkListType: how-to-guide
       links:
         - text: Browse by asset type
