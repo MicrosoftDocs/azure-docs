@@ -63,7 +63,7 @@ To create the required private endpoints for Azure Backup, the vault (the Manage
 
 - The Resource Group that contains the target VNet
 - The Resource Group where the Private Endpoints are to be created
-- The Resource Group that contains the Private DNS zones
+- The Resource Group that contains the Private DNS zones, as discussed in detail [here](#creating-private-endpoints-for-backup)
 
 We recommend that you grant the **Contributor** role for those three resource groups to the vault (managed identity). The following steps describe how to do this for a particular resource group (this needs to be done for each of the three resource groups):
 
@@ -106,7 +106,7 @@ This section describes the process of creating a private endpoint for your vault
 
         ![Fill in Configuration tab](./media/private-endpoints/configuration-tab.png)
 
-      Refer to [this section](#dns-changes-for-custom-dns-servers) if you want to use your custom DNS servers instead of integrating with Azure Private DNS Zones.  
+        Refer to [this section](#dns-changes-for-custom-dns-servers) if you want to use your custom DNS servers instead of integrating with Azure Private DNS Zones.  
 
     1. Optionally, you can add **Tags** for your private endpoint.
 
