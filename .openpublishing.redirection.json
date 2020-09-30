@@ -14653,6 +14653,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-vmware/net-app-files.md",
+      "redirect_url": "/azure/azure-vmware/introduction",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-vmware/vrealize-operations-for-avs.md",
       "redirect_url": "/azure/azure-vmware/vrealize-operations-for-azure-vmware-solution",
       "redirect_document_id": false
@@ -48786,13 +48791,21 @@
       "redirect_url": "/azure/iot-pnp/howto-use-iot-explorer",
       "redirect_document_id": true
     },
-
     {
       "source_path": "articles/iot-pnp/howto-manage-models.md",
       "redirect_url": "/azure/iot-pnp/concepts-model-discovery",
       "redirect_document_id": true
     },
-
+    {
+      "source_path": "articles/iot-pnp/overview-iot-plug-and-play-preview-updates.md",
+      "redirect_url": "/azure/iot-pnp/overview-iot-plug-and-play",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/concepts-developer-guide.md",
+      "redirect_url": "/azure/iot-pnp/concepts-developer-guide-device-csharp",
+      "redirect_document_id": false
+    },
     {
       "source_path": "articles/iot-central/core/overview-iot-options.md",
       "redirect_url": "/azure/iot-fundamentals/iot-services-and-technologies/",
@@ -52715,7 +52728,7 @@
     },
     {
       "source_path": "articles/cognitive-services/Face/Face-API-How-to-Topics/HowtoIdentifyFacesinImage.md",
-      "redirect_url": "/azure/cognitive-services/face/QuickStarts/client-libraries.md",
+      "redirect_url": "/azure/cognitive-services/face/QuickStarts/client-libraries",
       "redirect_document_id": false
     },
     {
