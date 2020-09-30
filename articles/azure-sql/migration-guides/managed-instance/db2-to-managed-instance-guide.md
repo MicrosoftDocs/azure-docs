@@ -41,23 +41,23 @@ To create an assessment, follow these steps:
 1. Select **File** and then choose **New Project**. 
 1. Provide a project name, a location to save your project, and then select Azure SQL Managed Instance as the migration target from the drop-down. Select **OK**. 
 
-   :::image type="content" source="mmedia/db2-to-managed-instance-guide/new-project.png" alt-text="Provide project details and select OK to save.":::
+   :::image type="content" source="media/db2-to-managed-instance-guide/new-project.png" alt-text="Provide project details and select OK to save.":::
 
 
 1. Enter in values for the DB2 connection details on the **Connect to DB2** dialog box. 
 
-   :::image type="content" source="mmedia/db2-to-managed-instance-guide/connect-to-db2.png" alt-text="Connect to your DB2 instance":::
+   :::image type="content" source="media/db2-to-managed-instance-guide/connect-to-db2.png" alt-text="Connect to your DB2 instance":::
 
 
 1. Right-click the DB2 schema you want to migrate, and then choose **Create report**. This will generate an HTML report. Alternatively, you can choose **Create report** from the navigation bar after selecting the schema. 
 
-   :::image type="content" source="mmedia/db2-to-managed-instance-guide/create-report.png" alt-text="Right-click the schema and choose create report":::
+   :::image type="content" source="media/db2-to-managed-instance-guide/create-report.png" alt-text="Right-click the schema and choose create report":::
 
 1. Review the HTML report to understand conversion statistics and any errors or warnings. You can also open the report in Excel to get an inventory of DB2 objects and the effort required to perform schema conversions. The default location for the report is in the report folder within SSMAProjects.
 
    For example: `drive:\<username>\Documents\SSMAProjects\MyDB2Migration\report\report_<date>`. 
 
-   :::image type="content" source="mmedia/db2-to-managed-instance-guide/report.png" alt-text="Review the report to identify any errors or warnings":::
+   :::image type="content" source="media/db2-to-managed-instance-guide/report.png" alt-text="Review the report to identify any errors or warnings":::
 
 
 ### Validate data types
@@ -68,7 +68,7 @@ Validate the default data type mappings and change them based on requirements if
 1. Select **Project Settings**. 
 1. Select the **Type mappings** tab. 
 
-   :::image type="content" source="mmedia/db2-to-managed-instance-guide/type-mapping.png" alt-text="Select the schema and then type-mapping":::
+   :::image type="content" source="media/db2-to-managed-instance-guide/type-mapping.png" alt-text="Select the schema and then type-mapping":::
 
 1. You can change the type mapping for each table by selecting the table in the **DB2 Metadata explorer**. 
 
@@ -82,16 +82,16 @@ To convert the schema, follow these steps:
     1. Choose your target database from the drop-down. 
     1. Select **Connect**. 
 
-   :::image type="content" source="mmedia/db2-to-managed-instance-guide/connect-to-sql-managed-instance.png" alt-text="Fill in details to connect to SQL Server":::
+   :::image type="content" source="media/db2-to-managed-instance-guide/connect-to-sql-managed-instance.png" alt-text="Fill in details to connect to SQL Server":::
 
 
 1. Right-click the schema and then choose **Convert Schema**. Alternatively, you can choose **Convert Schema** from the top navigation bar after selecting your schema. 
 
-   :::image type="content" source="mmedia/db2-to-managed-instance-guide/convert-schema.png" alt-text="Right-click the schema and choose convert schema":::
+   :::image type="content" source="media/db2-to-managed-instance-guide/convert-schema.png" alt-text="Right-click the schema and choose convert schema":::
 
 1. After the conversion completes, compare and review the structure of the schema to identify potential problems and address them based on the recommendations. 
 
-   :::image type="content" source="mmedia/db2-to-managed-instance-guide/compare-review-schema-structure.png" alt-text="Compare and review the structure of the schema to identify potential problems and address them based on recommendations.":::
+   :::image type="content" source="media/db2-to-managed-instance-guide/compare-review-schema-structure.png" alt-text="Compare and review the structure of the schema to identify potential problems and address them based on recommendations.":::
 
 1. Save the project locally for an offline schema remediation exercise. Select **Save Project** from the **File** menu. 
 
@@ -104,20 +104,20 @@ To publish your schema and migrate your data, follow these steps:
 
 1. Publish the schema: Right-click the database from the **Databases** node in the **Azure SQL Managed Instance Metadata Explorer** and choose **Synchronize with Database**.
 
-   :::image type="content" source="mmedia/db2-to-managed-instance-guide/synchronize-with-database.png" alt-text="Right-click the database and choose synchronize with database":::
+   :::image type="content" source="media/db2-to-managed-instance-guide/synchronize-with-database.png" alt-text="Right-click the database and choose synchronize with database":::
 
 1. Migrate the data: Right-click the schema from the **DB2 Metadata Explorer** and choose **Migrate Data**. 
 
-   :::image type="content" source="mmedia/db2-to-managed-instance-guide/migrate-data.png" alt-text="Right-click the schema and choose migrate data":::
+   :::image type="content" source="media/db2-to-managed-instance-guide/migrate-data.png" alt-text="Right-click the schema and choose migrate data":::
 
 1. Provide connection details for both the DB2 and SQL Server instances. 
 1. View the **Data Migration report**. 
 
-   :::image type="content" source="mmedia/db2-to-managed-instance-guide/data-migration-report.png" alt-text="Review the data migration report":::
+   :::image type="content" source="media/db2-to-managed-instance-guide/data-migration-report.png" alt-text="Review the data migration report":::
 
 1. Connect to your SQL Server instance by using SQL Server Management Studio and validate the migration by reviewing the data and schema. 
 
-   :::image type="content" source="mmedia/db2-to-managed-instance-guide/compare-schema-in-ssms.png" alt-text="Compare the schema in SSMS":::
+   :::image type="content" source="media/db2-to-managed-instance-guide/compare-schema-in-ssms.png" alt-text="Compare the schema in SSMS":::
 
 ## Post-migration 
 
@@ -147,6 +147,57 @@ Be sure to take advantage of the advanced cloud-based features offered by Azure 
 
 
 Some SQL Server features are only available once the [database compatibility level](/sql/relational-databases/databases/view-or-change-the-compatibility-level-of-a-database) is changed to the latest compatibility level (150). 
+
+## Partners
+
+The following partners can provide alternative methods for migration as well: 
+
+:::row:::
+   :::column span="":::
+      [:::image type="content" source="media/db2-to-managed-instance-guide/blitzz-logo.png" alt-text="Blitzz":::](https://www.blitzz.io/product)
+   :::column-end:::
+   :::column span="":::
+      [:::image type="content" source="media/db2-to-managed-instance-guide/blueprint-logo.png" alt-text="Blueprint":::](https://bpcs.com/what-we-do)
+   :::column-end:::
+   :::column span="":::
+      [:::image type="content" source="media/db2-to-managed-instance-guide/cognizant-logo.png" alt-text="Cognizant":::](https://www.cognizant.com/partners/microsoft)
+   :::column-end:::   
+:::row-end:::
+:::row:::
+   :::column span="":::
+      [:::image type="content" source="media/db2-to-managed-instance-guide/datasunrise-logo.png" alt-text="DataSunrise":::](https://www.datasunrise.com/)
+   :::column-end:::
+   :::column span="":::
+      [:::image type="content" source="media/db2-to-managed-instance-guide/dbbest-logo.png" alt-text="dbbtest":::](https://www.dbbest.com/)
+   :::column-end:::
+   :::column span="":::
+      [:::image type="content" source="media/db2-to-managed-instance-guide/dxc-logo.png" alt-text="DXC":::](https://www.dxc.technology/application_services/offerings/139843/142343-application_services_for_microsoft_azure)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      [:::image type="content" source="media/db2-to-managed-instance-guide/hvr-logo.png" alt-text="HVR":::](https://www.hvr-software.com/solutions/azure-data-integration/)
+   :::column-end:::
+   :::column span="":::
+      [:::image type="content" source="media/db2-to-managed-instance-guide/infosys-logo.png" alt-text="Infosys":::](https://www.infosys.com/services/)
+   :::column-end:::   
+   :::column span="":::
+     [:::image type="content" source="media/db2-to-managed-instance-guide/ispirer-logo.png" alt-text="Ispirer":::](https://www.ispirer.com/blog/migration-to-the-microsoft-technology-stack)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      [:::image type="content" source="media/db2-to-managed-instance-guide/querysurge-logo.png" alt-text="Querysurge":::](https://www.querysurge.com/company/partners/microsoft)
+   :::column-end:::
+   :::column span="":::
+     [:::image type="content" source="media/db2-to-managed-instance-guide/scalability-experts-logo.png" alt-text="Scalability Experts":::](http://www.scalabilityexperts.com/products/index.html)
+   :::column-end:::   
+   :::column span="":::
+     [:::image type="content" source="media/db2-to-managed-instance-guide/wipro-logo.png" alt-text="Wipro":::](https://www.wipro.com/analytics/)
+   :::column-end:::
+:::row-end:::   
+
+
 
 
 ## Next steps
