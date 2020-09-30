@@ -17,11 +17,11 @@ Azure Synapse Link for Azure Cosmos DB creates a tight integration between Azure
 
 ### Is Synapse Link supported for all Azure Cosmos DB APIs?
 
-In the public preview release, Synapse Link is supported for the Azure Cosmos DB SQL (Core) API and for the Azure Cosmos DB API for MongoDB. Support for Cassandra API is currently under gated preview. To request access to gated preview, reach out to the [Azure Cosmos DB team](mailto:cosmosdbsynapselink@microsoft.com).
+In the public preview release, Synapse Link is supported for the Azure Cosmos DB SQL (Core) API and for the Azure Cosmos DB API for MongoDB. 
 
 ### Is Synapse Link supported for multi-region Azure Cosmos accounts?
 
-Yes, for multi-region Azure Cosmos accounts, the data stored in the analytical store is also globally distributed. Regardless of single write region (single master) or multiple write regions (also known as multi-master), analytical queries performed from Azure Synapse Analytics can be served from the closest local region.
+Yes, for multi-region Azure Cosmos accounts, the data stored in the analytical store is also globally distributed. Regardless of single write region or multiple write regions, analytical queries performed from Azure Synapse Analytics can be served from the closest local region.
 
 When planning to configure a multi-region Azure Cosmos account with analytical store support, it is recommended to have all the necessary regions added at time of account creation.
 
@@ -78,7 +78,7 @@ Analytical store is a read-only store in an Azure Cosmos container. So, you cann
 
 ### Is the autosync replication from transactional store to the analytical store asynchronous or synchronous and what are the latencies?
 
-The replication is asynchronous, and currently the expected latency is around 2 min.
+Auto-sync latency is usually within 2 minutes. In cases of shared throughput database with a large number of containers, auto-sync latency of individual containers could be higher and take up to 5 minutes. We would like to learn more how this latency fits your scenarios. For that, please reach out to the [Azure Cosmos DB team](mailto:cosmosdbsynapselink@microsoft.com).
 
 ### Are there any scenarios where the items from the transactional store are not automatically propagated to the analytical store?
 
@@ -116,7 +116,7 @@ All transactional updates and deletes are copied to the analytical store but if 
 
 ### What are the ways to authenticate with the analytical store?
 
-Authentication with the analytical store is the same as a transactional store. For a given database, you can authenticate with the master or read-only key. You can leverage linked service in Synapse Studio to prevent pasting the Azure Cosmos DB keys in the Spark notebooks. Access to this Linked Service is available for everyone who has access to the workspace.
+Authentication with the analytical store is the same as a transactional store. For a given database, you can authenticate with the primary or read-only key. You can leverage linked service in Synapse Studio to prevent pasting the Azure Cosmos DB keys in the Spark notebooks. Access to this Linked Service is available for everyone who has access to the workspace.
 
 ## Synapse run-times
 

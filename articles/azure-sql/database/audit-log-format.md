@@ -4,7 +4,7 @@ description: Understand how Azure SQL Database audit logs are structured.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.topic: conceptual
+ms.topic: reference
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
