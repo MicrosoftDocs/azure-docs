@@ -166,7 +166,7 @@ Next, install the latest `Microsoft.Extensions.Configuration.Json` NuGet package
       "AzureBlobConnectionString": "Put your Azure Blob connection string here",
     }
     ```
-    
+
 Add your search service and blob storage account information. Recall that you can get this information from the service provisioning steps indicated in the previous section.
 
 For **SearchServiceName**, enter the short service name and not the full URL.
@@ -582,11 +582,11 @@ This exercise uses the following fields and field types:
 
 | Field names | Field types |
 | --- | --- |
-| id | Edm.String |
-| content | Edm.String |
-| languageCode | Edm.String |
-| keyPhrases | List<Edm.String> |
-| organizations | List<Edm.String> |
+| `id` | Edm.String |
+| `content` | Edm.String |
+| `languageCode` | Edm.String |
+| `keyPhrases` | List<Edm.String> |
+| `organizations` | List<Edm.String> |
 
 #### Create DemoIndex Class
 
@@ -902,7 +902,7 @@ catch (Exception e)
 }
 ```
 
-Repeat for additional fields: content, languageCode, keyPhrases, and organizations in this exercise. You can return multiple fields via the [Select](/dotnet/api/microsoft.azure.search.models.searchparameters.select?view=azure-dotnet) property using a comma-delimited list.
+Repeat for additional fields: content, languageCode, keyPhrases, and organizations in this exercise. You can return multiple fields via the [Select](/dotnet/api/microsoft.azure.search.models.searchparameters.select) property using a comma-delimited list.
 
 <a name="reset"></a>
 

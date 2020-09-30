@@ -5,7 +5,7 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/17/2020
-ms.author: diberry
+
 ---
 # Best practices for building a language understanding (LUIS) app
 Use the app authoring process to build your LUIS app:
