@@ -221,7 +221,7 @@ For more information, see [Clouds and regions in which Media Services v3 exists]
 Added updates that include Media Services performance improvements.
 
 * The maximum file size supported for processing was updated. See, [Quotas and limits](limits-quotas-constraints.md).
-* [Encoding speeds improvements](media-reserved-units-cli-how-to.md#choosing-between-different-reserved-unit-types).
+* [Encoding speeds improvements](concept-media-reserved-units.md).
 
 ## April 2019
 
