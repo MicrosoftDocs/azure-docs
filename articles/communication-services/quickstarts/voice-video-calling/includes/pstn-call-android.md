@@ -1,5 +1,5 @@
 ---
-author: nikuklic
+author: nixonknr
 ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/14/2020
@@ -11,7 +11,7 @@ ms.author: nikuklic
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - A deployed Communication Services resource. [Create a Communication Services resource](../../create-communication-resource.md).
 - A phone number acquired in Communication Services resource. [how to get a phone number](../../telephony-sms/get-phone-number.md).
-- A `User Access Token` to enable the call client. For more information on [how to get a `User Access Token`](../../user-tokens.md)
+- A `User Access Token` to enable the call client. For more information on [how to get a `User Access Token`](../../access-tokens.md)
 - Complete the quickstart for [getting started with adding calling to your application](../getting-started-with-calling.md)
 
 ### Prerequisite check
