@@ -6,7 +6,7 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: how-to
-ms.date: 12/12/2019
+ms.date: 09/23/2020
 ---
 
 # Azure HDInsight ID Broker (preview)
@@ -25,11 +25,13 @@ HIB provides the authentication infrastructure that enables protocol transition 
 
 The following diagram shows the modern OAuth based authentication flow for all users, including federated users, after ID Broker is enabled:
 
-![Authentication flow with ID Broker](./media/identity-broker/identity-broker-architecture.png)
+:::image type="content" source="media/identity-broker/identity-broker-architecture.png" alt-text="Authentication flow with ID Broker":::
 
 In this diagram, the client (i.e. browser or apps) need to acquire the OAuth token first and then present the token to gateway in an HTTP request. If you've already signed in to other Azure services, such as the Azure portal, you can sign in to your HDInsight cluster with a single sign-on (SSO) experience.
 
 There still may be many legacy applications that only support basic authentication (i.e. username/password). For those scenarios, you can still use HTTP basic authentication to connect to the cluster gateways. In this setup, you must ensure network connectivity from the gateway nodes to the federation endpoint (ADFS endpoint) to ensure a direct line of sight from gateway nodes.
+
+:::image type="content" source="media/identity-broker/basic-authentication.png" alt-text="Architecture with basic authentication":::
 
 Use the following table to determine the best authentication option based on your organization needs:
 

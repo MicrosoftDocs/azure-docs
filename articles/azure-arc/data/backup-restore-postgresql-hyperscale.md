@@ -47,7 +47,7 @@ Look at the storage section of the output:
     }
 ...
 ```
-If you see  a section "backups", it means your server group has been configured to use a backup storage class and is ready for you to take backups and do restores. If you do not see a section "backups", you need to delete and recreate your server group to configure backup storage class. At this point, it is not yet possible to configure a backup storage class after the server group has been created.
+If you see  the name of a storage class indicated in the "backups" section of the output of that command, it means your server group has been configured to use a backup storage class and is ready for you to take backups and do restores. If you do not see a section "backups", you need to delete and recreate your server group to configure backup storage class. At this point, it is not yet possible to configure a backup storage class after the server group has been created.
 
 >[!IMPORTANT]
 >If your server group is already configured to use a backup storage class, skip the next step and go directly to step "Take manual full backup".
@@ -129,10 +129,12 @@ azdata arc postgres backup list --server-name postgres01
 
 It will return an output like:
 ```console
-ID                                Name                      State
---------------------------------  ------------------------  -------
-d134f51aa87f4044b5fb07cf95cf797f  MyBackup_Aug31_0730amPST  Done
+ID                                Name                      State    Timestamp
+--------------------------------  ------------------------  -------  ------------------------------
+d134f51aa87f4044b5fb07cf95cf797f  MyBackup_Aug31_0730amPST  Done     2020-08-31 14:30:00:00+00:00
 ```
+
+Timestamp indicates the point in time UTC at which the backup was taken.
 
 ## Restore a backup
 

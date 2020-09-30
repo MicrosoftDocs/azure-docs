@@ -106,7 +106,7 @@ To notify the trading partner that the message was received, you can return a re
 
    Now the condition shape appears, including the paths for whether the condition is met or not.
 
-   ![Condition shape with decision paths](./media/logic-apps-enterprise-integration-b2b/added-condition-action.png)
+   ![Screenshot shows the condition shape with empty paths.](./media/logic-apps-enterprise-integration-b2b/added-condition-action.png)
 
 1. Now specify the condition to evaluate. In the **Choose a value** box, enter this expression:
 
@@ -114,7 +114,7 @@ To notify the trading partner that the message was received, you can return a re
 
    In the middle box, make sure the comparison operation is set to `is equal to`. In the right-side box, enter the value `Expected`. To get the expression to resolve as this token, switch between the designer and code view.
 
-   ![Condition shape with decision paths](./media/logic-apps-enterprise-integration-b2b/expression-for-evaluating-condition.png)
+   ![Screenshot shows the condition shape with a condition added.](./media/logic-apps-enterprise-integration-b2b/expression-for-evaluating-condition.png)
 
 1. Now specify the responses to return whether the **AS2 Decode** action succeeds or not.
 
