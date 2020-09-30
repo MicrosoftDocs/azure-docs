@@ -5,14 +5,14 @@ author: curib
 ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 09/30/2020
 ---
 
 # Deploy a machine learning model to Azure Functions with Azure Cache for Redis 
 
 In this article, you will deploy a model from Azure Machine Learning as a function app in Azure Functions using an Azure Cache for Redis instance.  
 
-Azure Cache for Redis is extremely performant and scalable – when paired with an Azure Machine Learning model, you gain low latency and high throughput in your application.  
+Azure Cache for Redis is extremely performant and scalable – when paired with an Azure Machine Learning model, you gain low latency and high throughput in your application. A couple scenarios where a cache is particularly beneficial is when inferencing the data and for the actual model inference results. In either scenario, the meta data or results are stored in-memory, which leads to increased performance. 
 
 > [!NOTE]
 > While both Azure Machine Learning and Azure Functions are generally available, the ability to package a model from the Machine Learning service for Functions is in preview.  
@@ -97,7 +97,7 @@ from sklearn.externals import joblib
 def init():
     global model
     global azrediscache
-    azrediscache = redis.Redis(host='dvseasia2.redis.cache.windows.net', port=6379, db=0, password="")
+    azrediscache = redis.Redis(host='<host_url>', port=6379, db=0, password="<access_key>")
     model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'sklearn_mnist_model.pkl')
     model = joblib.load(model_path)
 
@@ -105,8 +105,8 @@ def init():
 @output_schema(NumpyParameterType(output_sample))
 def run(data):
     try:
-        inferenced_data = azrediscache.get(data)
-        result = model.predict(inferenced_data)
+        input = azrediscache.get(data)
+        result = model.predict(input)
         data = np.array(json.loads(data))
         result = model.predict(data)
         # You can return any data type, as long as it is JSON serializable.
