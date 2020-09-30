@@ -25,6 +25,8 @@ For more information, see [Supported languages](../text-analytics-supported-lang
 
 ## Preparation
 
+[!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
+
 Key phrase extraction works best when you give it bigger amounts of text to work on. This is opposite from sentiment analysis, which performs better on smaller amounts of text. To get the best results from both operations, consider restructuring the inputs accordingly.
 
 You must have JSON documents in this format: ID, text, language
