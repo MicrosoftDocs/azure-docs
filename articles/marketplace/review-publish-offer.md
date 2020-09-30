@@ -192,7 +192,7 @@ To view the history of your offer:
 |Stop sell offer    |A user stopped selling the offer by selecting **Stop selling** from the **Offer overview** page.    |
 
 > [!NOTE]
-> The History page doesn’t display when an offer draft was saved.
+> The History page doesn’t say when an offer draft was saved.
 
 ### Filter options
 
@@ -222,25 +222,25 @@ If an event was initiated by a user, the History page will show the user accordi
 
 Users with publishing permissions for an offer will have their name displayed for the publishing events they initiate.
 
-![The History page displays the name of users with publishing permissions.](./media/review-publish-offer/event-initiated-by-publisher.png)
+[![The History page displays the name of users with publishing permissions.](./media/review-publish-offer/event-initiated-by-publisher.png)](./media/review-publish-offer/event-initiated-by-publisher.png#lightbox)
 
 #### The event was initiated by Microsoft
 
 You may give permissions to Microsoft administrators to initiate actions on your behalf or take corrective actions after an unexpected system error. The Microsoft name and logo are displayed for publishing events initiated by Microsoft on behalf of your account.
 
-![Example of how the History page displays events initiated by Microsoft.](./media/review-publish-offer/event-initiated-by-microsoft.png)
+[![Example of how the History page displays events initiated by Microsoft.](./media/review-publish-offer/event-initiated-by-microsoft.png)](./media/review-publish-offer/event-initiated-by-microsoft.png#lightbox)
 
 #### The event was initiated by an unidentified user
 
 Users who are no longer associated with an account will have their name removed from the **Initiated by** column after their publishing permissions are withdrawn.
 
-![Example of how the History page displays events initiated by unidentified users.](./media/review-publish-offer/event-initiated-by-unidentified-user.png)
+[![Example of how the History page displays events initiated by unidentified users.](./media/review-publish-offer/event-initiated-by-unidentified-user.png)](./media/review-publish-offer/event-initiated-by-unidentified-user.png#lightbox)
 
 #### Validation and publishing steps
 
 No user is shown for system processes that correspond to [validation and publishing steps](#validation-and-publishing-steps). These events are color-coded according to the completion status of the event.
 
-![Example of how the History page displays validation and publishing steps.](./media/review-publish-offer/validation-and-publishing-event.png)
+[![Example of how the History page displays validation and publishing steps.](./media/review-publish-offer/validation-and-publishing-event.png)](./media/review-publish-offer/validation-and-publishing-event.png#lightbox)
 
 ## Next steps
 
