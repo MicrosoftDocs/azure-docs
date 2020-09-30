@@ -42,7 +42,7 @@ By using code snippets in mapping data flows, you can very easily perform common
 
 9. You will connect this pasted code snippet to the previous Source transformation that you created in the graph by typing "source1" in front of the pasted code.
 
-10. Alternatively, you can connect the new tranformation in the designer by selecting the incoming stream from the new transformation node in the graph.
+10. Alternatively, you can connect the new transformation in the designer by selecting the incoming stream from the new transformation node in the graph.
 
     ![Source Snippet 4](media/data-flow/snippet4.png)
 
