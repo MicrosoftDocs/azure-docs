@@ -16,7 +16,7 @@ ms.date: 09/30/2020
 ms.author: inhenkel
 
 ---
-# Scaling media processing
+# Media Researved Units (MRUs)
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
