@@ -398,7 +398,7 @@ The partition type that Azure supports for Gen1 operating system disks is the ma
 
 **What is the largest Managed disk size supported for operating system and data disks on Gen2 VMs?**
 
-The partition type that Azure supports for Gen2 operating system disks is the master boot record (MBR) and GUID Partition Table (GPT). While you can allocate up to a 4 TiB OS disk, the MBR partition type can only use up to 2 TiB of this disk space for the operating system. Azure supports up to 32 TiB for managed data disks.
+The partition type that Azure supports for Gen2 operating system disks is GUID Partition Table (GPT). Gen2 VMs support up to a 4 TiB OS disk. Azure supports up to 32 TiB for managed data disks.
 
 
 **What is the largest Unmanaged Disk size supported for operating system and data disks?**
