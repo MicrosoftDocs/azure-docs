@@ -3,7 +3,7 @@ title: Azure Application Insights for JavaScript web apps
 description: Get page view and session counts, web client data, Single Page Applications (SPA), and track usage patterns. Detect exceptions and performance issues in JavaScript web pages.
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 # Application Insights for web pages
@@ -199,8 +199,7 @@ Most configuration fields are named such that they can be defaulted to false. Al
 
 By default, this SDK will **not** handle state-based route changing that occurs in single page applications. To enable automatic route change tracking for your single page application, you can add `enableAutoRouteTracking: true` to your setup configuration.
 
-Currently, we offer a separate [React plugin](#react-extensions), which you can initialize with this SDK. It will also accomplish route change tracking for you, as well as collect [other React specific telemetry](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-js/README.md).
-
+Currently, we offer a separate [React plugin](javascript-react-plugin.md), which you can initialize with this SDK. It will also accomplish route change tracking for you, as well as collect other React specific telemetry.
 > [!NOTE]
 > Use `enableAutoRouteTracking: true` only if you are **not** using the React plugin. Both are capable of sending new PageViews when the route changes. If both are enabled, duplicate PageViews may be sent.
 
@@ -208,12 +207,13 @@ Currently, we offer a separate [React plugin](#react-extensions), which you can 
 
 By setting `autoTrackPageVisitTime: true`, the time a user spends on each page is tracked. On each new PageView, the duration the user spent on the *previous* page is sent as a [custom metric](../platform/metrics-custom-overview.md) named `PageVisitTime`. This custom metric is viewable in the [Metrics Explorer](../platform/metrics-getting-started.md) as a "log-based metric".
 
-## React extensions
+## Extensions
 
 | Extensions |
 |---------------|
 | [React](javascript-react-plugin.md)|
 | [React Native](javascript-react-native-plugin.md)|
+| [Angular](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-angularplugin-js) |
 
 ## Correlation
 
@@ -311,7 +311,7 @@ This version comes with the bare minimum number of features and functionalities 
 
 ## Examples
 
-For runnable examples, see [Application Insights JavaScript SDK Samples](https://github.com/topics/applicationinsights-js-demo)
+For runnable examples, see [Application Insights JavaScript SDK Samples](https://github.com/Azure-Samples?q=applicationinsights-js-demo).
 
 ## Upgrading from the old version of Application Insights
 

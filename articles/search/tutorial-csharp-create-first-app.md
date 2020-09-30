@@ -8,7 +8,8 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 06/20/2020
+ms.date: 09/25/2020
+ms.custom: devx-track-csharp
 ---
 
 # Tutorial: Create your first search app using the .NET SDK
@@ -37,7 +38,7 @@ DocumentSearchResult<Hotel> results  = await _indexClient.Documents.SearchAsync<
 
 This one call initiates a search of Azure data and returns the results.
 
-![Searching for "pool"](./media/tutorial-csharp-create-first-app/azure-search-pool.png)
+:::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-pool.png" alt-text="Searching for *pool*" border="false":::
 
 
 ## Prerequisites
@@ -53,7 +54,7 @@ To complete this tutorial, you need to:
 1. Using Visual Studio, navigate to, and open the solution for the basic search page, and select **Start without debugging** (or press F5).
 1. Type in some words (for example "wifi", "view", "bar", "parking"), and examine the results!
 
-    ![Searching for "wifi"](./media/tutorial-csharp-create-first-app/azure-search-wifi.png)
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-wifi.png" alt-text="Searching for *wifi*" border="false":::
 
 Hopefully this project will run smoothly, and you have Azure app running. Many of the essential components for more sophisticated searches are included in this one app, so it is a good idea to go through it, and recreate it step by step.
 
@@ -63,15 +64,15 @@ To create this project from scratch, and hence help reinforce the components of 
 
 1. In Visual Studio 2017, or later, select **New/Project** then **ASP.NET Core Web Application**. Give the project a name such as "FirstAzureSearchApp".
 
-    ![Creating a cloud project](./media/tutorial-csharp-create-first-app/azure-search-project1.png)
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-project1.png" alt-text="Creating a cloud project" border="false":::
 
 2. After you have clicked **OK** for this project type, you will be given a second set of options that apply to this project. Select **Web Application (Model-View-Controller)**.
 
-    ![Creating an MVC project](./media/tutorial-csharp-create-first-app/azure-search-project2.png)
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-project2.png" alt-text="Creating an MVC project":::
 
 3. Next, in the **Tools** menu, select **NuGet Package Manager** and then **Manage NuGet Packages for Solution...**. There is one package we need to install. Select the **Browse** tab then type "Azure Cognitive Search" into the search box. Install **Microsoft.Azure.Search** when it appears in the list (version 9.0.1, or later). You will have to click through a few additional dialogs to complete the installation.
 
-    ![Using NuGet to add Azure libraries](./media/tutorial-csharp-create-first-app/azure-search-nuget-azure.png)
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-nuget-azure.png" alt-text="Using NuGet to add Azure libraries" border="false":::
 
 ### Initialize Azure Cognitive Search
 
@@ -88,7 +89,7 @@ For this sample, we are using publicly available hotel data. This data is an arb
 
 2. We are not done with this file yet, select the properties for this file, and change the **Copy to Output Directory** setting to **Copy if newer**.
 
-    ![Copying the app settings to the output](./media/tutorial-csharp-create-first-app/azure-search-copy-if-newer.png)
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-copy-if-newer.png" alt-text="Copying the app settings to the output" border="false":::
 
 ## Model data structures
 
@@ -508,11 +509,11 @@ Now, let's check the app runs correctly.
 
 1. Select **Debug/Start Without Debugging** or press the F5 key. If you have coded things correctly, you will get the initial Index view.
 
-     ![Opening the app](./media/tutorial-csharp-create-first-app/azure-search-index.png)
+     :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-index.png" alt-text="Opening the app" border="false":::
 
 2. Enter text such as "beach" (or any text that comes to mind), and click the search icon. You should get some results.
 
-     ![Searching for "beach"](./media/tutorial-csharp-create-first-app/azure-search-beach.png)
+     :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-beach.png" alt-text="Searching for *beach*" border="false":::
 
 3. Try entering "five star". Note how you get no results. A more sophisticated search would treat "five star" as a synonym for "luxury" and return those results. The use of synonyms is available in Azure Cognitive Search, though we will not be covering it in the first tutorials.
  
@@ -528,7 +529,7 @@ It is important to verify that our error handling features work as they should, 
 
 2. Run the app, enter "bar" as search text, and click the search icon. The exception should result in the error view.
 
-     ![Force an error](./media/tutorial-csharp-create-first-app/azure-search-error.png)
+     :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-error.png" alt-text="Force an error" border="false":::
 
     > [!Important]
     > It is considered a security risk to return internal error numbers in error pages. If your app is intended for general use, do some investigation into secure and best practices of what to return when an error occurs.

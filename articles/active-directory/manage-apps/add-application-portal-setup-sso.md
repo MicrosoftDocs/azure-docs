@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Set up single sign-on (SSO) for an application in your Azure Active Directory (Azure AD) tenant'
-description: This quickstart walks through the process of setting up single sign-on (SSO) for an application in your Azure Active Directory (Azure AD) tenant.
+title: 'Quickstart: Set up SAML-based single sign-on (SSO) for an application in your Azure Active Directory (Azure AD) tenant'
+description: This quickstart walks through the process of setting up SAML-based single sign-on (SSO) for an application in your Azure Active Directory (Azure AD) tenant.
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -10,10 +10,9 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 07/01/2020
 ms.author: kenwith
-ms.collection: M365-identity-device-management
 ---
 
-# Quickstart: Set up single sign-on (SSO) for an application in your Azure Active Directory (Azure AD) tenant
+# Quickstart: Set up SAML-based single sign-on (SSO) for an application in your Azure Active Directory (Azure AD) tenant
 
 Get started with simplified user logins by setting up single sign-on (SSO) for an application that you added to your Azure Active Directory (Azure AD) tenant. After you set up SSO, your users can sign in to an application by using their Azure AD credentials. SSO is included in the free edition of Azure AD.
 
@@ -27,11 +26,11 @@ To set up SSO for an application that you added to your Azure AD tenant, you nee
 - Optional: Completion of [View your apps](view-applications-portal.md).
 - Optional: Completion of [Add an app](add-application-portal.md).
 - Optional: Completion of [Configure an app](add-application-portal-configure.md).
+- Optional: Completion of [Assign users to an app](add-application-portal-assign-users.md).
 
 
 >[!IMPORTANT]
->Use a nonproduction environment to test the steps in this quickstart.
-
+>Use a non-production environment to test the steps in this quickstart.
 
 ## Enable single sign-on for an app
 
@@ -41,6 +40,9 @@ To set up single sign-on for an application:
 
 1. In the Azure AD portal, select **Enterprise applications**. Then find and select the application you want to set up for single sign-on.
 1. In the **Manage** section, select **Single sign-on** to open the **Single sign-on** pane for editing.
+
+    > [!IMPORTANT]
+    > If the app uses the OpenID Connect (OIDC) standard for SSO then you will not see a single sign-on option in the navigation. Refer to the quickstart on OIDC-based SSO to learn how to set it up.
 
     :::image type="content" source="media/add-application-portal-setup-sso/configure-sso.png" alt-text="Screenshot shows the Single sign-on config page in the Azure AD portal.":::
 
@@ -54,7 +56,6 @@ To set up single sign-on for an application:
     > To learn more about the SAML configuration options, see [Configure SAML-based single sign-on](configure-saml-single-sign-on.md).
 
     :::image type="content" source="media/add-application-portal-setup-sso/github-pricing.png" alt-text="Screenshot shows the Single sign-on option in the Enterprise subscription of the GitHub pricing page.":::
-
 
 > [!TIP]
 > You can automate app management using the Graph API, see [Automate app management with Microsoft Graph API](https://docs.microsoft.com/graph/application-saml-sso-configure-api).

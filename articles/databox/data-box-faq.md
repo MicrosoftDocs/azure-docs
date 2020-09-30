@@ -56,7 +56,7 @@ A. Data Box is supported for all regions within US, West Europe, North Europe, F
 
 Data Box supports data ingestion or egress only within the same country/region as their destination and will not cross any international borders. The only exception is for orders in the European Union (EU), where Data Boxes can ship to and from any EU country/region.
 
-For example, in the import scenario, if you had on-premises data in Canada that you wanted to move to an Azure WestUS storage account, then you could achieve it in the following way:
+For example, in the import scenario, if you had the source data in Canada that you wanted to move to an Azure WestUS storage account, then you could achieve it in the following way:
 
 1. Order Data Box in Canada by choosing a storage account in Cananda. The device is shipped from an Azure datacenter in Canada to the shipping address (in Canada) provided during order creation.
 

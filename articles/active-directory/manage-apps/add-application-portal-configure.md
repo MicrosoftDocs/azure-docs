@@ -26,7 +26,7 @@ To configure the properties of an application in your Azure AD tenant, you need:
 - Optional: Completion of [Add an app](add-application-portal.md).
 
 >[!IMPORTANT]
->Use a nonproduction environment to test the steps in this quickstart.
+>Use a non-production environment to test the steps in this quickstart.
 
 ## Configure app properties
 
@@ -42,7 +42,7 @@ To edit the application properties:
 3. Take a moment to understand the options available to configure:
     - **Enabled for users to sign in?** determines whether users assigned to the application can sign in.
     - **User assignment required?** determines whether users who aren't assigned to the application can sign in.
-    - **Visible to users?** determines whether users assigned to an app can see it in [My Apps](https://myapps.microsoft.com) and Office 365 app launcher. (See the waffle menu in the upper-left corner of an Office 365 or Microsoft 365 website.)
+    - **Visible to users?** determines whether users assigned to an app can see it in [My Apps](https://myapps.microsoft.com) and Microsoft 365 app launcher. (See the waffle menu in the upper-left corner of a Microsoft 365 website.)
     
     > [!TIP]
     > Assigning users happens on the **Users and groups** section of navigation.
@@ -81,13 +81,23 @@ To use a custom logo:
 > [!TIP]
 > You can automate app management using the Graph API, see [Automate app management with Microsoft Graph API](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
 
+## Add notes
 
+You can use the notes field to add any information that is relevant for the management of the application in Azure AD. Notes is a free text field with a maximum size of 1024 characters.
+
+1. In the Azure AD portal, select **Enterprise applications**. Then find and select the application you want to configure.
+2. In the **Manage** section, select **Properties** to open the **Properties** pane for editing.
+3. Update the Notes field, select **Save**.
+
+    ![Screenshot of the Properties screen that shows how to change the notes](media/add-application-portal/notes-application.png)
+
+    
 ## Clean up resources
 
 If you're not going to continue with the quickstart series, then consider deleting the app to clean up your test tenant. Deleting the app is covered in the last quickstart in this series, see [Delete an app](delete-application-portal.md).
 
 ## Next steps
 
-Advance to the next article to learn how to set up single sign-on for an app.
+Advance to the next article to learn how to assign users to the app.
 > [!div class="nextstepaction"]
-> [Set up single sign-on](add-application-portal-setup-sso.md)
+> [Assign users to an app](add-application-portal-assign-users.md)

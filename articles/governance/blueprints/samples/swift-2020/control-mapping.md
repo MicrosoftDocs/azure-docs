@@ -44,15 +44,15 @@ appropriate action to ensure account management requirements are met.
 
 ## 2.6, 5.1, 6.4, and 6.5A Account Management | Role-Based Schemes
 
-Azure implements [role-based access control](../../../../role-based-access-control/overview.md)
-(RBAC) to help you manage who has access to resources in Azure. Using the Azure portal, you can
+[Azure role-based access control](../../../../role-based-access-control/overview.md)
+(Azure RBAC) to help you manage who has access to resources in Azure. Using the Azure portal, you can
 review who has access to Azure resources and their permissions. This blueprint also assigns [Azure Policy](../../../policy/overview.md)
 definitions to audit use of Azure Active Directory authentication for SQL Servers and Service
 Fabric. Using Azure Active Directory authentication enables simplified permission management and
 centralized identity management of database users and other Microsoft services. Additionally, this 
-blueprint assigns an Azure Policy definition to audit the use of custom RBAC rules. Understanding 
-where custom RBAC rules are implement can help you verify need and proper implementation, as custom 
-RBAC rules are error prone.
+blueprint assigns an Azure Policy definition to audit the use of custom Azure RBAC rules. Understanding 
+where custom Azure RBAC rules are implement can help you verify need and proper implementation, as custom 
+Azure RBAC rules are error prone.
 
 - An Azure Active Directory administrator should be provisioned for SQL servers
 - Audit VMs that do not use managed disks
@@ -87,8 +87,8 @@ separation of duties.
 
 ## 1.3, 5.1, and 6.4 Least Privilege | Review of User Privileges
 
-Azure implements [role-based access control](../../../../role-based-access-control/overview.md)
-(RBAC) to help you manage who has access to resources in Azure. Using the Azure portal, you can
+[Azure role-based access control (Azure RBAC)](../../../../role-based-access-control/overview.md)
+helps you manage who has access to resources in Azure. Using the Azure portal, you can
 review who has access to Azure resources and their permissions. This blueprint assigns [Azure Policy](../../../policy/overview.md)
 definitions to audit accounts that should be prioritized for review. Reviewing these account
 indicators can help you ensure least privilege controls are implemented.
@@ -181,20 +181,20 @@ and Advanced Data Security are configured on SQL servers.
 ## 1.1 Least Functionality | Prevent Program Execution
 
 Adaptive application control in Azure Security Center is an intelligent, automated end-to-end
-application whitelisting solution that can block or prevent specific software from running on your
+application filtering solution that can block or prevent specific software from running on your
 virtual machines. Application control can run in an enforcement mode that prohibits non-approved
 application from running. This blueprint assigns an Azure Policy definition that helps you monitor
-virtual machines where an application whitelist is recommended but has not yet been configured.
+virtual machines where an application allowed list is recommended but has not yet been configured.
 
 - Adaptive application controls for defining safe applications should be enabled on your machines
 
 ## 1.1 Least Functionality | Authorized Software / Whitelisting
 
 Adaptive application control in Azure Security Center is an intelligent, automated end-to-end
-application whitelisting solution that can block or prevent specific software from running on your
+application filtering solution that can block or prevent specific software from running on your
 virtual machines. Application control helps you create approved application lists for your virtual
 machines. This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition that
-helps you monitor virtual machines where an application whitelist is recommended but has not yet
+helps you monitor virtual machines where an application allowed list is recommended but has not yet
 been configured.
 
 - Adaptive application controls for defining safe applications should be enabled on your machines
@@ -202,10 +202,10 @@ been configured.
 ## 1.1 User-Installed Software
 
 Adaptive application control in Azure Security Center is an intelligent, automated end-to-end
-application whitelisting solution that can block or prevent specific software from running on your
+application filtering solution that can block or prevent specific software from running on your
 virtual machines. Application control can help you enforce and monitor compliance with software
 restriction policies. This blueprint assigns an [Azure Policy](../../../policy/overview.md)
-definition that helps you monitor virtual machines where an application whitelist is recommended but
+definition that helps you monitor virtual machines where an application allowed list is recommended but
 has not yet been configured.
 
 - Adaptive application controls for defining safe applications should be enabled on your machines

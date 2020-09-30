@@ -29,7 +29,7 @@ For an Azure App Service container workflow, the file has three sections:
 
 ## Create a service principal
 
-You can create a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) by using the [az ad sp create-for-rbac](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) command in the [Azure CLI](https://docs.microsoft.com/cli/azure/). You can run this command using [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
+You can create a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) by using the [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) command in the [Azure CLI](/cli/azure/). You can run this command using [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "myApp" --role contributor \
@@ -106,7 +106,7 @@ jobs:
 
 ## Deploy to an App Service container
 
-To deploy your image to a custom container in App Service, use the `azure/webapps-container-deploy@v1` action. This action has five parameters:
+To deploy your image to a custom container in App Service, use the `azure/webapps-container-deploy@v2` action. This action has five parameters:
 
 | **Parameter**  | **Explanation**  |
 |---------|---------|
@@ -146,7 +146,7 @@ jobs:
         docker build . -t contoso.azurecr.io/nodejssampleapp:${{ github.sha }}
         docker push contoso.azurecr.io/nodejssampleapp:${{ github.sha }} 
       
-    - uses: azure/webapps-container-deploy@v1
+    - uses: azure/webapps-container-deploy@v2
       with:
         app-name: 'node-rnc'
         images: 'contoso.azurecr.io/nodejssampleapp:${{ github.sha }}'

@@ -8,7 +8,7 @@ ms.subservice: features
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: sashan, moslake, carlrab
+ms.reviewer: sashan, moslake
 ms.date: 08/14/2020
 ---
 # vCore model overview - Azure SQL Database and Azure SQL Managed Instance 
@@ -183,7 +183,7 @@ Gen5 is available in most regions worldwide.
 #### Fsv2-series
 
 Fsv2-series is available in the following regions:
-Australia Central, Australia Central 2, Australia East, Australia Southeast, Brazil South, Canada Central, East Asia, East Us, France Central, India Central, India West, Korea Central, Korea South, North Europe, South Africa North, Southeast Asia, UK South, UK West, West Europe, West Us 2.
+Australia Central, Australia Central 2, Australia East, Australia Southeast, Brazil South, Canada Central, East Asia, East Us, France Central, India Central, Korea Central, Korea South, North Europe, South Africa North, Southeast Asia, UK South, UK West, West Europe, West Us 2.
 
 
 #### M-series

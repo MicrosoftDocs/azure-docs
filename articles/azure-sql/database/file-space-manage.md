@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
-ms.reviewer: jrasnick, carlrab
+ms.reviewer: jrasnick, sstein
 ms.date: 03/12/2019
 ---
 # Manage file space for databases in Azure SQL Database

@@ -87,7 +87,7 @@ To examine the definition of the *Venues* view:
 
 1. In **Object Explorer**, expand **contosoconcerthall** > **Views**:
 
-   ![views](./media/saas-tenancy-cross-tenant-reporting/views.png)
+   ![Screenshot shows the contents of the Views node, including four types of Venue d b o.](./media/saas-tenancy-cross-tenant-reporting/views.png)
 
 2. Right-click **dbo.Venues**.
 3. Select **Script View as** > **CREATE To** > **New Query Editor Window**

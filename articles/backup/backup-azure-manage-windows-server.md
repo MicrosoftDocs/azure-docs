@@ -10,7 +10,7 @@ This article explains how to use the Recovery Services vault **Overview** dashbo
 
 ![Recovery Services vault dashboard](./media/backup-azure-manage-windows-server/rs-vault-blade.png)
 
-The prerequisites for this article are: an Azure subscription, a Recovery Services vault, and that there is at least one backup item configured for the vault.
+The prerequisites for this article are: an Azure subscription, a Recovery Services vault, and that there's at least one backup item configured for the vault.
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 

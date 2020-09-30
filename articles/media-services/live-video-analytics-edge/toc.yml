@@ -50,7 +50,11 @@
     items:
     - name: With OVMS via HTTP extension
       displayName: intel, OpenVINO 
-      href: use-intel-openvino-tutorial.md    
+      href: use-intel-openvino-tutorial.md  
+    - name: Use Custom Vision
+      href: custom-vision-tutorial.md  
+    - name: Use Spatial Analysis
+      href: spatial-analysis-tutorial.md
 - name: Samples
   items:
   - name: C# Direct Method samples
@@ -89,14 +93,16 @@
     href: manage-recording-policy-how-to.md
   - name: Invoke direct methods with the portal
     href: use-azure-portal-to-invoke-direct-methods.md
+  - name: Deploy on Azure Stack Edge
+    href: deploy-azure-stack-edge-how-to.md    
   - name: Troubleshoot
     href: troubleshoot-how-to.md
 - name: Reference
   items:
-  - name: HTTP data contract
-    href: http-data-contract.md
-  - name: gRPC data contract
-    href: grpc-data-contract.md  
+  - name: HTTP extension protocol
+    href: http-extension-protocol.md
+  - name: gRPC extension protocol
+    href: grpc-extension-protocol.md  
   - name: Inference metadata schema
     href: inference-metadata-schema.md  
   - name: Direct methods

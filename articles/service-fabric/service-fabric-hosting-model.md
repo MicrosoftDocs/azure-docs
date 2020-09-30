@@ -6,6 +6,7 @@ author: harahma
 ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: harahma
+ms.custom: devx-track-csharp
 ---
 # Azure Service Fabric hosting model
 This article provides an overview of application hosting models provided by Azure Service Fabric, and describes the differences between the **Shared Process** and **Exclusive Process** models. It describes how a deployed application looks on a Service Fabric node, and the relationship between replicas (or instances) of the service and the service-host process.

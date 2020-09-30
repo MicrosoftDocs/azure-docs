@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 08/24/2020
+ms.date: 09/10/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -27,6 +27,8 @@ Identity Protection provides organizations access to powerful resources to see a
 
 There are two types of risk **User** and **Sign-in** and two types of detection or calculation **Real-time** and **Offline**.
 
+Real-time detections may not show up in reporting for five to ten minutes. Offline detections may not show up in reporting for two to twenty-four hours.
+
 ### User risk
 
 A user risk represents the probability that a given identity or account is compromised. 
@@ -36,7 +38,6 @@ These risks are calculated offline using Microsoft's internal and external threa
 | Risk detection | Description |
 | --- | --- |
 | Leaked credentials | This risk detection type indicates that the user's valid credentials have been leaked. When cybercriminals compromise valid passwords of legitimate users, they often share those credentials. This sharing is typically done by posting publicly on the dark web, paste sites, or by trading and selling the credentials on the black market. When the Microsoft leaked credentials service acquires user credentials from the dark web, paste sites, or other sources, they are checked against Azure AD users' current valid credentials to find valid matches. For more information about leaked credentials, see [Common questions](#common-questions). |
-| Password spray | A password spray attack is where multiple usernames are attacked using common passwords in a unified brute force manner to gain unauthorized access. This risk detection is triggered when a password spray attack has been performed. |
 | Azure AD threat intelligence | This risk detection type indicates user activity that is unusual for the given user or is consistent with known attack patterns based on Microsoft's internal and external threat intelligence sources. |
 
 ### Sign-in risk
@@ -54,6 +55,7 @@ These risks can be calculated in real-time or calculated offline using Microsoft
 | Admin confirmed user compromised | Offline | This detection indicates an admin has selected 'Confirm user compromised' in the Risky users UI or using riskyUsers API. To see which admin has confirmed this user compromised, check the user's risk history (via UI or API). |
 | Malicious IP address | Offline | This detection indicates sign-in from a malicious IP address. An IP address is considered malicious based on high failure rates because of invalid credentials received from the IP address or other IP reputation sources. |
 | Suspicious inbox manipulation rules | Offline | This detection is discovered by [Microsoft Cloud App Security (MCAS)](/cloud-app-security/anomaly-detection-policy#suspicious-inbox-manipulation-rules). This detection profiles your environment and triggers alerts when suspicious rules that delete or move messages or folders are set on a user's inbox. This detection may indicate that the user's account is compromised, that messages are being intentionally hidden, and that the mailbox is being used to distribute spam or malware in your organization. |
+| Password spray | Offline | A password spray attack is where multiple usernames are attacked using common passwords in a unified brute force manner to gain unauthorized access. This risk detection is triggered when a password spray attack has been performed. |
 | Impossible travel | Offline | This detection is discovered by [Microsoft Cloud App Security (MCAS)](/cloud-app-security/anomaly-detection-policy#impossible-travel). This detection identifies two user activities (is a single or multiple sessions) originating from geographically distant locations within a time period shorter than the time it would have taken the user to travel from the first location to the second, indicating that a different user is using the same credentials. |
 
 ### Other risk detections

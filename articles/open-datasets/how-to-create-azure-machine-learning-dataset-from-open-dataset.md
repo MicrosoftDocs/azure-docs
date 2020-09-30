@@ -13,7 +13,6 @@ ms.custom: how-to, tracking-python
 ---
 
 # Create Azure Machine Learning datasets from Azure Open Datasets
-[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In this article, you learn how to bring curated enrichment data into your local or remote machine learning experiments with [Azure Machine Learning](../machine-learning/overview-what-is-azure-ml.md) datasets and [Azure Open Datasets](https://docs.microsoft.com/azure/open-datasets/). 
 
@@ -24,7 +23,7 @@ By creating an [Azure Machine Learning dataset](../machine-learning/how-to-creat
 
 To understand where datasets fit in Azure Machine Learning's overall data access workflow, see  the [Securely access data](../machine-learning/concept-data.md#data-workflow) article.
 
-Azure Open Datasets are curated public datasets that you can use to add scenario-specific features to enrich your predictive solutions and improve their accuracy. See the [Open Datasets catalog](https://azure.microsoft.com/services/op[en-datasets/catalog/) for public-domain data that can help you train machine learning models, like:
+Azure Open Datasets are curated public datasets that you can use to add scenario-specific features to enrich your predictive solutions and improve their accuracy. See the [Open Datasets catalog](https://azure.microsoft.com/en-in/services/open-datasets/catalog/) for public-domain data that can help you train machine learning models, like:
 
 * [weather](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/)
 * [census](https://azure.microsoft.com/services/open-datasets/catalog/us-decennial-census-zip/)
@@ -108,7 +107,7 @@ You can also create Azure Machine Learning datasets from Azure Open Datasets wit
 
     ![Choose dataset](./media/how-to-create-dataset-from-open-dataset/open-datasets-2.png)
 
-1. Choose a name under which to register the dataset, and optionally filter the data by using the available filters. In this case, for the **public holidays** dataset, you filter the time period to one year and the country code to only the US. See the [Azure Open Datasets Catalog](https://azure.microsoft.com/services/op[en-datasets/catalog/) for data detail such as, field descriptions and date ranges. Select **Create**.
+1. Choose a name under which to register the dataset, and optionally filter the data by using the available filters. In this case, for the **public holidays** dataset, you filter the time period to one year and the country code to only the US. See the [Azure Open Datasets Catalog](https://azure.microsoft.com/services/open-datasets/catalog) for data detail such as, field descriptions and date ranges. Select **Create**.
 
     ![Set dataset params and create dataset](./media/how-to-create-dataset-from-open-dataset/open-datasets-3.png)
 

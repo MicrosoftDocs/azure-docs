@@ -5,7 +5,7 @@ tags: top-support-issue
 
 ms.assetid: 10da5b8a-1823-41a3-a2ff-a0717c2b5c2d
 ms.topic: article
-ms.date: 10/21/2019
+ms.date: 08/25/2020
 ms.custom: seodec18
 
 ---
@@ -37,7 +37,7 @@ When you finally migrate your custom DNS name from the old site to the App Servi
 
 ### Get domain verification ID
 
-Get the domain verification ID for you app by following the steps at [Get domain verification ID](app-service-web-tutorial-custom-domain.md#get-domain-verification-id).
+Get the domain verification ID for you app by following the steps at [Get domain verification ID](app-service-web-tutorial-custom-domain.md#get-a-domain-verification-id).
 
 ### Create domain verification record
 
@@ -45,9 +45,9 @@ To verify domain ownership, add a TXT record for domain verification. The hostna
 
 | DNS record example | TXT Host | TXT Value |
 | - | - | - |
-| \@ (root) | _asuid_ | [Domain verification ID for your app](app-service-web-tutorial-custom-domain.md#get-domain-verification-id) |
-| www (sub) | _asuid.www_ | [Domain verification ID for your app](app-service-web-tutorial-custom-domain.md#get-domain-verification-id) |
-| \* (wildcard) | _asuid_ | [Domain verification ID for your app](app-service-web-tutorial-custom-domain.md#get-domain-verification-id) |
+| \@ (root) | _asuid_ | [Domain verification ID for your app](app-service-web-tutorial-custom-domain.md#get-a-domain-verification-id) |
+| www (sub) | _asuid.www_ | [Domain verification ID for your app](app-service-web-tutorial-custom-domain.md#get-a-domain-verification-id) |
+| \* (wildcard) | _asuid_ | [Domain verification ID for your app](app-service-web-tutorial-custom-domain.md#get-a-domain-verification-id) |
 
 In your DNS records page, note the record type of the DNS name you want to migrate. App Service supports mappings from CNAME and A records.
 
@@ -56,31 +56,27 @@ In your DNS records page, note the record type of the DNS name you want to migra
 
 ### Enable the domain for your app
 
-In the [Azure portal](https://portal.azure.com), in the left navigation of the app page, select **Custom domains**. 
+1. In the [Azure portal](https://portal.azure.com), in the left navigation of the app page, select **Custom domains**. 
 
-![Custom domain menu](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
+    ![Custom domain menu](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
-In the **Custom domains** page, select the **+** icon next to **Add hostname**.
+1. In the **Custom domains** page, select **Add custom domain**.
 
-![Add host name](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
+    ![Add host name](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
-Type the fully qualified domain name you want to migrate, that corresponds to the TXT record you create, such as `contoso.com`, `www.contoso.com`, or `*.contoso.com`.
+1. Type the fully qualified domain name you want to migrate, that corresponds to the TXT record you create, such as `contoso.com`, `www.contoso.com`, or `*.contoso.com`. Select **Validate**.
 
-Select **Validate**.
+    The **Add custom domain** button is activated. 
 
-The **Add hostname** button is activated. 
+1. Make sure that **Hostname record type** is set to the DNS record type you want to migrate. Select **Add hostname**.
 
-Make sure that **Hostname record type** is set to the DNS record type you want to migrate.
+    ![Add DNS name to the app](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname.png)
 
-Select **Add hostname**.
+    It might take some time for the new hostname to be reflected in the app's **Custom domains** page. Try refreshing the browser to update the data.
 
-![Add DNS name to the app](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname.png)
+    ![CNAME record added](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
 
-It might take some time for the new hostname to be reflected in the app's **Custom domains** page. Try refreshing the browser to update the data.
-
-![CNAME record added](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
-
-Your custom DNS name is now enabled in your Azure app. 
+    Your custom DNS name is now enabled in your Azure app. 
 
 ## Remap the active DNS name
 
@@ -93,8 +89,6 @@ The only thing left to do is remapping your active DNS record to point to App Se
 If you are remapping a CNAME record, skip this section. 
 
 To remap an A record, you need the App Service app's external IP address, which is shown in the **Custom domains** page.
-
-Close the **Add hostname** page by selecting **X** in the upper-right corner. 
 
 In the **Custom domains** page, copy the app's IP address.
 

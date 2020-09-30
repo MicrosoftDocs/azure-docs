@@ -10,7 +10,7 @@ ms.devlang:
 ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
-ms.reviewer: carlrab, vanto
+ms.reviewer: sstein, vanto
 ms.date: 06/26/2020
 ---
 # Azure SQL Database and Azure Synapse Analytics connectivity architecture
@@ -88,6 +88,7 @@ Details of how traffic shall be migrated to new Gateways in specific regions are
 | France Central       | 40.79.137.0, 40.79.129.1 |
 | Germany Central      | 51.4.144.100       |
 | Germany North East   | 51.5.144.179       |
+| Germany West Central | 51.116.240.0, 51.116.248.0, 51.116.152.0 |
 | India Central        | 104.211.96.159     |
 | India South          | 104.211.224.146    |
 | India West           | 104.211.160.80     |

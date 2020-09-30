@@ -13,7 +13,8 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 
-ms.collection: M365-identity-device-management
+ms.collection: M365-identity-device-management 
+ms.custom: devx-track-azurepowershell
 ---
 # Enable per-user Azure Multi-Factor Authentication to secure sign-in events
 

@@ -38,7 +38,7 @@ Consider a domain contoso.com in Azure Active Directory contoso.onmicrosoft.com 
 
 ## Step 1: Establish a two-way trust
  
-For AD FS in contoso.com to be able to authenticate users in fabrikam.com, a two-way trust is needed between contoso.com and fabrikam.com. Follow the guideline in this [article](https://technet.microsoft.com/library/cc816590.aspx) to create the two-way trust.
+For AD FS in contoso.com to be able to authenticate users in fabrikam.com, a two-way trust is needed between contoso.com and fabrikam.com. Follow the guideline in this [article](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc816590(v=ws.10)) to create the two-way trust.
  
 ## Step 2: Modify contoso.com federation settings 
  

@@ -1,8 +1,8 @@
 ---
 title: Backup & replication for Apache HBase, Phoenix - Azure HDInsight
 description: Set up Backup and replication for Apache HBase and Apache Phoenix in Azure HDInsight
-author: ashishthaps
-ms.author: ashishth
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to

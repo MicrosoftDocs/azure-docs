@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: vaidyas
-author: vaidyas
+author: vaidya-s
 ms.reviewer: larryfr
 ms.date: 03/06/2020
 ms.topic: conceptual
@@ -15,7 +15,7 @@ ms.custom: how-to, racking-python
 ---
 
 # Deploy a machine learning model to Azure Functions (preview)
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Learn how to deploy a model from Azure Machine Learning as a function app in Azure Functions.
 
@@ -27,7 +27,7 @@ With Azure Machine Learning, you can create Docker images from trained machine l
 ## Prerequisites
 
 * An Azure Machine Learning workspace. For more information, see the [Create a workspace](how-to-manage-workspace.md) article.
-* The [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* The [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
 * A trained machine learning model registered in your workspace. If you do not have a model, use the [Image classification tutorial: train model](tutorial-train-models-with-aml.md) to train and register one.
 
     > [!IMPORTANT]
@@ -41,7 +41,7 @@ With Azure Machine Learning, you can create Docker images from trained machine l
 
 ## Prepare for deployment
 
-Before deploying, you must define what is needed to run the model as a web service. The following list describes the basic items needed for a deployment:
+Before deploying, you must define what is needed to run the model as a web service. The following list describes the core items needed for a deployment:
 
 * An __entry script__. This script accepts requests, scores the request using the model, and returns the results.
 
@@ -59,7 +59,7 @@ For more information on entry script, see [Define scoring code](https://docs.mic
 These entities are encapsulated into an __inference configuration__. The inference configuration references the entry script and other dependencies.
 
 > [!IMPORTANT]
-> When creating an inference configuration for use with Azure Functions, you must use an [Environment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py) object. Please note that if you are defining a custom environment, you must add azureml-defaults with version >= 1.0.45 as a pip dependency. This package contains the functionality needed to host the model as a web service. The following example demonstrates creating an environment object and using it with an inference configuration:
+> When creating an inference configuration for use with Azure Functions, you must use an [Environment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py&preserve-view=true) object. Please note that if you are defining a custom environment, you must add azureml-defaults with version >= 1.0.45 as a pip dependency. This package contains the functionality needed to host the model as a web service. The following example demonstrates creating an environment object and using it with an inference configuration:
 >
 > ```python
 > from azureml.core.environment import Environment
@@ -92,7 +92,7 @@ pip install azureml-contrib-functions
 
 ## Create the image
 
-To create the Docker image that is deployed to Azure Functions, use [azureml.contrib.functions.package](https://docs.microsoft.com/python/api/azureml-contrib-functions/azureml.contrib.functions?view=azure-ml-py) or the specific package function for the trigger you are interested in using. The following code snippet demonstrates how to create a new package with a blob trigger from the model and inference configuration:
+To create the Docker image that is deployed to Azure Functions, use [azureml.contrib.functions.package](https://docs.microsoft.com/python/api/azureml-contrib-functions/azureml.contrib.functions?view=azure-ml-py&preserve-view=true) or the specific package function for the trigger you are interested in using. The following code snippet demonstrates how to create a new package with a blob trigger from the model and inference configuration:
 
 > [!NOTE]
 > The code snippet assumes that `model` contains a registered model, and that `inference_config` contains the configuration for the inference environment. For more information, see [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
@@ -116,7 +116,7 @@ When `show_output=True`, the output of the Docker build process is shown. Once t
 
 ## Deploy image as a web app
 
-1. Use the following command to get the login credentials for the Azure Container Registry that contains the image. Replace `<myacr>` with the value returned previously from `package.location`: 
+1. Use the following command to get the login credentials for the Azure Container Registry that contains the image. Replace `<myacr>` with the value returned previously from `blob.location`: 
 
     ```azurecli-interactive
     az acr credential show --name <myacr>
@@ -177,7 +177,7 @@ When `show_output=True`, the output of the Docker build process is shown. Once t
     ```azurecli-interactive
     az storage account create --name <triggerStorage> --location westeurope --resource-group myresourcegroup --sku Standard_LRS
     ```
-    ```azurecli-interactiv
+    ```azurecli-interactive
     az storage account show-connection-string --resource-group myresourcegroup --name <triggerStorage> --query connectionString --output tsv
     ```
     Record this connection string to provide to the function app. We will use it later when we ask for `<triggerConnectionString>`
@@ -297,4 +297,4 @@ For more information on using blob triggers, see the [Create a function triggere
 * Learn more about Blob storage triggers [Azure Blob storage bindings](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob).
 * [Deploy your model to Azure App Service](how-to-deploy-app-service.md).
 * [Consume a ML Model deployed as a web service](how-to-consume-web-service.md)
-* [API Reference](https://docs.microsoft.com/python/api/azureml-contrib-functions/azureml.contrib.functions?view=azure-ml-py)
+* [API Reference](https://docs.microsoft.com/python/api/azureml-contrib-functions/azureml.contrib.functions?view=azure-ml-py&preserve-view=true)

@@ -9,7 +9,8 @@ ms.subservice: blobs
 ms.devlang: powershell
 ms.topic: sample
 ms.date: 06/13/2017
-ms.author: tamram
+ms.author: tamram 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Delete containers based on container name prefix

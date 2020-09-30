@@ -32,14 +32,14 @@ Other language stacks, likewise, get the app settings as environment variables a
 - [Node.js](configure-language-nodejs.md#access-environment-variables)
 - [PHP](configure-language-php.md#access-environment-variables)
 - [Python](configure-language-python.md#access-environment-variables)
-- [Java](configure-language-java.md#data-sources)
+- [Java](configure-language-java.md#configure-data-sources)
 - [Ruby](configure-language-ruby.md#access-environment-variables)
 - [Custom containers](configure-custom-container.md#configure-environment-variables)
 
 App settings are always encrypted when stored (encrypted-at-rest).
 
 > [!NOTE]
-> App settings can also be resolved from [Key Vault](/azure/key-vault/) using [Key Vault references](app-service-key-vault-references.md).
+> App settings can also be resolved from [Key Vault](../key-vault/index.yml) using [Key Vault references](app-service-key-vault-references.md).
 
 ### Show hidden values
 
@@ -103,14 +103,14 @@ For example, a MySql connection string named *connectionstring1* can be accessed
 - [Node.js](configure-language-nodejs.md#access-environment-variables)
 - [PHP](configure-language-php.md#access-environment-variables)
 - [Python](configure-language-python.md#access-environment-variables)
-- [Java](configure-language-java.md#data-sources)
+- [Java](configure-language-java.md#configure-data-sources)
 - [Ruby](configure-language-ruby.md#access-environment-variables)
 - [Custom containers](configure-custom-container.md#configure-environment-variables)
 
 Connection strings are always encrypted when stored (encrypted-at-rest).
 
 > [!NOTE]
-> Connection strings can also be resolved from [Key Vault](/azure/key-vault/) using [Key Vault references](app-service-key-vault-references.md).
+> Connection strings can also be resolved from [Key Vault](../key-vault/index.yml) using [Key Vault references](app-service-key-vault-references.md).
 
 ### Show hidden values
 

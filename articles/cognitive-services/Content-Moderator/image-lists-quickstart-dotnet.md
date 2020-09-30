@@ -11,6 +11,7 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
+ms.custom: devx-track-csharp
 #As a C# developer of content-providing software, I want to check images against a custom list of inappropriate images so that I can handle them more efficiently.
 ---
 

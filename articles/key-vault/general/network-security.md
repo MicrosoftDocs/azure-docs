@@ -13,7 +13,7 @@ ms.custom: devx-track-azurecli
 ---
 # Configure Azure Key Vault firewalls and virtual networks
 
-This article provides step-by-step instructions to configure Azure Key Vault firewalls and virtual networks to restrict access to your key vault. The [virtual network service endpoints for Key Vault](overview-vnet-service-endpoints.md)) allow you to restrict access to a specified virtual network and set of IPv4 (internet protocol version 4) address ranges.
+This article provides step-by-step instructions to configure Azure Key Vault firewalls and virtual networks to restrict access to your key vault. The [virtual network service endpoints for Key Vault](overview-vnet-service-endpoints.md) allow you to restrict access to a specified virtual network and set of IPv4 (internet protocol version 4) address ranges.
 
 > [!IMPORTANT]
 > After firewall rules are in effect, users can only perform Key Vault [data plane](secure-your-key-vault.md#data-plane-access-control) operations when their requests originate from allowed virtual networks or IPv4 address ranges. This also applies to accessing Key Vault from the Azure portal. Although users can browse to a key vault from the Azure portal, they might not be able to list keys, secrets, or certificates if their client machine is not in the allowed list. This also affects the Key Vault Picker by other Azure services. Users might be able to see list of key vaults, but not list keys, if firewall rules prevent their client machine.
@@ -122,5 +122,5 @@ Here's how to configure Key Vault firewalls and virtual networks by using PowerS
 
 ## Next steps
 
-* [Virtual network service endpoints for Key Vault](overview-vnet-service-endpoints.md))
-* [Secure your key vault](secure-your-key-vault.md))
+* [Virtual network service endpoints for Key Vault](overview-vnet-service-endpoints.md)
+* [Secure your key vault](secure-your-key-vault.md)

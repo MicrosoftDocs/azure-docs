@@ -163,7 +163,7 @@ The first column (PV) shows the physical volume, the subsequent columns show the
 
 ###### Duplicate Volume groups
 
-There are scenarios where volume group names can have 2 UUIDs after running the script. It means that the volume group names in the machine where the script is executed and in the backed-up VM are same. Then we need to rename the backed-up VMs volume groups. Take a look at the example below.
+There are scenarios where volume group names can have 2 UUIDs after running the script. It means that the volume group names in the machine where the script is executed and in the backed-up VM are the same. Then we need to rename the backed-up VMs volume groups. Take a look at the example below.
 
 ```bash
 PV         VG        Fmt  Attr PSize   PFree    VG UUID
@@ -279,7 +279,7 @@ In Linux, the OS of the computer used to restore files must support the file sys
 | openSUSE | 42.2 and above |
 
 > [!NOTE]
-> We have found some issues in running the file recovery script on machines with SLES 12 SP4 OS and we are investigating with the SLES team.
+> We've found some issues in running the file recovery script on machines with SLES 12 SP4 OS and we're investigating with the SLES team.
 > Currently, running the file recovery script is working on machines with SLES 12 SP2 and SP3 OS versions.
 >
 
@@ -296,17 +296,17 @@ The script also requires Python and bash components to execute and connect secur
 If you run the script on a computer with restricted access, ensure there's access to:
 
 - `download.microsoft.com`
-- Recovery Service URLs (geo-name refers to the region where the Recovery Services vault resides)
-  - `https://pod01-rec2.geo-name.backup.windowsazure.com` (For Azure public regions)
-  - `https://pod01-rec2.geo-name.backup.windowsazure.cn` (For Azure China 21Vianet)
-  - `https://pod01-rec2.geo-name.backup.windowsazure.us` (For Azure US Government)
-  - `https://pod01-rec2.geo-name.backup.windowsazure.de` (For Azure Germany)
+- Recovery Service URLs (GEO-NAME refers to the region where the Recovery Services vault resides)
+  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.com` (For Azure public regions)
+  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.cn` (For Azure China 21Vianet)
+  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.us` (For Azure US Government)
+  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.de` (For Azure Germany)
 - Outbound ports 53 (DNS), 443, 3260
 
 > [!NOTE]
 >
-> - The downloaded script file name will have the **geo-name** to be filled in the URL. For example: The downloaded script name begins with \'VMname\'\_\'geoname\'_\'GUID\', like *ContosoVM_wcus_12345678*
-> - The URL would be <https://pod01-rec2.wcus.backup.windowsazure.com>"
+> The script file you downloaded in step 5 [above](#mount-the-volume-and-copy-files) will have the **geo-name** in the name of the file. Use that **geo-name** to fill in the URL. The downloaded script name will begin with: \'VMname\'\_\'geoname\'_\'GUID\'.<br><br>
+> So for example, if the script filename is *ContosoVM_wcus_12345678*, the **geo-name** is *wcus* and the URL would be:<br> <https://pod01-rec2.wcus.backup.windowsazure.com>
 >
 
 For Linux, the script requires 'open-iscsi' and 'lshw' components to connect to the recovery point. If the components don't exist on the computer where the script is run, the script asks for permission to install the components. Provide consent to install the necessary components.
@@ -380,11 +380,11 @@ The generated script is signed with the official Microsoft certificate for the A
 
 Only an Admin can run the script and it should run in elevated mode. The script only runs a pre-generated set of steps and doesn't accept input from any external source.
 
-To run the script, a password is required that is only shown to the authorized user at the time of generation of script in the Azure portal or PowerShell/CLI. This is to ensure the authorized user who downloads the script is also responsible for running the script.
+To run the script, a password is required that's only shown to the authorized user at the time of generation of script in the Azure portal or PowerShell/CLI. This is to ensure the authorized user who downloads the script is also responsible for running the script.
 
 #### Browse files and folders
 
-To browse files and folders, the script uses the iSCSI initiator in the machine and connects to the recovery point that is configured as an iSCSI target. Here you can imagine scenarios where one is trying to imitate/spoof either/all components.
+To browse files and folders, the script uses the iSCSI initiator in the machine and connects to the recovery point that's configured as an iSCSI target. Here you can imagine scenarios where one is trying to imitate/spoof either/all components.
 
 We use a mutual CHAP authentication mechanism so that each component authenticates the other. This means it's extremely difficult for a fake initiator to connect to the iSCSI target and for a fake target to be connected to the machine where the script is run.
 

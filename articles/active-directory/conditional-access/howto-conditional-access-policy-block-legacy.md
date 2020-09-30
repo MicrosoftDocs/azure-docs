@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 08/07/2020
+ms.date: 09/22/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -21,7 +21,7 @@ Due to the increased risk associated with legacy authentication protocols, Micro
 
 ## Create a Conditional Access policy
 
-The following steps will help create a Conditional Access policy to block legacy authentication requests. This policy is put in to [Report-only mode](howto-conditional-access-report-only.md) to start so administrators can determine the impact they will have on existing users. When administrators are comfortable that the policy applies as they intend, they can switch to **On** or stage the deployment by adding specific groups and excluding others.
+The following steps will help create a Conditional Access policy to block legacy authentication requests. This policy is put in to [Report-only mode](howto-conditional-access-insights-reporting.md) to start so administrators can determine the impact they will have on existing users. When administrators are comfortable that the policy applies as they intend, they can switch to **On** or stage the deployment by adding specific groups and excluding others.
 
 1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
@@ -45,8 +45,8 @@ The following steps will help create a Conditional Access policy to block legacy
 
 [Conditional Access common policies](concept-conditional-access-policy-common.md)
 
-[Determine impact using Conditional Access report-only mode](howto-conditional-access-report-only.md)
+[Determine impact using Conditional Access report-only mode](howto-conditional-access-insights-reporting.md)
 
 [Simulate sign in behavior using the Conditional Access What If tool](troubleshoot-conditional-access-what-if.md)
 
-[How to set up a multifunction device or application to send email using Office 365 and Microsoft 365](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-office-3)
+[How to set up a multifunction device or application to send email using Microsoft 365](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-office-3)

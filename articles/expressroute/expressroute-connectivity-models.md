@@ -1,13 +1,13 @@
 ---
 title: 'Azure ExpressRoute: Connectivity models'
-description: This article describes the different modes of connectivity between the customer's network and Microsoft Azure, and Office 365 services. Customers can use MPLS providers, cloud exchanges and Ethernet providers.  
+description: Review connectivity between the customer's network, Microsoft Azure, and Microsoft 365 services. Customers can use MPLS providers, cloud exchanges, and Ethernet.
 services: expressroute
-author: cherylmc
+author: duongau
 
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/18/2019
-ms.author: cherylmc
+ms.author: duau
 
 
 

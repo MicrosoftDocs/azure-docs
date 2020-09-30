@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 # Tutorial: Add or remove group members automatically
 
-In Azure Active Directory (Azure AD), you can automatically add or remove users to security groups or Office 365 groups, so you don't always have to do it manually. Whenever any properties of a user or device change, Azure AD evaluates all dynamic group rules in your Azure AD organization to see if the change should add or remove members.
+In Azure Active Directory (Azure AD), you can automatically add or remove users to security groups or Microsoft 365 groups, so you don't always have to do it manually. Whenever any properties of a user or device change, Azure AD evaluates all dynamic group rules in your Azure AD organization to see if the change should add or remove members.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]

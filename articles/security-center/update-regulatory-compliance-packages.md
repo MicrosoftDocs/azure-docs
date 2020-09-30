@@ -8,7 +8,7 @@ manager: rkarlin
 ms.assetid: c42d02e4-201d-4a95-8527-253af903a5c6
 ms.service: security-center
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
@@ -41,7 +41,7 @@ In addition, you can add **Azure Security Benchmark**, the Microsoft-authored, A
 Additional standards will be supported in the dashboard as they become available. 
 
 
-## Adding a regulatory standard to your dashboard
+## Add a regulatory standard to your dashboard
 
 The following steps explain how to add a package to monitor your compliance with one of the supported regulatory standards.
 

@@ -7,7 +7,7 @@ ms.topic: tutorial
 ms.workload: infrastructure
 ms.date: 06/06/2019
 ms.author: cynthn
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurepowershell
 
 #Customer intent: As an IT administrator, I want to learn about common maintenance tasks so that I can create and manage Windows VMs in Azure
 ---

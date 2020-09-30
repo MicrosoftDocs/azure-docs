@@ -43,7 +43,7 @@ Azure Backup enables data protection for various workloads (on-premises and clou
 
 ### Management plane
 
-* **Access control** – The Recovery Services vault provides the management capabilities and is accessible via the Azure portal, SDK, CLI, and even REST APIs. It's also an RBAC boundary, providing you the option to restrict access to backups only to authorized Backup Admins.
+* **Access control** – Vaults (Recovery Services and Backup vaults) provide the management capabilities and are accessible via the Azure portal, Backup Center, Vault dashboards, SDK, CLI, and even REST APIs. It's also an RBAC boundary, providing you the option to restrict access to backups only to authorized Backup Admins.
 
 * **Policy management** – Azure Backup Policies within each vault define when the backups should be triggered and how long they need to be retained. You can also manage these policies and apply them across multiple items.
 
@@ -53,7 +53,7 @@ Azure Backup enables data protection for various workloads (on-premises and clou
 
 ## Vault considerations
 
-Azure Backup uses Recovery Services vaults to orchestrate and manage backups. It also uses vaults to store backed-up data. Effective vault design helps organizations establish a structure to organize and manage backup assets in Azure to support your business priorities. Consider the following guidelines when creating a vault:  
+Azure Backup uses  vaults (Recovery Services and Backup vaults) to orchestrate and manage backups. It also uses vaults to store backed-up data. Effective vault design helps organizations establish a structure to organize and manage backup assets in Azure to support your business priorities. Consider the following guidelines when creating a vault:  
 
 ### Align to subscription design strategy
 
@@ -66,7 +66,8 @@ You can use a single vault or multiple vaults to organize and manage your backup
 * If your workloads are all managed by a single subscription and single resource, then you can use a single vault to monitor and manage your backup estate.
 
 * If your workloads are spread across subscriptions, then you can create multiple vaults, one or more per subscription.
-  * To simplify monitoring of operational activities across all the vaults, subscriptions and tenants, you can use Backup Explorer and reports. [Learn more here](monitor-azure-backup-with-backup-explorer.md) to get an aggregated view.
+  * Backup Center allows you to have a single pane of glass to manage all tasks related to Backup. [Learn more here]().
+  * You can customize your views with workbook templates. Backup Explorer is one such template for Azure VMs. [Learn more here](monitor-azure-backup-with-backup-explorer.md).
   * If you needed consistent policy across vaults, then you can use Azure policy to propagate backup policy across multiple vaults. You can write a custom [Azure Policy definition](../governance/policy/concepts/definition-structure.md) that uses the [‘deployifnotexists’](../governance/policy/concepts/effects.md#deployifnotexists) effect to propagate a backup policy across multiple vaults. You assign can [assign](../governance/policy/assign-policy-portal.md) this Azure Policy definition to a particular scope (subscription or RG), so that it deploys a 'backup policy' resource to all Recovery Services vaults in the scope of the Azure Policy assignment. The settings of the backup policy (such as backup frequency, retention, and so on) should be specified by the user as parameters in the Azure Policy assignment.
 
 * As your organizational footprint grows, you might want to move workloads across subscriptions for the following reasons: align by backup policy, consolidate vaults, trade-off on lower redundancy to save on cost (move from GRS to LRS).  Azure Backup supports moving a Recovery Services vault across Azure subscriptions, or to another resource group within the same subscription. [Learn more here](backup-azure-move-recovery-services-vault.md).
@@ -85,7 +86,7 @@ Review the default settings for Storage Replication type and Security settings t
 
 ## Backup Policy considerations
 
-Azure Backup Policy has two components: *Schedule* (when to take backup) and *Retention* (how long to retain backup). You can define the policy based on the type of data that is being backed up, RTO/RPO requirements, operational or regulatory compliance needs and workload type (for example,  VM, database, files). [Learn more here](backup-architecture.md#backup-policy-essentials).
+Azure Backup Policy has two components: *Schedule* (when to take backup) and *Retention* (how long to retain backup). You can define the policy based on the type of data that's being backed up, RTO/RPO requirements, operational or regulatory compliance needs and workload type (for example, VM, database, files). [Learn more here](backup-architecture.md#backup-policy-essentials).
 
 Consider the following guidelines when creating Backup Policy:
 
@@ -114,7 +115,7 @@ Consider the following guidelines when creating Backup Policy:
   * If retention is reduced, recovery points are marked for pruning in the next clean-up job, and subsequently deleted.
   * The latest retention rules apply for all retention points (excluding on-demand retention points). So if the retention period is extended (for example to 100 days), then when the backup is taken, followed by retention reduction (for example from 100 days to seven days), all backup data will be retained according to  the last specified retention period (that is, 7 days).
 
-* Azure backup provides you the flexibility to *stop protecting and manage your backups*:
+* Azure Backup provides you the flexibility to *stop protecting and manage your backups*:
   * *Stop protection and retain backup data*. If you're retiring or decommissioning your data source (VM, application), but need to retain data for audit or compliance purposes, then you can use this option to stop all future backup jobs from protecting your data source and retain the recovery points that have been backed up. You can then restore or resume VM protection.
   * *Stop protection and delete backup data*. This option will stop all future backup jobs from protecting your VM and delete all the recovery points. You won't be able to restore the VM nor use Resume backup option.
 
@@ -207,9 +208,9 @@ The Azure Backup service’s capabilities offer the flexibility to effectively m
 
 * Selectively backup disks: Exclude disk (preview feature) provides an efficient and cost-effective choice to selectively back up critical data. For example, back up only one disk when you don't want to back up the rest of the disks attached to a VM. This is also useful when you have multiple backup solutions. For example, when you back up your databases or data with a workload backup solution (SQL Server database in Azure VM backup) and you want to use Azure VM level backup for selected disks.
 
-* Azure Backup takes snapshots of Azure VMs and stores them along with the disks to boost recovery point creation and to speed up restore operations. This is referred to as Instant Restore. By default, Instant Restore snapshots are kept for two days. This feature allows a restore operation from these snapshots by cutting down the restore times. It reduces the time that is needed to transform and copy data back from the vault. As a result, you'll see storage costs that correspond to snapshots taken during this period. [Learn more here](backup-instant-restore-capability.md#configure-snapshot-retention).
+* Azure Backup takes snapshots of Azure VMs and stores them along with the disks to boost recovery point creation and to speed up restore operations. This is referred to as Instant Restore. By default, Instant Restore snapshots are kept for two days. This feature allows a restore operation from these snapshots by cutting down the restore times. It reduces the time needed to transform and copy data back from the vault. As a result, you'll see storage costs that correspond to snapshots taken during this period. [Learn more here](backup-instant-restore-capability.md#configure-snapshot-retention).
 
-* Azure Backup vault's Storage Replication type by default is set to Geo-redundant (GRS). This option can't be changed after protecting items. Geo-redundant storage (GRS) provides a higher level of data durability than Locally redundant storage (LRS), allows an opt-in to use Cross Region Restore and costs more. Review the trade-offs between lower costs and higher data durability that is best for your scenario. [Learn more here](backup-create-rs-vault.md#set-storage-redundancy)
+* Azure Backup vault's Storage Replication type by default is set to Geo-redundant (GRS). This option can't be changed after protecting items. Geo-redundant storage (GRS) provides a higher level of data durability than Locally redundant storage (LRS), allows an opt-in to use Cross Region Restore and costs more. Review the trade-offs between lower costs and higher data durability, and decide what's best for your scenario. [Learn more here](backup-create-rs-vault.md#set-storage-redundancy)
 
 * If you're protecting both the workload running inside a VM and the VM itself, check to see if this dual protection is needed.
 

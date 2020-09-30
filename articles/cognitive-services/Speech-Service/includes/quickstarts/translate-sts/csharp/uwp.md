@@ -10,6 +10,7 @@ ms.subservice: speech-service
 ms.date: 04/04/2020
 ms.author: jhakulin
 ms.topic: include
+ms.custom: devx-track-csharp
 ---
 
 ## Prerequisites
@@ -17,7 +18,7 @@ ms.topic: include
 Before you get started, make sure to:
 
 > [!div class="checklist"]
-> * [Create an Azure Speech Resource](../../../../get-started.md)
+> * [Create an Azure Speech Resource](../../../../overview.md#try-the-speech-service-for-free)
 > * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md?tabs=uwp&pivots=programming-language-csharp)
 
 ## Add sample code

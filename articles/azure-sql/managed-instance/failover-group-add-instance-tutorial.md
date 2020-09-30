@@ -5,12 +5,12 @@ description: In this tutorial, learn to create a failover group between a primar
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: high-availability
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.devlang: 
 ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
-ms.reviewer: sashan, carlrab
+ms.reviewer: sashan, sstein
 ms.date: 08/27/2019
 ---
 # Tutorial: Add SQL Managed Instance to a failover group

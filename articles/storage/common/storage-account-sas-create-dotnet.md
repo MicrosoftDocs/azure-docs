@@ -11,6 +11,7 @@ ms.date: 08/06/2019
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
+ms.custom: devx-track-csharp
 ---
 
 # Create an account SAS with .NET

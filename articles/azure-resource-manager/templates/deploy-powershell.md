@@ -2,7 +2,7 @@
 title: Deploy resources with PowerShell and template
 description: Use Azure Resource Manager and Azure PowerShell to deploy resources to Azure. The resources are defined in a Resource Manager template.
 ms.topic: conceptual
-ms.date: 07/21/2020
+ms.date: 09/08/2020
 ---
 # Deploy resources with ARM templates and Azure PowerShell
 
@@ -115,6 +115,30 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
 ```
 
 The preceding example requires a publicly accessible URI for the template, which works for most scenarios because your template shouldn't include sensitive data. If you need to specify sensitive data (like an admin password), pass that value as a secure parameter. However, if you don't want your template to be publicly accessible, you can protect it by storing it in a private storage container. For information about deploying a template that requires a shared access signature (SAS) token, see [Deploy private template with SAS token](secure-template-with-sas-token.md). To go through a tutorial, see [Tutorial: Integrate Azure Key Vault in ARM template deployment](template-tutorial-use-key-vault.md).
+
+## Deploy template spec
+
+Instead of deploying a local or remote template, you can create a [template spec](template-specs.md). The template spec is a resource in your Azure subscription that contains an ARM template. It makes it easy to securely share the template with users in your organization. You use Azure role-based access control (Azure RBAC) to grant access to the template spec. This feature is currently in preview.
+
+The following examples show how to create and deploy a template spec. These commands are only available if you've [signed up for the preview](https://aka.ms/templateSpecOnboarding).
+
+First, you create the template spec by providing the ARM template.
+
+```azurepowershell
+New-AzTemplateSpec -Name storageSpec -Version 1.0 -ResourceGroupName templateSpecsRg -Location westus2 -TemplateJsonFile ./mainTemplate.json
+```
+
+Then, you get the ID for template spec and deploy it.
+
+```azurepowershell
+$id = (Get-AzTemplateSpec -Name storageSpec -ResourceGroupName templateSpecsRg -Version 1.0).Version.Id
+
+New-AzResourceGroupDeployment `
+  -ResourceGroupName demoRG `
+  -TemplateSpecId $id
+```
+
+For more information, see [Azure Resource Manager template specs (Preview)](template-specs.md).
 
 ## Preview changes
 

@@ -7,7 +7,7 @@ ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 06/04/2020
 ms.author: rosouz
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js, devx-track-csharp
 ---
 
 # Change streams in Azure Cosmos DB’s API for MongoDB

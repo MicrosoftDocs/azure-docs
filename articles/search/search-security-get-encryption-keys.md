@@ -62,6 +62,6 @@ Invoke-RestMethod -Uri $uri -Headers $headers | ConvertTo-Json
 
 Now that you know which encryption key and version is used, you can manage the key in Azure Key Vault or check other configuration settings.
 
-+ [Quickstart: Set and retrieve a secret from Azure Key Vault using PowerShell](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-powershell)
++ [Quickstart: Set and retrieve a secret from Azure Key Vault using PowerShell](../key-vault/secrets/quick-create-powershell.md)
 
 + [Configure customer-managed keys for data encryption in Azure Cognitive Search](search-security-manage-encryption-keys.md)

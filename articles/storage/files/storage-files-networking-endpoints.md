@@ -1,13 +1,13 @@
 ---
 title: Configuring Azure Files network endpoints | Microsoft Docs
-description: An overview of networking options for Azure Files.
+description: Learn how to configure Azure File network endpoints.
 author: roygara
 ms.service: storage
 ms.topic: how-to
 ms.date: 08/17/2020
 ms.author: rogarana
 ms.subservice: files 
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Configuring Azure Files network endpoints

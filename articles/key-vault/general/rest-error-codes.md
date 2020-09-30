@@ -108,7 +108,7 @@ Content-Length: 192
 resource=https%3A%2F%2Fvault.azure.net&client_id=<registered-app-ID>&client_secret=<registered-app-secret>&client_info=1&grant_type=client_credentials
 ```
 
-The following user-supplied information mush be correct:
+The following user-supplied information must be correct:
 
 - The key vault tenant ID
 - Resource value set to https%3A%2F%2Fvault.azure.net (URL encoded)

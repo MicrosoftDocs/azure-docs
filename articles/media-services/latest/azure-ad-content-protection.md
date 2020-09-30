@@ -10,12 +10,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/1/2020
+ms.date: 08/31/2020
 ms.author: inhenkel
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 # Tutorial: End-to-End content protection using Azure AD
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 With this tutorial and the provided player sample, you can set up an end-to-end media content protection subsystem on Azure Media Services (AMS) and Azure Active Directory (AAD) to stream media content with all AMS supported DRM/AES-128, streaming protocols, codec, and container formats. The sample is generic enough for secure access to any REST API protected by OAuth 2 through Authorization Code Flow with Proof Key for Code Exchange (PKCE). (Azure Media Services license delivery service is just one of them.) It also works for Microsoft Graph API or any custom developed REST API secured with OAuth 2 Authorization Code Flow. This is the companion document to the [sample code](https://github.com/Azure-Samples/media-services-content-protection-azure-ad).
 

@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: bastion
 ms.topic: overview
-ms.date: 01/31/2020
+ms.date: 09/01/2020
 ms.author: cherylmc
 
 ---
@@ -23,7 +23,7 @@ Azure Bastion deployment is per virtual network, not per subscription/account or
 
 RDP and SSH are some of the fundamental means through which you can connect to your workloads running in Azure. Exposing RDP/SSH ports over the Internet isn't desired and is seen as a significant threat surface. This is often due to protocol vulnerabilities. To contain this threat surface, you can deploy bastion hosts (also known as jump-servers) at the public side of your perimeter network. Bastion host servers are designed and configured to withstand attacks. Bastion servers also provide RDP and SSH connectivity to the workloads sitting behind the bastion, as well as further inside the network.
 
-![architecture](./media/bastion-overview/architecture.png)
+![Azure Bastion Architecture](./media/bastion-overview/architecture.png)
 
 This figure shows the architecture of an Azure Bastion deployment. In this diagram:
 
@@ -43,6 +43,10 @@ The following features are available:
 * **No hassle of managing NSGs:** Azure Bastion is a fully managed platform PaaS service from Azure that is hardened internally to provide you secure RDP/SSH connectivity. You don't need to apply any NSGs on Azure Bastion subnet. Because Azure Bastion connects to your virtual machines over private IP, you can configure your NSGs to allow RDP/SSH from Azure Bastion only. This removes the hassle of managing NSGs each time you need to securely connect to your virtual machines.
 * **Protection against port scanning:** Because you do not need to expose your virtual machines to public Internet, your VMs are protected against port scanning by rogue and malicious users located outside your virtual network.
 * **Protect against zero-day exploits. Hardening in one place only:** Azure Bastion is a fully platform-managed PaaS service. Because it sits at the perimeter of your virtual network, you don’t need to worry about hardening each of the virtual machines in your virtual network. The Azure platform protects against zero-day exploits by keeping the Azure Bastion hardened and always up to date for you.
+
+## <a name="new"></a>What's new?
+
+Subscribe to the RSS feed and view the latest Azure Bastion feature updates on the [Azure Updates](https://azure.microsoft.com/updates/?category=networking&query=Azure%20Bastion) page.
 
 ## FAQ
 

@@ -140,7 +140,7 @@ The basic steps are as follows:
 
 2. To deploy a customized template through the portal, select **Create a resource** from the [Azure portal](https://portal.azure.com).
 
-3. Search for **template**, and then select **Template**. deployment.
+3. Search for **template**, and then select **Template deployment**.
 
 4. Select **Create**.
 

@@ -76,7 +76,7 @@ The 'DeleteState' of the backup item will change from 'NotDeleted' to 'ToBeDelet
 
 ### Undoing the deletion operation using Azure PowerShell
 
-First, fetch the relevant backup item that is in soft-delete state (that is, about to be deleted).
+First, fetch the relevant backup item that's in soft-delete state (that is, about to be deleted).
 
 ```powershell
 
@@ -104,7 +104,7 @@ The 'DeleteState' of the backup item will revert to 'NotDeleted'. But the protec
 ## Soft delete for VMs using REST API
 
 - Delete the backups using REST API as mentioned [here](backup-azure-arm-userestapi-backupazurevms.md#stop-protection-and-delete-data).
-- If user wishes to undo these delete operations, refer to steps mentioned [here](backup-azure-arm-userestapi-backupazurevms.md#undo-the-deletion).
+- If you wish to undo these delete operations, refer to steps mentioned [here](backup-azure-arm-userestapi-backupazurevms.md#undo-the-deletion).
 
 ## How to disable soft delete
 

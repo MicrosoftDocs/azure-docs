@@ -394,11 +394,11 @@ No, standard SSD managed disks of any size cannot be used with unmanaged disks o
 
 **What is the largest Managed disk size supported for operating system and data disks?**
 
-The partition type that Azure supports for an operating system disk is the master boot record (MBR). The MBR format supports a disk size up to 2 TiB. The largest size that Azure supports for an operating system disk is 2 TiB. Azure supports up to 32 TiB for managed data disks.
+The partition type that Azure supports for an operating system disk is the master boot record (MBR) and GUID Partition Table (GPT) for Gen 1 and Gen 2 VMs. The MBR format supports a disk size up to 2 TiB. For Gen 1 VMs, while you can allocate up to 4 TiB, you can use only up to 2 TiB of this disk space for the operating system. For Gen 2 VMs, the largest size that you can allocate and use for an operating system disk is 4 TiB. Azure supports up to 32 TiB for managed data disks.
 
 **What is the largest Unmanaged Disk size supported for operating system and data disks?**
 
-The partition type that Azure supports for an operating system disk is the master boot record (MBR). The MBR format supports a disk size up to 2 TiB. The largest size that Azure supports for an operating system Unmanaged disk is 2 TiB. Azure supports up to 4 TiB for data Unmanaged disks.
+The partition type that Azure supports for an operating system disk is the master boot record (MBR). The MBR format supports a disk size up to 2 TiB. The largest size that Azure supports for an operating system Unmanaged disk is 4 TiB. Azure supports up to 4 TiB for data Unmanaged disks.
 
 **What is the largest page blob size that's supported?**
 
@@ -487,6 +487,6 @@ No.
 
 ## What if my question isn't answered here?
 
-If your question isn't listed here, let us know and we'll help you find an answer. You can post a question at the end of this article in the comments. To engage with the Azure Storage team and other community members about this article, use the MSDN [Microsoft Q&A question page for Azure Storage](https://docs.microsoft.com/answers/products/azure?product=storage).
+If your question isn't listed here, let us know and we'll help you find an answer. You can post a question at the end of this article in the comments. To engage with the Azure Storage team and other community members about this article, use the [Microsoft Q&A question page for Azure Storage](https://docs.microsoft.com/answers/products/azure?product=storage).
 
 To request features, submit your requests and ideas to the [Azure Storage feedback forum](https://feedback.azure.com/forums/217298-storage).

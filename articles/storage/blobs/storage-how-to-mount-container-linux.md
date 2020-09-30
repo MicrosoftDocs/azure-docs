@@ -71,6 +71,7 @@ Blobfuse provides native-like performance by requiring a temporary path in the f
 ### (Optional) Use a ramdisk for the temporary path
 The following example creates a ramdisk of 16 GB and a directory for blobfuse. Choose the size based on your needs. This ramdisk allows blobfuse to open files up to 16 GB in size. 
 ```bash
+sudo mkdir /mnt/ramdisk
 sudo mount -t tmpfs -o size=16g tmpfs /mnt/ramdisk
 sudo mkdir /mnt/ramdisk/blobfusetmp
 sudo chown <youruser> /mnt/ramdisk/blobfusetmp

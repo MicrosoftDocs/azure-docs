@@ -8,8 +8,9 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 08/28/2020
 ms.author: wolfma
+ms.custom: devx-track-csharp
 ---
 
 # How to use batch transcription
@@ -39,7 +40,7 @@ Once in the running state, the transcription occurs faster than the audio runtim
 
 ## Prerequisites
 
-As with all features of the Speech service, you create a subscription key from the [Azure portal](https://portal.azure.com) by following our [Get started guide](get-started.md).
+As with all features of the Speech service, you create a subscription key from the [Azure portal](https://portal.azure.com) by following our [Get started guide](overview.md#try-the-speech-service-for-free).
 
 >[!NOTE]
 > A standard subscription (S0) for Speech service is required to use batch transcription. Free subscription keys (F0) don't work. For more information, see [pricing and limits](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
@@ -166,7 +167,7 @@ Use these optional properties to configure transcription:
       `destinationContainerUrl`
    :::column-end:::
    :::column span="2":::
-      Optional URL with [service SAS](../../storage/common/storage-sas-overview.md) to a writeable container in Azure. The result is stored in this container. When not specified, Microsoft stores the results in a storage container managed by Microsoft. When the transcription is deleted by calling [Delete transcription](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription), the result data will also be deleted.
+      Optional URL with [Service ad hoc SAS](../../storage/common/storage-sas-overview.md) to a writeable container in Azure. The result is stored in this container. SAS with stored access policy are **not** supported. When not specified, Microsoft stores the results in a storage container managed by Microsoft. When the transcription is deleted by calling [Delete transcription](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription), the result data will also be deleted.
 :::row-end:::
 
 ### Storage

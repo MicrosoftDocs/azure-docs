@@ -8,6 +8,7 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
+ms.custom: devx-track-dotnet
 
 ---
 # Azure Cosmos DB .NET SDK v2 for SQL API: Download and release notes

@@ -21,7 +21,7 @@ For end to end protection for your blob data, Microsoft recommends enabling the 
 
 - Container soft delete, to protect against accidental delete or overwrite of a container. To learn how to enable container soft delete, see [Enable and manage soft delete for containers](soft-delete-container-enable.md).
 - Blob soft delete, to protect against accidental delete or overwrite of an individual blob. To learn how to enable blob soft delete, see [Soft delete for blobs](soft-delete-blob-overview.md).
-- Blob versioning (preview), to automatically maintain previous versions of a blob. When blob versioning is enabled, you can restore an earlier version of a blob to recover your data if it is erroneously modified or deleted. To learn how to enable blob versioning, see [Enable and manage blob versioning](versioning-enable.md).
+- Blob versioning, to automatically maintain previous versions of a blob. When blob versioning is enabled, you can restore an earlier version of a blob to recover your data if it is erroneously modified or deleted. To learn how to enable blob versioning, see [Enable and manage blob versioning](versioning-enable.md).
 
 > [!WARNING]
 > Deleting a storage account cannot be undone. Soft delete does not protect against the deletion of a storage account. To prevent accidental deletion of a storage account, configure a **CannotDelete** lock on the storage account resource. For more information on locking Azure resources, see [Lock resources to prevent unexpected changes](../../azure-resource-manager/management/lock-resources.md).
@@ -38,11 +38,7 @@ Disabling container soft delete does not result in permanent deletion of contain
 
 ## About the preview
 
-Container soft delete is available in preview in the following regions:
-
-- France Central
-- Canada East
-- Canada Central
+Container soft delete is available in preview in all public Azure regions.
 
 > [!IMPORTANT]
 > The container soft delete preview is intended for non-production use only. Production service-level agreements (SLAs) are not currently available.
@@ -119,4 +115,4 @@ There is no additional charge to enable container soft delete. Data in soft dele
 
 - [Configure container soft delete](soft-delete-container-enable.md)
 - [Soft delete for blobs](soft-delete-blob-overview.md)
-- [Blob versioning (preview)](versioning-overview.md)
+- [Blob versioning](versioning-overview.md)

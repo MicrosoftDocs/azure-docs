@@ -4,7 +4,7 @@ description: How to create Azure AD guest users and set them as Azure AD admin w
 ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: azure-synapse
-ms.topic: conceptual
+ms.topic: how-to
 author: shohamMSFT
 ms.author: shohamd
 ms.reviewer: vanto

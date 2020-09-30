@@ -26,7 +26,7 @@ Most common backup failures can be self-resolved by following the troubleshootin
 - **Ensure Azure VM Guest Agent service is started and up-to-date**:
   - On a Windows VM:
     - Navigate to **services.msc** and ensure **Windows Azure VM Guest Agent service** is up and running. Also, ensure the [latest version](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) is installed. To learn more, see [Windows VM guest agent issues](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms).
-    - The Azure VM Agent is installed by default on any Windows VM deployed from an Azure Marketplace image from the portal, PowerShell, Command Line Interface, or an Azure Resource Manager template. A [manual installation of the Agent](../virtual-machines/extensions/agent-windows.md#manual-installation) may be necessary when you create a custom VM image that is deployed to Azure.
+    - The Azure VM Agent is installed by default on any Windows VM deployed from an Azure Marketplace image from the portal, PowerShell, Command Line Interface, or an Azure Resource Manager template. A [manual installation of the Agent](../virtual-machines/extensions/agent-windows.md#manual-installation) may be necessary when you create a custom VM image that's deployed to Azure.
     - Review the support matrix to check if VM runs on the [supported Windows operating system](backup-support-matrix-iaas.md#operating-system-support-windows).
   - On Linux VM,
     - Ensure the Azure VM Guest Agent service is running by executing the command `ps-e`. Also, ensure the [latest version](../virtual-machines/extensions/update-linux-agent.md) is installed. To learn more, see [Linux VM guest agent issues](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms).
@@ -54,14 +54,14 @@ Azure Backup uses the VM Snapshot Extension to take an application consistent ba
   - `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot`
 
 - **Check if network access is required**: Extension packages are downloaded from the Azure Storage extension repository and extension status uploads are posted to Azure Storage. [Learn more](../virtual-machines/extensions/features-windows.md#network-access).
-  - If you are on a non-supported version of the agent, you need to allow outbound access to Azure storage in that region from the VM.
-  - If you have blocked access to `168.63.129.16` using the guest firewall or with a proxy, extensions will fail regardless of the above. Ports 80, 443, and 32526 are required, [Learn more](../virtual-machines/extensions/features-windows.md#network-access).
+  - If you're on a non-supported version of the agent, you need to allow outbound access to Azure storage in that region from the VM.
+  - If you've blocked access to `168.63.129.16` using the guest firewall or with a proxy, extensions will fail regardless of the above. Ports 80, 443, and 32526 are required, [Learn more](../virtual-machines/extensions/features-windows.md#network-access).
 
 - **Ensure DHCP is enabled inside the guest VM**: This is required to get the host or fabric address from DHCP for the IaaS VM backup to work. If you need a static private IP, you should configure it through the Azure portal or PowerShell and make sure the DHCP option inside the VM is enabled, [Learn more](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken).
 
 - **Ensure the VSS writer service is up and running**: Follow these steps To [Troubleshoot VSS writer issues](backup-azure-vms-troubleshoot.md#extensionfailedvsswriterinbadstate---snapshot-operation-failed-because-vss-writers-were-in-a-bad-state).
 - **Follow backup best practice guidelines**: Review the [best practices to enable Azure VM backup](backup-azure-vms-introduction.md#best-practices).
-- **Review guidelines for encrypted disks**: If you're enabling backup for VMs with encrypted disk, ensure you have provided all the required permissions. To learn more, see [Back up and restore encrypted Azure VM](backup-azure-vms-encryption.md).
+- **Review guidelines for encrypted disks**: If you're enabling backup for VMs with encrypted disk, ensure you've provided all the required permissions. To learn more, see [Back up and restore encrypted Azure VM](backup-azure-vms-encryption.md).
 
 ## <a name="UserErrorGuestAgentStatusUnavailable-vm-agent-unable-to-communicate-with-azure-backup"></a>UserErrorGuestAgentStatusUnavailable - VM agent unable to communicate with Azure Backup
 
@@ -115,7 +115,7 @@ This error occurs when one of the extension failures puts the VM into provisioni
 Recommended Action:<br>
 To resolve this issue, remove the lock on the resource group of the VM, and retry the operation to trigger clean-up.
 > [!NOTE]
-> Backup service creates a separate resource group than the resource group of the VM to store restore point collection. You are advised to not lock the resource group created for use by the Backup service. The naming format of the resource group created by Backup service is: AzureBackupRG_`<Geo>`_`<number>`. For example: *AzureBackupRG_northeurope_1*
+> Backup service creates a separate resource group than the resource group of the VM to store restore point collection. You're advised to not lock the resource group created for use by the Backup service. The naming format of the resource group created by Backup service is: AzureBackupRG_`<Geo>`_`<number>`. For example: *AzureBackupRG_northeurope_1*
 
 **Step 1: [Remove lock from the restore point resource group](#remove_lock_from_the_recovery_point_resource_group)** <br>
 **Step 2: [Clean up restore point collection](#clean_up_restore_point_collection)**<br>

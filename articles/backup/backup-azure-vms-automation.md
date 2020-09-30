@@ -92,7 +92,7 @@ The following steps lead you through creating a Recovery Services vault. A Recov
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName "test-rg" -Location "West US"
     ```
 
-3. Specify the type of storage redundancy to use. You can use [Locally Redundant Storage (LRS)](../storage/common/storage-redundancy.md) or [Geo-redundant Storage (GRS)](../storage/common/storage-redundancy.md). The following example shows the -BackupStorageRedundancy option for testvault is set to GeoRedundant.
+3. Specify the type of storage redundancy to use. You can use [Locally Redundant Storage (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage), [Geo-redundant Storage (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage), or [Zone-redundant storage (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage). The following example shows the **-BackupStorageRedundancy** option for *testvault* set to **GeoRedundant**.
 
     ```powershell
     $vault1 = Get-AzRecoveryServicesVault -Name "testvault"
@@ -100,7 +100,7 @@ The following steps lead you through creating a Recovery Services vault. A Recov
     ```
 
    > [!TIP]
-   > Many Azure Backup cmdlets require the Recovery Services vault object as an input. For this reason, it is convenient to store the Backup Recovery Services vault object in a variable.
+   > Many Azure Backup cmdlets require the Recovery Services vault object as an input. For this reason, it's convenient to store the Backup Recovery Services vault object in a variable.
    >
    >
 
@@ -224,7 +224,7 @@ NewPolicy           AzureVM            AzureVM              4/24/2016 1:30:00 AM
 Once you've defined the protection policy, you still must enable the policy for an item. Use [Enable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection) to enable protection. Enabling protection requires two objects - the item and the policy. Once the policy has been associated with the vault, the backup workflow is triggered at the time defined in the policy schedule.
 
 > [!IMPORTANT]
-> While using PowerShell to enable backup for multiple VMs at once, ensure that a single policy doesn't have more than 100 VMs associated with it. This is a [recommended best practice](./backup-azure-vm-backup-faq.md#is-there-a-limit-on-number-of-vms-that-can-beassociated-with-the-same-backup-policy). Currently, the PowerShell client doesn't explicitly block if there are more than 100 VMs but the check is planned to be added in the future.
+> While using PowerShell to enable backup for multiple VMs at once, ensure that a single policy doesn't have more than 100 VMs associated with it. This is a [recommended best practice](./backup-azure-vm-backup-faq.md#is-there-a-limit-on-number-of-vms-that-can-beassociated-with-the-same-backup-policy). Currently, the PowerShell client doesn't explicitly block if there are more than 100 VMs, but the check is planned to be added in the future.
 
 The following examples enable protection for the item, V2VM, using the policy, NewPolicy. The examples differ based on whether the VM is encrypted, and what type of encryption.
 
@@ -252,7 +252,7 @@ Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGro
 ```
 
 > [!NOTE]
-> If you are using the Azure Government cloud, then use the value ff281ffe-705c-4f53-9f37-a40e6f2c68f3 for the parameter ServicePrincipalName in [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) cmdlet.
+> If you're using the Azure Government cloud, then use the value `ff281ffe-705c-4f53-9f37-a40e6f2c68f3` for the parameter **ServicePrincipalName** in [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) cmdlet.
 >
 
 ## Monitoring a backup job
@@ -290,7 +290,7 @@ When you create a protection policy, it's assigned a start-time by default. The 
 
 ````powershell
 $SchPol = Get-AzRecoveryServicesBackupSchedulePolicyObject -WorkloadType "AzureVM"
-$UtcTime = Get-Date -Date "2019-03-20 01:00:00Z" (This is the time that the customer wants to start the backup)
+$UtcTime = Get-Date -Date "2019-03-20 01:00:00Z" (This is the time that you want to start the backup)
 $UtcTime = $UtcTime.ToUniversalTime()
 $SchPol.ScheduleRunTimes[0] = $UtcTime
 $pol = Get-AzRecoveryServicesBackupProtectionPolicy -Name "NewPolicy" -VaultId $targetVault.ID
@@ -319,7 +319,7 @@ $bkpPol.SnapshotRetentionInDays=7
 Set-AzRecoveryServicesBackupProtectionPolicy -policy $bkpPol -VaultId $targetVault.ID
 ````
 
-The default value will be 2, user can set the value with a minimum of 1 and maximum of 5. For weekly backup policies, the period is set to 5 and can't be changed.
+The default value will be 2. You can set the value with a minimum of 1 and maximum of 5. For weekly backup policies, the period is set to 5 and can't be changed.
 
 #### Creating Azure Backup resource group during snapshot retention
 
@@ -361,7 +361,7 @@ V2VM              Backup              InProgress          4/23/2016             
 
 ### Change policy for backup items
 
-User can either modify existing policy or change the policy of the backed-up item from Policy1 to Policy2. To switch policies for a backed-up item, fetch the relevant policy and back up item and use the [Enable-AzRecoveryServices](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection) command with backup item as the parameter.
+You can either modify existing policy or change the policy of the backed-up item from Policy1 to Policy2. To switch policies for a backed-up item, fetch the relevant policy and back up item and use the [Enable-AzRecoveryServices](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection) command with backup item as the parameter.
 
 ````powershell
 $TargetPol1 = Get-AzRecoveryServicesBackupProtectionPolicy -Name <PolicyName> -VaultId $targetVault.ID
@@ -470,14 +470,14 @@ $restorejob
 #### Restore managed disks
 
 > [!NOTE]
-> If the backed VM has managed disks and you want to restore them as managed disks, we have introduced the capability from Azure PowerShell RM module v 6.7.0. onwards
+> If the backed VM has managed disks and you want to restore them as managed disks, we've introduced the capability from Azure PowerShell RM module v 6.7.0. onwards.
 >
 >
 
 Provide an additional parameter **TargetResourceGroupName** to specify the RG to which managed disks will be restored.
 
 > [!IMPORTANT]
-> It is strongly recommended to use the **TargetResourceGroupName** parameter for restoring managed disks since it results in significant performance improvements. If this parameter isn't given, then you can't benefit from the instant restore functionality and the restore operation will be slower in comparison. If the purpose is to restore managed disks as unmanaged disks, then don't provide this parameter and make the intention clear by providing the `-RestoreAsUnmanagedDisks` parameter. The `-RestoreAsUnmanagedDisks` parameter is available from Azure PowerShell 3.7.0 onwards. In future versions, it will be mandatory to provide either of these parameters for the right restore experience.
+> It's strongly recommended to use the **TargetResourceGroupName** parameter for restoring managed disks since it results in significant performance improvements. If this parameter isn't given, then you can't benefit from the instant restore functionality and the restore operation will be slower in comparison. If the purpose is to restore managed disks as unmanaged disks, then don't provide this parameter and make the intention clear by providing the `-RestoreAsUnmanagedDisks` parameter. The `-RestoreAsUnmanagedDisks` parameter is available from Azure PowerShell 3.7.0 onwards. In future versions, it will be mandatory to provide either of these parameters for the right restore experience.
 >
 >
 
@@ -540,7 +540,7 @@ The resultant job details give the template URI that can be queried and deployed
    $templateBlobURI = $properties["Template Blob Uri"]
 ```
 
-The template isn't directly accessible since it is under a customer's storage account and the given container. We need the complete URL (along with a temporary SAS token) to access this template.
+The template isn't directly accessible since it's under a customer's storage account and the given container. We need the complete URL (along with a temporary SAS token) to access this template.
 
 1. First extract the template name from the templateBlobURI. The format is mentioned below. You can use the split operation in PowerShell to extract the final template name from this URL.
 
@@ -566,7 +566,7 @@ The template isn't directly accessible since it is under a customer's storage ac
 The following section lists steps necessary to create a VM using "VMConfig" file.
 
 > [!NOTE]
-> It is highly recommended to use the deployment template detailed above to create a VM. This section (Points 1-6) will be deprecated soon.
+> It's highly recommended to use the deployment template detailed above to create a VM. This section (Points 1-6) will be deprecated soon.
 
 1. Query the restored disk properties for the job details.
 

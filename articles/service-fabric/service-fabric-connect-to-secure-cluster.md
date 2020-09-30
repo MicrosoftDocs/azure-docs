@@ -4,6 +4,7 @@ description: Describes how to authenticate client access to a Service Fabric clu
 
 ms.topic: conceptual
 ms.date: 01/29/2019
+ms.custom: devx-track-csharp
 ---
 # Connect to a secure cluster
 

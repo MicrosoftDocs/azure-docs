@@ -139,7 +139,9 @@ In this scenario, Microsoft bills $100.00 for your software license and pays out
 |Microsoft pays you 80% of your license cost <br> \* Microsoft pays you 90% of your license cost for any qualified SaaS apps   |   $80.00 per month <br> \* $90.00 per month    |
 |Microsoft keeps 20% of your license cost <br> \* Microsoft keeps 10% of your license cost for any qualified SaaS apps.  |  $20.00 per month <br> \* $10.00     |
 
-For certain offers that you publish on the commercial marketplace, Microsoft will reduce its Marketplace Service Fee from 20% (as described in the [Microsoft Publisher Agreement](https://go.microsoft.com/fwlink/?LinkID=699560)) to 10%. For your offer(s) to qualify, your offer(s) must have been designated by Microsoft as Azure IP Co-sell incentivized. Eligibility must be met at least five business days before the end of each calendar month to receive the Reduced Marketplace Service Fee for the month. The Reduced Marketplace Service Fee applies to Azure IP Co-sell incentivized SaaS, VMs, Managed apps, and any other qualified transactable IaaS offers made available through the commercial marketplace.
+### Reduced Service Fee
+
+For certain offers that you publish on the commercial marketplace, Microsoft will reduce its Marketplace Service Fee from 20% (as described in the [Microsoft Publisher Agreement](https://go.microsoft.com/fwlink/?LinkID=699560)) to 10%. For your offer(s) to qualify, your offer(s) must have been designated by Microsoft as Azure IP Co-sell incentivized. Eligibility must be met at least five business days before the end of each calendar month to receive the Reduced Marketplace Service Fee for the month. The Reduced Marketplace Service Fee applies to Azure IP Co-sell incentivized SaaS, VMs, Managed apps, and any other qualified transactable IaaS offers made available through the commercial marketplace. Paid SaaS offers associated with one Microsoft Teams app or at least two Microsoft 365 add-ins (Excel, PowerPoint, Word, Outlook, and SharePoint) and published on AppSource also receive this discount.
 
 ### Customer invoicing, payment, billing, and collections
 
@@ -178,6 +180,7 @@ This section covers transact requirements for different offer types.
 
 - A Microsoft account and financial information are required for the transact publishing option, regardless of the offer's pricing model.
 - Mandatory financial information includes payout account and tax profile.
+- The publisher must live in a [supported country or region](sell-from-countries.md).
 
 For more information on setting up these accounts, see [Manage your commercial marketplace account in Partner Center](partner-center-portal/manage-account.md).
 

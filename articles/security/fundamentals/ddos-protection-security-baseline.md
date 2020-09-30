@@ -6,7 +6,7 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
+ms.custom: subject-security-benchmark
 
 # Important: This content is machine generated; do not modify this topic directly. Contact mbaldwin for more information.
 
@@ -94,7 +94,7 @@ Onboard a Log Analytics workspace to Azure Sentinel as it provides a security or
 
 Additionally, Azure Active Directory (AD) has built-in roles that must be explicitly assigned and are queryable. Use the Azure AD PowerShell module to perform ad hoc queries to discover accounts that are members of administrative groups.
 
-- [Understand permissions in Azure DDoS protection](../../virtual-network/manage-ddos-protection.md#permissions)
+- [Understand permissions in Azure DDoS protection](../../virtual-network/manage-ddos-protection.md#permissions-and-restrictions)
 
 - [How to get a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
@@ -260,11 +260,11 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Responsibility**: Customer
 
-### 4.6: Use Role-based access control to control access to resources
+### 4.6: Use Azure RBAC to control access to resources
 
 **Guidance**: To work with Azure DDoS Protection plans, your account must be assigned to the network contributor role or to a custom role that is assigned specific actions.
 
-- [Manage role-based access control in Azure DDoS Protection](../../virtual-network/manage-ddos-protection.md)
+- [Manage Azure role-based access control (Azure RBAC) in Azure DDoS Protection](../../virtual-network/manage-ddos-protection.md)
 
 **Azure Security Center monitoring**: Not applicable
 

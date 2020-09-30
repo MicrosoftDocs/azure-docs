@@ -6,6 +6,7 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 11/01/2017
 ms.author: vturecek
+ms.custom: devx-track-csharp
 ---
 # Introduction to Service Fabric Reliable Actors
 Reliable Actors is a Service Fabric application framework based on the [Virtual Actor](https://research.microsoft.com/en-us/projects/orleans/) pattern. The Reliable Actors API provides a single-threaded programming model built on the scalability and reliability guarantees provided by Service Fabric.

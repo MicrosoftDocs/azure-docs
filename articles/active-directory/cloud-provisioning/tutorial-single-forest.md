@@ -24,8 +24,8 @@ You can use the environment you create in this tutorial for testing or for getti
 ## Prerequisites
 ### In the Azure Active Directory admin center
 
-1. Create a cloud-only global administrator account on your Azure AD tenant. This way, you can manage the configuration of your tenant should your on-premises services fail or become unavailable. Learn about [adding a cloud-only global administrator account](../active-directory-users-create-azure-portal.md). Completing this step is critical to ensure that you don't get locked out of your tenant.
-2. Add one or more [custom domain names](../active-directory-domains-add-azure-portal.md) to your Azure AD tenant. Your users can sign in with one of these domain names.
+1. Create a cloud-only global administrator account on your Azure AD tenant. This way, you can manage the configuration of your tenant should your on-premises services fail or become unavailable. Learn about [adding a cloud-only global administrator account](../fundamentals/add-users-azure-active-directory.md). Completing this step is critical to ensure that you don't get locked out of your tenant.
+2. Add one or more [custom domain names](../fundamentals/add-custom-domain.md) to your Azure AD tenant. Your users can sign in with one of these domain names.
 
 ### In your on-premises environment
 
@@ -56,16 +56,16 @@ You can use the environment you create in this tutorial for testing or for getti
 5. Run the Azure AD Connect provisioning agent.
 6. On the splash screen, **Accept** the licensing terms and click **Install**.
 
-   ![Welcome screen](media/how-to-install/install1.png)
+   ![Screenshot that shows the "Microsoft Azure A D Connect Provisioning Agent Package" splash screen.](media/how-to-install/install1.png)
 
 7. Once this operation completes, the configuration wizard will launch.  Sign in with your Azure AD global administrator account.  Note that if you have IE enhanced security enabled this will block the sign-in.  If this is the case, close the installation, disable IE enhanced security in Server Manager, and click the **AAD Connect Provisioning Agent Wizard** to restart the installation.
 8. On the **Connect Active Directory** screen, click **Add directory** and then sign in with your Active Directory domain administrator account.  NOTE: The domain administrator account should not have password change requirements. In case the password expires or changes, you will need to re-configure the agent with the new credentials. This operation will add your on-premises directory.  Click **Next**.
 
-   ![Welcome screen](media/how-to-install/install3.png)
+   ![Screenshot of the "Connect Active Directory" screen.](media/how-to-install/install3.png)
 
 9. On the **Configuration complete** screen, click **Confirm**.  This operation will register and restart the agent.
 
-   ![Welcome screen](media/how-to-install/install4.png)
+   ![Screenshot that shows the "Configuration complete" screen.](media/how-to-install/install4.png)
 
 10. Once this operation completes you should see a notice: **Your agent configuration was successfully verified.**  You can click **Exit**.</br>
 ![Welcome screen](media/how-to-install/install5.png)</br>

@@ -9,7 +9,7 @@ metadata:
   ms.topic: landing-page 
   author: JnHs 
   ms.author: jenhayes 
-  ms.date: 09/23/2019 
+  ms.date: 09/29/2020
 
 landingContent:
   - title: About Azure Batch
@@ -83,16 +83,18 @@ landingContent:
       - linkListType: reference
         links:
           - text: Azure CLI
-            url: /cli/azure/batch?view=azure-cli-latest
+            url: /cli/azure/batch
           - text: Azure PowerShell
-            url: /powershell/module/az.batch/?view=azps-2.6.0
+            url: /powershell/module/az.batch/
           - text: .NET
-            url: /dotnet/api/overview/azure/batch?view=azure-dotnet
+            url: /dotnet/api/overview/azure/batch
           - text: Java
-            url: /java/api/overview/azure/batch?view=azure-java-stable
+            url: /java/api/overview/azure/batch
           - text: Node.js
-            url: /javascript/api/overview/azure/batch?view=azure-node-latest
+            url: /javascript/api/overview/azure/batch
           - text: Python
-            url: /python/api/overview/azure/batch?view=azure-python
+            url: /python/api/overview/azure/batch
           - text: REST
             url: /rest/api/batchservice/
+          - text: Batch API lifecycle
+            url: /rest/api/batchservice/batch-api-status

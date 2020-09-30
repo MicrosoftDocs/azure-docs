@@ -5,7 +5,7 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 02/06/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
 
 ---
@@ -68,7 +68,7 @@ Summary:
 - Hubs also provide VPN termination for roaming users across multiple client types using OpenVPN connectivity to the global mesh network, allowing access to not only applications migrated to Azure, but also any resources remaining on-premises.
 - Internet connectivity for resources within a virtual network provided by Azure Virtual WAN.
 
-Internet connectivity for remote sites also provided by Azure Virtual WAN. Local internet breakout supported via partner integration for optimized access to SaaS services such as Office 365.
+Internet connectivity for remote sites also provided by Azure Virtual WAN. Local internet breakout supported via partner integration for optimized access to SaaS services such as Microsoft 365.
 
 ## Migrate to Virtual WAN
 

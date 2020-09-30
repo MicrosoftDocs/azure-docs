@@ -1,6 +1,6 @@
 ---
 title: Revoke user access in an emergency in Azure Active Directory | Microsoft Docs
-description: Add users in bulk in the Azure AD admin center in Azure Active Directory
+description: How to revoke all access for a user in Azure Active Directory
 services: active-directory 
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -33,7 +33,7 @@ Access tokens and refresh tokens are frequently used with thick client applicati
 
 Azure AD then reevaluates its authorization policies. If the user is still authorized, Azure AD issues a new access token and refresh token.
 
-Access tokens can be a security concern if access must be revoked within a time that is shorter than the lifetime of the token, which is usually around an hour. For this reason, Microsoft is actively working to bring [continuous access evaluation](../fundamentals/concept-fundamentals-continuous-access-evaluation.md) to Office 365 applications, which helps ensure invalidation of access tokens in near real time.  
+Access tokens can be a security concern if access must be revoked within a time that is shorter than the lifetime of the token, which is usually around an hour. For this reason, Microsoft is actively working to bring [continuous access evaluation](../conditional-access/concept-continuous-access-evaluation.md) to Microsoft 365 applications, which helps ensure invalidation of access tokens in near real time.  
 
 ## Session tokens (cookies)
 
