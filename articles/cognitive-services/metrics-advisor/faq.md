@@ -90,6 +90,7 @@ Note that these queries only return data at a single timestamp, and contain all 
 
 :::image type="content" source="media/query-result.png" alt-text="A query result with one timestamp" lightbox="media/query-result.png":::
 
+
 ### How do I detect spikes & dips as anomalies?
 
 If you have hard thresholds predefined, you could actually manually set "hard threshold" in [anomaly detection configurations](how-tos/configure-metrics.md#anomaly-detection-methods).
