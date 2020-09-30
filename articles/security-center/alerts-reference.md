@@ -404,10 +404,10 @@ At the bottom of this page, there's a table describing the Azure Security Center
 
 | Alert                                   | Description                                                          | Intent<br>([Learn more](#intentions)) | Severity |
 |-----------------------------------------|----------------------------------------------------------------------|:----------------------------------:|----------|
-|**Security incident with shared process detected**|The incident which started on {Start Time (UTC)} and recently detected on {Detected Time (UTC)} indicates that an attacker has {Action taken} your resource {Host}|Unknown|High|
-|**Security incident detected on multiple resources**|The incident which started on {Start Time (UTC)} and recently detected on {Detected Time (UTC)} indicates that similar attack methods were performed on your cloud resources {Host}|Unknown|Medium|
-|**Security incident detected from same source**|The incident which started on {Start Time (UTC)} and recently detected on {Detected Time (UTC)} indicates that an attacker has {Action taken} your resource {Host}|Unknown|High|
-|**Security incident detected on multiple machines**|The incident which started on {Start Time (UTC)} and recently detected on {Detected Time (UTC)} indicates that an attacker has {Action taken} your resources {Host}|Unknown|Medium|
+|**Security incident with shared process detected**|The incident which started on {Start Time (UTC)} and recently detected on {Detected Time (UTC)} indicates that an attacker has {Action taken} your resource {Host}|-|High|
+|**Security incident detected on multiple resources**|The incident which started on {Start Time (UTC)} and recently detected on {Detected Time (UTC)} indicates that similar attack methods were performed on your cloud resources {Host}|-|Medium|
+|**Security incident detected from same source**|The incident which started on {Start Time (UTC)} and recently detected on {Detected Time (UTC)} indicates that an attacker has {Action taken} your resource {Host}|-|High|
+|**Security incident detected on multiple machines**|The incident which started on {Start Time (UTC)} and recently detected on {Detected Time (UTC)} indicates that an attacker has {Action taken} your resources {Host}|-|Medium|
 
 
 
