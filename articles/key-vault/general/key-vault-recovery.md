@@ -12,8 +12,6 @@ ms.date: 09/25/2020
 
 # Azure Key Vault Recovery Overview
 
-## Overview
-
 This article covers two recovery features of Azure Key Vault, soft delete and purge protection. This document provides an overview of these features, and shows you how to manage them through the Azure portal, Azure CLI, and Azure PowerShell.
 
 ## What are soft-delete and purge protection
@@ -41,7 +39,7 @@ It is important to note that **key vault names are globally unique**, so you won
 1. Verify if the radio button next to soft-delete is set to "Enable Recovery".
 1. If soft-delete is not enabled on the key vault, click the radio button to enable soft delete and click "Save".
 
-:::image type="content" source="../media/keyvaultrecovery1.png" alt-text="<alt text>":::
+:::image type="content" source="../media/key-vault-recovery-1.png" alt-text="<A screenshot of the Azure portal>":::
 
 ## Grant access to a service principal to purge and recover deleted secrets
 
@@ -53,7 +51,7 @@ It is important to note that **key vault names are globally unique**, so you won
 1. Scroll to the bottom of the drop-down and click "Recover" and "Purge"
 1. Security principals will also need get and list functionality to perform most operations.
 
-:::image type="content" source="../media/keyvaultrecovery2.png" alt-text="<alt text>":::
+:::image type="content" source="../media/key-vault-recovery-2.png" alt-text="<A screenshot of the Azure portal>":::
 
 ## List, recover, or purge a soft-deleted key vault
 
@@ -69,9 +67,9 @@ It is important to note that **key vault names are globally unique**, so you won
 1. Select the recover option at the bottom of the context pane if you would like to recover the key vault.
 1. Select the purge option if you would like to permanently delete the key vault.
 
-:::image type="content" source="../media/keyvaultrecovery3.png" alt-text="<alt text>":::
+:::image type="content" source="../media/key-vault-recovery-3.png" alt-text="<A screenshot of the Azure portal>":::
 
-:::image type="content" source="../media/keyvaultrecovery4.png" alt-text="<alt text>":::
+:::image type="content" source="../media/key-vault-recovery-4.png" alt-text="<A screenshot of the Azure portal>":::
 
 ## List, recover or purge soft deleted secrets, keys, and certificates
 
@@ -84,7 +82,7 @@ It is important to note that **key vault names are globally unique**, so you won
 1. Select the secret, key, or certificate you would like to manage.
 1. Select the option to recover or purge at the bottom of the context pane.
 
-:::image type="content" source="../media/keyvaultrecovery5.png" alt-text="<alt text>":::
+:::image type="content" source="../media/key-vault-recovery-5.png" alt-text="<A screenshot of the Azure portal>":::
 
 # [Azure CLI](#tab/azure-cli)
 
