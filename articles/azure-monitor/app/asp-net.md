@@ -31,17 +31,17 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ## Add Application Insights automatically
 
-This section will guide you through automatically adding Application Insights to a template-based ASP.NET web app.
+This section will guide you through automatically adding Application Insights to a template-based ASP.NET web app. From within your ASP.NET web app project in Visual Studio:
 
 1. Select **Add Application Insights Telemetry** > **Application Insights Sdk (local)** > **Next** > **Finish** > **Close**.
 2. Open the `ApplicationInsights.config` file. 
-3. Before the closing '</ApplicationInsights>' tag add a line containing the instrumentation key for your Application Insights resource.  Your instrumentation key can be found on the overview pane of your newly created Application Insights resource that you created as part of the prerequisites for this article.
+3. Before the closing `</ApplicationInsights>` tag add a line containing the instrumentation key for your Application Insights resource.  Your instrumentation key can be found on the overview pane of your newly created Application Insights resource that you created as part of the prerequisites for this article.
 
     ```xml
 	<InstrumentationKey>your-instrumentation-key-goes-here</InstrumentationKey>
 	```
-4. Select **Project** > **Manage NuGet Packages** > **Updates** > Update each Microsoft.ApplicationInsights NuGet package to the latest stable release.   
-5. Run your application by selecting **IIS Express**. A basic ASP.NET app will launch as you navigate the pages on the site telemetry will be sent to Application Insights.
+4. Select **Project** > **Manage NuGet Packages** > **Updates** > Update each `Microsoft.ApplicationInsights` NuGet package to the latest stable release.   
+5. Run your application by selecting **IIS Express**. A basic ASP.NET app will launch. As you navigate the pages on the site telemetry will be sent to Application Insights.
 
 ## Add Application Insights manually
 
@@ -205,7 +205,7 @@ This section will guide you through manually adding Application Insights to a te
 	<InstrumentationKey>your-instrumentation-key-goes-here</InstrumentationKey>
 	```
 
-5. At the same level of your project as the applicationinsights.config file, create a folder called `ErrorHandler` with a new C# file called `AiHandleErrorAttribute.cs`. The contents of the file will look as follows:
+5. At the same level of your project as the `ApplicationInsights.config` file, create a folder called `ErrorHandler` with a new C# file called `AiHandleErrorAttribute.cs`. The contents of the file will look as follows:
 
 ```csharp
 using System;
@@ -331,7 +331,7 @@ namespace WebApplication10 //Namespace will vary based on project name
 
 ```
 
-You have now successfully configured server-side application monitoring. If you run your web app, you will be able to see telemetry begin to show within Application Insights.
+You have now successfully configured server-side application monitoring. If you run your web app, you will be able to see telemetry begin to appear within Application Insights.
 
 ## Add client-side monitoring
 
