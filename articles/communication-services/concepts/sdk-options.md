@@ -28,7 +28,7 @@ Azure Communication Services capabilities are conceptually organized into six ar
 | SMS                    | REST | Open              | Azure.Communication.SMS             | Send and receive SMS messages |
 | Calling                | Proprietary transport | Closed |Azure.Communication.Calling         | Leverage voice, video, screen-sharing, and other real-time data communication capabilities          |
 
-Note, the ARM, Administration, and SMS SDKs are focused on service integration, and in many cases security issues arise if you integrate these functions into end-user applications. The Common and Chat SDKs are suitable for service and client applications. The Calling SDK is designed for client applications, an SDK focused on service scenarios is in development. 
+Note that the Azure Resource Manager, Administration, and SMS client libraries are focused on service integration, and in many cases security issues arise if you integrate these functions into end-user applications. The Common and Chat client libraries are suitable for service and client applications. The Calling client library is designed for client applications. A client library focused on service scenarios is in development.
 
 ### Languages and publishing locations
 
