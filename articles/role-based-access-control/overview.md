@@ -75,7 +75,7 @@ For more information, see [Understand Azure role definitions](role-definitions.m
 
 *Scope* is the set of resources that the access applies to. When you assign a role, you can further limit the actions allowed by defining a scope. This is helpful if you want to make someone a [Website Contributor](built-in-roles.md#website-contributor), but only for one resource group.
 
-In Azure, you can specify a scope at multiple levels: [management group](../governance/management-groups/overview.md), subscription, [resource group](../azure-resource-manager/management/overview.md#resource-groups.md), or resource. Scopes are structured in a parent-child relationship.
+In Azure, you can specify a scope at multiple levels: [management group](../governance/management-groups/overview.md), subscription, [resource group](../azure-resource-manager/management/overview.md#resource-groups), or resource. Scopes are structured in a parent-child relationship.
 
 ![Scope for a role assignment](./media/shared/rbac-scope.png)
 
