@@ -1,17 +1,17 @@
 ---
-title: Azure Storage monitoring data reference | Microsoft Docs
-description: Log and metrics reference for monitoring data from Azure Storage.
+title: Azure Files monitoring data reference | Microsoft Docs
+description: Log and metrics reference for monitoring data from Azure Files.
 author: normesta
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: reference
 ms.date: 09/28/2020
 ms.author: normesta
-ms.subservice: files
+ms.subservice: logs
 ms.custom: monitoring
 ---
 
-# Azure Storage monitoring data reference
+# Azure Files monitoring data reference
 
 See [Monitoring Azure Storage](storage-files-monitoring.md) for details on collecting and analyzing monitoring data for Azure Storage.
 
