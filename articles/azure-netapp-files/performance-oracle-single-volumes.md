@@ -58,7 +58,7 @@ The tests used workload generated SLOB 2.5.4.2. SLOB (Silly Little Oracle Benchm
 
 SLOB 2.5.4.2 does not support the pluggable database (PDB). As such, a change was added to the `setup.sh` and `runit.sh` scripts to add PDB support to it.  
 
-The SLOB variables used in the tests are as follows:
+The SLOB variables used in the tests are described in the following sections.
 
 #### Workload 80% SELECT, 20% UPDATE | Random I/O – `slob.conf` variables   
 
@@ -131,7 +131,7 @@ The following diagram shows the latency curve for the read operations. In this c
 
 ![Linux kNFS Client compared with Oracle Direct NFS latency curve](../media/azure-netapp-files/performance-oracle-latency-curve.png)  
 
-The DNFS client was able to push more IO requests/sec due to its ability to create hundreds of TCP socket connections, therefore taking advantage of the parallelism. As discussed in [Azure NetApp Files configuration](#anf_config), each additional TiB of capacity allocated allows for an additional 128MiB/s of bandwidth. DNFS topped out at 1 GiB/s of throughput, which is the limit imposed by the 8-TiB capacity selection. Given more capacity, more throughput would have been driven.
+The DNFS client was able to push more IO requests/sec due to its ability to create hundreds of TCP socket connections, therefore taking advantage of the parallelism. As described in [Azure NetApp Files configuration](#anf_config), each additional TiB of capacity allocated allows for an additional 128MiB/s of bandwidth. DNFS topped out at 1 GiB/s of throughput, which is the limit imposed by the 8-TiB capacity selection. Given more capacity, more throughput would have been driven.
 
 Throughput is only one of the considerations. Another consideration is latency, which has the primary impact on user experience. As the following diagram shows, latency increases can be expected far more rapidly with kNFS than with DNFS. 
 
