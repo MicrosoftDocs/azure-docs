@@ -116,7 +116,6 @@ In this tutorial, you learned how to:
 > * Search for an asset.
 
 Advance to the next tutorial to learn how to browse for assets in Azure Babylon and discover asset lineage.
-<!---
+
 > [!div class="nextstepaction"]
 > [Browse assets and view their lineage](starter-kit-tutorial-3.md)
---->

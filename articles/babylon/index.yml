@@ -39,12 +39,11 @@ landingContent:
             url: starter-kit-tutorial-1.md
           - text: 2 - Home page and search
             url: starter-kit-tutorial-2.md
-#         - text: Home page and search
-#           url: starter-kit-tutorial-3.md
-#         - text: Browse and lineage
+          - text: 3 - Browse and lineage
+            url: starter-kit-tutorial-3.md
+#         - text: 4 - Resource set, asset details, schema, and classification
 #           url: starter-kit-tutorial-4.md
-#         - text: Resource set, asset details, schema, and classification
+#         - text: 5 - Glossary, terms, and import
 #           url: starter-kit-tutorial-5.md
-#         - text: Glossary, terms, and import
-#           url: starter-kit-tutorial-6.md
+
 
