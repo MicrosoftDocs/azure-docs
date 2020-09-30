@@ -1,5 +1,5 @@
 ---
-title: Steps to assign an Azure role - Azure RBAC
+title: Steps to add a role assignment - Azure RBAC
 description: Learn the steps to assign Azure roles to users, groups, service principals, or managed identities using Azure role-based access control (Azure RBAC).
 services: active-directory
 author: rolyon
@@ -7,13 +7,13 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 09/24/2020
+ms.date: 09/29/2020
 ms.author: rolyon
 ---
 
-# Steps to assign an Azure role
+# Steps to add role assignment
 
-A role assignment consists of three elements: security principal, role definition, and scope. To assign a role, follow these high-level overview steps.
+A role assignment consists of three elements: security principal, role definition, and scope. To add a role assignment, follow these high-level overview steps.
 
 
 ## Step 1: Determine who needs access
@@ -56,9 +56,9 @@ To assign roles, you must be signed in with a user that is assigned a role that 
 
 If your user account doesn't have permission to assign a role within your subscription, you see an error message that your account "does not have authorization to perform action 'Microsoft.Authorization/roleAssignments/write'." In this case, contact the administrators of your subscription as they can assign the permissions on your behalf.
 
-## Step 5. Assign the role
+## Step 5. Add role assignment
 
-You can assign roles in several ways. Check out the following articles for detailed steps for how to assign roles using the Azure portal, Azure PowerShell, Azure CLI, or the REST API.
+You can add role assignments in several ways. Check out the following articles for detailed steps for how to add role assignments using the Azure portal, Azure PowerShell, Azure CLI, or the REST API.
 
 - [Add or remove Azure role assignments using the Azure portal](role-assignments-portal.md)
 - [Add or remove Azure role assignments using Azure PowerShell](role-assignments-powershell.md)
