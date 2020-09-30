@@ -62,3 +62,15 @@ Additionally, the service recognizes relations between the different concepts in
 ## EXAMINATION
 ### Entities
 
+### Attributes
+
+### Supported Relations
+  + **DIRECTION_OF_EXAMINATION**
+  +	**RELATION_OF_EXAMINATION**
+  +	**TIME_OF_EXAMINATION**
+  +	**UNIT_OF_EXAMINATION**
+  +	**VALUE_OF_EXAMINATION**
+
+
+
+
