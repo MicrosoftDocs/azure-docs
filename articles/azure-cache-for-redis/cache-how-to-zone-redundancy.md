@@ -45,11 +45,11 @@ To create a cache, follow these steps:
    
 1. On the **Advanced** page, choose **Replica count**.
    
-    :::image type="content" source="media/cache-how-to-multi-replicas/create-multi-replicas.png" alt-text="Create Azure Cache for Redis.":::
+    :::image type="content" source="media/cache-how-to-multi-replicas/create-multi-replicas.png" alt-text="Replica count":::
 
 1. Select **Availability zones**. 
    
-    :::image type="content" source="media/cache-how-to-zone-redundancy/create-zones.png" alt-text="Create Azure Cache for Redis.":::
+    :::image type="content" source="media/cache-how-to-zone-redundancy/create-zones.png" alt-text="Availability zones":::
 
 1. Leave other options in their default settings. 
 
