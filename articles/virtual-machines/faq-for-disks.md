@@ -392,13 +392,19 @@ No, it is only supported on premium SSD managed disks.
 
 No, standard SSD managed disks of any size cannot be used with unmanaged disks or page blobs.
 
-**What is the largest Managed disk size supported for operating system and data disks?**
+**What is the largest Managed disk size supported for operating system and data disks on Gen1 VMs?**
 
-The partition type that Azure supports for an operating system disk is the master boot record (MBR) and GUID Partition Table (GPT) for Gen 1 and Gen 2 VMs. The MBR format supports a disk size up to 2 TiB. For Gen 1 VMs, while you can allocate up to 4 TiB, you can use only up to 2 TiB of this disk space for the operating system. For Gen 2 VMs, the largest size that you can allocate and use for an operating system disk is 4 TiB. Azure supports up to 32 TiB for managed data disks.
+The partition type that Azure supports for Gen1 operating system disks is the master boot record (MBR). Although Gen1 OS disks only support MBR the data disks support GPT. While you can allocate up to a 4 TiB OS disk, the MBR partition type can only use up to 2 TiB of this disk space for the operating system. Azure supports up to 32 TiB for managed data disks.
+
+**What is the largest Managed disk size supported for operating system and data disks on Gen2 VMs?**
+
+The partition type that Azure supports for Gen2 operating system disks is GUID Partition Table (GPT). Gen2 VMs support up to a 4 TiB OS disk. Azure supports up to 32 TiB for managed data disks.
+
 
 **What is the largest Unmanaged Disk size supported for operating system and data disks?**
 
-The partition type that Azure supports for an operating system disk is the master boot record (MBR). The MBR format supports a disk size up to 2 TiB. The largest size that Azure supports for an operating system Unmanaged disk is 4 TiB. Azure supports up to 4 TiB for data Unmanaged disks.
+The partition type that Azure supports for an operating system disk using unmanaged disks is the master boot record (MBR).  While you can allocate up to a 4 TiB OS disk, the MBR partition type can only use up to 2 TiB of this disk space for the operating system. Azure supports up to 4 TiB for Unmanaged data disks.
+
 
 **What is the largest page blob size that's supported?**
 
