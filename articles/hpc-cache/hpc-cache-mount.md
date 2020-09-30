@@ -84,7 +84,7 @@ Follow this procedure to create the mount command.
 
    Click the copy symbol to the right side of the field to automatically copy it to your clipboard.
 
-   ![screenshot of the namespace paths field, with selector open](media/mount-command-copy.png)
+   ![screenshot of the prototype mount command field, showing hover text for the "copy to clipboard" button](media/mount-command-copy.png)
 
 1. Use the copied mount command on the client machine to connect it to the Azure HPC Cache. You can issue the command directly from the client command line, or include the mount command in a client setup script or template.
 
