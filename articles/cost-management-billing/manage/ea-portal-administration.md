@@ -3,9 +3,10 @@ title: Azure EA portal administration
 description: This article explains the common tasks that an administrator accomplishes in the Azure EA portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/13/2020
+ms.date: 09/03/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
+ms.subservice: enterprise
 ms.reviewer: boalcsva
 ---
 
@@ -169,7 +170,7 @@ This document answers commonly asked questions relating to account subscription 
 
 ### How many Azure account owners can you have per subscription?
 
-Only one account owner is permitted per subscription.  Additional roles can be added using Role-Based Access or (Access Control (IAM)) in the subscription tab in the upper left corner of the page of the [Azure portal](https://portal.azure.com).
+Only one account owner is permitted per subscription.  Additional roles can be added using Azure role-based access control (Azure RBAC) in the subscription tab in the upper left corner of the page of the [Azure portal](https://portal.azure.com).
 
 ### Can an Azure account owner be listed under more than one department?
 
@@ -185,7 +186,7 @@ An Azure account owner can create and manage an unlimited number of subscription
 
 ### How can I access/view all my organization's subscriptions?
 
-Today this must be done by policy; meaning you would need to require that for every subscription created, your account is added to a subscription role using role-based access.
+Today this must be done by policy; meaning you would need to require that for every subscription created, your account is added to a subscription role using Azure role-based access control (Azure RBAC).
 
 ### Where do I go to create a subscription?
 

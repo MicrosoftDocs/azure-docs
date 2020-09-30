@@ -408,13 +408,13 @@ $job = Start-AzAutomationRunbook -AutomationAccountName $automationAccountName -
 $pollingSeconds = 5
 $maxTimeout = 10800
 $waitTime = 0
-while((IsJobTerminalState $job.Status) -eq $false -and $waitTime -lt $maxTimeout) {
+while($false -eq (IsJobTerminalState $job.Status) -and $waitTime -lt $maxTimeout) {
    Start-Sleep -Seconds $pollingSeconds
    $waitTime += $pollingSeconds
-   $jobResults = $job | Get-AzAutomationJob
+   $job = $job | Get-AzAutomationJob
 }
 
-$jobResults | Get-AzAutomationJobOutput | Get-AzAutomationJobOutputRecord | Select-Object -ExpandProperty Value
+$job | Get-AzAutomationJobOutput | Get-AzAutomationJobOutputRecord | Select-Object -ExpandProperty Value
 ```
 
 ## <a name="fails-deserialized-object"></a>Scenario: Runbook fails because of deserialized object

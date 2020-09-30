@@ -6,6 +6,7 @@ metadata:
   title: Save with Azure reservations
   description: Learn how Azure Reservations help you save money by committing to one-year or three-years plans for virtual machines, Azure Blob storage or Azure Data Lake Storage Gen2, SQL Database compute capacity, Azure Cosmos DB throughput, and other Azure resources. 
   ms.service: cost-management-billing
+  ms.subservice: reservations
   ms.topic: landing-page
   ms.collection: collection
   author: bandersmsft
@@ -58,7 +59,7 @@ landingContent:
       links:
       - text: Reserved VM instances
         url: ../manage/understand-vm-reservation-charges.md
-      - text: Azure Strorage reserved capacity
+      - text: Azure Storage reserved capacity
         url: understand-storage-charges.md
       - text: Cosmos DB reserved capacity
         url: understand-cosmosdb-reservation-charges.md

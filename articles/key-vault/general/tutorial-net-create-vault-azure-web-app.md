@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Use Azure Key Vault with an Azure webapp in .NET | Microsoft Docs
-description: In this tutorial, you configure an ASP.NET core application to read a secret from your key vault.
+description: In this tutorial, you configure and Azure webapp in an ASP.NET core application to read a secret from your key vault.
 services: key-vault
 author: msmbaldwin
 manager: rajvijan
@@ -10,6 +10,7 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: mbaldwin
+ms.custom: devx-track-csharp
 
 #Customer intent: As a developer I want to use Azure Key Vault to store secrets for my app, so that they are kept secure.
 
@@ -52,11 +53,7 @@ az keyvault create --name "<your-keyvault-name>" -g "myResourceGroup"
 
 Make a note of the returned `vaultUri`, which will be in the format "https://&lt;your-keyvault-name&gt;.vault.azure.net/". It will be used in the [Update the code](#update-the-code) step.
 
-You can now place a secret in your key vault with the [az keyvault secret set](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-set) command. Set the name of your secret to "MySecret" and the value to "Success!".
-
-```azurecli-interactive
-az keyvault secret set --vault-name "<your-keyvault-name>" --name "MySecret" --value "Success!"
-```
+[!INCLUDE [Create a secret](../../../includes/key-vault-create-secret.md)]
 
 ## Create a .NET web app
 
@@ -143,7 +140,7 @@ When the App Service plan has been created, the Azure CLI shows information simi
 
 ### Create a remote web app
 
-Create an [Azure web app](../../app-service/containers/app-service-linux-intro.md) in the `myAppServicePlan` App Service plan. 
+Create an [Azure web app](../../app-service/overview.md#app-service-on-linux) in the `myAppServicePlan` App Service plan. 
 
 > [!Important]
 > Similar to Key Vault, an Azure Web App must have a unique name. Replace \<your-webapp-name\> with the name of your web app the following examples.

@@ -8,8 +8,9 @@ author: tamram
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.date: 06/04/2020
-ms.author: tamram
+ms.date: 08/17/2020
+ms.author: tamram 
+ms.custom: devx-track-azurecli
 ---
 
 # Quickstart: Create, download, and list blobs with Azure CLI
@@ -73,20 +74,28 @@ az storage account create \
 
 ## Create a container
 
-Blobs are always uploaded into a container. You can organize groups of blobs in containers similar to the way you organize your files on your computer in folders. Create a container for storing blobs with the [az storage container create](/cli/azure/storage/container) command. 
+Blobs are always uploaded into a container. You can organize groups of blobs in containers similar to the way you organize your files on your computer in folders. Create a container for storing blobs with the [az storage container create](/cli/azure/storage/container) command.
 
-The following example uses your Azure AD account to authorize the operation to create the container. Before you create the container, assign the [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) role to yourself. Even if you are the account owner, you need explicit permissions to perform data operations against the storage account. For more information about assigning RBAC roles, see [Use Azure CLI to assign an RBAC role for access](../common/storage-auth-aad-rbac-cli.md?toc=/azure/storage/blobs/toc.json).  
-
-You can also use the storage account key to authorize the operation to create the container. For more information about authorizing data operations with Azure CLI, see [Authorize access to blob or queue data with Azure CLI](../common/authorize-data-operations-cli.md?toc=/azure/storage/blobs/toc.json).
+The following example uses your Azure AD account to authorize the operation to create the container. Before you create the container, assign the [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) role to yourself. Even if you are the account owner, you need explicit permissions to perform data operations against the storage account. For more information about assigning Azure roles, see [Use Azure CLI to assign an Azure role for access](../common/storage-auth-aad-rbac-cli.md?toc=/azure/storage/blobs/toc.json).  
 
 Remember to replace placeholder values in angle brackets with your own values:
 
 ```azurecli
+az ad signed-in-user show --query objectId -o tsv | az role assignment create \
+    --role "Storage Blob Data Contributor" \
+    --assignee @- \
+    --scope "/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>"
+
 az storage container create \
     --account-name <storage-account> \
     --name <container> \
     --auth-mode login
 ```
+
+> [!IMPORTANT]
+> Azure role assignments may take a few minutes to propagate.
+
+You can also use the storage account key to authorize the operation to create the container. For more information about authorizing data operations with Azure CLI, see [Authorize access to blob or queue data with Azure CLI](../common/authorize-data-operations-cli.md?toc=/azure/storage/blobs/toc.json).
 
 ## Upload a blob
 

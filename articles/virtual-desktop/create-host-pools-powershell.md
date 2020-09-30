@@ -1,12 +1,9 @@
 ---
 title: Create Windows Virtual Desktop host pool PowerShell - Azure
 description: How to create a host pool in Windows Virtual Desktop with PowerShell cmdlets.
-services: virtual-desktop
 author: Heidilohr
-
-ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 04/30/2020
+ms.date: 08/11/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -55,7 +52,7 @@ New-AzRoleAssignment -SignInName <userupn> -RoleDefinitionName "Desktop Virtuali
 Run this next cmdlet to add Azure Active Directory user groups to the default desktop app group for the host pool:
 
 ```powershell
-New-AzRoleAssignment -ObjectId <usergroupobjectid> -RoleDefinitionName "Desktop Virtualization User" -ResourceName <hostpoolname+“-DAG”> -ResourceGroupName <resourcegroupname> -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups'
+New-AzRoleAssignment -ObjectId <usergroupobjectid> -RoleDefinitionName "Desktop Virtualization User" -ResourceName <hostpoolname+"-DAG"> -ResourceGroupName <resourcegroupname> -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups'
 ```
 
 Run the following cmdlet to export the registration token to a variable, which you will use later in [Register the virtual machines to the Windows Virtual Desktop host pool](#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool).
@@ -113,6 +110,32 @@ To register the Windows Virtual Desktop agents, do the following on each virtual
 
 >[!IMPORTANT]
 >To help secure your Windows Virtual Desktop environment in Azure, we recommend you don't open inbound port 3389 on your VMs. Windows Virtual Desktop doesn't require an open inbound port 3389 for users to access the host pool's VMs. If you must open port 3389 for troubleshooting purposes, we recommend you use [just-in-time VM access](../security-center/security-center-just-in-time.md). We also recommend you don't assign your VMs to a public IP.
+
+## Update the agent
+
+You'll need to update the agent if you're in one of the following situations:
+
+- You want to migrate a previously registered session to a new host pool
+- The session host doesn't appear in your host pool after an update
+
+To update the agent:
+
+1. Sign in to the VM as an administrator.
+2. Go to **Services**, then stop the **Rdagent** and **Remote Desktop Agent Loader** processes.
+3. Next, find the agent and bootloader MSIs. They'll either be located in the **C:\DeployAgent** folder or whichever location you saved it to when you installed it.
+4. Find the following files and uninstall them:
+     
+     - Microsoft.RDInfra.RDAgent.Installer-x64-verx.x.x
+     - Microsoft.RDInfra.RDAgentBootLoader.Installer-x64
+
+   To uninstall these files, right-click on each file name, then select **Uninstall**.
+5. Optionally, you can also remove the following registry settings:
+     
+     - Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\RDInfraAgent
+     - Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\RDAgentBootLoader
+
+6. Once you've uninstalled these items, this should remove all associations with the old host pool. If you want to reregister this host to the service, follow the instructions in [Register the virtual machines to the Windows Virtual Desktop host pool](create-host-pools-powershell.md#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool).
+
 
 ## Next steps
 

@@ -11,7 +11,11 @@
       expanded: true
       items:
       - name: Set up - Azure portal
-        href: data-box-quickstart-portal.md
+        items:
+        - name: For import
+          href: data-box-quickstart-portal.md
+        - name: For export
+          href: data-box-quickstart-export.md
     - name: Tutorials
       items:
       - name: Import data to Azure
@@ -73,7 +77,9 @@
         - name: Security baseline
           href: security-baseline.md
         - name: Review security 
-          href: data-box-security.md 
+          href: data-box-security.md
+      - name: Transfer ACLs and metadata
+        href: data-box-file-acls-preservation.md 
       - name: FAQ
         href: data-box-faq.md 
     - name: How to

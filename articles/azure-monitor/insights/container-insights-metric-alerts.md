@@ -2,7 +2,7 @@
 title: Metric alerts from Azure Monitor for containers | Microsoft Docs
 description: This article reviews the recommended metric alerts available from Azure Monitor for containers in public preview.
 ms.topic: conceptual
-ms.date: 07/21/2020
+ms.date: 08/04/2020
 
 ---
 
@@ -29,7 +29,7 @@ Before you start, confirm the following:
 
     The value shown should be a version later than **ciprod05262020**. If your cluster has an older version, follow the [upgrade agent on AKS cluster](container-insights-manage-agent.md#upgrade-agent-on-aks-cluster) steps to get the latest version.
     
-    For more information related to the agent release, see [agent release history](https://github.com/microsoft/docker-provider/tree/ci_feature_prod). To verify metrics are being collected, you can use Azure Monitor metrics explorer and verify from the **Metric namespace** that **insights** is listed. If it is, you can go ahead and start setting up the alerts.
+    For more information related to the agent release, see [agent release history](https://github.com/microsoft/docker-provider/tree/ci_feature_prod). To verify metrics are being collected, you can use Azure Monitor metrics explorer and verify from the **Metric namespace** that **insights** is listed. If it is, you can go ahead and start setting up the alerts. If you don't see any metrics collected, the cluster Service Principal or MSI is missing the necessary permissions. To verify the SPN or MSI is a member of the **Monitoring Metrics Publisher** role, follow the steps described in the section [Upgrade per cluster using Azure CLI](container-insights-update-metrics.md#upgrade-per-cluster-using-azure-cli) to confirm and set role assignment.
 
 ## Alert rules overview
 
@@ -140,7 +140,7 @@ The basic steps are as follows:
 
 2. To deploy a customized template through the portal, select **Create a resource** from the [Azure portal](https://portal.azure.com).
 
-3. Search for **template**, and then select **Template**. deployment.
+3. Search for **template**, and then select **Template deployment**.
 
 4. Select **Create**.
 

@@ -68,6 +68,18 @@ The following table compares the uses for various kinds of access keys:
 
 To learn more about access keys, see the [HTTP trigger binding article](functions-bindings-http-webhook-trigger.md#obtaining-keys).
 
+
+#### Secret repositories
+
+By default, keys are stored in a Blob storage container in the account provided by the `AzureWebJobsStorage` setting. You can use specific application settings to override this behavior and store keys in a different location.
+
+|Location  |Setting | Value | Description  |
+|---------|---------|---------|---------|
+|Different storage account     |  `AzureWebJobsSecretStorageSas`       | `<BLOB_SAS_URL` | Stores keys in Blob storage of a second storage account, based on the provided SAS URL. Keys are encrypted before being stored using a secret unique to your function app. |
+|File system   | `AzureWebJobsSecretStorageType`   |  `files`       | Keys are persisted on the file system, encrypted before storage using a secret unique to your function app. |
+|Azure Key Vault  | `AzureWebJobsSecretStorageType`<br/>`AzureWebJobsSecretStorageKeyVaultName` | `keyvault`<br/>`<VAULT_NAME>` | The vault must have an access policy corresponding to the system-assigned managed identity of the hosting resource. The access policy should grant the identity the following secret permissions: `Get`,`Set`, `List`, and `Delete`. <br/>When running locally, the developer identity is used, and settings must be in the [local.settings.json file](functions-run-local.md#local-settings-file). | 
+|Kubernetes Secrets  |`AzureWebJobsSecretStorageType`<br/>`AzureWebJobsKubernetesSecretName` (optional) | `kubernetes`<br/>`<SECRETS_RESOURCE>` | Supported only when running the Functions runtime in Kubernetes. When `AzureWebJobsKubernetesSecretName` isn't set, the repository is considered read-only. In this case, the values must be generated before deployment. The Azure Functions Core Tools generates the values automatically when deploying to Kubernetes.|
+
 ### Authentication/authorization
 
 While function keys can provide some mitigation for unwanted access, the only way to truly secure your function endpoints is by implementing positive authentication of clients accessing your functions. You can then make authorization decisions based on identity.  
@@ -80,7 +92,7 @@ As with any application or service, the goal is run your function app with the l
 
 #### User management permissions
 
-Functions supports built-in [Azure role-based access control (RBAC)](../role-based-access-control/overview.md). RBAC roles supported by Functions are [Contributor](../role-based-access-control/built-in-roles.md#contributor), [Owner](../role-based-access-control/built-in-roles.md#owner), and [Reader](../role-based-access-control/built-in-roles.md#owner). 
+Functions supports built-in [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md). Azure roles supported by Functions are [Contributor](../role-based-access-control/built-in-roles.md#contributor), [Owner](../role-based-access-control/built-in-roles.md#owner), and [Reader](../role-based-access-control/built-in-roles.md#owner). 
 
 Permissions are effective at the function app level. The Contributor role is required to perform most function app-level tasks. Only the Owner role can delete a function app. 
 
@@ -113,6 +125,8 @@ By default, you store connection strings and secrets used by your function app a
 For example, every function app requires an associated storage account, which is used by the runtime. By default, the connection to this storage account is stored in an application setting named `AzureWebJobsStorage`.
 
 App settings and connection strings are stored encrypted in Azure. They're decrypted only before being injected into your app's process memory when the app starts. The encryption keys are rotated regularly. If you prefer to instead manage the secure storage of your secrets, the app setting should instead be references to Azure Key Vault. 
+
+You can also encrypt settings by default in the local.settings.json file when developing functions on your local computer. To learn more, see the `IsEncrypted` property in the [local settings file](functions-run-local.md#local-settings-file).  
 
 #### Key Vault references
 
@@ -204,4 +218,3 @@ Gateway services, such as [Azure Application Gateway](../application-gateway/ove
 
 + [Azure Security Baseline for Azure Functions](security-baseline.md)
 + [Azure Functions diagnostics](functions-diagnostics.md)
-        

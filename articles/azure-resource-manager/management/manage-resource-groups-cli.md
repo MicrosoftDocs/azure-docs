@@ -3,8 +3,9 @@ title: Manage resource groups - Azure CLI
 description: Use Azure CLI to manage your resource groups through Azure Resource Manager. Shows how to create, list, and delete resource groups.
 author: mumian
 ms.topic: conceptual
-ms.date: 02/11/2019
-ms.author: jgao
+ms.date: 09/01/2020
+ms.author: jgao 
+ms.custom: devx-track-azurecli
 ---
 
 # Manage Azure Resource Manager resource groups by using Azure CLI
@@ -26,14 +27,10 @@ The resource group stores metadata about the resources. When you specify a locat
 
 ## Create resource groups
 
-The following CLI script creates a resource group, and then shows the resource group.
+The following CLI command creates a resource group.
 
 ```azurecli-interactive
-echo "Enter the Resource Group name:" &&
-read resourceGroupName &&
-echo "Enter the location (i.e. centralus):" &&
-read location &&
-az group create --name $resourceGroupName --location $location
+az group create --name demoResourceGroup --location westus
 ```
 
 ## List resource groups
@@ -139,7 +136,7 @@ For more information, see [Single and multi-resource export to template in Azure
 
 ## Manage access to resource groups
 
-[Role-based access control (RBAC)](../../role-based-access-control/overview.md) is the way that you manage access to resources in Azure. For more information, see [Manage access using RBAC and Azure CLI](../../role-based-access-control/role-assignments-cli.md).
+[Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) is the way that you manage access to resources in Azure. For more information, see [Add or remove Azure role assignments using Azure CLI](../../role-based-access-control/role-assignments-cli.md).
 
 ## Next steps
 

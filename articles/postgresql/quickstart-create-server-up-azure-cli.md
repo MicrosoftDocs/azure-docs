@@ -6,7 +6,8 @@ ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 05/06/2019
+ms.date: 05/06/2019 
+ms.custom: devx-track-azurecli
 ---
 # Quickstart: Use an Azure CLI command, az postgres up (preview), to create an Azure Database for PostgreSQL - Single Server
 
@@ -68,7 +69,7 @@ admin-password | System generated | The password of the administrator user.
 
 Once your server is created, it comes with the following settings:
 
-- A firewall rule called "devbox" is created. The Azure CLI attempts to detect the IP address of the machine the `az postgres up` command is run from and whitelists that IP address.
+- A firewall rule called "devbox" is created. The Azure CLI attempts to detect the IP address of the machine the `az postgres up` command is run from and allows that IP address.
 - "Allow access to Azure services" is set to ON. This setting configures the server's firewall to accept connections from all Azure resources, including resources not in your subscription.
 - An empty database named "sampledb" is created
 - A new user named "root" with privileges to "sampledb" is created

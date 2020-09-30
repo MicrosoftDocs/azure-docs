@@ -3,9 +3,10 @@ title: Quickstart - Explore Azure costs with cost analysis
 description: This quickstart helps you use cost analysis to explore and analyze your Azure organizational costs.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/08/2020
+ms.date: 08/20/2020
 ms.topic: quickstart
 ms.service: cost-management-billing
+ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom: seodec18
 ---
@@ -143,7 +144,7 @@ Watch the video [Sharing and saving views in Azure Cost Management](https://www.
 
 >[!VIDEO https://www.youtube.com/embed/kQkXXj-SmvQ]
 
-To pin cost analysis, select the pin icon in the upper-right corner. Pinning cost analysis will save only the main chart or table view. Share the dashboard to give others access to the tile. Note that this shares only the dashboard configuration and doesn't grant others access to the underlying data. If you don't have access to costs but do have access to a shared dashboard, you'll see an "access denied" message.
+To pin cost analysis, select the pin icon in the upper-right corner or just after the "<Subscription Name> | Cost analysis". Pinning cost analysis will save only the main chart or table view. Share the dashboard to give others access to the tile. Note that this shares only the dashboard configuration and doesn't grant others access to the underlying data. If you don't have access to costs but do have access to a shared dashboard, you'll see an "access denied" message.
 
 To share a link to cost analysis, select **Share** at the top of the blade. A custom URL will show, which opens this specific view for this specific scope. If you don't have cost access and get this URL, you'll see an "access denied" message.
 
@@ -155,6 +156,10 @@ There are times when you need to download the data for further analysis, merge i
 
 If you need the full, unaggregated dataset, download it from the billing account. Then, from the list of services in the portal's left navigation pane, go to **Cost Management + Billing**. Select your billing account, if applicable. Go to **Usage + charges**, and then select the **Download** icon for the desired billing period.
 
+## Clean up resources
+
+- If you pinned a customized view for cost analysis and you no longer need it, go to the dashboard where you pinned it and and delete the pinned view.
+- If you downloaded usage data files and you no longer need them, be sure to delete them.
 
 ## Next steps
 

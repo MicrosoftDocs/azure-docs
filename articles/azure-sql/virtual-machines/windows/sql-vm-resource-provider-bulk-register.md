@@ -7,7 +7,7 @@ author: MashaMSFT
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/21/2019
@@ -31,7 +31,7 @@ For more information about the resource provider, see [SQL VM resource provider]
 To register your SQL Server VM with the resource provider, you'll need the following: 
 
 - An [Azure subscription](https://azure.microsoft.com/free/) that has been [registered with the resource provider](sql-vm-resource-provider-register.md#register-subscription-with-rp) and contains unregistered SQL Server virtual machines. 
-- The client credentials used to register the virtual machines exist in any of the following RBAC roles: **Virtual Machine contributor**, **Contributor**, or **Owner**. 
+- The client credentials used to register the virtual machines exist in any of the following Azure roles: **Virtual Machine contributor**, **Contributor**, or **Owner**. 
 - The latest version of [Az PowerShell](/powershell/azure/new-azureps-module-az). 
 - The latest version of [Az.SqlVirtualMachine](https://www.powershellgallery.com/packages/Az.SqlVirtualMachine/0.1.0).
 

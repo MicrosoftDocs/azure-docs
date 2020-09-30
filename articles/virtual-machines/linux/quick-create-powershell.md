@@ -5,14 +5,14 @@ author: cynthn
 ms.service: virtual-machines-linux
 ms.topic: quickstart
 ms.workload: infrastructure
-ms.date: 10/17/2018
+ms.date: 07/31/2020
 ms.author: cynthn
 ms.custom: mvc
 ---
 
 # Quickstart: Create a Linux virtual machine in Azure with PowerShell
 
-The Azure PowerShell module is used to create and manage Azure resources from the PowerShell command line or in scripts. This quickstart shows you how to use the Azure PowerShell module to deploy a Linux virtual machine (VM) in Azure. This quickstart uses the Ubuntu 16.04 LTS marketplace image from Canonical. To see your VM in action, you'll also SSH to the VM and install the NGINX web server.
+The Azure PowerShell module is used to create and manage Azure resources from the PowerShell command line or in scripts. This quickstart shows you how to use the Azure PowerShell module to deploy a Linux virtual machine (VM) in Azure. This quickstart uses the Ubuntu 18.04 LTS marketplace image from Canonical. To see your VM in action, you'll also SSH to the VM and install the NGINX web server.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -24,17 +24,18 @@ To open the Cloud Shell, just select **Try it** from the upper right corner of a
 
 ## Create SSH key pair
 
-You need an SSH key pair to complete this quickstart. If you already have an SSH key pair, you can skip this step.
+Use [ssh-keygen](https://www.ssh.com/ssh/keygen/) to create an SSH key pair. If you already have an SSH key pair, you can skip this step.
 
-Open a bash shell and use [ssh-keygen](https://www.ssh.com/ssh/keygen/) to create an SSH key pair. If you don't have a bash shell on your local computer, you can use the [Azure Cloud Shell](https://shell.azure.com/bash).  
 
 ```azurepowershell-interactive
-ssh-keygen -t rsa -b 2048
+ssh-keygen -m PEM -t rsa -b 4096
 ```
 
-For more detailed information on how to create SSH key pairs, including the use of PuTTy, see [How to use SSH keys with Windows](ssh-from-windows.md).
+You will be prompted to provide a filename for the key pair or you can hit **Enter** to use the default location of `/home/<username>/.ssh/id_rsa`. You will also be able to create a password for the keys, if you like.
 
-If you create your SSH key pair using the Cloud Shell, it will be stored in a container image in a [storage account that is automatically created by Cloud Shell](../../cloud-shell/persisting-shell-storage.md). Don't delete the storage account, or the files share within it, until after you have retrieved your keys or you will lose access to the VM. 
+For more detailed information on how to create SSH key pairs, see [How to use SSH keys with Windows](ssh-from-windows.md).
+
+If you create your SSH key pair using the Cloud Shell, it will be stored in a [storage account that is automatically created by Cloud Shell](../../cloud-shell/persisting-shell-storage.md). Don't delete the storage account, or the files share in it, until after you have retrieved your keys or you will lose access to the VM. 
 
 ## Create a resource group
 
@@ -142,7 +143,7 @@ Set-AzVMOperatingSystem `
 Set-AzVMSourceImage `
   -PublisherName "Canonical" `
   -Offer "UbuntuServer" `
-  -Skus "16.04-LTS" `
+  -Skus "18.04-LTS" `
   -Version "latest" | `
 Add-AzVMNetworkInterface `
   -Id $nic.Id
@@ -173,7 +174,7 @@ Create an SSH connection with the VM using the public IP address. To see the pub
 Get-AzPublicIpAddress -ResourceGroupName "myResourceGroup" | Select "IpAddress"
 ```
 
-Using the same bash shell you used to create your SSH key pair (like the [Azure Cloud Shell](https://shell.azure.com/bash) or your local bash shell) paste the SSH connection command into the shell to create an SSH session.
+Using the same shell you used to create your SSH key pair, paste the the following command into the shell to create an SSH session. Replace *10.111.12.123* with the IP address of your VM.
 
 ```bash
 ssh azureuser@10.111.12.123

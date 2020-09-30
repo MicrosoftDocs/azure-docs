@@ -1,6 +1,6 @@
 ---
 title: Overview of access control in Azure Data Lake Storage Gen2 | Microsoft Docs
-description: Understand how access control works in Azure Data Lake Storage Gen2
+description: Understand how access control works in Azure Data Lake Storage Gen2. Azure role-based access control (Azure RBAC) and POSIX-like ACLs are supported.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
@@ -12,7 +12,7 @@ ms.reviewer: jamesbak
 
 # Access control in Azure Data Lake Storage Gen2
 
-Azure Data Lake Storage Gen2 implements an access control model that supports both Azure role-based access control (RBAC) and POSIX-like access control lists (ACLs). This article summarizes the basics of the access control model for Data Lake Storage Gen2.
+Azure Data Lake Storage Gen2 implements an access control model that supports both Azure role-based access control (Azure RBAC) and POSIX-like access control lists (ACLs). This article summarizes the basics of the access control model for Data Lake Storage Gen2.
 
 <a id="azure-role-based-access-control-rbac"></a>
 
@@ -205,13 +205,12 @@ for entry in entries:
 member_count = 0
 perms = 0
 entries = get_acl_entries( path, NAMED_GROUP | OWNING_GROUP )
+mask = get_mask( path )
 for entry in entries:
 if (user_is_member_of_group(user, entry.identity)) :
-    member_count += 1
-    perms | =  entry.permissions
-if (member_count>0) :
-return ((desired_perms & perms & mask ) == desired_perms)
-
+    if ((desired_perms & entry.permissions & mask) == desired_perms)
+        return True 
+        
 # Handle other
 perms = get_perms_for_other(path)
 mask = get_mask( path )
@@ -252,7 +251,7 @@ The umask for Azure Data Lake Storage Gen2 a constant value that is set to 007. 
 | umask.owning_group  |    0         |   `---`      | For owning group, copy the parent's default ACL to the child's access ACL | 
 | umask.other         |    7         |   `RWX`      | For other, remove all permissions on the child's access ACL |
 
-The umask value used by Azure Data Lake Storage Gen2 effectively means that the value for **other** is never transmitted by default on new children, regardless of what the default ACL indicates. 
+The umask value used by Azure Data Lake Storage Gen2 effectively means that the value for **other** is never transmitted by default on new children, unless a default ACL is defined on the parent directory. In that case, the umask is effectively ignored and the permissions defined by the default ACL are applied to the child item. 
 
 The following pseudocode shows how the umask is applied when creating the ACLs for a child item.
 

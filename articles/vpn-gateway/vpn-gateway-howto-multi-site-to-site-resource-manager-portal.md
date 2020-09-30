@@ -8,7 +8,7 @@ author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 10/09/2019
+ms.date: 09/02/2020
 ms.author: cherylmc
 
 ---
@@ -39,7 +39,7 @@ Verify the following items:
 * The virtual network gateway for your VNet is RouteBased. If you have a PolicyBased VPN gateway, you must delete the virtual network gateway and create a new VPN gateway as RouteBased.
 * None of the address ranges overlap for any of the VNets that this VNet is connecting to.
 * You have compatible VPN device and someone who is able to configure it. See [About VPN Devices](vpn-gateway-about-vpn-devices.md). If you aren't familiar with configuring your VPN device, or are unfamiliar with the IP address ranges located in your on-premises network configuration, you need to coordinate with someone who can provide those details for you.
-* You have an externally facing public IP address for your VPN device. This IP address cannot be located behind a NAT.
+* You have an externally facing public IP address for your VPN device.
 
 ## <a name="part1"></a>Part 1 - Configure a connection
 1. From a browser, navigate to the [Azure portal](https://portal.azure.com) and, if necessary, sign in with your Azure account.

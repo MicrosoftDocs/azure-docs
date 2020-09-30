@@ -6,22 +6,13 @@ ms.author: aul
 
 ms.subservice: 
 ms.topic: conceptual
-ms.date: 02/07/2020
+ms.date: 08/04/2020
 
 ---
 
 # Azure Monitor view designer to workbooks transition guide
-[View designer](view-designer.md) is a feature of Azure Monitor that allows you to create custom views to help you visualize data in your Log Analytics workspace, with charts, lists, and timelines. They are being phased out and replaced with workbooks which provide additional functionality. This article provides an overview of the process for converting your existing views to workbooks.
+[View designer](view-designer.md) is a feature of Azure Monitor that allows you to create custom views to help you visualize data in your Log Analytics workspace, with charts, lists, and timelines. They have been transitioned to Workbooks to provide a flexible canvas for data analysis and creation of rich visual reports within the Azure portal. This article helps you make the transition from View designer to Workbooks. 
 
-## Retirement schedule
-
-| Change | What this means | Expected Date |
-|:---|:---|:---|
-| Disable the creation of new views created through View Designer. | You will no longer be able to create and save new custom views in the Azure portal.| November 2020 |
-| Disable the edit function for existing views with View Designer. | You will no longer be able to modify and save changes to your existing custom views. | November 2020 |
-| Disable deployment of views to Log Analytics workspaces | You will no longer be able to deploy custom views using ARM to Log Analytics workspaces. | March 2021 |
-| View Designer no longer available in the Azure portal | The portal experience will no longer support View Designer. | June 2021 |
-| Custom views removed from the Workspace Summary | You will no longer be able to access your custom view data. | December 2021 |
 
 ## Workbooks overview
 [Workbooks](../insights/vminsights-workbooks.md) combine text, [log queries](../log-query/query-language.md), metrics, and parameters into rich interactive reports. Team members with the same access to Azure resources are also able to edit workbooks.

@@ -12,7 +12,7 @@ ms.author: sawinark
 author: swinarko
 ms.reviewer: douglasl
 manager: mflasko
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, devx-track-azurepowershell
 ms.date: 07/20/2020
 ---
 
@@ -92,7 +92,7 @@ On the **Settings** tab of Execute SSIS Package activity, complete the following
 
 **SSISDB** as your package location is automatically selected if your Azure-SSIS IR was provisioned with an SSIS catalog (SSISDB) hosted by Azure SQL Database server/Managed Instance or you can select it yourself. If it's selected, complete the following steps.
 
-   1. If your Azure-SSIS IR is running and the **Manual entries** check box is cleared, browse and select your existing folders, projects, packages, and environments from SSISDB. Select **Refresh** to fetch your newly added folders, projects, packages, or environments from SSISDB, so that they're available for browsing and selection. To browse and select the environments for your package executions, you must configure your projects beforehand to add those environments as references from the same folders under SSISDB. For more information, see [Create and map SSIS environments](https://docs.microsoft.com/sql/integration-services/create-and-map-a-server-environment?view=sql-server-2014).
+   1. If your Azure-SSIS IR is running and the **Manual entries** check box is cleared, browse and select your existing folders, projects, packages, and environments from SSISDB. Select **Refresh** to fetch your newly added folders, projects, packages, or environments from SSISDB, so that they're available for browsing and selection. To browse and select the environments for your package executions, you must configure your projects beforehand to add those environments as references from the same folders under SSISDB. For more information, see [Create and map SSIS environments](https://docs.microsoft.com/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages).
 
    1. For **Logging level**, select a predefined scope of logging for your package execution. Select the **Customized** check box if you want to enter your customized logging name instead. 
 
@@ -264,7 +264,7 @@ On the **Property Overrides** tab of Execute SSIS Package activity, complete the
 
    1. Enter the paths of existing properties in your selected package one by one to assign values to them manually. Make sure that they exist and are correctly entered for your package execution to succeed. For example, to override the value of your user variable, enter its path in the following format: `\Package.Variables[User::<variable name>].Value`. 
 
-      You can obtain the correct **PROPERTY PATH** for any package property by opening the package that contains it on SSDT. After the package is opened, select its control flow and **Configurations** property on the **Properties** window of SSDT. Next, select the ellipsis (**...**) button next to its **Configurations** property to open the **Package Configurations Organizer** that's normally used to [create package configurations in Package Deployment Model](https://docs.microsoft.com/sql/integration-services/create-package-configurations?view=sql-server-2014). 
+      You can obtain the correct **PROPERTY PATH** for any package property by opening the package that contains it on SSDT. After the package is opened, select its control flow and **Configurations** property on the **Properties** window of SSDT. Next, select the ellipsis (**...**) button next to its **Configurations** property to open the **Package Configurations Organizer** that's normally used to [create package configurations in Package Deployment Model](https://docs.microsoft.com/sql/integration-services/packages/legacy-package-deployment-ssis#create-package-configurations). 
 
       ![Get package properties from SSDT - Configurations property](media/how-to-invoke-ssis-package-ssis-activity/ssdt-package-properties.png)
 

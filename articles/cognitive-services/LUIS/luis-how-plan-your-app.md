@@ -1,6 +1,8 @@
 ---
 title: Plan your app - LUIS
 description: Outline relevant app intents and entities, and then create your application plans in Language Understanding Intelligent Services (LUIS).
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/14/2020
 ---
@@ -59,7 +61,7 @@ Consider the following two utterances which are very close considering word choi
 
 Instead of having two separate intents, create a single intent with a `FlightAction` machine learning entity. The machine learning entity should extract the details of the action for both a scheduling and a cancelling request as well as either a origin or destination location.
 
-The `FlightAction` entity would be structured in the following suedo-schema of machine learning entity and subentities:
+The `FlightAction` entity would be structured in the following pseudo-schema of machine learning entity and subentities:
 
 * FlightAction
     * Action

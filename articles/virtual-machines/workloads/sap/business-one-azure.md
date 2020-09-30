@@ -116,7 +116,7 @@ These documents should help you to decide on the selection of storage types and 
 
 In principle you should:
 
-- Use Premium SSDs over Standard HDDs. To learn more about the available disk types, see our article [Select a disk type](../../windows/disks-types.md)
+- Use Premium SSDs over Standard HDDs. To learn more about the available disk types, see our article [Select a disk type](../../disks-types.md)
 - Use Azure Managed disks over unmanaged disks
 - Make sure that you have sufficient IOPS and I/O throughput configured with your disk configuration
 - Combine /hana/data and /hana/log volume in order to have a cost efficient storage configuration
@@ -147,7 +147,7 @@ For SAP HANA backup and restore strategies, you should read the document [Backup
 ### Business One client server
 For these components storage considerations are not the primary concern. nevertheless, you want to have a reliable platform. Therefore, you should use Azure Premium Storage for this VM, even for the base VHD. Sizing the VM, with the data given in [SAP Business One Hardware Requirements Guide](https://help.sap.com/http.svc/rc/011000358700000244612011e/9.3/en-US/B1_Hardware_Requirements_Guide.pdf). For Azure, you need to focus and calculate with the requirements stated in chapter 2.4 of the document. As you calculate the requirements, you need to compare them against the following documents to find the ideal VM for you:
 
-- [Sizes for Windows virtual machines in Azure](../../windows/sizes.md)
+- [Sizes for Windows virtual machines in Azure](../../sizes.md)
 - [SAP Note #1928533](https://launchpad.support.sap.com/#/notes/1928533)
 
 Compare number of CPUs and memory needed to what is documented by Microsoft. Also keep network throughput in mind when choosing the VMs.

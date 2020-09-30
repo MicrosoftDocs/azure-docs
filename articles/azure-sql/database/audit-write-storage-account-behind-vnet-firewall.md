@@ -4,7 +4,7 @@ description: Configure auditing to write database events on a storage account be
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.topic: conceptual
+ms.topic: how-to
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
@@ -111,7 +111,7 @@ To configure SQL Audit to write events to a storage account behind a VNet or Fir
    }
    ```
 
-2. Open [Azure portal](https://portal.azure.com). Navigate to your storage account. Locate **Access Control (IAM)**, and click **Add role assignment**. Assign **Storage Blob Data Contributor** RBAC role to the server hosting the database that you registered with Azure Active Directory (Azure AD) as in the previous step.
+2. Open [Azure portal](https://portal.azure.com). Navigate to your storage account. Locate **Access Control (IAM)**, and click **Add role assignment**. Assign **Storage Blob Data Contributor** Azure role to the server hosting the database that you registered with Azure Active Directory (Azure AD) as in the previous step.
 
    > [!NOTE]
    > Only members with Owner privilege can perform this step. For various Azure built-in roles, refer to [Azure built-in roles](../../role-based-access-control/built-in-roles.md).

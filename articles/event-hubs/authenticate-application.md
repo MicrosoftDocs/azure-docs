@@ -20,10 +20,12 @@ Azure provides the following Azure built-in roles for authorizing access to Even
 - [Azure Event Hubs Data Sender](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender): Use this role to give send access to Event Hubs resources.
 - [Azure Event Hubs Data Receiver](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver): Use this role to give receiving access to Event Hubs resources.   
 
+For Schema Registry built-in roles, see [Schema Registry roles](schema-registry-overview.md#role-based-access-control).
+
 > [!IMPORTANT]
 > Our preview release supported adding Event Hubs data access privileges to Owner or Contributor role. However, data access privileges for Owner and Contributor role are no longer honored. If you are using the Owner or Contributor role, switch to using the Azure Event Hubs Data Owner role.
 
-## Assign RBAC roles using the Azure portal  
+## Assign Azure roles using the Azure portal  
 To learn more on managing access to Azure resources using RBAC and the Azure portal, see [this article](..//role-based-access-control/role-assignments-portal.md). 
 
 After you've determined the appropriate scope for a role assignment, navigate to that resource in the Azure portal. Display the access control (IAM) settings for the resource, and follow these instructions to manage role assignments:

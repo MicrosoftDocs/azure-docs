@@ -3,10 +3,10 @@
 title: Tutorial develop C module for Linux - Azure IoT Edge | Microsoft Docs 
 description: This tutorial shows you how to create an IoT Edge module with C code and deploy it to a Linux device running IoT Edge
 services: iot-edge
-author: shizn
+author: kgremban
 manager: philmea
 
-ms.author: xshi
+ms.author: kgremban
 ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
@@ -55,6 +55,8 @@ Before beginning this tutorial, you should have gone through the previous tutori
 To develop an IoT Edge module in C, install the following additional prerequisites on your development machine:
 
 * [C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) for Visual Studio Code.
+
+Installing the Azure IoT C SDK is not required for this tutorial, but can provide helpful functionality like intellisense and reading program definitions. For installation information, see [Azure IoT C SDKs and Libraries](https://github.com/Azure/azure-iot-sdk-c).
 
 ## Create a module project
 

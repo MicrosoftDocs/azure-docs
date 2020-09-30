@@ -1,11 +1,11 @@
 ---
 title: Azure Cosmos DB bindings for Functions 1.x
-description: Understand how to use Azure Cosmos DB triggers and bindings in Azure Functions.
+description: Understand how to use Azure Cosmos DB triggers and bindings in Azure Functions 1.x.
 author: craigshoemaker
 ms.author: cshoe
 ms.topic: reference
 ms.date: 11/21/2017
-ms.custom: seodec18
+ms.custom: "devx-track-csharp, seodec18"
 ---
 
 # Azure Cosmos DB bindings for Azure Functions 1.x

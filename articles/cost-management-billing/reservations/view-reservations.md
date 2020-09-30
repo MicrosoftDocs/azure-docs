@@ -1,9 +1,10 @@
 ---
 title: View reservations for Azure resources| Microsoft Docs
-description: Learn how to view Azure reservations in the Azure portal.
+description: Learn how to view Azure reservations in the Azure portal. See reservations and utilization by using APIs, PowerShell, CLI, and Power BI.
 author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
+ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders

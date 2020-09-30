@@ -1262,6 +1262,20 @@ For important additional information, see [Monitoring Agents Overview](agents-ov
 |requests/rate|No|Server request rate|CountPerSecond|Average|Rate of server requests per second|request/performanceBucket, request/resultCode, operation/synthetic, cloud/roleInstance, request/success, cloud/roleName|
 |traces/count|Yes|Traces|Count|Count|Trace document count|trace/severityLevel, operation/synthetic, cloud/roleName, cloud/roleInstance|
 
+## Microsoft.IoTCentral/IoTApps
+
+|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|---|
+|c2d.property.read.failure|Yes|Failed Device Property Reads from IoT Central|Count|Total|The count of all failed property reads initiated from IoT Central|No Dimensions|
+|c2d.property.read.success|Yes|Successful Device Property Reads from IoT Central|Count|Total|The count of all successful property reads initiated from IoT Central|No Dimensions|
+|c2d.property.update.failure|Yes|Failed Device Property Updates from IoT Central|Count|Total|The count of all failed property updates initiated from IoT Central|No Dimensions|
+|c2d.property.update.success|Yes|Successful Device Property Updates from IoT Central|Count|Total|The count of all successful property updates initiated from IoT Central|No Dimensions|
+|connectedDeviceCount|No|Total Connected Devices|Count|Average|Number of devices connected to IoT Central|No Dimensions|
+|d2c.property.read.failure|Yes|Failed Device Property Reads from Devices|Count|Total|The count of all failed property reads initiated from devices|No Dimensions|
+|d2c.property.read.success|Yes|Successful Device Property Reads from Devices|Count|Total|The count of all successful property reads initiated from devices|No Dimensions|
+|d2c.property.update.failure|Yes|Failed Device Property Updates from Devices|Count|Total|The count of all failed property updates initiated from devices|No Dimensions|
+|d2c.property.update.success|Yes|Successful Device Property Updates from Devices|Count|Total|The count of all successful property updates initiated from devices|No Dimensions|
+
 
 ## Microsoft.KeyVault/vaults
 

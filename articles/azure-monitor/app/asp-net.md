@@ -38,7 +38,7 @@ Application Insights Configuration screen:
 
 Select **Get Started**.
 
-![Screenshot of Register your app with Application Insights page](./media/asp-net/00004-start-free.png)
+![Screenshot shows the Application Insights page and Get Started button.](./media/asp-net/00004-start-free.png)
 
 If you want to set the resource group or the location where your data is stored, click **Configure settings**. Resource groups are used to control access to data. For example, if you have several apps that form part of the same system, you might put their Application Insights data in the same resource group.
 
@@ -108,7 +108,10 @@ The Azure resource that receives your app's telemetry is identified by an *instr
 
 
 ## Upgrade to future SDK versions
-To upgrade to a [new release of the SDK](https://github.com/Microsoft/ApplicationInsights-dotnet-server/releases), open the **NuGet package manager**, and filter on installed packages. Select **Microsoft.ApplicationInsights.Web**, and choose **Upgrade**.
+
+* [Release Notes](./release-notes.md)
+
+To upgrade to a new release of the SDK, open the **NuGet package manager**, and filter on installed packages. Select **Microsoft.ApplicationInsights.Web**, and choose **Upgrade**.
 
 If you made any customizations to ApplicationInsights.config, save a copy of it before you upgrade. Then, merge your changes into the new version.
 

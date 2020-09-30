@@ -11,9 +11,9 @@ ms.date: 07/14/2020
 
 # Cloud Solution Provider program
 
-This article explains how to configure your offer to be available to the Cloud Solution Provider (CSP) program. In addition to publishing your offers through [commercial marketplace web storefronts](comparing-appsource-azure-marketplace.md), you can also sell through the CSP program to reach millions of qualified Microsoft customers that the program serves.
+This article explains how to configure your offer to be available to the Cloud Solution Provider (CSP) program. In addition to publishing your offers through [commercial marketplace online stores](comparing-appsource-azure-marketplace.md), you can also sell through the CSP program to reach millions of qualified Microsoft customers that the program serves.
 
-You can configure new or existing offers for availability in the CSP program on an opt-in basis, which allows CSP partners sell your products and create bundled solutions for customers.
+You can configure new or existing offers for availability in the CSP program on an opt-in basis, which allows CSP partners to sell your products and create bundled solutions for customers.
 
 Publishers are responsible for providing break-fix support to end customers and for providing a mechanism for partners in the CSP program and/or customers to contact you for support. It is a best practice to provide partners in the CSP program with user documentation, training, and service health/outage notifications (as applicable) so that partners in the CSP program are equipped to handle tier 1 support requests from customers.  
 
@@ -161,7 +161,7 @@ If your offer is currently **Option 3: No partners in the CSP program**, you can
 
 ## Sharing sales and support materials with partners in the CSP program
 
-To help partners in the Cloud Solution Provider program most effectively represent your offer and engage with your organization, you must submit sales and support materials that will be available to the resellers. These resources will not be exposed to customers in the marketplace storefronts.
+To help partners in the Cloud Solution Provider program most effectively represent your offer and engage with your organization, you must submit sales and support materials that will be available to the resellers. These resources will not be exposed to customers in the online stores.
 
 ### Partner Center CSP channel
 

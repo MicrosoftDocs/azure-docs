@@ -21,10 +21,10 @@ The physical structure of an index is determined by the schema, with fields mark
 You can create an index with the following tools and APIs:
 
 * In the Azure portal, use **Add Index** or **Import data** wizard
-* Using the [Create Index (REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index)
-* Using the [.NET SDK](search-create-index-dotnet.md)
+* Using the [Create Index (REST API)](/rest/api/searchservice/create-index)
+* Using the [.NET SDK](./search-get-started-dotnet.md)
 
-It's easier to learn with a portal tool. The portal enforces requirements and schema rules for specific data types, such as disallowing full text search capabilities on numeric fields. Once you have a workable index, you can transition to code by retrieving the JSON definition from the service using [Get Index (REST API)](https://docs.microsoft.com/rest/api/searchservice/get-index) and adding it to your solution.
+It's easier to learn with a portal tool. The portal enforces requirements and schema rules for specific data types, such as disallowing full text search capabilities on numeric fields. Once you have a workable index, you can transition to code by retrieving the JSON definition from the service using [Get Index (REST API)](/rest/api/searchservice/get-index) and adding it to your solution.
 
 ## Recommended workflow
 
@@ -54,7 +54,7 @@ Arriving at a final index design is an iterative process. It's common to start w
 
    ![Add index page showing attributes by data type](media/search-what-is-an-index//field-definitions.png "Add index page showing attributes by data type")
 
-1. Download the index schema using [Get Index (REST API)](https://docs.microsoft.com/rest/api/searchservice/get-index) and a web testing tool like [Postman](search-get-started-postman.md). You now have a JSON representation of the index that you can adapt for code.
+1. Download the index schema using [Get Index (REST API)](/rest/api/searchservice/get-index) and a web testing tool like [Postman](search-get-started-postman.md). You now have a JSON representation of the index that you can adapt for code.
 
 1. [Load your index with data](search-what-is-data-import.md). Azure Cognitive Search accepts JSON documents. To load your data programmatically, you can use Postman with JSON documents in the request payload. If your data is not easily expressed as JSON, this step will be the most labor intensive. 
 
@@ -175,7 +175,7 @@ Fields have a name, a type that classifies the stored data, and attributes that 
 | Edm.DateTimeOffset |Date time values represented in the OData V4 format (for example, `yyyy-MM-ddTHH:mm:ss.fffZ` or `yyyy-MM-ddTHH:mm:ss.fff[+/-]HH:mm`). |
 | Edm.GeographyPoint |A point representing a geographic location on the globe. |
 
-For more information, see [supported data types](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types).
+For more information, see [supported data types](/rest/api/searchservice/Supported-data-types).
 
 <a name="index-attributes"></a>
 
@@ -190,14 +190,14 @@ String fields are often marked as "searchable" and "retrievable". Fields used to
 |"searchable" |Full-text searchable, subject to lexical analysis such as word-breaking during indexing. If you set a searchable field to a value like "sunny day", internally it will be split into the individual tokens "sunny" and "day". For details, see [How full text search works](search-lucene-query-architecture.md).|  
 |"filterable" |Referenced in $filter queries. Filterable fields of type `Edm.String` or `Collection(Edm.String)` do not undergo word-breaking, so comparisons are for exact matches only. For example, if you set such a field f to "sunny day", `$filter=f eq 'sunny'` will find no matches, but `$filter=f eq 'sunny day'` will. |  
 |"sortable" |By default the system sorts results by score, but you can configure sort based on fields in the documents. Fields of type `Collection(Edm.String)` cannot be "sortable". |  
-|"facetable" |Typically used in a presentation of search results that includes a hit count by category (for example, hotels in a specific city). This option cannot be used with fields of type `Edm.GeographyPoint`. Fields of type `Edm.String` that are filterable, "sortable", or "facetable" can be at most 32 kilobytes in length. For details, see [Create Index (REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index).|  
+|"facetable" |Typically used in a presentation of search results that includes a hit count by category (for example, hotels in a specific city). This option cannot be used with fields of type `Edm.GeographyPoint`. Fields of type `Edm.String` that are filterable, "sortable", or "facetable" can be at most 32 kilobytes in length. For details, see [Create Index (REST API)](/rest/api/searchservice/create-index).|  
 |"key" |Unique identifier for documents within the index. Exactly one field must be chosen as the key field and it must be of type `Edm.String`.|  
 |"retrievable" |Determines whether the field can be returned in a search result. This is useful when you want to use a field (such as *profit margin*) as a filter, sorting, or scoring mechanism, but do not want the field to be visible to the end user. This attribute must be `true` for `key` fields.|  
 
 Although you can add new fields at any time, existing field definitions are locked in for the lifetime of the index. For this reason, developers typically use the portal for creating simple indexes, testing ideas, or using the portal pages to look up a setting. Frequent iteration over an index design is more efficient if you follow a code-based approach so that you can rebuild the index easily.
 
 > [!NOTE]
-> The APIs you use to build an index have varying default behaviors. For the [REST APIs](https://docs.microsoft.com/rest/api/searchservice/Create-Index), most attributes are enabled by default (for example, "searchable" and "retrievable" are true for string fields) and you often only need to set them if you want to turn them off. For the .NET SDK, the opposite is true. On any property you do not explicitly set, the default is to disable the corresponding search behavior unless you specifically enable it.
+> The APIs you use to build an index have varying default behaviors. For the [REST APIs](/rest/api/searchservice/Create-Index), most attributes are enabled by default (for example, "searchable" and "retrievable" are true for string fields) and you often only need to set them if you want to turn them off. For the .NET SDK, the opposite is true. On any property you do not explicitly set, the default is to disable the corresponding search behavior unless you specifically enable it.
 
 ## `analyzers`
 
@@ -205,7 +205,7 @@ The analyzers element sets the name of the language analyzer to use for the fiel
 
 ## `suggesters`
 
-A suggester is a section of the schema that defines which fields in an index are used to support auto-complete or type-ahead queries in searches. Typically, partial search strings are sent to the [Suggestions (REST API)](https://docs.microsoft.com/rest/api/searchservice/suggestions) while the user is typing a search query, and the API returns a set of suggested documents or phrases. 
+A suggester is a section of the schema that defines which fields in an index are used to support auto-complete or type-ahead queries in searches. Typically, partial search strings are sent to the [Suggestions (REST API)](/rest/api/searchservice/suggestions) while the user is typing a search query, and the API returns a set of suggested documents or phrases. 
 
 Fields added to a suggester are used to build type-ahead search terms. All of the search terms are created during indexing and stored separately. For more information about creating a suggester structure, see [Add suggesters](index-add-suggesters.md).
 

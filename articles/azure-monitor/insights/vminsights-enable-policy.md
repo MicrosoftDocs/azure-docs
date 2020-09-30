@@ -12,10 +12,10 @@ ms.date: 07/27/2020
 # Enable Azure Monitor for VMs by using Azure Policy
 This article explains how to enable Azure Monitor for VMs for Azure virtual machines or hybrid virtual machine connected with Azure Arc (preview) using Azure Policy. Azure Policy allows you to assign policy definitions that install the required agents for Azure Monitor for VMs across your Azure environment and automatically enable monitoring for VMs as each virtual machine is created. Azure Monitor for VMs provides a feature that allows you to discover and remediate noncompliant VMs in your environment. Use this feature instead of working directly with Azure Policy.
 
-If you're not familiar with Azure Policy, get a brief introduction at [Deploy Azure Monitor at scale using Azure Policy](../platform/deploy-scale.md).
+If you're not familiar with Azure Policy, get a brief introduction at [Deploy Azure Monitor at scale using Azure Policy](../deploy-scale.md).
 
 > [!NOTE]
-> To use Azure Policy with Azure virtual machine scale sets, or to work with Azure Policy directly to enable Azure virtual machines, see [Deploy Azure Monitor at scale using Azure Policy](../platform/deploy-scale.md#azure-monitor-for-vms-and-virtual-machine-agents).
+> To use Azure Policy with Azure virtual machine scale sets, or to work with Azure Policy directly to enable Azure virtual machines, see [Deploy Azure Monitor at scale using Azure Policy](../deploy-scale.md#azure-monitor-for-vms).
 
 ## Prerequisites
 - [Create and configure a Log Analytics workspace](vminsights-configure-workspace.md).
@@ -98,7 +98,7 @@ To create a remediation task to mitigate compliance issues, click **Create Remed
 
 Click **Remediate** to create the remediation task and then **Remediate** to start it. You will most likely need to create multiple remediation tasks, one for each policy definition. You can't create a remediation task for an initiative.
 
-[![Remediation](media/vminsights-enable-at-scale-policy/remediation.png)](media/vminsights-enable-at-scale-policy/remediation.png#lightbox)
+[![Screenshot shows the Policy Remediation pane for Monitor | Virtual Machines.](media/vminsights-enable-at-scale-policy/remediation.png)](media/vminsights-enable-at-scale-policy/remediation.png#lightbox)
 
 
 Once the remediation tasks are complete, your VMs should be compliant with agents installed and enabled for Azure Monitor for VMs. 

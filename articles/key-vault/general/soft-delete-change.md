@@ -8,7 +8,7 @@ tags: azure-resource-manager
 
 ms.service: key-vault
 ms.subservice: general
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 07/27/2020
 ms.author: sudbalas
 
@@ -19,6 +19,8 @@ ms.author: sudbalas
 
 > [!WARNING]
 > **Breaking Change**: The ability to opt out of soft-delete will be deprecated by the end of the year and soft-delete protection will automatically be turned on for all key vaults.  Azure Key Vault users and administrators should enable soft-delete on their key vaults immediately.
+>
+> For Managed HSM, soft-delete is enabled by default and cannot be disabled.
 
 When a secret is deleted from a key vault without soft-delete protection, the secret is permanently deleted. Users can currently opt out of soft-delete during key vault creation but, to protect your secrets from accidental or malicious deletion by a user, Microsoft will soon enable soft-delete protection on **all** key vaults, and users will no longer have the option to opt out or turn soft-delete off.
 
@@ -46,7 +48,7 @@ Security principals that need access to permanently delete secrets must be grant
 
 If you have an Azure Policy on your key vaults that mandates that soft-delete is turned off, this policy will need to be disabled.  You may need to escalate this issue to an administrator that controls Azure Policies applied to your environment. If this policy is not disabled, you may lose the ability to create new key vaults in the scope of the applied policy.
 
-If your organization is subject to has legal compliance requirements and cannot allow deleted key vaults and secrets to remain in a recoverable state, for an extended period of time, you will have to adjust the retention period of soft-delete, which is configurable between 7 – 90 days, to meet your organization’s standards.
+If your organization is subject to legal compliance requirements and cannot allow deleted key vaults and secrets to remain in a recoverable state, for an extended period of time, you will have to adjust the retention period of soft-delete, which is configurable between 7 – 90 days, to meet your organization’s standards.
 
 ## Procedures
 
@@ -64,14 +66,14 @@ If your organization is subject to has legal compliance requirements and cannot 
 10. In the Azure Policy Blade, click "Compliance".
 11. Select the policy you applied.
 
-You should now be able to filter and see which of your key vaults have soft-delete enabled (compliant resources) and which key vaults do not have soft-delete enabled (non -compliant resourced).
+You should now be able to filter and see which of your key vaults have soft-delete enabled (compliant resources) and which key vaults do not have soft-delete enabled (non-compliant resources).
 
 ### Turn on Soft Delete for an existing key vault
 
 1. Log in to the Azure portal.
 2. Search for your Key Vault.
 3. Select "Properties" under settings.
-4. Under Soft-Delete, select the radio button corresponding to "Enable recovery. of this vault and its objects".
+4. Under Soft-Delete, select the radio button corresponding to "Enable recovery of this vault and its objects".
 5. Set the retention period for soft-delete.
 6. Select "Save".
 

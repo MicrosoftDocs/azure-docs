@@ -7,7 +7,7 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.author: spelluru
-ms.custom: seo-python-october2019, tracking-python
+ms.custom: seo-python-october2019, devx-track-python
 ---
 
 # Quickstart: Use Azure Service Bus queues with Python
@@ -76,7 +76,7 @@ For more information about quotas, see [Service Bus quotas][Service Bus quotas].
 The queue client receives messages from a queue by using the `get_receiver` method on the **ServiceBusClient** object. The following code example creates a queue client and receives a message from the `taskqueue` queue. Replace `<connectionstring>` with your Service Bus primary connection string value. 
 
 ```python
-from azure.servicebus import QueueClient, Message
+from azure.servicebus import QueueClient
 
 # Create the QueueClient
 queue_client = QueueClient.from_connection_string("<connectionstring>", "taskqueue")

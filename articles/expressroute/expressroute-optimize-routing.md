@@ -2,12 +2,12 @@
 title: 'Azure ExpressRoute: Optimize routing'
 description: This page provides details on how to optimize routing when you have more than one ExpressRoute circuits that connect between Microsoft and your corp network.
 services: expressroute
-author: charwen
+author: duongau
 
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 07/11/2019
-ms.author: charwen
+ms.author: duau
 
 
 ---

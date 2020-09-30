@@ -9,7 +9,7 @@ ms.topic: tutorial
 Azure Resource Graph Explorer lets you save your Resource Graph queries directly in the Azure
 portal. There are two types of queries: _Private_ and _Shared_. A Private query is saved in your
 Azure portal settings. Whereas a Shared query is a Azure Resource Manager resource that can be
-managed with role-based access controls (RBAC) and protected with resource locks. Both types of
+managed with Azure role-based access control (Azure RBAC) and protected with resource locks. Both types of
 queries are encrypted at rest.
 
 By saving queries in the Azure portal, you save the time you might otherwise spend looking for your
@@ -76,7 +76,7 @@ follow these steps:
 ## Create a Shared query
 
 Unlike a Private query, a Shared query is a Resource Manager resource. This fact means the query
-gets saved to a resource group, can be managed and controlled with RBAC, and can even be protected
+gets saved to a resource group, can be managed and controlled with Azure RBAC, and can even be protected
 with resource locks. As a resource, anyone who has the appropriate permissions can see and use it.
 To create a new Shared query, follow these steps:
 

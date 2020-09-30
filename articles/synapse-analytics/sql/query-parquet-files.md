@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
+ms.reviewer: jrasnick 
 ---
 
 # Query Parquet files using SQL on-demand (preview) in Azure Synapse Analytics
@@ -19,7 +19,7 @@ In this article, you'll learn how to write a query using SQL on-demand (preview)
 
 `OPENROWSET` function enables you to read the content of parquet file by providing the URL to your file.
 
-### Reading parquet file
+### Read parquet file
 
 The easiest way to see to the content of your `PARQUET` file is to provide file URL to `OPENROWSET` function and specify parquet `FORMAT`. If the file is publicly available or if your Azure AD identity can access this file, you should be able to see the content of the file using the query like the one shown in the following example:
 
@@ -32,7 +32,7 @@ from openrowset(
 
 Make sure that you access this file. If your file is protected with SAS key or custom Azure identity, your would need to setup [server level credential for sql login](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential).
 
-### Using data source
+### Data source usage
 
 Previous example uses full path to the file. As an alternative, you can create an external data source with the location that points to the root folder of the storage, and use that data source and the relative path to the file in `OPENROWSET` function:
 

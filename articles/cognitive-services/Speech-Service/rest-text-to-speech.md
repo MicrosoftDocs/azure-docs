@@ -28,6 +28,9 @@ Before using this API, understand:
 
 * The text-to-speech REST API requires an Authorization header. This means that you need to complete a token exchange to access the service. For more information, see [Authentication](#authentication).
 
+> [!TIP]
+> See the  Azure government [documentation](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure) for government cloud (FairFax) endpoints.
+
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 
 ## Get a list of voices
@@ -237,6 +240,6 @@ If the HTTP status is `200 OK`, the body of the response contains an audio file 
 
 ## Next steps
 
-- [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services)
+- [Create a free Azure account](https://azure.microsoft.com/free/cognitive-services/)
 - [Asynchronous synthesis for long-form audio](quickstarts/text-to-speech/async-synthesis-long-form-audio.md)
 - [Get started with Custom Voice](how-to-custom-voice.md)

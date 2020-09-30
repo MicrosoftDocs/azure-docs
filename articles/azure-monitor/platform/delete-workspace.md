@@ -61,7 +61,7 @@ The soft-delete method may not fit in some scenarios such as development and tes
 > [!IMPORTANT]
 > Use permanent workspace delete operation with caution since its irreversible and you won't be able to recover your workspace and its data.
 
-Add '-forceDelete' tag to permanently delete your workspace:
+Add '-ForceDelete' tag to permanently delete your workspace. The '-ForceDelete' option is currently available with Az.OperationalInsights 2.3.0 or higher. 
 
 ```powershell
 PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Name "workspace-name" -ForceDelete
@@ -83,11 +83,11 @@ You can recover your workspace during the soft-delete period including its data,
 2. In the Azure portal, select **All services**. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics workspaces**. You see the list of workspaces you have in the selected scope.
 3. Click **Recover** on the top left menu to open a page with workspaces in soft-delete state that can be recovered.
 
-   ![Recover workspace](media/delete-workspace/recover-menu.png)
+   ![Screenshot of the Log Analytics workspaces screen in Azure portal with Recover highlighted on the menu bar.](media/delete-workspace/recover-menu.png)
 
 4. Select the workspace and click **Recover** to recover that workspace.
 
-   ![Recover workspace](media/delete-workspace/recover-workspace.png)
+   ![Screenshot of the Recover deleted Log Analytics workspaces dialog in Azure portal with a workspace highlighted and the Recover button selected.](media/delete-workspace/recover-workspace.png)
 
 
 ### PowerShell

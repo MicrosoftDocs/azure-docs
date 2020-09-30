@@ -8,7 +8,7 @@ ms.date: 12/10/2019
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
-ms.custom: tracking-python
+ms.custom: devx-track-python
 ---
 
 # Quickstart: Azure Queue storage client library v12 for Python

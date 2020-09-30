@@ -3,8 +3,8 @@ title: Troubleshooting Azure metric alerts
 description: Common issues with Azure Monitor metric alerts and possible solutions. 
 author: harelbr
 ms.author: harelbr
-ms.topic: reference
-ms.date: 07/21/2020
+ms.topic: troubleshooting
+ms.date: 09/14/2020
 ms.subservice: alerts
 ---
 # Troubleshooting problems in Azure Monitor metric alerts 
@@ -102,9 +102,9 @@ Metric alerts are stateful by default, and therefore additional alerts are not f
 
 ## Define an alert rule on a custom metric that isn't emitted yet
 
-When creating a metric alert rule, the metric name is validated against the [Metric Definitions API](/rest/api/monitor/metricdefinitions/list) to make sure it exists. In some cases, you'd like to create an alert rule on a custom metric even before it’s emitted. For example, when creating (using an ARM template) an Application Insights resource that will emit a custom metric, along with an alert rule that monitors that metric.
+When creating a metric alert rule, the metric name is validated against the [Metric Definitions API](/rest/api/monitor/metricdefinitions/list) to make sure it exists. In some cases, you'd like to create an alert rule on a custom metric even before it’s emitted. For example, when creating (using an Resource Manager template) an Application Insights resource that will emit a custom metric, along with an alert rule that monitors that metric.
 
-To avoid having the deployment fail when trying to validate the custom metric’s definitions, you can use the *skipMetricValidation* parameter in the criteria section of the alert rule, which will cause the metric validation to be skipped. See the example below for how to use this parameter in an ARM template (for complete ARM template samples for creating metric alert rules, see [here]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates)).
+To avoid having the deployment fail when trying to validate the custom metric’s definitions, you can use the *skipMetricValidation* parameter in the criteria section of the alert rule, which will cause the metric validation to be skipped. See the example below for how to use this parameter in an Resource Manager template. For more information see the [complete Resource Manager template samples for creating metric alert rules](./alerts-metric-create-templates.md).
 
 ```json
 "criteria": {
@@ -123,6 +123,15 @@ To avoid having the deployment fail when trying to validate the custom metric’
               ]
 	    }
 ```
+
+## Export the Azure Resource Manager template of a metric alert rule via the Azure portal
+
+Exporting the Resource Manager template of a metric alert rule helps you understand its JSON syntax and properties, and can be used to automate future deployments.
+1. Navigate to the **Resource Groups** section in the portal, and select the resource group containing the rule.
+2. In the Overview section, check the **Show hidden types** checkbox.
+3. In the **Type** filter, select *microsoft.insights/metricalerts*.
+4. Select the relevant alert rule to view its details.
+5. Under **Settings**, select **Export template**.
 
 ## Metric alert rules quota too small
 
@@ -192,7 +201,7 @@ Make sure that you're using the right CLI commands for metric alerts:
 
    - For a platform metric: Make sure that you're using the **Metric** name from [the Azure Monitor supported metrics page](./metrics-supported.md), and not the **Metric Display Name**
 
-   - For a custom metric: Make sure that the metric is already being emitted (you cannot create an alert rule on a custom metric that doesn't yet exist), and that you're providing the custom metric's namespace (see an ARM template example [here](./alerts-metric-create-templates.md#template-for-a-static-threshold-metric-alert-that-monitors-a-custom-metric))
+   - For a custom metric: Make sure that the metric is already being emitted (you cannot create an alert rule on a custom metric that doesn't yet exist), and that you're providing the custom metric's namespace (see a Resource Manager template example [here](./alerts-metric-create-templates.md#template-for-a-static-threshold-metric-alert-that-monitors-a-custom-metric))
 
 - If you're creating [metric alerts on logs](./alerts-metric-logs.md), ensure appropriate dependencies are included. See [sample template](./alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
 
@@ -219,7 +228,7 @@ Consider the following restrictions for metric alert rule names:
 - Metric alert rule names can’t be changed (renamed) once created
 - Metric alert rule names must be unique within a resource group
 - Metric alert rule names can’t contain the following characters: * # & + : < > ? @ % { } \ / 
-- Metric alert rule names can’t end with the following character: .
+- Metric alert rule names can’t end with a space or a period
 
 
 ## Restrictions when using dimensions in a metric alert rule with multiple conditions
@@ -241,4 +250,3 @@ For example:
 ## Next steps
 
 - For general troubleshooting information about alerts and notifications, see [Troubleshooting problems in Azure Monitor alerts](alerts-troubleshoot.md).
-

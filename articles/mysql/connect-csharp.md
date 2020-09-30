@@ -1,19 +1,21 @@
 ---
-title: 'Connect using C# - Azure Database for MySQL'
+title: 'Quickstart: Connect using C# - Azure Database for MySQL'
 description: This quickstart provides a C# (.NET) code sample you can use to connect and query data from Azure Database for MySQL.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.custom: mvc
+ms.custom: "mvc, devx-track-csharp"
 ms.devlang: csharp
 ms.topic: quickstart
-ms.date: 5/26/2020
+ms.date: 9/29/2020
 ---
 
-# Azure Database for MySQL: Use .NET (C#) to connect and query data
+# Quickstart: Use .NET (C#) to connect and query data in Azure Database for MySQL
+
 This quickstart demonstrates how to connect to an Azure Database for MySQL by using a C# application. It shows how to use SQL statements to query, insert, update, and delete data in the database. This topic assumes that you are familiar with developing using C# and that you are new to working with Azure Database for MySQL.
 
 ## Prerequisites
+
 This quickstart uses the resources created in either of these guides as a starting point:
 - [Create an Azure Database for MySQL server using Azure portal](./quickstart-create-mysql-server-database-using-azure-portal.md)
 - [Create an Azure Database for MySQL server using Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md)
@@ -42,7 +44,7 @@ Get the connection information needed to connect to the Azure Database for MySQL
 2. From the left-hand menu in Azure portal, click **All resources**, and then search for the server you have created (such as **mydemoserver**).
 3. Click the server name.
 4. From the server's **Overview** panel, make a note of the **Server name** and **Server admin login name**. If you forget your password, you can also reset the password from this panel.
- ![Azure Database for MySQL server name](./media/connect-csharp/1_server-overview-name-login.png)
+ :::image type="content" source="./media/connect-csharp/1_server-overview-name-login.png" alt-text="Azure Database for MySQL server name":::
 
 ## Connect, create table, and insert data
 Use the following code to connect and load the data by using `CREATE TABLE` and  `INSERT INTO` SQL statements. The code uses the `MySqlConnection` class with method [OpenAsync()](https://docs.microsoft.com/dotnet/api/system.data.common.dbconnection.openasync#System_Data_Common_DbConnection_OpenAsync) to establish a connection to MySQL. Then the code uses method [CreateCommand()](https://docs.microsoft.com/dotnet/api/system.data.common.dbconnection.createcommand), sets the CommandText property, and calls method [ExecuteNonQueryAsync()](https://docs.microsoft.com/dotnet/api/system.data.common.dbcommand.executenonqueryasync) to run the database commands. 
@@ -52,7 +54,7 @@ Replace the `Server`, `Database`, `UserID`, and `Password` parameters with the v
 ```csharp
 using System;
 using System.Threading.Tasks;
-using MySql.Data.MySqlClient;
+using MySqlConnector;
 
 namespace AzureMySqlExample
 {
@@ -117,7 +119,7 @@ Replace the `Server`, `Database`, `UserID`, and `Password` parameters with the v
 ```csharp
 using System;
 using System.Threading.Tasks;
-using MySql.Data.MySqlClient;
+using MySqlConnector;
 
 namespace AzureMySqlExample
 {
@@ -174,7 +176,7 @@ Replace the `Server`, `Database`, `UserID`, and `Password` parameters with the v
 ```csharp
 using System;
 using System.Threading.Tasks;
-using MySql.Data.MySqlClient;
+using MySqlConnector;
 
 namespace AzureMySqlExample
 {
@@ -226,7 +228,7 @@ Replace the `Server`, `Database`, `UserID`, and `Password` parameters with the v
 ```csharp
 using System;
 using System.Threading.Tasks;
-using MySql.Data.MySqlClient;
+using MySqlConnector;
 
 namespace AzureMySqlExample
 {

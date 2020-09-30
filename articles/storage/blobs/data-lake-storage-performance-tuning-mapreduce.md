@@ -1,6 +1,6 @@
 ---
 title: 'Tune performance: MapReduce, HDInsight & Azure Data Lake Storage Gen2 | Microsoft Docs'
-description: Azure Data Lake Storage Gen2 MapReduce Performance Tuning Guidelines
+description: Understand guidelines for tuning the performance of Map Reduce jobs on Azure Data Lake Storage Gen2.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage

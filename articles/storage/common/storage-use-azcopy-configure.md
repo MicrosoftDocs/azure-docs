@@ -1,6 +1,6 @@
 ---
 title: Configure, optimize, and troubleshoot AzCopy with Azure Storage | Microsoft Docs
-description: Configure, optimize, and troubleshoot AzCopy.
+description: Configure, optimize, and troubleshoot AzCopy with Azure Storage. Change the location of or remove the plan and log files. Change the default log level.
 author: normesta
 ms.service: storage
 ms.topic: how-to

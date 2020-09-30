@@ -2,7 +2,7 @@
 title: Create a template spec with linked templates
 description: Learn how to create a template spec with linked templates.
 ms.topic: conceptual
-ms.date: 07/22/2020
+ms.date: 08/31/2020
 
 ---
 
@@ -160,40 +160,90 @@ The `relativePath` property is always relative to the template file where `relat
 
 Templates specs are stored in resource Groups.  Create a resource group, and then create a template spec with the following script. The template spec name is **webSpec**.
 
+# [PowerShell](#tab/azure-powershell)
+
 ```azurepowershell
 New-AzResourceGroup `
   -Name templateSpecRG `
   -Location westus2
 
 New-AzTemplateSpec `
-  -ResourceGroupName templateSpecRG `
   -Name webSpec `
   -Version "1.0.0.0" `
+  -ResourceGroupName templateSpecRG `
   -Location westus2 `
-  -TemplateJsonFile "c:\Templates\linkedTS\azuredeploy.json"
+  -TemplateFile "c:\Templates\linkedTS\azuredeploy.json"
 ```
 
+# [CLI](#tab/azure-cli)
+
+```azurecli
+az group create \
+  --name templateSpecRG \
+  --location westus2
+
+az ts create \
+  --name webSpec \
+  --version "1.0.0.0" \
+  --resource-group templateSpecRG \
+  --location "westus2" \
+  --template-file "c:\Templates\linkedTS\azuredeploy.json"
+```
+
+---
+
 When you are done, you can view the template spec from the Azure portal or by using the following cmdlet:
+
+# [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Get-AzTemplateSpec -ResourceGroupName templatespecRG -Name webSpec
 ```
 
+# [CLI](#tab/azure-cli)
+
+```azurecli
+az ts show --name webSpec --resource-group templateSpecRG --version "1.0.0.0"
+```
+
+---
+
 ## Deploy template spec
 
 You can now deploy the template spec. Deploying the template spec is just like deploying the template it contains, except that you pass in the resource ID of the template spec. You use the same deployment commands, and if needed, pass in parameter values for the template spec.
+
+# [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroup `
   -Name webRG `
   -Location westus2
 
-$id = (Get-AzTemplateSpec -ResourceGroupName templateSpecRG -Name webSpec -Version "1.0.0.0").Version.Id
+$id = (Get-AzTemplateSpec -ResourceGroupName templateSpecRG -Name webSpec -Version "1.0.0.0").Versions.Id
 
 New-AzResourceGroupDeployment `
   -TemplateSpecId $id `
   -ResourceGroupName webRG
 ```
+
+# [CLI](#tab/azure-cli)
+
+```azurecli
+az group create \
+  --name webRG \
+  --location westus2
+
+id = $(az template-specs show --name webSpec --resource-group templateSpecRG --version "1.0.0.0" --query "id")
+
+az deployment group create \
+  --resource-group webRG \
+  --template-spec $id
+```
+
+> [!NOTE]
+> There is a known issue with getting a template spec ID and assigning it to a variable in Windows PowerShell.
+
+---
 
 ## Next steps
 

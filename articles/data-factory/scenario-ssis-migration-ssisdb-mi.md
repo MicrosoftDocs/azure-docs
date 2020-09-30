@@ -28,7 +28,9 @@ SSISDB migration can be done using DMS, as described in the article:
 
 ## SSIS jobs to SQL Managed Instance agent
 
-SQL Managed Instance has a native, first-class scheduler just like SQL Server Agent on premises.  Since a migration tool for SSIS jobs is not yet available, they have to be migrated from SQL Server Agent on premises to SQL Managed Instance agent via scripts/manual copy.
+SQL Managed Instance has a native, first-class scheduler just like SQL Server Agent on premises.  You can [run SSIS packages via Azure SQL Managed Instance Agent](how-to-invoke-ssis-package-managed-instance-agent.md).
+
+Since a migration tool for SSIS jobs is not yet available, they have to be migrated from SQL Server Agent on premises to SQL Managed Instance agent via scripts/manual copy.
 
 ## Additional resources
 

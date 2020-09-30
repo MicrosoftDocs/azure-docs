@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 06/25/2020
+ms.date: 8/13/2020
 ---
 # Monitoring in Azure Database for MariaDB
 Monitoring data about your servers helps you troubleshoot and optimize for your workload. Azure Database for MariaDB provides various metrics that give insight into the behavior of your server.
@@ -22,7 +22,7 @@ These metrics are available for Azure Database for MariaDB:
 |---|---|---|---|
 |cpu_percent|CPU percent|Percent|The percentage of CPU in use.|
 |memory_percent|Memory percent|Percent|The percentage of memory in use.|
-|io_consumption_percent|IO percent|Percent|The percentage of IO in use. (Not applicable for Basic tier servers.)|
+|io_consumption_percent|IO percent|Percent|The percentage of IO in use. (Not applicable for Basic tier servers)|
 |storage_percent|Storage percentage|Percent|The percentage of storage used out of the server's maximum.|
 |storage_used|Storage used|Bytes|The amount of storage in use. The storage used by the service may include the database files, transaction logs, and the server logs.|
 |serverlog_storage_percent|Server Log storage percent|Percent|The percentage of server log storage used out of the server's maximum server log storage.|
@@ -31,8 +31,10 @@ These metrics are available for Azure Database for MariaDB:
 |storage_limit|Storage limit|Bytes|The maximum storage for this server.|
 |active_connections|Active Connections|Count|The number of active connections to the server.|
 |connections_failed|Failed Connections|Count|The number of failed connections to the server.|
+|seconds_behind_master|Replication lag in seconds|Count|The number of seconds the replica server is lagging against the source server. (Not applicable for Basic tier servers)|
 |network_bytes_egress|Network Out|Bytes|Network Out across active connections.|
 |network_bytes_ingress|Network In|Bytes|Network In across active connections.|
+|backup_storage_used|Backup Storage Used|Bytes|The amount of backup storage used. This metric represents the sum of storage consumed by all the full database backups, differential backups, and log backups retained based on the backup retention period set for the server. The frequency of the backups is service managed and explained in the [concepts article](concepts-backup.md). For geo-redundant storage, backup storage usage is twice that of the locally redundant storage.|
 
 ## Server logs
 

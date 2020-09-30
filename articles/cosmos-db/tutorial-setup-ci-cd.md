@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 01/28/2020
 ms.author: dech
 ms.reviewer: sngun
+ms.custom: devx-track-csharp
 ---
 # Set up a CI/CD pipeline with the Azure Cosmos DB emulator build task in Azure DevOps
 
@@ -158,15 +159,15 @@ Navigate to the Execution Options in the Visual Studio Test task. In the **Setti
 
 Now, **Save and queue** the build. 
 
-:::image type="content" source="./media/tutorial-setup-ci-cd/runBuild_1.png" alt-text="Save and run the build":::
+:::image type="content" source="./media/tutorial-setup-ci-cd/runBuild_1.png" alt-text="Screenshot shows a build with Save & queue selected.":::
 
 Once the build has started, observe the Cosmos DB emulator task has begun pulling down the Docker image with the emulator installed. 
 
-:::image type="content" source="./media/tutorial-setup-ci-cd/runBuild_4.png" alt-text="Save and run the build":::
+:::image type="content" source="./media/tutorial-setup-ci-cd/runBuild_4.png" alt-text="Screenshot shows the Cosmos D B emulator task being pulled down.":::
 
 After the build completes, observe that your tests pass, all running against the Cosmos DB emulator from the build task!
 
-:::image type="content" source="./media/tutorial-setup-ci-cd/buildComplete_1.png" alt-text="Save and run the build":::
+:::image type="content" source="./media/tutorial-setup-ci-cd/buildComplete_1.png" alt-text="Screenshot shows the Progression value in the summary tab.":::
 
 ## Next steps
 

@@ -33,10 +33,12 @@ This article covers:
 > * Use the investigation graph
 > * Respond to threats
 
-An incident can include multiple alerts. It's an aggregation of all the relevant evidence for a specific investigation. An incident is created based on analytic rules that you created in the **Analytics** page. The properties related to the alerts, such as severity, and status, are set at the incident level. After you let Azure Sentinel know what kinds of threats you're looking for and how to find them, you can monitor detected threats by investigating incidents.
+An incident can include multiple alerts. It's an aggregation of all the relevant evidence for a specific investigation. An incident is created based on analytics rules that you created in the **Analytics** page. The properties related to the alerts, such as severity and status, are set at the incident level. After you let Azure Sentinel know what kinds of threats you're looking for and how to find them, you can monitor detected threats by investigating incidents.
 
 ## Prerequisites
-You'll only be able to investigate the incident if you used the entity mapping fields when you set up your analytic rule. The investigation graph requires that your original incident includes entities.
+- You'll only be able to investigate the incident if you used the entity mapping fields when you set up your analytics rule. The investigation graph requires that your original incident includes entities.
+
+- If you have a guest user that needs to assign incidents, the user must be assigned the [Directory Reader](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) role in your Azure AD tenant. Regular (non-guest) users have this role assigned by default.
 
 ## How to investigate incidents
 
@@ -77,7 +79,7 @@ To use the investigation graph:
 1. Select an incident, then select **Investigate**. This takes you to the investigation graph. The graph provides an illustrative map of the entities directly connected to the alert and each resource connected further.
 
    > [!IMPORTANT] 
-   > You'll only be able to investigate the incident if you used the entity mapping fields when you set up your analytic rule. The investigation graph requires that your original incident includes entities.
+   > You'll only be able to investigate the incident if you used the entity mapping fields when you set up your analytics rule. The investigation graph requires that your original incident includes entities.
 
    ![View map](media/tutorial-investigate-cases/map1.png)
 

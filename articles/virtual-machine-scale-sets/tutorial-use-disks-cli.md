@@ -8,7 +8,7 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: disks
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
-ms.custom: mimckitt
+ms.custom: mimckitt, devx-track-azurecli
 
 ---
 # Tutorial: Create and use disks with virtual machine scale set with the Azure CLI
@@ -65,11 +65,13 @@ Premium disks are backed by SSD-based high-performance, low-latency disk. These 
 | Max IOPS per disk | 120 | 240 | 500 | 2,300 | 5,000 | 7,500 | 7,500 |
 Throughput per disk | 25 MB/s | 50 MB/s | 100 MB/s | 150 MB/s | 200 MB/s | 250 MB/s | 250 MB/s |
 
-While the above table identifies max IOPS per disk, a higher level of performance can be achieved by striping multiple data disks. For instance, a Standard_GS5 VM can achieve a maximum of 80,000 IOPS. For detailed information on max IOPS per VM, see [Linux VM sizes](../virtual-machines/linux/sizes.md).
+While the above table identifies max IOPS per disk, a higher level of performance can be achieved by striping multiple data disks. For instance, a Standard_GS5 VM can achieve a maximum of 80,000 IOPS. For detailed information on max IOPS per VM, see [Linux VM sizes](../virtual-machines/sizes.md).
 
 
 ## Create and attach disks
 You can create and attach disks when you create a scale set, or with an existing scale set.
+
+As of API version `2019-07-01`, you can set the size of the OS disk in a virtual machine scale set with the [storageProfile.osDisk.diskSizeGb](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosdisk) property. After provisioning, you may have to expand or repartition the disk to make use of the whole space. Learn more about [expanding the disk here](https://docs.microsoft.com/azure/virtual-machines/windows/expand-os-disk#expand-the-volume-within-the-os).
 
 ### Attach disks at scale set creation
 First, create a resource group with the [az group create](/cli/azure/group) command. In this example, a resource group named *myResourceGroup* is created in the *eastus* region.

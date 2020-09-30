@@ -4,7 +4,8 @@ description: Use Azure CLI and Azure Resource Manager to manage your resources. 
 author: mumian
 ms.topic: conceptual
 ms.date: 02/11/2019
-ms.author: jgao
+ms.author: jgao 
+ms.custom: devx-track-azurecli
 ---
 # Manage Azure resources by using Azure CLI
 
@@ -130,7 +131,7 @@ Tagging helps organizing your resource group and resources logically. For inform
 
 ## Manage access to resources
 
-[Role-based access control (RBAC)](../../role-based-access-control/overview.md) is the way that you manage access to resources in Azure. For more information, see [Manage access using RBAC and Azure CLI](../../role-based-access-control/role-assignments-cli.md).
+[Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) is the way that you manage access to resources in Azure. For more information, see [Add or remove Azure role assignments using Azure CLI](../../role-based-access-control/role-assignments-cli.md).
 
 ## Next steps
 

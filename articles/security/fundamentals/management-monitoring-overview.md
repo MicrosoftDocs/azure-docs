@@ -28,7 +28,7 @@ Role-Based Access Control (RBAC) provides detailed access management for Azure r
 Learn more:
 
 * [Active Directory team blog on RBAC](https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory)
-* [Azure Role-Based Access Control](../../role-based-access-control/role-assignments-portal.md)
+* [Azure role-based access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)
 
 ## Antimalware
 
@@ -62,7 +62,7 @@ Learn more:
 
 ## ExpressRoute
 
-You can use Azure ExpressRoute to extend your on-premises networks into the Microsoft Cloud over a dedicated private connection that's facilitated by a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services such as Azure, Office 365, and CRM Online. Connectivity can be from:
+You can use Azure ExpressRoute to extend your on-premises networks into the Microsoft Cloud over a dedicated private connection that's facilitated by a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services such as Azure, Microsoft 365, and CRM Online. Connectivity can be from:
 
 * An any-to-any (IP VPN) network.
 * A point-to-point Ethernet network.

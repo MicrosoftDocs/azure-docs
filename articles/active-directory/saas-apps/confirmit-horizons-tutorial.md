@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Confirmit Horizons | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Confirmit Horizons.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 4134ee87-a7df-4328-ba09-4c9a729a29ee
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Confirmit Horizons
 

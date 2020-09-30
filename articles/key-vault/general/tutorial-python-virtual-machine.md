@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Use Azure Key Vault with a virtual machine in Python | Microsoft Docs
-description: In this tutorial, you configure an ASP.NET core application to read a secret from your key vault.
+description: In this tutorial, you configure a virtual machine a Python application to read a secret from your key vault.
 services: key-vault
 author: msmbaldwin
 
@@ -9,7 +9,7 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 07/20/2020
 ms.author: mbaldwin
-ms.custom: mvc, tracking-python
+ms.custom: mvc, devx-track-python
 
 # Customer intent: As a developer I want to use Azure Key vault to store secrets for my app, so that they are kept secure.
 
@@ -17,19 +17,17 @@ ms.custom: mvc, tracking-python
 
 # Tutorial: Use Azure Key Vault with a virtual machine in Python
 
-Azure Key Vault helps you to protect secrets such as API keys, the database connection strings you need to access your applications, services, and IT resources.
+Azure Key Vault helps you to protect keys, secrets, and certificates, such as API keys and database connection strings.
 
-In this tutorial, you learn how to get a console application to read information from Azure Key Vault. To do so, you use managed identities for Azure resources. 
-
-The tutorial shows you how to:
+In this tutorial, you set up a Python application to read information from Azure Key Vault by using managed identities for Azure resources. You learn how to:
 
 > [!div class="checklist"]
-> * Create a key vault.
-> * Add a secret to the key vault.
-> * Retrieve a secret from the key vault.
-> * Create an Azure virtual machine.
-> * Enable a managed identity.
-> * Assign permissions to the VM identity.
+> * Create a key vault
+> * Store a secret in Key Vault
+> * Create an Azure Linux virtual machine
+> * Enable a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) for the virtual machine
+> * Grant the required permissions for the console application to read data from Key Vault
+> * Retrieve a secret from Key Vault
 
 Before you begin, read [Key Vault basic concepts](basic-concepts.md). 
 
@@ -49,34 +47,43 @@ To log in to Azure by using the Azure CLI, enter:
 az login
 ```
 
-### Create a resource group and key vault
+## Create a resource group and key vault
 
 [!INCLUDE [Create a resource group and key vault](../../../includes/key-vault-rg-kv-creation.md)]
 
-## Add a secret to the key vault
+## Populate your key vault with a secret
 
-We're adding a secret to help illustrate how this works. The secret might be a SQL connection string or any other information that you need to keep both secure and available to your application.
-
-To create a secret in the key vault called **AppSecret**, enter the following command:
-
-```azurecli
-az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --value "MySecret"
-```
-
-This secret stores the value **MySecret**.
+[!INCLUDE [Create a secret](../../../includes/key-vault-create-secret.md)]
 
 ## Create a virtual machine
-You can create a virtual machine by using one of the following methods:
 
-* [The Azure CLI](../../virtual-machines/windows/quick-create-cli.md)
-* [PowerShell](../../virtual-machines/windows/quick-create-powershell.md)
-* [The Azure portal](../../virtual-machines/windows/quick-create-portal.md)
+Create a VM called **myVM** using one of the following methods:
+
+| Linux | Windows |
+|--|--|
+| [Azure CLI](../../virtual-machines/linux/quick-create-cli.md) | [Azure CLI](../../virtual-machines/windows/quick-create-cli.md) |
+| [PowerShell](../../virtual-machines/linux/quick-create-powershell.md) | [PowerShell](../../virtual-machines/windows/quick-create-powershell.md) |
+| [Azure portal](../../virtual-machines/linux/quick-create-portal.md) | [The Azure portal](../../virtual-machines/windows/quick-create-portal.md) |
+
+To create a Linux VM using the Azure CLI, use the [az vm create](/cli/azure/vm) command.  The following example adds a user account named *azureuser*. The `--generate-ssh-keys` parameter is used to automatically generate an SSH key, and put it in the default key location (*~/.ssh*). 
+
+```azurecli-interactive
+az vm create \
+  --resource-group myResourceGroup \
+  --name myVM \
+  --image UbuntuLTS \
+  --admin-username azureuser \
+  --generate-ssh-keys
+```
+
+Note the value of `publicIpAddress` in the output.
 
 ## Assign an identity to the VM
-In this step, you create a system-assigned identity for the virtual machine by running the following command in the Azure CLI:
+
+Create a system-assigned identity for the virtual machine by using the Azure CLI [az vm identity assign](/cli/azure/vm/identity?view=azure-cli-latest#az-vm-identity-assign) command:
 
 ```azurecli
-az vm identity assign --name <NameOfYourVirtualMachine> --resource-group <YourResourceGroupName>
+az vm identity assign --name "myVM" --resource-group "myResourceGroup"
 ```
 
 Note the system-assigned identity that's displayed in the following code. The output of the preceding command would be: 
@@ -89,65 +96,73 @@ Note the system-assigned identity that's displayed in the following code. The ou
 ```
 
 ## Assign permissions to the VM identity
+
 Now you can assign the previously created identity permissions to your key vault by running the following command:
 
 ```azurecli
-az keyvault set-policy --name '<YourKeyVaultName>' --object-id <VMSystemAssignedIdentity> --secret-permissions get list
+az keyvault set-policy --name "<your-unique-keyvault-name>" --object-id "<systemAssignedIdentity>" --secret-permissions get list
 ```
 
-## Log on to the virtual machine
+## Log in to the VM
 
-To log on to the virtual machine, follow the instructions in [Connect and log on to an Azure virtual machine running Windows](../../virtual-machines/windows/connect-logon.md).
+To sign in to the virtual machine, follow the instructions in [Connect and sign in to an Azure virtual machine running Linux](../../virtual-machines/linux/login-using-aad.md) or [Connect and sign in to an Azure virtual machine running Windows](../../virtual-machines/windows/connect-logon.md).
 
-## Create and run a sample Python app
 
-In the next section is an example file named *Sample.py*. It uses a [requests](https://2.python-requests.org/en/master/) library to make HTTP GET calls.
+To log into a Linux VM, you can use the ssh command with the "<publicIpAddress>" given in the [Create a virtual machine](#create-a-virtual-machine) step:
 
-## Edit Sample.py
+```terminal
+ssh azureuser@<PublicIpAddress>
+```
 
-After you create *Sample.py*, open the file, and then copy the code in this section. 
+## Install Python libraries on the VM
 
-The code presents a two-step process:
-1. Fetch a token from the local MSI endpoint on the VM.  
-  Doing so also fetches a token from Azure AD.
-1. Pass the token to your key vault, and then fetch your secret. 
+On the virtual machine, install the two Python libraries we'll be using in our Python script: `azure-keyvault-secrets` and `azure.identity`.  
+
+On a Linux VM, for instance, you can install these using `pip3`:
+
+```bash
+pip3 install azure-keyvault-secrets
+
+pip3 install azure.identity
+```
+
+## Create and edit the sample Python script
+
+On the virtual machine, create a Python file called **sample.py**. Edit the file to contain the following code, replacing "<your-unique-keyvault-name>" with the name of your key vault:
 
 ```python
-    # importing the requests library 
-    import requests 
+from azure.keyvault.secrets import SecretClient
+from azure.identity import DefaultAzureCredential
 
-    # Step 1: Fetch an access token from a Managed Identity enabled azure resource.
-    # Resources with an MSI configured recieve an AAD access token by using the Azure Instance Metadata Service (IMDS)
-    # IMDS provides an endpoint accessible to all IaaS VMs using a non-routable well-known IP Address
-    # To learn more about IMDS and MSI Authentication see the following link: https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service
-    # Note that the resource here is https://vault.azure.net for public cloud and api-version is 2018-02-01
-    MSI_ENDPOINT = "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net"
-    r = requests.get(MSI_ENDPOINT, headers = {"Metadata" : "true"}) 
-      
-    # extracting data in json format 
-    # This request gets an access_token from Azure AD by using the local MSI endpoint.
-    data = r.json() 
-    
-    # Step 2: Pass the access_token received from previous HTTP GET call to your key vault.
-    KeyVaultURL = "https://{YOUR KEY VAULT NAME}.vault.azure.net/secrets/{YOUR SECRET NAME}?api-version=2016-10-01"
-    kvSecret = requests.get(url = KeyVaultURL, headers = {"Authorization": "Bearer " + data["access_token"]})
-    
-    print(kvSecret.json()["value"])
+keyVaultName = "<your-unique-keyvault-name>"
+KVUri = f"https://{keyVaultName}.vault.azure.net"
+secretName = "mySecret"
+
+credential = DefaultAzureCredential()
+client = SecretClient(vault_url=KVUri, credential=credential)
+retrieved_secret = client.get_secret(secretName)
+
+print(f"The value of secret '{secretName}' in '{keyVaultName}' is: '{retrieved_secret.value}'")
 ```
 
-You can display the secret value by running the following code: 
+## Run the sample Python app
 
-```console
-python Sample.py
+Lastly, run **sample.py**. If all has gone well, it should return the value of your secret:
+
+```bash
+python3 sample.py
+
+The value of secret 'mySecret' in '<your-unique-keyvault-name>' is: 'Success!'
 ```
-
-The preceding code shows you how to do operations with Azure Key Vault in a Windows virtual machine. 
 
 ## Clean up resources
 
-When they are no longer needed, delete the virtual machine and your key vault.
+When they are no longer needed, delete the virtual machine and your key vault.  You can do this quickly by simply deleting the resource group to which they belong:
+
+```azurecli
+az group delete -g myResourceGroup
+```
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Azure Key Vault REST API](https://docs.microsoft.com/rest/api/keyvault/)
+[Azure Key Vault REST API](https://docs.microsoft.com/rest/api/keyvault/)

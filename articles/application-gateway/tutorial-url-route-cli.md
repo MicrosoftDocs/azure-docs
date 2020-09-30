@@ -7,7 +7,7 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 08/01/2019
 ms.author: victorh
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 #Customer intent: As an IT administrator, I want to use Azure CLI to set up routing of web traffic to specific pools of servers based on the URL that the customer uses, so I can ensure my customers have the most efficient route to the information they need.
 ---
 
@@ -19,13 +19,12 @@ As an IT administrator managing web traffic, you want to help your customers or 
 
 In this article, you learn how to:
 
-> [!div class="checklist"]
-> * Create a resource group for the network resources you’ll need
-> * Create the network resources
-> * Create an application gateway for the traffic coming from your application
-> * Specify server pools and routing rules for the different types of traffic
-> * Create a scale set for each pool so the pool can automatically scale
-> * Run a test so you can verify that the different types of traffic go to the correct pool
+* Create a resource group for the network resources you’ll need
+* Create the network resources
+* Create an application gateway for the traffic coming from your application
+* Specify server pools and routing rules for the different types of traffic
+* Create a scale set for each pool so the pool can automatically scale
+* Run a test so you can verify that the different types of traffic go to the correct pool
 
 If you prefer, you can complete this procedure using [Azure PowerShell](tutorial-url-route-powershell.md) or the [Azure portal](create-url-route-portal.md).
 

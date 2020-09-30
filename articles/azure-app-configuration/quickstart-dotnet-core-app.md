@@ -1,11 +1,12 @@
 ---
 title: Quickstart for Azure App Configuration with .NET Core | Microsoft Docs
-description: A quickstart for using Azure App Configuration with .NET Core apps
+description: In this quickstart, create a .NET Core app with Azure App Configuration to centralize storage and management of application settings separate from your code.
 services: azure-app-configuration
 author: lisaguthrie
 ms.service: azure-app-configuration
 ms.topic: quickstart
-ms.date: 1/9/2019
+ms.custom: devx-track-csharp
+ms.date: 09/28/2020
 ms.author: lcozzens
 
 #Customer intent: As a .NET Core developer, I want to manage all my app settings in one place.
@@ -16,7 +17,7 @@ In this quickstart, you incorporate Azure App Configuration into a .NET Core con
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- Azure subscription - [create one for free](https://azure.microsoft.com/free/dotnet)
 - [.NET Core SDK](https://dotnet.microsoft.com/download) - also available in the [Azure Cloud Shell](https://shell.azure.com).
 
 ## Create an App Configuration store
@@ -39,7 +40,7 @@ You use the [.NET Core command-line interface (CLI)](https://docs.microsoft.com/
 
 1. Create a new folder for your project.
 
-2. In the new folder, run the following command to create a new ASP.NET Core console app project:
+2. In the new folder, run the following command to create a new .NET Core console app project:
 
     ```dotnetcli
     dotnet new console

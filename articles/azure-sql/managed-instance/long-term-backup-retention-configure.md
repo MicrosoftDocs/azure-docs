@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: mathoma, carlrab
+ms.reviewer: mathoma, sstein
 ms.date: 04/29/2020
 ---
 # Manage Azure SQL Managed Instance long-term backup retention (PowerShell)
@@ -22,7 +22,7 @@ In Azure SQL Managed Instance, you can configure a [long-term backup retention](
 
 The following sections show you how to use PowerShell to configure the long-term backup retention, view backups in Azure SQL storage, and restore from a backup in Azure SQL storage.
 
-## RBAC roles to manage long-term retention
+## Azure roles to manage long-term retention
 
 For **Get-AzSqlInstanceDatabaseLongTermRetentionBackup** and **Restore-AzSqlInstanceDatabase**, you will need to have one of the following roles:
 

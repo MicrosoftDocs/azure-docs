@@ -191,6 +191,22 @@ AzureDiagnostics 
 | where  OperationName startswith "SqlContainersThroughputUpdate"
 ```
 
+Query to get the activityId and the caller who initiated the container delete operation:
+
+```kusto
+(AzureDiagnostics
+| where Category == "ControlPlaneRequests"
+| where OperationName == "SqlContainersDelete"
+| where TimeGenerated >= todatetime('9/3/2020, 5:30:29.300 PM')
+| summarize by activityId_g )
+| join (
+AzureActivity
+| parse HTTPRequest with * "clientRequestId\": \"" activityId_g "\"" * 
+| summarize by Caller, HTTPRequest, activityId_g)
+on activityId_g
+| project Caller, activityId_g
+```
+
 ## Next steps
 
 * [Explore Azure Monitor for Azure Cosmos DB](../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json)

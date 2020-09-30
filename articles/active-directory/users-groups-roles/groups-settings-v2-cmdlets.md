@@ -47,7 +47,7 @@ To verify that the module is ready to use, use the following command:
 Now you can start using the cmdlets in the module. For a full description of the cmdlets in the Azure AD module, please refer to the online reference documentation for [Azure Active Directory PowerShell Version 2](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
 
 > [!NOTE]
-> The Azure AD PowerShell cmdlets does not work with the new Powershell 7 as it is based on .net Core. We are aware and this is in the process of getting updated. As of now we suggest to use the Windows Powershell 5.x Module to be used for Azure AD powershell operations. 
+> The Azure AD PowerShell cmdlets does not work with the new Powershell 7 as it is based on .net Core. We are aware and this is in the process of getting updated. As of now we suggest to use the Windows PowerShell 5.x Module to be used for Azure AD powershell operations. 
 
 
 ## Connect to the directory
@@ -128,7 +128,7 @@ You can search for a specific group using the -filter parameter. This parameter 
 ```
 
 > [!NOTE]
-> The Azure AD PowerShell cmdlets implement the OData query standard. For more information, see **$filter** in [OData system query options using the OData endpoint](https://msdn.microsoft.com/library/gg309461.aspx#BKMK_filter).
+> The Azure AD PowerShell cmdlets implement the OData query standard. For more information, see **$filter** in [OData system query options using the OData endpoint](/previous-versions/dynamicscrm-2015/developers-guide/gg309461(v=crm.7)#BKMK_filter).
 
 ## Create groups
 
@@ -322,13 +322,13 @@ When a group is created, certain endpoints allow the end user to specify a mailN
 
 ## Group writeback to on-premises (preview)
 
-Today, many groups are still managed in on-premises Active Directory. To answer requests to sync cloud groups back to on-premises, Office 365 groups writeback feature for Azure AD is now available for preview.
+Today, many groups are still managed in on-premises Active Directory. To answer requests to sync cloud groups back to on-premises, Microsoft 365 groups writeback feature for Azure AD is now available for preview.
 
-Office 365 groups are created and managed in the cloud. The writeback capability allows you to write back Office 365 groups as distribution groups to an Active Directory forest with Exchange installed. Users with on-premises Exchange mailboxes can then send and receive emails from these groups. The group writeback feature doesn't support Azure AD security groups or distribution groups.
+Microsoft 365 groups are created and managed in the cloud. The writeback capability allows you to write back Microsoft 365 groups as distribution groups to an Active Directory forest with Exchange installed. Users with on-premises Exchange mailboxes can then send and receive emails from these groups. The group writeback feature doesn't support Azure AD security groups or distribution groups.
 
 For more details, please refer to documentation for the [Azure AD Connect sync service](../hybrid/how-to-connect-syncservice-features.md).
 
-Office 365 group writeback is a public preview feature of Azure Active Directory (Azure AD) and is available with any paid Azure AD license plan. For some legal information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Microsoft 365 group writeback is a public preview feature of Azure Active Directory (Azure AD) and is available with any paid Azure AD license plan. For some legal information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Next steps
 

@@ -1,7 +1,7 @@
 ---
 title: Quickstart - Create a blob with Azure Storage Explorer
 titleSuffix: Azure Storage
-description: In this quickstart, you learn how to use Azure Storage Explorer to create a container and a blob, download the blob to your local computer, and view all of the blobs in the container.
+description: Learn how to use Azure Storage Explorer to create a container and a blob, download the blob to your local computer, and view all of the blobs in the container.
 services: storage
 author: tamram
 

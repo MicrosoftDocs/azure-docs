@@ -35,17 +35,18 @@ In addition, there are a couple of things that you might need to do in some circ
 
 ### Modify storage replication
 
-By default, vaults use [geo-redundant storage (GRS)](../storage/common/storage-redundancy.md).
+By default, vaults use [geo-redundant storage (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage).
 
 * If the vault is your primary backup mechanism, we recommend you use GRS.
-* You can use [locally redundant storage (LRS)](../storage/common/storage-redundancy.md?toc=/azure/storage/blobs/toc.json) for a cheaper option.
+* You can use [locally redundant storage (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) for a cheaper option.
+* [Zone-redundant storage (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) replicates your data in [availability zones](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones), guaranteeing data residency and resiliency in the same region.
 
 Modify the storage replication type as follows:
 
 1. In the new vault, select **Properties** in the **Settings** section.
 2. In **Properties**, under **Backup Configuration**, select **Update**.
 3. Select the storage replication type, and select **Save**.
-s
+
       ![Set the storage configuration for new vault](./media/backup-azure-arm-vms-prepare/full-blade.png)
 
 > [!NOTE]
@@ -83,7 +84,7 @@ Configure a backup policy for the vault.
      !["Select virtual machines" pane](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
 
     >[!NOTE]
-    > All the VMs in the same region and subscription as that of the vault are available to configure backup. When configuring backup, you can browse to the virtual machine name and its resource group, even though you don’t have the required permission on those VMs. If your VM is in soft deleted state, then it will not be visible in this list. If you need to re-protect the VM, then you need to wait for the soft delete period to expire or undelete the VM from the soft deleted list. For more information, see [the soft delete for VMs article](soft-delete-virtual-machines.md#soft-delete-for-vms-using-azure-portal).
+    > All the VMs in the same region and subscription as that of the vault are available to configure backup. When configuring backup, you can browse to the virtual machine name and its resource group, even though you don’t have the required permission on those VMs. If your VM is in soft deleted state, then it won't be visible in this list. If you need to re-protect the VM, then you need to wait for the soft delete period to expire or undelete the VM from the soft deleted list. For more information, see [the soft delete for VMs article](soft-delete-virtual-machines.md#soft-delete-for-vms-using-azure-portal).
 
 1. In **Backup**, select **Enable backup**. This deploys the policy to the vault and to the VMs, and installs the backup extension on the VM agent running on the Azure VM.
 
@@ -134,7 +135,7 @@ The snapshot phase guarantees the availability of a recovery point stored along 
 
 There are two **Sub Tasks** running at the backend, one for front-end backup job that can be checked from the **Backup Job** details pane as given below:
 
-  ![Backup Job Status](./media/backup-azure-arm-vms-prepare/backup-job-phase.png)
+  ![Backup Job Status sub-tasks](./media/backup-azure-arm-vms-prepare/backup-job-phase.png)
 
 The **Transfer data to vault** phase can take multiple days to complete depending on the size of the disks, churn per disk and several other factors.
 
@@ -149,7 +150,7 @@ Completed | Failed | Completed with warning
 Failed | Failed | Failed
 
 Now with this capability, for the same VM, two backups can run in parallel, but in either phase (snapshot, transfer data to vault) only one sub task can be running. So in scenarios where a backup job in progress resulted in the next day’s backup to fail, it will be avoided with this decoupling functionality. Subsequent days' backups can have the snapshot completed, while **Transfer data to vault** is skipped if an earlier day’s backup job is in progress state.
-The incremental recovery point created in the vault will capture all the churn from the last recovery point created in the vault. There's no cost impact on the user.
+The incremental recovery point created in the vault will capture all the churn from the most recent recovery point created in the vault. There's no cost impact on the user.
 
 ## Optional steps
 
@@ -161,13 +162,6 @@ Azure Backup backs up Azure VMs by installing an extension to the Azure VM agent
 --- | ---
 **Windows** | 1. [Download and install](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) the agent MSI file.<br/><br/> 2. Install with admin permissions on the machine.<br/><br/> 3. Verify the installation. In *C:\WindowsAzure\Packages* on the VM, right-click **WaAppAgent.exe** > **Properties**. On the **Details** tab, **Product Version** should be 2.6.1198.718 or higher.<br/><br/> If you're updating the agent, make sure that no backup operations are running, and [reinstall the agent](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409).
 **Linux** | Install by using an RPM or a DEB package from your distribution's package repository. This is the preferred method for installing and upgrading the Azure Linux agent. All the [endorsed distribution providers](../virtual-machines/linux/endorsed-distros.md) integrate the Azure Linux agent package into their images and repositories. The agent is available on [GitHub](https://github.com/Azure/WALinuxAgent), but we don't recommend installing from there.<br/><br/> If you're updating the agent, make sure no backup operations are running, and update the binaries.
-
->[!NOTE]
-> **Azure Backup now supports selective disk backup and restore using the Azure Virtual Machine backup solution.**
->
->Today, Azure Backup supports backing up all the disks (Operating System and data) in a VM together using the Virtual Machine backup solution. With exclude-disk functionality, you get an option to backup one or a few from the many data disks in a VM. This provides an efficient and cost-effective solution for your backup and restore needs. Each recovery point contains data of the disks included in the backup operation, which further allows you to have a subset of disks restored from the given recovery point during the restore operation. This applies to restore both from the snapshot and the vault.
->
->To sign up for the preview, write to us at AskAzureBackupTeam@microsoft.com
 
 ## Next steps
 

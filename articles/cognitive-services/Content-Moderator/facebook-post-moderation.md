@@ -25,7 +25,7 @@ This tutorial shows you how to:
 > * Create Azure Functions that listen for HTTP events from Content Moderator and Facebook.
 > * Link a Facebook page to Content Moderator using a Facebook application.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
 This diagram illustrates each component of this scenario:
 

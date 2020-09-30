@@ -6,7 +6,8 @@ ms.service: virtual-machines-linux
 ms.topic: how-to
 ms.date: 07/18/2018
 ms.author: rogarana
-ms.subservice: disks
+ms.subservice: disks 
+ms.custom: devx-track-azurecli
 
 ---
 # How to detach a data disk from a Linux virtual machine

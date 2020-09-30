@@ -30,7 +30,7 @@ The components involved in disaster recovery for Azure VMs are summarized in the
 **Cache storage account** | You need a cache storage account in the source network. During replication, VM changes are stored in the cache before being sent to target storage.  Cache storage accounts must be Standard.<br/><br/> Using a cache ensures minimal impact on production applications that are running on a VM.<br/><br/> [Learn more](azure-to-azure-support-matrix.md#cache-storage) about cache storage requirements. 
 **Target resources** | Target resources are used during replication, and when a failover occurs. Site Recovery can set up target resource by default, or you can create/customize them.<br/><br/> In the target region, check that you're able to create VMs, and that your subscription has enough resources to support VM sizes that will be needed in the target region. 
 
-![Source and target replication](./media/concepts-azure-to-azure-architecture/enable-replication-step-1-v2.png)
+![Diagram showing source and target replication.](./media/concepts-azure-to-azure-architecture/enable-replication-step-1-v2.png)
 
 ## Target resources
 
@@ -100,7 +100,7 @@ A crash consistent snapshot captures data that was on the disk when the snapshot
 
 **Description** | **Details** | **Recommendation**
 --- | --- | ---
-App-consistent recovery points are created from app-consistent snapshots.<br/><br/> An app-consistent snapshot contain all the information in a crash-consistent snapshot, plus all the data in memory and transactions in progress. | App-consistent snapshots use the Volume Shadow Copy Service (VSS):<br/><br/>   1) When a snapshot is initiated, VSS perform a copy-on-write (COW) operation on the volume.<br/><br/>   2) Before it performs the COW, VSS informs every app on the machine that it needs to flush its memory-resident data to disk.<br/><br/>   3) VSS then allows the backup/disaster recovery app (in this case Site Recovery) to read the snapshot data and proceed. | App-consistent snapshots are taken in accordance with the frequency you specify. This frequency should always be less than you set for retaining recovery points. For example, if you retain recovery points using the default setting of 24 hours, you should set the frequency at less than 24 hours.<br/><br/>They're more complex and take longer to complete than crash-consistent snapshots.<br/><br/> They affect the performance of apps running on a VM enabled for replication. 
+App-consistent recovery points are created from app-consistent snapshots.<br/><br/> An app-consistent snapshot contain all the information in a crash-consistent snapshot, plus all the data in memory and transactions in progress. | App-consistent snapshots use the Volume Shadow Copy Service (VSS):<br/><br/>   1) Azure Site Recovery uses Copy Only backup (VSS_BT_COPY) method which does not change Microsoft SQL's transaction log backup time and sequence number </br></br> 2) When a snapshot is initiated, VSS perform a copy-on-write (COW) operation on the volume.<br/><br/>   3) Before it performs the COW, VSS informs every app on the machine that it needs to flush its memory-resident data to disk.<br/><br/>   4) VSS then allows the backup/disaster recovery app (in this case Site Recovery) to read the snapshot data and proceed. | App-consistent snapshots are taken in accordance with the frequency you specify. This frequency should always be less than you set for retaining recovery points. For example, if you retain recovery points using the default setting of 24 hours, you should set the frequency at less than 24 hours.<br/><br/>They're more complex and take longer to complete than crash-consistent snapshots.<br/><br/> They affect the performance of apps running on a VM enabled for replication. 
 
 ## Replication process
 
@@ -112,7 +112,7 @@ When you enable replication for an Azure VM, the following happens:
 4. Site Recovery processes the data in the cache, and sends it to the target storage account, or to the replica managed disks.
 5. After the data is processed, crash-consistent recovery points are generated every five minutes. App-consistent recovery points are generated according to the setting specified in the replication policy.
 
-![Enable replication process, step 2](./media/concepts-azure-to-azure-architecture/enable-replication-step-2-v2.png)
+![Diagram showing the replication process, step 2.](./media/concepts-azure-to-azure-architecture/enable-replication-step-2-v2.png)
 
 **Replication process**
 
@@ -187,7 +187,7 @@ If you enable multi-VM consistency, machines in the replication group communicat
 
 When you initiate a failover, the VMs are created in the target resource group, target virtual network, target subnet, and in the target availability set. During a failover, you can use any recovery point.
 
-![Failover process](./media/concepts-azure-to-azure-architecture/failover-v2.png)
+![Diagram showing the failover process with source and target environments.](./media/concepts-azure-to-azure-architecture/failover-v2.png)
 
 ## Next steps
 

@@ -1,14 +1,15 @@
 ---
 title: Get billing ownership of Azure subscriptions for Microsoft Partner Agreement (MPA)
-description: Learn how to request billing ownership of Azure subscriptions from other users.
+description: Learn how to request billing ownership of Azure subscriptions from other users for Microsoft Partner Agreement (MPA).
 author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 08/20/2020
 ms.author: banders
-
 ---
+
 # Get billing ownership of Azure subscriptions to your MPA account
 
 To provide a single combined invoice for managed services and Azure consumption, a Cloud Solution Provider (CSP) can take over billing ownership of Azure subscriptions from their customers with Direct Enterprise Agreements (EA).
@@ -29,7 +30,7 @@ This article applies to billing accounts for Microsoft Partner Agreements. These
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using CSP Admin Agent credentials in the CSP tenant.
 1. Search for **Cost Management + Billing**.  
-    ![Screenshot that shows Azure portal search for cost management + billing](./media/mpa-request-ownership/search-cmb.png)
+    ![Screenshot that shows Azure portal search for cost management + billing to request billing ownership.](./media/mpa-request-ownership/search-cmb.png)
 1. Select **Customers** from the left-hand side and then select a customer from the list.  
     [![Screenshot that shows selecting customers](./media/mpa-request-ownership/mpa-select-customers.png)](./media/mpa-request-ownership/mpa-select-customers.png#lightbox)
 1. Select **Transfer requests** from the lower-left side and then select **Add a new request**.  
@@ -51,7 +52,7 @@ This article applies to billing accounts for Microsoft Partner Agreements. These
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for **Cost Management + Billing**.  
-    ![Screenshot that shows Azure portal search for cost management + billing](./media/mpa-request-ownership/billing-search-cost-management-billing.png)
+    ![Screenshot that shows Azure portal search for cost management + billing to request transfer status.](./media/mpa-request-ownership/billing-search-cost-management-billing.png)
 1. Select **Customers** from the left-hand side.  
     [![Screenshot that shows selecting customers](./media/mpa-request-ownership/mpa-select-customers.png)](./media/mpa-request-ownership/mpa-select-customers.png#lightbox)
 1. Select the customer from the list for which you sent the transfer request.
@@ -124,7 +125,7 @@ Azure Reservations don't automatically move with subscriptions. Either you can k
 
 ### Access to Azure services
 
-Access for existing users, groups, or service principals that was assigned using [Azure RBAC (role-based access control)](../../role-based-access-control/overview.md) isn't affected during the transition. The partner won’t get any new RBAC access to the subscriptions.
+Access for existing users, groups, or service principals that was assigned using [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) isn't affected during the transition. The partner won’t get any new Azure RBAC access to the subscriptions.
 
 The partners should work with the customer to get access to subscriptions. The partners need to get either [Admin on Behalf Of - AOBO](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO) or [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/concepts/cloud-solution-provider) access open support tickets.
 
@@ -171,4 +172,4 @@ If you need help, [contact support](https://portal.azure.com/?#blade/Microsoft_A
 ## Next steps
 
 * The billing ownership of the Azure subscriptions is transferred to you. Keep track of the charges for these subscriptions in the [Azure portal](https://portal.azure.com).
-* Work with the customer to get access to the transferred Azure subscriptions. [Manage access to Azure resources using RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+* Work with the customer to get access to the transferred Azure subscriptions. [Add or remove Azure role assignments using the Azure portal](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).

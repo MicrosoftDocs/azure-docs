@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 07/10/2020
+ms.date: 07/21/2020
 ms.author: alkohli
 
 # Customer intent: As an IT admin, I need to be able to return Data Box to upload on-premises data from my server onto Azure.
@@ -15,12 +15,12 @@ ms.author: alkohli
 
 # Tutorial: Return Azure Data Box (Preview)
 
-
 This tutorial describes how to return Azure Data Box and the data is erased once the device is received at the Azure data.
 
 In this tutorial, you will learn about topics such as:
 
 > [!div class="checklist"]
+>
 > * Prerequisites
 > * Prepare to ship
 > * Ship Data Box to Microsoft
@@ -32,8 +32,8 @@ In this tutorial, you will learn about topics such as:
 
 Before you begin, make sure:
 
-- You've have completed the [Tutorial: Copy data from Azure Data Box ](data-box-deploy-export-copy-data.md). 
-- Copy jobs are complete. Prepare to ship can't run if copy jobs are in progress.
+* You've have completed the [Tutorial: Copy data from Azure Data Box](data-box-deploy-export-copy-data.md).
+* Copy jobs are complete. Prepare to ship can't run if copy jobs are in progress.
 
 ## Prepare to ship
 
@@ -45,7 +45,7 @@ The next steps are determined by where you are returning the device.
 
 Ensure that the data copy from the device is complete and **Prepare to ship** run is successful. Based on the region where you are shipping the device, the procedure is different.
 
-## [In US, Canada, Europe](#tab/in-us-canada-europe)
+## [US, Canada, Europe](#tab/in-us-canada-europe)
 
 Take the following steps if returning the device in US, Canada, or Europe.
 
@@ -61,19 +61,17 @@ Take the following steps if returning the device in US, Canada, or Europe.
     Instead of scheduling the pickup, you can also drop off the Data Box at the nearest drop-off location.
 4. Once the Data Box is picked up and scanned by your carrier, the order status in the portal updates to **Picked up**. A tracking ID is also displayed.
 
-
-## [In Australia](#tab/in-australia)
+## [Australia](#tab/in-australia)
 
 Azure datacenters in Australia have an additional security notification. All the inbound shipments must have an advanced notification. Take the following steps to ship in Australia.
-
 
 1. Retain the original box used to ship the device for return shipment.
 2. Make sure that the data copy to device is complete and **Prepare to ship run** is successful.
 3. Power off the device and remove the cables.
 4. Spool and securely place the power cord that was provided with the device in the back of the device.
-5. Book a pick-up online at the [DHL Link](https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference).
+5. Book a pickup online at the [DHL Link](https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference).
 
-## [In Japan](#tab/in-japan) 
+## [Japan](#tab/in-japan)
 
 1. Retain the original box used to ship the device for return shipment.
 2. Power off the device and remove the cables.
@@ -81,8 +79,8 @@ Azure datacenters in Australia have an additional security notification. All the
 4. Write your company name and address information on the consignment note as your sender information.
 5. Email Quantium solution using the following email template.
 
-    - If Japan Post Chakubarai consignment note wasn't included or is missing, note that in this email. Quantium Solutions Japan will request Japan Post to bring the consignment note upon pickup.
-    - If you have multiple orders, email to ensure individual pickup.
+    * If Japan Post Chakubarai consignment note wasn't included or is missing, note that in this email. Quantium Solutions Japan will request Japan Post to bring the consignment note upon pickup.
+    * If you have multiple orders, email to ensure individual pickup.
 
     ```
     To: Customerservice.JP@quantiumsolutions.com
@@ -96,25 +94,24 @@ Azure datacenters in Australia have an additional security notification. All the
     d. 17：00-19：00 
     ```
 
-3. Receive an email confirmation from Quantium solutions after you've booked a pickup. The email confirmation also includes information on the Chakubarai consignment note.
+6. Receive an email confirmation from Quantium solutions after you've booked a pickup. The email confirmation also includes information on the Chakubarai consignment note.
 
 If needed, you can contact Quantium Solution Support (Japanese language) at the following information: 
 
-- Email：Customerservice.JP@quantiumsolutions.com 
-- Telephone：03-5755-0150 
+* Email：Customerservice.JP@quantiumsolutions.com
+* Telephone：03-5755-0150
 
-
-## [In Singapore](#tab/in-singapore) 
+## [Singapore](#tab/in-singapore)
 
 1. Retain the original box used to ship the device for return shipment.
-2. Note down the tracking number (shown as reference number on the Prepare to Ship page of the Data Box local web UI). This is available after the prepare to ship step successfully completes. Download the shipping label from this page and paste on the packing box. 
+2. Note down the tracking number (shown as reference number on the Prepare to Ship page of the Data Box local web UI). This is available after the prepare to ship step successfully completes. Download the shipping label from this page and paste on the packing box.
 3. Power off the device and remove the cables.
 4. Spool and securely place the power cord that was provided with the device in the back of the device. 
 5. Email SingPost Customer Service using the following email template with the tracking number.
 
     ```
     To: kadcustcare@singpost.com
-    Subject: Microsoft Azure Pick-up - OrderName 
+    Subject: Microsoft Azure Pickup - OrderName 
     Body: 
         1. Requestor name  
         2. Requestor contact number
@@ -124,13 +121,60 @@ If needed, you can contact Quantium Solution Support (Japanese language) at the 
 
    > [!NOTE]
    > For booking requests received on a business day:
-   > - Before 3 PM, pickup will be the next business day between 9 AM and 1 PM.
-   > - After 3 PM, pickup will be the next business day between 2 PM to 6 PM.  
+   >
+   > * Before 3 PM, pickup will be the next business day between 9 AM and 1 PM.
+   > * After 3 PM, pickup will be the next business day between 2 PM to 6 PM.  
 
+## [South Africa](#tab/in-sa)
 
-## [Self-Managed](#tab/in-selfmanaged) 
+1. Retain the original box used to pack the device for return shipment.
+2. Note down the reference number (waybill number) shown on the local web UI of the device. This number is displayed after the **Prepare to ship run** is successful.
+3. Download and print shipping label that is available on the local web UI of the device and affix it on the shipment package.
+4. To book a pickup with DHL, choose one of the following options:
 
-If you are using Data Box in Japan, Singapore, Korea, and West Europe and have selected the self-managed shipping option during order creation, follow these instructions. 
+    * Call the customer service contact center before 2:00 pm on **+27(0) 11 9213600**, select option 1, and then specify the waybill number.
+    * Send an email to [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) using the following template:
+
+    ```output
+    To: Priority.Support@dhl.com
+    Subject: Pickup request for Microsoft Azure
+    Body: Need pick up for the below shipment
+      *  DHL tracking number (reference number/waybill number)
+      *  Requested pickup date: yyyy/mm/dd;time:HH MM
+    ```
+
+    * Alternatively, you can drop off the package at the nearest DHL service point.
+
+5. If you encounter any issues, email [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) with details of the issue(s) you encountered and put the waybill number in the Subject: line. You can also call +27(0)119213902.
+
+## [Hong Kong](#tab/in-hk)
+
+1. Pack the device for return shipment in the original box.
+2. Note down the reference number (tracking number for reverse shipment) shown on the local web UI of the device. This number is displayed after the **Prepare to ship run** is successful.
+3. Download and print shipping label that is available on the local web UI of the device and affix it on the shipment package.
+4. Spool and securely place the power cord that was provided with the device in the back of the device.
+5. Call **Quantium Solutions** hotline at **(852) 2318 1213** during office hours (9am to 6pm, Monday to Friday).  
+6. Quote Microsoft Azure pickup and the reference number and tracking number (above barcode) on the return shipping label to arrange for a collection.
+7. You will get a verbal confirmation for the pickup schedule. If the courier does not arrive for collection, call Quantium Solutions hotline for alternate arrangements.
+8. Upon booking a pickup with Quantium, share the confirmation with [Microsoft Data Box Operations Asia](mailto:adbo@microsoft.com) using the following template:
+
+    ```output
+    To: adbo@microsoft.com
+    Subject: Microsoft Data Box Job: [order name] has completed copy
+    Body:
+    We have confirmed the pickup details with Quantium.
+
+       * Requestor name:
+       * Requestor contact number:
+       * Pickup Date:  
+       * Pickup time:
+    ```
+
+Should you encounter any issues, email Data Box Operations Asia [adbo@microsoft.com](mailto:adbo@microsoft.com) providing the job name in subject header and the issue encountered.
+
+## [Self-Managed](#tab/in-selfmanaged)
+
+If you are using Data Box in Japan, Singapore, Korea, India, South Africa, or West Europe and have selected the self-managed shipping option during order creation, follow these instructions.
 
 1. Note down the Authorization code shown on the Prepare to Ship page of the Data Box local web UI after this step successfully completes.
 2. Power off the device and remove the cables. Spool and securely place the power cord that was provided with the device at the back of the device.
@@ -144,6 +188,7 @@ If you are using Data Box in Japan, Singapore, Korea, and West Europe and have s
         2. Authorization code available after Prepare to Ship has completed [Yes/No]  
         3. Contact name of the person dropping off. You will need to display a Government approved ID during the drop off.
     ```
+
 ---
 
 ## Erasure of data from Data Box

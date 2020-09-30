@@ -1,7 +1,7 @@
 ---
 title: Azure Key Vault managed storage account - PowerShell version
 description: The managed storage account feature provides a seamless integration, between Azure Key Vault and an Azure storage account.
-ms.topic: conceptual
+ms.topic: tutorial
 ms.service: key-vault
 ms.subservice: secrets
 author: msmbaldwin
@@ -71,7 +71,7 @@ Set-AzContext -SubscriptionId <subscriptionId>
 
 ### Set variables
 
-First, set the variables to be used by the PowerShell cmdlets in the following steps. Be sure to update the <YourResourceGroupName>, <YourStorageAccountName>, and <YourKeyVaultName> placeholders, and set $keyVaultSpAppId to `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` (as specified in [Service principal application ID](#service-principal-application-id), above).
+First, set the variables to be used by the PowerShell cmdlets in the following steps. Be sure to update the "YourResourceGroupName", "YourStorageAccountName", and "YourKeyVaultName" placeholders, and set $keyVaultSpAppId to `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` (as specified in [Service principal application ID](#service-principal-application-id), above).
 
 We will also use the Azure PowerShell [Get-AzContext](/powershell/module/az.accounts/get-azcontext?view=azps-2.6.0) and [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount?view=azps-2.6.0) cmdlets to get your user ID and the context of your Azure storage account.
 
@@ -100,7 +100,7 @@ Before Key Vault can access and manage your storage account keys, you must autho
 Assign this role to the Key Vault service principal, limiting scope to your storage account, using the Azure PowerShell [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment?view=azps-2.6.0) cmdlet.
 
 ```azurepowershell-interactive
-# Assign RBAC role "Storage Account Key Operator Service Role" to Key Vault, limiting the access scope to your storage account. For a classic storage account, use "Classic Storage Account Key Operator Service Role." 
+# Assign Azure role "Storage Account Key Operator Service Role" to Key Vault, limiting the access scope to your storage account. For a classic storage account, use "Classic Storage Account Key Operator Service Role." 
 New-AzRoleAssignment -ApplicationId $keyVaultSpAppId -RoleDefinitionName 'Storage Account Key Operator Service Role' -Scope $storageAccount.Id
 ```
 
