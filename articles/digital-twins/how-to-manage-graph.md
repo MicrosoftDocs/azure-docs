@@ -216,13 +216,13 @@ The first parameter specifies the source twin (the twin where the relationship o
 Runnable Code sample below creates models, twins, prints details of the twins, creates relationships between the twins and finally deletes relationships between twins.
 
 If you are running the following code directly without going through the above steps, make sure you 
-* Install Azure.DigitalTwins.Core and Azure.Identity packages from your package manager. 
+* Install _Azure.DigitalTwins.Core and Azure.Identity packages_ to your project using your package manager. 
 * Create models with the names of your choice and match the below line of code with _model name_ and _model-id_. 
     `twin.Metadata.ModelId = "dtmi:com:contoso:<model-name>;<model-id>";`. 
 You can refer to [this](https://docs.microsoft.com/azure/digital-twins/tutorial-command-line-app#explore-with-the-sample-solution) link for a sample model code. 
 * Also replace the placeholders with your clientId, tenantId and adtInstanceUrl in the below code.
 
-NOte that when you upload a model with the same model id, you will receive an exception. 
+Note that when you upload a model with the same model id, you will receive an exception. 
 
 ```csharp 
 using System;
