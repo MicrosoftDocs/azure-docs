@@ -300,7 +300,7 @@ Now it's time to configure Service Mesh between on-premises and Azure VMware Sol
 
 1. Select **View Tasks** to monitor the deployment. 
 
-   :::image type="content" source="media/tutorial-vmware-hcx/monitor-service-mess.png" alt-text="Select View Tasks to monitor the deployment.":::
+   :::image type="content" source="media/tutorial-vmware-hcx/monitor-service-mesh.png" alt-text="Select View Tasks to monitor the deployment.":::
 
    When the service mesh deployment completes successfully, you'll see the services as green.
 
