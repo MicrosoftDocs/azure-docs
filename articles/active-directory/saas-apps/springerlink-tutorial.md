@@ -68,20 +68,18 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
 
-    a. In the **Identifier** text box, type a URL:
+    a. In the **Identifier** text box, type the URL:
     `https://fsso.springer.com`
 
-    b. In the **Reply URL** text box, type a URL:
+    b. In the **Reply URL** text box, type the URL:
     `https://fsso.springer.com/federation/Consumer/metaAlias/SpringerServiceProvider`
 
 	c. Click **Set additional URLs**.
 
-	d. In the **Relay State** text box, type a URL:
+	d. In the **Relay State** text box, type the URL:
     `https://link.springer.com`
 
 5. If you wish to configure the application in **SP** initiated mode, perform the following step:
-
-    ![Springer Link Domain and URLs single sign-on information](common/both-signonurl.png)
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://fsso.springer.com/saml/login?idp=<entityID>&targetUrl=https://link.springer.com`
