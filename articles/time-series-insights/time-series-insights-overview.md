@@ -57,7 +57,7 @@ Azure Time Series Insights captures and stores every new event as a row, and cha
 
 - Gain a global view of time series data that streams from disparate locations for multi-asset or site comparison.
 
-   You can connect multiple event sources to a Azure Time Series Insights environment. This way you can view data that streams in from multiple, disparate locations together in near real time. Users can take advantage of this visibility to share data with business leaders. They can collaborate better with domain experts who can apply their expertise to help solve problems, apply best practices, and share learnings.
+   You can connect multiple event sources to an Azure Time Series Insights environment. This way you can view data that streams in from multiple, disparate locations together in near real time. Users can take advantage of this visibility to share data with business leaders. They can collaborate better with domain experts who can apply their expertise to help solve problems, apply best practices, and share learnings.
 
 - Build a customer application on top of Azure Time Series Insights.
 
