@@ -1,27 +1,62 @@
 ---
-title: Event replication and cross-region federation - Azure Event Hubs | Microsoft Docs
-description: This article provides an overview of event replication and cross-region federation with Azure Event Hubs. 
+title: Message replication and cross-region federation - Azure Service Bus | Microsoft Docs
+description: This article provides an overview of event replication and cross-region federation with Azure Service Bus. 
 ms.topic: article
 ms.date: 09/15/2020
 ---
 
-# Event replication and cross-region federation
+# Message replication and cross-region federation
 
-Many sophisticated solutions require the same event streams to be made available for consumption in multiple locations and/or event streams to be collected in multiple locations and then consolidated into a specific locations for consumption.
+Within namespaces, Azure Service Bus supports [creating topologies of chained queues and topic subscriptions using autoforwarding](#service-bus-auto-forwarding.md) to allow for the implementation of various routing patterns. For instance, you can provide partners with dedicated queues to which they have send or receive permissions and which can be temporarily suspended if needed, and flexibly connect those to other entities that are private to the application. You can also create complex multi-stage routing topologies, or you can create mailbox-style queues which drain the queue-like subscriptions of topics and allow for more storage capacity per subscriber. 
 
-Practically, that means your solution will maintain multiple Event Hubs in different regions or namespaces and replicate events between them, and/or that you will exchange events with sources and targets like [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md), [Azure IoT Hub](../iot-fundamentals/iot-introduction.md), or [Apache Kafka](https://kafka.apache.org). 
+![Auto-forwarding scenario][1]
 
-Maintaining multiple active Event Hubs in different regions also allows clients to choose and switch between them. 
+Many sophisticated solutions also require messages to be replicated across namespace boundaries in order to implement these and other patterns. Messages may have to flow between namespaces associated with multiple, different application tenants, or across multiple, different Azure regions. 
+
+Your solution will maintain multiple Service Bus namespaces in different regions and replicate messages between Queues and Topics, and/or that you will exchange messages with sources and targets like [Azure Event Hubs](../event-hubs/event-hubs-about.md), [Azure IoT Hub](../iot-fundamentals/iot-introduction.md), or [Apache Kafka](https://kafka.apache.org). 
+
+These scenarios are the focus of this article. 
 
 ## Federation Patterns
 
-There are numerous potential motivations for why you may want to move events between different Event Hubs or other sources and targets, and we enumerate the most important patterns in this section:
+There are numerous potential motivations for why you may want to move messages between Service Bus entities like Queues or Topics, or between Service Bus and other sources and targets. 
+
+Compared with the similar set of patterns for [Event Hubs](../event-hubs/event-hubs-federation-overview.md),  federation for queue-like entities is generally more complex because message queues promise their consumers exclusive ownership over any single message, are expected to preserve arrival order in message delivery, and for the broker to coordinate fair distribution of messages between competing consumers. 
+
+There are practical impediments, including the constraints of the [CAP theorem](https://en.wikipedia.org/wiki/CAP_theorem), that make it difficult to provide a unified view of a queue that is simultaneously available in multiple regions, and which allows for regionally distributed, competing consumers to take exclusive ownership of messages. Such a geo-distributed queue would require fully consistent replication not only of messages, but also of the delivery state of every message before messages can be made available to consumers. 
+
+The CAP theorem dictates that a goal of a fully consistent model for a hypothetical, regionally distributed queue is in direct conflict with the key goal that practically all Azure Service Bus customers have when considering federation scenarios: Maximum availability and reliability for their solutions. 
+
+The patterns presented here therefore focus on these goals while also aiming to best avoid both information loss and duplicate handling of messages. 
 
 ### Resiliency against regional availability events 
 
-![Regional Availability](media/event-hubs-federation-overview/regional-availability.jpg)
+![Regional Availability](media/service-bus-federation-overview/regional-availability.jpg)
 
-While maximum availability and reliability are the top operational priorities for Event Hubs, there are nevertheless a lot of ways in which a producer or consumer might be prevented from talking to its assigned "primary" Event Hub due to networking or name resolution issues, or where an Event Hub might indeed be temporarily unresponsive or returning errors. Such conditions are generally not "disastrous" such that you will want to abandon the regional deployment altogether as you might do in a disaster recovery situation, but the business scenario of some applications might already be impacted by availability events that last not more than a few minutes or even seconds. 
+While maximum availability and reliability are the top operational priorities for Service Bus, there are nevertheless a lot of ways in which a producer or consumer might be prevented from talking to its assigned "primary" Service Bus due to networking or name resolution issues, or where Service Bus entity might indeed be temporarily unresponsive or returning errors. The designated message processor might also become unavailable.
+
+Such conditions are generally not "disastrous" such that you will want to abandon the regional deployment altogether as you might do in a disaster recovery situation, but the business scenario of some applications might already be impacted by availability events that last not more than a few minutes or even seconds. 
+
+Service Bus is often used in hybrid cloud environments and with clients that reside at the network edge, for instance in retail stores, restaurant, banking branches, manufacturing sites, logistics facilities, and airports. It is quite possible for a network routing or congestion issue to impact a site's ability to reach its assigned Service Bus endpoint while a secondary endpoint in a different region might be reachable. At the same time, systems processing messages arriving from these sites may still have unimpeded access to both the primary and the secondary Service Bus endpoints. 
+
+There are many practical examples of such hybrid cloud and edge applications with a very low business tolerance for impact of network routing issues or of transient availability issues of a Service Bus entity. Those include processing of payments at retail sites, boarding at airport gates, and mobile phone orders at restaurants, all of which come to an instant and complete standstill whenever the reliable communication path is not available.
+
+In this category, we discuss three distinct distributed queue patterns: All-Active Queues, Spillover Queues, and Active-Passive Queues. While all patterns provide queue-like functionality, they lean on Service Bus Topics for implementation. 
+
+#### All-Active Queues
+
+The "All-Active Queue" pattern allows for an active replica of the same logical queue to be available in multiple namespaces (and regions), and for all messages to become available in all replicas, irrespective of where they have been enqueued. The pattern generally preserves the order of messages relative to any publisher. Since each replica holds a copy of every message, 
+
+Synchronized topics with transfer subscription. All messages available everywhere.
+
+#### Spillover Queues
+
+Deadletter replication into secondary. Unprocessed messages available in secondary.
+
+#### Active-passive Queues
+
+Synchronized topics with transfer subscription. Subset of messages available in secondary.
+
 
 ### Latency optimization 
 
@@ -106,3 +141,5 @@ Next, you might want to read up how to set up a replicator application with Azur
 - Routing events from and to Azure Service Bus 
 - Routing events from and to Queue Storage
 - Routing events to Notification Hubs
+
+[1]: ./media/service-bus-auto-forwarding/IC628632.gif 

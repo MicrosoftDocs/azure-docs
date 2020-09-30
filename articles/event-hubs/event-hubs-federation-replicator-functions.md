@@ -7,7 +7,9 @@ ms.date: 09/15/2020
 
 # Event replication tasks and applications
 
-[Azure Functions](../azure-functions/functions-overview.md) is a scalable and reliable execution environment for configuring and running [event replication and federation](event-hubs-federation-overview.md) tasks.
+As explained in the [event replication and cross-region federation](event-hubs-federation-overview.md) article, replication of event streams between pairs of Event Hubs and between Event Hubs and other event stream sources and targets generally leans on Azure Functions.
+
+[Azure Functions](../azure-functions/functions-overview.md) is a scalable and reliable execution environment for configuring and running serverless applications, including [event replication and federation](event-hubs-federation-overview.md) tasks.
 
 In this overview, you will learn about Azure Functions' built-in capabilities for such applications, about  code blocks that you can adapt and modify for transformation tasks, and about how to configure an Azure Functions application such that it integrates ideally with Event Hubs and other Azure Messaging services. For many details, this article will point to the Azure Functions documentation.
 
