@@ -34,7 +34,7 @@ To estimate the quality of user experience you can refer to the [Experience Esti
 - We released version 1.2.1364 of the Windows Desktop client for Windows Virtual Desktop. In this update, we made the following changes:
     - Fixed an issue where single sign-on (SSO) didn't work on Windows 7.
     - Fixed an issue that caused the client to disconnect when a user who enabled media optimization for Teams tried to call or join a Teams meeting while another app had an audio stream open in exclusive mode.
-    - Fixed a failure to enumerate audio or video devices in Teams when media optimization for Teams is enabled.
+    - Fixed an issue where Teams didn't enumerate audio or video devices when media optimization for Teams was enabled.
     - Added a "Need help with settings?" link to the desktop settings page.
     - Fixed an issue with the "Subscribe" button that happened when using high-contrast dark themes.
     
