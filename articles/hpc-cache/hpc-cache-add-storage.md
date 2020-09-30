@@ -62,8 +62,6 @@ To define an Azure Blob container, enter this information.
 
   ![screenshot of dialog to specify name and access level (private) for new container](media/add-blob-new-container.png)
 
-<!-- * **Virtual namespace path** - Set the client-facing file path for this storage target. Read [Configure aggregated namespace](hpc-cache-namespace.md) to learn more about the virtual namespace feature. -->
-
 When finished, click **OK** to add the storage target.
 
 > [!NOTE]
@@ -210,22 +208,6 @@ Provide this information for an NFS-backed storage target:
 * **Hostname** - Enter the IP address or fully qualified domain name for your NFS storage system. (Use a domain name only if your cache has access to a DNS server that can resolve the name.)
 
 * **Usage model** - Choose one of the data caching profiles based on your workflow, described in [Choose a usage model](#choose-a-usage-model) above.
-<!--
-### NFS namespace paths
-
-An NFS storage target can have multiple virtual paths, as long as each path represents a different export or subdirectory on the same storage system.
-
-Create all of the paths from one storage target.
-
-You can [add and edit namespace paths](hpc-cache-edit-storage.md) on a storage target at any time.
-
-Fill in these values for each namespace path:
-
-* **Virtual namespace path** - Set the client-facing file path for this storage target. Read [Configure aggregated namespace](hpc-cache-namespace.md) to learn more about the virtual namespace feature.
-
-* **NFS export path** - Enter the path to the NFS export.
-
-* **Subdirectory path** - If you want to mount a specific subdirectory of the export, enter it here. If not, leave this field blank. -->
 
 When finished, click **OK** to add the storage target.
 

@@ -98,7 +98,7 @@ Details are below:
 
 You can use the Azure portal or the Azure CLI to change the client-facing namespace path, the storage export, and the export subdirectory (if used).
 
-Read the guidelines in [Add NFS namespace paths](add-namespace-paths.md#nfs-namespace-paths) if you need a reminder about how to create multiple valid paths on one storage target. <!-- is there some limit on junctions too? there was email about it -->
+Read the guidelines in [Add NFS namespace paths](add-namespace-paths.md#nfs-namespace-paths) if you need a reminder about how to create multiple valid paths on one storage target.
 
 ### [Portal](#tab/azure-portal)
 

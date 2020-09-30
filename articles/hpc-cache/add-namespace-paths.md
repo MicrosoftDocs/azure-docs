@@ -70,18 +70,6 @@ When planning your namespace for an NFS storage target, keep in mind that each p
 
 All of the namespace paths for an NFS storage system are created on one storage target. Most cache configurations can support up to ten namespace paths per storage target, but larger configurations can support up to 20.
 
-<!-- | Throughput value | Cache size | Maximum number of namespace paths per storage target |
-|------------------|------------|------------------------------------------------------|
-| Up to 2 GB/s     | 3 TB       | 10                                                   |
-| Up to 2 GB/s     | 6 TB       | 10                                                   |
-| Up to 2 GB/s     | 12 TB      | 20                                                   |
-| Up to 4 GB/s     | 6 TB       | 10                                                   |
-| Up to 4 GB/s     | 12 TB      | 10                                                   |
-| Up to 4 GB/s     | 24 TB      | 20                                                   |
-| Up to 8 GB/s     | 12 TB      | 10                                                   |
-| Up to 8 GB/s     | 24 TB      | 10                                                   |
-| Up to 8 GB/s     | 48 TB      | 20                                                   | -->
-
 This list shows the maximum number of namespace paths per configuration.
 
 * Up to 2 GB/s throughput:
