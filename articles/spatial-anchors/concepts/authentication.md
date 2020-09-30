@@ -17,7 +17,7 @@ In this section, we will cover the various ways you can authenticate to Azure Sp
 
 ## Overview
 
-![An overview of authentication to Azure Spatial Anchors](./media/spatial-anchors-authentication-overview.png)
+![Diagram that shows an overview of authentication to Azure Spatial Anchors.](./media/spatial-anchors-authentication-overview.png)
 
 To access a given Azure Spatial Anchors account, clients need to first obtain an access token from Azure Mixed Reality Security Token Service (STS). Tokens obtained from STS live for 24 hours, and contain information for the Spatial Anchors services to make authorization decisions on the account, and ensure that only authorized principals can access that account.
 
@@ -34,7 +34,7 @@ Azure AD authentication tokens can be obtained two ways:
 
 Using account keys for access to your Azure Spatial Anchors account is the simplest way to get started. You will find your account keys on the Azure portal. Navigate to your account, and select the “Keys” tab.
 
-![An overview of authentication to Azure Spatial Anchors](../../../includes/media/spatial-anchors-get-started-create-resource/view-account-key.png)
+![Screenshot that shows the "Keys" page with the "Copy" button for the  "Primary key" highlighted.](../../../includes/media/spatial-anchors-get-started-create-resource/view-account-key.png)
 
 Two keys are made available, which are both simultaneously valid for access to the Spatial Anchors account. It is recommended that you regularly update the key you use to access the account; having two separate valid keys enable such updates without downtime; you only have to update  alternatively the primary key and the secondary key.
 

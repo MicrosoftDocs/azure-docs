@@ -1969,6 +1969,8 @@
         href: brivo-onair-identity-connector-provisioning-tutorial.md       
       - name: Cerner Central
         href: cernercentral-provisioning-tutorial.md
+      - name: Cinode
+        href: cinode-provisioning-tutorial.md
       - name: Cisco Webex
         href: cisco-webex-provisioning-tutorial.md
       - name: Coda

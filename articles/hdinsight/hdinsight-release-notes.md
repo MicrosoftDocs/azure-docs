@@ -22,8 +22,8 @@ Azure HDInsight is one of the most popular services among enterprise customers f
 This release applies for both HDInsight 3.6 and HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region in several days.
 
 ## New features
-### LLAP cluster auto scale General Available
-Auto scale for LLAP cluster type is now General Available (GA). All LLAP clusters created after 27 August 2020 will have GA support for auto scale.
+### Autoscale for Interactive Query with HDInsight 4.0 is now generally available
+Auto scale for Interactive Query cluster type is now General Available (GA) for HDInsight 4.0. All Interactive Query 4.0 clusters created after 27 August 2020 will have GA support for auto scale.
 
 ### HBase cluster supports Premium ADLS Gen2
 HDInsight now supports Premium ADLS Gen2 as primary storage account for HDInsight HBase 3.6 and 4.0 clusters. Together with [Accelerated Writes](./hbase/apache-hbase-accelerated-writes.md), you can get better performance for your HBase clusters.
