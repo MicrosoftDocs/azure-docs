@@ -117,6 +117,8 @@
     items:
     - name: Overview
       href: platform/data-platform.md
+    - name: Logs
+      href: platform/data-platform-logs.md
     - name: Metrics
       href: platform/data-platform-metrics.md
     - name: Stream data to Event Hubs
@@ -216,6 +218,8 @@
       items:
       - name: Standard columns
         href: platform/log-standard-columns.md
+      - name: Audit queries
+        href: log-query/query-audit.md
       - name: Optimize queries
         href: log-query/query-optimization.md
       - name: Functions
@@ -230,6 +234,8 @@
       items:
       - name: KQL reference
         href: /azure/data-explorer/kusto/query/
+      - name: Difference from Azure Data Explorer
+        href: log-query/data-explorer-difference.md
       - name: Examples
         href: log-query/examples.md
       - name: Smart analytics examples
@@ -1155,12 +1161,18 @@
         href: platform/workbooks-time.md
       - name: Text parameters
         href: platform/workbooks-text.md
+      - name: Resource parameters
+        href: platform/workbooks-resources.md
     - name: Configuration
       items:
       - name: Access control
         href: platform/workbooks-access-control.md
       - name: Deploy with Azure Resource Manager
         href: platform/workbooks-automate.md
+      - name: Groups
+        href: platform/workbooks-groups.md
+      - name: Transform JSON data with JSONPath
+        href: platform/workbooks-jsonpath.md
       - name: Move Workbooks to another region
         href: platform/workbooks-move-region.md
       - name: Move Workbook Templates to another region
