@@ -135,7 +135,7 @@ Typically, `APPINSIGHTS_INSTRUMENTATIONKEY` specifies the instrumentation key fo
 
 Full example is shared [here](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/BackgroundTasksWithHostedService)
 
-1. Install the Microsoft.ApplicationInsights.WorkerService(https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) package to the application.
+1. Install the [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) package to the application.
 2. Add `services.AddApplicationInsightsTelemetryWorkerService();` to the `ConfigureServices()` method, as in this example:
 
 ```csharp
@@ -290,7 +290,7 @@ This console application also uses the same default `TelemetryConfiguration`, an
 
 ## Run your application
 
-Run your application. The example workers from all of the above above makes an http call every second to bing.com, and also emits few logs using ILogger. These lines are wrapped inside `StartOperation` call of `TelemetryClient`, which is used to create an operation (in this example `RequestTelemetry` named "operation"). Application Insights will collect these ILogger logs (warning or above by default) and dependencies, and they will be correlated to the `RequestTelemetry` with parent-child relationship. The correlation also works cross process/network boundary. For example, if the call was made to another monitored component, then it will be correlated to this parent as well.
+Run your application. The example workers from all of the above makes an http call every second to bing.com, and also emits few logs using `ILogger`. These lines are wrapped inside `StartOperation` call of `TelemetryClient`, which is used to create an operation (in this example `RequestTelemetry` named "operation"). Application Insights will collect these ILogger logs (warning or above by default) and dependencies, and they will be correlated to the `RequestTelemetry` with parent-child relationship. The correlation also works cross process/network boundary. For example, if the call was made to another monitored component, then it will be correlated to this parent as well.
 
 This custom operation of `RequestTelemetry` can be thought of as the equivalent of an incoming web request in a typical Web Application. While it is not necessary to use an Operation, it fits best with the [Application Insights correlation data model](./correlation.md) - with `RequestTelemetry` acting as the parent operation, and every telemetry generated inside the worker iteration being treated as logically belonging to the same operation. This approach also ensures all the telemetry generated (automatic and manual) will have the same `operation_id`. As sampling is based on `operation_id`, sampling algorithm either keeps or drops all of the telemetry from a single iteration.
 
