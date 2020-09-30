@@ -17,6 +17,12 @@
   - name: Assign a policy - Azure PowerShell
     displayName: assign, compliance
     href: ./assign-policy-powershell.md
+  - name: Assign a policy - .NET
+    displayName: assign, compliance
+    href: ./assign-policy-dotnet.md  
+  - name: Assign a policy - JavaScript
+    displayName: assign, compliance
+    href: ./assign-policy-javascript.md
   - name: Assign a policy - Python
     displayName: assign, compliance
     href: ./assign-policy-python.md
@@ -136,6 +142,9 @@
   - name: Author policies for array properties
     displayName: array property, alias, aliases, in, notIn, type, defaultValue
     href: ./how-to/author-policies-for-arrays.md
+  - name: Export Azure Policy resources
+    displayName: github, json, definition
+    href: ./how-to/export-resources.md
   - name: Guest Configuration
     items:
     - name: Create a Guest Configuration policy on Windows

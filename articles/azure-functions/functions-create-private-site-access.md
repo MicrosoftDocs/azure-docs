@@ -68,7 +68,7 @@ The first step in this tutorial is to create a new virtual machine inside a virt
 1. Choose the _Networking_ tab and select **Create new** to configure a new virtual network.
 
     >[!div class="mx-imgBorder"]
-    >![Create a new virtual network for the new VM](./media/functions-create-private-site-access/create-vm-networking.png)
+    >![Screenshot that shows the "Networking" tab with the "Create new" action highlighted in the "Virtual network" section.](./media/functions-create-private-site-access/create-vm-networking.png)
 
 1. In _Create virtual network_, use the settings in the table below the image:
 

@@ -147,8 +147,7 @@ At this point if you look at the code in the code editor, your policies look lik
       <outbound>
         <set-header name="X-Powered-By" exists-action="delete" />
         <set-header name="X-AspNet-Version" exists-action="delete" />
-        <find-and-replace from="://conferenceapi.azurewebsites.net:443" to="://apiphany.azure-api.net/conference"/>
-        <find-and-replace from="://conferenceapi.azurewebsites.net" to="://apiphany.azure-api.net/conference"/>
+        <redirect-content-urls />
         <base />
       </outbound>
       <on-error>
