@@ -110,7 +110,7 @@ Other quickstarts and tutorials in this collection build upon this quickstart. I
 If you wish to disable automatic provisioning:
 
 1. Return to the Security Center main menu and select **Security policy**.
-2. Select the subscription that on which to disable automatic provisioning.
+2. Select the subscription on which to disable automatic provisioning.
 3. Under **Security policy – Data Collection**, select **Off** under **Onboarding** to disable automatic provisioning.
 4. Select **Save**.
 
