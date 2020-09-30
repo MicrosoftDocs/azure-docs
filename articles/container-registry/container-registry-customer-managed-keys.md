@@ -499,7 +499,7 @@ To update the registry's encryption settings to use the identity:
 
 ### Enable key vault bypass
 
-To access a key vault configured with a Key Vault firewall, the registry must bypass the firewall. Configure the key vault to allow access by any [trusted service](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services). Azure Container Registry is one of the trusted services.
+To access a key vault configured with a Key Vault firewall, the registry must bypass the firewall. Ensure that the key vault is configured to allow access by any [trusted service](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services). Azure Container Registry is one of the trusted services.
 
 1. In the portal, navigate to your key vault.
 1. Select **Settings** > **Networking**.
@@ -509,6 +509,24 @@ To access a key vault configured with a Key Vault firewall, the registry must by
 ### Rotate the customer-managed key
 
 After completing the preceding steps, rotate the key to a new key in the key vault behind a firewall. For steps, see [Rotate key](#rotate-key) in this article.
+
+## Troubleshoot
+
+### Removing user-assigned identity
+
+If you try to remove a user-assigned identity from a registry that is used for encryption, you might see an error message similar to:
+ 
+```
+Azure resource '/subscriptions/xxxx/resourcegroups/myGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry' does not have access to identity 'xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx' Try forcibly adding the identity to the registry <registry name>. For more information on bring your own key, please visit 'https://aka.ms/acr/cmk'.
+```
+ 
+You will also be unable to change (rotate) the encryption key. If this issue occurs, first reassign the identity using the GUID displayed in the error message. For example:
+
+```azurecli
+az acr identity assign -n myRegistry --identities xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx
+```
+        
+Then, after changing the key and assigning a different identity, you can remove the original user-assigned identity.
 
 ## Next steps
 
