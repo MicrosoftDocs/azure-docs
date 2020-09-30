@@ -18,51 +18,51 @@ A client application registration is an Azure Active Directory representation of
 
 To register a new confidential application in the portal, follow the steps below.
 
-## App registrations in Azure portal
+## Register a new application
 
-1. In the [Azure portal](https://portal.azure.com), on the left navigation panel, click **Azure Active Directory**.
+1. In the [Azure portal](https://portal.azure.com), navigate to **Azure Active Directory**.
 
-2. In the **Azure Active Directory** blade click **App registrations**:
+1. In the **Azure Active Directory** blade, select **App registrations** for the left-hand pane:
 
     ![Azure portal. New App Registration.](media/how-to-aad/portal-aad-new-app-registration.png)
 
-3. Click the **New registration**.
-
-## Register a new application
+1. Select **New registration** at the top.
 
 1. Give the application a display name.
 
-2. Provide a reply URL. These details can be changed later, but if you know the reply URL of your application, enter it now.
+1. Provide a reply URL. These details can be changed later, but if you know the reply URL of your application, enter it now.
 
     ![New Confidential Client App Registration.](media/how-to-aad/portal-aad-register-new-app-registration-CONF-CLIENT.png)
+1. Select **Register**.
 
 ## API permissions
 
-Next add API permissions:
+Now that you have registered your application, you'll need to select which API permissions this application should be able to request on behalf of users:
 
-1. Open the **API permissions**:
+1. Select **API permissions** from the left-hand pane:
 
     ![Confidential client. API Permissions](media/how-to-aad/portal-aad-register-new-app-registration-CONF-CLIENT-API-Permissions.png)
 
-2. Click **Add a permission**
+2. Click **Add a permission**.
 
-3. Select appropriate resource API:
+    If you are using the Azure API for FHIR, you will add a permission to the Azure Healthcare APIs by searching for **Azure Healthcare APIs** under **APIs my organization uses** (image below). 
 
-    For the Azure API for FHIR (managed service), click **APIs my organization uses** and search for "Azure Healthcare APIs". For the Open Source FHIR server for Azure, select your [FHIR API Resource Application Registration](register-resource-azure-ad-client-app.md):
+    If you are referencing a different Resource Application, select your [FHIR API Resource Application Registration](register-resource-azure-ad-client-app.md) that you created previously under **My APIs**.
 
-    ![Confidential client. My APIs](media/how-to-aad/portal-aad-register-new-app-registration-CONF-CLIENT-API-MyApis.png)
+    ![Confidential client. My APIs](media/conf-client-app/confidential-app-org-api.png)
 
 4. Select scopes (permissions) that the confidential application should be able to ask for on behalf of a user:
 
-    ![Confidential client. Delegated Permissions](media/how-to-aad/portal-aad-register-new-app-registration-CONF-CLIENT-API-DelegatedPermissions.png)
+    ![Confidential client. Delegated Permissions](media/conf-client-app/confidential-app-add-permission.png)
 
 ## Application secret
 
-1. Create an application secret (client secret):
+1. Select **certificates & secrets** from the left-hand pane.
+1. Under Client secrets select **New client secret**. 
 
     ![Confidential client. Application Secret](media/how-to-aad/portal-aad-register-new-app-registration-CONF-CLIENT-SECRET.png)
 
-2. Provide a description and duration of the secret.
+2. Provide a description and duration of the secret (either 1 year, 2 years or never).
 
 3. Once generated, it will be displayed in the portal only once. Make a note of it and store it securely.
 
