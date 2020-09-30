@@ -29,17 +29,12 @@ The software requirements include the information on the supported operating sys
 [!INCLUDE [data-box-supported-os-clients](../../includes/data-box-supported-os-clients.md)]
 
 
-### Supported filesystems for Linux clients
+### Supported file transfer protocols for clients
 
 [!INCLUDE [data-box-supported-file-systems-clients](../../includes/data-box-supported-file-systems-clients.md)]
 
-
 > [!IMPORTANT] 
 > Connection to Data Box shares is not supported via REST for export orders. 
-
-<!--### Supported SMB versions
-
-[!INCLUDE [data-box-supported-smb-versions](../../includes/data-box-supported-smb-versions.md)]-->
 
 ### Supported storage accounts
 
