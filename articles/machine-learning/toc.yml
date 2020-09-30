@@ -425,6 +425,8 @@
         - name: Azure Functions
           displayName: functions app
           href: how-to-deploy-functions.md
+        - name: NVIDIA Triton
+          href: how-to-deploy-triton.md
         - name: Azure Cognitive Search
           href: how-to-deploy-model-cognitive-search.md
         - name: Use custom Docker image
