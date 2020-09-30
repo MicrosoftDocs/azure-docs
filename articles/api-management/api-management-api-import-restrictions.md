@@ -1,9 +1,10 @@
 ---
-title: Restrictions and known issues in Azure API Management API import | Microsoft Docs
-description: Details of known issues and restrictions on import into Azure API Management using the Open API, WSDL or WADL formats.
+title: Restrictions and details of API formats support
+titleSuffix: Azure API Management
+description: Details of known issues and restrictions on Open API, WSDL, and WADL formats support in Azure API Management.
 services: api-management
 documentationcenter: ''
-author: mattfarm
+author: vladvino
 manager: vlvinogr
 editor: ''
 
@@ -11,69 +12,113 @@ ms.assetid: 7a5a63f0-3e72-49d3-a28c-1bb23ab495e2
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
-ms.author: apipm
-
+ms.date: 01/02/2020
+ms.author: apimpm
 ---
+
 # API import restrictions and known issues
+
 ## About this list
-While every effort is made to ensure that importing your API into Azure API Management is as seamless and problem-free as possible, we do occasionally impose restrictions or identify issues that will need to be rectified before you can successfully import. This article documents these, organised by the import format of the API.
 
-## <a name="open-api"> </a>Open API/Swagger
-In general, if you are receiving errors importing your Open API document, please ensure you have validated it - either using the designer in the new Azure Portal (Design - Front End - Open API Specification Editor), or with a 3rd party tool such as <a href="http://www.swagger.io">Swagger Editor</a>.
+When importing an API, you might come across some restrictions or identify issues that need to be rectified before you can successfully perform the import. This article documents these limitations, organized by the import format of the API. It also describes how OpenAPI export works.
 
-* **Host Name** we require a host name attribute.
-* **Base Path** we require a base path attribute.
-* **Schemes** we require a scheme array. 
+## <a name="open-api"> </a>OpenAPI/Swagger import limitations
+
+If you're receiving errors importing your OpenAPI document, make sure you've validated it beforehand. You can do that either using the designer in the Azure portal (Design - Front End - OpenAPI Specification Editor), or with a third-party tool such as <a href="https://editor.swagger.io">Swagger Editor</a>.
+
+### <a name="open-api-general"> </a>General
+
+-   Required parameters across both path and query must have unique names. (In OpenAPI a parameter name only needs to be unique within a location, for example path, query, header. However, in API Management we allow operations to be discriminated by both path and query parameters (which OpenAPI doesn't support). That's why we require parameter names to be unique within the entire URL template.)
+-   `\$ref` pointers can't reference external files.
+-   `x-ms-paths` and `x-servers` are the only supported extensions.
+-   Custom extensions are ignored on import and aren't saved or preserved for export.
+-   `Recursion` - API Management doesn't support definitions defined recursively (for example, schemas referring to themselves).
+-   Source file URL (if available) is applied to relative server URLs.
+-   Security definitions are ignored.
+-   Inline schema definitions for API operations aren't supported. Schema definitions are defined in the API scope and can be referenced in API operations request or response scopes.
+-   A defined URL parameter needs to be part of the URL template.
+-   `Produces` keyword, which describes MIME types returned by an API, isn't supported. 
+
+### <a name="open-api-v2"> </a>OpenAPI version 2
+
+-   Only JSON format is supported.
+
+### <a name="open-api-v3"> </a>OpenAPI version 3
+
+-   If many `servers` are specified, API Management will try to select the first HTTPs URL. If there aren't any HTTPs URLs - the first HTTP URL. If there aren't any HTTP URLs - the server URL will be empty.
+-   `Examples` isn't supported, but `example` is.
+
+## OpenAPI import, update, and export mechanisms
+
+### <a name="open-import-export-general"> </a>General
+
+-   API definitions exported from API Management service are primarily intended for applications external to API Management service that need to call the API hosted in API Management service. Exported API definitions are not intended to be imported again into the same or different API Management service. For configuration management of API defiitions across different serivces/envionments, please refer to documentation regarding using API Management Service with Git. 
+
+### Add new API via OpenAPI import
+
+For each operation found in the OpenAPI document, a new operation will be created with Azure resource name and display name set to `operationId` and `summary` respectively. `operationId` value is normalized following the rules described below. `summary` value is imported as-is and its length is limited to 300 characters.
+
+If `operationId` isn't specified (that is, not present, `null`, or empty), Azure resource name value will be generated by combining HTTP method and path template, for example, `get-foo`.
+
+If `summary` isn't specified (that is, not present, `null`, or empty), `display name` value will set to `operationId`. If `operationId` is not specified, display name value will be generated by combining HTTP method and path template, for example, `Get - /foo`.
+
+### Update an existing API via OpenAPI import
+
+During import existing API is changed to match API described in the OpenAPI document. Each operation in the OpenAPI document is matched to existing operation by comparing its `operationId` value to Azure resource name of existing operation.
+
+If a match is found, existing operation’s properties will be updated "in-place".
+
+If a match isn't found a new operation will be created using the rules described in the section above. For each new operation, the import will attempt to copy policies from an existing operation with the same HTTP method and path template.
+
+All existing unmatched operations will be deleted.
+
+To make import more predictable please follow these guidelines:
+
+- Make sure to specify `operationId` property for every operation.
+- Refrain from changing `operationId` after initial import.
+- Never change `operationId` and HTTP method or path template at the same time.
+
+### Export API as OpenAPI
+
+For each operation, its Azure resource name will be exported as an `operationId`, and display name will be exported as a `summary`.
+Normalization rules for operationId
+
+- Convert to lower case.
+- Replace each sequence of non-alphanumeric characters with a single dash, for example, `GET-/foo/{bar}?buzz={quix}` will be transformed into `get-foo-bar-buzz-quix-`.
+- Trim dashes on both sides, for example, `get-foo-bar-buzz-quix-` will become `get-foo-bar-buzz-quix`
+- Truncate to fit 76 characters, four characters less than maximum limit for a resource name.
+- Use remaining four characters for a deduplication suffix, if necessary, in the form of `-1, -2, ..., -999`.
+
 
 ## <a name="wsdl"> </a>WSDL
-WSDL files are used to generate SOAP Pass-through APIs, or serve as the backend of a SOAP-to-REST API.
 
-* **WSDL:Import** we do not currently support APIs using this attribute. Customers should merge the imported elements into one document.
-* **Messages with multiple parts** are currently not supported.
-* **WCF wsHttpBinding** SOAP services created with Windows Communication Foundation should use basicHttpBinding - wsHttpBinding is not supported.
-* **MTOM** Services using MTOM <em>may</em> work. Official support is not offered at this time.
-* **Recursion** types that are defined recursively (e.g. refer to an array of themselves) are not supported.
+WSDL files are used to create SOAP pass-through and SOAP-to-REST APIs.
+
+-   **SOAP bindings** -Only SOAP bindings of style ”document” and “literal” encoding are supported. There is no support for “rpc” style or SOAP-Encoding.
+-   **WSDL:Import** - This attribute isn't supported. Customers should merge the imports into one document.
+-   **Messages with multiple parts** - These types of messages aren't supported.
+-   **WCF wsHttpBinding** - SOAP services created with Windows Communication Foundation should use basicHttpBinding - wsHttpBinding isn't supported.
+-   **MTOM** - Services using MTOM <em>may</em> work. Official support isn't offered at this time.
+-   **Recursion** - Types that are defined recursively (for example, refer to an array of themselves) are not supported by APIM.
+-   **Multiple Namespaces** - Multiple namespaces can be used in a schema, but only the target namespace can be used to define message parts. Namespaces other than the target, which are used to define other input or output elements, are not preserved. Although such a WSDL document can be imported, on export all message parts will have the target namespace of the WSDL.
+-   **Arrays** - SOAP-to-REST transformation supports only wrapped arrays shown in the example below:
+
+```xml
+    <complexType name="arrayTypeName">
+        <sequence>
+            <element name="arrayElementValue" type="arrayElementType" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+    <complexType name="typeName">
+        <sequence>
+            <element name="element1" type="someTypeName" minOccurs="1" maxOccurs="1"/>
+            <element name="element2" type="someOtherTypeName" minOccurs="0" maxOccurs="1" nillable="true"/>
+            <element name="arrayElement" type="arrayTypeName" minOccurs="1" maxOccurs="1"/>
+        </sequence>
+    </complexType>
+```
 
 ## <a name="wadl"> </a>WADL
-There are no known WADL import issues currently.
 
-
-[api-management-management-console]: ./media/api-management-howto-add-operations/api-management-management-console.png
-[api-management-operations]: ./media/api-management-howto-add-operations/api-management-operations.png
-[api-management-add-operation]: ./media/api-management-howto-add-operations/api-management-add-operation.png
-[api-management-http-method]: ./media/api-management-howto-add-operations/api-management-http-method.png
-[api-management-url-template]: ./media/api-management-howto-add-operations/api-management-url-template.png
-[api-management-url-template-rewrite]: ./media/api-management-howto-add-operations/api-management-url-template-rewrite.png
-[api-management-description]: ./media/api-management-howto-add-operations/api-management-description.png
-[api-management-caching-tab]: ./media/api-management-howto-add-operations/api-management-caching-tab.png
-[api-management-request-parameters]: ./media/api-management-howto-add-operations/api-management-request-parameters.png
-[api-management-request-body]: ./media/api-management-howto-add-operations/api-management-request-body.png
-[api-management-response-code]: ./media/api-management-howto-add-operations/api-management-response-code.png
-[api-management-response-body-content-type]: ./media/api-management-howto-add-operations/api-management-response-body-content-type.png
-[api-management-response-body]: ./media/api-management-howto-add-operations/api-management-response-body.png
-
-
-[api-management-contoso-api]: ./media/api-management-howto-add-operations/api-management-contoso-api.png
-
-[api-management-add-new-api]: ./media/api-management-howto-add-operations/api-management-add-new-api.png
-[api-management-api-settings]: ./media/api-management-howto-add-operations/api-management-api-settings.png
-[api-management-api-settings-credentials]: ./media/api-management-howto-add-operations/api-management-api-settings-credentials.png
-[api-management-api-summary]: ./media/api-management-howto-add-operations/api-management-api-summary.png
-[api-management-echo-operations]: ./media/api-management-howto-add-operations/api-management-echo-operations.png
-
-[Add an operation]: #add-operation
-[Operation caching]: #operation-caching
-[Request parameters]: #request-parameters
-[Request body]: #request-body
-[Responses]: #responses
-[Next steps]: #next-steps
-
-[Get started with Azure API Management]: api-management-get-started.md
-[Create an API Management service instance]: api-management-get-started.md#create-service-instance
-
-[How to add operations to an API]: api-management-howto-add-operations.md
-[How to create and publish a product]: api-management-howto-add-products.md
-[How to cache operation results in Azure API Management]: api-management-howto-cache.md
+Currently, there are no known WADL import issues.

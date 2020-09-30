@@ -1,18 +1,50 @@
-1. In the portal, on the left side, click **+** and type 'Virtual Network Gateway' in search. Locate **Virtual network gateway** in the search return and click the entry. On the **Virtual network gateway** blade, click **Create** at the bottom of the blade. This opens the **Create virtual network gateway** blade.
-2. On the **Create virtual network gateway** blade, fill in the values for your virtual network gateway.
+---
+ title: include file
+ description: include file
+ services: vpn-gateway
+ author: cherylmc
+ ms.service: vpn-gateway
+ ms.topic: include
+ ms.date: 03/04/2020
+ ms.author: cherylmc
+ ms.custom: include file
+---
 
-    ![Create virtual network gateway blade fields](./media/vpn-gateway-add-gw-rm-portal-include/gw.png "Create virtual network gateway blade fields")
-3. **Name**: Name your gateway. This is not the same as naming a gateway subnet. It's the name of the gateway object you are creating.
-4. **Gateway type**: Select **VPN**. VPN gateways use the virtual network gateway type **VPN**. 
-5. **VPN type**: Select the VPN type that is specified for your configuration. Most configurations require a Route-based VPN type.
-6. **SKU**: Select the gateway SKU from the dropdown. The SKUs listed in the dropdown depend on the VPN type you select.
-7. **Location**: Adjust the **Location** field to point to the location where your virtual network is located. If the location is not pointing to the region where your virtual network resides, the virtual network doesn't appear in the 'Choose a virtual network' dropdown.
-8. Choose the virtual network to which you want to add this gateway. Click **Virtual network** to open the **Choose a virtual network** blade. Select the VNet. If you don't see your VNet, make sure the **Location** field is pointing to the region in which your virtual network is located.
-9. **Public IP address**: This blade creates a public IP address object to which a public IP address will be dynamically assigned. Click **Public IP address** to open the **Choose public IP address** blade. Click **+Create New** to open the **Create public IP address blade**. Input a name for your public IP address. Click **OK** to save your changes to this blade. The IP address is dynamically assigned when the VPN gateway is created. VPN Gateway currently only supports *Dynamic* Public IP address allocation. However, this does not mean that the IP address changes after it has been assigned to your VPN gateway. The only time the Public IP address changes is when the gateway is deleted and re-created. It doesn't change across resizing, resetting, or other internal maintenance/upgrades of your VPN gateway.
-10. **Subscription**: Verify that the correct subscription is selected.
-11. **Resource group**: This setting is determined by the Virtual Network that you select.
-12. Don't adjust the **Location** after you've specified the previous settings.
-13. Verify the settings. If you want your gateway to appear on the dashboard, you can select **Pin to dashboard** at the bottom of the blade.
-14. Click **Create** to begin creating the gateway. The settings are validated and the gateway will deploy. Creating a gateway can take up to 45 minutes.
-15. After the gateway is created, you can view the IP address that has been assigned to it by looking at the virtual network in the portal. The gateway appears as a connected device. You can click the connected device (your virtual network gateway) to view more information.
+1. From the [Azure portal](https://portal.azure.com) menu, select **Create a resource**. 
 
+   ![Create a resource in the Azure portal](./media/vpn-gateway-add-gw-rm-portal-include/azure-portal-create-resource.png)
+2. In the **Search the Marketplace** field, type 'Virtual Network Gateway'. Locate **Virtual network gateway** in the search return and select the entry. On the **Virtual network gateway** page, select **Create**. This opens the **Create virtual network gateway** page.
+3. On the **Basics** tab, fill in the values for your virtual network gateway.
+
+   ![Create virtual network gateway page fields](./media/vpn-gateway-add-gw-rm-portal-include/gateway1.png "Create virtual network gateway page fields")
+
+   ![Create virtual network gateway page fields](./media/vpn-gateway-add-gw-rm-portal-include/gateway2.png "Create virtual network gateway page fields")
+
+   **Project details**
+
+   - **Subscription**: Select the subscription you want to use from the dropdown.
+   - **Resource Group**: This setting is autofilled when you select your virtual network on this page.
+
+   **Instance details**
+
+   - **Name**: Name your gateway. Naming your gateway not the same as naming a gateway subnet. It's the name of the gateway object you are creating.
+   - **Region**: Select the region in which you want to create this resource. The region for the gateway must be the same as the virtual network.
+   - **Gateway type**: Select **VPN**. VPN gateways use the virtual network gateway type **VPN**.
+   - **VPN type**: Select the VPN type that is specified for your configuration. Most configurations require a Route-based VPN type.
+   - **SKU**: Select the gateway SKU from the dropdown. The SKUs listed in the dropdown depend on the VPN type you select. For more information about gateway SKUs, see [Gateway SKUs](../articles/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku).
+   - **Generation**: For information about VPN Gateway Generation, see [Gateway SKUs](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku).
+   - **Virtual network**: From the dropdown, select the virtual network to which you want to add this gateway.
+   - **Gateway subnet address range**: This field only appears if your VNet doesn't have a gateway subnet. If possible, make the range /27 or larger (/26,/25 etc.). We don't recommend creating a range any smaller than /28. If you already have a gateway subnet, you can view GatewaySubnet details by navigating to your virtual network. Click **Subnets** to view the range. If you want to change the range, you can delete and recreate the GatewaySubnet.
+
+   **Public IP address**: This setting specifies the public IP address object that gets associated to the VPN gateway. The public IP address is dynamically assigned to this object when the VPN gateway is created. The only time the Public IP address changes is when the gateway is deleted and re-created. It doesn't change across resizing, resetting, or other internal maintenance/upgrades of your VPN gateway.
+
+     - **Public IP address**: Leave **Create new** selected.
+     - **Public IP address name**: In the text box, type a name for your public IP address instance.
+     - **Assignment**: VPN gateway supports only Dynamic.
+
+   **Active-Active mode**: Only select **Enable active-active mode** if you are creating an active-active gateway configuration. Otherwise, leave this setting unselected.
+
+   Leave **Configure BGP ASN** deselected, unless your configuration specifically requires this setting. If you do require this setting, the default ASN is 65515, although this can be changed.
+4. Select **Review + create** to run validation. Once validation passes, select **Create** to deploy the VPN gateway. A gateway can take up to 45 minutes to fully create and deploy. You can see the deployment status on the Overview page for your gateway.
+
+After the gateway is created, you can view the IP address that has been assigned to it by looking at the virtual network in the portal. The gateway appears as a connected device.

@@ -1,139 +1,138 @@
 ---
-title: Face API JavaScript quick start | Microsoft Docs
-description: Get information and code samples to help you quickly get started using the Face API with JavaScript in Cognitive Services.
+title: "Quickstart: Detect faces in an image using the REST API and JavaScript"
+titleSuffix: Azure Cognitive Services
+description: In this quickstart, you detect faces from an image using the Face API with JavaScript in Cognitive Services.
 services: cognitive-services
-author: v-royhar
-manager: yutkuo
-
+author: PatrickFarley
+manager: nitinme
+ms.custom: devx-track-js
 ms.service: cognitive-services
-ms.technology: face
-ms.topic: article
-ms.date: 06/21/2017
-ms.author: anroth
+ms.subservice: face-api
+ms.topic: quickstart
+ms.date: 08/05/2020
+ms.author: pafarley
 ---
+# Quickstart: Detect faces in an image using the REST API and JavaScript
 
-# Face API JavaScript Quick Starts
+In this quickstart, you'll use the Azure Face REST API with JavaScript to detect human faces in an image.
 
-This article provides information and code samples to help you quickly get started using the Face API with JavaScript to accomplish the following tasks: 
-* [Detect Faces in Images](#Detect) 
-* [Identify Faces in Images](#Identify)
+## Prerequisites
 
-Learn more about obtaining free Subscription Keys [here](../../Computer-vision/Vision-API-How-to-Topics/HowToSubscribe.md)
+* Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="Create a Face resource"  target="_blank">create a Face resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
+    * You will need the key and endpoint from the resource you create to connect your application to the Face API. You'll paste your key and endpoint into the code below later in the quickstart.
+    * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+* A code editor such as [Visual Studio Code](https://code.visualstudio.com/download)
 
-## Detect faces in images with Face API using JavaScript <a name="Detect"> </a>
+## Initialize the HTML file
 
-Use the [Face - Detect method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) 
-to detect faces in an image and return face attributes including:
-* Face ID: Unique ID used in several Face API scenarios. 
-* Face Rectangle: The left, top, width, and height indicating the location of the face in the image.
-* Landmarks: An array of 27-point face landmarks pointing to the important positions of face components.
-* Facial attributes including age, gender, smile intensity, head pose, and facial hair. 
+Create a new HTML file, *detectFaces.html*, and add the following code.
 
-#### Face Detect JavaScript example request
-
-To run the sample, perform the following steps:
-
-1. Copy the following and save it to a file such as `detectFaces.html`.
-1. Replace the `subscriptionKey` value with your valid subscription key.
-1. Change the `uriBase` value to use the location where you obtained your subscription keys.
-1. Drag-and-drop the file into your browser.
-1. Click the `Analyze faces` button.
-
-```html 
+```html
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Detect Faces Sample</title>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-</head>
-<body>
+    <head>
+        <title>Detect Faces Sample</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    </head>
+    <body></body>
+</html>
+```
 
+Then add the following code inside the `body` element of the document. This code sets up a basic user interface with a URL field, an **Analyze face** button, a response pane, and an image display pane.
+
+```html
+<h1>Detect Faces:</h1>
+Enter the URL to an image that includes a face or faces, then click
+the <strong>Analyze face</strong> button.<br><br>
+Image to analyze: <input type="text" name="inputImage" id="inputImage"
+    value="https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg" />
+<button onclick="processImage()">Analyze face</button><br><br>
+<div id="wrapper" style="width:1020px; display:table;">
+    <div id="jsonOutput" style="width:600px; display:table-cell;">
+        Response:<br><br>
+        <textarea id="responseTextArea" class="UIInput"
+            style="width:580px; height:400px;"></textarea>
+    </div>
+    <div id="imageDiv" style="width:420px; display:table-cell;">
+        Source image:<br><br>
+        <img id="sourceImage" width="400" />
+    </div>
+</div>
+```
+
+## Write the JavaScript script
+
+Add the following code immediately above the `h1` element in your document. This code sets up the JavaScript code that calls the Face API.
+
+```html
 <script type="text/javascript">
     function processImage() {
-        // **********************************************
-        // *** Update or verify the following values. ***
-        // **********************************************
-
-        // Replace the subscriptionKey string value with your valid subscription key.
-        var subscriptionKey = "13hc77781f7e4b19b5fcdd72a8df7156";
-
-        // Replace or verify the region.
-        //
-        // You must use the same region in your REST API call as you used to obtain your subscription keys.
-        // For example, if you obtained your subscription keys from the westus region, replace
-        // "westcentralus" in the URI below with "westus".
-        //
-        // NOTE: Free trial subscription keys are generated in the westcentralus region, so if you are using
-        // a free trial subscription key, you should not need to change this region.
-        var uriBase = "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect";
-
+        // Replace <Subscription Key> with your valid subscription key.
+        var subscriptionKey = "<Subscription Key>";
+    
+        var uriBase =
+            "https://<My Endpoint String>.com/face/v1.0/detect";
+    
         // Request parameters.
         var params = {
             "returnFaceId": "true",
             "returnFaceLandmarks": "false",
-            "returnFaceAttributes": "age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise",
+            "returnFaceAttributes":
+                "age,gender,headPose,smile,facialHair,glasses,emotion," +
+                "hair,makeup,occlusion,accessories,blur,exposure,noise"
         };
-
+    
         // Display the image.
         var sourceImageUrl = document.getElementById("inputImage").value;
         document.querySelector("#sourceImage").src = sourceImageUrl;
-
+    
         // Perform the REST API call.
         $.ajax({
             url: uriBase + "?" + $.param(params),
-            
+    
             // Request headers.
             beforeSend: function(xhrObj){
                 xhrObj.setRequestHeader("Content-Type","application/json");
                 xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
             },
-            
+    
             type: "POST",
-            
+    
             // Request body.
             data: '{"url": ' + '"' + sourceImageUrl + '"}',
         })
-        
+    
         .done(function(data) {
             // Show formatted JSON on webpage.
             $("#responseTextArea").val(JSON.stringify(data, null, 2));
         })
-        
+    
         .fail(function(jqXHR, textStatus, errorThrown) {
             // Display error message.
-            var errorString = (errorThrown === "") ? "Error. " : errorThrown + " (" + jqXHR.status + "): ";
-            errorString += (jqXHR.responseText === "") ? "" : (jQuery.parseJSON(jqXHR.responseText).message) ? 
-                jQuery.parseJSON(jqXHR.responseText).message : jQuery.parseJSON(jqXHR.responseText).error.message;
+            var errorString = (errorThrown === "") ?
+                "Error. " : errorThrown + " (" + jqXHR.status + "): ";
+            errorString += (jqXHR.responseText === "") ?
+                "" : (jQuery.parseJSON(jqXHR.responseText).message) ?
+                    jQuery.parseJSON(jqXHR.responseText).message :
+                        jQuery.parseJSON(jqXHR.responseText).error.message;
             alert(errorString);
         });
     };
 </script>
-
-<h1>Detect Faces:</h1>
-Enter the URL to an image that includes a face or faces, then click the <strong>Analyze face</strong> button.
-<br><br>
-Image to analyze: <input type="text" name="inputImage" id="inputImage" value="https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg" />
-<button onclick="processImage()">Analyze face</button>
-<br><br>
-<div id="wrapper" style="width:1020px; display:table;">
-    <div id="jsonOutput" style="width:600px; display:table-cell;">
-        Response:
-        <br><br>
-        <textarea id="responseTextArea" class="UIInput" style="width:580px; height:400px;"></textarea>
-    </div>
-    <div id="imageDiv" style="width:420px; display:table-cell;">
-        Source image:
-        <br><br>
-        <img id="sourceImage" width="400" />
-    </div>
-</div>
-</body>
-</html>
 ```
 
-#### Face Detect response
+You'll need to update the `subscriptionKey` field with the value of your subscription key, and you need to change the `uriBase` string so that it contains the correct endpoint string. The `returnFaceAttributes` field specifies which face attributes to retrieve; you may wish to change this string depending on your intended use.
 
-A successful response is returned in JSON. Following is an example of a successful response: 
+[!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
+
+## Run the script
+
+Open *detectFaces.html* in your browser. When you click the **Analyze face** button, the app should display the image from the given URL and print out a JSON string of face data.
+
+![GettingStartCSharpScreenshot](../Images/face-detect-javascript.png)
+
+The following text is an example of a successful JSON response.
 
 ```json
 [
@@ -227,82 +226,9 @@ A successful response is returned in JSON. Following is an example of a successf
 ]
 ```
 
-## Identify faces in images with Face API using JavaScript <a name="Identify"> </a>
+## Next steps
 
-Copy the following and save it to a file such as `test.html`. Change the `url` to use the location where you obtained your subscription keys, and replace the "Ocp-Apim-Subscription-Key" value with your valid subscription key, and add the request body. To run the sample, drag-and-drop the file into your browser.
+In this quickstart, you wrote a JavaScript script that calls the Azure Face service to detect faces in an image and return their attributes. Next, explore the Face API reference documentation to learn more.
 
-Use the [Face - Identify method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) 
-identify people based on a detected face and people database (defined as a person group) which needs to be created in advance and can be edited over time
-
-#### Face Identify JavaScript example request
-
-```html
-<!DOCTYPE html>
-<html>
-<head>
-    <title>JSSample</title>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-</head>
-<body>
-
-<script type="text/javascript">
-    $(function() {
-        var params = {
-            // Request parameters
-        };
-      
-        $.ajax({
-            // NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
-            //   For example, if you obtained your subscription keys from westus, replace "westcentralus" in the 
-            //   URL below with "westus".
-            url: "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/identify?" + $.param(params),
-            beforeSend: function(xhrObj){
-                // Request headers
-                xhrObj.setRequestHeader("Content-Type","application/json");
-
-                // NOTE: Replace the "Ocp-Apim-Subscription-Key" value with a valid subscription key.
-                xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key","13hc77781f7e4b19b5fcdd72a8df7156");
-            },
-            type: "POST",
-            // Request body
-            data: "{body}",
-        })
-        .done(function(data) {
-            alert("success");
-        })
-        .fail(function() {
-            alert("error");
-        });
-    });
-</script>
-</body>
-</html>
-
-```
-
-#### Face Identify response
-
-A successful response is returned in JSON. Following is an example of a successful response: 
-
-```json
-[
-    {
-        "faceId":"c5c24a82-6845-4031-9d5d-978df9175426",
-        "candidates":[
-            {
-                "personId":"25985303-c537-4467-b41d-bdb45cd95ca1",
-                "confidence":0.92
-            }
-        ]
-    },
-    {
-        "faceId":"65d083d4-9447-47d1-af30-b626144bf0fb",
-        "candidates":[
-            {
-                "personId":"2ae4935b-9659-44c3-977f-61fac20d0538",
-                "confidence":0.89
-            }
-        ]
-    }
-]
-```
+> [!div class="nextstepaction"]
+> [Face API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

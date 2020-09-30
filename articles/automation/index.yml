@@ -1,0 +1,95 @@
+### YamlMime:Landing
+
+title: Azure Automation documentation
+metadata:
+  title: Azure Automation documentation
+  description: Learn how to use Automation to configure and automate operational tasks across a hybrid environment.
+  services: automation
+  author: mgoedtel
+  manager: carmonm
+  ms.service: automation
+  ms.topic: landing-page
+  ms.date: 09/06/2019
+  ms.author: magoedte
+
+landingContent:
+
+  # Card (optional)
+  - title: Get started with Azure Automation
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Automation?
+            url: automation-intro.md
+      - linkListType: get-started
+        links:
+          - text: Create an Automation account
+            url: automation-quickstart-create-account.md
+      - linkListType: quickstart
+        links:
+          - text: Create a runbook
+            url: automation-quickstart-create-runbook.md
+      - linkListType: deploy
+        links: 
+          - text: Start/Stop VMs during off-hours
+            url: automation-solution-vm-management.md
+
+  - title: Manage Updates for VMs
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Update Management overview
+            url: update-management/update-mgmt-overview.md
+      - linkListType: get-started
+        links:
+          - text: Manage updates for multiple VMs
+            url: update-management/update-mgmt-manage-updates-for-vm.md
+  - title: Configure your VMs with Desired State Configuration
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: State Configuration overview
+            url: automation-dsc-overview.md
+      - linkListType: concept
+        links:
+          - text: PowerShell DSC
+            url: /powershell/scripting/dsc/overview/overview
+      - linkListType: quickstart
+        links:
+          - text: Create a DSC Configuration from Group Policy
+            url: /powershell/scripting/dsc/quickstarts/gpo-quickstart
+      - linkListType: tutorial
+        links:
+          - text: Configure Servers and manage drift with State Configuration
+            url: tutorial-configure-servers-desired-state.md
+
+  - title: Work with Hybrid Environments
+    linkLists:
+      - linkListType: overview
+        links:
+         - text: Hybrid Runbook Worker Overview
+           url: automation-hybrid-runbook-worker.md
+      - linkListType: deploy
+        links:
+          - text: Deploy Windows Hybrid Runbook Worker
+            url: automation-windows-hrw-install.md
+          - text: Deploy Linux Hybrid Runbook Worker
+            url: automation-linux-hrw-install.md
+          - text: Start runbooks on a Hybrid Runbook Worker
+            url: automation-hrw-run-runbooks.md
+
+  # Card
+  - title: Cross Service Automation
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Send an email from a Runbook using SendGrid
+            url: automation-send-email.md
+      - linkListType: get-started
+        links:
+          - text: Start a runbook from Azure alerts
+            url: automation-create-alert-triggered-runbook.md
+      - linkListType: deploy
+        links:
+          - text: Deploy a Resource Manager template in an Automation PowerShell runbook
+            url: automation-deploy-template-runbook.md

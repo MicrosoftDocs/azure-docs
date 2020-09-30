@@ -1,137 +1,292 @@
 ---
-title: Lucene query examples for Azure Search | Microsoft Docs
-description: Lucene query syntax for fuzzy search, proximity search, term boosting, regular expression search, and wildcard search.
-services: search
-documentationcenter: ''
-author: LiamCa
-manager: pablocas
-editor: ''
-tags: Lucene query analyzer syntax
+title: Use full Lucene query syntax
+titleSuffix: Azure Cognitive Search
+description: Lucene query syntax for fuzzy search, proximity search, term boosting, regular expression search, and wildcard searches in an Azure Cognitive Search service.
 
-ms.assetid: 147f360d-a5ce-4d7b-a909-c8b65bfb748c
-ms.service: search
-ms.devlang: na
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.date: 07/21/2017
-ms.author: liamca
+manager: nitinme
+author: HeidiSteen
+ms.author: heidist
+tags: Lucene query analyzer syntax
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 ---
 
-# Lucene query syntax examples for building queries in Azure Search
-When constructing queries for Azure Search, you can use either the default [simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) or the alternative [Lucene Query Parser in Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search). The Lucene Query Parser supports more complex query constructs, such as field-scoped queries, fuzzy search, proximity search, term boosting, and regular expression search.
+# Use the "full" Lucene search syntax (advanced queries in Azure Cognitive Search)
 
-In this article, you can step through examples demonstrating query operations available when using the full syntax.
+When constructing queries for Azure Cognitive Search, you can replace the default [simple query parser](query-simple-syntax.md) with the more expansive [Lucene Query Parser in Azure Cognitive Search](query-lucene-syntax.md) to formulate specialized and advanced query definitions. 
 
-## Viewing the examples in JSFiddle
+The Lucene parser supports complex query constructs, such as field-scoped queries, fuzzy search, infix and suffix wildcard search, proximity search, term boosting, and regular expression search. The additional power comes with additional processing requirements so you should expect a slightly longer execution time. In this article, you can step through examples demonstrating query operations available when using the full syntax.
 
-All of the examples in this article are executable queries that run against a pre-loaded Search index in [JSFiddle](https://jsfiddle.net), an online code editor for testing script and HTML. 
-
-To run them, right-click on the query example URLs to open JSFiddle in a separate browser window.
-
-> [!NOTE]
-> The following examples leverage a search index consisting of jobs available based on a dataset provided by the [City of New York OpenData](https://nycopendata.socrata.com/) initiative. This data should not be considered current or complete. The index is on a sandbox service provided by Microsoft. You do not need an Azure subscription or Azure Search to try these queries.
+> [!Note]
+> Many of the specialized query constructions enabled through the full Lucene query syntax are not [text-analyzed](search-lucene-query-architecture.md#stage-2-lexical-analysis), which can be surprising if you expect stemming or lemmatization. Lexical analysis is only performed on complete terms (a term query or phrase query). Query types with incomplete terms (prefix query, wildcard query, regex query, fuzzy query) are added directly to the query tree, bypassing the analysis stage. The only transformation performed on partial query terms is lowercasing. 
 >
 
+## Formulate requests in Postman
+
+The following examples leverage a NYC Jobs search index consisting of jobs available based on a dataset provided by the [City of New York OpenData](https://opendata.cityofnewyork.us/) initiative. This data should not be considered current or complete. The index is on a sandbox service provided by Microsoft, which means you do not need an Azure subscription or Azure Cognitive Search to try these queries.
+
+What you do need is Postman or an equivalent tool for issuing HTTP request on GET. For more information, see [Explore with REST clients](search-get-started-postman.md).
+
+### Set the request header
+
+1. In the request header, set **Content-Type** to `application/json`.
+
+2. Add an **api-key**, and set it to this string: `252044BE3886FE4A8E3BAA4F595114BB`. This is a query key for the sandbox search service hosting the NYC Jobs index.
+
+After you specify the request header, you can reuse it for all of the queries in this article, swapping out only the **search=** string. 
+
+  ![Postman request header set parameters](media/search-query-lucene-examples/postman-header.png)
+
+### Set the request URL
+
+Request is a GET command paired with a URL containing the Azure Cognitive Search endpoint and search string.
+
+  ![Postman request header GET](media/search-query-lucene-examples/postman-basic-url-request-elements.png)
+
+URL composition has the following elements:
+
++ **`https://azs-playground.search.windows.net/`** is a sandbox search service maintained by the Azure Cognitive Search development team. 
++ **`indexes/nycjobs/`** is the NYC Jobs index in the indexes collection of that service. Both the service name and index are required on the request.
++ **`docs`** is the documents collection containing all searchable content. The query api-key provided in the request header only works on read operations targeting the documents collection.
++ **`api-version=2020-06-30`** sets the api-version, which is a required parameter on every request.
++ **`search=*`** is the query string, which in the initial query is null, returning the first 50 results (by default).
+
+## Send your first query
+
+As a verification step, paste the following request into GET and click **Send**. Results are returned as verbose JSON documents. Entire documents are returned, which allows you to see all fields and all values.
+
+Paste this URL into a REST client as a validation step and to view document structure.
+
+  ```http
+  https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&search=*
+  ```
+
+The query string, **`search=*`**, is an unspecified search equivalent to null or empty search. It's the simplest search you can do.
+
+Optionally, you can add **`$count=true`** to the URL to return a count of the documents matching the search criteria. On an empty search string, this is all the documents in the index (about 2800 in the case of NYC Jobs).
 
 ## How to invoke full Lucene parsing
 
-All of the examples in this article specify the **queryType=full** search parameter, indicating that the full syntax, handled by the Lucene Query Parser. 
+Add **queryType=full** to invoke the full query syntax, overriding the default simple query syntax. 
 
-**Example 1** -- Right-click the following query snippet to open it in a new browser page that loads JSFiddle and runs the query:
+```GET
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&search=*
+```
 
-* [&queryType=full&search=*](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2016-09-01%26searchFields=business_title%26$select=business_title%26queryType=full%26search=*)
+All of the examples in this article specify the **queryType=full** search parameter, indicating that the full syntax is handled by the Lucene Query Parser. 
 
-In the new browser window, the JavaScript source and HTML output are presented side by side. The script references a full query (not just the snippet, as shown in the link). The full query is shown in the URLs for each example. 
+## Example 1: Query scoped to a list of fields
 
-This query returns documents from our New York City Jobs index (nycjobs, loaded on a sandbox service). For brevity, the query specifies only business titles are returned. The full underlying query is as follows:
+This first example is not Lucene-specific, but we lead with it to introduce the first fundamental query concept: field scope. This example scopes the entire query and the response to just a few specific fields. Knowing how to structure a readable JSON response is important when your tool is Postman or Search explorer. 
 
-    http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2016-09-01%26searchFields=business_title%26$select=business_title%26queryType=full%26search=*
+For brevity, the query targets only the *business_title* field and specifies only business titles are returned. The **searchFields** parameter restricts query execution to just the business_title field, and **select** specifies which fields are included in the response.
 
-The **searchFields** parameter restricts the search to just the business title field. The **queryType** is set to **full**, which instructs Azure Search to use the Lucene Query Parser for this query.
+### Search expression
+
+```http
+&search=*&searchFields=business_title&$select=business_title
+```
+
+Here is the same query with multiple fields in a comma-delimited list.
+
+```http
+search=*&searchFields=business_title, posting_type&$select=business_title, posting_type
+```
+
+The spaces after the commas are optional.
+
+> [!Tip]
+> When using the REST API from your application code, don't forget to URL-encode parameters like `$select` and `searchFields`.
+
+### Full URL
+
+```http
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&search=*&searchFields=business_title&$select=business_title
+```
+
+Response for this query should look similar to the following screenshot.
+
+  ![Postman sample response with scores](media/search-query-lucene-examples/postman-sample-results.png)
+
+You might have noticed the search score in the response. Uniform scores of 1 occur when there is no rank, either because the search was not full text search, or because no criteria was applied. For null search with no criteria, rows come back in arbitrary order. When you include actual search criteria, you will see search scores evolve into meaningful values.
+
+## Example 2: Fielded search
+
+Full Lucene syntax supports scoping individual search expressions to a specific field. This example searches for business titles with the term senior in them, but not junior.
+
+### Search expression
+
+```http
+$select=business_title&search=business_title:(senior NOT junior)
+```
+
+Here is the same query with multiple fields.
+
+```http
+$select=business_title, posting_type&search=business_title:(senior NOT junior) AND posting_type:external
+```
+
+### Full URL
+
+```GET
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&$select=business_title&search=business_title:(senior NOT junior)
+```
+
+  ![Postman sample response search expression](media/search-query-lucene-examples/intrafieldfilter.png)
+
+You can define a fielded search operation with the **fieldName:searchExpression** syntax, where the search expression can be a single word or a phrase, or a more complex expression in parentheses, optionally with Boolean operators. Some examples include the following:
+
+- `business_title:(senior NOT junior)`
+- `state:("New York" OR "New Jersey")`
+- `business_title:(senior NOT junior) AND posting_type:external`
+
+Be sure to put multiple strings within quotation marks if you want both strings to be evaluated as a single entity, as in this case searching for two distinct locations in the `state` field. Also, ensure the operator is capitalized as you see with NOT and AND.
+
+The field specified in **fieldName:searchExpression** must be a searchable field. See [Create Index (Azure Cognitive Search REST API)](/rest/api/searchservice/create-index) for details on how index attributes are used in field definitions.
 
 > [!NOTE]
-> For background on query processing, see [How full text search works in Azure Search](search-lucene-query-architecture.md). For more information on search parameters, see [Search Documents (Azure Search Service REST API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents).
->
+> In the example above, we did not need to use the `searchFields` parameter because each part of the query has a field name explicitly specified. However, you can still use the `searchFields` parameter if you want to run a query where some parts are scoped to a specific field, and the rest could apply to several fields. For example, the query `search=business_title:(senior NOT junior) AND external&searchFields=posting_type` would match `senior NOT junior` only to the `business_title` field, while it would match "external" with the `posting_type` field. The field name provided in **fieldName:searchExpression** always takes precedence over the `searchFields` parameter, which is why in this example, we do not need to include `business_title` in the `searchFields` parameter.
 
-### Fielded query operation
-You can modify the examples in this article by specifying a **fieldname:searchterm** construction to define a fielded query operation, where the field is a single word, and the search term is also a single word or a phrase, optionally with Boolean operators. Some examples include the following:
+## Example 3: Fuzzy search
 
-* business_title:(senior NOT junior)
-* state:("New York" AND "New Jersey")
+Full Lucene syntax also supports fuzzy search, matching on terms that have a similar construction. 
+To do a fuzzy search, append the tilde `~` symbol at the end of a single word with an optional parameter, a value between 0 and 2, that specifies the edit distance. For example, `blue~` or `blue~1` would return blue, blues, and glue.
 
-Be sure to put multiple strings within quotation marks if you want both strings to be evaluated as a single entity, as in this case searching for two distinct cities in the location field. Also, ensure the operator is capitalized as you see with NOT and AND.
+### Search expression
 
-The field specified in **fieldname:searchterm** must be a searchable field. See [Create Index (Azure Search Service REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index) for details on how index attributes are used in field definitions.
+```http
+searchFields=business_title&$select=business_title&search=business_title:asosiate~
+```
 
-**Example 2** -- Right-click the following query snippet This query searches for business titles with the term senior in them, but not junior:
+Phrases aren't supported directly but you can specify a fuzzy match on component parts of a phrase.
 
-* [&queryType=full&search= business_title:senior NOT junior](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2016-09-01%26$select=business_title%26queryType=full%26search=business_title:senior+NOT+junior)
+```http
+searchFields=business_title&$select=business_title&search=business_title:asosiate~ AND comm~ 
+```
 
-## Fuzzy search example
-A fuzzy search finds matches in terms that have a similar construction. Per [Lucene documentation](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), fuzzy searches are based on [Damerau-Levenshtein Distance](https://en.wikipedia.org/wiki/Damerau%e2%80%93Levenshtein_distance).
 
-To do a fuzzy search, append the tilde "~" symbol at the end of a single word with an optional parameter, a value between 0 and 2, that specifies the edit distance. For example, "blue~" or "blue~1" would return blue, blues, and glue.
+### Full URL
 
-**Example 3** -- Right-click the following query snippet. This query searches for jobs with the term associate (where it is misspelled):
+This query searches for jobs with the term "associate" (deliberately misspelled):
 
-* [&queryType=full&search= business_title:asosiate~](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2016-09-01%26$select=business_title%26queryType=full%26search=business_title:asosiate~)
+```GET
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:asosiate~
+```
+  ![Fuzzy search response](media/search-query-lucene-examples/fuzzysearch.png)
+
 
 > [!Note]
-> Fuzzy queries are not [analyzed](https://docs.microsoft.com/azure/search/search-lucene-query-architecture#stage-2-lexical-analysis), which can be surprising if you expect stemming or lemmatization. Lexical analysis is only performed on complete terms (a term query or phrase query). Query types with incomplete terms (prefix query, wildcard query, regex query, fuzzy query) are added directly to the query tree, bypassing the analysis stage. The only transformation performed on incomplete query terms is lowercasing.
+> Fuzzy queries are not [analyzed](search-lucene-query-architecture.md#stage-2-lexical-analysis). Query types with incomplete terms (prefix query, wildcard query, regex query, fuzzy query) are added directly to the query tree, bypassing the analysis stage. The only transformation performed on incomplete query terms is lowercasing.
 >
 
-## Proximity search example
+## Example 4: Proximity search
 Proximity searches are used to find terms that are near each other in a document. Insert a tilde "~" symbol at the end of a phrase followed by the number of words that create the proximity boundary. For example, "hotel airport"~5 will find the terms hotel and airport within 5 words of each other in a document.
 
-**Example 4** -- Right-click the query. Search for jobs with the term "senior analyst" where it is separated by no more than one word:
+### Search expression
 
-* [&queryType=full&search=business_title:"senior analyst"~1](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2016-09-01%26$select=business_title%26queryType=full%26search=business_title:%22senior%20analyst%22~1)
+```http
+searchFields=business_title&$select=business_title&search=business_title:%22senior%20analyst%22~1
+```
 
-**Example 5** -- Try it again removing the words between the term "senior analyst".
+### Full URL
 
-* [&queryType=full&search=business_title:"senior analyst"~0](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2016-09-01%26$select=business_title%26queryType=full%26search=business_title:%22senior%20analyst%22~0)
+In this query, for jobs with the term "senior analyst" where it is separated by no more than one word:
 
-## Term boosting examples
-Term boosting refers to ranking a document higher if it contains the boosted term, relative to documents that do not contain the term. This differs from scoring profiles in that scoring profiles boost certain fields, rather than specific terms. The following example helps illustrate the differences.
+```GET
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:%22senior%20analyst%22~1
+```
+  ![Proximity query](media/search-query-lucene-examples/proximity-before.png)
+
+Try it again removing the words between the term "senior analyst". Notice that 8 documents are returned for this query as opposed to 10 for the previous query.
+
+```GET
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:%22senior%20analyst%22~0
+```
+
+## Example 5: Term boosting
+Term boosting refers to ranking a document higher if it contains the boosted term, relative to documents that do not contain the term. To boost a term, use the caret, "^", symbol with a boost factor (a number) at the end of the term you are searching. 
+
+### Full URLs
+
+In this "before" query, search for jobs with the term *computer analyst* and notice there are no results with both words *computer* and *analyst*, yet *computer* jobs are at the top of the results.
+
+```GET
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:computer%20analyst
+```
+  ![Term boosting before](media/search-query-lucene-examples/termboostingbefore.png)
+
+In the "after" query, repeat the search, this time boosting results with the term *analyst* over the term *computer* if both words do not exist. 
+
+```GET
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:computer%20analyst%5e2
+```
+A more human readable version of the above query is `search=business_title:computer analyst^2`. For a workable query, `^2` is encoded as `%5E2`, which is harder to see.
+
+  ![Term boosting after](media/search-query-lucene-examples/termboostingafter.png)
+
+Term boosting differs from scoring profiles in that scoring profiles boost certain fields, rather than specific terms. The following example helps illustrate the differences.
 
 Consider a scoring profile that boosts matches in a certain field, such as **genre** in the musicstoreindex example. Term boosting could be used to further boost certain search terms higher than others. For example, "rock^2 electronic" will boost documents that contain the search terms in the **genre** field higher than other searchable fields in the index. Furthermore, documents that contain the search term "rock" will be ranked higher than the other search term "electronic" as a result of the term boost value (2).
 
-To boost a term, use the caret, "^", symbol with a boost factor (a number) at the end of the term you are searching. The higher the boost factor, the more relevant the term will be relative to other search terms. By default, the boost factor is 1. Although the boost factor must be positive, it can be less than 1 (for example, 0.2).
+When setting the factor level, the higher the boost factor, the more relevant the term will be relative to other search terms. By default, the boost factor is 1. Although the boost factor must be positive, it can be less than 1 (for example, 0.2).
 
-**Example 6**  -- Right-click the query. Search for jobs with the term "computer analyst" where we see there are no results with both words computer and analyst, yet analyst jobs are at the top of the results.
 
-* [&queryType=full&search=business_title:computer analyst](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2016-09-01%26$select=business_title%26queryType=full%26search=business_title:computer%5e2%20analyst)
+## Example 6: Regex
 
-**Example 7**  --  Try it again, this time boosting results with the term computer over the term analyst if both words do not exist.
+A regular expression search finds a match based on the contents between forward slashes "/", as documented in the [RegExp class](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/util/automaton/RegExp.html).
 
-* [&queryType=full&search=business_title:computer^2 analyst](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2016-09-01%26$select=business_title%26queryType=full%26search=business_title:computer%5e2%20analyst)
+### Search expression
 
-## Regular expression example
-A regular expression search finds a match based on the contents between forward slashes "/", as documented in the [RegExp class](http://lucene.apache.org/core/4_10_2/core/org/apache/lucene/util/automaton/RegExp.html).
+```http
+searchFields=business_title&$select=business_title&search=business_title:/(Sen|Jun)ior/
+```
 
-**Example 8** -- Right-click the query. Search for jobs with either the term Senior or Junior.
+### Full URL
 
-* `&queryType=full&$select=business_title&search=business_title:/(Sen|Jun)ior/`
+In this query, search for jobs with either the term Senior or Junior: `search=business_title:/(Sen|Jun)ior/`.
 
-The URL for this example will not render properly in the page. As a workaround, copy the URL below and paste it into the browser URL address:
-    `http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2016-09-01%26queryType=full%26$select=business_title%26search=business_title:/(Sen|Jun)ior/)`
+```GET
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:/(Sen|Jun)ior/
+```
 
-## Wildcard search example
+  ![Regex query](media/search-query-lucene-examples/regex.png)
+
+> [!Note]
+> Regex queries are not [analyzed](./search-lucene-query-architecture.md#stage-2-lexical-analysis). The only transformation performed on incomplete query terms is lowercasing.
+>
+
+## Example 7: Wildcard search
 You can use generally recognized syntax for multiple (\*) or single (?) character wildcard searches. Note the Lucene query parser supports the use of these symbols with a single term, and not a phrase.
 
-**Example 9** -- Right-click the  query. Search for jobs that contain the prefix 'prog' which would include business titles with the terms programming and programmer in it.
+### Search expression
 
-* [&queryType=full&$select=business_title&search=business_title:prog*](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2016-09-01%26queryType=full%26$select=business_title%26search=business_title:prog*)
+```http
+searchFields=business_title&$select=business_title&search=business_title:prog*
+```
 
-You cannot use a * or ? symbol as the first character of a search.
+### Full URL
+
+In this query, search for jobs that contain the prefix 'prog' which would include business titles with the terms programming and programmer in it. You cannot use a * or ? symbol as the first character of a search.
+
+```GET
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:prog*
+```
+  ![Wildcard query](media/search-query-lucene-examples/wildcard.png)
+
+> [!Note]
+> Wildcard queries are not [analyzed](./search-lucene-query-architecture.md#stage-2-lexical-analysis). The only transformation performed on incomplete query terms is lowercasing.
+>
 
 ## Next steps
 Try specifying the Lucene Query Parser in your code. The following links explain how to set up search queries for both .NET and the REST API. The links use the default simple syntax so you will need to apply what you learned from this article to specify the **queryType**.
 
-* [Query your Azure Search Index using the .NET SDK](search-query-dotnet.md)
-* [Query your Azure Search Index using the REST API](search-query-rest-api.md)
+* [Query your index using the .NET SDK](./search-get-started-dotnet.md)
+* [Query your index using the REST API](./search-get-started-powershell.md)
 
-## See also
+Additional syntax reference, query architecture, and examples can be found in the following links:
 
- [How full text search works in Azure Search](search-lucene-query-architecture.md)
++ [Simple syntax query examples](search-query-simple-examples.md)
++ [How full text search works in Azure Cognitive Search](search-lucene-query-architecture.md)
++ [Simple query syntax](/rest/api/searchservice/simple-query-syntax-in-azure-search)
++ [Full Lucene query syntax](/rest/api/searchservice/lucene-query-syntax-in-azure-search)

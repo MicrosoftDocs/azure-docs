@@ -1,6 +1,6 @@
 ---
 title: Diagnostics Tool to troubleshoot StorSimple 8000 device | Microsoft Docs
-description: Describes the StorSimple device modes and explains how to use Windows PowerShell for StorSimple to change the device mode.
+description: This article provides an overview of the diagnostics tool and describes how the tool can be used with a StorSimple device.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -10,10 +10,10 @@ editor: ''
 ms.assetid: 
 ms.service: storsimple
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/27/2017
+ms.date: 01/09/2018
 ms.author: alkohli
 
 ---
@@ -29,15 +29,15 @@ The diagnostics tool is primarily intended for StorSimple 8000 series on-premise
 
 This tool can be run via the Windows PowerShell interface of your StorSimple device. There are two ways to access the local interface of your device:
 
-* [Use PuTTY to connect to the device serial console](storsimple-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
-* [Remotely access the tool via the Windows PowerShell for StorSimple](storsimple-remote-connect.md).
+* [Use PuTTY to connect to the device serial console](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
+* [Remotely access the tool via the Windows PowerShell for StorSimple](storsimple-8000-remote-connect.md).
 
 In this article, we assume that you have connected to the device serial console via PuTTY.
 
 #### To run the diagnostics tool
 
 Once you have connected to the Windows PowerShell interface of the device, perform the following steps to run the cmdlet.
-1. Log on to the device serial console by following the steps in [Use PuTTY to connect to the device serial console](storsimple-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
+1. Log on to the device serial console by following the steps in [Use PuTTY to connect to the device serial console](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
 
 2. Type the following command:
 
@@ -82,11 +82,11 @@ This test determines the status of the hardware components, the USM firmware, an
 * The hardware components reported are those components that failed the test or are not present in the system.
 * The USM firmware and disk firmware versions are reported for the Controller 0, Controller 1, and shared components in your system. For a complete list of hardware components, go to:
 
-    * [Components in primary enclosure](storsimple-monitor-hardware-status.md#component-list-for-primary-enclosure-of-storsimple-device)
-    * [Components in EBOD enclosure](storsimple-monitor-hardware-status.md#component-list-for-ebod-enclosure-of-storsimple-device)
+    * [Components in primary enclosure](storsimple-8000-monitor-hardware-status.md#component-list-for-primary-enclosure-of-storsimple-device)
+    * [Components in EBOD enclosure](storsimple-8000-monitor-hardware-status.md#component-list-for-ebod-enclosure-of-storsimple-device)
 
 > [!NOTE]
-> If the hardware test reports failed components, [log in a service request with Microsoft Support](storsimple-contact-microsoft-support.md).
+> If the hardware test reports failed components, [log in a service request with Microsoft Support](storsimple-8000-contact-microsoft-support.md).
 
 #### Sample output of hardware test run on an 8100 device
 
@@ -207,7 +207,7 @@ This test reports the system information, the updates available, the cluster inf
 * The system information includes the model, device serial number, time zone, controller status, and the detailed software version running on the system. To understand the various system parameters reported as the output, go to [Interpreting system information](#appendix-interpreting-system-information).
 
 * The update availability reports whether the regular and maintenance modes are available and their associated package names. If `RegularUpdates` and `MaintenanceModeUpdates` are `false`, this indicates that the updates are not available. Your device is up-to-date.
-* The cluster information contains the information on various logical components of all the HCS cluster groups and their respective statuses. If you see an offline cluster group in this section of the report, [contact Microsoft Support](storsimple-contact-microsoft-support.md).
+* The cluster information contains the information on various logical components of all the HCS cluster groups and their respective statuses. If you see an offline cluster group in this section of the report, [contact Microsoft Support](storsimple-8000-contact-microsoft-support.md).
 * The service information includes the names and statuses of all the HCS and CiS services running on your device. This information is helpful for the Microsoft Support in troubleshooting the device issue.
 
 #### Sample output of system test run on an 8100 device
@@ -285,7 +285,7 @@ HCS Vnic Resource             Online HCS Cluster Group
 hcs_cloud_connectivity_...    Online HCS Cluster Group
 hcs_controller_replacement    Online HCS Cluster Group
 hcs_datapath_service          Online HCS Cluster Group
-hcs_management_servic         Online HCS Cluster Group
+hcs_management_service        Online HCS Cluster Group
 hcs_nvram_service             Online HCS Cluster Group
 hcs_passive_datapath          Online HCS Passive Cluster Group
 hcs_platform_service          Online HCS Cluster Group
@@ -319,7 +319,7 @@ hcs_startup                                   Stopped hcs_startup
 
 ### Network test
 
-This test validates the status of the network interfaces, ports, DNS and NTP server connectivity, SSL certificate, storage account credentials, connectivity to the Update servers, and web proxy connectivity on your StorSimple device.
+This test validates the status of the network interfaces, ports, DNS and NTP server connectivity, TLS/SSL certificate, storage account credentials, connectivity to the Update servers, and web proxy connectivity on your StorSimple device.
 
 #### Sample output of network test when only DATA0 is enabled
 
@@ -329,7 +329,7 @@ Here is a sample output of the 8100 device. You can see in the output that:
 * The DNS server configuration is valid and the device can connect via the DNS server.
 * The NTP server connectivity is also fine.
 * Ports 80 and 443 are open. However, port 9354 is blocked. Based on the [system network requirements](storsimple-system-requirements.md), you need to open this port for the service bus communication.
-* The SSL certification is valid.
+* The TLS/SSL certification is valid.
 * The device can connect to the storage account: _myss8000storageacct_.
 * The connectivity to Update servers is valid.
 * The web proxy is not configured on this device.
@@ -384,7 +384,7 @@ To use this tool, perform the following steps:
 
     If the read-write latencies reported by the diagnostics tool are high:
 
-    1. Configure Storage Analytics for blob services and analyze the output to understand the latencies for the Azure storage account. For detailed instructions, go to [enable and configure Storage Analytics](../storage/storage-enable-and-view-metrics-classic-portal.md). If those latencies are also high and comparable to the numbers you received from the StorSimple Diagnostics tool, then you need to log a service request with Azure storage.
+    1. Configure Storage Analytics for blob services and analyze the output to understand the latencies for the Azure storage account. For detailed instructions, go to [enable and configure Storage Analytics](../storage/common/storage-enable-and-view-metrics.md). If those latencies are also high and comparable to the numbers you received from the StorSimple Diagnostics tool, then you need to log a service request with Azure storage.
 
     2. If the storage account latencies are low, contact your network administrator to investigate any latency issues in your network.
 

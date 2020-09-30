@@ -1,29 +1,29 @@
-﻿---
+---
 title: Manage DNS zones in Azure DNS - PowerShell | Microsoft Docs
 description: You can manage DNS zones using Azure Powershell. This article describes how to update, delete and create DNS zones on Azure DNS
 services: dns
 documentationcenter: na
-author: georgewallace
-manager: timlt
-
-ms.assetid: a67992ab-8166-4052-9b28-554c5a39e60c
+author: rohinkoul
 ms.service: dns
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/14/2016
-ms.author: gwallace
+ms.date: 03/19/2018
+ms.author: rohink 
+ms.custom: devx-track-azurepowershell
 ---
 # How to manage DNS Zones using PowerShell
 
 > [!div class="op_single_selector"]
 > * [Portal](dns-operations-dnszones-portal.md)
 > * [PowerShell](dns-operations-dnszones.md)
-> * [Azure CLI 1.0](dns-operations-dnszones-cli-nodejs.md)
-> * [Azure CLI 2.0](dns-operations-dnszones-cli.md)
+> * [Azure classic CLI](dns-operations-dnszones-cli-nodejs.md)
+> * [Azure CLI](dns-operations-dnszones-cli.md)
 
 This article shows you how to manage your DNS zones by using Azure PowerShell. You can also manage your DNS zones using the cross-platform [Azure CLI](dns-operations-dnszones-cli.md) or the Azure portal.
+
+This guide specifically deals with Public DNS zones. For information on using Azure PowerShell to manage Private Zones in Azure DNS, see [Get started with Azure DNS Private Zones using Azure PowerShell](private-dns-getstarted-powershell.md).
 
 [!INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)]
 
@@ -45,6 +45,8 @@ The following example shows how to create a DNS zone with two [Azure Resource Ma
 ```powershell
 New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup -Tag @{ project="demo"; env="test" }
 ```
+
+Azure DNS also supports private DNS zones.  To learn more about private DNS zones, see [Using Azure DNS for private domains](private-dns-overview.md). For an example of how to create a private DNS zone, see [Get started with Azure DNS private zones using PowerShell](./private-dns-getstarted-powershell.md).
 
 ## Get a DNS zone
 
@@ -157,7 +159,7 @@ Since the default value for `$ConfirmPreference` is `High`, only `Remove-AzureRm
 
 You can override the current `$ConfirmPreference` setting using the `-Confirm` parameter. If you specify `-Confirm` or `-Confirm:$True` , the cmdlet prompts you for confirmation before it runs. If you specify `-Confirm:$False` , the cmdlet does not prompt you for confirmation.
 
-For more information about `-Confirm` and `$ConfirmPreference`, see [About Preference Variables](https://msdn.microsoft.com/powershell/reference/5.1/Microsoft.PowerShell.Core/about/about_Preference_Variables).
+For more information about `-Confirm` and `$ConfirmPreference`, see [About Preference Variables](/powershell/module/microsoft.powershell.core/about/about_preference_variables).
 
 ## Next steps
 

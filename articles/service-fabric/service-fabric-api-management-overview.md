@@ -1,30 +1,25 @@
 ---
-title: Azure Service Fabric with API Management overview | Microsoft Docs
+title: Azure Service Fabric with API Management overview 
 description: This article is an introduction to using Azure API Management as a gateway to your Service Fabric applications. 
-services: service-fabric
-documentationcenter: .net
 author: vturecek
-manager: timlt
-editor: ''
-
-ms.assetid: 96176149-69bb-4b06-a72e-ebbfea84454b
-ms.service: service-fabric
-ms.devlang: dotNet
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.topic: conceptual
 ms.date: 06/22/2017
 ms.author: vturecek
-
 ---
 
 # Service Fabric with Azure API Management overview
 
-Cloud applications typically need a front-end gateway to provide a single point of ingress for users, devices, or other applications. In Service Fabric, a gateway can be any stateless service such as an [ASP.NET Core application](service-fabric-reliable-services-communication-aspnetcore.md), or another service designed for traffic ingress, such as [Event Hubs](https://docs.microsoft.com/azure/event-hubs/), [IoT Hub](https://docs.microsoft.com/azure/iot-hub/), or [Azure API Management](https://docs.microsoft.com/azure/api-management/).
+Cloud applications typically need a front-end gateway to provide a single point of ingress for users, devices, or other applications. In Service Fabric, a gateway can be any stateless service such as an [ASP.NET Core application](service-fabric-reliable-services-communication-aspnetcore.md), or another service designed for traffic ingress, such as [Event Hubs](../event-hubs/index.yml), [IoT Hub](../iot-hub/index.yml), or [Azure API Management](../api-management/index.yml).
 
-This article is an introduction to using Azure API Management as a gateway to your Service Fabric applications. API Management integrates directly with Service Fabric, allowing you to publish APIs with a rich set of routing rules to your back-end Service Fabric services. 
+This article is an introduction to using Azure API Management as a gateway to your Service Fabric applications. API Management integrates directly with Service Fabric, allowing you to publish APIs with a rich set of routing rules to your back-end Service Fabric services.
+
+## Availability
+
+> [!IMPORTANT]
+> This feature is available in the **Premium** and **Developer** tiers of API Management due to the required virtual network support.
 
 ## Architecture
+
 A common Service Fabric architecture uses a single-page web application that makes HTTP calls to back-end services that expose HTTP APIs. The [Service Fabric getting-started sample application](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started) shows an example of this architecture.
 
 In this scenario, a stateless web service serves as the gateway into the Service Fabric application. This approach requires you to write a web service that can proxy HTTP requests to back-end services, as shown in the following diagram:
@@ -45,9 +40,10 @@ Azure API Management can be used with any combination of stateless services, sta
 
 ## Send traffic to a stateless service
 
-In the simplest case, traffic is forwarded to a stateless service instance. To achieve this, an API Management operation contains an inbound processing policy with a Service Fabric back-end that maps to a specific stateless service instance in the Service Fabric back-end. Requests sent to that service are sent to a random replica of the stateless service instance.
+In the simplest case, traffic is forwarded to a stateless service instance. To achieve this, an API Management operation contains an inbound processing policy with a Service Fabric back-end that maps to a specific stateless service instance in the Service Fabric back-end. Requests sent to that service are sent to a random instance of the service.
 
-#### Example
+**Example**
+
 In the following scenario, a Service Fabric application contains a stateless service named `fabric:/app/fooservice`, that exposes an internal HTTP API. The service instance name is well known and can be hard-coded directly in the API Management inbound processing policy. 
 
 ![Service Fabric with Azure API Management topology overview][sf-apim-static-stateless]
@@ -56,7 +52,7 @@ In the following scenario, a Service Fabric application contains a stateless ser
 
 Similar to the stateless service scenario, traffic can be forwarded to a stateful service instance. In this case, an API Management operation contains an inbound processing policy with a Service Fabric back-end that maps a request to a specific partition of a specific *stateful* service instance. The partition to map each request to is computed via a lambda method using some input from the incoming HTTP request, such as a value in the URL path. The policy may be configured to send requests to the primary replica only, or to a random replica for read operations.
 
-#### Example
+**Example**
 
 In the following scenario, a Service Fabric application contains a partitioned stateful service named `fabric:/app/userservice` that exposes an internal HTTP API. The service instance name is well known and can be hard-coded directly in the API Management inbound processing policy.  
 
@@ -66,17 +62,17 @@ The service is partitioned using the Int64 partition scheme with two partitions 
 
 ## Send traffic to multiple stateless services
 
-In more advanced scenarios, you can define an API Management operation that maps requests to more than one service instance. In this case, each operation contains a policy that maps requests to a specific service instance based on values from the incoming HTTP request, such as the URL path or query string, and in the case of stateful services, a partition within the service instance. 
+In more advanced scenarios, you can define an API Management operation that maps requests to more than one service instance. In this case, each operation contains a policy that maps requests to a specific service instance based on values from the incoming HTTP request, such as the URL path or query string, and in the case of stateful services, a partition within the service instance.
 
-To achieve this, an API Management operation contains an inbound processing policy with a Service Fabric back-end that maps to a stateless service instance in the Service Fabric back-end based on values retrieved from the incoming HTTP request. Requests to a service instance are sent to a random replica of the service instance.
+To achieve this, an API Management operation contains an inbound processing policy with a Service Fabric back-end that maps to a stateless service instance in the Service Fabric back-end based on values retrieved from the incoming HTTP request. Requests to a service are sent to a random instance of the service.
 
-#### Example
+**Example**
 
 In this example, a new stateless service instance is created for each user of an application with a dynamically generated name using the following formula:
- 
- - `fabric:/app/users/<username>`
 
- Each service has a unique name, but the names are not known up-front because the services are created in response to user or admin input and thus cannot be hard-coded into APIM policies or routing rules. Instead, the name of the service to which to send a request is generated in the back-end policy definition from the `name` value provided in the URL request path. For example:
+- `fabric:/app/users/<username>`
+
+  Each service has a unique name, but the names are not known up-front because the services are created in response to user or admin input and thus cannot be hard-coded into APIM policies or routing rules. Instead, the name of the service to which to send a request is generated in the back-end policy definition from the `name` value provided in the URL request path. For example:
 
   - A request to `/api/users/foo` is routed to service instance `fabric:/app/users/foo`
   - A request to `/api/users/bar` is routed to service instance `fabric:/app/users/bar`
@@ -89,13 +85,13 @@ Similar to the stateless service example, an API Management operation can map re
 
 To achieve this, an API Management operation contains an inbound processing policy with a Service Fabric back-end that maps to a stateful service instance in the Service Fabric back-end based on values retrieved from the incoming HTTP request. In addition to mapping a request to specific service instance, the request can also be mapped to a specific partition within the service instance, and optionally to either the primary replica or a random secondary replica within the partition.
 
-#### Example
+**Example**
 
 In this example, a new stateful service instance is created for each user of the application with a dynamically generated name using the following formula:
- 
- - `fabric:/app/users/<username>`
 
- Each service has a unique name, but the names are not known up-front because the services are created in response to user or admin input and thus cannot be hard-coded into APIM policies or routing rules. Instead, the name of the service to which to send a request is generated in the back-end policy definition from the `name` value provided the URL request path. For example:
+- `fabric:/app/users/<username>`
+
+  Each service has a unique name, but the names are not known up-front because the services are created in response to user or admin input and thus cannot be hard-coded into APIM policies or routing rules. Instead, the name of the service to which to send a request is generated in the back-end policy definition from the `name` value provided the URL request path. For example:
 
   - A request to `/api/users/foo` is routed to service instance `fabric:/app/users/foo`
   - A request to `/api/users/bar` is routed to service instance `fabric:/app/users/bar`
@@ -106,7 +102,7 @@ Each service instance is also partitioned using the Int64 partition scheme with 
 
 ## Next steps
 
-Follow the [quick start guide](service-fabric-api-management-quick-start.md) to set up your first Service Fabric cluster with API Management and flow requests through API Management to your services.
+Follow the [tutorial](service-fabric-tutorial-deploy-api-management.md) to set up your first Service Fabric cluster with API Management and flow requests through API Management to your services.
 
 <!-- links -->
 

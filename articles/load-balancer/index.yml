@@ -1,0 +1,120 @@
+### YamlMime:Landing
+
+title: Load Balancer documentation
+summary: Learn how to use Azure Load Balancer. Quickstarts, tutorials, samples, and more, show you how to deploy a load balancer and load balance traffic to and from virtual machines and cloud resources, and in cross-premises virtual networks.
+
+metadata:
+  title: Load Balancer
+  description: Learn how to use Azure Load Balancer. Quickstarts, tutorials, samples, and more, show you how to deploy a load balancer and load balance traffic to and from virtual machines and cloud resources, and in cross-premises virtual networks.
+  services: load-balancer
+  ms.service: load-balancer
+  ms.topic: landing-page
+  ms.collection: collection
+  author: asudbring
+  ms.author: allensu
+  ms.date: 05/07/2020 #Required; mm/dd/yyyy format.
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: About Load Balancer
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Load Balancer?
+            url: load-balancer-overview.md
+          - text: Load Balancer concepts
+            url: concepts.md
+          - text: Load Balancer components
+            url: components.md
+          - text: What's new?
+            url: https://azure.microsoft.com/updates/?category=networking&query=load%20balancer
+          - text: Load Balancer SKUs
+            url: skus.md     
+  # Card (optional)
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create a public load balancer to load balance VMs
+            url: quickstart-load-balancer-standard-public-portal.md
+          - text: Create a internal load balancer to load balance VMs
+            url: quickstart-load-balancer-standard-internal-portal.md
+      - linkListType: tutorial
+        links:
+          - text: Load balance internet traffic to VMs
+            url: tutorial-load-balancer-standard-manage-portal.md
+          - text: Load balance VMs across availability zones with a Standard Load Balancer
+            url: tutorial-load-balancer-standard-public-zone-redundant-portal.md
+          - text: Configure port forwarding in Azure Load Balancer
+            url: tutorial-load-balancer-port-forwarding-portal.md
+
+  # Card
+  - title: Manage features and options
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Load Balancer health probes
+            url: load-balancer-custom-probe-overview.md
+          - text: Outbound connections in Azure
+            url: load-balancer-outbound-connections.md
+          - text: Multiple Frontends for Azure Load Balancer
+            url: load-balancer-multivip-overview.md
+      - linkListType: how-to-guide
+        links:
+          - text: Configure load balancing and outbound rules in Load Balancer (Azure CLI)
+            url: configure-load-balancer-outbound-cli.md
+          - text: Create an Internet facing load balancer with IPv6 (PowerShell)
+            url: load-balancer-ipv6-internet-ps.md
+          - text: Configure the distribution mode
+            url: load-balancer-distribution-mode.md
+          - text: Upgrade from Basic to Standard
+            url: upgrade-basic-standard.md
+  # Card
+  - title: Deploy
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Standard Load Balancer and Availability Zones
+            url: load-balancer-standard-availability-zones.md
+          - text: Load Balancer with TCP Reset on Idle
+            url: load-balancer-tcp-reset.md
+      - linkListType: how-to-guide
+        links:
+          - text: Create a Load Balancer with zone-redundant frontend
+            url: load-balancer-get-started-internet-az-portal.md
+          - text: Create a Load Balancer with zonal frontend
+            url: load-balancer-get-started-internet-availability-zones-zonal-portal.md
+          - text: Load balancing on multiple IP configurations
+            url: load-balancer-multiple-ip.md
+
+  # Card
+  - title: Troubleshoot
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Standard Load Balancer diagnostics with metrics, alerts and resource health
+            url: load-balancer-standard-diagnostics.md
+          - text: Troubleshoot Azure Load Balancer
+            url: load-balancer-troubleshoot.md
+          - text: Common Azure Load Balancer errors
+            url: load-balancer-common-deployment-errors.md
+          - text: Resolve common outbound connection issues
+            url: troubleshoot-outbound-connection.md
+      
+     # Card
+  - title: Reference
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Azure PowerShell
+            url: https://docs.microsoft.com/powershell/module/az.network/?view=azps-2.5.0#load_balancer
+          - text: Azure CLI
+            url: https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest
+          - text: ARM templates
+            url: https://docs.microsoft.com/azure/templates/microsoft.network/loadbalancers#quickstart-templates
+          - text: Frequently asked Load Balancer questions
+            url: load-balancer-faqs.md

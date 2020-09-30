@@ -1,60 +1,56 @@
 ---
 title: Understand Azure IoT Hub custom endpoints | Microsoft Docs
-description: Developer guide - using routing rules to route device-to-cloud messages to custom endpoints.
-services: iot-hub
-documentationcenter: .net
-author: dominicbetts
-manager: timlt
-editor: ''
-
+description: Developer guide - using routing queries to route device-to-cloud messages to custom endpoints.
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 05/25/2017
-ms.author: dobett
-
+services: iot-hub
+ms.topic: conceptual
+ms.date: 04/09/2018
 ---
+
 # Use message routes and custom endpoints for device-to-cloud messages
 
-IoT Hub enables you to route [device-to-cloud messages][lnk-device-to-cloud] to IoT Hub service-facing endpoints based on message properties. Routing rules give you the flexibility to send messages where they need to go without the need for additional services to process messages or to write additional code. Each routing rule you configure has the following properties:
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
+
+IoT Hub [Message Routing](iot-hub-devguide-routing-query-syntax.md) enables users to route device-to-cloud messages to service-facing endpoints. Routing also provides a querying capability to filter the data before routing it to the endpoints. Each routing query you configure has the following properties:
 
 | Property      | Description |
 | ------------- | ----------- |
-| **Name**      | The unique name that identifies the rule. |
+| **Name**      | The unique name that identifies the query. |
 | **Source**    | The origin of the data stream to be acted upon. For example, device telemetry. |
-| **Condition** | The query expression for the routing rule that is run against the message's headers and body and used to determine whether it is a match for the endpoint. For more information about constructing a route condition, see the [Reference - query language for device twins and jobs][lnk-devguide-query-language]. |
-| **Endpoint**  | The name of the endpoint where IoT Hub sends messages that match the condition. Endpoints should be in the same region as the IoT hub, otherwise you may be charged for cross-region writes. |
+| **Condition** | The query expression for the routing query that is run against the message application properties, system properties, message body, device twin tags, and device twin properties to determine if it is a match for the endpoint. For more information about constructing a query, see the see [message routing query syntax](iot-hub-devguide-routing-query-syntax.md) |
+| **Endpoint**  | The name of the endpoint where IoT Hub sends messages that match the query. We recommend that you choose an endpoint in the same region as your IoT hub. |
 
-A single message may match the condition on multiple routing rules, in which case IoT Hub delivers the message to the endpoint associated with each matched rule. IoT Hub also automatically deduplicates message delivery, so if a message matches multiple rules that all have the same destination, it is only written to that destination once.
+A single message may match the condition on multiple routing queries, in which case IoT Hub delivers the message to the endpoint associated with each matched query. IoT Hub also automatically deduplicates message delivery, so if a message matches multiple queries that have the same destination, it is only written once to that destination.
 
-An IoT hub has a default [built-in endpoint][lnk-built-in]. You can create custom endpoints to route messages to by linking other services in your subscription to the hub. IoT Hub currently supports Event Hubs, Service Bus queues, and Service Bus topics as custom endpoints.
+## Endpoints and routing
 
-> [!WARNING]
-> Service Bus queues and topics with **Sessions** or **Duplicate Detection** enabled are not supported as custom endpoints.
+An IoT hub has a default [built-in endpoint](iot-hub-devguide-messages-read-builtin.md). You can create custom endpoints to route messages to by linking other services in your subscription to the hub. IoT Hub currently supports Azure Storage containers, Event Hubs, Service Bus queues, and Service Bus topics as custom endpoints.
 
-For more information about creating custom endpoints in IoT Hub, see [IoT Hub endpoints][lnk-devguide-endpoints].
+When you use routing and custom endpoints, messages are only delivered to the built-in endpoint if they don't match any query. To deliver messages to the built-in endpoint as well as to a custom endpoint, add a route that sends messages to the built-in **events** endpoint.
+
+> [!NOTE]
+> * IoT Hub only supports writing data to Azure Storage containers as blobs.
+> * Service Bus queues and topics with **Sessions** or **Duplicate Detection** enabled are not supported as custom endpoints.
+
+For more information about creating custom endpoints in IoT Hub, see [IoT Hub endpoints](iot-hub-devguide-endpoints.md).
 
 For more information about reading from custom endpoints, see:
 
-* Reading from [Event Hubs][lnk-getstarted-eh].
-* Reading from [Service Bus queues][lnk-getstarted-queue].
-* Reading from [Service Bus topics][lnk-getstarted-topic].
+* Reading from [Azure Storage containers](../storage/blobs/storage-blobs-introduction.md).
 
-### Next steps
+* Reading from [Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md).
 
-For more information about IoT Hub endpoints, see [IoT Hub endpoints][lnk-devguide-endpoints].
+* Reading from [Service Bus queues](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
 
-For more information about the query language you use to define routing rules, see [IoT Hub query language for device twins, jobs, and message routing][lnk-devguide-query-language].
+* Reading from [Service Bus topics](../service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions.md).
 
-The [Process IoT Hub device-to-cloud messages using routes][lnk-d2c-tutorial] tutorial shows you how to use routing rules and custom endpoints.
+## Next steps
 
-[lnk-built-in]: iot-hub-devguide-messages-read-builtin.md
-[lnk-device-to-cloud]: iot-hub-devguide-messages-d2c.md
-[lnk-devguide-query-language]: iot-hub-devguide-query-language.md
-[lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md
-[lnk-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
-[lnk-getstarted-eh]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
-[lnk-getstarted-queue]: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
-[lnk-getstarted-topic]: ../service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions.md
+* For more information about IoT Hub endpoints, see [IoT Hub endpoints](iot-hub-devguide-endpoints.md).
+
+* For more information about the query language you use to define routing queries, see [Message Routing query syntax](iot-hub-devguide-routing-query-syntax.md).
+
+* The [Process IoT Hub device-to-cloud messages using routes](tutorial-routing.md) tutorial shows you how to use routing queries and custom endpoints.

@@ -1,0 +1,44 @@
+### YamlMime:Landing
+
+title: Team Data Science Process Documentation
+summary: Learn how to use the Team Data Science Process, an agile, iterative data science methodology for predictive analytics solutions and intelligent applications. 
+metadata:
+  title: Team Data Science Process Documentation
+  description:  Learn how to use the Team Data Science Process, an agile, iterative data science methodology for predictive analytics solutions and intelligent applications. 
+  ms.service: machine-learning
+  ms.subservice: team-data-science-process
+  ms.topic: landing-page 
+  author: marktab
+  ms.author: marktab
+  ms.date: 03/10/2020 
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: Learn about the process
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is the Team Data Science Process?
+            url: overview.md
+      - linkListType: concept
+        links:
+          - text: Process lifecycle
+            url: lifecycle.md
+          - text: Business understanding
+            url: lifecycle-business-understanding.md
+          - text: Data acquisition
+            url: lifecycle-data.md          
+
+  # Card (optional)
+  - title: Plan & develop a project
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Project planning
+            url: team-data-science-process-project-templates.md
+          - text: Agile development
+            url: agile-development.md

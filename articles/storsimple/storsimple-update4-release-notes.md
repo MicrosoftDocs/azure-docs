@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 04/04/2017
+ms.date: 01/23/2018
 ms.author: alkohli
 
 ---
@@ -53,7 +53,7 @@ The following key improvements and bug fixes have been made in Update 4.
 
 * **Update changes** - In this release, bugs related to update failures have been fixed.
 
-* **Alert for disk failures** - A new alert that warns the user of impending disk failures is added in this release. If you encounter this alert, contact Microsoft Support to ship a replacement disk. For more information, go to [hardware alerts on your StorSimple device](storsimple-manage-alerts.md#hardware-alerts).
+* **Alert for disk failures** - A new alert that warns the user of impending disk failures is added in this release. If you encounter this alert, contact Microsoft Support to ship a replacement disk. For more information, go to [hardware alerts on your StorSimple device](storsimple-8000-manage-alerts.md#hardware-alerts).
 
 * **Controller replacement changes** - A cmdlet that allows the user to query the status of the controller replacement process is added in this release. For more information, go to the [cmdlet to query controller replacement status](https://technet.microsoft.com/library/dn688168.aspx).
 

@@ -1,104 +1,106 @@
 ---
-title: Azure Service Fabric Event Analysis with OMS | Microsoft Docs
-description: Learn about visualizing and analyzing events using OMS for monitoring and diagnostics of Azure Service Fabric clusters.
-services: service-fabric
-documentationcenter: .net
-author: dkkapur
-manager: timlt
-editor: ''
+title: Azure Service Fabric Event Analysis with Azure Monitor logs 
+description: Learn about visualizing and analyzing events using Azure Monitor logs for monitoring and diagnostics of Azure Service Fabric clusters.
+author: srrengar
 
-ms.assetid:
-ms.service: service-fabric
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 05/26/2017
-ms.author: dekapur
-
+ms.topic: conceptual
+ms.date: 02/21/2019
+ms.author: srrengar
 ---
 
-# Event analysis and visualization with OMS
+# Event analysis and visualization with Azure Monitor logs
+ Azure Monitor logs collects and analyzes telemetry from applications and services hosted in the cloud and provides analysis tools to help you maximize their availability and performance. This article outlines how to run queries in Azure Monitor logs to gain insights and troubleshoot what is happening in your cluster. The following common questions are addressed:
 
-Operations Management Suite (OMS) is a collection of management services that help with monitoring and diagnostics for applications and services hosted in the cloud. To get a more detailed overview of OMS and what it offers, read [What is OMS?](../operations-management-suite/operations-management-suite-overview.md)
+* How do I troubleshoot health events?
+* How do I know when a node goes down?
+* How do I know if my application's services have started or stopped?
 
-## Log Analytics and the OMS workspace
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-Log Analytics collects data from managed resources, including an Azure storage table or an agent, and maintains it in a central repository. The data can then be used for analysis, alerting, and visualization, or further exporting. Log Analytics supports events, performance data, or any other custom data.
+## Overview of the Log Analytics workspace
 
-When OMS is configured, you will have access to a specific *OMS workspace*, from where data can be queried or visualized in dashboards.
+>[!NOTE] 
+>While diagnostic storage is enabled by default at the cluster creation time, you must still set up the Log Analytics workspace to read from the diagnostic storage.
 
-After data is received by Log Analytics, OMS has several *Management Solutions* that are prepackaged solutions to monitor incoming data, customized to several scenarios. These include a *Service Fabric Analytics* solution and a *Containers* solution, which are the two most relevant ones to diagnostics and monitoring when using Service Fabric clusters. There are several others as well that are worth exploring, and OMS also allows for the creation of custom solutions, which you can read more about [here](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions). Each solution that you choose to use for a cluster will be configured in the same OMS workspace, alongside Log Analytics. Workspaces allow for custom dashboards and visualization of data, and modifications to the data you want to collect, process, and analyze.
+Azure Monitor logs collects data from managed resources, including an Azure storage table or an agent, and maintains it in a central repository. The data can then be used for analysis, alerting, and visualization, or further exporting. Azure Monitor logs supports events, performance data, or any other custom data. Check out [steps to configure the diagnostics extension to aggregate events](service-fabric-diagnostics-event-aggregation-wad.md) and [steps to create a Log Analytics workspace to read from the events in storage](service-fabric-diagnostics-oms-setup.md) to make sure data is flowing into Azure Monitor logs.
 
-## Setting up an OMS workspace with the Service Fabric Solution
+After data is received by Azure Monitor logs, Azure has several *Monitoring Solutions* that are prepackaged solutions or operational dashboards to monitor incoming data, customized to several scenarios. These include a *Service Fabric Analytics* solution and a *Containers* solution, which are the two most relevant ones to diagnostics and monitoring when using Service Fabric clusters. This article describes how to use the Service Fabric Analytics solution, which is created with the workspace.
 
-It is recommended that you include the Service Fabric Solution in your OMS workspace, since it provides a useful dashboard that shows the various incoming log channels from the platform and application level, and the able to query Service Fabric specific logs. Here is what a relatively simple Service Fabric Solution looks like, with a single application deployed on the cluster:
+## Access the Service Fabric Analytics solution
 
-![OMS SF solution](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-solution.png)
+In the [Azure Portal](https://portal.azure.com), go to the resource group in which you created the Service Fabric Analytics solution.
 
-There are two ways to provision and configure an OMS workspace, either through a Resource Manager template or directly from Azure Marketplace. Use the former when you are deploying a cluster, and the latter if you already have a cluster deployed with Diagnostics enabled.
+Select the resource **ServiceFabric\<nameOfOMSWorkspace\>**.
 
-### Deploying OMS using a Resource Management template
+In `Summary`, you will see tiles in the form of a graph for each of the solutions enabled, including one for Service Fabric. Click the **Service Fabric** graph to continue to the Service Fabric Analytics solution.
 
-This happens at the cluster creation stage - when deploying a cluster using a Resource Manager template, the template can also create a new OMS workspace, add the Service Fabric Solution to it, and configure it to read data from the appropriate storage tables.
+![Service Fabric solution](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_summary.PNG)
+
+The following image shows the home page of the Service Fabric Analytics solution. This home page provides a snapshot view of what's happening in your cluster.
+
+![Service Fabric solution](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_solution.PNG)
+
+ If you enabled diagnostics upon cluster creation, you can see events for 
+
+* [Service Fabric cluster events](service-fabric-diagnostics-event-generation-operational.md)
+* [Reliable Actors programming model events](service-fabric-reliable-actors-diagnostics.md)
+* [Reliable Services programming model events](service-fabric-reliable-services-diagnostics.md)
 
 >[!NOTE]
->For this to work, Diagnostics has to be enabled in order for the Azure storage tables to exist for OMS / Log Analytics to read information in from.
+>In addition to the Service Fabric events out of the box, more detailed system events can be collected by [updating the config of your diagnostics extension](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations).
 
-[Here](https://azure.microsoft.com/resources/templates/service-fabric-oms/) is a sample template that you can use and modify as per requirement, which performs above actions. In the case that you want more optionality, there are a few more templates that give you different options depending on where in the process you might be of setting up an OMS workspace - they can be found at [Service Fabric and OMS templates](https://azure.microsoft.com/resources/templates/?term=service+fabric+OMS).
+## View Service Fabric Events, including actions on nodes
 
-### Deploying OMS using through Azure Marketplace
+On the Service Fabric Analytics page, click on the graph for **Service Fabric Events**.
 
-If you prefer to add an OMS workspace after you have deployed a cluster, head over to Azure Marketplace and look for *"Service Fabric Analytics"*. There should only be one resource that shows up, within the "Monitoring + Management" category, seen below:
+![Service Fabric Solution Operational Channel](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_events_selection.png)
 
-![OMS SF Analytics in Marketplace](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics.png)
+Click **List** to view the events in a list. 
+Once here you will see all the system events that have been collected. For reference, these are from the **WADServiceFabricSystemEventsTable** in the Azure Storage account, and similarly the reliable services and actors events you see next are from those respective tables.
+    
+![Query Operational Channel](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_events.png)
 
-Clicking **Create** will ask you for an OMS workspace. Click **Select a workspace** and then **Create a new workspace**. Fill out the required entries - the only requirement here is that the subscription for the Service Fabric cluster and the OMS workspace should be the same. Once your entries have been validated, your OMS workspace will deploy in a few minutes. While it finishes deploying, the creation of the Service Fabric solution blade will still remain open. Make sure that the same workspace shows up under *OMS Workspace* and hit **Create** at the bottom, to add the Service Fabric solution to the workspace.
+Alternatively you can click the magnifying glass on the left and use the Kusto query language to find what you're looking for. For example, to find all actions taken on nodes in the cluster, you can use the following query. The event IDs used below are found in the [operational channel events reference](service-fabric-diagnostics-event-generation-operational.md).
 
-## Using the OMS Agent
+```kusto
+ServiceFabricOperationalEvent
+| where EventId < 25627 and EventId > 25619 
+```
 
-It is recommended to use EventFlow and WAD as aggregation solutions because they allow for a more modular approach to diagnostics and monitoring. For example, if you want to change your outputs from EventFlow, it requires no change to your actual instrumentation, just a simple modification to your config file. If, however, you decide to invest in using OMS and are willing to continue using it for event analysis (does not have to be the only platform you use, but rather that it will be at least one of the platforms), we recommend that you explore setting up the [OMS agent](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents).
+You can query on many more fields such as the specific nodes (Computer) the system service (TaskName).
 
-The process for doing this is relatively easy, since you just have to add the agent as a virtual machine scale set extension to your Resource Manager template, ensuring that it gets installed on each of your nodes. A sample Resource Manager template that deploys the OMS workspace with the Service Fabric solution (as above) and adds the agent to your nodes can be found [here](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Sample).
+## View Service Fabric Reliable Service and Actor events
 
-The advantages of this are the following:
+On the Service Fabric Analytics page, click the graph for **Reliable Services**.
 
-* Richer data on the performance counters and metrics side
-* Easy to configure data being collected from the cluster and make changes to it without redeploying your applications or the cluster, since changes to the settings of the agent can be done from the OMS workspace and will just reset the agent automatically. To configure the OMS agent to pick up specific performance counters, go to the workspace **Home > Settings > Data > Windows Performance Counters** and pick the data you would like to see collected
-* Data shows up faster than it having to be stored before being picked up by OMS / Log Analytics
-* Monitoring containers is much easier, since it can pick up docker logs (stdout, stderror) and stats (performance metrics on container and node levels)
+![Service Fabric Solution Reliable Services](media/service-fabric-diagnostics-event-analysis-oms/oms_reliable_services_events_selection.png)
 
-The main consideration here is that since it is an agent, it will be deployed on your cluster alongside all your applications, so there will be some minimal impact to the performance of your applications on the cluster.
+Click **List** to view the events in a list. Here you can see events from the reliable services. You can see different events for when the service runasync is started and completed which typically happens on deployments and upgrades. 
 
-## Monitoring Containers
+![Query Reliable Services](media/service-fabric-diagnostics-event-analysis-oms/oms_reliable_service_events.png)
 
-When deploying containers to a Service Fabric cluster, it is recommended that the cluster has been set up with the OMS agent and that the Containers solution has been added to your OMS workspace to enable monitoring and diagnostics. Here is what the containers solution looks like in a workspace:
+Reliable actor events can be viewed in a similar fashion. To configure more detailed events for reliable actors, you need to change the `scheduledTransferKeywordFilter` in the config for the diagnostic extension (shown below). Details on the values for these are in the [reliable actors events reference](service-fabric-reliable-actors-diagnostics.md#keywords).
 
-![Basic OMS Dashboard](./media/service-fabric-diagnostics-event-analysis-oms/oms-containers-dashboard.png)
+```json
+"EtwEventSourceProviderConfiguration": [
+                {
+                    "provider": "Microsoft-ServiceFabric-Actors",
+                    "scheduledTransferKeywordFilter": "1",
+                    "scheduledTransferPeriod": "PT5M",
+                    "DefaultEvents": {
+                    "eventDestination": "ServiceFabricReliableActorEventTable"
+                    }
+                },
+```
 
-The agent enables the collection of several container-specific logs that can be queried in OMS, or used to visualized performance indicators. The log types that are collected are:
+The Kusto query language is powerful. Another valuable query you can run is to find out which nodes are generating the most events. The query in the screenshot below shows Service Fabric operational events aggregated with the specific service and node.
 
-* ContainerInventory: shows information about container location, name, and images
-* ContainerImageInventory: information about deployed images, including IDs or sizes
-* ContainerLog: specific error logs, docker logs (stdout, etc.), and other entries
-* ContainerServiceLog: docker daemon commands that have been run
-* Perf: performance counters including container cpu, memory, network traffic, disk i/o, and custom metrics from the host machines
-
-This article covers the steps required to set up container monitoring for your cluster. To learn more about OMS's Containers solution, check out their [documentation](../log-analytics/log-analytics-containers.md).
-
-To set up the Container solution in your workspace, make sure you have the OMS agent deployed on your cluster's nodes by following the steps mentioned above. Once the cluster is ready, deploy a container to it. Bear in mind that the first time a container image is deployed to a cluster, it takes several minutes to download the image depending on its size.
-
-In Azure Marketplace, search for *Containers* and create a Containers resource (under the Monitoring + Management category).
-
-![Adding Containers solution](./media/service-fabric-diagnostics-event-analysis-oms/containers-solution.png)
-
-In the creation step, it requests an OMS workspace. Select the one that was created with the deployment above. This step adds a Containers solution within your OMS workspace, and is automatically detected by the OMS agent deployed by the template. The agent will start gathering data on the containers processes in the cluster, and less than 15 minutes or so, you should see the solution light up with data, as in the image of the dashboard above.
-
+![Query Events per Node](media/service-fabric-diagnostics-event-analysis-oms/oms_kusto_query.png)
 
 ## Next steps
 
-Explore the following OMS tools and options to customize a workspace to your needs:
-
-* For on-premises clusters, OMS offers a Gateway (HTTP Forward Proxy) that can be used to send data to OMS. Read more about that in [Connecting computers without Internet access to OMS using the OMS Gateway](../log-analytics/log-analytics-oms-gateway.md)
-* Configure OMS to set up [automated alerting](../log-analytics/log-analytics-alerts.md) to aid in detecting and diagnostics
-* Get familiarized with the [log search and querying](../log-analytics/log-analytics-log-searches.md) features offered as part of Log Analytics
+* To enable infrastructure monitoring i.e. performance counters, head over to [adding the Log Analytics agent](service-fabric-diagnostics-oms-agent.md). The agent collects performance counters and adds them to your existing workspace.
+* For on-premises clusters, Azure Monitor logs offers a Gateway (HTTP Forward Proxy) that can be used to send data to Azure Monitor logs. Read more about that in [Connecting computers without Internet access to Azure Monitor logs using the Log Analytics gateway](../azure-monitor/platform/gateway.md).
+* Configure  [automated alerting](../azure-monitor/platform/alerts-overview.md) to aid in detection and diagnostics.
+* Get familiarized with the [log search and querying](../azure-monitor/log-query/log-query-overview.md) features offered as part of Azure Monitor logs.
+* Get a more detailed overview of Azure Monitor logs and what it offers, read [What is Azure Monitor logs?](../azure-monitor/overview.md).

@@ -1,74 +1,101 @@
 ---
-title: Azure Service Fabric Docker Compose Preview
+title: Azure Service Fabric Docker Compose Deployment Preview
 description: Azure Service Fabric accepts Docker Compose format to make it easier to orchestrate existing containers using Service Fabric. This support is currently in preview.
-services: service-fabric
-documentationcenter: .net
-author: mani-ramaswamy
-manager: timlt
-editor: ''
 
-ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
-ms.service: service-fabric
-ms.devlang: dotNet
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 7/27/2017
-ms.author: subramar
+ms.topic: conceptual
+ms.date: 2/23/2018
 ---
-# Docker Compose application support in Azure Service Fabric (Preview)
+# Docker Compose deployment support in Azure Service Fabric (Preview)
 
-Docker uses the [docker-compose.yml](https://docs.docker.com/compose) file for defining multi-container applications. To make it easy for customers familiar with Docker to orchestrate existing container applications on Azure Service Fabric, we have included preview support for Docker Compose natively in the platform. Service Fabric can accept version 3 and later of `docker-compose.yml` files. 
+Docker uses the [docker-compose.yml](https://docs.docker.com/compose) file for defining multi-container applications. To make it easy for customers familiar with Docker to orchestrate existing container applications on Azure Service Fabric, we have included preview support for Docker Compose deployment natively in the platform. Service Fabric can accept version 3 and later of `docker-compose.yml` files. 
 
-Because this support is in preview, only a subset of Compose directives is supported. For example, application upgrades are not supported. However, you can always remove and deploy applications instead of upgrading them.
+Because this support is in preview, only a subset of Compose directives is supported.
 
-To use this preview, create your cluster with the preview SDK (version 255.255.x.x) through the Azure portal. 
+To use this preview, create your cluster with version 5.7 or greater of the Service Fabric runtime through the Azure portal along with the corresponding SDK. 
 
 > [!NOTE]
-> This feature is in preview and is not supported.
+> This feature is in preview and is not supported in production.
+> The examples below are based on runtime version 6.0 and SDK version 2.8.
 
 ## Deploy a Docker Compose file on Service Fabric
 
-The following commands create a Service Fabric application (named `fabric:/TestContainerApp` in the preceding example), which you can monitor and manage like any other Service Fabric application. You can use the specified application name for health queries.
+The following commands create a Service Fabric application (named `fabric:/TestContainerApp`), which you can monitor and manage like any other Service Fabric application. You can use the specified application name for health queries.
+Service Fabric recognizes "DeploymentName" as the identifier of the Compose deployment.
 
 ### Use PowerShell
 
-Create a Service Fabric Compose application from a docker-compose.yml file by running the following command in PowerShell:
+Create a Service Fabric Compose deployment from a docker-compose.yml file by running the following command in PowerShell:
 
 ```powershell
-New-ServiceFabricComposeApplication -ApplicationName fabric:/TestContainerApp -Compose docker-compose.yml [-RegistryUserName <>] [-RegistryPassword <>] [-PasswordEncrypted]
+New-ServiceFabricComposeDeployment -DeploymentName TestContainerApp -Compose docker-compose.yml [-RegistryUserName <>] [-RegistryPassword <>] [-PasswordEncrypted]
 ```
 
-`RegistryUserName` and `RegistryPassword` refer to the container registry username and password. After you've completed the application, you can check its status by using the following command:
+`RegistryUserName` and `RegistryPassword` refer to the container registry username and password. After you've completed the deployment, you can check its status by using the following command:
 
 ```powershell
-Get-ServiceFabricComposeApplicationStatus -ApplicationName fabric:/TestContainerApp -GetAllPages
+Get-ServiceFabricComposeDeploymentStatus -DeploymentName TestContainerApp
 ```
 
-To delete the Compose application through PowerShell, use the following command:
+To delete the Compose deployment through PowerShell, use the following command:
 
 ```powershell
-Remove-ServiceFabricComposeApplication  -ApplicationName fabric:/TestContainerApp
+Remove-ServiceFabricComposeDeployment  -DeploymentName TestContainerApp
 ```
 
-### Use Azure CLI 2.0
+To start a Compose deployment upgrade through PowerShell, use the following command:
 
-Alternatively, you can use the following Azure CLI command:
-
-```azurecli
-az sf compose create --application-id fabric:/TestContainerApp --compose-file docker-compose.yml [ [ --repo-user --repo-pass --encrypted ] | [ --repo-user ] ] [ --timeout ]
+```powershell
+Start-ServiceFabricComposeDeploymentUpgrade -DeploymentName TestContainerApp -Compose docker-compose-v2.yml -Monitored -FailureAction Rollback
 ```
 
-After you've created the application, you can check its status by using the following command:
+To rollback the Compose deployment upgrade through PowerShell, use the following command:
 
-```azurecli
-az sf compose status --application-id TestContainerApp [ --timeout ]
+```powershell
+Start-ServiceFabricComposeDeploymentRollback -DeploymentName TestContainerApp
 ```
 
-To delete the Compose application, use the following command:
+After upgrade is accepted, the upgrade progress could be tracked using the following command:
 
-```azurecli
-az sf compose remove  --application-id TestContainerApp [ --timeout ]
+```powershell
+Get-ServiceFabricComposeDeploymentUpgrade -DeploymentName TestContainerApp
+```
+
+### Use Azure Service Fabric CLI (sfctl)
+
+Alternatively, you can use the following Service Fabric CLI command:
+
+```shell
+sfctl compose create --deployment-name TestContainerApp --file-path docker-compose.yml [ [ --user --encrypted-pass ] | [ --user --has-pass ] ] [ --timeout ]
+```
+
+After you've created the deployment, you can check its status by using the following command:
+
+```shell
+sfctl compose status --deployment-name TestContainerApp [ --timeout ]
+```
+
+To delete the Compose deployment, use the following command:
+
+```shell
+sfctl compose remove  --deployment-name TestContainerApp [ --timeout ]
+```
+
+To start a Compose deployment upgrade, use the following command:
+
+```shell
+sfctl compose upgrade --deployment-name TestContainerApp --file-path docker-compose-v2.yml [ [ --user --encrypted-pass ] | [ --user --has-pass ] ] [--upgrade-mode Monitored] [--failure-action Rollback] [ --timeout ]
+```
+
+To rollback the Compose deployment upgrade, use the following command:
+
+```shell
+sfctl compose upgrade-rollback --deployment-name TestContainerApp [ --timeout ]
+```
+
+After upgrade is accepted, the upgrade progress could be tracked using the following command:
+
+```shell
+sfctl compose upgrade-status --deployment-name TestContainerApp
 ```
 
 ## Supported Compose directives
@@ -92,13 +119,22 @@ This preview supports a subset of the configuration options from the Compose ver
 
 Set up the cluster for enforcing resource limits, as described in [Service Fabric resource governance](service-fabric-resource-governance.md). All other Docker Compose directives are unsupported for this preview.
 
+### Ports section
+
+Specify either the http or https protocol in the Ports section that will be used by the Service Fabric service listener. This will ensure that the endpoint protocol is published correctly with the naming service to allow reverse proxy to forward the requests:
+* To route to unsecure Service Fabric Compose services, specify **/http**. For example, - **"80:80/http"**.
+* To route to secure Service Fabric Compose services, specify **/https**. For example, - **"443:443/https"**.
+
+> [!NOTE]
+> The /http and /https Ports section syntax is specific to Service Fabric to register the correct Service Fabric listener URL.  If the Docker compose file syntax is programmatically validated, it may cause a validation error.
+
 ## ServiceDnsName computation
 
 If the service name that you specify in a Compose file is a fully qualified domain name (that is, it contains a dot [.]), the DNS name registered by Service Fabric is `<ServiceName>` (including the dot). If not, each path segment in the application name becomes a domain label in the service DNS name, with the first path segment becoming the top-level domain label.
 
 For example, if the specified application name is `fabric:/SampleApp/MyComposeApp`, `<ServiceName>.MyComposeApp.SampleApp` would be the registered DNS name.
 
-## Differences between Compose (instance definition) and Service Fabric application model (type definition)
+## Compose deployment (instance definition) versus Service Fabric app model (type definition)
 
 A docker-compose.yml file describes a deployable set of containers, including their properties and configurations.
 For example, the file can contain environment variables and ports. You can also specify deployment parameters, such as placement constraints, resource limits, and DNS names, in the docker-compose.yml file.
@@ -111,9 +147,5 @@ Although this model offers flexibility, we are also planning to support a simple
 
 ## Next steps
 
-* Read up on the [Service Fabric application model](service-fabric-application-model.md).
-
-## Related articles
-
-* [Get started with Service Fabric and Azure CLI 2.0](service-fabric-azure-cli-2-0.md)
-* [Get started with Service Fabric XPlat CLI](service-fabric-azure-cli.md)
+* Read up on the [Service Fabric application model](service-fabric-application-model.md)
+* [Get started with Service Fabric CLI](service-fabric-cli.md)

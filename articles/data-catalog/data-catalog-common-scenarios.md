@@ -1,22 +1,11 @@
 ---
-title: Azure Data Catalog common scenarios | Microsoft Docs
+title: Azure Data Catalog common scenarios
 description: An overview of common scenarios for Azure Data Catalog, including the registration and discovery of high-value data sources, enabling self-service business intelligence, and capturing existing knowledge about data sources and processes.
-services: data-catalog
-documentationcenter: ''
-author: steelanddata
-manager: NA
-editor: ''
-tags: ''
-
-ms.assetid: 60930d78-d2d4-4d5d-9651-bdda50b0da0e
+author: JasonWHowell
+ms.author: jasonh
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
-ms.date: 05/15/2017
-ms.author: maroche
-
+ms.topic: conceptual
+ms.date: 08/01/2019
 ---
 # Azure Data Catalog common scenarios
 This article presents common scenarios where Azure Data Catalog can help your organization get more value from its existing data sources.

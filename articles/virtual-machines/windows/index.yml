@@ -1,106 +1,68 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Windows Virtual Machines Documentation
+### YamlMime:Landing
+
+title: Windows virtual machines in Azure # < 60 chars
+summary: Documentation for creating and managing Windows virtual machines in Azure. # < 160 chars
+
 metadata:
-  document_id: 1d98d530-28c7-635f-d41b-8da3ae02970c
-  title: Azure Windows Virtual Machines Documentation - Tutorials, API Reference
-  meta.description: Learn how to create Windows virtual machines. Documentation helps you plan, deploy, and manage a virtual machine computing environment in the cloud.
-  services: virtual-machines\windows
-  author: czeumault
-  manager: carolz
-  ms.service: virtual-machines-windows
-  ms.tgt_pltfrm: na
-  ms.devlang: na
-  ms.topic: landing-page
-  ms.date: 01/23/2017
-  ms.author: carolz
-abstract:
-  description: Azure Windows Virtual Machines provides on-demand, high-scale, secure, virtualized infrastructure using Windows Server. Learn how to create, configure, manage, and scale Windows VMs with our quickstarts, tutorials, and samples.
-  aside:
-    image:
-      alt: 
-      height: 110
-      src: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/media/index/create-windows-server-virtual-machine.png
-      width: 250  
-    title: Create a Windows Server Virtual Machine. (3:58)
-    href: https://azure.microsoft.com/en-us/resources/videos/create-windows-server-virtual-machine/
-    width: 250
-sections:
-- title: 5-Minute Quickstarts
-  items:
-  - type: paragraph
-    text: 'Learn how to deploy an IIS web-server within a Virtual Machine running Windows Server 2016:'
-  - type: list
-    style: icon48
-    items: 
-    - image: 
-        src: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/media/index/portal.svg
-      text: Azure Portal
-      href: https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-quick-create-portal?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-    - image: 
-        src: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/media/index/logo_powershell.svg
-      text: Azure PowerShell
-      href: https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-quick-create-powershell?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-    - image: 
-        src: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/media/index/cli.svg
-      text: Azure CLI
-      href: https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-quick-create-cli?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-- title: Step-by-Step Tutorials
-  items:
-  - type: paragraph
-    text: Learn how to deploy, manage, and monitor Windows VMs on Azure
-  - type: list
-    style: ordered
-    items:
-    - html: <a href="/azure/virtual-machines/windows/tutorial-manage-vm">Create and manage Windows VMs</a>
-    - html: <a href="/azure/virtual-machines/windows/tutorial-manage-data-disk">Create and manage VM disks</a>
-    - html: <a href="/azure/virtual-machines/windows/tutorial-automate-vm-deployment">Automate VM configuration</a>
-    - html: <a href="/azure/virtual-machines/windows/tutorial-custom-images">Create custom VM images</a>
-    - html: <a href="/azure/virtual-machines/windows/tutorial-availability-sets">Create highly available VMs</a>
-    - html: <a href="/azure/virtual-machines/windows/tutorial-create-vmss">Create a VM scale set</a>
-    - html: <a href="/azure/virtual-machines/windows/tutorial-load-balancer">Load balance VMs</a>
-    - html: <a href="/azure/virtual-machines/windows/tutorial-virtual-network">Manage VMs with virtual networks</a>
-    - html: <a href="/azure/virtual-machines/windows/tutorial-backup-vms">Backup VMs</a>
-    - html: <a href="/azure/virtual-machines/windows/tutorial-monitoring">Monitor VMs</a>
-    - html: <a href="/azure/virtual-machines/windows/tutorial-azure-security">Manage security on VMs</a>
-    - html: <a href="/azure/virtual-machines/windows/tutorial-vsts-iis-cicd">Create a continuous integration pipeline with Visual Studio</a>
-- title: Free PluralSight Video Training
-  items:
-  - type: list
-    style: cards
-    className: cardsW
-    items:
-    - html: <p><a href="https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Managing Infrastructure</a></p>
-      image: 
-        src: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/media/index/video-training-infrastructure.png
-        href: https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
-    - html: <p><a href="https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Getting Started with Virtual Machines</a></p>
-      image: 
-        src: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/media/index/video-training-vms.png
-        href: https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
-    - html: <p><a href="https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Getting Started with IaaS Monitoring</a></p>
-      image: 
-        src: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/media/index/video-training-iaas-monitoring.png
-        href: https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
-- title: Samples
-  items:
-  - type: paragraph
-    text: Deploy your first application to Azure.
-  - type: list
-    style: unordered
-    className: spaced noBullet
-    items:
-    - html: <a href="/azure/virtual-machines/virtual-machines-windows-cli-samples?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">Azure CLI</a>
-    - html: <a href="/azure/virtual-machines/virtual-machines-windows-powershell-samples?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">Azure PowerShell</a>
-- title: Reference
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: Command-Line
-      html: <p><a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="/cli/azure/vm">Azure CLI</a></p>
-    - title: Languages
-      html: <p><a href="/dotnet/api/microsoft.azure.management.compute">.NET</a></p><p><a href="/java/api">Java</a></p><p><a href="https://azure.microsoft.com/develop/nodejs/#azure-sdk">Node​.js</a></p><p><a href="https://azure.microsoft.com/develop/python/">Python</a></p>
-    - title: REST
-      html: <p><a href="/rest/api/compute">Compute REST API Reference</a></p>
+  title: Windows virtual machines in Azure # Required; page title displayed in search results. Include the brand. < 60 chars.
+  description: Documentation for creating and managing Windows virtual machines in Azure. # Required; article description that is displayed in search results. < 160 chars.
+  services: virtual-machines-windows
+  ms.service: virtual-machines-windows #Required; service per approved list. service slug assigned to your service by ACOM.
+  ms.topic: landing-page # Required
+  author: cynthn #Required; your GitHub user alias, with correct capitalization.
+  ms.author: cynthn #Required; microsoft alias of author; optional team alias.
+  ms.date: 09/09/2019 #Required; mm/dd/yyyy format.
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: Latest features
+    linkLists:
+      - linkListType: whats-new
+        links:
+          - text: Spot VMs
+            url: ../spot-vms.md
+          - text: Dedicated hosts
+            url: dedicated-hosts.md
+          - text: Proximity placement groups
+            url: proximity-placement-groups.md
+
+  # Card (optional)
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Azure portal
+            url: ./quick-create-portal.md
+          - text: Azure PowerShell
+            url: ./quick-create-powershell.md
+          - text: Azure CLI
+            url: ./quick-create-cli.md
+ 
+
+  # Card
+  - title: Step-by-step guides
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Create and manage Windows VMs
+            url: ./tutorial-manage-vm.md
+          - text: VM Disks
+            url: ./tutorial-manage-data-disk.md
+          - text: Automate VM configuration
+            url: ./tutorial-automate-vm-deployment.md
+          - text: Create custom VM images
+            url: ./tutorial-custom-images.md
+          - text: Manage VMs with virtual networks
+            url: ./tutorial-virtual-network.md
+
+  # Card
+  - title: Self-paced training
+    linkLists:
+      - linkListType: learn
+        links:
+          - text:  Create a Windows virtual machine in Azure
+            url: /learn/modules/create-windows-virtual-machine-in-azure/

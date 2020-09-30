@@ -1,20 +1,12 @@
-﻿---
+---
 title: Connect a Cloud Service to a custom Domain Controller | Microsoft Docs
 description: Learn how to connect your web/worker roles to a custom AD Domain using PowerShell and AD Domain Extension
 services: cloud-services
-documentationcenter: ''
-author: Thraka
-manager: timlt
-editor: ''
-
-ms.assetid: 1e2d7c87-d254-4e7a-a832-67f84411ec95
+author: tgore03
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
-ms.author: adegeo
+ms.author: tagore
 
 ---
 # Connecting Azure Cloud Services Roles to a custom AD Domain Controller hosted in Azure
@@ -22,7 +14,7 @@ We will first set up a Virtual Network (VNet) in Azure. We will then add an Acti
 
 Before we get started, couple of things to keep in mind:
 
-1. This tutorial uses PowerShell, so make sure you have Azure PowerShell installed and ready to go. To get help with setting up Azure PowerShell, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
+1. This tutorial uses PowerShell, so make sure you have Azure PowerShell installed and ready to go. To get help with setting up Azure PowerShell, see [How to install and configure Azure PowerShell](/powershell/azure/).
 2. Your AD Domain Controller and Web/Worker Role instances need to be in the VNet.
 
 Follow this step-by-step guide and if you run into any issues, leave us a comment at the end of the article. Someone will get back to you (yes, we do read comments).
@@ -30,14 +22,14 @@ Follow this step-by-step guide and if you run into any issues, leave us a commen
 The network that is referenced by the cloud service must be a **classic virtual network**.
 
 ## Create a Virtual Network
-You can create a Virtual Network in Azure using the Azure portal or PowerShell. For this tutorial, we will use PowerShell. To create a Virtual Network using the Azure portal, see [Create Virtual Network](../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
+You can create a Virtual Network in Azure using the Azure portal or PowerShell. For this tutorial, PowerShell is used. To create a virtual network using the Azure portal, see [Create a virtual network](../virtual-network/quick-create-portal.md). The article covers creating a virtual network (Resource Manager), but you must create a virtual network (Classic) for cloud services. To do so, in the portal, select **Create a resource**, type *virtual network* in the **Search** box, and then press **Enter**. In the search results, under **Everything**, select **Virtual network**. Under **Select a deployment model**, select **Classic**, then select **Create**. You can then follow the steps in the article.
 
 ```powershell
 #Create Virtual Network
 
 $vnetStr =
 @"<?xml version="1.0" encoding="utf-8"?>
-<NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
+<NetworkConfiguration xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
     <VirtualNetworkConfiguration>
     <VirtualNetworkSites>
         <VirtualNetworkSite name="[your-vnet-name]" Location="West US">
@@ -91,7 +83,7 @@ To log in to the VM, you can get the RDP file through PowerShell, use the follow
 Get-AzureRemoteDesktopFile -ServiceName $vmsvc1 -Name $vm1 -LocalPath <rdp-file-path>
 ```
 
-Once you are signed in to the VM, set up your Virtual Machine as an AD Domain Controller by following the step-by-step guide on [How to set up your customer AD Domain Controller](http://social.technet.microsoft.com/wiki/contents/articles/12370.windows-server-2012-set-up-your-first-domain-controller-step-by-step.aspx).
+Once you are signed in to the VM, set up your Virtual Machine as an AD Domain Controller by following the step-by-step guide on [How to set up your customer AD Domain Controller](https://social.technet.microsoft.com/wiki/contents/articles/12370.windows-server-2012-set-up-your-first-domain-controller-step-by-step.aspx).
 
 ## Add your Cloud Service to the Virtual Network
 Next, you need to add your cloud service deployment to the new VNet. To do this, modify your cloud service cscfg by adding the relevant sections to your cscfg using Visual Studio or the editor of your choice.
@@ -125,7 +117,7 @@ Next, you need to add your cloud service deployment to the new VNet. To do this,
 </ServiceConfiguration>
 ```
 
-Next build your cloud services project and deploy it to Azure. To get help with deploying your cloud services package to Azure, see [How to Create and Deploy a Cloud Service](cloud-services-how-to-create-deploy.md#how-to-deploy-a-cloud-service)
+Next build your cloud services project and deploy it to Azure. To get help with deploying your cloud services package to Azure, see [How to Create and Deploy a Cloud Service](cloud-services-how-to-create-deploy-portal.md)
 
 ## Connect your web/worker roles to the domain
 Once your cloud service project is deployed on Azure, connect your role instances to the custom AD domain using the AD Domain Extension. To add the AD Domain Extension to your existing cloud services deployment and join the custom domain, execute the following commands in PowerShell:
@@ -152,3 +144,6 @@ Your cloud services should be joined to your custom domain controller. If you wo
 help Set-AzureServiceADDomainExtension
 help New-AzureServiceADDomainExtensionConfig
 ```
+
+
+

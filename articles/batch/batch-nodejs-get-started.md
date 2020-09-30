@@ -1,29 +1,13 @@
 ---
-title: Tutorial - Use the Azure Batch client library for Node.js | Microsoft Docs
+title: Tutorial - Use the Azure Batch client library for Node.js
 description: Learn the basic concepts of Azure Batch and build a simple solution using Node.js.
-services: batch
-author: shwetams
-manager: timlt
-
-ms.assetid: 
-ms.service: batch
-ms.devlang: nodejs
-ms.topic: hero-article
-ms.workload: big-compute
+ms.topic: tutorial
 ms.date: 05/22/2017
-ms.author: shwetams
 ---
 
 # Get started with Batch SDK for Node.js
 
-> [!div class="op_single_selector"]
-> * [.NET](batch-dotnet-get-started.md)
-> * [Python](batch-python-tutorial.md)
-> * [Node.js](batch-nodejs-get-started.md)
->
->
-
-Learn the basics of building a Batch client in Node.js using [Azure Batch Node.js SDK](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/). We take a step by step approach of understanding a scenario for a batch application and then setting it up using a Node.js client.  
+Learn the basics of building a Batch client in Node.js using [Azure Batch Node.js SDK](/javascript/api/overview/azure/batch). We take a step by step approach of understanding a scenario for a batch application and then setting it up using a Node.js client.  
 
 ## Prerequisites
 This article assumes that you have a working knowledge of Node.js and familiarity with Linux. It also assumes that you have an Azure account setup with access rights to create Batch and Storage services.
@@ -38,7 +22,7 @@ The following diagram depicts how we can scale the Python script using Azure Bat
 
 ![Azure Batch Scenario](./media/batch-nodejs-get-started/BatchScenario.png)
 
-The node.js client deploys a batch job with a preparation task (explained in detail later) and a set of tasks depending on the number of containers in the storage account. You can download the scripts from the github repository.
+The node.js client deploys a batch job with a preparation task (explained in detail later) and a set of tasks depending on the number of containers in the storage account. You can download the scripts from the GitHub repository.
 
 * [Node.js client](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/nodejs_batch_client_sample.js)
 * [Preparation task shell scripts](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/startup_prereq.sh)
@@ -70,7 +54,7 @@ This command installs the latest version of azure-batch node SDK.
 
 ### Step 2: Create an Azure Batch account
 
-You can create it from the [Azure portal](batch-account-create-portal.md) or from command line ([Powershell](batch-powershell-cmdlets-get-started.md) /[Azure cli](https://docs.microsoft.com/cli/azure/overview)).
+You can create it from the [Azure portal](batch-account-create-portal.md) or from command line ([PowerShell](batch-powershell-cmdlets-get-started.md) /[Azure CLI](/cli/azure)).
 
 Following are the commands to create one through Azure CLI.
 
@@ -263,7 +247,7 @@ An Azure Batch job is a logical group of similar tasks. In our scenario, it is "
 These tasks would run in parallel and deployed across multiple nodes, orchestrated by the Azure Batch service.
 
 > [!Tip]
-> You can use the [maxTasksPerNode](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) property to specify maximum number of tasks that can run concurrently on a single node.
+> You can use the [maxTasksPerNode](https://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) property to specify maximum number of tasks that can run concurrently on a single node.
 >
 >
 
@@ -276,7 +260,7 @@ The [shell script](https://github.com/shwetams/azure-batchclient-sample-nodejs/b
 You can upload the script on an Azure Storage Account and generate a SAS URI to access the script. This process can also be automated using the Azure Storage Node.js SDK.
 
 > [!Tip]
-> A preparation task for a job runs only on the VM nodes where the specific task needs to run. If you want prerequisites to be installed on all nodes irrespective of the tasks that run on it, you can use the [startTask](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) property while adding a pool. You can use the following preparation task definition for reference.
+> A preparation task for a job runs only on the VM nodes where the specific task needs to run. If you want prerequisites to be installed on all nodes irrespective of the tasks that run on it, you can use the [startTask](https://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) property while adding a pool. You can use the following preparation task definition for reference.
 >
 >
 
@@ -352,10 +336,10 @@ var container_list = ["con1","con2","con3","con4"]
 
 The code adds multiple tasks to the pool. And each of the tasks is executed on a node in the pool of VMs created. If the number of tasks exceeds the number of VMs in a pool or the maxTasksPerNode property, the tasks wait until a node is made available. This orchestration is handled by Azure Batch automatically.
 
-The portal has detailed views on the tasks and job statuses. You can also use the list and get functions in the Azure Node SDK. Details are provided in the documentation [link](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/Job.html).
+The portal has detailed views on the tasks and job statuses. You can also use the list and get functions in the Azure Node SDK. Details are provided in the documentation [link](https://azure.github.io/azure-sdk-for-node/azure-batch/latest/Job.html).
 
 ## Next steps
 
-- Review the [Overview of Azure Batch features](batch-api-basics.md) article, which we recommend if you're new to the service.
-- See the [Batch Node.js reference](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/) to explore the Batch API.
+- Learn about the [Batch service workflow and primary resources](batch-service-workflow-features.md) such as pools, nodes, jobs, and tasks.
+- See the [Batch Node.js reference](/javascript/api/overview/azure/batch) to explore the Batch API.
 

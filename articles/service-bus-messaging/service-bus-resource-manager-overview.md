@@ -1,32 +1,25 @@
-﻿---
-title: Create Azure Service Bus resources using Azure Resource Manager templates | Microsoft Docs
+---
+title: Create Azure Service Bus resources using templates
 description: Use Azure Resource Manager templates to automate the creation of Service Bus resources
-services: service-bus-messaging
 documentationcenter: .net
-author: sethmanheim
-manager: timlt
-editor: ''
-
-ms.assetid: 24f6a207-0fa4-49cf-8a58-963f9e2fd655
-ms.service: service-bus-messaging
-ms.devlang: tbd
+author: spelluru
 ms.topic: article
 ms.tgt_pltfrm: dotnet
-ms.workload: na
-ms.date: 04/18/2017
-ms.author: sethm
-
+ms.date: 06/23/2020
+ms.author: spelluru 
+ms.custom: devx-track-azurepowershell
 ---
+
 # Create Service Bus resources using Azure Resource Manager templates
 
 This article describes how to create and deploy Service Bus resources using Azure Resource Manager templates, PowerShell, and the Service Bus resource provider.
 
-Azure Resource Manager templates help you define the resources to deploy for a solution, and to specify parameters and variables that enable you to input values for different environments. The template consists of JSON and expressions that you can use to construct values for your deployment. For detailed information about writing Azure Resource Manager templates, and a discussion of the template format, see [structure and syntax of Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md).
+Azure Resource Manager templates help you define the resources to deploy for a solution, and to specify parameters and variables that enable you to input values for different environments. The template is written in JSON and consists of expressions that you can use to construct values for your deployment. For detailed information about writing Azure Resource Manager templates, and a discussion of the template format, see [structure and syntax of Azure Resource Manager templates](../azure-resource-manager/templates/template-syntax.md).
 
 > [!NOTE]
-> The examples in this article show how to use Azure Resource Manager to create a Service Bus namespace and messaging entity (queue). For other template examples, visit the [Azure Quickstart Templates gallery][Azure Quickstart Templates gallery] and search for "Service Bus."
->
->
+> The examples in this article show how to use Azure Resource Manager to create a Service Bus namespace and messaging entity (queue). For other template examples, visit the [Azure Quickstart Templates gallery][Azure Quickstart Templates gallery] and search for **Service Bus**.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Service Bus Resource Manager templates
 
@@ -40,7 +33,7 @@ These Service Bus Azure Resource Manager templates are available for download an
 
 ## Deploy with PowerShell
 
-The following procedure describes how to use PowerShell to deploy an Azure Resource Manager template that creates a **Standard** tier Service Bus namespace, and a queue within that namespace. This example is based on the [Create a Service Bus namespace with queue](https://github.com/Azure/azure-quickstart-templates/tree/master/201-servicebus-create-queue) template. The approximate workflow is as follows:
+The following procedure describes how to use PowerShell to deploy an Azure Resource Manager template that creates a Standard tier Service Bus namespace, and a queue within that namespace. This example is based on the [Create a Service Bus namespace with queue](https://github.com/Azure/azure-quickstart-templates/tree/master/201-servicebus-create-queue) template. The approximate workflow is as follows:
 
 1. Install PowerShell.
 2. Create the template and (optionally) a parameter file.
@@ -58,71 +51,76 @@ Install Azure PowerShell by following the instructions in [Getting started with 
 
 ### Create a template
 
-Clone or copy the [201-servicebus-create-queue](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.json) template from GitHub:
+Clone the repository or copy the [201-servicebus-create-queue](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.json) template from GitHub:
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "serviceBusNamespaceName": {
-            "type": "string",
-            "metadata": {
-                "description": "Name of the Service Bus namespace"
-            }
-        },
-        "serviceBusQueueName": {
-            "type": "string",
-            "metadata": {
-                "description": "Name of the Queue"
-            }
-        },
-        "serviceBusApiVersion": {
-            "type": "string",
-            "defaultValue": "2015-08-01",
-            "metadata": {
-                "description": "Service Bus ApiVersion used by the template"
-            }
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "serviceBusNamespaceName": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the Service Bus namespace"
+      }
     },
-    "variables": {
-        "location": "[resourceGroup().location]",
-        "sbVersion": "[parameters('serviceBusApiVersion')]",
-        "defaultSASKeyName": "RootManageSharedAccessKey",
-        "authRuleResourceId": "[resourceId('Microsoft.ServiceBus/namespaces/authorizationRules', parameters('serviceBusNamespaceName'), variables('defaultSASKeyName'))]"
-    },
-    "resources": [{
-        "apiVersion": "[variables('sbVersion')]",
-        "name": "[parameters('serviceBusNamespaceName')]",
-        "type": "Microsoft.ServiceBus/Namespaces",
-        "location": "[variables('location')]",
-        "kind": "Messaging",
-        "sku": {
-            "name": "StandardSku",
-            "tier": "Standard"
-        },
-        "resources": [{
-            "apiVersion": "[variables('sbVersion')]",
-            "name": "[parameters('serviceBusQueueName')]",
-            "type": "Queues",
-            "dependsOn": [
-                "[concat('Microsoft.ServiceBus/namespaces/', parameters('serviceBusNamespaceName'))]"
-            ],
-            "properties": {
-                "path": "[parameters('serviceBusQueueName')]"
-            }
-        }]
-    }],
-    "outputs": {
-        "NamespaceConnectionString": {
-            "type": "string",
-            "value": "[listkeys(variables('authRuleResourceId'), variables('sbVersion')).primaryConnectionString]"
-        },
-        "SharedAccessPolicyPrimaryKey": {
-            "type": "string",
-            "value": "[listkeys(variables('authRuleResourceId'), variables('sbVersion')).primaryKey]"
-        }
+    "serviceBusQueueName": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the Queue"
+      }
     }
+  },
+  "variables": {
+    "defaultSASKeyName": "RootManageSharedAccessKey",
+    "authRuleResourceId": "[resourceId('Microsoft.ServiceBus/namespaces/authorizationRules', parameters('serviceBusNamespaceName'), variables('defaultSASKeyName'))]",
+	"sbVersion": "2017-04-01"
+  },
+  "resources": [
+    {
+      "apiVersion": "2017-04-01",
+      "name": "[parameters('serviceBusNamespaceName')]",
+      "type": "Microsoft.ServiceBus/Namespaces",
+      "location": "[resourceGroup().location]",
+      "sku": {
+        "name": "Standard"
+      },
+      "properties": {},
+      "resources": [
+        {
+          "apiVersion": "2017-04-01",
+          "name": "[parameters('serviceBusQueueName')]",
+          "type": "Queues",
+          "dependsOn": [
+            "[concat('Microsoft.ServiceBus/namespaces/', parameters('serviceBusNamespaceName'))]"
+          ],
+          "properties": {
+            "lockDuration": "PT5M",
+            "maxSizeInMegabytes": "1024",
+            "requiresDuplicateDetection": "false",
+            "requiresSession": "false",
+            "defaultMessageTimeToLive": "P10675199DT2H48M5.4775807S",
+            "deadLetteringOnMessageExpiration": "false",
+            "duplicateDetectionHistoryTimeWindow": "PT10M",
+            "maxDeliveryCount": "10",
+            "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S",
+            "enablePartitioning": "false",
+            "enableExpress": "false"
+          }
+        }
+      ]
+    }
+  ],
+  "outputs": {
+    "NamespaceConnectionString": {
+      "type": "string",
+      "value": "[listkeys(variables('authRuleResourceId'), variables('sbVersion')).primaryConnectionString]"
+    },
+    "SharedAccessPolicyPrimaryKey": {
+      "type": "string",
+      "value": "[listkeys(variables('authRuleResourceId'), variables('sbVersion')).primaryKey]"
+    }
+  }
 }
 ```
 
@@ -132,7 +130,7 @@ To use an optional parameters file, copy the [201-servicebus-create-queue](https
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "serviceBusNamespaceName": {
@@ -142,40 +140,40 @@ To use an optional parameters file, copy the [201-servicebus-create-queue](https
             "value": "<myQueueName>"
         },
         "serviceBusApiVersion": {
-            "value": "2015-08-01"
+            "value": "2017-04-01"
         }
     }
 }
 ```
 
-For more information, see the [Parameters](../azure-resource-manager/resource-group-template-deploy.md#parameter-files) topic.
+For more information, see the [Parameters](../azure-resource-manager/templates/parameter-files.md) article.
 
 ### Log in to Azure and set the Azure subscription
 
 From a PowerShell prompt, run the following command:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzAccount
 ```
 
-You are prompted to log on to your Azure account. After logging on, run the following command to view your available subscriptions.
+You are prompted to log on to your Azure account. After logging on, run the following command to view your available subscriptions:
 
 ```powershell
-Get-AzureRMSubscription
+Get-AzSubscription
 ```
 
-This command returns a list of available Azure subscriptions. Choose a subscription for the current session by running the following command. Replace `<YourSubscriptionId>` with the GUID for the Azure subscription you want to use.
+This command returns a list of available Azure subscriptions. Choose a subscription for the current session by running the following command. Replace `<YourSubscriptionId>` with the GUID for the Azure subscription you want to use:
 
 ```powershell
-Set-AzureRmContext -SubscriptionID <YourSubscriptionId>
+Set-AzContext -SubscriptionID <YourSubscriptionId>
 ```
 
 ### Set the resource group
 
-If you do not have an existing resource group, create a new resource group with the **New-AzureRmResourceGroup ** command. Provide the name of the resource group and location you want to use. For example:
+If you do not have an existing resource group, create a new resource group with the **New-AzResourceGroup** command. Provide the name of the resource group and location you want to use. For example:
 
 ```powershell
-New-AzureRmResourceGroup -Name MyDemoRG -Location "West US"
+New-AzResourceGroup -Name MyDemoRG -Location "West US"
 ```
 
 If successful, a summary of the new resource group is displayed.
@@ -190,38 +188,38 @@ ResourceId        : /subscriptions/<GUID>/resourceGroups/MyDemoRG
 
 ### Test the deployment
 
-Validate your deployment by running the `Test-AzureRmResourceGroupDeployment` cmdlet. When testing the deployment, provide parameters exactly as you would when executing the deployment.
+Validate your deployment by running the `Test-AzResourceGroupDeployment` cmdlet. When testing the deployment, provide parameters exactly as you would when executing the deployment.
 
 ```powershell
-Test-AzureRmResourceGroupDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
+Test-AzResourceGroupDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
 ```
 
 ### Create the deployment
 
-To create the new deployment, run the `New-AzureRmResourceGroupDeployment` cmdlet, and provide the necessary parameters when prompted. The parameters include a name for your deployment, the name of your resource group, and the path or URL to the template file. If the **Mode** parameter is not specified, the default value of **Incremental** is used. For more information, see [Incremental and complete deployments](../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments).
+To create the new deployment, run the `New-AzResourceGroupDeployment` cmdlet, and provide the necessary parameters when prompted. The parameters include a name for your deployment, the name of your resource group, and the path or URL to the template file. If the **Mode** parameter is not specified, the default value of **Incremental** is used. For more information, see [Incremental and complete deployments](../azure-resource-manager/templates/deployment-modes.md).
 
 The following command prompts you for the three parameters in the PowerShell window:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
+New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
 ```
 
-To specify a parameters file instead, use the following command.
+To specify a parameters file instead, use the following command:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -TemplateParameterFile <path to parameters file>\azuredeploy.parameters.json
+New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -TemplateParameterFile <path to parameters file>\azuredeploy.parameters.json
 ```
 
 You can also use inline parameters when you run the deployment cmdlet. The command is as follows:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -parameterName "parameterValue"
+New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -parameterName "parameterValue"
 ```
 
-To run a [complete](../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments) deployment, set the **Mode** parameter to **Complete**:
+To run a [complete](../azure-resource-manager/templates/deployment-modes.md) deployment, set the **Mode** parameter to **Complete**:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -Mode Complete -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
+New-AzResourceGroupDeployment -Name MyDemoDeployment -Mode Complete -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
 ```
 
 ### Verify the deployment
@@ -231,7 +229,7 @@ If the resources are deployed successfully, a summary of the deployment is displ
 DeploymentName    : MyDemoDeployment
 ResourceGroupName : MyDemoRG
 ProvisioningState : Succeeded
-Timestamp         : 4/19/2016 10:38:30 PM
+Timestamp         : 4/19/2017 10:38:30 PM
 Mode              : Incremental
 TemplateLink      :
 Parameters        :
@@ -239,7 +237,7 @@ Parameters        :
                     ===============  =========================  ==========
                     serviceBusNamespaceName  String             <namespaceName>
                     serviceBusQueueName  String                 <queueName>
-                    serviceBusApiVersion  String                2015-08-01
+                    serviceBusApiVersion  String                2017-04-01
 
 ```
 
@@ -248,8 +246,9 @@ You've now seen the basic workflow and commands for deploying an Azure Resource 
 
 * [Azure Resource Manager overview][Azure Resource Manager overview]
 * [Deploy resources with Resource Manager templates and Azure PowerShell][Deploy resources with Azure Resource Manager templates]
-* [Authoring Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md)
+* [Authoring Azure Resource Manager templates](../azure-resource-manager/templates/template-syntax.md)
+* [Microsoft.ServiceBus resource types](/azure/templates/microsoft.servicebus/allversions)
 
-[Azure Resource Manager overview]: ../azure-resource-manager/resource-group-overview.md
-[Deploy resources with Azure Resource Manager templates]: ../azure-resource-manager/resource-group-template-deploy.md
+[Azure Resource Manager overview]: ../azure-resource-manager/management/overview.md
+[Deploy resources with Azure Resource Manager templates]: ../azure-resource-manager/templates/deploy-powershell.md
 [Azure Quickstart Templates gallery]: https://azure.microsoft.com/documentation/templates/?term=service+bus

@@ -1,0 +1,160 @@
+- name: Lab Services documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: About Lab Services
+    href: lab-services-overview.md
+- name: Tutorials
+  items:
+  - name: Set up a lab account
+    href: tutorial-setup-lab-account.md
+  - name: Set up a classroom lab
+    href: tutorial-setup-classroom-lab.md 
+  - name: Access a classroom lab
+    href: tutorial-connect-virtual-machine-classroom-lab.md
+  - name: Track usage of a classroom lab
+    href: tutorial-track-usage.md            
+- name: Concepts
+  items:
+  - name: Classroom Labs overview
+    href: classroom-labs-overview.md 
+  - name: Classroom Labs concepts
+    href: classroom-labs-concepts.md    
+  - name: Classroom Labs architecture fundamentals
+    href: classroom-labs-fundamentals.md
+  - name: Capacity limits
+    href: capacity-limits.md  
+  - name: Cost management for labs
+    href: cost-management-guide.md        
+  - name: Scenarios
+    items:  
+    - name: Use Lab Services for conducting classes
+      href: classroom-labs-scenarios.md
+    - name: Use Lab Services for hackathon
+      href: hackathon-labs.md
+    - name: Classroom labs - class types
+      items:
+      - name: Class types overview
+        href: class-types.md
+      - name: Deep learning in natural language processing
+        href: class-type-deep-learning-natural-language-processing.md
+      - name: Shell scripting on Linux
+        href: class-type-shell-scripting-linux.md
+      - name: Ethical hacking
+        href: class-type-ethical-hacking.md
+      - name: Database management
+        href: class-type-database-management.md
+      - name: Azure Sql Database management and development
+        href: class-type-sql-server.md
+      - name: Python and Jupyter Notebooks
+        href: class-type-jupyter-notebook.md
+      - name: Big data analytics
+        href: class-type-big-data-analytics.md
+      - name: MATLAB
+        href: class-type-matlab.md
+      - name: SolidWorks computer-aided design (CAD)
+        href: class-type-solidworks.md
+- name: How-to guides
+  items:
+  - name: Administrator guide
+    href: administrator-guide.md
+  - name: Accelerated lab account setup guide
+    href: account-setup-guide.md
+  - name: Accelerated lab setup guide
+    href: setup-guide.md
+  - name: Create and configure lab accounts (lab account owner)
+    items:
+    - name: Create and manage lab accounts
+      href: how-to-manage-lab-accounts.md
+    - name: Manage labs in a lab account
+      href: manage-labs.md
+    - name: Configure auto-shutdown of VMs for a lab account
+      href: how-to-configure-lab-accounts.md
+    - name: Add a lab creator
+      href: add-lab-creator.md
+    - name: Allow lab creator to pick lab location
+      href: allow-lab-creator-pick-lab-location.md
+    - name: Connect to a peer virtual network
+      href: how-to-connect-peer-virtual-network.md
+    - name: How to create a lab with a shared resource
+      href: how-to-create-a-lab-with-shared-resource.md
+    - name: Attach or detach a shared image gallery
+      href: how-to-attach-detach-shared-image-gallery.md
+    - name: Add additional owners to a classroom lab
+      href: how-to-add-user-lab-owner.md
+    - name: Configure firewall settings
+      href: how-to-configure-firewall-settings.md
+    - name: Specify Marketplace images for labs 
+      href: specify-marketplace-images.md
+    - name: Specify support information (lab account owner)
+      href: lab-account-owner-support-information.md
+  - name: Create and configure classroom labs (educator)
+    items:        
+    - name: Create and manage classroom labs
+      href: how-to-manage-classroom-labs.md
+    - name: Use dashboard
+      href: use-dashboard.md
+    - name: Set up, customize, and publish templates
+      href: how-to-create-manage-template.md
+    - name: Set up and manage virtual machine pool 
+      href: how-to-set-virtual-machine-passwords.md
+    - name: Add and manage lab users
+      href: how-to-configure-student-usage.md      
+    - name: Create and manage schedules
+      href: how-to-create-schedules.md
+    - name: Use a shared image gallery
+      href: how-to-use-shared-image-gallery.md            
+    - name: Enable remote desktop connection for Linux
+      href: how-to-enable-remote-desktop-linux.md
+    - name: Configure auto-shutdown of VMs for a lab
+      href: how-to-enable-shutdown-disconnect.md       
+    - name: Enable nested virtualization on a template VM
+      items:
+      - name: Enable nested virtualization on a template VM overview
+        href: how-to-enable-nested-virtualization-template-vm.md
+      - name: Enable nested virtualization on a template VM using the UI
+        href: how-to-enable-nested-virtualization-template-vm-ui.md 
+      - name: Enable nested virtualization on a template VM using a script
+        href: how-to-enable-nested-virtualization-template-vm-using-script.md
+    - name: Set up a lab with GPUs
+      href: how-to-setup-lab-gpu.md
+    - name: Prepare a Windows template VM
+      href: how-to-prepare-windows-template.md
+    - name: Control Windows shutdown behavior
+      href: how-to-windows-shutdown.md
+    - name: View support information (educator)
+      href: lab-creator-support-information.md
+    - name: Access student VMs from educator view
+      href: instructor-access-virtual-machines.md      
+  - name: Connect to VMs in classroom labs (student)
+    items:        
+    - name: Access classroom labs
+      href: how-to-use-classroom-lab.md
+    - name: Connect to Linux VMs
+      href: how-to-use-remote-desktop-linux-student.md                
+    - name: Connect to a VM from Mac using RDP
+      href: connect-virtual-machine-mac-remote-desktop.md
+    - name: Connect to a VM from Chromebook using RDP
+      href: connect-virtual-machine-chromebook-remote-desktop.md
+    - name: Set or reset passwords for virtual machines 
+      href: how-to-set-virtual-machine-passwords-student.md 
+    - name: View support information (student)
+      href: lab-user-support-information.md             
+- name: Reference
+  items:
+  - name: REST API
+    href: https://docs.microsoft.com/rest/api/labservices/
+  - name: Az.LabServices PowerShell module (preview)
+    href: reference-powershell-module.md
+- name: Resources
+  items:
+  - name: Azure Lab Services Blog
+    href: https://aka.ms/azlabs-blog
+  - name: Azure updates
+    href: https://azure.microsoft.com/updates/?product=lab-services
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/lab-services/
+  - name: Tech community forum
+    href: https://techcommunity.microsoft.com/t5/azure-lab-services/bd-p/AzureLabServices
+  - name: Frequently asked questions
+    href: classroom-labs-faq.md

@@ -1,44 +1,22 @@
 ---
-title: 'Generate and export certificates for Point-to-Site: MakeCert : Azure | Microsoft Docs'
-description: This article contains steps to create a self-signed root certificate, export the public key, and generate client certificates using MakeCert.
+title: 'Azure VPN Gateway: Generate & export certificates for P2S: MakeCert'
+description: Create a self-signed root certificate, export the public key, and generate client certificates using MakeCert.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-resource-manager
 
-ms.assetid: 
 ms.service: vpn-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 06/19/2017
+ms.topic: how-to
+ms.date: 09/02/2020
 ms.author: cherylmc
 
 ---
 # Generate and export certificates for Point-to-Site connections using MakeCert
 
-> [!NOTE]
-> Use the instructions in this article to generate certificates only when you don't have access to a computer running Windows 10. Otherwise, we recommend that you use the [Generate self-signed certificates using Windows 10 PowerShell](vpn-gateway-certificates-point-to-site.md) article instead.
->
+Point-to-Site connections use certificates to authenticate. This article shows you how to create a self-signed root certificate and generate client certificates using MakeCert. If you are looking for different certificate instructions, see [Certificates - PowerShell](vpn-gateway-certificates-point-to-site.md) or [Certificates - Linux](vpn-gateway-certificates-point-to-site-linux.md).
 
-Point-to-Site connections use certificates to authenticate. This article shows you how to create a self-signed root certificate and generate client certificates using MakeCert. If you are looking for Point-to-Site configuration steps, such as how to upload root certificates, select one of the 'Configure Point-to-Site' articles from the following list:
+While we recommend using the [Windows 10 PowerShell steps](vpn-gateway-certificates-point-to-site.md) to create your certificates, we provide these MakeCert instructions as an optional method. The certificates that you generate using either method can be installed on [any supported client operating system](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq). However, MakeCert has the following limitation:
 
-> [!div class="op_single_selector"]
-> * [Create self-signed certificates - PowerShell](vpn-gateway-certificates-point-to-site.md)
-> * [Create self-signed certificates - MakeCert](vpn-gateway-certificates-point-to-site-makecert.md)
-> * [Configure Point-to-Site - Resource Manager - Azure portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
-> * [Configure Point-to-Site - Resource Manager - PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
-> * [Configure Point-to-Site - Classic - Azure portal](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
-> 
-> 
-
-While we recommend using the [Windows 10 PowerShell steps](vpn-gateway-certificates-point-to-site.md) to create your certificates, we provide these MakeCert instructions as an optional method. The certificates that you generate using either method can be installed on [any supported client operating system](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq). However, MakeCert has the following limitations:
-
-* MakeCert cannot generate SHA-2 certificates, only SHA-1. SHA-1 certificates are still valid for Point-to-Site connections, but SHA-1 uses an encryption hash that is not as strong as SHA-2.
-* MakeCert is deprecated. This means that this tool could be removed at any point. Any certificates that you already generated using MakeCert won't be affected if MakeCert is no longer available. MakeCert is only used to generate the certificates, not as a validating mechanism.
+* MakeCert is deprecated. This means that this tool could be removed at any point. Any certificates that you already generated using MakeCert won't be affected when MakeCert is no longer available. MakeCert is only used to generate the certificates, not as a validating mechanism.
 
 ## <a name="rootcert"></a>Create a self-signed root certificate
 
@@ -47,14 +25,14 @@ The following steps show you how to create a self-signed certificate using MakeC
 1. Download and install [MakeCert](https://msdn.microsoft.com/library/windows/desktop/aa386968(v=vs.85).aspx).
 2. After installation, you can typically find the makecert.exe utility under this path: 'C:\Program Files (x86)\Windows Kits\10\bin\<arch>'. Although, it's possible that it was installed to another location. Open a command prompt as administrator and navigate to the location of the MakeCert utility. You can use the following example, adjusting for the proper location:
 
-  ```cmd
-  cd C:\Program Files (x86)\Windows Kits\10\bin\x64
-  ```
+   ```cmd
+   cd C:\Program Files (x86)\Windows Kits\10\bin\x64
+   ```
 3. Create and install a certificate in the Personal certificate store on your computer. The following example creates a corresponding *.cer* file that you upload to Azure when configuring P2S. Replace 'P2SRootCert' and 'P2SRootCert.cer' with the name that you want to use for the certificate. The certificate is located in your 'Certificates - Current User\Personal\Certificates'.
 
-  ```cmd
-  makecert -sky exchange -r -n "CN=P2SRootCert" -pe -a sha1 -len 2048 -ss My
-  ```
+   ```cmd
+   makecert -sky exchange -r -n "CN=P2SRootCert" -pe -a sha256 -len 2048 -ss My
+   ```
 
 ## <a name="cer"></a>Export the public key (.cer)
 
@@ -78,14 +56,14 @@ The following steps walk you through generating a client certificate from a self
  
 1. On the same computer that you used to create the self-signed certificate, open a command prompt as administrator.
 2. Modify and run the sample to generate a client certificate.
-  * Change *"P2SRootCert"* to the name of the self-signed root that you are generating the client certificate from. Make sure you are using the name of the root certificate, which is whatever the 'CN=' value was that you specified when you created the self-signed root.
-  * Change *P2SChildCert* to the name you want to generate a client certificate to be.
+   * Change *"P2SRootCert"* to the name of the self-signed root that you are generating the client certificate from. Make sure you are using the name of the root certificate, which is whatever the 'CN=' value was that you specified when you created the self-signed root.
+   * Change *P2SChildCert* to the name you want to generate a client certificate to be.
 
-  If you run the following example without modifying it, the result is a client certificate named P2SChildcert in your Personal certificate store that was generated from root certificate P2SRootCert.
+   If you run the following example without modifying it, the result is a client certificate named P2SChildcert in your Personal certificate store that was generated from root certificate P2SRootCert.
 
-  ```cmd
-  makecert.exe -n "CN=P2SChildCert" -pe -sky exchange -m 96 -ss My -in "P2SRootCert" -is my -a sha1
-  ```
+   ```cmd
+   makecert.exe -n "CN=P2SChildCert" -pe -sky exchange -m 96 -ss My -in "P2SRootCert" -is my -a sha256
+   ```
 
 ### <a name="clientexport"></a>Export a client certificate
 
@@ -93,11 +71,13 @@ The following steps walk you through generating a client certificate from a self
 
 ### <a name="install"></a>Install an exported client certificate
 
-[!INCLUDE [Install client certificate](../../includes/vpn-gateway-certificates-install-client-cert-include.md)]
+To install a client certificate, see [Install a client certificate](point-to-site-how-to-vpn-client-install-azure-cert.md).
 
 ## Next steps
 
 Continue with your Point-to-Site configuration. 
 
-* For **Resource Manager** deployment model steps, see [Configure a Point-to-Site connection to a VNet](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
+* For **Resource Manager** deployment model steps, see [Configure P2S using native Azure certificate authentication](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
 * For **classic** deployment model steps, see [Configure a Point-to-Site VPN connection to a VNet (classic)](vpn-gateway-howto-point-to-site-classic-azure-portal.md).
+
+For P2S troubleshooting information, [Troubleshooting Azure point-to-site connections](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

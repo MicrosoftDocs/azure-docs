@@ -1,22 +1,13 @@
 ---
-title: Move files to and from Azure Linux VMs with SCP | Microsoft Docs
+title: Move files to and from Azure Linux VMs with SCP 
 description: Securely move files to and from a Linux VM in Azure using SCP and an SSH key pair.
-services: virtual-machines-linux
-documentationcenter: virtual-machines
-author: dlepow
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid:
+author: cynthn
 ms.service: virtual-machines-linux
 ms.workload: infrastructure
-ms.tgt_pltfrm: vm-linux
-ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/12/2017
-ms.author: danlep
-
+ms.author: cynthn
+ms.subservice: disks
 ---
 
 # Move files to and from a Linux VM using SCP
@@ -69,9 +60,8 @@ The following command copies files in the */home/azureuser/logs/* directory on t
 scp -r azureuser@myserver.eastus.cloudapp.com:/home/azureuser/logs/. /tmp/
 ```
 
-The `-r` cli flag instructs SCP to recursively copy the files and directories from the point of the directory listed in the command.  Also notice that the command-line syntax is similar to a `cp` copy command.
+The `-r` flag instructs SCP to recursively copy the files and directories from the point of the directory listed in the command.  Also notice that the command-line syntax is similar to a `cp` copy command.
 
 ## Next steps
 
-* [Manage users, SSH, and check or repair disks on Azure Linux VMs using the VMAccess Extension](using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Disable SSH passwords on your Linux VM by configuring SSHD](mac-disable-ssh-password-usage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Manage users, SSH, and check or repair disks on Azure Linux VMs using the VMAccess Extension](../extensions/vmaccess.md?toc=/azure/virtual-machines/linux/toc.json)

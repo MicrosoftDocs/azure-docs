@@ -1,31 +1,24 @@
 ---
-title: Manage Azure Data Lake Analytics using Azure .NET SDK | Microsoft Docs
-description: 'Learn how to manage Data Lake Analytics jobs, data sources, users. '
+title: Manage Azure Data Lake Analytics using Azure .NET SDK
+description: This article describes how to use the Azure .NET SDK to write apps that manage Data Lake Analytics jobs, data sources, & users.
 services: data-lake-analytics
-documentationcenter: ''
-author: saveenr
-manager: saveenr
-editor: cgronlun
-
+ms.reviewer: jasonh
 ms.assetid: 811d172d-9873-4ce9-a6d5-c1a26b374c79
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: how-to
 ms.date: 06/18/2017
-ms.author: saveenr
-
+ms.custom: devx-track-csharp
 ---
-# Manage Azure Data Lake Analytics using Azure .NET SDK
+# Manage Azure Data Lake Analytics a .NET app
+
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-Learn how to manage Azure Data Lake Analytics accounts, data sources, users, and jobs using the Azure .NET SDK. 
+This article describes how to manage Azure Data Lake Analytics accounts, data sources, users, and jobs using an app written using the Azure .NET SDK. 
 
 ## Prerequisites
 
 * **Visual Studio 2015, Visual Studio 2013 update 4, or Visual Studio 2012 with Visual C++ Installed**.
-* **Microsoft Azure SDK for .NET version 2.5 or above**.  Install it using the [Web platform installer](http://www.microsoft.com/web/downloads/platform.aspx).
+* **Microsoft Azure SDK for .NET version 2.5 or above**.  Install it using the [Web platform installer](https://www.microsoft.com/web/downloads/platform.aspx).
 * **Required NuGet Packages**
 
 ### Install NuGet packages
@@ -40,7 +33,7 @@ Learn how to manage Azure Data Lake Analytics accounts, data sources, users, and
 
 You can install these packages via the NuGet command line with the following commands:
 
-```
+```powershell
 Install-Package -Id Microsoft.Rest.ClientRuntime.Azure.Authentication  -Version 2.3.1
 Install-Package -Id Microsoft.Azure.Management.DataLake.Analytics  -Version 3.0.0
 Install-Package -Id Microsoft.Azure.Management.DataLake.Store  -Version 2.2.0
@@ -50,7 +43,7 @@ Install-Package -Id Microsoft.Azure.Graph.RBAC -Version 3.4.0-preview
 
 ## Common variables
 
-``` csharp
+```csharp
 string subid = "<Subscription ID>"; // Subscription ID (a GUID)
 string tenantid = "<Tenant ID>"; // AAD tenant ID or domain. For example, "contoso.onmicrosoft.com"
 string rg == "<value>"; // Resource  group name
@@ -131,7 +124,8 @@ If you haven't already created one, you must have an Azure Resource Group to cre
 var resourceGroup = new ResourceGroup { Location = location };
 resourceManagementClient.ResourceGroups.CreateOrUpdate(groupName, rg);
 ```
-For more information, see [Azure Resource Groups and Data Lake Analytics](#Azure-Resource-Groups-and-Data-Lake-Analytics).
+
+For more information, see Azure Resource Groups and Data Lake Analytics.
 
 ### Create a Data Lake Store account
 
@@ -219,7 +213,7 @@ if (adlaClient.Account.Exists(rg, adla))
 Data Lake Analytics currently supports the following data sources:
 
 * [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md)
-* [Azure Storage Account](../storage/storage-introduction.md)
+* [Azure Storage Account](../storage/common/storage-introduction.md)
 
 ### Link to an Azure Storage account
 
@@ -261,6 +255,7 @@ if (adls_accounts != null)
 ```
 
 ### Upload and download folders and files
+
 You can use the Data Lake Store file system client management object to upload and download individual files or folders from Azure to your local computer, using the following methods:
 
 - UploadFolder
@@ -285,6 +280,8 @@ using (var memstream = new MemoryStream())
    {
       sw.WriteLine("Hello World");
       sw.Flush();
+      
+      memstream.Position = 0;
 
       adlsFileSystemClient.FileSystem.Create(adls, "/Samples/Output/randombytes.csv", memstream);
    }
@@ -292,6 +289,7 @@ using (var memstream = new MemoryStream())
 ```
 
 ### Verify Azure Storage account paths
+
 The following code checks if an Azure Storage account (storageAccntName) exists in a Data Lake Analytics account (analyticsAccountName), and if a container (containerName) exists in the Azure Storage account.
 
 ``` csharp
@@ -302,9 +300,11 @@ bool containerExists = adlaClient.Account.StorageContainerExists(rg, adla, stora
 ```
 
 ## Manage catalog and jobs
+
 The DataLakeAnalyticsCatalogManagementClient object provides methods for managing the SQL database provided for each Azure Data Lake Analytics account. The DataLakeAnalyticsJobManagementClient provides methods to submit and manage jobs run on the database with U-SQL scripts.
 
 ### List databases and schemas
+
 Among the several things you can list, the most common are databases and their schema. The following code obtains a collection of databases, and then enumerates the schema for each database.
 
 ``` csharp
@@ -322,36 +322,45 @@ foreach (var db in databases)
 ```
 
 ### List table columns
+
 The following code shows how to access the database with a Data Lake Analytics Catalog management client to list the columns in a specified table.
 
-``` csharp
+```csharp
 var tbl = adlaCatalogClient.Catalog.GetTable(adla, "master", "dbo", "MyTableName");
 IEnumerable<USqlTableColumn> columns = tbl.ColumnList;
 
 foreach (USqlTableColumn utc in columns)
 {
-  string scriptPath = "/Samples/Scripts/SearchResults_Wikipedia_Script.txt";
-  Stream scriptStrm = adlsFileSystemClient.FileSystem.Open(_adlsAccountName, scriptPath);
-  string scriptTxt = string.Empty;
-  using (StreamReader sr = new StreamReader(scriptStrm))
-  {
-      scriptTxt = sr.ReadToEnd();
-  }
-
-  var jobName = "SR_Wikipedia";
-  var jobId = Guid.NewGuid();
-  var properties = new USqlJobProperties(scriptTxt);
-  var parameters = new JobInformation(jobName, JobType.USql, properties, priority: 1, degreeOfParallelism: 1, jobId: jobId);
-  var jobInfo = adlaJobClient.Job.Create(adla, jobId, parameters);
-  Console.WriteLine($"Job {jobName} submitted.");
-
+  Console.WriteLine($"\t{utc.Name}");
 }
 ```
 
-### List failed jobs
-The following code lists information about jobs that failed.
+### Submit a U-SQL job
+
+The following code shows how to use a Data Lake Analytics Job management client to submit a job.
 
 ``` csharp
+string scriptPath = "/Samples/Scripts/SearchResults_Wikipedia_Script.txt";
+Stream scriptStrm = adlsFileSystemClient.FileSystem.Open(_adlsAccountName, scriptPath);
+string scriptTxt = string.Empty;
+using (StreamReader sr = new StreamReader(scriptStrm))
+{
+    scriptTxt = sr.ReadToEnd();
+}
+
+var jobName = "SR_Wikipedia";
+var jobId = Guid.NewGuid();
+var properties = new USqlJobProperties(scriptTxt);
+var parameters = new JobInformation(jobName, JobType.USql, properties, priority: 1, degreeOfParallelism: 1, jobId: jobId);
+var jobInfo = adlaJobClient.Job.Create(adla, jobId, parameters);
+Console.WriteLine($"Job {jobName} submitted.");
+```
+
+### List failed jobs
+
+The following code lists information about jobs that failed.
+
+```csharp
 var odq = new ODataQuery<JobInformation> { Filter = "result eq 'Failed'" };
 var jobs = adlaJobClient.Job.List(adla, odq);
 foreach (var j in jobs)
@@ -361,6 +370,7 @@ foreach (var j in jobs)
 ```
 
 ### List pipelines
+
 The following code lists information about each pipeline of jobs submitted to the account.
 
 ``` csharp
@@ -372,6 +382,7 @@ foreach (var p in pipelines)
 ```
 
 ### List recurrences
+
 The following code lists information about each recurrence of jobs submitted to the account.
 
 ``` csharp
@@ -398,9 +409,11 @@ Console.WriteLine( userinfo.ObjectId )
 ```
 
 ## Manage compute policies
+
 The DataLakeAnalyticsAccountManagementClient object provides methods for managing the compute policies for a Data Lake Analytics account.
 
 ### List compute policies
+
 The following code retrieves a list of compute policies for a Data Lake Analytics account.
 
 ``` csharp
@@ -412,6 +425,7 @@ foreach (var p in policies)
 ```
 
 ### Create a new compute policy
+
 The following code creates a new compute policy for a Data Lake Analytics account, setting the maximum AUs available to the specified user to 50, and the minimum job priority to 250.
 
 ``` csharp
@@ -421,6 +435,7 @@ adlaAccountClient.ComputePolicies.CreateOrUpdate(rg, adla, "GaryMcDaniel", newPo
 ```
 
 ## Next steps
+
 * [Overview of Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * [Manage Azure Data Lake Analytics using Azure portal](data-lake-analytics-manage-use-portal.md)
 * [Monitor and troubleshoot Azure Data Lake Analytics jobs using Azure portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)

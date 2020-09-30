@@ -1,85 +1,66 @@
 ---
-title: Manage versions in LUIS apps in Azure | Microsoft Docs
-description: Learn how to manage versions in Language Understanding Intelligent Service (LUIS) applications.
+title: Manage versions - LUIS
+titleSuffix: Azure Cognitive Services
+description: Versions allow you to build and publish different models. A good practice is to clone the current active model to a different version of the app before making changes to the model.
 services: cognitive-services
-author: cahann
-manager: hsalama
-
+author: diberry
+manager: nitinme
+ms.custom: seodec18
 ms.service: cognitive-services
-ms.technology: luis
-ms.topic: article
-ms.date: 03/01/2017
-ms.author: cahann
+ms.subservice: language-understanding
+ms.topic: how-to
+ms.date: 05/17/2020
+ms.author: diberry
 ---
 
-# Manage Versions
+# Use versions to edit and test without impacting staging or production apps
 
-You can create and manage different versions of your applications. When an app is first created, the default initial version is (0.1). 
+Versions allow you to build and publish different models. A good practice is to clone the current active model to a different [version](luis-concept-version.md) of the app before making changes to the model.
 
-To work with versions, open your app (e.g. TravelAgent app) by clicking its name on **My Apps** page, and then click **Versions** in the application's left panel to access the **Versions** page.
+The active version is the version you are editing in the LUIS portal **Build** section with intents, entities, features, and patterns. When using the authoring APIs, you don't need to set the active version because the version-specific REST API calls include the version in the route.
 
-![Versions page](./media/luis-how-to-manage-versions/versions.jpg)
+To work with versions, open your app by selecting its name on **My Apps** page, and then select **Manage** in the top bar, then select **Versions** in the left navigation.
 
-The following procedures will guide you through the actions you need to do while working with versions.
-
+The list of versions shows which versions are published, where they are published, and which version is currently active.
 
 ## Clone a version
-You can clone a version to create a copy of an existing version and save it as a new version. You may need to do this to use the same content of the existing version as a starting point for the new version and make updates to it, while keeping the source version unchanged.  
- 
-**To clone a version:**
 
-1. On the **Versions** page, click **Clone Version**. 
-2. In the **Clone Version** dialog box, type a name for the new version in the **New Version Name** box (e.g. Trial), select the source version from **Version to clone from**, and then click **Clone**.
+1. Select the version you want to clone then select **Clone** from the toolbar.
 
- ![Clone Version dialog box](./media/luis-how-to-manage-versions/clone-version-dialog.jpg)
- 
- > [!NOTE]
- > Version name cannot be longer than 10 alphanumeric characters.
- 
- A new version with the specified name will be created and added to the list.
- 
-  ![Version is created and added to the list](./media/luis-how-to-manage-versions/versions-list.jpg)
+2. In the **Clone version** dialog box, type a name for the new version such as "0.2".
 
- > [!NOTE]
- > As shown in the above screenshot, a published version is associated with a colored mark, indicating the slot where it has been published: Production slot (green), Staging slot (red) and Both slots (black). Also, the training and publishing dates will be displayed for each published version.
+   ![Clone Version dialog box](./media/luis-how-to-manage-versions/version-clone-version-dialog.png)
 
-## Set a version as active
-To set a version as active means to make it the current version to work on and edit. You'll need to set a version as active to access its data, make updates, as well as to test and publish it.
+     > [!NOTE]
+     > Version ID can consist only of characters, digits or '.' and cannot be longer than 10 characters.
 
-The initial version (0.1) is the default active version unless you set another version as active. The name of the currently active version is displayed in the left panel under the app name. 
+   A new version with the specified name is created and set as the active version.
 
-**To set a version as active:**
+## Set active version
 
-1. On the **Versions** page, click the **Set as Active Version** button ![Set as active version button](./media/luis-how-to-manage-versions/versions-set-active-btn.jpg), corresponding to the version you want to set as active.
-2. In the confirmation message, click **Yes** to confirm this action. The version will be set as active. 
-The active version is highlighted by a light pink color, as shown in the following screenshot.
+Select a version from the list, then select **Activate** from the toolbar.
 
- ![The active version](./media/luis-how-to-manage-versions/versions-set-active-color.jpg) 
+## Import version
 
+You can import a `.json` or a `.lu` version of your application.
 
-## Import/export a version
-You can import/export a version as a JSON file.
+1. Select **Import** from the toolbar, then select the format.
 
-**To import a version:**
+2. In the **Import new version** pop-up window, enter the new ten character version name. You only need to set a version ID if the version in the file already exists in the app.
 
-1. On the **Versions** page, click **Import Version**.
-2. In the **Import New Version** dialog box, click **Choose File** to choose the JSON file of the version you want to import.
-3. Type the version name in the **Version Name** box, and then click **Import**.
-![Import New Version dialog box](./media/luis-how-to-manage-versions/versions-import.jpg)
+    ![Manage section, versions page, importing new version](./media/luis-how-to-manage-versions/versions-import-pop-up.png)
 
-**To export a version:**
+    Once you import a version, the new version becomes the active version.
 
-1. On the **Versions** page, click the Export Version button ![Export Version button](./media/luis-how-to-manage-versions/versions-export-btn.jpg), corresponding to the version you want to export.
-2. In the **Save As** dialog box, choose the location where you want to save the exported app version, and click **Save**.
+### Import errors
 
+* Tokenizer errors: If you get a **tokenizer error** when importing, you are trying to import a version that uses a different [tokenizer](luis-language-support.md#custom-tokenizer-versions) than the app currently uses. To fix this, see [Migrating between tokenizer versions](luis-language-support.md#migrating-between-tokenizer-versions).
 
-## Delete a version
-You can delete versions, but you have to keep at least one version of the app. You can delete all versions except the active version. 
+<a name = "export-version"></a>
 
-**To delete a version:** 
+## Other actions
 
-1. Click the **Delete Version** button ![Delete Version button](./media/luis-how-to-manage-versions/trashbin-button.png), corresponding to the version you want to delete.
-2. In the confirmation message, click **Yes** to confirm deletion.
-
-
+* To **delete** a version, select a version from the list, then select **Delete** from the toolbar. Select **Ok**.
+* To **rename** a version, select a version from the list, then select **Rename** from the toolbar. Enter new name and select **Done**.
+* To **export** a version, select a version from the list, then select **Export app** from the toolbar. Choose JSON or LU to export for a backup or to save in source control, choose **Export for container** to [use this app in a LUIS container](luis-container-howto.md).
 

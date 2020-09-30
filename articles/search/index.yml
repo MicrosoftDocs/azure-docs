@@ -1,0 +1,141 @@
+﻿### YamlMime:Landing
+
+title: Azure Cognitive Search documentation # < 60 chars
+summary: Cloud search over private heterogeneous content, with options for AI enrichment if your content is unstructured or unsearchable in raw form.
+metadata:
+  title: Azure Cognitive Search documentation
+  description: Cloud search over private heterogeneous content, with options for AI enrichment if your content is unstructured or unsearchable in raw form. 
+  services: search
+  ms.service: service #Required; service per approved list. service slug assigned to your service by ACOM.
+  ms.topic: landing-page # Required
+  ms.collection: collection
+  author: HeidiSteen #Required; your GitHub user alias, with correct capitalization.
+  ms.author: heidist #Required; microsoft alias of author; optional team alias.
+  ms.date: 02/25/2020 #Required; mm/dd/yyyy format.
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: About Cognitive Search
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Cognitive Search
+            url: search-what-is-azure-search.md
+          - text: What is AI enrichment
+            url: cognitive-search-concept-intro.md
+          - text: What is an indexer
+            url: search-indexer-overview.md
+      - linkListType: video
+        links:
+          - text: Use AI in search solutions
+            url: https://youtu.be/M4Rf1s0WcWQ?t=19
+
+  # Card
+  - title: Index Azure data
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Index from Azure Blob storage
+            url: search-blob-storage-integration.md
+          - text: Index from Azure SQL Database
+            url: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
+          - text: Index from Cosmos DB
+            url: search-howto-index-cosmosdb.md
+      - linkListType: tutorial
+        links:
+          - text: Index semi-structured blob data
+            url: search-semi-structured-data.md
+
+  # Card
+  - title: 10-minute quickstarts
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create a service
+            url: search-create-service-portal.md
+          - text: Create an index
+            url: search-get-started-portal.md
+          - text: Create demo app
+            url: search-create-app-portal.md
+          - text: Extract text from images and app files
+            url: cognitive-search-quickstart-blob.md
+            
+  # Card
+  - title: Index any data
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Define an index
+            url: search-what-is-an-index.md
+          - text: Import data
+            url: search-what-is-data-import.md
+      - linkListType: reference
+        links:
+          - text: Create Index (REST)
+            url: /rest/api/searchservice/create-index
+          - text: Create Indexer (REST)
+            url: /rest/api/searchservice/create-indexer
+
+  # Card
+  - title: Enrich with AI
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Skillsets
+            url: cognitive-search-defining-skillset.md
+          - text: Knowledge stores
+            url: knowledge-store-concept-intro.md
+          - text: Projections
+            url: knowledge-store-projections-examples.md
+      - linkListType: how-to-guide
+        links:
+          - text: Attach Cognitive Services
+            url: cognitive-search-attach-cognitive-services.md
+          - text: Define a skillset
+            url: cognitive-search-defining-skillset.md
+          - text: Create a knowledge store
+            url: knowledge-store-create-portal.md
+      - linkListType: reference
+        links:
+          - text: Built-in skills
+            url: cognitive-search-predefined-skills.md
+
+  # Card
+  - title: Query data
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Query types and composition
+            url: search-query-overview.md
+          - text: Simple syntax (default)
+            url: query-simple-syntax.md
+          - text: Full Lucene syntax
+            url: query-lucene-syntax.md
+      - linkListType: how-to-guide
+        links:
+          - text: Create a simple query
+            url: search-query-simple-examples.md
+          - text: Use full syntax
+            url: search-query-lucene-examples.md
+      - linkListType: reference
+        links:
+          - text: OData language reference
+            url: query-odata-filter-orderby-syntax.md
+          - text: Search Documents (REST)
+            url: /rest/api/searchservice/search-documents
+
+  # Card
+  - title: Help and feedback
+    linkLists: 
+      - linkListType: reference
+        links: 
+          - text: FAQ
+            url: search-faq-frequently-asked-questions.md
+          - text: Ask questions on Stack Overflow
+            url: https://stackoverflow.com/questions/tagged/azure-search
+          - text: Request a feature
+            url: https://feedback.azure.com/forums/263029-azure-search

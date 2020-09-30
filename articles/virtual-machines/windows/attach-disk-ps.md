@@ -1,40 +1,24 @@
-﻿---
-title: Attach a data disk to a Windows VM in Azure using PowerShell | Microsoft Docs
-description: How to attach new or existing data disk to a Windows VM using PowerShell with the Resource Manager deployment model.
-services: virtual-machines-windows
-documentationcenter: ''
-author: cynthn
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 
+---
+title: Attach a data disk to a Windows VM in Azure by using PowerShell 
+description: How to attach a new or existing data disk to a Windows VM using PowerShell with the Resource Manager deployment model.
+author: roygara
 ms.service: virtual-machines-windows
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-ms.devlang: na
-ms.topic: article
-ms.date: 02/07/2017
-ms.author: cynthn
+ms.topic: how-to
+ms.date: 10/16/2018
+ms.author: rogarana
+ms.subservice: disks
 
 ---
+# Attach a data disk to a Windows VM with PowerShell
 
-# Attach a data disk to a Windows VM using PowerShell
+This article shows you how to attach both new and existing disks to a Windows virtual machine by using PowerShell. 
 
-This article shows you how to attach both new and existing disks to a Windows virtual machine using PowerShell. If your VM uses managed disks, you can attach additional managed data disks. You can also attach unmanaged data disks to a VM that uses unmanaged disks in a storage account.
+First, review these tips:
 
-Before you do this, review these tips:
-* The size of the virtual machine controls how many data disks you can attach. For details, see [Sizes for virtual machines](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* To use Premium storage, you'll need a Premium Storage enabled VM size like the DS-series or GS-series virtual machine. You can use disks from both Premium and Standard storage accounts with these virtual machines. Premium storage is available in certain regions. For details, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../../storage/storage-premium-storage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* The size of the virtual machine controls how many data disks you can attach. For more information, see [Sizes for virtual machines](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* To use premium SSDs, you'll need a [premium storage-enabled VM type](../sizes-memory.md), like the DS-series or GS-series virtual machine.
 
-## Before you begin
-If you use PowerShell, make sure that you have the latest version of the AzureRM.Compute PowerShell module. Run the following command to install it.
-
-```powershell
-Install-Module AzureRM.Compute -RequiredVersion 2.6.0
-```
-For more information, see [Azure PowerShell Versioning](/powershell/azure/overview).
-
+This article uses PowerShell within the [Azure Cloud Shell](../../cloud-shell/overview.md), which is constantly updated to the latest version. To open the Cloud Shell, select **Try it** from the top of any code block.
 
 ## Add an empty data disk to a virtual machine
 
@@ -42,47 +26,56 @@ This example shows how to add an empty data disk to an existing virtual machine.
 
 ### Using managed disks
 
+```azurepowershell-interactive
+$rgName = 'myResourceGroup'
+$vmName = 'myVM'
+$location = 'East US' 
+$storageType = 'Premium_LRS'
+$dataDiskName = $vmName + '_datadisk1'
+
+$diskConfig = New-AzDiskConfig -SkuName $storageType -Location $location -CreateOption Empty -DiskSizeGB 128
+$dataDisk1 = New-AzDisk -DiskName $dataDiskName -Disk $diskConfig -ResourceGroupName $rgName
+
+$vm = Get-AzVM -Name $vmName -ResourceGroupName $rgName 
+$vm = Add-AzVMDataDisk -VM $vm -Name $dataDiskName -CreateOption Attach -ManagedDiskId $dataDisk1.Id -Lun 1
+
+Update-AzVM -VM $vm -ResourceGroupName $rgName
+```
+
+### Using managed disks in an Availability Zone
+
+To create a disk in an Availability Zone, use [New-AzDiskConfig](/powershell/module/az.compute/new-azdiskconfig) with the `-Zone` parameter. The following example creates a disk in zone *1*.
+
 ```powershell
 $rgName = 'myResourceGroup'
 $vmName = 'myVM'
-$location = 'West Central US' 
-$storageType = 'PremiumLRS'
+$location = 'East US 2'
+$storageType = 'Premium_LRS'
 $dataDiskName = $vmName + '_datadisk1'
 
-$diskConfig = New-AzureRmDiskConfig -AccountType $storageType -Location $location -CreateOption Empty -DiskSizeGB 128
+$diskConfig = New-AzDiskConfig -SkuName $storageType -Location $location -CreateOption Empty -DiskSizeGB 128 -Zone 1
+$dataDisk1 = New-AzDisk -DiskName $dataDiskName -Disk $diskConfig -ResourceGroupName $rgName
 
-$dataDisk1 = New-AzureRmDisk -DiskName $dataDiskName -Disk $diskConfig -ResourceGroupName $rgName
+$vm = Get-AzVM -Name $vmName -ResourceGroupName $rgName 
+$vm = Add-AzVMDataDisk -VM $vm -Name $dataDiskName -CreateOption Attach -ManagedDiskId $dataDisk1.Id -Lun 1
 
-$vm = Get-AzureRmVM -Name $vmName -ResourceGroupName $rgName 
-
-$vm = Add-AzureRmVMDataDisk -VM $vm -Name $dataDiskName -CreateOption Attach -ManagedDiskId $dataDisk1.Id -Lun 1
-
-Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
+Update-AzVM -VM $vm -ResourceGroupName $rgName
 ```
-
-### Using unmanaged disks in a storage account
-
-```powershell
-    $vm = Get-AzureRmVM -ResourceGroupName $rgName -Name $vmName
-    Add-AzureRmVMDataDisk -VM $vm -Name "disk-name" -VhdUri "https://mystore1.blob.core.windows.net/vhds/datadisk1.vhd" -LUN 0 -Caching ReadWrite -DiskSizeinGB 1 -CreateOption Empty
-    Update-AzureRmVM -ResourceGroupName $rgName -VM $vm
-```
-
 
 ### Initialize the disk
 
-After you add an empty disk, you need to initialize it. To initialize the disk, you can log in to a VM and use disk management. If you enabled WinRM and a certificate on the VM when you created it, you can use remote PowerShell to initialize the disk. You can also use a custom script extension: 
+After you add an empty disk, you'll need to initialize it. To initialize the disk, you can sign in to a VM and use disk management. If you enabled [WinRM](/windows/desktop/winrm/portal) and a certificate on the VM when you created it, you can use remote PowerShell to initialize the disk. You can also use a custom script extension:
 
-```powershell
+```azurepowershell-interactive
     $location = "location-name"
     $scriptName = "script-name"
     $fileName = "script-file-name"
-    Set-AzureRmVMCustomScriptExtension -ResourceGroupName $rgName -Location $locName -VMName $vmName -Name $scriptName -TypeHandlerVersion "1.4" -StorageAccountName "mystore1" -StorageAccountKey "primary-key" -FileName $fileName -ContainerName "scripts"
+    Set-AzVMCustomScriptExtension -ResourceGroupName $rgName -Location $locName -VMName $vmName -Name $scriptName -TypeHandlerVersion "1.4" -StorageAccountName "mystore1" -StorageAccountKey "primary-key" -FileName $fileName -ContainerName "scripts"
 ```
-		
-The script file can contain something like this code to initialize the disks:
 
-```powershell
+The script file can contain code to initialize the disks, for example:
+
+```azurepowershell-interactive
     $disks = Get-Disk | Where partitionstyle -eq 'raw' | sort number
 
     $letters = 70..89 | ForEach-Object { [char]$_ }
@@ -99,32 +92,24 @@ The script file can contain something like this code to initialize the disks:
     }
 ```
 
-
 ## Attach an existing data disk to a VM
 
-You can also attach an existing VHD as a managed data disk to a virtual machine. 
+You can attach an existing managed disk to a VM as a data disk.
 
-### Using managed disks
+```azurepowershell-interactive
+$rgName = "myResourceGroup"
+$vmName = "myVM"
+$location = "East US" 
+$dataDiskName = "myDisk"
+$disk = Get-AzDisk -ResourceGroupName $rgName -DiskName $dataDiskName 
 
-```powershell
-$rgName = 'myRG'
-$vmName = 'ContosoMdPir3'
-$location = 'West Central US' 
-$storageType = 'PremiumLRS'
-$dataDiskName = $vmName + '_datadisk2'
-$dataVhdUri = 'https://mystorageaccount.blob.core.windows.net/vhds/managed_data_disk.vhd' 
+$vm = Get-AzVM -Name $vmName -ResourceGroupName $rgName 
 
-$diskConfig = New-AzureRmDiskConfig -AccountType $storageType -Location $location -CreateOption Import -SourceUri $dataVhdUri -DiskSizeGB 128
+$vm = Add-AzVMDataDisk -CreateOption Attach -Lun 0 -VM $vm -ManagedDiskId $disk.Id
 
-$dataDisk2 = New-AzureRmDisk -DiskName $dataDiskName -Disk $diskConfig -ResourceGroupName $rgName
-
-$vm = Get-AzureRmVM -Name $vmName -ResourceGroupName $rgName 
-
-$vm = Add-AzureRmVMDataDisk -VM $vm -Name $dataDiskName -CreateOption Attach -ManagedDiskId $dataDisk2.Id -Lun 2
-
-Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
+Update-AzVM -VM $vm -ResourceGroupName $rgName
 ```
 
 ## Next steps
 
-Create a [snapshot](snapshot-copy-managed-disk.md).
+You can also deploy managed disks using templates. For more information, see [Using Managed Disks in Azure Resource Manager Templates](using-managed-disks-template-deployments.md) or the [quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-multiple-data-disk) for deploying multiple data disks.

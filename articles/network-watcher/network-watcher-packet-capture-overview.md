@@ -3,24 +3,20 @@ title: Introduction to Packet capture in Azure Network Watcher | Microsoft Docs
 description: This page provides an overview of the Network Watcher packet capture capability
 services: network-watcher
 documentationcenter: na
-author: georgewallace
-manager: timlt
-editor: 
-
-ms.assetid: 3a81afaa-ecd9-4004-b68e-69ab56913356
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
+ms.author: damendo
 
 ---
 
 # Introduction to variable packet capture in Azure Network Watcher
 
-Network Watcher variable packet capture allows you to create packet capture sessions to track traffic to and from a virtual machine. Packet capture helps to diagnose network anomalies both reactively and proactivity. Other uses include gathering network statistics, gaining information on network intrusions, to debug client-server communications and much more.
+Network Watcher variable packet capture allows you to create packet capture sessions to track traffic to and from a virtual machine. Packet capture helps to diagnose network anomalies both reactively and proactively. Other uses include gathering network statistics, gaining information on network intrusions, to debug client-server communications and much more.
 
 Packet capture is a virtual machine extension that is remotely started through Network Watcher. This capability eases the burden of running a packet capture manually on the desired virtual machine, which saves valuable time. Packet capture can be triggered through the portal, PowerShell, CLI, or REST API. One example of how packet capture can be triggered is with Virtual Machine alerts. Filters are provided for the capture session to ensure you capture traffic you want to monitor. Filters are based on 5-tuple (protocol, local IP address, remote IP address, local port, and remote port) information. The captured data is stored in the local disk or a storage blob. There is a limit of 10 packet capture sessions per region per subscription. This limit applies only to the sessions and does not apply to the saved packet capture files either locally on the VM or in a storage account.
 

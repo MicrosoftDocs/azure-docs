@@ -1,0 +1,98 @@
+### YamlMime:Landing
+
+title: Azure Notification Hubs documentation
+summary: Send push notifications from any backend to any mobile device. Tutorials, API references, and other documentation.
+
+metadata:
+  title: Azure Notification Hubs documentation
+  description: Send push notifications from any backend to any mobile device. Tutorials, API references, and other documentation.
+  ms.service: notification-hubs
+  ms.topic: landing-page
+  author: sethmanheim
+  ms.author: sethm
+  ms.date: 03/11/2020
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: About Azure Notification Hubs
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Notification Hubs?
+            url: notification-hubs-push-notification-overview.md
+          - text: Integration with App Service Mobile Apps
+            url: notification-hubs-app-service.md
+      - linkListType: concept
+        links:
+          - text: Enterprise push architectural guidance
+            url: notification-hubs-enterprise-push-notification-architecture.md
+          - text: Registration management
+            url: notification-hubs-push-notification-registration-management.md
+      - linkListType: video
+        links:
+          - text: Send push notifications to Android applications
+            url: https://channel9.msdn.com/Shows/Azure-Friday/Using-Azure-Notification-Hubs-in-an-Android-Application
+
+  # Card (optional)
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create an Azure notification hub in the Azure portal
+            url: create-notification-hub-portal.md
+          - text: Set up push notifications in a notification hub in the Azure portal
+            url: configure-notification-hub-portal-pns-settings.md
+
+  # Card (optional)
+  - title: Send notifications to all registered devices
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Send push notifications to all registered Android devices
+            url: notification-hubs-android-push-notification-google-fcm-get-started.md
+          - text: Send push notifications to Swift iOS apps
+            url: ./ios-sdk-get-started.md
+      - linkListType: how-to-guide
+        links:
+          - text: Send cross-platform notifications
+            url: notification-hubs-aspnet-cross-platform-notification.md
+          - text: Send scheduled notifications
+            url: notification-hubs-send-push-notifications-scheduled.md
+
+  # Card
+  - title: Samples
+    linkLists:
+      - linkListType: sample
+        links:
+          - text: Azure Notification Hubs samples
+            url: samples.md
+          - text: PowerShell samples
+            url: samples-powershell.md
+
+  # Card
+  - title: Reference
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: .NET API
+            url: /dotnet/api/microsoft.azure.notificationhubs?view=azure-dotnet
+          - text: PowerShell
+            url: /powershell/module/az.notificationhubs/?view=azps-3.6.1
+          - text: CLI
+            url: /cli/azure/ext/notification-hub/notification-hub?view=azure-cli-latest
+
+  # Card
+  - title: Resources
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: FAQ
+            url: notification-hubs-push-notification-faq.md
+          - text: Support options
+            url: https://azure.microsoft.com/support/options/
+          - text: Microsoft Q&A question page
+            url: /answers/topics/azure-notification-hubs.html

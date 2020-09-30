@@ -1,204 +1,98 @@
 ---
-title: Use the Azure Batch Rendering service to render in the cloud | Microsoft Docs
-description: Render jobs on Azure virtual machines directly from Maya and on a pay-per-use basis.
-services: batch
-author: tamram
-manager: timlt
-
-ms.service: batch
-ms.topic: hero-article
-ms.date: 07/31/2017
-ms.author: tamram
+title: Rendering overview
+description: Introduction of using Azure for rendering and an overview of Azure Batch rendering capabilities
+author: mscurrell
+ms.author: markscu
+ms.date: 08/02/2018
+ms.topic: how-to
 ---
 
-# Get started with the Batch Rendering service
+# Rendering using Azure
 
-The Azure Batch Rendering service offers cloud-scale rendering capabilities on a pay-per-use basis. The Batch Rendering service handles job scheduling and queueing, managing failures and retries, and auto-scaling for your render job. The Batch Rendering service supports Autodesk Maya, 3ds Max, and Arnold, with support for other applications coming soon. The Batch plug-in for Maya 2017 makes it easy to start a rendering job on Azure right from your desktop. 
+Rendering is the process of taking 3D models and converting them into 2D images. 3D scene files are authored in applications such as Autodesk 3ds Max, Autodesk Maya, and Blender.  Rendering applications such as Autodesk Maya, Autodesk Arnold, Chaos Group V-Ray, and Blender Cycles produce 2D images.  Sometimes single images are created from the scene files. However, it's common to model and render multiple images, and then combine them in an animation.
 
-## Supported applications
+The rendering workload is heavily used for special effects (VFX) in the Media and Entertainment industry. Rendering is also used in many other industries such as advertising, retail, oil and gas, and manufacturing.
 
-The Batch Rendering service currently supports the following applications:
+The process of rendering is computationally intensive; there can be many frames/images to produce and each image can take many hours to render.  Rendering is therefore a perfect batch processing workload that can leverage Azure and Azure Batch to run many renders in parallel.
 
-- Autodesk Maya
-- Autodesk 3ds Max
-- Autodesk Arnold
+## Why use Azure for rendering?
 
-## Prerequisites
+For many reasons, rendering is a workload perfectly suited for Azure and Azure Batch:
 
-To use the Batch Rendering service, you need:
+* Rendering jobs can be split into many pieces that can be run in parallel using multiple VMs:
+  * Animations consist of many frames and each frame can be rendered in parallel.  The more VMs available to process each frame, the faster all the frames and the animation can be produced.
+  * Some rendering software allows single frames to be broken up into multiple pieces, such as tiles or slices.  Each piece can be rendered separately, then combined into the final image when all pieces have finished.  The more VMs that are available, the faster a frame can be rendered.
+* Rendering projects can require huge scale:
+  * Individual frames can be complex and require many hours to render, even on high-end hardware; animations can consist of hundreds of thousands of frames.  A huge amount of compute is required to render high-quality animations in a reasonable amount of time.  In some cases, over 100,000 cores have been used to render thousands of frames in parallel.
+* Rendering projects are project-based and require varying amounts of compute:
+  * Allocate compute and storage capacity when required, scale it up or down according to load during a project, and remove it when a project is finished.
+  * Pay for capacity when allocated, but don’t pay for it when there is no load, such as between projects.
+  * Cater for bursts due to unexpected changes; scale higher if there are unexpected changes late in a project and those changes need to be processed on a tight schedule.
+* Choose from a wide selection of hardware according to application, workload, and timeframe:
+  * There’s a wide selection of hardware available in Azure that can be allocated and managed with Batch.
+  * Depending on the project, the requirement may be for the best price/performance or the best overall performance.  Different scenes and/or rendering applications will have different memory requirements.  Some rendering application can leverage GPUs for the best performance or certain features. 
+* Low-priority VMs reduce costs:
+  * Low-priority VMs are available for a large discount compared to regular on-demand VMs and are suitable for some job types.
+  * Low-priority VMs can be allocated by Azure Batch, with Batch providing flexibility on how they are used to cater for a broad set of requirements.  Batch pools can consist of both dedicated and low-priority VMs, with it being possible to change the mix of VM types at any time.
 
-- An [Azure account](https://azure.microsoft.com/free/). 
-- **An Azure Batch account.** For guidance on creating a Batch account in the Azure portal, see [Create a Batch account with the Azure portal](batch-account-create-portal.md).
-- **An Azure Storage account.** The assets used for your rendering job are stored in Azure Storage. You can create a storage account automatically when you set up your Batch account. You can also use an existing storage account. To learn more about Storage accounts, see [How to create, manage, or delete a storage account in the Azure portal](https://docs.microsoft.com/azure/storage/storage-create-storage-account).
+## Options for rendering on Azure
 
-To use the Batch plug-in for Maya, you need:
+There are a range of Azure capabilities that can be used for rendering workloads.  Which capabilities to use depends on any existing environment and requirements.
 
-- **Maya 2017**
-- **Arnold for Maya**
+### Existing on-premises rendering environment using a render management application
 
-You can also use the [Azure portal](https://portal.azure.com) to create pools of virtual machines that are pre-configured with Maya, 3ds Max, and Arnold. You can use the portal to monitor jobs and diagnose failed tasks by downloading application logs and by remotely connecting to individual VMs using RDP or SSH.
+The most common case is for there to be an existing on-premises render farm being managed by a render management application such as PipelineFX Qube, Royal Render, or Thinkbox Deadline.  The requirement is to extend the on-premises render farm capacity using Azure VMs.
 
-## Basic Batch concepts
+The render management software either has Azure support built-in or we make available plug-ins that add Azure support. For more information on the supported render managers and functionality enabled, see the article on [using render managers](./batch-rendering-render-managers.md).
 
-Before you begin using the Batch Rendering service, it's helpful to be familiar with a few Batch concepts, including compute nodes, pools, and jobs. To learn more about Azure Batch in general, see [Run intrinsically parallel workloads with Batch](batch-technical-overview.md).
+### Custom rendering workflow
 
-### Pools
+The requirement is for VMs to extend an existing render farm.  Azure Batch pools can allocate large numbers of VMs, allow low-priority VMs to be used and dynamically auto-scaled with full-priced VMs, and provide pay-for-use licensing for popular rendering applications.
 
-Batch is a platform service for running compute-intensive work, like rendering, on a **pool** of **compute nodes**. Each compute node in a pool is an Azure virtual machine (VM) running either Linux or Windows. 
+### No existing render farm
 
-For more information about Batch pools and compute nodes, see the [Pool](batch-api-basics.md#pool) and [Compute node](batch-api-basics.md#compute-node) sections in [Develop large-scale parallel compute solutions with Batch](batch-api-basics.md).
+Client workstations may be performing rendering, but the rendering workload is increasing and it is taking too long to solely use workstation capacity.  Azure Batch can be used to both allocate render farm compute on-demand as well as schedule the render jobs to the Azure render farm.
 
-### Jobs
+## Azure Batch rendering capabilities
 
-A Batch **job** is a collection of tasks that run on the compute nodes in a pool. When you submit a rendering job, Batch divides the job into tasks and distributes the tasks to the compute nodes in the pool to run.
+Azure Batch allows parallel workloads to be run in Azure.  It enables the creation and management of large numbers of VMs on which applications are installed and run.  It also provides comprehensive job scheduling capabilities to run instances of those applications, providing the assignment of tasks to VMs, queuing, application monitoring, and so on.
 
-For more information about Batch jobs, see the [Job](batch-api-basics.md#job) section in [Develop large-scale parallel compute solutions with Batch](batch-api-basics.md).
+Azure Batch is used for many workloads, but the following capabilities are available to specifically make it easier and quicker to run rendering workloads.
 
-## Use the Batch plug-in for Maya to submit a render job
+* VM images with pre-installed graphics and rendering applications:
+  * Azure Marketplace VM images are available that contain popular graphics and rendering applications, avoiding the need to install the applications yourself or create your own custom images with the applications installed. 
+* Pay-per-use licensing for rendering applications:
+  * You can choose to pay for the applications by the minute, in addition to paying for the compute VMs, which avoids having to buy licenses and potentially configure a license server for the applications.  Paying for use also means that it is possible to cater for varying and unexpected load as there is not a fixed number of licenses.
+  * It is also possible to use the pre-installed applications with your own licenses and not use the pay-per-use licensing. To do this, typically you install an on-premises or Azure-based license server and use an Azure virtual network to connect the rendering pool to the license server.
+* Plug-ins for client design and modeling applications:
+  * Plug-ins allow end-users to utilize Azure Batch directly from client application, such as Autodesk Maya, enabling them to create pools, submit jobs and make use of more compute capacity to perform faster renders.
+* Render manager integration:
+  * Azure Batch is integrated into render management applications or plug-ins are available to provide the Azure Batch integration.
 
-With the Batch plug-in for Maya, you can submit a job to the Batch Rendering service right from Maya. The following sections describe how to configure the job from the plug-in and then submit it. 
+There are several ways to use Azure Batch, all of which also apply to Azure Batch rendering.
 
-### Load the Batch plug-in in Maya
+* APIs:
+  * Write code using the [REST](/rest/api/batchservice), [.NET](/dotnet/api/overview/azure/batch), [Python](/python/api/overview/azure/batch), [Java](/java/api/overview/azure/batch), or other supported APIs.  Developers can integrate Azure Batch capabilities into their existing applications or workflow, whether cloud or based on-premises.  For example, the [Autodesk Maya plug-in](https://github.com/Azure/azure-batch-maya) utilizes the Batch Python API to invoke Batch, creating and managing pools, submitting jobs and tasks, and monitoring status.
+* Command-line tools:
+  * The [Azure command line](/cli/azure/) or [Azure PowerShell](/powershell/azure/) can be used to script Batch use.
+  * In particular, the Batch CLI template support makes it much easier to create pools and submit jobs.
+* UIs:
+  * [Batch Explorer](https://github.com/Azure/BatchExplorer) is a cross-platform client tool that also allows Batch accounts to be managed and monitored, but provides some richer capabilities compared to the Azure portal UI.  A set of pool and job templates are provided that are tailored for each supported application and can be used to easily create pools and to submit jobs.
+  * The Azure portal can be used to manage and monitor Azure Batch.
+* Client application plug-in’s:
+  * Plug-ins are available that allow Batch rendering to be used from directly within the client design and modeling applications. The plug-ins mainly invoke the Batch Explorer application with contextual information about the current 3D model.
+  * The following plug-ins are available:
+    * [Azure Batch for Maya](https://github.com/Azure/azure-batch-maya)
+    * [3ds Max](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/3ds-max)
+    * [Blender](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/blender)
 
-The Batch plug-in is available on [GitHub](https://github.com/Azure/azure-batch-maya/releases). Unzip the archive to a directory of your choice. You can load the plug-in directly from the *azure_batch_maya* directory.
+## Getting started with Azure Batch rendering
 
-To load the plug-in in Maya:
+See the following introductory tutorials to try Azure Batch rendering:
 
-1. Run Maya.
-2. Open **Window** > **Settings/Preferences** > **Plug-in Manager**.
-3. Click **Browse**.
-4. Navigate to and select *azure_batch_maya/plug-in/AzureBatch.py*.
-
-### Authenticate access to your Batch and Storage accounts
-
-To use the plug-in, you need to authenticate using your Azure Batch and Azure Storage account keys. To retrieve your account keys:
-
-1. Display the plug-in in Maya, and select the **Config** tab.
-2. Navigate to the [Azure portal](https://portal.azure.com).
-3. Select **Batch Accounts** from the left-hand menu. If necessary, click **More Services** and filter on _Batch_.
-4. Locate the desired Batch account in the list.
-5. Select the **Keys** menu item to display your account name, account URL, and access keys:
-    - Paste the Batch account URL into the **Service** field in the Batch plug-in.
-    - Paste the account name into the **Batch Account** field.
-    - Paste the primary account key into the **Batch Key** field.
-7. Select Storage Accounts from the left-hand menu. If necessary, click **More Services** and filter on _Storage_.
-8. Locate the desired Storage account in the list.
-9. Select the **Access Keys** menu item to display the storage account name and keys.
-    - Paste the Storage account name into the **Storage Account** field in the Batch plug-in.
-    - Paste the primary account key into the **Storage Key** field.
-10. Click **Authenticate** to ensure that the plug-in can access both accounts.
-
-Once you have successfully authenticated, the plug-in sets the status field to **Authenticated**: 
-
-![Authenticate your Batch and Storage accounts](./media/batch-rendering-service/authentication.png)
-
-### Configure a pool for a render job
-
-After you have authenticated your Batch and Storage accounts, set up a pool for your rendering job. The plug-in saves your selections between sessions. Once you've set up your preferred configuration, you won't need to modify it unless it changes.
-
-The following sections walk you through the available options, available on the **Submit** tab:
-
-#### Specify a new or existing pool
-
-To specify a pool on which to run the render job, select the **Submit** tab. This tab offers options for creating a pool or selecting an existing pool:
-
-- You can **auto provision a pool for this job** (the default option). When you choose this option, Batch creates the pool exclusively for the current job, and automatically deletes the pool when the render job is complete. This option is best when you have a single render job to complete.
-- You can **reuse an existing persistent pool**. If you have an existing pool that is idle, you can specify that pool for running the render job by selecting it from the dropdown. Reusing an existing persistent pool saves the time required to provision the pool.  
-- You can **create a new persistent pool**. Choosing this option creates a new pool for running the job. It does not delete the pool when the job is complete, so that you can reuse it for future jobs. Select this option when you have a continuous need to run render jobs. On subsequent jobs, you can select **reuse an existing persistent pool** to use the persistent pool that you created for the first job.
-
-![Specify pool, OS image, VM size, and license](./media/batch-rendering-service/submit.png)
-
-For more information on how charges accrue for Azure VMs, see the [Linux Pricing FAQ](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#faq) and [Windows Pricing FAQ](https://azure.microsoft.com/pricing/details/virtual-machines/windows/#faq).
-
-#### Specify the OS image to provision
-
-You can specify the type of OS image to use to provision compute nodes in the pool on the **Env** (Environment) tab. Batch currently supports the following image options for rendering jobs:
-
-|Operating System  |Image  |
-|---------|---------|
-|Linux     |Batch CentOS Preview |
-|Windows     |Batch Windows Preview |
-
-#### Choose a VM size
-
-You can specify the VM size on the **Env** tab. For more information about available VM sizes, see [Linux VM sizes in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes) and [Windows VM sizes in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes). 
-
-![Specify the VM OS image and size on the Env tab](./media/batch-rendering-service/environment.png)
-
-#### Specify licensing options
-
-You can specify the licenses you wish to use on the **Env** tab. Options include:
-
-- **Maya**, which is enabled by default.
-- **Arnold**, which is enabled if Arnold is detected as the active render engine in Maya.
-
- If you wish to render using your own license, you can configure your license end point by adding the appropriate environment variables to the table. Be sure to deselect the default licensing options if you do so.
-
-> [!IMPORTANT]
-> You are billed for use of the licenses while VMs are running in the pool, even if the VMs are not currently being used for rendering. To avoid extra charges, navigate to the **Pools** tab and resize the pool to 0 nodes until you are ready to run another render job. 
->
->
-
-#### Manage persistent pools
-
-You can manage an existing persistent pool on the **Pools** tab. Selecting a pool from the list displays the current state of the pool.
-
-From the **Pools** tab, you can also delete the pool and resize the number of VMs in the pool. You can resize a pool to 0 nodes to avoid incurring costs in between workloads.
-
-![View, resize, and delete pools](./media/batch-rendering-service/pools.png)
-
-### Configure a render job for submission
-
-Once you have specified the parameters for the pool that will run the render job, configure the job itself. 
-
-#### Specify scene parameters
-
-The Batch plug-in detects which rendering engine you're currently using in Maya, and displays the appropriate render settings on the **Submit** tab. These settings include the start frame, end frame, output prefix, and frame step. You can override the scene file render settings by specifying different settings in the plug-in. Changes you make to the plug-in settings are not persisted back to the scene file render settings, so you can make changes on a job-by-job basis without needing to reupload the scene file.
-
-The plug-in warns you if the render engine that you selected in Maya is not supported.
-
-If you load a new scene while the plug-in is open, click the **Refresh** button to make sure the settings are updated.
-
-#### Resolve asset paths
-
-When you load the plug-in, it scans the scene file for any external file references. These references are displayed in the **Assets** tab. If a referenced path cannot be resolved, the plug-in attempts to locate the file in a few default locations, including:
-
-- The location of the scene file 
-- The current project's _sourceimages_ directory
-- The current working directory. 
-
-If the asset still cannot be located, it is listed with a warning icon:
-
-![Missing assets are displayed with a warning icon](./media/batch-rendering-service/missing_assets.png)
-
-If you know the location of an unresolved file reference, you can click the warning icon to be prompted to add a search path. The plug-in then uses this search path to attempt to resolve any missing assets. You can add any number of additional search paths.
-
-When a reference is resolved, it is listed with a green light icon:
-
-![Resolved assets show a green light icon](./media/batch-rendering-service/found_assets.png)
-
-If your scene requires other files that the plug-in has not detected, you can add additional files or directories. Use the **Add Files** and **Add Directory** buttons. If you load a new scene while the plug-in is open, be sure to click **Refresh** to update the scene's references.
-
-#### Upload assets to an asset project
-
-When you submit a render job, the referenced files displayed in the **Assets** tab are automatically uploaded to Azure Storage as an asset project. You can also upload the asset files independently of a render job, using the **Upload** button on the **Assets** tab. The asset project name is specified in the **Project** field and is named after the current Maya project by default. When asset files are uploaded, the local file structure is preserved. 
-
-Once uploaded, assets can be referenced by any number of render jobs. All uploaded assets are available to any job that references the asset project, whether or not they are included in the scene. To change the asset project referenced by your next job, change the name in the **Project** field in the **Assets** tab. If there are referenced files that you wish to exclude from uploading, unselect them using the green button beside the listing.
-
-#### Submit and monitor the render job
-
-After you have configured the render job in the plug-in, click the **Submit Job** button on the **Submit** tab to submit the job to Batch:
-
-![Submit the render job](./media/batch-rendering-service/submit_job.png)
-
-You can monitor a job that is in progress from the **Jobs** tab on the plug-in. Select a job from the list to display the current state of the job. You can also use this tab to cancel and delete jobs, as well as to download the outputs and rendering logs. 
-
-To download outputs, modify the **Outputs** field to set the desired destination directory. Click the gear icon to start a background process that watches the job and downloads outputs as it progresses: 
-
-![View job status and download outputs](./media/batch-rendering-service/jobs.png)
-
-You can close Maya without disrupting the download process.
+* [Use Batch Explorer to render a Blender scene](./tutorial-rendering-batchexplorer-blender.md)
+* [Use the Batch CLI to render an Autodesk 3ds Max scene](./tutorial-rendering-cli.md)
 
 ## Next steps
 
-To learn more about Batch, see [Run intrinsically parallel workloads with Batch](batch-technical-overview.md).
+Determine the list of rendering applications and versions included on the Azure Marketplace VM images in [this article](./batch-rendering-applications.md).

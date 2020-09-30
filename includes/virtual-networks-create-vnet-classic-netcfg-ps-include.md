@@ -1,3 +1,16 @@
+---
+ title: include file
+ description: include file
+ services: virtual-network
+ author: genlin
+ ms.service: virtual-network
+ ms.topic: include
+ ms.date: 04/13/2018
+ ms.author: genli
+ ms.custom: include file
+
+---
+
 ## How to create a virtual network using a network config file from PowerShell
 Azure uses an xml file to define all virtual networks available to a subscription. You can download this file, edit it to modify or delete existing virtual networks, and create new virtual networks. In this tutorial, you learn how to download this file, referred to as network configuration (or netcfg) file, and edit it to create a new virtual network. To learn more about the network configuration file, see the [Azure virtual network configuration schema](https://msdn.microsoft.com/library/azure/jj157100.aspx).
 
@@ -18,23 +31,30 @@ To create a virtual network with a netcfg file using PowerShell, complete the fo
       <?xml version="1.0" encoding="utf-8"?>...
       ```
 
-3. Open the file you saved in step 2 using any XML or text editor application, and look for the **<VirtualNetworkSites>** element. If you have any networks already created, each network is displayed as its own **<VirtualNetworkSite>** element.
-4. To create the virtual network described in this scenario, add the following XML just under the **<VirtualNetworkSites>** element:
+3. Open the file you saved in step 2 using any XML or text editor application, and look for the **\<VirtualNetworkSites>** element. If you have any networks already created, each network is displayed as its own **\<VirtualNetworkSite>** element.
+4. To create the virtual network described in this scenario, add the following XML just under the **\<VirtualNetworkSites>** element:
 
    ```xml
-        <VirtualNetworkSite name="TestVNet" Location="East US">
-          <AddressSpace>
-            <AddressPrefix>192.168.0.0/16</AddressPrefix>
-          </AddressSpace>
-          <Subnets>
-            <Subnet name="FrontEnd">
-              <AddressPrefix>192.168.1.0/24</AddressPrefix>
-            </Subnet>
-            <Subnet name="BackEnd">
-              <AddressPrefix>192.168.2.0/24</AddressPrefix>
-            </Subnet>
-          </Subnets>
-        </VirtualNetworkSite>
+         <?xml version="1.0" encoding="utf-8"?>
+         <NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
+           <VirtualNetworkConfiguration>
+             <VirtualNetworkSites>
+                 <VirtualNetworkSite name="TestVNet" Location="East US">
+                   <AddressSpace>
+                     <AddressPrefix>192.168.0.0/16</AddressPrefix>
+                   </AddressSpace>
+                   <Subnets>
+                     <Subnet name="FrontEnd">
+                       <AddressPrefix>192.168.1.0/24</AddressPrefix>
+                     </Subnet>
+                     <Subnet name="BackEnd">
+                       <AddressPrefix>192.168.2.0/24</AddressPrefix>
+                     </Subnet>
+                   </Subnets>
+                 </VirtualNetworkSite>
+             </VirtualNetworkSites>
+           </VirtualNetworkConfiguration>
+         </NetworkConfiguration>
    ```
    
 5. Save the network configuration file.

@@ -1,98 +1,223 @@
 ---
-title: Attach a data disk to a Linux VM | Microsoft Docs
-description: How to attach new or existing data disk to a Linux VM in the Azure portal using the Resource Manager deployment model.
-services: virtual-machines-linux
-documentationcenter: ''
+title: Attach a data disk to a Linux VM 
+description: Use the portal to attach new or existing data disk to a Linux VM.
 author: cynthn
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 5e1c6212-976c-4962-a297-177942f90907
 ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-ms.devlang: na
-ms.topic: article
-ms.date: 03/07/2017
+ms.topic: how-to
+ms.date: 08/28/2020
 ms.author: cynthn
+ms.subservice: disks
 
 ---
-# How to attach a data disk to a Linux VM in the Azure portal
-This article shows you how to attach both new and existing disks to a Linux virtual machine through the Azure portal. You can also [attach a data disk to a Windows VM in the Azure portal](../windows/attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). You can choose to use either Azure Managed Disks or unmanaged disks. Managed disks are handled by the Azure platform and do not require any preparation or location to store them. Unmanaged disks require a storage account and have some [quotas and limits that apply](../../azure-subscription-service-limits.md#storage-limits). For more information about Azure Managed Disks, see [Azure Managed Disks overview](../../storage/storage-managed-disks-overview.md).
+# Use the portal to attach a data disk to a Linux VM 
+This article shows you how to attach both new and existing disks to a Linux virtual machine through the Azure portal. You can also [attach a data disk to a Windows VM in the Azure portal](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
 Before you attach disks to your VM, review these tips:
 
-* The size of the virtual machine controls how many data disks you can attach. For details, see [Sizes for virtual machines](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* To use Premium storage, you need a DS-series or GS-series virtual machine. You can use both Premium and Standard disks with these virtual machines. Premium storage is available in certain regions. For details, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../../storage/storage-premium-storage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* Disks attached to virtual machines are actually .vhd files stored in Azure. For details, see [About disks and VHDs for virtual machines](../../storage/storage-about-disks-and-vhds-linux.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* The size of the virtual machine controls how many data disks you can attach. For details, see [Sizes for virtual machines](../sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Disks attached to virtual machines are actually .vhd files stored in Azure. For details, see our [Introduction to managed disks](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* After attaching the disk, you need to [connect to the Linux VM to mount the new disk](#connect-to-the-linux-vm-to-mount-the-new-disk).
 
 
 ## Find the virtual machine
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. On the Hub menu, click **Virtual Machines**.
-3. Select the virtual machine from the list.
-4. To the Virtual machines blade, in **Essentials**, click **Disks**.
+1. Go to the [Azure portal](https://portal.azure.com/) to find the VM. Search for and select **Virtual machines**.
+2. Choose the VM from the list.
+3. In the **Virtual machines** page, under **Settings**, choose **Disks**.
+
+
+## Attach a new disk
+
+1. On the **Disks** pane, under **Data disks**, select **Create and attach a new disk**.
+
+1. Enter a name for your managed disk. Review the default settings, and update the **Storage type**, **Size (GiB)**, **Encryption** and **Host caching** as necessary.
    
-    ![Open disk settings](./media/attach-disk-portal/find-disk-settings.png)
+   :::image type="content" source="./media/attach-disk-portal/create-new-md.png" alt-text="Review disk settings.":::
 
-Continue by following instructions for attaching either a [managed disk](#use-azure-managed-disks) or [unmanaged disk](#use-unmanaged-disks).
 
-## Use Azure Managed Disks
+1. When you are done, select **Save** at the top of the page to create the managed disk and update the VM configuration.
 
-### Attach a new disk
 
-1. On the **Disks** blade, click **+ Add data disk**.
-2. Click the drop-down menu for **Name** and select **Create disk**:
+## Attach an existing disk
+1. On the **Disks** pane, under **Data disks**, select  **Attach existing disks**.
+1. Click the drop-down menu for **Disk name** and select a disk from the list of available managed disks. 
 
-    ![Create Azure managed disk](./media/attach-disk-portal/create-new-md.png)
-
-3. Enter a name for your managed disk. Review the default settings, update as necessary, and then click **Create**.
+1. Click **Save** to attach the existing managed disk and update the VM configuration:
    
-   ![Review disk settings](./media/attach-disk-portal/create-new-md-settings.png)
 
-4. Click **Save** to create the managed disk and update the VM configuration:
+## Connect to the Linux VM to mount the new disk
+To partition, format, and mount your new disk so your Linux VM can use it, SSH into your VM. For more information, see [How to use SSH with Linux on Azure](mac-create-ssh-keys.md). The following example connects to a VM with the public IP address of *10.123.123.25* with the username *azureuser*: 
 
-   ![Save new Azure Managed Disk](./media/attach-disk-portal/confirm-create-new-md.png)
+```bash
+ssh azureuser@10.123.123.25
+```
 
-5. After Azure creates the disk and attaches it to the virtual machine, the new disk is listed in the virtual machine's disk settings under **Data Disks**. As managed disks are a top-level resource, the disk appears at the root of the resource group:
+## Find the disk
 
-   ![Azure Managed Disk in resource group](./media/attach-disk-portal/view-md-resource-group.png)
+Once connected to your VM, you need to find the disk. In this example, we are using `lsblk` to list the disks. 
 
-### Attach an existing disk
-1. On the **Disks** blade, click **+ Add data disk**.
-2. Click the drop-down menu for **Name** to view a list of existing managed disks accessible to your Azure subscription. Select the managed disk to attach:
+```bash
+lsblk -o NAME,HCTL,SIZE,MOUNTPOINT | grep -i "sd"
+```
 
-   ![Attach existing Azure Managed Disk](./media/attach-disk-portal/select-existing-md.png)
+The output is similar to the following example:
 
-3. Click **Save** to attach the existing managed disk and update the VM configuration:
-   
-   ![Save Azure Managed Disk updates](./media/attach-disk-portal/confirm-attach-existing-md.png)
+```bash
+sda     0:0:0:0      30G
+├─sda1             29.9G /
+├─sda14               4M
+└─sda15             106M /boot/efi
+sdb     1:0:1:0      14G
+└─sdb1               14G /mnt
+sdc     3:0:0:0       4G
+```
 
-4. After Azure attaches the disk to the virtual machine, it's listed in the virtual machine's disk settings under **Data Disks**.
+In this example, the disk that I added is `sdc`. It is a LUN 0 and is 4GB.
 
-## Use unmanaged disks
+For a more complex example, here is what multiple data disks looks like in the portal:
 
-### Attach a new disk
+:::image type="content" source="./media/attach-disk-portal/create-new-md.png" alt-text="Review disk settings.":::
 
-1. On the **Disks** blade, click **+ Add data disk**.
-2. Review the default settings, update as necessary, and then click **OK**.
-   
-   ![Review disk settings](./media/attach-disk-portal/attach-new.png)
-3. After Azure creates the disk and attaches it to the virtual machine, the new disk is listed in the virtual machine's disk settings under **Data Disks**.
+In the image, you can see that there are 3 data disks: 4 GB on LUN 0, 16GB at LUN 1, and 32G at LUN 2.
 
-### Attach an existing disk
-1. On the **Disks** blade, click **+ Add data disk**.
-2. Under **Attach existing disk**, click **VHD File**.
-   
-   ![Attach existing disk](./media/attach-disk-portal/attach-existing.png)
-3. Under **Storage accounts**, select the account and container that holds the .vhd file.
-   
-   ![Find VHD location](./media/attach-disk-portal/find-storage-container.png)
-4. Select the .vhd file.
-5. Under **Attach existing disk**, the file you just selected is listed under **VHD File**. Click **OK**.
-6. After Azure attaches the disk to the virtual machine, it's listed in the virtual machine's disk settings under **Data Disks**.
+Here is what that might look like using `lsblk`:
 
+```bash
+sda     0:0:0:0      30G
+├─sda1             29.9G /
+├─sda14               4M
+└─sda15             106M /boot/efi
+sdb     1:0:1:0      14G
+└─sdb1               14G /mnt
+sdc     3:0:0:0       4G
+sdd     3:0:0:1      16G
+sde     3:0:0:2      32G
+```
+
+From the output of `lsblk` you can see that the 4GB disk at LUN 0 is `sdc`, the 16GB disk at LUN 1 is `sdd`, and the 32G disk at LUN 2 is `sde`.
+
+### Partition a new disk
+
+If you are using an existing disk that contains data, skip to mounting the disk. If you are attaching a new disk, you need to partition the disk.
+
+The `parted` utility can be used to partition and to format a data disk.
+
+> [!NOTE]
+> It is recommended that you use the latest version `parted` that is available for your distro.
+> If the disk size is 2 tebibytes (TiB) or larger, you must use GPT partitioning. If disk size is under 2 TiB, then you can use either MBR or GPT partitioning.  
+
+
+The following example uses `parted` on `/dev/sdc`, which is where the first data disk will typically be on most VMs. Replace `sdc` with the correct option for your disk. We are also formatting it using the [XFS](https://xfs.wiki.kernel.org/) filesystem.
+
+```bash
+sudo parted /dev/sdc --script mklabel gpt mkpart xfspart xfs 0% 100%
+sudo mkfs.xfs /dev/sdc1
+sudo partprobe /dev/sdc1
+```
+
+Use the [`partprobe`](https://linux.die.net/man/8/partprobe) utility to make sure the kernel is aware of the new partition and filesystem. Failure to use `partprobe` can cause the blkid or lslbk commands to not return the UUID for the new filesystem immediately.
+
+### Mount the disk
+
+Create a directory to mount the file system using `mkdir`. The following example creates a directory at `/datadrive`:
+
+```bash
+sudo mkdir /datadrive
+```
+
+Use `mount` to then mount the filesystem. The following example mounts the */dev/sdc1* partition to the `/datadrive` mount point:
+
+```bash
+sudo mount /dev/sdc1 /datadrive
+```
+
+To ensure that the drive is remounted automatically after a reboot, it must be added to the */etc/fstab* file. It is also highly recommended that the UUID (Universally Unique Identifier) is used in */etc/fstab* to refer to the drive rather than just the device name (such as, */dev/sdc1*). If the OS detects a disk error during boot, using the UUID avoids the incorrect disk being mounted to a given location. Remaining data disks would then be assigned those same device IDs. To find the UUID of the new drive, use the `blkid` utility:
+
+```bash
+sudo blkid
+```
+
+The output looks similar to the following example:
+
+```bash
+/dev/sda1: LABEL="cloudimg-rootfs" UUID="11111111-1b1b-1c1c-1d1d-1e1e1e1e1e1e" TYPE="ext4" PARTUUID="1a1b1c1d-11aa-1234-1a1a1a1a1a1a"
+/dev/sda15: LABEL="UEFI" UUID="BCD7-96A6" TYPE="vfat" PARTUUID="1e1g1cg1h-11aa-1234-1u1u1a1a1u1u"
+/dev/sdb1: UUID="22222222-2b2b-2c2c-2d2d-2e2e2e2e2e2e" TYPE="ext4" TYPE="ext4" PARTUUID="1a2b3c4d-01"
+/dev/sda14: PARTUUID="2e2g2cg2h-11aa-1234-1u1u1a1a1u1u"
+/dev/sdc1: UUID="33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e" TYPE="xfs" PARTLABEL="xfspart" PARTUUID="c1c2c3c4-1234-cdef-asdf3456ghjk"
+```
+
+> [!NOTE]
+> Improperly editing the **/etc/fstab** file could result in an unbootable system. If unsure, refer to the distribution's documentation for information on how to properly edit this file. It is also recommended that a backup of the /etc/fstab file is created before editing.
+
+Next, open the */etc/fstab* file in a text editor as follows:
+
+```bash
+sudo nano /etc/fstab
+```
+
+In this example, use the UUID value for the `/dev/sdc1` device that was created in the previous steps, and the mountpoint of `/datadrive`. Add the following line to the end of the `/etc/fstab` file:
+
+```bash
+UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   xfs   defaults,nofail   1   2
+```
+
+We used the nano editor, so when you are done editing the file, use `Ctrl+O` to write the file and `Ctrl+X` to exit the editor.
+
+> [!NOTE]
+> Later removing a data disk without editing fstab could cause the VM to fail to boot. Most distributions provide either the *nofail* and/or *nobootwait* fstab options. These options allow a system to boot even if the disk fails to mount at boot time. Consult your distribution's documentation for more information on these parameters.
+> 
+> The *nofail* option ensures that the VM starts even if the filesystem is corrupt or the disk does not exist at boot time. Without this option, you may encounter behavior as described in [Cannot SSH to Linux VM due to FSTAB errors](/archive/blogs/linuxonazure/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting)
+
+
+## Verify the disk
+
+You can now use `lsblk` again to see the disk and the mountpoint.
+
+```bash
+lsblk -o NAME,HCTL,SIZE,MOUNTPOINT | grep -i "sd"
+```
+
+The output will look something like this:
+
+```bash
+sda     0:0:0:0      30G
+├─sda1             29.9G /
+├─sda14               4M
+└─sda15             106M /boot/efi
+sdb     1:0:1:0      14G
+└─sdb1               14G /mnt
+sdc     3:0:0:0       4G
+└─sdc1                4G /datadrive
+```
+
+You can see that `sdc` is now mounted at `/datadrive`.
+
+### TRIM/UNMAP support for Linux in Azure
+
+Some Linux kernels support TRIM/UNMAP operations to discard unused blocks on the disk. This feature is primarily useful in standard storage to inform Azure that deleted pages are no longer valid and can be discarded, and can save money if you create large files and then delete them.
+
+There are two ways to enable TRIM support in your Linux VM. As usual, consult your distribution for the recommended approach:
+
+* Use the `discard` mount option in */etc/fstab*, for example:
+
+    ```bash
+    UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   xfs   defaults,discard   1   2
+    ```
+* In some cases, the `discard` option may have performance implications. Alternatively, you can run the `fstrim` command manually from the command line, or add it to your crontab to run regularly:
+  
+    **Ubuntu**
+  
+    ```bash
+    sudo apt-get install util-linux
+    sudo fstrim /datadrive
+    ```
+  
+    **RHEL/CentOS**
+
+    ```bash
+    sudo yum install util-linux
+    sudo fstrim /datadrive
+    ```
 
 ## Next steps
-After the disk is added, you need to prepare it for use. For more information, see [How to: Initialize a new data disk in Linux](add-disk.md).
+You can also [attach a data disk](add-disk.md) using the Azure CLI.

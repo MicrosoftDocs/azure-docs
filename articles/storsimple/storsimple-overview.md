@@ -1,4 +1,4 @@
-﻿---
+---
 title: StorSimple 8000 series solution overview | Microsoft Docs
 description: Describes StorSimple tiering, the device, virtual device, services, and storage management, and introduces key terms used in StorSimple.
 services: storsimple
@@ -14,10 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/10/2017
-ms.author: v-sharos@microsoft.com
+ms.author: timlt
 
 ---
 # StorSimple 8000 series: a hybrid cloud storage solution
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
+
 ## Overview
 Welcome to Microsoft Azure StorSimple, an integrated storage solution that manages storage tasks between on-premises devices and Microsoft Azure cloud storage. StorSimple is an efficient, cost-effective, and easily manageable storage area network (SAN) solution that eliminates many of the issues and expenses associated with enterprise storage and data protection. It uses the proprietary StorSimple 8000 series device, integrates with cloud services, and provides a set of management tools for a seamless view of all enterprise storage, including cloud storage. (The StorSimple deployment information published on the Microsoft Azure website applies to StorSimple 8000 series devices only. If you are using a StorSimple 5000/7000 series device, go to [StorSimple Help](http://onlinehelp.storsimple.com/).)
 
@@ -53,7 +56,7 @@ The Microsoft Azure StorSimple solution includes the following components:
 * **StorSimple Cloud Appliance** – also known as the StorSimple Virtual Appliance, this is a software version of the StorSimple device that replicates the architecture and most capabilities of the physical hybrid storage device. The StorSimple Cloud Appliance runs on a single node in an Azure virtual machine. Premium virtual devices, which take advantage of Azure premium storage, are available in Update 2 and later.
 * **StorSimple Device Manager service** – an extension of the Azure portal that lets you manage a StorSimple device or StorSimple Cloud Appliance from a single web interface. You can use the StorSimple Device Manager service to create and manage services, view and manage devices, view alerts, manage volumes, and view and manage backup policies and the backup catalog.
 * **Windows PowerShell for StorSimple** – a command-line interface that you can use to manage the StorSimple device. Windows PowerShell for StorSimple has features that allow you to register your StorSimple device, configure the network interface on your device, install certain types of updates, troubleshoot your device by accessing the support session, and change the device state. You can access Windows PowerShell for StorSimple by connecting to the serial console or by using Windows PowerShell remoting.
-* **Azure PowerShell StorSimple cmdlets** – a collection of Windows PowerShell cmdlets that allow you to automate service-level and migration tasks from the command line. For more information about the Azure PowerShell cmdlets for StorSimple, go to the [cmdlet reference](/powershell/module/azure/?view=azuresmps-3.7.0#azure).
+* **Azure PowerShell StorSimple cmdlets** – a collection of Windows PowerShell cmdlets that allow you to automate service-level and migration tasks from the command line. For more information about the Azure PowerShell cmdlets for StorSimple, go to the [cmdlet reference](/powershell/module/servicemanagement/azure.service/?view=azuresmps-3.7.0#azure).
 * **StorSimple Snapshot Manager** – an MMC snap-in that uses volume groups and the Windows Volume Shadow Copy Service to generate application-consistent backups. In addition, you can use StorSimple Snapshot Manager to create backup schedules and clone or restore volumes.
 * **StorSimple Adapter for SharePoint** – a tool that transparently extends Microsoft Azure StorSimple storage and data protection to SharePoint Server farms, while making StorSimple storage viewable and manageable from the SharePoint Central Administration portal.
 
@@ -88,7 +91,7 @@ The cloud appliance has the following features:
 * You can create an unlimited number of cloud appliances in the cloud, and turn them on and off as necessary.
 * It can help simulate on-premises environments in disaster recovery, development, and test scenarios, and can help with item-level retrieval from backups.
 
-The StorSimple Cloud Appliance is available in two models: the 8010 device (formerly known as the 1100 model) and the 8020 device. The 8010 device has a maximum capacity of 30 TB. The 8020 device, which takes advantage of Azure premium storage, has a maximum capacity of 64 TB. (In local tiers, Azure premium storage stores data on SSDs whereas standard storage stores data on HDDs.) Note that you must have an Azure premium storage account to use premium storage. For more information about premium storage, go to [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../storage/storage-premium-storage.md).
+The StorSimple Cloud Appliance is available in two models: the 8010 device (formerly known as the 1100 model) and the 8020 device. The 8010 device has a maximum capacity of 30 TB. The 8020 device, which takes advantage of Azure premium storage, has a maximum capacity of 64 TB. (In local tiers, Azure premium storage stores data on SSDs whereas standard storage stores data on HDDs.) Note that you must have an Azure premium storage account to use premium storage.
 
 For more information about the StorSimple Cloud Appliance, go to [Deploy and manage a StorSimple Cloud Appliance in Azure](storsimple-8000-cloud-appliance-u2.md).
 
@@ -122,7 +125,7 @@ You can access Windows PowerShell for StorSimple from a serial console (on a hos
 For more information, go to [Use Windows PowerShell for StorSimple to administer your device](storsimple-8000-windows-powershell-administration.md).
 
 ## Azure PowerShell StorSimple cmdlets
-The Azure PowerShell StorSimple cmdlets are a collection of Windows PowerShell cmdlets that allow you to automate service-level and migration tasks from the command line. For more information about the Azure PowerShell cmdlets for StorSimple, go to the [cmdlet reference](/powershell/module/azure/?view=azuresmps-3.7.0).
+The Azure PowerShell StorSimple cmdlets are a collection of Windows PowerShell cmdlets that allow you to automate service-level and migration tasks from the command line. For more information about the Azure PowerShell cmdlets for StorSimple, go to the [cmdlet reference](/powershell/module/servicemanagement/azure.service/?view=azuresmps-3.7.0).
 
 ## StorSimple Snapshot Manager
 StorSimple Snapshot Manager is a Microsoft Management Console (MMC) snap-in that you can use to create consistent, point-in-time backup copies of local and cloud data. The snap-in runs on a Windows Server–based host. You can use StorSimple Snapshot Manager to:
@@ -245,7 +248,7 @@ Following is a list of other software that are used with StorSimple to build sol
 | Backup target |Veeam |Veeam v 9 and later |[StorSimple as a backup target with Veaam](storsimple-configure-backup-target-veeam.md)|
 | Backup target |Veritas Backup Exec |Backup Exec 16 and later |[StorSimple as a backup target with Backup Exec](storsimple-configure-backup-target-using-backup-exec.md)|
 | Backup target |Veritas NetBackup |NetBackup 7.7.x and later  |[StorSimple as a backup target with NetBackup](storsimple-configure-backuptarget-netbackup.md)|
-| Global File Sharing <br></br> Collaboration |Talon  |[StorSimple with Talon](https://www.talonstorage.com/products/fast-deployment-azure-storsimple) | |
+| Global File Sharing <br></br> Collaboration |Talon  |[StorSimple with Talon](https://www.talonstorage.com/products/archive/fast-deployment-azure-storsimple) | |
 
 ## StorSimple terminology
 Before deploying your Microsoft Azure StorSimple solution, we recommend that you review the following terms and definitions.

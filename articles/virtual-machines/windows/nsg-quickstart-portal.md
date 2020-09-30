@@ -1,65 +1,76 @@
 ---
-title: Open ports to a VM using the Azure portal | Microsoft Docs
-description: Learn how to open a port / create an endpoint to your Windows VM using the resource manager deployment model in the Azure Portal
-services: virtual-machines-windows
-documentationcenter: ''
-author: iainfoulds
-manager: timlt
-editor: ''
-
-ms.assetid: f7cf0319-5ee7-435e-8f94-c484bf5ee6f1
+title: Open ports to a VM using the Azure portal 
+description: Learn how to open a port / create an endpoint to your Windows VM using the Azure portal
+author: cynthn
 ms.service: virtual-machines-windows
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 05/11/2017
-ms.author: iainfou
+ms.date: 05/27/2020
+ms.author: cynthn
 
 ---
 # How to open ports to a virtual machine with the Azure portal
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
 
-## Quick commands
-You can also [perform these steps using Azure PowerShell](nsg-quickstart-powershell.md).
 
-First, create your Network Security Group. Select a resource group in the portal, click **Add**, then search for and select 'Network security group':
+## Sign in to Azure
+Sign in to the Azure portal at https://portal.azure.com.
 
-![Add a Network Security Group](./media/nsg-quickstart-portal/add-nsg.png)
+## Create a network security group
 
-Enter a name for your Network Security Group, select or create a resource group, and select a location. Click **Create** when finished:
+1. Search for and select the resource group for the VM, choose **Add**, then search for and select **Network security group**.
 
-![Create a Network Security Group](./media/nsg-quickstart-portal/create-nsg.png)
+1. Select **Create**.
 
-Select your new Network Security Group. Select 'Inbound security rules', then click the **Add** button to create a rule:
+    The **Create network security group** window opens.
 
-![Add an inbound rule](./media/nsg-quickstart-portal/add-inbound-rule.png)
+    ![Create a network security group](./media/nsg-quickstart-portal/create-nsg.png)
 
-Provide a name for your new rule. Port 80 is already entered by default. This blade is where you would change the source, protocol, and destination when adding additional rules to your Network Security Group. Click **OK** to create the rule:
+1. Enter a name for your network security group. 
 
-![Create an inbound rule](./media/nsg-quickstart-portal/create-inbound-rule.png)
+1. Select or create a resource group, then select a location.
 
-Your final step is to associate your Network Security Group with a subnet or a specific network interface. Let's associate the Network Security Group with a subnet. Select 'Subnets', then click **Associate**:
+1. Select **Create** to create the network security group.
 
-![Associate a Network Security Group with a subnet](./media/nsg-quickstart-portal/associate-subnet.png)
+## Create an inbound security rule
 
-Select your virtual network, and then select the appropriate subnet:
+1. Select your new network security group. 
 
-![Associating a Network Security Group with virtual networking](./media/nsg-quickstart-portal/select-vnet-subnet.png)
+1. Select **Inbound security rules** from the left menu, then select **Add**.
 
-You have now created a Network Security Group, created an inbound rule that allows traffic on port 80, and associated it with a subnet. Any VMs you connect to that subnet are reachable on port 80.
+    ![Toggle to the advanced page](./media/nsg-quickstart-portal/advanced.png)
 
-## More information on Network Security Groups
-The quick commands here allow you to get up and running with traffic flowing to your VM. Network Security Groups provide many great features and granularity for controlling access to your resources. You can read more about [creating a Network Security Group and ACL rules here](../../virtual-network/virtual-networks-create-nsg-arm-ps.md).
+1. In the **Add an inbound security rule** page, toggle to **Advanced** from **Basic** at the top of the page. 
 
-You can define Network Security Groups and ACL rules as part of Azure Resource Manager templates. Read more about [creating Network Security Groups with templates](../../virtual-network/virtual-networks-create-nsg-arm-template.md).
+1. Choose a common **Service** from the drop-down menu, such as **HTTP**. You can also select **Custom** if you want to provide a specific port to use. 
 
-If you need to use port-forwarding to map a unique external port to an internal port on your VM, use a load balancer and Network Address Translation (NAT) rules. For example, you may want to expose TCP port 8080 externally and have traffic directed to TCP port 80 on a VM. You can learn about [creating an Internet-facing load balancer](../../load-balancer/load-balancer-get-started-internet-arm-ps.md).
+1. Optionally, change the **Priority** or **Name**. The priority affects the order in which rules are applied: the lower the numerical value, the earlier the rule is applied.
+
+1. Select **Add** to create the rule.
+
+## Associate your network security group with a subnet
+
+Your final step is to associate your network security group with a subnet or a specific network interface. For this example, we'll associate the network security group with a subnet. 
+
+1. Select **Subnets** from the left menu, then select **Associate**.
+
+1. Select your virtual network, and then select the appropriate subnet.
+
+    ![Associating a network security group with virtual networking](./media/nsg-quickstart-portal/select-vnet-subnet.png)
+
+1. When you are done, select **OK**.
+
+## Additional information
+
+You can also [perform the steps in this article by using Azure PowerShell](nsg-quickstart-powershell.md).
+
+The commands described in this article allow you to quickly get traffic flowing to your VM. Network security groups provide many great features and granularity for controlling access to your resources. For more information, see [Filter network traffic with a network security group](../../virtual-network/tutorial-filter-network-traffic.md).
+
+For highly available web applications, consider placing your VMs behind an Azure load balancer. The load balancer distributes traffic to VMs, with a network security group that provides traffic filtering. For more information, see [Load balance Windows virtual machines in Azure to create a highly available application](tutorial-load-balancer.md).
 
 ## Next steps
-In this example, you created a simple rule to allow HTTP traffic. You can find information on creating more detailed environments in the following articles:
+In this article, you created a network security group, created an inbound rule that allows HTTP traffic on port 80, and then associated that rule with a subnet. 
 
-* [Azure Resource Manager overview](../../azure-resource-manager/resource-group-overview.md)
-* [What is a Network Security Group (NSG)?](../../virtual-network/virtual-networks-nsg.md)
-* [Azure Resource Manager Overview for Load Balancers](../../load-balancer/load-balancer-arm.md)
-
+You can find information on creating more detailed environments in the following articles:
+- [Azure Resource Manager overview](../../azure-resource-manager/management/overview.md)
+- [Security groups](../../virtual-network/security-overview.md)

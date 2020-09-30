@@ -1,88 +1,68 @@
 ---
-title: Security Center pricing | Microsoft Docs
-description: This article provides information on pricing for Azure Security Center.
+title: Pricing of Azure Security Center
+description: Azure Security Center is offered in two modes with and without Azure Defender.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
-manager: MBaldwin
-editor: ''
-
+author: memildin
+manager: rkarlin
 ms.assetid: 4d1364cd-7847-425a-bb3a-722cb0779f78
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/16/2017
-ms.author: terrylan
-
+ms.date: 09/22/2020
+ms.author: memildin
 ---
-# Azure Security Center pricing
-Azure Security Center helps you prevent, detect, and respond to threats with increased visibility into and control over the security of your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
 
-## Pricing tiers
-Security Center is offered in two tiers:
-
-* The **Free tier** is automatically enabled on all Azure subscriptions. The Free tier provides visibility into the security state of your Azure resources, basic security policy, security recommendations, and integration with security products and services from partners.
-* The **Standard tier** adds advanced threat detection capabilities, including threat intelligence, behavioral analysis, anomaly detection, security incidents, and threat assessment reports. The Standard tier is offered free for the first 60 days.
-
-For more information, see the Security Center [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
-
-## Try Standard free for 60 days
-The Standard tier is offered free for the first 60 days. At the end of 60 days, should you choose to continue using the service, we will automatically start charging for usage.
-
-To get the Standard tier:
-
-1. Select the **Policy** tile on the **Security Center** blade.
-2. Select the subscription that you want to upgrade to Standard.
-3. On the **Security policy** blade, select **Pricing tier**.
-4. On the **Choose your pricing tier** blade, select **Standard**.
-5. Click **Select**.
+# Pricing of Azure Security Center
+Azure Security Center provides unified security management and advanced threat protection for workloads running in Azure, on-premises, and in other clouds. It delivers visibility and control over hybrid cloud workloads, active defenses that reduce your exposure to threats, and intelligent detection to help you keep pace with rapidly evolving cyber attacks.
 
 
-## Why upgrade to Standard?
-The Standard tier of Security Center provides all features of the Free tier plus advanced threat detection. Advanced threat detection helps identify active threats targeting your Azure resources and provides you with the insights needed to respond quickly.
+## Free option vs Azure Defender enabled
 
-Security Center employs advanced security analytics, which go far beyond signature-based approaches. Breakthroughs in big data and machine learning technologies are used to evaluate events across the entire cloud fabric – detecting threats that would be impossible to identify using manual approaches and predicting the evolution of attacks.
+Security Center is offered in two modes:
 
-Security analytics that come with the Standard tier are:
+- **Azure Defender OFF** (Free) - Security Center without Azure Defender is enabled for free on all your Azure subscriptions when you visit the Azure Security Center dashboard in the Azure portal for the first time, or if enabled programmatically via API. Using this free mode provides security policy, continuous security assessment, and actionable security recommendations to help you protect your Azure resources.
 
-* **Threat intelligence** - Looks for known bad actors by using global threat intelligence from Microsoft products and services, the Microsoft Digital Crimes Unit, the Microsoft Security Response Center, and external feeds
-* **Behavioral analysis** - Applies known patterns to discover malicious behavior
-* **Anomaly detection** - Uses statistical profiling to build a historical baseline. It alerts on deviations from established baselines that conform to a potential attack vector
+- **Azure Defender ON** - Enabling Azure Defender extends the capabilities of the free mode to workloads running in private and other public clouds, providing unified security management and threat protection across your hybrid cloud workloads. Some of the major features of Azure Defender:
 
-In the **Security alerts** blade below, Security Center has detected a security **incident**. A security incident is an aggregation of all alerts for a resource that align with kill chain patterns. Selecting the security incident reveals more details about the incident and lists the related alerts. Selecting an alert provides more information about that occurrence.
+    - **Hybrid security** – Get a unified view of security across all of your on-premises and cloud workloads. Apply security policies and continuously assess the security of your hybrid cloud workloads to ensure compliance with security standards. Collect, search, and analyze security data from multiple sources, including firewalls and other partner solutions.
+    - **Threat protection alerts** - Advanced behavioral analytics and the Microsoft Intelligent Security Graph provide an edge over evolving cyber-attacks. Leverage built-in behavioral analytics and machine learning to identify attacks and zero-day exploits. Monitor networks, machines, and cloud services for incoming attacks and post-breach activity. Streamline investigation with interactive tools and contextual threat intelligence.
+    - **Vulnerability scanning for virtual machines and container registries** - Easily deploy a scanner to all of your virtual machines that provides the industry's most advanced solution for vulnerability management. View, investigate, and remediate the findings directly within Security Center. 
+    - **Access and application controls** - Block malware and other unwanted applications by applying machine learning powered recommendations adapted to your specific workloads to create allow and deny lists. Reduce the network attack surface with just-in-time, controlled access to management ports on Azure VMs. This drastically reduces exposure to brute force and other network attacks.
+    - **Container security features** - Benefit from vulnerability management and real-time threat protection on your containerized environments. When enabling the **Azure Defender for container registries**, it may take up to 12hrs until all the features are enabled. Charges are based on the number of unique container images pushed to your connected registry. After an image has been scanned once, you won't be charged for it again unless it's modified and pushed once more. 
 
-![Security incident][2]
+## Try Azure Defender free for 30 days
 
-The **Network communication** alert below provides details about the alert. Details include its full description, its severity, its current state (which in this case is dismissed, meaning the user took action to dismiss it), the attacked resource, and remediation steps. There is also a list of links to Microsoft Threat Intelligence reports. These reports can be used for security remediation and defensive purposes.
+Azure Defender is free for the first 30 days. At the end of 30 days, should you choose to continue using the service, we'll automatically start charging for usage.
 
-![Security alert details][3]
+## Enable Azure Defender
 
-## Enable data collection
-To enable virtual machine behavioral analytics, data collection must be turned on.
+You can protect an entire Azure subscription with Azure Defender and the protections will be inherited by all resources within the subscription.
 
-To validate that data collection is enabled:
+To enable Azure Defender:
 
-1. Select the **Policy** tile. The **Security policy** blade opens listing your Azure subscriptions.
-2. Select a subscription.
-3. If **Data collection** is off, change it to on and save the change.
+1. From Security Center's main menu, select **Pricing & settings**.
+1. Select the subscription that you want to upgrade.
+1. Select **Azure Defender on** to upgrade.
+1. Select **Save**.
+
+Below is the pricing page for an example subscription. You'll notice that each plan in Azure Defender is priced separately and can be individually set to on or off.
+
+:::image type="content" source="./media/security-center-pricing/pricing-tier-page.png" alt-text="Security Center's pricing page in the portal":::
 
 > [!NOTE]
-> If you are using Azure Security Center Free, you can disable data collection from virtual machines in the Security Policy. Data Collection is required for subscriptions on the Standard tier.
+> To enable all Security Center features including threat protection capabilities, you must enable Azure Defender on the subscription containing the applicable workloads. Enabling it at the workspace level doesn't enable just-in-time VM access, adaptive application controls, and network detections for Azure resources. 
 >
->
+> You can enable **Azure Defender for Storage accounts** at either the subscription level or resource level.
+> You can enable **Azure Defender for SQL** at either the subscription level or resource level.
+> You can enable threat protection for **Azure Database for MariaDB/ MySQL/ PostgreSQL** at the resource level only.
 
-See [Enable data collection in Azure Security Center](security-center-enable-data-collection.md) for more information.
 
 ## Next steps
-* In this document, you were introduced to pricing for Security Center. For additional pricing information, see the Security Center [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
-* To learn more about Security Center’s advanced detection capabilities, see [Azure Security Center detection capabilities](security-center-detection-capabilities.md).
-* To learn more about how data is managed and safeguarded in Security Center, see [Azure Security Center data security](security-center-data-security.md).
-* If you have questions about using Security Center, see the [Azure Security Center FAQ](security-center-faq.md).
-* If you still have questions about using Security Center, or Azure, visit the [Azure Forums](https://social.msdn.microsoft.com/Forums/home?forum=AzureSecurityCenter&filter=alltypes&sort=lastpostdesc).
+In this article, you were introduced to pricing for Security Center. For related material see:
 
-<!--Image references-->
-[1]: ./media/security-center-pricing/standard.png
-[2]: ./media/security-center-pricing/incident.png
-[3]: ./media/security-center-pricing/network-alert.png
+- [How to optimize your Azure workload costs](https://azure.microsoft.com/blog/how-to-optimize-your-azure-workload-costs/)
+- [Pricing details in your currency of choice, and according to your region](https://azure.microsoft.com/pricing/details/security-center/)
+- You may want to manage your costs and limit the amount of data collected for a solution by limiting it to a particular set of agents. [Solution targeting](../operations-management-suite/operations-management-suite-solution-targeting.md) allows you to apply a scope to the solution and target a subset of computers in the workspace. If you are using solution targeting, Security Center lists the workspace as not having a solution.

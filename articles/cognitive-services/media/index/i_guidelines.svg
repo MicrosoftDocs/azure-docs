@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        stroke: #556a8a;
+      }
+
+      .cls-1, .cls-5, .cls-6 {
+        stroke-miterlimit: 10;
+        stroke-width: 2px;
+      }
+
+      .cls-2 {
+        fill: #e5e5e5;
+      }
+
+      .cls-3 {
+        fill: #2bc7f4;
+      }
+
+      .cls-4 {
+        fill: #868787;
+      }
+
+      .cls-5, .cls-6 {
+        fill: none;
+      }
+
+      .cls-5 {
+        stroke: #868787;
+      }
+
+      .cls-6 {
+        stroke: #2bc7f4;
+      }
+    </style>
+  </defs>
+  <title>i_guidelines</title>
+  <g id="ICONS-64x">
+    <path class="cls-1" d="M1,7V61H63V7Z"/>
+    <path class="cls-1" d="M38.5,3A7.9,7.9,0,0,0,32,6a7.9,7.9,0,0,0-6.5-3H8V54H25.5a6.88,6.88,0,0,1,5,2.43C31.15,57.16,32,58,32,58s.85-.84,1.5-1.57a6.88,6.88,0,0,1,5-2.43H56V3Z"/>
+    <rect class="cls-2" x="9" y="4" width="8" height="49"/>
+    <rect class="cls-2" x="47" y="4" width="8" height="49"/>
+    <path class="cls-3" d="M33,6.34V55.5l-.25.27-.75.8c-.24-.25-.51-.53-.75-.8L31,55.5V6.33Z"/>
+  </g>
+  <g id="Layer_5" data-name="Layer 5">
+    <g>
+      <circle class="cls-4" cx="14" cy="31" r="2"/>
+      <line class="cls-5" x1="19" y1="31" x2="28" y2="31"/>
+      <circle class="cls-4" cx="14" cy="41" r="2"/>
+      <line class="cls-5" x1="19" y1="41" x2="28" y2="41"/>
+    </g>
+    <g>
+      <circle class="cls-4" cx="38" cy="31" r="2"/>
+      <line class="cls-5" x1="43" y1="31" x2="52" y2="31"/>
+      <circle class="cls-4" cx="38" cy="41" r="2"/>
+      <line class="cls-5" x1="43" y1="41" x2="52" y2="41"/>
+    </g>
+    <g>
+      <line class="cls-6" x1="15" y1="22" x2="26" y2="11"/>
+      <line class="cls-6" x1="26" y1="22" x2="15" y2="11"/>
+    </g>
+    <polyline class="cls-6" points="52 9.5 40.5 21 35.75 16.25"/>
+  </g>
+</svg>

@@ -13,13 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/10/2017
+ms.date: 09/28/2017
 ms.author: alkohli
 
 ---
 # StorSimple 8000 series software, high availability, and networking requirements
 
 ## Overview
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
 Welcome to Microsoft Azure StorSimple. This article describes important system requirements and best practices for your StorSimple device and for the storage clients accessing the device. We recommend that you review the information carefully before you deploy your StorSimple system, and then refer back to it as necessary during deployment and subsequent operation.
 
@@ -72,10 +74,10 @@ Your StorSimple device is a locked-down device. However, ports need to be opened
 
 <sup>2</sup> If multiple ports carry a gateway configuration, the outbound routed traffic order will be determined based on the port routing order described in [Port routing](#routing-metric), below.
 
-<sup>3</sup> The controller fixed IPs on your StorSimple device must be routable and able to connect to the Internet directly or via the configured web proxy. The fixed IP addresses are used for servicing the updates to the device. If the device controllers cannot connect to the Internet via the fixed IPs, you will not be able to update your StorSimple device.
+<sup>3</sup> The controller fixed IPs on your StorSimple device must be routable and able to connect to the Internet directly or via the configured web proxy. The fixed IP addresses are used for servicing the updates to the device and for garbage collection. If the device controllers cannot connect to the Internet via the fixed IPs, you will not be able to update your StorSimple device and garbage collection will not work properly.
 
 > [!IMPORTANT]
-> Ensure that the firewall does not modify or decrypt any SSL traffic between the StorSimple device and Azure.
+> Ensure that the firewall does not modify or decrypt any TLS traffic between the StorSimple device and Azure.
 
 
 ### URL patterns for firewall rules
@@ -94,9 +96,9 @@ We recommend that you set your firewall rules for outbound traffic, based on Sto
 | --- | --- | --- |
 | `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*`<br>`https://login.windows.net` |StorSimple Device Manager service<br>Access Control Service<br>Azure Service Bus<br>Authentication Service |Cloud-enabled network interfaces |
 | `https://*.backup.windowsazure.com` |Device registration |DATA 0 only |
-| `http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*` |Certificate revocation |Cloud-enabled network interfaces |
+| `https://crl.microsoft.com/pki/*`<br>`https://www.microsoft.com/pki/*` |Certificate revocation |Cloud-enabled network interfaces |
 | `https://*.core.windows.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Azure storage accounts and monitoring |Cloud-enabled network interfaces |
-| `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com` |Microsoft Update servers<br> |Controller fixed IPs only |
+| `https://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`https://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`https://download.microsoft.com`<br>`http://wustat.windows.com`<br>`https://ntservicepack.microsoft.com` |Microsoft Update servers<br> |Controller fixed IPs only |
 | `http://*.deploy.akamaitechnologies.com` |Akamai CDN |Controller fixed IPs only |
 | `https://*.partners.extranet.microsoft.com/*`<br>`https://dcupload.microsoft.com/`<br>`https://*.support.microsoft.com/` |Support package |Cloud-enabled network interfaces |
 
@@ -104,11 +106,11 @@ We recommend that you set your firewall rules for outbound traffic, based on Sto
 
 | URL pattern | Component/Functionality | Device IPs |
 | --- | --- | --- |
-| `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*`<br>`https://login-us.microsoftonline.com` |StorSimple Device Manager service<br>Access Control Service<br>Azure Service Bus<br>Authentication Service |Cloud-enabled network interfaces |
+| `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*`<br>`https://login.microsoftonline.us` |StorSimple Device Manager service<br>Access Control Service<br>Azure Service Bus<br>Authentication Service |Cloud-enabled network interfaces |
 | `https://*.backup.windowsazure.us` |Device registration |DATA 0 only |
-| `http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*` |Certificate revocation |Cloud-enabled network interfaces |
+| `https://crl.microsoft.com/pki/*`<br>`https://www.microsoft.com/pki/*` |Certificate revocation |Cloud-enabled network interfaces |
 | `https://*.core.usgovcloudapi.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Azure storage accounts and monitoring |Cloud-enabled network interfaces |
-| `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com` |Microsoft Update servers<br> |Controller fixed IPs only |
+| `https://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`https://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`https://download.microsoft.com`<br>`http://wustat.windows.com`<br>`https://ntservicepack.microsoft.com` |Microsoft Update servers<br> |Controller fixed IPs only |
 | `http://*.deploy.akamaitechnologies.com` |Akamai CDN |Controller fixed IPs only |
 | `https://*.partners.extranet.microsoft.com/*`<br>`https://dcupload.microsoft.com/`<br>`https://*.support.microsoft.com/` |Support package |Cloud-enabled network interfaces |
 
@@ -237,7 +239,7 @@ StorSimple device model 8600 includes an Extended Bunch of Disks (EBOD) enclosur
 Carefully review these best practices to ensure the high availability of hosts connected to your StorSimple device.
 
 * Configure StorSimple with [two-node file server cluster configurations][1]. By removing single points of failure and building in redundancy on the host side, the entire solution becomes highly available.
-* Use Continuously available (CA) shares available with Windows Server 2012 (SMB 3.0) for high availability during failover of the storage controllers. For additional information for configuring file server clusters and Continuously Available shares with Windows Server 2012, refer to this [video demo](http://channel9.msdn.com/Events/IT-Camps/IT-Camps-On-Demand-Windows-Server-2012/DEMO-Continuously-Available-File-Shares).
+* Use Continuously available (CA) shares available with Windows Server 2012 (SMB 3.0) for high availability during failover of the storage controllers. For additional information for configuring file server clusters and Continuously Available shares with Windows Server 2012, refer to this [video demo](https://channel9.msdn.com/Events/IT-Camps/IT-Camps-On-Demand-Windows-Server-2012/DEMO-Continuously-Available-File-Shares).
 
 ## Next steps
 

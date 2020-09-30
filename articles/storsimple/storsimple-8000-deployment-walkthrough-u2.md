@@ -1,23 +1,16 @@
 ---
-title: Deploy your StorSimple 8000 series device in Azure portal | Microsoft Docs
+title: Deploy your StorSimple 8000 series device in Azure portal
 description: Describes the steps and best practices for deploying the StorSimple 8000 series device running Update 3 and later, and StorSimple Device Manager service.
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: timlt
-editor: ''
-
-ms.assetid:
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: hero-article
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 07/03/2017
+ms.topic: conceptual
+ms.date: 04/23/2018
 ms.author: alkohli
 
 ---
 # Deploy your on-premises StorSimple device (Update 3 and later)
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
 ## Overview
 Welcome to Microsoft Azure StorSimple device deployment. These deployment tutorials apply to StorSimple 8000 Series Update 3 or later. This series of tutorials includes a configuration checklist, configuration prerequisites, and detailed configuration steps for your StorSimple device.
@@ -46,7 +39,7 @@ Perform these required steps to configure your StorSimple device and connect it 
 | [Step 1: Create a new service](#step-1-create-a-new-service) |Set up cloud management and storage for your StorSimple device. *Skip this step if you have an existing service for other StorSimple devices*. |
 | [Step 2: Get the service registration key](#step-2-get-the-service-registration-key) |Use this key to register & connect your StorSimple device with the management service. |
 | [Step 3: Configure and register the device through Windows PowerShell for StorSimple](#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple) |To complete the setup using the management service, connect the device to your network and register it with Azure. |
-| [Step 4: Complete minimum device setup](#step-4-complete-minimum-device-setup)</br>[Optional: Update your StorSimple device](#scan-for-and-apply-updates) |Use the management service to complete the device setup and enable it to provide storage. |
+| [Step 4: Complete minimum device setup](#step-4-complete-minimum-device-setup)</br>[Best practice: Update your StorSimple device](#scan-for-and-apply-updates) |Use the management service to complete the device setup and enable it to provide storage. |
 | [Step 5: Create a volume container](#step-5-create-a-volume-container) |Create a container to provision volumes. A volume container has storage account, bandwidth, and encryption settings for all the volumes contained in it. |
 | [Step 6: Create a volume](#step-6-create-a-volume) |Provision storage volumes on the StorSimple device for your servers. |
 | [Step 7: Mount, initialize, and format a volume](#step-7-mount-initialize-and-format-a-volume)</br>[Optional: Configure MPIO](storsimple-8000-configure-mpio-windows-server.md) |Connect your servers to the iSCSI storage provided by the device. Optionally configure MPIO to ensure that your servers can tolerate link, network, and interface failure. |
@@ -62,7 +55,7 @@ Perform these required steps to configure your StorSimple device and connect it 
 ## Deployment configuration checklist
 Before you deploy your device, you need to collect information to configure the software on your StorSimple device. Preparing some of this information ahead of time helps streamline the process of deploying the StorSimple device in your environment. Download and use this checklist to note down the configuration details as you deploy your device.
 
-* [Download StorSimple deployment configuration checklist](http://www.microsoft.com/download/details.aspx?id=49159)
+* [Download StorSimple deployment configuration checklist](https://www.microsoft.com/download/details.aspx?id=49159)
 
 ## Deployment prerequisites
 The following sections explain the configuration prerequisites for your StorSimple Device Manager service and your StorSimple device.
@@ -124,6 +117,8 @@ Perform the following steps in the Azure portal to complete the minimum device s
 
 [!INCLUDE [storsimple-8000-complete-minimum-device-setup-u2](../../includes/storsimple-8000-complete-minimum-device-setup-u2.md)]
 
+After you complete the minimum device setup, it is a best practice to [scan for and apply latest updates](#scan-for-and-apply-updates).
+
 ## Step 5: Create a volume container
 A volume container has storage account, bandwidth, and encryption settings for all the volumes contained in it. You will need to create a volume container before you can start provisioning volumes on your StorSimple device.
 
@@ -166,7 +161,7 @@ You have completed the device configuration.
 ## Configure a new storage account for the service
 This is an optional step that you need to perform only if you did not enable the automatic creation of a storage account with your service. A Microsoft Azure storage account is required to create a StorSimple volume container.
 
-If you need to create an Azure storage account in a different region, see [About Azure Storage Accounts](../storage/storage-create-storage-account.md) for step-by-step instructions.
+If you need to create an Azure storage account in a different region, see [About Azure Storage Accounts](../storage/common/storage-create-storage-account.md) for step-by-step instructions.
 
 Perform the following steps in the Azure portal, on the **StorSimple Device Manager service** page.
 
@@ -178,7 +173,7 @@ To connect to Windows PowerShell for StorSimple, you need to use terminal emulat
 [!INCLUDE [Use PuTTY to connect to the device serial console](../../includes/storsimple-use-putty.md)]
 
 ## Scan for and apply updates
-Updating your device can take several hours. For detailed steps on how to install the latest update, go to [Install Update 4](storsimple-8000-install-update-4.md).
+Updating your device can take several hours. For detailed steps on how to install the latest update, go to [Install Update 5](storsimple-8000-install-update-5.md).
 
 
 ## Get the IQN of a Windows Server host
@@ -190,6 +185,19 @@ Perform the following steps to get the iSCSI Qualified Name (IQN) of a Windows h
 Perform the following steps in the Azure portal to create an on-demand manual backup for a single volume on your StorSimple device.
 
 [!INCLUDE [Create a manual backup](../../includes/storsimple-8000-create-manual-backup.md)]
+
+## View the pinout diagram for serial cable for StorSimple
+The following pinout diagram can be used for the StorSimple serial console cable.
+
+Here the DB9 female connector is P1 and the 3.5 mm connector is P2.
+
+![Pinout diagram 1 for StorSimple serial console cable](./media/storsimple-8000-deployment-walkthrough-u2/pinout-diagram1.png)
+
+The tip of the stereo jack is considered to be PIN 3 RX, the middle is PIN 2 TX and the base is PIN 1 GND as shown in the following diagram.
+
+![Pinout diagram 2 for StorSimple serial console cable](./media/storsimple-8000-deployment-walkthrough-u2/pinout-diagram2.png)
+
+
 
 ## Next steps
 * [Configure a StorSimple Cloud Appliance](storsimple-8000-cloud-appliance-u2.md).

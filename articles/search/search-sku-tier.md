@@ -1,112 +1,223 @@
 ---
-title: Choose a SKU or pricing tier for Azure Search | Microsoft Docs
-description: 'Azure Search can be provisioned at these SKUs: Free, Basic, and Standard, where Standard is available in various resource configurations and capacity levels.'
-services: search
-documentationcenter: ''
-author: HeidiSteen
-manager: jhubbard
-editor: ''
-tags: azure-portal
+title: Choose a pricing tier or SKU 
+titleSuffix: Azure Cognitive Search
+description: 'Azure Cognitive Search can be provisioned in these SKUs: Free, Basic, and Standard, and Standard is available in various resource configurations and capacity levels.'
 
-ms.assetid: 8d4b7bca-02a5-43ee-b3f8-03551dfb32fd
-ms.service: search
-ms.devlang: NA
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.date: 10/24/2016
+manager: nitinme
+author: HeidiSteen
 ms.author: heidist
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 07/14/2020
 ---
 
-# Choose a SKU or pricing tier for Azure Search
-In Azure Search, a [service is provisioned](search-create-service-portal.md) at a specific pricing tier or SKU. Options include **Free**, **Basic**, or **Standard**, where **Standard** is available in multiple configurations and capacities.
+# Choose a pricing tier for Azure Cognitive Search
 
-The purpose of this article is to help you choose a tier. If a tier's capacity turns out to be too low, you will need to provision a new service at the higher tier and then reload your indexes. There is no in-place upgrade of the same service from one SKU to another.
+When you create an Azure Cognitive Search service, a [resource is created](search-create-service-portal.md) at a pricing tier (or SKU) that's fixed for the lifetime of the service. Tiers include Free, Basic, Standard, and Storage Optimized. Standard and Storage Optimized are available with several configurations and capacities.
+
+Most customers start with the Free tier so they can evaluate the service. Post-evaluation, it's common to create a second service at one of the higher tiers for development and production deployments.
+
+## Feature availability by tier
+
+The following table describes tier-related feature constraints.
+
+| Feature | Limitations |
+|---------|-------------|
+| [indexers](search-indexer-overview.md) | Indexers are not available on S3 HD. |
+| [AI enrichment](search-security-manage-encryption-keys.md) | Runs on the Free tier but not recommended. |
+| [Customer-managed encryption keys](search-security-manage-encryption-keys.md) | Not available on the Free tier. |
+| [IP firewall access](service-configure-firewall.md) | Not available on the Free tier. |
+| [Integration with Azure Private Link](service-create-private-endpoint.md) | Not available on the Free tier. |
+
+Most features are available on every tier, including Free, but resource-intensive features might not work well unless you give it sufficient capacity. For example, [AI enrichment](cognitive-search-concept-intro.md) has long-running skills that time out on a Free service unless the dataset is small.
+
+## Tiers (SKUs)
+
+Tiers are differentiated by:
+
++ Quantity of indexes and indexers (maximum limits)
++ Size and speed of partitions (physical storage)
+
+The tier you select determines the billable rate. The following screenshot from Azure portal shows the available tiers, minus pricing (which you can find in the portal and on the [pricing page](https://azure.microsoft.com/pricing/details/search/). **Free**, **Basic**, and **Standard** are the most common tiers.
+
+**Free** creates a limited search service for smaller projects, including quickstarts and tutorials. Internally, replicas and partitions are shared among multiple subscribers. You cannot scale a free service or run significant workloads.
+
+**Basic** and **Standard** are the most commonly used billable tiers, with **Standard** being the default. With dedicated resources under your control, you can deploy larger projects, optimize performance, and set the capacity.
+
+![Pricing tiers of Azure Cognitive Search](media/search-sku-tier/tiers.png "Pricing tiers of Azure Cognitive Search")
+
+Some tiers are optimized for certain types of work. For example, **Standard 3 High Density (S3 HD)** is a *hosting mode* for S3, where the underlying hardware is optimized for a large number of smaller indexes and is intended for multitenancy scenarios. S3 HD has the same per-unit charge as S3, but the hardware is optimized for fast file reads on a large number of smaller indexes.
+
+**Storage Optimized** tiers offer larger storage capacity at a lower price per TB than the Standard tiers. The primary tradeoff is higher query latency, which you should validate for your specific application requirements.  To learn more about the performance considerations of this tier, see [Performance and optimization considerations](search-performance-optimization.md).
+
+You can find out more about the various tiers on the [pricing page](https://azure.microsoft.com/pricing/details/search/), in the [Service limits in Azure Cognitive Search](search-limits-quotas-capacity.md) article, and on the portal page when you're provisioning a service.
+
+## Billable events
+
+A solution built on Azure Cognitive Search can incur costs in the following ways:
+
++ Cost of the service itself, running 24x7, at minimum configuration (one partition and replica)
+
++ Adding capacity (replicas or partitions)
+
++ Bandwidth charges (outbound data transfer)
+
++ Add-on services required for specific capabilities or features:
+
+  + AI enrichment (requires [Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/))
+  + knowledge store (requires [Azure Storage](https://azure.microsoft.com/pricing/details/storage/))
+  + incremental enrichment (requires [Azure Storage](https://azure.microsoft.com/pricing/details/storage/), applies to AI enrichment)
+  + customer-managed keys and double encryption (requires [Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/))
+  + private endpoints for a no-internet access model (requires [Azure Private Link](https://azure.microsoft.com/pricing/details/private-link/))
+
+### Service costs
+
+Unlike virtual machines or other resources that can be "paused" to avoid charges, an Azure Cognitive Search service is always available on hardware dedicated for your exclusive use. As such, creating a service is a billable event that starts when you create the service, and ends when you delete the service. 
+
+The minimum charge is the first search unit (one replica x one partition) at the billable rate. This minimum is fixed for the lifetime of the service because the service can't run on anything less than this configuration. Beyond the minimum, you can add replicas and partitions independently of each other. Incremental increases in capacity through replicas and partitions will increase your bill based on the following formula: [(replicas x partitions x rate)](#search-units), where the rate you're charged depends on the pricing tier you select.
+
+When you're estimating the cost of a search solution, keep in mind that pricing and capacity aren't linear. (Doubling capacity more than doubles the cost.) For an example of how of the formula works, see [How to allocate replicas and partitions](search-capacity-planning.md#how-to-allocate-replicas-and-partitions).
+
+### Bandwidth charges
+
+Using [indexers](search-indexer-overview.md) might affect billing, depending on the location of your services. You can eliminate data egress charges entirely if you create the Azure Cognitive Search service in the same region as your data. Here's some information from the [bandwidth pricing page](https://azure.microsoft.com/pricing/details/bandwidth/):
+
++ Microsoft doesn't charge for any inbound data to any service on Azure, or for any outbound data from Azure Cognitive Search.
++ In multiservice solutions, there's no charge for data crossing the wire when all services are in the same region.
+
+Charges do apply for outbound data if services are in different regions. These charges aren't actually part of your Azure Cognitive Search bill. They're mentioned here because if you're using data or AI-enriched indexers to pull data from different regions, you'll see costs reflected in your overall bill.
+
+### AI enrichment with Cognitive Services
+
+For [AI enrichment](cognitive-search-concept-intro.md), you should plan to [attach a billable Azure Cognitive Services resource](cognitive-search-attach-cognitive-services.md), in the same region as Azure Cognitive Search, at the S0 pricing tier for pay-as-you-go processing. There's no fixed cost associated with attaching Cognitive Services. You pay only for the processing you need.
+
+| Operation | Billing impact |
+|-----------|----------------|
+| Document cracking, text extraction | Free |
+| Document cracking, image extraction | Billed according to the number of images extracted from your documents. In an [indexer configuration](/rest/api/searchservice/create-indexer#indexer-parameters), **imageAction** is the parameter that triggers image extraction. If **imageAction** is set to "none" (the default), you won't be charged for image extraction. The rate for image extraction is documented on the [pricing details](https://azure.microsoft.com/pricing/details/search/) page for Azure Cognitive Search.|
+| [Built-in cognitive skills](cognitive-search-predefined-skills.md) | Billed at the same rate as if you had performed the task by using Cognitive Services directly. |
+| Custom skills | A custom skill is functionality you provide. The cost of using a custom skill depends entirely on whether custom code is calling other metered services. |
+
+The [incremental enrichment (preview)](cognitive-search-incremental-indexing-conceptual.md) feature allows you to provide a cache that enables the indexer to be more efficient at running only the cognitive skills that are necessary if you modify your skillset in the future, saving you time and money.
+
+<a name="search-units"></a>
+
+## Billing formula (R x P = SU)
+
+The most important billing concept to understand for Azure Cognitive Search operations is the *search unit* (SU). Because Azure Cognitive Search depends on both replicas and partitions for indexing and queries, it doesn't make sense to bill by just one or the other. Instead, billing is based on a composite of both.
+
+SU is the product of the *replicas* and *partitions* used by a service: **(R x P = SU)**.
+
+Every service starts with one SU (one replica multiplied by one partition) as the minimum. The maximum for any service is 36 SUs. This maximum can be reached in multiple ways: 6 partitions x 6 replicas, or 3 partitions x 12 replicas, for example. It's common to use less than total capacity (for example, a 3-replica, 3-partition service billed as 9 SUs). See the [Partition and replica combinations](search-capacity-planning.md#chart) chart for valid combinations.
+
+The billing rate is hourly per SU. Each tier has a progressively higher rate. Higher tiers come with larger and speedier partitions, and this contributes to an overall higher hourly rate for that tier. You can view the rates for each tier on the [pricing details](https://azure.microsoft.com/pricing/details/search/) page.
+
+Most customers bring just a portion of total capacity online, holding the rest in reserve. For billing, the number of partitions and replicas that you bring online, calculated by the SU formula, determines what you pay on an hourly basis.
+
+## How to manage costs
+
+The following suggestions can help you lower costs or manage costs more effectively:
+
++ Create all resources in the same region, or in as few regions as possible, to minimize or eliminate bandwidth charges.
+
++ Consolidate all services into one resource group, such as Azure Cognitive Search, Cognitive Services, and any other Azure services used in your solution. In the Azure portal, find the resource group and use the **Cost Management** commands for insight into actual and projected spending.
+
++ Consider Azure Web App for your front-end application so that requests and responses stay within the data center boundary.
+
++ Scale up for resource-intensive operations like indexing, and then readjust downwards for regular query workloads. Start with the minimum configuration for Azure Cognitive Search (one SU composed of one partition and one replica), and then monitor user activity to identify usage patterns that would indicate a need for more capacity. If there is a predictable pattern, you might be able to synchronize scale with activity (you would need to write code to automate this).
+
+Additionally, visit [Billing and cost management](../cost-management-billing/manage/getting-started.md) for built-in tools and features related to spending.
+
+Shutting down a search service on a temporary basis is not possible. Dedicated resources are always operational, allocated for your exclusive use for the lifetime of your service. Deleting a service is permanent and also deletes its associated data.
+
+In terms of the service itself, the only way to lower your bill is to reduce replicas and partitions to a level that still provides acceptable performance and [SLA compliance](https://azure.microsoft.com/support/legal/sla/search/v1_0/), or create a service at a lower tier (S1 hourly rates are lower than S2 or S3 rates). Assuming you provision your service at the lower end of your load projections, if you outgrow the service, you can create a second larger-tiered service, rebuild your indexes on the second service, and then delete the first one.
+
+## How to evaluate capacity requirements
+
+In Azure Cognitive Search, capacity is structured as *replicas* and *partitions*.
+
++ Replicas are instances of the search service. Each replica hosts one load-balanced copy of an index. For example, a service with six replicas has six copies of every index loaded in the service.
+
++ Partitions store indexes and automatically split searchable data. Two partitions split your index in half, three partitions split it into thirds, and so on. In terms of capacity, *partition size* is the primary differentiating feature among tiers.
 
 > [!NOTE]
-> After you choose a tier and [provision a search service](search-create-service-portal.md), you can increase replica and partition counts within the service. For guidance, see [Scale resource levels for query and indexing workloads](search-capacity-planning.md).
+> All Standard and Storage Optimized tiers support [flexible combinations of replicas and partitions](search-capacity-planning.md#chart) so you can [optimize your system for speed or storage](search-performance-optimization.md) by changing the balance. The Basic tier offers up to three replicas for high availability but has only one partition. Free tiers don't provide dedicated resources: computing resources are shared by multiple subscribers.
+
+### Evaluating capacity
+
+Capacity and the costs of running the service go hand in hand. Tiers impose limits on two levels: storage and resources. You should think about both because whichever limit you reach first is the effective limit.
+
+Business requirements typically dictate the number of indexes you'll need. For example, you might need a global index for a large repository of documents. Or you might need  multiple indexes based on region, application, or business niche.
+
+To determine the size of an index, you have to [build one](search-what-is-an-index.md). Its size will be based on imported data and index configuration such as whether you enable suggesters, filtering, and sorting.
+
+For full text search, the primary data structure is an [inverted index](https://en.wikipedia.org/wiki/Inverted_index) structure, which has different characteristics than source data. For an inverted index, size and complexity are determined by content, not necessarily by the amount of data that you feed into it. A large data source with high redundancy could result in a smaller index than a smaller dataset that contains highly variable content. So it's rarely possible to infer index size based on the size of the original dataset.
+
+> [!NOTE] 
+> Even though estimating future needs for indexes and storage can feel like guesswork, it's worth doing. If a tier's capacity turns out to be too low, you'll need to provision a new service at a higher tier and then [reload your indexes](search-howto-reindex.md). There's no in-place upgrade of a service from one SKU to another.
 >
->
 
-## How to approach a pricing tier decision
-In Azure Search, the tier determines capacity, not feature availability. Generally, features are available at every tier, including preview features. The one exception is no support for indexers in S3 HD.
+### Estimate with the Free tier
 
-> [!TIP]
-> We recommend that you always provision a **Free** service (one per subscription, with no expiration) so that its readily available for light-weight projects. Use the **Free** service for testing and evaluation; create a second billable service at the **Basic** or **Standard** tier for production or larger test workloads.
->
->
+One approach for estimating capacity is to start with the Free tier. Remember that the Free service offers up to three indexes, 50 MB of storage, and 2 minutes of indexing time. It can be challenging to estimate a projected index size with these constraints, but these are the steps:
 
-Capacity and costs of running the service go hand-in-hand. Information in this article can help you decide which SKU delivers the right balance, but for any of it to be useful, you need at least rough estimates on the following:
++ [Create a free service](search-create-service-portal.md).
++ Prepare a small, representative dataset.
++ [Build an initial index in the portal](search-get-started-portal.md) and note its size. Features and attributes have an impact on storage. For example, adding suggesters (search-as-you-type queries) will increase storage requirements. Using the same data set, you might try creating multiple versions of an index, with different attributes on each field, to see how storage requirements vary. For more information, see ["Storage implications" in Create a basic index](search-what-is-an-index.md#index-size).
 
-* Number and size of indexes you plan to create
-* Number and size of documents to upload
-* Some idea of query volume, in terms of Queries Per Second (QPS)
+With a rough estimate in hand, you might double that amount to budget for two indexes (development and production) and then choose your tier accordingly.
 
-Number and size are important because maximum limits are reached through a hard limit on the count of indexes or documents in a service, or on resources (storage or replicas) used by the service. The actual limit for your service is whichever gets used up first: resources or objects.
+### Estimate with a billable tier
 
-With estimates in hand, the following steps should simplify the process:
+Dedicated resources can accommodate larger sampling and processing times for more realistic estimates of index quantity, size, and query volumes during development. Some customers jump right in with a billable tier and then re-evaluate as the development project matures.
 
-* **Step 1** Review the SKU descriptions below to learn about available options.
-* **Step 2** Answer the questions below to arrive at a preliminary decision.
-* **Step 3** Finalize your decision by reviewing hard limits on storage and pricing.
+1. [Review service limits at each tier](./search-limits-quotas-capacity.md#index-limits) to determine whether lower tiers can support the number of indexes you need. Across the Basic, S1, and S2 tiers, index limits are 15, 50, and 200, respectively. The Storage Optimized tier has a limit of 10 indexes because it's designed to support a low number of very large indexes.
 
-## SKU descriptions
-The following table provides descriptions of each tier.
+1. [Create a service at a billable tier](search-create-service-portal.md):
 
-| Tier | Primary scenarios |
-| --- | --- |
-| **Free** |A shared service, at no charge, used for evaluation, investigation, or small workloads. Because it's shared with other subscribers, query throughput and indexing varies based on who else is using the service. Capacity is small (50 MB or 3 indexes with up 10,000 documents each). |
-| **Basic** |Small production workloads on dedicated hardware. Highly available. Capacity is up to 3 replicas and 1 partition (2 GB). |
-| **S1** |Standard 1 supports flexible combinations of partitions (12) and replicas (12), used for medium production workloads on dedicated hardware. You can allocate partitions and replicas in combinations supported by a maximum number of 36 billable search units. At this level, partitions are 25 GB each and QPS is approximately 15 queries per second. |
-| **S2** |Standard 2 runs larger production workloads using the same 36 search units as S1 but with larger sized partitions and replicas. At this level, partitions are 100 GB each and QPS is about 60 queries per second. |
-| **S3** |Standard 3 runs proportionally larger production workloads on higher end systems, in configurations of up to 12 partitions or 12 replicas under 36 search units. At this level, partitions are 200 GB each and QPS is more than 60 queries per second. |
-| **S3 HD** |Standard 3 High Density is designed for a large number of smaller indexes. You can have up to 3 partitions, at 200 GB each. QPS is more than 60 queries per second. |
+    + Start low, at Basic or S1, if you're not sure about the projected load.
+    + Start high, at S2 or even S3, if you know you're going to have large-scale indexing and query loads.
+    + Start with Storage Optimized, at L1 or L2, if you're indexing a large amount of data and query load is relatively low, as with an internal business application.
+
+1. [Build an initial index](search-what-is-an-index.md) to determine how source data translates to an index. This is the only way to estimate index size.
+
+1. [Monitor storage, service limits, query volume, and latency](search-monitor-usage.md) in the portal. The portal shows you queries per second, throttled queries, and search latency. All of these values can help you decide if you selected the right tier. 
+
+Index number and size are equally important to your analysis. This is because maximum limits are reached through full utilization of storage (partitions) or by maximum limits on resources (indexes, indexers, and so forth), whichever comes first. The portal helps you keep track of both, showing current usage and maximum limits side by side on the Overview page.
 
 > [!NOTE]
-> Replica and partition maximums are billed out as search units (36 unit maximum per service), which imposes a lower effective limit than what the maximum implies at face value. For example, to use the maximum of 12 replicas, you could have at most 3 partitions (12 * 3 = 36 units). Similarly, to use maximum partitions, reduce replicas to 3. See [Scale resource levels for query and indexing workloads in Azure Search](search-capacity-planning.md) for a chart on allowable combinations.
+> Storage requirements can be inflated if documents contain extraneous data. Ideally, documents contain only the data that you need for the search experience. Binary data isn't searchable and should be stored separately (maybe in an Azure table or blob storage). A field should then be added in the index to hold a URL reference to the external data. The maximum size of an individual document is 16 MB (or less if you're bulk uploading multiple documents in one request). For more information, see [Service limits in Azure Cognitive Search](search-limits-quotas-capacity.md).
 >
->
 
-## Review limits per tier
-The following chart is a subset of the limits from [Service Limits in Azure Search](search-limits-quotas-capacity.md). It lists the factors most likely to impact a SKU decision. You can refer to this chart when reviewing the questions below.
+**Query volume considerations**
 
-| Resource | Free | Basic | S1 | S2 | S3 | S3 HD |
-| --- | --- | --- | --- | --- | --- | --- |
-| Service Level Agreement (SLA) |No <sup>1</sup> |Yes |Yes |Yes |Yes |Yes |
-| Index limits |3 |5 |50 |200 |200 |1000 <sup>2</sup> |
-| Document limits |10,000 total |1 million per service |15 million per partition |60 million per partition |120 million per partition |1 million per index |
-| Maximum partitions |N/A |1 |12 |12 |12 |3 <sup>2</sup> |
-| Partition size |50 MB total |2 GB per service |25 GB per partition |100 GB per partition (up to a maximum of 1.2 TB per service) |200 GB per partition (up to a maximum of 2.4 TB per service) |200 GB (up to a maximum of 600 GB per service) |
-| Maximum replicas |N/A |3 |12 |12 |12 |12 |
-| Queries per second |N/A |~3 per replica |~15 per replica |~60 per replica |>60 per replica |>60 per replica |
+Queries per second (QPS) is an important metric during performance tuning, but it's generally only a tier consideration if you expect high query volume at the outset.
 
-<sup>1</sup> Free tier and preview features do not come with service level agreements (SLAs). For all billable tiers, SLAs take effect when you provision sufficient redundancy for your service. Two or more replicas are required for query (read) SLA. Three or more replicas are required for query and indexing (read-write) SLA. The number of partitions is not an SLA consideration. 
+The Standard tiers can provide a balance of replicas and partitions. You can increase query turnaround by adding replicas for load balancing or add partitions for parallel processing. You can then tune for performance after the service is provisioned.
 
-<sup>2</sup> S3 and S3 HD are backed by identical high capacity infrastructure but each one reaches its maximum limit in different ways. S3 targets a smaller number of very large indexes. As such, its maximum limit is resource-bound (2.4 TB for each service). S3 HD targets a large number of very small indexes. At 1,000 indexes, S3 HD reaches its limits in the form of index constraints. If you are an S3 HD customer who requires more than 1,000 indexes, contact Microsoft Support for information on how to proceed.
+If you expect high sustained query volumes from the outset, you should consider higher Standard tiers, backed by more powerful hardware. You can then take partitions and replicas offline, or even switch to a lower-tier service, if those query volumes don't occur. For more information on how to calculate query throughput, see [Azure Cognitive Search performance and optimization](search-performance-optimization.md).
 
-## Eliminate SKUs that don't meet requirements
-The following questions can help you arrive at the right SKU decision for your workload.
+The Storage Optimized tiers are useful for large data workloads, supporting more overall available index storage for when query latency requirements are less important. You should still use additional replicas for load balancing and additional partitions for parallel processing. You can then tune for performance after the service is provisioned.
 
-1. Do you have **Service Level Agreement (SLA)** requirements? You can use any billable tier (Basic on up), but you must configure your service for redundancy. Two or more replicas are required for query (read) SLA. Three or more replicas are required for query and indexing (read-write) SLA. The number of partitions is not an SLA consideration.
-2. **How many indexes** do you require? One of the biggest variables factoring into a SKU decision is the number of indexes supported by each SKU. Index support is at markedly different levels in the lower pricing tiers. Requirements on number of indexes could be a primary determinant of a SKU decision.
-3. **How many documents** will be loaded into each index? The number and size of documents will determine the eventual size of the index. Assuming you can estimate the projected size of the index, you can compare that number against the partition size per SKU, extended by the number of partitions required to store an index of that size.
-4. **What is the expected query load**? Once storage requirements are understood, consider query workloads. S2 and both S3 SKUs offer near-equivalent throughput, but SLA requirements will rule out any preview SKUs.
-5. If you are considering the S2 or S3 tier, determine whether you require [indexers](search-indexer-overview.md). Indexers are not yet available for the S3 HD tier. Alternative approach is to use a push model for index updates, where you write application code to push a data set to an index.
+**Service-level agreements**
 
-Most customers can rule a specific SKU in or out based on their answers to the above questions. If you still aren't sure which SKU to go with, you can post questions to MSDN or StackOverflow forums, or contact Azure Support for further guidance.
+The Free tier and preview features don't provide [service-level agreements (SLAs)](https://azure.microsoft.com/support/legal/sla/search/v1_0/). For all billable tiers, SLAs take effect when you provision sufficient redundancy for your service. You need to have two or more replicas for query (read) SLAs. You need to have three or more replicas for query and indexing (read-write) SLAs. The number of partitions doesn't affect SLAs.
 
-## Decision validation: does the SKU offer sufficient storage and QPS?
-As a last step, revisit the [pricing page](https://azure.microsoft.com/pricing/details/search/) and the [per-service and per-index sections in Service Limits](search-limits-quotas-capacity.md) to double-check your estimates against subscription and service limits.
+## Tips for tier evaluation
 
-If either the price or storage requirements are out of bounds, you might want to refactor the workloads among multiple smaller services (for example). On more granular level, you could redesign indexes to be smaller, or use filters to make queries more efficient.
++ Allow metrics to build around queries, and collect data around usage patterns (queries during business hours, indexing during off-peak hours). Use this data to inform service provisioning decisions. Though it's not practical at an hourly or daily cadence, you can dynamically adjust partitions and resources to accommodate planned changes in query volumes. You can also accommodate unplanned but sustained changes if levels hold long enough to warrant taking action.
+
++ Remember that the only downside of under provisioning is that you might have to tear down a service if actual requirements are greater than your predictions. To avoid service disruption, you would create a new service at a higher tier and run it side by side until all apps and requests target the new endpoint.
+
+## Next steps
+
+Start with a Free tier and build an initial index by using a subset of your data to understand its characteristics. The data structure in Azure Cognitive Search is an inverted index structure. The size and complexity of an inverted index is determined by content. Remember that highly redundant content tends to result in a smaller index than highly irregular content. So content characteristics rather than the size of the dataset determine index storage requirements.
+
+After you have an initial estimate of your index size, [provision a billable service](search-create-service-portal.md) on one of the tiers discussed in this article: Basic, Standard, or Storage Optimized. Relax any artificial constraints on data sizing and [rebuild your index](search-howto-reindex.md) to include all the data that you want to be searchable.
+
+[Allocate partitions and replicas](search-capacity-planning.md) as needed to get the performance and scale you require.
+
+If performance and capacity are fine, you're done. Otherwise, re-create a search service at a different tier that more closely aligns with your needs.
 
 > [!NOTE]
-> Storage requirements can be over-inflated if documents contain extraneous data. Ideally, documents contain only searchable data or metadata. Binary data is non-searchable and should be stored separately (perhaps in an Azure table or blob storage) with a field in the index to hold a URL reference to the external data. The maximum size of an individual document is 16 MB (or less if you are bulk uploading multiple documents in one request). See [Service limits in Azure Search](search-limits-quotas-capacity.md) for more information.
->
->
-
-## Next step
-Once you know which SKU is the right fit, continue on with these steps:
-
-* [Create a search service in the portal](search-create-service-portal.md)
-* [Change the allocation of partitions and replicas to scale your service](search-capacity-planning.md)
+> If you have questions, post to [StackOverflow](https://stackoverflow.com/questions/tagged/azure-search) or [contact Azure support](https://azure.microsoft.com/support/options/).

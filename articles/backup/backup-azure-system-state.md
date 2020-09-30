@@ -1,142 +1,98 @@
 ---
-title: Back up Windows system state to Azure | Microsoft Docs
-description: Learn to back up the system state of Windows Server and/or Windows computers to Azure.
-services: backup
-documentationcenter: ''
-author: saurabhsensharma
-manager: carmonm
-editor: ''
-keywords: how to backup; how to back up; backup files and folders
-
-ms.assetid: 5b15ebf1-2214-4722-b937-96e2be8872bb
-ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 07/31/2017
-ms.author: saurse;markgal
-
+title: Back up Windows system state to Azure
+description: Learn how to back up the system state of Windows Server computers to Azure.
+ms.topic: conceptual
+ms.date: 05/23/2018
 ---
-# Back up Windows system state in Resource Manager deployment
-This article explains how to back up your Windows Server system state to Azure. It's a tutorial intended to walk you through the basics.
+# Back up Windows system state to Azure
 
-If you want to know more about Azure Backup, read this [overview](backup-introduction-to-azure-backup.md).
+This article explains how to back up your Windows Server system state to Azure. It's intended to walk you through the basics.
+
+If you want to know more about Azure Backup, read this [overview](backup-overview.md).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) that lets you access any Azure service.
 
-## Create a recovery services vault
-To back up your files and folders, you need to create a Recovery Services vault in the region where you want to store the data. You also need to determine how you want your storage replicated.
+[!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
-### To create a Recovery Services vault
-1. If you haven't already done so, sign in to the [Azure Portal](https://portal.azure.com/) using your Azure subscription.
-2. On the Hub menu, click **More services** and in the list of resources, type **Recovery Services** and click **Recovery Services vaults**.
+## Set storage redundancy for the vault
 
-    ![Create Recovery Services Vault step 1](./media/backup-try-azure-backup-in-10-mins/open-rs-vault-list.png) <br/>
-
-    If there are recovery services vaults in the subscription, the vaults are listed.
-3. On the **Recovery Services vaults** menu, click **Add**.
-
-    ![Create Recovery Services Vault step 2](./media/backup-try-azure-backup-in-10-mins/rs-vault-menu.png)
-
-    The Recovery Services vault blade opens, prompting you to provide a **Name**, **Subscription**, **Resource group**, and **Location**.
-
-    ![Create Recovery Services Vault step 3](./media/backup-try-azure-backup-in-10-mins/rs-vault-step-3.png)
-
-4. For **Name**, enter a friendly name to identify the vault. The name needs to be unique for the Azure subscription. Type a name that contains between 2 and 50 characters. It must start with a letter, and can contain only letters, numbers, and hyphens.
-
-5. In the **Subscription** section, use the drop-down menu to choose the Azure subscription. If you use only one subscription, that subscription appears and you can skip to the next step. If you are not sure which subscription to use, use the default (or suggested) subscription. There are multiple choices only if your organizational account is associated with multiple Azure subscriptions.
-
-6. In the **Resource group** section:
-
-    * select **Create new** if you want to create a Resource group.
-    Or
-    * select **Use existing** and click the drop-down menu to see the available list of Resource groups.
-
-  For complete information on Resource groups, see the [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md).
-
-7. Click **Location** to select the geographic region for the vault. This choice determines the geographic region where your backup data is sent.
-
-8. At the bottom of the Recovery Services vault blade, click **Create**.
-
-    It can take several minutes for the Recovery Services vault to be created. Monitor the status notifications in the upper right-hand area of the portal. Once your vault is created, it appears in the list of Recovery Services vaults. If after several minutes you don't see your vault, click **Refresh**.
-
-    ![Click Refresh button](./media/backup-try-azure-backup-in-10-mins/refresh-button.png)</br>
-
-    Once you see your vault in the list of Recovery Services vaults, you are ready to set the storage redundancy.
-
-### Set storage redundancy for the vault
 When you create a Recovery Services vault, make sure storage redundancy is configured the way you want.
 
-1. From the **Recovery Services vaults** blade, click the new vault.
+1. From the **Recovery Services vaults** pane, select the new vault.
 
     ![Select the new vault from the list of Recovery Services vault](./media/backup-try-azure-backup-in-10-mins/rs-vault-list.png)
 
-    When you select the vault, the **Recovery Services vault** blade narrows, and the Settings blade (*which has the name of the vault at the top*) and the vault details blade open.
+    When you select the vault, the **Recovery Services vault** pane narrows, and the Settings pane (*which has the name of the vault at the top*) and the vault details pane open.
 
     ![View the storage configuration for new vault](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration-2.png)
-2. In the new vault's Settings blade, use the vertical slide to scroll down to the Manage section, and click **Backup Infrastructure**.
-    The Backup Infrastructure blade opens.
-3. In the Backup Infrastructure blade, click **Backup Configuration** to open the **Backup Configuration** blade.
+2. In the new vault's Settings pane, use the vertical slide to scroll down to the Manage section, and select **Backup Infrastructure**.
+    The Backup Infrastructure pane opens.
+3. In the Backup Infrastructure pane, select **Backup Configuration** to open the **Backup Configuration** pane.
 
     ![Set the storage configuration for new vault](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration.png)
 4. Choose the appropriate storage replication option for your vault.
 
-    ![storage configuration choices](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
+    ![Storage configuration choices](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration-for-vault.png)
 
-    By default, your vault has geo-redundant storage. If you use Azure as a primary backup storage endpoint, continue to use **Geo-redundant**. If you don't use Azure as a primary backup storage endpoint, then choose **Locally-redundant**, which reduces the Azure storage costs. Read more about [geo-redundant](../storage/storage-redundancy.md#geo-redundant-storage) and [locally redundant](../storage/storage-redundancy.md#locally-redundant-storage) storage options in this [Storage redundancy overview](../storage/storage-redundancy.md).
+    By default, your vault has geo-redundant storage. If you use Azure as a primary backup storage endpoint, continue to use **Geo-redundant**. If you don't use Azure as a primary backup storage endpoint, then choose **Locally-redundant**, which reduces the Azure storage costs. Read more about [geo-redundant](../storage/common/storage-redundancy.md#geo-redundant-storage), [locally redundant](../storage/common/storage-redundancy.md#locally-redundant-storage) and [zone-redundant](../storage/common/storage-redundancy.md#zone-redundant-storage) storage options in this [Storage redundancy overview](../storage/common/storage-redundancy.md).
 
 Now that you've created a vault, configure it for backing up Windows System State.
 
 ## Configure the vault
-1. On the Recovery Services vault blade (for the vault you just created), in the Getting Started section, click **Backup**, then on the **Getting Started with Backup** blade, select **Backup goal**.
 
-    ![Open backup goal blade](./media/backup-try-azure-backup-in-10-mins/open-backup-settings.png)
+1. On the Recovery Services vault pane (for the vault you just created), in the Getting Started section, select **Backup**, then on the **Getting Started with Backup** pane, select **Backup goal**.
 
-    The **Backup Goal** blade opens.
+    ![Open backup settings](./media/backup-try-azure-backup-in-10-mins/open-backup-settings.png)
 
-    ![Open backup goal blade](./media/backup-try-azure-backup-in-10-mins/backup-goal-blade.png)
+    The **Backup Goal** pane opens.
+
+    ![Open backup goal pane](./media/backup-try-azure-backup-in-10-mins/backup-goal-blade.png)
 
 2. From the **Where is your workload running?** drop-down menu, select **On-premises**.
 
-    You choose **On-premises** because your Windows Server or Windows computer is a physical machine that is not in Azure.
+    You choose **On-premises** because your Windows Server or Windows computer is a physical machine that isn't in Azure.
 
-3. From the **What do you want to backup?** menu, select **System State**, and click **OK**.
+3. From the **What do you want to back up?** menu, select **System State**, and select **OK**.
 
     ![Configuring files and folders](./media/backup-azure-system-state/backup-goal-system-state.png)
 
-    After clicking OK, a checkmark appears next to **Backup goal**, and the **Prepare infrastructure** blade opens.
+    After selecting **OK**, a checkmark appears next to **Backup goal**, and the **Prepare infrastructure** pane opens.
 
     ![Backup goal configured, next prepare infrastructure](./media/backup-try-azure-backup-in-10-mins/backup-goal-configed.png)
 
-4. On the **Prepare infrastructure** blade, click **Download Agent for Windows Server or Windows Client**.
+4. On the **Prepare infrastructure** pane, select **Download Agent for Windows Server or Windows Client**.
 
-    ![prepare infrastructure](./media/backup-try-azure-backup-in-10-mins/choose-agent-for-server-client.png)
+    ![Prepare infrastructure](./media/backup-try-azure-backup-in-10-mins/choose-agent-for-server-client.png)
 
-    If you are using Windows Server Essential, then choose to download the agent for Windows Server Essential. A pop-up menu prompts you to run or save MARSAgentInstaller.exe.
+    If you're using Windows Server Essential, then choose to download the agent for Windows Server Essential. A pop-up menu prompts you to run or save MARSAgentInstaller.exe.
 
     ![MARSAgentInstaller dialog](./media/backup-try-azure-backup-in-10-mins/mars-installer-run-save.png)
 
-5. In the download pop-up menu, click **Save**.
+5. In the download pop-up menu, select **Save**.
 
-    By default, the **MARSagentinstaller.exe** file is saved to your Downloads folder. When the installer completes, you will see a pop-up asking if you want to run the installer, or open the folder.
+    By default, the **MARSagentinstaller.exe** file is saved to your Downloads folder. When the installer completes, you'll see a pop-up asking if you want to run the installer, or open the folder.
 
-    ![prepare infrastructure](./media/backup-try-azure-backup-in-10-mins/mars-installer-complete.png)
+    ![MARS installer is complete](./media/backup-try-azure-backup-in-10-mins/mars-installer-complete.png)
 
-    You don't need to install the agent yet. You can install the agent after you have downloaded the vault credentials.
+    You don't need to install the agent yet. You can install the agent after you've downloaded the vault credentials.
 
-6. On the **Prepare infrastructure** blade, click **Download**.
+6. On the **Prepare infrastructure** pane, select **Download**.
 
     ![download vault credentials](./media/backup-try-azure-backup-in-10-mins/download-vault-credentials.png)
 
-    The vault credentials download to your Downloads folder. After the vault credentials finish downloading, you see a pop-up asking if you want to open or save the credentials. Click **Save**. If you accidentally click **Open**, let the dialog that attempts to open the vault credentials, fail. You cannot open the vault credentials. Proceed to the next step. The vault credentials are in the Downloads folder.   
+    The vault credentials download to your **Downloads** folder. After the vault credentials finish downloading, you'll see a pop-up asking if you want to open or save the credentials. Select **Save**. If you accidentally select **Open**, let the dialog that attempts to open the vault credentials, fail. You won't be able to open the vault credentials. Continue to the next step. The vault credentials are in the **Downloads** folder.
 
     ![vault credentials finished downloading](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
+   > [!NOTE]
+   > The vault credentials must be saved only to a location that's local to the Windows Server on which you intend to use the agent.
+   >
+
+[!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
 ## Install and register the agent
 
 > [!NOTE]
-> Enabling backup through the Azure portal is not available, yet. Use the Microsoft Azure Recovery Services Agent to back up Windows Server System State.
+> Enabling backup through the Azure portal isn't available. Use the Microsoft Azure Recovery Services Agent to back up Windows Server System State.
 >
 
 1. Locate and double-click the **MARSagentinstaller.exe** from the Downloads folder (or other saved location).
@@ -154,46 +110,25 @@ Now that you've created a vault, configure it for backing up Windows System Stat
    * Save the encryption passphrase in a secure location.
 
      > [!NOTE]
-     > If you lose or forget the passphrase, Microsoft cannot help recover the backup data. Save the file in a secure location. It is required to restore a backup.
+     > If you lose or forget the passphrase, Microsoft can't help recover the backup data. Save the file in a secure location. It's required to restore a backup.
      >
      >
 
 The agent is now installed and your machine is registered to the vault. You're ready to configure and schedule your backup.
 
-## Back up Windows Server System State (Preview)
-The initial backup includes three tasks:
+## Back up Windows Server System State
 
-* Enable System State Backup using the Azure Backup agent
+The initial backup includes two tasks:
+
 * Schedule the backup
-* Back up files and folders for the first time
+* Back up  System State for the first time
 
 To complete the initial backup, use the Microsoft Azure Recovery Services agent.
 
-### To enable System State backup using the Azure Backup agent
-
-1. In a PowerShell session, run the following command to stop the Azure Backup engine.
-
-  ```
-  PS C:\> Net stop obengine
-  ```
-
-2. Open the Windows Registry.
-
-  ```
-  PS C:\> regedit.exe
-  ```
-
-3. Add the following registry key with the specified DWord Value.
-
-  | Registry path | Registry key | DWord value |
-  |---------------|--------------|-------------|
-  | HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider | TurnOffSSBFeature | 2 |
-
-4. Restart the Backup engine by executing the following command in an elevated command prompt.
-
-  ```
-  PS C:\> Net start obengine
-  ```
+> [!NOTE]
+> You can back up System State on Windows Server 2008 R2 through Windows Server 2016. System State back up isn't supported on client SKUs. System State isn't shown as an option for Windows clients, or Windows Server 2008 SP2 machines.
+>
+>
 
 ### To schedule the backup job
 
@@ -201,118 +136,51 @@ To complete the initial backup, use the Microsoft Azure Recovery Services agent.
 
     ![Launch the Azure Recovery Services agent](./media/backup-try-azure-backup-in-10-mins/snap-in-search.png)
 
-2. In the Recovery Services agent, click **Schedule Backup**.
+2. In the Recovery Services agent, select **Schedule Backup**.
 
-    ![Schedule a Windows Server back up](./media/backup-try-azure-backup-in-10-mins/schedule-first-backup.png)
+    ![Schedule a Windows Server backup](./media/backup-try-azure-backup-in-10-mins/schedule-first-backup.png)
 
-3. On the Getting started page of the Schedule Backup Wizard, click **Next**.
+3. On the **Getting started** page of the Schedule Backup Wizard, select **Next**.
 
-4. On the Select Items to Backup page, click **Add Items**.
+4. On the **Select Items to Backup** page, select **Add Items**.
 
-5. Select **System State** and then click **OK**.
+5. Select **System State** and then select **OK**.
 
-6. Click **Next**.
+6. Select **Next**.
 
-7. The System State Backup and Retention schedule is automatically set to back up every Sunday at 9:00 PM local time, and the retention period is set to 60 days.
+7. Select the required Backup frequency and the retention policy for your System State backups in the subsequent pages.
 
-   > [!NOTE]
-   > System State backup and retention policy is automatically configured. If you back up Files and Folders in addition to the Windows Server System State, specify only the Backup and Retention policy for file backups from the wizard. 
-   >
+8. On the Confirmation page, review the information, and then select **Finish**.
 
-8. On the Confirmation page, review the information, and then click **Finish**.
-
-9. After the wizard finishes creating the backup schedule, click **Close**.
+9. After the wizard finishes creating the backup schedule, select **Close**.
 
 ### To back up Windows Server System State for the first time
 
 1. Make sure there are no pending updates for Windows Server that require a reboot.
 
-2. In the Recovery Services agent, click **Back Up Now** to complete the initial seeding over the network.
+2. In the Recovery Services agent, select **Back Up Now** to complete the initial seeding over the network.
 
-    ![Windows Server back up now](./media/backup-try-azure-backup-in-10-mins/backup-now.png)
+    ![Windows Server back-up now](./media/backup-try-azure-backup-in-10-mins/backup-now.png)
 
-3. On the Confirmation page, review the settings that the Back Up Now Wizard will use to back up the machine. Then click **Back Up**.
+3. Select **System State** on the **Select Backup Item** screen that appears and select **Next**.
 
-4. Click **Close** to close the wizard. If you close the wizard before the backup process finishes, the wizard continues to run in the background.
+4. On the Confirmation page, review the settings that the Back Up Now Wizard will use to back up the machine. Then select **Back Up**.
 
-5. If you back up Files and Folders on your server, in addition to the Windows Server System State, the Backup Now wizard will only back up files. To perform an ad hoc System State back up, use the following PowerShell command:
+5. Select **Close** to close the wizard. If you close the wizard before the backup process finishes, the wizard continues to run in the background.
+    > [!NOTE]
+    > The MARS Agent triggers `SFC /verifyonly` as part of the prechecks before every system state backup. This is to ensure that files backed up as part of System State have the correct versions corresponding to the Windows version. Learn more about System File Checker (SFC) in [this article](/windows-server/administration/windows-commands/sfc).
+    >
 
-    ```
-    PS C:\> Start -OBSystemStateBackup
-    ```
-
-  After the initial backup is completed, the **Job completed** status appears in the Backup console.
+After the initial backup is completed, the **Job completed** status appears in the Backup console.
 
   ![IR complete](./media/backup-try-azure-backup-in-10-mins/ircomplete.png)
 
-## Frequently asked questions
-
-The following questions and answers provide supplementary information.
-
-### What is the Staging Volume?
-
-The Staging Volume represents the intermediate location where the natively available, Windows Server Backup stages the System State Backup. Azure Backup agent then compresses and encrypts this intermediate backup and sends it via secure HTTPS Protocol to the configured Recovery Services Vault. **We strongly recommended you establish the Staging Volume in a non-Windows-OS volume. If you observe problems with System State Backups, checking the location of your Staging Volume is the first troubleshooting step.** 
-
-### How can I change the Staging Volume Path specified in the Azure Backup agent?
-
-The Staging Volume is located in the cache folder by default. 
-
-1. To change this location, use the following command (in an elevated command prompt):
-  ```
-  PS C:\> Net stop obengine
-  ```
-
-2. Then update the following registry entries with the path to the new Staging Volume folder.
-
-  |Registry path|Registry key|Value|
-  |-------------|------------|-----|
-  |HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Azure Backup\Config\CloudBackupProvider | SSBStagingPath | new staging volume location |
-
-The Staging Path is case sensitive and must be the exact same casing as what exists on the server. 
-
-3. Once you change the Staging volume path, restart the Backup engine:
-  ```
-  PS C:\> Net start obengine
-  ```
-4. To pick up the changed path, open the Microsoft Azure Recovery Services agent and trigger an ad hoc backup of System State.
-
-### Why is the System State default retention set to 60 days?
-
-The useful life of a system state backup is the same as the "tombstone lifetime" setting for the Windows Server Active Directory role. The default value for the tombstone lifetime entry is 60 days. This value can be set on the Directory Service (NTDS) config object.
-
-### How do I change the default Backup and Retention Policy for System State?
-
-To change the default Backup and Retention Policy for System State:
-1. Stop the Backup engine. Run the following command from an elevated command prompt.
-
-  ```
-  PS C:\> Net stop obengine
-  ```
-
-2. Add or update the following registry key entries in HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider.
-
-  |Registry Name|Description|Value|
-  |-------------|-----------|-----|
-  |SSBScheduleTime|Used to configure the time of the backup. Default is 9PM local time.|DWord: Format HHMM (Decimal) for example 2130 for 9:30PM local time|
-  |SSBScheduleDays|Used to configure the days when System State Backup must be performed at the specified time. Individual digits specify days of the week. 0 represents Sunday, 1 is Monday, and so on. Default day for backup is Sunday.|DWord: days of the week to run backup (decimal) for example 1230 schedules backups on Monday, Tuesday, Wednesday, and Sunday.|
-  |SSBRetentionDays|Used to configure the days to retain backup. Default value is 60. Maximum allowed value is 180.|DWord: Days to retain backup (decimal).|
-
-3. Use the following command to restart the backup engine.
-    ```
-    PS C:\> Net start obengine
-    ```
-
-4. Open the Microsoft Recovery Services agent.
-
-5. Click **Schedule Backup** and then click **Next** until you see the changes reflected.
-
-6. Click **Finish** to apply the changes.
-
-
 ## Questions?
-If you have questions, or if there is any feature that you would like to see included, [send us feedback](http://aka.ms/azurebackup_feedback).
+
+If you have questions, [send us feedback](https://feedback.azure.com/forums/258995-azure-backup).
 
 ## Next steps
-* Get more details about [backing up Windows machines](backup-configure-vault.md).
-* Now that you've backed up your files and folders, you can [manage your vaults and servers](backup-azure-manage-windows-server.md).
+
+* Get more details about [backing up Windows machines](backup-windows-with-mars-agent.md).
+* Now that you've backed up your Windows Server System State, you can [manage your vaults and servers](backup-azure-manage-windows-server.md).
 * If you need to restore a backup, use this article to [restore files to a Windows machine](backup-azure-restore-windows-server.md).

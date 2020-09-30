@@ -1,240 +1,153 @@
 ---
-title: HDFS troubleshooting - Azure HDinsight| Microsoft Docs
-description: Use the HDFS FAQ for answers to common questions on HDFS on Azure HDInsight platform.
-keywords: Azure HDInsight, HDFS, FAQ, troubleshooting guide, common questions
-services: Azure HDInsight
-documentationcenter: na
-author: arijitt
-manager: ''
-editor: ''
-
-ms.assetid: 4C33828F-2982-47F0-B858-C32FFF634D9E
-ms.service: multiple
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 7/7/2017
-ms.author: arijitt
+title: Troubleshoot HDFS in Azure HDInsight
+description: Get answers to common questions about working with HDFS and Azure HDInsight.
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
+ms.service: hdinsight
+ms.topic: troubleshooting
+ms.date: 04/27/2020 
+ms.custom: seodec18
 ---
 
-# HDFS troubleshooting
+# Troubleshoot Apache Hadoop HDFS by using Azure HDInsight
 
-This article describes the top issues and their resolutions for working with HDFS payloads in Apache Ambari.
+Learn top issues and resolutions when working with Hadoop Distributed File System (HDFS). For a full list of commands, see the [HDFS Commands Guide](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HDFSCommands.html) and the [File System Shell Guide](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html).
 
-## How do I access local HDFS from inside a cluster
+## <a name="how-do-i-access-local-hdfs-from-inside-a-cluster"></a>How do I access the local HDFS from inside a cluster?
 
-### Issue:
+### Issue
 
-Access local HDFS from command line and application code instead of WASB or ADLS from inside 
-HDInsight cluster.   
+Access the local HDFS from the command line and application code instead of by using Azure Blob storage or Azure Data Lake Storage from inside the HDInsight cluster.
 
-### Resolution Steps:
+### Resolution steps
 
-- From command line use `hdfs dfs -D "fs.default.name=hdfs://mycluster/" ...` literally as in 
-the following command:
+1. At the command prompt, use `hdfs dfs -D "fs.default.name=hdfs://mycluster/" ...` literally, as in the following command:
 
-```apache
-hdiuser@hn0-spark2:~$ hdfs dfs -D "fs.default.name=hdfs://mycluster/" -ls /
-Found 3 items
-drwxr-xr-x   - hdiuser hdfs          0 2017-03-24 14:12 /EventCheckpoint-30-8-24-11102016-01
-drwx-wx-wx   - hive    hdfs          0 2016-11-10 18:42 /tmp
-drwx------   - hdiuser hdfs          0 2016-11-10 22:22 /user
-```
+    ```output
+    hdfs dfs -D "fs.default.name=hdfs://mycluster/" -ls /
+    Found 3 items
+    drwxr-xr-x   - hdiuser hdfs          0 2017-03-24 14:12 /EventCheckpoint-30-8-24-11102016-01
+    drwx-wx-wx   - hive    hdfs          0 2016-11-10 18:42 /tmp
+    drwx------   - hdiuser hdfs          0 2016-11-10 22:22 /user
+    ```
 
-- From source code use the URI `hdfs://mycluster/` literally as in the following sample application:
+2. From source code, use the URI `hdfs://mycluster/` literally, as in the following sample application:
 
-```csharp
-import java.io.IOException;
-import java.net.URI;
-import org.apache.commons.io.IOUtils;
-import org.apache.hadoop.conf.Configuration;
-import org.apache.hadoop.fs.*;
+    ```Java
+    import java.io.IOException;
+    import java.net.URI;
+    import org.apache.commons.io.IOUtils;
+    import org.apache.hadoop.conf.Configuration;
+    import org.apache.hadoop.fs.*;
 
-public class JavaUnitTests {
+    public class JavaUnitTests {
 
-    public static void main(String[] args) throws Exception {
+        public static void main(String[] args) throws Exception {
 
-        Configuration conf = new Configuration();
-        String hdfsUri = "hdfs://mycluster/";
-        conf.set("fs.defaultFS", hdfsUri);
-        FileSystem fileSystem = FileSystem.get(URI.create(hdfsUri), conf);
-        RemoteIterator<LocatedFileStatus> fileStatusIterator = fileSystem.listFiles(new Path("/tmp"), true);
-        while(fileStatusIterator.hasNext()) {
-            System.out.println(fileStatusIterator.next().getPath().toString());
+            Configuration conf = new Configuration();
+            String hdfsUri = "hdfs://mycluster/";
+            conf.set("fs.defaultFS", hdfsUri);
+            FileSystem fileSystem = FileSystem.get(URI.create(hdfsUri), conf);
+            RemoteIterator<LocatedFileStatus> fileStatusIterator = fileSystem.listFiles(new Path("/tmp"), true);
+            while(fileStatusIterator.hasNext()) {
+                System.out.println(fileStatusIterator.next().getPath().toString());
+            }
         }
     }
-}
-```
-- Run the compiled JAR (for example named `java-unit-tests-1.0.jar`) on HDInsight cluster with the following command:
+    ```
 
-```apache
-hdiuser@hn0-spark2:~$ hadoop jar java-unit-tests-1.0.jar JavaUnitTests
-hdfs://mycluster/tmp/hive/hive/5d9cf301-2503-48c7-9963-923fb5ef79a7/inuse.info
-hdfs://mycluster/tmp/hive/hive/5d9cf301-2503-48c7-9963-923fb5ef79a7/inuse.lck
-hdfs://mycluster/tmp/hive/hive/a0be04ea-ae01-4cc4-b56d-f263baf2e314/inuse.info
-hdfs://mycluster/tmp/hive/hive/a0be04ea-ae01-4cc4-b56d-f263baf2e314/inuse.lck
-```
+3. Run the compiled .jar file (for example, a file named `java-unit-tests-1.0.jar`) on the HDInsight cluster with the following command:
 
+    ```apache
+    hadoop jar java-unit-tests-1.0.jar JavaUnitTests
+    hdfs://mycluster/tmp/hive/hive/5d9cf301-2503-48c7-9963-923fb5ef79a7/inuse.info
+    hdfs://mycluster/tmp/hive/hive/5d9cf301-2503-48c7-9963-923fb5ef79a7/inuse.lck
+    hdfs://mycluster/tmp/hive/hive/a0be04ea-ae01-4cc4-b56d-f263baf2e314/inuse.info
+    hdfs://mycluster/tmp/hive/hive/a0be04ea-ae01-4cc4-b56d-f263baf2e314/inuse.lck
+    ```
 
-## How do I force disable HDFS safe mode in a cluster
+## Storage exception for write on blob
 
-### Issue:
+### Issue
 
-Local HDFS is stuck in safe mode on HDInsight cluster.   
+When using the `hadoop` or `hdfs dfs` commands to write files that are ~12 GB or larger on an HBase cluster, you may come across the following error:
 
-### Detailed description:
-
-Fail to run simple HDFS command as follows:
-
-```apache
-hdfs dfs -D "fs.default.name=hdfs://mycluster/" -mkdir /temp
-```
-
-The error encountered trying to run the above command is as follows:
-
-```apache
-hdiuser@hn0-spark2:~$ hdfs dfs -D "fs.default.name=hdfs://mycluster/" -mkdir /temp
-17/04/05 16:20:52 WARN retry.RetryInvocationHandler: Exception while invoking ClientNamenodeProtocolTranslatorPB.mkdirs over hn0-spark2.2oyzcdm4sfjuzjmj5dnmvscjpg.dx.internal.cloudapp.net/10.0.0.22:8020. Not retrying because try once and fail.
-org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.hdfs.server.namenode.SafeModeException): Cannot create directory /temp. Name node is in safe mode.
-It was turned on manually. Use "hdfs dfsadmin -safemode leave" to turn safe mode off.
-        at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.checkNameNodeSafeMode(FSNamesystem.java:1359)
-        at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.mkdirs(FSNamesystem.java:4010)
-        at org.apache.hadoop.hdfs.server.namenode.NameNodeRpcServer.mkdirs(NameNodeRpcServer.java:1102)
-        at org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolServerSideTranslatorPB.mkdirs(ClientNamenodeProtocolServerSideTranslatorPB.java:630)
-        at org.apache.hadoop.hdfs.protocol.proto.ClientNamenodeProtocolProtos$ClientNamenodeProtocol$2.callBlockingMethod(ClientNamenodeProtocolProtos.java)
-        at org.apache.hadoop.ipc.ProtobufRpcEngine$Server$ProtoBufRpcInvoker.call(ProtobufRpcEngine.java:640)
-        at org.apache.hadoop.ipc.RPC$Server.call(RPC.java:982)
-        at org.apache.hadoop.ipc.Server$Handler$1.run(Server.java:2313)
-        at org.apache.hadoop.ipc.Server$Handler$1.run(Server.java:2309)
-        at java.security.AccessController.doPrivileged(Native Method)
-        at javax.security.auth.Subject.doAs(Subject.java:422)
-        at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1724)
-        at org.apache.hadoop.ipc.Server$Handler.run(Server.java:2307)
-        at org.apache.hadoop.ipc.Client.getRpcResponse(Client.java:1552)
-        at org.apache.hadoop.ipc.Client.call(Client.java:1496)
-        at org.apache.hadoop.ipc.Client.call(Client.java:1396)
-        at org.apache.hadoop.ipc.ProtobufRpcEngine$Invoker.invoke(ProtobufRpcEngine.java:233)
-        at com.sun.proxy.$Proxy10.mkdirs(Unknown Source)
-        at org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolTranslatorPB.mkdirs(ClientNamenodeProtocolTranslatorPB.java:603)
-        at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-        at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-        at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-        at java.lang.reflect.Method.invoke(Method.java:498)
-        at org.apache.hadoop.io.retry.RetryInvocationHandler.invokeMethod(RetryInvocationHandler.java:278)
-        at org.apache.hadoop.io.retry.RetryInvocationHandler.invoke(RetryInvocationHandler.java:194)
-        at org.apache.hadoop.io.retry.RetryInvocationHandler.invoke(RetryInvocationHandler.java:176)
-        at com.sun.proxy.$Proxy11.mkdirs(Unknown Source)
-        at org.apache.hadoop.hdfs.DFSClient.primitiveMkdir(DFSClient.java:3061)
-        at org.apache.hadoop.hdfs.DFSClient.mkdirs(DFSClient.java:3031)
-        at org.apache.hadoop.hdfs.DistributedFileSystem$24.doCall(DistributedFileSystem.java:1162)
-        at org.apache.hadoop.hdfs.DistributedFileSystem$24.doCall(DistributedFileSystem.java:1158)
-        at org.apache.hadoop.fs.FileSystemLinkResolver.resolve(FileSystemLinkResolver.java:81)
-        at org.apache.hadoop.hdfs.DistributedFileSystem.mkdirsInternal(DistributedFileSystem.java:1158)
-        at org.apache.hadoop.hdfs.DistributedFileSystem.mkdirs(DistributedFileSystem.java:1150)
-        at org.apache.hadoop.fs.FileSystem.mkdirs(FileSystem.java:1898)
-        at org.apache.hadoop.fs.shell.Mkdir.processNonexistentPath(Mkdir.java:76)
-        at org.apache.hadoop.fs.shell.Command.processArgument(Command.java:273)
-        at org.apache.hadoop.fs.shell.Command.processArguments(Command.java:255)
-        at org.apache.hadoop.fs.shell.FsCommand.processRawArguments(FsCommand.java:119)
-        at org.apache.hadoop.fs.shell.Command.run(Command.java:165)
-        at org.apache.hadoop.fs.FsShell.run(FsShell.java:297)
-        at org.apache.hadoop.util.ToolRunner.run(ToolRunner.java:76)
-        at org.apache.hadoop.util.ToolRunner.run(ToolRunner.java:90)
-        at org.apache.hadoop.fs.FsShell.main(FsShell.java:350)
-mkdir: Cannot create directory /temp. Name node is in safe mode.
+```error
+ERROR azure.NativeAzureFileSystem: Encountered Storage Exception for write on Blob : example/test_large_file.bin._COPYING_ Exception details: null Error Code : RequestBodyTooLarge
+copyFromLocal: java.io.IOException
+        at com.microsoft.azure.storage.core.Utility.initIOException(Utility.java:661)
+        at com.microsoft.azure.storage.blob.BlobOutputStream$1.call(BlobOutputStream.java:366)
+        at com.microsoft.azure.storage.blob.BlobOutputStream$1.call(BlobOutputStream.java:350)
+        at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+        at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471)
+        at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+        at java.lang.Thread.run(Thread.java:745)
+Caused by: com.microsoft.azure.storage.StorageException: The request body is too large and exceeds the maximum permissible limit.
+        at com.microsoft.azure.storage.StorageException.translateException(StorageException.java:89)
+        at com.microsoft.azure.storage.core.StorageRequest.materializeException(StorageRequest.java:307)
+        at com.microsoft.azure.storage.core.ExecutionEngine.executeWithRetry(ExecutionEngine.java:182)
+        at com.microsoft.azure.storage.blob.CloudBlockBlob.uploadBlockInternal(CloudBlockBlob.java:816)
+        at com.microsoft.azure.storage.blob.CloudBlockBlob.uploadBlock(CloudBlockBlob.java:788)
+        at com.microsoft.azure.storage.blob.BlobOutputStream$1.call(BlobOutputStream.java:354)
+        ... 7 more
 ```
 
-### Probable cause:
+### Cause
 
-HDInsight cluster has been scaled down to very few nodes below or close to HDFS replication factor.
+HBase on HDInsight clusters default to a block size of 256 KB when writing to Azure storage. While it works for HBase APIs or REST APIs, it results in an error when using the `hadoop` or `hdfs dfs` command-line utilities.
 
-### Resolution Steps: 
+### Resolution
 
-- Report on the status of HDFS on the HDInsight cluster with the following commands:
+Use `fs.azure.write.request.size` to specify a larger block size. You can do this modification on a per-use basis by using the `-D` parameter. The following command is an example using this parameter with the `hadoop` command:
 
-```apache
-hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -report
+```bash
+hadoop -fs -D fs.azure.write.request.size=4194304 -copyFromLocal test_large_file.bin /example/data
 ```
 
-```apache
-hdiuser@hn0-spark2:~$ hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -report
-Safe mode is ON
-Configured Capacity: 3372381241344 (3.07 TB)
-Present Capacity: 3138625077248 (2.85 TB)
-DFS Remaining: 3102710317056 (2.82 TB)
-DFS Used: 35914760192 (33.45 GB)
-DFS Used%: 1.14%
-Under replicated blocks: 0
-Blocks with corrupt replicas: 0
-Missing blocks: 0
-Missing blocks (with replication factor 1): 0
+You can also increase the value of `fs.azure.write.request.size` globally by using Apache Ambari. The following steps can be used to change the value in the Ambari Web UI:
 
--------------------------------------------------
-Live datanodes (8):
+1. In your browser, go to the Ambari Web UI for your cluster. The URL is `https://CLUSTERNAME.azurehdinsight.net`, where `CLUSTERNAME` is the name of your cluster. When prompted, enter the admin name and password for the cluster.
+2. From the left side of the screen, select **HDFS**, and then select the **Configs** tab.
+3. In the **Filter...** field, enter `fs.azure.write.request.size`.
+4. Change the value from 262144 (256 KB) to the new value. For example, 4194304 (4 MB).
 
-Name: 10.0.0.17:30010 (10.0.0.17)
-Hostname: 10.0.0.17
-Decommission Status : Normal
-Configured Capacity: 421547655168 (392.60 GB)
-DFS Used: 5288128512 (4.92 GB)
-Non DFS Used: 29087272960 (27.09 GB)
-DFS Remaining: 387172253696 (360.58 GB)
-DFS Used%: 1.25%
-DFS Remaining%: 91.85%
-Configured Cache Capacity: 0 (0 B)
-Cache Used: 0 (0 B)
-Cache Remaining: 0 (0 B)
-Cache Used%: 100.00%
-Cache Remaining%: 0.00%
-Xceivers: 2
-Last contact: Wed Apr 05 16:22:00 UTC 2017
-...
+    ![Image of changing the value through Ambari Web UI](./media/hdinsight-troubleshoot-hdfs/hbase-change-block-write-size.png)
+
+For more information on using Ambari, see [Manage HDInsight clusters using the Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md).
+
+## du
+
+The [`-du`](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html#du) command displays sizes of files and directories contained in the given directory or the length of a file in case it's just a file.
+
+The `-s` option produces an aggregate summary of file lengths being displayed.  
+The `-h` option formats the file sizes.
+
+Example:
+
+```bash
+hdfs dfs -du -s -h hdfs://mycluster/
+hdfs dfs -du -s -h hdfs://mycluster/tmp
 ```
 
-- Check on the integrity of HDFS on the HDInsight cluster with the following commands:
+## rm
 
-```apache
-hdiuser@hn0-spark2:~$ hdfs fsck -D "fs.default.name=hdfs://mycluster/" /
+The [-rm](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html#rm) command deletes files specified as arguments.
+
+Example:
+
+```bash
+hdfs dfs -rm hdfs://mycluster/tmp/testfile
 ```
 
-```apache
-Connecting to namenode via http://hn0-spark2.2oyzcdm4sfjuzjmj5dnmvscjpg.dx.internal.cloudapp.net:30070/fsck?ugi=hdiuser&path=%2F
-FSCK started by hdiuser (auth:SIMPLE) from /10.0.0.22 for path / at Wed Apr 05 16:40:28 UTC 2017
-....................................................................................................
+## Next steps
 
-....................................................................................................
-..................Status: HEALTHY
- Total size:    9330539472 B
- Total dirs:    37
- Total files:   2618
- Total symlinks:                0 (Files currently being written: 2)
- Total blocks (validated):      2535 (avg. block size 3680686 B)
- Minimally replicated blocks:   2535 (100.0 %)
- Over-replicated blocks:        0 (0.0 %)
- Under-replicated blocks:       0 (0.0 %)
- Mis-replicated blocks:         0 (0.0 %)
- Default replication factor:    3
- Average block replication:     3.0
- Corrupt blocks:                0
- Missing replicas:              0 (0.0 %)
- Number of data-nodes:          8
- Number of racks:               1
-FSCK ended at Wed Apr 05 16:40:28 UTC 2017 in 187 milliseconds
+If you didn't see your problem or are unable to solve your issue, visit one of the following channels for more support:
 
+* Get answers from Azure experts through [Azure Community Support](https://azure.microsoft.com/support/community/).
 
-The filesystem under path '/' is HEALTHY
-```
+* Connect with [@AzureSupport](https://twitter.com/azuresupport) - the official Microsoft Azure account for improving customer experience. Connecting the Azure community to the right resources: answers, support, and experts.
 
-- If determined there are no missing, corrupt or under replicated blocks or those blocks can be ignored run the following command to take the name node out of safe mode:
-
-```apache
-hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -safemode leave
-```
-
-
-
-
-
-
-
+* If you need more help, you can submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Select **Support** from the menu bar or open the **Help + support** hub. For more detailed information, review [How to create an Azure support request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Access to Subscription Management and billing support is included with your Microsoft Azure subscription, and Technical Support is provided through one of the [Azure Support Plans](https://azure.microsoft.com/support/plans/).

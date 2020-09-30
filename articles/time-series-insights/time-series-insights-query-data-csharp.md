@@ -1,298 +1,80 @@
 ---
-title: Query data from the by Azure Time Series Insights environment using C# | Microsoft Docs
-description: This tutorial covers how to query data from the Time Series Insights environment using C#, with example code.
-keywords:
-services: tsi
-documentationcenter:
-author: ankryach
-manager: jhubbard
-editor: 
-
-ms.assetid:
-ms.service: tsi
-ms.devlang: na
-ms.topic: how-to-article
-ms.tgt_pltfrm: na
+title: 'Query data from a Gen1 environment using C# code - Azure Time Series Insights Gen1 | Microsoft Docs'
+description: Learn how to query data from an Azure Time Series Insights Gen1 environment using a custom app written in C#.
+ms.service: time-series-insights
+services: time-series-insights
+author: deepakpalled
+ms.author: dpalled
+manager: diviso
+ms.devlang: csharp
 ms.workload: big-data
-ms.date: 07/20/2017
-ms.author: ankryach
+ms.topic: conceptual
+ms.date: 08/12/2020
+ms.custom: seodec18
 ---
-# Query data from the Azure Time Series Insights environment using C#
 
-This C# example demonstrates how to query data from the Azure Time Series Insights environment.
-The sample shows several basic examples of Query API usage:
-1. As a preparation step, acquire the access token through the Azure Active Directory API. Pass this token in the `Authorization` header of every Query API request. For setting up non-interactive applications, see [Authentication and authorization](time-series-insights-authentication-and-authorization.md).
-2. The list of environments that the user has access to is obtained. One of the environments is picked up as the environment of interest, and further data is queried for this environment.
-3. As an example of HTTPS request, availability data is requested for the environment of interest.
-4. As an example of web socket request, event aggregates data is requested for the environment of interest. Data is requested for the whole availability time range.
+# Query data from the Azure Time Series Insights Gen1 environment using C Sharp
 
-## C# example
+This C# example demonstrates how to use the [Gen1 Query APIs](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query) to query data from Azure Time Series Insights Gen1 environments.
 
-```csharp
-using System;
-using System.Diagnostics;
-using System.IO;
-using System.Net;
-using System.Net.WebSockets;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.IdentityModel.Clients.ActiveDirectory;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+> [!TIP]
+> View Gen1 C# code samples at [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/gen1-sample/csharp-tsi-gen1-sample).
 
-namespace TimeSeriesInsightsQuerySample
-{
-    class Program
-    {
-        // For automated execution under application identity,
-        // use application created in Active Directory.
-        // To create the application in AAD, follow the steps provided here:
-        // https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-authentication-and-authorization
+## Summary
 
-        // SET the application ID of application registered in your Azure Active Directory
-        private static string ApplicationClientId = "#DUMMY#";
+The sample code below demonstrates the following features:
 
-        // SET the application key of the application registered in your Azure Active Directory
-        private static string ApplicationClientSecret = "#DUMMY#";
+* How to acquire an access token through Azure Active Directory using [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/).
 
-        public static async Task SampleAsync()
-        {
-            // 1. Acquire an access token.
-            string accessToken = await AcquireAccessTokenAsync();
+* How to pass that acquired access token in the `Authorization` header of subsequent Query API requests.
 
-            // 2. Obtain list of environments and get environment FQDN for the environment of interest.
-            string environmentFqdn;
-            {
-                Uri uri = new UriBuilder("https", "api.timeseries.azure.com")
-                {
-                    Path = "environments",
-                    Query = "api-version=2016-12-12"
-                }.Uri;
-                HttpWebRequest request = WebRequest.CreateHttp(uri);
-                request.Method = "GET";
-                request.Headers.Add("x-ms-client-application-name", "TimeSeriesInsightsQuerySample");
-                request.Headers.Add("Authorization", "Bearer " + accessToken);
+* The sample calls each of the Gen1 Query APIs demonstrating how HTTP requests are made to the:
+  * [Get Environments API](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query-api#get-environments-api) to return the environments the user has access to
+  * [Get Environment Availability API](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query-api#get-environment-availability-api)
+  * [Get Environment Metadata API](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query-api#get-environment-metadata-api) to retrieve environment metadata
+  * [Get Environments Events API](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query-api#get-environment-events-api)
+  * [Get Environment Aggregates API](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query-api#get-environment-aggregates-api)
 
-                using (WebResponse webResponse = await request.GetResponseAsync())
-                using (var sr = new StreamReader(webResponse.GetResponseStream()))
-                {
-                    string responseJson = await sr.ReadToEndAsync();
+* How to interact with the Gen1 Query APIs using WSS to message the:
 
-                    JObject result = JsonConvert.DeserializeObject<JObject>(responseJson);
-                    JArray environmentsList = (JArray)result["environments"];
-                    if (environmentsList.Count == 0)
-                    {
-                        // List of user environments is empty, fallback to sample environment.
-                        environmentFqdn = "10000000-0000-0000-0000-100000000108.env.timeseries.azure.com";
-                    }
-                    else
-                    {
-                        // Assume the first environment is the environment of interest.
-                        JObject firstEnvironment = (JObject)environmentsList[0];
-                        environmentFqdn = firstEnvironment["environmentFqdn"].Value<string>();
-                    }
-                }
-            }
-            Console.WriteLine("Using environment FQDN '{0}'", environmentFqdn);
+  * [Get Environment Events Streamed API](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query-api#get-environment-events-streamed-api)
+  * [Get Environment Aggregates Streamed API](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query-api#get-environment-aggregates-streamed-api)
 
-            // 3. Obtain availability data for the environment and get availability range.
-            DateTime fromAvailabilityTimestamp;
-            DateTime toAvailabilityTimestamp;
-            {
-                Uri uri = new UriBuilder("https", environmentFqdn)
-                {
-                    Path = "availability",
-                    Query = "api-version=2016-12-12"
-                }.Uri;
-                HttpWebRequest request = WebRequest.CreateHttp(uri);
-                request.Method = "GET";
-                request.Headers.Add("x-ms-client-application-name", "TimeSeriesInsightsQuerySample");
-                request.Headers.Add("Authorization", "Bearer " + accessToken);
+## Prerequisites and setup
 
-                using (WebResponse webResponse = await request.GetResponseAsync())
-                using (var sr = new StreamReader(webResponse.GetResponseStream()))
-                {
-                    string responseJson = await sr.ReadToEndAsync();
+Complete the following steps before you compile and run the sample code:
 
-                    JObject result = JsonConvert.DeserializeObject<JObject>(responseJson);
-                    JObject range = (JObject)result["range"];
-                    fromAvailabilityTimestamp = range["from"].Value<DateTime>();
-                    toAvailabilityTimestamp = range["to"].Value<DateTime>();
-                }
-            }
-            Console.WriteLine(
-                "Obtained availability range [{0}, {1}]",
-                fromAvailabilityTimestamp,
-                toAvailabilityTimestamp);
+1. [Provision a Gen1 Azure Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started) environment.
+1. Configure your Azure Time Series Insights environment for Azure Active Directory as described in [Authentication and authorization](time-series-insights-authentication-and-authorization.md).
+1. Install the required project dependencies.
+1. Edit the sample code below by replacing each **#DUMMY#** with the appropriate environment identifier.
+1. Execute the code inside Visual Studio.
 
-            // 4. Get aggregates for the environment:
-            //    group by Event Source Name and calculate number of events in each group.
-            {
-                // Assume data for the whole availablility range is requested.
-                DateTime from = fromAvailabilityTimestamp;
-                DateTime to = toAvailabilityTimestamp;
+## Project dependencies
 
-                JObject inputPayload = new JObject(
-                    // Send HTTP headers as a part of the message since .NET WebSocket does not support
-                    // sending custom headers on HTTP GET upgrade request to WebSocket protocol request.
-                    new JProperty("headers", new JObject(
-                        new JProperty("x-ms-client-application-name", "TimeSeriesInsightsQuerySample"),
-                        new JProperty("Authorization", "Bearer " + accessToken))),
-                    new JProperty("content", new JObject(
-                        new JProperty("aggregates", new JArray(new JObject(
-                            new JProperty("dimension", new JObject(
-                                new JProperty("uniqueValues", new JObject(
-                                    new JProperty("input", new JObject(
-                                        new JProperty("builtInProperty", "$esn"))),
-                                    new JProperty("take", 1000))))),
-                            new JProperty("measures", new JArray(new JObject(
-                                new JProperty("count", new JObject()))))))),
-                        new JProperty("searchSpan", new JObject(
-                            new JProperty("from", from),
-                            new JProperty("to", to))))));
+It's recommended that you use the newest version of Visual Studio:
 
-                var webSocket = new ClientWebSocket();
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) - Version 16.4.2+
 
-                // Establish web socket connection.
-                Uri uri = new UriBuilder("wss", environmentFqdn)
-                {
-                    Path = "aggregates",
-                    Query = "api-version=2016-12-12"
-                }.Uri;
-                await webSocket.ConnectAsync(uri, CancellationToken.None);
+The sample code has two required dependencies:
 
-                // Send input payload.
-                byte[] inputPayloadBytes = Encoding.UTF8.GetBytes(inputPayload.ToString());
-                await webSocket.SendAsync(
-                    new ArraySegment<byte>(inputPayloadBytes),
-                    WebSocketMessageType.Text,
-                    endOfMessage: true,
-                    cancellationToken: CancellationToken.None);
+* [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) -  3.13.9 package.
+* [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json) - 9.0.1 package.
 
-                // Read response messages from web socket.
-                JObject responseContent = null;
-                using (webSocket)
-                {
-                    while (true)
-                    {
-                        string message;
-                        using (var ms = new MemoryStream())
-                        {
-                            // Write from socket to memory stream.
-                            const int bufferSize = 16 * 1024;
-                            var temporaryBuffer = new byte[bufferSize];
-                            while (true)
-                            {
-                                WebSocketReceiveResult response = await webSocket.ReceiveAsync(
-                                    new ArraySegment<byte>(temporaryBuffer),
-                                    CancellationToken.None);
+Download the packages in Visual Studio 2019 by selecting the **Build** > **Build Solution** option.
 
-                                ms.Write(temporaryBuffer, 0, response.Count);
-                                if (response.EndOfMessage)
-                                {
-                                    break;
-                                }
-                            }
+Alternatively, add the packages using [NuGet 2.12+](https://www.nuget.org/):
 
-                            // Reset position to the beginning to allow reads.
-                            ms.Position = 0;
+* `dotnet add package Newtonsoft.Json --version 9.0.1`
+* `dotnet add package Microsoft.IdentityModel.Clients.ActiveDirectory --version 3.13.9`
 
-                            using (var sr = new StreamReader(ms))
-                            {
-                                message = sr.ReadToEnd();
-                            }
-                        }
+## C# sample code
 
-                        JObject messageObj = JsonConvert.DeserializeObject<JObject>(message);
-
-                        // Stop reading if error is emitted.
-                        if (messageObj["error"] != null)
-                        {
-                            break;
-                        }
-
-                        // Number of items corresponds to number of aggregates in input payload
-                        JArray currentContents = (JArray)messageObj["content"];
-
-                        // In this sample list of aggregates in input payload contains
-                        // only 1 item since request contains 1 aggregate.
-                        responseContent = (JObject)currentContents[0];
-
-                        // Stop reading if 100% of completeness is reached.
-                        if (messageObj["percentCompleted"] != null &&
-                            Math.Abs((double)messageObj["percentCompleted"] - 100d) < 0.01)
-                        {
-                            break;
-                        }
-                    }
-
-                    // Close web socket connection.
-                    if (webSocket.State == WebSocketState.Open)
-                    {
-                        await webSocket.CloseAsync(
-                            WebSocketCloseStatus.NormalClosure,
-                            "CompletedByClient",
-                            CancellationToken.None);
-                    }
-                }
-
-                Console.WriteLine("Dimension Value\t\tCount");
-                JArray dimensionValues = (JArray)responseContent["dimension"];
-                JArray measures = (JArray)responseContent["measures"];
-                Debug.Assert(
-                    dimensionValues.Count == measures.Count,
-                    "Number of measures and dimensions should match.");
-                for (int i = 0; i < dimensionValues.Count; i++)
-                {
-                    string currentDimensionValue = (string)dimensionValues[i];
-                    JArray currentMeasureValues = (JArray)measures[i];
-                    double currentCount = (double)currentMeasureValues[0];
-
-                    Console.WriteLine("{0}\t\t{1}", currentDimensionValue, currentCount);
-                }
-            }
-        }
-
-        private static async Task<string> AcquireAccessTokenAsync()
-        {
-            if (ApplicationClientId == "#DUMMY#" || ApplicationClientSecret == "#DUMMY#")
-            {
-                throw new Exception(
-                    $"Use the link {"https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-authentication-and-authorization"} to update the values of 'ApplicationClientId' and 'ApplicationClientSecret'.");
-            }
-
-            var authenticationContext = new AuthenticationContext(
-                "https://login.microsoftonline.com/common",
-                TokenCache.DefaultShared);
-
-            AuthenticationResult token = await authenticationContext.AcquireTokenAsync(
-                resource: "https://api.timeseries.azure.com/",
-                clientCredential: new ClientCredential(
-                    clientId: ApplicationClientId,
-                    clientSecret: ApplicationClientSecret));
-
-            // Show interactive logon dialog to acquire token on behalf of the user.
-            // Suitable for native apps, and not on server-side of a web application.
-            //AuthenticationResult token = await authenticationContext.AcquireTokenAsync(
-            //    resource: "https://api.timeseries.azure.com/",
-            //    // Set well-known client ID for Azure PowerShell
-            //    clientId: "1950a258-227b-4e31-a9cf-717495945fc2",
-            //    // Set redirect URI for Azure PowerShell
-            //    redirectUri: new Uri("urn:ietf:wg:oauth:2.0:oob"),
-            //    parameters: new PlatformParameters(PromptBehavior.Auto));
-
-            return token.AccessToken;
-        }
-
-        static void Main(string[] args)
-        {
-            Task.Run(async () => await SampleAsync()).Wait();
-        }
-    }
-}
-```
+Please refer to the [Azure Time Series Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/gen1-sample/csharp-tsi-gen1-sample/Program.cs)] repo to access the C# sample code. 
 
 ## Next steps
 
-For the full Query API reference, see the [Query API](/rest/api/time-series-insights/time-series-insights-reference-queryapi) document.
+* To learn more about querying, read the [Query API reference](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query-api).
+
+* Read how to [connect a JavaScript app using the client SDK](https://github.com/microsoft/tsiclient) to Time Series Insights.
+Azure-Samples/Azure-Time-Series-Insights/gen1-sample/csharp-tsi-gen1-sample/Program.cs

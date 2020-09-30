@@ -1,0 +1,88 @@
+### YamlMime:Landing
+
+title: Azure Machine Learning documentation
+summary: Learn how to train, deploy, & manage machine learning models, use AutoML, and run pipelines at scale with Azure Machine Learning.  Tutorials, code examples, API references, and more show you how. 
+
+metadata:
+  title: Azure Machine Learning documentation
+  description: Learn how to train, deploy, & manage machine learning models, use AutoML, and run pipelines at scale with Azure Machine Learning. Tutorials, code examples, API references, and more show you how. 
+ 
+  services: machine-learning
+  ms.service: machine-learning
+  ms.subservice: core
+  ms.topic: landing-page
+  ms.collection: collection
+  author: j-martens
+  ms.author: jmartens
+  ms.date: 09/21/2020
+  ms.custom: contperfq1
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+           
+  # GET STARTED
+  - title: 'Get started: Code-first'
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Get started tutorial (Python)
+            url: tutorial-1st-experiment-sdk-setup-local.md
+          - text: Use Jupyter Notebooks tutorial
+            url: tutorial-1st-experiment-sdk-setup.md
+          - text: Batch inference with ML pipelines (Python)
+            url: tutorial-pipeline-batch-scoring-classification.md            
+          - text: Get started with R
+            url: tutorial-1st-r-experiment.md
+
+# GET STARTED
+  - title: 'Get started: Low or no code'
+    linkLists:
+      - linkListType: overview
+        links:
+        - text: Azure Machine Learning studio
+          url: overview-what-is-machine-learning-studio.md   
+        - text: What's automated ML (AutoML)?
+          url: concept-automated-ml.md   
+        - text: What's drag & drop designer?
+          url: concept-designer.md   
+      - linkListType: tutorial
+        links:
+          - text: 'Get started (AutoML)'
+            url: tutorial-first-experiment-automated-ml.md                  
+          - text: 'Get started (designer)'
+            url: tutorial-designer-automobile-price-train-score.md
+      - linkListType: reference
+        links:
+          - text: Designer algorithms & modules
+            url: algorithm-module-reference/module-reference.md                 
+
+# BYO
+  - title: 'Bring your ML model to Azure'
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+        - text: Deploy your model to the cloud
+          url: how-to-deploy-existing-model.md  
+        - text: Track & deploy MLflow models
+          url: how-to-use-mlflow.md
+ 
+  # MLOps
+  - title: 'Deploy & manage models (MLOps)'
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: What is MLOps?
+            url: concept-model-management-and-deployment.md
+          - text: How & where to deploy
+            url: how-to-deploy-and-where.md
+      - linkListType: reference
+        links:
+          - text: Python SDK
+            url: https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py  
+          - text: REST API
+            url: https://docs.microsoft.com/rest/api/azureml/
+          - text: Machine learning CLI
+            url: https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest

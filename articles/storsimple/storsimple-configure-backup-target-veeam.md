@@ -1,6 +1,6 @@
-﻿---
+---
 title: StorSimple 8000 series as backup target with Veeam | Microsoft Docs
-description: Describes the StorSimple backup target configuration with Veeam.
+description: Learn about the StorSimple backup target configuration with Veeam and best practices for integrating both solutions.
 services: storsimple
 documentationcenter: ''
 author: harshakirank
@@ -10,11 +10,11 @@ editor: ''
 ms.assetid:
 ms.service: storsimple
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2016
-ms.author: hkanna
+ms.author: matd
 ---
 
 # StorSimple as a backup target with Veeam
@@ -205,16 +205,16 @@ Set up your solution according to the guidelines in the following few sections.
 
 ### Operating system best practices
 
--   Disable Windows Server encryption and deduplication for the NTFS file system.
--   Disable Windows Server defragmentation on the StorSimple volumes.
--   Disable Windows Server indexing on the StorSimple volumes.
--   Run an antivirus scan at the source host (not against the StorSimple volumes).
--   Turn off the default [Windows Server maintenance](https://msdn.microsoft.com/library/windows/desktop/hh848037.aspx) in Task Manager. Do this in one of the following ways:
-    - Turn off the Maintenance configurator in Windows Task Scheduler.
-    - Download [PsExec](https://technet.microsoft.com/sysinternals/bb897553.aspx) from Windows Sysinternals. After you download PsExec, run Windows PowerShell as an administrator, and type:
-      ```powershell
-      psexec \\%computername% -s schtasks /change /tn “MicrosoftWindowsTaskSchedulerMaintenance Configurator" /disable
-      ```
+- Disable Windows Server encryption and deduplication for the NTFS file system.
+- Disable Windows Server defragmentation on the StorSimple volumes.
+- Disable Windows Server indexing on the StorSimple volumes.
+- Run an antivirus scan at the source host (not against the StorSimple volumes).
+- Turn off the default [Windows Server maintenance](https://msdn.microsoft.com/library/windows/desktop/hh848037.aspx) in Task Manager. Do this in one of the following ways:
+  - Turn off the Maintenance configurator in Windows Task Scheduler.
+  - Download [PsExec](https://technet.microsoft.com/sysinternals/bb897553.aspx) from Windows Sysinternals. After you download PsExec, run Windows PowerShell as an administrator, and type:
+    ```powershell
+    psexec \\%computername% -s schtasks /change /tn “MicrosoftWindowsTaskSchedulerMaintenance Configurator" /disable
+    ```
 
 ### StorSimple best practices
 
@@ -261,6 +261,7 @@ Based on the preceding assumptions, create a 26-TiB StorSimple tiered volume for
 | Yearly full | 1  | 10 | 10 |
 | GFS requirement |   | 38 |   |
 | Additional quota  | 4  |   | 42 total GFS requirement  |
+
 \* The GFS multiplier is the number of copies you need to protect and retain to meet your backup policy requirements.
 
 ## Set up Veeam storage
@@ -315,7 +316,7 @@ Here's an example of a GFS rotation schedule for four weeks, monthly, and yearly
 |---|---|---|
 | Weekly (weeks 1-4) | Saturday | Monday-Friday |
 | Monthly  | Saturday  |   |
-| Yearly | Saturday  |   |   |
+| Yearly | Saturday  |   |
 
 
 ### Assign StorSimple volumes to a Veeam backup job
@@ -381,6 +382,7 @@ The following table shows how to set up backups to run on the local and StorSimp
 | Monthly full |StorSimple disk (long-term) | 1 | 12 | 12 |
 | Yearly full |StorSimple disk (long-term) | 1 | 1 | 1 |
 |GFS volumes size requirement |  |  |  | 18*|
+
 \* Total capacity includes 17 TiB of StorSimple disks and 1 TiB of local RAID volume.
 
 
@@ -395,7 +397,7 @@ GFS rotation weekly, monthly, and yearly schedule
 | Week 3 | StorSimple weeks 2-4 |   |   |   |   |   |
 | Week 4 | StorSimple weeks 2-4 |   |   |   |   |   |
 | Monthly | StorSimple monthly |   |   |   |   |   |
-| Yearly | StorSimple yearly  |   |   |   |   |   |   |
+| Yearly | StorSimple yearly  |   |   |   |   |   |
 
 ### Assign StorSimple volumes to a Veeam copy job
 
@@ -464,48 +466,13 @@ The following section describes how to create a short script to start and delete
 
 ### To start or delete a cloud snapshot
 
-1. [Install Azure PowerShell](/powershell/azure/overview).
-2. [Download and import publish settings and subscription information](https://msdn.microsoft.com/library/dn385850.aspx).
-3. In the Azure classic portal, get the resource name and [registration key for your StorSimple Manager service](storsimple-deployment-walkthrough-u2.md#step-2-get-the-service-registration-key).
-4. On the server that runs the script, run PowerShell as an administrator. Type this command:
-
-    `Get-AzureStorSimpleDeviceBackupPolicy –DeviceName <device name>`
-
-    Note the backup policy ID.
-5. In Notepad, create a new PowerShell script by using the following code.
-
-    Copy and paste this code snippet:
-    ```powershell
-    Import-AzurePublishSettingsFile "c:\\CloudSnapshot Snapshot\\myAzureSettings.publishsettings"
-    Disable-AzureDataCollection
-    $ApplianceName = <myStorSimpleApplianceName>
-    $RetentionInDays = 20
-    $RetentionInDays = -$RetentionInDays
-    $Today = Get-Date
-    $ExpirationDate = $Today.AddDays($RetentionInDays)
-    Select-AzureStorSimpleResource -ResourceName "myResource" –RegistrationKey
-    Start-AzureStorSimpleDeviceBackupJob –DeviceName $ApplianceName -BackupType CloudSnapshot -BackupPolicyId <BackupId> -Verbose
-    $CompletedSnapshots =@()
-    $CompletedSnapshots = Get-AzureStorSimpleDeviceBackup -DeviceName $ApplianceName
-    Write-Host "The Expiration date is " $ExpirationDate
-    Write-Host
-
-    ForEach ($SnapShot in $CompletedSnapshots)
-    {
-        $SnapshotStartTimeStamp = $Snapshot.CreatedOn
-        if ($SnapshotStartTimeStamp -lt $ExpirationDate)
-
-        {
-            $SnapShotInstanceID = $SnapShot.InstanceId
-            Write-Host "This snpashotdate was created on " $SnapshotStartTimeStamp.Date.ToShortDateString()
-            Write-Host "Instance ID " $SnapShotInstanceID
-            Write-Host "This snpashotdate is older and needs to be deleted"
-            Write-host "\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#"
-            Remove-AzureStorSimpleDeviceBackup -DeviceName $ApplianceName -BackupId $SnapShotInstanceID -Force -Verbose
-        }
-    }
-    ```
-6. To add the script to your backup job, edit your Veeam job advanced options.
+1. [Install Azure PowerShell](/powershell/azure/).
+2. Download and setup [Manage-CloudSnapshots.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Manage-CloudSnapshots.ps1) PowerShell script.
+3. On the server that runs the script, run PowerShell as an administrator. Ensure that you run the script with `-WhatIf $true` to see what changes the script will make. Once the validation is complete, pass `-WhatIf $false`. Run the below command:
+   ```powershell
+   .\Manage-CloudSnapshots.ps1 -SubscriptionId [Subscription Id] -TenantId [Tenant ID] -ResourceGroupName [Resource Group Name] -ManagerName [StorSimple Device Manager Name] -DeviceName [device name] -BackupPolicyName [backup policyname] -RetentionInDays [Retention days] -WhatIf [$true or $false]
+   ```
+4. To add the script to your backup job, edit your Veeam job advanced options.
 
     ![Veeam backup advanced settings scripts tab](./media/storsimple-configure-backup-target-using-veeam/veeamimage22.png)
 
@@ -543,9 +510,9 @@ A disaster can be caused by a variety of factors. The following table lists comm
 The following documents were referenced for this article:
 
 - [StorSimple multipath I/O setup](storsimple-configure-mpio-windows-server.md)
-- [Storage scenarios: Thin provisioning](http://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
-- [Using GPT drives](http://msdn.microsoft.com/windows/hardware/gg463524.aspx#EHD)
-- [Set up shadow copies for shared folders](http://technet.microsoft.com/library/cc771893.aspx)
+- [Storage scenarios: Thin provisioning](https://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
+- [Using GPT drives](https://msdn.microsoft.com/windows/hardware/gg463524.aspx#EHD)
+- [Set up shadow copies for shared folders](https://technet.microsoft.com/library/cc771893.aspx)
 
 ## Next steps
 

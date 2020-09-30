@@ -1,0 +1,62 @@
+### YamlMime:Landing
+
+title: IoT Plug and Play Preview Refresh Documentation
+summary: IoT Plug and Play lets you define a device model that enables cloud solutions to automatically understand your device and start interacting with it.
+
+metadata:
+  title: IoT Plug and Play Preview architecture
+  description: IoT Plug and Play Preview enables solution builders to integrate devices into a solution without manual configuration. This article shows the key architectural elements that make this possible.
+  services: iot-pnp
+  ms.service: iot-pnp
+  ms.topic: landing-page
+  author: dominicbetts
+  ms.author: dobett
+  manager: philmea
+  ms.date: 10/31/2019
+
+landingContent:
+  - title: About IoT Plug and Play
+    linkLists:
+    - linkListType: overview
+      links:
+        - text: What is IoT Plug and Play?
+          url: overview-iot-plug-and-play.md
+        - text: Preview Refresh updates 2020
+          url: overview-iot-plug-and-play-preview-updates.md
+  - title: Build devices
+    linkLists:
+    - linkListType: quickstart
+      links:
+        - text: Connect a sample device to IoT Hub (C)
+          url: quickstart-connect-device-c.md
+        - text: Connect a sample device to IoT Hub (C#)
+          url: quickstart-connect-device-csharp.md
+        - text: Connect a sample device to IoT Hub (Java)
+          url: quickstart-connect-device-java.md
+        - text: Connect a sample device to IoT Hub (Node.js)
+          url: quickstart-connect-device-node.md
+        - text: Connect a sample device to IoT Hub (Python)
+          url: quickstart-connect-device-python.md
+    - linkListType: concept
+      links:
+        - text: Developer guide
+          url: concepts-developer-guide.md
+        - text: IoT Plug and Play conventions
+          url: concepts-convention.md
+        - text: Components
+          url: concepts-components.md
+  - title: Build solutions
+    linkLists:
+    - linkListType: quickstart
+      links:
+        - text: Interact with a device from your solution (Node.js)
+          url: quickstart-service-node.md
+        - text: Interact with a device from your solution (Python)
+          url: quickstart-service-python.md
+    - linkListType: concept
+      links:
+        - text: Architecture
+          url: concepts-architecture.md
+        - text: Digital twins
+          url: concepts-digital-twin.md
+

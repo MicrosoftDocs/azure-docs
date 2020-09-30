@@ -1,6 +1,6 @@
 ---
 title: Azure Germany IoT services | Microsoft Docs
-description: Provides a starting point for IoT Suite for Azure Germany
+description: This article provides a starting point for Azure IoT Suite for Azure Germany.
 services: germany
 cloud: na
 documentationcenter: na
@@ -13,40 +13,49 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/13/2017
+ms.date: 12/12/2019
 ms.author: ralfwi
 ---
 # Azure Germany IoT services
 
-##IoT Suite
+> [!IMPORTANT]
+> Since [August 2018](https://news.microsoft.com/europe/2018/08/31/microsoft-to-deliver-cloud-services-from-new-datacentres-in-germany-in-2019-to-meet-evolving-customer-needs/), we have not been accepting new customers or deploying any new features and services into the original Microsoft Cloud Germany locations.
+>
+> Based on the evolution in customers’ needs, we recently [launched](https://azure.microsoft.com/blog/microsoft-azure-available-from-new-cloud-regions-in-germany/) two new datacenter regions in Germany, offering customer data residency, full connectivity to Microsoft’s global cloud network, as well as market competitive pricing. 
+>
+> Take advantage of the breadth of functionality, enterprise-grade security, and comprehensive features available in our new German datacenter regions by [migrating](germany-migration-main.md) today.
+
+## IoT solution accelerators
 All the required services for Azure IoT Suite are available in Azure Germany. 
 
 ### Variations
-The home page for Azure IoT Suite in Azure Germany is different from the page in global Azure. Use [http://www.azureiotsuite.de](http://www.azureiotsuite.de) and follow the instructions. 
+The home page for Azure IoT Suite in Azure Germany is different from the page in global Azure.
 
-## Preconfigured solutions
-You might want to start with one of the following preconfigured solutions. 
+## Solution accelerators
+You might want to start with one of the following solution accelerators. 
 
-### Remote monitoring
-The IoT Suite remote monitoring preconfigured solution is an implementation of an end-to-end monitoring solution for multiple machines running in remote locations. The solution combines key Azure services to provide a generic implementation of the business scenario. You can use the solution as a starting point for your own implementation and customize it to meet your specific business requirements.
+### Remote Monitoring
+The Remote Monitoring solution accelerator is an implementation of an end-to-end monitoring solution for multiple machines running in remote locations. The solution combines key Azure services to provide a generic implementation of the business scenario. You can use the solution as a starting point for your own implementation and customize it to meet your specific business requirements.
 
-### Predictive maintenance
-The IoT Suite predictive maintenance preconfigured solution is an end-to-end solution for a business scenario that predicts the point at which a failure is likely to occur. You can use this preconfigured solution proactively for activities such as optimizing maintenance. The solution combines key Azure IoT Suite services, such as Azure IoT Hub, Stream Analytics, and a Machine Learning workspace. This workspace contains a model, based on a public sample data set, to predict the Remaining Useful Life (RUL) of an aircraft engine. The solution fully implements the IoT business scenario as a starting point for you to plan and implement a solution that meets your specific business requirements.
+### Predictive Maintenance
+The Predictive Maintenance solution accelerator is an end-to-end solution for a business scenario that predicts the point at which a failure is likely to occur. You can use this solution proactively for activities such as optimizing maintenance. The solution combines key Azure IoT Suite services, such as Azure IoT Hub, Stream Analytics, and a Machine Learning workspace. This workspace contains a model, based on a public sample data set, to predict the Remaining Useful Life (RUL) of an aircraft engine. The solution fully implements the IoT business scenario as a starting point for you to plan and implement a solution that meets your specific business requirements.
 
 
-## Deploying the preconfigured solutions
+## Deploying the solution accelerator
 
 Both solutions can be deployed in two ways, via website or via PowerShell.
 
 ### Deploy via website
 
-Follow the instructions in the [tutorial for the preconfigured solutions](../iot-suite/iot-suite-getstarted-preconfigured-solutions.md) by using the home page mentioned earlier.
+Follow the instructions in the [tutorial for the preconfigured solutions](../iot-accelerators/iot-accelerators-remote-monitoring-explore.md) by using the home page mentioned earlier.
 
 ### Deploy via PowerShell
 
 There's a full version (using Azure Resource Manager templates and Visual Studio) for the *remote monitoring* solution. Download from the [Azure-IoT-Remote-Monitoring repository on GitHub](https://github.com/Azure/azure-iot-remote-monitoring). The PowerShell deployment is ready for other environments like Azure Germany. Provide the *Environment* parameter "AzureGermanCloud," so it looks similar to this:
 
-    build.cmd cloud debug AzureGermanCloud
+```powershell
+build.cmd cloud debug AzureGermanCloud
+```
 
 Bing Maps is currently not available in Azure Germany and therefore cannot be subscribed to automatically. You can solve this problem by subscribing to the service in global Azure and using the service there. 
 

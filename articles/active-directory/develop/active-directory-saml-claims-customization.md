@@ -1,138 +1,177 @@
 ---
-title: Customizing claims issued in the SAML token for pre-integrated apps in Azure Active Directory | Microsoft Docs
-description: Learn how to customize the claims issued in the SAML token for pre-integrated apps in Azure Active Directory
+title: Customize app SAML token claims
+titleSuffix: Microsoft identity platform
+description: Learn how to customize the claims issued by Microsoft identity platform in the SAML token for enterprise applications.
 services: active-directory
-documentationcenter: ''
-author: jeevansd
-manager: femila
-editor: ''
-
-ms.assetid: f1daad62-ac8a-44cd-ac76-e97455e47803
+author: kenwith
+manager: CelesteDG
 ms.service: active-directory
+ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 07/11/2017
-ms.author: jeedes
+ms.topic: how-to
+ms.date: 10/22/2019
+ms.author: kenwith
+ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-
 ---
-# Customizing claims issued in the SAML token for pre-integrated apps in Azure Active Directory
-Today Azure Active Directory supports thousands of pre-integrated applications in the Azure AD Application Gallery, including over 360 that support single sign-on using the SAML 2.0 protocol. When a user authenticates to an application through Azure AD using SAML, Azure AD sends a token to the application (via an HTTP POST). And then, the application validates and uses the token to log the user in instead of prompting for a username and password. These SAML tokens contain pieces of information about the user known as "claims".
 
-In identity-speak, a “claim” is information that an identity provider states about a user inside the token they issue for that user. In [SAML token](http://en.wikipedia.org/wiki/SAML_2.0), this data is typically contained in the SAML Attribute Statement. The user’s unique ID is typically represented in the SAML Subject also called as Name Identifier.
+# How to: customize claims issued in the SAML token for enterprise applications
 
-By default, Azure Active Directory issues a SAML token to your application that contains a NameIdentifier claim, with a value of the user’s username (AKA user principal name) in Azure AD. this value can uniquely identify the user. The SAML token also contains additional claims containing the user’s email address, first name, and last name.
+Today, Microsoft identity platform supports single sign-on (SSO) with most enterprise applications, including both applications pre-integrated in the Azure AD app gallery as well as custom applications. When a user authenticates to an application through Microsoft identity platform using the SAML 2.0 protocol, Microsoft identity platform sends a token to the application (via an HTTP POST). And then, the application validates and uses the token to log the user in instead of prompting for a username and password. These SAML tokens contain pieces of information about the user known as *claims*.
 
-To view or edit the claims issued in the SAML token to the application, open the application in Azure portal. Then select the **View and edit all other user attributes** checkbox in the **User Attributes** section of the application.
+A *claim* is information that an identity provider states about a user inside the token they issue for that user. In [SAML token](https://en.wikipedia.org/wiki/SAML_2.0), this data is typically contained in the SAML Attribute Statement. The user’s unique ID is typically represented in the SAML Subject also called as Name Identifier.
 
-![User Attributes section][1]
+By default, Microsoft identity platform issues a SAML token to your application that contains a `NameIdentifier` claim with a value of the user’s username (also known as the user principal name) in Azure AD, which can uniquely identify the user. The SAML token also contains additional claims containing the user’s email address, first name, and last name.
+
+To view or edit the claims issued in the SAML token to the application, open the application in Azure portal. Then open the **User Attributes & Claims** section.
+
+![Open the User Attributes & Claims section in the Azure portal](./media/active-directory-saml-claims-customization/sso-saml-user-attributes-claims.png)
 
 There are two possible reasons why you might need to edit the claims issued in the SAML token:
+
+* The application requires the `NameIdentifier` or NameID claim to be something other than the username (or user principal name) stored in Azure AD.
 * The application has been written to require a different set of claim URIs or claim values.
-* The application has been deployed in a way that requires the NameIdentifier claim to be something other than the username (AKA user principal name) stored in Azure Active Directory.
 
-You can edit any of the default claim values. Select the claim row in the SAML token attributes table. This opens the **Edit Attribute** section and then you can edit claim name, value, and namespace associated with the claim.
+## Editing nameID
 
-![Edit User Attribute][2]
+To edit the NameID (name identifier value):
 
-You can also remove claims (other than NameIdentifier) using the context menu, which opens by clicking on the **...** icon.  You can also add new claims using the **Add attribute** button.
+1. Open the **Name identifier value** page.
+1. Select the attribute or transformation you want to apply to the attribute. Optionally, you can specify the format you want the NameID claim to have.
 
-![Edit User Attribute][3]
+   ![Edit the NameID (name identifier) value](./media/active-directory-saml-claims-customization/saml-sso-manage-user-claims.png)
 
-## Editing the NameIdentifier claim
-To solve the problem where the application has been deployed using a different username, click on the **User Identifier** drop down in the **User Attributes** section. This action provides a dialog with several different options:
+### NameID format
 
-![Edit User Attribute][4]
+If the SAML request contains the element NameIDPolicy with a specific format, then Microsoft identity platform will honor the format in the request.
 
-In the drop-down, select **user.mail** to set the NameIdentifier claim to be the user’s email address in the directory. Or, select **user.onpremisessamaccountname** to set to the user’s SAM Account Name that has been synced from on-premises Azure AD.
+If the SAML request doesn't contain an element for NameIDPolicy, then Microsoft identity platform will issue the NameID with the  format you specify. If no format is specified Microsoft identity platform will use the default source format associated with the claim source selected.
 
-You can also use the special **ExtractMailPrefix()** function to remove the domain suffix from either the email address, SAM Account Name, or the user principal name. This extracts only the first part of the user name being passed through (for example, "joe_smith" instead of joe_smith@contoso.com).
+From the **Choose name identifier format** dropdown, you can select one of the following options.
 
-![Edit User Attribute][5]
+| NameID format | Description |
+|---------------|-------------|
+| **Default** | Microsoft identity platform will use the default source format. |
+| **Persistent** | Microsoft identity platform will use Persistent as the NameID format. |
+| **EmailAddress** | Microsoft identity platform will use EmailAddress as the NameID format. |
+| **Unspecified** | Microsoft identity platform will use Unspecified as the NameID format. |
+| **Windows domain qualified name** | Microsoft identity platform will use WindowsDomainQualifiedName as the NameID format. |
 
-We have now also added the **join()** function to join the verified domain with the user identifier value. when you select the join() function in the **User Identifier**
-First select the user identifier as like email address or user principal name and then in the second drop-down select your verified domain. If you select the email address with the verified domain, then Azure AD extracts the username from the first value joe_smith from joe_smith@contoso.com and appends it with contoso.onmicrosoft.com. See the following example:
+Transient NameID is also supported, but is not available in the dropdown and cannot be configured on Azure's side. To learn more about the NameIDPolicy attribute, see [Single Sign-On SAML protocol](single-sign-on-saml-protocol.md).
 
-![Edit User Attribute][6]
+### Attributes
 
-## Adding claims
-When adding a claim, you can specify the attribute name (which doesn’t strictly need to follow a URI pattern as per the SAML spec). Set the value to any user attribute that is stored in the directory.
+Select the desired source for the `NameIdentifier` (or NameID) claim. You can select from the following options.
 
-![Add User Attribute][7]
+| Name | Description |
+|------|-------------|
+| Email | Email address of the user |
+| userprincipalName | User principal name (UPN) of the user |
+| onpremisessamaccount | SAM account name that has been synced from on-premises Azure AD |
+| objectid | Objectid of the user in Azure AD |
+| employeeid | Employee ID of the user |
+| Directory extensions | Directory extensions [synced from on-premises Active Directory using Azure AD Connect Sync](../hybrid/how-to-connect-sync-feature-directory-extensions.md) |
+| Extension Attributes 1-15 | On-premises extension attributes used to extend the Azure AD schema |
 
-For example, you need to send the department that the user belongs to in their organization as a claim (such as, Sales). Enter the claim name as expected by the application, and then select **user.department** as the value.
+For more info, see [Table 3: Valid ID values per source](active-directory-claims-mapping.md#table-3-valid-id-values-per-source).
 
-> [!NOTE]
-> If for a given user there is no value stored for a selected attribute, then that claim is not being issued in the token.
+You can also assign any constant (static) value to any claims which you define in Azure AD. Please follow the below steps to assign a constant value:
 
-> [!TIP]
-> The **user.onpremisesecurityidentifier** and **user.onpremisesamaccountname** are only supported when synchronizing user data from on-premises Active Directory using the [Azure AD Connect tool](../active-directory-aadconnect.md).
+1. In the [Azure portal](https://portal.azure.com/), on the **User Attributes & Claims** section, click on the **Edit** icon to edit the claims.
 
-## Restricted claims
+1. Click on the required claim which you want to modify.
 
-There are some restricted claims in SAML. If you add these claims, then Azure AD will not send these claims. Following are the SAML restricted claim set:
+1. Enter the constant value without quotes in the **Source attribute** as per your organization and click **Save**.
 
-	| Claim type (URI) |
-	| ------------------- |
-	| http://schemas.microsoft.com/ws/2008/06/identity/claims/expiration |
-	| http://schemas.microsoft.com/ws/2008/06/identity/claims/expired |
-	| http://schemas.microsoft.com/identity/claims/accesstoken |
-	| http://schemas.microsoft.com/identity/claims/openid2_id |
-	| http://schemas.microsoft.com/identity/claims/identityprovider |
-	| http://schemas.microsoft.com/identity/claims/objectidentifier |
-	| http://schemas.microsoft.com/identity/claims/puid |
-	| http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier[MR1] |
-	| http://schemas.microsoft.com/identity/claims/tenantid |
-	| http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant |
-	| http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod |
-	| http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider |
-	| http://schemas.microsoft.com/ws/2008/06/identity/claims/groups |
-	| http://schemas.microsoft.com/claims/groups.link |
-	| http://schemas.microsoft.com/ws/2008/06/identity/claims/role |
-	| http://schemas.microsoft.com/ws/2008/06/identity/claims/wids |
-	| http://schemas.microsoft.com/2014/09/devicecontext/claims/iscompliant |
-	| http://schemas.microsoft.com/2014/02/devicecontext/claims/isknown |
-	| http://schemas.microsoft.com/2012/01/devicecontext/claims/ismanaged |
-	| http://schemas.microsoft.com/2014/03/psso |
-	| http://schemas.microsoft.com/claims/authnmethodsreferences |
-	| http://schemas.xmlsoap.org/ws/2009/09/identity/claims/actor |
-	| http://schemas.microsoft.com/ws/2008/06/identity/claims/samlissuername |
-	| http://schemas.microsoft.com/ws/2008/06/identity/claims/confirmationkey |
-	| http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname |
-	| http://schemas.microsoft.com/ws/2008/06/identity/claims/primarygroupsid |
-	| http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid |
-	| http://schemas.xmlsoap.org/ws/2005/05/identity/claims/authorizationdecision |
-	| http://schemas.xmlsoap.org/ws/2005/05/identity/claims/authentication |
-	| http://schemas.xmlsoap.org/ws/2005/05/identity/claims/sid |
-	| http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlyprimarygroupsid |
-	| http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlyprimarysid |
-	| http://schemas.xmlsoap.org/ws/2005/05/identity/claims/denyonlysid |
-	| http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlywindowsdevicegroup |
-	| http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsdeviceclaim |
-	| http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsdevicegroup |
-	| http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsfqbnversion |
-	| http://schemas.microsoft.com/ws/2008/06/identity/claims/windowssubauthority |
-	| http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsuserclaim |
-	| http://schemas.xmlsoap.org/ws/2005/05/identity/claims/x500distinguishedname |
-	| http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn |
-	| http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid |
-	| http://schemas.xmlsoap.org/ws/2005/05/identity/claims/spn |
-	| http://schemas.microsoft.com/ws/2008/06/identity/claims/ispersistent |
-	| http://schemas.xmlsoap.org/ws/2005/05/identity/claims/privatepersonalidentifier |
-	| http://schemas.microsoft.com/identity/claims/scope |
+    ![Org Attributes & Claims section in the Azure portal](./media/active-directory-saml-claims-customization/organization-attribute.png)
+
+1. The constant value will be displayed as below.
+
+    ![Edit Attributes & Claims section in the Azure portal](./media/active-directory-saml-claims-customization/edit-attributes-claims.png)
+
+### Special claims - transformations
+
+You can also use the claims transformations functions.
+
+| Function | Description |
+|----------|-------------|
+| **ExtractMailPrefix()** | Removes the domain suffix from either the email address or the user principal name. This extracts only the first part of the user name being passed through (for example, "joe_smith" instead of joe_smith@contoso.com). |
+| **Join()** | Joins an attribute with a verified domain. If the selected user identifier value has a domain, it will extract the username to append the selected verified domain. For example, if you select the email (joe_smith@contoso.com) as the user identifier value and select contoso.onmicrosoft.com as the verified domain, this will result in joe_smith@contoso.onmicrosoft.com. |
+| **ToLower()** | Converts the characters of the selected attribute into lowercase characters. |
+| **ToUpper()** | Converts the characters of the selected attribute into uppercase characters. |
+
+## Adding application-specific claims
+
+To add application-specific claims:
+
+1. In **User Attributes & Claims**, select **Add new claim** to open the **Manage user claims** page.
+1. Enter the **name** of the claims. The value doesn't strictly need to follow a URI pattern, per the SAML spec. If you need a URI pattern, you can put that in the **Namespace** field.
+1. Select the **Source** where the claim is going to retrieve its value. You can select a user attribute from the source attribute dropdown or apply a transformation to the user attribute before emitting it as a claim.
+
+### Claim transformations
+
+To apply a transformation to a user attribute:
+
+1. In **Manage claim**, select *Transformation* as the claim source to open the **Manage transformation** page.
+2. Select the function from the transformation dropdown. Depending on the function selected, you will have to provide parameters and a constant value to evaluate in the transformation. Refer to the table below for more information about the available functions.
+3. To apply multiple transformation, click on **Add transformation**.You can apply a maximum of two transformation to a claim. For example, you could first extract the email prefix of the `user.mail`. Then, make the string upper case.
+
+   ![Multiple claims transformation](./media/active-directory-saml-claims-customization/sso-saml-multiple-claims-transformation.png)
+
+You can use the following functions to transform claims.
+
+| Function | Description |
+|----------|-------------|
+| **ExtractMailPrefix()** | Removes the domain suffix from either the email address or the user principal name. This extracts only the first part of the user name being passed through (for example, "joe_smith" instead of joe_smith@contoso.com). |
+| **Join()** | Creates a new value by joining two attributes. Optionally, you can use a separator between the two attributes. For NameID claim transformation, the join is restricted to a verified domain. If the selected user identifier value has a domain, it will extract the username to append the selected verified domain. For example, if you select the email (joe_smith@contoso.com) as the user identifier value and select contoso.onmicrosoft.com as the verified domain, this will result in joe_smith@contoso.onmicrosoft.com. |
+| **ToLowercase()** | Converts the characters of the selected attribute into lowercase characters. |
+| **ToUppercase()** | Converts the characters of the selected attribute into uppercase characters. |
+| **Contains()** | Outputs an attribute or constant if the input matches the specified value. Otherwise, you can specify another output if there’s no match.<br/>For example, if you want to emit a claim where the value is the user’s email address if it contains the domain “@contoso.com”, otherwise you want to output the user principal name. To do this, you would configure the following values:<br/>*Parameter 1(input)*: user.email<br/>*Value*: "@contoso.com"<br/>Parameter 2 (output): user.email<br/>Parameter 3 (output if there's no match): user.userprincipalname |
+| **EndWith()** | Outputs an attribute or constant if the input ends with the specified value. Otherwise, you can specify another output if there’s no match.<br/>For example, if you want to emit a claim where the value is the user’s employee ID if the employee ID ends with “000”, otherwise you want to output an extension attribute. To do this, you would configure the following values:<br/>*Parameter 1(input)*: user.employeeid<br/>*Value*: "000"<br/>Parameter 2 (output): user.employeeid<br/>Parameter 3 (output if there's no match): user.extensionattribute1 |
+| **StartWith()** | Outputs an attribute or constant if the input starts with the specified value. Otherwise, you can specify another output if there’s no match.<br/>For example, if you want to emit a claim where the value is the user’s employee ID if the country/region starts with "US", otherwise you want to output an extension attribute. To do this, you would configure the following values:<br/>*Parameter 1(input)*: user.country<br/>*Value*: "US"<br/>Parameter 2 (output): user.employeeid<br/>Parameter 3 (output if there's no match): user.extensionattribute1 |
+| **Extract() - After matching** | Returns the substring after it matches the specified value.<br/>For example, if the input's value is "Finance_BSimon", the matching value is "Finance_", then the claim's output is "BSimon". |
+| **Extract() - Before matching** | Returns the substring until it matches the specified value.<br/>For example, if the input's value is "BSimon_US", the matching value is "_US", then the claim's output is "BSimon". |
+| **Extract() - Between matching** | Returns the substring until it matches the specified value.<br/>For example, if the input's value is "Finance_BSimon_US", the first matching value is "Finance_", the second matching value is "_US", then the claim's output is "BSimon". |
+| **ExtractAlpha() - Prefix** | Returns the prefix alphabetical part of the string.<br/>For example, if the input's value is "BSimon_123", then it returns "BSimon". |
+| **ExtractAlpha() - Suffix** | Returns the suffix alphabetical part of the string.<br/>For example, if the input's value is "123_Simon", then it returns "Simon". |
+| **ExtractNumeric() - Prefix** | Returns the prefix numerical part of the string.<br/>For example, if the input's value is "123_BSimon", then it returns "123". |
+| **ExtractNumeric() - Suffix** | Returns the suffix numerical part of the string.<br/>For example, if the input's value is "BSimon_123", then it returns "123". |
+| **IfEmpty()** | Outputs an attribute or constant if the input is null or empty.<br/>For example, if you want to output an attribute stored in an extensionattribute if the employee ID for a given user is empty. To do this, you would configure the following values:<br/>Parameter 1(input): user.employeeid<br/>Parameter 2 (output): user.extensionattribute1<br/>Parameter 3 (output if there's no match): user.employeeid |
+| **IfNotEmpty()** | Outputs an attribute or constant if the input is not null or empty.<br/>For example, if you want to output an attribute stored in an extensionattribute if the employee ID for a given user is not empty. To do this, you would configure the following values:<br/>Parameter 1(input): user.employeeid<br/>Parameter 2 (output): user.extensionattribute1 |
+
+If you need additional transformations, submit your idea in the [feedback forum in Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=160599) under the *SaaS application* category.
+
+## Emitting claims based on conditions
+
+You can specify the source of a claim based on user type and the group to which the user belongs. 
+
+The user type can be:
+- **Any**: All users are allowed to access the application.
+- **Members**: Native member of the tenant
+- **All guests**: User is brought over from an external organization with or without Azure AD.
+- **AAD guests**: Guest user belongs to another organization using Azure AD.
+- **External guests**: Guest user belongs to an external organization that doesn't have Azure AD.
+
+
+One scenario where this is helpful is when the source of a claim is different for a guest and an employee accessing an application. You may want to specify that if the user is an employee the NameID is sourced from user.email, but if the user is a guest then the NameID is sourced from user.extensionattribute1.
+
+To add a claim condition:
+
+1. In **Manage claim**, expand the Claim conditions.
+2. Select the user type.
+3. Select the group(s) to which the user should belong. You can select up to 50 unique groups across all claims for a given application. 
+4. Select the **Source** where the claim is going to retrieve its value. You can select a user attribute from the source attribute dropdown or apply a transformation to the user attribute before emitting it as a claim.
+
+The order in which you add the conditions are important. Azure AD evaluates the conditions from top to bottom to decide which value to emit in the claim. 
+
+For example, Britta Simon is a guest user in the Contoso tenant. She belongs to another organization that also uses Azure AD. Given the below configuration for the Fabrikam application, when Britta tries to sign in to Fabrikam, Microsoft identity platform will evaluate the conditions as follow.
+
+First, Microsoft identity platform verifies if Britta's user type is `All guests`. Since, this is true then Microsoft identity platform assigns the source for the claim to `user.extensionattribute1`. Second, Microsoft identity platform verifies if Britta's user type is `AAD guests`, since this is also true then Microsoft identity platform assigns the source for the claim to `user.mail`. Finally, the claim is emitted with value `user.mail` for Britta.
+
+![Claims conditional configuration](./media/active-directory-saml-claims-customization/sso-saml-user-conditional-claims.png)
 
 ## Next steps
-* [Article Index for Application Management in Azure Active Directory](../active-directory-apps-index.md)
-* [Configuring single sign-on to applications that are not in the Azure Active Directory application gallery](../active-directory-saas-custom-apps.md)
-* [Troubleshooting SAML-Based Single Sign-On](active-directory-saml-debugging.md)
 
-<!--Image references-->
-[1]: ./media/active-directory-saml-claims-customization/user-attribute-section.png
-[2]: ./media/active-directory-saml-claims-customization/edit-claim-name-value.png
-[3]: ./media/active-directory-saml-claims-customization/delete-claim.png
-[4]: ./media/active-directory-saml-claims-customization/user-identifier.png
-[5]: ./media/active-directory-saml-claims-customization/extractemailprefix-function.png
-[6]: ./media/active-directory-saml-claims-customization/join-function.png
-[7]: ./media/active-directory-saml-claims-customization/add-attribute.png
+* [Application management in Azure AD](../manage-apps/what-is-application-management.md)
+* [Configure single sign-on on applications that are not in the Azure AD application gallery](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
+* [Troubleshoot SAML-based single sign-on](../azuread-dev/howto-v1-debug-saml-sso-issues.md)

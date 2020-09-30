@@ -1,43 +1,41 @@
 ---
-title: "Azure CLI Script-Scale Azure Database for PostgreSQL | Microsoft Docs"
-description: "Azure CLI Script Sample - Scale Azure Database for PostgreSQL server to a different performance level after querying the metrics."
-services: postgresql
-author: salonisonpal
-ms.author: salonis
-manager: jhubbard
-editor: jasonwhowell
-ms.service: postgresql-database
-ms.devlang: azure-cli
-ms.custom: mvc
+title: Azure CLI script - Scale and monitor Azure Database for PostgreSQL
+description: Azure CLI Script Sample - Scale Azure Database for PostgreSQL server to a different performance level after querying the metrics.
+author: rachel-msft
+ms.author: raagyema
+ms.service: postgresql
+ms.devlang: azurecli
+ms.custom: mvc, devx-track-azurecli
 ms.topic: sample
-ms.date: 05/31/2017
+ms.date: 08/07/2019
 ---
 # Monitor and scale a single PostgreSQL server using Azure CLI
-This sample CLI script scales a single Azure Database for PostgreSQL server to a different performance level after querying the metrics. 
+This sample CLI script scales compute and storage for a single Azure Database for PostgreSQL server after querying the metrics. Compute can scale up or down. Storage can only scale up. 
 
 [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+If you choose to run the CLI locally, this article requires Azure CLI version 2.0 or later. Check the version by running `az --version`. See [Install Azure CLI]( /cli/azure/install-azure-cli) to install or upgrade your version of Azure CLI.
 
 ## Sample script
-In this sample script, change the highlighted lines to customize the admin username and password. Replace the subscription id used in the az monitor commands with your own subscription id.
-[!code-azurecli-interactive[main](../../../cli_scripts/postgresql/scale-postgresql-server/scale-postgresql-server.sh?highlight=15-16 "Create and scale Azure Database for PostgreSQL.")]
+Update the script with your subscription ID.
+[!code-azurecli-interactive[main](../../../cli_scripts/postgresql/scale-postgresql-server/scale-postgresql-server.sh "Create and scale Azure Database for PostgreSQL.")]
 
 ## Clean up deployment
-After the script sample has been run, the following command can be used to remove the resource group and all resources associated with it.
+Use the following command to remove the resource group and all resources associated with it after the script has been run. 
 [!code-azurecli-interactive[main](../../../cli_scripts/postgresql/scale-postgresql-server/delete-postgresql.sh "Delete the resource group.")]
 
 ## Script explanation
-This script uses the following commands. Each command in the table links to command specific documentation.
+This script uses the commands outlined in the following table:
 
 | **Command** | **Notes** |
 |---|---|
-| [az group create](/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
-| [az postgres server create](/cli/azure/postgres/server#create) | Creates a PostgreSQL server that hosts the databases. |
-| [az monitor metrics list](/cli/azure/monitor/metrics#list) | List the metric value for the resources. |
-| [az group delete](/cli/azure/group#delete) | Deletes a resource group including all nested resources. |
+| [az group create](/cli/azure/group) | Creates a resource group in which all resources are stored. |
+| [az postgres server create](/cli/azure/postgres/server#az-postgres-server-create) | Creates a PostgreSQL server that hosts the databases. |
+| [az postgres server update](/cli/azure/postgres/server#az-postgres-server-update) | Updates properties of the PostgreSQL server. |
+| [az monitor metrics list](/cli/azure/monitor/metrics) | List the metric value for the resources. |
+| [az group delete](/cli/azure/group) | Deletes a resource group including all nested resources. |
 
 ## Next steps
-- Read more information on the Azure CLI: [Azure CLI documentation](/cli/azure/overview)
+- Learn more about [Azure Database for PostgreSQL compute and storage](../concepts-pricing-tiers.md)
 - Try additional scripts: [Azure CLI samples for Azure Database for PostgreSQL](../sample-scripts-azure-cli.md)
-- Read more information on scaling: [Service Tiers](../concepts-service-tiers.md) and [Compute Units and Storage Units](../concepts-compute-unit-and-storage.md)
+- Learn more about the [Azure CLI](/cli/azure)

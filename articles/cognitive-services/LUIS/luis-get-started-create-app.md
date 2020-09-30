@@ -1,76 +1,211 @@
 ---
-title: Create your first Language Understanding Intelligent Services (LUIS) app in 10 minutes in Azure | Microsoft Docs 
-description: Get started quickly by creating and managing a LUIS application on the Language Understanding Intelligent Services (LUIS) webpage. 
-services: cognitive-services
-author: DeniseMak
-manager: hsalama
-
+title: "Quickstart: create app - LUIS"
+description:  This quickstart shows how to create a LUIS app that uses the prebuilt domain `HomeAutomation` for turning lights and appliances on and off. This prebuilt domain provides intents, entities, and example utterances for you. When you're finished, you'll have a LUIS endpoint running in the cloud.
 ms.service: cognitive-services
-ms.technology: luis
-ms.topic: article
-ms.date: 04/26/2017
-ms.author: v-demak
+ms.subservice: language-understanding
+ms.topic: quickstart
+ms.date: 05/05/2020
+#Customer intent: As a new user, I want to quickly get a LUIS app created so I can understand the model and actions to train, test, publish, and query.
 ---
 
-# Create your first LUIS app in ten minutes
+# Quickstart: Use prebuilt Home automation app
 
-This Quickstart helps you create your first Language Understanding Intelligent Service (LUIS) app in just a few minutes. When you're finished, you'll have a LUIS endpoint up and running in the cloud.
+In this quickstart, create a LUIS app that uses the prebuilt domain `HomeAutomation` for turning lights and appliances on and off. This prebuilt domain provides intents, entities, and example utterances for you. When you're finished, you'll have a LUIS endpoint running in the cloud.
 
-You are going to create a travel app, that helps you book flights and check the weather at your destination. The how-to topics refer to this application and build on it.
+[!INCLUDE [Sign in to LUIS](./includes/sign-in-process.md)]
 
-## Before you begin
-To use Microsoft Cognitive Service APIs, you first need to create a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) in the Azure portal.
+[!INCLUDE [Select authoring resource](./includes/select-authoring-resource.md)]
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+## Create a new app
+You can create and manage your applications on **My Apps**.
 
-## 1. Create a new app
-You can create and manage your applications on **My Apps** page. You can always access this page by clicking **My Apps** on the top navigation bar of the [LUIS web page](https://www.luis.ai).
+1. On the My apps list, select **+ New app for conversation**, then in the list of options, select **+ New app for conversation** again.
 
-1. On the **My Apps** page, click **New App**.
-2. In the dialog box, name your application "TravelAgent".
+1. In the dialog box, name your application `Home Automation`.
+1. Select **English** as the culture.
+1. Enter an optional description.
+1. Don't select a prediction resource if you haven't already created the resource. To use your app's prediction endpoint (staging or production), you need assign a prediction resource.
+1. Select **Done**.
 
-    ![A new app form](./Images/NewApp-Form.JPG)
-3. Choose your application culture (for TravelAgent app, we’ll choose English), and then click **Create**. 
+    LUIS creates the app.
+
+    ![In the dialog box, name your application `Home Automation`](./media/create-new-app-details.png)
 
     >[!NOTE]
-    >The culture cannot be changed once the application is created. 
+    >The culture cannot be changed once the application is created.
 
-LUIS creates the TravelAgent app and opens its main page which looks like the following screen. Use the navigation links in the left panel to move through your app pages to define data and work on your app. 
+## Add prebuilt domain
 
-![TravelAgent app created and Opened](./Images/AppCreated_Opened.JPG)
+1. In the left navigation, select **Prebuilt domains**.
+1. Search for **HomeAutomation**.
+1. Select **Add domain** on the HomeAutomation card.
 
-## 2. Add intents
-Your first task in the app is to add intents. Intents are the intentions or requested actions conveyed by the user's utterances. They are the main building block of your app. You now need to define the intents (for example, book a flight) that you want your application to detect. Go to the **Intents** page in the side menu to create your intents by clicking the **Add Intent** button.
+    > [!div class="mx-imgBorder"]
+    > ![Select 'Prebuilt domains' then search for 'HomeAutomation'. Select 'Add domain' on the HomeAutomation card.](media/luis-quickstart-new-app/home-automation.png)
 
-For more detail on how to add intents, see [Add intents](add-intents.md).
+    When the domain is successfully added, the prebuilt domain box displays a **Remove domain** button.
 
-## 3. Add utterances
-Now that you've defined intents, you can start seeding examples to every intent to teach the machine learning model the different patterns (for example, "book a flight to Seattle departing on June 8th".) Select an intent you just added and start adding and saving utterances to your intent.
+## Intents and entities
 
-## 4. Add entities
-Now that you have your intents, you can proceed to add entities. Entities describe information relevant to the intent, and sometimes are essential for your app to perform its task. An example for this app would be the airline on which to book a flight. Add a simple entity named "Airline" to your TravelAgent app.
+1. Select **Intents** to review the HomeAutomation domain intents. The prebuilt domain intents have example utterances.
 
-For more information about entities, see [Add entities](add-entities.md).
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot of HomeAutomation intents list](media/luis-quickstart-new-app/home-automation-intents.png "Screenshot of HomeAutomation intents list")
 
-## 5. Label entities in utterances
-Next, you need to label examples of the entities to teach LUIS what this entity can look like. Highlight relevant tokens as entities in the utterances you added.
+    > [!NOTE]
+    > **None** is an intent provided by all LUIS apps. You use it to handle utterances that don't correspond to functionality your app provides.
 
-## 6. Add prebuilt entities
-It might be useful to add one of the pre-existing entities, which we call *prebuilt* entities. Those types of entities are ready to be used directly and don't need to be labeled. Go to the **Entities** page to add prebuilt entities relevant to your app. Add the `ordinal` and `datetime` prebuilt entities to your app.
+1. Select the **HomeAutomation.TurnOff** intent. The intent contains a list of example utterances that are labeled with entities.
 
-## 7. Train your app
-Select **Train & Test** in the left panel, and then click **Train Application** to train your app based on the intents, utterances, entities you defined in the previous steps.
+    > [!div class="mx-imgBorder"]
+    > [![Screenshot of HomeAutomation.TurnOff intent](media/luis-quickstart-new-app/home-automation-turnoff.png "Screenshot of HomeAutomation.TurnOff intent")](media/luis-quickstart-new-app/home-automation-turnoff.png)
 
-## 8. Test your app
-Once you've trained your app, you can test it by typing a test utterance and pressing Enter. The results display the score associated with each intent. Check that the top scoring intent corresponds to the intent of each test utterance.
+## Train the LUIS app
 
-## 9. Publish your app
-Select **Publish App** from the left-side menu and click **Publish**. 
+[!INCLUDE [LUIS How to Train steps](includes/howto-train.md)]
 
-## 10. Use your app
-Copy the endpoint URL from the Publish App page and paste it into a browser. Append a query like "Book a flight to Boston" at the end of the URL and submit the request. The JSON containing results should show in the browser window.
+## Test your app
+Once you've trained your app, you can test it.
+
+1. Select **Test** from the top-right navigation.
+
+1. Type a test utterance like `Turn off the lights` into the interactive test pane, and press Enter.
+
+    ```
+    Turn off the lights
+    ```
+
+    In this example, `Turn off the lights` is correctly identified as the top scoring intent of **HomeAutomation.TurnOff**.
+
+    ![Screenshot of Test panel with utterance highlighted](media/luis-quickstart-new-app/review-test-inspection-pane-in-portal.png)
+
+1. Select **Inspect** to view more information about the prediction.
+
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot of Test panel with inspection information](media/luis-quickstart-new-app/test.png)
+
+1. Close the test pane.
+
+<a name="publish-your-app"></a>
+
+## Publish the app to get the endpoint URL
+
+[!INCLUDE [LUIS How to Publish steps](./includes/howto-publish.md)]
+
+<a name="query-the-v2-api-prediction-endpoint"></a>
+
+## Query the V3 API prediction endpoint
+
+[!INCLUDE [LUIS How to get endpoint first step](./includes/v3-prediction-endpoint.md)]
+
+2. In the browser address bar, for the query string, make sure the following name and value bars are in the URL. If they are not in the query string, add them:
+
+    |Name/value pair|
+    |--|
+    |`verbose=true`|
+    |`show-all-intents=true`|
+
+3. In the browser address bar, go to the end of the URL and enter `turn off the living room light` for the _query_ value, then press Enter.
+
+    ```json
+    {
+        "query": "turn off the living room light",
+        "prediction": {
+            "topIntent": "HomeAutomation.TurnOff",
+            "intents": {
+                "HomeAutomation.TurnOff": {
+                    "score": 0.969448864
+                },
+                "HomeAutomation.QueryState": {
+                    "score": 0.0122336326
+                },
+                "HomeAutomation.TurnUp": {
+                    "score": 0.006547436
+                },
+                "HomeAutomation.TurnDown": {
+                    "score": 0.0050634006
+                },
+                "HomeAutomation.SetDevice": {
+                    "score": 0.004951761
+                },
+                "HomeAutomation.TurnOn": {
+                    "score": 0.00312553928
+                },
+                "None": {
+                    "score": 0.000552945654
+                }
+            },
+            "entities": {
+                "HomeAutomation.Location": [
+                    "living room"
+                ],
+                "HomeAutomation.DeviceName": [
+                    [
+                        "living room light"
+                    ]
+                ],
+                "HomeAutomation.DeviceType": [
+                    [
+                        "light"
+                    ]
+                ],
+                "$instance": {
+                    "HomeAutomation.Location": [
+                        {
+                            "type": "HomeAutomation.Location",
+                            "text": "living room",
+                            "startIndex": 13,
+                            "length": 11,
+                            "score": 0.902181149,
+                            "modelTypeId": 1,
+                            "modelType": "Entity Extractor",
+                            "recognitionSources": [
+                                "model"
+                            ]
+                        }
+                    ],
+                    "HomeAutomation.DeviceName": [
+                        {
+                            "type": "HomeAutomation.DeviceName",
+                            "text": "living room light",
+                            "startIndex": 13,
+                            "length": 17,
+                            "modelTypeId": 5,
+                            "modelType": "List Entity Extractor",
+                            "recognitionSources": [
+                                "model"
+                            ]
+                        }
+                    ],
+                    "HomeAutomation.DeviceType": [
+                        {
+                            "type": "HomeAutomation.DeviceType",
+                            "text": "light",
+                            "startIndex": 25,
+                            "length": 5,
+                            "modelTypeId": 5,
+                            "modelType": "List Entity Extractor",
+                            "recognitionSources": [
+                                "model"
+                            ]
+                        }
+                    ]
+                }
+            }
+        }
+    }
+    ```
+
+    Learn more about the [V3 prediction endpoint](luis-migration-api-v3.md).
+
+
+## Clean up resources
+
+[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## Next steps
 
-* Try to improve your app's performance by continuing to add and label utterances.
-* Try adding [Features](Add-Features.md) to enrich your model and improve performance in language understanding. Features help your app identify alternative interchangeable words/phrases, as well as commonly-used patterns specific to your domain.
+You can call the endpoint from code:
+
+> [!div class="nextstepaction"]
+> [Call a LUIS endpoint using code](luis-get-started-cs-get-intent.md)

@@ -1,19 +1,10 @@
 ---
-title: Manage StorSimple volumes (Update 3) | Microsoft Docs
+title: Manage StorSimple volumes (Update 3)
 description: Explains how to add, modify, monitor, and delete StorSimple volumes, and how to take them offline if necessary.
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: timlt
-editor: ''
-
-ms.assetid:
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 07/19/2017
+ms.topic: how-to
+ms.date: 12/08/2017
 ms.author: alkohli
 
 ---
@@ -55,7 +46,7 @@ If you are using the tiered volume for archival data, select the **Use this volu
 
 Refer to the following table for maximum provisioned capacity for each device and volume type. (Note that locally pinned volumes are not available on a virtual device.)
 
-|  | Maximum tiered volume size | Maximum locally pinned volume size |
+| Type | Maximum tiered volume size | Maximum locally pinned volume size |
 | --- | --- | --- |
 | **Physical devices** | | |
 | 8100 |64 TB |8 TB |
@@ -116,11 +107,7 @@ You [created a volume](storsimple-8000-deployment-walkthrough-u2.md#step-6-creat
       
        If you provision a locally pinned volume of 8.5 TB (maximum allowable size) on your 8100 device, then you have exhausted all the local space available on the device. You can't create any tiered volume from that point onwards as there is no local space on the device to host the working set of the tiered volume. Existing tiered volumes also affect the space available. For example, if you have an 8100 device that already has tiered volumes of roughly 106 TB, only 4 TB of space is available for locally pinned volumes.
 
-    6. In the **Connected hosts** field, click the arrow. 
-
-        ![Connected hosts](./media/storsimple-8000-manage-volumes-u2/step5createvol2.png)
-
-    7. In the **Connected hosts** blade, choose an existing ACR or add a new ACR. If you choose a new ACR, then supply a **Name** for your ACR, provide the **iSCSI Qualified Name** (IQN) of your Windows host. If you don't have the IQN, go to [Get the IQN of a Windows Server host](#get-the-iqn-of-a-windows-server-host). Click **Create**. A volume is created with the specified settings.
+    6. In the **Connected hosts** field, click the arrow. In the **Connected hosts** blade, choose an existing ACR or add a new ACR. If you choose a new ACR, then supply a **Name** for your ACR, provide the **iSCSI Qualified Name** (IQN) of your Windows host. If you don't have the IQN, go to Get the IQN of a Windows Server host. Click **Create**. A volume is created with the specified settings.
 
         ![Click Create](./media/storsimple-8000-manage-volumes-u2/step5createvol3.png)
 
@@ -235,7 +222,7 @@ You may want to change a locally pinned volume to a tiered volume if you need ad
    * If you are changing the type to **Tiered** and this volume will be used for archival data, select the **Use this volume for less frequently accessed archival data** check box.
    * If you are configuring a locally pinned volume as tiered or _vice-versa_, the following message appears.
    
-    ![Change volume type message](./media/storsimple-8000-manage-volumes-u2/changevoltype3.png)
+     ![Change volume type message](./media/storsimple-8000-manage-volumes-u2/changevoltype3.png)
 
 7. Click **Save** to save the changes. When prompted for confirmation, click **Yes** to start the conversion process. 
 

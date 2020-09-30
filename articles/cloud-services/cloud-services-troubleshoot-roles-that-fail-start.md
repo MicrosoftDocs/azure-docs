@@ -4,19 +4,16 @@ description: Here are some common reasons why a Cloud Service role may fail to s
 services: cloud-services
 documentationcenter: ''
 author: simonxjx
-manager: felixwu
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue
-
 ms.assetid: 674b2faf-26d7-4f54-99ea-a9e02ef0eb2f
 ms.service: cloud-services
-ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 7/26/2017
+ms.date: 06/15/2018
 ms.author: v-six
-
 ---
 # Troubleshoot Cloud Service roles that fail to start
 Here are some common problems and solutions related to Azure Cloud Services roles that fail to start.
@@ -59,9 +56,8 @@ Once the service is redeployed, you will see an error message with the name of t
 You can use Remote Desktop to access the role and view more complete error information remotely. Use the following steps to view the errors by using Remote Desktop:
 
 1. Ensure that Azure SDK 1.3 or later is installed.
-2. During the deployment of the solution by using Visual Studio, choose to “Configure Remote Desktop connections…”. For more information on configuring the Remote Desktop connection, see [Using Remote Desktop with Azure Roles](../vs-azure-tools-remote-desktop-roles.md).
-3. In the Microsoft Azure classic portal, once the instance shows a status of **Ready**, click one of the role instances.
-4. Click the **Connect** icon in the **Remote Access** area of the ribbon.
+2. During the deployment of the solution by using Visual Studio, enable Remote Desktop. For more information, see [Enable Remote Desktop Connection for a Role in Azure Cloud Services using Visual Studio](cloud-services-role-enable-remote-desktop-visual-studio.md).
+3. In the Microsoft Azure portal, once the instance shows a status of **Ready**, remote into the instance. For more information on using the remote desktop with Cloud Services, see [Remote into role instances](cloud-services-role-enable-remote-desktop-new-portal.md#remote-into-role-instances).
 5. Sign in to the virtual machine by using the credentials that were specified during the Remote Desktop configuration.
 6. Open a command window.
 7. Type `IPconfig`.
@@ -93,7 +89,7 @@ For best results in using this method of diagnosis, you should use a computer or
 7. When the role starts, you will see detailed error information in Internet Explorer. You can also use standard Windows troubleshooting tools to further diagnose the problem.
 
 ## Diagnose issues by using IntelliTrace
-For worker and web roles that use .NET Framework 4, you can use [IntelliTrace](https://msdn.microsoft.com/library/dd264915.aspx), which is available in Microsoft Visual Studio Enterprise.
+For worker and web roles that use .NET Framework 4, you can use [IntelliTrace](/visualstudio/debugger/intellitrace), which is available in Microsoft Visual Studio Enterprise.
 
 Follow these steps to deploy the service with IntelliTrace enabled:
 
@@ -122,4 +118,4 @@ Once you have verified that all errors have been corrected, you can deploy the s
 ## Next steps
 View more [troubleshooting articles](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services) for cloud services.
 
-To learn how to troubleshoot cloud service role issues by using Azure PaaS computer diagnostics data, see [Kevin Williamson's blog series](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
+To learn how to troubleshoot cloud service role issues by using Azure PaaS computer diagnostics data, see [Kevin Williamson's blog series](https://docs.microsoft.com/archive/blogs/kwill/windows-azure-paas-compute-diagnostics-data).

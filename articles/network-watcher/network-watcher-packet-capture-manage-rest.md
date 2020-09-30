@@ -3,18 +3,14 @@ title: Manage packet captures with Azure Network Watcher - REST API | Microsoft 
 description: This page explains how to manage the packet capture feature of Network Watcher using Azure REST API
 services: network-watcher
 documentationcenter: na
-author: georgewallace
-manager: timlt
-editor: 
-
-ms.assetid: 53fe0324-835f-4005-afc8-145eeb314aeb
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
+ms.author: damendo
 
 ---
 
@@ -23,8 +19,7 @@ ms.author: gwallace
 > [!div class="op_single_selector"]
 > - [Azure portal](network-watcher-packet-capture-manage-portal.md)
 > - [PowerShell](network-watcher-packet-capture-manage-powershell.md)
-> - [CLI 1.0](network-watcher-packet-capture-manage-cli-nodejs.md)
-> - [CLI 2.0](network-watcher-packet-capture-manage-cli.md)
+> - [Azure CLI](network-watcher-packet-capture-manage-cli.md)
 > - [Azure REST API](network-watcher-packet-capture-manage-rest.md)
 
 Network Watcher packet capture allows you to create capture sessions to track traffic to and from a virtual machine. Filters are provided for the capture session to ensure you capture only the traffic you want. Packet capture helps to diagnose network anomalies both reactively and proactively. Other uses include gathering network statistics, gaining information on network intrusions, to debug client-server communications and much more. By being able to remotely trigger packet captures, this capability eases the burden of running a packet capture manually and on the desired machine, which saves valuable time.
@@ -38,6 +33,9 @@ This article takes you through the different management tasks that are currently
 - [**Stop a packet capture**](#stop-packet-capture)
 - [**Delete a packet capture**](#delete-packet-capture)
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Before you begin
 
 In this scenario, you call the Network Watcher Rest API to run IP Flow Verify. ARMclient is used to call the REST API using PowerShell. ARMClient is found on chocolatey at [ARMClient on Chocolatey](https://chocolatey.org/packages/ARMClient)
@@ -48,7 +46,7 @@ This scenario assumes you have already followed the steps in [Create a Network W
 
 ## Log in with ARMClient
 
-```PowerShell
+```powershell
 armclient login
 ```
 
@@ -58,7 +56,7 @@ Run the following script to return a virtual machine. This information is needed
 
 The following code needs variables:
 
-- **subscriptionId** - The subscription id can also be retrieved with the **Get-AzureRMSubscription** cmdlet.
+- **subscriptionId** - The subscription id can also be retrieved with the **Get-AzSubscription** cmdlet.
 - **resourceGroupName** - The name of a resource group that contains virtual machines.
 
 ```powershell
@@ -208,11 +206,12 @@ The following response is an example of a typical response returned when queryin
 
 ```json
 {
-    "name": "vm1PacketCapture",     "id": "/subscriptions/{guid}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkWatchers/{networkWatche rName}/packetCaptures/{packetCaptureName}",
-   "captureStartTime" : "9/7/2016 12:35:24PM",
-   "packetCaptureStatus" : "Stopped",
-   "stopReason" : "TimeExceeded"
-   "packetCaptureError" : [ ]
+    "name": "vm1PacketCapture",
+    "id": "/subscriptions/{guid}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkWatchers/{networkWatcherName}/packetCaptures/{packetCaptureName}",
+    "captureStartTime" : "9/7/2016 12:35:24PM",
+    "packetCaptureStatus" : "Stopped",
+    "stopReason" : "TimeExceeded",
+    "packetCaptureError" : [ ]
 }
 ```
 
@@ -236,8 +235,8 @@ $remoteIP = ""
 $remotePort = "" # Examples are: 80, or 80-120
 $protocol = "" # Valid values are TCP, UDP and Any.
 $targetUri = "" # Example: /subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.compute/virtualMachine/$vmName
-$storageId = "" # Example: "https://mytestaccountname.blob.core.windows.net/capture/vm1Capture.cap"
-$storagePath = ""
+$storageId = "" #Example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ContosoExampleRG/providers/Microsoft.Storage/storageAccounts/contosoexamplergdiag374"
+$storagePath = "" # Example: "https://mytestaccountname.blob.core.windows.net/capture/vm1Capture.cap"
 $localFilePath = "c:\\temp\\packetcapture.cap" # Example: "d:\capture\vm1Capture.cap"
 
 $requestBody = @"
@@ -298,7 +297,7 @@ armclient delete "https://management.azure.com/subscriptions/${subscriptionId}/R
 
 ## Next steps
 
-For instructions on downloading files from azure storage accounts, refer to [Get started with Azure Blob storage using .NET](../storage/storage-dotnet-how-to-use-blobs.md). Another tool that can be used is Storage Explorer. More information about Storage Explorer can be found here at the following link: [Storage Explorer](http://storageexplorer.com/)
+For instructions on downloading files from azure storage accounts, refer to [Get started with Azure Blob storage using .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Another tool that can be used is Storage Explorer. More information about Storage Explorer can be found here at the following link: [Storage Explorer](https://storageexplorer.com/)
 
 Learn how to automate packet captures with Virtual machine alerts by viewing [Create an alert triggered packet capture](network-watcher-alert-triggered-packet-capture.md)
 

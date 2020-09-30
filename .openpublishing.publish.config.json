@@ -1,115 +1,588 @@
 {
-	"build_entry_point": "docs",
-	"need_generate_pdf_url_template": true,
-	"need_generate_intellisense": false,
-	"enable_push_aggregation": true,
-	"enable_pull_request_aggregation": true,	
-	"branch_target_mapping": {
-		"live": ["Publish", "PDF"],
-		"master": ["Publish", "PDF"]
-		},
-	"docsets_to_publish": [{
-		"docset_name": "azure-documents",
-		"build_source_folder": ".",
-		"build_output_subfolder": "azure",
-		"locale": "en-us",
-		"version": 0,
-		"open_to_public_contributors": true,
-		"type_mapping": {
-			"Conceptual": "Content",
-			"ManagedReference": "Content",
-      "LandingData": "Content",
-			"RestApi": "Content"
-		},
-		"build_entry_point": "docs",
-		"template_folder": "_themes"
-	}],
-	"Targets": {
-		"Pdf": {
-			"template_folder": "_themes.pdf"
-		}
-	},
-	"notification_subscribers": [],
-	"branches_to_filter": [],	
-	"skip_source_output_uploading": false,
-	"need_preview_pull_request": true,
-	"git_repository_url_open_to_public_contributors": "https://github.com/Microsoft/azure-docs",
-	"git_repository_branch_open_to_public_contributors": "master",
-	"enable_incremental_build": true,
-	"dependent_repositories": [{
-		"path_to_root": "_themes",
-		"url": "https://github.com/Microsoft/templates.docs.msft",
-		"branch": "master",
-		"branch_mapping": {
-			
-		}
-	},
-	{
-		"path_to_root": "_themes.pdf",
-		"url": "https://github.com/Microsoft/templates.docs.msft.pdf",
-		"branch": "master"
-	},
-	{
-		"path_to_root": "cli_scripts",
-		"url": "https://github.com/Azure/azure-docs-cli-python-samples",
-		"branch": "master",
-		"branch_mapping":
-		{
-			"release-build-mysql": "release-build",
-			"release-build-postgresql": "release-build",
-			"release-build-stellar": "release-build" 
-		}
-	},
-	{
-		"path_to_root": "powershell_scripts",
-		"url": "https://github.com/Azure/azure-docs-powershell-samples",
-		"branch": "master",
-		"branch_mapping":
-		{
-			"release-build-mysql": "release-build",
-			"release-build-postgresql": "release-build",
-			"release-build-stellar": "release-build" 
-		}
-	},
+  "build_entry_point": "docs",
+  "docsets_to_publish": [
     {
-		"path_to_root": "samples-mediaservices-integration",
-		"url": "https://github.com/Azure-Samples/media-services-dotnet-functions-integration",
-		"branch": "master"
-    },
-    {
-		"path_to_root": "samples-mediaservices-encryptiondrm",
-		"url": "https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm",
-		"branch": "master"
-    },
-    {
-		"path_to_root": "samples-mediaservices-encryptionfairplay",
-		"url": "https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-fairplay",
-		"branch": "master"
-    },
-    {
-		"path_to_root": "samples-mediaservices-encryptionaes",
-		"url": "https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes",
-		"branch": "master"
-    },
-    {
-		"path_to_root": "samples-mediaservices-copyblob",
-		"url": "https://github.com/Azure-Samples/media-services-dotnet-copy-blob-into-asset",
-		"branch": "master"
-    },
-    {
-		"path_to_root": "samples-mediaservices-deliverplayready",
-		"url": "https://github.com/Azure-Samples/media-services-dotnet-deliver-playready-widevine-licenses",
-		"branch": "master"
-    },
-    {
-		"path_to_root": "samples-mediaservices-livestream",
-		"url": "https://github.com/Azure-Samples/media-services-dotnet-encode-live-stream-with-ams-clear",
-		"branch": "master"
-    },
-    {
-        "path_to_root": "samples-mediaservices-encoderstandard",
-        "url": "https://github.com/Azure-Samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard",
-        "branch":"master"
+      "docset_name": "azure-documents",
+      "build_source_folder": ".",
+      "build_output_subfolder": "azure",
+      "locale": "en-us",
+      "monikers": [],
+      "moniker_ranges": [],
+      "open_to_public_contributors": true,
+      "type_mapping": {
+        "ZonePivotGroups": "Toc",
+        "Conceptual": "Content",
+        "ManagedReference": "Content",
+        "LandingData": "Content",
+        "RestApi": "Content",
+        "ContextObject": "Toc"
+      },
+      "build_entry_point": "docs",
+      "template_folder": "_themes",
+      "version": 0
     }
-	]
+  ],
+  "notification_subscribers": [
+    "azure-docs-publish@microsoft.com"
+  ],
+  "sync_notification_subscribers": [
+    "angrobe_extended_dir@microsoft.com"
+  ],
+  "branches_to_filter": [],
+  "git_repository_url_open_to_public_contributors": "https://github.com/MicrosoftDocs/azure-docs",
+  "git_repository_branch_open_to_public_contributors": "master",
+  "skip_source_output_uploading": false,
+  "need_preview_pull_request": true,
+  "contribution_branch_mappings": {},
+  "dependent_repositories": [
+    {
+      "path_to_root": "quickstart-templates",
+      "url": "https://github.com/Azure/azure-quickstart-templates",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "resourcemanager-templates",
+      "url": "https://github.com/Azure/azure-docs-json-samples",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "_themes",
+      "url": "https://github.com/Microsoft/templates.docs.msft",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "_themes.pdf",
+      "url": "https://github.com/Microsoft/templates.docs.msft.pdf",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "cli_scripts",
+      "url": "https://github.com/Azure/azure-docs-cli-python-samples",
+      "branch": "master",
+      "branch_mapping": {
+        "release-build-mysql": "release-build",
+        "release-build-postgresql": "release-build",
+        "release-build-stellar": "release-build"
+      }
+    },
+    {
+      "path_to_root": "powershell_scripts",
+      "url": "https://github.com/Azure/azure-docs-powershell-samples",
+      "branch": "master",
+      "branch_mapping": {
+        "release-build-mysql": "release-build",
+        "release-build-postgresql": "release-build",
+        "release-build-stellar": "release-build"
+      }
+    },
+    {
+      "path_to_root": "policy-templates",
+      "url": "https://github.com/Azure/azure-policy",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "blueprints-templates",
+      "url": "https://github.com/Azure/azure-blueprints",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "azure-docs-json-samples",
+      "url": "https://github.com/Azure/azure-docs-json-samples",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "samples-key-vault-dotnet-quickstart",
+      "url": "https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "samples-mediaservices-integration",
+      "url": "https://github.com/Azure-Samples/media-services-dotnet-functions-integration",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "samples-mediaservices-encryptiondrm",
+      "url": "https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "samples-mediaservices-encryptionfairplay",
+      "url": "https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-fairplay",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "samples-mediaservices-encryptionaes",
+      "url": "https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "samples-mediaservices-copyblob",
+      "url": "https://github.com/Azure-Samples/media-services-dotnet-copy-blob-into-asset",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "samples-mediaservices-deliverplayready",
+      "url": "https://github.com/Azure-Samples/media-services-dotnet-deliver-playready-widevine-licenses",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "samples-mediaservices-livestream",
+      "url": "https://github.com/Azure-Samples/media-services-dotnet-encode-live-stream-with-ams-clear",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "samples-mediaservices-encoderstandard",
+      "url": "https://github.com/Azure-Samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "azure-app-service-multi-container",
+      "url": "https://github.com/Azure-Samples/multicontainerwordpress",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "samples-durable-functions",
+      "url": "https://github.com/Azure/azure-functions-durable-extension",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "functions-python-tensorflow-tutorial",
+      "url": "https://github.com/Azure-Samples/functions-python-tensorflow-tutorial",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "functions-pytorch",
+      "url": "https://github.com/Azure-Samples/functions-python-pytorch-tutorial",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "functions-quickstart-templates",
+      "url": "https://github.com/Azure/azure-functions-templates",
+      "branch": "dev"
+    },
+    {
+        "path_to_root": "azure-functions-samples-java",
+        "url": "https://github.com/Azure-Samples/azure-functions-samples-java",
+        "branch": "master"
+    },
+    {
+      "path_to_root": "functions-quickstart-java",
+      "url": "https://github.com/Azure-Samples/functions-quickstarts-java",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "functions-docs-csharp",
+      "url": "https://github.com/Azure-Samples/functions-docs-csharp",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "functions-docs-javascript",
+      "url": "https://github.com/Azure-Samples/functions-docs-javascript",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "functions-docs-typescript",
+      "url": "https://github.com/Azure-Samples/functions-docs-typescript",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "functions-docs-python",
+      "url": "https://github.com/Azure-Samples/functions-docs-python",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "functions-docs-powershell",
+      "url": "https://github.com/Azure-Samples/functions-docs-powershell",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "samples-personalizer",
+      "url": "https://github.com/Azure-Samples/cognitive-services-personalizer-samples",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "samples-cognitive-services-data-files",
+      "url": "https://github.com/Azure-Samples/cognitive-services-sample-data-files",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "samples-luis",
+      "url": "https://github.com/Azure-Samples/cognitive-services-language-understanding",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "samples-anomaly-detector",
+      "url": "https://github.com/Azure-Samples/anomalydetector",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "api-management-policy-samples",
+      "url": "https://github.com/Azure/api-management-policy-snippets",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "WebApp-OpenIdConnect-DotNet",
+      "url": "https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet",
+      "branch": "GuidedSetup"
+    },
+    {
+      "path_to_root": "acr-tasks",
+      "url": "https://github.com/Azure-Samples/acr-tasks",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "iot-samples-node",
+      "url": "https://github.com/Azure-Samples/azure-iot-samples-node",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "azure-iot-sdk-node",
+      "url": "https://github.com/Azure/azure-iot-sdk-node",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "iot-samples-c",
+      "url": "https://github.com/Azure/azure-iot-sdk-c",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "samples-cognitive-services-python-sdk",
+      "url": "https://github.com/Azure-Samples/cognitive-services-python-sdk-samples",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "samples-cognitive-services-speech-sdk",
+      "url": "https://github.com/Azure-Samples/cognitive-services-speech-sdk",
+      "branch": "release-ignite-cogserv-speech-service"
+    },
+    {
+      "path_to_root": "media-services-v3-dotnet-quickstarts",
+      "url": "https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "media-services-v3-dotnet-tutorials",
+      "url": "https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "samples-javascript",
+      "url": "https://github.com/Microsoft/tsiclient",
+      "branch": "tutorial"
+    },
+    {
+      "path_to_root": "samples-tsi",
+      "url": "https://github.com/Azure-Samples/Azure-Time-Series-Insights",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "media-services-v3-dotnet-core-tutorials",
+      "url": "https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "media-services-v3-rest-postman",
+      "url": "https://github.com/Azure-Samples/media-services-v3-rest-postman",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "remote-monitoring-webui",
+      "url": "https://github.com/Azure/pcs-remote-monitoring-webui.git",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "MachineLearningNotebooks",
+      "url": "https://github.com/Azure/MachineLearningNotebooks",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "aml-sdk-samples",
+      "url": "https://github.com/Azure/MachineLearningNotebooks",
+      "branch": "sdk-codetest"
+    },
+    {
+      "path_to_root": "samples-qnamaker-nodejs",
+      "url": "https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "samples-qnamaker-go",
+      "url": "https://github.com/Azure-Samples/cognitive-services-qnamaker-go",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "samples-qnamaker-csharp",
+      "url": "https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "samples-qnamaker-java",
+      "url": "https://github.com/Azure-Samples/cognitive-services-qnamaker-java",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "samples-qnamaker-python",
+      "url": "https://github.com/Azure-Samples/cognitive-services-qnamaker-python",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "cognitive-services-dotnet-sdk-samples",
+      "url": "https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "cognitive-services-java-sdk-samples",
+      "url": "https://github.com/Azure-Samples/cognitive-services-java-sdk-samples",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "cognitive-services-node-sdk-samples",
+      "url": "https://github.com/Azure-Samples/cognitive-services-node-sdk-samples",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "cognitive-services-ruby-sdk-samples",
+      "url": "https://github.com/Azure-Samples/cognitive-services-ruby-sdk-samples",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "cognitive-services-rest-samples",
+      "url": "https://github.com/Azure-Samples/cognitive-services-REST-api-samples",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "cognitive-services-vision-csharp-sdk-quickstarts",
+      "url": "https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "cognitive-face-csharp-sample",
+      "url": "https://github.com/Azure-Samples/Cognitive-Face-CSharp-sample",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "cognitive-services-face-android-detect",
+      "url": "https://github.com/Azure-Samples/cognitive-services-face-android-detect",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "azure-sdk-for-go-samples",
+      "url": "https://github.com/Azure-Samples/azure-sdk-for-go-samples",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "azure-sdk-for-java-event-hubs",
+      "url": "https://github.com/Azure/azure-sdk-for-java/",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "azure-sdk-for-java-cosmos-db",
+      "url": "https://github.com/Azure/azure-sdk-for-java/",
+      "branch": "master"
+    },    
+    {
+      "path_to_root": "azure-sdk-for-java-script-event-hubs",
+      "url": "https://github.com/Azure/azure-sdk-for-js/",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "azure-sdk-for-net-event-hubs",
+      "url": "https://github.com/Azure/azure-sdk-for-net/",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "azure-sdk-for-python-event-hubs",
+      "url": "https://github.com/Azure/azure-sdk-for-python/",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "spring-data-azure-cosmos-db-sql-tutorial",
+      "url": "https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started/",
+      "branch": "main"
+    },    
+    {
+      "path_to_root": "azure-cosmos-spark",
+      "url": "https://github.com/Azure/azure-cosmosdb-spark",
+      "branch": "2.4"
+    },     
+    {
+      "path_to_root": "cosmos-dotnet-getting-started",
+      "url": "https://github.com/Azure-Samples/cosmos-dotnet-getting-started",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "cosmos-dotnet-v4-getting-started",
+      "url": "https://github.com/Azure-Samples/cosmos-dotnet-v4-getting-started",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "cosmos-dotnet-bulk-import",
+      "url": "https://github.com/Azure-Samples/cosmos-dotnet-bulk-import-throughput-optimizer",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "samples-cosmosdb-dotnet-web-app",
+      "url": "https://github.com/Azure-Samples/cosmos-dotnet-todo-app",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "samples-cosmosdb-dotnet-v3",
+      "url": "https://github.com/Azure/azure-cosmos-dotnet-v3",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "samples-cosmosdb-dotnet-v2",
+      "url": "https://github.com/Azure/azure-cosmos-dotnet-v2",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "samples-cosmosdb-java-v4-web-app",
+      "url": "https://github.com/Azure-Samples/azure-cosmos-java-sql-api-todo-app",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "samples-cosmosdb-dotnet-change-feed-processor",
+      "url": "https://github.com/Azure-Samples/cosmos-dotnet-change-feed-processor",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "samples-cosmosdb-dotnet-core-web-app",
+      "url": "https://github.com/Azure-Samples/cosmos-dotnet-core-todo-app",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "samples-cosmosdb-xamarin",
+      "url": "https://github.com/Azure-Samples/azure-cosmos-db-sql-xamarin-getting-started",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "cosmosdb-python-sdk",
+      "url": "https://github.com/Azure/azure-sdk-for-python/",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "cosmosdb-cassandra-python-sample",
+      "url": "https://github.com/Azure-Samples/azure-cosmos-db-cassandra-python-getting-started",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "cosmosdb-nodejs-get-started",
+      "url": "https://github.com/Azure-Samples/azure-cosmos-db-sql-api-nodejs-getting-started",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "azure-cosmos-db-python-getting-started",
+      "url": "https://github.com/Azure-Samples/azure-cosmos-db-python-getting-started",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "cognitive-services-content-moderator-samples",
+      "url": "https://github.com/Azure-Samples/cognitive-services-content-moderator-samples",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "samples-eCommerceCatalogModeration",
+      "url": "https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "samples-cogserv-containers",
+      "url": "https://github.com/Azure-Samples/cognitive-services-containers-samples",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "samples-iot-distributed-tracing",
+      "url": "https://github.com/Azure-Samples/azure-iot-distributed-tracing-sample",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "samples-fbPageModeration",
+      "url": "https://github.com/MicrosoftContentModerator/samples-fbPageModeration",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "AIVisualProvision",
+      "url": "https://github.com/Microsoft/AIVisualProvision",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "VideoReviewConsoleApp",
+      "url": "https://github.com/MicrosoftContentModerator/VideoReviewConsoleApp",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "cognitive-services-quickstart-code",
+      "url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "ImmersiveReaderSdk",
+      "url": "https://github.com/microsoft/immersive-reader-sdk",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azure-cosmosdb-java-v2",
+      "url": "https://github.com/Azure/azure-cosmosdb-java",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "azure-cosmosdb-graph-dotnet",
+      "url": "https://github.com/Azure-Samples/azure-cosmos-db-graph-gremlindotnet-getting-started",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "azure-cosmosdb-java-v4-getting-started",
+      "url": "https://github.com/Azure-Samples/azure-cosmos-java-getting-started",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "azure-cosmosdb-dotnet-table",
+      "url": "https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "azure-cosmos-java-sql-api-samples",
+      "url": "https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples",
+      "branch": "master"
+    }, 
+    {
+      "path_to_root": "azure-cosmos-java-sql-app-example",
+      "url": "https://github.com/Azure-Samples/azure-cosmos-java-sql-app-example",
+      "branch": "master"
+    },         
+    {
+      "path_to_root": "azure-storage-snippets",
+      "url": "https://github.com/azure-samples/AzureStorageSnippets",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "azure-sdk-for-net",
+      "url": "https://github.com/Azure/azure-sdk-for-net/",
+      "branch": "master"
+    }
+  ],
+  "branch_target_mapping": {
+    "live": [
+      "Publish",
+      "PDF"
+    ],
+    "master": [
+      "Publish",
+      "PDF"
+    ]
+  },
+  "need_generate_pdf_url_template": true,
+  "targets": {
+    "Pdf": {
+      "template_folder": "_themes.pdf"
+    }
+  },
+  "docs_build_engine": {
+    "name": "docfx_v3"
+  }
 }

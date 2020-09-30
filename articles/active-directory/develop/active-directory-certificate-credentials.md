@@ -1,56 +1,57 @@
 ---
-title: Certificate credentials in Azure AD | Microsoft Docs
-description: This article discusses the registration and use of certificate credentials for application authentication
+title: Microsoft identity platform certificate credentials
+titleSuffix: Microsoft identity platform
+description: This article discusses the registration and use of certificate credentials for application authentication.
 services: active-directory
-documentationcenter: .net
-author: navyasric
-manager: mbaldwin
-editor: ''
+author: hpsin
+manager: CelesteDG
 
-ms.assetid: 88f0c64a-25f7-4974-aca2-2acadc9acbd8
 ms.service: active-directory
+ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 06/02/2017
-ms.author: nacanuma
+ms.topic: conceptual
+ms.date: 08/12/2020
+ms.author: hirsin
+ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
-
 ---
 
-# Certificate credentials for application authentication
+# Microsoft identity platform application authentication certificate credentials
 
-Azure Active Directory allows an application to use its own credentials for authentication, for example, in the OAuth 2.0 Client Credentials Grant flow and the On-Behalf-Of flow.
-One form of credential that can be used is a JSON Web Token(JWT) assertion signed with a certificate that the application owns.
+Microsoft identity platform allows an application to use its own credentials for authentication, for example, in the OAuth 2.0  [client credentials grant](v2-oauth2-client-creds-grant-flow.md) flow and the [on-behalf-of](v2-oauth2-on-behalf-of-flow.md) (OBO) flow.
 
-## Format of the assertion
-To compute the assertion, you probably want to use one of the many [JSON Web Token](https://jwt.io/) libraries in the language of your choice. The information carried by the token is:
+One form of credential that an application can use for authentication is a [JSON Web Token](./security-tokens.md#json-web-tokens-jwts-and-claims) (JWT) assertion signed with a certificate that the application owns.
 
-#### Header
+## Assertion format
+
+To compute the assertion, you can use one of the many JWT libraries in the language of your choice. The information is carried by the token in its [Header](#header), [Claims](#claims-payload), and [Signature](#signature).
+
+### Header
 
 | Parameter |  Remark |
-| --- | --- | --- |
+| --- | --- |
 | `alg` | Should be **RS256** |
 | `typ` | Should be **JWT** |
-| `x5t` | Should be the X.509 Certificate SHA-1 thumbprint |
+| `x5t` | The X.509 certificate hash's (also known as the cert's SHA-1 *thumbprint*) Hex representation encoded as a Base64 string value. For example, given an X.509 certificate hash of `84E05C1D98BCE3A5421D225B140B36E86A3D5534` (Hex), the `x5t` claim would be `hOBcHZi846VCHSJbFAs26Go9VTQ=` (Base64). |
 
-#### Claims (Payload)
+### Claims (payload)
 
-| Parameter |  Remark |
-| --- | --- | --- |
-| `aud` | Audience: Should be **https://login.microsoftonline.com/*tenant_Id*/oauth2/token** |
-| `exp` | Expiration date: the date when the token expires. The time is represented as the number of seconds from January 1, 1970 (1970-01-01T0:0:0Z) UTC until the time the token validity expires.|
-| `iss` | Issuer: should be the client_id (Application Id of the client service) |
-| `jti` | GUID: the JWT ID |
-| `nbf` | Not Before: the date before which the token cannot be used. The time is represented as the number of seconds from January 1, 1970 (1970-01-01T0:0:0Z) UTC until the time the token was issued. |
-| `sub` | Subject: As for `iss`, should be the client_id (Application Id of the client service) |
+| Parameter |  Remarks |
+| --- | --- |
+| `aud` | Audience: Should be `https://login.microsoftonline.com/<your-tenant-id>/oauth2/token` |
+| `exp` | Expiration date: The date when the token expires. The time is represented as the number of seconds from January 1, 1970 (1970-01-01T0:0:0Z) UTC until the time the token validity expires. We recommend using a short expiration time - 10 minutes to one hour.|
+| `iss` | Issuer: Should be the client_id (*Application (client) ID* of the client service) |
+| `jti` | GUID: The JWT ID |
+| `nbf` | Not Before: The date before which the token cannot be used. The time is represented as the number of seconds from January 1, 1970 (1970-01-01T0:0:0Z) UTC until the time the assertion was created. |
+| `sub` | Subject: As for `iss`, should be the client_id (*Application (client) ID* of the client service) |
 
-#### Signature
-The signature is computed applying the certificate as described in the [JSON Web Token RFC7519 specification](https://tools.ietf.org/html/rfc7519)
+### Signature
 
-### Example of a decoded JWT assertion
-```
+The signature is computed by applying the certificate as described in the [JSON Web Token RFC7519 specification](https://tools.ietf.org/html/rfc7519).
+
+## Example of a decoded JWT assertion
+
+```JSON
 {
   "alg": "RS256",
   "typ": "JWT",
@@ -62,41 +63,66 @@ The signature is computed applying the certificate as described in the [JSON Web
   "exp": 1484593341,
   "iss": "97e0a5b7-d745-40b6-94fe-5f77d35c6e05",
   "jti": "22b3bb26-e046-42df-9c96-65dbd72c1c81",
-  "nbf": 1484592741,  
+  "nbf": 1484592741,
   "sub": "97e0a5b7-d745-40b6-94fe-5f77d35c6e05"
 }
 .
 "Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
-
 ```
 
-### Example of an encoded JWT assertion
-The following string is an example of encoded assertion. If you look carefully, you notice three sections separated by dots (.).
-The first section encodes the header, the second the payload, and the last is the signature computed with the certificates from the content of the first two sections.
+## Example of an encoded JWT assertion
+
+The following string is an example of encoded assertion. If you look carefully, you notice three sections separated by dots (`.`):
+
+* The first section encodes the *header*
+* The second section encodes the *claims* (payload)
+* The last section is the *signature* computed with the certificates from the content of the first two sections
+
 ```
 "eyJhbGciOiJSUzI1NiIsIng1dCI6Imd4OHRHeXN5amNScUtqRlBuZDdSRnd2d1pJMCJ9.eyJhdWQiOiJodHRwczpcL1wvbG9naW4ubWljcm9zb2Z0b25saW5lLmNvbVwvam1wcmlldXJob3RtYWlsLm9ubWljcm9zb2Z0LmNvbVwvb2F1dGgyXC90b2tlbiIsImV4cCI6MTQ4NDU5MzM0MSwiaXNzIjoiOTdlMGE1YjctZDc0NS00MGI2LTk0ZmUtNWY3N2QzNWM2ZTA1IiwianRpIjoiMjJiM2JiMjYtZTA0Ni00MmRmLTljOTYtNjVkYmQ3MmMxYzgxIiwibmJmIjoxNDg0NTkyNzQxLCJzdWIiOiI5N2UwYTViNy1kNzQ1LTQwYjYtOTRmZS01Zjc3ZDM1YzZlMDUifQ.
 Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 ```
 
-### Register your certificate with Azure AD
-To associate the certificate credential with the client application in Azure AD, you need to edit the application manifest.
+## Register your certificate with Microsoft identity platform
+
+You can associate the certificate credential with the client application in Microsoft identity platform through the Azure portal using any of the following methods:
+
+### Uploading the certificate file
+
+In the Azure app registration for the client application:
+1. Select **Certificates & secrets**.
+2. Click on **Upload certificate** and select the certificate file to upload.
+3. Click **Add**.
+  Once the certificate is uploaded, the thumbprint, start date, and expiration values are displayed.
+
+### Updating the application manifest
+
 Having hold of a certificate, you need to compute:
-- `$base64Thumbprint`, which is the base64 encoding of the certificate Hash
-- `$base64Value`, which is the base64 encoding of the certificate raw data
 
-you also need to provide a GUID to identify the key in the application manifest (`$keyId`)
+- `$base64Thumbprint` - Base64-encoded value of the certificate hash
+- `$base64Value` - Base64-encoded value of the certificate raw data
 
-In the Azure app registration for the client application, open the application manifest, and replace the *keyCredentials* property with your new certificate information using the following schema:
-```
-"keyCredentials": [
-    {
-        "customKeyIdentifier": "$base64Thumbprint",
-        "keyId": "$keyid",
-        "type": "AsymmetricX509Cert",
-        "usage": "Verify",
-        "value":  "$base64Value"
-    }
-]
-```
+You also need to provide a GUID to identify the key in the application manifest (`$keyId`).
 
-Save the edits to the application manifest, and upload to Azure AD. The keyCredentials property is multi-valued, so you may upload multiple certificates for richer key management.
+In the Azure app registration for the client application:
+1. Select **Manifest** to open the application manifest.
+2. Replace the *keyCredentials* property with your new certificate information using the following schema.
+
+   ```JSON
+   "keyCredentials": [
+       {
+           "customKeyIdentifier": "$base64Thumbprint",
+           "keyId": "$keyid",
+           "type": "AsymmetricX509Cert",
+           "usage": "Verify",
+           "value":  "$base64Value"
+       }
+   ]
+   ```
+3. Save the edits to the application manifest and then upload the manifest to Microsoft identity platform.
+
+   The `keyCredentials` property is multi-valued, so you may upload multiple certificates for richer key management.
+
+## Next steps
+
+The [.NET Core daemon console application using Microsoft identity platform](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) code sample on GitHub shows how an application uses its own credentials for authentication. It also shows how you can [create a self-signed certificate](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/1-Call-MSGraph#optional-use-the-automation-script) using the `New-SelfSignedCertificate` PowerShell cmdlet. You can also use the [app creation scripts](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/AppCreationScripts-withCert/AppCreationScripts.md) in the sample repo to create certificates, compute the thumbprint, and so on.

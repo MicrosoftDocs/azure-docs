@@ -1,0 +1,116 @@
+### YamlMime:Landing
+
+title: Azure Application Gateway documentation
+summary: Learn how to create application gateways. This documentation helps you plan, deploy, and manage web traffic to your Azure resources.
+
+metadata:
+  title: Azure Application Gateway documentation
+  description: Learn how to deploy Azure Firewall, a cloud-based network security service.
+  services: application-gateway
+  ms.service: application-gateway
+  ms.topic: landing-page
+  author: vhorne
+  ms.author: victorh
+  ms.date: 03/24/2020
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: Learn about Application Gateway
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Application Gateway?
+            url: overview.md
+      - linkListType: concept
+        links:
+          - text: Frequently asked questions
+            url: application-gateway-faq.md
+      - linkListType: whats-new
+        links:
+          - text: What's new
+            url: https://azure.microsoft.com/updates/?category=networking&query=Application%20Gateway
+  # Card
+  - title: Support high traffic volumes
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Application Gateway high traffic support
+            url: high-traffic-support.md
+
+  # Card
+  - title: Deploy an Application Gateway
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Direct web traffic with Azure Application Gateway
+            url: quick-create-portal.md
+
+  # Card
+  - title: Deploy with SSL termination
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: SSL termination and end to end SSL with Application Gateway
+            url: ssl-overview.md
+          - text: SSL policy overview
+            url: application-gateway-ssl-policy-overview.md
+      - linkListType: tutorial
+        links:
+          - text: Configure an application gateway with SSL termination
+            url: create-ssl-portal.md
+
+# Card
+  - title: Autoscaling and Zone-redundant Application Gateways
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Autoscaling and Zone-redundant Application Gateway v2
+            url: application-gateway-autoscaling-zone-redundant.md
+      - linkListType: tutorial
+        links:
+          - text: Create an application gateway that improves web application access
+            url: tutorial-autoscale-ps.md
+
+# Card
+  - title: Ingress Controller for AKS
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: What is Ingress Controller for AKS
+            url: ingress-controller-overview.md
+      - linkListType: tutorial
+        links:
+          - text: Create an Ingress Controller for AKS 
+            url: ingress-controller-install-new.md
+
+# Card
+  - title: Rewrite HTTP headers and URL using Application Gateway
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Rewrite HTTP headers and URL using Application Gateway
+            url: rewrite-http-headers-url.md
+      - linkListType: how-to-guide
+        links:
+          - text: Rewrite HTTP headers using Azure portal
+            url: rewrite-http-headers-portal.md
+          - text: Rewrite URL and query string using Azure portal
+            url: rewrite-url-portal.md            
+
+# Card
+  - title: Troubleshoot Application Gateway
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Application Gateway Resource Health overview
+            url: resource-health-overview.md
+      - linkListType: how-to-guide
+        links:
+          - text: Use Log Analytics to examine Application Gateway Web Application Firewall Logs
+            url: log-analytics.md
+          - text: Backend Health issues in Application Gateway
+            url: application-gateway-backend-health-troubleshooting.md

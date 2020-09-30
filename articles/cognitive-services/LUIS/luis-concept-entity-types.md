@@ -1,44 +1,161 @@
 ---
-title: Understanding entity types in LUIS apps in Azure | Microsoft Docs
-description: Add entities (key data in your application's domain) in Language Understanding Intelligent Service (LUIS) apps.
-services: cognitive-services
-author: DeniseMak
-manager: hsalama
-
+title: Entity types - LUIS
+description: An entity extracts data from a user utterance at prediction runtime. An _optional_, secondary purpose is to boost the prediction of the intent or other entities by using the entity as a feature.
 ms.service: cognitive-services
-ms.technology: luis
-ms.topic: article
-ms.date: 03/01/2017
-ms.author: cahann
+ms.subservice: language-understanding
+ms.topic: conceptual
+ms.date: 08/06/2020
 ---
-# Entities in LUIS
 
-<!--
-Entities are key data in your application’s domain. An entity represents a class including a collection of similar objects (places, things, people, events or concepts). Entities describe information relevant to the intent, and sometimes they are essential for your app to perform its task. For example, a News Search app may include entities such as “topic”, “source”, “keyword” and “publishing date”, which are key data to search for news. In a travel booking app, the “location”, “date”, "airline", "travel class" and "tickets" are key information for flight booking (relevant to the "Bookflight" intent). 
---> 
-Entities are important words in utterances that describe information relevant to the intent, and sometimes they are essential to it. Entities belong to classes of similar objects. 
+# Extract data with entities
 
-In the utterance "Book me a ticket to Paris", "Paris" is an entity of type location. By recognizing the entities that are mentioned in the user’s input, LUIS helps you choose the specific actions to take to fulfill an intent.
+An entity extracts data from a user utterance at prediction runtime. An _optional_, secondary purpose is to boost the prediction of the intent or other entities by using the entity as a feature.
 
-You do not need to create entities for every concept in your app, but only for those required for the app to take action. You can add up to **30** entities in a single LUIS app. 
+There are several types of entities:
 
-You can add, edit or delete entities in your app through the **Entities list** on the **Entities** page in the LUIS app web portal. LUIS offers many types of entities; prebuilt entities, custom machine learned entities and list entities.
+* [machine-learning entity](reference-entity-machine-learned-entity.md) - this is the primary entity. You should design your schema with this entity type before using other entities.
+* Non-machine-learning used as a required [feature](luis-concept-feature.md) - for exact text matches, pattern matches, or detection by prebuilt entities
+* [Pattern.any](#patternany-entity) - to extract free-form text such as book titles from a [Pattern](reference-entity-pattern-any.md)
 
+machine-learning entities provide the widest range of data extraction choices. Non-machine-learning entities work by text matching and are used as a [required feature](#design-entities-for-decomposition) for a machine-learning entity or intent.
+
+## Entities represent data
+
+Entities are data you want to pull from the utterance, such as names, dates, product names, or any significant group of words. An utterance can include many entities or none at all. A client application _may_ need the data to perform its task.
+
+Entities need to be labeled consistently across all training utterances for each intent in a model.
+
+ You can define your own entities or use prebuilt entities to save time for common concepts such as [datetimeV2](luis-reference-prebuilt-datetimev2.md), [ordinal](luis-reference-prebuilt-ordinal.md), [email](luis-reference-prebuilt-email.md), and [phone number](luis-reference-prebuilt-phonenumber.md).
+
+|Utterance|Entity|Data|
+|--|--|--|
+|Buy 3 tickets to New York|Prebuilt number<br>Destination|3<br>New York|
+
+
+### Entities are optional but recommended
+
+While [intents](luis-concept-intent.md) are required, entities are optional. You do not need to create entities for every concept in your app, but only for those where the client application needs the data or the entity acts as a hint or signal to another entity or intent.
+
+As your application develops and a new need for data is identified, you can add appropriate entities to your LUIS model later.
+
+<a name="entity-compared-to-intent"></a>
+
+## Entity represents data extraction
+
+The entity represents a data concept _inside the utterance_. An intent classifies the _entire utterance_.
+
+Consider the following four utterances:
+
+|Utterance|Intent predicted|Entities extracted|Explanation|
+|--|--|--|--|
+|Help|help|-|Nothing to extract.|
+|Send something|sendSomething|-|Nothing to extract. The model does not have a required feature to extract `something` in this context, and there is no recipient stated.|
+|Send Bob a present|sendSomething|`Bob`, `present`|The model extracts `Bob` by adding a required feature of prebuilt entity `personName`. A machine-learning entity has been used to extract `present`.|
+|Send Bob a box of chocolates|sendSomething|`Bob`, `box of chocolates`|The two important pieces of data, `Bob` and the `box of chocolates`, have been extracted by machine-learning entities.|
+
+## Label entities in all intents
+
+Entities extract data regardless of the predicted intent. Make sure you label _all_ example utterances in all intents. The `None` intent missing entity labeling causes confusion even if there were far more training utterances for the other intents.
+
+## Design entities for decomposition
+
+machine-learning entities allow you to design your app schema for decomposition, breaking a large concept into subentities.
+
+Designing for decomposition allows LUIS to return a deep degree of entity resolution to your client application. This allows your client application to focus on business rules and leave data resolution to LUIS.
+
+A machine-learning entity triggers based on the context learned through example utterances.
+
+[**machine-learning entities**](tutorial-machine-learned-entity.md) are the top-level extractors. Subentities are child entities of machine-learning entities.
+
+## Effective machine learned entities
+
+To build the machine learned entities effectively:
+
+* Your labeling should be consistent across the intents. This includes even utterances you provide in the **None** intent that include this entity. Otherwise the model will not be able to determine the sequences effectively.
+* If you have a machine learned entity with subentities, make sure that the different orders and variants of the entity and subentities are presented in the labeled utterances. Labeled example utterances should include all valid forms, and include entities that appear and are absent and also reordered within the utterance.
+* You should avoid overfitting the entities to a very fixed set. **Overfitting** happens when the model doesn't generalize well, and is a common problem in machine learning models. This implies the app would not work on new data adequately. In turn, you should vary the labeled example utterances so the app is able to generalize beyond the limited examples you provide. You should vary the different subentities with enough change for the model to think more of the concept instead of just the examples shown.
+
+## Effective prebuilt entities
+
+To build effective entities that extract common data, such as those provided by the [prebuilt entities](luis-reference-prebuilt-entities.md), we recommend the following process.
+
+Improve the extraction of data by bringing your own data to an entity as a feature. That way all the additional labels from your data will learn the context of where person names exist in your application.
+
+<a name="composite-entity"></a>
+<a name="list-entity"></a>
+<a name="patternany-entity"></a>
+<a name="prebuilt-entity"></a>
+<a name="regular-expression-entity"></a>
+<a name="simple-entity"></a>
 
 ## Types of entities
 
-LUIS offers the following types of entities:
+A subentity to a parent should be a machine-learning entity. The subentity can use a non-machine-learning entity as a [feature](luis-concept-feature.md).
+
+Choose the entity based on how the data should be extracted and how it should be represented after it is extracted.
+
+|Entity type|Purpose|
+|--|--|
+|[**Machine-learned**](tutorial-machine-learned-entity.md)|Extract nested, complex data learned from labeled examples. |
+|[**List**](reference-entity-list.md)|List of items and their synonyms extracted with **exact text match**.|
+|[**Pattern.any**](#patternany-entity)|Entity where finding the end of entity is difficult to determine because the entity is free-form. Only available in [patterns](luis-concept-patterns.md).|
+|[**Prebuilt**](luis-reference-prebuilt-entities.md)|Already trained to extract specific kind of data such as URL or email. Some of these prebuilt entities are defined in the open-source [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) project. If your specific culture or entity isn't currently supported, contribute to the project.|
+|[**Regular Expression**](reference-entity-regular-expression.md)|Uses regular expression for **exact text match**.|
 
 
-| Type          | Description           |
-| ------------- |-----------------------|
-| Prebuilt      | Built-in types that represent common concepts like dates, times, and geography. <br/> These don't count towards the maximum number of entities you may use in your LUIS app. See [Prebuilt entities](./Pre-builtEntities.md) for more information.|
-| List      | List entities represent a fixed set of synonyms or related words in your system. Each list entity may have one or more synonyms. They aren't machine learned, and are best used for a known set of variations on ways to represent the same concept. List entities don't have to be labeled in utterances or trained by the system.  <br/> A list entity is an explicitly specified list of values.  Unlike other entity types, LUIS does not discover additional values for list entities during training. Therefore, each list entity forms a closed set.  <br/><br/> Your app may use up to 50 list entities, and they don't count toward the maximum 30 you may use. Each list can contain up to 20000 items.| 
-| Simple | A simple entity is a generic entity that describes a single concept.  <br/><br/> These count towards the maximum number of entities you may use.  |  
-| Hierarchical | A hierarchical entity defines a category and its members. It is made up of child entities that form the members of the category. You can use hierarchical entities to define hierarchical or inheritance relationships between entities, in which children are subtypes of the parent entity. <br/><br/>For example, in a travel agent app, you could add hierarchical entities like these:<ul><li> $Location, including $FromLocation and $ToLocation as child entities that represent origin and destination locations.</li> <li> $TravelClass, including $First, $Business, and $Economy as child entities that represent the travel class.</li></ul> A hierarchical entity can consist of up to **10** child entities. <br/>  These count towards the maximum number of entities you may use.    | 
-| Composite | A composite entity is made up of other entities that form parts of a whole. A composite entity can consist of up to **20** child entities. <br/>  These count towards the maximum number of entities you may use.   |  
+## Extraction versus resolution
 
+Entities extract data as the data appears in the utterance. Entities do not change or resolve the data. The entity won't provide any resolution if the text is a valid value for the entity or not.
+
+There are ways to bring resolution into the extraction, but you should be aware that this limits the ability of the app to be immune against variations and mistakes.
+
+List entities and regular expression (text-matching) entities can be used as [required features](luis-concept-feature.md#required-features) to a subentity and that acts as a filter to the extraction. You should use this carefully as not to hinder the ability of the app to predict.
+
+## Extracting contextually related data
+
+An utterance may contain two or more occurrences of an entity where the meaning of the data is based on context within the utterance. An example is an utterance for booking a flight that has two geographical locations, origin and destination.
+
+`Book a flight from Seattle to Cairo`
+
+The two locations need to be extracted in a way that the client-application knows the type of each location in order to complete the ticket purchase.
+
+To extract the origin and destination, create two subentities as part of the ticket order machine-learning entity. For each of the subentities, create a required feature that uses geographyV2.
+
+<a name="using-component-constraints-to-help-define-entity"></a>
+<a name="using-subentity-constraints-to-help-define-entity"></a>
+
+### Using required features to constrain entities
+
+Learn more about [required features](luis-concept-feature.md)
+
+## Pattern.any entity
+
+A Pattern.any is only available in a [Pattern](luis-concept-patterns.md).
+
+<a name="if-you-need-more-than-the-maximum-number-of-entities"></a>
+## Exceeding app limits for entities
+
+If you need more than the [limit](luis-limits.md#model-limits), contact support. To do so, gather detailed information about your system, go to the [LUIS](luis-reference-regions.md#luis-website) website, and then select **Support**. If your Azure subscription includes support services, contact [Azure technical support](https://azure.microsoft.com/support/options/).
+
+## Entity prediction status and errors
+
+The LUIS portal shows when the entity has a different entity prediction than the entity you selected for an example utterance. This different score is based on the current trained model. 
+
+:::image type="content" source="./media/luis-concept-entities/portal-entity-prediction-error.png" alt-text="The LUIS portal shows when the entity has a different entity prediction than the entity you selected for an example utterance.":::
+
+The erroring text is highlighted within the example utterance, and the example utterance line has an error indicator to the right, shown as a red triangle. 
+
+Use this information to resolve entity errors using one or more of the following:
+* The highlighted text is mislabeled. To fix, review, correct, and retrain. 
+* Create a [feature](luis-concept-feature.md) for the entity to help identify the entity's concept
+* Add more [example utterances](luis-concept-utterance.md) and label with the entity
+* [Review active learning suggestions](luis-concept-review-endpoint-utterances.md) for any utterances received at the prediction endpoint that can help identify the entity's concept.
 
 ## Next steps
 
-See [Add entities](Add-entities.md) to learn more about how to add entities to your LUIS app.
+Learn concepts about good [utterances](luis-concept-utterance.md).
+
+See [Add entities](luis-how-to-add-entities.md) to learn more about how to add entities to your LUIS app.
+
+See [Tutorial: Extract structured data from user utterance with machine-learning entities in Language Understanding (LUIS)](tutorial-machine-learned-entity.md) to learn how to extract structured data from an utterance using the machine-learning entity.
+

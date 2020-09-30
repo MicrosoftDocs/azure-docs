@@ -1,77 +1,134 @@
 ---
-title: Diagnose and solve problems | Microsoft Docs
-description: This tutorial covers how to diagnose and solve problems in your Time Series Insights environment
-keywords: 
-services: time-series-insights
-documentationcenter: 
-author: venkatgct
-manager: almineev
-editor: cgronlun
-
-ms.assetid: 
+title: 'Diagnose, troubleshoot, and solve issues - Azure Time Series Insights'
+description: This article describes how to diagnose, troubleshoot, and solve common issues in your Azure Time Series Insights environment.
 ms.service: time-series-insights
-ms.devlang: na
-ms.topic: how-to-article
-ms.tgt_pltfrm: na
+services: time-series-insights
+author: deepakpalled
+ms.author: dpalled
+manager: diviso
+ms.reviewer: v-mamcge
 ms.workload: big-data
-ms.date: 04/24/2017
-ms.author: venkatja
+ms.topic: troubleshooting
+ms.date: 06/30/2020
+ms.custom: seodec18
 ---
-# Diagnose and solve problems in your Time Series Insights environment
 
-## I don't see my data
-Here are some reasons why you might not see your data in your environment in the [Azure Time Series Insights portal](https://insights.timeseries.azure.com).
+# Diagnose and solve issues in your Azure Time Series Insights Gen1 environment
 
-### Your event source doesn't have data in JSON format
-Azure Time Series Insights supports only JSON data today. For JSON samples, see [Supported JSON shapes](time-series-insights-send-events.md#supported-json-shapes).
+This article describes issues that you might encounter in your Azure Time Series Insights environment. The article offers potential causes and solutions for resolution.
 
-### When you registered your event source, you didn't provide the key that has the required permission
-* For an IoT hub, you need to provide the key that has **service connect** permission.
+## Video
 
-   ![IoT hub service connect permission](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png)
+### Learn about common Azure Time Series Insights challenges and mitigations</br>
 
-   As shown in the preceding image, either of the policies **iothubowner** and **service** would work, because both have **service connect** permission.
-* For an event hub, you need to provide the key that has **Listen** permission.
+> [!VIDEO https://www.youtube.com/embed/7U0SwxAVSKw]
 
-   ![Event hub listen permission](media/diagnose-and-solve-problems/eventhub-listen-permissions.png)
+## Problem: No data is shown
 
-   As shown in the preceding image, either of the policies **read** and **manage** would work, because both have **Listen** permission.
+If no data is appearing in the [Azure Time Series Insights explorer](https://insights.timeseries.azure.com), consider these common causes.
 
-### The provided consumer group is not exclusive to Time Series Insights
-For an IoT hub or an event hub, during registration we require you to specify the consumer group that should be used for reading your data. This consumer group must not be shared. If it's shared, the underlying event hub automatically disconnects one of the readers randomly.
+### Cause A: Event source data isn't in JSON format
 
-## I see my data, but there's a lag
-Here are reasons why you might see partial data in your environment in the [Time Series Insights portal](https://insights.timeseries.azure.com).
+Azure Time Series Insights supports only JSON data. For JSON samples, see [Supported JSON shapes](./how-to-shape-query-json.md).
 
-### Your environment is getting throttled
-The throttling limit is enforced based on the environment's SKU type and capacity. All event sources in the environment share this capacity. If the event source for your IoT hub or event hub is pushing data beyond the enforced limits, you see throttling and a lag.
+### Cause B: The event source key is missing a required permission
 
-The following diagram shows a Time Series Insights environment that has a SKU of S1 and a capacity of 3. It can ingress 3 million events per day.
+* For an IoT hub in Azure IoT Hub, you need to provide the key that has service connect permissions. Select either the **iothubowner** or **service** policy. Both have service connect permissions.
 
-![Environment SKU current capacity](media/diagnose-and-solve-problems/environment-sku-current-capacity.png)
+   [![IoT Hub service connect permissions](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png)](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png#lightbox)
 
-Assume that this environment is ingesting messages from an event hub with the ingress rate shown in the following diagram:
+* For an event hub in Azure Event Hubs, you need to provide the key that has listen permissions. The **read** and **manage** policies will both work because they both have listen permissions.
 
-![Example ingress rate for an event hub](media/diagnose-and-solve-problems/eventhub-ingress-rate.png)
+   [![Event hub listen permissions](media/diagnose-and-solve-problems/eventhub-listen-permissions.png)](media/diagnose-and-solve-problems/eventhub-listen-permissions.png#lightbox)
 
-As shown in the diagram, the daily ingress rate is ~67,000 messages. This rate translates roughly to 46 messages every minute. If each event hub message is flattened to a single Time Series Insights event, this environment sees no throttling. If each event hub message is flattened to 100 Time Series Insights events, then 4,600 events should be ingested every minute. An S1 SKU environment that has a capacity of 3 can ingress only 2,100 events every minute (1 million events per day = 700 events per minute at 3 units = 2,100 events per minute). Therefore you see a lag due to throttling. 
+### Cause C: The provided consumer group isn't exclusive to Azure Time Series Insights
 
-For a high-level understanding of how flattening logic works, see [Supported JSON shapes](time-series-insights-send-events.md#supported-json-shapes).
+When you register an IoT hub or an event hub, it's important to set the consumer group that you want to use to read the data. This consumer group *can't be shared*. If the consumer group is shared, the underlying IoT hub or event hub automatically and randomly disconnects one of the readers. Provide a unique consumer group for Azure Time Series Insights to read from.
 
-#### Recommended steps
-To fix the lag, increase the SKU capacity of your environment. For more information, see [How to scale your Time Series Insights environment](time-series-insights-how-to-scale-your-environment.md).
+### Cause D: The environment has just been provisioned
 
-### You're pushing historical data and causing slow ingress
-If you are connecting an existing event source, it's likely that your IoT hub or event hub already has data in it. So the environment starts pulling data from the beginning of the event source's message retention period. 
+Data will appear in your Azure Time Series Insights explorer within a few minutes after the environment and its data are first created.
 
-This behavior is the default behavior and cannot be overridden. You can engage throttling, and it may take a while to catch up on ingesting historical data.
+## Problem: Some data is shown, but data is missing
 
-#### Recommended steps
-To fix the lag, take the following steps:
-1. Increase the SKU capacity to the maximum allowed value (10 in this case). After the capacity is increased, the ingress process starts catching up much faster. You can visualize how quickly you're catching up through the availability chart in the [Time Series Insights portal](https://insights.timeseries.azure.com). You are charged for the increased capacity.
-2. After the lag is caught up, decrease the SKU capacity back to your normal ingress rate.
+When data appears only partially and the data seems to be lagging, consider these possible issues.
 
-## My event source's *timestamp property name* setting doesn't work
-Ensure that the name and value conform to the following rules:
-* The timestamp property name is _case-sensitive_.
-* The timestamp property value that's coming from your event source, as a JSON string, should have the format _yyyy-MM-ddTHH:mm:ss.FFFFFFFK_. An example of such a string is “2008-04-12T12:53Z”.
+### Cause A: Your environment is being throttled
+
+[Throttling](time-series-insights-environment-mitigate-latency.md) is a common issue when environments are provisioned after you create an event source that has data. Azure IoT Hub and Azure Events Hubs store data for up to seven days. Azure Time Series Insights always starts with the oldest event in the event source (first-in, first-out, or *FIFO*).
+
+For example, if you have 5 million events in an event source when you connect to an S1, single-unit Azure Time Series Insights environment, Azure Time Series Insights reads approximately 1 million events per day. It might look like Azure Time Series Insights is experiencing five days of latency. But what's happening is that the environment is being throttled.
+
+If you have old events in your event source, you can approach throttling in one of two ways:
+
+- Change your event source's retention limits to help remove old events that you don't want to show up in Azure Time Series Insights.
+- Provision a larger environment size (number of units) to increase the throughput of old events. In the preceding example, if you increase the same S1 environment to five units for one day, the environment should catch up within a day. If your steady-state event production is 1 million or fewer events per day, you can reduce the event capacity to one unit after Azure Time Series Insights catches up.
+
+The enforced throttling limit is based on the environment's SKU type and capacity. All event sources in the environment share this capacity. If the event source for your IoT hub or event hub pushes data beyond the enforced limits, you'll experience throttling and a lag.
+
+The following figure shows a Azure Time Series Insights environment that has an SKU of S1 and a capacity of 3. It can ingress 3 million events per day.
+
+[![Environment capacity](media/diagnose-and-solve-problems/environment-sku-current-capacity.png)](media/diagnose-and-solve-problems/environment-sku-current-capacity.png#lightbox)
+
+Imagine an environment that ingests messages from an event hub. It has a daily ingress rate of about 67,000 messages. This rate translates to approximately 46 messages every minute.
+
+* If each event hub message is flattened to a single Azure Time Series Insights event, throttling doesn't occur.
+* If each event hub message is flattened to 100 Azure Time Series Insights events, 4,600 events should be ingested every minute.
+
+An S1 SKU environment that has a capacity of 3 can ingress only 2,100 events every minute (1 million events per day = 700 events per minute at three units = 2,100 events per minute).
+
+To get a high-level understanding of how flattening logic works, see [Supported JSON shapes](./how-to-shape-query-json.md).
+
+#### Recommended resolutions for excessive throttling
+
+To fix the lag, increase the SKU capacity of your environment. For more information, read [Scale your Azure Time Series Insights environment](time-series-insights-how-to-scale-your-environment.md).
+
+### Cause B: Initial ingestion of historical data slows ingress
+
+If you connect an existing event source, it's likely that your IoT hub or event hub already contains data. The environment starts pulling data from the beginning of the event source's message retention period. This default processing can't be overridden. You can engage throttling. Throttling might take a while to catch up as it ingests historical data.
+
+#### Recommended resolutions for large initial ingestion
+
+To fix the lag:
+
+1. Increase the SKU capacity to the maximum allowed value (10, in this case). After you increase capacity, the ingress process starts to catch up much more quickly. You're charged for the increased capacity. To visualize how quickly you're catching up, you can view the availability chart in the [Azure Time Series Insights explorer](https://insights.timeseries.azure.com).
+
+2. When the lag is caught up, decrease the SKU capacity to your normal ingress rate.
+
+## Problem: Data was showing previously but is no longer showing
+
+If Azure Time Series Insights is no longer ingesting data, but events are still streaming into Iot Hub or Event Hub, consider this potential cause.
+
+### Cause A: Your hub access key was regenerated and your environment needs to be updated
+
+This problem occurs when the key provided when you created your event source is no longer valid. You would see telemetry in your hub but no Ingress Received Messages in Azure Time Series Insights. If you aren't sure whether the key was regenerated, you can search your event hub's activity log for "Create or Update Namespace Authorization Rules." For an IoT hub, search for "Create or update IotHub Resource."
+
+To update your Azure Time Series Insights environment with the new key, open your hub resource in the Azure portal and copy the new key. Go to your Azure Time Series Insights resource and select **Event Sources**:
+
+   [![Select Event Sources](media/diagnose-and-solve-problems/update-hub-key-step-1.png)](media/diagnose-and-solve-problems/update-hub-key-step-1.png#lightbox)
+
+Select the event source or sources from which ingestion has stopped, paste in the new key, and then select **Save**:
+
+   [![Paste in the new key](media/diagnose-and-solve-problems/update-hub-key-step-2.png)](media/diagnose-and-solve-problems/update-hub-key-step-2.png#lightbox)
+
+## Problem: The event source's timestamp property name setting doesn't work
+
+Ensure that the timestamp property value that comes from your event source as a JSON string is in the format _yyyy-MM-ddTHH:mm:ss.FFFFFFFK_. Here's an example: **2008-04-12T12:53Z**.
+
+Keep in mind that the timestamp property name is case-sensitive.
+
+The easiest way to ensure that your timestamp property name is captured and working properly is to use the Azure Time Series Insights explorer. In the Azure Time Series Insights explorer, using the chart, select a period of time after you entered the timestamp property name. Right-click the selection, and then select **Explore events**.
+
+The first column header should be your timestamp property name. Next to the word **Timestamp**, **($ts)** will be displayed.
+
+The following values won't be displayed:
+
+- *(abc)*: Indicates that Azure Time Series Insights is reading the data values as strings.
+- *Calendar icon*: Indicates that Azure Time Series Insights is reading the data values as datetime values.
+- *#*: Indicates that Azure Time Series Insights is reading the data values as integers.
+
+## Next steps
+
+- Read about [how to mitigate latency in Azure Time Series Insights](time-series-insights-environment-mitigate-latency.md).
+
+- Learn [how to scale your Azure Time Series Insights environment](time-series-insights-how-to-scale-your-environment.md).

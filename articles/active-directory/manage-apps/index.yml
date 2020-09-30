@@ -1,0 +1,98 @@
+### YamlMime:Landing
+
+title: Application management documentation
+summary: Azure Active Directory provides secure and seamless access to cloud and on-premises applications. Plus, there's no need to manage passwords. Your end-users can sign in once to access Microsoft 365 and thousands of other applications. Learn how to manage and deploy applications with our quickstarts, tutorials, and guidance.
+
+metadata: 
+   title: Application management documentation
+   description: Azure Active Directory provides secure and seamless access to cloud and on-premises applications. Plus, there's no need to manage passwords. Your end-users can sign in once to access Microsoft 365 and thousands of other applications. Learn how to manage and deploy applications with our quickstarts, tutorials, and guidance.
+   ms.service: active-directory
+   ms.subservice: app-mgmt
+   ms.workload: identity
+   ms.topic: landing-page
+   ms.date: 10/10/2019
+   author: kenwith
+   ms.author: kenwith
+   manager: celested
+
+landingContent:
+  - title: About application management
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is application management?
+            url: what-is-application-management.md
+          - text: What is single sign-on?
+            url: what-is-single-sign-on.md
+      - linkListType: quickstart
+        links:
+          - text: Quickstart Series
+            url: view-applications-portal.md
+  - title: Manage cloud apps and single sign-on
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Understanding single sign-on
+            url: what-is-single-sign-on.md
+          - text: End-user experiences
+            url: end-user-experiences.md
+      - linkListType: how-to-guide
+        links:
+          - text: Configure single sign-on
+            url: configure-saml-single-sign-on.md
+          - text: Assign a user or group to an app
+            url: assign-user-or-group-access-portal.md
+  - title: Provision users and groups to an app
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is application provisioning?
+            url: /azure/active-directory/app-provisioning/user-provisioning?context=azure/active-directory/manage-apps/context/manage-apps-context
+      - linkListType: tutorial
+        links:
+          - text: SaaS apps provisioning tutorials
+            url: /azure/active-directory/saas-apps/
+      - linkListType: how-to-guide
+        links:
+          - text: Building an app? Use SCIM for provisioning (App provisioning documentation)
+            url: /azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups
+          - text: Adding a gallery app? Configure provisioning (App provisioning documentation)
+            url: /azure/active-directory/app-provisioning/configure-automatic-user-provisioning-portal
+  - title: Publish on-premises apps with Application Proxy
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Application Proxy?
+            url: what-is-application-proxy.md
+      - linkListType: concept
+        links:
+          - text: Plan for Application Proxy
+            url: application-proxy-deployment-plan.md
+      - linkListType: tutorial
+        links: 
+          - text: Add an on-premises app
+            url: application-proxy-add-on-premises-application.md
+      - linkListType: how-to-guide
+        links:
+          - text: Configure connectors with proxy servers
+            url: application-proxy-configure-connectors-with-proxy-servers.md
+          - text: Configure a custom home page
+            url: application-proxy-configure-custom-home-page.md
+      - linkListType: deploy
+        links:
+          - text: Publish Remote Desktop with Application Proxy
+            url: application-proxy-integrate-with-remote-desktop-services.md
+          - text: Enable remote access to SharePoint with Azure AD Application Proxy
+            url: application-proxy-integrate-with-sharepoint-server.md
+  - title: Secure legacy apps with app delivery controllers and networks
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Secure hybrid access for legacy apps (cloud and on-premises)
+            url: secure-hybrid-access.md
+      - linkListType: how-to-guide
+        links:
+          - text: Protect your apps using F5 Big-IP APM
+            url: https://aka.ms/f5-hybridaccessguide
+          - text: Protect your apps using Zscaler ZPA
+            url: https://aka.ms/zscaler-hybridaccessguide

@@ -1,23 +1,14 @@
 ---
-title: 'Get started with the U-SQL catalog | Microsoft Docs'
-description: Learn how to use the U-SQL catalog to share code and data.
+title: Use the U-SQL catalog in Azure Data Lake Analytics
+description: Learn how to use the U-SQL catalog to share code and data. Create table-valued functions, create views, create tables, and query them.
 services: data-lake-analytics
-documentationcenter: ''
-author: saveenr
-manager: saveenr
-editor: cgronlun
-
-ms.assetid: 57143396-ab86-47dd-b6f8-613ba28c28d2
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.reviewer: jasonh
+ms.assetid: 57143396-ab86-47dd-b6f8-613ba28c28d2
+ms.topic: how-to
 ms.date: 05/09/2017
-ms.author: edmaca
-
 ---
-# Get started with the U-SQL Catalog
+# Get started with the U-SQL Catalog in Azure Data Lake Analytics
 
 ## Create a TVF
 
@@ -25,7 +16,7 @@ In the previous U-SQL script, you repeated the use of EXTRACT to read from the s
 
 The following script creates a TVF called `Searchlog()` in the default database and schema:
 
-```
+```usql
 DROP FUNCTION IF EXISTS Searchlog;
 
 CREATE FUNCTION Searchlog()
@@ -56,7 +47,7 @@ END;
 
 The following script shows you how to use the TVF that was defined in the previous script:
 
-```
+```usql
 @res =
     SELECT
         Region,
@@ -66,7 +57,7 @@ GROUP BY Region
 HAVING SUM(Duration) > 200;
 
 OUTPUT @res
-    TO "/output/SerachLog-use-tvf.csv"
+    TO "/output/SearchLog-use-tvf.csv"
     ORDER BY TotalDuration DESC
     USING Outputters.Csv();
 ```
@@ -77,7 +68,7 @@ If you have a single query expression, instead of a TVF you can use a U-SQL VIEW
 
 The following script creates a view called `SearchlogView` in the default database and schema:
 
-```
+```usql
 DROP VIEW IF EXISTS SearchlogView;
 
 CREATE VIEW SearchlogView AS  
@@ -94,7 +85,7 @@ USING Extractors.Tsv();
 
 The following script demonstrates the use of the defined view:
 
-```
+```usql
 @res =
     SELECT
         Region,
@@ -114,7 +105,7 @@ As with relational database tables, with U-SQL you can create a table with a pre
 
 Create a database and two tables by using the following script:
 
-```
+```usql
 DROP DATABASE IF EXISTS SearchLogDb;
 CREATE DATABASE SearchLogDb;
 USE DATABASE SearchLogDb;
@@ -148,7 +139,7 @@ You can query tables, such as those created in the previous script, in the same 
 
 To read from the tables, modify the transform script that you used previously:
 
-```
+```usql
 @rs1 =
     SELECT
         Region,

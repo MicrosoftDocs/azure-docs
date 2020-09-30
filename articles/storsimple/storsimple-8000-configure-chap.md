@@ -10,10 +10,10 @@ editor: ''
 ms.assetid: 
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: TBD
-ms.date: 07/03/2017
+ms.date: 05/09/2018
 ms.author: alkohli
 
 ---
@@ -49,8 +49,8 @@ In unidirectional authentication, the target authenticates the initiator. This a
    1. Provide a user name for your CHAP initiator.
    2. Supply a password for your CHAP initiator.
       
-    > [!IMPORTANT]
-    > The CHAP user name must contain fewer than 233 characters. The CHAP password must be between 12 and 16 characters. A longer user name or password results in an authentication failure on the Windows host.
+      > [!IMPORTANT]
+      > The CHAP user name must contain fewer than 233 characters. The CHAP password must be between 12 and 16 characters. A longer user name or password results in an authentication failure on the Windows host.
    
    3. Confirm the password.
 
@@ -74,8 +74,8 @@ In unidirectional authentication, the target authenticates the initiator. This a
 4. In the **Advanced Settings** dialog box:
    
    1. Select the **Enable CHAP log on** check box.
-   2. In the **Name** field, supply the user name that you specified for the CHAP Initiator in the classic portal.
-   3. In the **Target secret** field, supply the password that you specified for the CHAP Initiator in the classic portal.
+   2. In the **Name** field, supply the user name that you specified for the CHAP Initiator in the Azure portal.
+   3. In the **Target secret** field, supply the password that you specified for the CHAP Initiator in the Azure portal.
    4. Click **OK**.
       
        ![Advanced settings general](./media/storsimple-configure-chap/IC740946.png)
@@ -128,8 +128,8 @@ In bidirectional authentication, the target authenticates the initiator and then
 8. In the **Advanced Properties** dialog box:
    
    1. Select the **Enable CHAP log on** check box.
-   2. In the **Name** field, supply the user name that you specified for the CHAP Initiator in the classic portal.
-   3. In the **Target secret** field, supply the password that you specified for the CHAP Initiator in the classic portal.
+   2. In the **Name** field, supply the user name that you specified for the CHAP Initiator in the Azure portal.
+   3. In the **Target secret** field, supply the password that you specified for the CHAP Initiator in the Azure portal.
    4. Select the **Perform mutual authentication** check box.
       
        ![Advanced settings mutual authentication](./media/storsimple-configure-chap/IC740950.png)

@@ -1,19 +1,34 @@
+---
+ title: include file
+ description: include file
+ services: virtual-machines-linux
+ author: cynthn
+ ms.service: virtual-machines-linux
+ ms.topic: include
+ ms.date: 02/11/2019
+ ms.author: cynthn
+ ms.custom: include file
+---
+
 ## Supported distributions and drivers
 
+### NVIDIA CUDA drivers
 
-### NV instances - NVIDIA GRID drivers
+NVIDIA CUDA drivers for NC, NCv2, NCv3, ND, and NDv2-series VMs (optional for NV-series) are supported only on the Linux distributions listed in the following table. CUDA driver information is current at time of publication. For the latest CUDA drivers and supported operating systems, visit the [NVIDIA](https://developer.nvidia.com/cuda-zone) website. Ensure that you install or upgrade to the latest CUDA drivers for your distribution. 
 
+> [!TIP]
+> As an alternative to manual CUDA driver installation on a Linux VM, you can deploy an Azure [Data Science Virtual Machine](../articles/machine-learning/data-science-virtual-machine/overview.md) image. The DSVM editions for Ubuntu 16.04 LTS or CentOS 7.4 pre-install NVIDIA CUDA drivers, the CUDA Deep Neural Network Library, and other tools.
+
+
+### NVIDIA GRID drivers
+
+Microsoft redistributes NVIDIA GRID driver installers for NV and NVv3-series VMs used as virtual workstations or for virtual applications. Install only these GRID drivers on Azure NV VMs, only on the operating systems listed in the following table. These drivers include licensing for GRID Virtual GPU Software in Azure. You do not need to set up an NVIDIA vGPU software license server.
+
+The GRID drivers redistributed by Azure do not work on non-NV series VMs like NC, NCv2, NCv3, ND, and NDv2-series VMs.
 
 | Distribution | Driver |
-| --- | --- | 
-| Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3<br/><br/>CentOS-based 7.3 | NVIDIA GRID 4.3, driver branch R367|
-
-### NC instances - NVIDIA Tesla drivers
-| Distribution | Driver |
-| --- | --- | 
-| Ubuntu 16.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3<br/><br/> CentOS-based 7.3 | NVIDIA CUDA 8.0, driver branch R375 |
-
-
+| --- | -- |
+|Ubuntu 18.04 LTS<br/><br/>Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.6 to 7.8, 8.0, 8.1<br/><br/>CentOS-based 7.6, 7.7, 8.0, 8(1911)<br/><br/>SUSE Linux Enterprise Server 12 SP2 | NVIDIA GRID 11, driver branch R450|
 
 > [!WARNING] 
 > Installation of third-party software on Red Hat products can affect the Red Hat support terms. See the [Red Hat Knowledgebase article](https://access.redhat.com/articles/1067).

@@ -1,25 +1,16 @@
 ---
-title: Keyboard shortcuts for Azure Data Catalog  | Microsoft Docs
-description: This article shows the Keyboard shortcuts for Azure Data Catalog.
-services: data-catalog
-documentationcenter: ''
-author: spelluru
-manager: NA
-editor: ''
-tags: ''
-
-ms.assetid: 00b77c88-fbca-4e6f-a175-d40b5cbbf144
+title: Keyboard shortcuts for Azure Data Catalog 
+description: This article shows a list of keyboard shortcuts that you can use in Azure Data Catalog.
+author: JasonWHowell
+ms.author: jasonh
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
-ms.date: 05/03/2017
-ms.author: spelluru
-
+ms.topic: conceptual
+ms.date: 08/01/2019
 ---
 # Keyboard shortcuts for Azure Data Catalog
+
 ## Keyboard shortcuts for the Data Catalog data source registration tool
+
 ### General keyboard shortcuts
 | Operation | Press |
 | --- | --- |

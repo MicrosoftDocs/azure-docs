@@ -1,50 +1,55 @@
 ---
-title: Face API Java quick start | Microsoft Docs
-description: Get information and code samples to help you quickly get started using the Face API with Java in Cognitive Services.
+title: "Quickstart: Detect faces in an image with the Azure REST API and Java"
+titleSuffix: Azure Cognitive Services
+description: In this quickstart, you will use the Azure Face REST API with Java to detect faces in an image.
 services: cognitive-services
-author: v-royhar
-manager: yutkuo
+author: PatrickFarley
+manager: nitinme
 
 ms.service: cognitive-services
-ms.technology: face
-ms.topic: article
-ms.date: 06/21/2017
-ms.author: anroth
+ms.subservice: face-api
+ms.topic: quickstart
+ms.date: 08/05/2020
+ms.custom: devx-track-java
+ms.author: pafarley
+#Customer intent: As a Java developer, I want to implement a simple Face detection scenario with REST calls, so that I can build more complex scenarios later on.
 ---
 
-# Face API Java Quick Starts
-This article provides information and code samples to help you quickly get started using the Face API with Java to accomplish the following tasks: 
-* [Detect Faces in Images](#Detect) 
-* [Create a Person Group](#Create)
+# Quickstart: Detect faces in an image using the REST API and Java
+
+In this quickstart, you'll use the Azure Face REST API with Java to detect human faces in an image.
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin. 
 
 ## Prerequisites
-* Get the Microsoft Face API Android SDK [here](https://github.com/Microsoft/Cognitive-face-android)
-* Learn more about obtaining free subscription keys [here](../../Computer-vision/Vision-API-How-to-Topics/HowToSubscribe.md)
 
-## Detect faces in images with Face API using Java <a name="Detect"> </a>
-Use the [Face - Detect method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) 
-to detect faces in an image and return face attributes including:
-* Face ID: Unique ID used in several Face API scenarios. 
-* Face Rectangle: The left, top, width, and height indicating the location of the face in the image.
-* Landmarks: An array of 27-point face landmarks pointing to the important positions of face components.
-* Facial attributes including age, gender, smile intensity, head pose, and facial hair. 
+* Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="Create a Face resource"  target="_blank">create a Face resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
+    * You will need the key and endpoint from the resource you create to connect your application to the Face API. You'll paste your key and endpoint into the code below later in the quickstart.
+    * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+* Any Java IDE of your choice.
 
-#### Face Detect Java example request
+## Create the Java project
 
-To run the sample, perform the following steps:
+1. Create a new command-line Java app in your IDE and add a **Main** class with a **main** method.
+1. Import the following libraries into your Java project. If you're using Maven, the Maven coordinates are provided for each library.
+   - [Apache HTTP client](https://hc.apache.org/downloads.cgi) (org.apache.httpcomponents:httpclient:4.5.6)
+   - [Apache HTTP core](https://hc.apache.org/downloads.cgi) (org.apache.httpcomponents:httpcore:4.4.10)
+   - [JSON library](https://github.com/stleary/JSON-java) (org.json:json:20180130)
+   - [Apache Commons logging](https://commons.apache.org/proper/commons-logging/download_logging.cgi) (commons-logging:commons-logging:1.1.2)
 
-1. Create a new Command Line App.
-1. Replace the Main class with the following code (keep any `package` statements).
-1. Replace the `subscriptionKey` value with your valid subscription key.
-1. Change the `uriBase`value to use the location where you obtained your subscription keys, if necessary.
-1. Download these global libraries from the Maven Repository to the `lib` directory in your project:
-   * `org.apache.httpcomponents:httpclient:4.2.4`
-   * `org.json:json:20170516`
-1. Run 'Main'.
+## Add face detection code
+
+Open the main class of your project. Here, you will add the code needed to load images and detect faces.
+
+### Import packages
+
+Add the following `import` statements to the top of the file.
 
 ```java
-// This sample uses the Apache HTTP client library(org.apache.httpcomponents:httpclient:4.2.4)
-// and the org.json library (org.json:json:20170516).
+// This sample uses Apache HttpComponents:
+// http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/
+// https://hc.apache.org/httpcomponents-client-ga/httpclient/apidocs/
 
 import java.net.URI;
 import org.apache.http.HttpEntity;
@@ -53,34 +58,42 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.client.utils.URIBuilder;
-import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
+```
 
-public class Main
-{
-    // **********************************************
-    // *** Update or verify the following values. ***
-    // **********************************************
+### Add essential fields
 
-    // Replace the subscriptionKey string value with your valid subscription key.
-    public static final String subscriptionKey = "13hc77781f7e4b19b5fcdd72a8df7156";
+Replace the **Main** class with the following code. This data specifies how to connect to the Face service and where to get the input data. You'll need to update the `subscriptionKey` field with the value of your subscription key, and change the `uriBase` string so that it contains the correct endpoint string. You may also wish to set the `imageWithFaces` value to a path that points to a different image file.
 
-    // Replace or verify the region.
-    //
-    // You must use the same region in your REST API call as you used to obtain your subscription keys.
-    // For example, if you obtained your subscription keys from the westus region, replace
-    // "westcentralus" in the URI below with "westus".
-    //
-    // NOTE: Free trial subscription keys are generated in the westcentralus region, so if you are using
-    // a free trial subscription key, you should not need to change this region.
-    public static final String uriBase = "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect";
+[!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
+The `faceAttributes` field is simply a list of certain types of attributes. It will specify which information to retrieve about the detected faces.
 
-    public static void main(String[] args)
-    {
-        HttpClient httpclient = new DefaultHttpClient();
+```Java
+public class Main {
+    // Replace <Subscription Key> with your valid subscription key.
+    private static final String subscriptionKey = "<Subscription Key>";
+
+    private static final String uriBase =
+        "https://<My Endpoint String>.com/face/v1.0/detect";
+
+    private static final String imageWithFaces =
+        "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg\"}";
+
+    private static final String faceAttributes =
+        "age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise";
+```
+
+### Call the face detection REST API
+
+Add the **main** method with the following code. It constructs a REST call to the Face API to detect face information in the remote image (the `faceAttributes` string specifies which face attributes to retrieve). Then it writes the output data to a JSON string.
+
+```Java
+    public static void main(String[] args) {
+        HttpClient httpclient = HttpClientBuilder.create().build();
 
         try
         {
@@ -89,7 +102,7 @@ public class Main
             // Request parameters. All of them are optional.
             builder.setParameter("returnFaceId", "true");
             builder.setParameter("returnFaceLandmarks", "false");
-            builder.setParameter("returnFaceAttributes", "age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise");
+            builder.setParameter("returnFaceAttributes", faceAttributes);
 
             // Prepare the URI for the REST API call.
             URI uri = builder.build();
@@ -100,13 +113,19 @@ public class Main
             request.setHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
 
             // Request body.
-            StringEntity reqEntity = new StringEntity("{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg\"}");
+            StringEntity reqEntity = new StringEntity(imageWithFaces);
             request.setEntity(reqEntity);
 
             // Execute the REST API call and get the response entity.
             HttpResponse response = httpclient.execute(request);
             HttpEntity entity = response.getEntity();
+```
 
+### Parse the JSON response
+
+Directly below the previous code, add the following block, which converts the returned JSON data into a more easily readable format before printing it to the console. Finally, close out the try-catch block, the **main** method, and the **Main** class.
+
+```Java
             if (entity != null)
             {
                 // Format and display the JSON response.
@@ -134,13 +153,11 @@ public class Main
 }
 ```
 
-#### Face Detect response
+## Run the app
 
-A successful response is returned in JSON. The following is an example of a successful response: 
+Compile the code and run it. A successful response will display Face data in easily readable JSON format in the console window. For example:
 
 ```json
-REST Response:
-
 [{
   "faceRectangle": {
     "top": 131,
@@ -228,75 +245,11 @@ REST Response:
   },
   "faceId": "49d55c17-e018-4a42-ba7b-8cbbdfae7c6f"
 }]
-
-Process finished with exit code 0
 ```
 
-## Create a Person Group with Face API using Java <a name="Create"> </a>
+## Next steps
 
-Use the [Person Group - Create a Person Group method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) 
-to create a person group with specified personGroupId, name, and user-provided userData. A person group is one of the most important parameters for the Face - Identify API. The Identify API searches for persons' faces in a specified person group.
+In this quickstart, you created a simple Java console application that uses REST calls to the Azure Face API to detect faces in an image and return their attributes. Next, explore the Face API reference documentation to learn more about the supported scenarios.
 
-#### Person Group - create a Person Group example
-
-Change the REST URL to use the location where you obtained your subscription keys, and replace the "Ocp-Apim-Subscription-Key" value with your valid subscription key.
-
-```java
-// // This sample uses the Apache HTTP client from HTTP Components (http://hc.apache.org/httpcomponents-client-ga/)
-import java.net.URI;
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpPut;
-import org.apache.http.entity.StringEntity;
-import org.apache.http.client.utils.URIBuilder;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.util.EntityUtils;
-
-public class Main
-{
-    public static void main(String[] args)
-    {
-        HttpClient httpClient = new DefaultHttpClient();
-
-        try
-        {
-            // The valid characters for the ID below include numbers, English letters in lower case, '-', and '_'.
-            // The maximum length of the personGroupId is 64.
-            String personGroupId = "example-group-00";
-
-            // NOTE: You must use the same region in your REST call as you used to obtain your subscription keys.
-            //   For example, if you obtained your subscription keys from westus, replace "westcentralus" in the 
-            //   URL below with "westus".
-            URIBuilder builder = new URIBuilder("https://westcentralus.api.cognitive.microsoft.com/face/v1.0/persongroups/" +
-                                                personGroupId);
-
-            URI uri = builder.build();
-            HttpPut request = new HttpPut(uri);
-
-            // Request headers. Replace the example key with your valid subscription key.
-            request.setHeader("Content-Type", "application/json");
-            request.setHeader("Ocp-Apim-Subscription-Key", "13hc77781f7e4b19b5fcdd72a8df7156");
-
-            // Request body. The name field is the display name you want for the group (must be under 128 characters).
-            // The size limit for what you want to include in the userData field is 16KB.
-            String body = "{ \"name\":\"My Group\",\"userData\":\"User-provided data attached to the person group.\" }";
-
-            StringEntity reqEntity = new StringEntity(body);
-            request.setEntity(reqEntity);
-
-            HttpResponse response = httpClient.execute(request);
-            HttpEntity entity = response.getEntity();
-
-            if (entity != null)
-            {
-                System.out.println(EntityUtils.toString(entity));
-            }
-        }
-        catch (Exception e)
-        {
-            System.out.println(e.getMessage());
-        }
-    }
-}
-```
+> [!div class="nextstepaction"]
+> [Face API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

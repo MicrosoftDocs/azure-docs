@@ -1,140 +1,105 @@
 ---
-title: Configure SSL connectivity in Azure Database for PostgreSQL | Microsoft Docs
-description: Instructions and information to configure Azure Database for PostgreSQL and associated applications to properly use SSL connections.
-services: postgresql
-author: JasonMAnderson
-ms.author: janders
-editor: jasonwhowell
-manager: jhubbard
-ms.service: postgresql-database
-ms.custom: 
-ms.topic: article
-ms.date: 05/15/2017
+title: SSL/TLS - Azure Database for PostgreSQL - Single Server
+description: Instructions and information on how to configure TLS connectivity for Azure Database for PostgreSQL - Single Server.
+author: rachel-msft
+ms.author: raagyema
+ms.service: postgresql
+ms.topic: conceptual
+ms.date: 07/08/2020
 ---
-# Configure SSL connectivity in Azure Database for PostgreSQL
-Azure Database for PostgreSQL prefers connecting your client applications to the PostgreSQL service using Secure Sockets Layer (SSL). Enforcing SSL connections between your database server and your client applications helps protect against "man in the middle" attacks by encrypting the data stream between the server and your application.
+# Configure TLS connectivity in Azure Database for PostgreSQL - Single Server
 
-By default, the PostgreSQL database service is configured to require SSL connection. Optionally, you can disable requiring SSL for connecting to your database service if your client application does not support SSL connectivity. 
+Azure Database for PostgreSQL prefers connecting your client applications to the PostgreSQL service using Transport Layer Security (TLS), previously known as Secure Sockets Layer (SSL). Enforcing TLS connections between your database server and your client applications helps protect against "man-in-the-middle" attacks by encrypting the data stream between the server and your application.
 
-## Enforcing SSL connections
-For all Azure Database for PostgreSQL servers provisioned through the Azure portal and CLI, enforcement of SSL connections is enabled by default. 
+By default, the PostgreSQL database service is configured to require TLS connection. You can choose to disable requiring TLS if your client application does not support TLS connectivity.
 
-Likewise, connection strings that are pre-defined in the "Connection Strings" settings under your server in the Azure portal include the required parameters for common languages to connect to your database server using SSL. The SSL parameter varies based on the connector, for example "ssl=true" or "sslmode=require" or "sslmode=required" and other variations.
+## Enforcing TLS connections
 
-## Configure Enforcement of SSL
-You can optionally disable enforcing SSL connectivity. Microsoft Azure recommends to always enable **Enforce SSL connection** setting for enhanced security.
+For all Azure Database for PostgreSQL servers provisioned through the Azure portal and CLI, enforcement of TLS connections is enabled by default. 
+
+Likewise, connection strings that are pre-defined in the "Connection Strings" settings under your server in the Azure portal include the required parameters for common languages to connect to your database server using TLS. The TLS parameter varies based on the connector, for example "ssl=true" or "sslmode=require" or "sslmode=required" and other variations.
+
+## Configure Enforcement of TLS
+
+You can optionally disable enforcing TLS connectivity. Microsoft Azure recommends to always enable **Enforce SSL connection** setting for enhanced security.
 
 ### Using the Azure portal
-Visit your Azure Database for PostgreSQL server and click **Connection security**. Use the toggle button to enable or disable the **Enforce SSL connection** setting. Then click **Save**. 
 
-![Connection Security - Disable Enforce SSL](./media/concepts-ssl-connection-security/1-disable-ssl.png)
+Visit your Azure Database for PostgreSQL server and click **Connection security**. Use the toggle button to enable or disable the **Enforce SSL connection** setting. Then, click **Save**.
+
+:::image type="content" source="./media/concepts-ssl-connection-security/1-disable-ssl.png" alt-text="Connection Security - Disable Enforce TLS/SSL":::
 
 You can confirm the setting by viewing the **Overview** page to see the **SSL enforce status** indicator.
 
 ### Using Azure CLI
+
 You can enable or disable the **ssl-enforcement** parameter using `Enabled` or `Disabled` values respectively in Azure CLI.
 
 ```azurecli
-az postgres server update --resource-group myresourcegroup --name mypgserver-20170401 --ssl-enforcement Enabled
+az postgres server update --resource-group myresourcegroup --name mydemoserver --ssl-enforcement Enabled
 ```
 
-## Ensure your application or framework supports SSL connections
-Many common application frameworks that use PostgreSQL for database services, such as Drupal and Django, do not enable SSL by default during installation. Enabling SSL connectivity must be done after installation or through CLI commands specific to the application. If your PostgreSQL server is enforcing SSL connections and the associated application is not configured properly, the application may fail to connect to your database server. Consult your application's documentation to learn how to enable SSL connections.
+## Ensure your application or framework supports TLS connections
 
+Some application frameworks that use PostgreSQL for their database services do not enable TLS by default during installation. If your PostgreSQL server enforces TLS connections but the application is not configured for TLS, the application may fail to connect to your database server. Consult your application's documentation to learn how to enable TLS connections.
 
-## Applications that require certificate verification for SSL connectivity
-In some cases, applications require a local certificate file generated from a trusted Certificate Authority (CA) certificate file (.cer) to connect securely. See the following steps to obtain the .cer file, decode the certificate and bind it to your application.
+## Applications that require certificate verification for TLS connectivity
 
-### Download the certificate file from the Certificate Authority (CA) 
-The certificate needed to communicate over SSL with your Azure Database for PostgreSQL server is located [here](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt). Download the certificate file locally.
+In some cases, applications require a local certificate file generated from a trusted Certificate Authority (CA) certificate file to connect securely. The certificate to connect to an Azure Database for PostgreSQL server is located at https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem. Download the certificate file and save it to your preferred location. 
 
-### Download and install OpenSSL on your machine 
-To decode the certificate file needed for your application to connect securely to your database server, you need to install OpenSSL on your local computer.
+See the following links for certificates for servers in sovereign clouds: [Azure Government](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem), [Azure China](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem), and [Azure Germany](https://www.d-trust.net/cgi-bin/D-TRUST_Root_Class_3_CA_2_2009.crt).
 
-#### For Linux, OS X, or Unix
-The OpenSSL libraries are provided in source code directly from the [OpenSSL Software Foundation](http://www.openssl.org). The following instructions guide you through the steps necessary to install OpenSSL on your Linux PC. This article uses commands known to work on Ubuntu 12.04 and higher.
+### Connect using psql
 
-Open a terminal session and install OpenSSL
-```bash
-wget http://www.openssl.org/source/openssl-1.1.0e.tar.gz
-``` 
-Extract the files from the download package
-```bash
-tar -xvzf openssl-1.1.0e.tar.gz
-```
-Enter the directory where the files were extracted. By default, it should be as follows.
+The following example shows how to connect to your PostgreSQL server using the psql command-line utility. Use the `sslmode=verify-full` connection string setting to enforce TLS/SSL certificate verification. Pass the local certificate file path to the `sslrootcert` parameter.
 
-```bash
-cd openssl-1.1.0e
-```
-Configure OpenSSL by executing the following command. If you want the files in a folder different than /usr/local/openssl, make sure to change the following as appropriate.
+The following command is an example of the psql connection string:
 
-```bash
-./config --prefix=/usr/local/openssl --openssldir=/usr/local/openssl
-```
-Now that OpenSSL is configured properly, you need to compile it to convert your certificate. To compile, run the following command:
-
-```bash
-make
-```
-Once compiling is complete, you're ready to install OpenSSL as an executable by running the following command:
-```bash
-make install
-```
-To confirm that you've successfully installed OpenSSL on your system, run the following command and check to make sure you get the same output.
-
-```bash
-/usr/local/openssl/bin/openssl version
-```
-If successful you should see the following message.
-```bash
-OpenSSL 1.1.0e 7 Apr 2014
+```shell
+psql "sslmode=verify-full sslrootcert=BaltimoreCyberTrustRoot.crt host=mydemoserver.postgres.database.azure.com dbname=postgres user=myusern@mydemoserver"
 ```
 
-#### For Windows
-Installing OpenSSL on a Windows PC can be done in the following ways:
-1. **(Recommended)** Using the built-in Bash for Windows functionality in Window 10 and above, OpenSSL is installed by default. Instructions on how to enable Bash for Windows functionality in Windows 10 can be found [here](https://msdn.microsoft.com/en-us/commandline/wsl/install_guide).
-2. Through downloading a Win32/64 application provided by the community. While the OpenSSL Software Foundation does not provide or endorse any specific Windows installers, they provide a list of available installers [here](https://wiki.openssl.org/index.php/Binaries)
+> [!TIP]
+> Confirm that the value passed to `sslrootcert` matches the file path for the certificate you saved.
 
-### Decode your certificate file
-The downloaded Root CA file is in encrypted format. Use OpenSSL to decode the certificate file. To do so, run this OpenSSL command:
+## TLS enforcement in Azure Database for PostgreSQL Single server
 
-```dos
-OpenSSL>x509 -inform DER -in BaltimoreCyberTrustRoot.cer -text -out root.crt
-```
+Azure Database for PostgreSQL - Single server supports encryption for clients connecting to your database server using Transport Layer Security (TLS). TLS is an industry standard protocol that ensures secure network connections between your database server and client applications, allowing you to adhere to compliance requirements.
 
-### Connecting to Azure Database for PostgreSQL with SSL certificate authentication
-Now that you have successfully decoded your certificate, you can now connect to your database server securely over SSL. To allow server certificate verification, the certificate must be placed in the file ~/.postgresql/root.crt in the user's home directory. (On Microsoft Windows the file is named %APPDATA%\postgresql\root.crt.). The following provides instructions for connecting to Azure Database for PostgreSQL.
+### TLS settings
 
-> [!NOTE]
-> Currently, there is a known issue if you use "sslmode=verify-full" in your connection to the service, the connection will fail with the following error:
-> _server certificate for "&lt;region&gt;.control.database.windows.net" (and 7 other names) does not match host name "&lt;servername&gt;.postgres.database.azure.com"._
-> If "sslmode=verify-full" is required, please use the server naming convention **&lt;servername&gt;.database.windows.net** as your connection string host name. We plan to remove this limitation in the future. Connections using other [SSL modes](https://www.postgresql.org/docs/9.6/static/libpq-ssl.html#LIBPQ-SSL-SSLMODE-STATEMENTS) should continue to use the preferred host naming convention **&lt;servername&gt;.postgres.database.azure.com**.
+Azure Database for PostgreSQL single server provides the ability to enforce the TLS version for the client connections. To enforce the TLS version, use the **Minimum TLS version** option setting. The following values are allowed for this option setting:
 
-#### Using psql command-line utility
-The following example shows you how to successfully connect to your PostgreSQL server using the psql command-line utility. Use the `root.crt` file created and the `sslmode=verify-ca` or `sslmode=verify-full` option.
+|  Minimum TLS setting             | Client TLS version supported                |
+|:---------------------------------|-------------------------------------:|
+| TLSEnforcementDisabled (default) | No TLS required                      |
+| TLS1_0                           | TLS 1.0, TLS 1.1, TLS 1.2 and higher |
+| TLS1_1                           | TLS 1.1, TLS 1.2 and higher          |
+| TLS1_2                           | TLS version 1.2 and higher           |
 
-Using the PostgreSQL command-line interface, execute the following command:
-```bash
-psql "sslmode=verify-ca sslrootcert=root.crt host=mypgserver-20170401.postgres.database.azure.com dbname=postgres user=mylogin@mypgserver-20170401"
-```
-If successful, you receive the following output:
-```bash
-Password for user mylogin@mypgserver-20170401:
-psql (9.6.2)
-WARNING: Console code page (437) differs from Windows code page (1252)
-     8-bit characters might not work correctly. See psql reference
-     page "Notes for Windows users" for details.
-SSL connection (protocol: TLSv1.2, cipher: ECDHE-RSA-AES256-SHA384, bits: 256, compression: off)
-Type "help" for help.
 
-postgres=>
-```
+For example, setting this Minimum TLS setting version to TLS 1.0 means your server will allow connections from clients using TLS 1.0, 1.1, and 1.2+. Alternatively, setting this to 1.2 means that you only allow connections from clients using TLS 1.2+ and all connections with TLS 1.0 and TLS 1.1 will be rejected.
 
-#### Using pgAdmin GUI tool
-Configuring pgAdmin 4 to connect securely over SSL requires you to set the `SSL mode = Verify-CA` or `SSL mode = Verify-Full` as follows:
+> [!Note] 
+> By default, Azure Database for PostgreSQL does not enforce a minimum TLS version (the setting `TLSEnforcementDisabled`).
+>
+> Once you enforce a minimum TLS version, you cannot later disable minimum version enforcement.
 
-![Screenshot of pgAdmin - connection - SSL mode Require](./media/concepts-ssl-connection-security/2-pgadmin-ssl.png)
+To learn how to set the TLS setting for your Azure Database for PostgreSQL Single server, refer to [How to configure TLS setting](howto-tls-configurations.md).
+
+## Cipher support by Azure Database for PostgreSQL Single server
+
+As part of the SSL/TLS communication, the cipher suites are validated and only support cipher suits are allowed to communicate to the database serer. The cipher suite validation is controlled in the [gateway layer](concepts-connectivity-architecture.md#connectivity-architecture) and not explicitly on the node itself. If the cipher suites doesn't match one of suites listed below, incoming client connections will be rejected.
+
+### Cipher suite supported
+
+*   TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+*   TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+*   TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+*   TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 
 ## Next steps
-Review various application connectivity options following [Connection libraries for Azure Database for PostgreSQL](concepts-connection-libraries.md)
+
+Review various application connectivity options in [Connection libraries for Azure Database for PostgreSQL](concepts-connection-libraries.md).
+
+- Learn how to [configure TLS](howto-tls-configurations.md)

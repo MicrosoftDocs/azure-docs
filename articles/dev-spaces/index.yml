@@ -1,0 +1,64 @@
+### YamlMime:Landing
+
+title: Azure Dev Spaces documentation # < 60 chars
+summary: Azure Dev Spaces is an extension to AKS that allows you to easily run and debug your code in the context of a larger application. You can test your code end-to-end, hit breakpoints on code running in the cluster, and share a development cluster between team members without interference.
+
+metadata:
+  title: Azure Dev Spaces documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
+  description: Azure Dev Spaces is an extension to AKS that allows you to easily run and debug your code in the context of a larger application. You can test your code end-to-end, hit breakpoints on code running in the cluster, and share a development cluster between team members without interference.
+  services: azure-dev-spaces
+  ms.service: azure-dev-spaces #Required; service per approved list. service slug assigned to your service by ACOM.
+  ms.topic: landing-page # Required
+  author: zr-msft
+  ms.author: zarhoads
+  manager: gwallace
+  ms.date: 09/30/2019
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: About Azure Dev Spaces
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Dev Spaces?
+            url: about.md
+      - linkListType: concept
+        links:
+          - text: How Azure Dev Spaces works
+            url: how-dev-spaces-works.md
+      - linkListType: how-to-guide
+        links:
+          - text: Installing Azure Dev Spaces
+            url: how-to/install-dev-spaces.md
+
+  # Card
+  - title: Advanced scenarios
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Use a custom NuGet feed
+            url: how-to/use-custom-nuget-feed.md
+          - text: Use a private Helm repository
+            url: how-to/use-private-helm-repo.md
+          - text: Interact with Windows containers
+            url: how-to/run-dev-spaces-windows-containers.md
+          - text: Use traefik for custom ingress and HTTPS
+            url: how-to/ingress-https-traefik.md
+          - text: Use NGINX for custom ingress and HTTPS
+            url: how-to/ingress-https-nginx.md
+
+
+  # Card
+  - title: Bridge to Kubernetes
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Use Bridge to Kubernetes with Visual Studio Code
+            url: https://code.visualstudio.com/docs/containers/bridge-to-kubernetes
+          - text: Use Bridge to Kubernetes with Visual Studio
+            url: /visualstudio/containers/bridge-to-kubernetes

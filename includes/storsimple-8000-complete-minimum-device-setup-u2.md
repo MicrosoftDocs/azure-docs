@@ -1,4 +1,10 @@
-<!--author=alkohli last changed: 01/12/17-->
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+---
 
 #### To complete the minimum StorSimple device setup
 
@@ -21,7 +27,7 @@
 
             ![StorSimple minimum device setup network interfaces](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig2.png)
 
-            The fixed IP addresses for the controller are used for servicing the updates to the device. Therefore, the fixed IPs must be routable and able to connect to the Internet. You can check that your fixed controller IPs are routable by using the [Test-HcsmConnection][Test] cmdlet. The following example shows fixed controller IPs are routed to the Internet and can access the Microsoft Update servers.
+            The fixed IP addresses for the controller are used for servicing the updates to the device and for garbage collection. Therefore, the fixed IPs must be routable and able to connect to the Internet. You can check that your fixed controller IPs are routable by using the [Test-HcsmConnection][Test] cmdlet. The following example shows fixed controller IPs are routed to the Internet and can access the Microsoft Update servers.
 
             ![Test-HcsmConnection showing routable IPs](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig3.png)
 

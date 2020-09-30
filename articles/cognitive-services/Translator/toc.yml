@@ -1,26 +1,162 @@
-- name: Translator API Documentation
-  href: ../index.md
-- name: Overview
-  items: 
-  - name: Learn about the Translator API
-    href: translator-info-overview.md
-- name: Get started
-  items: 
-  - name: Languages
-    href: languages.md
-  - name: Hub
-    href: translator-hub-overview.md
-  - name: CTF
-    href: collaborative-translation-framework-reporting-api.md
-  - name: Translator Speech API overview
-    href: speech-overview.md
-- name: Reference
-  items: 
-  - name: Translator Speech API reference
-    href: http://docs.microsofttranslator.com/speech-translate.html
-  - name: Translator Text API reference
-    href: http://docs.microsofttranslator.com/text-translate.html
-- name: Resources
+- name: Translator Documentation
+  href: index.yml
+- name: Translator
   items:
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
+  - name: What is Translator?
+    href: translator-info-overview.md
+  - name: Quickstart
+    href: quickstart-translator.md
+  - name: Language Support
+    href: https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization
+  - name: Tutorials
+    items:
+    - name: Create a WPF app for Translator, C#
+      href: tutorial-wpf-translation-csharp.md
+    - name: Create a Flask translation app, Python
+      href: tutorial-build-flask-app-translation-synthesis.md
+  - name: Concepts
+    items:
+    - name: Customize and improve text translation
+      href: customization.md
+    - name: How the API counts characters
+      href: character-counts.md
+  - name: How-to guides
+    items:
+    - name: Sign-up for Translator
+      href: translator-text-how-to-signup.md
+    - name: Migrate to V3 Text API
+      href: migrate-to-v3.md
+    - name: Add profanity filtering
+      href: profanity-filtering.md
+    - name: Receive word alignment information
+      href: word-alignment.md
+    - name: Prevent translation of content
+      href: prevent-translation.md
+    - name: Use the dynamic dictionary feature
+      href: dynamic-dictionary.md
+    - name: Translate behind firewalls
+      href: firewalls.md
+  - name: Samples
+    items:
+    - name: C#
+      href: https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp
+    - name: Java
+      href: https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Java
+    - name: Python
+      href: https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Python
+    - name: Node.js
+      href: https://github.com/MicrosoftTranslator/Text-Translation-API-V3-NodeJS
+    - name: Go
+      href: https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Go
+    - name: PHP
+      href: https://github.com/MicrosoftTranslator/Text-Translation-API-V3-PHP
+    - name: Ruby
+      href: https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Ruby
+  - name: Reference
+    items:
+    - name: v3 Translator reference
+      href: reference/v3-0-reference.md
+      items:
+      - name: Languages
+        href: reference/v3-0-languages.md
+      - name: Translate
+        href: reference/v3-0-translate.md
+      - name: Transliterate
+        href: reference/v3-0-transliterate.md
+      - name: Detect
+        href: reference/v3-0-detect.md
+      - name: BreakSentence
+        href: reference/v3-0-break-sentence.md
+      - name: Dictionary Lookup
+        href: reference/v3-0-dictionary-lookup.md
+      - name: Dictionary Examples
+        href: reference/v3-0-dictionary-examples.md
+    - name: v2 Translator reference (Deprecated)
+      href: reference/v2-0-reference.md
+      items:
+      - name: Transform text
+        href: transform-text.md
+      - name: How to use Collaborative Translation Framework (CTF) reporting
+        href: ctf-reporting.md
+      - name: Return N-Best translations
+        href: return-n-best-translations.md
+    - name: Request limits
+      href: request-limits.md
+  - name: Resources
+    items:
+    - name: Code samples on GitHub
+      href: https://aka.ms/TranslatorGitHub
+    - name: FAQ
+      href: https://www.microsoft.com/translator/faq.aspx
+    - name: Pricing
+      href: https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/
+    - name: Regional availability
+      href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
+    - name: Compliance
+      href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
+    - name: Stack Overflow
+      href: https://stackoverflow.com/questions/tagged/microsoft-translator
+- name: Custom Translator
+  items:
+  - name: Overview
+    items:
+    - name: What is the Custom Translator?
+      href: custom-translator/overview.md
+  - name: Quickstarts
+    items:
+    - name: Build a custom model
+      href: custom-translator/quickstart-build-deploy-custom-model.md
+  - name: Concepts
+    items:
+    - name: Workspaces and projects
+      href: custom-translator/workspace-and-project.md
+    - name: Parallel documents
+      href: custom-translator/what-are-parallel-documents.md
+    - name: Dictionary
+      href: custom-translator/what-is-dictionary.md
+    - name: Document formats
+      href: custom-translator/document-formats-naming-convention.md
+    - name: Sentence alignment
+      href: custom-translator/sentence-alignment.md
+    - name: Data filtering
+      href: custom-translator/data-filtering.md
+    - name: Training and model
+      href: custom-translator/training-and-model.md
+    - name: BLEU Score
+      href: custom-translator/what-is-bleu-score.md
+  - name: How-to guides
+    items:
+    - name: Create a project
+      href: custom-translator/how-to-create-project.md
+    - name: Manage projects
+      href: custom-translator/how-to-search-edit-delete-projects.md
+    - name: Upload a document
+      href: custom-translator/how-to-upload-document.md
+    - name: View document details
+      href: custom-translator/how-to-view-document-details.md
+    - name: Train a model
+      href: custom-translator/how-to-train-model.md
+    - name: View model details
+      href: custom-translator/how-to-view-model-details.md
+    - name: View system test results
+      href: custom-translator/how-to-view-system-test-results.md
+    - name: Manage settings
+      href: custom-translator/how-to-manage-settings.md
+    - name: Migrate from Hub
+      href: custom-translator/how-to-migrate.md
+    - name: Unsupported language deployments
+      href: custom-translator/unsupported-language-deployments.md
+  - name: Resources
+    items:
+    - name: Glossary
+      href: custom-translator/glossary.md
+    - name: FAQ
+      href: custom-translator/faq.md
+    - name: Pricing
+      href: https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/
+    - name: Compliance
+      href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
+    - name: Encryption
+      href: translator-encryption-of-data-at-rest.md
+    - name: Stack Overflow
+      href: https://stackoverflow.com/questions/tagged/microsoft-translator

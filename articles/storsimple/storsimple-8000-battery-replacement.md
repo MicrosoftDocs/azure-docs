@@ -1,19 +1,10 @@
 ---
-title: Replace battery on Microsoft Azure StorSimple 8000 series device | Microsoft Docs
+title: Replace battery on Microsoft Azure StorSimple 8000 series device
 description: Describes how to remove, replace, and maintain the backup battery module on your StorSimple device.
-services: storsimple
-documentationcenter: ''
 author: alkohli
-manager: timlt
-editor: ''
-
-ms.assetid: 
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
-ms.date: 06/05/2017
+ms.topic: troubleshooting
+ms.date: 01/09/2018
 ms.author: alkohli
 
 ---
@@ -64,7 +55,7 @@ The backup battery module for your StorSimple device is a field-replaceable unit
    | 4 |PCM OK |
    | 5 |DC power failure |
    | 6 |Battery healthy |
-3. To remove the PCM with a failed battery, follow the steps in [Remove a PCM](storsimple-power-cooling-module-replacement.md#remove-a-pcm).
+3. To remove the PCM with a failed battery, follow the steps in [Remove a PCM](storsimple-8000-power-cooling-module-replacement.md#remove-a-pcm).
 4. With the PCM removed, lift and rotate the battery module handle upward as indicated in the following figure, and pull it up to remove the battery.
    
     ![Removing Battery From PCM](./media/storsimple-battery-replacement/IC741019.png)
@@ -79,7 +70,7 @@ Perform the following steps to install the replacement battery module in the PCM
 #### To install the battery module
 1. Place the backup battery module in the proper orientation in the PCM.
 2. Press down the battery module handle all the way to seat the connector.
-3. Replace the PCM in the primary enclosure by following the guidelines in [Replace a Power and Cooling Module on your StorSimple device](storsimple-power-cooling-module-replacement.md).
+3. Replace the PCM in the primary enclosure by following the guidelines in [Replace a Power and Cooling Module on your StorSimple device](storsimple-8000-power-cooling-module-replacement.md).
 4. After the replacement is complete, go to your device and then go to **Monitor** > **Hardware health** in the Azure portal. Verify the status of the battery to make sure that the installation was successful. A green status indicates that the battery is healthy.
 
 ## Maintain the backup battery module

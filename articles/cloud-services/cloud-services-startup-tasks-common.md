@@ -3,18 +3,11 @@ title: Common startup tasks for Cloud Services | Microsoft Docs
 description: Provides some examples of common startup tasks you may want to perform in your cloud services web role or worker role.
 services: cloud-services
 documentationcenter: ''
-author: Thraka
-manager: timlt
-editor: ''
-
-ms.assetid: a7095dad-1ee7-4141-bc6a-ef19a6e570f1
+author: tgore03
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
-ms.author: adegeo
+ms.author: tagore
 
 ---
 # Common Cloud Service startup tasks
@@ -64,12 +57,12 @@ However, there are a few things to watch out for in the use of *AppCmd.exe* as a
 
 It is a good practice to check the **errorlevel** after calling *AppCmd.exe*, which is easy to do if you wrap the call to *AppCmd.exe* with a *.cmd* file. If you detect a known **errorlevel** response, you can ignore it, or pass it back.
 
-The errorlevel returned by *AppCmd.exe* are listed in the winerror.h file, and can also be seen on [MSDN](https://msdn.microsoft.com/library/windows/desktop/ms681382.aspx).
+The errorlevel returned by *AppCmd.exe* are listed in the winerror.h file, and can also be seen on [MSDN](/windows/desktop/Debug/system-error-codes--0-499-).
 
 ### Example of managing the error level
 This example adds a compression section and a compression entry for JSON to the *Web.config* file, with error handling and logging.
 
-The relevant sections of the [ServiceDefinition.csdef] file are shown here, which include setting the [executionContext](https://msdn.microsoft.com/library/azure/gg557552.aspx#Task) attribute to `elevated` to give *AppCmd.exe* sufficient permissions to change the settings in the *Web.config* file:
+The relevant sections of the [ServiceDefinition.csdef] file are shown here, which include setting the [executionContext](/previous-versions/azure/reference/gg557552(v=azure.100)#task) attribute to `elevated` to give *AppCmd.exe* sufficient permissions to change the settings in the *Web.config* file:
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -89,10 +82,10 @@ REM   *** Add a compression section to the Web.config file. ***
 %windir%\system32\inetsrv\appcmd set config /section:urlCompression /doDynamicCompression:True /commit:apphost >> "%TEMP%\StartupLog.txt" 2>&1
 
 REM   ERRORLEVEL 183 occurs when trying to add a section that already exists. This error is expected if this
-REM   batch file were executed twice. This can occur and must be accounted for in a Azure startup
+REM   batch file were executed twice. This can occur and must be accounted for in an Azure startup
 REM   task. To handle this situation, set the ERRORLEVEL to zero by using the Verify command. The Verify
 REM   command will safely set the ERRORLEVEL to zero.
-IF %ERRORLEVEL% EQU 183 DO VERIFY > NUL
+IF %ERRORLEVEL% EQU 183 VERIFY > NUL
 
 REM   If the ERRORLEVEL is not zero at this point, some other error occurred.
 IF %ERRORLEVEL% NEQ 0 (
@@ -182,7 +175,7 @@ powershell -ExecutionPolicy Unrestricted -command "Install-WindowsFeature Web-IP
 
 This task causes the **startup.cmd** batch file to be run every time the web role is initialized, ensuring that the required **ipSecurity** section is unlocked.
 
-Finally, modify the [system.webServer section](http://www.iis.net/configreference/system.webserver/security/ipsecurity#005) your web role’s **web.config** file to add a list of IP addresses that are granted access, as shown in the following example:
+Finally, modify the [system.webServer section](https://www.iis.net/configreference/system.webserver/security/ipsecurity#005) your web role’s **web.config** file to add a list of IP addresses that are granted access, as shown in the following example:
 
 This sample config **allows** all IPs to access the server except the two defined
 
@@ -289,7 +282,7 @@ REM   Exit the batch file with ERRORLEVEL 0.
 EXIT /b 0
 ```
 
-You can access local storage folder from the Azure SDK by using the [GetLocalResource](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.getlocalresource.aspx) method.
+You can access local storage folder from the Azure SDK by using the [GetLocalResource](/previous-versions/azure/reference/ee772845(v=azure.100)) method.
 
 ```csharp
 string localStoragePath = Microsoft.WindowsAzure.ServiceRuntime.RoleEnvironment.GetLocalResource("StartupLocalStorage").RootPath;
@@ -344,7 +337,7 @@ The simplest way to detect that a task has already run is to create a file in th
 
 ```cmd
 REM   If Task1_Success.txt exists, then Application 1 is already installed.
-IF EXIST "%RoleRoot%\Task1_Success.txt" (
+IF EXIST "%PathToApp1Install%\Task1_Success.txt" (
   ECHO Application 1 is already installed. Exiting. >> "%TEMP%\StartupLog.txt" 2>&1
   GOTO Finish
 )
@@ -357,7 +350,7 @@ IF %ERRORLEVEL% EQU 0 (
   REM   The application installed without error. Create a file to indicate that the task
   REM   does not need to be run again.
 
-  ECHO This line will create a file to indicate that Application 1 installed correctly. > "%RoleRoot%\Task1_Success.txt"
+  ECHO This line will create a file to indicate that Application 1 installed correctly. > "%PathToApp1Install%\Task1_Success.txt"
 
 ) ELSE (
   REM   An error occurred. Log the error and exit with the error code.
@@ -379,9 +372,7 @@ EXIT /B 0
 Here are some best practices you should follow when configuring task for your web or worker role.
 
 ### Always log startup activities
-Visual Studio does not provide a debugger to step through batch files, so it's good to get as much data on the operation of batch files as possible. Logging the output of batch files, both **stdout** and **stderr**, can give you important information when trying to debug and fix batch files. To log both **stdout** and **stderr** to the StartupLog.txt file in the directory pointed to by the **%TEMP%** environment variable, add the text `>>  "%TEMP%\\StartupLog.txt" 2>&1` to the end of specific lines you want to log. For example, to execute setup.exe in the **%PathToApp1Install%** directory:
-
-    "%PathToApp1Install%\setup.exe" >> "%TEMP%\StartupLog.txt" 2>&1
+Visual Studio does not provide a debugger to step through batch files, so it's good to get as much data on the operation of batch files as possible. Logging the output of batch files, both **stdout** and **stderr**, can give you important information when trying to debug and fix batch files. To log both **stdout** and **stderr** to the StartupLog.txt file in the directory pointed to by the **%TEMP%** environment variable, add the text `>>  "%TEMP%\\StartupLog.txt" 2>&1` to the end of specific lines you want to log. For example, to execute setup.exe in the **%PathToApp1Install%** directory: `"%PathToApp1Install%\setup.exe" >> "%TEMP%\StartupLog.txt" 2>&1`
 
 To simplify your xml, you can create a wrapper *cmd* file that calls all of your startup tasks along with logging and ensures each child-task shares the same environment variables.
 
@@ -485,7 +476,7 @@ The role will only start if the **errorlevel** from each of your simple startup 
 A missing `EXIT /B 0` at the end of a startup batch file is a common cause of roles that do not start.
 
 > [!NOTE]
-> I've noticed that nested batch files sometimes hang when using the `/B` parameter. You may want to make sure that this hang problem does not happen if another batch file calls your current batch file, like if you use the [log wrapper](#always-log-startup-activities). You can omit the `/B` parameter in this case.
+> I've noticed that nested batch files sometimes stop responding when using the `/B` parameter. You may want to make sure that this problem does not happen if another batch file calls your current batch file, like if you use the [log wrapper](#always-log-startup-activities). You can omit the `/B` parameter in this case.
 > 
 > 
 

@@ -1,24 +1,16 @@
 ---
-title: Disaster recovery for B2B integration account - Azure Logic Apps | Microsoft Docs
-description: Logic Apps B2B disaster recovery
+title: Disaster recovery for integration accounts
+description: Set up your integration accounts and B2B artifacts with cross-region disaster recovery in Azure Logic Apps
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: padmavc
-manager: anneta
-editor: ''
-
-ms.assetid: cf44af18-1fe5-41d5-9e06-cc57a968207c
-ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/10/2017
-ms.author: LADocs; padmavc
-
 ---
 
-# Logic Apps B2B cross-region disaster recovery
+# Set up cross-region disaster recovery for integration accounts in Azure Logic Apps
 
 B2B workloads involve money transactions like orders and invoices. 
 During a disaster event, it's critical for a business to quickly 
@@ -94,7 +86,7 @@ To avoid sending duplicate generated control numbers
 to partners during a disaster event, 
 the recommendation is to increment the control numbers 
 in the secondary region agreements by using 
-[PowerShell cmdlets](https://blogs.msdn.microsoft.com/david_burgs_blog/2017/03/09/fresh-of-the-press-new-azure-powershell-cmdlets-for-upcoming-x12-connector-disaster-recovery).
+[PowerShell cmdlets](/powershell/module/azurerm.logicapp/set-azurermintegrationaccountgeneratedicn?view=azurermps-6.13.0).
 
 ## Fall back to a primary region post-disaster event
 
@@ -104,7 +96,7 @@ To fall back to a primary region when it is available, follow these steps:
 
 2. Increment the generated control numbers for all the 
 primary region agreements by using 
-[PowerShell cmdlets](https://blogs.msdn.microsoft.com/david_burgs_blog/2017/03/09/fresh-of-the-press-new-azure-powershell-cmdlets-for-upcoming-x12-connector-disaster-recovery).  
+[PowerShell cmdlets](/powershell/module/azurerm.logicapp/set-azurermintegrationaccountgeneratedicn?view=azurermps-6.13.0).  
 
 3. Direct traffic from the secondary region to the primary region.
 
@@ -116,7 +108,7 @@ region for pulling run status from the primary region is enabled.
 Business continuity for EDI X12 documents is based on control numbers:
 
 > [!TIP]
-> You can also use the [X12 quick start template](https://azure.microsoft.com/documentation/templates/201-logic-app-x12-disaster-recovery-replication/) 
+> You can also use the [X12 quick start template](https://azure.microsoft.com/resources/templates/201-logic-app-b2b-disaster-recovery-replication/) 
 > to create logic apps. Creating primary and secondary 
 > integration accounts are prerequisites to use the template. 
 > The template helps to create two logic apps, 
@@ -132,7 +124,7 @@ select the duplicate check settings in the X12 agreement's Receive Settings.
 
 ![Select duplicate check settings](./media/logic-apps-enterprise-integration-b2b-business-continuity/dupcheck.png)  
 
-1. Create a [logic app](../logic-apps/logic-apps-create-a-logic-app.md) in a secondary region.    
+1. Create a [logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md) in a secondary region.    
 
 2. Search on **X12**, and select **X12 - When a control number is modified**.   
 
@@ -199,7 +191,7 @@ select the duplicate check settings in your EDIFACT agreement's Receive Settings
 
 ![Select duplicate check settings](./media/logic-apps-enterprise-integration-b2b-business-continuity/edifactdupcheck.png)  
 
-1. Create a [logic app](../logic-apps/logic-apps-create-a-logic-app.md) in a secondary region.    
+1. Create a [logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md) in a secondary region.    
 
 2. Search on **EDIFACT**, and select **EDIFACT - When a control number is modified**.
 
@@ -209,7 +201,7 @@ select the duplicate check settings in your EDIFACT agreement's Receive Settings
    The trigger should be connected to a primary region integration account. 
 
 3. Enter a connection name, select your *primary region integration account* 
-from the list, and choose **Create**.    
+   from the list, and choose **Create**.    
 
    ![Primary region integration account name](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12CN2.png)
 
@@ -226,10 +218,10 @@ from the list, and choose **Create**.
    ![Add or update control numbers](./media/logic-apps-enterprise-integration-b2b-business-continuity/EdifactChooseAction.png)
 
 8. To connect an action to a secondary region integration account, 
-select **Change connection** > **Add new connection** for a 
-list of the available integration accounts. Enter a connection name, 
-select your *secondary region integration account* from the list, 
-and choose **Create**.
+   select **Change connection** > **Add new connection** for a 
+   list of the available integration accounts. Enter a connection name, 
+   select your *secondary region integration account* from the list, 
+   and choose **Create**.
 
    ![Secondary region integration account name](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn6.png)
 
@@ -238,7 +230,7 @@ and choose **Create**.
    ![Switch to raw inputs](./media/logic-apps-enterprise-integration-b2b-business-continuity/Edifactrawinputs.png)
 
 10. Select Body from the dynamic content picker, 
-and save the logic app.   
+   and save the logic app.   
 
    ![Dynamic content fields](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12CN7.png)
 
@@ -267,7 +259,7 @@ is based on the message ID and the MIC value.
 > The logic app creates a connection from a trigger to a primary 
 > integration account and an action to a secondary integration account.
 
-1. Create a [logic app](../logic-apps/logic-apps-create-a-logic-app.md) 
+1. Create a [logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md) 
 in the secondary region.  
 
 2. Search on **AS2**, and select **AS2 - When a MIC value is created**.   
@@ -326,5 +318,4 @@ direct traffic to the secondary region for business continuity.
 
 ## Next steps
 
-[Monitor B2B messages](logic-apps-monitor-b2b-message.md)
-
+[Monitor B2B messages with Azure Monitor logs](../logic-apps/monitor-b2b-messages-log-analytics.md)

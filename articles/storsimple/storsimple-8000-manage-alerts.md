@@ -1,19 +1,10 @@
 ---
-title: View and manage alerts for StorSimple 8000 series device | Microsoft Docs
+title: View and manage alerts for StorSimple 8000 series device
 description: Describes StorSimple alert conditions and severity, how to configure alert notifications, and how to use the StorSimple Device Manager service to manage alerts.
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: timlt
-editor: ''
-
-ms.assetid: 
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 05/31/2017
+ms.topic: how-to
+ms.date: 03/14/2019
 ms.author: alkohli
 
 ---
@@ -32,7 +23,7 @@ This tutorial describes common alert conditions, alert severity levels, and how 
 Your StorSimple device generates alerts in response to a variety of conditions. The following are the most common types of alert conditions:
 
 * **Hardware issues** – These alerts tell you about the health of your hardware. They let you know if firmware upgrades are needed, if a network interface has issues, or if there is a problem with one of your data drives.
-* **Connectivity issues** – These alerts occur when there is difficulty in transferring data. Communication issues can occur during transfer of data to and from the Azure storage account or due to lack of connectivity between the devices and the StorSimple Device Manager service. Communication issues are some of the hardest to fix because there are so many points of failure. You should always first verify that network connectivity and Internet access are available before continuing on to more advanced troubleshooting. For help with troubleshooting, go to [Troubleshoot with the Test-Connection cmdlet](storsimple-troubleshoot-deployment.md).
+* **Connectivity issues** – These alerts occur when there is difficulty in transferring data. Communication issues can occur during transfer of data to and from the Azure storage account or due to lack of connectivity between the devices and the StorSimple Device Manager service. Communication issues are some of the hardest to fix because there are so many points of failure. You should always first verify that network connectivity and Internet access are available before continuing on to more advanced troubleshooting. For help with troubleshooting, go to [Troubleshoot with the Test-Connection cmdlet](storsimple-8000-troubleshoot-deployment.md).
 * **Performance issues** – These alerts are caused when your system isn’t performing optimally, such as when it is under a heavy load.
 
 In addition, you might see alerts related to security, updates, or job failures.
@@ -52,7 +43,7 @@ You can choose whether you want to be notified by email of alert conditions for 
 > [!NOTE]
 > You can enter a maximum of 20 email addresses per device.
 
-After you enable email notification for a device, members of the notification list will receive an email message each time a critical alert occurs. The messages will be sent from *storsimple-alerts-noreply@mail.windowsazure.com* and will describe the alert condition. Recipients can click **Unsubscribe** to remove themselves from the email notification list.
+After you enable email notification for a device, members of the notification list will receive an email message each time a critical alert occurs. The messages will be sent from *storsimple-alerts-noreply\@mail.windowsazure.com* and will describe the alert condition. Recipients can click **Unsubscribe** to remove themselves from the email notification list.
 
 #### To enable email notification of alerts for a device
 1. Go to your StorSimple Device Manager service. From the list of devices, select and click the device that you wish to configure.
@@ -64,7 +55,7 @@ After you enable email notification for a device, members of the notification li
    
    1. In the **Send email notification** field, select **YES**.
    2. In the **Email service administrators** field, select **YES** to have the service administrator and all co-administrators receive the alert notifications.
-   3. In the **Other email recipients** field, enter the email addresses of all other recipients who should receive the alert notifications. Enter names in the format *someone@somewhere.com*. Use semicolons to separate the email addresses. You can configure a maximum of 20 email addresses per device. 
+   3. In the **Other email recipients** field, enter the email addresses of all other recipients who should receive the alert notifications. Enter names in the format *someone\@somewhere.com*. Use semicolons to separate the email addresses. You can configure a maximum of 20 email addresses per device. 
       
 3. To send a test email notification, click **Send test email**. The StorSimple Device Manager service will display status messages as it forwards the test notification.
 
@@ -75,7 +66,7 @@ After you enable email notification for a device, members of the notification li
     ![Alerts test notification email sent](./media/storsimple-8000-manage-alerts/configure-alerts-email4.png)
    
    > [!NOTE]
-   > If the test notification message can't be sent, the StorSimple Device Manager service will display an appropriate error message. Wait a few minutes,and then try to send your test notification message again. 
+   > If the test notification message can't be sent, the StorSimple Device Manager service will display an appropriate error message. Wait a few minutes, and then try to send your test notification message again. 
 
 5. Once you have completed the configuration, click **Save**. When prompted for confirmation, click **Yes**.
 
@@ -124,6 +115,7 @@ The following tables list some of the Microsoft Azure StorSimple alerts that you
 * [Performance alerts](#performance-alerts)
 * [Security alerts](#security-alerts)
 * [Support package alerts](#support-package-alerts)
+* [Enclosure environment alerts](#enclosure-environment-alerts)
 
 ### Cloud connectivity alerts
 
@@ -156,7 +148,7 @@ If cloud connectivity fails on your StorSimple production device, then depending
 | Device failed over to <*device name*>. |Other/unknown cause. |If you see a large number of these alerts, contact Microsoft Support. After the issue is resolved, clear this alert from the alerts page. |
 | A critical device service reports status as failed. |Datapath service failure. |Contact Microsoft Support for assistance. |
 | Virtual IP address for network interface <*DATA #*> reports status as failed. |Other/unknown cause. |Sometimes temporary conditions can cause these alerts. If this is the case, then this alert will be automatically cleared after some time. If the issue persists, contact Microsoft Support. |
-| Virtual IP address for network interface <*DATA #*> reports status as failed. |Interface name: <*DATA #*> IP address <IP address> cannot be brought online because a duplicate IP address was detected on the network. |Ensure that the duplicate IP address is removed from the network or reconfigure the interface with a different IP address. |
+| Virtual IP address for network interface <*DATA #*> reports status as failed. |Interface name: <*DATA #*> IP address `<IP address>` cannot be brought online because a duplicate IP address was detected on the network. |Ensure that the duplicate IP address is removed from the network or reconfigure the interface with a different IP address. |
 
 ### Disaster recovery alerts
 
@@ -185,8 +177,8 @@ If cloud connectivity fails on your StorSimple production device, then depending
 |:--- |:--- |:--- |
 | Creation of local volume <*volume name*> failed. |The volume creation job has failed. <*Error message corresponding to the failed error code*>. |Connectivity issues could be preventing the space creation operation from successfully completing. Locally pinned volumes are thickly provisioned and the process of creating space involves spilling tiered volumes to the cloud. If there are no connectivity issues, you may have exhausted the local space on the device. Determine if space exists on the device before retrying this operation. |
 | Expansion of local volume <*volume name*> failed. |The volume modification job has failed due to <*error message corresponding to the failed error code*>. |Connectivity issues could be preventing the volume expansion operation from successfully completing. Locally pinned volumes are thickly provisioned and the process of extending the existing space involves spilling tiered volumes to the cloud. If there are no connectivity issues, you may have exhausted the local space on the device. Determine if space exists on the device before retrying this operation. |
-| Conversion of volume <*volume name*> failed. |The volume conversion job to convert the volume type from locally pinned to tiered failed. |Conversion of the volume from type locally pinned to tiered could not be completed. Ensure that there are no connectivity issues preventing the operation from completing successfully. For troubleshooting connectivity issues go to [Troubleshoot with the Test-HcsmConnection cmdlet](storsimple-troubleshoot-deployment.md#troubleshoot-with-the-test-hcsmconnection-cmdlet).<br>The original locally pinned volume has now been marked as a tiered volume since some of the data from the locally pinned volume has spilled to the cloud during the conversion. The resultant tiered volume is still occupying local space on the device that cannot be reclaimed for future local volumes.<br>Resolve any connectivity issues, clear the alert and convert this volume back to the original locally pinned volume type to ensure all the data is made available locally again. |
-| Conversion of volume <*volume name*> failed. |The volume conversion job to convert the volume type from tiered to locally pinned failed. |Conversion of the volume from type tiered to locally pinned could not be completed. Ensure that there are no connectivity issues preventing the operation from completing successfully. For troubleshooting connectivity issues go to [Troubleshoot with the Test-HcsmConnection cmdlet](storsimple-troubleshoot-deployment.md#troubleshoot-with-the-test-hcsmconnection-cmdlet).<br>The original tiered volume now marked as a locally pinned volume as part of the conversion process continues to have data residing in the cloud, while the thickly provisioned space on the device for this volume can no longer reclaimed for future local volumes.<br>Resolve any connectivity issues, clear the alert and convert this volume back to the original tiered volume type to ensure local space thickly provisioned on the device can be reclaimed. |
+| Conversion of volume <*volume name*> failed. |The volume conversion job to convert the volume type from locally pinned to tiered failed. |Conversion of the volume from type locally pinned to tiered could not be completed. Ensure that there are no connectivity issues preventing the operation from completing successfully. For troubleshooting connectivity issues go to [Troubleshoot with the Test-HcsmConnection cmdlet](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-test-hcsmconnection-cmdlet).<br>The original locally pinned volume has now been marked as a tiered volume since some of the data from the locally pinned volume has spilled to the cloud during the conversion. The resultant tiered volume is still occupying local space on the device that cannot be reclaimed for future local volumes.<br>Resolve any connectivity issues, clear the alert and convert this volume back to the original locally pinned volume type to ensure all the data is made available locally again. |
+| Conversion of volume <*volume name*> failed. |The volume conversion job to convert the volume type from tiered to locally pinned failed. |Conversion of the volume from type tiered to locally pinned could not be completed. Ensure that there are no connectivity issues preventing the operation from completing successfully. For troubleshooting connectivity issues go to [Troubleshoot with the Test-HcsmConnection cmdlet](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-test-hcsmconnection-cmdlet).<br>The original tiered volume now marked as a locally pinned volume as part of the conversion process continues to have data residing in the cloud, while the thickly provisioned space on the device for this volume can no longer be reclaimed for future local volumes.<br>Resolve any connectivity issues, clear the alert and convert this volume back to the original tiered volume type to ensure local space thickly provisioned on the device can be reclaimed. |
 | Nearing local space consumption for local snapshots of <*volume group name*> |Local snapshots for the backup policy might soon run out of space and be invalidated to avoid host write failures. |Frequent local snapshots alongside a high data churn in the volumes associated with this backup policy group are causing local space on the device to be consumed quickly. Delete any local snapshots that are no longer needed. Also, update your local snapshot schedules for this backup policy to take less frequent local snapshots, and ensure that cloud snapshots are taken regularly. If these actions are not taken, local space for these snapshots might soon be exhausted and the system will automatically delete them to ensure that host writes continue to be processed successfully. |
 | Local snapshots for <*volume group name*> have been invalidated. |The local snapshots for <*volume group name*> have been invalidated and then deleted because they were exceeding the local space on the device. |To ensure this does not recur in the future, review the local snapshot schedules for this backup policy and delete any local snapshots that are no longer needed. Frequent local snapshots alongside a high data churn in the volumes associated with this backup policy group might cause local space on the device to be consumed quickly. |
 | Restore of <*source backup element IDs*> failed. |The restore job has failed. |If you have locally pinned or a mix of locally pinned and tiered volumes in this backup policy, refresh the backup list to verify that the backup is still valid. If the backup is valid, it is possible that cloud connectivity issues are preventing the restore operation from successfully completing. The locally pinned volumes that were being restored as part of this snapshot group do not have all of their data downloaded to the device, and, if you have a mix of tiered and locally pinned volumes in this snapshot group, they will not be in sync with each other. To successfully complete the restore operation, take the volumes in this group offline on the host and retry the restore operation. Note that any modifications to the volume data that were performed during the restore process will be lost. |
@@ -196,14 +188,16 @@ If cloud connectivity fails on your StorSimple production device, then depending
 | Alert text | Event | More information / recommended actions |
 |:--- |:--- |:--- |
 | Could not start StorSimple service(s). |Datapath error |If the problem persists, contact Microsoft Support. |
-| Duplicate IP address detected for 'Data0'. | |The system has detected a conflict for IP address '10.0.0.1'. The network resource 'Data0' on the device *<device1>* is offline. Ensure that this IP address is not used by any other entity in this network. To troubleshoot network issues, go to [Troubleshoot with the Get-NetAdapter cmdlet](storsimple-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). Contact your network administrator for help resolving this issue. If the problem persists, contact Microsoft Support. |
-| IPv4 (or IPv6) address for 'Data0' is offline. | |The network resource 'Data0' with IP address '10.0.0.1.' and prefix length '22' on the device *<device1>* is offline. Ensure that the switch ports to which this interface is connected are operational. To troubleshoot network issues, go to [Troubleshoot with the Get-NetAdapter cmdlet](storsimple-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). |
+| Duplicate IP address detected for 'Data0'. | |The system has detected a conflict for IP address '10.0.0.1'. The network resource 'Data0' on the device *\<device1>* is offline. Ensure that this IP address is not used by any other entity in this network. To troubleshoot network issues, go to [Troubleshoot with the Get-NetAdapter cmdlet](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). Contact your network administrator for help resolving this issue. If the problem persists, contact Microsoft Support. |
+| IPv4 (or IPv6) address for 'Data0' is offline. | |The network resource 'Data0' with IP address '10.0.0.1.' and prefix length '22' on the device *\<device1>* is offline. Ensure that the switch ports to which this interface is connected are operational. To troubleshoot network issues, go to [Troubleshoot with the Get-NetAdapter cmdlet](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). |
+| Could not connect to the authentication service. |Datapath error |The URLthat is used to authenticate is not reachable. Ensure that your firewall rules include the URL patterns specified for the StorSimple device. For more information on URL patterns in Azure portal, go to https:\//aka.ms/ss-8000-network-reqs. If using Azure Government Cloud, go to the URL patterns in https:\//aka.ms/ss8000-gov-network-reqs.|
 
 ### Performance alerts
 
 | Alert text | Event | More information / recommended actions |
 |:--- |:--- |:--- |
-| The device load has exceeded <*threshold*>. |Slower than expected response times. |Your device reports utilization under a heavy input/output load. This could cause your device to not work as well as it should. Review the workloads that you have attached to the device, and determine if there are any that could be moved to another device or that are no longer necessary.<br>To understand the current status, go to [Use the StorSimple Device Manager service to monitor your device](storsimple-monitor-device.md) |
+| The device load has exceeded <*threshold*>. |Slower than expected response times. |Your device reports utilization under a heavy input/output load. This could cause your device to not work as well as it should. Review the workloads that you have attached to the device, and determine if there are any that could be moved to another device or that are no longer necessary.|
+| Could not start StorSimple service(s). |Datapath error |If the problem persists, contact Microsoft Support. |
 
 ### Security alerts
 
@@ -221,7 +215,12 @@ If cloud connectivity fails on your StorSimple production device, then depending
 |:--- |:--- |:--- |
 | Creation of support package failed. |StorSimple couldn't generate the package. |Retry this operation. If the issue persists, contact Microsoft Support. After you have resolved the issue, clear this alert from the alerts page. |
 
+### Enclosure environment alerts
+
+| Alert text | Event | More information / recommended actions |
+|:--- |:--- |:--- |
+| Hardware component Ambient temperature sensor reports status as failed.  | Enclosure type: Main enclosure | This alert is triggered when the ambient outside temperature around StorSimple is above an acceptable range. Check the ambient outside temperature or the airflow from the AC vent in the datacenter. When the temperature returns to normal, the alert is automatically cleared after some time has elapsed. If the issue persists, contact Microsoft support.   |
+
 ## Next steps
 
-Learn more about [StorSimple errors and troubleshooting an operational device](storsimple-troubleshoot-operational-device.md).
-
+Learn more about [StorSimple errors and troubleshooting device deployment issues](storsimple-8000-troubleshoot-deployment.md).

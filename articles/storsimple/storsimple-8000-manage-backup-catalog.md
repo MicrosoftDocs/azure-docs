@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: 
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/29/2017
@@ -82,7 +82,7 @@ Delete a backup when you no longer wish to retain the data associated with it. P
 
 #### To delete a backup set
  Go to your StorSimple Device Manager service and click **Backup catalog**.
-2. Filter the selections as follows:
+1. Filter the selections as follows:
    
    1. Specify the time range. 
    2. Select the appropriate device. 
@@ -93,15 +93,15 @@ Delete a backup when you no longer wish to retain the data associated with it. P
 
       ![Go to backup catalog](./media/storsimple-8000-manage-backup-catalog/bucatalog1.png)
 
-3. Select and expand a backup set. You can now see the backup sets broken down by the volumes that it contains. The **Restore** and **Delete** options are available via the context menu (right-click) for the backup set. Right-click the selected backup set and from the context menu, select **Delete**.
+1. Select and expand a backup set. You can now see the backup sets broken down by the volumes that it contains. The **Restore** and **Delete** options are available via the context menu (right-click) for the backup set. Right-click the selected backup set and from the context menu, select **Delete**.
 
     ![Go to backup catalog](./media/storsimple-8000-manage-backup-catalog/bucatalog3.png)
 
-4. When prompted for confirmation, review the displayed information and click **Delete**. The selected backup is deleted permanently.
+1. When prompted for confirmation, review the displayed information and click **Delete**. The selected backup is deleted permanently.
 
     ![Go to backup catalog](./media/storsimple-8000-manage-backup-catalog/bucatalog4.png)  
 
-5. You will be notified when the deletion is in progress and when it has successfully finished. After the deletion is done, refresh the query on this page. The deleted backup set will no longer appear in the list of backup sets.
+1. You will be notified when the deletion is in progress and when it has successfully finished. After the deletion is done, refresh the query on this page. The deleted backup set will no longer appear in the list of backup sets.
 
     ![Go to backup catalog](./media/storsimple-8000-manage-backup-catalog/bucatalog7.png)
 

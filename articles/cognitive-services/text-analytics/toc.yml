@@ -1,0 +1,140 @@
+- name: Text Analytics API Documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: What is the Text Analytics API?
+    href: overview.md
+  - name: Example user scenarios
+    href: text-analytics-user-scenarios.md
+  - name: What's new
+    href: whats-new.md
+- name: Quickstarts
+  expanded: true
+  items:
+    - name: Client library
+      items:
+      - name: Analyze Text using the client library
+        href: quickstarts/text-analytics-sdk.md
+    - name: REST API
+      items:
+      - name: Using Java
+        href: quickstarts/java.md
+      - name: Using Python
+        href: quickstarts/python.md
+      - name: Using Node.js
+        href: quickstarts/nodejs.md
+      - name: Using PHP
+        href: quickstarts/php.md
+      - name: Using Go
+        href: quickstarts/go.md
+      - name: Using Ruby
+        href: quickstarts/ruby.md
+
+- name: Tutorials
+  items:
+    - name: Integrate Power BI to analyze customer feedback
+      href: Tutorials/tutorial-power-bi-key-phrases.md
+    - name: Text Analytics in Power Apps
+      href: https://powerapps.microsoft.com/tutorials/cognitive-services-api/
+    - name: Sentiment analysis on streaming data using Azure Databricks
+      maintainContext: true
+      href: ../../azure-databricks/databricks-sentiment-analysis-cognitive-services.md
+    - name: Use Flask to translate text, analyze sentiment, and synthesize speech
+      maintainContext: true
+      href: https://docs.microsoft.com/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis
+    - name: Extract information in Excel using Power Automate
+      href: tutorials/extract-excel-information.md
+
+- name: Concepts
+  items:
+  - name: Named entity types
+    href: named-entity-types.md
+  - name: Language support
+    href: language-support.md
+  - name: Text offsets
+    href: concepts/text-offsets.md
+  - name: Data limits
+    href: concepts/data-limits.md
+  - name: Model versioning
+    href: concepts/model-versioning.md
+- name: How-to guides
+  items:
+   - name: Call the Text Analytics API
+     href: How-tos/text-analytics-how-to-call-api.md
+   - name: Language detection
+     href: How-tos/text-analytics-how-to-language-detection.md
+   - name: Sentiment analysis
+     href: How-tos/text-analytics-how-to-sentiment-analysis.md
+   - name: Key phrase extraction
+     href: How-tos/text-analytics-how-to-keyword-extraction.md
+   - name: Named entity recognition
+     href: How-tos/text-analytics-how-to-entity-linking.md
+   - name: Text Analytics for health
+     href: How-tos/text-analytics-for-health.md
+   - name: Use containers
+     items:
+      - name: Install and run containers
+        href: how-tos/text-analytics-how-to-install-containers.md
+      - name: Configure containers
+        href: text-analytics-resource-container-config.md
+      - name: Use container instances
+        href: how-tos/text-analytics-how-to-use-container-instances.md
+      - name: Use kubernetes service (AKS)
+        href: how-tos/text-analytics-how-to-use-kubernetes-service.md
+   - name: Migrate to version 3 of the API
+     href: migration-guide.md
+- name: Reference
+  items:
+  - name: CLI reference
+    href: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
+  - name: PowerShell reference
+    href: https://aka.ms/azure-powershell-cognitiveservices
+  - name: Text Analytics API
+    items:
+      - name: v3.0
+        href: https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0
+      - name: v2
+        href: https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1
+  - name: SDKs
+    items:
+    - name: v3.0
+      items:
+        - name: .NET
+          href: https://aka.ms/azsdk-net-textanalytics-ref-docs
+        - name: Python
+          href: https://aka.ms/azsdk-python-textanalytics-ref-docs
+        - name: Java
+          href: https://aka.ms/azsdk-java-textanalytics-ref-docs
+        - name: Node.js
+          href: https://aka.ms/azsdk-js-textanalytics-ref-docs
+    - name: v2
+      items:
+        - name: .NET
+          href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-dotnet
+        - name: Python
+          href: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/textanalytics?view=azure-python
+        - name: Java
+          href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-java-stable
+        - name: Node.js
+          href: https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/?view=azure-node-latest
+        - name: Go
+          href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics
+- name: Resources
+  items:
+  - name: External and community content
+    href: text-analytics-resource-external-community.md
+  - name: FAQ
+    href: text-analytics-resource-faq.md
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/
+  - name: Regional availability
+    href: https://azure.microsoft.com/global-infrastructure/services/
+  - name: Compliance
+    href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/text-analytics-api
+  - name: Try it!
+    href: https://azure.microsoft.com/services/cognitive-services/text-analytics/
+  - name: Send feedback
+    href: https://cognitive.uservoice.com/forums/555922-text-analytics

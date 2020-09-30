@@ -1,4 +1,4 @@
-﻿---
+---
 title: StorSimple 8000 series as backup target with Backup Exec | Microsoft Docs
 description: Describes the StorSimple backup target configuration with Veritas Backup Exec.
 services: storsimple
@@ -10,11 +10,11 @@ editor: ''
 ms.assetid:
 ms.service: storsimple
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/05/2016
-ms.author: hkanna
+ms.author: matd
 ---
 
 # StorSimple as a backup target with Backup Exec
@@ -33,7 +33,7 @@ The information in this article will be most helpful to backup administrators, s
 
 ## Supported versions
 
--   [Backup Exec 16 and later versions](http://backupexec.com/compatibility)
+-   [Backup Exec 16 and later versions](https://www.veritas.com/content/support/en_US/article.100040087)
 -   [StorSimple Update 3 and later versions](storsimple-overview.md#storsimple-workload-summary)
 
 
@@ -90,6 +90,7 @@ The following tables show the device model-to-architecture initial guidance.
 |------------------------|---------------|-----------------|
 | Local storage capacity | &lt; 10 TiB\*  | &lt; 20 TiB\*  |
 | Cloud storage capacity | &gt; 200 TiB\* | &gt; 500 TiB\* |
+
 \* Storage size assumes no deduplication or compression.
 
 **StorSimple capacities for primary and secondary backups**
@@ -169,7 +170,7 @@ For a step-by-step StorSimple deployment guidance, see [Deploy your on-premises 
 
 ### Deploy Backup Exec
 
-For Backup Exec installation best practices, see [Best practices for Backup Exec installation](https://www.veritas.com/support/en_US/article.000068207).
+For Backup Exec installation best practices, see [Best practices for Backup Exec installation](https://www.veritas.com/content/support/en_US/doc/72686287-131623464-0/v70444238-131623464).
 
 ## Set up the solution
 
@@ -202,16 +203,16 @@ Set up your solution according to the guidelines in the following sections.
 
 ### Operating system best practices
 
--   Disable Windows Server encryption and deduplication for the NTFS file system.
--   Disable Windows Server defragmentation on the StorSimple volumes.
--   Disable Windows Server indexing on the StorSimple volumes.
--   Run an antivirus scan at the source host (not against the StorSimple volumes).
--   Turn off the default [Windows Server maintenance](https://msdn.microsoft.com/library/windows/desktop/hh848037.aspx) in Task Manager. Do this in one of the following ways:
-   - Turn off the Maintenance configurator in Windows Task Scheduler.
-   - Download [PsExec](https://technet.microsoft.com/sysinternals/bb897553.aspx) from Windows Sysinternals. After you download PsExec, run Azure PowerShell as an administrator, and type:
-      ```powershell
-      psexec \\%computername% -s schtasks /change /tn “MicrosoftWindowsTaskSchedulerMaintenance Configurator" /disable
-      ```
+- Disable Windows Server encryption and deduplication for the NTFS file system.
+- Disable Windows Server defragmentation on the StorSimple volumes.
+- Disable Windows Server indexing on the StorSimple volumes.
+- Run an antivirus scan at the source host (not against the StorSimple volumes).
+- Turn off the default [Windows Server maintenance](https://msdn.microsoft.com/library/windows/desktop/hh848037.aspx) in Task Manager. Do this in one of the following ways:
+  - Turn off the Maintenance configurator in Windows Task Scheduler.
+  - Download [PsExec](https://technet.microsoft.com/sysinternals/bb897553.aspx) from Windows Sysinternals. After you download PsExec, run Azure PowerShell as an administrator, and type:
+    ```powershell
+    psexec \\%computername% -s schtasks /change /tn “MicrosoftWindowsTaskSchedulerMaintenance Configurator" /disable
+    ```
 
 ### StorSimple best practices
 
@@ -255,6 +256,7 @@ Based on the preceding assumptions, create a 26-TiB StorSimple tiered volume for
 | Yearly full | 1  | 10 | 10 |
 | GFS requirement |   | 38 |   |
 | Additional quota  | 4  |   | 42 total GFS requirement  |
+
 \* The GFS multiplier is the number of copies you need to protect and retain to meet your backup policy requirements.
 
 ## Set up Backup Exec storage
@@ -308,7 +310,7 @@ Here's an example of a GFS rotation schedule for four weeks, monthly, and yearly
 |---|---|---|
 | Weekly (weeks 1-4) | Saturday | Monday-Friday |
 | Monthly  | Saturday  |   |
-| Yearly | Saturday  |   |   |
+| Yearly | Saturday  |   |
 
 
 ### Assign StorSimple volumes to a Backup Exec backup job
@@ -369,6 +371,7 @@ The following table shows how to set up backups to run on the local and StorSimp
 | Monthly full |StorSimple disk (long-term) | 1 | 12 | 12 |
 | Yearly full |StorSimple disk (long-term) | 1 | 1 | 1 |
 |GFS volumes size requirement |  |  |  | 18*|
+
 \* Total capacity includes 17 TiB of StorSimple disks and 1 TiB of local RAID volume.
 
 
@@ -381,7 +384,7 @@ The following table shows how to set up backups to run on the local and StorSimp
 | Week 3 | StorSimple weeks 2-4 |   |   |   |   |   |
 | Week 4 | StorSimple weeks 2-4 |   |   |   |   |   |
 | Monthly | StorSimple monthly |   |   |   |   |   |
-| Yearly | StorSimple yearly  |   |   |   |   |   |   |
+| Yearly | StorSimple yearly  |   |   |   |   |   |
 
 
 ### Assign StorSimple volumes to a Backup Exec archive and deduplication job
@@ -426,7 +429,7 @@ The following section describes how to create a short script to start and delete
 ### Start and delete cloud snapshots by using a script
 
 > [!NOTE]
-> Carefully assess the compliance and data retention repercussions before you delete a StorSimple snapshot. For more information about how to run a post-backup script, see the [Backup Exec documentation](https://www.veritas.com/support/en_US/15047.html).
+> Carefully assess the compliance and data retention repercussions before you delete a StorSimple snapshot. For more information about how to run a post-backup script, see the [Backup Exec documentation](https://www.veritas.com/support/en_US/article.100032497.html).
 
 ### Backup lifecycle
 
@@ -441,51 +444,15 @@ The following section describes how to create a short script to start and delete
 
 ### To start or delete a cloud snapshot
 
-1.  [Install Azure PowerShell](/powershell/azure/overview).
-2.  [Download and import publish settings and subscription information](https://msdn.microsoft.com/library/dn385850.aspx).
-3.  In the Azure classic portal, get the resource name and [registration key for your StorSimple Manager service](storsimple-deployment-walkthrough-u2.md#step-2-get-the-service-registration-key).
-4.  On the server that runs the script, run PowerShell as an administrator. Type this command:
+1. [Install Azure PowerShell](/powershell/azure/).
+2. Download and setup [Manage-CloudSnapshots.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Manage-CloudSnapshots.ps1) PowerShell script.
+3. On the server that runs the script, run PowerShell as an administrator. Ensure that you run the script with `-WhatIf $true` to see what changes the script will make. Once the validation is complete, pass `-WhatIf $false`. Run the below command:
+   ```powershell
+   .\Manage-CloudSnapshots.ps1 -SubscriptionId [Subscription Id] -TenantId [Tenant ID] -ResourceGroupName [Resource Group Name] -ManagerName [StorSimple Device Manager Name] -DeviceName [device name] -BackupPolicyName [backup policyname] -RetentionInDays [Retention days] -WhatIf [$true or $false]
+   ```
+4. Add the script to your backup job in Backup Exec by editing your Backup Exec job options' pre-processing and post-processing commands.
 
-    `Get-AzureStorSimpleDeviceBackupPolicy –DeviceName <device name>`
-
-    Note the backup policy ID.
-5.  In Notepad, create a new PowerShell script by using the following code.
-
-    Copy and paste this code snippet:
-    ```powershell
-    Import-AzurePublishSettingsFile "c:\\CloudSnapshot Snapshot\\myAzureSettings.publishsettings"
-    Disable-AzureDataCollection
-    $ApplianceName = <myStorSimpleApplianceName>
-    $RetentionInDays = 20
-    $RetentionInDays = -$RetentionInDays
-    $Today = Get-Date
-    $ExpirationDate = $Today.AddDays($RetentionInDays)
-    Select-AzureStorSimpleResource -ResourceName "myResource" –RegistrationKey
-    Start-AzureStorSimpleDeviceBackupJob –DeviceName $ApplianceName -BackupType CloudSnapshot -BackupPolicyId <BackupId> -Verbose
-    $CompletedSnapshots =@()
-    $CompletedSnapshots = Get-AzureStorSimpleDeviceBackup -DeviceName $ApplianceName
-    Write-Host "The Expiration date is " $ExpirationDate
-    Write-Host
-
-    ForEach ($SnapShot in $CompletedSnapshots)
-    {
-        $SnapshotStartTimeStamp = $Snapshot.CreatedOn
-        if ($SnapshotStartTimeStamp -lt $ExpirationDate)
-
-        {
-            $SnapShotInstanceID = $SnapShot.InstanceId
-            Write-Host "This snpashotdate was created on " $SnapshotStartTimeStamp.Date.ToShortDateString()
-            Write-Host "Instance ID " $SnapShotInstanceID
-            Write-Host "This snpashotdate is older and needs to be deleted"
-            Write-host "\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#"
-            Remove-AzureStorSimpleDeviceBackup -DeviceName $ApplianceName -BackupId $SnapShotInstanceID -Force -Verbose
-        }
-    }
-    ```
-      Save the PowerShell script to the same location where you saved your Azure publish settings. For example, save as C:\CloudSnapshot\StorSimpleCloudSnapshot.ps1.
-6.  Add the script to your backup job in Backup Exec by editing your Backup Exec job options' pre-processing and post-processing commands.
-
-    ![Backup Exec console, backup options, pre- and post-processing commands tab](./media/storsimple-configure-backup-target-using-backup-exec/image25.png)
+   ![Backup Exec console, backup options, pre- and post-processing commands tab](./media/storsimple-configure-backup-target-using-backup-exec/image25.png)
 
 > [!NOTE]
 > We recommend that you run your StorSimple cloud snapshot backup policy as a post-processing script at the end of your daily backup job. For more information about how to back up and restore your backup application environment to help you meet your RPO and RTO, please consult with your backup architect.
@@ -512,9 +479,9 @@ A disaster can be caused by a variety of factors. The following table lists comm
 The following documents were referenced for this article:
 
 - [StorSimple multipath I/O setup](storsimple-configure-mpio-windows-server.md)
-- [Storage scenarios: Thin provisioning](http://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
-- [Using GPT drives](http://msdn.microsoft.com/windows/hardware/gg463524.aspx#EHD)
-- [Set up shadow copies for shared folders](http://technet.microsoft.com/library/cc771893.aspx)
+- [Storage scenarios: Thin provisioning](https://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
+- [Using GPT drives](https://msdn.microsoft.com/windows/hardware/gg463524.aspx#EHD)
+- [Set up shadow copies for shared folders](https://technet.microsoft.com/library/cc771893.aspx)
 
 ## Next steps
 

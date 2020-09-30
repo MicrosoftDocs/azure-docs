@@ -1,25 +1,16 @@
 ---
-title: Create Hadoop clusters using Azure REST API - Azure | Microsoft Docs
+title: Create Apache Hadoop clusters using Azure REST API - Azure 
 description: Learn how to create HDInsight clusters by submitting Azure Resource Manager templates to the Azure REST API.
-services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-
-ms.assetid: 98be5893-2c6f-4dfa-95ec-d4d8b5b7dcb5
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
+ms.topic: how-to
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 05/17/2017
-ms.author: larryfr
-
+ms.date: 12/10/2019
 ---
-# Create Hadoop clusters using the Azure REST API
+
+# Create Apache Hadoop clusters using the Azure REST API
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
@@ -27,10 +18,7 @@ Learn how to create an HDInsight cluster using an Azure Resource Manager templat
 
 The Azure REST API allows you to perform management operations on services hosted in the Azure platform, including the creation of new resources such as HDInsight clusters.
 
-> [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
-
-> [!NOTE]
+> [!NOTE]  
 > The steps in this document use the [curl (https://curl.haxx.se/)](https://curl.haxx.se/) utility to communicate with the Azure REST API.
 
 ## Create a template
@@ -127,7 +115,7 @@ The following JSON document is a merger of the template and parameters files fro
 
                    },
                    "properties": {
-                       "clusterVersion": "3.5",
+                       "clusterVersion": "3.6",
                        "osType": "Linux",
                        "clusterDefinition": {
                            "kind": "[parameters('clusterType')]",
@@ -152,7 +140,7 @@ The following JSON document is a merger of the template and parameters files fro
                                "name": "headnode",
                                "targetInstanceCount": "2",
                                "hardwareProfile": {
-                                   "vmSize": "Standard_D3"
+                                   "vmSize": "{}" 
                                },
                                "osProfile": {
                                    "linuxOperatingSystemProfile": {
@@ -165,7 +153,7 @@ The following JSON document is a merger of the template and parameters files fro
                                "name": "workernode",
                                "targetInstanceCount": "[parameters('clusterWorkerNodeCount')]",
                                "hardwareProfile": {
-                                   "vmSize": "Standard_D3"
+                                   "vmSize": "{}"
                                },
                                "osProfile": {
                                    "linuxOperatingSystemProfile": {
@@ -214,23 +202,23 @@ The following JSON document is a merger of the template and parameters files fro
 
 This example is used in the steps in this document. Replace the example *values* in the **Parameters** section with the values for your cluster.
 
-> [!IMPORTANT]
-> The template uses the default number of worker nodes (4) for an HDInsight cluster. If you plan on more than 32 worker nodes, then you must select a head node size with at least 8 cores and 14 GB ram.
+> [!IMPORTANT]  
+> The template uses the default number of worker nodes (4) for an HDInsight cluster. If you plan on more than 32 worker nodes, then you must select a head node size with at least 8 cores and 14-GB ram.
 >
 > For more information on node sizes and associated costs, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-## Log in to your Azure subscription
+## Sign in to your Azure subscription
 
-Follow the steps documented in [Get started with Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) and connect to your subscription using the `az login` command.
+Follow the steps documented in [Get started with Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) and connect to your subscription using the `az login` command.
 
 ## Create a service principal
 
-> [!NOTE]
-> These steps are an abridged version of the *Create service principal with password* section of the [Use Azure CLI to create a service principal to access resources](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md#create-service-principal-with-password) document. These steps create a service principal that is used to authenticate to the Azure REST API.
+> [!NOTE]  
+> These steps are an abridged version of the *Create service principal with password* section of the [Use Azure CLI to create a service principal to access resources](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md) document. These steps create a service principal that is used to authenticate to the Azure REST API.
 
 1. From a command line, use the following command to list your Azure subscriptions.
 
-   ```bash
+   ```azurecli
    az account list --query '[].{Subscription_ID:id,Tenant_ID:tenantId,Name:name}'  --output table
    ```
 
@@ -238,20 +226,20 @@ Follow the steps documented in [Get started with Azure CLI 2.0](https://docs.mic
 
 2. Use the following command to create an application in Azure Active Directory.
 
-   ```bash
+   ```azurecli
    az ad app create --display-name "exampleapp" --homepage "https://www.contoso.org" --identifier-uris "https://www.contoso.org/example" --password <Your password> --query 'appId'
    ```
 
     Replace the values for the `--display-name`, `--homepage`, and `--identifier-uris` with your own values. Provide a password for the new Active Directory entry.
 
-   > [!NOTE]
+   > [!NOTE]  
    > The `--home-page` and `--identifier-uris` values don't need to reference an actual web page hosted on the internet. They must be unique URIs.
 
    The value returned from this command is the __App ID__ for the new application. Save this value.
 
 3. Use the following command to create a service principal using the **App ID**.
 
-   ```bash
+   ```azurecli
    az ad sp create --id <App ID> --query 'objectId'
    ```
 
@@ -259,7 +247,7 @@ Follow the steps documented in [Get started with Azure CLI 2.0](https://docs.mic
 
 4. Assign the **Owner** role to the service principal using the **Object ID** value. Use the **subscription ID** you obtained earlier.
 
-   ```bash
+   ```azurecli
    az role assignment create --assignee <Object ID> --role Owner --scope /subscriptions/<Subscription ID>/
    ```
 
@@ -326,14 +314,14 @@ curl -X "PUT" "https://management.azure.com/subscriptions/$SUBSCRIPTIONID/resour
 -d "{set your body string to the template and parameters}"
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > If you saved the template to a file, you can use the following command instead of `-d "{ template and parameters}"`:
 >
 > `--data-binary "@/path/to/file.json"`
 
 If this request is successful, you receive a 200 series response and the response body contains a JSON document containing information about the deployment operation.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > The deployment has been submitted, but has not completed. It can take several minutes, usually around 15, for the deployment to complete.
 
 ## Check the status of a deployment
@@ -350,25 +338,24 @@ This command returns a JSON document containing information about the deployment
 
 ## Troubleshoot
 
-If you run into issues with creating HDInsight clusters, see [access control requirements](hdinsight-administer-use-portal-linux.md#create-clusters).
+If you run into issues with creating HDInsight clusters, see [access control requirements](./hdinsight-hadoop-customize-cluster-linux.md#access-control).
 
 ## Next steps
 
-Now that you have successfully created an HDInsight cluster, use the following to learn how to work with your cluster.
+Now that you've successfully created an HDInsight cluster, use the following to learn how to work with your cluster.
 
-### Hadoop clusters
+### Apache Hadoop clusters
 
-* [Use Hive with HDInsight](hdinsight-use-hive.md)
-* [Use Pig with HDInsight](hdinsight-use-pig.md)
-* [Use MapReduce with HDInsight](hdinsight-use-mapreduce.md)
+* [Use Apache Hive with HDInsight](hadoop/hdinsight-use-hive.md)
+* [Use MapReduce with HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
-### HBase clusters
+### Apache HBase clusters
 
-* [Get started with HBase on HDInsight](hdinsight-hbase-tutorial-get-started-linux.md)
-* [Develop Java applications for HBase on HDInsight](hdinsight-hbase-build-java-maven-linux.md)
+* [Get started with Apache HBase on HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)
+* [Develop Java applications for Apache HBase on HDInsight](hbase/apache-hbase-build-java-maven-linux.md)
 
-### Storm clusters
+### Apache Storm clusters
 
-* [Develop Java topologies for Storm on HDInsight](hdinsight-storm-develop-java-topology.md)
-* [Use Python components in Storm on HDInsight](hdinsight-storm-develop-python-topology.md)
-* [Deploy and monitor topologies with Storm on HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
+* [Develop Java topologies for Apache Storm on HDInsight](storm/apache-storm-develop-java-topology.md)
+* [Use Python components in Apache Storm on HDInsight](storm/apache-storm-develop-python-topology.md)
+* [Deploy and monitor topologies with Apache Storm on HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md)

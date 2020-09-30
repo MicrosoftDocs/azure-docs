@@ -3,7 +3,7 @@ title: StorSimple 8000 Series Update 2 release notes | Microsoft Docs
 description: Describes the new features, issues, and workarounds for StorSimple 8000 Series Update 2.
 services: storsimple
 documentationcenter: NA
-author: SharS
+author: alkohli
 manager: carmonm
 editor: ''
 
@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 05/24/2016
-ms.author: v-sharos
+ms.date: 11/03/2017
+ms.author: alkohli
 
 ---
 # StorSimple 8000 Series Update 2 release notes
+
 ## Overview
 The following release notes describe the new features and identify the critical open issues for StorSimple 8000 Series Update 2. They also contain a list of the StorSimple software, driver, and disk firmware updates included in this release. 
 

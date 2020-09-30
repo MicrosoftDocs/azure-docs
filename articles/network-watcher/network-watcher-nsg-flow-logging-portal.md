@@ -1,108 +1,225 @@
 ---
-title: Manage network security group flow logs with Azure Network Watcher | Microsoft Docs
-description: This page explains how to manage Network Security Group flow logs in Azure Network Watcher
+title: Log network traffic flow to and from a VM - tutorial - Azure portal | Microsoft Docs
+description: Learn how to log network traffic flow to and from a VM using Network Watcher's NSG flow logs capability.
 services: network-watcher
 documentationcenter: na
-author: georgewallace
-manager: timlt
-editor: 
+author: damendo
+
+tags: azure-resource-manager
+Customer intent: I need to log the network traffic to and from a VM so I can analyze it for anomalies.
 
 ms.assetid: 01606cbf-d70b-40ad-bc1d-f03bb642e0af
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
-ms.date: 02/22/2017
-ms.author: gwallace
+ms.date: 04/30/2018
+ms.author: damendo
+ms.custom: mvc
 
 ---
 
-# Manage network security group flow logs in the Azure portal
+# Tutorial: Log network traffic to and from a virtual machine using the Azure portal
 
 > [!div class="op_single_selector"]
 > - [Azure portal](network-watcher-nsg-flow-logging-portal.md)
 > - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
-> - [CLI 1.0](network-watcher-nsg-flow-logging-cli-nodejs.md)
-> - [CLI 2.0](network-watcher-nsg-flow-logging-cli.md)
+> - [Azure CLI](network-watcher-nsg-flow-logging-cli.md)
 > - [REST API](network-watcher-nsg-flow-logging-rest.md)
+> - [Azure Resource Manager](network-watcher-nsg-flow-logging-azure-resource-manager.md)
 
-Network security group flow logs are a feature of Network Watcher that enables you to view information about ingress and egress IP traffic through a network security group. These flow logs are written in JSON format and provide important information, including: 
+A network security group (NSG) enables you to filter inbound traffic to, and outbound traffic from, a virtual machine (VM). You can log network traffic that flows through an NSG with Network Watcher's NSG flow log capability. In this tutorial, you learn how to:
 
-- Outbound and inbound flows on a per-rule basis.
-- The NIC that the flow applies to.
-- 5-tuple information about the flow (source/destination IP, source/destination port, protocol).
-- Information about whether traffic was allowed or denied.
+> [!div class="checklist"]
+> * Create a VM with a network security group
+> * Enable Network Watcher and register the Microsoft.Insights provider
+> * Enable a traffic flow log for an NSG, using Network Watcher's NSG flow log capability
+> * Download logged data
+> * View logged data
 
-## Before you begin
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-This scenario assumes you have already followed the steps in [Create a Network Watcher instance](network-watcher-create.md). The scenario also assumes that a you have a resource group with a valid virtual machine.
+## Create a VM
+
+1. Select **+ Create a resource** found on the upper, left corner of the Azure portal.
+2. Select **Compute**, and then select **Windows Server 2016 Datacenter** or a version of **Ubuntu Server**.
+3. Enter, or select, the following information, accept the defaults for the remaining settings, and then select **OK**:
+
+    |Setting|Value|
+    |---|---|
+    |Name|myVm|
+    |User name| Enter a user name of your choosing.|
+    |Password| Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    |Subscription| Select your subscription.|
+    |Resource group| Select **Create new** and enter **myResourceGroup**.|
+    |Location| Select **East US**|
+
+4. Select a size for the VM and then select **Select**.
+5. Under **Settings**, accept all the defaults, and select **OK**.
+6. Under **Create** of the **Summary**, select **Create** to start VM deployment. The VM takes a few minutes to deploy. Wait for the VM to finish deploying before continuing with the remaining steps.
+
+The VM takes a few minutes to create. Don't continue with remaining steps until the VM has finished creating. While the portal creates the VM, it also creates a network security group with the name **myVm-nsg**, and associates it to the network interface for the VM.
+
+## Enable Network Watcher
+
+If you already have a network watcher enabled in the East US region, skip to [Register Insights provider](#register-insights-provider).
+
+1. In the portal, select **All services**. In the **Filter box**, enter *Network Watcher*. When **Network Watcher** appears in the results, select it.
+2. Select **Regions**, to expand it, and then select **...** to the right of **East US**, as shown in the following picture:
+
+    ![Enable Network Watcher](./media/network-watcher-nsg-flow-logging-portal/enable-network-watcher.png)
+
+3. Select **Enable Network Watcher**.
 
 ## Register Insights provider
 
-For flow logging to work successfully, the **Microsoft.Insights** provider must be registered. To register the provider, take the following steps: 
+NSG flow logging requires the **Microsoft.Insights** provider. To register the provider, complete the following steps:
 
-1. Go to **Subscriptions**, and then select the subscription for which you want to enable flow logs. 
-2. On the **Subscription** blade, select **Resource Providers**. 
-3. Look at the list of providers, and verify that the **microsoft.insights** provider is registered. If not, then select **Register**.
+1. In the top, left corner of portal, select **All services**. In the Filter box, type *Subscriptions*. When **Subscriptions** appear in the search results, select it.
+2. From the list of subscriptions, select the subscription you want to enable the provider for.
+3. Select **Resource providers**, under **SETTINGS**.
+4. Confirm that the **STATUS** for the **microsoft.insights** provider is **Registered**, as shown in the picture that follows. If the status is **Unregistered**, then select **Register**, to the right of the provider.
 
-![View providers][providers]
+    ![Register provider](./media/network-watcher-nsg-flow-logging-portal/register-provider.png)
 
-## Enable flow logs
+## Enable NSG flow log
 
-These steps take you through the process of enabling flow logs on a network security group.
+1. NSG flow log data is written to an Azure Storage account. To create an Azure Storage account, select **+ Create a resource** at the top, left corner of the portal.
+2. Select **Storage**, then select **Storage account - blob, file, table, queue**.
+3. Enter, or select the following information, accept the remaining defaults, and then select **Create**.
 
-### Step 1
+    | Setting        | Value                                                        |
+    | ---            | ---   |
+    | Name           | 3-24 characters in length, can only contain lowercase letters and numbers, and must be unique across all Azure Storage accounts.                                                               |
+    | Location       | Select **East US**                                           |
+    | Resource group | Select **Use existing**, and then select **myResourceGroup** |
 
-Go to a Network Watcher instance, and then select **NSG Flow logs**.
+    The storage account may take around minute to create. Don't continue with remaining steps until the storage account is created. In all cases, the storage account must be in the same region as the NSG.
+4. In the top, left corner of portal, select **All services**. In the **Filter** box, type *Network Watcher*. When **Network Watcher** appears in the search results, select it.
+5. Under **LOGS**, select **NSG flow logs**, as shown in the following picture:
 
-![Flow logs overview][1]
+    ![Screenshot shows the Network Watcher NSG flow logs.](./media/network-watcher-nsg-flow-logging-portal/nsgs.png)
 
-### Step 2
+6. From the list of NSGs, select the NSG named **myVm-nsg**.
+7. Under **Flow logs settings**, select **On**.
+8. Select the flow logging version. Version 2 contains flow-session statistics (Bytes and Packets)
 
-Select a network security group from the list.
+   ![Select flow Logs version](./media/network-watcher-nsg-flow-logging-portal/select-flow-log-version.png)
 
-![Flow logs overview][2]
+9. Select the storage account that you created in step 3.
+   > [!NOTE]
+   > NSG Flow Logs do not work with storage accounts that have [hierarchical namespace](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace) enabled.
+1. In the top, left corner of portal, select **All services**. In the **Filter** box, type *Network Watcher*. When **Network Watcher** appears in the search results, select it.
+10. Set **Retention (days)** to 5, and then select **Save**.
 
-### Step 3 
+## Download flow log
 
-On the **Flow logs settings** blade, set the status to **On**, and then configure a storage account.  When you're done, select **OK**. Then select **Save**.
+1. From Network Watcher, in the portal, select **NSG flow logs** under **LOGS**.
+2. Select **You can download flow logs from configured storage accounts**, as shown in the following picture:
 
-![Flow logs overview][3]
+   ![Download flow logs](./media/network-watcher-nsg-flow-logging-portal/download-flow-logs.png)
 
-## Download flow logs
+3. Select the storage account that you configured in step 2 of [Enable NSG flow log](#enable-nsg-flow-log).
+4. Under **Blob service**, select **Containers**, and then select the **insights-logs-networksecuritygroupflowevent** container.
+5. In the container, navigate the folder hierarchy until you get to a PT1H.json file, as shown in the picture that follows. Log files are written to a folder hierarchy that follows the following naming convention:
+   https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 
-Flow logs are saved in a storage account. Download your flow logs to view them.
+   ![Flow log](./media/network-watcher-nsg-flow-logging-portal/log-file.png)
 
-### Step 1
+6. Select **...** to the right of the PT1H.json file and select **Download**.
 
-To download flow logs, select **You can download flow logs from configured storage accounts**. This step takes you to a storage account view where you can choose which logs to download.
+## View flow log
 
-![Flow logs settings][4]
+The following json is an example of what you'll see in the PT1H.json file for each flow that data is logged for:
 
-### Step 2
+### Version 1 flow log event
+```json
+{
+    "time": "2018-05-01T15:00:02.1713710Z",
+    "systemId": "<Id>",
+    "category": "NetworkSecurityGroupFlowEvent",
+    "resourceId": "/SUBSCRIPTIONS/<Id>/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/MYVM-NSG",
+    "operationName": "NetworkSecurityGroupFlowEvents",
+    "properties": {
+        "Version": 1,
+        "flows": [
+            {
+                "rule": "UserRule_default-allow-rdp",
+                "flows": [
+                    {
+                        "mac": "000D3A170C69",
+                        "flowTuples": [
+                            "1525186745,192.168.1.4,10.0.0.4,55960,3389,T,I,A"
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}
+```
+### Version 2 flow log event
+```json
+{
+    "time": "2018-11-13T12:00:35.3899262Z",
+    "systemId": "a0fca5ce-022c-47b1-9735-89943b42f2fa",
+    "category": "NetworkSecurityGroupFlowEvent",
+    "resourceId": "/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/RESOURCEGROUPS/FABRIKAMRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIAKMVM1-NSG",
+    "operationName": "NetworkSecurityGroupFlowEvents",
+    "properties": {
+        "Version": 2,
+        "flows": [
+            {
+                "rule": "DefaultRule_DenyAllInBound",
+                "flows": [
+                    {
+                        "mac": "000D3AF87856",
+                        "flowTuples": [
+                            "1542110402,94.102.49.190,10.5.16.4,28746,443,U,I,D,B,,,,",
+                            "1542110424,176.119.4.10,10.5.16.4,56509,59336,T,I,D,B,,,,",
+                            "1542110432,167.99.86.8,10.5.16.4,48495,8088,T,I,D,B,,,,"
+                        ]
+                    }
+                ]
+            },
+            {
+                "rule": "DefaultRule_AllowInternetOutBound",
+                "flows": [
+                    {
+                        "mac": "000D3AF87856",
+                        "flowTuples": [
+                            "1542110377,10.5.16.4,13.67.143.118,59831,443,T,O,A,B,,,,",
+                            "1542110379,10.5.16.4,13.67.143.117,59932,443,T,O,A,E,1,66,1,66",
+                            "1542110379,10.5.16.4,13.67.143.115,44931,443,T,O,A,C,30,16978,24,14008",
+                            "1542110406,10.5.16.4,40.71.12.225,59929,443,T,O,A,E,15,8489,12,7054"
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}
+```
 
-Go to the correct storage account. Then select **Containers** > **insights-log-networksecuritygroupflowevent**.
+The value for **mac** in the previous output is the MAC address of the network interface that was created when the VM was created. The comma-separated information for **flowTuples**, is as follows:
 
-![Flow logs settings][5]
-
-### Step 3
-
-Go to the location of the flow log, select it, and then select **Download**.
-
-![Flow logs settings][6]
-
-For information about the structure of the log, visit [Network security group flow log overview](network-watcher-nsg-flow-logging-overview.md).
+| Example data | What data represents   | Explanation                                                                              |
+| ---          | ---                    | ---                                                                                      |
+| 1542110377   | Time stamp             | The time stamp of when the flow occurred, in UNIX EPOCH format. In the previous example, the date converts to May 1, 2018 at 2:59:05 PM GMT.                                                                                    |
+| 10.0.0.4  | Source IP address      | The source IP address that the flow originated from. 10.0.0.4 is the private IP address of the VM you created in [Create a VM](#create-a-vm).
+| 13.67.143.118     | Destination IP address | The destination IP address that the flow was destined to.                                                                                  |
+| 44931        | Source port            | The source port that the flow originated from.                                           |
+| 443         | Destination port       | The destination port that the flow was destined to. Since the traffic was destined to port 443, the rule named **UserRule_default-allow-rdp**, in the log file processed the flow.                                                |
+| T            | Protocol               | Whether the protocol of the flow was TCP (T) or UDP (U).                                  |
+| O            | Direction              | Whether the traffic was inbound (I) or outbound (O).                                     |
+| A            | Action                 | Whether the traffic was allowed (A) or denied (D).  
+| C            | Flow State **Version 2 Only** | Captures the state of the flow. Possible states are **B**: Begin, when a flow is created. Statistics aren't provided. **C**: Continuing for an ongoing flow. Statistics are provided at 5-minute intervals. **E**: End, when a flow is terminated. Statistics are provided. |
+| 30 | Packets sent - Source to destination **Version 2 Only** | The total number of TCP or UDP packets sent from source to destination since last update. |
+| 16978 | Bytes sent - Source to destination **Version 2 Only** | The total number of TCP or UDP packet bytes sent from source to destination since last update. Packet bytes include the packet header and payload. |
+| 24 | Packets sent - Destination to source **Version 2 Only** | The total number of TCP or UDP packets sent from destination to source since last update. |
+| 14008| Bytes sent - Destination to source **Version 2 Only** | The total number of TCP and UDP packet bytes sent from destination to source since last update. Packet bytes include packet header and payload.|
 
 ## Next steps
 
-Learn how to [visualize your NSG flow logs with PowerBI](network-watcher-visualize-nsg-flow-logs-power-bi.md).
-
-<!-- Image references -->
-[1]: ./media/network-watcher-nsg-flow-logging-portal/figure1.png
-[2]: ./media/network-watcher-nsg-flow-logging-portal/figure2.png
-[3]: ./media/network-watcher-nsg-flow-logging-portal/figure3.png
-[4]: ./media/network-watcher-nsg-flow-logging-portal/figure4.png
-[5]: ./media/network-watcher-nsg-flow-logging-portal/figure5.png
-[6]: ./media/network-watcher-nsg-flow-logging-portal/figure6.png
-[providers]: ./media/network-watcher-nsg-flow-logging-portal/providers.png
+In this tutorial, you learned how to enable NSG flow logging for an NSG. You also learned how to download and view data logged in a file. The raw data in the json file can be difficult to interpret. To visualize Flow Logs data, you can use [Azure Traffic Analytics](traffic-analytics.md), [Microsoft Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md), and other tools. You can try alternate methods of enabling NSG Flow Logs like [PowerShell](network-watcher-nsg-flow-logging-powershell.md), [Azure CLI](network-watcher-nsg-flow-logging-cli.md), [REST API](network-watcher-nsg-flow-logging-rest.md) and [ARM templates](network-watcher-nsg-flow-logging-azure-resource-manager.md).

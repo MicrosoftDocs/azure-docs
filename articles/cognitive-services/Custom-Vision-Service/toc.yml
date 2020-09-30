@@ -1,34 +1,101 @@
-
-- name: Custom Vision Documentation
-  href: ../index.md
+- name: Custom Vision Service Documentation
+  href: index.yml
 - name: Overview
-  href: home.md
-- name: Quickstarts
   expanded: true
-  items: 
+  items:
+  - name: What is Custom Vision?
+    href: overview.md
+  - name: What's new
+    href: whats-new.md
+- name: Quickstarts
+  items:
   - name: Build a classifier
-    href: getting-started-build-a-classifier.md
-  - name: Improve your classifier
-    href: getting-started-improving-your-classifier.md
-  - name: Test your model
-    href: test-your-model.md
-  - name: Use the prediction API
-    href: use-prediction-api.md
+    items:
+    - name: Using the web portal
+      href: getting-started-build-a-classifier.md
+    - name: Using the Custom Vision SDK
+      href: quickstarts/image-classification.md
+  - name: Build an object detector
+    items:
+    - name: Using the web portal
+      href: get-started-build-detector.md
+    - name: Using the Custom Vision SDK
+      href: quickstarts/object-detection.md
 - name: Tutorials
   items:
-  - name: C# Tutorial
-    href: csharp-tutorial.md
+  - name: Report visual states on IoT device
+    href: iot-visual-alerts-tutorial.md
+  - name: Recognize logos on mobile
+    href: logo-detector-mobile.md
+- name: How-to guides
+  items:
+  - name: Test your model
+    href: test-your-model.md
+  - name: Improve your classifier
+    href: getting-started-improving-your-classifier.md
+  - name: Select a domain
+    href: select-domain.md
+  - name: Use the prediction API
+    href: use-prediction-api.md
+  - name: Use Smart Labeler
+    href: suggested-tags.md
+  - name: Role-based access control
+    href: role-based-access-control.md
+  - name: Export models
+    items:
+    - name: Export your model to mobile
+      href: export-your-model.md
+    - name: Use ONNX model with Windows ML
+      href: custom-vision-onnx-windows-ml.md
+    - name: Run TensorFlow model in Python
+      href: export-model-python.md
+  - name: Integrate storage notifications
+    href: storage-integration.md
+  - name: Copy and move projects
+    href: copy-move-projects.md
+  - name: View or delete account data
+    href: ./export-delete-data.md
+  - name: Update your app to the 3.0 API
+    href: ./update-application-to-3.0-sdk.md
 - name: Reference
   items:
-  - name: Custom Vision Prediction API Reference 
-    href: https://southcentralus.dev.cognitive.microsoft.com/docs/services/eb68250e4e954d9bae0c2650db79c653/operations/58acd3c1ef062f0344a42814 
-  - name: Custom Vision Training API Reference  
-    href: https://southcentralus.dev.cognitive.microsoft.com/docs/services/d9a10a4a5f8549599f1ecafc435119fa/operations/58d5835bc8cb231380095be3
-  - name: Glossary
-    href: glossary-of-terms.md
-  - name: SDK
-    href: http://github.com/Microsoft/Cognitive-CustomVision-Windows/
+  - name: Custom Vision Training API  
+    href: https://go.microsoft.com/fwlink/?linkid=865446
+  - name: Custom Vision Prediction API 
+    href: https://go.microsoft.com/fwlink/?linkid=865445
+  - name: SDKs
+    items:
+    - name: .NET
+      href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/customvision?view=azure-dotnet
+    - name: Java
+      href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/customvision?view=azure-java-stable
+    - name: Node.js - Training
+      href: https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-customvision-training/?view=azure-node-latest
+    - name: Node.js - Prediction
+      href: https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-customvision-prediction/?view=azure-node-latest
+    - name: Python
+      href: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/customvision?view=azure-python
+    - name: Go - Training
+      href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/customvision/training
+    - name: Go - Prediction
+      href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.1/customvision/prediction
 - name: Resources
   items:
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
+  - name: Samples
+    href: https://docs.microsoft.com/samples/browse/?products=azure&term=vision
+  - name: Limits and quotas
+    href: limits-and-quotas.md
+  - name: UserVoice
+    href: https://cognitive.uservoice.com/forums/598141-custom-vision-service
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/microsoft-cognitive
+  - name: Azure roadmap
+    href: https://azure.microsoft.com/updates/?product=cognitive-services
+  - name: Regional availability
+    href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
+  - name: Compliance
+    href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
+  - name: Encryption
+    href: custom-vision-encryption-of-data-at-rest.md
+  - name: Release Notes
+    href: release-notes.md

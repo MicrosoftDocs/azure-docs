@@ -1,50 +1,43 @@
 ---
-title: Convert a Linux virtual machine in Azure from unmanaged disks to managed disks - Azure Managed Disks  | Microsoft Docs
-description: How to convert a Linux VM from unmanaged disks to managed disks by using Azure CLI 2.0 in the Resource Manager deployment model
-services: virtual-machines-linux
-documentationcenter: ''
-author: iainfoulds
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid:
+title: Convert a Linux VM from unmanaged disks to managed disks
+description: How to convert a Linux VM from unmanaged disks to managed disks by using Azure CLI.
+author: roygara
 ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-ms.devlang: azurecli
-ms.topic: article
-ms.date: 06/23/2017
-ms.author: iainfou
+ms.topic: how-to
+ms.date: 12/15/2017
+ms.author: rogarana
+ms.subservice: disks
 ---
 
 # Convert a Linux virtual machine from unmanaged disks to managed disks
 
-If you have existing Linux virtual machines (VMs) that use unmanaged disks, you can convert the VMs to use managed disks through the [Azure Managed Disks](../../storage/storage-managed-disks-overview.md) service. This process converts both the OS disk and any attached data disks.
+If you have existing Linux virtual machines (VMs) that use unmanaged disks, you can convert the VMs to use [Azure Managed Disks](../managed-disks-overview.md). This process converts both the OS disk and any attached data disks.
 
-This article shows you how to convert VMs by using the Azure CLI. If you need to install or upgrade it, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli.md). 
+This article shows you how to convert VMs by using the Azure CLI. If you need to install or upgrade it, see [Install Azure CLI](/cli/azure/install-azure-cli). 
 
 ## Before you begin
+* Review [the FAQ about migration to Managed Disks](../faq-for-disks.md#migrate-to-managed-disks).
 
 [!INCLUDE [virtual-machines-common-convert-disks-considerations](../../../includes/virtual-machines-common-convert-disks-considerations.md)]
 
+* The original VHDs and the storage account used by the VM before conversion are not deleted. They continue to incur charges. To avoid being billed for these artifacts, delete the original VHD blobs after you verify that the conversion is complete. If you need to find these unattached disks in order to delete them, see our article [Find and delete unattached Azure managed and unmanaged disks](find-unattached-disks.md).
 
 ## Convert single-instance VMs
 This section covers how to convert single-instance Azure VMs from unmanaged disks to managed disks. (If your VMs are in an availability set, see the next section.) You can use this process to convert the VMs from premium (SSD) unmanaged disks to premium managed disks, or from standard (HDD) unmanaged disks to standard managed disks.
 
-1. Deallocate the VM by using [az vm deallocate](/cli/azure/vm#deallocate). The following example deallocates the VM named `myVM` in the resource group named `myResourceGroup`:
+1. Deallocate the VM by using [az vm deallocate](/cli/azure/vm). The following example deallocates the VM named `myVM` in the resource group named `myResourceGroup`:
 
     ```azurecli
     az vm deallocate --resource-group myResourceGroup --name myVM
     ```
 
-2. Convert the VM to managed disks by using [az vm convert](/cli/azure/vm#convert). The following process converts the VM named `myVM`, including the OS disk and any data disks:
+2. Convert the VM to managed disks by using [az vm convert](/cli/azure/vm). The following process converts the VM named `myVM`, including the OS disk and any data disks:
 
     ```azurecli
     az vm convert --resource-group myResourceGroup --name myVM
     ```
 
-3. Start the VM after the conversion to managed disks by using [az vm start](/cli/azure/vm#start). The following example starts the VM named `myVM` in the resource group named `myResourceGroup`.
+3. Start the VM after the conversion to managed disks by using [az vm start](/cli/azure/vm). The following example starts the VM named `myVM` in the resource group named `myResourceGroup`.
 
     ```azurecli
     az vm start --resource-group myResourceGroup --name myVM
@@ -56,7 +49,7 @@ If the VMs that you want to convert to managed disks are in an availability set,
 
 All VMs in the availability set must be deallocated before you convert the availability set. Plan to convert all VMs to managed disks after the availability set itself has been converted to a managed availability set. Then, start all the VMs and continue operating as normal.
 
-1. List all VMs in an availability set by using [az vm availability-set list](/cli/azure/vm/availability-set#list). The following example lists all VMs in the availability set named `myAvailabilitySet` in the resource group named `myResourceGroup`:
+1. List all VMs in an availability set by using [az vm availability-set list](/cli/azure/vm/availability-set). The following example lists all VMs in the availability set named `myAvailabilitySet` in the resource group named `myResourceGroup`:
 
     ```azurecli
     az vm availability-set show \
@@ -66,13 +59,13 @@ All VMs in the availability set must be deallocated before you convert the avail
         --output table
     ```
 
-2. Deallocate all the VMs by using [az vm deallocate](/cli/azure/vm#deallocate). The following example deallocates the VM named `myVM` in the resource group named `myResourceGroup`:
+2. Deallocate all the VMs by using [az vm deallocate](/cli/azure/vm). The following example deallocates the VM named `myVM` in the resource group named `myResourceGroup`:
 
     ```azurecli
     az vm deallocate --resource-group myResourceGroup --name myVM
     ```
 
-3. Convert the availability set by using [az vm availability-set convert](/cli/azure/vm/availability-set#convert). The following example converts the availability set named `myAvailabilitySet` in the resource group named `myResourceGroup`:
+3. Convert the availability set by using [az vm availability-set convert](/cli/azure/vm/availability-set). The following example converts the availability set named `myAvailabilitySet` in the resource group named `myResourceGroup`:
 
     ```azurecli
     az vm availability-set convert \
@@ -80,28 +73,30 @@ All VMs in the availability set must be deallocated before you convert the avail
         --name myAvailabilitySet
     ```
 
-4. Convert all the VMs to managed disks by using [az vm convert](/cli/azure/vm#convert). The following process converts the VM named `myVM`, including the OS disk and any data disks:
+4. Convert all the VMs to managed disks by using [az vm convert](/cli/azure/vm). The following process converts the VM named `myVM`, including the OS disk and any data disks:
 
     ```azurecli
     az vm convert --resource-group myResourceGroup --name myVM
     ```
 
-5. Start all the VMs after the conversion to managed disks by using [az vm start](/cli/azure/vm#start). The following example starts the VM named `myVM` in the resource group named `myResourceGroup`:
+5. Start all the VMs after the conversion to managed disks by using [az vm start](/cli/azure/vm). The following example starts the VM named `myVM` in the resource group named `myResourceGroup`:
 
     ```azurecli
     az vm start --resource-group myResourceGroup --name myVM
     ```
 
-## Managed disks and Azure Storage Service Encryption
-You can't use the preceding steps to convert an unmanaged disk into a managed disk if the unmanaged disk is in a storage account that has ever been encrypted through [Azure Storage Service Encryption](../../storage/storage-service-encryption.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). The following steps detail how to copy and use unmanaged disks that have been in an encrypted storage account:
+## Convert using the Azure portal
 
-1. Copy the VHD by using [az storage blob copy start](/cli/azure/storage/blob/copy#start) to a storage account that has never been enabled for Azure Storage Service Encryption.
+You can also convert unmanaged disks to managed disks using the Azure portal.
 
-2. Use the copied VM in one of the following ways:
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. Select the VM from the list of VMs in the portal.
+3. In the blade for the VM, select **Disks** from the menu.
+4. At the top of the **Disks** blade, select **Migrate to managed disks**.
+5. If your VM is in an availability set, there will be a warning on the **Migrate to managed disks** blade that you need to convert the availability set first. The warning should have a link you can click to convert the availability set. Once the availability set is converted or if your VM is not in an availability set, click **Migrate** to start the process of migrating your disks to managed disks.
 
-   * Create a VM that uses managed disks and specify that VHD file during creation by using [az vm create](/cli/azure/vm#create).
-
-   * Attach the copied VHD by using [az vm disk attach](/cli/azure/vm/disk#attach) to a running VM that uses managed disks.
+The VM will be stopped and restarted after migration is complete.
 
 ## Next steps
-For more information about storage options, see [Azure Managed Disks overview](../../storage/storage-managed-disks-overview.md).
+
+For more information about storage options, see [Azure Managed Disks overview](../managed-disks-overview.md).

@@ -1,21 +1,13 @@
 ---
-title: 'Link a virtual network to an ExpressRoute circuit: CLI: Azure| Microsoft Docs'
-description: This document provides an overview of how to link virtual networks (VNets) to ExpressRoute circuits by using the Resource Manager deployment model and CLI.
+title: 'Azure ExpressRoute: Link a VNet to circuit: CLI'
+description: This article shows you how to link virtual networks (VNets) to ExpressRoute circuits by using the Resource Manager deployment model and CLI.
 services: expressroute
-documentationcenter: na
-author: cherylmc
-manager: timlit
-editor: ''
-tags: azure-resource-manager
+author: duongau
 
-ms.assetid:
 ms.service: expressroute
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/25/2017
-ms.author: anzaman,cherylmc
+ms.topic: how-to
+ms.date: 07/27/2020
+ms.author: duau
 
 ---
 # Connect a virtual network to an ExpressRoute circuit using CLI
@@ -26,21 +18,25 @@ This article helps you link virtual networks (VNets) to Azure ExpressRoute circu
 > * [Azure portal](expressroute-howto-linkvnet-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-linkvnet-arm.md)
 > * [Azure CLI](howto-linkvnet-cli.md)
-> * [Video - Azure portal](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
+> * [Video - Azure portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
 > * [PowerShell (classic)](expressroute-howto-linkvnet-classic.md)
 > 
 
 ## Configuration prerequisites
 
-* You need the latest version of the command-line interface (CLI). For more information, see [Install Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
+* You need the latest version of the command-line interface (CLI). For more information, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+
 * You need to review the [prerequisites](expressroute-prerequisites.md), [routing requirements](expressroute-routing.md), and [workflows](expressroute-workflows.md) before you begin configuration.
+
 * You must have an active ExpressRoute circuit. 
   * Follow the instructions to [create an ExpressRoute circuit](howto-circuit-cli.md) and have the circuit enabled by your connectivity provider. 
   * Ensure that you have Azure private peering configured for your circuit. See the [configure routing](howto-routing-cli.md) article for routing instructions. 
   * Ensure that Azure private peering is configured. The BGP peering between your network and Microsoft must be up so that you can enable end-to-end connectivity.
-  * Ensure that you have a virtual network and a virtual network gateway created and fully provisioned. Follow the instructions to [Configure a virtual network gateway for ExpressRoute](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli). Be sure to use `--gateway-type ExpressRoute`.
+  * Ensure that you have a virtual network and a virtual network gateway created and fully provisioned. Follow the instructions to [Configure a virtual network gateway for ExpressRoute](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli). Be sure to use `--gateway-type ExpressRoute`.
 
 * You can link up to 10 virtual networks to a standard ExpressRoute circuit. All virtual networks must be in the same geopolitical region when using a standard ExpressRoute circuit. 
+
+* A single VNet can be linked to up to four ExpressRoute circuits. Use the process below to create a new connection object for each ExpressRoute circuit you are connecting to. The ExpressRoute circuits can be in the same subscription, different subscriptions, or a mix of both.
 
 * If you enable the ExpressRoute premium add-on, you can link a virtual network outside of the geopolitical region of the ExpressRoute circuit, or connect a larger number of virtual networks to your ExpressRoute circuit. For more information about the premium add-on, see the [FAQ](expressroute-faqs.md).
 
@@ -85,7 +81,7 @@ az network express-route auth create --circuit-name MyCircuit -g ExpressRouteRes
 
 The response contains the authorization key and status:
 
-```azurecli
+```output
 "authorizationKey": "0a7f3020-541f-4b4b-844a-5fb43472e3d7",
 "authorizationUseStatus": "Available",
 "etag": "W/\"010353d4-8955-4984-807a-585c21a22ae0\"",
@@ -123,8 +119,8 @@ az network express-route auth delete --circuit-name MyCircuit -g ExpressRouteRes
 
 The Circuit User needs the peer ID and an authorization key from the Circuit Owner. The authorization key is a GUID.
 
-```azurecli
-Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
+```powershell
+Get-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
 ```
 
 **To redeem a connection authorization**
@@ -138,6 +134,34 @@ az network vpn-connection create --name ERConnection --resource-group ExpressRou
 **To release a connection authorization**
 
 You can release an authorization by deleting the connection that links the ExpressRoute circuit to the virtual network.
+
+## Modify a virtual network connection
+You can update certain properties of a virtual network connection. 
+
+**To update the connection weight**
+
+Your virtual network can be connected to multiple ExpressRoute circuits. You may receive the same prefix from more than one ExpressRoute circuit. To choose which connection to send traffic destined for this prefix, you can change *RoutingWeight* of a connection. Traffic will be sent on the connection with the highest *RoutingWeight*.
+
+```azurecli
+az network vpn-connection update --name ERConnection --resource-group ExpressRouteResourceGroup --routing-weight 100
+```
+
+The range of *RoutingWeight* is 0 to 32000. The default value is 0.
+
+## Configure ExpressRoute FastPath 
+You can enable [ExpressRoute FastPath](expressroute-about-virtual-network-gateways.md) if your virtual network gateway is Ultra Performance or ErGw3AZ. FastPath improves data path preformance such as packets per second and connections per second between your on-premises network and your virtual network. 
+
+**Configure FastPath on a new connection**
+
+```azurecli
+az network vpn-connection create --name ERConnection --resource-group ExpressRouteResourceGroup --express-route-gateway-bypass true --vnet-gateway1 VNet1GW --express-route-circuit2 MyCircuit
+```
+
+**Updating an existing connection to enable FastPath**
+
+```azurecli
+az network vpn-connection update --name ERConnection --resource-group ExpressRouteResourceGroup --express-route-gateway-bypass true
+```
 
 ## Next steps
 

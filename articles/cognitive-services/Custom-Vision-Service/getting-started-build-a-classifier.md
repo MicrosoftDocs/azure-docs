@@ -1,116 +1,120 @@
 ---
-title: Getting started build a classifier using Custom Vision Service machine learning | Microsoft Docs
-description: Build a classifier to discern objects in photographs.
+title: "Quickstart Build a classifier - Custom Vision Service"
+titleSuffix: Azure Cognitive Services
+description: In this quickstart, you'll learn how to use the Custom Vision website to create an image classification model.
 services: cognitive-services
-author: v-royhar
-manager: juliakuz
+author: PatrickFarley
+manager: nitinme
 
 ms.service: cognitive-services
-ms.technology: custom vision service
-ms.topic: article
-ms.date: 05/03/2017
-ms.author: v-royhar
+ms.subservice: custom-vision
+ms.topic: quickstart
+ms.date: 09/15/2020
+ms.author: pafarley
+ms.custom: cog-serv-seo-aug-2020
 ---
 
-# Overview
+# Quickstart: How to build a classifier with Custom Vision
 
-To use the Custom Vision Service you must first build a classifier. 
+In this quickstart, you'll learn how to build an image classifier through the Custom Vision website. Once you build a model, you can test in with new images and eventually integrate it into your own image recognition software.
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
 ## Prerequisites
 
-To build a classifier, you must first have:
+- A set of images with which to train your classifier. See below for tips on choosing images.
 
-- A valid MSA, so you can sign into customvision.ai and get started. Note that you will be able to access your subscription keys once you have created your first project.
-- A series of images to train your classifier (minimum of 30 images per tag).
-- A few images to test your classifier after the classifier is trained.
+## Create Custom Vision resources
 
-## Getting Started: Build a Classifier
+[!INCLUDE [create-resources](includes/create-resources.md)]
 
-Custom Vision Service can be found by clicking here: [https://customvision.ai](https://customvision.ai)
+## Create a new project
 
-After you log into Custom Vision Service, you will be presented with a list of projects.
+In your web browser, navigate to the [Custom Vision web page](https://customvision.ai) and select __Sign in__. Sign in with the same account you used to sign into the Azure portal.
 
-1. Click **New Project** to create your first project.
+![Image of the sign-in page](./media/browser-home.png)
 
-2. If this is your first project, you are asked to agree to the Terms of Service. Check the check box, then click the **I agree** button.
 
-The New Project dialog box appears.
+1. To create your first project, select **New Project**. The **Create new project** dialog box will appear.
 
-![The new project dialog box, which has fields for name, description, and domains which consist of general, food, landmarks, retail, and adult.](./media/getting-started-build-a-classifier/new-project.png)
+    ![The new project dialog box has fields for name, description, and domains.](./media/getting-started-build-a-classifier/new-project.png)
 
-3. Enter a name for this project, a description of the project, and select one domain.
+1. Enter a name and a description for the project. Then select a Resource Group. If your signed-in account is associated with an Azure account, the Resource Group dropdown will display all of your Azure Resource Groups that include a Custom Vision Service Resource. 
 
-There are several domains available, and each one optimizes the classifier for a specific type of images:
+   > [!NOTE]
+   > If no resource group is available, please confirm that you have logged into [customvision.ai](https://customvision.ai) with the same account as you used to log into the [Azure portal](https://portal.azure.com/). Also, please confirm you have selected the same "Directory" in the Custom Vision website as the directory in the Azure portal where your Custom Vision resources are located. In both sites, you may select your directory from the drop down account menu at the top right corner of the screen. 
 
-|Domain|Purpose|
-|---|---|
-|Generic|If none of the other domains are appropriate, or you are unsure of which domain to choose, select the Generic domain.|
-|Food|Optimized for photographs of dishes as you would see on a restaurant menu. If you want to classify photographs of individual fruits or vegetables, use the Generic domain for that purpose.|
-|Landmarks|Optimized for recognizable landmarks, both natural and artificial. This domain works best when the landmark is clearly visible in the photograph, even if the landmark is slightly obstructed by a group of people posing in front of it.|
-|Retail|Optimized for images found in a shopping catalog or shopping website. If you want high precision classifying between dresses, pants, and shirts, use this domain.|
-|Adult|Optimized to better define between adult content and non-adult content. For example, if you want to block images of people in bathing suits, this domain allows you to build a custom classifier to do that.|
+1. Select __Classification__ under __Project Types__. Then, under __Classification Types__, choose either **Multilabel** or **Multiclass**, depending on your use case. Multilabel classification applies any number of your tags to an image (zero or more), while multiclass classification sorts images into single categories (every image you submit will be sorted into the most likely tag). You'll be able to change the classification type later if you want to.
 
-You can change the domain later if you wish.
+1. Next, select one of the available domains. Each domain optimizes the classifier for specific types of images, as described in the following table. You will be able to change the domain later if you wish.
 
-4. Add images to train your classifier.
+    |Domain|Purpose|
+    |---|---|
+    |__Generic__| Optimized for a broad range of image classification tasks. If none of the other domains are appropriate, or you're unsure of which domain to choose, select the Generic domain. |
+    |__Food__|Optimized for photographs of dishes as you would see them on a restaurant menu. If you want to classify photographs of individual fruits or vegetables, use the Food domain.|
+    |__Landmarks__|Optimized for recognizable landmarks, both natural and artificial. This domain works best when the landmark is clearly visible in the photograph. This domain works even if the landmark is slightly obstructed by people in front of it.|
+    |__Retail__|Optimized for images that are found in a shopping catalog or shopping website. If you want high precision classifying between dresses, pants, and shirts, use this domain.|
+    |__Compact domains__| Optimized for the constraints of real-time classification on mobile devices. The models generated by compact domains can be exported to run locally.|
 
-Add some images to train your classifier. Let's say you want a classifier to distinguish between dogs and ponies. You would upload and tag at least 30 images of dogs and 30 images of ponies. Try to upload a variety of images with different camera angles, lighting, background, types, styles, groups, sizes, etc. We recommend variety in your photos to ensure your classifier is not biased in any way and can generalize well.
+1. Finally, select __Create project__.
 
-**Note:** Custom Vision Service accepts training images in JPG/JPEG, PNG, and BMP format, up to 6 MB per image (prediction images can be up to 4 MB per image). Images are recommended to be 256 pixels on the shortest edge. Any images shorter than 256 pixels on the shortest edge will be scaled up by Custom Vision Service.
+## Choose training images
 
-a. Click **Add images**.
+[!INCLUDE [choose training images](includes/choose-training-images.md)]
 
-   ![The add images control is shown in the upper left, and as a button at bottom center.](./media/getting-started-build-a-classifier/add-images01.png)
+## Upload and tag images
 
-b. Browse to the location of your training images.
+In this section, you'll upload and manually tag images to help train the classifier. 
 
-   **Note:** You can use the REST API to load training images from URLs. The web app can only upload training images from your local computer.
+1. To add images, click the __Add images__ button and then select __Browse local files__. Select __Open__ to move to tagging. Your tag selection will be applied to the entire group of images you've selected to upload, so it's easier to upload images in separate groups according to their desired tags. You can also change the tags for individual images after they have been uploaded.
 
-   ![The browse local files button is shown near bottom center.](./media/getting-started-build-a-classifier/add-images02.png)
+    ![The add images control is shown in the upper left, and as a button at bottom center.](./media/getting-started-build-a-classifier/add-images01.png)
 
-c. Select the images for your first tag.
 
-d. Click `Open` to open the selected images.
+1. To create a tag, enter text in the __My Tags__ field and press Enter. If the tag already exists, it will appear in a dropdown menu. In a multilabel project, you can add more than one tag to your images, but in a multiclass project you can add only one. To finish uploading the images, use the __Upload [number] files__ button. 
 
-e. Assign tags: Type in the tag you want to assign, then press the **+** button to assign the tag. You can add more than one tag at a time to the images.
+    ![Image of the tag and upload page](./media/getting-started-build-a-classifier/add-images03.png)
 
-   ![The "add some tags" text control is below the images of dogs. The plus sign is to the right of the text control. The "upload files" button is on the lower right.](./media/getting-started-build-a-classifier/add-images03.png)
+1. Select __Done__ once the images have been uploaded.
 
-f. When you are done adding tags, click **Upload [number] files**. The upload could take some time if you have a large number of images or a slow Internet connection.
+    ![The progress bar shows all tasks completed.](./media/getting-started-build-a-classifier/add-images04.png)
 
-g. After the files have uploaded, click **Done**.
+To upload another set of images, return to the top of this section and repeat the steps.
 
-   ![The progress bar shows all tasks completed. The upload report shows 38 images uploaded successfully. The Done button is on the lower right.](./media/getting-started-build-a-classifier/add-images04.png)
+## Train the classifier
 
-h. To load more images with a different set of tags, return to step a.
+To train the classifier, select the **Train** button. The classifier uses all of the current images to create a model that identifies the visual qualities of each tag.
 
-5. Train your classifier
+![The train button in the top right of the web page's header toolbar](./media/getting-started-build-a-classifier/train01.png)
 
-After your images are uploaded, you are ready to train your classifier. All you have to do is click the **Train** button.
+The training process should only take a few minutes. During this time, information about the training process is displayed in the **Performance** tab.
 
-![The train button is near the right top of the browser window.](./media/getting-started-build-a-classifier/train01.png)
+![The browser window with a training dialog in the main section](./media/getting-started-build-a-classifier/train02.png)
 
-It should only take a few minutes to train your classifier.
+## Evaluate the classifier
 
-![The train button is near the right top of the browser window.](./media/getting-started-build-a-classifier/train02.png)
+After training has completed, the model's performance is estimated and displayed. The Custom Vision Service uses the images that you submitted for training to calculate precision and recall, using a process called [k-fold cross validation](https://en.wikipedia.org/wiki/Cross-validation_(statistics)). Precision and recall are two different measurements of the effectiveness of a classifier:
 
-6. Evaluate your classifier
+- **Precision** indicates the fraction of identified classifications that were correct. For example, if the model identified 100 images as dogs, and 99 of them were actually of dogs, then the precision would be 99%.
+- **Recall** indicates the fraction of actual classifications that were correctly identified. For example, if there were actually 100 images of apples, and the model identified 80 as apples, the recall would be 80%.
 
-The precision and recall indicators tell you how good your classifier is, based on automatic testing. Note that Custom Vision Service uses the images you submitted for training to calculate these numbers, using a process called [k-fold cross validation](https://en.wikipedia.org/wiki/Cross-validation_(statistics)).
+![The training results show the overall precision and recall, and the precision and recall for each tag in the classifier.](./media/getting-started-build-a-classifier/train03.png)
 
-![The training results, which shows the overall precision and recall, and the precision and recall for each tag in the classifier.](./media/getting-started-build-a-classifier/train03.png)
+### Probability Threshold
 
-**Note:** Each time you hit the "Train" button, you create a new iteration of your classifier. You can view all your old iterations in the Performance tab, and you can delete any that may be obsolete. When you delete an iteration, you end up deleting any images uniquely associated with it.
+[!INCLUDE [probability threshold](includes/probability-threshold.md)]
 
-The classifier uses all the images to create a model that identifies each tag. To test the quality of the model, the classifier then tries each image on its model to see what the model finds.
+## Manage training iterations
 
-The qualities of the classifier results are displayed
+Each time you train your classifier, you create a new _iteration_ with its own updated performance metrics. You can view all of your iterations in the left pane of the **Performance** tab. You'll also find the **Delete** button, which you can use to delete an iteration if it's obsolete. When you delete an iteration, you delete any images that are uniquely associated with it.
 
-|Term|Definition|
-|---|---|
-|Precision|When you classify an image, how likely is your classifier to correctly classify the image? Out of all images used to train the classifier (dogs and ponies), what percent did the model get correct? 99 correct tags out of 100 images gives a Precision of 99%.|
-|Recall|Out of all images that should have been classified correctly, how many did your classifier identify correctly? A Recall of 100% would mean, if there were 38 dog images in the images used to train the classifier, 38 dogs were found by the classifier.|
+See [Use your model with the prediction API](./use-prediction-api.md) to learn how to access your trained models programmatically.
 
 ## Next steps
 
-[Custom Vision API C# tutorial](csharp-tutorial.md)
+In this quickstart, you learned how to create and train an image classification model using the Custom Vision website. Next, get more information on the iterative process of improving your model.
+
+> [!div class="nextstepaction"]
+> [Test and retrain a model](test-your-model.md)
+
+* [What is Custom Vision?](./overview.md)

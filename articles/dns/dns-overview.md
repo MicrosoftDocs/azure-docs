@@ -1,51 +1,68 @@
 ---
-title: Overview of Azure DNS | Microsoft Docs
+title: What is Azure DNS?
 description: Overview of DNS hosting service on Microsoft Azure. Host your domain on Microsoft Azure.
-services: dns
-documentationcenter: na
-author: georgewallace
-manager: timlt
-editor: ''
-
-ms.assetid: 68747a0d-b358-4b8e-b5e2-e2570745ec3f
+author: rohinkoul
 ms.service: dns
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/19/2017
-ms.author: gwallace
+ms.topic: overview
+ms.date: 3/21/2019
+ms.author: rohink
+#Customer intent: As an administrator, I want to evaluate Azure DNS so I can determine if I want to use it instead of my current DNS service.
 ---
 
-# Azure DNS overview
+# What is Azure DNS?
 
-The Domain Name System, or DNS, is responsible for translating (or resolving) a website or service name to its IP address. Azure DNS is a hosting service for DNS domains, providing name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services.
+Azure DNS is a hosting service for DNS domains that provides name resolution by using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records by using the same credentials, APIs, tools, and billing as your other Azure services.
 
-![DNS overview](./media/dns-overview/scenario.png)
+You can't use Azure DNS to buy a domain name. For an annual fee, you can buy a domain name by using [App Service domains](https://docs.microsoft.com/azure/app-service/manage-custom-dns-buy-domain#buy-the-domain) or a third-party domain name registrar. Your domains then can be hosted in Azure DNS for record management. For more information, see [Delegate a domain to Azure DNS](dns-domain-delegation.md).
 
-## Features
+The following features are included with Azure DNS.
 
-* **Reliability and performance** - DNS domains in Azure DNS are hosted on Azure's global network of DNS name servers. We use Anycast networking so that each DNS query is answered by the closest available DNS server. This provides both fast performance and high availability for your domain.
+## Reliability and performance
 
-* **Seamless integration** - The Azure DNS service can be used to manage DNS records for your Azure services and can be used to provide DNS for your external resources as well. Azure DNS is integrated in the Azure portal and uses the same credentials, billing and support contract as your other Azure services.
+DNS domains in Azure DNS are hosted on Azure's global network of DNS name servers. Azure DNS uses anycast networking. Each DNS query is answered by the closest available DNS server to provide fast performance and high availability for your domain.
 
-* **Security** - The Azure DNS service is based on Azure Resource Manager. As such, it benefits from Resource Manager features such as role-based access control, audit logs, and resource locking. Your domains and records can be managed via the Azure portal, Azure PowerShell cmdlets, and the cross-platform Azure CLI. Applications requiring automatic DNS management can integrate with the service via the REST API and SDKs.
+## Security
 
-Azure DNS does not currently support purchasing of domain names. If you want to purchase domains, you need to use a third-party domain name registrar. The registrar typically charges a small annual fee. The domains can then be hosted in Azure DNS for management of DNS records. See [Delegate a Domain to Azure DNS](dns-domain-delegation.md) for details.
+ Azure DNS is based on Azure Resource Manager, which provides features such as:
 
-## Pricing
+* [Azure role-based access control (Azure RBAC)](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) to control who has access to specific actions for your organization.
 
-DNS billing is based on the number of DNS zones hosted in Azure and by the number of DNS queries. To learn more about pricing visit [Azure DNS Pricing](https://azure.microsoft.com/pricing/details/dns/).
+* [Activity logs](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) to monitor how a user in your organization modified a resource or to find an error when troubleshooting.
 
-## FAQ
+* [Resource locking](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources) to lock a subscription, resource group, or resource. Locking prevents other users in your organization from accidentally deleting or modifying critical resources.
 
-For frequently asked questions about Azure DNS, see the [Azure DNS FAQ](dns-faq.md).
+For more information, see [How to protect DNS zones and records](dns-protect-zones-recordsets.md). 
+
+## DNSSEC
+
+Azure DNS does not currently support DNSSEC. In most cases, you can reduce the need for DNSSEC by consistently using HTTPS/TLS in your applications. If DNSSEC is a critical requirement for your DNS zones, you can host these zones with third party DNS hosting providers.
+
+## Ease of use
+
+ Azure DNS can manage DNS records for your Azure services and provide DNS for your external resources as well. Azure DNS is integrated in the Azure portal and uses the same credentials, support contract, and billing as your other Azure services. 
+
+DNS billing is based on the number of DNS zones hosted in Azure and on the number of DNS queries received. To learn more about pricing, see [Azure DNS pricing](https://azure.microsoft.com/pricing/details/dns/).
+
+Your domains and records can be managed by using the Azure portal, Azure PowerShell cmdlets, and the cross-platform Azure CLI. Applications that require automated DNS management can integrate with the service by using the REST API and SDKs.
+
+## Customizable virtual networks with private domains
+
+Azure DNS also supports private DNS domains. This feature allows you to use your own custom domain names in your private virtual networks rather than the Azure-provided names available today.
+
+For more information, see [Use Azure DNS for private domains](private-dns-overview.md).
+
+## Alias records
+
+Azure DNS supports alias record sets. You can use an alias record set to refer to an Azure resource, such as an Azure public IP address, an Azure Traffic Manager profile, or an Azure Content Delivery Network (CDN) endpoint. If the IP address of the underlying resource changes, the alias record set seamlessly updates itself during DNS resolution. The alias record set points to the service instance, and the service instance is associated with an IP address.
+
+Also, you can now point your apex or naked domain to a Traffic Manager profile or CDN endpoint using an alias record. An example is contoso.com.
+
+For more information, see [Overview of Azure DNS alias records](dns-alias.md).
 
 ## Next steps
 
-Learn about DNS zones and records by visiting: [DNS zones and records overview](dns-zones-records.md).
+* To learn about DNS zones and records, see [DNS zones and records overview](dns-zones-records.md).
 
-Learn how to [create a DNS zone](./dns-getstarted-create-dnszone-portal.md) in Azure DNS.
+* To learn how to create a zone in Azure DNS, see [Create a DNS zone](./dns-getstarted-create-dnszone-portal.md).
 
-Learn about some of the other key [networking capabilities](../networking/networking-overview.md) of Azure.
-
+* For frequently asked questions about Azure DNS, see the [Azure DNS FAQ](dns-faq.md).

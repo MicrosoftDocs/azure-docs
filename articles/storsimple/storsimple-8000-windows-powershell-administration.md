@@ -1,20 +1,11 @@
 ---
-title: PowerShell for StorSimple device management | Microsoft Docs
+title: PowerShell for StorSimple device management
 description: Learn how to use Windows PowerShell for StorSimple to manage your StorSimple device.
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: timlt
-editor: ''
-
-ms.assetid: 
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
-ms.date: 04/03/2017
-ms.author: alkohli@microsoft.com
+ms.topic: how-to
+ms.date: 01/09/2018
+ms.author: alkohli
 
 ---
 # Use Windows PowerShell for StorSimple to administer your device
@@ -33,7 +24,7 @@ After reading this article, you will be able to:
 
 > [!NOTE]
 > * Windows PowerShell for StorSimple cmdlets allow you to manage your StorSimple device from a serial console or remotely via Windows PowerShell remoting. For more information about each of the individual cmdlets that can be used in this interface, go to [cmdlet reference for Windows PowerShell for StorSimple](https://technet.microsoft.com/library/dn688168.aspx).
-> * The Azure PowerShell StorSimple cmdlets are a different collection of cmdlets that allow you to automate StorSimple service-level and migration tasks from the command line. For more information about the Azure PowerShell cmdlets for StorSimple, go to the [Azure StorSimple cmdlet reference](https://docs.microsoft.com/powershell/servicemanagement/azure.storsimple/v3.1.0/azure.storsimple).
+> * The Azure PowerShell StorSimple cmdlets are a different collection of cmdlets that allow you to automate StorSimple service-level and migration tasks from the command line. For more information about the Azure PowerShell cmdlets for StorSimple, go to the [Azure StorSimple cmdlet reference](/powershell/module/servicemanagement/azure.service/?view=azuresmps-4.0.0&viewFallbackFrom=azuresmps-3.7.0#azure).
 
 
 You can access the Windows PowerShell for StorSimple using one of the following methods:
@@ -43,7 +34,7 @@ You can access the Windows PowerShell for StorSimple using one of the following 
 
 ## Connect to Windows PowerShell for StorSimple via the device serial console
 
-You can [download PuTTY](http://www.putty.org/) or similar terminal emulation software to connect to Windows PowerShell for StorSimple. You need to configure PuTTY specifically to access the Microsoft Azure StorSimple device. The following topics contain detailed steps about how to configure PuTTy and connect to the device. Various menu options in the serial console are also explained.
+You can [download PuTTY](https://www.putty.org/) or similar terminal emulation software to connect to Windows PowerShell for StorSimple. You need to configure PuTTY specifically to access the Microsoft Azure StorSimple device. The following topics contain detailed steps about how to configure PuTTy and connect to the device. Various menu options in the serial console are also explained.
 
 ### PuTTY settings
 
@@ -110,15 +101,15 @@ You can choose from the following settings:
    * Apply updates
    * Install hotfixes
 
-    > [!NOTE]
-    > This is the preferred option if you have forgotten the device administrator password and cannot connect through option 1 or 2.
+     > [!NOTE]
+     > This is the preferred option if you have forgotten the device administrator password and cannot connect through option 1 or 2.
 
 4. **Change language**
-   This option allows you to change the display language on the Windows PowerShell interface. The languages supported are English, Japanese, Russian, French, South Korean, Spanish, Italian, German, Chinese, and Brazilian Portuguese.
+   This option allows you to change the display language on the Windows PowerShell interface. The languages supported are English, Japanese, Russian, French, South Korean, Spanish, Italian, German, Chinese, and Portuguese.
 
 ## Connect remotely to StorSimple using Windows PowerShell for StorSimple
 
-You can use Windows PowerShell remoting to connect to your StorSimple device. When you connect this way, you will not see a menu. (You see a menu only if you use the serial console on the device to connect. Connecting remotely takes you directly to the equivalent of "option 1 – full access” on the serial console.) With Windows PowerShell remoting, you connect to a specific runspace. You can also specify the display language.
+You can use Windows PowerShell remoting to connect to your StorSimple device. When you connect this way, you will not see a menu. (You see a menu only if you use the serial console on the device to connect. Connecting remotely takes you directly to the equivalent of "option 1 – full access" on the serial console.) With Windows PowerShell remoting, you connect to a specific runspace. You can also specify the display language.
 
 The display language is independent of the language that you set by using the **Change Language** option in the serial console menu. Remote PowerShell will automatically pick up the locale of the device you are connecting from if none is specified.
 
@@ -128,8 +119,8 @@ The display language is independent of the language that you set by using the **
 
 You can use HTTP or HTTPS to connect via Windows PowerShell remoting. Use the instructions in the following tutorials:
 
-* [Connect remotely using HTTP](storsimple-remote-connect.md#connect-through-http)
-* [Connect remotely using HTTPS](storsimple-remote-connect.md#connect-through-https)
+* [Connect remotely using HTTP](storsimple-8000-remote-connect.md#connect-through-http)
+* [Connect remotely using HTTPS](storsimple-8000-remote-connect.md#connect-through-https)
 
 ## Connection security considerations
 
@@ -160,7 +151,7 @@ The following table shows a summary of all the common management tasks and compl
 
 In Windows PowerShell for StorSimple, cmdlet Help is available. An online, up-to-date version of this Help is also available, which you can use to update the Help on your system.
 
-Getting Help in this interface is similar to that in Windows PowerShell, and most of the Help-related cmdlets will work. You can find Help for Windows PowerShell online in the TechNet Library: [Scripting with Windows PowerShell](http://go.microsoft.com/fwlink/?LinkID=108518).
+Getting Help in this interface is similar to that in Windows PowerShell, and most of the Help-related cmdlets will work. You can find Help for Windows PowerShell online: [Microsoft.PowerShell.Core](/powershell/module/Microsoft.PowerShell.Core/).
 
 The following is a brief description of the types of Help for this Windows PowerShell interface, including how to update the Help.
 
@@ -187,5 +178,5 @@ You can easily update the Help in the Windows PowerShell interface. Perform the 
 
 ## Next steps
 
-If you experience any issues with your StorSimple device when performing one of the above workflows, refer to [Tools for troubleshooting StorSimple deployments](storsimple-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments).
+If you experience any issues with your StorSimple device when performing one of the above workflows, refer to [Tools for troubleshooting StorSimple deployments](storsimple-8000-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments).
 

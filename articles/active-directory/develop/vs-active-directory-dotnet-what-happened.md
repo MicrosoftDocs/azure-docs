@@ -1,158 +1,160 @@
 ---
-title: Changes made to a MVC project when you connect to Azure AD | Microsoft Docs
+title: Changes made to a MVC project when you connect to Azure AD
 description: Describes what happens to your MVC project when you connect to Azure AD by using Visual Studio connected services
-services: active-directory
-documentationcenter: na
-author: TomArcher
-manager: douge
-editor: ''
-
-ms.assetid: 8b24adde-547e-4ffe-824a-2029ba210216
-ms.service: active-directory
-ms.workload: web
-ms.tgt_pltfrm: vs-what-happened
-ms.devlang: na
-ms.topic: article
-ms.date: 03/01/2017
-ms.author: tarcher
-ms.custom: aaddev
-
+author: ghogen
+manager: jillfra
+ms.prod: visual-studio-windows
+ms.technology: vs-azure
+ms.workload: azure-vs
+ms.topic: how-to
+ms.date: 03/12/2018
+ms.author: ghogen
+ms.custom: "devx-track-csharp, aaddev, vs-azure"
 ---
 # What happened to my MVC project (Visual Studio Azure Active Directory connected service)?
+
 > [!div class="op_single_selector"]
-> * [Getting Started](vs-active-directory-dotnet-getting-started.md)
-> * [What Happened](vs-active-directory-dotnet-what-happened.md)
-> 
-> 
+> - [Getting Started](vs-active-directory-dotnet-getting-started.md)
+> - [What Happened](vs-active-directory-dotnet-what-happened.md)
 
-## References have been added
-### NuGet package references
-* **Microsoft.IdentityModel.Protocol.Extensions**
-* **Microsoft.Owin**
-* **Microsoft.Owin.Host.SystemWeb**
-* **Microsoft.Owin.Security**
-* **Microsoft.Owin.Security.Cookies**
-* **Microsoft.Owin.Security.OpenIdConnect**
-* **Owin**
-* **System.IdentityModel.Tokens.Jwt**
+This article identifies the exact changes made to an ASP.NET MVC project when adding the [Azure Active Directory connected service using Visual Studio](vs-active-directory-add-connected-service.md).
 
-### .NET references
-* **Microsoft.IdentityModel.Protocol.Extensions**
-* **Microsoft.Owin**
-* **Microsoft.Owin.Host.SystemWeb**
-* **Microsoft.Owin.Security**
-* **Microsoft.Owin.Security.Cookies**
-* **Microsoft.Owin.Security.OpenIdConnect**
-* **Owin**
-* **System.IdentityModel**
-* **System.IdentityModel.Tokens.Jwt**
-* **System.Runtime.Serialization**
+For information on working with the connected service, see [Getting Started](vs-active-directory-dotnet-getting-started.md).
 
-## Code has been added
-### Code files were added to your project
-An authentication startup class, **App_Start/Startup.Auth.cs** was added to your project containing startup logic for Azure AD authentication. Also, a controller class, Controllers/AccountController.cs was added which contains **SignIn()** and **SignOut()** methods. Finally, a partial view, **Views/Shared/_LoginPartial.cshtml** was added containing an action link for SignIn/SignOut.
+## Added references
 
-### Startup code was added to your project
-If you already had a Startup class in your project, the **Configuration** method was updated to include a call to **ConfigureAuth(app)**. Otherwise, a Startup class was added to your project.
+Affects the project file (*.NET references) and `packages.config` (NuGet references).
 
-### Your app.config or web.config has new configuration values
-The following configuration entries have been added.
+| Type | Reference |
+| --- | --- |
+| .NET; NuGet | Microsoft.IdentityModel.Protocol.Extensions |
+| .NET; NuGet | Microsoft.Owin |
+| .NET; NuGet | Microsoft.Owin.Host.SystemWeb |
+| .NET; NuGet | Microsoft.Owin.Security |
+| .NET; NuGet | Microsoft.Owin.Security.Cookies |
+| .NET; NuGet | Microsoft.Owin.Security.OpenIdConnect |
+| .NET; NuGet | Owin |
+| .NET        | System.IdentityModel |
+| .NET; NuGet | System.IdentityModel.Tokens.Jwt |
+| .NET        | System.Runtime.Serialization |
 
+Additional references if you selected the **Read directory data** option:
+
+| Type | Reference |
+| --- | --- |
+| .NET; NuGet | EntityFramework |
+| .NET        | EntityFramework.SqlServer (Visual Studio 2015 only) |
+| .NET; NuGet | Microsoft.Azure.ActiveDirectory.GraphClient |
+| .NET; NuGet | Microsoft.Data.Edm |
+| .NET; NuGet | Microsoft.Data.OData |
+| .NET; NuGet | Microsoft.Data.Services.Client |
+| .NET; NuGet | Microsoft.IdentityModel.Clients.ActiveDirectory |
+| .NET        | Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms (Visual Studio 2015 only) |
+| .NET; NuGet | System.Spatial |
+
+The following references are removed (ASP.NET 4 projects only, as in Visual Studio 2015):
+
+| Type | Reference |
+| --- | --- |
+| .NET; NuGet | Microsoft.AspNet.Identity.Core |
+| .NET; NuGet | Microsoft.AspNet.Identity.EntityFramework |
+| .NET; NuGet | Microsoft.AspNet.Identity.Owin |
+
+## Project file changes
+
+- Set the property `IISExpressSSLPort` to a distinct number.
+- Set the property `WebProject_DirectoryAccessLevelKey` to 0, or 1 if you selected the **Read directory data** option.
+- Set the property `IISUrl` to `https://localhost:<port>/` where `<port>` matches the `IISExpressSSLPort` value.
+
+## web.config or app.config changes
+
+- Added the following configuration entries:
+
+    ```xml
     <appSettings>
-        <add key="ida:ClientId" value="ClientId from the new Azure AD App" />
+        <add key="ida:ClientId" value="<ClientId from the new Azure AD app>" />
         <add key="ida:AADInstance" value="https://login.microsoftonline.com/" />
-        <add key="ida:Domain" value="The selected Azure AD Domain" />
-        <add key="ida:TenantId" value="The Id of your selected Azure AD Tenant" />
-        <add key="ida:PostLogoutRedirectUri" value="Your project start page" />
+        <add key="ida:Domain" value="<your selected Azure domain>" />
+        <add key="ida:TenantId" value="<the Id of your selected Azure AD tenant>" />
+        <add key="ida:PostLogoutRedirectUri" value="<project start page, such as https://localhost:44335>" />
     </appSettings>
+    ```
 
-### An Azure Active Directory (AD) App was created
-An Azure AD Application was created in the directory that you selected in the wizard.
+- Added `<dependentAssembly>` elements under the `<runtime><assemblyBinding>` node for `System.IdentityModel.Tokens.Jwt` and `Microsoft.IdentityModel.Protocol.Extensions`.
 
-## If I checked *disable Individual User Accounts authentication*, what additional changes were made to my project?
-NuGet package references were removed, and files were removed and backed up. Depending on the state of your project, you may have to manually remove additional references or files, or modify code as appropriate.
+Additional changes if you selected the **Read directory data** option:
 
-### NuGet package references removed (for those present)
-* **Microsoft.AspNet.Identity.Core**
-* **Microsoft.AspNet.Identity.EntityFramework**
-* **Microsoft.AspNet.Identity.Owin**
+- Added the following configuration entry under `<appSettings>`:
 
-### Code files backed up and removed (for those present)
-Each of following files was backed up and removed from the project. Backup files are located in a 'Backup' folder at the root of the project's directory.
+    ```xml
+    <add key="ida:ClientSecret" value="<Azure AD app's new client secret>" />
+    ```
 
-* **App_Start\IdentityConfig.cs**
-* **Controllers\ManageController.cs**
-* **Models\IdentityModels.cs**
-* **Models\ManageViewModels.cs**
+- Added the following elements under `<configuration>`; values for the project-mdf-file and project-catalog-id will vary:
 
-### Code files backed up (for those present)
-Each of following files was backed up before being replaced. Backup files are located in a 'Backup' folder at the root of the project's directory.
-
-* **Startup.cs**
-* **App_Start\Startup.Auth.cs**
-* **Controllers\AccountController.cs**
-* **Views\Shared\_LoginPartial.cshtml**
-
-## If I checked *Read directory data*, what additional changes were made to my project?
-Additional references have been added.
-
-### Additional NuGet package references
-* **EntityFramework**
-* **Microsoft.Azure.ActiveDirectory.GraphClient**
-* **Microsoft.Data.Edm**
-* **Microsoft.Data.OData**
-* **Microsoft.Data.Services.Client**
-* **Microsoft.IdentityModel.Clients.ActiveDirectory**
-* **System.Spatial**
-
-### Additional .NET references
-* **EntityFramework**
-* **EntityFramework.SqlServer**
-* **Microsoft.Azure.ActiveDirectory.GraphClient**
-* **Microsoft.Data.Edm**
-* **Microsoft.Data.OData**
-* **Microsoft.Data.Services.Client**
-* **Microsoft.IdentityModel.Clients.ActiveDirectory**
-* **Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms**
-* **System.Spatial**
-
-### Additional Code files were added to your project
-Two files were added to support token caching: **Models\ADALTokenCache.cs** and **Models\ApplicationDbContext.cs**.  An additional controller and view were added to illustrate accessing user profile information using Azure graph APIs.  These files are **Controllers\UserProfileController.cs** and **Views\UserProfile\Index.cshtml**.
-
-### Additional Startup code was added to your project
-In the **startup.auth.cs** file, a new **OpenIdConnectAuthenticationNotifications** object was added to the **Notifications** member of the **OpenIdConnectAuthenticationOptions**.  This is to enable receiving the OAuth code and exchanging it for an access token.
-
-### Additional changes were made to your app.config or web.config
-The following additional configuration entries have been added.
-
-    <appSettings>
-        <add key="ida:ClientSecret" value="Your Azure AD App's new client secret" />
-    </appSettings>
-
-The following configuration sections and connection string have been added.
-
+    ```xml
     <configSections>
-        <!-- For more information on Entity Framework configuration, visit http://go.microsoft.com/fwlink/?LinkID=237468 -->
-        <section name="entityFramework" type="System.Data.Entity.Internal.ConfigFile.EntityFrameworkSection, EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
+      <!-- For more information on Entity Framework configuration, visit https://go.microsoft.com/fwlink/?LinkID=237468 -->
+      <section name="entityFramework" type="System.Data.Entity.Internal.ConfigFile.EntityFrameworkSection, EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
     </configSections>
+
     <connectionStrings>
-        <add name="DefaultConnection" connectionString="Data Source=(localdb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-[AppName + Generated Id].mdf;Initial Catalog=aspnet-[AppName + Generated Id];Integrated Security=True" providerName="System.Data.SqlClient" />
+      <add name="DefaultConnection" connectionString="Data Source=(localdb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\<project-mdf-file>.mdf;Initial Catalog=<project-catalog-id>;Integrated Security=True" providerName="System.Data.SqlClient" />
     </connectionStrings>
+
     <entityFramework>
-        <defaultConnectionFactory type="System.Data.Entity.Infrastructure.LocalDbConnectionFactory, EntityFramework">
-          <parameters>
-            <parameter value="mssqllocaldb" />
-          </parameters>
-        </defaultConnectionFactory>
-        <providers>
-          <provider invariantName="System.Data.SqlClient" type="System.Data.Entity.SqlServer.SqlProviderServices, EntityFramework.SqlServer" />
-        </providers>
+      <defaultConnectionFactory type="System.Data.Entity.Infrastructure.LocalDbConnectionFactory, EntityFramework">
+        <parameters>
+          <parameter value="mssqllocaldb" />
+        </parameters>
+      </defaultConnectionFactory>
+      <providers>
+        <provider invariantName="System.Data.SqlClient" type="System.Data.Entity.SqlServer.SqlProviderServices, EntityFramework.SqlServer" />
+      </providers>
     </entityFramework>
+    ```
 
+- Added `<dependentAssembly>` elements under the `<runtime><assemblyBinding>` node for `Microsoft.Data.Services.Client`, `Microsoft.Data.Edm`, and `Microsoft.Data.OData`.
 
-### Your Azure Active Directory App was updated
-Your Azure Active Directory App was updated to include the *Read directory data* permission and an additional key was created which was then used as the *ida:ClientSecret* in the **web.config** file.
+## Code changes and additions
+
+- Added the `[Authorize]` attribute to `Controllers/HomeController.cs` and any other existing controllers.
+
+- Added an authentication startup class, `App_Start/Startup.Auth.cs`, containing startup logic for Azure AD authentication. If you selected the **Read directory data** option, this file also contains code to receive an OAuth code and exchange it for an access token.
+
+- Added a controller class, `Controllers/AccountController.cs`, containing `SignIn` and `SignOut` methods.
+
+- Added a partial view, `Views/Shared/_LoginPartial.cshtml`, containing an action link for `SignIn` and `SignOut`.
+
+- Added a partial view, `Views/Account/SignoutCallback.cshtml`, containing HTML for sign-out UI.
+
+- Updated the `Startup.Configuration` method to include a call to `ConfigureAuth(app)` if the class already existed; otherwise added a `Startup` class that includes calls the method.
+
+- Added `Connected Services/AzureAD/ConnectedService.json` (Visual Studio 2017) or `Service References/Azure AD/ConnectedService.json` (Visual Studio 2015), containing information that Visual Studio uses to track the addition of the connected service.
+
+- If you selected the **Read directory data** option, added `Models/ADALTokenCache.cs` and `Models/ApplicationDbContext.cs` to support token caching. Also added an additional controller and view to illustrate accessing user profile information using Azure graph APIs: `Controllers/UserProfileController.cs`, `Views/UserProfile/Index.cshtml`, and `Views/UserProfile/Relogin.cshtml`
+
+### File backup (Visual Studio 2015)
+
+When adding the connected service, Visual Studio 2015 backs up changed and removed files. All affected files are saved in the folder `Backup/AzureAD`. Visual Studio 2017 and later does not create backups.
+
+- `Startup.cs`
+- `App_Start\IdentityConfig.cs`
+- `App_Start\Startup.Auth.cs`
+- `Controllers\AccountController.cs`
+- `Controllers\ManageController.cs`
+- `Models\IdentityModels.cs`
+- `Models\ManageViewModels.cs`
+- `Views\Shared\_LoginPartial.cshtml`
+
+## Changes on Azure
+
+- Created an Azure AD Application in the domain that you selected when adding the connected service.
+- Updated the app to include the **Read directory data** permission if that option was selected.
+
+[Learn more about Azure Active Directory](https://azure.microsoft.com/services/active-directory/).
 
 ## Next steps
-- [Learn more about Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 
+- [Authentication scenarios for Azure Active Directory](./authentication-vs-authorization.md)
+- [Add sign-in with Microsoft to an ASP.NET web app](quickstart-v2-aspnet-webapp.md)

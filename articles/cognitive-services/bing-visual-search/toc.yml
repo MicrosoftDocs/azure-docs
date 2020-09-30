@@ -1,0 +1,94 @@
+- name: Bing Visual Search Documentation
+  href: ../Bing-Web-Search/index.yml
+- name: Overview
+  items:
+    - name: What is Bing Visual Search API?
+      href: overview.md
+    - name: Compare the Bing Search APIs
+      href: ../Bing-Web-Search/bing-api-comparison.md
+      maintainContext: true
+- name: Quickstarts
+  items:
+    - name: REST API
+      expanded: true
+      items:
+      - name: Using C#
+        href: quickstarts/csharp.md
+      - name: Using Java
+        href: quickstarts/java.md
+      - name: Using Node.js
+        href: quickstarts/nodejs.md
+      - name: Using Python
+        href: quickstarts/python.md
+      - name: Using Ruby
+        href: quickstarts/ruby.md
+      - name: Using Go
+        href: quickstarts/go.md
+    - name: Client library
+      expanded: true
+      items:
+      - name: Bing Visual Search client libraries
+        href: ./quickstarts/client-libraries.md
+- name: Tutorials
+  items:
+  - name: Uploading an image
+    href: tutorial-visual-search-image-upload.md
+  - name: Crop and search an area of an image
+    href: tutorial-visual-search-crop-area-results.md
+  - name: Find similar images from previous searches
+    href: tutorial-visual-search-insights-token.md
+  - name: Create a Single-page Web app
+    href: tutorial-bing-visual-search-single-page-app.md
+- name: Samples
+  items:
+    - name: Code samples
+      href: https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Visual+Search
+- name: Concepts
+  items:
+    - name: Sending queries
+      href: concepts/sending-queries.md
+    - name: Default image insights
+      href: default-insights-tag.md
+    - name: Bing insights usage
+      href: bing-insights-usage.md
+    - name: Analytics for Visual Search API
+      maintainContext: true
+      href: ../bing-web-search/bing-web-stats.md
+- name: How-to guides
+  items:
+  - name: Get insights using token
+    href: use-insights-token.md
+  - name: Resize and crop thumbnails
+    maintainContext: true
+    href: ../bing-web-search/resize-and-crop-thumbnails.md
+- name: Reference
+  items:
+  - name: REST v7 API
+    href: https://aka.ms/bingvisualsearchreferencedoc
+  - name: SDKs
+    items:
+      - name: .NET
+        href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingvisualsearch?view=azure-dotnet
+      - name: Java
+        href:  https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingvisualsearch?view=azure-java-stable
+      - name: Python
+        href: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/visualsearch?view=azure-python
+      - name: Node.js
+        href: https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-visualsearch/?view=azure-node-latest
+  - name: Use and display requirements
+    href: ../Bing-Web-Search/use-display-requirements.md
+    maintainContext: true
+- name: Resources
+  items:
+  - name: Language support
+    href: language-support.md
+  - name: Get free access key
+    href: https://azure.microsoft.com/free/cognitive-services
+  - name: Try it!
+    href: https://aka.ms/bingvisualsearchtryforfree
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/bing-search
+  - name: User Voice
+    href: https://cognitive.uservoice.com/forums/555907-bing-search
+  - name: Compliance
+    href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/

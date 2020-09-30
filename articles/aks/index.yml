@@ -1,0 +1,98 @@
+### YamlMime:Landing
+
+title: Azure Kubernetes Service (AKS)
+summary: AKS allows you to quickly deploy a production ready Kubernetes cluster in Azure. Learn how to use AKS with these quickstarts, tutorials, and samples. # < 160 chars
+
+metadata:
+  title: Azure Kubernetes Service (AKS) documentation
+  description: AKS allows you to quickly deploy a production ready Kubernetes cluster in Azure. Learn how to use AKS with these quickstarts, tutorials, and samples.
+  ms.service: container-service 
+  ms.topic: landing-page
+  author: laurenhughes
+  ms.author: lahugh
+  ms.date: 07/21/2020
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: About Azure Kubernetes Service (AKS)
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is AKS?
+            url: intro-kubernetes.md
+      - linkListType: concept
+        links:
+          - text: Kubernetes core concepts for AKS
+            url: concepts-clusters-workloads.md
+          - text: Baseline architecture for an AKS cluster
+            url: /azure/architecture/reference-architectures/containers/aks/secure-baseline-aks/
+          - text: Clusters and workloads
+            url: concepts-clusters-workloads.md
+          - text: Access and identity
+            url: concepts-identity.md
+          - text: Security
+            url: concepts-security.md
+          - text: Networking
+            url: concepts-network.md
+          - text: Storage
+            url: concepts-storage.md
+          - text: Scale
+            url: concepts-scale.md
+
+  # Card (optional)
+  - title: Deploy an AKS cluster in 5 minutes
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Azure CLI
+            url: kubernetes-walkthrough.md
+          - text: Azure Portal
+            url: kubernetes-walkthrough-portal.md
+          - text: Resource Manager template
+            url: kubernetes-walkthrough-rm-template.md
+
+  # Card
+  - title: Develop and debug applications with Bridge to Kubernetes
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Use Bridge to Kubernetes with Visual Studio Code
+            url: https://code.visualstudio.com/docs/containers/bridge-to-kubernetes
+          - text: Use Bridge to Kubernetes with Visual Studio
+            url: /visualstudio/containers/bridge-to-kubernetes
+
+  # Card
+  - title: Deploy, manage, and update applications
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: 1. Prepare an application for AKS
+            url: tutorial-kubernetes-prepare-app.md
+          - text: 2. Deploy and use Azure Container Registry
+            url: tutorial-kubernetes-prepare-acr.md
+          - text: 3. Deploy an AKS cluster
+            url: tutorial-kubernetes-deploy-cluster.md
+          - text: 4. Run your application
+            url: tutorial-kubernetes-deploy-application.md
+          - text: 5. Scale applications
+            url: tutorial-kubernetes-scale.md
+          - text: 6. Update an application
+            url: tutorial-kubernetes-app-update.md
+          - text: 7. Upgrade Kubernetes in AKS
+            url: tutorial-kubernetes-upgrade-cluster.md
+
+    # Card
+  - title: Build your skills with Microsoft Learn
+    linkLists:
+      - linkListType: learn
+        links:
+          - text: Introduction to Azure Kubernetes Service
+            url: /learn/modules/intro-to-azure-kubernetes-service/
+          - text: Introduction to containers on Azure
+            url: /learn/modules/intro-to-containers/
+          - text: Build and store container images with Azure Container Registry
+            url: /learn/modules/build-and-store-container-images/

@@ -1,32 +1,24 @@
 ---
-title: Monitor your StorSimple 8000 series device | Microsoft Docs
+title: Monitor your StorSimple 8000 series device
 description: Describes how to use the StorSimple Device Manager service to monitor usage, I/O performance, and capacity utilization.
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: timlt
-editor: ''
-
-ms.assetid: 
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
-ms.date: 08/02/2017
+ms.topic: how-to
+ms.date: 10/17/2017
 ms.author: alkohli
 
 ---
 # Use the StorSimple Device Manager service to monitor your StorSimple device
+
 ## Overview
-You can use the StorSimple Device Manager service to monitor specific devices within your StorSimple solution. You can create custom charts based on I/O performance, capacity utilization, network throughput, and device performance metrics and pin those to the dashboard. For more information, go to [customize your portal dashboard](/articles/azure-portal/azure-portal-dashboards.md).
+You can use the StorSimple Device Manager service to monitor specific devices within your StorSimple solution. You can create custom charts based on I/O performance, capacity utilization, network throughput, and device performance metrics and pin those to the dashboard. For more information, go to [customize your portal dashboard](../azure-portal/azure-portal-dashboards.md).
 
 To view the monitoring information for a specific device, in the Azure portal, select the StorSimple Device Manager service. From the list of devices, select your device and then go to **Monitor**. You can then see the **Capacity**, **Usage**, and **Performance** charts for the selected device.
 
 ## Capacity
 **Capacity** tracks the provisioned space and the space remaining on the device. The remaining capacity is then displayed as locally pinned or tiered.
 
-The provisioned and remaining capacity is further broken down by tiered and locally pinned volumes. For each volume, the provisioned capacity and the remaining capacity on the device is displayed.
+The provisioned and remaining capacity is further broken down by tiered and locally pinned volumes. For each volume, the provisioned capacity, and the remaining capacity on the device is displayed.
 
 ![IO capacity](./media/storsimple-8000-monitor-device/device-capacity.png)
 
@@ -41,6 +33,19 @@ By default, the usage for past 24 hours is reported. You can edit the chart to c
 * Past 90 days
 * Past year
 
+Two key metrices, growth and range are reported for the usage charts. Range refers to the maximum value and the minimum values of the usage reported over the selected duration (fo instance, Past 7 days).
+
+Growth refers to the increase in usage from the first day to the last day over the selected duration. 
+
+Growth and range can also be represented by the following equations:
+
+```
+Range = {Usage(minimum), Usage(maximum)}
+
+Growth = Usage(Last day) - Usage(first day)
+
+Growth (%) = [{Usage(last day) - Usage(first day)} X 100]/Usage(first day)
+```
 
 The primary, cloud, and local storage used can be described as follows:
 

@@ -1,53 +1,43 @@
 ---
-title: Designing Azure Virtual Machine Scale Sets For Scale | Microsoft Docs
-description: Learn about how to design your Azure Virtual Machine Scale Sets for scale
+title: Design Considerations for Azure Virtual Machine Scale Sets
+description: Learn about the design considerations for your Azure Virtual Machine Scale Sets. Compare scale sets features with VM features.
 keywords: linux virtual machine,virtual machine scale sets
-services: virtual-machine-scale-sets
-documentationcenter: ''
-author: gatneil
-manager: madhana
-editor: tysonn
-tags: azure-resource-manager
-
-ms.assetid: c27c6a59-a0ab-4117-a01b-42b049464ca1
+author: mimckitt
+ms.author: mimckitt
+ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: vm-linux
-ms.devlang: na
-ms.topic: article
-ms.date: 06/01/2017
-ms.author: negat
+ms.subservice: management
+ms.date: 06/25/2020
+ms.reviewer: jushiman
+ms.custom: mimckitt
 
 ---
-# Designing Scale Sets For Scale
-This topic discusses design considerations for Virtual Machine Scale Sets. For information about what Virtual Machine Scale Sets are, refer to [Virtual Machine Scale Sets Overview](virtual-machine-scale-sets-overview.md).
+# Design Considerations For Scale Sets
+This article discusses design considerations for Virtual Machine Scale Sets. For information about what Virtual Machine Scale Sets are, refer to [Virtual Machine Scale Sets Overview](./overview.md).
 
 ## When to use scale sets instead of virtual machines?
-Generally, scale sets are useful for deploying highly available infrastructure where a set of machines have similar configuration. However, some features are only available in scale sets while other features are only available in VMs. In order to make an informed decision about when to use each technology, we should first take a look at some of the commonly used features that are available in scale sets but not VMs:
+Generally, scale sets are useful for deploying highly available infrastructure where a set of machines has similar configuration. However, some features are only available in scale sets while other features are only available in VMs. In order to make an informed decision about when to use each technology, you should first take a look at some of the commonly used features that are available in scale sets but not VMs:
 
 ### Scale set-specific features
 
-- Once you specify the scale set configuration, you can simply update the "capacity" property to deploy more VMs in parallel. This is much simpler than writing a script to orchestrate deploying many individual VMs in parallel.
+- Once you specify the scale set configuration, you can update the *capacity* property to deploy more VMs in parallel. This process is better than writing a script to orchestrate deploying many individual VMs in parallel.
 - You can [use Azure Autoscale to automatically scale a scale set](./virtual-machine-scale-sets-autoscale-overview.md) but not individual VMs.
-- You can [reimage scale set VMs](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-a-vm) but [not individual VMs](https://docs.microsoft.com/rest/api/compute/virtualmachines).
-- You can [overprovision](./virtual-machine-scale-sets-design-overview.md) scale set VMs for increased reliability and quicker deployment times. You cannot do this with individual VMs unless you write custom code to do this.
+- You can [reimage scale set VMs](/rest/api/compute/virtualmachinescalesets/reimage) but [not individual VMs](/rest/api/compute/virtualmachines).
+- You can [overprovision](#overprovisioning) scale set VMs for increased reliability and quicker deployment times. You cannot overprovision individual VMs unless you write custom code to perform this action.
 - You can specify an [upgrade policy](./virtual-machine-scale-sets-upgrade-scale-set.md) to make it easy to roll out upgrades across VMs in your scale set. With individual VMs, you must orchestrate updates yourself.
 
 ### VM-specific features
 
-On the other hand, some features are only available in VMs (at least for the time being):
+Some features are currently only available in VMs:
 
-- You can attach data disks to specific individual VMs, but attached data disks are configured for all VMs in a scale set.
-- You can attach non-empty data disks to individual VMs but not VMs in a scale set.
-- You can snapshot an individual VM but not a VM in a scale set.
-- You can capture an image from an individual VM but not from a VM in a scale set.
-- You can migrate an individual VM from native disks to managed disks, but you cannot do this for VMs in a scale set.
-- You can assign IPv6 public IP addresses to individual VM nics but cannot do so for VMs in a scale set. Note that you can assign IPv6 public IP addresses to load balancers in front of either individual VMs or scale set VMs.
+- You can capture an image from an individual VM, but not from a VM in a scale set.
+- You can migrate an individual VM from native disks to managed disks, but you cannot migrate VM instances in a scale set.
+- You can assign IPv6 public IP addresses to individual VM virtual network interface cards (NICs), but cannot do so for VM instances in a scale set. You can assign IPv6 public IP addresses to load balancers in front of either individual VMs or scale set VMs.
 
 ## Storage
 
 ### Scale sets with Azure Managed Disks
-Scale sets can be created with [Azure Managed Disks](../storage/storage-managed-disks-overview.md) instead of traditional Azure storage accounts. Managed Disks provide the following benefits:
+Scale sets can be created with [Azure Managed Disks](../virtual-machines/managed-disks-overview.md) instead of traditional Azure storage accounts. Managed Disks provide the following benefits:
 - You do not have to pre-create a set of Azure storage accounts for the scale set VMs.
 - You can define [attached data disks](virtual-machine-scale-sets-attached-disks.md) for the VMs in your scale set.
 - Scale sets can be configured to [support up to 1,000 VMs in a set](virtual-machine-scale-sets-placement-groups.md). 
@@ -70,7 +60,6 @@ A scale set built on a Marketplace image (also known as a platform image) and co
 
 A scale set configured with user-managed storage accounts is currently limited to 100 VMs (and 5 storage accounts are recommended for this scale).
 
-A scale set built on a custom image (one built by you) can have a capacity of up to 100 VMs when configured with Azure Managed disks. If the scale set is configured with user-managed storage accounts, it must create all OS disk VHDs within one storage account. As a result, the maximum recommended number of VMs in a scale set built on a custom image and user-managed storage is 20. If you turn off overprovisioning, you can go up to 40.
+A scale set built on a custom image (one built by you) can have a capacity of up to 600 VMs when configured with Azure Managed disks. If the scale set is configured with user-managed storage accounts, it must create all OS disk VHDs within one storage account. As a result, the maximum recommended number of VMs in a scale set built on a custom image and user-managed storage is 20. If you turn off overprovisioning, you can go up to 40.
 
 For more VMs than these limits allow, you need to deploy multiple scale sets as shown in [this template](https://github.com/Azure/azure-quickstart-templates/tree/master/301-custom-images-at-scale).
-

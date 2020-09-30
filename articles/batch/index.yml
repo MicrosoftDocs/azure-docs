@@ -1,0 +1,98 @@
+### YamlMime:Landing
+
+title: Azure Batch documentation
+summary: Azure Batch runs large-scale applications efficiently in the cloud. Schedule compute-intensive tasks and dynamically adjust resources for your solution without managing infrastructure.
+metadata:
+  title: Azure Batch documentation
+  description: Azure Batch runs large-scale applications efficiently in the cloud. Schedule compute-intensive tasks and dynamically adjust resources for your solution without managing infrastructure.
+  ms.service: batch 
+  ms.topic: landing-page 
+  author: JnHs 
+  ms.author: jenhayes 
+  ms.date: 09/23/2019 
+
+landingContent:
+  - title: About Azure Batch
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Batch?
+            url: batch-technical-overview.md
+      - linkListType: learn
+        links:
+          - text: Free Pluralsight video training
+            url: https://app.pluralsight.com/library/courses/microsoft-azure-batch-getting-started/table-of-contents
+
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Azure CLI
+            url: quick-create-cli.md
+          - text: Azure Portal
+            url: quick-create-portal.md
+          - text: .NET API
+            url: quick-run-dotnet.md
+          - text: Python API
+            url: quick-run-python.md
+      - linkListType: concept
+        links:
+            - text: Workflow and feature overview for developers
+              url: batch-service-workflow-features.md
+
+  - title: Step-by-step guides
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Parallel file processing - .NET
+            url: tutorial-parallel-dotnet.md
+          - text: Parallel file processing - Python
+            url: tutorial-parallel-python.md
+          - text: OCR with Batch and Functions
+            url: tutorial-batch-functions.md
+          - text: Scene rendering with Arnold
+            url: tutorial-rendering-cli.md
+          - text: Rendering using Batch Explorer 
+            url: tutorial-rendering-batchexplorer-blender.md
+          - text: Parallel R simulation
+            url: tutorial-r-doazureparallel.md
+
+  - title: Set up and manage resources
+    linkLists:
+      - linkListType: how-to-guide
+        links: 
+        - text: Create a Batch account
+          url: batch-account-create-portal.md
+        - text: Create and manage pools
+          url: batch-custom-images.md
+        - text: Run tasks concurrently 
+          url: batch-parallel-node-tasks.md
+        - text: Using application packages
+          url: batch-application-packages.md
+      - linkListType: concept
+        links:
+          - text: Supported VM sizes
+            url: batch-pool-vm-sizes.md
+          - text: Quotas and limits
+            url: batch-quota-limit.md
+          - text: Best practices
+            url: best-practices.md
+
+  - title: API reference
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Azure CLI
+            url: /cli/azure/batch
+          - text: Azure PowerShell
+            url: /powershell/module/az.batch/
+          - text: .NET
+            url: /dotnet/api/overview/azure/batch
+          - text: Java
+            url: /java/api/overview/azure/batch
+          - text: Node.js
+            url: /javascript/api/overview/azure/batch
+          - text: Python
+            url: /python/api/overview/azure/batch
+          - text: REST
+            url: /rest/api/batchservice/

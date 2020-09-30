@@ -1,24 +1,14 @@
 ---
-title: Azure Batch Analytics | Microsoft Docs
-description: Reference for Azure Batch Analytics.
-services: batch
-author: tamram
-manager: timlt
-
-ms.assetid: 
-ms.service: batch
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: big-compute
+title: Azure Batch Analytics
+description: The topics in Batch Analytics contain reference information for the events and alerts available for Batch service resources.
+ms.topic: reference
 ms.date: 04/20/2017
-ms.author: tamram
 ---
 
 # Batch Analytics
 The topics in Batch Analytics contain reference information for the events and alerts available for Batch service resources.
 
-See [Azure Batch diagnostic logging](https://azure.microsoft.com/documentation/articles/batch-diagnostics/) for more information on enabling and consuming Batch diagnostic logs.
+See [Azure Batch diagnostic logging](./batch-diagnostics.md) for more information on enabling and consuming Batch diagnostic logs.
 
 ## Diagnostic logs
 

@@ -1,39 +1,56 @@
 ---
-title: Review moderated images in Content Moderator | Microsoft Docs
-description: After Content Moderator provides auto-moderated imaged, you can review images, adjust tags, and submit reviews.
+title: Use content reviews through the Review tool - Content Moderator
+titleSuffix: Azure Cognitive Services
+description: Learn how the Review tool allows human moderators to review images in a web portal.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: mikemcca
 
 ms.service: cognitive-services
-ms.technology: content-moderator
-ms.topic: article
-ms.date: 02/03/2017
-ms.author: sajagtap
+ms.subservice: content-moderator
+ms.topic: conceptual
+ms.date: 03/15/2019
+ms.author: pafarley
+# Customer intent: use reviews with the Review tool.
 ---
 
-# Review moderated images #
+# Create human reviews
 
-Click the **Review** TAB to browse the auto-moderated images that are ready for review. Any labels assigned to the images are based on the default score thresholds for tagging the images. These thresholds are configurable.
+In this guide, you'll learn how to set up [reviews](../review-api.md#reviews) on the Review tool website. Reviews store and display content for human moderators to assess. Moderators can alter the applied tags and apply their own custom tags as appropriate. When a user completes a review, the results are sent to a specified callback endpoint, and the content is removed from the site.
 
-Note that the images that you see on your screen are not available to other reviewers in your team while you are reviewing them.
+## Prerequisites
 
-## Zoom in/Zoom out to adjust the number of images ##
+- Sign in or create an account on the Content Moderator [Review tool](https://contentmoderator.cognitive.microsoft.com/) site.
 
-You can move the Reviews to display slider at the top of the screen to adjust the number of images displayed on the screen. Click on the tagged or untagged links to sort the images by tagged or untagged status respectively. Click the tags to toggle their selection status. You can also select any custom tags that you may have created.
+## Image reviews
 
-![Zoom in/Zoom out](images/4-review-2.png)
+1. Go to the [Review tool](https://contentmoderator.cognitive.microsoft.com/), select the **Try** tab, and upload some images to review.
+1. Once the uploaded images have finished processing, go to the **Review** tab and select **Image**.
 
-## Click a thumbnail to view details ##
+    ![Chrome browser showing the review tool with the Review Image option highlighted](images/review-images-1.png)
 
-If you have thumbnails showing on your screen, click a thumbnail to bring up the detailed view. Click the tags to toggle their selection status. You can also select any custom tags that you may have created.
+    The images display with any labels that have been assigned by the automatic moderation process. The images you've submitted through the Review tool are not visible to other reviewers.
 
-![Use Thumbnail](images/4-review-3.png)
+1. Optionally, move the **Reviews to display** slider (1) to adjust the number of images that are displayed on the screen. Click on the **tagged** or **untagged** buttons (2) to sort the images accordingly. Click on a tag panel (3) to toggle it on or off.
 
-## Submit image reviews ##
+    ![Chrome browser showing the Review tool with tagged images for review](images/review-images-2.png)
 
-Once you have reviewed and updated the tag selections, click the **Next** button to submit your reviews.
+1. To see more information on an image, click on the ellipsis in the thumbnail and select **View details**. You can assign an image to a subteam with the **Move to** option (see the [teams](./configure.md#manage-team-and-subteams) section to learn more about subteams).
 
-![Submit Image Reviews](images/5-submit-1.png)
+    ![An image with the View details option highlighted](images/review-images-3.png)
 
-After you submit, you have about 5 seconds to use the Previous button to go back to your previous screen if you wanted to review them again. After that, the images will be out of the Submit queue and the **Previous** button will disappear from the screen.
+1. Browse the image moderation information on the details page.
+
+    ![An image with moderation details listed in an separate pane](images/review-images-4.png)
+
+1. Once you have reviewed and updated the tag assignments as needed, click **Next** to submit your reviews. After you submit, you have about five seconds to click the **Prev** button to return to the previous screen and review images again. After that, the images are no longer in the Submit queue and the **Prev** button is no longer available.
+
+## Text reviews
+
+Text reviews function similarly to image reviews. Instead of uploading content, you simply write or paste in text (up to 1,024 characters). Then, Content Moderator analyzes the text and applies tags (in addition to other moderation information, such as profanity and personal data). In text reviews, you can toggle the applied tags and/or apply custom tags before submitting the review.
+
+![Screenshot of the review tool showing flagged text in a Chrome browser window](../images/reviewresults_text.png)
+
+## Next steps
+
+In this guide, you learned how to set up and use reviews from the Content Moderator [Review tool](https://contentmoderator.cognitive.microsoft.com). Next, see the [REST API guide](../try-review-api-review.md) or the [.NET SDK quickstart](../dotnet-sdk-quickstart.md) to learn how to create reviews programmatically.
