@@ -12,7 +12,7 @@ When you create a function, language-specific trigger code is added in your proj
 
 ## Local development       
 
-When you develop your functions locally, you need to update the function code to add bindings. Using Visual Studio Code can make it easier to add bindings to a function.  
+When you develop functions locally, you need to update the function code to add bindings. Using Visual Studio Code can make it easier to add bindings to a function.  
 
 ### Visual Studio Code
 
@@ -20,15 +20,15 @@ When you use Visual Studio Code to develop your function and your function uses 
 
 ### Manually add bindings based on examples
 
-When adding a binding to an existing function, you'll need update both the function code, and the function.json configuration file if used by your language. Both .NET class library and Java functions use attributes instead of function.json, so you'll need to update that instead.
+When adding a binding to an existing function, you'll need update both the function code and the function.json configuration file, if used by your language. Both .NET class library and Java functions use attributes instead of function.json, so you'll need to update that instead.
 
-Use the following table to find examples of specific binding types, which you can use to guide you in updating an existing function. First, choose the language tab that corresponds to your project. 
+Use the following table to find examples of specific binding types that you can use to guide you in updating an existing function. First, choose the language tab that corresponds to your project. 
 
 [!INCLUDE [functions-bindings-code-example-chooser](../../includes/functions-bindings-code-example-chooser.md)]
 
 ## Azure portal
 
-When you develop your functions in the [Azure portal](https://portal.azure.com), you can easily add input and output bindings in the **Integrate** tab for a given function. The new bindings are added to either the function.json file or to the method attributes, depending on your language. The following articles show examples of how to add bindings to an existing functions in the portal:
+When you develop your functions in the [Azure portal](https://portal.azure.com), you add input and output bindings in the **Integrate** tab for a given function. The new bindings are added to either the function.json file or to the method attributes, depending on your language. The following articles show examples of how to add bindings to an existing functions in the portal:
 
 + [Queue storage output binding](functions-integrate-storage-queue-output-binding.md)
 + [Azure Cosmos DB output binding](functions-integrate-store-unstructured-data-cosmosdb.md)
