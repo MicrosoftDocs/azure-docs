@@ -12,6 +12,9 @@
 
 The following table describes default limits for Azure general-purpose v1, v2, Blob storage, and block blob storage accounts. The *ingress* limit refers to all data that is sent to a storage account. The *egress* limit refers to all data that is received from a storage account.
 
+> [!NOTE]
+> You can request higher capacity and ingress limits. To request an increase, contact [Azure Support](https://azure.microsoft.com/support/faq/).
+
 | Resource | Limit |
 | --- | --- |
 | Number of storage accounts per region per subscription, including standard, and premium storage accounts.| 250 |
@@ -35,5 +38,3 @@ The following table describes default limits for Azure general-purpose v1, v2, B
 
 All storage accounts run on a flat network topology regardless of when they were created. For more information on the Azure Storage flat network architecture and on scalability, see [Microsoft Azure Storage: A Highly Available Cloud Storage Service with Strong Consistency](https://docs.microsoft.com/archive/blogs/hanuk/windows-azures-flat-network-storage-to-enable-higher-scalability-targets). 
 
-> [!TIP]
-> You can request higher capacity and ingress limits. To request an increase, contact [Azure Support](https://azure.microsoft.com/support/faq/)
