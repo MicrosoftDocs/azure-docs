@@ -233,6 +233,8 @@
         href: how-to-use-perfinsights.md
       - name: Performance diagnostics extension
         href: performance-diagnostics-vm-extension.md
+      - name: Troubleshoot high CPU issues for Azure Windows Virtual Machine
+        href: troubleshoot-high-cpu-issues-azure-windows-vm.md
     - name: Linux
       items:
       - name: How to use PerfInsights

@@ -72,7 +72,7 @@ You can run the samples using either an IDE (Eclipse, IntelliJ, or VSCODE) or fr
 These environment variables must be set
 
 ```
-ACCOUNT_HOST=your account hostname;ACCOUNT_KEY=your account master key
+ACCOUNT_HOST=your account hostname;ACCOUNT_KEY=your account primary key
 ```
 
 in order to give the samples read/write access to your account.
