@@ -44,7 +44,7 @@ To create a cache, follow these steps:
     | **Cache type** | Select a [Premium tier](https://azure.microsoft.com/pricing/details/cache/) cache. |  The pricing tier determines the size, performance, and features that are available for the cache. For more information, see [Azure Cache for Redis Overview](cache-overview.md). |
     | **Replica count** | Slide to choose the number of replicas. | Default is 1. |
    
-1. After you select a Premium tier cache, you'll be asked whether to enable Redis clustering or not. Leave **Clustering** as *Disabled*. 
+1. On the **Advanced** page, you'll be asked whether to enable Redis clustering or not. Leave **Clustering** as *Disabled*. 
    
     :::image type="content" source="media/cache-how-to-premium-clustering/redis-clustering-disabled.png" alt-text="Configure Redis cluster.":::
 
