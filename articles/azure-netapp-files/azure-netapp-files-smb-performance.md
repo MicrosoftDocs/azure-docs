@@ -42,7 +42,7 @@ Windows has supported SMB Multichannel since Windows 2012 to enable best perform
 To see if your Azure virtual machine NICs support RSS, run the command
 `Get-SmbClientNetworkInterface` as follows and check the field `RSS Capable`: 
 
-![RSS support for Azure virtual machine](../media/azure-netapp-files/azure-netapp-files-formance-rss-support.png)
+![Screenshot that shows RSS output for Azure virtual machine](../media/azure-netapp-files/azure-netapp-files-formance-rss-support.png)
 
 ## Does Azure NetApp Files support SMB Direct?
 
@@ -56,9 +56,9 @@ The SMB Multichannel feature enables an SMB3 client to establish a pool of conne
 
 No. The SMB client will match the NIC count returned by the SMB server.  Each storage volume is accessible from one and only one storage endpoint.  That means that only one NIC will be used for any given SMB relationship.  
 
-As the output of `Get-SmbClientNetworkInterace` below shows, the virtual machine has two network interfaces --  15 and 12.  As shown below under the command `Get-SmbMultichannelConnection`, even though there are two RSS-capable NICS, only interface 12 is used in connection with the SMB share; interface 15 is not in use.
+As the output of `Get-SmbClientNetworkInterace` below shows, the virtual machine has two network interfaces--15 and 12.  As shown under the following command `Get-SmbMultichannelConnection`, even though there are two RSS-capable NICS, only interface 12 is used in connection with the SMB share; interface 15 is not in use.
 
-![RSS-capable NICS](../media/azure-netapp-files/azure-netapp-files-rss-capable-nics.png)
+![Screeshot that shows output for RSS-capable NICS](../media/azure-netapp-files/azure-netapp-files-rss-capable-nics.png)
 
 ## Is NIC Teaming supported in Azure?
 
@@ -76,7 +76,7 @@ The command `netstat -na | findstr 445` proved that additional connections were 
 
 ![Chart that shows random I/O comparison of SMB Mltichannel](../media/azure-netapp-files/azure-netapp-files-random-io-tests.png)
 
-The Azure virtual machine does not affect SMB (nor NFS) storage I/O limits.  As shown below, the D32ds instance type has a limited rate of 308,000 for cached storage IOPS and 51,200 for uncached storage IOPS.  However, the graph above shows significantly more I/O over SMB.
+The Azure virtual machine does not affect SMB (nor NFS) storage I/O limits.  As shown in the following chart, the D32ds instance type has a limited rate of 308,000 for cached storage IOPS and 51,200 for uncached storage IOPS.  However, the graph above shows significantly more I/O over SMB.
 
 ![Chart that shows random I/O comparison test](../media/azure-netapp-files/azure-netapp-files-random-io-tests-list.png)
 
@@ -92,7 +92,7 @@ Azure places network rate limits on each virtual machine type/size. The rate lim
 
 ## What performance is expected with a single instance with a 1 TB dataset?
 
-To provide more detailed insight into workloads with read/write mixes, the following two charts show the performance of a single, Ultra service-level cloud volume of 50 TB with a 1 TB dataset and with SMB multichannel of 4. An optimal IODepth of 16 was used, and Flexible IO (fio) parameters were used to ensure the full use of the network bandwidth (`numjobs=16`).
+To provide more detailed insight into workloads with read/write mixes, the following two charts show the performance of a single, Ultra service-level cloud volume of 50 TB with a 1 TB dataset and with SMB multichannel of 4. An optimal IODepth of 16 was used, and Flexible IO (FIO) parameters were used to ensure the full use of the network bandwidth (`numjobs=16`).
 
 The following chart shows the results for 4k random I/O, with a single VM instance and a read/write mix at 10% intervals:
 
@@ -116,7 +116,7 @@ The following chart shows the results for sequential I/O:
 
 ## How do you monitor Hyper-V ethernet adapters and ensure that you maximize network capacity?  
 
-One strategy used in testing with fio is to set `numjobs=16`. Doing so forks each job into 16 specific instances to maximize the Microsoft Hyper-V Network Adapter.
+One strategy used in testing with FIO is to set `numjobs=16`. Doing so forks each job into 16 specific instances to maximize the Microsoft Hyper-V Network Adapter.
 
 You can check for activity on each of the adapters in Windows Performance Monitor by selecting **Performance Monitor > Add Counters > Network Interface > Microsoft Hyper-V Network Adapter**.
 
@@ -147,7 +147,7 @@ SMB Signing is supported for all SMB protocol versions that are supported by Azu
 
 SMB Signing has a deleterious effect upon SMB performance. Among other potential causes of the performance degradation, the digital signing of each packet consumes additional client-side CPU as the perfmon output below shows. In this case, Core 0 appears responsible for SMB, including SMB Signing.  A comparison with the non-multichannel sequential read throughput numbers in the previous section shows that SMB Signing reduces overall throughput from 875MiB/s to approximately 250MiB/s. 
 
-![SMB Signing performance impact](../media/azure-netapp-files/azure-netapp-files-smb-signing-performance.png)
+![Chart that shows SMB Signing performance impact](../media/azure-netapp-files/azure-netapp-files-smb-signing-performance.png)
 
 
 ## Next steps  
