@@ -14613,6 +14613,51 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-vmware/hybrid-cloud-extension-installation.md",
+      "redirect_url": "/azure/azure-vmware/tutorial-deploy-vmware-hcx",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-vmware/disaster-recovery.md",
+      "redirect_url": "/azure/azure-vmware/disaster-recovery-for-virtual-machines",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-vmware/set-up-mabs-for-avs.md",
+      "redirect_url": "/azure/azure-vmware/set-up-backup-server-for-azure-vmware-solution",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-vmware/protect-avs-web-apps-with-app-gateway.md",
+      "redirect_url": "/azure/azure-vmware/protect-azure-vmware-solution-with-application-gateway",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-vmware/deploy-traffic-manager-to-balance-avs-workloads.md",
+      "redirect_url": "/azure/azure-vmware/deploy-traffic-manager-balance-workloads",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-vmware/concepts-rbac.md",
+      "redirect_url": "/azure/azure-vmware/concepts-role-based-access-control",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-vmware/concepts-avs-hub-and-spoke-integration.md",
+      "redirect_url": "/azure/azure-vmware/concepts-hub-and-spoke",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-vmware/backup-avs-vms-with-mabs.md",
+      "redirect_url": "/azure/azure-vmware/backup-azure-vmware-solution-virtual-machines",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-vmware/vrealize-operations-for-avs.md",
+      "redirect_url": "/azure/azure-vmware/vrealize-operations-for-azure-vmware-solution",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-wan/virtual-wan-office365-overview.md",
       "redirect_url": "/azure/virtual-wan/virtual-wan-about",
       "redirect_document_id": false
@@ -48741,13 +48786,21 @@
       "redirect_url": "/azure/iot-pnp/howto-use-iot-explorer",
       "redirect_document_id": true
     },
-
     {
       "source_path": "articles/iot-pnp/howto-manage-models.md",
       "redirect_url": "/azure/iot-pnp/concepts-model-discovery",
       "redirect_document_id": true
     },
-
+    {
+      "source_path": "articles/iot-pnp/overview-iot-plug-and-play-preview-updates.md",
+      "redirect_url": "/azure/iot-pnp/overview-iot-plug-and-play",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/concepts-developer-guide.md",
+      "redirect_url": "/azure/iot-pnp/concepts-developer-guide-device-csharp",
+      "redirect_document_id": false
+    },
     {
       "source_path": "articles/iot-central/core/overview-iot-options.md",
       "redirect_url": "/azure/iot-fundamentals/iot-services-and-technologies/",
