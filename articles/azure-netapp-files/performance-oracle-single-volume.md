@@ -26,7 +26,7 @@ This article addresses the following topics about Oracle in the cloud. These top
 
 ## Testing environment and its components
 
-The diagram below illustrates the environment used for testing. For the purpose of consistency and simplicity, Ansible playbooks were used to deploy all elements of the test bed.
+The following diagram illustrates the environment used for testing. For consistency and simplicity, Ansible playbooks were used to deploy all elements of the test bed.
 
 ![Oracle testing environment](../media/azure-netapp-files/performance-oracle-test-environment.png)  
 
@@ -46,9 +46,9 @@ The tests used the following setup for the virtual machine:
 The tests used the following Azure NetApp Files configuration:   
 
 * Capacity pool size:  
-    Various sizes of the pool were configured: 4TiB, 8TiB, 16TiB, 32TiB 
+    Various sizes of the pool were configured: 4 TiB, 8 TiB, 16 TiB, 32 TiB 
 * Service level:  
-    Ultra (128MiB/s of bandwidth per 1TiB of allocated volume capacity)
+    Ultra (128MiB/s of bandwidth per 1 TiB of allocated volume capacity)
 * Volumes:  
     One and two volume tests were evaluated
 
@@ -98,7 +98,7 @@ The Oracle parameters are as follows:
 
 A PDB was created for the SLOB database.
 
-The diagram below shows the tablespace named PERFIO with 600 GB in size (20 data files, 30GB each) created to host 4 SLOB user schemas. Each user schema was 125 GB in size.
+The following diagram shows the tablespace named PERFIO with 600 GB in size (20 data files, 30 GB each) created to host 4 SLOB user schemas. Each user schema was 125 GB in size.
 
 ![Oracle database](../media/azure-netapp-files/performance-oracle-tablespace.png)  
 
@@ -123,11 +123,11 @@ This section describes the results of performance measurement.
 
 This scenario was running on an Azure VM Standard_D32s_v3 (Intel E5-2673 v4 @ 2.30 GHz). The workload is 75% SELECT and 25% UPDATE, mostly random I/O, and with a database buffer hit of ~7.5%. 
 
-As shown in the diagram below, the Oracle DNFS client delivered up to 2.8x more throughput than the regular Linux kNFS Client:  
+As shown in the following diagram, the Oracle DNFS client delivered up to 2.8x more throughput than the regular Linux kNFS Client:  
 
 ![Linux kNFS Client compared with Oracle Direct NFS](../media/azure-netapp-files/performance-oracle-kfns-compared-dnfs.png)  
 
-The diagram below shows the latency curve for the read operations. In this context, the bottleneck for the kNFS client is the single NFS TCP socket connection established between the client and the NFS server (the Azure NetApp Files volume).  
+The following diagram shows the latency curve for the read operations. In this context, the bottleneck for the kNFS client is the single NFS TCP socket connection established between the client and the NFS server (the Azure NetApp Files volume).  
 
 ![Linux kNFS Client compared with Oracle Direct NFS latency curve](../media/azure-netapp-files/performance-oracle-latency-curve.png)  
 
@@ -151,17 +151,17 @@ This section describes the performance limits of a single volume with random I/O
 
 DNFS is capable of consuming far more bandwidth than what is provided by an 8-TB Azure NetApp Files performance quota. By increasing the Azure NetApp Files volume capacity to 16 TiB, which is an instantaneous change, the amount of volume bandwidth increased from 1024 MiB/s by 2X to 2048 MiB/s. 
 
-The diagram below shows a configuration for an 80% select and 20% update workload, and with a database buffer hit ratio of 8%. SLOB was able to drive a single volume to 200,000 NFS I/O requests per second. Considering that each operation is 8 KiB size, the system under test was able to deliver ~200,000 IO requests/sec or 1600 MiB/s.
+The following diagram shows a configuration for an 80% select and 20% update workload, and with a database buffer hit ratio of 8%. SLOB was able to drive a single volume to 200,000 NFS I/O requests per second. Considering that each operation is 8-KiB size, the system under test was able to deliver ~200,000 IO requests/sec or 1600 MiB/s.
  
 ![Oracle DNFS throughput](../media/azure-netapp-files/performance-oracle-dnfs-throughput.png)  
 
-The read latency curve diagram below shows that, as the read throughput increases, the latency increases smoothly below the 1ms line, and it hits the knee of the curve at ~165,000 average read IO requests/sec at the average read latency of ~1.3ms.  This is an absolutely incredible latency value for an I/O rate unachievable with almost any other technology in the Azure Cloud. 
+The read latency curve diagram below shows that, as the read throughput increases, the latency increases smoothly below the 1-ms line, and it hits the knee of the curve at ~165,000 average read IO requests/sec at the average read latency of ~1.3ms.  This value is an incredible latency value for an I/O rate unachievable with almost any other technology in the Azure Cloud. 
 
 ![Oracle DNFS latency curve](../media/azure-netapp-files/performance-oracle-dnfs-latency-curve.png)  
 
 #### Sequential I/O  
 
-As shown in the diagram below, not all I/O is random in nature, considering an RMAN backup or a full table scan, for example, as workloads requiring as much bandwidth as they can get.  Using the same configuration as described above but with the volume resized to 32 TiB, the diagram below shows that a single Oracle DB instance can drive upwards of 3,900 MB/s of throughput, very close to the Azure NetApp Files volume's performance quota of 32 TB (128 MB/s * 32 = 4096 MB/s).
+As shown in the following diagram, not all I/O is random in nature, considering an RMAN backup or a full table scan, for example, as workloads requiring as much bandwidth as they can get.  Using the same configuration as described previously but with the volume resized to 32 TiB, the following diagram shows that a single Oracle DB instance can drive upwards of 3,900 MB/s of throughput, very close to the Azure NetApp Files volume's performance quota of 32 TB (128 MB/s * 32 = 4096 MB/s).
 
 ![Oracle DNFS I/O](../media/azure-netapp-files/performance-oracle-dnfs-io.png)  
 
