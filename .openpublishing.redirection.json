@@ -41704,7 +41704,7 @@
     },
     {
       "source_path": "articles/log-analytics/query-language/useful-operators.md",
-      "redirect_url": "/azure/azure-monitor/log-query/useful-operators",
+      "redirect_url": "/azure/azure-monitor/data-explorer/kusto/query/",
       "redirect_document_id": true
     },
     {
@@ -41759,7 +41759,7 @@
     },
     {
       "source_path": "articles/log-analytics/query-language/query-language.md",
-      "redirect_url": "/azure/azure-monitor/log-query/query-language",
+      "redirect_url": "/azure/azure-monitor/data-explorer/kusto/query/",
       "redirect_document_id": true
     },
     {
@@ -42309,7 +42309,7 @@
     },
     {
       "source_path": "articles/azure-monitor/platform/diagnostic-logs-stream-template.md",
-      "redirect_url": "/azure/azure-monitor/platform/samples/resource-manager-diagnostic-settings",
+      "redirect_url": "/azure/azure-monitor/samples/resource-manager-diagnostic-settings",
       "redirect_document_id": true
     },
     {
