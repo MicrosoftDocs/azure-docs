@@ -101,6 +101,7 @@ We are still working on enabling PowerShell SDK for billing APIs. Check back soo
 ### [Azure CLI](#tab/azure-cli-getEnrollments)
 
 We are still working on enabling CLI SDK for billing APIs. Check back soon.
+
 ---
 
 ### Create subscriptions under a specific enrollment account
@@ -209,6 +210,7 @@ You will get back the subscriptionId as part of the response from this command
   "type": "Microsoft.Subscription/aliases"
 }
 ```
+
 ---
 
 ### Limitations of Azure Enterprise subscription creation API
@@ -265,6 +267,7 @@ We are still working on enabling PowerShell SDK for billing APIs. Check back soo
 
 ### [Azure CLI](#tab/azure-cli-getBillingAccounts)
 We are still working on enabling CLI SDK for billing APIs. Check back soon.
+
 ---
 
 ### Find billing profiles & invoice sections to create subscriptions
@@ -359,6 +362,7 @@ We are still working on enabling PowerShell SDK for billing APIs. Check back soo
 ### [Azure CLI](#tab/azure-cli-getBillingProfiles)
 
 We are still working on enabling CLI SDK for billing APIs. Check back soon.
+
 ---
 
 ### Create a subscription for an invoice section
@@ -512,6 +516,7 @@ We are still working on enabling PowerShell SDK for billing APIs. Check back soo
 ### [Azure CLI](#tab/azure-cli-getBillingAccounts-MPA)
 
 We are still working on enabling CLI SDK for billing APIs. Check back soon.
+
 ---
 
 ### Find customers that have Azure plans
@@ -562,6 +567,7 @@ We are still working on enabling PowerShell SDK for billing APIs. Check back soo
 ### [Azure CLI](#tab/azure-cli-getCustomers)
 
 We are still working on enabling CLI SDK for billing APIs. Check back soon.
+
 ---
 
 ### Optional for Indirect providers: Get the resellers for a customer
@@ -606,6 +612,7 @@ We are still working on enabling PowerShell SDK for billing APIs. Check back soo
 ### [Azure CLI](#tab/azure-cli-getIndirectResellers)
 
 We are still working on enabling CLI SDK for billing APIs. Check back soon.
+
 ---
 
 ### Create a subscription for a customer
