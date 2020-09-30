@@ -1,7 +1,7 @@
 ---
 title: Understand how metric alerts work in Azure Monitor.
 description: Get an overview of what you can do with metric alerts and how they work in Azure Monitor.
-ms.date: 08/16/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ms.subservice: alerts
 
@@ -139,6 +139,7 @@ This feature is currently supported for platform metrics (not custom metrics) fo
 | NetApp files capacity pools | **Yes** | **Yes** | **Yes** |
 | NetApp files volumes | **Yes** | **Yes** | **Yes** |
 | Key vaults | **Yes** | **Yes** | **Yes** |
+| Azure Cache for Redis | **Yes** | **Yes** | **Yes** |
 | Data box edge devices | **Yes** | **Yes** | **Yes** |
 
 <sup>1</sup> Not supported for virtual machine network metrics (Network In Total, Network Out Total, Inbound Flows, Outbound Flows, Inbound Flows Maximum Creation Rate, Outbound Flows Maximum Creation Rate).
