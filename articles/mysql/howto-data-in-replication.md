@@ -46,48 +46,41 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
 
 1. Review the [master server requirements](concepts-data-in-replication.md#requirements) before proceeding. 
 
-   For example, ensure the source server allows both inbound and outbound traffic on port 3306 and that the source server has a **public IP address**, the DNS is publicly accessible, or has a fully qualified domain name (FQDN). 
+2. Ensure the source server allows both inbound and outbound traffic on port 3306 and that the source server has a **public IP address**, the DNS is publicly accessible, or has a fully qualified domain name (FQDN). 
    
    Test connectivity to the source server by attempting to connect from a tool such as the MySQL command-line hosted on another machine or from the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) available in the Azure portal.
 
    If your organization has strict security policies and will not allow all IP addresses on the source server to enable communication from Azure to your source server, you can potentially use the below command to determine the IP address of your MySQL server.
-    
-   ```bash
-   mysql> show global variables like '%redirect%';
-   ```
 
-   Below is sample output for an existing MySQL server.
+   1. Sign in to your Azure Database for MySQL using a tool like MySQL command-line.
+   2. Execute the below query.
+      ```bash
+      mysql> SELECT @@global.redirect_server_host;
+      ```
+      Below is some sample output:
+      ```bash 
+      +-----------------------------------------------------------+
+      | @@global.redirect_server_host                             |
+      +-----------------------------------------------------------+
+      | e299ae56f000.tr1830.westus1-a.worker.database.windows.net |
+       +-----------------------------------------------------------+
+      ```
+   3. Exit from the MySQL command-line.
+   4. Execute the below in the ping utility to get the IP address.
+      ```bash
+      ping <output of step b>
+      ``` 
+      For example: 
+      ```bash      
+      C:\Users\testuser> ping e299ae56f000.tr1830.westus1-a.worker.database.windows.net
+      Pinging tr1830.westus1-a.worker.database.windows.net (**11.11.111.111**) 56(84) bytes of data.
+      ```
 
-   ```bash
-   +----------------------+----------------------------------------------------------+
-   | Variable_name        | Value                                                    |
-   +----------------------+----------------------------------------------------------+
-   | redirect_enabled     | OFF                                                      |
-   | redirect_flag        | cae3462817ca                                             |
-   | redirect_server_host | cae3462817ca.tr200.eastus1-a.worker.database.windows.net |
-   | redirect_server_port | 16002                                                    |
-   | redirect_server_ttl  | 0                                                        |
-   +----------------------+----------------------------------------------------------+
-   5 rows in set (0.25 sec)
-   ```
-    
-   Using the ping utility in your terminal, you can directly ping the value of `redirect_server_host`, which returns an IP address. Configure your source server's firewall rules to allow this returned IP address on port 3306.
+   5. Configure your source server's firewall rules to include the previous step's outputted IP address on port 3306.
 
    > [!NOTE]
    > This IP address may change due to maintenance/deployment operations. This method of connectivity is only for customers who cannot afford to allow all IP address on 3306 port.
    
-   Below is some sample output of running the ping utility.    
- 
-   ```bash
-   C:\Users\testuser>ping cae3462817ca.tr200.eastus1-a.worker.database.windows.net
-    
-   Pinging tr200.eastus1-a.worker.database.windows.net [11.11.111.1] with 32 bytes of data:
-   Request timed out.
-    
-   Ping statistics for 11.11.111.1:
-   Packets: Sent = 4, Received = 0, Lost = 4 (100% loss)
-   ```
-
 1. Turn on binary logging
 
    Check to see if binary logging has been enabled on the source by running the following command: 
