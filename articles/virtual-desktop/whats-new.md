@@ -31,7 +31,7 @@ Here's what changed in September 2020:
 To estimate the quality of user experience you can refer to the [Experience Estimator](https://azure.microsoft.com/services/virtual-desktop/assessment/)
 
 - Client Updates.
-    We released version 1.2.1364 of the Windows Desktop client for Windows Virtual Desktop. The update included:
+- We released version 1.2.1364 of the Windows Desktop client for Windows Virtual Desktop. In this update, we made the following changes:
     - Fixed an issue where single sign-on (SSO) didn't work on Windows 7.
     - Fixed the connection failure that happened when calling or joining a Teams call while another app has an audio stream opened in exclusive mode and when media optimization        for Teams is enabled.
     - Fixed a failure to enumerate audio or video devices in Teams when media optimization for Teams is enabled.
