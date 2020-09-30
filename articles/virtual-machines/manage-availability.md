@@ -32,7 +32,7 @@ To reduce the impact of downtime due to one or more of these events, we recommen
 
 * Use Availabiilty Zones to protect from datacenter failures
 * Configure multiple virtual machines in an availability set for redundancy
-* Use managed disks for VMs in an availability set]
+* Use managed disks for VMs in an availability set
 * Use scheduled events to proactively respond to VM impacting events
 * Configure each application tier into separate availability sets
 * Combine a load balancer with availability zones or sets

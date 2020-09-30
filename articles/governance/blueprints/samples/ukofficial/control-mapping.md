@@ -98,7 +98,7 @@ definitions that provide protective monitoring on unrestricted access, allow lis
 
 ## 9 Secure User Management 
 
-Azure implements role-based access control (RBAC) to helps you manage who has access to resources in
+Azure role-based access control (Azure RBAC) helps you manage who has access to resources in
 Azure. Using the Azure portal, you can review who has access to Azure resources and their
 permissions. This blueprint helps you restrict and control access rights by assigning
 [Azure Policy](../../../policy/overview.md) definitions to audit external accounts with owner
