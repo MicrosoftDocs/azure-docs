@@ -38,7 +38,7 @@ You can now use the [Experience Estimator](https://azure.microsoft.com/services/
     - Added a "Need help with settings?" link to the desktop settings page.
     - Fixed an issue with the "Subscribe" button that happened when using high-contrast dark themes.
     
-- Microsoft Store Remote Desktop Client. Thanks to the tremendous help from our users, we've fixed two critical issues. We will continue to review feedback and implement hotfixes along the way as we broaden the phased rollout to more users worldwide.
+- Thanks to the tremendous help from our users, we've fixed two critical issues for the Microsoft Store Remote Desktop client. We'll continue to review feedback and fix issues as we broaden our phased release of the client to more users worldwide.
     
 - We've added a new feature that lets you change VM location, image, resource group, prefix name, network config as part of the workflow for adding a VM to your deployment in the Azure portal.
 
