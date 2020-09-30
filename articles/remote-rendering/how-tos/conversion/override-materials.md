@@ -77,7 +77,7 @@ For the full list of texture maps you can ignore, see the JSON schema below.
 By default, an entry in the material overrides file applies when its name matches the material name exactly.
 Since it's quite common that the same override should apply to multiple materials, you can optionally provide a regular expression as the entry name.
 The field `nameMatching` has a default value `exact`, but it can be set to `regex` to state that the entry should apply to every matching material.
-The syntax used is the same as that used for Javascript. 
+The syntax used is the same as that used for JavaScript. 
 The following example shows an override which applies to materials with names like "Material2", "Material01" and "Material999".
 
 ```json
