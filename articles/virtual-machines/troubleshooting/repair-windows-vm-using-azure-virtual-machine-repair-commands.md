@@ -82,7 +82,7 @@ For additional documentation and instructions, see [az vm repair](/cli/azure/ext
    az vm repair run -g MyResourceGroup -n MyVM --run-on-repair --run-id win-hello-world --verbose
    ```
    
-   Optionally you can perform any needed manual mitigation steps via the created repair VM, then proceed to step 5.
+   Optionally you can perform any needed manual mitigation steps using the repair VM, then proceed to step 5.
 
 5. Run `az vm repair restore`. This command will swap the repaired OS disk with the original OS disk of the VM. The Resource Group and VM name used here are for the non-functional VM used in step 3.
 
