@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/05/2020
+ms.date: 09/30/2020
 ms.author: iainfou
 
 ---
@@ -90,6 +90,7 @@ Yes. Each Azure AD Domain Services managed domain includes two domain controller
 * [What is the password lifetime policy on a managed domain?](#what-is-the-password-lifetime-policy-on-a-managed-domain)
 * [Does Azure AD Domain Services provide AD account lockout protection?](#does-azure-ad-domain-services-provide-ad-account-lockout-protection)
 * [Can I configure Distributed File System (DFS) and replication within Azure AD Domain Services?](#can-i-configure-distributed-file-system-and-replication-within-azure-ad-domain-services)
+* [How are Windows Updates applied in Azure AD Domain Services?](#how-are-windows-updates-applied-in-azure-ad-domain-services)
 
 ### Can I connect to the domain controller for my managed domain using Remote Desktop?
 No. You don't have permissions to connect to domain controllers for the managed domain using Remote Desktop. Members of the *AAD DC Administrators* group can administer the managed domain using AD administration tools such as the Active Directory Administration Center (ADAC) or AD PowerShell. These tools are installed using the *Remote Server Administration Tools* feature on a Windows server joined to the managed domain. For more information, see [Create a management VM to configure and administer an Azure AD Domain Services managed domain](tutorial-create-management-vm.md).
@@ -124,6 +125,9 @@ Yes. Five invalid password attempts within 2 minutes on the managed domain cause
 
 ### Can I configure Distributed File System and replication within Azure AD Domain Services?
 No. Distributed File System (DFS) and replication aren't available when using Azure AD Domain Services.
+
+### How are Windows Updates applied in Azure AD Domain Services?
+Domain controllers in a managed domain automatically apply required Windows updates. There's nothing for you to configure or administer here. Make sure you don't create network security group rules that block outbound traffic to Windows Updates. For your own VMs joined to the managed domain, you are responsible for configuring and applying any required OS and application updates.
 
 ## Billing and availability
 
