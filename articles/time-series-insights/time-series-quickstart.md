@@ -15,6 +15,9 @@ ms.date: 06/30/2020
 
 # Quickstart: Explore Azure Time Series Insights Gen1
 
+> [!CAUTION]
+> This is a Gen1 article.
+
 This Azure Time Series Insights Explorer quickstart helps you get started with Azure Time Series Insights in a free demonstration environment. In this quickstart, you learn how to use your web browser to visualize large volumes of IoT data and tour key features that are generally available now.
 
 Azure Time Series Insights is a fully managed analytics, storage, and visualization service that simplifies how to explore and analyze billions of IoT events simultaneously. It gives you a global view of your data so that you can quickly validate your IoT solution and avoid costly downtime to mission-critical devices. Azure Time Series Insights helps you to discover hidden trends, spot anomalies, and conduct root-cause analyses in near real time.
