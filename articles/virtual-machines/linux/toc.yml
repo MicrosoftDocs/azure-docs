@@ -637,6 +637,7 @@
     - name: Create a Key Vault
       href: key-vault-setup.md
     - name: Create and use SSH keys
+      displayName: ssh keys ssh openssh
       items:
       - name: On Linux or macOS
         href: mac-create-ssh-keys.md
