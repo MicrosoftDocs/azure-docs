@@ -48,7 +48,7 @@ For registration steps using Portal, open a Cloud Shell session as indicated abo
 
 This how-to article requires the Azure PowerShell module Az version 2.6.0 or later. Run `Get-Module -ListAvailable Az` to find your current version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you prefer, you can use Cloud Shell console in a PowerShell session instead.
 
-1. In a PowerShell command prompt (or PowerShell Cloud Shell session), specify the subscription that has been whitelisted for Azure NetApp Files:
+1. In a PowerShell command prompt (or PowerShell Cloud Shell session), specify the subscription that has been approved for Azure NetApp Files:
     ```powershell-interactive
     Select-AzSubscription -Subscription <subscriptionId>
     ```
@@ -412,7 +412,7 @@ When you are done and if you want to, you can delete the resource group. The act
 
 3. In the resource group page, click **Delete resource group**.
 
-    ![Delete resource group](../media/azure-netapp-files/azure-netapp-files-azure-delete-resource-group.png) 
+    ![Screenshot that highlights the Delete resource group button.](../media/azure-netapp-files/azure-netapp-files-azure-delete-resource-group.png) 
 
     A window opens and displays a warning about the resources that will be deleted with the resource group.
 

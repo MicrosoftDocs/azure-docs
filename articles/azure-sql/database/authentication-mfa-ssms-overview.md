@@ -11,7 +11,7 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 07/27/2020
+ms.date: 09/28/2020
 tags: azure-synapse
 ---
 
@@ -20,11 +20,14 @@ tags: azure-synapse
 
 Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse Analytics support connections from [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) using *Azure Active Directory - Universal with MFA* authentication. This article discusses the differences between the various authentication options, and also the limitations associated with using Universal Authentication in Azure Active Directory (Azure AD) for Azure SQL.
 
-**Download the latest SSMS** - On the client computer, download the latest version of SSMS, from [Download SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
+**Download the latest SSMS** - On the client computer, download the latest version of SSMS, from [Download SQL Server Management Studio (SSMS)](https://aka.ms/ssms). 
+
+[!INCLUDE[ssms-connect-azure-ad](../includes/ssms-connect-azure-ad.md)]
+
 
 For all the features discussed in this article, use at least July 2017, version 17.2. The most recent connection dialog box, should look similar to the following image:
 
-  ![Screenshot of the Connect to Server dialog in SQL Server Management Studio, showing settings for Server type, Server name, and Authentication.](./media/authentication-mfa-ssms-overview/1mfa-universal-connect.png)  
+  ![Screenshot of the Connect to Server dialog in SQL Server Management Studio, showing settings for Server type, Server name, and Authentication.](./media/authentication-mfa-ssms-overview/1mfa-universal-connect.png)
 
 ## Authentication options
 

@@ -6,11 +6,11 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
-ms.author: aashishb
-author: aashishb
-ms.date: 07/07/2020
+ms.author: peterlu
+author: peterclu
+ms.date: 09/25/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python, references_regions
+ms.custom: how-to, devx-track-python, references_regions, contperfq1
 
 ---
 
@@ -76,8 +76,19 @@ For detailed instructions on how to complete these steps, see [Secure an Azure M
 ### Limitations
 
 Securing your workspace and associated resources within a virtual network have the following limitations:
-- Workspace Private Link is only available in the following regions: eastus, westus2, southcentralus
-    - This limitation does not apply to the associated resources. For example, you can enable VNet for storage in any Azure Machine Learning region.
+- Workspace Private Link is only available in the following regions:
+    - **East US**
+    - **South Central US**
+    - **West US**
+    - **West US 2**
+    - **Central Canada**
+    - **Southeast Asia**
+    - **Japan East**
+    - **North Europe**
+    - **East Australia**
+    - **UK South**
+    
+    This limitation does not apply to the associated resources. For example, you can enable VNet for storage in any Azure Machine Learning region.
 - All resources must be behind the same VNet. However, subnets within the same VNet are allowed.
 
 ## Secure the training environment
