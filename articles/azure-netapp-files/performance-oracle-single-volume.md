@@ -48,7 +48,7 @@ The tests used the following Azure NetApp Files configuration:
 * Capacity pool size:  
     Various sizes of the pool were configured: 4 TiB, 8 TiB, 16 TiB, 32 TiB 
 * Service level:  
-    Ultra (128MiB/s of bandwidth per 1 TiB of allocated volume capacity)
+    Ultra (128 MiB/s of bandwidth per 1 TiB of allocated volume capacity)
 * Volumes:  
     One and two volume tests were evaluated
 
@@ -98,7 +98,7 @@ The Oracle parameters are as follows:
 
 A PDB was created for the SLOB database.
 
-The following diagram shows the tablespace named PERFIO with 600 GB in size (20 data files, 30 GB each) created to host 4 SLOB user schemas. Each user schema was 125 GB in size.
+The following diagram shows the tablespace named PERFIO with 600 GB in size (20 data files, 30 GB each) created to host four SLOB user schemas. Each user schema was 125 GB in size.
 
 ![Oracle database](../media/azure-netapp-files/performance-oracle-tablespace.png)  
 
@@ -131,9 +131,9 @@ The following diagram shows the latency curve for the read operations. In this c
 
 ![Linux kNFS Client compared with Oracle Direct NFS latency curve](../media/azure-netapp-files/performance-oracle-latency-curve.png)  
 
-The DNFS client was able to push more IO requests/sec due to its ability to create hundreds of TCP socket connections, therefore taking advantage of the parallelism. As discussed in [Azure NetApp Files configuration](#anf_config), each additional TiB of capacity allocated allows for an additional 128MiB/s of bandwidth. Note that DNFS topped out at 1 GiB/s of throughput, which is the limit imposed by the 8-TiB capacity selection. Given more capacity, more throughput would have been driven.
+The DNFS client was able to push more IO requests/sec due to its ability to create hundreds of TCP socket connections, therefore taking advantage of the parallelism. As discussed in [Azure NetApp Files configuration](#anf_config), each additional TiB of capacity allocated allows for an additional 128MiB/s of bandwidth. DNFS topped out at 1 GiB/s of throughput, which is the limit imposed by the 8-TiB capacity selection. Given more capacity, more throughput would have been driven.
 
-Throughput is only one of the considerations. Another consideration is latency, which has the primary impact on user experience. As the following diagram shows below, latency increases can be expected far more rapidly with kNFS than with DNFS. 
+Throughput is only one of the considerations. Another consideration is latency, which has the primary impact on user experience. As the following diagram shows, latency increases can be expected far more rapidly with kNFS than with DNFS. 
 
 ![Linux kNFS Client compared with Oracle Direct NFS read latency](../media/azure-netapp-files/performance-oracle-read-latency.png)  
 
@@ -155,7 +155,7 @@ The following diagram shows a configuration for an 80% select and 20% update wor
  
 ![Oracle DNFS throughput](../media/azure-netapp-files/performance-oracle-dnfs-throughput.png)  
 
-The read latency curve diagram below shows that, as the read throughput increases, the latency increases smoothly below the 1-ms line, and it hits the knee of the curve at ~165,000 average read IO requests/sec at the average read latency of ~1.3ms.  This value is an incredible latency value for an I/O rate unachievable with almost any other technology in the Azure Cloud. 
+The following read latency curve diagram shows that, as the read throughput increases, the latency increases smoothly below the 1-ms line, and it hits the knee of the curve at ~165,000 average read IO requests/sec at the average read latency of ~1.3 ms.  This value is an incredible latency value for an I/O rate unachievable with almost any other technology in the Azure Cloud. 
 
 ![Oracle DNFS latency curve](../media/azure-netapp-files/performance-oracle-dnfs-latency-curve.png)  
 
