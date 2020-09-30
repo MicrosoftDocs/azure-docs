@@ -28,7 +28,7 @@ Use the following table to find examples of specific binding types that you can 
 
 ## Azure portal
 
-When you develop your functions in the [Azure portal](https://portal.azure.com), you add input and output bindings in the **Integrate** tab for a given function. The new bindings are added to either the function.json file or to the method attributes, depending on your language. The following articles show examples of how to add bindings to an existing functions in the portal:
+When you develop your functions in the [Azure portal](https://portal.azure.com), you add input and output bindings in the **Integrate** tab for a given function. The new bindings are added to either the function.json file or to the method attributes, depending on your language. The following articles show examples of how to add bindings to an existing function in the portal:
 
 + [Queue storage output binding](functions-integrate-storage-queue-output-binding.md)
 + [Azure Cosmos DB output binding](functions-integrate-store-unstructured-data-cosmosdb.md)
