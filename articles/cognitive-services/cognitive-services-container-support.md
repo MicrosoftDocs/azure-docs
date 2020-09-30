@@ -22,7 +22,8 @@ Container support in Azure Cognitive Services allows developers to use the same 
 
 > [!div class="checklist"]
 > * [Anomaly Detector][ad-containers]
-> * [Computer Vision][cv-containers]
+> * [Read OCR (Optical Character Recognition) ][cv-containers]
+> * [Spatial analysis][spa-containers]
 > * [Face][fa-containers]
 > * [Form Recognizer][fr-containers]
 > * [Language Understanding (LUIS)][lu-containers]
