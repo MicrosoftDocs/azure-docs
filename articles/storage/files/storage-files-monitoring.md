@@ -26,7 +26,7 @@ The **Overview** page in the Azure portal for each Azure Files resource includes
 ## What is Azure Monitor?
 Azure Files creates monitoring data by using [Azure Monitor](../../azure-monitor/overview.md), which is a full stack monitoring service in Azure. Azure Monitor provides a complete set of features to monitor your Azure resources and resources in other clouds and on-premises. 
 
-Start with the article [Monitoring Azure resources with Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md) which describes the following:
+Start with the article [Monitoring Azure resources with Azure Monitor, which describes the following:
 
 - What is Azure Monitor?
 - Costs associated with monitoring
@@ -304,7 +304,7 @@ Requests made by the Azure Files service itself, such as log creation or deletio
 
 - Successful requests
 - Server errors
-- Time-out errors for both client and server
+- Time out errors for both client and server
 - Failed GET requests with the error code 304 (Not Modified)
 
 All other failed anonymous requests aren't logged. For a full list of the logged data, see [Storage logged operations and status messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) and [Storage log format](storage-files-monitoring-reference.md).
@@ -342,52 +342,140 @@ Here are some queries that you can enter in the **Log search** bar to help you m
 
 Use these queries to help you monitor your Azure Storage accounts:
 
-* To list the 10 most common errors over the last three days.
+- View SMB errors over the last week
 
-    ```Kusto
-    StorageFileLogs
-    | where TimeGenerated > ago(3d) and StatusText !contains "Success"
-    | summarize count() by StatusText
-    | top 10 by count_ desc
-    ```
-* To list the top 10 operations that caused the most errors over the last three days.
+```Kusto
+StorageFileLogs
+| where Protocol == "SMB" and TimeGenerated >= ago(7d) and StatusCode contains "-"
+| sort by StatusCode
+```
+- Create a pie chart of SMB operations over the last week
 
-    ```Kusto
-    StorageFileLogs
-    | where TimeGenerated > ago(3d) and StatusText !contains "Success"
-    | summarize count() by OperationName
-    | top 10 by count_ desc
-    ```
-* To list the top 10 operations with the longest end-to-end latency over the last three days.
+```Kusto
+StorageFileLogs
+| where Protocol == "SMB" and TimeGenerated >= ago(7d) 
+| summarize count() by OperationName
+| sort by count_ desc
+| render piechart
+```
 
-    ```Kusto
-    StorageFileLogs
-    | where TimeGenerated > ago(3d)
-    | top 10 by DurationMs desc
-    | project TimeGenerated, OperationName, DurationMs, ServerLatencyMs, ClientLatencyMs = DurationMs - ServerLatencyMs
-    ```
-* To list all operations that caused server-side throttling errors over the last three days.
+- View REST errors over the last week
 
-    ```Kusto
-    StorageFileLogs
-    | where TimeGenerated > ago(3d) and StatusText contains "ServerBusy"
-    | project TimeGenerated, OperationName, StatusCode, StatusText
-    ```
-* To list all requests with anonymous access over the last three days.
+```Kusto
+StorageFileLogs
+| where Protocol == "HTTPS" and TimeGenerated >= ago(7d) and StatusText !contains "Success"
+| sort by StatusText asc
+```
 
-    ```Kusto
-    StorageFileLogs
-    | where TimeGenerated > ago(3d) and AuthenticationType == "Anonymous"
-    | project TimeGenerated, OperationName, AuthenticationType, Uri
-    ```
-* To create a pie chart of operations used over the last three days.
-    ```Kusto
-    StorageFileLogs
-    | where TimeGenerated > ago(3d)
-    | summarize count() by OperationName
-    | sort by count_ desc 
-    | render piechart
-    ```
+- Create a pie chart of REST operations over the last week
+
+```Kusto
+StorageFileLogs
+| where Protocol == "HTTPS" and TimeGenerated >= ago(7d) 
+| summarize count() by OperationName
+| sort by count_ desc
+| render piechart
+```
+
+To view the list of column names and descriptions for Azure Files, see [StorageFileLogs](https://docs.microsoft.com/azure/azure-monitor/reference/tables/storagefilelogs).
+
+For more information on how to write queries, see [Tutorial: Get started with Log Analytics queries](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal).
+
+## Alerts
+
+Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. You can set alerts on [metrics](/azure/azure-monitor/platform/alerts-metric-overview), [logs](/azure/azure-monitor/platform/alerts-unified-log), and the [activity log](/azure/azure-monitor/platform/activity-log-alerts). 
+
+The following table lists some example scenarios to monitor and the proper metric to use for the alert:
+
+| Scenario | Metric to use for alert |
+|-|-|
+| File share is throttled. | Metric: Transactions<br>Dimension name: Response type <br>Dimension name: FileShare (premium file share only) |
+| File share size is 80% of capacity. | Metric: File Capacity<br>Dimension name: FileShare (premium file share only) |
+| File share egress has exceeded 500 GiB in one day. | Metric: Egress<br>Dimension name: FileShare (premium file share only) |
+
+### How to create alerts for Azure Files
+
+1. Go to your **storage account** in the **Azure portal**. 
+2. Click **Alerts** and then click **+ New alert rule**.
+3. Click **Edit resource**, select the **File resource type** and then click **Done**. 
+4. Click **Select condition** and provide the following information for the alert: 
+	- **Metric**
+	- **Dimension name**
+	- **Alert logic**
+5. Click **Select action group** and add an action group (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
+6. Fill in the **Alert details** like **Alert rule name**, **Description, and **Severity**.
+7. Click **Create alert rule** to create the alert.
+
+> [!NOTE]  
+> If you create an alert and it's too noisy, adjust the threshold value and alert logic.
+
+### How to create an alert if a file share is throttled
+
+1. Go to your **storage account** in the **Azure portal**.
+2. In the **Monitoring** section, click **Alerts**, and then click **+ New alert rule**.
+3. Click **Edit resource**, select the **File resource type** for the storage account and then click **Done**. For example, if the storage account name is `contoso`, select the `contoso/file` resource.
+4. Click **Select Condition** to add a condition.
+5. You will see a list of signals supported for the storage account, select the **Transactions** metric.
+6. On the **Configure signal logic** blade, click the **Dimension name** drop-down and select **Response type**.
+7. Click the **Dimension values** drop-down and select **SuccessWithThrottling** (for SMB) or **ClientThrottlingError** (for REST).
+
+   > [!NOTE]
+   > If the SuccessWithThrottling or ClientThrottlingError dimension value is not listed, this means the resource has not been throttled. To add the dimension value, click **Add custom value** beside the **Dimension values** drop-down, type **SuccessWithThrottling** or **ClientThrottlingError**, click **OK** and then repeat step #7.
+
+8. Click the **Dimension name** drop-down and select **File Share**.
+9. Click the **Dimension values** drop-down and select the file share(s) that you want to alert on.
+
+   > [!NOTE]
+   > If the file share is a standard file share, select **All current and future values**. The dimension values drop-down will not list the file share(s) because per-share metrics are not available for standard file shares. Throttling alerts for standard file shares will be triggered if any file share within the storage account is throttled and the alert will not identify which file share was throttled. Since per-share metrics are not available for standard file shares, the recommendation is to have one file share per storage account.
+
+10. Define the **alert parameters** (threshold value, operator, aggregation granularity and frequency of evaluation) and click **Done**.
+
+    > [!TIP]
+    > If you are using a static threshold, the metric chart can help determine a reasonable threshold value if the file share is currently being throttled. If you are using a dynamic threshold, the metric chart will display the calculated thresholds based on recent data.
+
+11. Click **Select action group** to add an **action group** (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
+12. Fill in the **Alert details** like **Alert rule name**, **Description, and **Severity**.
+13. Click **Create alert rule** to create the alert.
+
+### How to create an alert if the Azure file share size is 80% of capacity
+
+1. Go to your **storage account** in the **Azure portal**.
+2. In the **Monitoring** section, click **Alerts** and then click **+ New alert rule**.
+3. Click **Edit resource**, select the **File resource type** for the storage account and then click **Done**. For example, if the storage account name is `contoso`, select the `contoso/file` resource.
+4. Click **Select Condition** to add a condition.
+5. You will see a list of signals supported for the storage account, select the **File Capacity** metric.
+6. On the **Configure signal logic** blade, click the **Dimension name** drop-down and select **File Share**.
+7. Click the **Dimension values** drop-down and select the file share(s) that you want to alert on.
+
+   > [!NOTE]
+   > If the file share is a standard file share, select **All current and future values**. The dimension values drop-down will not list the file share(s) because per-share metrics are not available for standard file shares. Alerts for standard file shares are based on all file shares in the storage account. Since per-share metrics are not available for standard file shares, the recommendation is to have one file share per storage account.
+
+8. Enter the **Threshold value** in bytes. For example, if the file share size is 100 TiB and you want to receive an alert when the file share size is 80% of capacity, the threshold value in bytes is 87960930222080.
+9. Define the rest of the **alert parameters** (aggregation granularity and frequency of evaluation) and click **Done**.
+10. Click Select action group to add an action group (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
+11. Fill in the **Alert details** like **Alert rule name**, **Description, and **Severity**.
+12. Click **Create alert rule** to create the alert.
+
+### How to create an alert if the Azure file share egress has exceeded 500 GiB in a day
+
+1. Go to your **storage account** in the **Azure portal**.
+2. In the Monitoring section, click **Alerts** and then click **+ New alert rule**.
+3. Click **Edit resource**, select the **File resource type** for the storage account and then click **Done**. For example, if the storage account name is contoso, select the contoso/file resource.
+4. Click **Select Condition** to add a condition.
+5. You will see a list of signals supported for the storage account, select the **Egress** metric.
+6. On the **Configure signal logic** blade, click the **Dimension name** drop-down and select **File Share**.
+7. Click the **Dimension values** drop-down and select the file share(s) that you want to alert on.
+
+   > [!NOTE]
+   > If the file share is a standard file share, select **All current and future values**. The dimension values drop-down will not list the file share(s) because per-share metrics are not available for standard file shares. Alerts for standard file shares are based on all file shares in the storage account. Since per-share metrics are not available for standard file shares, the recommendation is to have one file share per storage account.
+
+8. Enter **536870912000** bytes for Threshold value. 
+9. Click the **Aggregation granularity** drop-down and select **24 hours**.
+10. Select the **Frequency of evaluation** and **click Done**.
+11. Click **Select action group** to add an **action group** (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
+12. Fill in the **Alert details** like **Alert rule name**, **Description, and **Severity**.
+13. Click **Create alert rule** to create the alert.
+
 ## FAQ
 
 **Does Azure Storage support metrics for Managed Disks or Unmanaged Disks?**
@@ -396,6 +484,10 @@ No. Azure Compute supports the metrics on disks. For more information, see [Per 
 
 ## Next steps
 
-- For a reference of the logs and metrics created by Azure Files, see [Azure Files monitoring data reference](storage-files-monitoring.md).
-- For details on monitoring Azure resources, see [Monitor Azure resources with Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md).
-- For more information on metrics migration, see [Azure Storage metrics migration](../common/storage-metrics-migration.md).
+- [Azure Files monitoring data reference](storage-files-monitoring.md).
+- [Monitor Azure resources with Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md).
+- [Azure Storage metrics migration](../common/storage-metrics-migration.md).
+- [Planning for an Azure Files deployment](https://docs.microsoft.com/azure/storage/files/storage-files-planning)
+- [How to deploy Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-deployment-guide)
+- [Troubleshoot Azure Files on Windows](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems)
+- [Troubleshoot Azure Files on Linux](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-linux-file-connection-problems)
