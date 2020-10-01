@@ -44,13 +44,17 @@ az disk create --resource-group myResourceGroup --location EastUS --name myManag
 
 ## PowerShell
 
-You can list all of the image versions using [Get-AzGalleryImageVersion](/powershell/module/az.compute/get-azgalleryimageversion). 
+You can list all of the image versions using [Get-AzResource](/powershell/module/az.resources/get-azresource). 
 
 ```azurepowershell-interactive
-Get-AzGalleryImageVersion
+Get-AzResource `
+   -ResourceType Microsoft.Compute/galleries/images/versions | `
+   Format-Table -Property Name,ResourceId,ResourceGroupName
 ```
 
-Once you have all of the information you need, you can use the same cmdlet to get get the ID of the source image version you want to use and assign it to a variable. In this example, we are getting the `1.0.0` image version, of the `myImageDefinition` definition, in the `myGallery` source gallery, in the `myResourceGroup` resource group.
+
+
+Once you have all of the information you need, you can use [Get-AzGalleryImageVersion](/powershell/module/az.compute/get-azgalleryimageversion) to get the source image version you want to use and assign it to a variable. In this example, we are getting the `1.0.0` image version, of the `myImageDefinition` definition, in the `myGallery` source gallery, in the `myResourceGroup` resource group.
 
 ```azurepowershell-interactive
 $sourceImgVer = Get-AzGalleryImageVersion `
