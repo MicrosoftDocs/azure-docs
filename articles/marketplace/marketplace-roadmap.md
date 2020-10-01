@@ -11,16 +11,17 @@ ms.date: 05/19/2020
 
 # Microsoft commercial marketplace resources
 
-See the following resources for information on recent releases and other updates around the Microsoft commercial marketplace.
+See the following resources for information on recent releases and other updates around the Microsoft commercial marketplace and Partner Center.
 
 * [Microsoft AppSource and Azure Marketplace - Partner Community forum ](https://www.microsoftpartnercommunity.com/t5/Microsoft-AppSource-and-Azure/bd-p/2222)
+* [Partner Center announcements](/partner-center/announcements/)
 * [Marketplace and Cloud Solution Provider (CSP) Update Blog](https://aka.ms/marketplacemarchupdateblog)
 * [Publish offerings into CSP channel (ISV)](./cloud-solution-providers.md)
 * [Resell Marketplace offerings (CSP)](https://aka.ms/marketplaceincsp)
 * [Standard Contract for the Microsoft commercial marketplace](./standard-contract.md)
 * [SaaS Fulfillment APIs](./partner-center-portal/pc-saas-fulfillment-apis.md)
-* [Geographic availability and currency support for commercial marketplace](./marketplace-geo-availability-currencies.md)
-* [Analytics for the commercial marketplace in Partner Center](./partner-center-portal/analytics.md)
+* [Geographic availability and currency support for commercial marketplace](marketplace-geo-availability-currencies.md)
+* [Analytics for the commercial marketplace in Partner Center](partner-center-portal/analytics.md)
 * [Microsoft Build Marketplace Blog](https://aka.ms/marketplacebuildblog)
 * [Marketplace May Updates Blog](https://azure.microsoft.com/blog/microsoft-commercial-marketplace-updates-may-2019/)
 * Partner Center: [Create Account](partner-center-portal/create-account.md) / [Manage Account](partner-center-portal/manage-account.md) / [Migration from CPP](partner-center-portal/account-migration-from-cpp-to-pc.md)
