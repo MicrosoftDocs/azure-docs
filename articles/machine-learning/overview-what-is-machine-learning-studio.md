@@ -29,13 +29,13 @@ The studio offers multiple authoring experiences depending on the type project a
 
   Write and run your own code in managed [Jupyter Notebook servers](how-to-run-jupyter-notebooks.md) that are directly integrated in the studio. 
 
-+ **Azure Machine Learning designer (preview)**
++ **Azure Machine Learning designer**
 
   Use the designer to train and deploy machine learning models without writing any code. Drag and drop datasets and modules to create ML pipelines. Try out the [designer tutorial](tutorial-designer-automobile-price-train-score.md).
 
     ![Azure Machine Learning designer example](media/concept-designer/designer-drag-and-drop.gif)
 
-+ **Automated machine learning UI (preview)**
++ **Automated machine learning UI**
 
   Learn how to create [automated ML experiments](tutorial-first-experiment-automated-ml.md) with an easy-to-use interface. 
 
@@ -77,7 +77,7 @@ The following table summarizes the key differences between ML Studio (classic) a
 
 | Feature | ML Studio (classic) | Azure Machine Learning |
 |---| --- | --- |
-| Drag and drop interface | Classic experience | Updated experience - [Azure Machine Learning designer (preview)](concept-designer.md) <br/>(Requires Enterprise workspace) | 
+| Drag and drop interface | Classic experience | Updated experience - [Azure Machine Learning designer](concept-designer.md)| 
 | Code SDKs | Unsupported | Fully integrated with [Azure Machine Learning Python](https://docs.microsoft.com/python/api/overview/azure/ml/) and [R](tutorial-1st-r-experiment.md) SDKs |
 | Experiment | Scalable (10-GB training data limit) | Scale with compute target |
 | Training compute targets | Proprietary compute target, CPU support only | Wide range of customizable [training compute targets](concept-compute-target.md#train). Includes GPU and CPU support | 

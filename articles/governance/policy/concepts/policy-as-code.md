@@ -1,7 +1,7 @@
 ---
 title: Design Policy as Code workflows
 description: Learn to design workflows to deploy your Azure Policy definitions as code and automatically validate resources.
-ms.date: 08/27/2020
+ms.date: 09/22/2020
 ms.topic: conceptual
 ---
 # Design Policy as Code workflows
@@ -46,6 +46,10 @@ Examples of these file formats are available in the
 
 - Policy definition: [Add a tag to resources](https://github.com/Azure/azure-policy/tree/master/samples/Tags/add-tag)
 - Initiative definition: [Billing Tags](https://github.com/Azure/azure-policy/tree/master/samples/PolicyInitiatives/multiple-billing-tags)
+
+Also, review [Export Azure Policy resources](../how-to/export-resources.md) to get your existing
+definitions and assignments into the source code management environment
+[GitHub](https://www.github.com).
 
 ## Workflow overview
 

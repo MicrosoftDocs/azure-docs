@@ -3,11 +3,11 @@ title: Manage Azure costs with automation
 description: This article explains how you can manage Azure costs with automation.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/19/2020
+ms.date: 09/14/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: adwise
+ms.reviewer: matrive
 ---
 
 # Manage costs with automation
@@ -157,6 +157,70 @@ A GET call to the Budgets API won't return the current costs shown in Cost Analy
 
 You can automate budget creation using the [Budgets API](/rest/api/consumption/budgets). You can also create a budget with a [budget template](quick-create-budget-template.md). Templates are an easy way for you to standardize Azure deployments while ensuring cost control is properly configured and enforced.
 
+#### Supported locales for budget alert emails
+
+With budgets, you're alerted when costs cross a set threshold. You can set up to five email recipients per budget. Recipients receive the email alerts within 24 hours of crossing the budget threshold. However, your recipient might need to receive an email in a different language. You can use the following language culture codes with the Budgets API. Set the culture code with the `locale` parameter similar to the following example.
+
+```json
+{
+  "eTag": "\"1d681a8fc67f77a\"",
+  "properties": {
+    "timePeriod": {
+      "startDate": "2020-07-24T00:00:00Z",
+      "endDate": "2022-07-23T00:00:00Z"
+    },
+    "timeGrain": "BillingMonth",
+    "amount": 1,
+    "currentSpend": {
+      "amount": 0,
+      "unit": "USD"
+    },
+    "category": "Cost",
+    "notifications": {
+      "actual_GreaterThan_10_Percent": {
+        "enabled": true,
+        "operator": "GreaterThan",
+        "threshold": 20,
+        "locale": "en-us",
+        "contactEmails": [
+          "user@contoso.com"
+        ],
+        "contactRoles": [],
+        "contactGroups": [],
+        "thresholdType": "Actual"
+      }
+    }
+  }
+}
+
+```
+
+Languages supported by a culture code:
+
+| Culture code| Language |
+| --- | --- |
+| en-us	| English (United States) |
+| ja-jp	| Japanese (Japan) |
+| zh-cn	| Chinese (Simplified, China) |
+| de-de	| German (Germany) |
+| es-es	| Spanish (Spain, International) |
+| fr-fr	| French (France) |
+| it-it	| Italian (Italy) |
+| ko-kr	| Korean (Korea) |
+| pt-br	| Portuguese (Brazil) |
+| ru-ru	| Russian (Russia) |
+| zh-tw	| Chinese (Traditional, Taiwan) |
+| cs-cz	| Czech (Czech Republic) |
+| pl-pl | Polish (Poland) |
+| tr-tr	| Turkish (Turkey) |
+| da-dk	| Danish (Denmark) |
+| dn-gb	| English (United Kingdom) |
+| hu-hu	| Hungarian (Hungary) |
+| nb-bo	| Norwegian Bokmal (Norway) |
+| nl-nl	| Dutch (Netherlands) |
+| pt-pt	| Portuguese (Portugal) |
+| sv-se	| Swedish (Sweden) |
+
 #### Common Budgets API configurations
 
 There are many ways to configure a budget in your Azure environment. Consider your scenario first and then identify the configuration options that enable it. Review the following options:
@@ -165,7 +229,7 @@ There are many ways to configure a budget in your Azure environment. Consider yo
 - **Time Period** - Represents how long your budget is valid. The budget actively monitors and alerts you only while it remains valid.
 - **Notifications**
   - Contact Emails – The email addresses receive alerts when a budget accrues costs and exceeds defined thresholds.
-  - Contact Roles - All users who have a matching Azure RBAC role on the given scope receive email alerts with this option. For example, Subscription Owners could receive an alert for a budget created at the subscription scope.
+  - Contact Roles - All users who have a matching Azure role on the given scope receive email alerts with this option. For example, Subscription Owners could receive an alert for a budget created at the subscription scope.
   - Contact Groups - The budget calls the configured action groups when an alert threshold is exceeded.
 - **Cost dimension filters** - The same filtering you can do in Cost Analysis or the Query API can also be done on your budget. Use this filter to reduce the range of costs that you're monitoring with the budget.
 

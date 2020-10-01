@@ -5,7 +5,7 @@
  author: jlian
  ms.service: iot-fundamentals
  ms.topic: conceptual
- ms.date: 06/16/2020
+ ms.date: 09/24/2020
  ms.author: jlian
 ---
 
@@ -34,7 +34,7 @@ This article describes how to achieve these goals using [Azure Private Link](../
 
 A private endpoint is a private IP address allocated inside a customer-owned VNet via which an Azure resource is reachable. Through Azure Private Link, you can set up a private endpoint for your IoT hub to allow services inside your VNet to reach IoT Hub without requiring traffic to be sent to IoT Hub's public endpoint. Similarly, your on-premises devices can use [Virtual Private Network (VPN)](../vpn-gateway/vpn-gateway-about-vpngateways.md) or [ExpressRoute](https://azure.microsoft.com/services/expressroute/) peering to gain connectivity to your VNet and your IoT Hub (via its private endpoint). As a result, you can restrict or completely block off connectivity to your IoT hub's public endpoints by using [IoT Hub IP filter](./iot-hub-ip-filtering.md) and [configuring routing not to send any data to the built-in endpoint](#built-in-event-hub-compatible-endpoint-doesnt-support-access-over-private-endpoint). This approach keeps connectivity to your Hub using the private endpoint for devices. The main focus of this setup is for devices inside an on-premises network. This setup isn't advised for devices deployed in a wide-area network.
 
-![IoT Hub public endpoint](./media/virtual-network-support/virtual-network-ingress.png)
+![IoT Hub virtual network engress](./media/virtual-network-support/virtual-network-ingress.png)
 
 Before proceeding ensure that the following prerequisites are met:
 
@@ -232,7 +232,7 @@ IoT Hub's file upload feature allows devices to upload files to a customer-owned
 
 4. On your IoT Hub's resource page, navigate to **File upload** tab.
 
-5. On the page that shows up, select the container that you intend to use in your blob storage, configure the **File notification settings**, **SAS TTL**, **Default TTL**, and **Maximum delivery count** as desired. Select **Identity-based** as the **Authentication type** to your storage endpoint. Click the **Create** button.
+5. On the page that shows up, select the container that you intend to use in your blob storage, configure the **File notification settings**, **SAS TTL**, **Default TTL**, and **Maximum delivery count** as desired. Select **Identity-based** as the **Authentication type** to your storage endpoint. Click the **Create** button. If you get an error at this step, temporarily set your storage account to allow access from **All networks**, then try again. You can configure firewall on the storage account once the File upload configuration is complete.
 
 Now your storage endpoint for file upload is set up to use your hub's system assigned identity, and it has permission to access your storage resource despite its firewall restrictions.
 
@@ -248,7 +248,7 @@ This functionality requires connectivity from IoT Hub to the storage account. To
 
 3. Navigate to the **Firewalls and virtual networks** tab in your storage account and enable **Allow access from selected networks** option. Under the **Exceptions** list, check the box for **Allow trusted Microsoft services to access this storage account**. Click the **Save** button.
 
-You can now use the Azure IoT REST APIs for [creating import export jobs](https://docs.microsoft.com/rest/api/iothub/service/jobclient/getimportexportjobs) for information on how to use the bulk import/export functionality. You will need to provide the `storageAuthenticationType="identityBased"` in your request body and use `inputBlobContainerUri="https://..."` and `outputBlobContainerUri="https://..."` as the input and output URLs of your storage account, respectively.
+You can now use the Azure IoT REST APIs for [creating import export jobs](https://docs.microsoft.com/rest/api/iothub/service/jobs/getimportexportjobs) for information on how to use the bulk import/export functionality. You will need to provide the `storageAuthenticationType="identityBased"` in your request body and use `inputBlobContainerUri="https://..."` and `outputBlobContainerUri="https://..."` as the input and output URLs of your storage account, respectively.
 
 Azure IoT Hub SDKs also support this functionality in the service client's registry manager. The following code snippet shows how to initiate an import job or export job in using the C# SDK.
 

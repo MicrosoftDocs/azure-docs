@@ -144,4 +144,4 @@ Sample code is available on GitHub for each of the Speech service features. Thes
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Get a Speech service subscription key for free](get-started.md)
+> [Get a Speech service subscription key for free](overview.md#try-the-speech-service-for-free)

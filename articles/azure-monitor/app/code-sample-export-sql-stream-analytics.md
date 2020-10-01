@@ -129,21 +129,21 @@ In this sample, we are using data from page views. To see the other data availab
 ## Create an Azure Stream Analytics instance
 From the [Azure portal](https://portal.azure.com/), select the Azure Stream Analytics service, and create a new Stream Analytics job:
 
-![Stream analytics settings](./media/code-sample-export-sql-stream-analytics/SA001.png)
+![Screenshot shows the Stream analytics job page with the Create button highlighted.](./media/code-sample-export-sql-stream-analytics/SA001.png)
 
 ![New stream analytics job](./media/code-sample-export-sql-stream-analytics/SA002.png)
 
 When the new job is created, select **Go to resource**.
 
-![Stream analytics settings](./media/code-sample-export-sql-stream-analytics/SA003.png)
+![Screenshot shows the Deployment succeeded message and Go to resource button.](./media/code-sample-export-sql-stream-analytics/SA003.png)
 
 #### Add a new input
 
-![Stream analytics settings](./media/code-sample-export-sql-stream-analytics/SA004.png)
+![Screenshot shows the Inputs page with the Add button selected.](./media/code-sample-export-sql-stream-analytics/SA004.png)
 
 Set it to take input from your Continuous Export blob:
 
-![Stream analytics settings](./media/code-sample-export-sql-stream-analytics/SA0005.png)
+![Screenshot shows the New input window with Input alias, Source, and Storage account drop-down menu options selected.](./media/code-sample-export-sql-stream-analytics/SA0005.png)
 
 Now you'll need the Primary Access Key from your Storage Account, which you noted earlier. Set this as the Storage Account Key.
 
