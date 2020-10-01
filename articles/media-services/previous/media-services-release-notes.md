@@ -52,6 +52,11 @@ The following v2 properties will no longer be populated with historical job prog
 * [HistoricalEvents](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client.itask.historicalevents)
 * [PerfMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client.itask.perfmessage)
 
+To get task history, you should use the v2 job notifications via webhooks or queue messages using Notification Endpoints. For more information, see:
+
+* [Use Azure Queue storage to monitor Media Services job notifications](media-services-dotnet-check-job-progress-with-queues.md)
+* [Use Azure Webhooks to monitor Media Services job notifications](media-services-dotnet-check-job-progress-with-webhooks.md)
+
 ## February 2020
 
 Some analytics media processors will be retired. For the retirement dates, see the [legacy components](legacy-components.md) topic.
