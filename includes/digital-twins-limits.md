@@ -30,17 +30,21 @@ The table below lists the functional limits of Azure Digital Twins.
 
 ### Rate limits
 
-This table reflects the rate limits of different APIs.
+The following table reflects the rate limits of different APIs **across the entire instance**.
 
 | API | Capability | Default limit | Adjustable? |
 | --- | --- | --- | --- |
 | Models API | Number of requests per second | 100 | Yes |
 | Digital Twins API | Number of requests per second | 2,000 | Yes |
-| Digital Twins API | Number of create/update/delete operations per second on a **single twin** or its relationships | 10 | No |
-| Digital Twins API | Number of create/delete operations per second across **all twins and relationships** | 50 | Yes |
+| Digital Twins API | Number of create/delete operations per second (across all twins and relationships) | 50 | Yes |
 | Query API | Number of requests per second | 500 | Yes |
 | Query API | [Query Units](../articles/digital-twins/concepts-query-units.md) per second | 4,000 | Yes |
 | Event Routes API | Number of requests per second | 100 | Yes |
+
+The following table reflects the rate limits of different APIs **for a single twin** at once.
+| API | Capability | Default limit | Adjustable? |
+| --- | --- | --- | --- |
+| Digital Twins API | Number of create/update/delete operations per second on a single twin or its relationships | 10 | No |
 
 ### Other limits
 
